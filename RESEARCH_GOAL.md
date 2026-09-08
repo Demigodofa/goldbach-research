@@ -282,3 +282,21 @@ almost-all theorems remain intact. The next mathematical gap is direct
 arithmetic control of the combined actual prime/composite pair residual,
 including its behavior on the suppressed classes. No Goldbach counterexample,
 historical-priority claim, publication work, or wake queue. Overall goal active.
+
+The actual-survivor pursuit retained an exact signed identity and rejected
+its first plug-in estimate. With A=P+C and Liouville lambda,
+P-C=-lambda*A, including prime squares, and L=[(P-C)*A]+d_C=2[P*A]-[A*A]+d_C.
+`factored_linear_barrier.py` tests the standard one-dimensional lower
+linear sieve in this identity. Even granting the optimistic leading upper
+bound [A*A]<=((1+log(u-1))^2+o(1))*K, its best limiting coefficient for
+2<=u<=3 is -(1-log(u-1))^2< -121/1296. At u=3 it is -(1-log2)^2.
+The source only applies at theta<1; theta=1 is a coefficient limit, not a
+new distribution theorem. This is a failure of that specific certificate,
+not an upper bound on actual L or an impossibility result for all sieves.
+Sol checked the identity, normalization, and conditional boundary. Four
+focused tests passed normally and with Python -O, with exact rational
+logarithm enclosures and selected actual prime-square/diagonal controls.
+The pursuit returned `changed-under-evidence`: keep the factorization for
+coupled correlation or switching work; do not repeat the direct plug-in
+without new arithmetic input. Actual Goldbach coverage remains unresolved.
+No range extension, historical-priority search, publication work, or wake queue.

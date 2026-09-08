@@ -7,6 +7,9 @@ The last term is zero unless N/2 is an odd C-entry. Then
   G(N)-L(N)=[C*C]_N-C(N/2)
 is twice the number of unordered DISTINCT composite pairs. Thus L<=G and
 L=G mod2. In particular L(2m)%2 is the prime flag of odd m, even for negative L.
+The exact signed factorization L=[(P-C)*(P+C)]_N+C(N/2) is verified in
+factored_linear_barrier.py. Its standard linear-sieve plug-in fails the
+stated optimistic leading-term benchmark; this does not make L negative.
 
 The conditional batch requires correct input PARITIES; integer typing and
 L(6)%2=1 do not establish that truth. The canonical generator starts with
