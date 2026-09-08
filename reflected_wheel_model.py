@@ -11,6 +11,10 @@ Owner: Kevin's research; Rill's reusable adversarial experiment. Its purpose
 is to test whether binary convolution and fixed congruence data prevent an
 isolated missing sum. It does not model full primality or prove anything
 about the actual exceptional set in Goldbach's conjecture.
+The separate reflection_fourier_gap.py now proves uniform Fourier
+concentration and simultaneous noncentral coverage for this construction,
+including a forced prefix. Its tiny exact tests concern Fourier algebra;
+they do not repeat the frozen model experiment here.
 """
 from __future__ import annotations
 

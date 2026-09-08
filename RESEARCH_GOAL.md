@@ -262,3 +262,23 @@ The pursuit returned `changed-under-evidence`. The remaining gap is control
 of the Fourier residual and the exact suppressed classes, not the discarded
 coarse gcd cover. No numerical onset, universal coverage, publication work,
 historical-priority search, or wake queue was introduced. Overall goal active.
+
+The next pursuit tested the Fourier-only gap rather than increasing a range.
+`reflection_fourier_gap.py` proves a new concentration statement for the
+existing artificial reflection model: its centered Fourier supremum is
+O(sqrt(H*log H)) with high probability. After prime-density scaling and
+forcing a truthful prefix through B, the error is
+O(sqrt(H)*log(H)^(3/2)+B*log H), yet the center remains missing while
+every other central even sum is represented. The same retained-core event
+allows every prescribed prefix simultaneously. This fixed-wheel baseline
+permits prefix exceptions for primes dividing the wheel; it does not impose
+full primality, a growing sieve, or the actual prime/semiprime dependency.
+Sol checked the proof, including the whole-circle grid argument and matching.
+Four tiny Fourier/moment tests passed normally and with Python -O; the old
+frozen model run was not repeated. The pursuit returned
+`changed-under-evidence`: norm/energy estimates of this quality alone cannot
+force an isolated hole to spread or prove universal coverage. The actual
+almost-all theorems remain intact. The next mathematical gap is direct
+arithmetic control of the combined actual prime/composite pair residual,
+including its behavior on the suppressed classes. No Goldbach counterexample,
+historical-priority claim, publication work, or wake queue. Overall goal active.
