@@ -1,0 +1,4303 @@
+{
+  "schema": 1,
+  "method": "stacked_prime_AP_certificates",
+  "first_even": 1000000000000,
+  "last_even": 1000000001998,
+  "count": 1000,
+  "palette_limit": 1000,
+  "steps": [
+    2,
+    6,
+    30,
+    210
+  ],
+  "covered_count": 1000,
+  "unresolved": [],
+  "certificate_count": 225,
+  "certificates": [
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000068,
+        "step": 30,
+        "count": 8
+      },
+      "newly_covered": 8
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000168,
+        "step": 30,
+        "count": 8
+      },
+      "newly_covered": 8
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000420,
+        "step": 30,
+        "count": 8
+      },
+      "newly_covered": 8
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000602,
+        "step": 30,
+        "count": 8
+      },
+      "newly_covered": 8
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000163,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000170,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000310,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000728,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000910,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001220,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001263,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001270,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001396,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001591,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001598,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000072,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999959,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000066,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000410,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000828,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001010,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001320,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001496,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001591,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001698,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000212,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 277,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000338,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999847,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000206,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000163,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000522,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001080,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001262,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001572,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001263,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001622,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999847,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000388,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000163,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000704,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000844,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001444,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001754,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001263,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001804,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000618,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000938,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 7
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 5,
+        "step": 6,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001947,
+        "step": 6,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001952,
+        "step": 6,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000039,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000046,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000063,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000070,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000177,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000184,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000346,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000537,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000544,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000543,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000550,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000609,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000616,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000789,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000796,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000799,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000806,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000921,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000928,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000997,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001004,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001159,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001166,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001197,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001204,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001201,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001208,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001491,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001498,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001773,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001780,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000163,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000174,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000314,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000732,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001224,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001263,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001274,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000074,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000169,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000276,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000438,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000446,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000543,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000650,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000547,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000654,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000787,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000894,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000799,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000906,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000931,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001038,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001159,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001266,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001201,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001308,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001446,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001443,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001550,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001717,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001824,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000872,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001540,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 277,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001666,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999673,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000032,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000063,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000422,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000548,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000690,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000471,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000830,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001159,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001518,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001201,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001560,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 401,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001122,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 401,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001614,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 401,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001790,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999517,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000058,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999571,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000112,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999961,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000502,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000177,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000718,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000730,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000471,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001012,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000921,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001462,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001197,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001738,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999959,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000516,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001770,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 881,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 30,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000942,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 6
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 5,
+        "step": 6,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001443,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001448,
+        "step": 6,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999959,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 999999999966,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000547,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000554,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000949,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000956,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001083,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001090,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001771,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001778,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999959,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 999999999970,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000169,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000180,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000271,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000282,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001771,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001782,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001591,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001604,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000949,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001056,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000561,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000712,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001054,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000931,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001082,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001197,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001348,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001491,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001642,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001641,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001792,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 277,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999961,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000238,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 277,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000789,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001066,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 277,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000921,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001198,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 349,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001252,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 401,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999617,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000018,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 401,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000931,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001332,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001083,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001624,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999857,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000414,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000169,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000726,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001159,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001716,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999143,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000020,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999517,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000394,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001216,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000949,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001826,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 5
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 5,
+        "step": 6,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001491,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001496,
+        "step": 6,
+        "count": 5
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 5,
+        "step": 6,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001939,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001944,
+        "step": 6,
+        "count": 5
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001939,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001980,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 61,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 999999999961,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000022,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000196,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000561,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000568,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001346,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000949,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000960,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000339,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000352,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001051,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001074,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 999999999857,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 999999999964,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000459,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000566,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 151,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000543,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000694,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 251,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001464,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 349,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000543,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000892,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001443,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001802,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 613,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001263,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001876,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 877,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000799,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001676,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000121,
+        "step": 210,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000144,
+        "step": 210,
+        "count": 6
+      },
+      "newly_covered": 4
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 31,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001947,
+        "step": 6,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001978,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 999999999961,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000002,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001491,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001532,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 61,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 999999999937,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 999999999998,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 61,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001881,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001942,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000921,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001478,
+        "step": 6,
+        "count": 3
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 587,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001339,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001926,
+        "step": 6,
+        "count": 3
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 641,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000921,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001562,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000459,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000466,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000799,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000810,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000914,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000916,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000163,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000270,
+        "step": 30,
+        "count": 7
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001051,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001158,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 251,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000903,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001154,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 359,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001123,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001482,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 541,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000537,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001078,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 547,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 999999999517,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000064,
+        "step": 30,
+        "count": 3
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 797,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000799,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001596,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000039,
+        "step": 210,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000052,
+        "step": 210,
+        "count": 5
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 47,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999989,
+        "step": 210,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000036,
+        "step": 210,
+        "count": 5
+      },
+      "newly_covered": 3
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 3,
+        "step": 2,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000039,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000042,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001419,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001430,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 191,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 999999999959,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000150,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 281,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000211,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000492,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 5,
+        "step": 6,
+        "count": 5
+      },
+      "right": {
+        "first": 999999999989,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 999999999994,
+        "step": 6,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001243,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001284,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001947,
+        "step": 6,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001988,
+        "step": 6,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 61,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001641,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001702,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 347,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000789,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001136,
+        "step": 6,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 557,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001339,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001896,
+        "step": 6,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 601,
+        "step": 6,
+        "count": 4
+      },
+      "right": {
+        "first": 999999999673,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000274,
+        "step": 6,
+        "count": 4
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001261,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001268,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001443,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001450,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 7,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000001509,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001516,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000342,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 30,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001303,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001314,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000211,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000224,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 13,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000001717,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001730,
+        "step": 30,
+        "count": 4
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 30,
+        "count": 4
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 30,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000744,
+        "step": 30,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 79,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001083,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001162,
+        "step": 30,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 30,
+        "count": 6
+      },
+      "right": {
+        "first": 1000000000609,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000716,
+        "step": 30,
+        "count": 6
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 233,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000564,
+        "step": 30,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 823,
+        "step": 30,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000561,
+        "step": 30,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001384,
+        "step": 30,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 210,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000212,
+        "step": 210,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000000721,
+        "step": 210,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000744,
+        "step": 210,
+        "count": 6
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 23,
+        "step": 210,
+        "count": 5
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 210,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001236,
+        "step": 210,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 59,
+        "step": 210,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000841,
+        "step": 210,
+        "count": 3
+      },
+      "output": {
+        "first": 1000000000900,
+        "step": 210,
+        "count": 5
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 83,
+        "step": 210,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000193,
+        "step": 210,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000276,
+        "step": 210,
+        "count": 3
+      },
+      "newly_covered": 2
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 3,
+        "step": 2,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000169,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000172,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 3,
+        "step": 2,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000306,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 3,
+        "step": 2,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001587,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001590,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 3,
+        "step": 2,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001911,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001914,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000609,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000620,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 11,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001389,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001400,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 17,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000061,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000078,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 17,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000303,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000320,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 17,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001159,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001176,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 17,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001213,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001230,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 17,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001953,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001970,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 29,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000360,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 41,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000339,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000380,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 59,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000248,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 59,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000459,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000518,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 71,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000787,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000858,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 71,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000841,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000912,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 71,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001293,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001364,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 71,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001771,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000001842,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 101,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 999999999937,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000038,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000787,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000894,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 107,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001641,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001748,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 137,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000271,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000408,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 149,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000001339,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001488,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 191,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000193,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000384,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 191,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000331,
+        "step": 2,
+        "count": 2
+      },
+      "output": {
+        "first": 1000000000522,
+        "step": 2,
+        "count": 3
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 227,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000189,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000416,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 569,
+        "step": 2,
+        "count": 2
+      },
+      "right": {
+        "first": 1000000000091,
+        "step": 2,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000000660,
+        "step": 2,
+        "count": 2
+      },
+      "newly_covered": 1
+    },
+    {
+      "kind": "prime_AP_sum",
+      "left": {
+        "first": 31,
+        "step": 6,
+        "count": 3
+      },
+      "right": {
+        "first": 1000000001641,
+        "step": 6,
+        "count": 1
+      },
+      "output": {
+        "first": 1000000001672,
+        "step": 6,
+        "count": 3
+      },
+      "newly_covered": 1
+    }
+  ],
+  "elapsed_seconds": 0.25,
+  "status": "certified",
+  "scope": "exact finite block only; no universal invariant claimed",
+  "verification": {
+    "status": "passed",
+    "independently_checked_prime_inputs": 200,
+    "covered_count": 1000,
+    "unresolved_count": 0
+  }
+}

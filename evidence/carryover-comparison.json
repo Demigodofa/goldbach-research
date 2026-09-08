@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "experiment": "adjacent_block_carryover_comparison",
+  "conditions": {
+    "first_even": 1000000,
+    "block_count": 10,
+    "block_size": 1000,
+    "palette_limit": 1000,
+    "same_targets_and_palette": true,
+    "carry_source": "immediately preceding independently re-verified block"
+  },
+  "rows": [
+    {
+      "first_even": 1000000,
+      "last_even": 1001998,
+      "fresh_seconds": 0.281,
+      "carry_seconds": 0.266,
+      "settled_from_prior_certificates": 0,
+      "carried_certificate_count": 0,
+      "fresh_certificate_count": 195,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1002000,
+      "last_even": 1003998,
+      "fresh_seconds": 0.297,
+      "carry_seconds": 0.266,
+      "settled_from_prior_certificates": 3,
+      "carried_certificate_count": 1,
+      "fresh_certificate_count": 191,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1004000,
+      "last_even": 1005998,
+      "fresh_seconds": 0.234,
+      "carry_seconds": 0.25,
+      "settled_from_prior_certificates": 1,
+      "carried_certificate_count": 1,
+      "fresh_certificate_count": 197,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1006000,
+      "last_even": 1007998,
+      "fresh_seconds": 0.234,
+      "carry_seconds": 0.235,
+      "settled_from_prior_certificates": 5,
+      "carried_certificate_count": 3,
+      "fresh_certificate_count": 181,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1008000,
+      "last_even": 1009998,
+      "fresh_seconds": 0.265,
+      "carry_seconds": 0.266,
+      "settled_from_prior_certificates": 7,
+      "carried_certificate_count": 5,
+      "fresh_certificate_count": 199,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1010000,
+      "last_even": 1011998,
+      "fresh_seconds": 0.265,
+      "carry_seconds": 0.578,
+      "settled_from_prior_certificates": 16,
+      "carried_certificate_count": 13,
+      "fresh_certificate_count": 196,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1012000,
+      "last_even": 1013998,
+      "fresh_seconds": 0.563,
+      "carry_seconds": 0.562,
+      "settled_from_prior_certificates": 3,
+      "carried_certificate_count": 3,
+      "fresh_certificate_count": 191,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1014000,
+      "last_even": 1015998,
+      "fresh_seconds": 0.563,
+      "carry_seconds": 0.594,
+      "settled_from_prior_certificates": 6,
+      "carried_certificate_count": 4,
+      "fresh_certificate_count": 193,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1016000,
+      "last_even": 1017998,
+      "fresh_seconds": 0.562,
+      "carry_seconds": 0.578,
+      "settled_from_prior_certificates": 4,
+      "carried_certificate_count": 3,
+      "fresh_certificate_count": 195,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    },
+    {
+      "first_even": 1018000,
+      "last_even": 1019998,
+      "fresh_seconds": 0.594,
+      "carry_seconds": 0.594,
+      "settled_from_prior_certificates": 11,
+      "carried_certificate_count": 8,
+      "fresh_certificate_count": 199,
+      "fresh_generation_skipped": false,
+      "fresh_unresolved_count": 0,
+      "carry_unresolved_count": 0
+    }
+  ],
+  "totals": {
+    "targets": 10000,
+    "settled_from_prior_certificates": 56,
+    "blocks_with_generation_skipped": 0,
+    "fresh_seconds": 3.858,
+    "carry_seconds": 4.189
+  },
+  "timing_limit": "Times are cover_block wall times on the current shared machine; carry mode includes required prior-proof validation, while the equal post-generation verification is run outside both timers. They are descriptive, not a speedup claim.",
+  "scope": "finite measured blocks only; unresolved targets remain explicit in each verified result"
+}

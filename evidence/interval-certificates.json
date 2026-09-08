@@ -1,0 +1,120 @@
+{
+  "experiment": "span_certification_without_individual_witness_search",
+  "certificates": [
+    {
+      "method": "two_interval_hole_bound",
+      "left": {
+        "first": 3,
+        "last": 13,
+        "prime_count": 5
+      },
+      "right": {
+        "first": 3,
+        "last": 7,
+        "prime_count": 3
+      },
+      "left_slots": 6,
+      "right_slots": 3,
+      "total_holes": 1,
+      "guarantee": true,
+      "covered_even_first": 8,
+      "covered_even_last": 18,
+      "covered_even_count": 6,
+      "uniform_prime_pair_lower_bound": 1,
+      "proof": "each missing interval value destroys at most one candidate pair for a fixed sum; candidate count exceeds total holes throughout the certified interval",
+      "on_failure": "inconclusive bound; no Goldbach counterexample claim"
+    },
+    {
+      "method": "two_interval_hole_bound",
+      "left": {
+        "first": 3,
+        "last": 47,
+        "prime_count": 14
+      },
+      "right": {
+        "first": 3,
+        "last": 47,
+        "prime_count": 14
+      },
+      "left_slots": 23,
+      "right_slots": 23,
+      "total_holes": 18,
+      "guarantee": true,
+      "covered_even_first": 42,
+      "covered_even_last": 58,
+      "covered_even_count": 9,
+      "uniform_prime_pair_lower_bound": 1,
+      "proof": "each missing interval value destroys at most one candidate pair for a fixed sum; candidate count exceeds total holes throughout the certified interval",
+      "on_failure": "inconclusive bound; no Goldbach counterexample claim"
+    },
+    {
+      "method": "two_interval_hole_bound",
+      "left": {
+        "first": 3,
+        "last": 113,
+        "prime_count": 29
+      },
+      "right": {
+        "first": 3,
+        "last": 113,
+        "prime_count": 29
+      },
+      "left_slots": 56,
+      "right_slots": 56,
+      "total_holes": 54,
+      "guarantee": true,
+      "covered_even_first": 114,
+      "covered_even_last": 118,
+      "covered_even_count": 3,
+      "uniform_prime_pair_lower_bound": 1,
+      "proof": "each missing interval value destroys at most one candidate pair for a fixed sum; candidate count exceeds total holes throughout the certified interval",
+      "on_failure": "inconclusive bound; no Goldbach counterexample claim"
+    },
+    {
+      "method": "two_interval_hole_bound",
+      "left": {
+        "first": 3,
+        "last": 2001,
+        "prime_count": 302
+      },
+      "right": {
+        "first": 3,
+        "last": 2001,
+        "prime_count": 302
+      },
+      "left_slots": 1000,
+      "right_slots": 1000,
+      "total_holes": 1396,
+      "guarantee": false,
+      "covered_even_first": null,
+      "covered_even_last": null,
+      "covered_even_count": 0,
+      "uniform_prime_pair_lower_bound": null,
+      "proof": "each missing interval value destroys at most one candidate pair for a fixed sum; candidate count exceeds total holes throughout the certified interval",
+      "on_failure": "inconclusive bound; no Goldbach counterexample claim"
+    },
+    {
+      "method": "two_interval_hole_bound",
+      "left": {
+        "first": 8001,
+        "last": 10001,
+        "prime_count": 222
+      },
+      "right": {
+        "first": 8001,
+        "last": 10001,
+        "prime_count": 222
+      },
+      "left_slots": 1001,
+      "right_slots": 1001,
+      "total_holes": 1558,
+      "guarantee": false,
+      "covered_even_first": null,
+      "covered_even_last": null,
+      "covered_even_count": 0,
+      "uniform_prime_pair_lower_bound": null,
+      "proof": "each missing interval value destroys at most one candidate pair for a fixed sum; candidate count exceeds total holes throughout the certified interval",
+      "on_failure": "inconclusive bound; no Goldbach counterexample claim"
+    }
+  ]
+}

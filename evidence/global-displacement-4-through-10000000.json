@@ -1,0 +1,21 @@
+{
+  "experiment": "some_pair_bounded_transition",
+  "limit_n": 10000000,
+  "symmetric_radius": 2,
+  "maximum_prime_displacement": 4,
+  "failure_count": 0,
+  "first_failures": [],
+  "last_failure": null,
+  "largest_minimal_starting_p": {
+    "n": 7522694,
+    "p": 27823,
+    "q": 7494871,
+    "k": 2,
+    "target": [
+      27827,
+      7494869
+    ]
+  },
+  "elapsed_seconds": 12.047,
+  "scope": "finite evidence, no implication beyond checked range"
+}

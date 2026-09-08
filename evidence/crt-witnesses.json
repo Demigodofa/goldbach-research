@@ -1,0 +1,1024 @@
+[
+  {
+    "experiment": "CRT_certificate",
+    "K": 1,
+    "starting_pair": [
+      7,
+      23
+    ],
+    "n": 30,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 4,
+    "progression": {
+      "p": 7,
+      "K": 1,
+      "q_residue": 8,
+      "modulus": 15,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 5,
+          "q_residue": 3
+        }
+      ],
+      "q_strict_lower_bound": 7
+    },
+    "steps_to_prime": 1,
+    "blocked_shifts": [
+      {
+        "k": -1,
+        "left": 5,
+        "right": 27,
+        "right_divisor": 3,
+        "right_cofactor": 9
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 25,
+        "right_divisor": 5,
+        "right_cofactor": 5
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 23,
+        "obstruction": "left is not prime"
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  },
+  {
+    "experiment": "CRT_certificate",
+    "K": 2,
+    "starting_pair": [
+      7,
+      2609
+    ],
+    "n": 2616,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 51,
+    "progression": {
+      "p": 7,
+      "K": 2,
+      "q_residue": 299,
+      "modulus": 1155,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -2,
+          "left": 3,
+          "right_shift": 6,
+          "divisor": 5,
+          "q_residue": 4
+        },
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 7,
+          "q_residue": 5
+        },
+        {
+          "k": 2,
+          "left": 11,
+          "right_shift": -2,
+          "divisor": 11,
+          "q_residue": 2
+        }
+      ],
+      "q_strict_lower_bound": 13
+    },
+    "steps_to_prime": 2,
+    "blocked_shifts": [
+      {
+        "k": -2,
+        "left": 3,
+        "right": 2615,
+        "right_divisor": 5,
+        "right_cofactor": 523
+      },
+      {
+        "k": -1,
+        "left": 5,
+        "right": 2613,
+        "right_divisor": 3,
+        "right_cofactor": 871
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 2611,
+        "right_divisor": 7,
+        "right_cofactor": 373
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 2609,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 2,
+        "left": 11,
+        "right": 2607,
+        "right_divisor": 11,
+        "right_cofactor": 237
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  },
+  {
+    "experiment": "CRT_certificate",
+    "K": 4,
+    "starting_pair": [
+      7,
+      28019
+    ],
+    "n": 28026,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 167,
+    "progression": {
+      "p": 7,
+      "K": 4,
+      "q_residue": 13004,
+      "modulus": 15015,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -2,
+          "left": 3,
+          "right_shift": 6,
+          "divisor": 5,
+          "q_residue": 4
+        },
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 7,
+          "q_residue": 5
+        },
+        {
+          "k": 2,
+          "left": 11,
+          "right_shift": -2,
+          "divisor": 11,
+          "q_residue": 2
+        },
+        {
+          "k": 3,
+          "left": 13,
+          "right_shift": -4,
+          "divisor": 13,
+          "q_residue": 4
+        }
+      ],
+      "q_strict_lower_bound": 17
+    },
+    "steps_to_prime": 1,
+    "blocked_shifts": [
+      {
+        "k": -4,
+        "left": -1,
+        "right": 28029,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -3,
+        "left": 1,
+        "right": 28027,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -2,
+        "left": 3,
+        "right": 28025,
+        "right_divisor": 5,
+        "right_cofactor": 5605
+      },
+      {
+        "k": -1,
+        "left": 5,
+        "right": 28023,
+        "right_divisor": 3,
+        "right_cofactor": 9341
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 28021,
+        "right_divisor": 7,
+        "right_cofactor": 4003
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 28019,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 2,
+        "left": 11,
+        "right": 28017,
+        "right_divisor": 11,
+        "right_cofactor": 2547
+      },
+      {
+        "k": 3,
+        "left": 13,
+        "right": 28015,
+        "right_divisor": 13,
+        "right_cofactor": 2155
+      },
+      {
+        "k": 4,
+        "left": 15,
+        "right": 28013,
+        "obstruction": "left is not prime"
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  },
+  {
+    "experiment": "CRT_certificate",
+    "K": 8,
+    "starting_pair": [
+      7,
+      609787169
+    ],
+    "n": 609787176,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 24693,
+    "progression": {
+      "p": 7,
+      "K": 8,
+      "q_residue": 52054994,
+      "modulus": 111546435,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -2,
+          "left": 3,
+          "right_shift": 6,
+          "divisor": 5,
+          "q_residue": 4
+        },
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 7,
+          "q_residue": 5
+        },
+        {
+          "k": 2,
+          "left": 11,
+          "right_shift": -2,
+          "divisor": 11,
+          "q_residue": 2
+        },
+        {
+          "k": 3,
+          "left": 13,
+          "right_shift": -4,
+          "divisor": 13,
+          "q_residue": 4
+        },
+        {
+          "k": 5,
+          "left": 17,
+          "right_shift": -8,
+          "divisor": 17,
+          "q_residue": 8
+        },
+        {
+          "k": 6,
+          "left": 19,
+          "right_shift": -10,
+          "divisor": 19,
+          "q_residue": 10
+        },
+        {
+          "k": 8,
+          "left": 23,
+          "right_shift": -14,
+          "divisor": 23,
+          "q_residue": 14
+        }
+      ],
+      "q_strict_lower_bound": 37
+    },
+    "steps_to_prime": 5,
+    "blocked_shifts": [
+      {
+        "k": -8,
+        "left": -9,
+        "right": 609787187,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -7,
+        "left": -7,
+        "right": 609787185,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -6,
+        "left": -5,
+        "right": 609787183,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -5,
+        "left": -3,
+        "right": 609787181,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -4,
+        "left": -1,
+        "right": 609787179,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -3,
+        "left": 1,
+        "right": 609787177,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -2,
+        "left": 3,
+        "right": 609787175,
+        "right_divisor": 5,
+        "right_cofactor": 121957435
+      },
+      {
+        "k": -1,
+        "left": 5,
+        "right": 609787173,
+        "right_divisor": 3,
+        "right_cofactor": 203262391
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 609787171,
+        "right_divisor": 7,
+        "right_cofactor": 87112453
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 609787169,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 2,
+        "left": 11,
+        "right": 609787167,
+        "right_divisor": 11,
+        "right_cofactor": 55435197
+      },
+      {
+        "k": 3,
+        "left": 13,
+        "right": 609787165,
+        "right_divisor": 13,
+        "right_cofactor": 46906705
+      },
+      {
+        "k": 4,
+        "left": 15,
+        "right": 609787163,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 5,
+        "left": 17,
+        "right": 609787161,
+        "right_divisor": 17,
+        "right_cofactor": 35869833
+      },
+      {
+        "k": 6,
+        "left": 19,
+        "right": 609787159,
+        "right_divisor": 19,
+        "right_cofactor": 32094061
+      },
+      {
+        "k": 7,
+        "left": 21,
+        "right": 609787157,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 8,
+        "left": 23,
+        "right": 609787155,
+        "right_divisor": 23,
+        "right_cofactor": 26512485
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  },
+  {
+    "experiment": "CRT_certificate",
+    "K": 12,
+    "starting_pair": [
+      7,
+      1256845738139
+    ],
+    "n": 1256845738146,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 1121091,
+    "progression": {
+      "p": 7,
+      "K": 12,
+      "q_residue": 53482797359,
+      "modulus": 100280245065,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -2,
+          "left": 3,
+          "right_shift": 6,
+          "divisor": 5,
+          "q_residue": 4
+        },
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 7,
+          "q_residue": 5
+        },
+        {
+          "k": 2,
+          "left": 11,
+          "right_shift": -2,
+          "divisor": 11,
+          "q_residue": 2
+        },
+        {
+          "k": 3,
+          "left": 13,
+          "right_shift": -4,
+          "divisor": 13,
+          "q_residue": 4
+        },
+        {
+          "k": 5,
+          "left": 17,
+          "right_shift": -8,
+          "divisor": 17,
+          "q_residue": 8
+        },
+        {
+          "k": 6,
+          "left": 19,
+          "right_shift": -10,
+          "divisor": 19,
+          "q_residue": 10
+        },
+        {
+          "k": 8,
+          "left": 23,
+          "right_shift": -14,
+          "divisor": 23,
+          "q_residue": 14
+        },
+        {
+          "k": 11,
+          "left": 29,
+          "right_shift": -20,
+          "divisor": 29,
+          "q_residue": 20
+        },
+        {
+          "k": 12,
+          "left": 31,
+          "right_shift": -22,
+          "divisor": 31,
+          "q_residue": 22
+        }
+      ],
+      "q_strict_lower_bound": 53
+    },
+    "steps_to_prime": 12,
+    "blocked_shifts": [
+      {
+        "k": -12,
+        "left": -17,
+        "right": 1256845738165,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -11,
+        "left": -15,
+        "right": 1256845738163,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -10,
+        "left": -13,
+        "right": 1256845738161,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -9,
+        "left": -11,
+        "right": 1256845738159,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -8,
+        "left": -9,
+        "right": 1256845738157,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -7,
+        "left": -7,
+        "right": 1256845738155,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -6,
+        "left": -5,
+        "right": 1256845738153,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -5,
+        "left": -3,
+        "right": 1256845738151,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -4,
+        "left": -1,
+        "right": 1256845738149,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -3,
+        "left": 1,
+        "right": 1256845738147,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -2,
+        "left": 3,
+        "right": 1256845738145,
+        "right_divisor": 5,
+        "right_cofactor": 251369147629
+      },
+      {
+        "k": -1,
+        "left": 5,
+        "right": 1256845738143,
+        "right_divisor": 3,
+        "right_cofactor": 418948579381
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 1256845738141,
+        "right_divisor": 7,
+        "right_cofactor": 179549391163
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 1256845738139,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 2,
+        "left": 11,
+        "right": 1256845738137,
+        "right_divisor": 11,
+        "right_cofactor": 114258703467
+      },
+      {
+        "k": 3,
+        "left": 13,
+        "right": 1256845738135,
+        "right_divisor": 13,
+        "right_cofactor": 96680441395
+      },
+      {
+        "k": 4,
+        "left": 15,
+        "right": 1256845738133,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 5,
+        "left": 17,
+        "right": 1256845738131,
+        "right_divisor": 17,
+        "right_cofactor": 73932102243
+      },
+      {
+        "k": 6,
+        "left": 19,
+        "right": 1256845738129,
+        "right_divisor": 19,
+        "right_cofactor": 66149775691
+      },
+      {
+        "k": 7,
+        "left": 21,
+        "right": 1256845738127,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 8,
+        "left": 23,
+        "right": 1256845738125,
+        "right_divisor": 23,
+        "right_cofactor": 54645466875
+      },
+      {
+        "k": 9,
+        "left": 25,
+        "right": 1256845738123,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 10,
+        "left": 27,
+        "right": 1256845738121,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 11,
+        "left": 29,
+        "right": 1256845738119,
+        "right_divisor": 29,
+        "right_cofactor": 43339508211
+      },
+      {
+        "k": 12,
+        "left": 31,
+        "right": 1256845738117,
+        "right_divisor": 31,
+        "right_cofactor": 40543410907
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  },
+  {
+    "experiment": "CRT_certificate",
+    "K": 16,
+    "starting_pair": [
+      7,
+      18304487399189
+    ],
+    "n": 18304487399196,
+    "q_primality": "exhaustive trial division through integer square root",
+    "q_trial_division_bound": 4278374,
+    "progression": {
+      "p": 7,
+      "K": 16,
+      "q_residue": 3463011129569,
+      "modulus": 3710369067405,
+      "coprime": true,
+      "constraints": [
+        {
+          "k": -2,
+          "left": 3,
+          "right_shift": 6,
+          "divisor": 5,
+          "q_residue": 4
+        },
+        {
+          "k": -1,
+          "left": 5,
+          "right_shift": 4,
+          "divisor": 3,
+          "q_residue": 2
+        },
+        {
+          "k": 0,
+          "left": 7,
+          "right_shift": 2,
+          "divisor": 7,
+          "q_residue": 5
+        },
+        {
+          "k": 2,
+          "left": 11,
+          "right_shift": -2,
+          "divisor": 11,
+          "q_residue": 2
+        },
+        {
+          "k": 3,
+          "left": 13,
+          "right_shift": -4,
+          "divisor": 13,
+          "q_residue": 4
+        },
+        {
+          "k": 5,
+          "left": 17,
+          "right_shift": -8,
+          "divisor": 17,
+          "q_residue": 8
+        },
+        {
+          "k": 6,
+          "left": 19,
+          "right_shift": -10,
+          "divisor": 19,
+          "q_residue": 10
+        },
+        {
+          "k": 8,
+          "left": 23,
+          "right_shift": -14,
+          "divisor": 23,
+          "q_residue": 14
+        },
+        {
+          "k": 11,
+          "left": 29,
+          "right_shift": -20,
+          "divisor": 29,
+          "q_residue": 20
+        },
+        {
+          "k": 12,
+          "left": 31,
+          "right_shift": -22,
+          "divisor": 31,
+          "q_residue": 22
+        },
+        {
+          "k": 15,
+          "left": 37,
+          "right_shift": -28,
+          "divisor": 37,
+          "q_residue": 28
+        }
+      ],
+      "q_strict_lower_bound": 65
+    },
+    "steps_to_prime": 4,
+    "blocked_shifts": [
+      {
+        "k": -16,
+        "left": -25,
+        "right": 18304487399223,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -15,
+        "left": -23,
+        "right": 18304487399221,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -14,
+        "left": -21,
+        "right": 18304487399219,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -13,
+        "left": -19,
+        "right": 18304487399217,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -12,
+        "left": -17,
+        "right": 18304487399215,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -11,
+        "left": -15,
+        "right": 18304487399213,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -10,
+        "left": -13,
+        "right": 18304487399211,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -9,
+        "left": -11,
+        "right": 18304487399209,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -8,
+        "left": -9,
+        "right": 18304487399207,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -7,
+        "left": -7,
+        "right": 18304487399205,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -6,
+        "left": -5,
+        "right": 18304487399203,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -5,
+        "left": -3,
+        "right": 18304487399201,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -4,
+        "left": -1,
+        "right": 18304487399199,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -3,
+        "left": 1,
+        "right": 18304487399197,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": -2,
+        "left": 3,
+        "right": 18304487399195,
+        "right_divisor": 5,
+        "right_cofactor": 3660897479839
+      },
+      {
+        "k": -1,
+        "left": 5,
+        "right": 18304487399193,
+        "right_divisor": 3,
+        "right_cofactor": 6101495799731
+      },
+      {
+        "k": 0,
+        "left": 7,
+        "right": 18304487399191,
+        "right_divisor": 7,
+        "right_cofactor": 2614926771313
+      },
+      {
+        "k": 1,
+        "left": 9,
+        "right": 18304487399189,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 2,
+        "left": 11,
+        "right": 18304487399187,
+        "right_divisor": 11,
+        "right_cofactor": 1664044309017
+      },
+      {
+        "k": 3,
+        "left": 13,
+        "right": 18304487399185,
+        "right_divisor": 13,
+        "right_cofactor": 1408037492245
+      },
+      {
+        "k": 4,
+        "left": 15,
+        "right": 18304487399183,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 5,
+        "left": 17,
+        "right": 18304487399181,
+        "right_divisor": 17,
+        "right_cofactor": 1076734552893
+      },
+      {
+        "k": 6,
+        "left": 19,
+        "right": 18304487399179,
+        "right_divisor": 19,
+        "right_cofactor": 963394073641
+      },
+      {
+        "k": 7,
+        "left": 21,
+        "right": 18304487399177,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 8,
+        "left": 23,
+        "right": 18304487399175,
+        "right_divisor": 23,
+        "right_cofactor": 795847278225
+      },
+      {
+        "k": 9,
+        "left": 25,
+        "right": 18304487399173,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 10,
+        "left": 27,
+        "right": 18304487399171,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 11,
+        "left": 29,
+        "right": 18304487399169,
+        "right_divisor": 29,
+        "right_cofactor": 631189220661
+      },
+      {
+        "k": 12,
+        "left": 31,
+        "right": 18304487399167,
+        "right_divisor": 31,
+        "right_cofactor": 590467335457
+      },
+      {
+        "k": 13,
+        "left": 33,
+        "right": 18304487399165,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 14,
+        "left": 35,
+        "right": 18304487399163,
+        "obstruction": "left is not prime"
+      },
+      {
+        "k": 15,
+        "left": 37,
+        "right": 18304487399161,
+        "right_divisor": 37,
+        "right_cofactor": 494715875653
+      },
+      {
+        "k": 16,
+        "left": 39,
+        "right": 18304487399159,
+        "obstruction": "left is not prime"
+      }
+    ],
+    "scope": "this chosen orientation, every integer k in [-K,K]"
+  }
+]
