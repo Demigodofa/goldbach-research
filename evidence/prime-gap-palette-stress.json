@@ -1,0 +1,329 @@
+{
+  "purpose": "disproof-directed prime-gap stress fixture for finite palette methods",
+  "consecutive_primes": [
+    492113,
+    492227
+  ],
+  "gap": 114,
+  "interior_odd_composite_factors": [
+    {
+      "odd_composite": 492115,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492117,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492119,
+      "proper_divisor": 19
+    },
+    {
+      "odd_composite": 492121,
+      "proper_divisor": 7
+    },
+    {
+      "odd_composite": 492123,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492125,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492127,
+      "proper_divisor": 199
+    },
+    {
+      "odd_composite": 492129,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492131,
+      "proper_divisor": 23
+    },
+    {
+      "odd_composite": 492133,
+      "proper_divisor": 17
+    },
+    {
+      "odd_composite": 492135,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492137,
+      "proper_divisor": 37
+    },
+    {
+      "odd_composite": 492139,
+      "proper_divisor": 181
+    },
+    {
+      "odd_composite": 492141,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492143,
+      "proper_divisor": 523
+    },
+    {
+      "odd_composite": 492145,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492147,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492149,
+      "proper_divisor": 7
+    },
+    {
+      "odd_composite": 492151,
+      "proper_divisor": 11
+    },
+    {
+      "odd_composite": 492153,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492155,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492157,
+      "proper_divisor": 19
+    },
+    {
+      "odd_composite": 492159,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492161,
+      "proper_divisor": 223
+    },
+    {
+      "odd_composite": 492163,
+      "proper_divisor": 7
+    },
+    {
+      "odd_composite": 492165,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492167,
+      "proper_divisor": 13
+    },
+    {
+      "odd_composite": 492169,
+      "proper_divisor": 463
+    },
+    {
+      "odd_composite": 492171,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492173,
+      "proper_divisor": 11
+    },
+    {
+      "odd_composite": 492175,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492177,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492179,
+      "proper_divisor": 677
+    },
+    {
+      "odd_composite": 492181,
+      "proper_divisor": 577
+    },
+    {
+      "odd_composite": 492183,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492185,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492187,
+      "proper_divisor": 31
+    },
+    {
+      "odd_composite": 492189,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492191,
+      "proper_divisor": 7
+    },
+    {
+      "odd_composite": 492193,
+      "proper_divisor": 13
+    },
+    {
+      "odd_composite": 492195,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492197,
+      "proper_divisor": 331
+    },
+    {
+      "odd_composite": 492199,
+      "proper_divisor": 139
+    },
+    {
+      "odd_composite": 492201,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492203,
+      "proper_divisor": 509
+    },
+    {
+      "odd_composite": 492205,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492207,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492209,
+      "proper_divisor": 61
+    },
+    {
+      "odd_composite": 492211,
+      "proper_divisor": 37
+    },
+    {
+      "odd_composite": 492213,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492215,
+      "proper_divisor": 5
+    },
+    {
+      "odd_composite": 492217,
+      "proper_divisor": 11
+    },
+    {
+      "odd_composite": 492219,
+      "proper_divisor": 3
+    },
+    {
+      "odd_composite": 492221,
+      "proper_divisor": 43
+    },
+    {
+      "odd_composite": 492223,
+      "proper_divisor": 23
+    },
+    {
+      "odd_composite": 492225,
+      "proper_divisor": 3
+    }
+  ],
+  "interior_even_composites": "every interior even is a proper multiple of 2",
+  "palette_cap": 100,
+  "proven_miss_interval": [
+    492214,
+    492226
+  ],
+  "miss_count": 7,
+  "receipt": {
+    "schema": 1,
+    "method": "segmented_asymmetric_packed_prime_convolution",
+    "first_even": 492214,
+    "target_count": 7,
+    "last_even": 492226,
+    "palette_cap": 100,
+    "effective_palette_cap": 100,
+    "palette_min": 3,
+    "palette_max": 97,
+    "palette_prime_count": 24,
+    "palette_prime_sha256": "72655d41fd5361ef1dea9cb9206697c1f030b17ac21523576057bd1abc45a56e",
+    "segment_lo": 492117,
+    "segment_hi": 492223,
+    "segment_prime_count": 0,
+    "segment_prime_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "base_prime_limit": 701,
+    "base_prime_count": 126,
+    "base_prime_sha256": "2fe6585bf77e42a46c541a2e465a0f663fc8851df8f204422255cf87665901fe",
+    "digit_bytes": 1,
+    "digit_bits": 8,
+    "start_coefficient": 47,
+    "packed_palette_sha256": "39fc2fe17f2428a7fa3ccd7244159d7aee65e60a3f6e2097929f077c3c44c0cf",
+    "packed_segment_sha256": "a536aa3cede6ea3c1f3e0357c3c60e0f216a8c89b853df13b29daa8f85065dfb",
+    "packed_product_sha256": "a536aa3cede6ea3c1f3e0357c3c60e0f216a8c89b853df13b29daa8f85065dfb",
+    "positive_sentinel_sha256": "a536aa3cede6ea3c1f3e0357c3c60e0f216a8c89b853df13b29daa8f85065dfb",
+    "include_counts": false,
+    "positive_target_count": 0,
+    "unresolved": [
+      492214,
+      492216,
+      492218,
+      492220,
+      492222,
+      492224,
+      492226
+    ],
+    "all_positive": false,
+    "scope": "the borrow-free sentinel mask is the finite block decision authority; an unresolved target is a palette miss, not a Goldbach disproof"
+  },
+  "verification": {
+    "status": "passed",
+    "target_count": 7,
+    "positive_target_count": 0,
+    "unresolved_count": 7
+  },
+  "independent_minimum_pair_witnesses": [
+    {
+      "target_even": 492214,
+      "least_prime_addend": 101,
+      "complement_prime": 492113
+    },
+    {
+      "target_even": 492216,
+      "least_prime_addend": 103,
+      "complement_prime": 492113
+    },
+    {
+      "target_even": 492218,
+      "least_prime_addend": 151,
+      "complement_prime": 492067
+    },
+    {
+      "target_even": 492220,
+      "least_prime_addend": 107,
+      "complement_prime": 492113
+    },
+    {
+      "target_even": 492222,
+      "least_prime_addend": 109,
+      "complement_prime": 492113
+    },
+    {
+      "target_even": 492224,
+      "least_prime_addend": 157,
+      "complement_prime": 492067
+    },
+    {
+      "target_even": 492226,
+      "least_prime_addend": 113,
+      "complement_prime": 492113
+    }
+  ],
+  "endpoint_target": 492226,
+  "endpoint_minimum_addend": 113,
+  "natural_log_endpoint_approximation": 13.106693239599213,
+  "rigorous_log_bound": "N < (8/3)^14 < exp(14), since e > 1+1+1/2+1/6 = 8/3; hence 8 log N < 112 < 113",
+  "scope": "counterexamples to restricted palettes, not to Goldbach"
+}

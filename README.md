@@ -96,6 +96,12 @@ blocks and calculation-based elimination of certified spans.
   hitting theorems do not identify a whole block as certified.
 - `notes/packed-block-certificate.md`: a proved integer-square and simultaneous
   nonzero-digit Z, with finite reuse into successive1,000-target blocks.
+- `notes/relative-block-convolution.md`: the same exact collective check
+  using a short relative polynomial near distant targets.
+- `notes/disproof-directed-prime-gaps.md`: proved counterexamples to every
+  fixed logarithmic palette, with a checked finite stress interval.
+- `notes/smaller-input-count-recurrence.md`: corrected exact-count inversion
+  and the smaller prime inputs required by residual correlations.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -167,11 +173,29 @@ blocks6..6004 reuse prior square output and all pass; a separate block
 1,000,000..1,001,998 also passes. Every receipt replays exactly. This is a
 finite batch mechanism, not an unbounded positivity proof.
 
-Next adapt the product to a small-prime palette and a short prime segment
-near a distant target, using relative exponents so the packed integer need
-not span the whole number line. Terra owns only segmented_packed.py and
-test_segmented_packed.py; this lane is in progress. Sol reviews the root's
-packed_goldbach.py implementation. The analytic task still requires tighter
-proved error or correlation information.
+The relative product is also complete. With167 odd palette primes and a
+2,993-integer nearby segment, it certifies1,000-target blocks beginning at
+one million, one billion, and one trillion. Prime inputs and every restricted
+coefficient were independently checked, and all receipts replay. The complete
+53-test suite passes normally and under optimized Python.
+
+Kevin's latest steering prioritizes attempts to disprove proposed rules and
+mathematically select difficult cases. The prime-gap obstruction is now
+proved: every fixed C*log(N) small-prime cap fails infinitely often. The
+checked gap492113..492227 defeats cap100 on all seven evens492214..492226,
+and every one has an independently verified larger-prime pair. This defeats
+the narrower palette rules, not Goldbach.
+
+The smaller-input recurrence correction is also preserved: the entire exact
+prior Goldbach-count sequence can recover prime indicators by a formal
+square-root recurrence; individual counts or positivity flags cannot replace
+that information. No reconstruction experiment has yet been implemented.
+
+Next formulate a falsifiable surviving rule and choose adversarial inputs
+against it, using the proven prime-gap and CRT stress mechanisms. Do not
+retest fixed or fixed-logarithmic palettes as candidate universal guarantees.
+An executable count-prefix reconstruction is a distinct available task if
+testing what information successive stages must retain. No uniform positivity
+argument or Goldbach counterexample has been found. No shell job is running.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.
