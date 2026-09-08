@@ -379,3 +379,22 @@ actual primes requires proving the density cap and a sufficiently small
 product-distribution error at a relevant scale. Those arithmetic inputs
 remain unproved; no new actual Goldbach coverage, historical-priority
 search, publication work, or wake queue. Overall goal remains active.
+
+The next pursuit checked the scale needed to apply that product model.
+For prime ell>=7 and two unit-group densities in[0,2] with mean1, their
+normalized multiplicative convolution g has additive pair mean at every
+nonzero target at least (ell-4-sqrt(ell))/(ell-1)>0. The proof uses the
+standard Jacobi-sum identities and the factor Fourier mass bound. However,
+at the sufficient no-alias scale ell>2H, uniform atoms on earlier cofactor
+primes<=H/(z+1) have mean L1 distance at least2z/(z+1)>=4/3 from EVERY
+mean1 density capped at2. Thus the direct single-modulus application fails
+its density premise before integer product windows need consideration.
+`product_resolution.py` retains both deductions and exact rational checks.
+Sol checked the mathematics and implementation; five focused tests passed
+normally and with Python -O. The pursuit returned `changed-under-evidence`:
+nonzero residue coverage is positive in the model, but that alone cannot
+identify one exact integer sum. The sufficient no-alias modulus is not
+claimed necessary; joint moduli, proved smoothing transfers, and certified
+alias exclusion remain separate questions. No new actual Goldbach coverage,
+historical-priority search, publication work, or wake queue. Overall goal
+active; the arithmetic transfer to individual targets remains unresolved.

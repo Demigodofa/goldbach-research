@@ -118,7 +118,9 @@ For4|m this approximate premise is impossible. The density cap, mean1
 factor normalization, and measured product error are essential inputs,
 not consequences for actual primes. This is still a finite conditional
 test: no arithmetic proof of those inputs for our prime/semiprime weights
-or new actual Goldbach coverage follows here.
+or new actual Goldbach coverage follows here. `product_resolution.py`
+treats nonzero residue targets and checks the direct integer-resolution
+density premise.
 """
 from fractions import Fraction
 
