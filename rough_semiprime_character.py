@@ -137,10 +137,12 @@ here, so it is not an exceptional-set theorem for positivity of L.
 Source prerequisite: Grimmelt--Teravainen, arXiv:2508.16400v2, Lemma 7.4
 and equation (7.2), https://arxiv.org/html/2508.16400v2#S7.SS2 .
 The proof above establishes the rough-E2 extension; the source states the
-prime-input theorem. Remaining gap: a major-arc model with controlled
-physical-space errors, replacement by a rough-number model, and convolution
-errors relative to possibly suppressed main terms. These lemmas and finite
-tests do not prove a power-saving exceptional set for canonical L or any
+prime-input theorem. The signed major-arc model with a pointwise error bound
+has since been established in major_arc_kernel.py; read its correction to
+the source's squarefree-supported majorant before applying that model.
+Replacement by a nonnegative rough-number model and convolution errors
+relative to possibly suppressed main terms remain open. These lemmas and
+finite tests do not prove a power-saving exceptional set for canonical L or
 new pointwise Goldbach coverage, including powers of two.
 """
 from fractions import Fraction

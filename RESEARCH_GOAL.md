@@ -150,3 +150,22 @@ This is a power saving for that error component only. The pursuit returned
 `changed-under-evidence`; a full major-arc model with controlled errors and
 the final convolution comparison remain unproved. No numerical onset or
 additional Goldbach coverage follows from these prerequisites alone.
+
+The major-arc pursuit uncovered and repaired a source-definition mismatch.
+The literal squarefree-supported H_R of arXiv:2508.16400v2 vanishes at25,
+while its Lemma4.11 kernel is at least2 there when R=2,r=1. The exact
+identity Lambda_R,r(n)=Lambda_R,r(rad(n)) supplies the corrected majorant
+H_R(rad(n)), with an implied constant depending on the smooth cutoff.
+This local repair was independently checked; it is not a refutation of the
+source's main theorem. No unproved mean estimate for the repair was imported.
+The corrected majorant now supports a complete signed Heath--Brown Fourier
+model for our normalized rough-semiprime weight. Its Fourier remainder is
+O(Y*R^(-1/3)); the separate pointwise error is bounded by H_R(rad(n)) times
+the checked character-mean accuracy. The proof handles endpoint strips and
+takes the exceptional-zero alternative at level R^4. If its conductor is
+larger than R^2, its model term is omitted but the exceptional error case is
+retained. Sol checked the proof; `major_arc_kernel.py` and its focused tests
+retain the result and source counterexample. The pursuit returned
+`changed-under-evidence`. Replacement by a nonnegative rough-number model
+and usable correlation bounds for the corrected majorant remain unproved.
+The overall Goldbach coverage goal remains active.

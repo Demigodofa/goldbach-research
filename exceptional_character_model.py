@@ -55,7 +55,9 @@ from this finite lemma. The bound log(2)<25/36<7/10 motivates rho<=49/100;
 it does not certify the omitted analytic errors.
 The actual rough-semiprime character mean, its bulk normalization, and a
 minor-arc estimate have since been proved in `rough_semiprime_character.py`.
-The full model approximation and additive convolution transfer remain open.
+A signed Fourier model with a corrected pointwise majorant is now proved
+in `major_arc_kernel.py`. The nonnegative model replacement and additive
+convolution transfer remain open.
 """
 from fractions import Fraction
 
