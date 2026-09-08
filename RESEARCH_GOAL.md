@@ -341,3 +341,23 @@ These are certificate gaps, not Goldbach failures; weaker zeros and other
 analytic regimes are not excluded. No numerical Landau--Page constant,
 actual zero, historical novelty, publication work, or wake queue was added.
 The overall goal remains active; other arithmetic coverage is still needed.
+
+The next coupled-correlation pursuit tested a precise finite prerequisite.
+`coupled_product_model.py` forces the second residue weight to be the exact
+multiplicative convolution of the first with itself. For a half-support
+whose prime-pair correlation at0 vanishes, the product-pair mean is at
+least1/2 when the cyclic group order is divisible by4. When its order is
+2 mod4, that mean is zero exactly at the two parity cosets; a quantitative
+lower bound controls distance to these cosets. In prime residue fields,
+these are the odd quadratic-residue/nonresidue cases. Thus product coupling
+and bounded density alone still permit a negative signed comparison.
+The m4 and m6 sharp examples, 510 exhaustive tiny subsets, and independent
+finite-field product checks passed normally and with Python -O. Sol reviewed
+the proof and implementation. The pursuit returned `changed-under-evidence`:
+quadratic-character behavior is special, and a general product-coupling
+argument requires more arithmetic input. This artificial model does not
+impose actual integer factor windows, unique semiprime counting, a truthful
+prime prefix, or the source prime-distribution estimates. It neither refutes
+canonical L nor gives Goldbach counterexamples or new actual coverage.
+No historical-priority search, publication work, or wake queue. Overall goal
+active; actual coupled estimates remain the missing step.

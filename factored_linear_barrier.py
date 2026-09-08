@@ -76,6 +76,11 @@ L itself is negative. This rejects the proposed direct plug-in as a
 universal positivity argument under these grants, while preserving (1)
 for future correlation or switching work. No numerical onset, actual
 failed target, historical novelty, or impossibility for all sieves follows.
+The later coupled_product_model.py tests a different proposed input: exact
+multiplicative convolution of a bounded residue distribution with itself.
+Even that product coupling alone permits a negative signed pair margin.
+Its sharp finite stability theorem singles out odd quadratic cosets; it
+does not impose the actual integer factor ranges or prime distribution.
 
 Rational verifier:
 For1<=x<=2, y=(x-1)/(x+1) lies in[0,1/3]. The first m positive terms of
