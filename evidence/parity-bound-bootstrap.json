@@ -1,0 +1,287 @@
+{
+  "first_even": 1002000,
+  "last_even": 1003998,
+  "target_count": 1000,
+  "input_prefix_end": 20000,
+  "classified_last_odd": 9999,
+  "cubic_cutoff": 100,
+  "required_cofactor_limit": 9939,
+  "minimum_row": {
+    "target_even": 1002172,
+    "M": 19246,
+    "AC": 6849,
+    "composite_diagonal": 0,
+    "L": 5548
+  },
+  "nonpositive_targets": [],
+  "unresolved_targets": [],
+  "certified_target_count": 1000,
+  "seconds": {
+    "parity_recovery": 0.0005833000177517533,
+    "construction": 0.028559900005348027,
+    "convolution": 10.407782400026917,
+    "pipeline_total": 10.43780259997584,
+    "input_generation": 0.07209399994462729,
+    "complete_total": 10.510530599975027,
+    "independent_validation": 2.9727176999440417
+  },
+  "input_meaning": "canonical induction from L(6)=1 using only earlier output parity",
+  "scope": "finite parity-preserving lower bounds; universal positivity unproved",
+  "method": "canonical parity-preserving lower-bound bootstrap",
+  "prefix_summary": {
+    "canonical_base": {
+      "target_even": 6,
+      "L": 1
+    },
+    "final_end": 20000,
+    "stages": [
+      {
+        "previous_end": 6,
+        "target_end": 10,
+        "cubic_cutoff": 1,
+        "classified_last_odd": 3,
+        "required_cofactor_limit": 3
+      },
+      {
+        "previous_end": 10,
+        "target_end": 22,
+        "cubic_cutoff": 2,
+        "classified_last_odd": 5,
+        "required_cofactor_limit": 5
+      },
+      {
+        "previous_end": 22,
+        "target_end": 28,
+        "cubic_cutoff": 2,
+        "classified_last_odd": 11,
+        "required_cofactor_limit": 7
+      },
+      {
+        "previous_end": 28,
+        "target_end": 62,
+        "cubic_cutoff": 3,
+        "classified_last_odd": 13,
+        "required_cofactor_limit": 13
+      },
+      {
+        "previous_end": 62,
+        "target_end": 66,
+        "cubic_cutoff": 3,
+        "classified_last_odd": 31,
+        "required_cofactor_limit": 15
+      },
+      {
+        "previous_end": 66,
+        "target_end": 126,
+        "cubic_cutoff": 4,
+        "classified_last_odd": 33,
+        "required_cofactor_limit": 23
+      },
+      {
+        "previous_end": 126,
+        "target_end": 218,
+        "cubic_cutoff": 5,
+        "classified_last_odd": 63,
+        "required_cofactor_limit": 35
+      },
+      {
+        "previous_end": 218,
+        "target_end": 344,
+        "cubic_cutoff": 6,
+        "classified_last_odd": 109,
+        "required_cofactor_limit": 47
+      },
+      {
+        "previous_end": 344,
+        "target_end": 514,
+        "cubic_cutoff": 7,
+        "classified_last_odd": 171,
+        "required_cofactor_limit": 63
+      },
+      {
+        "previous_end": 514,
+        "target_end": 730,
+        "cubic_cutoff": 8,
+        "classified_last_odd": 257,
+        "required_cofactor_limit": 79
+      },
+      {
+        "previous_end": 730,
+        "target_end": 1002,
+        "cubic_cutoff": 9,
+        "classified_last_odd": 365,
+        "required_cofactor_limit": 99
+      },
+      {
+        "previous_end": 1002,
+        "target_end": 1332,
+        "cubic_cutoff": 10,
+        "classified_last_odd": 501,
+        "required_cofactor_limit": 119
+      },
+      {
+        "previous_end": 1332,
+        "target_end": 1730,
+        "cubic_cutoff": 11,
+        "classified_last_odd": 665,
+        "required_cofactor_limit": 143
+      },
+      {
+        "previous_end": 1730,
+        "target_end": 2198,
+        "cubic_cutoff": 12,
+        "classified_last_odd": 865,
+        "required_cofactor_limit": 167
+      },
+      {
+        "previous_end": 2198,
+        "target_end": 2746,
+        "cubic_cutoff": 13,
+        "classified_last_odd": 1099,
+        "required_cofactor_limit": 195
+      },
+      {
+        "previous_end": 2746,
+        "target_end": 3376,
+        "cubic_cutoff": 14,
+        "classified_last_odd": 1373,
+        "required_cofactor_limit": 223
+      },
+      {
+        "previous_end": 3376,
+        "target_end": 4098,
+        "cubic_cutoff": 15,
+        "classified_last_odd": 1687,
+        "required_cofactor_limit": 255
+      },
+      {
+        "previous_end": 4098,
+        "target_end": 4914,
+        "cubic_cutoff": 16,
+        "classified_last_odd": 2049,
+        "required_cofactor_limit": 287
+      },
+      {
+        "previous_end": 4914,
+        "target_end": 5834,
+        "cubic_cutoff": 17,
+        "classified_last_odd": 2457,
+        "required_cofactor_limit": 323
+      },
+      {
+        "previous_end": 5834,
+        "target_end": 6860,
+        "cubic_cutoff": 18,
+        "classified_last_odd": 2917,
+        "required_cofactor_limit": 359
+      },
+      {
+        "previous_end": 6860,
+        "target_end": 8002,
+        "cubic_cutoff": 19,
+        "classified_last_odd": 3429,
+        "required_cofactor_limit": 399
+      },
+      {
+        "previous_end": 8002,
+        "target_end": 9262,
+        "cubic_cutoff": 20,
+        "classified_last_odd": 4001,
+        "required_cofactor_limit": 439
+      },
+      {
+        "previous_end": 9262,
+        "target_end": 10650,
+        "cubic_cutoff": 21,
+        "classified_last_odd": 4631,
+        "required_cofactor_limit": 483
+      },
+      {
+        "previous_end": 10650,
+        "target_end": 12168,
+        "cubic_cutoff": 22,
+        "classified_last_odd": 5325,
+        "required_cofactor_limit": 527
+      },
+      {
+        "previous_end": 12168,
+        "target_end": 13826,
+        "cubic_cutoff": 23,
+        "classified_last_odd": 6083,
+        "required_cofactor_limit": 575
+      },
+      {
+        "previous_end": 13826,
+        "target_end": 15626,
+        "cubic_cutoff": 24,
+        "classified_last_odd": 6913,
+        "required_cofactor_limit": 623
+      },
+      {
+        "previous_end": 15626,
+        "target_end": 17578,
+        "cubic_cutoff": 25,
+        "classified_last_odd": 7813,
+        "required_cofactor_limit": 675
+      },
+      {
+        "previous_end": 17578,
+        "target_end": 19684,
+        "cubic_cutoff": 26,
+        "classified_last_odd": 8789,
+        "required_cofactor_limit": 727
+      },
+      {
+        "previous_end": 19684,
+        "target_end": 20000,
+        "cubic_cutoff": 27,
+        "classified_last_odd": 9841,
+        "required_cofactor_limit": 713
+      }
+    ],
+    "minimum_lower_bound": 1,
+    "nonpositive_targets": [],
+    "unresolved_targets": [],
+    "lower_bounds_sha256": "64ffe0920bec0dd8bd64a475110cbb0cf7d238fe12eb1f6cead18f77b61415c8",
+    "seconds": 0.07209399994462729
+  },
+  "comparison": {
+    "baseline": "evidence/cubic-batch-prefix.json",
+    "baseline_complete_seconds": 12.496421199990436,
+    "baseline_minimum_raw": 5548,
+    "lost_certifications": [],
+    "scope": "same fixed block; single-run timings do not establish a speedup"
+  },
+  "independent_controls": [
+    {
+      "target_even": 1002000,
+      "M": 51564,
+      "AC": 18045,
+      "composite_diagonal": 0,
+      "L": 15474,
+      "reference_G": 21858,
+      "reference_raw": 15806,
+      "bound_loss": 332
+    },
+    {
+      "target_even": 1002172,
+      "M": 19246,
+      "AC": 6849,
+      "composite_diagonal": 0,
+      "L": 5548,
+      "reference_G": 7964,
+      "reference_raw": 5548,
+      "bound_loss": 0
+    },
+    {
+      "target_even": 1003998,
+      "M": 41012,
+      "AC": 14352,
+      "composite_diagonal": 0,
+      "L": 12308,
+      "reference_G": 17128,
+      "reference_raw": 12308,
+      "bound_loss": 0
+    }
+  ]
+}

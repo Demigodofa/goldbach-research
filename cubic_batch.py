@@ -56,6 +56,31 @@ def _extract(packed: int, first: int, count: int, digit_bytes: int) -> list[int]
             for i in range(0, len(raw), digit_bytes)]
 
 
+def _build_survivors(small_primes: list[int], z: int, high: int) -> tuple:
+    """Build A,C from a sufficiently long truthful prime list; callers check range."""
+    slots = (high - 1) // 2
+    survivors = bytearray(b"\1") * slots
+    for p in small_primes:
+        if p > z:
+            break
+        offset = (p * p - 3) // 2
+        survivors[offset::p] = b"\0" * len(range(offset, slots, p))
+    composites = bytearray(slots)
+    residual_primes = []
+    for index, q in enumerate(small_primes):
+        if q * q > high:
+            break
+        if q <= z:
+            continue
+        residual_primes.append(q)
+        stop = bisect_right(small_primes, high // q)
+        for r in small_primes[index:stop]:
+            composites[(q * r - 3) // 2] = 1
+    if any(c and not a for a, c in zip(survivors, composites)):
+        raise RuntimeError("recovered semiprimes contradict first-stage survivors")
+    return survivors, composites, residual_primes
+
+
 def batch_from_counts(ordered_counts: list[int], first: int, count: int) -> dict:
     """Conditional finite bound; input must already have its Goldbach meaning.
 
@@ -82,27 +107,8 @@ def batch_from_counts(ordered_counts: list[int], first: int, count: int) -> dict
     recovery_seconds = perf_counter() - started
 
     built_at = perf_counter()
-    slots = (high - 1) // 2  # odds 3..high, local index (a-3)//2
-    survivors = bytearray(b"\1") * slots
-    for p in small_primes:
-        if p > z:
-            break
-        offset = (p * p - 3) // 2
-        length = len(range(offset, slots, p))
-        survivors[offset::p] = b"\0" * length
-    composites = bytearray(slots)
-    residual_primes = []
-    for index, q in enumerate(small_primes):
-        if q * q > high:
-            break
-        if q <= z:
-            continue
-        residual_primes.append(q)
-        stop = bisect_right(small_primes, high // q)
-        for r in small_primes[index:stop]:
-            composites[(q * r - 3) // 2] = 1
-    if any(c and not a for a, c in zip(survivors, composites)):
-        raise RuntimeError("recovered semiprimes contradict first-stage survivors")
+    survivors, composites, residual_primes = _build_survivors(small_primes, z, high)
+    slots = len(survivors)
     construction_seconds = perf_counter() - built_at
 
     multiplied_at = perf_counter()
