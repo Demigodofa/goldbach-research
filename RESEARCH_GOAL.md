@@ -300,3 +300,24 @@ The pursuit returned `changed-under-evidence`: keep the factorization for
 coupled correlation or switching work; do not repeat the direct plug-in
 without new arithmetic input. Actual Goldbach coverage remains unresolved.
 No range extension, historical-priority search, publication work, or wake queue.
+
+The next bounded pursuit connected the exact suppressed classes to an
+existing pointwise theorem. `exceptional_pointwise_bridge.py` applies
+Matomaki--Merikoski, IMRN2023, Theorem1.4: its leading coefficient is
+exactly 1+C_D(N)/A_D(N), vanishes precisely on our F_D, and is at least2/3
+elsewhere. For each fixed alpha in (0,1), assuming a primitive quadratic
+zero beta=1-1/(eta*log D), D>24 and eta sufficiently large, EVERY even N
+outside F_D in max(D^10,N0)..D^(eta^(1-alpha)) has actual
+G(N)>=S_2(N)*N/(4*log(N)^2). No additional Fourier-residual exception is
+needed in this conditional branch. Prime-power removal and the two
+independent size thresholds are checked; no numerical onset is supplied.
+Every power of two in that range is included. F_D is empty exactly for
+the allowed conductors D=1 or5 mod12, giving whole conditional intervals.
+Sol checked the deduction and implementation; four focused tests passed
+normally and with Python -O. The pursuit returned `changed-under-evidence`:
+this source-backed conditional branch bypasses a Fourier residual for G,
+but neither proves the zero assumption nor improves canonical L on its
+exceptions. The suppressed classes, absent/insufficient-zero case, and
+out-of-range targets remain open. The source supplies the analytic theorem;
+no historical novelty, unconditional coverage, publication work, or wake queue.
+Overall Goldbach coverage remains unresolved and the goal stays active.

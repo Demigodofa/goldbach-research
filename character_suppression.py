@@ -64,6 +64,11 @@ are asserted. The unstructured Fourier-residual family remains open.
 The later monotone_euler_cutoff.py transfers this exact arithmetic family
 to large active conductors as well, using a permissible monotone cutoff.
 It removes the coarse gcd cover while retaining the Fourier exceptions.
+The later exceptional_pointwise_bridge.py identifies this SAME F_D with
+the zero coefficient in Matomaki--Merikoski's pointwise Goldbach theorem.
+Under its additional strong-zero and range assumptions, actual G is positive
+at every target outside F_D, with no extra Fourier exceptions. This is a
+conditional result for G, and does not remove the residual set for L here.
 """
 from math import lcm
 
