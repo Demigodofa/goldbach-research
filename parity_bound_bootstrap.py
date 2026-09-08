@@ -26,9 +26,11 @@ The threshold and constants are not numerical; this does not certify an
 uncomputed finite interval or show the exceptional set is empty.
 
 A stronger exceptional-SIZE guarantee is now checked in
-prime_pair_transfer.py: for some fixed epsilon>0, L(N)>0 for all but
+prime_pair_transfer.py and monotone_euler_cutoff.py: for some fixed
+epsilon>0, L(N)>0 for all but
 O(X**(1-epsilon)) even N in [X,2X], for sufficiently large X. More precisely
-epsilon=delta/8 for any sufficiently small fixed positive delta. This does
+epsilon=delta/4 for any sufficiently small fixed positive delta, after a
+permissible monotone cutoff choice in the analytic proof. This does
 not upgrade the half-main-term lower bound above to that smaller exceptional
 set. The exponent and starting threshold are not numerical, and individual
 remaining targets are not certified by an almost-all count.

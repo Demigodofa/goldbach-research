@@ -245,3 +245,20 @@ of suppression, while unstructured Fourier exceptions and the separate
 large-conductor case remain. No universal coverage, named uncomputed target,
 numerical onset, or historical-priority claim follows. No wake was queued;
 the overall Goldbach goal remains active.
+
+The monotone-cutoff pursuit removed the coarse large-conductor gcd cover.
+Choose the already allowed smooth G additionally nonincreasing on its
+positive argument, with 0<=G<=1. `monotone_euler_cutoff.py` proves
+0<=U_D<=(5/2)*S_out uniformly, using positive/negative prime-factor
+separation and elementary Euler-product bounds. This transfers the exact
+family F_D to ALL active exceptional conductors: outside F_D and a separate
+O_delta(Y*R^(-1/2)) Fourier-residual set, L(N)>>_delta Y/log(Y)^2.
+The resulting total exceptional-size bound for L>0 is now
+O_delta(X^(1-delta/4)); the earlier half-main-term guarantee is unchanged.
+Sol checked the proof. Four focused tests passed normally and with Python
+-O; an initial test normalization omitted a directly enumerated character
+sign B=-1, and was corrected without changing the negative-cutoff witness.
+The pursuit returned `changed-under-evidence`. The remaining gap is control
+of the Fourier residual and the exact suppressed classes, not the discarded
+coarse gcd cover. No numerical onset, universal coverage, publication work,
+historical-priority search, or wake queue was introduced. Overall goal active.

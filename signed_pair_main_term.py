@@ -153,6 +153,9 @@ composition there proves L>0 outside a power-saving exceptional set.
 The signed model statements here alone do not prove that conclusion, and
 neither result eliminates every exceptional target or supplies a numerical
 starting threshold.
+The large-conductor gcd cover can be replaced by the exact suppression
+classes under the additional monotone cutoff choice proved in
+monotone_euler_cutoff.py. The generic-cutoff argument above remains valid.
 """
 from fractions import Fraction
 from math import gcd, isqrt, lcm

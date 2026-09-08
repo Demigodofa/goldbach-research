@@ -61,6 +61,9 @@ This localizes suppression; it does NOT say all actual exceptions are
 in F_D, remove the large-conductor gcd exclusion, or certify a named
 uncomputed target. No numerical constants/onset or historical novelty
 are asserted. The unstructured Fourier-residual family remains open.
+The later monotone_euler_cutoff.py transfers this exact arithmetic family
+to large active conductors as well, using a permissible monotone cutoff.
+It removes the coarse gcd cover while retaining the Fourier exceptions.
 """
 from math import lcm
 
