@@ -169,7 +169,16 @@ to make the raw formula close itself. The cubic cutoff remains outside this
 negative theorem; the substantive unresolved direction is still a positive
 bound controlling the reflected prime/semiprime correlation there.
 
-## Dormant fixed-power extension candidate from the renewed run
+## Fixed-power extension: current status
+
+Resolved on 2026-09-08: `dhr_margin.py` contains the checked rational
+comparison and remainder argument. For N through powers of two it proves
+limsup R_z/M_z <= -347/14042 at z=N^(1/6), and <= -1/496 at
+z=N^(20/119). Booker-Browning's explicit certified interval for beta_2
+closes the numerical premise. No finite onset or Goldbach disproof follows.
+The older candidate below records the superseded, more demanding route.
+
+### Superseded candidate from the renewed run
 
 A later bounded source check identified a route that might strengthen the
 negative result to z=N^(1/6). This is not yet a proved extension. With
