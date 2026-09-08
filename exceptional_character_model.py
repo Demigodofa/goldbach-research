@@ -56,8 +56,9 @@ it does not certify the omitted analytic errors.
 The actual rough-semiprime character mean, its bulk normalization, and a
 minor-arc estimate have since been proved in `rough_semiprime_character.py`.
 A signed Fourier model with a corrected pointwise majorant is now proved
-in `major_arc_kernel.py`. The nonnegative model replacement and additive
-convolution transfer remain open.
+in `major_arc_kernel.py`; `radical_majorant_correlation.py` now controls its
+ordinary additive pair errors. The nonnegative model replacement and the
+final positive prime/semiprime comparison remain open.
 """
 from fractions import Fraction
 

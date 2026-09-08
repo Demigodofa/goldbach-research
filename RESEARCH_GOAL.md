@@ -169,3 +169,21 @@ retain the result and source counterexample. The pursuit returned
 `changed-under-evidence`. Replacement by a nonnegative rough-number model
 and usable correlation bounds for the corrected majorant remain unproved.
 The overall Goldbach coverage goal remains active.
+
+The corrected-majorant pursuit closed its mean, second moment, and additive
+correlation bounds. `radical_majorant_correlation.py` applies Henriot's New
+Theorem 5 from the 2014 erratum, including its corrected zero-exponent
+condition. For d=log(R)/log(Y), the central pair bound is
+sum H_R(rad(n))*H_R(rad(m-n)) << Y*S_2(m)/d^2, uniformly in central even m.
+The erratum's exact local factors give this square loss; the initially
+considered sixth-power loss was unnecessary. The proof also bounds the
+signed Fourier model's error pairings by e*(1+e)*Y*S_2(m)/d^2, where e is
+the previously checked character-mean error. Its remaining Fourier pair
+residual is at most Y/log(Y)^3 outside O(Y*R^(-1/2)) targets. Sol checked
+the source application, norm bounds, convolution algebra, and exceptional
+count. Four exact local-density tests passed normally and with Python -O.
+The pursuit returned `changed-under-evidence`; no numerical onset, new
+Goldbach coverage, or historical-priority claim follows. The remaining gap
+is evaluation/comparison of the signed pair main terms with enough positive
+margin, including control relative to any exceptionally suppressed term.
+The overall Goldbach goal remains active; no wake was queued.

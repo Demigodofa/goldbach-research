@@ -140,6 +140,7 @@ The proof above establishes the rough-E2 extension; the source states the
 prime-input theorem. The signed major-arc model with a pointwise error bound
 has since been established in major_arc_kernel.py; read its correction to
 the source's squarefree-supported majorant before applying that model.
+Its ordinary pair-error bounds are proved in radical_majorant_correlation.py.
 Replacement by a nonnegative rough-number model and convolution errors
 relative to possibly suppressed main terms remain open. These lemmas and
 finite tests do not prove a power-saving exceptional set for canonical L or

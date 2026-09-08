@@ -29,7 +29,8 @@ applied to the squarefree integer rad(n), gives the valid bound
 Here each local factor |1-p**(-(1-i*xi)/log R)| is <=2*h_xi(p).
 The implied constant depends on the fixed smooth cutoff G; a literal unit
 constant is not asserted. The same source proof uses such implied constants.
-No mean or correlation bound for the corrected majorant is assumed here.
+No mean or correlation bound for the corrected majorant is assumed here;
+those bounds are proved separately in radical_majorant_correlation.py.
 
 Fourier-model theorem:
 Let Y be sufficiently large, exp((log Y)**(4/5))<=R<=Y**(1/400),
@@ -87,9 +88,10 @@ Proof:
    Combine this with (1) to prove the asserted full Fourier norm estimate.
 
 This closes a signed Heath--Brown Fourier model with a corrected pointwise
-error majorant. Replacement by a nonnegative rough-number model, usable
-correlation bounds for Htilde_R, and the final prime/semiprime convolution
-comparison remain separate tasks. No new Goldbach coverage is established.
+error majorant. Its mean, second moment, additive correlation, and resulting
+signed pair-error bounds are now proved in radical_majorant_correlation.py.
+Replacement by a nonnegative rough-number model and the final positive
+prime/semiprime comparison remain open. No new Goldbach coverage is established.
 Source equations and prerequisites:
 https://arxiv.org/html/2508.16400v2#S4 (Definitions 4.5,4.9; Lemmas 4.6,4.10;
 the squarefree Euler-product argument in the proof of Lemma 4.11).
