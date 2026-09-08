@@ -134,3 +134,19 @@ our rough-semiprime weight. The remaining step is to prove that approximation
 and its convolution errors, with the correct opposite character sign and
 errors relative to any suppressed main term. Historical priority was not
 investigated, in accordance with Kevin's latest steering.
+
+The next bounded pursuit closed two analytic prerequisites for the actual
+rough-semiprime weight, retained in `rough_semiprime_character.py`. Applying
+the source's prime-character estimate twice proves the uniform semiprime
+character mean with the positive exceptional term. It includes prime squares,
+arbitrary interval endpoints, and the inverse-kernel normalization on the
+central half of the range. The argument is valid through power-sized moduli;
+its character-mean accuracy at a fixed power is a small constant, not itself
+a power saving. An elementary bilinear argument separately proves the
+minor-arc Fourier bound Y*R^(-1/3), including the normalized weight. Parseval
+then bounds the number of targets with minor contribution larger than
+Y/log(Y)^3 by O(Y*R^(-1/2)). These proofs were independently checked by Sol.
+This is a power saving for that error component only. The pursuit returned
+`changed-under-evidence`; a full major-arc model with controlled errors and
+the final convolution comparison remain unproved. No numerical onset or
+additional Goldbach coverage follows from these prerequisites alone.

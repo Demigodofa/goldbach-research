@@ -53,6 +53,9 @@ control of endpoints and sieve remainders. No power-saving exceptional-set
 theorem for canonical L, or pointwise theorem for powers of two, follows
 from this finite lemma. The bound log(2)<25/36<7/10 motivates rho<=49/100;
 it does not certify the omitted analytic errors.
+The actual rough-semiprime character mean, its bulk normalization, and a
+minor-arc estimate have since been proved in `rough_semiprime_character.py`.
+The full model approximation and additive convolution transfer remain open.
 """
 from fractions import Fraction
 
