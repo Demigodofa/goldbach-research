@@ -197,10 +197,13 @@ for small exceptional conductors, and bounds an explicit large-conductor
 gcd family by O(Y*R^(-1/8)). Six exact-arithmetic tests pass normally and
 with Python -O, including active composite conductors and divisor-cover
 overlaps. These are finite-algebra checks, not an analytic review.
-Final Sol review is pending: the existing moment_bound_review handle has
-reported pending_init across repeated observations. No completed review is
-claimed and no replacement reviewer or continuation was queued. The next
-required action is the bounded review of these current files, followed by
-correction or promotion according to its actual result. Actual-prime Fourier
-transfer and conversion to canonical L remain open. The overall goal stays
-active; the old native 9am wording remains superseded.
+The existing moment_bound_review handle initially reported pending_init
+across repeated observations. It subsequently initialized and checked the
+actual files, returning PASS for the coefficient identities, uniform tails,
+linear suppressed margin, and large-conductor divisor bound. The result is
+now promoted on that completed review, not on the earlier queued request.
+No replacement reviewer or wake continuation was queued. Actual-prime
+Fourier transfer and conversion to canonical L remain open. The next bounded
+mathematical job is the prime-side Fourier transfer and the pair residual
+relative to the now checked suppressed margin. The overall goal stays active;
+the old native 9am wording remains superseded.

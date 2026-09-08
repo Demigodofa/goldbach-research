@@ -4,11 +4,11 @@ Owner: Kevin's research. Purpose: compare the main terms after the Fourier
 and pointwise error bounds have been checked. Exact rational helpers verify
 the periodic algebra; they do not compute actual prime counts.
 
-Status, 2026-09-08: root-derived candidate awaiting fresh Sol review. The
-existing reviewer handle reports pending_init following the interruption;
-no review completion is inferred from the queued request. Six focused
-finite-algebra tests passed normally and with Python -O. The analytic
-arguments below must not be promoted as independently checked yet.
+Status, 2026-09-08: Sol has now checked the actual files and passed the
+coefficient identities, uniform tails, linear suppressed margin, and
+large-conductor divisor bound. Six focused finite-algebra tests passed
+normally and with Python -O. Review completed after the earlier recorded
+initialization delay; it is not inferred from that pending request.
 
 Theorem: let I=(Y/2,Y], J_m={n in Z:n,m-n in I}, K_m=|J_m|, and let
 exp(log(Y)**(4/5))<=R<=Y**(1/400). Use the fixed smooth cutoff G of
