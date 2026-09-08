@@ -90,6 +90,10 @@ blocks and calculation-based elimination of certified spans.
   intersection countermodels.
 - `notes/cubic-three-stage-identity.md`: a proved fixed-stage exact count,
   with the remaining uniform positivity requirement stated separately.
+- `notes/central-crt-error-budget.md`: proved elementary count/error bounds
+  and a measured explanation of why their worst-case errors do not finish it.
+- `notes/exceptional-set-scope.md`: why selected almost-all and interval
+  hitting theorems do not identify a whole block as certified.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -139,9 +143,26 @@ Together with the first block, `M-S1>0` is checked for all evens4 through20,000;
 this is a finite observation only. Its receipt is
 `evidence/cubic-union-bound-scan-20000.json`. No shell job remains running.
 
-Next derive certified count/error bounds for M and S1, starting with a central
-window where the small-prime square thresholds are automatically satisfied.
-Compare the rigorous error budget with the needed positive margin. Do not infer
-a uniform result from average densities or extend the finite scan blindly.
+The central-window CRT bounds are now proved and implemented. At N=1,000,000,
+the first-stage estimate is25,030.946 versus an exact25,166, but the elementary
+absolute error allowance is188,286,357,653. This bound cannot establish a
+positive first-stage count. The diagnostic does not show large actual errors;
+it exposes the loss from summing their worst-case absolute values. A check of
+specific standard lower-sieve parameters also gives no automatic replacement.
+The prime number theorem additionally proves that this same crude allowance
+eventually exceeds N for every target, so the unchanged bound cannot be an
+eventual certificate. The complete39-test suite passes normally and under
+optimized Python; independent code review found no material issue.
+
+Selected exceptional-set and interval-hitting theorems were also checked:
+they bound unnamed exceptions or guarantee one member, and do not certify
+every target in a named block.
+
+Next investigate an exact collective certificate: encode the odd-prime
+polynomial in carry-free integer digits, square it to obtain many Goldbach
+counts at once, and use a sentinel subtraction to test all1,000 counts for
+positivity together. Its mathematical review is pending. This is a possible
+finite batch mechanism, not a proposed unbounded positivity proof. The
+analytic task still requires tighter proved error or correlation information.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.
