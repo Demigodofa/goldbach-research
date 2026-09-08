@@ -81,3 +81,14 @@ beside the implementation in `parity_bound_bootstrap.py`. No new manuscript
 or historical-priority investigation was undertaken. The open target is
 coverage of the exceptional family; parity propagation itself does not stall
 when a lower bound fails to certify a target.
+
+The next finite refinement reuses earlier numerical lower bounds as well as
+their parities. For each residual q dividing N, it clips J(N/q)-2e_q at
+the exact same-factor diagonal. The resulting recursive J satisfies
+L<=J<=R<=G and the same parity, with no exact-count input. On the same frozen
+block it strengthened 280 bounds, with maximum gain 582, but added no new
+certifications. `evidence/parity-factor-refinement.json` records this run.
+The proved total gain is at most N/(z+1)=O(N^(2/3)) and vanishes on powers
+of two. This limits the correction's size; it does not prove that actual
+exceptions exist or cannot be repaired. Cross-factor composite-pair control
+remains the missing arithmetic step.

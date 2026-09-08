@@ -135,8 +135,61 @@ def recover_parity_primes(bounds: list[int]) -> tuple[int, int, list[int]]:
                                   if bounds[m - 3] % 2]
 
 
-def parity_batch(bounds: list[int], first: int, count: int) -> dict:
-    """Build a later finite band, conditional on truthful earlier parities."""
+def _factor_gains(bounds: list[int], first: int, last: int, z: int,
+                  classified: int, primes: list[int], factors: list[int]) -> tuple:
+    """Conditional refinement: inputs must also be LOWER bounds for G.
+
+    For q|N, T=N/q>=2q, C_q*C_q=G(T)-2*e_q, where e_q counts prime
+    p<q with T-p prime. Both d_q=1_prime(T/2) and J(T)-2*e_q have the
+    true same-factor count's parity, and each is <=that count. Therefore
+    K_q=max(d_q,J(T)-2*e_q) is a valid bound with the exact parity.
+    Adding K_q-d_q to the diagonal-only bound preserves parity and can
+    only improve it. This uses earlier bound VALUES, never assumes J=G.
+
+    Range: T-p<=T-3<=(N-3)/q<=Hmax/(z+1); these odd flags are known.
+    Thus T<=classified+3<=prefix_end, including the smallest prefix6.
+    Each gain <=G(T)<=T/2. At most two distinct q>z divide even N:
+    three would have odd product >(N-3)>=N/2 yet dividing N. Hence
+    total gain <=N/(z+1)=O(N**(2/3)), and it is zero on powers of two.
+    No exception-elimination theorem is proved.
+    """
+    flags = bytearray(classified + 1)
+    for p in primes:
+        flags[p] = 1
+    gains = [0] * ((last - first) // 2 + 1)
+    used = largest = 0
+    endpoint = 2 * len(bounds) + 4
+    for q in factors:
+        small = [p for p in primes if p < q]
+        start = max(2 * q * q, ((first + 2 * q - 1) // (2 * q)) * (2 * q))
+        for target in range(start, last + 1, 2 * q):
+            t = target // q
+            if t > endpoint or t - 3 > classified:
+                raise RuntimeError("earlier bound or prime flag range is insufficient")
+            excluded = sum(flags[t - p] for p in small)
+            diagonal = flags[t // 2]
+            same_lower = max(diagonal, bounds[(t - 6) // 2] - 2 * excluded)
+            gain = same_lower - diagonal
+            if gain % 2:
+                raise RuntimeError("earlier bound parity contradicts recovered prime flags")
+            gains[(target - first) // 2] += gain
+            used += 1
+            largest = max(largest, t)
+    if any(gain > (first + 2 * i) // (z + 1) for i, gain in enumerate(gains)):
+        raise RuntimeError("same-factor gain exceeds the proved arithmetic ceiling")
+    return gains, used, largest
+
+
+def parity_batch(bounds: list[int], first: int, count: int, *,
+                 same_factor: bool = False) -> dict:
+    """Build a later finite band, conditional on truthful earlier parities.
+
+    same_factor additionally requires every supplied value to be <=G at
+    its label. Range/type checks cannot establish this mathematical premise.
+    The canonical generator below establishes both premises by induction.
+    """
+    if type(same_factor) is not bool:
+        raise ValueError("same_factor must be an exact boolean")
     started = perf_counter()
     last, high, z = _block_shape(first, count)
     endpoint, classified, small_primes = recover_parity_primes(bounds)
@@ -148,7 +201,7 @@ def parity_batch(bounds: list[int], first: int, count: int) -> dict:
     recovery_seconds = perf_counter() - started
 
     built_at = perf_counter()
-    survivors, composites, _ = _build_survivors(small_primes, z, high)
+    survivors, composites, residual_primes = _build_survivors(small_primes, z, high)
     construction_seconds = perf_counter() - built_at
     multiplied_at = perf_counter()
     slots = len(survivors)
@@ -158,14 +211,23 @@ def parity_batch(bounds: list[int], first: int, count: int) -> dict:
     ms = _extract(a * a, first, count, digit_bytes)
     acs = _extract(a * c, first, count, digit_bytes)
     convolution_seconds = perf_counter() - multiplied_at
+    corrected_at = perf_counter()
+    gains, correction_terms, largest_input = ([0] * count, 0, 0)
+    if same_factor:
+        gains, correction_terms, largest_input = _factor_gains(
+            bounds, first, last, z, classified, small_primes, residual_primes)
+    correction_seconds = perf_counter() - corrected_at
     rows = []
     for i, (m, ac) in enumerate(zip(ms, acs)):
         target = first + 2 * i
         center = target // 2
         diagonal = composites[(center - 3) // 2] if center % 2 else 0
         lower = m - 2 * ac + diagonal  # signed arithmetic after decoding
-        rows.append({"target_even": target, "M": m, "AC": ac,
-                     "composite_diagonal": diagonal, "L": lower})
+        row = {"target_even": target, "M": m, "AC": ac,
+               "composite_diagonal": diagonal, "L": lower + gains[i]}
+        if same_factor:
+            row.update({"base_L": lower, "same_factor_gain": gains[i]})
+        rows.append(row)
     nonpositive = [row["target_even"] for row in rows if row["L"] <= 0]
     unresolved = [row["target_even"] for row in rows
                   if row["L"] <= 0 and row["L"] % 2 == 0]
@@ -176,22 +238,32 @@ def parity_batch(bounds: list[int], first: int, count: int) -> dict:
         "minimum_row": min(rows, key=lambda row: row["L"]),
         "nonpositive_targets": nonpositive, "unresolved_targets": unresolved,
         "certified_target_count": count - len(unresolved), "rows": rows,
+        "same_factor_refinement": same_factor,
+        "same_factor_terms": correction_terms,
+        "largest_correction_input": largest_input,
         "seconds": {"parity_recovery": recovery_seconds,
                     "construction": construction_seconds,
                     "convolution": convolution_seconds,
+                    "same_factor_correction": correction_seconds,
                     "pipeline_total": perf_counter() - started},
-        "input_meaning": "conditional on correct G parity at every supplied earlier label",
+        "input_meaning": ("conditional on parity-correct LOWER bounds at all earlier labels"
+                          if same_factor else
+                          "conditional on correct G parity at every supplied earlier label"),
         "scope": "finite parity-preserving lower bounds; universal positivity unproved",
     }
 
 
-def generate_prefix(endpoint: int) -> dict:
+def generate_prefix(endpoint: int, *, same_factor: bool = False) -> dict:
     """Generate every L(6),L(8),...,L(endpoint), starting only with L(6)=1.
 
     End each stage at the cube-root band boundary or the current input limit.
     Cofactor odd-floor<=B is equivalent to H<(B+2)*(z+1), with B odd.
     This exact integer condition permits the first stage6 ->10.
+    With same_factor=True, each stage also uses earlier lower-bound values;
+    _factor_gains proves their lower-bound and parity premises inductively.
     """
+    if type(same_factor) is not bool:
+        raise ValueError("same_factor must be an exact boolean")
     if type(endpoint) is not int or endpoint < 6 or endpoint % 2:
         raise ValueError("endpoint must be an even exact integer at least6")
     started = perf_counter()
@@ -206,7 +278,8 @@ def generate_prefix(endpoint: int) -> dict:
         last = min(endpoint, high + 3)
         if last < first:
             raise RuntimeError("well-founded recursion failed to advance")
-        batch = parity_batch(bounds, first, (last - first) // 2 + 1)
+        batch = parity_batch(bounds, first, (last - first) // 2 + 1,
+                             same_factor=same_factor)
         bounds.extend(row["L"] for row in batch["rows"])
         stages.append({"previous_end": previous, "target_end": last,
                        "cubic_cutoff": z, "classified_last_odd": classified,
@@ -214,6 +287,7 @@ def generate_prefix(endpoint: int) -> dict:
         previous = last
     return {
         "canonical_base": {"target_even": 6, "L": 1}, "final_end": endpoint,
+        "same_factor_refinement": same_factor,
         "lower_bounds": bounds, "stages": stages,
         "minimum_lower_bound": min(bounds),
         "nonpositive_targets": [6 + 2 * i for i, value in enumerate(bounds) if value <= 0],
@@ -222,15 +296,18 @@ def generate_prefix(endpoint: int) -> dict:
         "lower_bounds_sha256": hashlib.sha256(
             ",".join(map(str, bounds)).encode("ascii")).hexdigest(),
         "seconds": perf_counter() - started,
-        "input_meaning": "canonical induction from L(6)=1 using only earlier output parity",
+        "input_meaning": ("canonical induction from L(6)=1 using earlier lower bounds and parity"
+                          if same_factor else
+                          "canonical induction from L(6)=1 using only earlier output parity"),
     }
 
 
-def canonical_experiment() -> dict:
+def canonical_experiment(*, same_factor: bool = False) -> dict:
     """Frozen same-range experiment; input generation is part of total cost."""
     started = perf_counter()
-    prefix = generate_prefix(20000)
-    result = parity_batch(prefix["lower_bounds"], 1002000, 1000)
+    prefix = generate_prefix(20000, same_factor=same_factor)
+    result = parity_batch(prefix["lower_bounds"], 1002000, 1000,
+                          same_factor=same_factor)
     result["method"] = "canonical parity-preserving lower-bound bootstrap"
     result["input_meaning"] = prefix["input_meaning"]
     result["prefix_summary"] = {key: value for key, value in prefix.items()
@@ -243,9 +320,10 @@ def canonical_experiment() -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check-controls", action="store_true")
+    parser.add_argument("--same-factor", action="store_true")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    result = canonical_experiment()
+    result = canonical_experiment(same_factor=args.same_factor)
     rows = {row["target_even"]: row for row in result.pop("rows")}
     # Read only the already-verified same-block baseline, outside production timing.
     baseline = json.loads(Path(__file__).with_name("evidence").joinpath(
@@ -262,6 +340,15 @@ def main() -> None:
                                 if n not in previous_failures],
         "scope": "same fixed block; single-run timings do not establish a speedup",
     }
+    if args.same_factor:
+        result["refinement_summary"] = {
+            "improved_targets": sum(row["same_factor_gain"] > 0 for row in rows.values()),
+            "maximum_gain_row": max(rows.values(), key=lambda row: row["same_factor_gain"]),
+            "total_gain": sum(row["same_factor_gain"] for row in rows.values()),
+            "new_certifications": [n for n, row in rows.items()
+                                   if row["base_L"] <= 0 and row["base_L"] % 2 == 0
+                                   and (row["L"] > 0 or row["L"] % 2)],
+        }
     if args.check_controls:
         from cubic_sieve import cubic_sieve_count
         from redistribution import sieve
@@ -274,8 +361,11 @@ def main() -> None:
             if flags[p]:
                 rough[p * p::2 * p] = b"\0" * len(range(p * p, high + 1, 2 * p))
         result["independent_controls"] = []
-        for target in sorted({result["first_even"], result["minimum_row"]["target_even"],
-                              result["last_even"]}):
+        control_targets = {result["first_even"], result["minimum_row"]["target_even"],
+                           result["last_even"]}
+        if args.same_factor:
+            control_targets.add(result["refinement_summary"]["maximum_gain_row"]["target_even"])
+        for target in sorted(control_targets):
             m = ac = 0
             for a in range(3, target - 2, 2):
                 if rough[a] and rough[target - a]:
@@ -285,7 +375,7 @@ def main() -> None:
             diagonal = int(bool(center % 2 and rough[center] and not flags[center]))
             row = rows[target]
             reference = cubic_sieve_count(target)
-            if (row["M"], row["AC"], row["composite_diagonal"], row["L"]) != (
+            if (row["M"], row["AC"], row["composite_diagonal"], row.get("base_L", row["L"])) != (
                     m, ac, diagonal, m - 2 * ac + diagonal):
                 raise RuntimeError(f"direct-array disagreement at {target}")
             if not row["L"] <= reference["union_bound_raw"] <= reference["result"]:

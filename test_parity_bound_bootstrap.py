@@ -95,8 +95,68 @@ class ParityBoundTests(unittest.TestCase):
                 patch("cubic_batch.recover_binary_flags", forbidden), \
                 patch("count_reconstruction.recover_binary_flags", forbidden):
             record = generate_prefix(2000)
+            refined = generate_prefix(2000, same_factor=True)
         self.assertEqual(record["final_end"], 2000)
         self.assertEqual(len(record["lower_bounds"]), 998)
+        self.assertEqual(refined["final_end"], 2000)
+
+    def test_refined_prefix_keeps_both_invariants_and_the_pointwise_ceiling(self):
+        base = generate_prefix(2000)["lower_bounds"]
+        refined = generate_prefix(2000, same_factor=True)["lower_bounds"]
+        flags = [trial_prime(n) for n in range(2001)]
+        improved = 0
+        for i, (lower, value) in enumerate(zip(base, refined)):
+            n = 6 + 2 * i
+            g = sum(flags[p] and flags[n - p] for p in range(3, n - 2, 2))
+            # Independent integer cube-root calculation, avoiding the producer.
+            z = 1
+            while (z + 1) ** 3 <= n - 3:
+                z += 1
+            with self.subTest(target=n):
+                self.assertLessEqual(lower, value)
+                self.assertLessEqual(value, g)
+                self.assertEqual(value % 2, flags[n // 2])
+                self.assertLessEqual(value - lower, n // (z + 1))
+                if n & (n - 1) == 0:
+                    self.assertEqual(value, lower)
+            improved += value > lower
+        self.assertGreater(improved, 0)
+        for n in (24, 90, 242, 338, 486, 512, 600, 1000):
+            self.assertLessEqual(refined[(n - 6) // 2],
+                                 cubic_sieve_count(n)["union_bound_raw"])
+
+    def test_refinement_uses_earlier_values_without_requiring_exact_counts(self):
+        prefix = generate_prefix(14)["lower_bounds"]
+        normal = parity_batch(prefix, 24, 1, same_factor=True)["rows"][0]
+        weaker = prefix.copy()
+        weaker[(8 - 6) // 2] -= 2  # Truthful lower value, unchanged prime parities.
+        lowered = parity_batch(weaker, 24, 1, same_factor=True)["rows"][0]
+        self.assertEqual(recover_parity_primes(prefix), recover_parity_primes(weaker))
+        self.assertEqual((normal["base_L"], normal["L"], lowered["L"]), (4, 6, 4))
+        negative = [value - 100000 for value in generate_prefix(200)["lower_bounds"]]
+        refined = parity_batch(negative, 220, 63, same_factor=True)
+        ordinary = parity_batch(negative, 220, 63)
+        self.assertEqual([row["L"] for row in refined["rows"]],
+                         [row["L"] for row in ordinary["rows"]])
+        diagonal = next(row for row in refined["rows"] if row["target_even"] == 242)
+        self.assertEqual(diagonal["composite_diagonal"], 1)
+        self.assertEqual(diagonal["same_factor_gain"], 0)
+        self.assertEqual(diagonal["M"] % 2, 1)
+        self.assertEqual(diagonal["L"] % 2, 0)  # 121 is composite: its bit cancels M's diagonal.
+
+    def test_refinement_checks_ranges_and_reports_only_earlier_dependencies(self):
+        for invalid in (1, None, "yes"):
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                generate_prefix(6, same_factor=invalid)
+            with self.subTest(invalid=invalid), self.assertRaises(ValueError):
+                parity_batch([1], 8, 2, same_factor=invalid)
+        with self.assertRaises(ValueError):
+            parity_batch([1], 18, 1, same_factor=True)
+        prefix = generate_prefix(200, same_factor=True)["lower_bounds"]
+        batch = parity_batch(prefix, 220, 63, same_factor=True)
+        self.assertLessEqual(batch["largest_correction_input"], 200)
+        self.assertGreater(batch["same_factor_terms"], 0)
+        self.assertIn("LOWER bounds", batch["input_meaning"])
 
 
 if __name__ == "__main__":
