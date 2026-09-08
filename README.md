@@ -108,6 +108,8 @@ blocks and calculation-based elimination of certified spans.
   implemented from the canonical base through three new1,000-target stages.
 - `notes/cubic-margin-structure.md`: the exact prime/semiprime meaning of
   the raw margin and the missing reflected-correlation bound.
+- `notes/subpower-presieve-obstruction.md`: why subpower first-stage cutoffs
+  eventually fail the raw-union certificate on powers of2.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -236,6 +238,18 @@ unconditionally O(N^(2/3)). Buchstab's one-variable rough-number theorem
 motivates a heuristic positive margin but does not control the reflected
 pair correlation. A finite labelled-set countermodel demonstrates why its
 favourable marginal prime fraction alone cannot prove the desired claim.
+
+A scaling obstruction now narrows the choice of first-stage cutoff. For
+N tending to infinity through powers of2 and any z>=2 with log(z)/log(N)->0,
+the raw bound R_z eventually becomes negative. The proof combines the
+combinatorial inequality R_z<=2Q_z-M_z with dimension-two and prime-supported
+dimension-one sieve estimates; the latter uses Bombieri-Vinogradov. It does
+not assume Goldbach. The cubic cutoff z=N^(1/3) is outside this obstruction.
+A frozen13-target comparison independently verifies the finite effect:
+N65536 at cutoff16 has raw-284 and actual ordered count870, while its cubic
+cutoff40 gives raw672. At N1048576 the logarithmic and cubic raw bounds are
+-13570 and6218, with actual count8478. The full73-test suite passes normally
+and under optimized Python. No negative raw bound is a Goldbach disproof.
 
 Next formulate a falsifiable surviving rule that uses more arithmetic
 information, and choose adversarial inputs against it. Fixed palettes,
