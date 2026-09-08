@@ -1,0 +1,82 @@
+[
+  {
+    "construction": "initial square",
+    "seconds": 0.000221,
+    "receipt": {
+      "method": "packed odd-prime square and simultaneous nonzero-digit test v1",
+      "first_even": 6,
+      "last_even": 2004,
+      "target_count": 1000,
+      "computed_last_even": 2004,
+      "capacity_even": 6004,
+      "digit_bits": 16,
+      "encoded_odd_prime_count": 302,
+      "prime_polynomial_sha256": "fbd5b5accf8eec4c7bc0a2fef8d6c77be1bd84444ad18c7b48ad0155be4c546e",
+      "certified_target_count": 1000,
+      "unresolved_targets": [],
+      "all_certified": true,
+      "scope": "exact finite collective certificate; no unbounded positivity or speed claim"
+    },
+    "fresh_replay_passed": true
+  },
+  {
+    "construction": "incremental square update",
+    "seconds": 0.00031,
+    "receipt": {
+      "method": "packed odd-prime square and simultaneous nonzero-digit test v1",
+      "first_even": 2006,
+      "last_even": 4004,
+      "target_count": 1000,
+      "computed_last_even": 4004,
+      "capacity_even": 6004,
+      "digit_bits": 16,
+      "encoded_odd_prime_count": 550,
+      "prime_polynomial_sha256": "8e664a6375f06a3c5cf9109cf6b331cf9a360e43ed08085129ca0049c97efdbb",
+      "certified_target_count": 1000,
+      "unresolved_targets": [],
+      "all_certified": true,
+      "scope": "exact finite collective certificate; no unbounded positivity or speed claim"
+    },
+    "fresh_replay_passed": true
+  },
+  {
+    "construction": "second incremental square update",
+    "seconds": 0.000433,
+    "receipt": {
+      "method": "packed odd-prime square and simultaneous nonzero-digit test v1",
+      "first_even": 4006,
+      "last_even": 6004,
+      "target_count": 1000,
+      "computed_last_even": 6004,
+      "capacity_even": 6004,
+      "digit_bits": 16,
+      "encoded_odd_prime_count": 782,
+      "prime_polynomial_sha256": "4147f53a1614de5110296cabdc85f6002f73232b6054894abb9d6f0a62d3a029",
+      "certified_target_count": 1000,
+      "unresolved_targets": [],
+      "all_certified": true,
+      "scope": "exact finite collective certificate; no unbounded positivity or speed claim"
+    },
+    "fresh_replay_passed": true
+  },
+  {
+    "construction": "separate large square",
+    "seconds": 3.181758,
+    "receipt": {
+      "method": "packed odd-prime square and simultaneous nonzero-digit test v1",
+      "first_even": 1000000,
+      "last_even": 1001998,
+      "target_count": 1000,
+      "computed_last_even": 1001998,
+      "capacity_even": 1001998,
+      "digit_bits": 24,
+      "encoded_odd_prime_count": 78649,
+      "prime_polynomial_sha256": "576e3f3646dbfa2d3b4795ed931b804c746f647eadfef84c926822806999caac",
+      "certified_target_count": 1000,
+      "unresolved_targets": [],
+      "all_certified": true,
+      "scope": "exact finite collective certificate; no unbounded positivity or speed claim"
+    },
+    "fresh_replay_passed": true
+  }
+]

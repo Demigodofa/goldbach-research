@@ -94,6 +94,8 @@ blocks and calculation-based elimination of certified spans.
   and a measured explanation of why their worst-case errors do not finish it.
 - `notes/exceptional-set-scope.md`: why selected almost-all and interval
   hitting theorems do not identify a whole block as certified.
+- `notes/packed-block-certificate.md`: a proved integer-square and simultaneous
+  nonzero-digit Z, with finite reuse into successive1,000-target blocks.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -158,11 +160,18 @@ Selected exceptional-set and interval-hitting theorems were also checked:
 they bound unnamed exceptions or guarantee one member, and do not certify
 every target in a named block.
 
-Next investigate an exact collective certificate: encode the odd-prime
-polynomial in carry-free integer digits, square it to obtain many Goldbach
-counts at once, and use a sentinel subtraction to test all1,000 counts for
-positivity together. Its mathematical review is pending. This is a possible
-finite batch mechanism, not a proposed unbounded positivity proof. The
-analytic task still requires tighter proved error or correlation information.
+The collective certificate is now proved and implemented: encode the
+odd-prime polynomial in carry-free digits, square it, then use a borrow-free
+sentinel subtraction to test all1,000 counts together. Three successive
+blocks6..6004 reuse prior square output and all pass; a separate block
+1,000,000..1,001,998 also passes. Every receipt replays exactly. This is a
+finite batch mechanism, not an unbounded positivity proof.
+
+Next adapt the product to a small-prime palette and a short prime segment
+near a distant target, using relative exponents so the packed integer need
+not span the whole number line. Terra owns only segmented_packed.py and
+test_segmented_packed.py; this lane is in progress. Sol reviews the root's
+packed_goldbach.py implementation. The analytic task still requires tighter
+proved error or correlation information.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.
