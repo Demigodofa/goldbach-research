@@ -141,10 +141,11 @@ prime-input theorem. The signed major-arc model with a pointwise error bound
 has since been established in major_arc_kernel.py; read its correction to
 the source's squarefree-supported majorant before applying that model.
 Its ordinary pair-error bounds are proved in radical_majorant_correlation.py.
-Replacement by a nonnegative rough-number model and convolution errors
-relative to possibly suppressed main terms remain open. These lemmas and
-finite tests do not prove a power-saving exceptional set for canonical L or
-new pointwise Goldbach coverage, including powers of two.
+The remaining signed-model margins and actual-prime comparison have since
+been checked in signed_pair_main_term.py and prime_pair_transfer.py. Their
+composition proves a power-saving exceptional set for canonical L. These
+individual lemmas alone do not certify a named uncomputed target, including
+a power of two; universal coverage and a numerical onset remain open.
 """
 from fractions import Fraction
 

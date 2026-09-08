@@ -207,3 +207,23 @@ Fourier transfer and conversion to canonical L remain open. The next bounded
 mathematical job is the prime-side Fourier transfer and the pair residual
 relative to the now checked suppressed margin. The overall goal stays active;
 the old native 9am wording remains superseded.
+
+The prime-side transfer and dyadic composition are now proved and checked
+by Sol in `prime_pair_transfer.py`. They give a power-saving exceptional
+set for the ACTUAL canonical bound: for every sufficiently small fixed
+delta>0, L(N)>0 for all but O_delta(X^(1-delta/8)) even N in [X,2X], for
+sufficiently large X. The proof reuses the same R, character alternative,
+and kernels on disjoint dyadic intervals, controls the pair residual
+relative to the linear suppressed margin, and converts the weighted
+comparison back to integer counts. Each canonical composite is already
+a semiprime inside a single fixed larger semiprime set; the removed end
+segments contain too few positions to erase the margin. Four finite tests
+passed normally and with Python -O, including cross-interval pairs and
+the direction of the weight conversion. The pursuit returned
+`changed-under-evidence`. This improves the exceptional-set size for L>0;
+it does not give the earlier half-main-term lower bound outside that smaller
+set, eliminate all exceptional targets, supply a numerical exponent/onset,
+or certify an uncomputed named interval. The next mathematical gap is
+coverage or further arithmetic restriction of the remaining exception
+family. No historical-priority search or wake queue was used. Overall
+Goldbach coverage remains unresolved and the goal stays active.

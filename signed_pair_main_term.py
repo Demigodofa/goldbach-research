@@ -147,11 +147,12 @@ e<=O(d**(-1)*exp(-c/d)). If the exceptional conductor exceeds R**2, the
 existing Fourier model omits Xi altogether; use the principal main term
 while retaining this exceptional error bound.
 
-Unclosed steps: a checked Fourier transfer for the actual PRIME weight
-with the same normalization/support, its remaining Fourier pair residual
-relative to suppression, and conversion of the bulk weighted comparison
-to canonical L. These results do not prove positivity of L, a power-saving
-exceptional set for L, or any new Goldbach coverage.
+The actual-prime Fourier transfer, relative pair residual, and conversion
+to canonical L have since been checked in prime_pair_transfer.py. Dyadic
+composition there proves L>0 outside a power-saving exceptional set.
+The signed model statements here alone do not prove that conclusion, and
+neither result eliminates every exceptional target or supplies a numerical
+starting threshold.
 """
 from fractions import Fraction
 from math import gcd, isqrt, lcm

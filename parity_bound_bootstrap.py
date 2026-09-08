@@ -25,6 +25,14 @@ Consequently L(N)>=M(N)/2>0 eventually outside that exceptional set.
 The threshold and constants are not numerical; this does not certify an
 uncomputed finite interval or show the exceptional set is empty.
 
+A stronger exceptional-SIZE guarantee is now checked in
+prime_pair_transfer.py: for some fixed epsilon>0, L(N)>0 for all but
+O(X**(1-epsilon)) even N in [X,2X], for sufficiently large X. More precisely
+epsilon=delta/8 for any sufficiently small fixed positive delta. This does
+not upgrade the half-main-term lower bound above to that smaller exceptional
+set. The exponent and starting threshold are not numerical, and individual
+remaining targets are not certified by an almost-all count.
+
 Proof dependencies and argument, retained with the bound they concern:
 1. Put Y=2X and z=floor(cuberoot(X-3)). Let C0 contain the composites <=Y
    with least prime factor >z, S its semiprimes, and T=C0 minus S. For

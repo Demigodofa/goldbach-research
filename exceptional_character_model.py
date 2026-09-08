@@ -57,8 +57,10 @@ The actual rough-semiprime character mean, its bulk normalization, and a
 minor-arc estimate have since been proved in `rough_semiprime_character.py`.
 A signed Fourier model with a corrected pointwise majorant is now proved
 in `major_arc_kernel.py`; `radical_majorant_correlation.py` now controls its
-ordinary additive pair errors. The nonnegative model replacement and the
-final positive prime/semiprime comparison remain open.
+ordinary additive pair errors. The signed main terms and their transfer
+to canonical L are now checked in signed_pair_main_term.py and
+prime_pair_transfer.py, giving a power-saving exceptional set for L>0.
+The finite lemma here still does not by itself prove actual prime coverage.
 """
 from fractions import Fraction
 

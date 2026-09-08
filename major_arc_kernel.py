@@ -90,8 +90,11 @@ Proof:
 This closes a signed Heath--Brown Fourier model with a corrected pointwise
 error majorant. Its mean, second moment, additive correlation, and resulting
 signed pair-error bounds are now proved in radical_majorant_correlation.py.
-Replacement by a nonnegative rough-number model and the final positive
-prime/semiprime comparison remain open. No new Goldbach coverage is established.
+The signed main terms and actual-prime transfer are now checked in
+signed_pair_main_term.py and prime_pair_transfer.py. Their dyadic composition
+proves a power-saving exceptional set for positivity of canonical L directly.
+A nonnegative-model replacement is not needed for that result. Universal
+coverage and a numerical onset remain open.
 Source equations and prerequisites:
 https://arxiv.org/html/2508.16400v2#S4 (Definitions 4.5,4.9; Lemmas 4.6,4.10;
 the squarefree Euler-product argument in the proof of Lemma 4.11).
