@@ -1,0 +1,78 @@
+{
+  "method": "cubic raw block bound from an earlier ordered count prefix",
+  "first_even": 1002000,
+  "last_even": 1003998,
+  "target_count": 1000,
+  "cubic_cutoff": 100,
+  "input_prefix_end": 10000,
+  "input_counts_sha256": "67394c71dd30b98079c49994c92096995cf758d4ce6f57824a8fe37e5a9b761c",
+  "recovered_last_odd": 9997,
+  "required_factor_limit": 9939,
+  "required_correction_limit": 9940,
+  "largest_correction_input": 9940,
+  "same_factor_terms": 350,
+  "digit_bytes": 3,
+  "survivor_arguments": 121264,
+  "composite_arguments": 42462,
+  "minimum_row": {
+    "target_even": 1002172,
+    "M": 19246,
+    "AC": 6849,
+    "same_factor": 0,
+    "S1": 13698,
+    "raw": 5548
+  },
+  "nonpositive_targets": [],
+  "seconds": {
+    "recovery": 0.8569988999515772,
+    "construction": 0.024463400011882186,
+    "convolution": 11.591201100032777,
+    "corrections": 0.001704599941149354,
+    "pipeline_total": 12.489004599978216,
+    "input_generation": 0.006849199999123812,
+    "complete_total": 12.496421199990436,
+    "independent_validation": 2.598418099922128
+  },
+  "input_meaning": "canonical count_bootstrap chain from G(6)=1",
+  "scope": "finite raw lower bounds, not exact counts usable as the next bootstrap prefix; no unbounded positivity or speed claim",
+  "stage_ends": [
+    26,
+    626,
+    10000
+  ],
+  "independent_controls": [
+    {
+      "target_even": 1002000,
+      "M": 51564,
+      "AC": 18045,
+      "same_factor": 332,
+      "S1": 35758,
+      "raw": 15806,
+      "reference_G": 21858,
+      "reference_S2": 6052,
+      "reference_seconds": 0.891
+    },
+    {
+      "target_even": 1002172,
+      "M": 19246,
+      "AC": 6849,
+      "same_factor": 0,
+      "S1": 13698,
+      "raw": 5548,
+      "reference_G": 7964,
+      "reference_S2": 2416,
+      "reference_seconds": 0.828
+    },
+    {
+      "target_even": 1003998,
+      "M": 41012,
+      "AC": 14352,
+      "same_factor": 0,
+      "S1": 28704,
+      "raw": 12308,
+      "reference_G": 17128,
+      "reference_S2": 4820,
+      "reference_seconds": 0.875
+    }
+  ]
+}
