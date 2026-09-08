@@ -155,16 +155,28 @@ def residue_count(residue: int, modulus: int, lo: int, hi: int) -> int:
 
 def count_target(target: int,p: int | None=None,max_degree: int | None=None,
                  stop_when_positive: bool=True,bound_strategy: str="basic",
-                 cap_strategy: str="product") -> dict:
+                 cap_strategy: str="product",candidate_clip: tuple[int,int] | None=None) -> dict:
     started=time.monotonic()
     window=candidate_window(target,p,cap_strategy)
     primes=window["odd_wheel_primes"]
     lo,hi=window["first_odd"],window["last_odd"]
+    clip_metadata=None
+    if candidate_clip is not None:
+        if (not isinstance(candidate_clip,tuple) or len(candidate_clip)!=2 or
+                any(type(endpoint) is not int for endpoint in candidate_clip)):
+            raise ValueError("candidate clip must be an ordered pair of exact integers")
+        clip_lo,clip_hi=candidate_clip
+        if clip_lo%2==0 or clip_hi%2==0 or clip_lo>clip_hi:
+            raise ValueError("candidate clip endpoints must be ordered odd integers")
+        if clip_lo<lo or clip_hi>hi:
+            raise ValueError("candidate clip must lie wholly inside the prime-safe window")
+        lo,hi=clip_lo,clip_hi
+        clip_metadata={"first_odd":lo,"last_odd":hi,"candidate_count":(hi-lo)//2+1}
     cap=window["multiplicity_cap"]
     limit=cap if max_degree is None else min(cap,max_degree)
     if type(limit) is not int or limit<0:
         raise ValueError("nonnegative maximum degree required")
-    moments=[window["candidate_count"]]
+    moments=[max(0,(hi-lo)//2+1)]
     stages=[]
     evaluations=0
     nodes=[(-1,2,(1,))] if moments[0] else []
@@ -206,7 +218,7 @@ def count_target(target: int,p: int | None=None,max_degree: int | None=None,
         stages.append(stage)
         if (stage["lower"]>0 and stop_when_positive) or not nodes:
             break
-    return {"target_even":target,"window":window,"stages":stages,
+    return {"target_even":target,"window":window,"candidate_clip":clip_metadata,"stages":stages,
             "bound_strategy":bound_strategy,
             "status":"certified" if stages[-1]["lower"]>0 else "unresolved_by_window",
             "survivor_lower":stages[-1]["lower"],
@@ -214,6 +226,69 @@ def count_target(target: int,p: int | None=None,max_degree: int | None=None,
             "CRT_floor_evaluations":evaluations,
             "seconds":round(time.monotonic()-started,6),
             "scope":"finite prime-safe window; missing small-prime pairs are not counterexamples"}
+
+
+def partition_target(target: int,parts: int,max_degree: int=4,p: int | None=None,
+                     bound_strategy: str="basic",cap_strategy: str="product") -> dict:
+    """Split one prime-safe window into adjacent location-only count certificates."""
+    if type(parts) is not int or parts<1:
+        raise ValueError("parts must be a positive integer")
+    if type(max_degree) is not int or max_degree<0:
+        raise ValueError("max degree must be a nonnegative integer")
+    started=time.monotonic()
+    global_window=candidate_window(target,p,cap_strategy)
+    total=global_window["candidate_count"]
+    if not total:
+        raise ValueError("cannot partition an empty candidate window")
+    actual_parts=min(parts,total)
+    quotient,remainder=divmod(total,actual_parts)
+    baseline=count_target(target,p,max_degree,False,bound_strategy,cap_strategy)
+    expected_degree=baseline["stages"][-1]["degree"]
+    offset=0
+    rows=[]
+    for index in range(actual_parts):
+        width=quotient+(1 if index<remainder else 0)
+        first=global_window["first_odd"]+2*offset
+        last=first+2*(width-1)
+        result=count_target(target,p,max_degree,False,bound_strategy,cap_strategy,(first,last))
+        stage=result["stages"][-1]
+        observed_degree=stage["degree"]
+        exact_closure=stage["retained_nonempty_intersections"]==0
+        moments=[s["intersection_sum"] for s in result["stages"]]
+        if observed_degree<expected_degree:
+            # A local empty layer proves every higher intersection moment is zero.
+            if not exact_closure:
+                raise ValueError("partition stopped before fixed degree without exact closure")
+            moments.extend([0]*(expected_degree-observed_degree))
+        elif observed_degree!=expected_degree:
+            raise ValueError("partition degree exceeds global fixed-degree baseline")
+        rows.append({"part":index,"first_odd":first,"last_odd":last,
+                     "candidate_count":width,"moments":moments,
+                     "observed_stopping_degree":observed_degree,"exact_closure":exact_closure,
+                     "lower":result["survivor_lower"],"upper":result["survivor_upper"],
+                     "CRT_floor_evaluations":result["CRT_floor_evaluations"],
+                     "seconds":result["seconds"]})
+        offset+=width
+    if (offset!=total or rows[0]["first_odd"]!=global_window["first_odd"] or
+            rows[-1]["last_odd"]!=global_window["last_odd"] or
+            any(rows[index]["last_odd"]+2!=rows[index+1]["first_odd"]
+                for index in range(len(rows)-1))):
+        raise ValueError("partition does not exactly cover the candidate window")
+    return {"method":"partitioned exact exclusion moments",
+            "target_even":target,"requested_parts":parts,"parts":actual_parts,
+            "max_degree":max_degree,"fixed_degree":expected_degree,
+            "bound_strategy":bound_strategy,"cap_strategy":cap_strategy,
+            "window":global_window,"global_fixed_degree_baseline":{
+                "lower":baseline["survivor_lower"],"upper":baseline["survivor_upper"],
+                "moments":[stage["intersection_sum"] for stage in baseline["stages"]],
+                "CRT_floor_evaluations":baseline["CRT_floor_evaluations"],
+                "seconds":baseline["seconds"]},
+            "part_rows":rows,
+            "sum_lower":sum(row["lower"] for row in rows),
+            "sum_upper":sum(row["upper"] for row in rows),
+            "aggregate_CRT_floor_evaluations":sum(row["CRT_floor_evaluations"] for row in rows),
+            "seconds":round(time.monotonic()-started,6),
+            "scope":"finite location-only partition; no uniform theorem or speedup claim"}
 
 
 def block_experiment(first: int,count: int,bound_strategy: str="basic",

@@ -86,6 +86,10 @@ blocks and calculation-based elimination of certified spans.
 - `notes/paired-wheel-intervals.md`: gap-based Z and its stacking inequality.
 - `notes/exclusion-moment-certificates.md`: staged CRT counts, sharper
   polynomial bounds, and exact information-loss examples.
+- `notes/location-and-parity.md`: partition improvement and general truncated
+  intersection countermodels.
+- `notes/cubic-three-stage-identity.md`: a proved fixed-stage exact count,
+  with the remaining uniform positivity requirement stated separately.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -114,11 +118,30 @@ also admit an explicit integer zero-survivor countermodel. The actual window
 has88 prime pairs; degree5 proves at least67. This refutes the fixed-degree
 interface while preserving the moment machinery.
 
-Next bounded action: partition that same candidate-summand window, retaining
-location instead of only global aggregate moments. Test whether separate
-low-degree bounds rescue4412 without increasing moment degree; compare the
-same total window and arithmetic work. This is a new information interface,
-not another blind extension of the fixed-degree scan. Do not infer a universal
-Goldbach rule from the finite results.
+Keeping eight disjoint candidate windows rescues4412 at the same degree4,
+with a total lower bound4 ordered survivors. It costs more arithmetic. The
+proved partition inequality explains why retaining location can strengthen
+the bounds; an abstract parity construction shows why fixed truncated event
+data alone cannot generally decide survivor existence.
+
+A subsequent cube-root presieve yields a stronger structural reduction: every
+remaining composite argument is semiprime and meets exactly one residual
+square-start event. Hence every candidate meets at most two residual events,
+and `G(N)=M-S1+S2` is an exact ordered Goldbach-count identity for every even
+N>=6, with G(4)=1 separate. This is a proved counting identity, not a proof
+that its value is always positive. The first stage must retain survivor
+locations, and its prime inputs grow with N. Full counts through2002 and
+representative targets through1,000,000 match independent prime sieves.
+Thirty-five tests pass normally and under optimized Python.
+
+The bounded raw-margin search completed2004 through20,000 with no failure.
+Together with the first block, `M-S1>0` is checked for all evens4 through20,000;
+this is a finite observation only. Its receipt is
+`evidence/cubic-union-bound-scan-20000.json`. No shell job remains running.
+
+Next derive certified count/error bounds for M and S1, starting with a central
+window where the small-prime square thresholds are automatically satisfied.
+Compare the rigorous error budget with the needed positive margin. Do not infer
+a uniform result from average densities or extend the finite scan blindly.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.

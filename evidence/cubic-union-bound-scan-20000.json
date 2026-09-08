@@ -1,0 +1,51 @@
+{
+  "hypothesis": "cube-root-presieve raw union margin M-S1 is positive for every even target",
+  "first_even": 2004,
+  "intended_last_even": 20000,
+  "checked": 8999,
+  "first_nonpositive_margin": null,
+  "smallest_relative_margin": {
+    "method": "finite cubic-cutoff exact sieve",
+    "target_even": 4856,
+    "candidate_order": "ordered a=3,5,...,N-3; i=(a-3)//2; reflected index=M-1-i",
+    "M_slots": 2426,
+    "H": 4853,
+    "cubic_cutoff": 16,
+    "sqrt_cutoff": 69,
+    "pre_sieve_primes": [
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "residual_primes": [
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61,
+      67
+    ],
+    "pre_sieve_event_count": 5,
+    "residual_event_count": 13,
+    "base_slots": 250,
+    "M_after_pre_sieve": 250,
+    "S1": 168,
+    "S2": 24,
+    "union_bound_raw": 82,
+    "result": 106,
+    "intersecting_residual_event_pairs": 12,
+    "seconds": 0.0,
+    "scope": "exact finite count; no universal positivity inference"
+  },
+  "seconds": 27.687,
+  "scope": "finite falsifier search; no unbounded inequality inferred"
+}

@@ -1,0 +1,229 @@
+{
+  "method": "partitioned exact exclusion moments",
+  "target_even": 4412,
+  "requested_parts": 8,
+  "parts": 8,
+  "max_degree": 4,
+  "fixed_degree": 4,
+  "bound_strategy": "root_family",
+  "cap_strategy": "split",
+  "window": {
+    "first_odd": 63,
+    "last_odd": 4349,
+    "candidate_count": 2144,
+    "last_wheel_prime": 61,
+    "next_prime": 67,
+    "odd_wheel_primes": [
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47,
+      53,
+      59,
+      61
+    ],
+    "multiplicity_cap": 7,
+    "product_multiplicity_cap": 7,
+    "cap_strategy": "split"
+  },
+  "global_fixed_degree_baseline": {
+    "lower": 0,
+    "upper": 314,
+    "moments": [
+      2144,
+      5204,
+      5490,
+      3314,
+      1198
+    ],
+    "CRT_floor_evaluations": 25918,
+    "seconds": 0.015
+  },
+  "part_rows": [
+    {
+      "part": 0,
+      "first_odd": 63,
+      "last_odd": 597,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        651,
+        689,
+        423,
+        156
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 39,
+      "CRT_floor_evaluations": 10468,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 10
+    },
+    {
+      "part": 1,
+      "first_odd": 599,
+      "last_odd": 1133,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        651,
+        687,
+        403,
+        136
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 2,
+      "upper": 37,
+      "CRT_floor_evaluations": 10076,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 13
+    },
+    {
+      "part": 2,
+      "first_odd": 1135,
+      "last_odd": 1669,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        650,
+        684,
+        404,
+        134
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 32,
+      "CRT_floor_evaluations": 10090,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 10
+    },
+    {
+      "part": 3,
+      "first_odd": 1671,
+      "last_odd": 2205,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        650,
+        685,
+        427,
+        173
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 49,
+      "CRT_floor_evaluations": 10236,
+      "seconds": 0.016,
+      "independent_prime_pair_count": 11
+    },
+    {
+      "part": 4,
+      "first_odd": 2207,
+      "last_odd": 2741,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        650,
+        685,
+        427,
+        173
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 49,
+      "CRT_floor_evaluations": 10236,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 11
+    },
+    {
+      "part": 5,
+      "first_odd": 2743,
+      "last_odd": 3277,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        650,
+        684,
+        404,
+        134
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 32,
+      "CRT_floor_evaluations": 10090,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 10
+    },
+    {
+      "part": 6,
+      "first_odd": 3279,
+      "last_odd": 3813,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        651,
+        687,
+        403,
+        136
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 2,
+      "upper": 37,
+      "CRT_floor_evaluations": 10076,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 13
+    },
+    {
+      "part": 7,
+      "first_odd": 3815,
+      "last_odd": 4349,
+      "candidate_count": 268,
+      "moments": [
+        268,
+        651,
+        689,
+        423,
+        156
+      ],
+      "observed_stopping_degree": 4,
+      "exact_closure": false,
+      "lower": 0,
+      "upper": 39,
+      "CRT_floor_evaluations": 10468,
+      "seconds": 0.0,
+      "independent_prime_pair_count": 10
+    }
+  ],
+  "sum_lower": 4,
+  "sum_upper": 314,
+  "aggregate_CRT_floor_evaluations": 81740,
+  "seconds": 0.031,
+  "scope": "finite location-only partition; no uniform theorem or speedup claim",
+  "validation": {
+    "additive_moments": [
+      2144,
+      5204,
+      5490,
+      3314,
+      1198
+    ],
+    "actual_ordered_prime_pairs": 88
+  }
+}

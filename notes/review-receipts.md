@@ -110,3 +110,30 @@ with exact prime-pair counts from a separate sieve. The CRT moment sequence
 through N=1000 also matches direct divisor-membership counting. Twenty-four
 tests pass under ordinary and optimized Python after integration, covering the
 earlier block verifiers as well as the new moment and ambiguity methods.
+
+## Location partitions and cubic reduction
+
+Sol independently proved the partition optimization inequality, including
+integer rounding and cap compatibility. It also checked the parity-split
+abstract systems: they share all individually named intersections through a
+fixed degree while differing in survivor existence. These results concern
+the retained information, not an impossibility theorem for arithmetic methods.
+
+Terra implemented exact candidate clips and partitions. Rill found a valid
+early-empty-intersection case rejected by the first version; Terra corrected
+it by padding only mathematically proved zero moments and added a targeted
+regression. The eight N=4412 local vectors add to the original global vector,
+and each local lower/upper bound contains independently counted prime pairs.
+
+Sol then independently checked the cubic presieve identity: small-prime
+composite removal preserves primes; remaining composites have two prime
+factors; square-start residual events detect exactly the least factor; each
+candidate therefore meets at most two residual events. The ordered identity
+M-S1+S2 is exact for every even N>=6, with a separate4 case. It does not
+establish a positive value for every N.
+
+Rill inspected the implementation and matched all1,000 complete counts from4
+through2002 plus six representative targets through1,000,000 against separate
+prime sieves. Thirty-five tests pass under ordinary and optimized Python after
+integration. Exact integer cube-root boundary tests avoid a floating-cutoff
+error. Full-count scope is distinguished from earlier restricted windows.
