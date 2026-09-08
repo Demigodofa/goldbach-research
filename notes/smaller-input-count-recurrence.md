@@ -2,8 +2,8 @@
 
 Owner: Kevin's Goldbach investigation. Purpose: determine whether the cubic
 formula's residual terms can use smaller, previously computed results.
-This is a proved algebraic reduction; an executable reconstruction experiment
-has not yet been added.
+This is a proved algebraic reduction with a checked finite reconstruction
+implementation. The full residual-count recurrence has not been implemented.
 
 ## Corrected information boundary
 
@@ -95,3 +95,19 @@ smaller inputs for a finite computation, not an induction proving Goldbach.
 The corrected route should retain exact count output when reconstruction
 or weighted residual correlations are needed. It must not repeat the rejected
 claim that an entire exact count prefix loses the prime-indicator information.
+
+## Executable reconstruction and semantic limit
+
+`count_reconstruction.py` implements recover_binary_flags and a formal
+convolution-prefix helper. The decoder uses no primality oracle. It rejects
+noninteger or negative counts, G(6) other than1, odd recovery numerators,
+and recovered values outside{0,1}.
+
+Five tests generate actual ordered counts for the1,000 evens6 through2004
+by independent trial primality and recover the prime flags for odds3 through
+2001 exactly. They also exercise malformed inputs and show two information
+boundaries: distinct exact count prefixes can have the same positivity
+booleans; a toy binary sequence marking9 as present can pass the algebra
+without being a prime indicator sequence. Thus successful reconstruction
+certifies binary square-root consistency. Its primality meaning requires
+the premise that the supplied counts really are Goldbach counts.

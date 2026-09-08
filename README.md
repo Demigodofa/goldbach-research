@@ -102,6 +102,8 @@ blocks and calculation-based elimination of certified spans.
   fixed logarithmic palette, with a checked finite stress interval.
 - `notes/smaller-input-count-recurrence.md`: corrected exact-count inversion
   and the smaller prime inputs required by residual correlations.
+- `notes/fixed-distance-nine-obstruction.md`: an infinite representable
+  stress family with fixed nearby-prime distance and unbounded minimum addend.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -186,16 +188,39 @@ checked gap492113..492227 defeats cap100 on all seven evens492214..492226,
 and every one has an independently verified larger-prime pair. This defeats
 the narrower palette rules, not Goldbach.
 
-The smaller-input recurrence correction is also preserved: the entire exact
-prior Goldbach-count sequence can recover prime indicators by a formal
-square-root recurrence; individual counts or positivity flags cannot replace
-that information. No reconstruction experiment has yet been implemented.
+The count-prefix reconstruction is now implemented: exact counts for all
+1,000 evens6..2004 recover the prime flags3..2001. Its five tests also prove
+the semantic limit: algebraically consistent binary inputs are not themselves
+primality evidence, and positivity booleans discard needed information.
 
-Next formulate a falsifiable surviving rule and choose adversarial inputs
-against it, using the proven prime-gap and CRT stress mechanisms. Do not
-retest fixed or fixed-logarithmic palettes as candidate universal guarantees.
-An executable count-prefix reconstruction is a distinct available task if
-testing what information successive stages must retain. No uniform positivity
-argument or Goldbach counterexample has been found. No shell job is running.
+A stronger stress theorem is now proved. For every fixed K, infinitely many
+Goldbach-representable targets have preceding-prime distance exactly9 but
+minimum addend>K. CRT supplies a reduced prime progression, fixed-modulus
+PNT counts it, and the Goldbach exceptional-set bound is too small to cover
+it. K and the modulus must stay fixed before the asymptotic limit. Explicit
+targets4,304,318 and1,420,043,880,008 have minimum addends127 and277 respectively,
+despite distance9 in each case. Their receipts include exact prime checks
+and proper divisors for all smaller candidate complements.
+
+A frozen adversarial comparison tested whether large minimum addends select
+weak normalized cubic margins `(M-S1)/M`. Stress targets492218,492224,4304318
+were each compared with four controls at offsets +/-210 and +/-420, keeping
+the residue modulo210. Their ascending ranks were3,2,5 out of5; only one was
+below its control median. Thus this small descriptive comparison does not
+support using the minimum addend alone to select weak raw margins. All15
+exact counts matched an independent monolithic prime sieve. The receipt is
+`evidence/raw-margin-adversarial-comparison.json`; this is not a statistical
+significance or universal-selector claim. The complete62-test suite passes
+normally and under optimized Python, and independent Sol review found no
+material issue in the count reconstruction or fixed-distance construction.
+
+Next formulate a falsifiable surviving rule that uses more arithmetic
+information, and choose adversarial inputs against it. Fixed palettes,
+fixed-constant logarithmic palettes, and bounds depending only on distance
+to the preceding prime have been ruled out as universal guarantees. The
+exact cubic count identity survives; its uniform positive lower bound is
+still unproved. No Goldbach counterexample has been found. No shell job is
+running. The full residual recurrence remains a possible computational task,
+but it must not be confused with positivity induction.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.

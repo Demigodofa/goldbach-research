@@ -1,0 +1,678 @@
+[
+  {
+    "pattern": {
+      "palette_cap": 17,
+      "blocked_odd_primes": [
+        3,
+        5,
+        7,
+        11,
+        13,
+        17
+      ],
+      "distance_to_preceding_prime": 9,
+      "constraints": [
+        {
+          "offset": -8,
+          "prime_divisor": 3
+        },
+        {
+          "offset": -4,
+          "prime_divisor": 5
+        },
+        {
+          "offset": -2,
+          "prime_divisor": 7
+        },
+        {
+          "offset": 2,
+          "prime_divisor": 11
+        },
+        {
+          "offset": 4,
+          "prime_divisor": 13
+        },
+        {
+          "offset": 6,
+          "prime_divisor": 17
+        },
+        {
+          "offset": 8,
+          "prime_divisor": 19
+        }
+      ],
+      "q_residue": 4304309,
+      "modulus": 9699690,
+      "minimum_q": 18,
+      "residue_coprime_to_modulus": true
+    },
+    "prime_search_candidates_tested": 1,
+    "witness": {
+      "target_even": 4304318,
+      "preceding_prime": 4304309,
+      "distance_to_preceding_prime": 9,
+      "blocked_palette_cap": 17,
+      "proper_composite_witnesses": [
+        {
+          "integer": 4304301,
+          "proper_prime_divisor": 3,
+          "offset_from_q": -8
+        },
+        {
+          "integer": 4304305,
+          "proper_prime_divisor": 5,
+          "offset_from_q": -4
+        },
+        {
+          "integer": 4304307,
+          "proper_prime_divisor": 7,
+          "offset_from_q": -2
+        },
+        {
+          "integer": 4304311,
+          "proper_prime_divisor": 11,
+          "offset_from_q": 2
+        },
+        {
+          "integer": 4304313,
+          "proper_prime_divisor": 13,
+          "offset_from_q": 4
+        },
+        {
+          "integer": 4304315,
+          "proper_prime_divisor": 17,
+          "offset_from_q": 6
+        },
+        {
+          "integer": 4304317,
+          "proper_prime_divisor": 19,
+          "offset_from_q": 8
+        }
+      ],
+      "verified_goldbach_pair": [
+        127,
+        4304191
+      ],
+      "scope": "finite palette counterexample; Goldbach represented only if verified pair supplied"
+    },
+    "actual_minimum_prime_addend": 127,
+    "all_smaller_prime_addend_composite_witnesses": [
+      {
+        "prime_addend": 2,
+        "complement": 4304316,
+        "proper_divisor": 2
+      },
+      {
+        "prime_addend": 3,
+        "complement": 4304315,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 5,
+        "complement": 4304313,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 7,
+        "complement": 4304311,
+        "proper_divisor": 11
+      },
+      {
+        "prime_addend": 11,
+        "complement": 4304307,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 13,
+        "complement": 4304305,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 17,
+        "complement": 4304301,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 19,
+        "complement": 4304299,
+        "proper_divisor": 73
+      },
+      {
+        "prime_addend": 23,
+        "complement": 4304295,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 29,
+        "complement": 4304289,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 31,
+        "complement": 4304287,
+        "proper_divisor": 13
+      },
+      {
+        "prime_addend": 37,
+        "complement": 4304281,
+        "proper_divisor": 17
+      },
+      {
+        "prime_addend": 41,
+        "complement": 4304277,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 43,
+        "complement": 4304275,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 47,
+        "complement": 4304271,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 53,
+        "complement": 4304265,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 59,
+        "complement": 4304259,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 61,
+        "complement": 4304257,
+        "proper_divisor": 31
+      },
+      {
+        "prime_addend": 67,
+        "complement": 4304251,
+        "proper_divisor": 7
+      },
+      {
+        "prime_addend": 71,
+        "complement": 4304247,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 73,
+        "complement": 4304245,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 79,
+        "complement": 4304239,
+        "proper_divisor": 691
+      },
+      {
+        "prime_addend": 83,
+        "complement": 4304235,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 89,
+        "complement": 4304229,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 97,
+        "complement": 4304221,
+        "proper_divisor": 41
+      },
+      {
+        "prime_addend": 101,
+        "complement": 4304217,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 103,
+        "complement": 4304215,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 107,
+        "complement": 4304211,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 109,
+        "complement": 4304209,
+        "proper_divisor": 7
+      },
+      {
+        "prime_addend": 113,
+        "complement": 4304205,
+        "proper_divisor": 3
+      }
+    ],
+    "q_trial_division_limit": 2074,
+    "pair_complement_trial_division_limit": 2074,
+    "scope": "explicit representable target with preceding-prime distance9 and a larger required addend"
+  },
+  {
+    "pattern": {
+      "palette_cap": 29,
+      "blocked_odd_primes": [
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "distance_to_preceding_prime": 9,
+      "constraints": [
+        {
+          "offset": -20,
+          "prime_divisor": 3
+        },
+        {
+          "offset": -14,
+          "prime_divisor": 5
+        },
+        {
+          "offset": -10,
+          "prime_divisor": 7
+        },
+        {
+          "offset": -8,
+          "prime_divisor": 11
+        },
+        {
+          "offset": -4,
+          "prime_divisor": 13
+        },
+        {
+          "offset": -2,
+          "prime_divisor": 17
+        },
+        {
+          "offset": 2,
+          "prime_divisor": 19
+        },
+        {
+          "offset": 4,
+          "prime_divisor": 23
+        },
+        {
+          "offset": 6,
+          "prime_divisor": 29
+        },
+        {
+          "offset": 8,
+          "prime_divisor": 31
+        }
+      ],
+      "q_residue": 16120449089,
+      "modulus": 200560490130,
+      "minimum_q": 30,
+      "residue_coprime_to_modulus": true
+    },
+    "prime_search_candidates_tested": 8,
+    "witness": {
+      "target_even": 1420043880008,
+      "preceding_prime": 1420043879999,
+      "distance_to_preceding_prime": 9,
+      "blocked_palette_cap": 29,
+      "proper_composite_witnesses": [
+        {
+          "integer": 1420043879979,
+          "proper_prime_divisor": 3,
+          "offset_from_q": -20
+        },
+        {
+          "integer": 1420043879985,
+          "proper_prime_divisor": 5,
+          "offset_from_q": -14
+        },
+        {
+          "integer": 1420043879989,
+          "proper_prime_divisor": 7,
+          "offset_from_q": -10
+        },
+        {
+          "integer": 1420043879991,
+          "proper_prime_divisor": 11,
+          "offset_from_q": -8
+        },
+        {
+          "integer": 1420043879995,
+          "proper_prime_divisor": 13,
+          "offset_from_q": -4
+        },
+        {
+          "integer": 1420043879997,
+          "proper_prime_divisor": 17,
+          "offset_from_q": -2
+        },
+        {
+          "integer": 1420043880001,
+          "proper_prime_divisor": 19,
+          "offset_from_q": 2
+        },
+        {
+          "integer": 1420043880003,
+          "proper_prime_divisor": 23,
+          "offset_from_q": 4
+        },
+        {
+          "integer": 1420043880005,
+          "proper_prime_divisor": 29,
+          "offset_from_q": 6
+        },
+        {
+          "integer": 1420043880007,
+          "proper_prime_divisor": 31,
+          "offset_from_q": 8
+        }
+      ],
+      "verified_goldbach_pair": [
+        277,
+        1420043879731
+      ],
+      "scope": "finite palette counterexample; Goldbach represented only if verified pair supplied"
+    },
+    "actual_minimum_prime_addend": 277,
+    "all_smaller_prime_addend_composite_witnesses": [
+      {
+        "prime_addend": 2,
+        "complement": 1420043880006,
+        "proper_divisor": 2
+      },
+      {
+        "prime_addend": 3,
+        "complement": 1420043880005,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 5,
+        "complement": 1420043880003,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 7,
+        "complement": 1420043880001,
+        "proper_divisor": 19
+      },
+      {
+        "prime_addend": 11,
+        "complement": 1420043879997,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 13,
+        "complement": 1420043879995,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 17,
+        "complement": 1420043879991,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 19,
+        "complement": 1420043879989,
+        "proper_divisor": 7
+      },
+      {
+        "prime_addend": 23,
+        "complement": 1420043879985,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 29,
+        "complement": 1420043879979,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 31,
+        "complement": 1420043879977,
+        "proper_divisor": 214913
+      },
+      {
+        "prime_addend": 37,
+        "complement": 1420043879971,
+        "proper_divisor": 173
+      },
+      {
+        "prime_addend": 41,
+        "complement": 1420043879967,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 43,
+        "complement": 1420043879965,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 47,
+        "complement": 1420043879961,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 53,
+        "complement": 1420043879955,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 59,
+        "complement": 1420043879949,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 61,
+        "complement": 1420043879947,
+        "proper_divisor": 7
+      },
+      {
+        "prime_addend": 67,
+        "complement": 1420043879941,
+        "proper_divisor": 43399
+      },
+      {
+        "prime_addend": 71,
+        "complement": 1420043879937,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 73,
+        "complement": 1420043879935,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 79,
+        "complement": 1420043879929,
+        "proper_divisor": 17
+      },
+      {
+        "prime_addend": 83,
+        "complement": 1420043879925,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 89,
+        "complement": 1420043879919,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 97,
+        "complement": 1420043879911,
+        "proper_divisor": 23
+      },
+      {
+        "prime_addend": 101,
+        "complement": 1420043879907,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 103,
+        "complement": 1420043879905,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 107,
+        "complement": 1420043879901,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 109,
+        "complement": 1420043879899,
+        "proper_divisor": 293
+      },
+      {
+        "prime_addend": 113,
+        "complement": 1420043879895,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 127,
+        "complement": 1420043879881,
+        "proper_divisor": 11
+      },
+      {
+        "prime_addend": 131,
+        "complement": 1420043879877,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 137,
+        "complement": 1420043879871,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 139,
+        "complement": 1420043879869,
+        "proper_divisor": 2237
+      },
+      {
+        "prime_addend": 149,
+        "complement": 1420043879859,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 151,
+        "complement": 1420043879857,
+        "proper_divisor": 1867
+      },
+      {
+        "prime_addend": 157,
+        "complement": 1420043879851,
+        "proper_divisor": 283
+      },
+      {
+        "prime_addend": 163,
+        "complement": 1420043879845,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 167,
+        "complement": 1420043879841,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 173,
+        "complement": 1420043879835,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 179,
+        "complement": 1420043879829,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 181,
+        "complement": 1420043879827,
+        "proper_divisor": 17
+      },
+      {
+        "prime_addend": 191,
+        "complement": 1420043879817,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 193,
+        "complement": 1420043879815,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 197,
+        "complement": 1420043879811,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 199,
+        "complement": 1420043879809,
+        "proper_divisor": 163
+      },
+      {
+        "prime_addend": 211,
+        "complement": 1420043879797,
+        "proper_divisor": 227
+      },
+      {
+        "prime_addend": 223,
+        "complement": 1420043879785,
+        "proper_divisor": 5
+      },
+      {
+        "prime_addend": 227,
+        "complement": 1420043879781,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 229,
+        "complement": 1420043879779,
+        "proper_divisor": 7
+      },
+      {
+        "prime_addend": 233,
+        "complement": 1420043879775,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 239,
+        "complement": 1420043879769,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 241,
+        "complement": 1420043879767,
+        "proper_divisor": 971
+      },
+      {
+        "prime_addend": 251,
+        "complement": 1420043879757,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 257,
+        "complement": 1420043879751,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 263,
+        "complement": 1420043879745,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 269,
+        "complement": 1420043879739,
+        "proper_divisor": 3
+      },
+      {
+        "prime_addend": 271,
+        "complement": 1420043879737,
+        "proper_divisor": 7
+      }
+    ],
+    "q_trial_division_limit": 1191655,
+    "pair_complement_trial_division_limit": 1191655,
+    "scope": "explicit representable target with preceding-prime distance9 and a larger required addend"
+  }
+]

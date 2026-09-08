@@ -1,0 +1,472 @@
+{
+  "schema": 1,
+  "experiment": "raw_margin_adversarial_comparison",
+  "frozen_before_computation": {
+    "stress_targets": [
+      492218,
+      492224,
+      4304318
+    ],
+    "control_offsets": [
+      -420,
+      -210,
+      210,
+      420
+    ],
+    "control_rule": "each stress target plus/minus 210 and plus/minus 420; all share its residue modulo 210",
+    "targets_computed_once": [
+      491798,
+      491804,
+      492008,
+      492014,
+      492218,
+      492224,
+      492428,
+      492434,
+      492638,
+      492644,
+      4303898,
+      4304108,
+      4304318,
+      4304528,
+      4304738
+    ],
+    "metric": "raw_margin_over_M = (M - S1) / M",
+    "M_definition": "M_after_pre_sieve, the exact survivor count after all cubic-cutoff pre-sieve events",
+    "hypothesis": "large minimum Goldbach addend may select unusually weak normalized raw margin"
+  },
+  "method": {
+    "cubic_count": "cubic_sieve_count on each frozen target",
+    "independent_check": "one monolithic prime sieve through the largest target; direct ordered odd-prime-pair count and first pair for every target",
+    "G_check": "every cubic exact G equaled the independently counted ordered pairs"
+  },
+  "families": [
+    {
+      "stress_target": 492218,
+      "control_targets": [
+        491798,
+        492008,
+        492428,
+        492638
+      ],
+      "stress_rank_definition": "1 is the lowest raw_margin_over_M among the stress target and four controls; ties share the lowest applicable rank",
+      "stress_rank_against_4_controls": 3,
+      "control_median_raw_margin_over_M": {
+        "numerator": 1046259,
+        "denominator": 3349688,
+        "exact": "1046259/3349688"
+      },
+      "stress_ratio_below_control_median": false,
+      "rows": [
+        {
+          "target_even": 492218,
+          "p_min": 151,
+          "first_ordered_prime_pair": [
+            151,
+            492067
+          ],
+          "M": 11462,
+          "S1": 7868,
+          "S2": 1324,
+          "G": 4918,
+          "raw_margin_M_minus_S1": 3594,
+          "raw_margin_over_M": {
+            "numerator": 1797,
+            "denominator": 5731,
+            "exact": "1797/5731"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4918,
+          "independent_count_matches_G": true,
+          "role": "stress",
+          "stress_rank_among_self_and_4_controls_ascending": 3,
+          "ratio_tie_count_among_self_and_4_controls": 1,
+          "control_median_raw_margin_over_M": {
+            "numerator": 1046259,
+            "denominator": 3349688,
+            "exact": "1046259/3349688"
+          },
+          "stress_ratio_below_control_median": false
+        },
+        {
+          "target_even": 491798,
+          "p_min": 61,
+          "first_ordered_prime_pair": [
+            61,
+            491737
+          ],
+          "M": 10413,
+          "S1": 7200,
+          "S2": 1218,
+          "G": 4431,
+          "raw_margin_M_minus_S1": 3213,
+          "raw_margin_over_M": {
+            "numerator": 357,
+            "denominator": 1157,
+            "exact": "357/1157"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4431,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492218,
+          "offset_from_stress": -420
+        },
+        {
+          "target_even": 492008,
+          "p_min": 31,
+          "first_ordered_prime_pair": [
+            31,
+            491977
+          ],
+          "M": 11604,
+          "S1": 8002,
+          "S2": 1322,
+          "G": 4924,
+          "raw_margin_M_minus_S1": 3602,
+          "raw_margin_over_M": {
+            "numerator": 1801,
+            "denominator": 5802,
+            "exact": "1801/5802"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4924,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492218,
+          "offset_from_stress": -210
+        },
+        {
+          "target_even": 492428,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            492421
+          ],
+          "M": 10392,
+          "S1": 7126,
+          "S2": 1216,
+          "G": 4482,
+          "raw_margin_M_minus_S1": 3266,
+          "raw_margin_over_M": {
+            "numerator": 1633,
+            "denominator": 5196,
+            "exact": "1633/5196"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4482,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492218,
+          "offset_from_stress": 210
+        },
+        {
+          "target_even": 492638,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            492631
+          ],
+          "M": 10393,
+          "S1": 7078,
+          "S2": 1140,
+          "G": 4455,
+          "raw_margin_M_minus_S1": 3315,
+          "raw_margin_over_M": {
+            "numerator": 3315,
+            "denominator": 10393,
+            "exact": "3315/10393"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4455,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492218,
+          "offset_from_stress": 420
+        }
+      ]
+    },
+    {
+      "stress_target": 492224,
+      "control_targets": [
+        491804,
+        492014,
+        492434,
+        492644
+      ],
+      "stress_rank_definition": "1 is the lowest raw_margin_over_M among the stress target and four controls; ties share the lowest applicable rank",
+      "stress_rank_against_4_controls": 2,
+      "control_median_raw_margin_over_M": {
+        "numerator": 35629629,
+        "denominator": 111811444,
+        "exact": "35629629/111811444"
+      },
+      "stress_ratio_below_control_median": true,
+      "rows": [
+        {
+          "target_even": 492224,
+          "p_min": 157,
+          "first_ordered_prime_pair": [
+            157,
+            492067
+          ],
+          "M": 10396,
+          "S1": 7138,
+          "S2": 1180,
+          "G": 4438,
+          "raw_margin_M_minus_S1": 3258,
+          "raw_margin_over_M": {
+            "numerator": 1629,
+            "denominator": 5198,
+            "exact": "1629/5198"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4438,
+          "independent_count_matches_G": true,
+          "role": "stress",
+          "stress_rank_among_self_and_4_controls_ascending": 2,
+          "ratio_tie_count_among_self_and_4_controls": 1,
+          "control_median_raw_margin_over_M": {
+            "numerator": 35629629,
+            "denominator": 111811444,
+            "exact": "35629629/111811444"
+          },
+          "stress_ratio_below_control_median": true
+        },
+        {
+          "target_even": 491804,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            491797
+          ],
+          "M": 10748,
+          "S1": 7290,
+          "S2": 1186,
+          "G": 4644,
+          "raw_margin_M_minus_S1": 3458,
+          "raw_margin_over_M": {
+            "numerator": 1729,
+            "denominator": 5374,
+            "exact": "1729/5374"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4644,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492224,
+          "offset_from_stress": -420
+        },
+        {
+          "target_even": 492014,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            492007
+          ],
+          "M": 11546,
+          "S1": 7944,
+          "S2": 1380,
+          "G": 4982,
+          "raw_margin_M_minus_S1": 3602,
+          "raw_margin_over_M": {
+            "numerator": 1801,
+            "denominator": 5773,
+            "exact": "1801/5773"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4982,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492224,
+          "offset_from_stress": -210
+        },
+        {
+          "target_even": 492434,
+          "p_min": 3,
+          "first_ordered_prime_pair": [
+            3,
+            492431
+          ],
+          "M": 10403,
+          "S1": 7120,
+          "S2": 1236,
+          "G": 4519,
+          "raw_margin_M_minus_S1": 3283,
+          "raw_margin_over_M": {
+            "numerator": 3283,
+            "denominator": 10403,
+            "exact": "3283/10403"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4519,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492224,
+          "offset_from_stress": 210
+        },
+        {
+          "target_even": 492644,
+          "p_min": 3,
+          "first_ordered_prime_pair": [
+            3,
+            492641
+          ],
+          "M": 10482,
+          "S1": 7032,
+          "S2": 1094,
+          "G": 4544,
+          "raw_margin_M_minus_S1": 3450,
+          "raw_margin_over_M": {
+            "numerator": 575,
+            "denominator": 1747,
+            "exact": "575/1747"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 4544,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 492224,
+          "offset_from_stress": 420
+        }
+      ]
+    },
+    {
+      "stress_target": 4304318,
+      "control_targets": [
+        4303898,
+        4304108,
+        4304528,
+        4304738
+      ],
+      "stress_rank_definition": "1 is the lowest raw_margin_over_M among the stress target and four controls; ties share the lowest applicable rank",
+      "stress_rank_against_4_controls": 5,
+      "control_median_raw_margin_over_M": {
+        "numerator": 14315514,
+        "denominator": 50978639,
+        "exact": "14315514/50978639"
+      },
+      "stress_ratio_below_control_median": false,
+      "rows": [
+        {
+          "target_even": 4304318,
+          "p_min": 127,
+          "first_ordered_prime_pair": [
+            127,
+            4304191
+          ],
+          "M": 68597,
+          "S1": 49126,
+          "S2": 8696,
+          "G": 28167,
+          "raw_margin_M_minus_S1": 19471,
+          "raw_margin_over_M": {
+            "numerator": 19471,
+            "denominator": 68597,
+            "exact": "19471/68597"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 28167,
+          "independent_count_matches_G": true,
+          "role": "stress",
+          "stress_rank_among_self_and_4_controls_ascending": 5,
+          "ratio_tie_count_among_self_and_4_controls": 1,
+          "control_median_raw_margin_over_M": {
+            "numerator": 14315514,
+            "denominator": 50978639,
+            "exact": "14315514/50978639"
+          },
+          "stress_ratio_below_control_median": false
+        },
+        {
+          "target_even": 4303898,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            4303891
+          ],
+          "M": 71710,
+          "S1": 51600,
+          "S2": 9050,
+          "G": 29160,
+          "raw_margin_M_minus_S1": 20110,
+          "raw_margin_over_M": {
+            "numerator": 2011,
+            "denominator": 7171,
+            "exact": "2011/7171"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 29160,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 4304318,
+          "offset_from_stress": -420
+        },
+        {
+          "target_even": 4304108,
+          "p_min": 7,
+          "first_ordered_prime_pair": [
+            7,
+            4304101
+          ],
+          "M": 72560,
+          "S1": 52118,
+          "S2": 9168,
+          "G": 29610,
+          "raw_margin_M_minus_S1": 20442,
+          "raw_margin_over_M": {
+            "numerator": 10221,
+            "denominator": 36280,
+            "exact": "10221/36280"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 29610,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 4304318,
+          "offset_from_stress": -210
+        },
+        {
+          "target_even": 4304528,
+          "p_min": 31,
+          "first_ordered_prime_pair": [
+            31,
+            4304497
+          ],
+          "M": 71090,
+          "S1": 51100,
+          "S2": 8886,
+          "G": 28876,
+          "raw_margin_M_minus_S1": 19990,
+          "raw_margin_over_M": {
+            "numerator": 1999,
+            "denominator": 7109,
+            "exact": "1999/7109"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 28876,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 4304318,
+          "offset_from_stress": 210
+        },
+        {
+          "target_even": 4304738,
+          "p_min": 19,
+          "first_ordered_prime_pair": [
+            19,
+            4304719
+          ],
+          "M": 68457,
+          "S1": 49294,
+          "S2": 8718,
+          "G": 27881,
+          "raw_margin_M_minus_S1": 19163,
+          "raw_margin_over_M": {
+            "numerator": 19163,
+            "denominator": 68457,
+            "exact": "19163/68457"
+          },
+          "independent_monolithic_prime_flag_ordered_count": 27881,
+          "independent_count_matches_G": true,
+          "role": "control",
+          "associated_stress_target": 4304318,
+          "offset_from_stress": 420
+        }
+      ]
+    }
+  ],
+  "comparison_conclusion": {
+    "stress_targets_below_their_control_median": [
+      492224
+    ],
+    "statement": "In this frozen descriptive sample, the listed boolean comparisons are the only conclusion. No significance claim, universal selector claim, longer verification record, or inference that raw margin stays positive is made."
+  },
+  "scope": "15 finite targets only; exact cubic counts were independently checked against one monolithic prime-flag sieve"
+}
