@@ -61,6 +61,8 @@ ordinary additive pair errors. The signed main terms and their transfer
 to canonical L are now checked in signed_pair_main_term.py and
 prime_pair_transfer.py, giving a power-saving exceptional set for L>0.
 The finite lemma here still does not by itself prove actual prime coverage.
+The exact family where its margin can vanish is now classified in
+character_suppression.py, with the separate Fourier exceptions preserved.
 """
 from fractions import Fraction
 

@@ -61,6 +61,9 @@ The exponent and onset are not supplied numerically. This strengthens the
 exceptional-set SIZE for this particular lower bound; it does not strengthen
 the earlier L>=M/2 statement to a power-saving exceptional set, and does not
 remove all exceptions. No historical novelty or Goldbach proof is claimed.
+The small-conductor suppression is further localized in
+character_suppression.py: outside its explicit residue family, a fixed
+positive margin holds after excluding a separate Fourier-residual set.
 
 Proof by composing the checked models:
 1. Set Y=2X, R=Y**delta, J=floor(log(R)/(2*log(2))), and T=Y/2**J.

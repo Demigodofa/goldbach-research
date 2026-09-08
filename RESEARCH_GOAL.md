@@ -227,3 +227,21 @@ or certify an uncomputed named interval. The next mathematical gap is
 coverage or further arithmetic restriction of the remaining exception
 family. No historical-priority search or wake queue was used. Overall
 Goldbach coverage remains unresolved and the goal stays active.
+
+The next bounded pursuit localized the small-conductor suppression.
+For primitive quadratic D>24 let q be the product of p>=5 dividing D.
+The finite model can have a vanishing margin only on F_D={B=0,C=-A},
+an explicitly computed family contained in q|N and occupying at most24
+residue classes modulo D. Outside it the model has a fixed positive margin;
+inside it P=S=A*(1-u*v). Sol checked the lemma and its analytic transfer.
+For the small-conductor case D<=R^(1/4), the actual canonical bound obeys
+L(N)>>_delta Y/log(Y)^2 outside BOTH F_D and a separate
+O_delta(Y*R^(-1/2)) Fourier-residual set. Inside F_D the previous suppressed
+error count can also be capped by the exact arithmetic family's size.
+`character_suppression.py` preserves the proof and exact residue/count
+verifier; four focused tests passed normally and with Python -O.
+The pursuit returned `changed-under-evidence`: it localizes one source
+of suppression, while unstructured Fourier exceptions and the separate
+large-conductor case remain. No universal coverage, named uncomputed target,
+numerical onset, or historical-priority claim follows. No wake was queued;
+the overall Goldbach goal remains active.
