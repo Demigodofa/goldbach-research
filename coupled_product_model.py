@@ -2,7 +2,7 @@
 
 Owner: Kevin's research. Purpose: test whether multiplicative cofactor
 coupling by itself fixes the signed prime-minus-semiprime pair comparison.
-Sol checked the argument and actual implementation on 2026-09-08. Four
+Sol checked the arguments and actual implementation on 2026-09-08. Eight
 focused tests passed normally and with Python -O, including 510 exhaustive
 small cyclic subsets and independent multiplication in prime residue fields.
 
@@ -71,6 +71,54 @@ prime flags, an actual negative L, or a Goldbach counterexample. The result
 does not rule out stronger arithmetic coupling or estimates for actual
 primes. It isolates the exceptional role of the single odd quadratic mode;
 it supplies no claim of historical novelty or new actual prime coverage.
+
+Robust asymmetric inverse theorem (argument and file checked by Sol):
+The half-set premise is unnecessary for the following POSITIVE structural
+conclusion. On the same cyclic H, take ANY f1,f2 in[0,2] with Efi=1,
+and set g=f1*f2 using normalized cyclic convolution. No assumption about
+the individual reflected pair means Pi=E fi(x)fi(x+h) is required.
+Write T=E g(x)g(x+h). Then
+  4|m:       T>=1/2;
+  m=2 mod4: T>=1-a^2*b^2-(1-a^2)*(1-b^2)/2,               (3)
+where a=E f1(x)(-1)^x, b=E f2(x)(-1)^x.
+In particular, if T<=E0<1/2, then necessarily m=2 mod4 and
+  a^2,b^2>=1-E0,
+  E|fi-(1+sign(ai)*(-1)^x)|=1-|ai|
+                   <=1-sqrt(1-E0)<=E0,                    (4)
+  Pi<=2*E0, ai=a or b.
+Thus a small product-pair count itself forces BOTH factor distributions
+close to (possibly different) odd quadratic coset densities.
+
+Proof of (3)-(4):
+Put xi_i(k)=|hat fi(k)|^2. The bound fi^2<=2fi gives total nonprincipal
+Fourier mass <=1. Fourier expansion yields
+  T=1+sum_{k even,k!=0}xi_1(k)*xi_2(k)
+       -sum_{k odd}xi_1(k)*xi_2(k).
+If4|m, conjugate pairing bounds the negative sum by half the product of
+the two total odd masses, hence by1/2. Ifm=2 mod4, isolate the only odd
+self-conjugate mode, k=m/2. Its masses are x=a^2 and y=b^2; the remaining
+negative sum is at most(1-x)*(1-y)/2. Dropping the nonnegative even sum
+proves (3). Let F(x,y)=1-xy-(1-x)*(1-y)/2 for0<=x,y<=1.
+If x<=1/2, the minimum over y is min((1+x)/2,1-x)>=1/2.
+Thus F<=E0<1/2 forces x,y>1/2. In this range F decreases in each variable,
+so F(x,y)>=F(x,1)=1-x and likewise F>=1-y. This proves x,y>=1-E0.
+The L1 equality in (4) follows pointwise from0<=fi<=2 on the two parity
+cosets. Also Pi=1+even_mass-odd_mass<=2*(1-ai^2), since the remaining
+nonprincipal mass is at most1-ai^2. This proves the asserted Pi bound.
+The inverse distance bound is sharp already at m=2:
+f1=(2,0), f2=(1+b,1-b) give T=1-b^2 and distance1-|b|.
+
+Approximate product input:
+If0<=w<=2 and E|w-g|<=epsilon, then
+  |E w(x)w(x+h)-T|<=4*epsilon.                              (5)
+Expand the difference as(w-g)*w_shift+g*(w_shift-g_shift)
+and use both sup bounds2. No mean1 assumption on w is needed. Therefore
+E0=E w(x)w(x+h)+4*epsilon<1/2 gives the SAME inverse conclusions (4).
+For4|m this approximate premise is impossible. The density cap, mean1
+factor normalization, and measured product error are essential inputs,
+not consequences for actual primes. This is still a finite conditional
+test: no arithmetic proof of those inputs for our prime/semiprime weights
+or new actual Goldbach coverage follows here.
 """
 from fractions import Fraction
 
@@ -94,5 +142,29 @@ def skew_product_profile(flags: tuple[int, ...]) -> tuple[tuple[Fraction, ...], 
         for b in chosen:
             counts[(a+b) % m] += 1
     product = tuple(Fraction(4*count, m) for count in counts)
+    pair_mean = sum((product[x]*product[(x+h) % m] for x in range(m)), Fraction(0))/m
+    return product, pair_mean
+
+
+def bounded_product_profile(first: tuple[int | Fraction, ...],
+                            second: tuple[int | Fraction, ...]
+                            ) -> tuple[tuple[Fraction, ...], Fraction]:
+    """Return the product weight and its reflected pair mean for bounded inputs.
+
+    Each factor is an exact rational residue density in[0,2] with mean1,
+    on the SAME even-order cyclic group. Factors may differ, need not be
+    binary, and need not have zero reflection correlation. These numerical
+    checks do not establish that either input describes actual primes.
+    """
+    if (type(first) is not tuple or type(second) is not tuple
+            or len(first) < 2 or len(first) % 2 or len(first) != len(second)):
+        raise ValueError("require equally sized even-length tuples")
+    m, h = len(first), len(first)//2
+    for values in (first, second):
+        if (any(type(v) not in (int, Fraction) or not 0 <= v <= 2 for v in values)
+                or sum(values) != m):
+            raise ValueError("require exact rational weights in[0,2] with mean1")
+    product = tuple(sum((first[y]*second[(x-y) % m] for y in range(m)),
+                        Fraction(0))/m for x in range(m))
     pair_mean = sum((product[x]*product[(x+h) % m] for x in range(m)), Fraction(0))/m
     return product, pair_mean

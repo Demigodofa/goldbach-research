@@ -361,3 +361,21 @@ prime prefix, or the source prime-distribution estimates. It neither refutes
 canonical L nor gives Goldbach counterexamples or new actual coverage.
 No historical-priority search, publication work, or wake queue. Overall goal
 active; actual coupled estimates remain the missing step.
+
+The next pursuit proved a robust positive inverse statement in that model.
+For any two possibly different cyclic densities f1,f2 in[0,2] with mean1,
+the product distribution g=f1*f2 has reflected pair mean at least1/2
+when4 divides the group order. Otherwise, a pair mean <=E0<1/2 forces
+both factors within L1 distance 1-sqrt(1-E0)<=E0 of their respective odd
+quadratic coset densities; neither a binary nor a missing-prime-sum premise
+is needed. The inverse distance bound is sharp. If a bounded observed
+weight w approximates g in L1 by epsilon, the same conclusion holds with
+E0=pair_mean(w)+4*epsilon. `coupled_product_model.py` retains the proof and
+general rational verifier. Sol checked both; eight tests passed normally
+and with Python -O, including asymmetric/non-skew inputs and explicit
+cap/error-budget falsifiers. The pursuit returned `changed-under-evidence`:
+the quadratic structure test survives approximation, but applying it to
+actual primes requires proving the density cap and a sufficiently small
+product-distribution error at a relevant scale. Those arithmetic inputs
+remain unproved; no new actual Goldbach coverage, historical-priority
+search, publication work, or wake queue. Overall goal remains active.
