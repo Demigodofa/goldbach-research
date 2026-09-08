@@ -16,6 +16,12 @@ A complete Goldbach proof is an aspiration, not the required stopping condition.
 No spending, public repository creation, publishing, or contacting others.
 Use background execution only. Do not change unrelated projects or user files.
 
+Execution audit after resumption: the sustained run through09:00 was not
+fulfilled. Project activity is recorded through03:07 Eastern and resumes
+around12:46 Eastern. The root acknowledged the misleading implication of
+continued overnight work. See `notes/execution-gap-2026-09-08.md`; an active
+goal flag must not be treated as evidence that execution continued.
+
 ## Starting facts
 
 Goldbach asks whether every even N >= 4 is the sum of two primes.
@@ -110,6 +116,8 @@ blocks and calculation-based elimination of certified spans.
   the raw margin and the missing reflected-correlation bound.
 - `notes/subpower-presieve-obstruction.md`: why subpower first-stage cutoffs
   eventually fail the raw-union certificate on powers of2.
+- `notes/two-moment-block-certificate.md`: an exact weighted two-moment
+  collective certificate, its finite successes, and its correlation gap.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -251,6 +259,17 @@ cutoff40 gives raw672. At N1048576 the logarithmic and cubic raw bounds are
 -13570 and6218, with actual count8478. The full73-test suite passes normally
 and under optimized Python. No negative raw bound is a Goldbach disproof.
 
+Before execution stopped, the weighted two-moment experiment was completed.
+For m nonnegative weighted counts, S=sum(x),T=sum(x^2), the exact test
+S^2>(m-1)T certifies allm positive. Weights depend only on each target's
+distinct odd prime factors. It certifies the1,000-target blocks beginning
+at100000 and1000000; the block beginning10000 certifies after one split into
+two500-target halves. All3,000 counts and both split moments were checked
+independently and the receipts replayed. Current production still computes
+the individual counts before aggregating them; no analytic moment bounds
+or unbounded positivity theorem were established. The full79-test suite
+passed normally and under optimization after the12:46 Eastern resumption.
+
 Next formulate a falsifiable surviving rule that uses more arithmetic
 information, and choose adversarial inputs against it. Fixed palettes,
 fixed-constant logarithmic palettes, and bounds depending only on distance
@@ -262,5 +281,8 @@ computational task: the simpler count bootstrap now implements dependence
 on earlier count output. The remaining research task is a uniform positive
 inequality that uses arithmetic correlation, rather than another exact
 count rewrite or an unsupported independence assumption.
-The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
-is authorized or configured; this repository is local.
+The confirmed deadline **2026-09-08 13:00 UTC** has passed. The intended
+research direction above is preserved as an unresolved question, not a
+claim that work continued through the deadline or authorization for a new
+indefinite run. No remote publication is authorized or configured; this
+repository is local.

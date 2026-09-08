@@ -1,0 +1,218 @@
+{
+  "owner": "Kevin Goldbach investigation",
+  "purpose": "test a two-scalar collective positivity certificate and target-only normalization on frozen1000-target blocks",
+  "frozen_before_computation": {
+    "first_evens": [
+      10000,
+      100000,
+      1000000
+    ],
+    "target_count": 1000,
+    "weight_modes": [
+      "unit",
+      "singular"
+    ],
+    "weight_bits": 32,
+    "normalizer": "ceil(2^32*product_{oddprimep|N}(p-2)/(p-1)), dependingonlyonN",
+    "all_positive_test": "S^2>(m-1)T, exactintegerarithmetic"
+  },
+  "independent_method": "separatefullprimesieve; directunorderedcomplementchecks doubledwithdiagonalcorrection; exactmomentscompared; canonicalreplay",
+  "rows": [
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 10000,
+        "last_even": 11998,
+        "target_count": 1000,
+        "weight_mode": "unit",
+        "weight_bits": 32,
+        "weight_rule": "one",
+        "counts_sha256": "e91f97d836c28eb86607f747af3898089be3963d20788b76ff25b7894e7855e8",
+        "weights_sha256": "6e92c4f0924d9031c3cea4e7f8079c8633d2aec982ecd92f05cf84537a56837d",
+        "sum_weighted_counts": 319114,
+        "sum_squared_weighted_counts": 117170958,
+        "strict_all_positive_margin": -15220042046,
+        "positive_count_lower_bound": 870,
+        "all_certified": false,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 183,
+      "cv_squared_diagnostic": 0.15061032081853065
+    },
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 10000,
+        "last_even": 11998,
+        "target_count": 1000,
+        "weight_mode": "singular",
+        "weight_bits": 32,
+        "weight_rule": "ceil(2^bits*product_{odd prime p|N}(p-2)/(p-1))",
+        "counts_sha256": "e91f97d836c28eb86607f747af3898089be3963d20788b76ff25b7894e7855e8",
+        "weights_sha256": "56a3c5cf910c6cbb563fe91b187db1f4ed4524858638e3f07f890bb6049f1f75",
+        "sum_weighted_counts": 905937606681586,
+        "sum_squared_weighted_counts": 822810494801824043325476304,
+        "strict_all_positive_margin": -1264737107062204571359352300,
+        "positive_count_lower_bound": 998,
+        "all_certified": false,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 183,
+      "cv_squared_diagnostic": 0.002543547257921888
+    },
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 100000,
+        "last_even": 101998,
+        "target_count": 1000,
+        "weight_mode": "unit",
+        "weight_bits": 32,
+        "weight_rule": "one",
+        "counts_sha256": "80224938ae158c6c6942a1879480b45692f986c3625a6a6d8b92a4c32d6dd2db",
+        "weights_sha256": "6e92c4f0924d9031c3cea4e7f8079c8633d2aec982ecd92f05cf84537a56837d",
+        "sum_weighted_counts": 1840193,
+        "sum_squared_weighted_counts": 3891799325,
+        "strict_all_positive_margin": -501597248426,
+        "positive_count_lower_bound": 871,
+        "all_certified": false,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 1139,
+      "cv_squared_diagnostic": 0.14927428568703208
+    },
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 100000,
+        "last_even": 101998,
+        "target_count": 1000,
+        "weight_mode": "singular",
+        "weight_bits": 32,
+        "weight_rule": "ceil(2^bits*product_{odd prime p|N}(p-2)/(p-1))",
+        "counts_sha256": "80224938ae158c6c6942a1879480b45692f986c3625a6a6d8b92a4c32d6dd2db",
+        "weights_sha256": "5f7f5fd256fe64fe8f06b82a6f779cfa83087033f3186a34b543e7cae324937a",
+        "sum_weighted_counts": 5220935977241333,
+        "sum_squared_weighted_counts": 27265692847935544464345170853,
+        "strict_all_positive_margin": 19745323365303893452097934742,
+        "positive_count_lower_bound": 1000,
+        "all_certified": true,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 1139,
+      "cv_squared_diagnostic": 0.0002758941190417797
+    },
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 1000000,
+        "last_even": 1001998,
+        "target_count": 1000,
+        "weight_mode": "unit",
+        "weight_bits": 32,
+        "weight_rule": "one",
+        "counts_sha256": "0398de49132732b53006f53ab1b73262eb665aae31bd4126ef58c51ecc84311b",
+        "weights_sha256": "6e92c4f0924d9031c3cea4e7f8079c8633d2aec982ecd92f05cf84537a56837d",
+        "sum_weighted_counts": 12275817,
+        "sum_squared_weighted_counts": 173315837143,
+        "strict_all_positive_margin": -22446838288368,
+        "positive_count_lower_bound": 870,
+        "all_certified": false,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 7932,
+      "cv_squared_diagnostic": 0.15010485816561722
+    },
+    {
+      "receipt": {
+        "schema": 1,
+        "method": "two-moment Cauchy block certificate",
+        "first_even": 1000000,
+        "last_even": 1001998,
+        "target_count": 1000,
+        "weight_mode": "singular",
+        "weight_bits": 32,
+        "weight_rule": "ceil(2^bits*product_{odd prime p|N}(p-2)/(p-1))",
+        "counts_sha256": "0398de49132732b53006f53ab1b73262eb665aae31bd4126ef58c51ecc84311b",
+        "weights_sha256": "7ef986ab560f0a931456bcbd6b56d280a92839507d5e5f764e11f40527cfecce",
+        "sum_weighted_counts": 34818882702459754,
+        "sum_squared_weighted_counts": 1212406094722832814168566055160,
+        "strict_all_positive_margin": 1160904019541080645364500635676,
+        "positive_count_lower_bound": 1000,
+        "all_certified": true,
+        "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+      },
+      "independent_direct_counts_match": true,
+      "canonical_replay": true,
+      "actual_minimum_ordered_count": 7932,
+      "cv_squared_diagnostic": 4.248103277216711e-05
+    }
+  ],
+  "scope": "finitecertificateexperiment; noHardyLittlewoodassumption, speedclaim, oruniformpositivityclaim; decimalCVvaluesarediagnosticsonly",
+  "single_adaptive_split": {
+    "trigger": "whole10000..11998 block certified only998 by two moments",
+    "rule_frozen_after_trigger": "split once into two adjacent500-target halves; no further adaptive search",
+    "subblocks": [
+      {
+        "receipt": {
+          "schema": 1,
+          "method": "two-moment Cauchy block certificate",
+          "first_even": 10000,
+          "last_even": 10998,
+          "target_count": 500,
+          "weight_mode": "singular",
+          "weight_bits": 32,
+          "weight_rule": "ceil(2^bits*product_{odd prime p|N}(p-2)/(p-1))",
+          "counts_sha256": "0512883f7627134b129a434e4f6024dbe771637c5c2e651a1e0744ad0534fd87",
+          "weights_sha256": "f2861ed6122ebcdbbe35cb3afa5792fdf66b348dfd6a61e91022fb35a2d912d6",
+          "sum_weighted_counts": 439257491703012,
+          "sum_squared_weighted_counts": 386616337958293074638340766,
+          "strict_all_positive_margin": 25591376033411775477829910,
+          "positive_count_lower_bound": 500,
+          "all_certified": true,
+          "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+        },
+        "independent_direct_moments_match": true,
+        "canonical_replay": true
+      },
+      {
+        "receipt": {
+          "schema": 1,
+          "method": "two-moment Cauchy block certificate",
+          "first_even": 11000,
+          "last_even": 11998,
+          "target_count": 500,
+          "weight_mode": "singular",
+          "weight_bits": 32,
+          "weight_rule": "ceil(2^bits*product_{odd prime p|N}(p-2)/(p-1))",
+          "counts_sha256": "2cd1edca68525d92e378f81430d5db0f1c43a0e9dada129b810f2ed6a92bface",
+          "weights_sha256": "2e088273352ad1265b1ecc5a9d7aeb85a182c031c4445de8333eede76eb193ed",
+          "sum_weighted_counts": 466680114978574,
+          "sum_squared_weighted_counts": 436194156843530968687135538,
+          "strict_all_positive_margin": 129445451493095337598440014,
+          "positive_count_lower_bound": 500,
+          "all_certified": true,
+          "scope": "exact finite aggregate certificate; a partial count bound does not identify which targets are positive; no unbounded positivity or speed claim"
+        },
+        "independent_direct_moments_match": true,
+        "canonical_replay": true
+      }
+    ],
+    "all_1000_certified": true
+  }
+}
