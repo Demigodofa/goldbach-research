@@ -20,6 +20,11 @@ until its external novelty has actually been assessed. Historical recognition
 is not a measurable promised outcome; prize money and realized earnings remain
 zero. No spending, publication, contacts, or foreground input is authorized.
 
+Kevin subsequently authorized Rill to adjust the goal as ideas develop, and
+explicitly paused notes/manuscript preparation to concentrate on mathematics.
+Do not resume publication packaging without fresh steering. Keep only the
+minimal execution state and useful mathematical tests needed to continue.
+
 Each hypothesis has a mechanism, prediction, falsifier, and bounded next
 test. Stop or revise individual routes when their evidence warrants it.
 An active goal flag, a saved plan, and a queued message are not evidence of
