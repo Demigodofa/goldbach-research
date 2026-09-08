@@ -104,6 +104,10 @@ blocks and calculation-based elimination of certified spans.
   and the smaller prime inputs required by residual correlations.
 - `notes/fixed-distance-nine-obstruction.md`: an infinite representable
   stress family with fixed nearby-prime distance and unbounded minimum addend.
+- `notes/count-bootstrap-proof.md`: a proved output-fed count pipeline,
+  implemented from the canonical base through three new1,000-target stages.
+- `notes/cubic-margin-structure.md`: the exact prime/semiprime meaning of
+  the raw margin and the missing reflected-correlation bound.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -214,13 +218,35 @@ significance or universal-selector claim. The complete62-test suite passes
 normally and under optimized Python, and independent Sol review found no
 material issue in the count reconstruction or fixed-distance construction.
 
+The output-fed count pipeline is now proved and implemented. Exact counts
+through even B recover primes through B-3 and suffice to generate counts
+through the safe next endpoint (B-1)^2+1. The executed chain6->26->626->2626
+->4626->6626 contains three new1,000-target blocks, whose minimum ordered
+counts are20,56,100. All3,311 counts through6626 match independent trial-prime
+pair counts, and the compact receipt replays from canonical G(6)=1. The
+complete69-test suite passes normally and under optimized Python. This proves
+correct count generation, including any possible future zero, not positivity.
+
+The cubic raw margin has a precise class interpretation: R=M-S1 equals the
+number of prime-prime candidates minus semiprime-semiprime candidates having
+distinct least factors. Moving residual events into the presieve adds the
+covered pair intersections; beyond sqrt(N/2) it makes the raw formula exact
+but leaves positivity equivalent to Goldbach. The same-factor correction is
+unconditionally O(N^(2/3)). Buchstab's one-variable rough-number theorem
+motivates a heuristic positive margin but does not control the reflected
+pair correlation. A finite labelled-set countermodel demonstrates why its
+favourable marginal prime fraction alone cannot prove the desired claim.
+
 Next formulate a falsifiable surviving rule that uses more arithmetic
 information, and choose adversarial inputs against it. Fixed palettes,
 fixed-constant logarithmic palettes, and bounds depending only on distance
 to the preceding prime have been ruled out as universal guarantees. The
 exact cubic count identity survives; its uniform positive lower bound is
 still unproved. No Goldbach counterexample has been found. No shell job is
-running. The full residual recurrence remains a possible computational task,
-but it must not be confused with positivity induction.
+running. The earlier full residual recurrence is no longer the preferred
+computational task: the simpler count bootstrap now implements dependence
+on earlier count output. The remaining research task is a uniform positive
+inequality that uses arithmetic correlation, rather than another exact
+count rewrite or an unsupported independence assumption.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.

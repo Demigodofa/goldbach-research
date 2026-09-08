@@ -1,0 +1,166 @@
+{
+  "owner": "Kevin Goldbach investigation",
+  "purpose": "verify three consecutive 1000-target stages generated from earlier exact count output and canonical base",
+  "chain_receipt": {
+    "schema": 1,
+    "method": "canonical Goldbach-count bootstrap from G(6)=1",
+    "canonical_base": {
+      "first_even": 6,
+      "ordered_counts": [
+        1
+      ]
+    },
+    "stage_ends": [
+      26,
+      626,
+      2626,
+      4626,
+      6626
+    ],
+    "final_end": 6626,
+    "internal_state": {
+      "count_prefix_first_even": 6,
+      "count_prefix_last_even": 6626,
+      "count_prefix_length": 3311
+    },
+    "stage_receipts": [
+      {
+        "schema": 1,
+        "method": "recovered-divisor local sieve then packed odd-prime square",
+        "previous_end": 6,
+        "target_end": 26,
+        "safe_target_limit": 26,
+        "previous_counts_sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "recovered_count_prefix_length": 1,
+        "recovered_largest_odd": 3,
+        "recovered_divisor_prime_count": 1,
+        "recovered_divisor_prime_sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce",
+        "odd_prime_input_count": 8,
+        "odd_prime_input_sha256": "b7026cd9475b84fcd9c793378da82559adb408f777145e22b31123bd66caf93c",
+        "digit_bytes": 1,
+        "counts_sha256": "fa760e5e3ad9525448004448b8090a492da7120e1e0bb586365dfe4ee6ee3ee3",
+        "newly_generated_even_count": 10,
+        "positive_target_count": 11,
+        "all_targets_positive": true,
+        "zero_targets": [],
+        "scope": "exact finite bootstrap computation conditional on every prior count prefix having its Goldbach-count meaning; no unbounded positivity or speed claim"
+      },
+      {
+        "schema": 1,
+        "method": "recovered-divisor local sieve then packed odd-prime square",
+        "previous_end": 26,
+        "target_end": 626,
+        "safe_target_limit": 626,
+        "previous_counts_sha256": "fa760e5e3ad9525448004448b8090a492da7120e1e0bb586365dfe4ee6ee3ee3",
+        "recovered_count_prefix_length": 11,
+        "recovered_largest_odd": 23,
+        "recovered_divisor_prime_count": 8,
+        "recovered_divisor_prime_sha256": "b7026cd9475b84fcd9c793378da82559adb408f777145e22b31123bd66caf93c",
+        "odd_prime_input_count": 113,
+        "odd_prime_input_sha256": "86830525d6405c83b24cec5d806b7a8b6b3042f8520c0593333aad9a08c8e388",
+        "digit_bytes": 1,
+        "counts_sha256": "a9e4ba3cbc5b9778344fc3877b06446b14ea46edcb4e42567cf62c70df4910ca",
+        "newly_generated_even_count": 300,
+        "positive_target_count": 311,
+        "all_targets_positive": true,
+        "zero_targets": [],
+        "scope": "exact finite bootstrap computation conditional on every prior count prefix having its Goldbach-count meaning; no unbounded positivity or speed claim"
+      },
+      {
+        "schema": 1,
+        "method": "recovered-divisor local sieve then packed odd-prime square",
+        "previous_end": 626,
+        "target_end": 2626,
+        "safe_target_limit": 390626,
+        "previous_counts_sha256": "a9e4ba3cbc5b9778344fc3877b06446b14ea46edcb4e42567cf62c70df4910ca",
+        "recovered_count_prefix_length": 25,
+        "recovered_largest_odd": 51,
+        "recovered_divisor_prime_count": 14,
+        "recovered_divisor_prime_sha256": "63b8aaad7053e1fa5144d79b29e990c408d37361e53a004ca7730935561b6818",
+        "odd_prime_input_count": 380,
+        "odd_prime_input_sha256": "073e5a7ef314ea12e3e628de54e894aba97d63bd78fba1d36f92bc1b5a27b924",
+        "digit_bytes": 2,
+        "counts_sha256": "c37fa980feeffad4cb4f8a06fc054a437d01e86336731fcf7e65e38f6d7932b7",
+        "newly_generated_even_count": 1000,
+        "positive_target_count": 1311,
+        "all_targets_positive": true,
+        "zero_targets": [],
+        "scope": "exact finite bootstrap computation conditional on every prior count prefix having its Goldbach-count meaning; no unbounded positivity or speed claim"
+      },
+      {
+        "schema": 1,
+        "method": "recovered-divisor local sieve then packed odd-prime square",
+        "previous_end": 2626,
+        "target_end": 4626,
+        "safe_target_limit": 6890626,
+        "previous_counts_sha256": "c37fa980feeffad4cb4f8a06fc054a437d01e86336731fcf7e65e38f6d7932b7",
+        "recovered_count_prefix_length": 33,
+        "recovered_largest_odd": 67,
+        "recovered_divisor_prime_count": 18,
+        "recovered_divisor_prime_sha256": "5c77a1e32299e53923271fa0425dbf8232c38be9ceec5e3318534cb8edd4392f",
+        "odd_prime_input_count": 623,
+        "odd_prime_input_sha256": "ccc7c72b81bc746a557bc88c380f886903118e0fa6dae10ee2e47fab7fef2a49",
+        "digit_bytes": 2,
+        "counts_sha256": "afcd0b3ea9c832b53fb4893eb342347b10d89707ef70a455ca6bc22a9ebe8490",
+        "newly_generated_even_count": 1000,
+        "positive_target_count": 2311,
+        "all_targets_positive": true,
+        "zero_targets": [],
+        "scope": "exact finite bootstrap computation conditional on every prior count prefix having its Goldbach-count meaning; no unbounded positivity or speed claim"
+      },
+      {
+        "schema": 1,
+        "method": "recovered-divisor local sieve then packed odd-prime square",
+        "previous_end": 4626,
+        "target_end": 6626,
+        "safe_target_limit": 21390626,
+        "previous_counts_sha256": "afcd0b3ea9c832b53fb4893eb342347b10d89707ef70a455ca6bc22a9ebe8490",
+        "recovered_count_prefix_length": 40,
+        "recovered_largest_odd": 81,
+        "recovered_divisor_prime_count": 21,
+        "recovered_divisor_prime_sha256": "6a8248ca5e5a38017a1814be80d9fb36ca5b6aca10bcdf804a1432a4ed7d61b2",
+        "odd_prime_input_count": 854,
+        "odd_prime_input_sha256": "16c2cd77649baa5dfae7af7c83dc10281bae0a1fbdea27de77bda0e3a5408a7a",
+        "digit_bytes": 2,
+        "counts_sha256": "264e5adbeba7fb20a299c0cfeaff4319edb8b1cdc51795fd22d269907f1b1b88",
+        "newly_generated_even_count": 1000,
+        "positive_target_count": 3311,
+        "all_targets_positive": true,
+        "zero_targets": [],
+        "scope": "exact finite bootstrap computation conditional on every prior count prefix having its Goldbach-count meaning; no unbounded positivity or speed claim"
+      }
+    ],
+    "scope": "formal finite composition only; reconstructed flags have prime meaning only because each prior exact count prefix is generated by this canonical chain; no unbounded positivity or speed claim"
+  },
+  "independent_verification": {
+    "method": "exact trial-prime flags and direct ordered prime-pair counts",
+    "checked_count": 3311,
+    "all_counts_equal": true,
+    "canonical_replay": true
+  },
+  "new_1000_target_blocks": [
+    {
+      "first_even": 628,
+      "last_even": 2626,
+      "target_count": 1000,
+      "minimum_ordered_count": 20,
+      "all_positive": true
+    },
+    {
+      "first_even": 2628,
+      "last_even": 4626,
+      "target_count": 1000,
+      "minimum_ordered_count": 56,
+      "all_positive": true
+    },
+    {
+      "first_even": 4628,
+      "last_even": 6626,
+      "target_count": 1000,
+      "minimum_ordered_count": 100,
+      "all_positive": true
+    }
+  ],
+  "single_run_generation_seconds": 0.006024,
+  "timing_scope": "generation only, excluding independent checks and replay; no comparative speed claim"
+}
