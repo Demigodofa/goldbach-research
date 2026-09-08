@@ -88,3 +88,25 @@ with independent cyclic enumeration, gcd construction, and finite Goldbach
 consequences. The review explicitly preserves the conditional status of
 `interval_from_gap`; only exhaustive `analyze_wheel` supplies its finite bound.
 No per-target witness is an input to the interval derivation.
+
+## Staged exclusion moments and information loss
+
+Sol checked the product and split-product multiplicity caps, exact termination
+at the cap, quadratic bound, adjacent-root cubic coefficients, and the real
+moment-LP vertex proof. The normalized root families span the optimal real
+polynomial bound for feasible moments; their ceiling is not asserted to solve
+the integer moment optimization. Independent rational primal LP enumeration
+matches the implemented dual values on small frozen fixtures.
+
+The same reviewer checked the N=554 actual/abstract histograms, equality of
+their first three moments, the support cap, and the fourth-degree lower bound15.
+The accepted conclusion is specifically that these aggregate inputs alone
+cannot force a survivor. The abstract model does not preserve prime identities,
+individual intersection counts, or modular geometry. All181 recorded ambiguous
+targets have explicitly verified nonnegative integer alternative histograms.
+
+Rill independently compared all lower/upper bounds in both1,000-target runs
+with exact prime-pair counts from a separate sieve. The CRT moment sequence
+through N=1000 also matches direct divisor-membership counting. Twenty-four
+tests pass under ordinary and optimized Python after integration, covering the
+earlier block verifiers as well as the new moment and ambiguity methods.

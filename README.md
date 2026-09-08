@@ -84,6 +84,8 @@ blocks and calculation-based elimination of certified spans.
   ternary-versus-binary boundary.
 - `notes/review-receipts.md`: independent review and verifier corrections.
 - `notes/paired-wheel-intervals.md`: gap-based Z and its stacking inequality.
+- `notes/exclusion-moment-certificates.md`: staged CRT counts, sharper
+  polynomial bounds, and exact information-loss examples.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4
@@ -96,8 +98,27 @@ The exact paired-wheel computation through prime13 gives maximum gaps
 2,6,18,30,66,150, matching the published first six values. A prime-safe-window
 theorem converts these into overlapping certified target intervals covering
 8 through426 (4 and6 have explicit base pairs). Sol reviews the interval
-theorem; the carry and primary-source lanes are complete. Next investigate
-whether a target-anchored bound can avoid the stronger all-phase requirement
-without simply assuming the desired prime pair exists.
+theorem; the carry and primary-source lanes are complete.
+
+The next phase implemented target-specific CRT exclusion counts. All1,000
+evens6 through2004 receive a positive count lower bound by degree4 using
+the complete real moment-LP polynomial family and a split-product cap.
+For181 targets, exact integer countermodels show that the first three aggregate
+moments alone cannot force a survivor. Their actual fourth moments resolve
+the ambiguity. These countermodels do not preserve modular geometry and are
+not Goldbach counterexamples. Twenty-four tests pass normally and under
+optimized Python; both1,000-target receipts match independent prime counts.
+
+The fixed degree4 rule then failed at4412: its first four overlap moments
+also admit an explicit integer zero-survivor countermodel. The actual window
+has88 prime pairs; degree5 proves at least67. This refutes the fixed-degree
+interface while preserving the moment machinery.
+
+Next bounded action: partition that same candidate-summand window, retaining
+location instead of only global aggregate moments. Test whether separate
+low-degree bounds rescue4412 without increasing moment degree; compare the
+same total window and arithmetic work. This is a new information interface,
+not another blind extension of the fixed-degree scan. Do not infer a universal
+Goldbach rule from the finite results.
 The confirmed deadline remains **2026-09-08 13:00 UTC**. No remote publication
 is authorized or configured; this repository is local.

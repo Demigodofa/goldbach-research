@@ -1,0 +1,3456 @@
+{
+  "method": "integer aggregate-information ambiguity, not a Goldbach counterexample",
+  "targets_requiring_more_than_three_overlap_degrees": 181,
+  "with_same_moments_but_abstract_zero_survivors": 181,
+  "worked_example": {
+    "target_even": 554,
+    "moments": [
+      253,
+      504,
+      408,
+      184
+    ],
+    "actual_histogram": [
+      17,
+      72,
+      88,
+      56,
+      12,
+      8
+    ],
+    "abstract_histogram": [
+      0,
+      132,
+      18,
+      76,
+      27,
+      0
+    ]
+  },
+  "rows": [
+    {
+      "target_even": 554,
+      "moments": [
+        253,
+        504,
+        408,
+        184
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        132,
+        18,
+        76,
+        27,
+        0
+      ]
+    },
+    {
+      "target_even": 626,
+      "moments": [
+        289,
+        574,
+        462,
+        202
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        156,
+        6,
+        102,
+        25,
+        0
+      ]
+    },
+    {
+      "target_even": 632,
+      "moments": [
+        292,
+        580,
+        466,
+        206
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        154,
+        16,
+        94,
+        28,
+        0
+      ]
+    },
+    {
+      "target_even": 656,
+      "moments": [
+        304,
+        606,
+        492,
+        218
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        164,
+        6,
+        106,
+        28,
+        0
+      ]
+    },
+    {
+      "target_even": 778,
+      "moments": [
+        365,
+        726,
+        582,
+        252
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        194,
+        12,
+        128,
+        31,
+        0
+      ]
+    },
+    {
+      "target_even": 808,
+      "moments": [
+        380,
+        758,
+        614,
+        270
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        204,
+        8,
+        134,
+        34,
+        0
+      ]
+    },
+    {
+      "target_even": 824,
+      "moments": [
+        388,
+        772,
+        622,
+        270
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        210,
+        4,
+        142,
+        32,
+        0
+      ]
+    },
+    {
+      "target_even": 886,
+      "moments": [
+        413,
+        856,
+        730,
+        334
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        210,
+        10,
+        146,
+        47,
+        0
+      ]
+    },
+    {
+      "target_even": 892,
+      "moments": [
+        416,
+        860,
+        730,
+        330
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        214,
+        4,
+        154,
+        44,
+        0
+      ]
+    },
+    {
+      "target_even": 904,
+      "moments": [
+        422,
+        872,
+        746,
+        346
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        218,
+        8,
+        146,
+        50,
+        0
+      ]
+    },
+    {
+      "target_even": 974,
+      "moments": [
+        455,
+        968,
+        864,
+        426
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        218,
+        36,
+        126,
+        75,
+        0
+      ]
+    },
+    {
+      "target_even": 976,
+      "moments": [
+        456,
+        970,
+        856,
+        400
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        226,
+        4,
+        168,
+        58,
+        0
+      ]
+    },
+    {
+      "target_even": 982,
+      "moments": [
+        459,
+        978,
+        866,
+        418
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        216,
+        38,
+        134,
+        71,
+        0
+      ]
+    },
+    {
+      "target_even": 998,
+      "moments": [
+        467,
+        996,
+        882,
+        422
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        222,
+        30,
+        146,
+        69,
+        0
+      ]
+    },
+    {
+      "target_even": 1004,
+      "moments": [
+        470,
+        1002,
+        892,
+        432
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        226,
+        28,
+        144,
+        72,
+        0
+      ]
+    },
+    {
+      "target_even": 1006,
+      "moments": [
+        471,
+        1004,
+        888,
+        414
+      ],
+      "cap": 5,
+      "zero_survivor_histogram": [
+        0,
+        234,
+        0,
+        178,
+        59,
+        0
+      ]
+    },
+    {
+      "target_even": 1016,
+      "moments": [
+        476,
+        1014,
+        896,
+        430
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        224,
+        38,
+        142,
+        72,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1028,
+      "moments": [
+        482,
+        1026,
+        904,
+        420
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        238,
+        4,
+        180,
+        60,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1052,
+      "moments": [
+        494,
+        1052,
+        936,
+        456
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        236,
+        36,
+        144,
+        78,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1072,
+      "moments": [
+        504,
+        1074,
+        960,
+        468
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        246,
+        24,
+        156,
+        78,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1076,
+      "moments": [
+        506,
+        1078,
+        954,
+        446
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        252,
+        0,
+        190,
+        64,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1084,
+      "moments": [
+        510,
+        1086,
+        974,
+        478
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        252,
+        20,
+        158,
+        80,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1096,
+      "moments": [
+        516,
+        1096,
+        966,
+        450
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        258,
+        0,
+        194,
+        64,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1112,
+      "moments": [
+        524,
+        1116,
+        992,
+        472
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        260,
+        8,
+        184,
+        72,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1114,
+      "moments": [
+        525,
+        1118,
+        996,
+        482
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        256,
+        24,
+        166,
+        79,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1124,
+      "moments": [
+        530,
+        1132,
+        1008,
+        486
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        254,
+        30,
+        166,
+        80,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1126,
+      "moments": [
+        531,
+        1132,
+        998,
+        464
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        260,
+        8,
+        196,
+        67,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1132,
+      "moments": [
+        534,
+        1138,
+        1010,
+        478
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        264,
+        8,
+        190,
+        72,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1136,
+      "moments": [
+        536,
+        1140,
+        1020,
+        492
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        272,
+        0,
+        188,
+        76,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1142,
+      "moments": [
+        539,
+        1148,
+        1012,
+        472
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        264,
+        10,
+        196,
+        69,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1154,
+      "moments": [
+        545,
+        1160,
+        1026,
+        490
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        262,
+        30,
+        174,
+        79,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1168,
+      "moments": [
+        552,
+        1178,
+        1048,
+        498
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        272,
+        10,
+        194,
+        76,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1184,
+      "moments": [
+        560,
+        1192,
+        1054,
+        504
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        268,
+        34,
+        176,
+        82,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1186,
+      "moments": [
+        561,
+        1192,
+        1052,
+        496
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        276,
+        14,
+        196,
+        75,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1198,
+      "moments": [
+        567,
+        1208,
+        1082,
+        522
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        286,
+        2,
+        198,
+        81,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1202,
+      "moments": [
+        569,
+        1212,
+        1074,
+        510
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        278,
+        18,
+        194,
+        79,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1208,
+      "moments": [
+        572,
+        1220,
+        1090,
+        532
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        276,
+        34,
+        172,
+        90,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1214,
+      "moments": [
+        575,
+        1224,
+        1084,
+        512
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        284,
+        10,
+        204,
+        77,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1216,
+      "moments": [
+        576,
+        1198,
+        1030,
+        478
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        292,
+        16,
+        198,
+        70,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1226,
+      "moments": [
+        581,
+        1236,
+        1094,
+        516
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        288,
+        8,
+        208,
+        77,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1238,
+      "moments": [
+        587,
+        1250,
+        1112,
+        540
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        282,
+        38,
+        176,
+        91,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1244,
+      "moments": [
+        590,
+        1260,
+        1126,
+        540
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        292,
+        10,
+        204,
+        84,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1252,
+      "moments": [
+        594,
+        1266,
+        1124,
+        532
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        294,
+        8,
+        212,
+        80,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1256,
+      "moments": [
+        596,
+        1270,
+        1118,
+        526
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        284,
+        32,
+        198,
+        82,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1262,
+      "moments": [
+        599,
+        1276,
+        1126,
+        532
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        288,
+        28,
+        200,
+        83,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1268,
+      "moments": [
+        602,
+        1284,
+        1146,
+        556
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        292,
+        30,
+        188,
+        92,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1282,
+      "moments": [
+        609,
+        1298,
+        1150,
+        542
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        300,
+        10,
+        218,
+        81,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1286,
+      "moments": [
+        611,
+        1302,
+        1152,
+        558
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        284,
+        60,
+        170,
+        97,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1298,
+      "moments": [
+        617,
+        1259,
+        1058,
+        486
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        321,
+        20,
+        206,
+        70,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1312,
+      "moments": [
+        624,
+        1330,
+        1182,
+        564
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        306,
+        18,
+        212,
+        88,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1322,
+      "moments": [
+        629,
+        1342,
+        1198,
+        588
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        298,
+        52,
+        176,
+        103,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1324,
+      "moments": [
+        630,
+        1342,
+        1184,
+        556
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        306,
+        20,
+        220,
+        84,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1328,
+      "moments": [
+        632,
+        1348,
+        1200,
+        580
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        304,
+        36,
+        196,
+        96,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1336,
+      "moments": [
+        636,
+        1350,
+        1192,
+        560
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        318,
+        4,
+        232,
+        82,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1346,
+      "moments": [
+        641,
+        1370,
+        1222,
+        586
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        312,
+        22,
+        214,
+        93,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1348,
+      "moments": [
+        642,
+        1372,
+        1222,
+        578
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        318,
+        4,
+        234,
+        86,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1354,
+      "moments": [
+        645,
+        1374,
+        1222,
+        594
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        308,
+        46,
+        190,
+        101,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1366,
+      "moments": [
+        651,
+        1386,
+        1236,
+        598
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        320,
+        24,
+        210,
+        97,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1376,
+      "moments": [
+        650,
+        1418,
+        1308,
+        668
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        294,
+        72,
+        156,
+        128,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1382,
+      "moments": [
+        653,
+        1424,
+        1314,
+        678
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        290,
+        90,
+        138,
+        135,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1384,
+      "moments": [
+        654,
+        1426,
+        1304,
+        634
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        312,
+        14,
+        226,
+        102,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1388,
+      "moments": [
+        656,
+        1430,
+        1308,
+        636
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        314,
+        12,
+        228,
+        102,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1396,
+      "moments": [
+        660,
+        1440,
+        1328,
+        660
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        316,
+        20,
+        212,
+        112,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1402,
+      "moments": [
+        663,
+        1444,
+        1324,
+        658
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        310,
+        40,
+        198,
+        115,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1412,
+      "moments": [
+        668,
+        1456,
+        1328,
+        670
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        290,
+        98,
+        150,
+        130,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1418,
+      "moments": [
+        671,
+        1466,
+        1346,
+        682
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        296,
+        86,
+        158,
+        131,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1424,
+      "moments": [
+        674,
+        1470,
+        1348,
+        676
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        306,
+        64,
+        180,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1432,
+      "moments": [
+        678,
+        1478,
+        1350,
+        652
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        326,
+        6,
+        244,
+        102,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1436,
+      "moments": [
+        680,
+        1486,
+        1356,
+        666
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        308,
+        54,
+        202,
+        116,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1438,
+      "moments": [
+        681,
+        1486,
+        1366,
+        698
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        300,
+        94,
+        150,
+        137,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1448,
+      "moments": [
+        686,
+        1496,
+        1366,
+        678
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        310,
+        64,
+        190,
+        122,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1454,
+      "moments": [
+        689,
+        1502,
+        1372,
+        680
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        314,
+        58,
+        196,
+        121,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1466,
+      "moments": [
+        695,
+        1518,
+        1390,
+        690
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        316,
+        58,
+        198,
+        123,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1468,
+      "moments": [
+        696,
+        1518,
+        1392,
+        688
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        326,
+        36,
+        216,
+        118,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1472,
+      "moments": [
+        698,
+        1490,
+        1328,
+        636
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        342,
+        20,
+        236,
+        100,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1478,
+      "moments": [
+        701,
+        1526,
+        1382,
+        662
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        328,
+        26,
+        242,
+        105,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1486,
+      "moments": [
+        705,
+        1538,
+        1410,
+        692
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        334,
+        24,
+        232,
+        115,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1492,
+      "moments": [
+        708,
+        1544,
+        1418,
+        714
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        322,
+        68,
+        186,
+        132,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1496,
+      "moments": [
+        710,
+        1444,
+        1208,
+        548
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        376,
+        8,
+        252,
+        74,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1502,
+      "moments": [
+        713,
+        1558,
+        1436,
+        704
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        346,
+        2,
+        252,
+        113,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1504,
+      "moments": [
+        714,
+        1560,
+        1430,
+        708
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        328,
+        50,
+        212,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1514,
+      "moments": [
+        719,
+        1568,
+        1442,
+        734
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        322,
+        86,
+        170,
+        141,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1516,
+      "moments": [
+        720,
+        1570,
+        1432,
+        702
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        332,
+        46,
+        222,
+        120,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1528,
+      "moments": [
+        726,
+        1582,
+        1456,
+        742
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        328,
+        82,
+        174,
+        142,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1532,
+      "moments": [
+        728,
+        1586,
+        1456,
+        722
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        344,
+        34,
+        226,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1538,
+      "moments": [
+        731,
+        1594,
+        1462,
+        724
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        342,
+        40,
+        224,
+        125,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1544,
+      "moments": [
+        734,
+        1602,
+        1472,
+        748
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        326,
+        92,
+        172,
+        144,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1546,
+      "moments": [
+        735,
+        1604,
+        1474,
+        720
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        356,
+        4,
+        260,
+        115,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1552,
+      "moments": [
+        738,
+        1608,
+        1472,
+        730
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        342,
+        50,
+        218,
+        128,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1556,
+      "moments": [
+        740,
+        1614,
+        1484,
+        760
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        326,
+        104,
+        160,
+        150,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1558,
+      "moments": [
+        741,
+        1579,
+        1398,
+        660
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        363,
+        18,
+        260,
+        100,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1562,
+      "moments": [
+        743,
+        1555,
+        1348,
+        630
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        373,
+        22,
+        254,
+        94,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1574,
+      "moments": [
+        749,
+        1634,
+        1498,
+        754
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        336,
+        82,
+        190,
+        141,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1576,
+      "moments": [
+        750,
+        1636,
+        1500,
+        742
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        350,
+        42,
+        230,
+        128,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1586,
+      "moments": [
+        755,
+        1593,
+        1396,
+        668
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        365,
+        52,
+        228,
+        110,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1588,
+      "moments": [
+        756,
+        1652,
+        1512,
+        742
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        350,
+        42,
+        238,
+        126,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1592,
+      "moments": [
+        758,
+        1656,
+        1520,
+        756
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        348,
+        56,
+        220,
+        134,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1594,
+      "moments": [
+        759,
+        1658,
+        1522,
+        758
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        348,
+        58,
+        218,
+        135,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1598,
+      "moments": [
+        761,
+        1615,
+        1426,
+        686
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        365,
+        52,
+        230,
+        114,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1604,
+      "moments": [
+        764,
+        1666,
+        1530,
+        768
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        350,
+        66,
+        208,
+        140,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1616,
+      "moments": [
+        770,
+        1680,
+        1538,
+        752
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        364,
+        26,
+        256,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1618,
+      "moments": [
+        771,
+        1680,
+        1536,
+        748
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        368,
+        18,
+        264,
+        121,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1622,
+      "moments": [
+        773,
+        1686,
+        1540,
+        770
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        344,
+        88,
+        198,
+        143,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1634,
+      "moments": [
+        779,
+        1663,
+        1480,
+        720
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        367,
+        64,
+        224,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1636,
+      "moments": [
+        780,
+        1704,
+        1560,
+        760
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        368,
+        24,
+        264,
+        124,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1642,
+      "moments": [
+        783,
+        1710,
+        1572,
+        790
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        356,
+        72,
+        210,
+        145,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1646,
+      "moments": [
+        785,
+        1714,
+        1574,
+        798
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        348,
+        98,
+        186,
+        153,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1648,
+      "moments": [
+        786,
+        1714,
+        1564,
+        752
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        378,
+        4,
+        288,
+        116,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1658,
+      "moments": [
+        791,
+        1728,
+        1586,
+        794
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        74,
+        214,
+        145,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1664,
+      "moments": [
+        794,
+        1672,
+        1466,
+        694
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        398,
+        20,
+        270,
+        106,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1676,
+      "moments": [
+        800,
+        1744,
+        1596,
+        792
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        368,
+        60,
+        232,
+        140,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1682,
+      "moments": [
+        799,
+        1753,
+        1630,
+        834
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        363,
+        76,
+        202,
+        158,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1684,
+      "moments": [
+        800,
+        1782,
+        1684,
+        860
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        362,
+        52,
+        228,
+        158,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1688,
+      "moments": [
+        802,
+        1788,
+        1690,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        338,
+        124,
+        158,
+        182,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1696,
+      "moments": [
+        806,
+        1800,
+        1710,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        72,
+        206,
+        170,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1706,
+      "moments": [
+        811,
+        1808,
+        1710,
+        882
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        78,
+        206,
+        169,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1712,
+      "moments": [
+        814,
+        1814,
+        1714,
+        914
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        328,
+        172,
+        114,
+        200,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1714,
+      "moments": [
+        815,
+        1816,
+        1716,
+        902
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        342,
+        132,
+        154,
+        187,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1718,
+      "moments": [
+        817,
+        1820,
+        1720,
+        912
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        336,
+        154,
+        132,
+        195,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1724,
+      "moments": [
+        820,
+        1828,
+        1730,
+        884
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        372,
+        50,
+        236,
+        162,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1726,
+      "moments": [
+        821,
+        1834,
+        1736,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        368,
+        56,
+        234,
+        163,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1732,
+      "moments": [
+        824,
+        1840,
+        1740,
+        898
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        90,
+        202,
+        174,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1742,
+      "moments": [
+        829,
+        1783,
+        1612,
+        792
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        399,
+        40,
+        256,
+        134,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1744,
+      "moments": [
+        830,
+        1850,
+        1746,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        376,
+        48,
+        246,
+        160,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1748,
+      "moments": [
+        832,
+        1778,
+        1584,
+        766
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        396,
+        54,
+        254,
+        128,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1754,
+      "moments": [
+        835,
+        1862,
+        1756,
+        894
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        372,
+        64,
+        234,
+        165,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1756,
+      "moments": [
+        836,
+        1864,
+        1770,
+        926
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        366,
+        96,
+        190,
+        184,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1762,
+      "moments": [
+        839,
+        1872,
+        1764,
+        900
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        368,
+        78,
+        224,
+        169,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1766,
+      "moments": [
+        841,
+        1872,
+        1766,
+        894
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        386,
+        38,
+        258,
+        159,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1772,
+      "moments": [
+        844,
+        1886,
+        1784,
+        920
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        366,
+        92,
+        208,
+        178,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1774,
+      "moments": [
+        845,
+        1888,
+        1788,
+        934
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        120,
+        178,
+        189,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1784,
+      "moments": [
+        850,
+        1894,
+        1788,
+        932
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        362,
+        120,
+        180,
+        188,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1786,
+      "moments": [
+        851,
+        1853,
+        1700,
+        832
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        413,
+        8,
+        296,
+        134,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1796,
+      "moments": [
+        856,
+        1906,
+        1794,
+        920
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        374,
+        90,
+        216,
+        176,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1798,
+      "moments": [
+        857,
+        1856,
+        1689,
+        832
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        406,
+        45,
+        264,
+        142,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1802,
+      "moments": [
+        859,
+        1863,
+        1706,
+        856
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        403,
+        62,
+        240,
+        154,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1804,
+      "moments": [
+        860,
+        1818,
+        1604,
+        760
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        434,
+        8,
+        304,
+        114,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1808,
+      "moments": [
+        862,
+        1920,
+        1810,
+        930
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        378,
+        88,
+        218,
+        178,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1814,
+      "moments": [
+        865,
+        1934,
+        1828,
+        920
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        394,
+        34,
+        276,
+        161,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1816,
+      "moments": [
+        866,
+        1936,
+        1838,
+        960
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        372,
+        110,
+        192,
+        192,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1822,
+      "moments": [
+        869,
+        1940,
+        1838,
+        960
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        372,
+        116,
+        188,
+        193,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1828,
+      "moments": [
+        872,
+        1950,
+        1850,
+        980
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        358,
+        158,
+        148,
+        208,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1832,
+      "moments": [
+        874,
+        1950,
+        1842,
+        956
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        374,
+        114,
+        196,
+        190,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1838,
+      "moments": [
+        877,
+        1956,
+        1852,
+        952
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        392,
+        70,
+        236,
+        179,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1844,
+      "moments": [
+        880,
+        1960,
+        1854,
+        950
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        398,
+        60,
+        246,
+        176,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1846,
+      "moments": [
+        881,
+        1895,
+        1714,
+        836
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        431,
+        22,
+        292,
+        136,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1852,
+      "moments": [
+        882,
+        2008,
+        1944,
+        1026
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        366,
+        114,
+        194,
+        208,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1856,
+      "moments": [
+        884,
+        1980,
+        1886,
+        952
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        416,
+        2,
+        304,
+        162,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1858,
+      "moments": [
+        885,
+        2014,
+        1968,
+        1054
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        380,
+        96,
+        194,
+        215,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1864,
+      "moments": [
+        888,
+        2024,
+        1972,
+        1060
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        364,
+        136,
+        164,
+        224,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1868,
+      "moments": [
+        890,
+        2026,
+        1970,
+        1062
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        360,
+        152,
+        150,
+        228,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1874,
+      "moments": [
+        893,
+        2036,
+        1980,
+        1062
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        362,
+        144,
+        162,
+        225,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1882,
+      "moments": [
+        897,
+        2044,
+        2004,
+        1078
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        386,
+        96,
+        194,
+        221,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1886,
+      "moments": [
+        899,
+        1988,
+        1861,
+        956
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        398,
+        97,
+        220,
+        184,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1888,
+      "moments": [
+        900,
+        2050,
+        1988,
+        1064
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        362,
+        152,
+        160,
+        226,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1894,
+      "moments": [
+        903,
+        2058,
+        2002,
+        1068
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        374,
+        124,
+        184,
+        221,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1898,
+      "moments": [
+        905,
+        1993,
+        1854,
+        930
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        419,
+        48,
+        274,
+        164,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1906,
+      "moments": [
+        909,
+        2072,
+        2004,
+        1048
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        380,
+        102,
+        220,
+        207,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1912,
+      "moments": [
+        912,
+        2078,
+        2020,
+        1088
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        366,
+        160,
+        152,
+        234,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1916,
+      "moments": [
+        914,
+        2082,
+        2016,
+        1076
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        366,
+        156,
+        164,
+        228,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1918,
+      "moments": [
+        915,
+        1951,
+        1758,
+        860
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        463,
+        6,
+        308,
+        138,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1922,
+      "moments": [
+        917,
+        2057,
+        1946,
+        988
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        401,
+        74,
+        260,
+        182,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1924,
+      "moments": [
+        918,
+        1992,
+        1820,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        450,
+        2,
+        326,
+        140,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1928,
+      "moments": [
+        920,
+        2094,
+        2042,
+        1098
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        384,
+        128,
+        178,
+        230,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1934,
+      "moments": [
+        923,
+        2106,
+        2052,
+        1104
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        374,
+        150,
+        164,
+        235,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1936,
+      "moments": [
+        924,
+        2024,
+        1884,
+        962
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        430,
+        66,
+        250,
+        178,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1942,
+      "moments": [
+        927,
+        2114,
+        2066,
+        1110
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        388,
+        122,
+        186,
+        231,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1948,
+      "moments": [
+        930,
+        2118,
+        2064,
+        1096
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        398,
+        96,
+        216,
+        220,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1952,
+      "moments": [
+        932,
+        2122,
+        2064,
+        1102
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        388,
+        126,
+        190,
+        228,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1954,
+      "moments": [
+        933,
+        2124,
+        2066,
+        1086
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        406,
+        74,
+        242,
+        211,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1958,
+      "moments": [
+        935,
+        2045,
+        1882,
+        936
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        433,
+        58,
+        280,
+        164,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1964,
+      "moments": [
+        938,
+        2136,
+        2068,
+        1074
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        406,
+        70,
+        258,
+        204,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1966,
+      "moments": [
+        939,
+        2138,
+        2080,
+        1110
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        392,
+        124,
+        194,
+        229,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1972,
+      "moments": [
+        942,
+        2060,
+        1898,
+        948
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        436,
+        62,
+        276,
+        168,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1976,
+      "moments": [
+        944,
+        2028,
+        1828,
+        886
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        462,
+        22,
+        318,
+        142,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1978,
+      "moments": [
+        945,
+        2088,
+        1953,
+        978
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        444,
+        27,
+        306,
+        168,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1982,
+      "moments": [
+        947,
+        2158,
+        2098,
+        1120
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        390,
+        136,
+        188,
+        233,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1984,
+      "moments": [
+        948,
+        2130,
+        2036,
+        1058
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        416,
+        86,
+        242,
+        204,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1988,
+      "moments": [
+        950,
+        2028,
+        1832,
+        908
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        472,
+        32,
+        292,
+        154,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1994,
+      "moments": [
+        953,
+        2170,
+        2096,
+        1120
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        374,
+        182,
+        156,
+        241,
+        0,
+        0
+      ]
+    },
+    {
+      "target_even": 1996,
+      "moments": [
+        954,
+        2170,
+        2098,
+        1092
+      ],
+      "cap": 6,
+      "zero_survivor_histogram": [
+        0,
+        410,
+        82,
+        252,
+        210,
+        0,
+        0
+      ]
+    }
+  ],
+  "scope": "same first three aggregate moments and support cap; abstract histograms do not retain modular geometry or each exclusion identity"
+}

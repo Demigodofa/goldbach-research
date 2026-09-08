@@ -1,0 +1,268 @@
+{
+  "method": "exact CRT moments and reviewed finite polynomial inequalities",
+  "examples": [
+    {
+      "target_even": 400,
+      "window": {
+        "first_odd": 113,
+        "last_odd": 287,
+        "candidate_count": 88,
+        "last_wheel_prime": 13,
+        "next_prime": 17,
+        "odd_wheel_primes": [
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "multiplicity_cap": 5
+      },
+      "stages": [
+        {
+          "degree": 0,
+          "intersection_sum": 88,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 1,
+          "cumulative_CRT_floor_evaluations": 0,
+          "lower": 0,
+          "upper": 88,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 1,
+          "intersection_sum": 132,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 5,
+          "cumulative_CRT_floor_evaluations": 9,
+          "lower": 0,
+          "upper": 88,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 2,
+          "intersection_sum": 70,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 10,
+          "cumulative_CRT_floor_evaluations": 41,
+          "lower": 0,
+          "upper": 26,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 3,
+          "intersection_sum": 18,
+          "best_ordinary_Bonferroni_lower": 8,
+          "retained_nonempty_intersections": 7,
+          "cumulative_CRT_floor_evaluations": 97,
+          "lower": 8,
+          "upper": 26,
+          "lower_method": "Bonferroni degree 3"
+        },
+        {
+          "degree": 4,
+          "intersection_sum": 2,
+          "best_ordinary_Bonferroni_lower": 8,
+          "retained_nonempty_intersections": 1,
+          "cumulative_CRT_floor_evaluations": 117,
+          "lower": 8,
+          "upper": 10,
+          "lower_method": "Bonferroni degree 3"
+        },
+        {
+          "degree": 5,
+          "intersection_sum": 0,
+          "best_ordinary_Bonferroni_lower": 10,
+          "retained_nonempty_intersections": 0,
+          "cumulative_CRT_floor_evaluations": 117,
+          "lower": 10,
+          "upper": 10,
+          "lower_method": "empty intersection layer closes exact sum"
+        }
+      ],
+      "status": "certified",
+      "survivor_lower": 10,
+      "survivor_upper": 10,
+      "CRT_floor_evaluations": 117,
+      "seconds": 0.0,
+      "scope": "finite prime-safe window; missing small-prime pairs are not counterexamples"
+    },
+    {
+      "target_even": 1000,
+      "window": {
+        "first_odd": 33,
+        "last_odd": 967,
+        "candidate_count": 468,
+        "last_wheel_prime": 31,
+        "next_prime": 37,
+        "odd_wheel_primes": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31
+        ],
+        "multiplicity_cap": 5
+      },
+      "stages": [
+        {
+          "degree": 0,
+          "intersection_sum": 468,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 1,
+          "cumulative_CRT_floor_evaluations": 0,
+          "lower": 0,
+          "upper": 468,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 1,
+          "intersection_sum": 902,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 10,
+          "cumulative_CRT_floor_evaluations": 19,
+          "lower": 0,
+          "upper": 468,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 2,
+          "intersection_sum": 724,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 45,
+          "cumulative_CRT_floor_evaluations": 181,
+          "lower": 0,
+          "upper": 290,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 3,
+          "intersection_sum": 296,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 68,
+          "cumulative_CRT_floor_evaluations": 997,
+          "lower": 22,
+          "upper": 290,
+          "lower_method": "adjacent-root cubic a=3"
+        },
+        {
+          "degree": 4,
+          "intersection_sum": 60,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 28,
+          "cumulative_CRT_floor_evaluations": 2373,
+          "lower": 22,
+          "upper": 54,
+          "lower_method": "adjacent-root cubic a=3"
+        },
+        {
+          "degree": 5,
+          "intersection_sum": 6,
+          "best_ordinary_Bonferroni_lower": 48,
+          "retained_nonempty_intersections": 3,
+          "cumulative_CRT_floor_evaluations": 2717,
+          "lower": 48,
+          "upper": 48,
+          "lower_method": "complete inclusion-exclusion through multiplicity cap"
+        }
+      ],
+      "status": "certified",
+      "survivor_lower": 48,
+      "survivor_upper": 48,
+      "CRT_floor_evaluations": 2717,
+      "seconds": 0.0,
+      "scope": "finite prime-safe window; missing small-prime pairs are not counterexamples"
+    },
+    {
+      "target_even": 246,
+      "window": {
+        "first_odd": 15,
+        "last_odd": 231,
+        "candidate_count": 109,
+        "last_wheel_prime": 13,
+        "next_prime": 17,
+        "odd_wheel_primes": [
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "multiplicity_cap": 5
+      },
+      "stages": [
+        {
+          "degree": 0,
+          "intersection_sum": 109,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 1,
+          "cumulative_CRT_floor_evaluations": 0,
+          "lower": 0,
+          "upper": 109,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 1,
+          "intersection_sum": 149,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 5,
+          "cumulative_CRT_floor_evaluations": 9,
+          "lower": 0,
+          "upper": 109,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 2,
+          "intersection_sum": 86,
+          "best_ordinary_Bonferroni_lower": 0,
+          "retained_nonempty_intersections": 10,
+          "cumulative_CRT_floor_evaluations": 41,
+          "lower": 0,
+          "upper": 46,
+          "lower_method": "nonnegativity"
+        },
+        {
+          "degree": 3,
+          "intersection_sum": 22,
+          "best_ordinary_Bonferroni_lower": 24,
+          "retained_nonempty_intersections": 7,
+          "cumulative_CRT_floor_evaluations": 97,
+          "lower": 24,
+          "upper": 46,
+          "lower_method": "Bonferroni degree 3"
+        },
+        {
+          "degree": 4,
+          "intersection_sum": 2,
+          "best_ordinary_Bonferroni_lower": 24,
+          "retained_nonempty_intersections": 1,
+          "cumulative_CRT_floor_evaluations": 133,
+          "lower": 24,
+          "upper": 26,
+          "lower_method": "Bonferroni degree 3"
+        },
+        {
+          "degree": 5,
+          "intersection_sum": 0,
+          "best_ordinary_Bonferroni_lower": 26,
+          "retained_nonempty_intersections": 0,
+          "cumulative_CRT_floor_evaluations": 137,
+          "lower": 26,
+          "upper": 26,
+          "lower_method": "empty intersection layer closes exact sum"
+        }
+      ],
+      "status": "certified",
+      "survivor_lower": 26,
+      "survivor_upper": 26,
+      "CRT_floor_evaluations": 137,
+      "seconds": 0.0,
+      "scope": "finite prime-safe window; missing small-prime pairs are not counterexamples"
+    }
+  ]
+}

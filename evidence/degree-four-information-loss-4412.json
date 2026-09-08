@@ -1,0 +1,230 @@
+{
+  "target_even": 4412,
+  "full_moment_calculation": {
+    "target_even": 4412,
+    "window": {
+      "first_odd": 63,
+      "last_odd": 4349,
+      "candidate_count": 2144,
+      "last_wheel_prime": 61,
+      "next_prime": 67,
+      "odd_wheel_primes": [
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61
+      ],
+      "multiplicity_cap": 7,
+      "product_multiplicity_cap": 7,
+      "cap_strategy": "split"
+    },
+    "stages": [
+      {
+        "degree": 0,
+        "intersection_sum": 2144,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 1,
+        "cumulative_CRT_floor_evaluations": 0,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 1,
+        "intersection_sum": 5204,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 17,
+        "cumulative_CRT_floor_evaluations": 34,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 2,
+        "intersection_sum": 5490,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 136,
+        "cumulative_CRT_floor_evaluations": 578,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 3,
+        "intersection_sum": 3314,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 385,
+        "cumulative_CRT_floor_evaluations": 6010,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 4,
+        "intersection_sum": 1198,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 373,
+        "cumulative_CRT_floor_evaluations": 25918,
+        "lower": 0,
+        "upper": 314,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 5,
+        "intersection_sum": 252,
+        "best_ordinary_Bonferroni_lower": 62,
+        "retained_nonempty_intersections": 120,
+        "cumulative_CRT_floor_evaluations": 39538,
+        "lower": 67,
+        "upper": 314,
+        "lower_method": "root polynomial [1, 2, 3, 5, 6]",
+        "root_certificate": {
+          "lower": 67,
+          "numerator": 992,
+          "denominator": 15,
+          "roots": [
+            1,
+            2,
+            3,
+            5,
+            6
+          ],
+          "degree": 5,
+          "coefficients": [
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              14,
+              15
+            ],
+            [
+              -2,
+              3
+            ]
+          ],
+          "family_count": 17,
+          "method": "optimal real moment LP root-polynomial lower bound, rounded for integer counts"
+        }
+      },
+      {
+        "degree": 6,
+        "intersection_sum": 26,
+        "best_ordinary_Bonferroni_lower": 62,
+        "retained_nonempty_intersections": 13,
+        "cumulative_CRT_floor_evaluations": 41994,
+        "lower": 85,
+        "upper": 88,
+        "lower_method": "root polynomial [1, 7, 2, 3, 4, 5]",
+        "root_certificate": {
+          "lower": 85,
+          "numerator": 590,
+          "denominator": 7,
+          "roots": [
+            1,
+            7,
+            2,
+            3,
+            4,
+            5
+          ],
+          "degree": 6,
+          "coefficients": [
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              1
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "family_count": 20,
+          "method": "optimal real moment LP root-polynomial lower bound, rounded for integer counts"
+        }
+      },
+      {
+        "degree": 7,
+        "intersection_sum": 0,
+        "best_ordinary_Bonferroni_lower": 88,
+        "retained_nonempty_intersections": 0,
+        "cumulative_CRT_floor_evaluations": 42206,
+        "lower": 88,
+        "upper": 88,
+        "lower_method": "empty intersection layer closes exact sum"
+      }
+    ],
+    "bound_strategy": "root_family",
+    "status": "certified",
+    "survivor_lower": 88,
+    "survivor_upper": 88,
+    "CRT_floor_evaluations": 42206,
+    "seconds": 0.015,
+    "scope": "finite prime-safe window; missing small-prime pairs are not counterexamples"
+  },
+  "first_four_moments_with_M": [
+    2144,
+    5204,
+    5490,
+    3314,
+    1198
+  ],
+  "abstract_integer_zero_histogram": [
+    0,
+    861,
+    0,
+    887,
+    348,
+    9,
+    28,
+    11
+  ],
+  "independent_ordered_prime_pairs_in_window": 88,
+  "scope": "four aggregate overlap degrees cannot force a survivor; fifth-degree information or retained modular/location information is needed by this interface"
+}

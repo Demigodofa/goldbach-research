@@ -1,0 +1,99 @@
+{
+  "hypothesis": "degrees0 through4 with optimal real moment bound and split cap always suffice",
+  "search_first_even": 2006,
+  "search_limit_even": 20000,
+  "targets_checked": 1204,
+  "first_inconclusive_target": {
+    "target_even": 4412,
+    "window": {
+      "first_odd": 63,
+      "last_odd": 4349,
+      "candidate_count": 2144,
+      "last_wheel_prime": 61,
+      "next_prime": 67,
+      "odd_wheel_primes": [
+        3,
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37,
+        41,
+        43,
+        47,
+        53,
+        59,
+        61
+      ],
+      "multiplicity_cap": 7,
+      "product_multiplicity_cap": 7,
+      "cap_strategy": "split"
+    },
+    "stages": [
+      {
+        "degree": 0,
+        "intersection_sum": 2144,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 1,
+        "cumulative_CRT_floor_evaluations": 0,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 1,
+        "intersection_sum": 5204,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 17,
+        "cumulative_CRT_floor_evaluations": 34,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 2,
+        "intersection_sum": 5490,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 136,
+        "cumulative_CRT_floor_evaluations": 578,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 3,
+        "intersection_sum": 3314,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 385,
+        "cumulative_CRT_floor_evaluations": 6010,
+        "lower": 0,
+        "upper": 2144,
+        "lower_method": "nonnegativity"
+      },
+      {
+        "degree": 4,
+        "intersection_sum": 1198,
+        "best_ordinary_Bonferroni_lower": 0,
+        "retained_nonempty_intersections": 373,
+        "cumulative_CRT_floor_evaluations": 25918,
+        "lower": 0,
+        "upper": 314,
+        "lower_method": "nonnegativity"
+      }
+    ],
+    "bound_strategy": "root_family",
+    "status": "unresolved_by_window",
+    "survivor_lower": 0,
+    "survivor_upper": 314,
+    "CRT_floor_evaluations": 25918,
+    "seconds": 0.016,
+    "scope": "finite prime-safe window; missing small-prime pairs are not counterexamples"
+  },
+  "seconds": 5.438,
+  "scope": "inconclusive count bound refutes only this sufficient-condition hypothesis, not Goldbach"
+}
