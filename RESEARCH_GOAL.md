@@ -187,3 +187,20 @@ Goldbach coverage, or historical-priority claim follows. The remaining gap
 is evaluation/comparison of the signed pair main terms with enough positive
 margin, including control relative to any exceptionally suppressed term.
 The overall Goldbach goal remains active; no wake was queued.
+
+After Kevin flagged an interruption, the exact thread rollout and Git
+history were checked. The last completed reviewed checkpoint is aca72fc;
+the earlier bootstrap, almost-all theorem, and analytic prerequisites are
+intact. The next root-derived candidate is in `signed_pair_main_term.py`.
+It evaluates the signed pair main terms, derives a linear suppressed margin
+for small exceptional conductors, and bounds an explicit large-conductor
+gcd family by O(Y*R^(-1/8)). Six exact-arithmetic tests pass normally and
+with Python -O, including active composite conductors and divisor-cover
+overlaps. These are finite-algebra checks, not an analytic review.
+Final Sol review is pending: the existing moment_bound_review handle has
+reported pending_init across repeated observations. No completed review is
+claimed and no replacement reviewer or continuation was queued. The next
+required action is the bounded review of these current files, followed by
+correction or promotion according to its actual result. Actual-prime Fourier
+transfer and conversion to canonical L remain open. The overall goal stays
+active; the old native 9am wording remains superseded.
