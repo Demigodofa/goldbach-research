@@ -66,6 +66,8 @@ uniform prime atoms. Joint moduli, smoothing with a separately proved
 transfer, and certified exclusion of other congruent sums remain possible
 questions. No actual prime coverage, Goldbach counterexample, general
 impossibility theorem, or historical-novelty claim follows.
+`joint_residue_model.py` now checks the multiple-modulus extension, including
+a positive coprime-target theorem and its global density requirement.
 """
 from fractions import Fraction
 from math import isqrt

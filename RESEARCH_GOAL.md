@@ -398,3 +398,29 @@ claimed necessary; joint moduli, proved smoothing transfers, and certified
 alias exclusion remain separate questions. No new actual Goldbach coverage,
 historical-priority search, publication work, or wake queue. Overall goal
 active; the arithmetic transfer to individual targets remains unresolved.
+
+The next bounded pursuit checked multiple-modulus assembly and returned
+`changed-under-evidence`. `joint_residue_model.py` gives an exact family
+D=3Q where every proper-divisor joint projection is uniform and its pair
+mean positive, yet the full product-pair mean is zero. Under those exact
+projection and cap2 premises, a small full mean forces both factors close
+to the full quadratic-character cosets; local projections erase that mode.
+The construction uses nonunit targets and is not a coprime-target no-go.
+For squarefree D with least prime p0>=7, ANY global cap2 mean1 factors
+have positive product-pair mean at every unit target, bounded below by
+theta*(p0-4-sqrt(p0))/(p0-2), theta=prod(p-2)/phi(D). This complementary
+theorem needs no proper-projection uniformity. However, at the sufficient
+no-alias scale D>2H, cubic-prefix prime atoms have distance from EVERY
+global mean1 cap2 density greater than2*(1-2^(1/4)*H^(-1/12)), tending to2.
+The elementary phi(D)>=D^(3/4) bound makes this valid even with many prime
+moduli. Thus this direct atomic implementation still fails its required
+global input; smaller marginal density bounds do not supply it. Sol checked
+the deductions and implementation; seven focused tests passed normally
+and with Python -O, including exact radical bounds, sharp inverse cases,
+nonuniform composite marginals, and a lower-conductor premise falsifier.
+The first test run caught and corrected floating division in test-side
+coefficient arithmetic; the mathematical statement needed no correction.
+The pursuit closed within30 minutes. No new actual Goldbach coverage,
+historical-priority search, publication work, or wake queue. Overall goal
+active; arithmetic control of joint dependence or another rigorously
+justified transfer is still needed for individual unresolved targets.
