@@ -92,3 +92,15 @@ The proved total gain is at most N/(z+1)=O(N^(2/3)) and vanishes on powers
 of two. This limits the correction's size; it does not prove that actual
 exceptions exist or cannot be repaired. Cross-factor composite-pair control
 remains the missing arithmetic step.
+
+The shared-prime reduction now includes composites with different least
+factors that share a larger prime. `shared_prime_correction.py` reduces every
+such distinct pair to a unique prime divisor ell of N and smaller cofactor
+target N/ell. Its lower-bound mode uses earlier numerical bounds; its exact
+mode uses earlier parity-recovered prime flags and inspects at most two
+smaller targets. Adding the exact correction to canonical L leaves precisely
+the ordered coprime composite-pair loss below G. It replaces the same-factor
+gain rather than being added on top of it. At N=234 it raises 28 to the exact
+count30 by recovering 91+143 and its reflection. The remaining problem is
+control of the coprime composite-pair contribution; no universal positivity
+or historical-priority claim follows.
