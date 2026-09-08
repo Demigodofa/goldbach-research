@@ -321,3 +321,23 @@ exceptions. The suppressed classes, absent/insufficient-zero case, and
 out-of-range targets remain open. The source supplies the analytic theorem;
 no historical novelty, unconditional coverage, publication work, or wake queue.
 Overall Goldbach coverage remains unresolved and the goal stays active.
+
+The next bounded pursuit checked whether that conditional branch can stack.
+Landau--Page, in Michel's primary lecture source printed p21, implies that
+distinct sufficiently strong primitive real zeros satisfy
+log(D2)/log(D1)>c*eta1, for a fixed c below its positive absolute constant.
+Consequently the next interval starts after the square of the previous
+upper endpoint when 10*c*eta1^alpha>=2. A family above one sufficiently
+large fixed strength threshold cannot cover all large evens by these
+intervals alone, even if every suppressed residue family is empty.
+`exceptional_pointwise_bridge.py` retains the proof and exact rational
+separation check. Sol reviewed both; seven focused tests passed normally
+and with Python -O. The review clarified that v=o(eta) suffices for the
+geometric gap, while making the source error envelope tend to zero needs
+the stronger v*log(eta)^6/eta=o(1). The pursuit returned
+`changed-under-evidence`: individual conditional intervals remain usable,
+but this strong-zero family cannot supply the desired global stacking.
+These are certificate gaps, not Goldbach failures; weaker zeros and other
+analytic regimes are not excluded. No numerical Landau--Page constant,
+actual zero, historical novelty, publication work, or wake queue was added.
+The overall goal remains active; other arithmetic coverage is still needed.

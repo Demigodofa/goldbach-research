@@ -5,7 +5,8 @@ import unittest
 
 from character_suppression import suppression_classes
 from exceptional_character_model import character_values
-from exceptional_pointwise_bridge import pointwise_coefficient, proper_power_position_cap
+from exceptional_pointwise_bridge import (pointwise_coefficient, proper_power_position_cap,
+                                          separated_zero_ranges)
 from redistribution import trial_prime
 
 
@@ -83,6 +84,54 @@ class ExceptionalPointwiseBridgeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 proper_power_position_cap(n)
         self.assertIn("not a prime-count certificate", pointwise_coefficient.__doc__)
+
+    def test_zero_range_boundary_and_required_second_zero_strength(self):
+        # Synthetic conditional parameters; c=1/100 is NOT asserted to be
+        # a valid numerical Landau/Page constant, and no zeros are supplied.
+        c, alpha = Fraction(1, 100), Fraction(1, 2)
+        self.assertTrue(separated_zero_ranges(c, 100, 100, alpha))
+        self.assertFalse(separated_zero_ranges(c, 99, 100, alpha))
+        self.assertFalse(separated_zero_ranges(c, 100, 99, alpha))
+        self.assertFalse(separated_zero_ranges(c, 100, 100, alpha, log_gap_factor=2))
+        self.assertTrue(separated_zero_ranges(c, 400, 100, alpha, log_gap_factor=2))
+        self.assertTrue(separated_zero_ranges(c, 1000, 100, Fraction(1, 3)))
+        self.assertFalse(separated_zero_ranges(c, 999, 100, Fraction(1, 3)))
+
+    def test_fractional_exponents_and_independent_log_endpoint_comparison(self):
+        # alpha=2/3 and eta=(10/3)^3 give eta^alpha=100/9 exactly.
+        c, eta = Fraction(9, 1000), Fraction(1000, 27)
+        self.assertTrue(separated_zero_ranges(c, eta, Fraction(1000, 9), Fraction(2, 3)))
+        self.assertFalse(separated_zero_ranges(c, eta-Fraction(1, 10**30),
+                                               Fraction(1000, 9), Fraction(2, 3)))
+        # Formal logarithmic coordinates ell_i=log D_i: directly compare
+        # interval endpoints; these coordinates do not assert actual zeros.
+        for root in (10, 20, 30):
+            strength = root*root
+            for ell1 in (Fraction(1), Fraction(7, 3)):
+                ell2 = Fraction(1, 100)*strength*ell1+Fraction(1, 1000)
+                upper1 = root*ell1  # eta^(1-alpha)*ell1 for alpha=1/2.
+                lower2 = 10*ell2
+                self.assertTrue(separated_zero_ranges(Fraction(1, 100), strength,
+                                                       100, Fraction(1, 2)))
+                self.assertGreater(lower2, upper1)
+                if root >= 20:
+                    self.assertGreater(lower2, 2*upper1)
+
+    def test_zero_range_input_semantics(self):
+        for args in ((True, 100, 100, Fraction(1, 2)),
+                     (0, 100, 100, Fraction(1, 2)),
+                     (2, 100, 100, Fraction(1, 2)),
+                     (Fraction(1, 100), 9, 100, Fraction(1, 2)),
+                     (Fraction(1, 100), 100, 100.0, Fraction(1, 2)),
+                     (Fraction(1, 100), 100, 100, 0),
+                     (Fraction(1, 100), 100, 100, 1)):
+            with self.assertRaises(ValueError):
+                separated_zero_ranges(*args)
+        for gap in (0, Fraction(1, 2), True, 1.0):
+            with self.assertRaises(ValueError):
+                separated_zero_ranges(Fraction(1, 100), 100, 100, Fraction(1, 2),
+                                      log_gap_factor=gap)
+        self.assertIn("False is inconclusive", separated_zero_ranges.__doc__)
 
 
 if __name__ == "__main__":

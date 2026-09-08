@@ -3,7 +3,7 @@
 Owner: Kevin's research. Purpose: connect an existing POINTWISE theorem to
 our checked arithmetic suppression family, keeping actual G separate from L.
 The source supplies the analytic theorem; no historical novelty is asserted.
-Sol checked the deduction and actual verifier on 2026-09-08. Four focused
+Sol checked the deductions and actual verifier on 2026-09-08. Seven focused
 exact tests passed normally and with Python -O.
 
 Primary source, read 2026-09-08:
@@ -82,6 +82,48 @@ family of counterexamples. The absent/insufficient-zero case, targets
 outside the range, and canonical L on Fourier exceptions remain open.
 The result is a source-backed conditional branch, not unconditional
 coverage, a proof of Goldbach, or a detection of a Siegel zero.
+
+Stacking boundary (deduction and actual verifier checked by Sol):
+Primary source: Philippe Michel, Analytic Number Theory and Families of
+Automorphic L-functions, version May24 2006, printed p21, Landau/Page:
+https://www.epfl.ch/labs/tan/wp-content/uploads/2018/10/Parkcitylectures.pdf
+There is an effective c0>0 such that at most one primitive real character
+of conductor<=Q has a real zero in [1-c0/log Q,1]. Fix 0<c<c0, c<=1;
+no numerical value of such c is supplied here.
+
+Let DISTINCT primitive real characters of conductors D1<=D2 have zeros
+beta_i=1-1/(eta_i*log D_i). If eta2>=1/c, then
+  log D2/log D1 > c*eta1.                                   (4)
+Otherwise both zeros belong to [1-c/log D2,1], strictly inside the source
+region with Q=D2, contradicting Landau/Page. The source proof excludes a
+second character even if its zero has the same numerical value. When
+D1=D2, two distinct characters BOTH satisfying eta_i>=1/c are impossible.
+
+For the ambient interval upper endpoint U1=D1**(eta1**(1-alpha)), (4) gives
+  log(D2**10)/log U1 > 10*c*eta1**alpha.                    (5)
+Thus 10*c*eta1**alpha>=1 forces disjoint intervals; equality is sufficient
+because (4) is strict. If the right side is at least2, D2**10>U1**2.
+The lower cutoff N0 can only shorten the certified intervals.
+For fixed alpha, choose a fixed strength threshold ensuring eta>=1/c,
+eta**(1-alpha)>=10, and 10*c*eta**alpha>=2. Any family of DISTINCT
+characters exceeding that threshold has disjoint ambient intervals in
+conductor order, with square-size gaps between consecutive intervals.
+A finite family has bounded union. An infinite family has unbounded
+conductors, and arbitrarily large even integers in these gaps. Thus these
+certificates alone cannot cover a tail, even if every F_D is empty.
+
+More generally, an upper exponent v1=o(eta1) and next lower exponent
+v2>=10 give logarithmic endpoint ratio >10*c*eta1/v1, tending to infinity.
+This is a GEOMETRIC statement only. Making the displayed source error
+envelope tend to zero requires v1*log(eta1)**6/eta1=o(1), together with
+the other source hypotheses. That stronger condition implies the geometric one;
+the converse is false. Enlarging ranges subject to that error condition
+therefore does not evade this asymptotic separation.
+
+These are gaps in this strong-zero certificate family, not Goldbach
+counterexamples. Weaker zeros or different analytic regimes are not ruled
+out. Reusing the same zero at another alpha is not a second character and
+does not justify applying (4); its enlarged range must be checked anew.
 """
 from fractions import Fraction
 from math import isqrt
@@ -126,3 +168,31 @@ def proper_power_position_cap(target: int) -> int:
     if type(target) is not int or target < 6 or target % 2:
         raise ValueError("require an even integer target N>=6")
     return 2*(target.bit_length()-2)*isqrt(target)
+
+
+def separated_zero_ranges(c: int | Fraction, eta_first: int | Fraction,
+                          eta_second: int | Fraction, alpha: int | Fraction,
+                          *, log_gap_factor: int | Fraction = 1) -> bool:
+    """Check a sufficient separation condition using exact rational bounds.
+
+    CONDITIONAL input meaning: 0<c<c0 for a valid Landau/Page constant;
+    eta_first/second are truthful LOWER bounds on the two actual zero
+    strengths, for DISTINCT characters in nondecreasing conductor order.
+    No zero, conductor, or validity of c is verified. Synthetic rational
+    test parameters are not claimed to be available analytic constants.
+
+    True implies the second ambient lower endpoint exceeds the first
+    actual upper endpoint raised to log_gap_factor. False is inconclusive,
+    not evidence of overlap. The two intervals use the SAME fixed alpha.
+    For alpha=m/n, 10*c*eta_first**alpha>=gap is tested exactly by
+    (10*c)**n * eta_first**m >= gap**n, avoiding floating powers.
+    """
+    values = (c, eta_first, eta_second, alpha, log_gap_factor)
+    if (any(type(v) not in (int, Fraction) for v in values)
+            or not 0 < c <= 1 or eta_first < 10 or eta_second < 10
+            or not 0 < alpha < 1 or log_gap_factor < 1):
+        raise ValueError("require exact rationals: 0<c<=1, eta_i>=10, 0<alpha<1, gap>=1")
+    c, eta_first, eta_second, alpha, gap = map(Fraction, values)
+    if c*eta_second < 1:
+        return False
+    return (10*c)**alpha.denominator * eta_first**alpha.numerator >= gap**alpha.denominator
