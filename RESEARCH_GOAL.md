@@ -115,3 +115,22 @@ The algebra and minimality were independently checked, and a regression in
 `test_shared_prime_correction.py` retains the falsifier. Finite witness reuse
 remains valid; a useful descent must go beyond a fixed quartet's pairings.
 This does not test a descent restricted to yet-unknown failed targets.
+
+The quantitative exceptional-set pursuit produced a finite character-model
+comparison, retained in `exceptional_character_model.py`. For a primitive real
+character of conductor D>21, its prime-sign pair model P and the opposite-sign
+semiprime model S satisfy P>=3S/5, uniformly in both bias weights in [0,1].
+For powers of two and D>24, P>=2A/3, where A is the number of admissible
+residue pairs. Consequently P-rho*S>=11A/90 for rho<=49/100 on that family.
+The sign change itself follows from an exact multiplicative character
+convolution. Sol independently checked the algebra, all conductor cases, and
+the necessary small-conductor exclusions. These are model statements, not
+prime-count estimates or coverage of previously uncomputed powers of two.
+The bounded pursuit returned `changed-under-evidence`: a possible exceptional
+character does not destroy this model margin. A power-saving exceptional-set
+theorem for canonical L remains unproved. The relevant Grimmelt--Teravainen
+Theorem 7.9 (arXiv:2508.16400v2) does not state the required approximation for
+our rough-semiprime weight. The remaining step is to prove that approximation
+and its convolution errors, with the correct opposite character sign and
+errors relative to any suppressed main term. Historical priority was not
+investigated, in accordance with Kevin's latest steering.
