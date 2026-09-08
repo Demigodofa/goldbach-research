@@ -1,9 +1,11 @@
 """Independent arithmetic checks for the two-moment block certificate."""
 from copy import deepcopy
 from itertools import product
+from fractions import Fraction
 import unittest
 
-from block_moments import (make_certificate, positive_count_bound, replay_certificate,
+from block_moments import (adaptive_weight_bits, make_certificate, odd_singular_factor,
+                           positive_count_bound, replay_certificate,
                            sufficient_bounded_moments, target_weight)
 from redistribution import trial_prime
 
@@ -71,6 +73,42 @@ class BlockMomentTests(unittest.TestCase):
                      (6, 1, "singular", True), (6, 1, "singular", 0)]:
             with self.subTest(args=args), self.assertRaises(ValueError):
                 make_certificate(*args)
+
+    def test_adaptive_precision_is_minimal_and_bounds_rounding(self):
+        for first, count, denominator in [(6, 100, 10000), (100000, 1000, 10000),
+                                          (6, 1, 1), (32, 1, 2), (210, 5, 3)]:
+            bits = adaptive_weight_bits(first, count, denominator)
+            factors = [odd_singular_factor(n) for n in range(first, first+2*count, 2)]
+            self.assertGreaterEqual(Fraction(1 << bits), denominator*max(factors))
+            if bits > 1:
+                self.assertLess(Fraction(1 << (bits-1)), denominator*max(factors))
+            for n, factor in zip(range(first, first+2*count, 2), factors):
+                normalized = target_weight(n, bits=bits)*factor/(1 << bits)
+                self.assertGreaterEqual(normalized, 1)
+                self.assertLess(normalized, 1+Fraction(1, denominator))
+        self.assertEqual(odd_singular_factor(2), 1)
+        self.assertEqual(odd_singular_factor(30), Fraction(8, 3))
+
+    def test_adaptive_precision_rejects_invalid_inputs(self):
+        for args in [(True, 2, 3), (4, 2, 3), (7, 2, 3),
+                     (6, 0, 3), (6, True, 3), (6, 2, 0), (6, 2, True)]:
+            with self.subTest(args=args), self.assertRaises(ValueError):
+                adaptive_weight_bits(*args)
+        for target in [True, 0, 1, 3, 7.0]:
+            with self.subTest(target=target), self.assertRaises(ValueError):
+                odd_singular_factor(target)
+
+    def test_outlier_failure_is_not_nonexistence(self):
+        for count in range(3, 30):
+            # All coordinates are positive, but one outlier makes Z<=0.
+            tail = [count-2]*(count-1)
+            leading = 2*(count-1)
+            values = [leading]+tail
+            self.assertEqual(sum(values)**2-(count-1)*sum(x*x for x in values), 0)
+            values[0] += 1
+            self.assertLess(sum(values)**2-(count-1)*sum(x*x for x in values), 0)
+            self.assertLess(positive_count_bound(count, sum(values),
+                                                 sum(x*x for x in values)), count)
 
 
 if __name__ == "__main__":

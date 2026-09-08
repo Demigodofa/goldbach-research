@@ -168,3 +168,29 @@ This shows why shrinking the first stage indefinitely is not a viable way
 to make the raw formula close itself. The cubic cutoff remains outside this
 negative theorem; the substantive unresolved direction is still a positive
 bound controlling the reflected prime/semiprime correlation there.
+
+## Dormant fixed-power extension candidate from the renewed run
+
+A later bounded source check identified a route that might strengthen the
+negative result to z=N^(1/6). This is not yet a proved extension. With
+integer-sieve level D_M=N/log^B N and prime-supported BV level
+D_Q=sqrt(N)/log^B N, the formal comparison would require
+
+    f_2(6)>2*exp(2*gamma)/9,
+
+where f_2 is the DHR dimension-two lower sieve function; the right side
+is approximately0.70494. Exact DHR equations and the relevant numerical
+parameters are recorded in Kao, arXiv:1606.03505, section4:
+https://arxiv.org/html/1606.03505v1 . The source lane checked them, but its
+printed decimal values are not a certified interval calculation.
+
+If rigorous bounds beta_2<4.267, alpha_2>5, F_2(4)>1.836 and F_2(5)>1.20
+are supplied, the differential equation and monotonicity would imply
+
+    f_2(6)>=((25-4.267^2)*F_2(4)+11*F_2(5))/36>0.71309.
+
+The remaining prerequisites are certified constant/function enclosures
+and a complete treatment of the DHR weighted remainder sums at the proposed
+levels. The source check supplied exact candidate equations, not those
+missing proofs. Keep this dormant until a bounded attempt can close both;
+do not silently replace the proved subpower statement with z=N^(1/6).

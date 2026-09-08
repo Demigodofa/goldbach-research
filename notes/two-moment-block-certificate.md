@@ -131,3 +131,32 @@ fact must not be attributed to an aggregate test that only certified998.
 There is no speed claim, no effective infinite-range moment estimate, and
 no proof of Goldbach. The useful new interface is an exact block condition
 that can consume future rigorously justified moment bounds.
+
+## Later review and precision refinement
+
+The renewed run independently checked the implementation and all eight
+retained receipts. No material defect was found. A later theorem proves
+that any fixed within-block dynamic range of positive weights fails this
+test on infinitely many fully represented blocks; see
+`fixed-precision-weight-obstruction.md`. That includes the fixed 32-bit
+rule, while leaving every earlier accepted finite certificate valid.
+
+The implemented adaptive bit rule bounds relative rounding distortion by
+1/d from target factorization alone. At d=10000 it chooses 16 bits for
+100000..101998 and certifies all 1000 targets. Nine focused tests and the
+full 82-test suite pass normally and under optimized Python.
+
+A more useful analytic precision target is centered energy about a fixed,
+independently specified positive reference a:
+
+    E_a=sum_i(x_i-a)^2 < a^2.
+
+A zero coordinate alone would contribute a^2. Equivalently, completing
+the square shows this inequality forces Z>0. The strict normalized RMS
+threshold is 1/sqrt(m), or 3.16228% at m=1000. Equality is insufficient,
+as (0,a,...,a) shows. By contrast, separate relative bounds on the large
+first and second moments around a flat model require symmetric relative
+error below about 0.0333482% at m=1000. These are different error models.
+Neither threshold supplies its own analytic premise or removes the need
+to control prime-pair correlations. The adaptive almost-all proof attempt
+is recorded separately in `adaptive-moment-almost-all.md`.

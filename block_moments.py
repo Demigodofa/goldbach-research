@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+from fractions import Fraction
 
 from packed_goldbach import build_prime_square
 
@@ -41,6 +42,28 @@ def sufficient_bounded_moments(count: int, total_lower: int, square_upper: int) 
     return total_lower*total_lower > (count-1)*square_upper
 
 
+def odd_singular_factor(target: int) -> Fraction:
+    """Exact product (p-1)/(p-2) over distinct odd prime factors."""
+    if type(target) is not int or target < 2 or target % 2:
+        raise ValueError("an even exact target >=2 is required")
+    remainder = target
+    while remainder % 2 == 0:
+        remainder //= 2
+    numerator = denominator = 1
+    divisor = 3
+    while divisor*divisor <= remainder:
+        if remainder % divisor == 0:
+            numerator *= divisor-1
+            denominator *= divisor-2
+            while remainder % divisor == 0:
+                remainder //= divisor
+        divisor += 2
+    if remainder > 1:
+        numerator *= remainder-1
+        denominator *= remainder-2
+    return Fraction(numerator, denominator)
+
+
 def target_weight(target: int, mode: str = "singular", bits: int = 32) -> int:
     """Positive integer approximation to the inverse odd singular factor."""
     if type(target) is not int or target < 6 or target % 2:
@@ -50,23 +73,29 @@ def target_weight(target: int, mode: str = "singular", bits: int = 32) -> int:
     _positive_int(bits, "weight bits")
     if mode == "unit":
         return 1
-    remainder = target
-    while remainder % 2 == 0:
-        remainder //= 2
-    numerator = denominator = 1
-    divisor = 3
-    while divisor*divisor <= remainder:
-        if remainder % divisor == 0:
-            numerator *= divisor-2
-            denominator *= divisor-1
-            while remainder % divisor == 0:
-                remainder //= divisor
-        divisor += 2
-    if remainder > 1:
-        numerator *= remainder-2
-        denominator *= remainder-1
+    factor = odd_singular_factor(target)
     # Ceiling remains positive even for a singular factor larger than 2**bits.
-    return ((1 << bits)*numerator + denominator - 1) // denominator
+    return ((1 << bits)*factor.denominator + factor.numerator - 1) // factor.numerator
+
+
+def adaptive_weight_bits(first_even: int, count: int = 1000,
+                         relative_error_denominator: int = 10000) -> int:
+    """Smallest b>=1 ensuring s(N)/2**b<=1/denominator throughout the block.
+
+    This bounds rounding distortion using factorization only. It does not
+    bound actual Goldbach fluctuations or imply a positive certificate.
+    """
+    _positive_int(count, "count")
+    _positive_int(relative_error_denominator, "relative error denominator")
+    if type(first_even) is not int or first_even < 6 or first_even % 2:
+        raise ValueError("an even exact first target >=6 is required")
+    maximum = max(odd_singular_factor(n)
+                  for n in range(first_even, first_even+2*count, 2))
+    required = maximum * relative_error_denominator
+    bits = max(1, required.numerator.bit_length()-required.denominator.bit_length())
+    while (1 << bits)*required.denominator < required.numerator:
+        bits += 1
+    return bits
 
 
 def _hash_ints(values: list[int]) -> str:

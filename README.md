@@ -8,19 +8,29 @@ reproducible experiments, counterexamples, and precise remaining questions.
 
 ## Active goal
 
-Start: 2026-09-08 03:22:30 UTC.
-Deadline confirmed by Kevin: **2026-09-08 09:00 America/New_York (EDT)**,
-equivalently **2026-09-08 13:00 UTC**.
-Work until that deadline, then deliver a compact, verified research report.
-A complete Goldbach proof is an aspiration, not the required stopping condition.
+Kevin withdrew the six-hour cutoff on 2026-09-08 and invited Rill to choose
+the goal. The chosen direction is a new proof method for prime-pair coverage,
+with Goldbach as the ultimate target: prove whole families of even numbers
+have prime pairs, then seek a proof that the families cover every sufficiently
+large even number. The current controlling contract is `RESEARCH_GOAL.md`.
+The research has no current wall-clock deadline. Individual hypotheses still
+receive bounded tests and explicit decisions, so an unproductive approach
+does not consume an unlimited run. Preserve checked results and precise gaps.
+The first milestone is an independently checked theorem with a bounded
+prior-art assessment; worldwide novelty and a complete Goldbach proof are
+not established. Any eventual external submission requires Kevin's approval.
 No spending, public repository creation, publishing, or contacting others.
 Use background execution only. Do not change unrelated projects or user files.
 
+Original start: 2026-09-08 03:22:30 UTC; original deadline: 09:00 Eastern.
 Execution audit after resumption: the sustained run through09:00 was not
 fulfilled. Project activity is recorded through03:07 Eastern and resumes
 around12:46 Eastern. The root acknowledged the misleading implication of
 continued overnight work. See `notes/execution-gap-2026-09-08.md`; an active
-goal flag must not be treated as evidence that execution continued.
+goal flag must not be treated as evidence that execution continued. The
+native goal text retains that earlier deadline because its available update
+interface changes terminal status only; Kevin's latest instruction and the
+current contract control scope. See `notes/six-hour-renewal-2026-09-08.md`.
 
 ## Starting facts
 
@@ -118,6 +128,12 @@ blocks and calculation-based elimination of certified spans.
   eventually fail the raw-union certificate on powers of2.
 - `notes/two-moment-block-certificate.md`: an exact weighted two-moment
   collective certificate, its finite successes, and its correlation gap.
+- `notes/fixed-precision-weight-obstruction.md`: proved local count peaks
+  and the failure of every fixed dynamic range of block weights.
+- `notes/adaptive-moment-almost-all.md`: a checked almost-all guarantee
+  for adaptive target-only weights, with exceptional starts left explicit.
+- `notes/local-peak-prior-art-check.md`: bounded comparison and the
+  unconfirmed external novelty of these deductions.
 - `evidence/block-*.json`: representative complete block certificates.
 
 The1,000-block composition run completed: all1,000,000 even targets from4

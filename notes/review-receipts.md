@@ -137,3 +137,33 @@ through2002 plus six representative targets through1,000,000 against separate
 prime sieves. Thirty-five tests pass under ordinary and optimized Python after
 integration. Exact integer cube-root boundary tests avoid a floating-cutoff
 error. Full-count scope is distinguished from earlier restricted windows.
+
+## 2026-09-08 renewed run: adaptive block moments
+
+The read-only Sol lane `moment_bound_review` checked the existing block
+moment implementation and all eight retained receipts, then the exact
+singular-factor refactor and minimal adaptive bit rule. No material defect
+was found. Root's full 82-test suite passed both normally and under -O;
+the six new precision-comparison receipts replayed and their count hashes
+matched the independently checked prior block.
+
+The reviewer independently checked the local count-ratio theorem, the
+fixed-progression tail average, simultaneous positive counts via Vaughan's
+exceptional set, constants, fixed-modulus quantifiers, and the bounded
+dynamic-range obstruction. It confirmed the positive lower density
+consequence and the m=2 exception for the block test.
+
+One bounded follow-up checked the adaptive almost-all theorem, including
+the A+2 source saving, conversion from prime-only logarithmic weights to
+unweighted counts, the common adaptive scale, fixed shifts, centered
+energy, strict condition m<(2d+1)^2, and m=1. The proof passed. Root adopted
+the wording clarification that the lower half of the asymptotic follows
+immediately, while the full asymptotic also needs the endpoint-split upper
+bound. The remaining exceptional starts are not certified by this theorem.
+
+The Terra source lane corrected an initial terminology error: Vaughan's
+R_1 counts prime-only logarithmic pairs, not all von-Mangoldt prime-power
+terms. Root verified the actual book scan, equations (3.16),(3.26) and
+Theorem3.7 p.36. The original1972 article was metadata-only; neither lane
+claims to have read that PDF. Prior-art comparison found related older
+mechanisms and did not establish historical originality of our deductions.
