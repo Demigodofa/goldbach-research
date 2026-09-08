@@ -66,3 +66,18 @@ found older uses of the underlying mechanism; external novelty remains
 unconfirmed. The next mathematical gap is control of the exceptional blocks,
 with effective bounds or an amplification/composition argument that cannot
 leave a hidden exceptional family behind.
+
+Current mathematical state, 2026-09-08: the canonical parity-preserving
+bootstrap is implemented at local commit 14c6b6c. Starting only from L(6)=1,
+it generated the contiguous bound prefix through 20,000 and certified the
+separate frozen 1,000-even block 1,002,000..1,003,998; the intervening gap
+was not evaluated. The next analytic pursuit also returned
+`changed-under-evidence`: an independently checked argument proves
+L(N)>=M(N)/2 for all but O_a(X/log(X)^a) even N in [X,2X], for every fixed
+a>0 and sufficiently large X. M is the full Goldbach singular-series main
+term. The threshold is not numerical, and the exceptional set may be
+nonempty. The mathematical argument and source prerequisites are retained
+beside the implementation in `parity_bound_bootstrap.py`. No new manuscript
+or historical-priority investigation was undertaken. The open target is
+coverage of the exceptional family; parity propagation itself does not stall
+when a lower bound fails to certify a target.

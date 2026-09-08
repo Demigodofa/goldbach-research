@@ -16,6 +16,92 @@ ordinary prime sieve is called in the production pipeline. The small-prime
 square-start marking is the explicit arithmetic construction, not a prime oracle.
 This proves finite lower bounds and their parity invariant, not that L>0
 universally. Its external novelty has not been assessed.
+
+Analytic guarantee, independently checked by Sol on 2026-09-08:
+For every fixed a>0, all but O_a(X/log(X)**a) even N in [X,2X] satisfy
+  L(N) >= (1-log(2)**2-O(loglog(X)/log(X))) * M(N),
+  M(N) = singular_series(N)*N/log(N)**2.
+Consequently L(N)>=M(N)/2>0 eventually outside that exceptional set.
+The threshold and constants are not numerical; this does not certify an
+uncomputed finite interval or show the exceptional set is empty.
+
+Proof dependencies and argument, retained with the bound they concern:
+1. Put Y=2X and z=floor(cuberoot(X-3)). Let C0 contain the composites <=Y
+   with least prime factor >z, S its semiprimes, and T=C0 minus S. For
+   sufficiently large X, T consists only of triprimes. Each factor lies
+   between z+1 and Y/(z+1)**2, so #T=O(X/log(X)**3) by the prime upper
+   bound. If D(U;N)=[U*U]_N-U(N/2), monotonicity of distinct unordered
+   pairs gives 0<=D(C0;N)-D(S;N)<=2*#T. The canonical composite set at
+   N is contained in C0; hence L(N)>=G(N)-D(S;N)-O(X/log(X)**3).
+2. S(n) is half the ordered count of p*r=n, p,r>z, plus half the flag
+   for a prime square p*p, p>z. For q<=log(Y)**b and (h,q)=1, all such
+   factors are coprime to q. Apply Siegel-Walfisz to
+     sum_{z<p<=y/z} [pi(y/p;q,h/p)-pi(z;q,h/p)],
+   where h/p denotes h times the inverse of p modulo q, then PNT
+   partial summation in p. Uniformly 0<=y<=Y, the semiprime
+   progression count equals phi(q)**-1 times integral(k_z(t),z*z,y),
+   with error O_{a,b}(Y/log(Y)**a) for every fixed a,b. Both counts and
+   integrals are zero for y<=z*z. Squares cost O(sqrt(Y)/log(Y)), and
+   the summed inner errors use sum_p(y/p+z)=O(Y). The exact kernel is
+     k_z(t)=log(log(t)/log(z)-1)/log(t), t>z*z; zero otherwise.
+   It is the derivative of half the ordered double prime integral.
+3. Write ell=log(Y), Q=ell**b and take disjoint major arcs about h/q,
+   q<=Q and (h,q)=1, of half-width 2Q/Y; eventually 4Q**3<Y. Abel
+   summation of (2)
+   gives S_hat(h/q+beta)=mu(q)/phi(q)*V(beta)+O(Y/ell**d), where
+     V(beta)=integral(k_z(t)*exp(2*pi*i*beta*t),z*z,Y).
+   The residue sum and beta integration lose at most 2b log powers;
+   start (2) with more saving. Take b>2a+30 and d>3b+a+10. Replacing
+   S_hat**2 by its major term costs O(Y/ell**(d-3b)) uniformly in N.
+4. Off those arcs, Dirichlet with floor(Y/Q) gives Q<q<=Y/Q and
+   |alpha-h/q|<=q**-2. Split the ordered factor sum into O(ell**2)
+   dyadic blocks, with both scales between z/2 and Y/z, and retain
+   the product cutoff p*r<=Y. Salmensuu Lemma 4.2, r=1, parameter
+   c=a+12, gives each block's squared modulus O(Y**2/ell**c).
+   The squared sum loses four log powers. Prime squares are negligible.
+   Thus sup_minor |S_hat|**2=O(Y**2/ell**(a+8)). Parseval and #S<=Y
+   bound the sum of squared minor-arc coefficients by Y**3/ell**(a+8).
+   A coefficient exceeds Y/ell**3 for at most O(Y/ell**(a+2)) targets.
+5. The kernel has variation O(1/ell) on [z*z,Y], so |V(beta)| is at most a
+   constant times min(Y,1/|beta|)/ell. The truncated singular series
+   has modulus <=sum_{q<=Q}1/phi(q)=O(sqrt(Q)), using
+   phi(q)>=sqrt(q/2). Extending the beta integral to the real line
+   therefore costs O(Y/(sqrt(Q)*ell**2)). The resulting real integral
+   is J(N)=integral(k_z(t)*k_z(N-t),t).
+6. The absolute Ramanujan tail T_Q(n)=sum_{q>Q}mu(q)**2*|c_q(n)|/phi(q)**2
+   is <=Q**(-1/2)*F(n), where
+     F(n)=product_p(1+sqrt(p)*|c_p(n)|/(p-1)**2).
+   Put u_p=sqrt(p)/(p-1)**2 and
+     h_p=(sqrt(p)/(p-1)-u_p)/(1+u_p)>=0.
+   Then F(n)=K*product_{p|n}(1+h_p), K=product_p(1+u_p)<infinity,
+   and h_p=O(p**(-1/2)). Expanding the nonnegative divisor product
+   gives sum_{n<=Y}F(n)<=K*Y*product_p(1+h_p/p)=O(Y). Thus the tail
+   is <=1/ell outside O(Y*ell/sqrt(Q)) targets. This replaces the
+   truncated series by the full Goldbach singular series.
+7. Trim J at t or N-t<X/ell**3, costing O(X/ell**5). On the remainder,
+   k_z(t)=(log(2)+O(log(ell)/ell))/ell. Therefore uniformly X<=N<=2X,
+     J(N)=(log(2)**2+O(loglog(X)/log(X)))*N/log(N)**2.
+   Combining (3)-(6) gives D(S;N)=(log(2)**2+O(loglog(X)/log(X)))*M(N)
+   outside O_a(X/log(X)**a) targets; removing the diagonal costs <=1.
+   The full singular series is uniformly positive on even N, so the
+   additive O(X/log(X)**3) errors are absorbed into the relative error.
+8. The already checked prime-only Vaughan mean-square theorem and the
+   unweighted conversion in notes/adaptive-moment-almost-all.md give
+   G(N)=(1+O(loglog(X)/log(X)))*M(N) with the same exceptional-set bound.
+   Union the two exceptional sets and apply (1). Finally the positive
+   series log(2)=2*sum_{j>=0}(1/3)**(2*j+1)/(2*j+1) is <25/36, so
+   1-log(2)**2>671/1296=1/2+23/1296. This proves the stated half bound.
+
+Analytic sources:
+* Siegel-Walfisz: Ford, large sieve notes, handwritten p.63, Theorem SW,
+  https://ford126.web.illinois.edu/sieve_notes_large_sieve.pdf . Separate
+  the principal-character main term; the cancellation bound is nonprincipal.
+* Type II estimate: Salmensuu, Lemma 4.2, printed p.9,
+  https://arxiv.org/pdf/2106.00778 . Its bounded coefficients and explicit
+  product cutoff are required here; no prime-pair distribution is assumed.
+* Prime mean square: Vaughan, The Hardy-Littlewood Method, 2nd ed.,
+  Theorem 3.7, p.36, with the normalization already checked in
+  notes/fixed-precision-weight-obstruction.md.
 """
 from __future__ import annotations
 
