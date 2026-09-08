@@ -2,7 +2,7 @@
 from math import gcd, isqrt
 import unittest
 
-from parity_bound_bootstrap import generate_prefix, parity_batch
+from parity_bound_bootstrap import generate_prefix, parity_batch, recover_parity_primes
 from redistribution import trial_prime
 from shared_prime_correction import shared_prime_gain
 
@@ -82,6 +82,49 @@ class SharedPrimeTests(unittest.TestCase):
         result = shared_prime_gain(self.bounds, 234)
         self.assertIn("LOWER bounds", result["input_meaning"])
         self.assertIn("replaces", result["add_to"])
+
+    def test_fixed_quartet_repairing_cannot_supply_universal_strict_descent(self):
+        """A checked falsifier for descent by re-pairing unchanged factors.
+
+        For a<b<c<d the only targets are U=ab+cd, V=ac+bd, W=ad+bc.
+        U-V=(c-b)(d-a)>0 and V-W=(b-a)(d-c)>0. Thus the lowest W has
+        no smaller target in this orbit. Cubic validity at U implies it
+        at V,W because their cutoffs are smaller. This does not exclude
+        changing factors or another descent. Reviewed by Sol, 2026-09-08.
+        """
+        _, _, earlier_primes = recover_parity_primes(self.bounds)
+        quartet = [7, 11, 13, 17]
+        self.assertTrue(set(quartet) <= set(earlier_primes))
+        witnesses = {}
+        for partner in range(1, 4):
+            other = [i for i in range(1, 4) if i != partner]
+            left = quartet[0] * quartet[partner]
+            right = quartet[other[0]] * quartet[other[1]]
+            n = left + right
+            self.assertEqual(gcd(left, right), 1)
+            self.assertTrue(6**3 <= n-3 < 7**3)
+            self.assertGreater(min(quartet), 6)
+            witnesses[n] = (left, right)
+        self.assertEqual(sorted(witnesses), [262, 278, 298])
+        self.assertEqual(witnesses[262], (119, 143))
+        a, b, c, d = quartet
+        self.assertEqual((a*b+c*d)-(a*c+b*d), (c-b)*(d-a))
+        self.assertEqual((a*c+b*d)-(a*d+b*c), (b-a)*(d-c))
+        # Smaller possible least factors cannot meet the cubic condition:
+        # validity requires even N<a**3+3, whereas these are minimum W.
+        for a, b, c, d in ((3, 5, 7, 11), (5, 7, 11, 13)):
+            self.assertGreater(a*d+b*c, a**3+2)
+        # This is composite-pair loss, not a Goldbach counterexample.
+        base = parity_batch(self.bounds, 262, 1)["rows"][0]["L"]
+        gain = shared_prime_gain(self.bounds, 262, exact=True)["gain"]
+        g = sum(self.flags[p] and self.flags[262-p] for p in range(3, 260, 2))
+        self.assertEqual((base, gain, g), (15, 0, 17))
+        # A minimal pairing has no automatic prime-center escape either.
+        a, b, c, d = 11, 13, 19, 31
+        for n in (a*b+c*d, a*c+b*d, a*d+b*c):
+            self.assertTrue(n-3 < a**3)
+            self.assertEqual((n//2) % 3, 0)
+            self.assertFalse(self.flags[n//2])
 
 
 if __name__ == "__main__":

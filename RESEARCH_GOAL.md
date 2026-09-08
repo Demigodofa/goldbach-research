@@ -104,3 +104,14 @@ gain rather than being added on top of it. At N=234 it raises 28 to the exact
 count30 by recovering 91+143 and its reflection. The remaining problem is
 control of the coprime composite-pair contribution; no universal positivity
 or historical-priority claim follows.
+
+A bounded symmetry hypothesis was falsified: re-pairing a fixed four-prime
+quartet cannot always transfer its coprime loss to a smaller target. Its
+three targets U=ab+cd, V=ac+bd, W=ad+bc satisfy U>V>W, leaving W with no
+smaller re-pairing. The smallest cubic-valid example has factors7,11,13,17
+and targets262,278,298; all have cutoff6. At262 the actual counts are
+L=15, shared correction0, G=17, so this is no Goldbach counterexample.
+The algebra and minimality were independently checked, and a regression in
+`test_shared_prime_correction.py` retains the falsifier. Finite witness reuse
+remains valid; a useful descent must go beyond a fixed quartet's pairings.
+This does not test a descent restricted to yet-unknown failed targets.
