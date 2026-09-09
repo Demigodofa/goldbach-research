@@ -1238,3 +1238,54 @@ OPEN; latest original-affine estimate remains2b8cf98. No old experiment,
 new prime coverage, zero, effective onset, publication, push, foreground
 work, installation or manual wake queue. Qwen remains unavailable without
 a retry. No process is left running at this checkpoint; overall goal active.
+
+The next pursuit proves `squarefree_correlation_kernel.py`. FKM
+arXiv1211.6043v3 Theorem1.17, Proposition3.1 and sections3/6 have now been
+read. The proof uses only the PRIME bounded-exceptional-pair theorem.
+CRT and a congruence count give the derived squarefree bilinear bound
+  |sum alpha_a beta_n K_q(c*a*n)|
+    <<q^epsilon*M*N*(q^-1/4+M^-1/2+q^(1/4)*N^-1/2),
+for bounded coefficients, ANY integer multiplier c and no coefficient
+coprimality restriction. K_q(0)=1/q for squarefree q is explicit.
+No composite KMS/FKM theorem is imported. Knowing the exact prime
+exceptional pairs is unnecessary: fixing one coefficient variable fixes
+the other variable AND the additive frequency modulo each selected divisor.
+
+The exact local F_p expansion retains every nonunit mode. Its four
+degenerate prime assignments have normalized rescaled mass g/D^2;
+their costs in all three bilinear terms are at most1. A transient briefing
+overstatement was corrected: the short-variable factor can be D^-1/2,
+not uniformly D^-3/4. The saved proof uses the valid <=1 statement, and
+a regression fixture preserves that boundary. Shared period factors and
+both axes, including their subtracted overlap, are explicitly paid for.
+
+At the SAME formerly failing balanced box B=A=Y^(1/3),C=Y^(1/2),K=Y^(1/6),
+the smooth model over ALL SQUAREFREE q near C now satisfies
+  sum_q |E_q| <<Y^(23/24+epsilon)*H*J0^8+Y^epsilon*H*J0*B*A
+               <<Y^(11803/12288+epsilon).
+This includes small prime factors and balanced semiprime cores. Prime
+powers, further box coverage and original arithmetic/sieve transfer remain
+OPEN, as does the signed prime-correlation estimate. Latest original-affine
+bound remains2b8cf98. All preceding polynomial and kernel tools are preserved.
+
+Next UNTESTED question: can prime-power stationary phase prove
+  |F_q(h,l;t)| <<q^(1+epsilon)*gcd(q,h,l,t),
+including unequal valuations, p=2,3, and zero parameters? Even exponents
+suggest a count of cubic stationary points; odd exponents also need the
+quadratic Gauss sum. If valid, Fourier expansion of a period-J weight at
+qJ should cost J^4, and the nonzero-frequency divisor average should give
+O(Y^epsilon*H*J0^4*C) per modulus. Then test a squarefull-part split:
+small squarefull part u<=Y^(1/128) costs at most u^(13/4) in the proved
+squarefree CRT estimate, while the large-part moduli number is
+O(C*Y^(-1/256)). Expected total exponent4085/4096 is UNPROVED until all
+these steps are checked. This route could remove prime powers by density
+without assuming a prime-power correlation theorem.
+
+Seven NEW exact CRT, conjugation, degeneration, exceptional-class and
+budget tests passed normally in0.191s and under -O in0.190s. Sol
+`/root/sieve_review` independently passed source/theory and actual files.
+The pursuit returned `changed-under-evidence` within30 minutes. No old
+experiment was rerun; no new prime coverage, zero, effective onset,
+publication, push, foreground work, installation or manual wake queue.
+Qwen remains unavailable without a retry. No process is left running at
+this checkpoint; the overall research goal remains active.
