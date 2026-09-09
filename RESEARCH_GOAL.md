@@ -3061,3 +3061,54 @@ stationary H^-1/2, leaving sqrt(E_G(NG/H)E_H(N)) times local counts.
 Pay projection tails, beta amplitude, both energy gaps, actual stationary
 error and dyadic summation, or record the specific obstruction. Fresh
 <=30-minute test; no other band or full signed bound yet promoted.
+
+## 2026-09-09: signed cancellation throughout every fixed sub-five-sixths square
+
+Started20:35:13 UTC, reassessed20:43:53 UTC, progress. Resumed verified
+clean mainf0af320; reviewed mathematics **2f03381**,
+unequal_spectral_cancellation.py. The previous pursuit was progress:
+actual signed cancellation in a band where absolute mass is large.
+
+For every FIXED kappa<5/6, the COMPLEX sum over0<gamma,eta<=N^kappa
+is O_(A,kappa)(N/log^A N). Unequal-scale TT* has norm sqrtH uniformly
+as G/H tends to0 after both separable phase carriers are removed.
+Fixed Fourier projections pay both tails and all coincident-copy costs.
+The beta amplitude factors into a uniformly smooth part and two different
+energy bases: E_G(NG/H), E_H(N). Each has a density gap at least
+2-(12/5)kappa>0, while both relative baselines equal H/N. The source-
+checked Ingham/Huxley log-power estimate and VK cap therefore pay all
+boxes at N^kappa L^4+N L^54 exp[-c_kappa L^(1/3)/(logL)^(1/3)].
+
+The actual complex stationary replacement is also paid. After low-axis
+deletion G>=V_N/2>=N^(9/20)>=sqrtH, so both Gamma and normalized
+integral errors are O(H^-1/2). The direct positive amplitude has the
+old Ingham layer-cake exponent E; increasing g to h and using
+D_u<=6u/5+2/5 gives E-h/2<=1-h/5-(1-6h/5)(u+v)<=91/100.
+Its exact slack is(1-2u)(2-3u)/(5(1+u)). Total complex error is
+O(N^(91/100)L^14); no reverse kernel inequality or numerical evidence.
+
+The concrete actual C_high now retains max(gamma,eta)>N^(4/5), both
+heights>V_N, difference>W_N, and the original smooth height-sum cap,
+with all product multiplicities. The full square has weight1-Psi=1;
+already absolute-small axes and near strips are subtracted afterward.
+Thus no coupled mask was slipped into the operator theorem. The signed
+Goldbach lower margin remains OPEN, and the full R error is still all-log.
+No uniform kappa=5/6 claim, full square-root error, RH, target average,
+coverage, practical onset, novelty, outside action or manual wake follows.
+
+Sol theory/actual-file PASS; six guards normal0.019s/-O0.012s. The first
+guard run caught a new-wrapper argument mismatch: density_box_exponent
+takes u,v, not beta,beta'. It was corrected before PASS without changing
+the proof or old files. Polynomial components and all source corrections
+persist. Overall goal active; no process claimed after a stopped checkpoint.
+
+Next unreviewed question: can the factor sqrt(G/H) itself absorb energy
+growth for strongly unequal boxes reaching gamma,eta<=N/10? The actual
+piecewise classical density exponent appears to satisfy D_*(u)<=2u+1/10.
+For Z>=Y this suggests E_Y(Z)<<Z Y^(1/10)L^51 and leading box size
+N G^(11/20)H^(-9/20)L^52. Test the union of complete dyadic tag boxes
+G<=H^(9/11-epsilon), fixed epsilon>0, paying the actual stationary and
+Gamma errors and all summation costs. Do not claim a curved coupled-mask
+bound, endpoint transition, or linear-height deletion before review.
+The fixed N/10 ceiling preserves the uniform finite-period stationary
+condition. Fresh <=30-minute test; overall correlation still unresolved.

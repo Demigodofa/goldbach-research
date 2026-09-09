@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **feb00a9**, in discrete_spectral_cancellation.py:
+Latest reviewed RESEARCH commit: **2f03381**, in unequal_spectral_cancellation.py:
+for EVERY FIXED kappa<5/6 the ACTUAL COMPLEX sum over
+0<gamma,eta<=N^kappa is O_(A,kappa)(N/log^A N). Unequal-scale TT*
+and discrete transfer remain uniform at vanishing height ratio; the
+different energies E_G(NG/H), E_H(N) both have a positive density gap.
+The summed actual stationary error is O(N^(91/100)log^14N). The concrete
+retained cutoff is4/5: C_high now has max(gamma,eta)>N^(4/5), both>V_N,
+difference>W_N and the original smooth height-sum cap. Its signed lower
+margin remains OPEN. No5/6 endpoint or all-height estimate is claimed.
+Previous **feb00a9**, in discrete_spectral_cancellation.py:
 the ACTUAL COMPLEX signed sum over both heights in(T,2T],T=N^(2/3),
 is O_A(N/log^A N), also after subtracting the paid near-height strip.
 Continuous mixed-phase TT*, fixed-frequency discrete transfer including
@@ -364,7 +373,55 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual discrete signed cancellation in one interior band
+## Latest pursuit: the whole fixed sub-five-sixths rectangle is signed small
+
+Started20:35:13 UTC, reassessed20:43:53 UTC, progress. Resumed verified
+clean mainf0af320; reviewed mathematics **2f03381**. The previous
+pursuit proved actual signed cancellation in the two-thirds band.
+The extension now controls the COMPLEX sum over BOTH heights<=N^kappa
+for every FIXED kappa<5/6, with O_(A,kappa)(N/log^A N) error. Choose
+kappa=4/5 in the actual pointwise reduction. C_high retains max>N^(4/5),
+both>V_N, difference>W_N, original smooth height-sum cap, and every copy.
+The full signed lower margin remains OPEN; the inherited all-log R error
+is unchanged. This is not an absolute deletion or a5/6 endpoint theorem.
+
+With gamma=Gx,eta=Hy,r=G/H, remove both separable carriers. The phase
+G phi_r has phi_xy=-1/(y+rx), uniform at r=0. TT* and physical rescaling
+give sqrtH; both Fourier tails and copy occupancy are paid. Extracting
+the stationary H^-1/2 leaves L sqrt(E_G(NG/H)E_H(N)). The row and
+column density gaps are2-2h-(2/5)g and2-(12/5)h, each at least
+2-(12/5)kappa>0. Their relative baselines both equal H/N. Summing the
+leading boxes costs N^kappa L^4+N L^54 exp[-c_kappa L^(1/3)/(logL)^(1/3)].
+
+The actual normalized integral is uniform because piN>=4(gamma+eta).
+After the already paid low axes, G>=V_N/2>=N^(9/20)>=sqrtH, so the
+Gamma and stationary relative errors are O(H^-1/2). Direct Ingham
+amplitude layer cake, not a reversed kernel bound, gives exponent
+E-h/2<=1-h/5-(1-6h/5)(u+v)<=91/100. The exact density slack is
+(1-2u)(2-3u)/(5(1+u)). O(L^2) boxes pay the complex error stated above.
+Separate rectangle masks are used throughout; already absolute-small
+axes/near strips are subtracted afterward. Sol theory/actual-file PASS.
+Six guards normal0.019s/-O0.012s. Initial guards caught a new-wrapper
+API mismatch (the old exponent helper takes u,v, not beta,beta'); fixed
+before PASS, without altering the mathematics or old files. All source
+corrections, polynomial components and runtime limits persist. Overall
+goal active; no process claimed beyond a stopped checkpoint.
+
+Next concrete question, UNREVIEWED: can the height-ratio factor pay
+unequal boxes up to a FIXED LINEAR ceiling, say gamma,eta<=N/10, even
+when the two energies are not individually all-log? The piecewise actual
+Ingham/Huxley exponent D_*(u) appears to obey D_*(u)<=2u+1/10. For
+Z>=Y this would give E_Y(Z)<<Z Y^(1/10)L^51, hence the signed leading
+box cost N G^(11/20)H^(-9/20)L^52. Test dyadic tag pairs
+G<=H^(9/11-epsilon), fixed epsilon>0, with every actual stationary/
+Gamma error paid. Specify a UNION OF COMPLETE DYADIC RECTANGLES;
+do not silently feed a curved coupled mask to the matrix theorem.
+The N/10 ceiling keeps the finite stationary expansion away from the
+endpoint transition. Verify the piecewise density inequality, baselines,
+all errors and summation, or record the specific failed budget. Fresh
+<=30 minutes; no linear-height deletion or endpoint result yet promoted.
+
+## Previous pursuit: actual discrete signed cancellation in one interior band
 
 Started20:17:49 UTC, reassessed20:35 UTC, progress. Resumed verified
 clean maincda45e8; reviewed mathematics **feb00a9**. The previous goal
@@ -2888,7 +2945,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_discrete_spectral_cancellation` (six guards) and
+Latest tests: `python -m unittest test_unequal_spectral_cancellation` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
