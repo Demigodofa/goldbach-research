@@ -3214,3 +3214,53 @@ be checked first. Candidate Fourier truncation must pay replacement,
 pole and Gamma terms; a rapidly weighted short prime window should
 remain. This single moment is not the missing bilinear estimate. Fresh
 <=30 minutes; no arithmetic moment or correlation theorem yet promoted.
+
+## 2026-09-09: the actual arithmetic moment excludes mock alignment
+
+Started21:09:52 UTC, reassessed21:22:23 UTC, progress. Resumed verified
+clean main55f2bbf; reviewed mathematics **3bee966**,
+arithmetic_zero_moment.py. Previous goal turn was progress: a global
+N-dependent count-compatible model reinforced the actual finite kernel.
+
+For fixed real chi smooth compactly supported in(1/100,1/50), the
+ACTUAL moment S_N(x)=sum_(gamma>0)chi(gamma/N)*x^(rho-1/2) is
+O_chi(sqrtN logN), uniformly for all real N/3<=x<=2N/3. Actual beta
+and copies are preserved. No RH, target averaging or PNT asymptotic.
+At x=N/2 the mock moment is i*(NlogN/(2pi))*int chi+O(N) for
+nonnegative nonzero chi. The arithmetic identity therefore excludes
+that alignment; counting constraints alone permitted it. This does
+not delete any new region of the coupled sum or prove its lower margin.
+
+Guinand's exact angular formula was checked in Garrett2021 Theorem0.1
+printedp1 and CCM1309.1526v1 Lemma5 printedpp6-7, especially the
+unconditional proof remark. The test is evaluated at gamma-i(beta-1/2).
+Complex H extends by analytic real/imaginary decomposition. An entire
+Fourier cutoff V=N^(1/8) pays the complex displacement and all-zero
+Schwartz tail by sqrtN L+N^(3/2)L V^-16. The exact prime window has
+uniform integer sampling, including nonintegral x; rapid weights avoid
+a V loss. Poles cost sqrtN; the Gamma integral costs O(1) after real
+cutoff replacement and integration by parts, with derivative checked
+through NIST DLMF5.15.1. All errors are explicit in the proof module.
+
+Sol theory/actual-file PASS; seven guards normal0.007s/-O0.007s. The
+actual CCM locator is v1 Lemma5 and its proof remark, not recalled
+Lemma8 or unavailable v2. Anubis denied the SBM mirror; no retry or
+use. No interpolation theorem from2005.02996v3 is invoked. All earlier
+source corrections, density and polynomial tools persist. No actual
+prime/zero computation, novelty, new coverage, outside action or manual
+wake. Overall goal active; no process claimed after a stopped checkpoint.
+
+Next unreviewed question: prove or refute the energy upper bound
+int_(1/3)^(2/3)|S_N(aN)|^2 da <<_chi NlogN. Candidate mechanism:
+use the retained Ingham inequality D(u)-u<=1/2 to sharpen the
+off-critical first-moment replacement, localizing smoothly near the
+chi support and separately paying distant zero tails. Near-zero pole
+tests may be made small using all the vanishing derivatives of chi at0.
+Then a Schwartz sampling L2 estimate with the elementary prime-square
+weight sum may prove the energy bound. Every remaining approximation
+must be smaller than that energy; do not square the present crude
+sqrtN logN error and pretend it is sufficient. No prime correlation
+may be silently inserted. Falsifier: an unpaid larger replacement or
+a coupled prime term required for the upper estimate. This is a new
+arithmetic tool test, not automatic bilinear cancellation. Fresh <=30
+minutes; the sufficient Goldbach signed lower margin remains OPEN.

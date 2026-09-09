@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **6fb7829**, in spectral_count_resonance_model.py:
+Latest reviewed RESEARCH commit: **3bee966**, in arithmetic_zero_moment.py:
+for actual zeros, fixed real smooth chi compactly supported in(1/100,1/50),
+and EVERY real N/3<=x<=2N/3, the complex moment
+sum_(gamma>0) chi(gamma/N)*x^(rho-1/2) is O_chi(sqrtN logN).
+The unconditional Guinand formula, entire Fourier cutoff and a rapidly
+weighted prime window pay all errors, retaining actual beta and copies.
+At x=N/2 this excludes the model's imaginary moment of order NlogN.
+This is an actual arithmetic constraint beyond counting; no part of the
+remaining BILINEAR sum is deleted by this moment alone. Its margin is OPEN.
+Previous **6fb7829**, in spectral_count_resonance_model.py:
 a GLOBAL BUT N-DEPENDENT artificial critical-line spectrum can obey
 the smooth RVM count with O(1) error, all used density envelopes and
 local occupancy, yet its ACTUAL finite-period smooth comparable-band
@@ -392,7 +401,59 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: count-compatible reinforcement survives the actual kernel
+## Latest pursuit: actual arithmetic excludes the model's linear alignment
+
+Started21:09:52 UTC, reassessed21:22:23 UTC, progress. Resumed verified
+clean main55f2bbf; reviewed mathematics **3bee966**. Previous goal turn
+was progress: the count-compatible model reinforced the actual kernel.
+For fixed real chi in C_c^infinity((1/100,1/50)), the ACTUAL moment
+ S_N(x)=sum_(gamma>0) chi(gamma/N)*x^(rho-1/2)
+satisfies |S_N(x)|<<_chi sqrtN logN uniformly for real N/3<=x<=2N/3.
+No RH, target average or PNT asymptotic. All real parts and multiplicities
+remain; an unweighted height moment is not substituted. At x=N/2 the
+mock quarter-grid has i*(NlogN/(2pi))*int chi+O(N), for nonnegative
+nonzero chi. Thus actual arithmetic forbids this particular alignment.
+The count-only countermodel and prior signed deletions remain valid.
+
+The angular Fourier formula uses H((rho-1/2)/i), not H(gamma).
+Primary authorities checked: Garrett, Guinand's explicit formula,
+2021-02-12 Theorem0.1 printedp1, and Carneiro-Chandee-Milinovich
+arXiv1309.1526v1 Lemma5 printedpp6-7, including its unconditional
+proof remark. The complex test is split into ANALYTIC functions real
+on the real axis; no nonanalytic real-part operation is made off-axis.
+Entire chi_V uses V=N^(1/8). Its Schwartz cutoff tail and complex
+displacement cost sqrtN L+N^(3/2)L V^-16 after summing ALL zeros,
+including negative heights. The angular prime transform is exactly
+N*hatChi(Nlog(n/x))*nu(Nlog(n/x)/V); uniform integer sampling pays
+O(sqrtN L), with no V-length loss or integral-center assumption.
+Poles cost sqrtN. The Gamma integral costs O(1) after real-axis cutoff
+replacement and one integration; NIST DLMF5.15.1 pays its derivative.
+
+Sol theory/actual-file PASS; seven exact guards normal0.007s/-O0.007s.
+No actual zero/prime computation. Source correction: CCM is v1 Lemma5
+and its proof remark, not recalled Lemma8 or unavailable v2. The SBM
+mirror denied access via Anubis and was not retried/used. No interpolation
+theorem from2005.02996v3 is invoked. Existing2016 formula corrections,
+density sources, polynomial components and runtime limits all persist.
+The remaining coupled signed margin is OPEN; no new C_remaining deletion,
+coverage, onset, novelty, outside action, manual wake or post-stop process.
+
+Next concrete question, UNREVIEWED: does the arithmetic family give
+the mean-square bound int_(1/3)^(2/3)|S_N(aN)|^2 da <<_chi NlogN?
+Mechanism: improve the off-critical replacement using the already proved
+Ingham first-moment inequality D(u)-u<=1/2, rather than sqrtN times
+the total count. A smooth real-axis localization of the displacement
+should cost only a fixed power of logN; pay the distant zero tails
+separately. The pole tests are near0, where chi and every derivative
+vanish, so their previous sqrtN bound might also be sharpened. Then
+Schwartz sampling and sum_(n~N)Lambda(n)^2<<NlogN may give the stated
+energy without a two-prime estimate. Test every localization/error
+before claiming it. Falsifier: an unpaid error of order sqrtN logN or
+a coupled prime-correlation term required for this UPPER bound. This
+would be an arithmetic energy tool; no automatic bilinear saving or
+all-target coverage. Fresh <=30-minute pursuit, not yet performed.
+
+## Previous pursuit: count-compatible reinforcement survives the actual kernel
 
 Started20:55:30 UTC, reassessed21:07:44 UTC, progress. Resumed verified
 clean main89e7edd; reviewed mathematics **6fb7829**. The previous goal
@@ -438,7 +499,7 @@ PASS; seven exact guards normal0.002s/-O0.002s. All earlier corrections,
 phase and polynomial components persist. Actual full signed margin OPEN;
 overall goal active. No outside action, manual wake or post-stop process claim.
 
-Next concrete question, UNREVIEWED: for the ACTUAL zeros, can the prime
+The then-next question, now answered in3bee966 above: for the ACTUAL zeros, can the prime
 explicit formula prove
  |sum chi(gamma/N)*(N/2)^(rho-1/2)| <<_chi sqrtN log^2N
 for fixed nonnegative smooth chi supported in this band, without RH or
@@ -3079,7 +3140,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_count_resonance_model` (seven guards) and
+Latest tests: `python -m unittest test_arithmetic_zero_moment` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
