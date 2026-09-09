@@ -35,7 +35,8 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest MATHEMATICAL commit: **e86c878**. The handoff itself is committed later.
+Latest MATHEMATICAL commit: **c8724f7**. The handoff itself is committed later.
+The preceding reviewed checkpoint was **b4dfc45**, mathematics **e86c878**.
 This resumes the verified clean **cf48198** checkpoint; **6f9a77b** remains
 the completed formal-conservation result, not a superseded proof.
 The worktree was clean after the mathematical commit. Verify current Git
@@ -44,10 +45,12 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `buchstab_endpoint_bridge.py` — latest arithmetic endpoint reduction and
+1. `rare_shifted_divisor_bound.py` — latest restricted arithmetic upper bound;
+   the required variable-M extension is OPEN.
+2. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-2. `formal_weight_conservation.py` — completed formal result and exact gap.
-3. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+3. `formal_weight_conservation.py` — completed formal result and exact gap.
+4. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -55,7 +58,52 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest resumed pursuit: isolate the actual balanced endpoint
+## Latest pursuit: a second rarity factor, restricted to shifted primes
+
+**c8724f7**, `rare_shifted_divisor_bound.py`, five focused finite tests.
+Sol reviewer `/root/sieve_review` checked theory and actual files: PASS.
+Normal tests passed in0.088s, Python -O in0.093s. The pursuit returned
+`changed-under-evidence` within30 minutes. This is a deduction from existing
+source theorems, with no external novelty claim.
+
+For an ACTUAL zero beta=1-1/(eta*log D), X=D^V, eta sufficiently large,
+V>=log^3 eta, t=V/eta<=1/log X, and positive even h<=X/2, the weighted sum
+over X<p<=2X with p,p+h prime and both chi signs+ satisfies
+`Q++ << S_2(h)*X*t^2*log^8 eta = o(S_2(h)*X*t)`.
+This is a conditional arithmetic upper bound, not a prime-pair lower bound.
+The NEW restricted large-V regime must not be dropped when reusing it.
+
+The nonnegative majorant is lambda_chi=1*chi, not Liouville. A smooth exact
+hyperbola identity expands into four orientations. Recombine ALL orientation
+and dyadic main terms before absolute values: the source main factors into
+two rough harmonic character sums and a complete residue factor. Subtracting
+Matomaki--Merikoski Lemma2.4 at y=X and y=X^2 makes EACH harmonic sum small.
+Their Proposition2.3 and equation(15) control every remaining error:
+https://arxiv.org/html/2112.11412v2 . The second rarity factor follows from
+these two cancellations, not from independence of the prime conditions.
+U=K*log eta is a new varying auxiliary parameter justified by the explicit
+source statements; earlier fixed-u bounds retain their original order.
+
+The original desired forms are q and p=m-M*q, chi(M)=-1, M<=Y^(13/25).
+The cited proposition covers coefficient-one relations only. Substitution
+n=M*q destroys THIS majorant: lambda_chi(M*q)=0 while lambda_chi(q)=2.
+Divisibility restrictions, quotient characters, unequal scales and growing
+M would require a proved uniform extension. NONE is supplied here. The
+rare/common Goldbach correlation and the one-sided Buchstab target remain
+open. Cowan's Theorem1.1 excludes the required zero divisor parameters and
+principal chi^2 product; Tao--Teravainen gives no stated variable-M transfer.
+
+The direct multiplicative bound tested first retained the empty-cofactor
+atom1 and gave no second rarity factor. Preserve that failure along with
+the successful restricted component. Polynomial identities and bounds remain
+available for future combinations. Next test: a concrete uniform affine-form
+extension or another arithmetic ingredient that reaches the actual sum;
+do not treat this coefficient-one result as already doing so. Finite checks
+verify algebra and local factors, not the analytic bound or an actual zero.
+No new actual Goldbach coverage or effective onset. No process is left
+running at this checkpoint; overall research remains active.
+
+## Previous resumed pursuit: isolate the actual balanced endpoint
 
 Kevin clarified on2026-09-09: seeking an arithmetic ingredient beyond the
 previous polynomial approach must preserve the identities and bounds for
@@ -233,7 +281,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_buchstab_endpoint_bridge -v` and the
+Latest tests: `python -m unittest test_rare_shifted_divisor_bound -v` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
