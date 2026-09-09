@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **4c69475**, in nonstationary_spectral_reduction.py:
+Latest reviewed RESEARCH commit: **6abc250**, in spectral_diagonal_bound.py:
+the ENTIRE identical-complex-location diagonal through height KN, including
+m(rho)^2 pairs at a zero of multiplicity m, costs O_(A,K)(N/log^A N)
+absolutely, WITHOUT RH or simple zeros. A uniform partial-interval kernel
+bound, classical zero-free region and uniform Ingham density pay it.
+Distinct locations at the SAME height remain in the open signed sum.
+No full square-root error, prime-pair coverage or numerical onset follows.
+Previous **4c69475**, in nonstationary_spectral_reduction.py:
 for fixed delta>0 and fixed smooth Psi=0 belowpi+delta, =1 abovepi+2delta,
 the FULL positive-height pair tail weighted Psi((gamma+eta)/N) has signed
 size O_delta(sqrtN log^40N). Axes, support growing like logN, seminorms,
@@ -317,7 +324,38 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the full smooth nonstationary spectral tail is paid
+## Latest pursuit: the identical-location spectral diagonal is paid
+
+Started19:29:02 UTC, reassessed19:41:46 UTC, progress. Resumed clean
+mainccf6291; reviewed mathematics **6abc250**. The previous turn was
+progress: uniform nonstationary reduction isolated a finite retained sum.
+For every fixed K,A>0, sum_(distinct rho; gamma<=KN)
+m(rho)^2 |J_N(rho,rho)| <<_(A,K) N/log^A N. The kernel bound is
+N^(2beta-1)/sqrt(1+gamma), uniform through the endpoint transition.
+The rescaled partial integral is O(h^(1/2-b)) for every endpoint U;
+small heights are absorbed as a finite analytic set, not a zero certificate.
+
+Riemann-von Mangoldt gives m(rho)<<log(gamma+3). A classical zero-free
+split H0=exp(alpha sqrt(logN)), alpha=min(1,sqrt c), pays low heights.
+Above it the uniform Ingham density exponent3(1-sigma)/(2-sigma), with
+log^5T, gives an exponentially small function of sqrt(logN), hence every
+fixed logarithmic saving. arXiv2507.15184v2 Corollary1/Table1 explicitly
+support this weaker density input; do not mix its refinement with v1.
+The m^2 count costs an extra log. Distinct beta at the same gamma remain
+distinct locations. The full R formula still has its inherited all-log
+error and OPEN signed lower margin. Sol theory/actual-file PASS; six
+guards normal0.007s/-O0.008s. All sources and polynomial tools persist.
+No new prime/zero computation, coverage, onset, novelty or outside action.
+
+Next concrete question, UNPERFORMED: can an entire growing near-height
+strip |gamma-eta|<=log^B N, B fixed, be deleted absolutely? Generalize
+the partial-integral estimate to unequal real parts and heights, pay
+unbalanced small heights and local multiplicity counts, and use a symmetric
+weight inequality. Test how fast the strip may grow before the density
+saving is lost. No pair-correlation assumption or RH. Fresh <=30 minutes;
+the remaining signed Goldbach margin is open. Overall goal stays active.
+
+## Previous pursuit: the full smooth nonstationary spectral tail is paid
 
 Started19:16:56 UTC, reassessed19:27:08 UTC, progress. Resumed clean
 mainf2db6b6; reviewed mathematics **4c69475**. Previous turn was progress:
@@ -344,14 +382,7 @@ computation, coverage/onset/novelty claim, outside action or manual wake.
 All polynomial tools and source corrections persist. Overall goal active;
 no process claimed after this checkpoint.
 
-Next concrete question, UNPERFORMED: can the identical-zero contribution
-in the surviving stationary sum be bounded absolutely without RH? First
-prove a uniform diagonal kernel bound, including small heights and the
-endpoint transition, then source-check and apply a classical zero-density
-estimate. Count equal-location pairs with multiplicity squared, not merely
-once per zero. Seek an all-log error; reject a silent critical-line or
-simple-zero assumption. This would still leave distinct-zero correlations
-and the full Goldbach margin open. Fresh <=30-minute hypothesis.
+The proposed identical-zero test is completed in the latest pursuit above.
 
 ## Previous pursuit: prime parity pays an actual signed smooth endpoint region
 
@@ -2646,7 +2677,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_nonstationary_spectral_reduction` (seven guards) and
+Latest tests: `python -m unittest test_spectral_diagonal_bound` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

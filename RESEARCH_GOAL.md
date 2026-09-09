@@ -2803,3 +2803,42 @@ source-checked classical zero-density theorem. Include small heights,
 the finite-period endpoint transition and multiplicity-squared counts.
 Seek an all-log bound without RH or an assumption of simple zeros; any
 success would still leave the distinct-zero correlation. Fresh <=30 minutes.
+
+## 2026-09-09: identical-zero spectral pairs are absolutely negligible
+
+Started19:29:02 UTC, reassessed19:41:46 UTC, progress. Resumed verified
+clean mainccf6291; reviewed mathematics **6abc250**,
+spectral_diagonal_bound.py. Previous goal turn was progress: the uniform
+nonstationary reduction supplied a finite stationary-region target.
+
+For fixed K,A>0, the actual sum over distinct complex zero locations
+0<gamma<=KN of m(rho)^2 |J_N(rho,rho)| is O_(A,K)(N/log^A N).
+The uniform kernel bound N^(2beta-1)/sqrt(1+gamma) includes a stationary
+point meeting the finite endpoint. It follows from an elementary phase
+split giving O(h^(1/2-b)) for EVERY terminal rescaled interval. Actual
+bounded-height zeros form a finite set; no numerical zero fact is assumed.
+
+Multiplicity-squared is paid through m(rho)<<log(gamma+3), then the
+multiplicity-counted classical density theorem. Low heights are paid first
+using the classical zero-free region and H0=exp(alpha sqrt(logN)), with
+alpha=min(1,sqrt c). The high-height layer-cake bound uses the uniform
+Ingham exponent3(1-sigma)/(2-sigma) with log^5T. Source-checked
+arXiv2507.15184v2 Corollary1 and Table1 give a stronger uniform logarithmic
+factor, so this weaker input is justified. v2 is a refinement, not a
+claimed correction of v1. Three explicit rational exponent ranges pay
+all bands, giving N log^8N exp(-c1 sqrt(logN)), hence the stated saving.
+
+This deletes every identical-location pair under the retained bounded
+smooth multiplier. Different real parts at the same height remain distinct
+and OPEN, with product multiplicities. No RH, simple zeros, square-root
+error for the full R formula, signed margin, coverage or numerical onset.
+Sol theory/actual-file PASS; six guards passed normal0.007s/-O0.008s.
+All polynomial tools and source corrections persist. Overall goal active;
+no outside action, manual wake queue, or process claimed after checkpoint.
+
+Next unperformed question: remove an entire near-height strip
+|gamma-eta|<=log^B N for fixed B, testing the largest growth allowed by
+the density saving. Derive the unequal-zero kernel, retain the cost of
+unbalanced small heights, use local zero counts and a symmetric arithmetic
+mean inequality. No RH or pair-correlation input is licensed. Fresh
+<=30-minute hypothesis; separated-height signed interactions would remain.
