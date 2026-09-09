@@ -134,6 +134,11 @@ Proof of CROSS:
 This repairs two prerequisites simultaneously, within the stated regime.
 It does not justify treating the absolute TI error as o(Y*mu); nor does
 it estimate the remaining prime-weighted or composite-bilinear residual.
+The subsequent proof in relative_type_i.py now supplies the stronger
+TI bound O_A(Y*mu/log(Y)**A), after decreasing the fixed delta upper
+bound independently of A. That proof uses additional zero-repulsion and
+large-sieve inputs, with ineffective onset. The remaining prime-weighted
+or composite-bilinear residual is still unproved.
 """
 from fractions import Fraction
 from math import gcd

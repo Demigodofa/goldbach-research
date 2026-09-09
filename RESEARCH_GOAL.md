@@ -626,3 +626,24 @@ verify algebra, not analytic estimates. The pursuit closed within30 minutes.
 No new Goldbach coverage, numerical onset, zero detection, priority search,
 publication work or wake queue. Overall research remains active; this repairs
 two comparison prerequisites while retaining the precise transfer gap.
+
+The next pursuit closed the character-relative Type I gap in the SAME
+two-scale conductor regime. `relative_type_i.py` proves the stronger error
+O_A(Y*mu/log(Y)^A) for every fixed A, with one sufficiently small fixed
+delta chosen independently of A and an ineffective onset. Moderate mu uses
+the earlier absolute estimate with a larger saving. For smaller mu,
+quantitative Linnik estimates retain the zero-repulsion log(1/e) gain;
+lifting small-conductor characters to lcm(D,r) removes the exceptional main
+term without a totient loss. The Drappeau--Fiorilli high-conductor mean
+estimate controls the complementary characters. Siegel bounds make the
+model tails, periods, resonances and proper prime powers harmless relative
+to mu. Sol checked the source use, proof and actual files. Four focused
+exact tests passed normally and with Python -O, including a complex quartic
+character control and the boundary where the exceptional projection survives.
+The pursuit returned `changed-under-evidence` within30 minutes. Thus the
+positive comparison mass and distribution error now share the required
+scale in these branches. Type II and the specific signed prime-weighted
+residual remain unproved; other exceptional-conductor regimes are still
+outside this theorem. No new actual Goldbach coverage, numerical onset,
+zero detection, priority search, publication work or wake queue. Overall
+research remains active.
