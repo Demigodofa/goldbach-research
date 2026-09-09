@@ -5,6 +5,8 @@ import unittest
 from factored_prime_ap_transfer import (
     balanced_factorizations, canonical_cofactor_split, canonical_factorization, selected_log_vector,
     selected_modulus_coefficients, source_exponent_margins, transfer_geometry,
+    polynomial_gap_mass_bounds, small_factor_support_obstruction, two_prime_gap_geometry,
+    gap_prime_divisor_counts, gap_variance_budget,
 )
 from major_arc_kernel import _mobius_phi, ramanujan
 from ramanujan_type_i import progression_means
@@ -79,6 +81,64 @@ class FactoredPrimeAPTransferTests(unittest.TestCase):
         self.assertIn((1, 7, 11), balanced_factorizations(77, 1331))
         self.assertEqual(balanced_factorizations(14, 36, order=2), ())
         self.assertIn((2, 2, 3), balanced_factorizations(12, 27))
+
+    def test_uncovered_prime_rectangle_is_inside_the_new_total_modulus_level(self):
+        exponents, margins = two_prime_gap_geometry()
+        a0, a1, b0, b1 = exponents
+        self.assertEqual(a0+b0, F(5001, 10000))
+        self.assertEqual(a1+b1, F(25007, 50000))
+        self.assertTrue(all(type(x) is F and x > 0 for x in margins))
+        self.assertLess(b1, F(5, 24))
+        self.assertGreater(a0, F(1, 4))
+
+    def test_positive_limit_mass_bounds_do_not_assume_a_numerical_onset(self):
+        for nu in (F(21, 100), F(49, 200)):
+            for degree in (9, 12):
+                lower, upper = polynomial_gap_mass_bounds(nu, degree)
+                self.assertGreater(lower, 0)
+                self.assertLess(lower, upper)
+                (a0, a1, b0, b1), _ = two_prime_gap_geometry(nu)
+                middle = (b0+b1)/2
+                midpoint_mass = (a1-a0)*(b1-b0)*(1-middle/nu)**degree/middle
+                self.assertLess(lower, midpoint_mass)
+                self.assertLess(midpoint_mass, upper)
+        with self.assertRaises(ValueError):
+            polynomial_gap_mass_bounds(F(1, 5))
+
+    def test_rough_modulus_support_certificate_checks_all_finite_factor_splits(self):
+        # Large-cap padding still cannot split a modulus having no small factors.
+        for n, large, first, second in ((77, 50, 3, 5), (121, 100, 2, 7), (143, 100, 3, 5)):
+            self.assertTrue(small_factor_support_obstruction(n, large, first, second))
+            brute = [(q1, q2, q3) for q1 in range(1, large+1)
+                     for q2 in range(1, first+1) for q3 in range(1, second+1)
+                     if q1*q2*q3 == n]
+            self.assertEqual(brute, [])
+        self.assertFalse(small_factor_support_obstruction(77, 77, 3, 5))
+        self.assertFalse(small_factor_support_obstruction(14, 10, 2, 3))
+        # False is not an existence certificate:14 still has no split below(3,2,3).
+        self.assertFalse(small_factor_support_obstruction(14, 3, 2, 3))
+
+    def test_source_parameter_universal_large_factor_ceiling(self):
+        for sigma, a2, a3 in ((F(1, 2000), F(1, 40), F(41, 500)),
+                               (F(1, 10000), F(1, 50), F(21, 250))):
+            (a1, _, _), margins = source_exponent_margins(sigma, a2, a3)
+            self.assertEqual(F(2, 5)-a1, 11*sigma+margins[2])
+            self.assertGreater(F(1, 20), a2)
+            self.assertGreater(F(1, 10), a3)
+
+    def test_intact_variance_target_has_room_for_the_actual_diagonal(self):
+        constant, level, target_exponent = gap_variance_budget()
+        self.assertGreater(constant, 0)
+        self.assertEqual(level+target_exponent, 2)
+        self.assertEqual(target_exponent, F(74993, 50000))
+        self.assertGreater(target_exponent, 1)
+
+    def test_prime_factor_counts_bound_diagonal_multiplicity_by_three(self):
+        counts = gap_prime_divisor_counts()
+        self.assertEqual(counts, ((1, 1), (1, 2), (1, 3), (2, 1)))
+        self.assertEqual(max(s*t for s, t in counts), 3)
+        (a0, _, b0, _), _ = two_prime_gap_geometry()
+        self.assertGreater(2*a0+2*b0, 1)
 
 
 if __name__ == '__main__':
