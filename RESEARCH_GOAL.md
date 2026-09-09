@@ -2716,3 +2716,50 @@ taking absolute values. The unprojected endpoint alone is insufficient.
 Keep Gamma phases, all real parts, the finite period and fixed N. Reject
 any hidden zero-correlation assumption or mere restatement of the signed
 gap. Fresh <=30-minute hypothesis; no Goldbach lower margin is proved.
+
+## 2026-09-09: prime parity gives signed cancellation on a smooth zero-pair region
+
+Started19:03:10 UTC, reassessed19:14:13 UTC, progress. Resumed verified
+clean maind104b80; reviewed mathematics **793b135**,
+smooth_endpoint_cancellation.py. The previous goal turn was progress:
+the endpoint obstruction changed the next test from termwise estimates
+to summation before taking real parts.
+
+At z_*=1/N+i*pi, the absolute zero mass is O(N^(3/2)logN). A truncated
+radial Fourier projection and the corrected arbitrary-a explicit formula
+give, for fixed smooth w supported in (0,infinity),
+sum_rho Gamma(rho)z_*^-rho w(gamma/N)
+ =sum_n Lambda(n)e^(-n/N)w(pi*n/N)+O_w(sqrtNlogN).
+Chebyshev moments pay the radial linearization. Prime parity leaves only
+a bounded powers-of-two correction on this support; no PNT asymptotic,
+RH or prime/zero-pair correlation assumption is required. The2016 error
+correction still controls over the arbitrary-a formula printed in2012/2015.
+
+A smooth tensor expansion, AFTER the single-zero estimate, gives the
+two-zero arithmetic main with error O(N^(3/2)logN+Nlog^2N). That main
+is real for real weights. The leading endpoint multiplier is -i/(N*d),
+d=1-(gamma+eta)/(piN), so its real main vanishes exactly. Three integrations
+retain two endpoint terms; the beta-linear secondary term uses one crude
+O(N^(3/2)logN) factor and one projected O(N) factor. Every remainder is paid.
+Consequently, for each FIXED REAL G in C_c^infinity((8pi,9pi)^2),
+Re sum_(rho,sigma)G(gamma/N,eta/N)J_N(rho,sigma)
+ =O_G(sqrtNlogN+log^2N).
+This is an ACTUAL signed estimate at fixed N on a specified nonempty region.
+For nonnegative smooth G positive on a smaller rectangle the previous
+argument still gives >>Nlog^2N absolute mass, so summing signs matters.
+
+The hard band, growing or shrinking smooth weights, full tail and the
+Goldbach lower margin are not covered by this fixed-G theorem. No new
+prime-pair coverage, effective onset, actual zero computation or worldwide
+novelty is asserted. Sol theory/actual-file PASS; six exact guards passed
+normal0.001s/-O0.001s. Polynomial components and all source corrections
+persist. Overall goal active; no outside action, manual wake queue, or
+process claimed after this reviewed checkpoint.
+
+Next unperformed question: extend to smooth positive-height pairs with
+gamma+eta>(pi+delta)N for fixed delta>0 through T=C NlogN. Explicitly
+pay one height approaching0, support growing like logN, all seminorms,
+and the height tail. Only polynomial-log losses may be absorbed into
+the power saving; fixed-G constants cannot be silently treated as uniform.
+No shrinking delta or stationary-region estimate is assumed. Fresh
+<=30-minute hypothesis, with the full signed Goldbach margin still open.

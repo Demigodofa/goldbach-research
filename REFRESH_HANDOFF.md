@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **c901fc3**, in spectral_endpoint_obstruction.py:
+Latest reviewed RESEARCH commit: **793b135**, in smooth_endpoint_cancellation.py:
+for each FIXED REAL G in C_c^infinity((8pi,9pi)^2), the ACTUAL signed
+weighted pair sum Re sum G(gamma/N,eta/N)J_N is
+O_G(sqrtN logN+log^2N), WITHOUT RH, target averaging or a PNT asymptotic.
+A smooth endpoint projection becomes a real weighted prime sum by parity;
+the leading endpoint multiplier is imaginary. The two-zero error must be
+paid through single-zero estimates and a tensor expansion. Subleading
+beta terms and all endpoint errors are paid. This is a nonempty smooth
+region, not the full signed lower bound, hard band, or shrinking window.
+Previous **c901fc3**, in spectral_endpoint_obstruction.py:
 for actual zeros of heights in (8piN,9piN], the ordered pair kernels have
 termwise absolute mass >>Nlog^2N, WITHOUT RH. A uniform endpoint expansion
 and functional-equation symmetry prove this even though the bulk phase
@@ -224,7 +233,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the selected spectral lane first read `spectral_endpoint_obstruction.py`,
+For the selected spectral lane first read `smooth_endpoint_cancellation.py`,
+then `spectral_endpoint_obstruction.py`,
 then `one_sided_zero_reduction.py`,
 then `pointwise_zero_pair_gate.py` and its CORRECTED source locators.
 The remaining prime correlation is now
@@ -296,7 +306,45 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: endpoint defeats absolute deletion; interior saving survives
+## Latest pursuit: prime parity pays an actual signed smooth endpoint region
+
+Started19:03:10 UTC, reassessed19:14:13 UTC, progress. Resumed verified
+clean maind104b80; reviewed mathematics **793b135**. The previous goal
+turn was progress, changing the next action through the endpoint obstruction.
+At z_*=1/N+i*pi, f_rho=Gamma(rho)z_*^-rho has total absolute mass
+O(N^(3/2)logN). A radial Fourier projection proves
+sum f_rho w(gamma/N)=sum Lambda(n)e^(-n/N)w(pi*n/N)+O_w(sqrtNlogN)
+for fixed smooth w supported away from0. Corrected explicit formula,
+Chebyshev moments and the exact powers-of-two parity correction suffice.
+No PNT asymptotic is needed. The source's arbitrary-a contour identity is
+read ONLY with the2016 missing-constant correction.
+
+A tensor expansion then gives a REAL arithmetic main for real smooth
+two-variable g, with error O_g(N^(3/2)logN+Nlog^2N). Direct two-zero
+absolute replacement loses the saving and is not the proof. Retaining two
+endpoint terms and integrating three times gives the leading -i/(N*d),
+d=1-(gamma+eta)/(piN). Its real main cancels upon taking Re. The second
+beta-linear term is paid with one crude factor and one projected factor;
+the total remainder is O_G(log^2N). Therefore fixed real smooth G in
+(8pi,9pi)^2 has signed contribution O_G(sqrtNlogN+log^2N). Positive
+smooth weights can still have >>Nlog^2N termwise absolute mass.
+
+Sol theory/actual-file PASS; six exact guards normal0.001s/-O0.001s.
+No actual zeros/new prime ranges, effective onset, coverage or worldwide
+novelty claim. The full same-sign lower margin stays OPEN. All polynomial
+components and source/runtime corrections persist; no process claimed after
+checkpoint. Overall goal active, no outside action or manual wake queue.
+
+Next concrete question, UNPERFORMED: can this mechanism control all smooth
+positive-height pairs with gamma+eta>(pi+delta)N, fixed delta>0, through
+the licensed T=C NlogN? Pay the axes (one height near0), the growing
+support O(logN), every smooth seminorm, and the height tail. Seek only
+polynomial log costs so the signed bound remains o(N). Do not silently
+reuse a fixed-G constant for N-dependent weights or shrink delta with N.
+The stationary region and the full Goldbach margin remain open even if
+this test succeeds. Fresh <=30-minute hypothesis.
+
+## Previous pursuit: endpoint defeats absolute deletion; interior saving survives
 
 Started18:50:54 UTC, reassessed19:01:15 UTC, changed-under-evidence.
 Resumed clean main3c1e7da; reviewed mathematics **c901fc3**. The previous
@@ -320,7 +368,7 @@ a numerical zero computation, certified error bound or asymptotic proof.
 No new coverage/onset/novelty claim. All corrected sources and polynomial
 components persist. Overall goal active; no process claimed after checkpoint.
 
-Next concrete question, UNPERFORMED: can a SMOOTH height projection be
+The then-next question (now completed for fixed smooth G in793b135): can a SMOOTH height projection be
 summed at the endpoint before estimating, using the exact prime-parity
 identity S(a+i*pi)=2log2*sum_(j>=1)exp(-2^j*a)-S(a)? Derive the actual
 projection kernel and error first; test whether the one-prime PNT input
@@ -2551,7 +2599,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_endpoint_obstruction` (six guards) and
+Latest tests: `python -m unittest test_smooth_endpoint_cancellation` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
