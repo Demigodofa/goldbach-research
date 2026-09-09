@@ -35,12 +35,20 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **ed0d334**, in rough_liouville_transfer_gate.py:
+Latest reviewed RESEARCH commit: **a301a46**, in
+prime_producing_comparison_gate.py and critical_factor_mass.py: the existing
+comparison satisfies the source factor-pattern conditions, and an ACTUAL
+upper sieve bounds critical composite mass by C e S2(2x)x/logx with C
+independent of small e. A specified short-factor Type II estimate would
+therefore imply positivity without pointwise divisor boundedness. That
+signed estimate remains OPEN; no new unconditional coverage. Next test:
+extract the actual coefficient family needed by this sieve decomposition.
+Previous **ed0d334**, in rough_liouville_transfer_gate.py:
 the cubic-rough Liouville mean is (log2-1)Y times the test integral,
 and its short inclusion-exclusion layers are all-log small. The signed
 prime-partner criterion is exact but OPEN; inspected Liouville correlation
-sources do not supply its masks or quantifiers. Next test is a bounded
-prime-producing-sieve comparison/input check, retaining polynomial tools.
+sources do not supply its masks or quantifiers. Its proposed comparison
+and prime-producing-sieve input check is now completed above.
 Previous **cb01376**, in prime_factor_endpoint_gate.py:
 the asymmetric full log-factor moment is already TI-controlled; the precise
 composite-only deficit remains open. The exact odd prime endpoint isY/3,
@@ -145,13 +153,12 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `rough_liouville_transfer_gate.py`,
-then `composite_bilinear_bridge.py` for the already defined nonnegative
-comparison and its exceptional-character correction. Before importing a
-Ford--Maynard prime-producing theorem, check its actual(b.1)/(b.2), growth,
-coefficient and factor-range hypotheses. The previous use in
-`buchstab_endpoint_bridge.py` was motivational only. Do not repeat either
-that old framework setup or the now-completed Liouville source-fit test.
+For the next unexceptional lane first read `critical_factor_mass.py` and
+`prime_producing_comparison_gate.py`, then `composite_bilinear_bridge.py`
+for the saved nonnegative comparison and exceptional-character correction.
+The source(b.1)/(b.2), growth and fixed-divisor Type I checks are complete;
+the full short-factor Type II remains open. The older framework setup and
+rough Liouville source-fit test are also complete. Do not repeat them.
 Use `prime_factor_endpoint_gate.py` for the precise one-sided factor deficit.
 Use `resonant_semiprime_error.py` for the complete-layer correction,
 then `factored_prime_ap_transfer.py`,
@@ -208,7 +215,56 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: rough Liouville bias and the prime-partner transfer gate
+## Latest pursuit: actual critical composite mass and a conditional positive sieve
+
+Started16:11:58 UTC, reassessed16:36:57 UTC, changed-under-evidence.
+Resumed verified clean main8a3f971; reviewed mathematics **a301a46**.
+The comparison b_n=c_y 1_((2x-n,P(y))=1), y=floor exp(sqrt(logx)), has
+B_P~S2(2x)x/(2logx), source growth, all fixed divisor-weighted Type I
+below1/2, and uniform source(b.2) across convex ordered factor regions.
+The latter is proved by fixing all but one large prime, applying BV plus
+the fundamental lemma at the remaining prime scale, and summing errors
+with sum1/M=O(1). This is model regularity, not actual Type II.
+
+For P_e=(1/2-e,e,1/3-2e), 0<e<=.01, the sieve's surviving rough composite
+region consists only of semiprimes near(1/2,1/2) or(1/3,2/3), and triprimes
+near(1/3,1/3,1/3). A dimension2 upper sieve for r and2x-Mr bounds its
+ACTUAL Lambda(2x-n) mass by C e S2(2x)x/logx+o(x/logx), C absolute.
+This uses no prime-pair asymptotic. Repeated factors and partner powers
+are negligible. Ford--Maynard Prop7.19 plus Lemmas7.18/7.21 then give,
+CONDITIONAL on full arbitrary-divisor-bounded Type II for
+(x/2)^e<d<=x^(1/3-e), prime mass >=(1-C'e+o(1))B_P.
+For sufficiently small fixed e this would give prime pairs, with an
+unspecified onset. Actual Type II, universal coverage and effective onset
+remain open. No implication from the older balanced BII is asserted.
+
+Source corrections: printed p17 Thm4.16 proof has w_n=1 otherwise where
+its claimed vanishing needs0; its constant K also leaves a nonzero x/log^2x
+secondary term. The module proves a restricted corrected counterexample
+using pointwise K_x(t); do not import the literal proof. Source Eq4.1 fails
+for actual w at x=p prime,n=p, and common scalar normalization cannot fix
+both it and B_P>=x/(rho logx). The new critical-mass proof avoids Eq4.1.
+Theorem2.2(A1) uses n>=M+1; Lemma7.18 uses Pminus(n)>=n^nu, both verified
+in PDF text against misleading web extraction. Ford notes3.4 is BV and
+3.6 is the fundamental lemma. All older source corrections remain binding.
+
+Sol theory and actual-file PASS without material correction. Eight combined
+guards pass normal0.007s/-O0.006s. No old experiment was repeated. Existing
+Qwen and routing exceptions persist; no installs, external actions or wake
+queue. Polynomial identities and bounds remain available components.
+
+Next concrete question, UNTESTED: in the g(empty)=1 specialization of
+Prop7.19, can one retain a smaller explicit family of bilinear coefficients
+than arbitrary tau-bounded sequences? Extract one actual family before
+the proof replaces it with a supremum, and test whether its Mobius/log
+structure meets an existing arithmetic estimate. Falsifier: the proposed
+restriction still needs an uncontrolled linked-prime correlation, or just
+renames a completed Type I calculation. Preserve the exact family either
+way; no claim that restricting coefficients alone proves cancellation.
+Fresh <=30-minute clock next pursuit. Overall goal remains active; no
+research process is claimed to keep running after this checkpoint.
+
+## Previous pursuit: rough Liouville bias and the prime-partner transfer gate
 
 Started2026-09-09 15:56:23 UTC, reassessed16:09:06 UTC, changed-under-evidence.
 Resumed verified clean main6dee23f. Reviewed mathematics **ed0d334**, in
@@ -2021,8 +2077,9 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rough_liouville_transfer_gate.py` and the
-same with `python -O`; rerun only if changes or new concerns justify it.
+Latest tests: `python -m unittest test_prime_producing_comparison_gate
+test_critical_factor_mass` and the same with `python -O`; rerun only if
+changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
 was `/root/moment_bound_review`. Inspect whether a handle is available

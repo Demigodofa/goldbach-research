@@ -2328,3 +2328,41 @@ coefficient Type II with the saved restricted factored-modulus input.
 Retain the exceptional-character obstruction to uncorrected asymptotics.
 This application test is unperformed. Fresh <=30-minute clock on resumption.
 Overall goal active; no research process remains running at this checkpoint.
+
+## 2026-09-09: actual critical composite mass replaces pointwise boundedness
+
+Started16:11:58 UTC, reassessed16:36:57 UTC, changed-under-evidence.
+Resumed verified clean main8a3f971. Reviewed mathematics **a301a46**, in
+prime_producing_comparison_gate.py and critical_factor_mass.py.
+The saved nonnegative comparison satisfies source(b.1)/(b.2), growth and
+fixed-divisor-weighted Type I below1/2. Its convex factor-pattern law uses
+a last-prime BV/fundamental-lemma transfer with sum1/M=O(1) error payment.
+It is not an actual prime-partner Type II estimate.
+
+A positive new component: with P_e=(1/2-e,e,1/3-2e), the critical rough
+composite region lies in O(e)-wide semiprime bands near halves or thirds,
+and a triprime band near thirds. A two-affine-form upper sieve proves
+its actual Lambda(2x-n) mass <=C e S2(2x)x/logx+o(x/logx), C absolute.
+Given the additional full tau-bounded Type II estimate for
+(x/2)^e<d<=x^(1/3-e), Ford--Maynard's decomposition yields prime mass
+>=(1-C'e+o(1))B_P, hence positivity for sufficiently small fixed e after
+proper-power removal. The actual signed estimate is OPEN. The proof does
+not invoke the failed pointwise divisor bound; its model(b.2) input is
+separately available but unnecessary for this particular projection.
+No new unconditional Goldbach coverage or numerical onset is established.
+
+The bounded source variant fails for actual w at x=p prime, and no common
+positive scalar repairs both of Eq4.1's requirements. The printed p17
+counterexample needs zero off support and pointwise K_x(t), since its
+constant K leaves a positive x/log^2x secondary term. A corrected restricted
+construction is proved; no unrestricted theorem is imported from it.
+Source PDF >= comparisons in Thm2.2(A1) and Lemma7.18 are retained.
+Eight guards pass normal0.007s/-O0.006s; independent Sol theory and actual
+files PASS. Prior source/runtime limits and polynomial tools are preserved.
+
+Next bounded question: extract an actual bilinear coefficient family from
+the g(empty)=1 decomposition before the generic supremum, and test whether
+its retained Mobius/log structure gives a usable existing arithmetic input.
+Reject a mere renaming of the open prime correlation or completed TI work.
+This is unperformed; fresh <=30-minute clock next pursuit. Overall goal
+active, no manual wake queue, and no process claimed running after closeout.
