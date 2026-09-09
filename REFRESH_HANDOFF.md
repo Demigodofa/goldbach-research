@@ -35,8 +35,9 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest MATHEMATICAL commit: **c8724f7**. The handoff itself is committed later.
-The preceding reviewed checkpoint was **b4dfc45**, mathematics **e86c878**.
+Latest MATHEMATICAL commit: **2b8cf98**. The handoff itself is committed later.
+The preceding reviewed checkpoint was **b4bf033**, mathematics **c8724f7**.
+Earlier resumed checkpoints **b4dfc45** and mathematics **e86c878** remain valid.
 This resumes the verified clean **cf48198** checkpoint; **6f9a77b** remains
 the completed formal-conservation result, not a superseded proof.
 The worktree was clean after the mathematical commit. Verify current Git
@@ -45,12 +46,13 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `rare_shifted_divisor_bound.py` — latest restricted arithmetic upper bound;
-   the required variable-M extension is OPEN.
-2. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+1. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+   M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
+2. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+3. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-3. `formal_weight_conservation.py` — completed formal result and exact gap.
-4. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+4. `formal_weight_conservation.py` — completed formal result and exact gap.
+5. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -58,7 +60,57 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: a second rarity factor, restricted to shifted primes
+## Latest pursuit: the actual affine forms, for small rough cofactors
+
+**2b8cf98**, `rare_affine_small_cofactor.py`, four exact tests. Sol reviewer
+`/root/sieve_review` passed theory and actual files, including the source
+adaptation and every error budget. Tests passed normally and under Python -O,
+both in0.011s. The pursuit returned `changed-under-evidence` within30 minutes.
+
+Retain the NEW actual-zero large-V regime: beta=1-1/(eta*log D), Y=D^V,
+V>=log^3 eta, t=V/eta<=1/log Y, eta sufficiently large. Fix0<theta<1/5.
+For the actual forms q and p=m-M*q, sum log(q)*log(p) over both primes of
+character sign+, with q in(Y/(2M),Y/M], p in(Y/2,Y], even m in[Y,2Y], and
+all integers2<=M<=Y^(1/5) such that P^-(M)>Y^theta and gcd(M,Dm)=1.
+Their TOTAL is `o_theta(Y*t)`. Squarefreeness and a five-factor restriction
+are unnecessary. The existing even quintic classes are a subset. Since a
+fixed polynomial kernel has |K_f(n)|<<_(f,theta)log Y, this also proves
+their FULL ABSOLUTE small-cofactor contribution is o_(f,theta)(Y*t).
+
+This directly adapts the proof of Matomaki--Merikoski Proposition2.3, not
+its coefficient-one statement. Making p's large divisor implicit leaves
+Poisson modulus D*d2*c; M enters as an invertible phase factor. Derivative
+scales agree at Q=Y/M. Both harmonic character cancellations survive in
+the zero mode. Corrected Henriot New Theorem5 supplies affine divisor-
+weighted sieve tails with the norm and function-class hypotheses checked.
+Shared primes dividing m are handled on the original rough support, avoiding
+an invalid tiny-scale Henriot application. The proof keeps conductor and
+M-coprimality local factors separate and recombines every main before taking
+absolute values. The finite residue check retains the1/a Jacobian.
+
+The reciprocal cofactor sum is O_theta(1). The aggregate main is
+O_theta(S_2(m)*Y*t^2*log^8 eta), the oscillatory error is
+D^2*Y^(44/45+o(1)), M-coprimality removal costs Y^(1-theta+o(1)), and other
+errors are O_theta(S_2(m)*Y*eta^-20). All are o(Y*t) in this regime.
+Proof/source details and the exact test APIs are in the module.
+
+The full M<=Y^(13/25) range FAILED this method's error-budget test. Ideal
+direct absolute Weil budgets sum to Y^(3/4+alpha); the reversed-orientation
+budget is Y^(3/4+3alpha/4), giving Y^(57/50) at alpha13/25. These are upper
+METHOD budgets, not lower bounds or universal obstructions. The reversed
+complete affine theorem is not promoted. Next concrete question: can
+averaging the remaining cofactors BEFORE absolute values preserve the two
+character cancellations and supply the missing power saving? Do not simply
+improve the cosmetic exponent of this completed small-range proof.
+
+All-negative odd composite classes, the larger even-class cofactors and the
+positive lower bound for the full signed total remain open. Preserve the
+polynomial tools and both arithmetic components for future combinations.
+No actual Goldbach coverage, zero, effective onset, priority claim, publishing
+or wake queue. No process is left running at this reviewed checkpoint;
+the overall research goal remains active.
+
+## Previous pursuit: a second rarity factor, restricted to shifted primes
 
 **c8724f7**, `rare_shifted_divisor_bound.py`, five focused finite tests.
 Sol reviewer `/root/sieve_review` checked theory and actual files: PASS.
@@ -281,7 +333,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rare_shifted_divisor_bound -v` and the
+Latest tests: `python -m unittest test_rare_affine_small_cofactor -v` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
