@@ -2672,3 +2672,47 @@ nonempty region? First derive the exact phase, then pay amplitudes, endpoints
 and the zero summation with N fixed. A stationary-point identity alone is
 diagnosis, not cancellation. Do not replace the finite kernel or assume RH.
 Fresh <=30-minute pursuit, with the actual signed lower bound still open.
+
+## 2026-09-09: actual nonstationary endpoint obstruction and interior saving
+
+Started18:50:54 UTC, reassessed19:01:15 UTC, changed-under-evidence.
+Resumed verified clean main3c1e7da; reviewed mathematics **c901fc3**,
+spectral_endpoint_obstruction.py. The previous goal turn was progress:
+cca6455 paid opposite-height-sign interactions without RH.
+
+For positive-height pairs set b=beta+beta', h=gamma+eta. The phase is
+Nt-h log|a+it|-b arg(a+it), with stationary equation u^2-hu+1-b=0,
+u=Nt. Test both zero heights in (8piN,9piN]. Any tiny stationary point
+lies in [0,1/N], whose integral is exponentially small. The rest has
+|phase'| comparable to N/t; two integrations by parts give a uniform
+nonzero endpoint term plus O(N^-2) after factoring Gamma damping.
+Thus |J_(rho,sigma)|>=c/N*gamma^(beta-1/2)*eta^(beta'-1/2).
+Functional-equation reflection beta ->1-beta at fixed positive height
+preserves multiplicities and pairs weights x,1/x. Their sum is at least2.
+Riemann-von Mangoldt gives (1/2)NlogN+O(N) zeros in the band, proving
+ACTUAL ordered termwise absolute mass >>Nlog^2N WITHOUT RH. The small
+endpoint-damping constant is fixed; it cannot provide an asymptotic saving.
+
+The proposed absolute deletion of the whole band is retired. This does
+not bound its real signed sum, rule out cancellation, or prove a negative
+Goldbach coefficient. A useful component survives: for a FIXED smooth
+cutoff chi vanishing nearpi, four integrations and the full all-strip
+Gamma/zero-count cost give sum|J^chi|<<_chi N^-1log^2N on the SAME band.
+The contribution is therefore localized to any fixed endpoint neighborhood.
+No uniform shrinking cutoff or whole-tail estimate is asserted.
+
+Independent Sol theory/actual-file and narrow corollary-delta PASS. Six
+exact guards normal0.002s/-O0.003s. A finite toy Simpson check agreed with
+the endpoint expansion, with refinement differences explicitly not certified
+error bounds; no actual zeros or prime ranges computed. No new coverage,
+numerical onset, novelty claim, outside action or manual wake queue.
+Polynomial components and all corrected authorities persist. Overall goal
+active; no research process claimed after this reviewed checkpoint.
+
+Next unperformed question: derive a smooth height-projection kernel at the
+endpoint and test whether the exact parity identity for S(a+i*pi), together
+with a one-prime PNT input, controls the projected real contribution before
+taking absolute values. The unprojected endpoint alone is insufficient.
+Keep Gamma phases, all real parts, the finite period and fixed N. Reject
+any hidden zero-correlation assumption or mere restatement of the signed
+gap. Fresh <=30-minute hypothesis; no Goldbach lower margin is proved.

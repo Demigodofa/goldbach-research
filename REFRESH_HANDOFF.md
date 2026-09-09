@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **cca6455**, in one_sided_zero_reduction.py:
+Latest reviewed RESEARCH commit: **c901fc3**, in spectral_endpoint_obstruction.py:
+for actual zeros of heights in (8piN,9piN], the ordered pair kernels have
+termwise absolute mass >>Nlog^2N, WITHOUT RH. A uniform endpoint expansion
+and functional-equation symmetry prove this even though the bulk phase
+has no stationary point. Thus absolute deletion of that full band fails.
+Its interior remains useful: a FIXED smooth cutoff vanishing nearpi gives
+total absolute mass O_chi(N^-1log^2N) on the same band. No shrinking-cutoff
+or whole-tail claim. Signed cancellation and the Goldbach margin stay OPEN.
+Previous **cca6455**, in one_sided_zero_reduction.py:
 the opposite-height-sign zero interactions, and the same-sign square on
 its damped half-period, cost O_A(N/log^A N) for every fixed A, WITHOUT RH.
 The surviving term is C_(N,T)=e/pi Re integral_0^pi e^(iNt)Z_(+,T)^2 dt,
@@ -216,7 +224,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the selected spectral lane first read `one_sided_zero_reduction.py`,
+For the selected spectral lane first read `spectral_endpoint_obstruction.py`,
+then `one_sided_zero_reduction.py`,
 then `pointwise_zero_pair_gate.py` and its CORRECTED source locators.
 The remaining prime correlation is now
 an explicit one-sided signed zero-pair target; the earlier sieve route is
@@ -287,7 +296,40 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: damped zero interactions are all-log small
+## Latest pursuit: endpoint defeats absolute deletion; interior saving survives
+
+Started18:50:54 UTC, reassessed19:01:15 UTC, changed-under-evidence.
+Resumed clean main3c1e7da; reviewed mathematics **c901fc3**. The previous
+goal turn was progress: cca6455 paid the damped zero interactions.
+For b=beta+beta', h=gamma+eta, the actual phase is
+Nt-h log|a+it|-b arg(a+it); its stationary equation in u=Nt is
+u^2-hu+1-b=0. In the tested band (8piN,9piN] for both heights, any tiny
+stationary point is in the exponentially suppressed [0,1/N] interval.
+Two integrations by parts on [1/N,pi] leave a nonzero endpoint term.
+Uniform Stirling, zero symmetry and Riemann-von Mangoldt then prove
+sum|J_(rho,sigma)|>>Nlog^2N for ACTUAL zeros with multiplicities, no RH.
+This is not a bound for Re sumJ and does not exclude inter-pair cancellation.
+
+For any FIXED smooth chi vanishing nearpi, four integrations pay all
+zero pairs and give sum|J^chi|<<_chi N^-1log^2N on the same band. This
+localizes its contribution to any fixed endpoint neighborhood; it does not
+remove that neighborhood or permit shrinking it with N. Six guards passed
+normal0.002s/-O0.003s; Sol theory/actual-file and narrow corollary-delta PASS.
+Finite toy quadrature agrees with the endpoint expansion, explicitly not
+a numerical zero computation, certified error bound or asymptotic proof.
+No new coverage/onset/novelty claim. All corrected sources and polynomial
+components persist. Overall goal active; no process claimed after checkpoint.
+
+Next concrete question, UNPERFORMED: can a SMOOTH height projection be
+summed at the endpoint before estimating, using the exact prime-parity
+identity S(a+i*pi)=2log2*sum_(j>=1)exp(-2^j*a)-S(a)? Derive the actual
+projection kernel and error first; test whether the one-prime PNT input
+controls the projected real contribution. It does not follow merely from
+control of the unprojected endpoint. Preserve Gamma phases, finite period
+and fixed N; no hidden prime-pair or zero-correlation assumption. Retire
+if the projection only restates the open signed estimate. Fresh <=30 minutes.
+
+## Previous pursuit: damped zero interactions are all-log small
 
 Started18:39:29 UTC, reassessed18:49:04 UTC, progress; resumed verified
 clean mainc2934bb. Reviewed mathematics **cca6455**. The classical
@@ -304,7 +346,7 @@ Five exact sign/algebra/log-budget guards passed normal0.002s/-O0.001s;
 independent Sol theory/actual-file PASS. No numerical c/onset or external
 novelty claim. Source corrections, polynomial tools and runtime limits persist.
 
-Next concrete question, UNPERFORMED: can the actual phase of the retained
+The then-next question (now tested in c901fc3): can the actual phase of the retained
 positive-height pair kernel identify a nonempty region whose aggregate
 contribution is provably small? Derive its stationary points first, then
 pay amplitude, endpoints and the SUM over zeros before claiming any saving.
@@ -2509,7 +2551,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_one_sided_zero_reduction` (five guards) and
+Latest tests: `python -m unittest test_spectral_endpoint_obstruction` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
