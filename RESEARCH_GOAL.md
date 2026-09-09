@@ -1967,3 +1967,46 @@ coefficient-size and interval conditions, p|m, prime powers and summing
 all boxes. This is proposed, not proved. Reuse the existing corrected
 source; do not retry blocked fetches. Fresh <=30-minute clock required.
 Goal active; no research process remains running at this checkpoint.
+
+## 2026-09-09: polynomial weights obtain an actual joint arithmetic bound
+
+Started13:54:01 UTC, reassessed14:09:07 UTC, progress. Resumed clean
+main35cc1e4. Reviewed mathematics **c19cb24**, polynomial_joint_majorant.py,
+uses lambda(d)=mu(d)(1-log d/logV)_+^k, fixedk>=9. The full cutoff change
+is licensed by existing TI. Mellin inversion gives |S_lambda|<<H_V/logV,
+using the corrected radical majorant. The actual E is dominated by H_S;
+H_S(ell^j)>=(511/1152)min(logell,logS) also handles prime powers directly.
+
+For p prime not dividing m, corrected Henriot on c and m-pc has primitive
+forms, normO(Y), discriminantm^2 and uniform hypotheses for fixed cofactor
+exponents1/4<c0<=c1<1-gamma/2. Its special leading-prime factor is
+K_p=1+a/p, rho1, with sieve ratio at most2. The corrected zero-valuation
+and common-root conventions remain essential. The result is
+ sum_c H_V(c)H_S(m-pc)<<C S_2(m)/(dV dS),
+which supplies the actual joint bound missing from separate Cauchy.
+Chebyshev then gives each prime/cofactor box a positive tuple majorant
+O(Y S_2(m)/logY). Globally p|m costsY^(1-gamma/2+2delta+o(1)); the
+previous internal-power error is paid once too. This bound accepts any
+bounded tuple mask, but the full TI cutoff transfer keeps its smooth F.
+It does not equate restricted old hard-cutoff boxes with the new boxes.
+
+OnlyO(1) cofactor boxes fit a prime box under pc~Y. A union of N boxes
+costsO(N Y S2(m)/logY), so o(logY) boxes are negligible RELATIVE to YS2.
+A fixed polylogarithmic band near sqrtY is controlled; an exponent band
+of widthh costsO((h+1/logY)Y S2), uniformly in a fixed domain. The full
+positive-width range still hasTheta(logY) boxes and only a main-scale
+bound. No signed full-remainder estimate or new prime-pair coverage.
+
+Eight guards pass normal0.004s/-O0.003s. Sol theory/actual-file PASS after
+one endpoint correction: J_p lies in a closed enclosure, covered by two
+comparable half-open intervals. The initial guard also caught a float
+created by an integer max branch; Fraction endpoints now have type tests.
+No blocked fetch, previous experiment, or outside action was repeated.
+
+Next question: can a full absolute bound even be o(Y S2(m))? Every
+normalized cutoff has S_lambda(c)=1 on prime c>V. Test a lower bound from
+actual prime triples pc+q=m averaged over central even m, paying the
+fixed-small-delta condition for E(q)>0 and the singular-series average.
+This is a proposed falsifier of absolute summation, not of signed methods
+or the preserved polynomial/affine component. Fresh <=30-minute clock.
+Goal active; no research process remains running at this checkpoint.

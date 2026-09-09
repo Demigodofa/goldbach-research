@@ -35,15 +35,18 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **02e1627**, exact cutoff freedom in the
-ACTUAL Vaughan remainder, a classical optimal cofactor norm, and its
-failed separate-moment budget O(Y sqrt(log Y)) on a balanced box.
+Latest reviewed RESEARCH commit: **c19cb24**, an ACTUAL joint arithmetic
+bound O(Y S_2(m)/logY) for polynomial-cutoff prime/cofactor boxes. It uses
+corrected Henriot with both linked forms, not separate coefficient norms.
+The logarithmic number of boxes still prevents a full small remainder.
+Previous **02e1627** proves exact cutoff freedom, the classical optimal
+cofactor norm, and its failed separate-moment budget O(Y sqrt(log Y)).
 Previous **3fcea6e** removes the internal proper prime powers with an
 o(Y) error and retains the exact prime/cofactor correlation, still OPEN.
 Combined short HB terms do not cancel internally.
 Previous **b7134e1** proves fixed divisor-weighted Type I and the precise
 scope of the Heath-Brown route; these remain useful components.
-Latest ACTUAL CORRELATION TRANSFER remains **476e0c3**, removing
+Previous GLOBAL balanced correlation transfer **476e0c3** removes
 the balanced self-correlation from the smoothed unexceptional remainder:
 T_F=C_F(Z,E-Z)+C_F(A-B,E)+o(Y). Both surviving correlations remain OPEN.
 Previous **a968833** supplied the restricted arithmetic convolution with
@@ -60,6 +63,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **35cc1e4** preserved02e1627.
 Previous checkpoint **45afe67** preserved3fcea6e.
 Previous checkpoint **a4a7944** preservedb7134e1.
 Previous checkpoint **29b35c9** preserved476e0c3.
@@ -97,7 +101,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `optimized_cofactor_cutoff.py`,
+For the next unexceptional lane first read `polynomial_joint_majorant.py`,
+then `optimized_cofactor_cutoff.py`,
 then `short_free_cancellation.py`,
 then `multifactor_identity_gate.py`,
 then `balanced_projection_transfer.py`,
@@ -148,7 +153,61 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: exact cutoff freedom and the optimal cofactor norm budget
+## Latest pursuit: polynomial cutoff paired with an actual affine majorant
+
+**c19cb24**, polynomial_joint_majorant.py, chooses the exact cutoff
+lambda(d)=mu(d)(1-log d/logV)_+^k, fixed k>=9, U=V=floorY^(gamma/2).
+The full cutoff-change compensation is TI-small by02e1627. Mellin inversion
+and its finite divisor Euler product prove |S_lambda(c)|<<H_V(c)/logV.
+These are the CORRECTED radical H majorants, including on prime powers.
+The existing |Gamma_S|<<H_S and the explicit bound
+H_S(ell^j)>=(511/1152)min(logell,logS) give |E|<<_(delta,G)H_S.
+
+For fixed prime p not dividing m, apply corrected Henriot NEWThm5 to
+c and m-pc. The product is primitive, normO(Y), discriminantm^2.
+On any fixed cofactor-exponent interval1/4<c0<=c1<1-gamma/2, source
+alpha1/2, eta1/4, epsilon1/2000 have strict uniform margins. The
+physical set has a CLOSED enclosure, not a fixed half-open identity;
+two comparable half-open intervals cover it with positive polynomial
+values. This is the reviewer endpoint correction. At ell=p the second
+form has no root: localK=1+a/p, rho1, and sieve ratio<=2. All other
+local factors retain the corrected exact-valuation/common-root convention.
+
+Henriot and the two finite second-moment integrals give
+sum_c H_V(c)H_S(m-pc)<<C S_2(m)/(dV dS), with dR=logR/logC.
+Hence sum_c |S_lambda(c)E(m-pc)|<<C S_2(m)/logY. Chebyshev over
+one actual prime p-box gives the positive tuple bound
+sum_(p,c in box) logp |S_lambda(c)F E(m-pc)|<<Y S_2(m)/logY.
+Primes p|m are removed globally at costY^(1-gamma/2+2delta+o(1));
+the earlier internal-power error is also paid globally. Arbitrary masks
+are allowed in this positive box bound; the FULL TI transfer still needs
+its fixed smooth physical F. No restricted old-hard-box equality follows.
+
+Only O(1) cofactor boxes fit each prime box under pc~Y. Thus N boxes
+costO(N Y S_2(m)/logY), with the saved global power errors. For N=o(logY)
+this is small RELATIVE to Y S_2(m); a fixed polylogarithmic band around
+sqrtY is controlled. A band of exponent widthh costsO((h+1/logY)Y S2)
+with uniform constants in a fixed domain. The full positive-width range
+has Theta(logY) boxes and only a main-scale bound. No new coverage.
+
+Started13:54:01 UTC, reassessed14:09:07 UTC, progress. Eight guards pass
+normal0.004s/-O0.003s. Sol theory/actual-file PASS after the endpoint
+correction. The first test run also caught an unintended float endpoint;
+both endpoints now stay Fraction and type guards preserve that fix.
+No old experiment or blocked source fetch was repeated.
+
+Next concrete test: is the remaining logarithmic accumulation intrinsic
+to the FULL ABSOLUTE method? On prime cofactors c>V, S_lambda(c)=1 for
+every normalized cutoff. Count actual triples p*c+q=m with p,c,q prime
+and p,c in interior size ranges. If their average over central even m is
+of main order and E(q) stays positive, no uniform o(Y S2(m)) absolute
+bound is possible. This would force a signed mechanism without rejecting
+the useful box bound or polynomial tools. Check the fixed-small-delta
+condition, actual prime counts, and singular-series average; do not use
+heuristic independence. Fresh <=30-minute clock required. Goal active;
+no research process is left running at this checkpoint.
+
+## Preceding pursuit: exact cutoff freedom and the optimal cofactor norm budget
 
 **02e1627**, optimized_cofactor_cutoff.py, permits any real lambda supported
 on d<=V, lambda1=1, |lambda_d|<=1. For R_lambda=(mu-lambda)*Lambda_>U*1,
@@ -184,7 +243,8 @@ weighted off-diagonal remains unproved. No coverage or full T estimate.
 
 Started13:39:04 UTC, reassessed13:51:50 UTC, changed-under-evidence.
 Eight guards passed normal0.018s and -O0.020s. Sol theory/actual-file
-review PASS, no correction. Next concrete test: a fixed degree>=9
+review PASS, no correction. The next test, now proved inc19cb24 above,
+was whether a fixed degree>=9
 polynomial cutoff may obey |S_lambda(c)|<<H_V(c)/log V via Mellin
 factorization. Can the corrected Henriot theorem, with primitive forms
 c and m-pc, then give an ACTUAL per-box bound O(Y S_2(m)/logY)?
@@ -1483,7 +1543,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_optimized_cofactor_cutoff.py` and the
+Latest tests: `python -m unittest test_polynomial_joint_majorant.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
