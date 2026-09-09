@@ -108,6 +108,10 @@ has ample margin. No varying-u or uniform growing-kappa assertion is made.
 This retires positivity from the accessible part of THIS cubic weight.
 It does not refute its composite-error bound, all possible weights, or
 Goldbach. No new actual coverage, zero, numerical onset or priority claim.
+log_weight_barrier.py extends the endpoint-main calculation to any fixed
+polynomial and proves the suppression/main-sign conflict for the entire
+nonnegative logarithmic-subtraction family, with a separate formal triple
+obstruction when leaving that family.
 """
 from collections import defaultdict
 from fractions import Fraction as F

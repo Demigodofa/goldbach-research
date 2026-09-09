@@ -5,7 +5,8 @@ import unittest
 
 from cubic_character_minorant import negative_cubic_coefficients, negative_semiprime_sign
 from log_weight_barrier import (balanced_kernel_enclosure, safe_subtraction_coefficients,
-                                semiprime_kernel)
+                                semiprime_kernel, negative_triple_kernel,
+                                safe_subtraction_tradeoff, type_i_endpoint_coefficient)
 
 
 def evaluate(coefficients, x):
@@ -110,6 +111,105 @@ class LogWeightBarrierTests(unittest.TestCase):
         for penalties in ([1], (True,), (1.0,), (-1,), (0,)*64):
             with self.assertRaises(ValueError):
                 safe_subtraction_coefficients(penalties)
+
+    def test_endpoint_cost_and_sharp_cubic_quartic_efficiency(self):
+        for a in (F(51, 100), F(3, 5), F(3, 4), F(9, 10), F(99, 100)):
+            b, v = 1-a, a*(1-a)
+            divided = [F(0)]+[(a**j-b**j)/(a-b) for j in range(1, 65)]
+            self.assertEqual(divided[1:3], [1, 1])
+            for degree in range(3, 65):
+                self.assertEqual(divided[degree], divided[degree-1]-v*divided[degree-2])
+                self.assertEqual(1-divided[degree], v*sum(divided[1:degree-1]))
+                self.assertLessEqual(1-divided[degree], (degree-2)*v)
+                if degree >= 5:
+                    self.assertLess(1-divided[degree], (degree-2)*v)
+            for budget in (F(0), F(1), F(2), F(9), F(100)):
+                cubic = safe_subtraction_coefficients((0, budget))
+                quartic = safe_subtraction_coefficients((0, 0, budget/2))
+                self.assertEqual(semiprime_kernel(cubic), semiprime_kernel(quartic))
+                actual_budget, lower, necessary = safe_subtraction_tradeoff((0, budget), a)
+                self.assertEqual(actual_budget, budget)
+                self.assertEqual(type_i_endpoint_coefficient(cubic), 1-budget/2)
+                self.assertEqual(evaluate(semiprime_kernel(cubic), a), lower)
+                self.assertGreater(necessary, 2)
+                for degree in (5, 6, 10, 64):
+                    penalties = (*([0]*(degree-2)), budget/(degree-2))
+                    coefficients = safe_subtraction_coefficients(penalties)
+                    self.assertEqual(type_i_endpoint_coefficient(coefficients), 1-budget/2)
+                    value = evaluate(semiprime_kernel(coefficients), a)
+                    self.assertGreaterEqual(value, lower)
+                    if budget > 0:
+                        self.assertGreater(value, lower)
+
+    def test_safe_positive_endpoint_and_exact_deletion_cost(self):
+        cases = ((), (100,), (0, 1), (5, 2), (17, 1, F(1, 2)),
+                 (*([0]*62), F(1, 31)), (1, 2, 3, 4, 5))
+        for penalties in cases:
+            coefficients = safe_subtraction_coefficients(penalties)
+            expected_budget = sum(j*F(c) for j, c in enumerate(penalties))
+            for i in range(1, 40):
+                a = F(1, 2)+F(i, 80)
+                budget, lower, necessary = safe_subtraction_tradeoff(penalties, a)
+                value = evaluate(semiprime_kernel(coefficients), a)
+                self.assertEqual(budget, expected_budget)
+                self.assertGreaterEqual(value, lower)
+                if budget <= 2:
+                    self.assertGreater(value, 0)
+                    self.assertGreaterEqual(lower, 2*(1-a)**2*(2*a+1))
+                if value <= 0:
+                    self.assertGreaterEqual(budget, necessary)
+                    self.assertLess(type_i_endpoint_coefficient(coefficients), 0)
+        for a in (F(3, 5), F(2, 3), F(3, 4), F(9, 10)):
+            necessary = 2/(a*(2*a-1))
+            coefficients = safe_subtraction_coefficients((0, necessary))
+            self.assertEqual(evaluate(semiprime_kernel(coefficients), a), 0)
+            self.assertLess(type_i_endpoint_coefficient(coefficients), 0)
+
+    def test_formal_triples_match_eight_divisors_and_expose_new_positive_loss(self):
+        alternative = (0, 1, -100, 400, -500, 200)
+        cases = ((0, 1), (0, 10, 0, -9), alternative, (0, -3, 7, -3))
+        for coefficients in cases:
+            for i in range(1, 18):
+                for j in range(1, 20-i):
+                    shares = (F(i, 20), F(j, 20), F(20-i-j, 20))
+                    direct = F(0)
+                    for removed in range(8):
+                        argument = sum(shares[k] for k in range(3) if not removed & (1 << k))
+                        direct += (-1)**removed.bit_count()*evaluate(coefficients, argument)
+                    self.assertEqual(negative_triple_kernel(coefficients, shares), direct)
+                    if coefficients == (0, 1):
+                        self.assertEqual(direct, 0)
+                    if coefficients == (0, 10, 0, -9):
+                        self.assertEqual(direct, -54*shares[0]*shares[1]*shares[2])
+        self.assertEqual(type_i_endpoint_coefficient(alternative), 1)
+        self.assertEqual(evaluate(semiprime_kernel(alternative), F(3, 4)), -F(193, 64))
+        self.assertEqual(negative_triple_kernel(alternative, (F(9, 10), F(1, 25), F(3, 50))),
+                         F(7263, 15625))
+        # These rational shares do not assert actual prime-factor locations.
+        # A general polynomial passes coefficient validation but need not be
+        # a member of the nonnegative subtraction family.
+        with self.assertRaises(ValueError):
+            safe_subtraction_coefficients((100, -400, 500, -200))
+
+    def test_new_exact_domains_and_endpoint_normalization(self):
+        for coefficients in ([0, 1], (0, 2), (False, 1), (0, 1.0)):
+            with self.assertRaises(ValueError):
+                type_i_endpoint_coefficient(coefficients)
+        for a in (True, 0.75, F(1, 2), F(1), F(-1)):
+            with self.assertRaises(ValueError):
+                safe_subtraction_tradeoff((0, 9), a)
+        for penalties in ([1], (True,), (1.0,), (-1,), (0,)*64):
+            with self.assertRaises(ValueError):
+                safe_subtraction_tradeoff(penalties, F(3, 4))
+        for shares in ([F(1, 3)]*3, (F(1, 2), F(1, 2)), (0, F(1, 2), F(1, 2)),
+                       (F(1, 2), F(1, 2), F(1, 2)), (True, F(1, 3), F(1, 3)),
+                       (0.5, F(1, 4), F(1, 4))):
+            with self.assertRaises(ValueError):
+                negative_triple_kernel((0, 1), shares)
+        for degree in range(1, 65):
+            coefficients = (0, *([0]*(degree-1)), 1)
+            self.assertEqual(type_i_endpoint_coefficient(coefficients),
+                             F(1) if degree == 1 else F(degree, 2))
 
 
 if __name__ == '__main__':

@@ -826,3 +826,26 @@ both boundary signs, and complete finite divisor/support controls. The
 pursuit returned `changed-under-evidence` within30 minutes. No new actual
 Goldbach coverage, zero, numerical onset, priority search, publication
 work or wake queue. Overall research remains active.
+
+The next weight-redesign pursuit returned a broader checked tradeoff in
+`log_weight_barrier.py`. A fixed polynomial f has accessible endpoint-main
+coefficient A_f=(f'(0)+f'(1))/2, with the precise order: choose u large
+for a requested tolerance, then Y sufficiently large. For the safe
+nonnegative logarithmic-subtraction family, put B=sum(j-2)c_j. Then
+A_f=1-B/2 and H_f(a)>=(1-a)*(2-B*a*(2a-1)) for1/2<a<1.
+Making H_f(a)<=0 requires B>=2/(a*(2a-1))>2, so the accessible main
+turns negative. Cubic and quartic penalties attain this bound; higher
+degree cannot improve suppression per main-term cost within this family.
+A separate formal derivative argument shows that positive A_f and any
+semiprime sign deletion force positive all-negative triple weight somewhere
+in the open logarithmic-share simplex. It asserts no actual triple count.
+The explicit alternative f(s)=s-100s^2(1-s)^2(1-2s) has A_f=1 and
+H_f(3/4)=-193/64, but triple weight7263/15625 at shares(9/10,1/25,3/50).
+This preserves a candidate component while exposing the new composite
+error that prevents reuse of the old pointwise bound. Neither changing
+degree nor changing signs alone has closed the prime correlation gap.
+Sol checked theory and actual files; nine exact tests passed normally
+and with Python -O, including sharp costs and an independent eight-divisor
+triple expansion. The pursuit closed within30 minutes, with no new actual
+coverage, zero, numerical onset, priority search, publication work or wake
+queue. Overall research remains active.
