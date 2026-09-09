@@ -702,3 +702,20 @@ Sol checked theory and actual files; five symbolic algebra tests passed
 normally and with Python -O. The pursuit closed within30 minutes. No new
 Goldbach coverage, actual zero, numerical onset, priority search, publication
 work or wake queue. Overall research remains active.
+
+The next pursuit closed the h>=2 part of that squarefree composite error.
+`multi_rare_partner.py` proves E_2plus<<_(delta,u)Y*S_2(m)*t^2=o(Y*t),
+with ALL prior hypotheses unchanged. The existing cutoff w gives an
+O(t) reciprocal sum of positive-sign primes above w. Henriot's corrected
+New Theorem5 bounds the two affine prime conditions uniformly after fixing
+the product M of positive factors, including primes dividing its leading
+coefficient. The squarefree Euler tail of degree at least2 is O(t^2).
+Consequently T=P+E_1+E_rem, with E_rem>=0 and E_rem=o(Y*t). The remaining
+E_1 consists exactly of semiprime partners r*q, with r a negative-sign
+prime and q a positive-sign prime>w, weighted by 2*log(p)*log(r).
+This does not establish positivity of T or make E_1 negligible. Sol checked
+the proof and actual files; five focused exact tests passed normally and
+with Python -O. The finite cofactor control used target17,918 inside the
+already certified prefix, adding no new coverage. The pursuit returned
+`changed-under-evidence` within30 minutes. No actual zero, numerical onset,
+priority search, publication work or wake queue. Overall research remains active.
