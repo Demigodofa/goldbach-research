@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **af8f893**, the modulus-averaged
-reciprocal-energy saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **ab8dab9** preserved
+Latest reviewed RESEARCH commit: **eb4e380**, the two-large-prime Kl3
+unbalanced-model saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **5477e87** preserved
+the reciprocal-energy saving **af8f893**. Earlier **ab8dab9** preserved
 the all-integer-modulus balanced saving **6852af6**. Earlier **831bbb2** preserved
 the squarefree correlation estimate **7d36ce8**. Earlier **a58428e** preserved
 the general-composite linear estimate **c2a5ac5** and its balanced failure.
@@ -57,28 +58,30 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `reciprocal_energy_kernel.py` — latest elementary modulus-average
+1. `two_prime_kl3_kernel.py` — latest two-large-prime correlation mechanism
+   at the remaining unbalanced MODEL box; general moduli still OPEN.
+2. `reciprocal_energy_kernel.py` — elementary modulus-average
    fourth-moment estimate, symmetric-box saving and remaining unbalanced gap.
-2. `all_moduli_balanced_kernel.py` — balanced MODEL saving for all
+3. `all_moduli_balanced_kernel.py` — balanced MODEL saving for all
    integer moduli; prime-power stationary phase and squarefull-part split.
-3. `squarefree_correlation_kernel.py` — balanced squarefree-model
+4. `squarefree_correlation_kernel.py` — balanced squarefree-model
    saving; all nonunit modes and short-period costs are included.
-4. `composite_linear_kernel.py` — general-composite unbalanced
+5. `composite_linear_kernel.py` — general-composite unbalanced
    estimate, nonunit/period costs and balanced13/12 failure.
-5. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
+6. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
    grouping and linear completion. Composite/arithmetic transfer OPEN.
-6. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
+7. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
    and roughness zero-mode lemma. Its box range has now been extended.
-7. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
-8. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+8. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+9. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-9. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+10. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-10. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-11. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+11. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+12. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-12. `formal_weight_conservation.py` — completed formal result and exact gap.
-13. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+13. `formal_weight_conservation.py` — completed formal result and exact gap.
+14. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -86,7 +89,58 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: reciprocal energy saves the symmetric boundary
+## Latest pursuit: two large prime factors at the unbalanced box
+
+**eb4e380**, `two_prime_kl3_kernel.py`, derives, for distinct-prime q=p1*p2 with
+p_min>=q^(2/5), the bilinear norm factor q^(11/64+epsilon)*X^(5/8),
+sqrt(q)<=X<=q^(1/2+1/128). At X=sqrt(q), this is q^(31/64), saving
+q^(1/64). KMS prime eight-factor correlations and scalar amplification
+are combined with CRT. This is a derived Kl3 theorem; neither KMS's
+prime bilinear theorem nor MQW's Kl2 theorem is claimed for composite Kl3.
+
+Critical source correction: KMS uses literal ZERO extension, so the proof
+uses Z_q(z)=1_(z,q)=1*K_q(z), then recovers the repository's K_p(0)=1/p
+extension by a nonunit error <=3*X/p_min times the coefficient norms.
+KMS Theorem4.11 supplies ALL completed twists; averaged subtraction
+cancels the diagonal p^2 main term even when the two source twists agree.
+Removing only s1=s2 modq would be wrong: gcd(s1-s2,q)=1 is imposed
+prime by prime. The rank-three CRT frequency twist is h*(q/p)^2.
+
+Small auxiliary shifts A0=q^(1/8), B0=X*q^(-1/8) satisfy 2*B0<p_min.
+Thus both modular diagonals are the same integer multiset condition,
+count O(B0^2). The union of the two bad hypersurfaces counts O(B0^3).
+Diagonal, bad and generic terms give total O(X^4*q). Nonunit differences
+are isolated before Holder and bounded by residue-class multiplicities.
+
+At B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4), the SAME smooth MODEL
+over this specified modulus class satisfies
+  sum_q |E_q|<<Y^(127/128+epsilon)*J0^5*H^2+Y^(3/4+epsilon)*H*J0,
+hence4071/4096 after caps. Joint periods, nonunit m*k, nonzero-frequency
+extension corrections, both integer axes and overlap are paid. This
+answers the preceding question for these two-prime moduli only. General
+factorizations, prime powers in this box, full box coverage and original
+arithmetic/sieve transfer remain OPEN; original-affine remains2b8cf98.
+
+The first attempted route FAILED source applicability: after M-Poisson,
+the ordinary Kloosterman sum S(h,r_q*m*k/a;q) leaves inverse-a support,
+which is not the additive interval required by the checked Blomer--Pascadi
+2607.24311v1 or Pascadi GAFA theorems. Freezing a leaves h too short for
+their bounds to improve the Weil budget. Keep these useful sources and
+the exact failure; no universal limitation of completion is asserted.
+
+Five NEW exact tests passed normally in0.233s and under -O in0.335s.
+Sol `/root/sieve_review` passed the theory, varying-X argument and actual
+files, with no material correction. Three verifier-only corrections
+fixed generator binding, float division and a vanishing complex fixture.
+The pursuit began09:01:55 UTC and returns `changed-under-evidence` before
+its09:32 UTC ceiling. No research process is left running at this checkpoint;
+the overall goal remains active, with no claim of execution during pauses.
+No old experiment was rerun or outside action taken. Next concrete
+question: can CRT counting of bad primes replace the all-primes-small-shift
+condition and save general squarefree moduli at this unbalanced box?
+Test all bad-set/nonunit costs before promoting an extension.
+
+## Previous pursuit: reciprocal energy saves the symmetric boundary
 
 **af8f893**, `reciprocal_energy_kernel.py`, passed independent Sol review
 of the critical proof, general family and actual files. Five NEW tests passed
@@ -707,7 +761,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_reciprocal_energy_kernel -v` and the
+Latest tests: `python -m unittest test_two_prime_kl3_kernel.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
@@ -722,6 +776,13 @@ use owning repo sources, do not repair unrelated agent tooling.
 
 Deletion of ignored `local/dhr-python` was rejected by policy. Leave it;
 do not retry, delegate, rename or repackage that deletion.
+
+The web PDF screenshot tool returned a string without an image payload
+in this pursuit, with some fetch timeouts. A supported changed route used
+urllib plus the already installed PyMuPDF, then view_image, to inspect
+the KMS conjugation bars. Use `python -X utf8` when printing extracted
+source text; the default cp1252 stdout failed on mathematical Unicode.
+The one temporary source PNG was removed after inspection. No installs.
 
 Local Git author identity was unset. If still needed, use the previous
 commit's author through per-command `git -c user.name=... -c user.email=...`.
