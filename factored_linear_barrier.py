@@ -81,6 +81,9 @@ multiplicative convolution of a bounded residue distribution with itself.
 Even that product coupling alone permits a negative signed pair margin.
 Its sharp finite stability theorem singles out odd quadratic cosets; it
 does not impose the actual integer factor ranges or prime distribution.
+`switched_cubic_barrier.py` now tests the distinct unweighted switching
+certificate G=[P*A]-[P*C], which needs no upper grant for M. Its best
+limiting leading coefficient is zero under its specified distribution grants.
 
 Rational verifier:
 For1<=x<=2, y=(x-1)/(x+1) lies in[0,1/3]. The first m positive terms of

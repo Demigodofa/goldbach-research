@@ -424,3 +424,25 @@ The pursuit closed within30 minutes. No new actual Goldbach coverage,
 historical-priority search, publication work, or wake queue. Overall goal
 active; arithmetic control of joint dependence or another rigorously
 justified transfer is still needed for individual unresolved targets.
+
+The next arithmetic pursuit returned `changed-under-evidence` for the
+unweighted cubic switching proposal. `switched_cubic_barrier.py` retains
+the exact identity G=T-U, T=[P*A], U=[P*C], and separates distinct-factor
+and prime-square contributions. This route needs no upper grant for M.
+Using the primary switching formulas with the required distribution and
+natural-mass hypotheses explicitly granted, the lower term has coefficient
+B(theta1)<2log2 for every fixed theta1<1. The switched upper subtraction
+has coefficient2*integral d alpha/[alpha*(1-alpha)*theta2(alpha)]>=2log2
+on1/3..1/2 when theta2<=1. Thus this particular lower certificate cannot
+give a positive leading term. At the formal two-level1 limit its coefficient
+is exactly0; the source does not assert that endpoint or determine the
+lower-order sign. Sol confirmed the normalization and emphasized charging
+cutoff/factor-dividing-N exceptions O(N/z), separately from O(z) and
+O(sqrt(N)) terms. The verifier preserves these finite terms. Four focused
+tests passed normally and with Python -O; Sol reviewed the implementation.
+The distribution grants remain grants, including after sequence removals;
+position-error bounds do not prove weighted remainder estimates. No actual
+negative G or L, no exclusion of other weights or coupled switching, and
+no new Goldbach coverage follows. The pursuit closed within30 minutes;
+no historical-priority search, publication work, or wake queue. Overall
+goal active; a stronger joint arithmetic estimate is still needed.
