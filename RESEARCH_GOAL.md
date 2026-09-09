@@ -2105,3 +2105,48 @@ coefficient-mass lower bound would not itself bound the actual correlation.
 Do not repeat the cap calculation without a new discriminator. Fresh
 <=30-minute clock required. Goal active; no research process remains running
 at this reviewed checkpoint.
+
+## 2026-09-09: every admissible factor choice leaves an actual weighted family
+
+Started14:39:59 UTC, reassessed14:52:29 UTC, changed-under-evidence.
+Resumed clean main10321f3. Mathematics **6a7c8ac** extends the existing
+factored_prime_ap_transfer.py with the source-universal exclusion and an
+exact next variance target; the prior good-modulus result stays valid.
+
+All Maynard III Theorem1.2 choices have Q2<x^.05,Q3<x^.1,Q1<x^.4.
+Thus rough moduli with least prime factor>x^.1 and size>x^.4 cannot fit.
+Primes p in(Y^.3,Y^.30002] and d in(Y^.2001,Y^.20012] supply excluded
+moduli inside(Y^.5001,Y^.50014], below the prior numerical capY^.5002.
+This excludes every admissible factor choice and endpointx in[Y/2,Y],
+not merely one cap selection. Other distribution theorems remain eligible.
+
+For fixednu=gamma/2 and polynomial degreek>=9, coefficients
+A_pd=logp(1-logd/logV)^k are positive and
+sum A_pd/phi(pd)=c logY+o(logY), c=(.00002)*integral_.2001^.20012
+(1-b/nu)^k db/b>0. StrongPNT proves this actual density-weight statement.
+The same leading constant survives uniformly after removing(pd,m)>1.
+The Gamma progression calculation then gives an ACTUAL MODEL main
+c I_F(m/Y)YlogY+o(YlogY). Constants may be tiny; onset is not numerical.
+These facts do not estimate the difference with the actual prime partner.
+Neither all cutoffs nor growing degrees are excluded by the mass statement.
+
+The exact open centered sum is T_family=P_family-G_family. Its proper
+prime-power part is paid. With R=Y^.50014 and B_r the unchanged E sum
+in the progression m modulo r, H=sum_family|B_r|^2 has sufficient target
+H=o(Y^(74993/50000)). Indeed the ACTUAL coefficient norm is asymptotic
+to(a1/b1)(1-b1/nu)^(2k)R and exact Cauchy applies. The variance diagonal
+is O(YlogY), since at most3 family moduli divide any n<=Y; the possible
+positive prime-divisor counts are(1,1),(1,2),(1,3),(2,1). This uses the
+existing actual E second moment, not a new assumption about prime pairs.
+An upper bound on the real off-diagonal is still missing; its linked
+partners satisfy q1-q2=r(j2-j1) with a common two-prime modulus r.
+
+Thirteen finite guards pass normal0.003s/-O0.003s; Sol theory/actual-file
+PASS, including the intact variance extension, no material correction.
+No new source fetch, range scan, install, foreground work or wake queue.
+Next test: completion/dispersion for this exact off-diagonal, comparing
+the needed exponent to retained composite Kloosterman estimates while
+paying actual-prime coefficient transfer. A smooth MODEL saving alone
+does not license the result. Do not repeat cap optimization or the already
+paid norm/diagonal. Fresh <=30-minute clock; the overall goal remains active.
+No research process remains running at this reviewed checkpoint.

@@ -35,7 +35,13 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **06acf3b**, transferring Maynard III's
+Latest reviewed RESEARCH commit: **6a7c8ac**, proving that EVERY factor
+choice in Maynard III Theorem1.2 misses a two-prime modulus family inside
+the numericalY^.5002 level. Its fixed-polynomial density mass is c logY
+and its actual Gamma contribution has positiveY logY scale; neither is a
+bound on the centered prime error. A precise intact-variance target and
+negligible actual diagonal are preserved in factored_prime_ap_transfer.py.
+Previous **06acf3b** transfers Maynard III's
 uniform-residue theorem to an ACTUAL signed divisor component with factored
 moduli up to Y^0.5002. Canonical factorizations retain the prime and bounded
 polynomial weights; moving residue m, model comparison and prime powers
@@ -72,6 +78,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **10321f3** preserved06acf3b.
 Previous checkpoint **6d0a20b** preserveddc7baa6.
 Previous checkpoint **65bf94b** preservedc19cb24.
 Previous checkpoint **35cc1e4** preserved02e1627.
@@ -166,7 +173,66 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual signed transfer on factored moduli beyond half
+## Latest pursuit: universal factor-range gap and an intact variance target
+
+Started2026-09-09 14:39:59 UTC, reassessed14:52:29 UTC, changed-under-evidence.
+Resumed clean main10321f3; reviewed mathematics **6a7c8ac** extends
+`factored_prime_ap_transfer.py`, steps10-16. The earlier actual good-modulus
+transfer remains valid. This pursuit rules out closing its complement merely
+by tuning the same source factor caps, and identifies a centered variance.
+
+EVERY admissible choice in Maynard III Theorem1.2 has
+Q2<x^.05,Q3<x^.1,Q1<x^(.4-11sigma)<x^.4. Thus any modulus with least
+prime factor>x^.1 and size>x^.4 is excluded. This is a boundary of that
+specific theorem, not all of Maynard's results or all prime-distribution work.
+Choose prime p with exponent in(a0,a1], a0=.3,a1=.30002, and prime d
+with exponent in(b0,b1], b0=.2001,b1=.20012. Their products lie in
+(Y^.5001,Y^.50014], inside the numerical prior levelY^.5002 but outside
+EVERY source triple range for every endpoint x in[Y/2,Y]. For fixed
+nu=gamma/2 in(5/24,1/4), one has d<V<p eventually and unique pairs.
+
+For retained fixed-degree polynomial lambda, k>=9, the ACTUAL divisor
+coefficient A_pd=-logp lambda_d=logp(1-logd/logV)^k is positive. PNT/Abel
+gives the natural density mass
+ M_Y=sum A_pd/phi(pd)=c_(nu,k)logY+o(logY),
+ c=(a1-a0) integral_b0^b1 (1-b/nu)^k db/b>0.
+The constant can be tiny; no finite onset or growing-degree uniformity.
+Removing(pd,m)>1 loses only O(logY*(Y^-a0+Y^-b0)), uniformly for centralm.
+The all-modulus Gamma comparison already proved gives
+ G_family=Y I_F(m/Y) M_Y(m)+o(Y)=c I_F YlogY+o(YlogY).
+Nonreduced truncated Gamma is still paid. If F>=f0 on[.7,.8]^2 and F>=0,
+then I_F>=f0/20 on m/Y in[29/20,31/20]. These are coefficient/MODEL
+claims, not lower bounds on the signed E correlation or Goldbach counts.
+
+The exact unknown remains T_family=P_family-G_family, with the actual
+Lambda partner in P; proper powers costY^(.5+o(1)). Preserve its primes.
+Writing B_r=sum_j F(rj/Y,(m-rj)/Y)E(m-rj), H=sum_family|B_r|^2,
+R=Y^(25007/50000), the actual coefficient norm is
+ N_Y=sum A_r^2 ~ (a1/b1)(1-b1/nu)^(2k) R.
+Exact Cauchy makes H=o(Y^2/R)=o(Y^(74993/50000)) SUFFICIENT for T=o(Y).
+H's diagonal is already O(YlogY): every n<=Y has at most3 family divisors,
+since positive prime-divisor counts(s,t) obey .3s+.2001t<1 and hence are
+only(1,1),(1,2),(1,3),(2,1). Apply the saved actual E second moment.
+The one-sided upper bound on 2Re(offdiag) is OPEN. Its partners satisfy
+q1-q2=r(j2-j1), with common two-prime r and actual prime coefficients.
+
+Thirteen finite guards passed normal0.003s/-O0.003s. Sol theory and
+actual-file reviews PASS, including the exact variance normalization and
+multiplicity3; no material correction. No new source fetch, range scan,
+installation, foreground action or wake queue. Live14:40:38 budget receipt
+was conserve, spawncap2, researchTerra/high, independent reviewSol.
+
+Next concrete question: can completion/dispersion of the two progression
+variables yield the stated upper bound on this ACTUAL semiprime-modulus
+off-diagonal? Test whether the retained composite Kloosterman estimates
+can be applied with the actual prime coefficients and enough saving for
+H=o(Y^(74993/50000)). Pay every Cauchy/transfer loss; the older smooth
+MODEL estimate is not an automatic answer. Reuse the established coefficient
+norm and diagonal; do not rerun separate-moment or cap-tuning failures.
+Fresh <=30-minute clock. Goal active; no research process remains running
+at this reviewed checkpoint.
+
+## Preceding pursuit: actual signed transfer on factored moduli beyond half
 
 Started2026-09-09 14:24:20 UTC, reassessed14:38:06 UTC, progress.
 Resumed clean main6d0a20b; reviewed mathematics **06acf3b**.
