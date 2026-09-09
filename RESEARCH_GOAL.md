@@ -2636,3 +2636,39 @@ the actual cross term. Preserve the remaining same-sign pair kernel with
 its signed lower-bound gap. Reject any silent RH assumption or substitution
 of a positive norm for the target square. Fresh <=30-minute pursuit;
 no process claimed after this checkpoint. Polynomial tools remain available.
+
+## 2026-09-09: damped zero interactions deleted without RH
+
+Started18:39:29 UTC, reassessed18:49:04 UTC, progress. Resumed clean
+mainc2934bb; reviewed mathematics **cca6455**, one_sided_zero_reduction.py.
+The previous goal turn was progress: it paid the actual pointwise spectral
+transfer and corrected the explicit-formula authority before promotion.
+
+The new arithmetic input is the classical zeta zero-free region, using
+Mossinghoff-Trudgian-Yang arXiv2212.06867v1 Theorem1.3 and compact low-height
+extension; no numerical constant or onset supplied. On t>=0 the Gamma
+factor of a negative-height zero is exponentially damped. A uniform radial
+L2 split at beta3/4, followed by Minkowski and zero counting, gives
+||Z_minus||2 << sqrtN exp(-c0 sqrt(logN)). No RH assumption. With the saved
+full norm O(sqrt(NlogN)), the actual discarded 2PQ+Q^2 contribution costs
+O_A(N/log^A N), for each fixed A. The exact conjugation factor is e/pi.
+The suppressed norm is uniform for arbitrary finite truncations; the total
+cross estimate is proved first for full sums, then passed only through the
+licensed T=C NlogN tail. Fixed T=16pi NlogN suffices asymptotically here.
+
+The retained C_(N,T)=e/pi Re integral_0^pi e^(iNt)Z_(+,T)^2 dt is the
+ordered positive-height pair SQUARE, including its diagonal, not a positive
+norm. Thus R(N)=2psi(N-1)-N+C_(N,T)+O_A(N/log^A N). A fixed lower margin
+C>=-(1-delta)N for all sufficiently large evenN is still UNPROVED. No
+new coverage, practical zero computation, numerical onset or novelty claim.
+Independent Sol theory/actual-file PASS; five finite sign/algebra/budget
+guards normal0.002s/-O0.001s. Polynomial tools and all source corrections
+remain available. No outside action, manual wake queue, or process claimed
+after this reviewed checkpoint. Overall research goal remains active.
+
+Next unperformed question: can stationary-phase geometry of the retained
+positive-height kernel yield a proved aggregate saving on a specified
+nonempty region? First derive the exact phase, then pay amplitudes, endpoints
+and the zero summation with N fixed. A stationary-point identity alone is
+diagnosis, not cancellation. Do not replace the finite kernel or assume RH.
+Fresh <=30-minute pursuit, with the actual signed lower bound still open.

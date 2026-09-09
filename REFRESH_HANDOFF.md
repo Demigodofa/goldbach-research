@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **02448f6**, in pointwise_zero_pair_gate.py:
+Latest reviewed RESEARCH commit: **cca6455**, in one_sided_zero_reduction.py:
+the opposite-height-sign zero interactions, and the same-sign square on
+its damped half-period, cost O_A(N/log^A N) for every fixed A, WITHOUT RH.
+The surviving term is C_(N,T)=e/pi Re integral_0^pi e^(iNt)Z_(+,T)^2 dt,
+with ordered positive-height pairs and their diagonal. It remains SIGNED.
+Classical zero-free-region input plus a uniform radial L2 bound proves
+the suppressed norm; the prior full norm and licensed T=C NlogN pay
+the cross term and truncation. No arbitrary-total-truncation claim,
+positive margin, new coverage, numerical onset or zero certificate.
+Previous **02448f6**, in pointwise_zero_pair_gate.py:
 an ACTUAL unconditional one-period Fourier transfer gives, for each
 integer N, R(N)=2psi(N-1)-N+B_(N,T)+O(sqrtN log^(5/2)N+log^4N).
 B is the specified signed pair of zeta zeros with a FINITE-PERIOD kernel;
@@ -207,8 +216,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the selected spectral lane first read `pointwise_zero_pair_gate.py`
-and its CORRECTED source locators. The remaining prime correlation is now
+For the selected spectral lane first read `one_sided_zero_reduction.py`,
+then `pointwise_zero_pair_gate.py` and its CORRECTED source locators.
+The remaining prime correlation is now
 an explicit one-sided signed zero-pair target; the earlier sieve route is
 also preserved. For that unexceptional lane read `critical_cubic_sieve.py`,
 then `polynomial_rough_localization.py`
@@ -277,7 +287,34 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuits: triprime preflight and a pointwise spectral transfer
+## Latest pursuit: damped zero interactions are all-log small
+
+Started18:39:29 UTC, reassessed18:49:04 UTC, progress; resumed verified
+clean mainc2934bb. Reviewed mathematics **cca6455**. The classical
+zero-free region and Gamma damping give
+||Z_minus||_(L2[0,pi]) << sqrtN exp(-c0 sqrt(logN)).
+The radial bound splits at beta3/4, preserving off-line zeros and avoiding
+a nonuniform constant near beta1/2. This suppressed bound is uniform for
+arbitrary finite truncations; the TOTAL norm used in Cauchy is the saved
+full norm, or its paid T=C NlogN truncation. Conjugation gives exactly
+the e/pi real-part factor. Removing2PQ+Q^2 costs O_A(N/log^A N), leaving
+the square P^2, not its modulus. The same-sign signed lower margin stays
+OPEN. No actual zeros or new prime ranges were computed.
+Five exact sign/algebra/log-budget guards passed normal0.002s/-O0.001s;
+independent Sol theory/actual-file PASS. No numerical c/onset or external
+novelty claim. Source corrections, polynomial tools and runtime limits persist.
+
+Next concrete question, UNPERFORMED: can the actual phase of the retained
+positive-height pair kernel identify a nonempty region whose aggregate
+contribution is provably small? Derive its stationary points first, then
+pay amplitude, endpoints and the SUM over zeros before claiming any saving.
+Keep N fixed, all real parts, Gamma phases and the finite period. Do not
+substitute difference-height correlation or a full-line gamma quotient.
+If it only locates stationary points without controlling a sum, classify
+that as diagnosis and retain the signed lower-bound gap. Fresh <=30-minute
+pursuit; overall goal active, no process claimed after this checkpoint.
+
+## Previous pursuits: triprime preflight and a pointwise spectral transfer
 
 The previous goal turn was PROGRESS: c0f70ca paid the moving cubic endpoint
 and changed the surviving coefficient classes. This turn resumed verified
@@ -315,7 +352,7 @@ B>=-(1-delta)N would yield prime pairs after the paid proper-power error,
 but that signed margin is OPEN. Six guards normal0.023s/-O0.034s;
 independent theory/actual-file PASS. No new coverage or effective onset.
 
-Next concrete question, UNPERFORMED: can the pairs of zeros with OPPOSITE
+The then-next question (now completed in cca6455): can pairs with OPPOSITE
 imaginary signs be deleted from B at all-log precision? The proposed
 mechanism is one-sided Gamma damping, the classical zeta zero-free region,
 and the already proved total L2 norm. First bound Z_minus on t>=0 and
@@ -2472,7 +2509,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_pointwise_zero_pair_gate` (six guards) and
+Latest tests: `python -m unittest test_one_sided_zero_reduction` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
