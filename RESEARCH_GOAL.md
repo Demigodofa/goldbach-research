@@ -554,3 +554,27 @@ character contribution and bound the remaining error against a proved
 positive margin. The corrected leading term alone still gives no positivity
 on the suppression family. No new coverage, numerical onset, priority search,
 publication work or wake queue. Overall research remains active.
+
+The next pursuit returned `changed-under-evidence` with two linked results
+in `periodic_character_comparison.py`. For a sufficiently small fixed rho,
+an even modulus Q with exp(sqrt(logN))<=Q<=N^rho, and an actual exceptional
+character D>24 dividing Q, the nonnegative comparison
+b(t)=(Q/phiQ)*1_(t,Q)=1*(1-chi(t)*t^(beta-1)) has prime-versus-model mass
+>>K*N*min(1,(1-beta)logN) on N/4<n<=N/2. Here K=Q*A/phiQ^2 and A is
+the allowed residue count. Direct character expansion and Gallagher's
+averaged estimate preserve the positive margin even in suppressed classes.
+This is not a prime-versus-prime lower bound; the comparison includes composites.
+However, ANY bounded mean-one Q-periodic model, also allowing a bounded
+mean-zero periodic character correction times t^(beta-1), has Type I error
+>>N/(logN*loglogN) when Q<=N^rho, rho<1, and amplitudes are N^o(1).
+Primes near logN outside the factors of NQ give an exact density defect;
+PNT counts enough such primes and summed BV controls actual progressions.
+Thus the old Type I premise fails already at its A=2 saving for this model.
+The earlier much larger primorial comparison is outside this obstruction.
+Sol checked both deductions and the actual helpers/tests; four focused
+tests passed normally and with Python -O. The pursuit closed within30 minutes.
+No new coverage, actual zero detection, numerical onset, priority search,
+publication work or wake queue. A useful next approach must retain the
+character margin while repairing the arithmetic-distribution compatibility,
+or control the specific signed decomposition without that absolute Type I
+premise. Overall research remains active.
