@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **eb4e380**, the two-large-prime Kl3
+Latest reviewed RESEARCH commit: **2c8d197**, the ALL-squarefree
 unbalanced-model saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **5477e87** preserved
+The handoff is committed later. Preceding checkpoint **228c342** preserved
+the two-large-prime Kl3 saving **eb4e380**. Earlier **5477e87** preserved
 the reciprocal-energy saving **af8f893**. Earlier **ab8dab9** preserved
 the all-integer-modulus balanced saving **6852af6**. Earlier **831bbb2** preserved
 the squarefree correlation estimate **7d36ce8**. Earlier **a58428e** preserved
@@ -58,8 +59,12 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `two_prime_kl3_kernel.py` — latest two-large-prime correlation mechanism
-   at the remaining unbalanced MODEL box; general moduli still OPEN.
+First read `squarefree_unbalanced_kernel.py`, the latest all-squarefree
+unbalanced saving and the failed squarefull-part extension budget.
+Earlier dependencies, as needed:
+
+1. `two_prime_kl3_kernel.py` — retained two-large-prime correlation mechanism
+   used in the latest factorization dichotomy.
 2. `reciprocal_energy_kernel.py` — elementary modulus-average
    fourth-moment estimate, symmetric-box saving and remaining unbalanced gap.
 3. `all_moduli_balanced_kernel.py` — balanced MODEL saving for all
@@ -89,7 +94,59 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: two large prime factors at the unbalanced box
+## Latest pursuit: the unbalanced saving covers all squarefree moduli
+
+**2c8d197**, `squarefree_unbalanced_kernel.py`, proves the same unbalanced
+MODEL box B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4) for ALL squarefree q.
+The previous two-prime theorem remains a component. The new mechanism
+uses FKM1405.2293v2 Corollary3.4 with four affine maps and the explicit
+rank3 sign-involution normality check. Divisor shifts preserve one factor
+of q and expose a four-factor correlation on the complementary factor.
+The signed-congruence graph bounds all nonunit differences with arbitrary
+coefficient norms; no small-prime residue class is discarded.
+
+If a divisor lies in[q^(1/32),q^(2/5)], this gives a saving. Otherwise a
+small cofactor <q^(1/32) leaves one or two large primes, handled by the
+reviewed wider-length amplification and one coefficient residue split.
+The natural K_q theorem has norm factor X*q^(-1/256+epsilon), for
+sqrt(q)<=X<=q^(1/2+1/256), ALL squarefree q and ANY integer multiplier.
+Its ordered gcd(c,q), gcd(m,q0), gcd(n,q1) partition is exact and retains
+separated coefficient masks. Zero extension is used where required.
+
+For the actual model, fix h before the l,k bilinear bound. Only l needs
+a residue split, so the small-transform cost is T^3, not the previous
+conservative T^4. Joint periods sharing q, nonunit modes, both integer
+axes and overlap are included. The result is
+  sum_q |E_q|<<Y^(1-1/4096+epsilon),
+with raw exponent1-511/1048576. An exact test corrected the draft's
+decoration count from7+1/256 to6+1/256; this strengthens the result.
+Eight NEW tests passed normally in0.124s and under -O in0.135s. Sol
+`/root/sieve_review` passed the theory, actual files, divisor-shift
+endpoints, corrected arithmetic, and the following failed extension.
+
+The existing full-squarefull-part split FAILS its budget here, even using
+the small-u density. With Z=Y^z the head/tail upper exponents are
+  1-511/1048576+(3/2+1/256)*z, 1+5/4096-z/2.
+Their optimal maximum is467315/466944>1 at z=199/233472. This lies in
+the allowed support range, so that is not the failure. Keep this as an
+upper-budget failure, not a lower bound or a ban on prime-power methods.
+Do not repeat that exact splice at the same caps. Next concrete question:
+can a prime-square four-factor correlation, derived from the retained
+stationary-phase formula, save a power outside explicit exceptional
+congruences? Check its critical equations and exact finite sums first.
+
+The reviewer also located KMS Proposition4.29's fixed hypersurface over
+Z[1/ell], confirmed in the primary source. Preserve it for a future direct
+bad-locus CRT route; that full alternative transfer is not proved here.
+Prime powers in this box, full box coverage, original sieve transfer and
+the signed prime correlation remain OPEN. Latest original-affine stays
+2b8cf98. All polynomial identities and earlier bounds remain available.
+This pursuit began09:26:06 UTC and returned `changed-under-evidence`
+before its09:56 UTC ceiling. No old experiment or outside action occurred.
+Qwen remains unavailable without retry. No research process is left running
+at this checkpoint; the overall goal remains active and pauses are explicit.
+
+## Previous pursuit: two large prime factors at the unbalanced box
 
 **eb4e380**, `two_prime_kl3_kernel.py`, derives, for distinct-prime q=p1*p2 with
 p_min>=q^(2/5), the bilinear norm factor q^(11/64+epsilon)*X^(5/8),
@@ -761,7 +818,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_two_prime_kl3_kernel.py` and the
+Latest tests: `python -m unittest test_squarefree_unbalanced_kernel.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
