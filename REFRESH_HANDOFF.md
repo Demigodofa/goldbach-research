@@ -35,8 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest MATHEMATICAL commit: **2b8cf98**. The handoff itself is committed later.
-The preceding reviewed checkpoint was **b4bf033**, mathematics **c8724f7**.
+Latest reviewed RESEARCH commit: **d945ac2**, a failed source-bound budget.
+Latest actual ARITHMETIC estimate: **2b8cf98**. The handoff is committed later.
+The preceding reviewed checkpoint was **9cd5a2e**, mathematics **2b8cf98**.
+Earlier coefficient-one checkpoint: **b4bf033**, mathematics **c8724f7**.
 Earlier resumed checkpoints **b4dfc45** and mathematics **e86c878** remain valid.
 This resumes the verified clean **cf48198** checkpoint; **6f9a77b** remains
 the completed formal-conservation result, not a superseded proof.
@@ -46,13 +48,15 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+1. `cofactor_averaging_budget.py` — latest tested source route FAILED its
+   quantitative budget. It does not replace the actual arithmetic result.
+2. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-2. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-3. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+3. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+4. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-4. `formal_weight_conservation.py` — completed formal result and exact gap.
-5. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+5. `formal_weight_conservation.py` — completed formal result and exact gap.
+6. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -60,7 +64,42 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the actual affine forms, for small rough cofactors
+## Latest pursuit: generic trilinear averaging fails its budget
+
+**d945ac2**, `cofactor_averaging_budget.py`, four exact scaling tests. Sol
+reviewer `/root/sieve_review` checked the source, formulas and actual files:
+PASS. Tests passed normally in0.020s and under Python -O in0.036s. The
+pursuit returned `changed-under-evidence` within30 minutes. This is a
+verified FAILURE of a proposed sufficient bound; no new prime estimate.
+
+Bettin--Chandee Theorem1, equation(1.2), was tested against the actual
+Poisson phase after grouping r=M*a, where a is q's small divisor:
+https://arxiv.org/pdf/1502.00769v1 . For M~Y^b, a~Y^x, c~Y^y, the
+grouped exponents are r=b+x, s=y, k=r+s-1>=0. The prefactor is Y/(R*C),
+the source numerator parameter is m~Y, and m*K/(R*C) has exponent0.
+Using the generic L2 norms, BOTH source terms must be retained. Their
+worst admissible box x=(1-b)/2,y=1/2 gives exactly
+`E1=39/40+19*b/40`, `E2=15/16+b/2`.
+At b1/5 these are107/100 and83/80; both exceed1 throughout b in[1/5,13/25].
+The bound is a SUM of terms, not a choice of the smaller. Fixed-frequency
+use followed by summation and reciprocal-variable swapping do not improve it.
+
+This test even grants a cost-free separation of the actual coupled smooth
+weights/cutoffs, which has not been proved. The sieve-index1 term already
+has the displayed budget and conductor Y^o(1) cannot fix a positive power
+excess. These are substituted UPPER estimates, not evidence that the actual
+sum is large and not an impossibility theorem for cofactor averaging.
+Do not invoke this same generic-norm bound again under changed notation.
+
+Next concrete direction: retain M and a as separate variables after
+beta-sieving, and test whether their structure supplies stronger averaged
+cancellation. The generic convolution-coefficient norm discards precisely
+that information. This is an OPEN hypothesis, not a saved theorem. Preserve
+all polynomial tools and the arithmetic components below. No new actual
+coverage, zero, numerical onset, publication or wake queue. No process is
+left running at this checkpoint; overall research remains active.
+
+## Previous pursuit: the actual affine forms, for small rough cofactors
 
 **2b8cf98**, `rare_affine_small_cofactor.py`, four exact tests. Sol reviewer
 `/root/sieve_review` passed theory and actual files, including the source
@@ -333,7 +372,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rare_affine_small_cofactor -v` and the
+Latest tests: `python -m unittest test_cofactor_averaging_budget -v` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
