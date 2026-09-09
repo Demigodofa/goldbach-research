@@ -35,7 +35,24 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **bad0caf**, in analytic_prime_curvature.py:
+Latest reviewed RESEARCH commit: **276d174**, in window_phase_projection.py:
+the exact normalized ACTUAL prime window has O(N^-1/44 log^3N)
+projection against controlled varying phases; the actual zero moment
+has the same bound plus its paid N^-2/5 log^6N displacement error.
+A conditional decomposition of the reflected zero window, with common
+phase/amplitude bounds, coefficient mass A_N and L2 residual R_N,
+would bound the ACTUAL weighted T=N9/10 band by
+N[(N^-1/44 L^3+N^-2/5 L^6)A_N+R_N]+N^.9L^12+N^-.7L^13.
+No such small-cost decomposition is established; the unconditional
+band remains O(N) and the signed Goldbach margin is still OPEN.
+Previous **5886079**, in varying_prime_phase.py:
+ACTUAL Lambda sums are O(N43/44 L^3), hence O(N49/50), uniformly
+for N-dependent C3 phases with |f'| and |f'+u f''| bounded below,
+derivatives1..3 bounded above, and C1 amplitudes of bounded sup+TV
+on a fixed support. Short factor shifts retain actual Vaughan weights
+and full product masks. Bounded nonzero affine slopes are included;
+unrestricted slopes are not included in this particular criterion.
+Previous **bad0caf**, in analytic_prime_curvature.py:
 ACTUAL Lambda correlation with the sine phase is O(N39/40 log^3N),
 hence O(N79/80), on any fixed smooth support in(1/2,3/4), uniformly
 in its affine slope. Vaughan's actual coefficients and all Type II
@@ -489,7 +506,69 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual prime factorization excludes fixed analytic alignments
+## Latest pursuit: actual phase projection and a conditional finite-period band
+
+Started23:24:22 UTC, reassessed23:30:15 UTC, progress. Reviewed
+mathematics **276d174**, after the checked5886079 component below.
+Let F_N=P_N/sqrtN be the actual arithmetic window and Z_N=S_T/sqrtN
+the actual zero moment. For common fixed buffered supports and bounded
+C1 amplitudes w_N, the exact adjoint substitution v=Tlog(u/a) gives
+int w_N e^-iTf_N F_N=(1/N)sum Lambda(n)sqrt(u)w_N(u)
+*chi(u f_N'(u))*e^-iTf_N(u)+O(T^-1+V^-16), u=n/N.
+The uniform prime theorem gives O(N^-1/44 L^3) projections; actual
+Z_N=-F_N+O(N^-2/5 L^6) supplies the zero version. All normalized
+Jacobians, buffer displacements and Schwartz tails are paid.
+
+For B_Z=2zeta(a)Z_N(1-a)/sqrt(a(1-a)), a decomposition into these
+admissible phases with coefficient l1 mass A_N and L2 residual R_N
+would give normalized central bound
+(N^-1/44 L^3+N^-2/5 L^6)A_N+R_N. Choose the actual beta cutoff
+zeta=1 on[.3,.7]. Reusing the completed beta/finite-period transfer
+adds normalized errors N^-.1L^12+N^-1.7L^13. Thus fixed
+A_N=O(N^kappa), kappa<1/44, and R_N=O(N^-sigma), sigma>0,
+would pay this ONE weighted comparable band at all-log precision.
+Example kappa1/100,sigma1/50 has main power543/550. This is a
+conditional bridge, NOT a constructed expansion or actual band deletion.
+Sol theory/actual-file PASS; six guards normal0.001s/-O0.000s.
+No new source fetch or actual prime/zero run for this follow-on.
+
+Next concrete question, UNREVIEWED: does the NATURAL reflected-zero
+expansion meet the decomposition budget? Candidate exact terms have
+phase f_sigma(a)=-(eta/T)log(1-a), amplitude
+w_beta(a)=2zeta(a)a^-1/2(1-a)^(beta-1), and coefficient
+c_sigma=chi(eta/T)N^(beta-1)exp(i*eta*logN). Verify the common
+phase/C1 bounds and pay A_N=sum|c_sigma|. Actual zero-counting and
+reflection appear to force A_N at least N2/5 logN for nonzero chi,
+while the existing density moment bounds it above by N1/2 L^6.
+Test those claims with multiplicities and cutoffs kept. If they hold,
+the direct natural expansion fails this l1 budget even though every
+individual phase is controlled; do not turn that method-budget failure
+into a lower bound for the actual signed band. No new zero computation
+or old model experiment is needed. Fresh <=30 minutes. Overall goal
+active; full signed margin and decomposition/compression gap OPEN.
+
+## Previous pursuit: uniform varying phases via short arithmetic factor shifts
+
+Started23:17:32 UTC, reassessed23:24:22 UTC, progress. Resumed verified
+clean main3e0cb0d; reviewed mathematics **5886079**. Previous native
+goal turn made progress through fixed analytic-phase cancellation.
+Actual sums against controlled N-dependent C3 phases cost
+N43/44 L^3, hence N49/50. The first-derivative lemma uses discrete
+increments and their total variation, without assuming monotonicity.
+Vaughan U=V=N1/22 pays Type I in N1/10 L^2. Shifts R~N1/22
+in the shorter factor give squared Type II cost
+N^2/R+N^2*K*logR/(T*R), with K<=O(sqrtN). Actual coefficients,
+diagonal, triangular shift weights and intersecting products are kept.
+The phase bounds are |f'|,|f'+u f''|>=c, derivatives1..3<=C.
+Varying C1 amplitudes need only bounded sup+TV on a fixed support.
+Bounded affine slopes are included; unrestricted slopes are not.
+Robert Section3.3 Lemma1 printedp8 was checked in the web PDF;
+the finite-shift inequality is also proved directly with conjugation.
+Sol theory/actual-file PASS; seven guards normal0.001s/-O0.001s.
+No actual prime/zero run or outside action. All corrections and
+runtime limits remain; the exact-window transfer is reviewed above.
+
+## Previous pursuit: actual prime factorization excludes fixed analytic alignments
 
 Started23:06:52 UTC, reassessed23:15:26 UTC, progress. Resumed verified
 clean maind3aad7a; reviewed mathematics **bad0caf**. Previous native
@@ -527,7 +606,7 @@ nonlinear phases and joint superpositions remain outside the corollary.
 The actual comparable-band O(N) and full signed margin are unchanged.
 All polynomial components, source corrections and runtime limits persist.
 
-Next concrete question, UNREVIEWED: can bounded factor differencing
+The then-next question, answered in5886079 above: can bounded factor differencing
 give a power saving UNIFORMLY for N-dependent C^3 phases without
 requiring nonzero second curvature? On a fixed positive support I,
 assume |f'| and |f'+u f''| have fixed positive lower bounds and
@@ -3691,7 +3770,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_analytic_prime_curvature` (seven guards) and
+Latest tests: `python -m unittest test_window_phase_projection` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

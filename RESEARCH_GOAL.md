@@ -3652,3 +3652,56 @@ and actual coefficients kept. Candidate worst exponent43/44 before
 logs; no claim yet. This would handle affine and controlled varying
 nonlinear phases; the full paired problem still needs further structure.
 Fresh <=30 minutes; overall research goal active.
+
+## 2026-09-09: actual cancellation for uniformly controlled varying phases
+
+Started23:17:32 UTC, reassessed23:24:22 UTC, progress. Resumed verified
+clean main3e0cb0d; reviewed mathematics **5886079**,
+varying_prime_phase.py. Previous native turn made progress through
+fixed analytic phase cancellation. Actual Lambda sums with T=N9/10
+are O(N43/44 L^3), hence O(N49/50), for N-dependent C3 phases
+with |f'|, |f'+u f''| bounded below and derivatives1..3 bounded above
+on a fixed positive support. N-dependent C1 amplitudes with uniformly
+bounded sup+TV are permitted. Bounded nonzero affine phases are
+included, but unrestricted affine slopes are not licensed by this criterion.
+
+An elementary discrete telescoping lemma pays nonmonotone derivative
+variation. Exact Vaughan U=V=N1/22 pays the full Type I layer in
+N1/10 L^2. Bounded shorter-factor shifts R~N1/22, after Cauchy,
+give N^2/R+N^2*K*logR/(T*R), K<=O(sqrtN). Actual coefficients,
+shift weights, diagonal and product intersections stay. Robert's finite
+shift inequality, Section3.3 Lemma1 printedp8, was checked via web;
+the finite proof also retains the conjugation lost in text extraction.
+Sol theory/actual-file PASS; seven guards normal0.001s/-O0.001s.
+No actual prime/zero computation or outside action; overall goal active.
+
+## 2026-09-09: exact-window projection and a conditional signed-band bridge
+
+Started23:24:22 UTC, reassessed23:30:15 UTC, progress. Reviewed
+mathematics **276d174**, window_phase_projection.py, using5886079.
+The exact adjoint variable v=Tlog(u/a) gives normalized coefficient
+sqrt(u)/N and Fourier sample chi(u f'(u)). All buffered-domain,
+local Taylor, Schwartz tail and summed Chebyshev errors are paid.
+Actual normalized arithmetic-window projections are O(N^-1/44 L^3);
+the zero projections add the retained N^-2/5 L^6 displacement error.
+
+If the actual reflected zero window has an admissible phase expansion
+with COMMON bounds, coefficient l1 mass A_N and L2 residual R_N,
+the actual weighted T=N9/10 finite-period band is bounded by
+N[(N^-1/44 L^3+N^-2/5 L^6)A_N+R_N]+N^.9L^12+N^-.7L^13.
+The two last errors reuse the corrected actual beta/finite-period transfer.
+Fixed A_N=O(N^kappa), kappa<1/44, and power-small R_N would
+conditionally pay this one band all-log. No such expansion exists in
+the current evidence. The unconditional O(N) band and full signed
+Goldbach margin remain unchanged. Sol theory/actual-file PASS; six
+guards normal0.001s/-O0.000s. All earlier corrections/tools persist.
+
+Next unreviewed test checks the exact natural reflected-zero expansion:
+phase -(eta/T)log(1-a), amplitude2zeta*a^-1/2*(1-a)^(beta-1),
+coefficient chi(eta/T)N^(beta-1)exp(i*eta*logN). Verify uniform
+admissibility, then test the predicted actual coefficient-mass bounds
+N2/5 logN << A_N << N1/2 L^6 using existing zero counting,
+reflection and density, including multiplicities. This would falsify
+the DIRECT natural expansion's l1 budget, not the signed band or
+every possible recombination. No zero-range experiment is needed.
+Fresh <=30 minutes; overall goal active and the full gap remains OPEN.
