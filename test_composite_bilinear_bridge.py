@@ -3,7 +3,9 @@ from fractions import Fraction as F
 from math import gcd
 import unittest
 
-from composite_bilinear_bridge import rough_normalization, vaughan_parts
+from composite_bilinear_bridge import (exceptional_multiple_witness,
+                                      rough_normalization, vaughan_parts)
+from exceptional_character_model import character_values
 from redistribution import trial_prime
 
 
@@ -62,6 +64,38 @@ class CompositeBilinearTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 rough_normalization(target, cutoff)
         self.assertIn("NOT asserted to be Lambda", vaughan_parts.__doc__)
+
+    def test_exceptional_offsets_against_complete_character_correlations(self):
+        observed = set()
+        for conductor, sign in ((29, 1), (31, 1), (33, 1), (35, 1), (40, 1),
+                                (40, -1), (60, 1), (65, 1), (120, 1),
+                                (120, -1), (280, 1), (280, -1), (385, 1)):
+            target, offset = exceptional_multiple_witness(conductor, two_sign=sign)
+            self.assertGreaterEqual(target, conductor**12)
+            self.assertLess(target, conductor**12+2*conductor)
+            self.assertEqual(target % (2*conductor), 0)
+            self.assertGreater(F(target, 4), conductor**10)
+            chi = character_values(conductor, two_sign=sign)
+            units = sum(value != 0 for value in chi)
+            correlation = sum(chi[a]*chi[(target-a) % conductor]
+                              for a in range(conductor))
+            self.assertEqual(offset, F(correlation, 4*units))
+            self.assertEqual(offset, F(chi[-1], 4))
+            observed.add(offset)
+        self.assertEqual(observed, {F(-1, 4), F(1, 4)})
+        # The positive discrepancy also occurs when the suppression family
+        # is empty. These are formal residue controls, not detected zeros.
+        self.assertEqual(exceptional_multiple_witness(29)[1], F(1, 4))
+        self.assertEqual(exceptional_multiple_witness(31)[1], F(-1, 4))
+
+    def test_exceptional_witness_rejects_invalid_conductors_and_claims_no_zero(self):
+        for conductor in (True, 24, 25, 27, 30, 32, 36, 40.0, 45):
+            with self.assertRaises(ValueError):
+                exceptional_multiple_witness(conductor)
+        for conductor, sign in ((31, -1), (40, True), (40, 0)):
+            with self.assertRaises(ValueError):
+                exceptional_multiple_witness(conductor, two_sign=sign)
+        self.assertIn("not an actual computed J_N value", exceptional_multiple_witness.__doc__)
 
 
 if __name__ == "__main__":

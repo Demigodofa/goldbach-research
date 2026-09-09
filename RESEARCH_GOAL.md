@@ -533,3 +533,24 @@ normalization and input boundaries; they do not prove an analytic estimate.
 The pursuit returned `changed-under-evidence` within30 minutes. No new
 Goldbach coverage, numerical onset, historical-priority search, publication
 work or wake queue. Overall goal remains active; J_N=o(x) is unresolved.
+
+The next pursuit audited that uncorrected J_N target and returned
+`changed-under-evidence`. If primitive quadratic conductors D tend to
+infinity with actual real-zero strengths eta tending to infinity, choose
+N as the least multiple of2D at least D^12. The localized proof of
+Matomaki--Merikoski, Sections2 and7, gives the same interval's pair mass
+(b_D(N)/4+o(1))*S_2(N)*N. The source's varying smoothing family and its
+transition-strip error are accounted for explicitly. Since b_D=1+chi(-1),
+our existing TI/MAIN/Vaughan relation forces
+J_N/(S_2(N)*N)=chi(-1)/4+o(1). Thus the universal uncorrected cancellation
+target would also exclude every such hypothetical strong-zero sequence,
+including characters with an empty suppression family. No actual zero or
+failure of Goldbach is asserted. The deduction, exact residue witness and
+six focused tests are in `composite_bilinear_bridge.py` and its test file;
+tests passed normally and with Python -O, and Sol checked both mathematics
+and actual files. The pursuit closed within30 minutes. The sufficient
+implication remains valid, but the next pointwise approach must retain the
+character contribution and bound the remaining error against a proved
+positive margin. The corrected leading term alone still gives no positivity
+on the suppression family. No new coverage, numerical onset, priority search,
+publication work or wake queue. Overall research remains active.

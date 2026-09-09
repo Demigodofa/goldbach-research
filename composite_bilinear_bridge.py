@@ -4,7 +4,7 @@ Owner: Kevin's research. Purpose: specify a joint arithmetic estimate that
 would close the pointwise step, and verify the exact decomposition separately
 from that missing analytic estimate. This is not a new Goldbach coverage claim
 or a historical-novelty claim. Sol reviewed the deduction and actual files;
-four focused tests passed normally and with Python -O. These checks do not
+six focused tests passed normally and with Python -O. These checks do not
 establish the explicitly unproved bilinear estimate below.
 
 Comparison sequence and known inputs:
@@ -121,6 +121,59 @@ has been proved. This is a fixed-coefficient reformulation of the pointwise
 correlation problem, not evidence that the remaining estimate is easier.
 It does not transfer a finite bound into an infinite positivity proof.
 
+Exceptional-character audit (deduction and actual files checked by Sol):
+The uncorrected target J_N=o(x) asks for more than bare positivity. Suppose
+there is a sequence of primitive quadratic characters chi of conductors
+D>24 tending to infinity, with real zeros
+  beta=1-1/(eta*log D), eta tending to infinity.
+Choose N as the least multiple of2D at least D**12. Thus
+  D**12<=N<D**12+2D, V=log(N)/log(D)=12+o(1).
+The source coefficient b_D in exceptional_pointwise_bridge.py is then
+EXACTLY1+chi(-1). No such character zeros are asserted to exist.
+
+Primary source, checked2026-09-08: Matomaki--Merikoski, Theorem1.4 and
+its smoothed proof in Sections2 and7, especially the main terms following
+equation(43) and the final mixed-term bound:
+https://arxiv.org/html/2112.11412v2
+Use its smoothing family g supported on[1,2], between0 and1, equal1 on
+[1+delta,2-delta], with derivatives O_j(delta**(-j)). Here delta=X**(-a)
+for a sufficiently small fixed a>0, and X=N/4. This X is inside the
+source range [N**(1-a/3),N/4] for all sufficiently large D; also X>D**10.
+Sections2 and7 give the localized main term
+  S_2(N)*b_D(N)*integral g(t/X)dt.
+The source error divided by S_2(N)*N tends to zero because V=12+o(1),
+eta tends to infinity, and S_2(N) is bounded below by a fixed positive
+multiple of N/phi(N). The source envelope can be bounded by a constant
+times exp(-c*sqrt(log eta))+exp(-c*sqrt(log N))+log(eta)**6/eta here.
+The integral is X*(1+O(delta)). Removing the two transition intervals
+costs at most O((delta*N+1)*log(N)**2)=o(N); this includes endpoint and
+prime-power positions. This is the source's varying smoothing family,
+not an assertion that a fixed bump has integral1. Therefore on our SAME I,
+  W_I=sum_{N/4<n<=N/2}Lambda(n)*Lambda(N-n)
+     =(b_D(N)/4+o(1))*S_2(N)*N.
+Subtracting(MAIN), and using the already proved TI/Vaughan relation, gives
+  J_N/(S_2(N)*N)=chi(-1)/4+o(1).                          (3)
+The sign may vary along the sequence; the difference from chi(-1)/4
+tends to zero. In particular |J_N| is of order S_2(N)*N on these targets,
+contradicting either a universal J_N=o(x) assertion or(BII).
+
+There is also a shorter suppression-only check requiring no localization:
+if F_D is nonempty, choose an even residue in F_D at a target in
+[D**12,D**12+2D). Theorem1.4 gives W_full=o(S_2(N)*N). Nonnegativity
+gives0<=W_I<=W_full, hence J_N/(S_2(N)*N)=-1/4+o(1).
+
+Thus proving the uncorrected sufficient estimate would also exclude every
+unbounded sequence of these zero strengths, including characters for which
+F_D is empty. This is a conditional obstruction, not a disproof of(BII),
+an actual zero detection, or a Goldbach counterexample. Goldbach positivity
+does not require the uncorrected asymptotic main term. In this conditional
+range the character contribution to J_N is (b_D(N)-1)*S_2(N)*N/4, and
+the centered residual is o(S_2(N)*N). No unconditional centered estimate
+or uniform o(N) error is inferred from that normalized statement. When
+b_D=0, even this corrected leading term supplies no positive lower bound.
+A useful replacement must retain the character term and control the error
+relative to a proved positive margin; those pointwise tasks remain open.
+
 Finite verifier scope:
 The exact helpers below verify(1) for rational arithmetic functions using
 ell=1*lambda, and the local normalization by direct residue counts. Rational
@@ -129,6 +182,7 @@ logarithms. These finite identities prove neither(TI),(MAIN), nor(BII).
 """
 from fractions import Fraction
 
+from exceptional_pointwise_bridge import pointwise_coefficient
 from major_arc_kernel import _mobius_phi
 from redistribution import trial_prime
 
@@ -191,3 +245,21 @@ def rough_normalization(target: int, cutoff: int) -> tuple[Fraction, Fraction, F
             if target % p == 0:
                 singular *= Fraction(p-1, p-2)
     return c, v, singular
+
+
+def exceptional_multiple_witness(conductor: int, *, two_sign: int = 1
+                                 ) -> tuple[int, Fraction]:
+    """Return(N, predicted normalized J offset) under the CONDITIONAL limit.
+
+    D>24 must be a primitive quadratic conductor, with the primitive8-part
+    sign when applicable. N is the least multiple of2D at least D**12.
+    The offset is exactly(b_D(N)-1)/4, not an actual computed J_N value.
+    No real zero, eta, limiting regime, analytic error or prime pair is checked.
+    This is a residue diagnostic, not a Goldbach count or certificate.
+    """
+    # Validate before constructing a potentially large integer power.
+    pointwise_coefficient(conductor, 0, two_sign=two_sign)
+    period = 2*conductor
+    target = ((conductor**12+period-1)//period)*period
+    offset = (pointwise_coefficient(conductor, target, two_sign=two_sign)-1)/4
+    return target, offset
