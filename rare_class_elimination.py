@@ -4,6 +4,10 @@ Owner: Kevin's Goldbach research. Purpose: compose the reviewed full affine
 bound with the ORIGINAL pruned pool and polynomial weights, checking exact
 class coverage rather than assuming it. Preserve the stronger linear-weight
 and Buchstab endpoint consequences. No manuscript or prime-coverage claim.
+Follow-on: rare_divisor_calibration.py and prime_cutoff_bridge.py now
+provide the full weighted mass in this SAME restricted actual-zero regime.
+The latter proves conditional prime-pair coverage; the earlier proof and
+its original boundary below remain components, not universal Goldbach.
 
 HYPOTHESES AND PARAMETER ORDER.
 Keep the actual exceptional character, central suppressed target m in F_D,

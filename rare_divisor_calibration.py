@@ -3,6 +3,10 @@
 Owner: Kevin's Goldbach research. Purpose: preserve the conditional arithmetic
 component and exact normalization guards for the next prime-replacement test.
 This is a proof module, not a manuscript, novelty claim or Goldbach theorem.
+Follow-on: prime_cutoff_bridge.py now supplies the previously missing
+cutoff comparison in the SAME restricted actual-zero regime and composes
+the results below into a conditional prime-pair asymptotic. The original
+boundary of the calibration proof itself is retained explicitly below.
 
 PARAMETERS AND STATEMENT.
 Let chi be primitive quadratic modulo D>24 with an ACTUAL zero
