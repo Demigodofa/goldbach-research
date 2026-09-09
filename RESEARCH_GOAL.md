@@ -3338,3 +3338,41 @@ Re W_a(k)>=0 for every even k, or whether Poisson summation forces
 negative coefficients because the v support misses pi times integers.
 This is a concrete test of a positivity mechanism, not a promised lower
 bound or an obstruction to every use of these tools. Fresh <=30 minutes.
+
+## 2026-09-09: actual prime-offset transfer refutes simple coefficient positivity
+
+Started21:41:24 UTC, reassessed21:50:22 UTC, changed-under-evidence.
+Resumed verified clean main530acc2; reviewed mathematics **3421a80**,
+arithmetic_prime_offset.py. Previous goal turn was progress: energy and
+its transfer controlled the actual coupled smooth band. The REAL band
+now equals the ordered odd-prime sum of logp logq Re W_[p/(p+q)](p+q-N),
+with O_chi(sqrtN log^7N) error and
+W_a(k)=(1/pi)int chi(av)chi((1-a)v)e^-ikv dv. Every period, cutoff,
+ratio-replacement and prime-power error is paid. The symmetric ratio
+p/(p+q) replaces the initial p/N with O(log^2N) cost. The prime-offset
+sum is absolutely convergent and stays signed; no correlation estimate
+is supplied by declaring its formal main equal to its actual value.
+
+At a=1/2, period-pi Fourier inversion gives sum_j W_[1/2](2j)=0,
+while W_[1/2](0)>0. Thus some even coefficient is negative for every
+nonzero real chi, including nonnegative chi. With chi supported in
+(7c/5,8c/5), c1/100, offset100 is explicitly negative because the
+cosine phase lies in(2.8,3.2). This refutes coefficientwise positivity
+only; no negative actual total, counterexample or all-method barrier.
+The transform, polynomial components and all signed estimates remain.
+Sol theory/actual-file PASS; five guards normal0.000s/-O0.000s as reported.
+No actual prime/zero computation, new coverage, outside action or manual
+wake. Overall goal active; the full signed lower margin remains OPEN.
+
+Next direction uses a different quantitative input. Fresh primary source
+checked during reassessment: Guth--Maynard arXiv2405.20552v2 (7Apr2026),
+Theorem1.2/eq(1.4), printedp2. Its uniform exponent30(1-sigma)/13+o(1)
+suggests extending the prior actual full rectangle to fixed kappa<13/15,
+concretely17/20. Test the new bound only for u=1-sigma>=1/10 with fixed
+epsilon, retaining the old log-power Huxley estimate and VK zero-free
+region near1. A T^epsilon loss cannot be silently absorbed there.
+Candidate gap at17/20 is1/26; epsilon1/442 suggests a far-range saving
+1/520. Uniformize on a finite sigma grid if needed, pay both unequal
+energies and actual approximation errors, and check the new core mask.
+The speculative error envelope max(91/100,kappa) also needs review.
+No new height deletion from the source check alone. Fresh <=30 minutes.

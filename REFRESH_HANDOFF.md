@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **55401fd**, in arithmetic_beta_transfer.py:
+Latest reviewed RESEARCH commit: **3421a80**, in arithmetic_prime_offset.py:
+the REAL actual smooth band equals the ordered odd-prime sum
+sum logp logq Re W_[p/(p+q)](p+q-N)+O_chi(sqrtN log^7N), where
+W_a(k)=(1/pi)int chi(av)chi((1-a)v)exp(-ikv)dv. The transfer pays
+all finite-period, localization, ratio-change and prime-power errors.
+Even nonnegative chi cannot give nonnegative coefficients on every even
+offset: at a=1/2 their total is0 but the offset0 coefficient is positive.
+A narrow permitted chi gives Re W_[1/2](100)<0. This refutes ONE
+positivity mechanism, not an actual negative total or an all-method claim.
+The signed prime correlation and full Goldbach lower margin remain OPEN.
+Previous **55401fd**, in arithmetic_beta_transfer.py:
 the ACTUAL COMPLEX finite-period smooth comparable-band sum
 sum chi(gamma/N)chi(eta/N)J_N(rho,sigma) is O_chi(NlogN), with
 chi fixed real smooth in(1/100,1/50), no RH and all beta/copies retained.
@@ -416,7 +426,57 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: energy controls the actual coupled comparable band
+## Latest pursuit: the actual prime-offset formula has unavoidable signed weights
+
+Started21:41:24 UTC, reassessed21:50:22 UTC, changed-under-evidence.
+Resumed verified clean main530acc2; reviewed mathematics **3421a80**.
+The previous goal turn was progress: arithmetic energy and its actual
+coupled-band transfer were proved. The latest proof gives the REAL
+actual band as a symmetric nearby odd-prime-pair sum with O(sqrtN log^7N)
+error. It does not estimate that signed sum by substituting a formal main.
+At balanced ratio, period-pi Fourier inversion forces some even-offset
+coefficient negative. Explicitly chi supported in(7c/5,8c/5), c1/100,
+has Re W_[1/2](100)<0 because its cosine phase stays in(2.8,3.2).
+This is a negative COEFFICIENT, not a negative actual total or failed target.
+
+The real endpoint main cancels against its imaginary multiplier, using
+the saved corrected tensor projection. The improved O(log^6N) moment
+replacement costs sqrtN log^(13/2)N+log^12N in the product. Local prime
+windows are linearized only at displacements O(N^(1/8)); global pieces
+use Schwartz tails. The Fourier convolution supplies exactly1/pi.
+Replacing n/N by n/(n+m) costs O(log^2N), and removing proper powers
+costs O(sqrtN log^3N). All infinite offset sums are absolutely convergent.
+The offset scale stays fixed for fixed chi; no growing target average.
+Sol theory/actual-file PASS; five guards normal0.000s/-O0.000s as reported.
+No actual prime/zero calculation. Sources, polynomial tools and all prior
+signed bounds persist; full margin OPEN. No outside action or manual wake.
+
+Reassess direction: elementary positivity of this smooth spectral weight
+is now falsified. Preserve the transform and norm bounds, but do not
+repeat positivity algebra or claim the prime-offset identity supplies
+the missing correlation. A different quantitative input is the next test.
+
+Next concrete question, UNREVIEWED: can Guth--Maynard zero density extend
+the ACTUAL full signed rectangle from every fixed kappa<5/6 to every
+fixed kappa<13/15, concretely17/20? Fresh primary source checked during
+reassessment: arXiv2405.20552v2 (7Apr2026), Theorem1.2 and eq(1.4),
+printedp2, https://arxiv.org/pdf/2405.20552v2 . It gives
+N_z(sigma,T)<=T^[15(1-sigma)/(3+5sigma)+o(1)], and combines with
+Ingham to give exponent(30/13)(1-sigma)+o(1). This is NOT a log-power
+bound; never replace the saved near-one Huxley input by an unpaid T^epsilon.
+Candidate patch: use the new exponent with a fixed small epsilon only
+when u=1-sigma>=1/10, and retain the source-checked log-power Huxley
+bound D(u)=3u/(2-3u)<=30u/17 near u=0, together with VK zero-free input.
+The unequal-energy gaps suggest d=2-(30/13)kappa>0; for kappa17/20,
+d=1/26 and epsilon1/442 would leave a far-from-one saving1/520.
+Check uniformity in sigma (a finite grid can pay fixed epsilon), both
+unequal energies, actual stationary errors and the revised remainder mask.
+The old error bound may extend using max(91/100,kappa), but it is not yet
+reviewed. Falsifier: an unpaid near-one epsilon loss, approximation error
+or nonseparable subtraction. Fresh <=30-minute pursuit; no new height
+coverage or Goldbach margin from this source check alone.
+
+## Previous pursuit: energy controls the actual coupled comparable band
 
 Started21:32:16 UTC, reassessed21:39:50 UTC, progress. Resumed verified
 clean main0073b6b; reviewed mathematics **55401fd**. The preceding
@@ -445,7 +505,7 @@ prime/zero calculation or all-log deletion. The sufficient lower margin
 remains OPEN. Polynomial tools, source corrections and runtime limits
 persist. No outside action, manual wake, novelty or post-stop process claim.
 
-Next concrete question, UNREVIEWED: does nonnegative chi provide a useful
+The then-next question, tested in3421a80 above: does nonnegative chi provide a useful
 sign after this coupled band is transferred back to prime pairs? Derive
 the actual real-band expression with o(N) error in additive offsets
 k=n+m-N. A candidate leading coefficient, at a=n/N in the central
@@ -3237,7 +3297,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_arithmetic_beta_transfer` (five guards) and
+Latest tests: `python -m unittest test_arithmetic_prime_offset` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
