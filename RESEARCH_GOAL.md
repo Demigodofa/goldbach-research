@@ -916,3 +916,40 @@ Sol checked theory and actual files. The pursuit returned
 `changed-under-evidence` within30 minutes.
 No new actual coverage, zero, numerical onset, priority search,
 publication work or wake queue. Overall research remains active.
+
+On 2026-09-09 Kevin resumed the clean main checkpoint cf48198, with latest
+mathematics6f9a77b, and reaffirmed open-ended curiosity, 30-minute hypothesis
+ceilings, independent correctness review, and no manual wake queues. He
+clarified that seeking a new arithmetic ingredient must preserve the useful
+polynomial identities and bounds: the earlier limitations concern specific
+approaches, not every future use of those tools. The operative question is
+what mechanism could make the linked prime conditions cancel or reinforce
+each other, and what would demonstrate it. This is a resumed execution, not
+evidence of research running between the saved checkpoint and this session.
+
+The first resumed pursuit returns `changed-under-evidence` in
+`buchstab_endpoint_bridge.py`. Exact least-prime Buchstab subtraction up to
+R=floor(Y^(1/2-2epsilon)) leaves actual prime partners and only distinct
+mixed-sign semiprimes. The earlier corrected Henriot bound and actual
+rare-prime reciprocal estimate bound this endpoint loss by
+C*epsilon*Z+o(Y*t), with C absolute and Z=length(J_real)*S_2(m)*t.
+There is no additional rarity factor. The initial rough-pool mass is
+L*X*V(z)+O(eta_u*L*X*V(z))+o(Y*t), retaining the fixed sieve error.
+The remaining unproved target is a stated one-sided bound on the exact
+prime-times-rough sum U_A(z,R). Its condition P^-(k)>=q couples the two
+variables; it is not automatically a separated-coefficient Type II sum.
+This range adds smaller factors while excluding the balanced endpoint,
+so it is not claimed to be a subset or a proved easier version of the
+old Vaughan target. No cancellation estimate has been obtained.
+Ford--Maynard's bounded-sequence sieve motivated the test but is not
+imported: its positivity/comparison and boundedness hypotheses are missing
+for the signed rare-scale model. The exact Buchstab identity also accepts
+polynomial kernel weights, but their initial full total cannot be replaced
+by T_low or its formal main. Sol independently checked theory and actual
+files; five exact tests passed normally and with Python -O, including
+prime powers, strict cutoffs, actual finite reflected-prime/sign support
+and the existing1459+11^3 example. The pursuit closed within30 minutes.
+The next useful action must test an arithmetic estimate for U, possibly
+using preserved polynomial components, not iterate this counting identity.
+No new actual coverage, zero, numerical onset, priority search, publication
+work, push, foreground operation, or wake queue. Overall research active.
