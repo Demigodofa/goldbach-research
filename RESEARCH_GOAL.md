@@ -1328,3 +1328,47 @@ No old experiment was rerun; no new prime coverage, zero, effective onset,
 publication, push, foreground work, installation or manual wake queue.
 Qwen remains unavailable without retry. No research process is left running
 at this checkpoint. Overall goal active; no claim of execution during pauses.
+
+The next pursuit proves `reciprocal_energy_kernel.py`, using an elementary
+modulus-average mechanism at the remaining symmetric boundary. In a fourth
+moment, the reciprocal relation has integer numerator
+  D=(a1+a2)*a3*a4-(a3+a4)*a1*a2.
+For D!=0, a modulus contributes only if q divides m*k*D, giving a divisor
+bound even when m*k is not a unit. For D=0, fixing a1,a2 and reducing
+u/v=1/a1+1/a2 gives (u*a3-v)*(u*a4-v)=v^2. This counts ALL rational
+relations, including non-diagonal ones, in O(A^(2+epsilon)). Thus
+  sum_(q near C) E_(q,mk)(A)<<Y^epsilon*(A^4+C*A^2).
+No prime-only additive-energy theorem or composite extension is imported.
+
+Holder in the spatial variable and then q, including repeated inverse
+residues when B>q, gives
+  R(B,A,C)=C^(3/4)*B^(3/4)*(B+C)^(1/4)*(A^4+C*A^2)^(1/4).
+The full smooth model satisfies
+  sum_q |E_q|<<Y^epsilon*H*J0^2*min(R(B,A,C),R(A,B,C)).
+This covers ALL integer moduli and arbitrary bounded separated spatial
+weights. Joint period J costs J^2. The k count cancels the kernel prefactor;
+no spatial Poisson decomposition or separate axis estimate is needed.
+At B=A=Y^(1/4),C=Y^(1/2),K=1, the bound is Y^(15/16+epsilon)*H*J0^2,
+hence3843/4096 after caps. Throughout valid boxes with b,x<=9/32,y<=1/2,
+monotonicity gives127/128 before caps and4067/4096 after caps.
+
+The common nonzero m*k across q is essential; arbitrary t_q=q destroys
+the divisor argument. Arbitrary coupled arithmetic weights remain outside
+the separated-weight assertion. At b=1/2,x=1/4,y=1/2, the new energy
+budget is9/8 and the previous linear budget is1. Preserve these failures
+alongside the useful region; they are not lower bounds on the true sum.
+Next concrete question: after completing the long M variable at this box,
+can a modulus-averaged correlation of the resulting ordinary Kloosterman
+sums save a power with both a and k near Y^(1/4)? This is UNTESTED.
+All original sieve/weight transfer and the signed prime correlation remain
+OPEN; latest original-affine result remains2b8cf98. Polynomial tools remain.
+
+Five NEW exact rational-relation, weighted fourth-moment, divisor-average,
+multiplicity and budget tests passed normally in0.112s and under -O in0.110s.
+Sol `/root/sieve_review` independently passed the critical proof, general
+family and actual files with no correction needed. This pursuit began
+08:50 UTC and returned `changed-under-evidence` within30 minutes. No old
+experiment was rerun; no new prime coverage, zero, effective onset,
+originality, publication, push, foreground work, installation or wake queue.
+Qwen remains unavailable without retry. No research process is left running
+at this checkpoint; the overall goal remains active, with pauses reported.
