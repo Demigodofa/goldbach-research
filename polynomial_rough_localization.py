@@ -20,6 +20,12 @@ Thus small primes cost an arbitrarily small fraction of B_P by choosing
 kappa first and then x sufficiently large. The factor S_2(N) is essential
 to the stated bound; this is not a uniform delta*x/L claim without it.
 
+The DIRECT MELLIN EXTENSION below proves the same localization for every
+fixed k>=4, and for k=3 with loss O_gamma(kappa*(2+log(gamma/kappa)))
+relative to S_2(N)x/L, provided 0<kappa<=min(1/20,gamma/2) is fixed.
+The degree9 condition belongs to the original power10-majorant route,
+not to the arithmetic localization itself.
+
 PROOF: NORMALIZATION AND EXCEPTIONAL SUPPORT.
 1. The saved polynomial_joint_majorant.py proves pointwise
  |T_k(n)| <= C_k H_V(n)/logV,
@@ -142,6 +148,82 @@ tool paired with corrected joint arithmetic input. This is a different
 exact sieve formulation with a quantified cost, not formal cancellation
 of the missing prime correlation. No new Goldbach coverage or onset.
 
+DIRECT MELLIN EXTENSION: QUARTIC AND CUBIC WEIGHTS.
+10. Instead of routing through H_V's fixed power10 kernel, use the saved
+exact formula directly, for every integer k>=1:
+ T_k(n)=k!/(2pi) int_R e^(1+iu)/(1+iu)^(k+1)
+                 product_(ell|n)(1-ell^(-(1+iu)/logV)) du.             (5)
+For each n this converges absolutely: its finite Euler product is
+bounded by 2^omega(n), and the kernel is integrable. The divisor
+endpoint d=V has weight0. With t=1+|u|, each Euler factor is bounded by
+2min(1,t logell/logV), and |1+iu|^(-(k+1))<<_k t^(-(k+1)).
+The same corrected Henriot/Mertens argument in steps4-7 is uniform for
+ALL t>=1. The split point V^(1/t) is <=V<X; the small split-point case
+uses the saved full prime product bound. Function-class constants stay
+independent of t. The partner Lambda majorant retains its separate
+power10 kernel; the comparison b retains its own rough Euler product.
+
+11. All support deletions of steps2/3 use only |T_k|<=tau, so are valid
+for these lower degrees. For a retained exact p-power p^j<=x^(1/10),
+put beta=logp/logV<=kappa/gamma<=1/2. Before dropping (p,m)=1, extract
+the SATURATED local factor 2min(1,beta*t). The actual a and comparison b
+terms are each bounded by a fixed constant times
+ (x/p^j) S_2(N)/L * J_k(beta),
+ J_k(beta)=int_1^infty min(1,beta*t)t^(1-k)dt.                         (6)
+All source hypotheses and exact local factors are unchanged. On the a
+side logR supplies the factor L after the two-form sieve's L^(-2);
+on the b side c_y cancels the logy denominator of its rough product.
+Thus no extra logarithm is hidden by using the direct polynomial formula.
+
+12. Split (6) at t=1/beta. For k>3 it equals
+ J_k(beta)=beta*(1-beta^(k-3))/(k-3)+beta^(k-2)/(k-2)
+         =beta/(k-3)-beta^(k-2)/((k-3)*(k-2)) <=beta/(k-3).
+For k=3,
+ J_3(beta)=beta*(1+log(1/beta)).                                      (7)
+The saturated tail is essential: replacing min(1,beta*t) by beta*t
+at every frequency would leave a divergent cubic integral. For k=2,
+even the saturated positive t^2 majorant diverges; its truncation at
+B>=1/beta is 1-beta+log(beta*B). This diagnoses THIS bound only. Formula
+(5) for T_2 itself remains convergent and other quadratic methods remain
+possible; no lower bound for the actual arithmetic error follows.
+
+13. Pay the COMPLETE prime-power sum without a spurious lower-end loss.
+Let U=logV=gamma L, Z=logz=kappa L, and
+ B(v)=sum_(p<=exp(v))logp/(p-1), B(log2^-)=0.
+Chebyshev followed by partial summation gives B(v)<=C v for v>=log2.
+If Z<log2 the sum is empty. Otherwise, including the atom at log2,
+ sum_(p<=z,j>=1)J_3(logp/U)/p^j
+  =(1/U) int_(log2^-..Z) [1+log(U/v)] dB(v)
+  =(1/U) [B(Z)*(1+log(U/Z))+int_(log2..Z)B(v)/v dv]
+  <= C*(Z/U)*(2+log(U/Z)).                                          (8)
+The lower atom is already included; a separate logL/L error is not
+required for this upper bound. For k>=4, (7)'s predecessor and B(Z)<=CZ
+give C_k Z/U. All constants are independent of kappa in the stated range.
+
+Consequently, for fixed 0<kappa<=min(1/20,gamma/2),
+ sum_(n in I,P^-(n)<=x^kappa)|T_k(n)w_n|
+   <<_(gamma,k) Phi_k(kappa) S_2(N)x/L + O_A(x/L^A),                 (9)
+ Phi_k(kappa)=kappa for k>=4,
+ Phi_3(kappa)=kappa*(2+log(gamma/kappa)).
+Both tend to0 as kappa tends to0 with gamma fixed. The full deletion
+and squarefree remainder from (4) remain valid, replacing its small
+loss by Phi_k. The squareful all-log error still has an onset depending
+on FIXED kappa; no moving-kappa theorem is being asserted.
+
+14. Without extracting a small-prime factor, the same joint argument
+has frequency integral int_1^infty t^(1-k)dt=1/(k-2), finite for k>=3.
+Applying the two forms n,N-n directly, with the already paid common-
+factor exceptions, also proves
+ sum_(n in I)|T_k(n)|(a_n+b_n) <<_(gamma,k) S_2(N)x/L+all-log.         (10)
+This fixes the total absolute bound at the main scale. Its constant is
+not certified below the positivity threshold. In particular T_3 remains
+signed (the six equal exponent-share fixture below is negative).
+
+This extension changes the degree of the SAME exact polynomial sieve
+and the matching C_(k,kappa) residual. It does not import the old hard
+H/M decomposition, estimate C's signed correlation, or yield coverage.
+It preserves the earlier degree>=9 proof as a valid reusable route.
+
 Sources: the pointwise polynomial proof and corrected Henriot application
 are already checked in polynomial_joint_majorant.py and
 radical_majorant_correlation.py. This proof rechecks the changed forms,
@@ -157,6 +239,7 @@ they do not numerically prove (1), estimate C, or establish novelty.
 from fractions import Fraction as F
 from math import ceil, gcd, prod
 
+from factored_linear_barrier import log_enclosure
 from major_arc_kernel import _factorization
 from polynomial_joint_majorant import polynomial_cofactor_samples
 from unexceptional_vaughan_gate import _positive
@@ -221,3 +304,58 @@ def polynomial_factor_pattern(shares, gamma, degree):
     if not shares or sum(shares) != 1 or type(gamma) is not F or not 0 < gamma < 1:
         raise ValueError('positive shares summing to1 and rational gamma in(0,1)')
     return polynomial_cofactor_samples(tuple(s/gamma for s in shares), degree)
+
+
+def log_rational_enclosure(value):
+    """Extend the saved certified [1,2] logarithm by exact range reduction."""
+    if type(value) not in (int, F) or value < 1:
+        raise ValueError('exact rational value>=1 required')
+    value, power = F(value), 0
+    while value > 2:
+        value /= 2
+        power += 1
+    lo, hi = log_enclosure(value)
+    lo2, hi2 = log_enclosure(2)
+    return lo+power*lo2, hi+power*hi2
+
+
+def saturated_mellin_enclosure(degree, beta):
+    """Certified J_k(beta); refuses the divergent positive majorant at k<=2."""
+    if type(degree) is not int or degree < 3:
+        raise ValueError('this positive majorant needs degree>=3')
+    if type(beta) is not F or not 0 < beta <= 1:
+        raise ValueError('rational 0<beta<=1 required')
+    if degree == 3:
+        lo, hi = log_rational_enclosure(1/beta)
+        return beta*(1+lo), beta*(1+hi)
+    exact = beta/(degree-3)-beta**(degree-2)/((degree-3)*(degree-2))
+    return exact, exact
+
+
+def quadratic_truncation_enclosure(beta, endpoint):
+    """Finite integral of the k=2 positive majorant, not of T_2 itself."""
+    if type(beta) is not F or not 0 < beta <= 1:
+        raise ValueError('rational 0<beta<=1 required')
+    if type(endpoint) not in (int, F) or endpoint < 1:
+        raise ValueError('rational endpoint>=1 required')
+    endpoint = F(endpoint)
+    if endpoint <= 1/beta:
+        exact = beta*(endpoint-1)
+        return exact, exact
+    lo, hi = log_rational_enclosure(beta*endpoint)
+    return 1-beta+lo, 1-beta+hi
+
+
+def normalized_prime_sum_cost(degree, gamma, kappa):
+    """Kernel/prime-sum factor only; unknown source constants are NOT included."""
+    localization_parameters(gamma, kappa)
+    if kappa > gamma/2:
+        raise ValueError('the lower-degree extension uses kappa<=gamma/2')
+    if type(degree) is not int or degree < 3:
+        raise ValueError('require integer degree>=3')
+    ratio = kappa/gamma
+    if degree == 3:
+        lo, hi = log_rational_enclosure(1/ratio)
+        return ratio*(2+lo), ratio*(2+hi)
+    exact = ratio/(degree-3)
+    return exact, exact
