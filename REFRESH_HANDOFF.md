@@ -35,9 +35,11 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **c2a5ac5**, the general-composite linear
-kernel and its balanced budget failure. Latest ORIGINAL-AFFINE: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **d82553e** preserved
+Latest reviewed RESEARCH commit: **7d36ce8**, the squarefree correlation
+estimate in the balanced kernel. Latest ORIGINAL-AFFINE: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **a58428e** preserved
+the general-composite linear estimate **c2a5ac5** and its balanced failure.
+Earlier checkpoint **d82553e** preserved
 the full smooth prime-core theorem **1ab2d03**. Earlier **3b66378** preserved
 the costed CRT extension **c72de0a**. Earlier **dd07496** preserved
 the initial restricted kernel **d42317b**. Earlier **8eefa83** preserved the
@@ -53,22 +55,24 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `composite_linear_kernel.py` — latest general-composite unbalanced
+1. `squarefree_correlation_kernel.py` — latest balanced squarefree-model
+   saving; all nonunit modes and short-period costs are included.
+2. `composite_linear_kernel.py` — general-composite unbalanced
    estimate, nonunit/period costs and balanced13/12 failure.
-2. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
+3. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
    grouping and linear completion. Composite/arithmetic transfer OPEN.
-3. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
+4. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
    and roughness zero-mode lemma. Its box range has now been extended.
-4. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
-5. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+5. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+6. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-6. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+7. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-7. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-8. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+8. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+9. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-9. `formal_weight_conservation.py` — completed formal result and exact gap.
-10. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+10. `formal_weight_conservation.py` — completed formal result and exact gap.
+11. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -76,7 +80,54 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: composite completion works but the balanced budget fails
+## Latest pursuit: squarefree correlations beat the balanced budget
+
+**7d36ce8**, `squarefree_correlation_kernel.py`, passed independent Sol
+source/theory and actual-file review. Seven NEW exact tests passed normally
+in0.191s and under -O in0.190s. The pursuit returned `changed-under-evidence`
+within30 minutes. A transient briefing overstatement was corrected: one
+partition factor can be D^-1/2, not D^-3/4. The saved proof uses <=1,
+and a regression fixture retains this boundary.
+
+FKM arXiv1211.6043v3 Theorem1.17, Proposition3.1 and sections3/6 have
+NOW been read. Only the PRIME bounded-exceptional-pair result is used.
+CRT fixes two residue classes for each exceptional choice, yielding a
+derived squarefree bilinear estimate with factors
+`q^-1/4+M^-1/2+q^(1/4)*N^-1/2`. Bounded coefficients and the multiplier
+may be nonunits: exact gcd partitions pay their costs. The normalized
+inverse-product definition, including K_q(0)=1/q, is explicit. No
+composite KMS/FKM theorem or prime-power correlation theorem is imported.
+
+An exact local F_p expansion handles every nonunit frequency pattern.
+Its four degenerate prime assignments have rescaled mass g/D^2 and
+bounded costs in all three bilinear terms. After shared-period splitting,
+both integer axes AND their subtracted overlap are included. At the SAME
+balanced box B=A=Y^(1/3),C=Y^(1/2),K=Y^(1/6), all SQUAREFREE q near C
+now satisfy `sum_q |E_q| <<Y^(23/24+epsilon)*H*J0^8+Y^epsilon*H*J0*B*A`,
+hence exponent11803/12288 for J0,H<=Y^(1/4096). This includes small
+prime factors and balanced semiprime cores. The previous13/12 bound
+remains valid, but this additional mechanism beats it on squarefree q.
+
+Next UNTESTED question: prove or refute the pointwise prime-power bound
+`|F_q(h,l;t)| <<q^(1+epsilon)*gcd(q,h,l,t)`, retaining unequal valuations,
+zero parameters and p=2,3. Even exponents suggest cubic stationary-point
+counting; odd exponents require a quadratic Gauss sum as well. If it holds,
+test its period-qJ transfer (conservative J^4 cost), then split off the
+squarefull part u of q at u=Y^(1/128). The small part should cost at most
+u^(13/4) in the saved squarefree CRT bound. Large squarefull parts occur
+in O(C*Y^(-1/256)) moduli; an averaged pointwise bound of H*J0^4*C per
+modulus would make that tail small. The anticipated exponent4085/4096
+is UNPROVED until every one of these steps is checked. Do not treat this
+next hypothesis as an established prime-power extension.
+
+Prime powers, further box coverage, original sieve/weight transfer and
+the signed prime correlation remain OPEN. Latest original-affine result
+is still2b8cf98. All polynomial components remain tools. No old experiment
+was rerun; Qwen remains unavailable. No process is left running and no
+manual wake queue is armed. Overall goal active; no publication, push,
+foreground work or installations.
+
+## Previous pursuit: composite completion works but the balanced budget fails
 
 **c2a5ac5**, `composite_linear_kernel.py`, passed independent Sol review
 of the transforms, full theory and actual files, with no correction.
