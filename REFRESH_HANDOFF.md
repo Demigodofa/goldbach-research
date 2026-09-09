@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **1689968**, in complementary_window_chirp.py:
+Latest reviewed RESEARCH commit: **293fb8b**, in cubic_prime_chirp_exclusion.py:
+the ACTUAL Lambda coefficient against the model's global cubic phase is
+O_psi(N63/64), uniformly in all lower polynomial coefficients. The model
+instead has (N/4)int psi+O(N7/10). Checked Le--Spencer II Theorem5,
+m=1,b=0, applies Harman's known general-polynomial bound; nearest
+reciprocal q~N21/10, smoothing and proper powers are paid. This excludes
+one coherent global cubic mechanism. It does not improve the actual
+paired-window O(N) bound or provide the signed Goldbach lower margin.
+Previous **1689968**, in complementary_window_chirp.py:
 an N-dependent dense POSITIVE ARTIFICIAL coefficient model reinforces
 the exact central paired window as -cN+O(N9/10), c>0, despite all
 listed interval/energy bounds and centered smooth linear Fourier sums
@@ -463,7 +471,50 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: complementary phase reinforcement survives linear Fourier control
+## Latest pursuit: actual primes exclude the model's coherent cubic coefficient
+
+Started22:46:05 UTC, reassessed22:56:14 UTC, progress. Resumed verified
+clean main6eabd32; reviewed mathematics **293fb8b**. Previous native
+goal turn made progress through an actual comparable-band bound and
+the complementary model mechanism. For T=N9/10, any fixed smooth psi
+of compact positive support and arbitrary N-dependent lambda_N,
+sum psi(n/N)Lambda(n)exp[-iT(lambda_N*n/N+(n/N-1/2)^3)]
+is O_psi(N63/64). The lower coefficients are unrestricted.
+
+Primary authority: Le--Spencer, Intersective polynomials and Diophantine
+approximation II, author PDF at
+https://home.olemiss.edu/~leth/papers/intersective_polynomials_II_2.pdf,
+Section4 Lemma5 printedp8 and Theorem5 printedp9 with m=1,b=0;
+printedp3 notation and printedp6 weight also checked. Nearest integer
+to Q0=2pi*N21/10 gives reduced numerator-1 and error<q^-2.
+For every prefix X~N, the bound's bracket is O(N^-1/2) and its outer
+power is1/16. Epsilon1/64 yields63/64. Fixed smooth partial summation
+and proper powers O(sqrtN log^2N) preserve that exponent.
+
+For the previous model's bounded slope, its own-phase coefficient is
+(N/4)int psi+O(N7/10); both residual cubic harmonics are paid by the
+existing Poisson argument. This is an application of a known arithmetic
+theorem, not external novelty or a new paired-correlation estimate.
+Sol theory/actual-file PASS; six guards normal0.001s/-O0.001s. No
+corrections were required. Original Harman PDF route returned abstract
+HTML; Citeseer mirror timed out. The author-hosted PartII PDF worked.
+The monomial-only Kumchev theorem was not extended by assumption.
+No actual prime/zero computation or outside action. All polynomial
+components, earlier source corrections and runtime limits persist.
+
+Next concrete question, UNREVIEWED: does large negative paired-window
+correlation force a large coefficient against a bounded smooth cubic
+phase? Test a falsifier before using any such inverse implication:
+replace the model's odd cubic by (a-1/2)^5 while retaining the odd-pi
+complementary sum. For every fixed bound on the coefficients of a
+cubic g, test uniform centered correlations against exp[-iTg(n/N)]
+of size O(N*T^-1/5)=O(N41/50), while the exact paired window stays
+-cN+O(N9/10). Pay the local window, fifth-derivative oscillation and
+all Poisson aliases. This would test the sufficiency of a specified
+probe family, not actual primes or every possible polynomial tool.
+Fresh <=30 minutes. Full signed margin OPEN; overall goal active.
+
+## Previous pursuit: complementary phase reinforcement survives linear Fourier control
 
 Started22:38:16 UTC, reassessed22:43:56 UTC, changed-under-evidence.
 Resumed verified clean main6cf340d; reviewed mathematics **1689968**.
@@ -488,7 +539,7 @@ in the present window operator. No general barrier or negative actual
 Goldbach sum is asserted. Sol theory/actual-file PASS; six guards
 normal0.002s/-O0.002s. Full signed margin OPEN; overall goal active.
 
-Next concrete question, UNREVIEWED: can an ACTUAL prime polynomial-
+The then-next question, answered in293fb8b above: can an ACTUAL prime polynomial-
 phase estimate exclude this very cubic modulation? For any fixed smooth
 psi, test sum_n psi(n/N)Lambda(n)exp[-iT f_N(n/N)]=O(N^(1-delta))
 for some explicit fixed delta>0. The model instead has an order-N
@@ -3517,7 +3568,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_complementary_window_chirp` (six guards) and
+Latest tests: `python -m unittest test_cubic_prime_chirp_exclusion` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

@@ -3533,3 +3533,39 @@ that alignment would add a nonlinear arithmetic constraint. It would
 not bound arbitrary phase superpositions or the full signed correlation.
 Fresh <=30 minutes; overall goal active, full lower margin OPEN. All
 polynomial tools, source corrections and runtime restrictions persist.
+
+## 2026-09-09: actual primes exclude the exhibited coherent cubic phase
+
+Started22:46:05 UTC, reassessed22:56:14 UTC, progress. Resumed verified
+clean main6eabd32; reviewed mathematics **293fb8b**,
+cubic_prime_chirp_exclusion.py. The previous goal turn made progress
+through the actual comparable-band bound and a complementary-phase
+model. For T=N9/10 and f_N(a)=lambda_N*a+(a-1/2)^3, actual
+sum psi(n/N)Lambda(n)exp[-iT f_N(n/N)]=O_psi(N63/64), uniformly
+in arbitrary lower coefficients. Le--Spencer II Theorem5 printedp9,
+m=1,b=0, supplies the known general-polynomial prime bound; Lemma5
+printedp8 and definitions on printedp3/p6 were checked in the author PDF.
+The actual reduced approximation has q~N21/10; bracket N^-1/2,
+outer power1/16 and epsilon1/64 give the displayed exponent.
+Comparable-prefix smoothing and O(sqrtN log^2N) proper powers are paid.
+
+The earlier model instead has (N/4)int psi+O(N7/10) against its own
+phase. This excludes THAT global coherent cubic coefficient for primes.
+It does not improve the actual paired O(N) band, delete it, supply a
+small constant or prove the full signed lower margin. It is a new-to-
+this-task application of known mathematics; external novelty is not
+claimed. Sol theory/actual-file PASS; six guards normal0.001s/-O0.001s.
+Original Harman PDF request returned abstract HTML; Citeseer timed out;
+author-hosted Le--Spencer II source worked. No actual prime/zero run,
+outside action or post-stop execution claim. Polynomial components,
+source corrections and runtime limitations remain preserved.
+
+Next unreviewed test: does order-N reflected-window reinforcement force
+a large bounded cubic-phase coefficient? Try the explicit complementary
+quintic f_N(a)=lambda_N*a+(a-1/2)^5 as a falsifier, retaining the odd-pi
+phase sum. Test the same -cN+O(N9/10) paired functional, but uniformly
+O(N41/50) centered correlations against all cubic phases with any fixed
+coefficient bound. Pay fifth-derivative oscillation and Poisson aliases;
+no inference to actual primes or a general polynomial barrier. This
+tests the missing inverse implication before promoting the arithmetic
+exclusion to a paired estimate. Fresh <=30 minutes; overall goal active.
