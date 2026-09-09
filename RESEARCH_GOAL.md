@@ -1289,3 +1289,42 @@ experiment was rerun; no new prime coverage, zero, effective onset,
 publication, push, foreground work, installation or manual wake queue.
 Qwen remains unavailable without a retry. No process is left running at
 this checkpoint; the overall research goal remains active.
+
+The next pursuit proves `all_moduli_balanced_kernel.py`. The proposed
+prime-power pointwise bound holds for every q,h,l,t:
+  |F_q(h,l;t)|<=6^omega(q)*q*gcd(q,h,l,t).
+The proof removes the common valuation, handles its all-zero case
+separately, counts cubic stationary points at even exponents, and pays
+the quadratic Gauss sums at odd exponents. The bad primes2,3 and unequal
+valuations are included. Only the previously checked PRIME Kl3 bound is
+imported; no prime-power correlation theorem is assumed.
+
+An exact double Fourier lift pays J^4 for arbitrary joint period J,
+including gcd(q,J)>1. The nonzero-frequency gcd average gives
+O(Y^epsilon*H*J0^4*C) per modulus. Split the FULL squarefull part u(q)
+at Z=Y^(1/128). Moduli with u>Z number O(C*Z^-1/2); for u<=Z, the saved
+squarefree correlation estimate absorbs the small part at cost Z^(13/4).
+Both axes and their overlap retain the earlier general-modulus bounds.
+At B=A=Y^(1/3),C=Y^(1/2),K=Y^(1/6), the smooth model over ALL integers
+q near C therefore satisfies
+  sum_q |E_q|<<Y^epsilon*H*(J0^8*Y^(23/24)*Z^(13/4)
+                              +J0^4*Y*Z^-1/2+J0*Y^(2/3))
+              <<Y^(4085/4096+epsilon),
+for J0,H<=Y^(1/4096). This closes the squarefree restriction at this box.
+It does not close a prime-power correlation theorem, other box geometries,
+original arithmetic/sieve transfer, or the signed prime correlation.
+Latest original-affine estimate remains2b8cf98; polynomial tools remain.
+
+Six NEW exact stationary, valuation, Gauss, periodic-lift, squarefull and
+budget tests passed normally and under -O, each in0.299s. Sol
+`/root/sieve_review` independently passed the prime-power proof, global
+transfer and actual files, with no correction required. This pursuit began
+08:34 UTC and returned `changed-under-evidence` within30 minutes.
+Next concrete question: at B=A=Y^(1/4),C=Y^(1/2),K=1, both current
+composite budgets reach Y before decorations. What additional cancellation
+mechanism can beat that boundary, with its coefficients and moduli paid for?
+This is an upper-bound budget obstruction, not evidence of a large true sum.
+No old experiment was rerun; no new prime coverage, zero, effective onset,
+publication, push, foreground work, installation or manual wake queue.
+Qwen remains unavailable without retry. No research process is left running
+at this checkpoint. Overall goal active; no claim of execution during pauses.
