@@ -1372,3 +1372,48 @@ experiment was rerun; no new prime coverage, zero, effective onset,
 originality, publication, push, foreground work, installation or wake queue.
 Qwen remains unavailable without retry. No research process is left running
 at this checkpoint; the overall goal remains active, with pauses reported.
+
+The next pursuit changes direction under the source evidence. The ordinary
+Kl2 bilinear interval theorems checked here do not accept the inverse-a
+support after M-Poisson. Freezing a instead leaves h too short to improve
+the existing Weil budget. Preserve these source-applicability failures;
+they do not refute the source theorems or every use of completion.
+
+`two_prime_kl3_kernel.py` instead derives a rank-three bilinear theorem for
+q=p1*p2 with distinct primes and p_min>=q^(2/5). For arbitrary complex
+coefficients supported <=X, sqrt(q)<=X<=q^(1/2+1/128), and ANY integer c,
+the norm factor is q^(11/64+epsilon)*X^(5/8), hence q^(31/64) at X=sqrt(q).
+The source's literal zero extension is used during amplification, then
+the natural K_p(0)=1/p extension is recovered with a paid nonunit error.
+KMS prime eight-factor correlations, all-twist diagonal subtraction, and
+rank-three CRT with frequency twist h*(q/p)^2 supply the arithmetic gain.
+Small auxiliary shifts synchronize the two local diagonals as one integer
+multiset equality. Generic, bad and diagonal tuples are all costed.
+This derives a two-prime Kl3 statement; MQW's Kl2 theorem is not imported
+as a Kl3 theorem, and no prime-square correlation assertion is made.
+
+For the same smooth MODEL at B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4),
+the specified two-prime moduli satisfy
+  sum_q |E_q|<<Y^(127/128+epsilon)*J0^5*H^2+Y^(3/4+epsilon)*H*J0,
+hence exponent4071/4096 after caps. Nonunit m*k, joint periods, both
+integer axes and the zero-extension correction are included. General
+factorizations, prime powers in this box, full box coverage and the actual
+arithmetic/sieve transfer remain OPEN. Latest original-affine remains
+2b8cf98. The formal cancellation still does not estimate the signed
+prime correlation. Preserve the polynomial identities and earlier bounds.
+
+This pursuit began09:01:55 UTC, with a09:32 UTC ceiling. Five NEW exact
+tests passed normally in0.233s and under -O in0.335s. Verifier-only
+corrections fixed late-bound histogram generators, float division, and a
+vanishing test fixture. Sol `/root/sieve_review` passed the theory,
+varying-length argument and actual files, with no material correction.
+This pursuit returns `changed-under-evidence` within its30-minute ceiling.
+Next concrete question: can CRT counting of bad primes replace the
+small-shift condition at every prime, giving a saved bound for general
+squarefree moduli in this unbalanced box? Test the complete bad-set and
+nonunit-difference costs before asserting any extension. No original
+prime coverage, effective onset, zero, novelty or outside action is claimed.
+No old experiment was rerun. Qwen remains unavailable without retry;
+no model install, publication, push, foreground action or manual wake queue.
+No research process is left running at this checkpoint. The overall goal
+remains active, with no claim of execution during pauses.
