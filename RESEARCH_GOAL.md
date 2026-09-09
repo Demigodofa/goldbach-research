@@ -2410,3 +2410,48 @@ actual masked dilation covariance and its full required error budget;
 check for an available arithmetic saving before expanding the method.
 Reject mere recovery of a previously open covariance. Unperformed; fresh
 <=30-minute clock. Overall goal active; no process claimed beyond closeout.
+
+## 2026-09-09: exact prime-dilation gate and actual coprime localization
+
+Started17:03:39 UTC, reassessed17:21:42 UTC, changed-under-evidence.
+Resumed verified clean mainab82775; reviewed mathematics **16fa2d0**,
+in rough_mobius_dilation.py. Generic Katai mean-divisor reconstruction
+only gives XL/sqrt(logL), too large at X/L precision. Fixed-prime
+qualitative hypotheses cannot supply a uniform rate for our moving rough
+support. This failure does not exclude other multiplicative-sign methods.
+
+A classical exact Ramare identity avoids that particular loss: the full
+prime set(y,x^nu] represents each squarefree r exactly with weight
+1/(1+omega(r/p)). Its dyadic Cauchy energy has signed off-diagonalO and
+diagonalD<<L^2X/logP. All masks are retained. Summing all rows and prime
+blocks pays the diagonal withO(xL^3/sqrt(y)). DefineE=sum O^+/P; then
+ |M_e(w)| <<_A x/L^A + sqrt(xL^3 E).
+ThusE<<x/L^(2A+3) suffices forM<<x/L^A. This actual covariance input is
+OPEN, andR_nu(w) still remains in prime mass=B_P-R_nu+M+all-log.
+
+An ACTUAL additional saving removesgcd(n,2x)>1 fromM at absolute cost
+O(xL^3/(ylogy)): at mosttau(n) cofactor representations and
+tau(ell*m)<=2tau(m), summed overell|2x withell>y, pay the deletion.
+No primality of the reflected partner is assumed. This excludes obvious
+common-factor rows before requesting uniform covariance. The remaining
+linked arguments areN-cps,N-cqs, relationq*q1-p*q2=(q-p)N.
+
+Green arxiv1604.04481v4,p6 supplies the known identity; p5 already
+discusses the analogous shifted-Mobius linked-prime obstacle. General
+source parameter restrictions are not waived. Tao's2011 Katai exposition
+and BSZ Theorem2 establish the generic-bound/limit-order comparison.
+Oxford source403, arxiv succeeded; no unchanged retry. Sol theory and
+actual-file PASS. Five finite guards pass0.012s normal and-O. Initial
+home-cwd patch placement was repaired by moving only the two new files
+into the repo; no overwrite or mathematical change. Reviewer wording
+clarified von Mangoldt arguments versus primes. No new coverage, onset,
+novelty claim, external actions or discarded polynomial tools.
+
+Next concrete hypothesis, unperformed: raise n's roughness cutoff to a
+fixed powerx^kappa while paying at mostdelta*x/L actual localization error,
+using joint prime/cofactor majorants rather than the crude L*tau bound.
+If valid, the long Mobius cofactor has boundedly many prime factors.
+First derive the full kappa,e,delta and logarithmic budget; reject it if
+the approximation error cannot reach prime precision. Do not substitute
+formal main-term matching for that bound. Fresh <=30-minute pursuit;
+overall goal stays active, no process claimed after closeout or manual wake.

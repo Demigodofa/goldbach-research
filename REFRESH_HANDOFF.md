@@ -35,14 +35,21 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **3def1c4**, in
+Latest reviewed RESEARCH commit: **16fa2d0**, in
+rough_mobius_dilation.py: the actual long-Mobius term can also be made
+coprime to the target with all-log error. A classical Ramare identity
+then has no reconstruction residual; its full diagonal cost is all-log
+small. The exact signed off-diagonal energy, with every mask retained,
+remains OPEN. This completes the multiplicative-sign criterion test;
+it does not establish the required correlation estimate.
+Previous **3def1c4**, in
 specialized_sieve_coefficients.py: an ACTUAL Type I/fundamental-lemma
 estimate removes small prime factors from the surviving smooth-cofactor
 error, after which repeated factors cost O(x log^2x/y). Thus the remaining
 term has ordinary long Mobius coefficients on rough squarefree integers.
 Its linked prime correlation remains OPEN. The coefficient and support
-extraction is complete; next test is a quantitative multiplicative-sign
-criterion with all masks retained, not another automatic decomposition.
+extraction is complete; its multiplicative-sign criterion test is now
+completed above. Neither reduction supplies the actual signed estimate.
 Previous **a301a46**, in
 prime_producing_comparison_gate.py and critical_factor_mass.py: the existing
 comparison satisfies the source factor-pattern conditions, and an ACTUAL
@@ -161,7 +168,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `specialized_sieve_coefficients.py`,
+For the next unexceptional lane first read `rough_mobius_dilation.py`,
+then `specialized_sieve_coefficients.py`,
 `critical_factor_mass.py` and `prime_producing_comparison_gate.py`, then
 `composite_bilinear_bridge.py`
 for the saved nonnegative comparison and exceptional-character correction.
@@ -224,7 +232,70 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual rough-squarefree localization of the Mobius cofactor
+## Latest pursuit: exact prime-dilation criterion and actual coprime localization
+
+Started17:03:39 UTC, reassessed17:21:42 UTC, changed-under-evidence.
+Resumed verified clean mainab82775; reviewed mathematics **16fa2d0**.
+The generic Katai mean-divisor reconstruction bound costs
+Xlogx/sqrt(loglogx), too large at prime-count precision. This is a failed
+upper bound, not a lower bound for the actual sum. Fixed auxiliary primes
+eventually lie below the moving roughness cutoff, so their vanishing
+dilation sums cannot supply an unproved uniform rate for the moving family.
+
+The exact classical Ramare identity avoids that reconstruction error.
+All prime divisors of retainedr lie in(y,x^nu]; eachr is countedomega(r)
+times with denominator1+omega(r/p)=omega(r). No missed-prime residual.
+Forc=tv,X=x/c and a dyadic auxiliary-prime block(P,2P], full zero-extended
+masks give |S_tv,P|^2 <= (X/P)(D+O), withD<<L^2X/logP andO the REAL
+SIGNED off-diagonal. Drop the denominator only from the entire positive
+per-s square before expanding. Individual cross-term absolute values
+are not required. The diagonal summed over ALL rows/blocks is
+O(xL^3/sqrt(y)), all-log small. WithE=sum_(t,v,P)max(O,0)/P,
+ |M| <<_A x/L^A + sqrt(xL^3 E).
+ThusE<<x/L^(2A+3) is sufficient; the stronger uniformO^+<<XP/L^(2B)
+yieldsM<<x/L^(B-3). Neither covariance input has been proved, and
+R_nu(w) remains separately open in prime mass=B_P-R_nu+M+all-log.
+
+An additional ACTUAL estimate allowsgcd(n,N)=1 inM. At mosttau(n)
+representations and |w|<<L give absolute loss
+O(xL^2 sum_(ell|N,ell>y)1/ell)=O(xL^3/(ylogy)), all-log small.
+This removes deterministic common-factor rows and auxiliary divisors ofN.
+The remaining pair has reflected argumentsN-cps,N-cqs and relation
+q(N-cps)-p(N-cqs)=(q-p)N. Keep smoothness, physical, squarefree,
+coprimality andv1-or-prime masks and all four terms of(a-b)(a-b).
+These are von Mangoldt arguments until proper powers are separately paid.
+
+Source-known mechanism: Green arxiv1604.04481v4 section2,p6 has the
+Ramare identity; the p5 remark explicitly names the analogous linked-prime
+covariance for shifted Mobius. Its general proposition is NOT imported
+with parameter restrictions waived. Tao2011-11-21 and BSZ Theorem2 were
+checked for the generic criterion's quantitative/limit-order boundary.
+Oxford's Green PDF returned403; the arxiv version worked. No unchanged
+retry. This is a task-specific exact support/budget application, not a
+new identity or newly solved correlation.
+
+Independent Sol theory and actual-file PASS. Five guards pass
+normal0.012s/-O0.012s. Initial patch used the home cwd, causing import
+failure; precisely the two new files were moved into the repo with no
+overwrite, then tests passed. No mathematical correction; reviewer wording
+clarified reflected von Mangoldt arguments. All earlier corrections and
+polynomial components remain valid. No new Goldbach coverage or onset.
+
+Next bounded hypothesis, UNTESTED: can the small-prime localization be
+raised fromy=exp(sqrtL) to a fixed powerx^kappa, with actual error at most
+delta*x/L for any prescribed smalldelta? Use the existing joint arithmetic
+majorants/sieve sandwich to pay the |wH|-weighted approximation cost;
+the old crude L*tau(n) bound with fixed sieve parameter is insufficient.
+Prediction: if this cost closes, the long cofactor has a bounded number
+of prime factors, allowing a different arithmetic treatment. Test the
+full dependence onkappa,e,delta before any decomposition or numerical run.
+Reject the hypothesis if the constants/log losses cannot reach prime
+precision; do not assume formal local main terms cancel their errors.
+Fresh <=30-minute clock. Overall goal active; no process claimed after
+closeout, no manual wake queue. This is an optional mathematical direction,
+not a replacement of the saved signed-covariance or Type II targets.
+
+## Previous pursuit: actual rough-squarefree localization of the Mobius cofactor
 
 Started16:39:03 UTC, reassessed17:01:31 UTC, changed-under-evidence.
 Resumed verified clean maind2379cb; reviewed mathematics **3def1c4**.
@@ -271,7 +342,7 @@ corrected to the existing factorization API; no mathematical correction.
 Live16:39 budget was conserve; Qwen/routing exceptions remain unchanged.
 No previous experiment rerun, install, publication/push, foreground or wake.
 
-Next question, UNTESTED: can a quantitative multiplicative-correlation
+The then-next question, now tested in16fa2d0 above: can a quantitative multiplicative-correlation
 criterion exploit mu(pr)=-mu(r) on this squarefree support, using auxiliary
 primes ABOVEy? Derive its required dilation covariance and complete loss
 budget with the actual masks before checking an arithmetic estimate.
@@ -2142,7 +2213,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_specialized_sieve_coefficients` and
+Latest tests: `python -m unittest test_rough_mobius_dilation` and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
