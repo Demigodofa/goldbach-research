@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **1ab2d03**, the full smooth prime-core
-hyperbola-box theorem. Latest ORIGINAL-AFFINE estimate: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **3b66378** preserved
+Latest reviewed RESEARCH commit: **c2a5ac5**, the general-composite linear
+kernel and its balanced budget failure. Latest ORIGINAL-AFFINE: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **d82553e** preserved
+the full smooth prime-core theorem **1ab2d03**. Earlier **3b66378** preserved
 the costed CRT extension **c72de0a**. Earlier **dd07496** preserved
 the initial restricted kernel **d42317b**. Earlier **8eefa83** preserved the
 failed source-bound budget **d945ac2**; it remains valid.
@@ -52,20 +53,22 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `hyperbola_prime_kernel.py` — latest full MODEL box coverage via changed
+1. `composite_linear_kernel.py` — latest general-composite unbalanced
+   estimate, nonunit/period costs and balanced13/12 failure.
+2. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
    grouping and linear completion. Composite/arithmetic transfer OPEN.
-2. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
+3. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
    and roughness zero-mode lemma. Its box range has now been extended.
-3. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
-4. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+4. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+5. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-5. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+6. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-6. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-7. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+7. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+8. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-8. `formal_weight_conservation.py` — completed formal result and exact gap.
-9. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+9. `formal_weight_conservation.py` — completed formal result and exact gap.
+10. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -73,7 +76,46 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: every smooth prime-core hyperbola box is covered
+## Latest pursuit: composite completion works but the balanced budget fails
+
+**c2a5ac5**, `composite_linear_kernel.py`, passed independent Sol review
+of the transforms, full theory and actual files, with no correction.
+Six NEW exact tests passed normally in0.774s and under -O in0.769s.
+The pursuit returned `changed-under-evidence` within30 minutes. Both the
+useful component and the critical failure are retained.
+
+For ALL integer moduli q near C=Y^y, including prime powers, the same
+smooth box model with arbitrary joint period J_q<=J0 and k<=H*B*A*C/Y
+satisfies `sum_q |E_q| <<Y^epsilon*H*(J0^2*min(A,B)*C^(3/2)+J0*B*A)`.
+Neither gcd(J_q,q)=1 nor gcd(m*k,q)=1 is required. One complete Fourier
+transform gives an ordinary Kloosterman sum; periodic lifting costs J^2.
+A divisor average absorbs the nonzero-frequency gcd loss. The h=0 mode
+uses a separate restricted Ramanujan decomposition and the modulus average
+of gcd(q,m*k). All modes and normalization factors are included.
+Only the ordinary composite Weil bound from Topacogullari1506.02608v1,
+section2 p4, is used; no composite KMS or shifted-divisor theorem is imported.
+
+The bound saves a power when `min(b,x)+3*y/2<=127/128`, with final exponent
+4067/4096 for J0,H<=Y^(1/4096). At the critical balanced box b=x=1/3,
+y=1/2, it instead gives13/12 BEFORE decorations. That is a failure of
+THIS upper-bound budget, not a lower bound on the true error or a no-go
+theorem. A next step must save more than1/12 there and pay coefficient costs.
+The prime-core theorem and all polynomial tools remain preserved.
+
+Next UNTESTED hypothesis: bound additive autocorrelations of multiplicative
+Kl3 dilates, then test a composite bilinear estimate by CRT. Explicitly
+handle prime diagonal cases, nonunit coefficients and prime powers. KMS
+Remark1.2 cites Fouvry--Kowalski--Michel, Algebraic trace functions over the
+primes, arXiv1211.6043, Theorem1.17. That exact theorem has NOT yet been
+read here; this is only a primary locator, not a composite consequence.
+Do not repeat the completed linear-completion test or call its identity
+the missing bilinear estimate. Critical composite boxes, original sieve
+transfer and the signed prime correlation remain OPEN; latest original
+affine estimate remains2b8cf98. No old experiment was rerun. Qwen remains
+unavailable; no process is left running and no manual wake queue is armed.
+Overall goal active. No publication, push, foreground work or installations.
+
+## Previous pursuit: every smooth prime-core hyperbola box is covered
 
 **1ab2d03**, `hyperbola_prime_kernel.py`, passed independent Sol review
 of the linear lemma, full theory and actual files, with no correction.
