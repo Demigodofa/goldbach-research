@@ -8,6 +8,9 @@ prime-pair counterexample, or an estimate of the actual Goldbach remainder.
 Independent Sol theory/actual-file review: PASS for the countermodel and
 weighted variance reassessment. Review corrected an unqualified ordering
 claim: the two sufficient variance conditions are not globally ordered.
+The subsequent complete-layer application and diagnostic cancellation in
+sections8-11 also received independent Sol theory/actual-file PASS; ten
+finite guards pass normally and under Python -O, with no new correction.
 
 QUESTION AND DISPOSITION.
 Can completion plus the known generic error controls license the transfer of
@@ -137,11 +140,90 @@ A NATURALLY WEIGHTED VARIANCE TARGET FOR THE ACTUAL PRIMES.
    Our countermodel also fails this weighted sufficient target: by(3),
     e_r^*>=f0/40, K_* >=(f0^2/1600)M >>_(F,k)L.
    Hence the missing prime-specific input is not an artifact of the old
-   unweighted normalization. Use(9) for the next intact-variance attempt;
-   preserve the earlier estimate as a valid alternative sufficient condition.
+   unweighted normalization. Both are valid sufficient conditions for this
+   ISOLATED rectangle; neither is necessary for the full remainder, as the
+   complete-layer calculation below now demonstrates.
    These two sufficient conditions are not globally ordered: the weighting
    removes the endpoint power mismatch near Rmin, but can demand finer
    logarithmic precision near Rmax. Neither is proved for the actual E.
+
+COMPLETE DIVISOR LAYERS ALREADY CANCEL FOR THE ACTUAL PRIME ERROR.
+8. Write C_F(A,E)=sum_n A(n)F(n/Y,(m-n)/Y)E(m-n), retaining the saved
+   unexceptional setup, gamma49/100 and U=V=floor(Y^(gamma/2)). For ANY
+   subset J of {2,...,V}, put w_d=-lambda_d on J and zero elsewhere, with
+   |lambda_d|<=1. The COMPLETE internal-Lambda layer is exactly
+    L_J(n)=sum_(d in J,b>U,db|n)w_d Lambda(b)
+          =sum_(d in J,d|n)w_d log(n/d)
+           -sum_(d in J,b<=U,db|n)w_d Lambda(b).            (11)
+   This is just Lambda*1=log. The first term is divisor-weighted Type I
+   with d<=V and one Abel logarithm. Group the second by h=db<=UV;
+   its coefficient is bounded by sum_(b|h)Lambda(b)=log h. Thus the
+   EXISTING TI estimate gives, for the ACTUAL E=Lambda-Gamma_S,
+    C_F(L_J,E)=O_A(Y/L^A) for every fixed A.               (12)
+   The same conclusion holds for E_* by(4), paying at most a logarithm.
+   All weights depend only on d (and possibly Y,m), with common smooth F;
+   a prime-range or cofactor-dependent mask is not licensed inside(11).
+   Removing internal proper powers costs at most Y U^(-1/2)L^3 in L1,
+   by the saved positive tuple proof. After ||E||_infinity<<Y^(2delta+o(1))
+   this is power-small at the saved delta cap. For E_*, use |E_*|<=4.
+   Therefore(12) holds also for the complete PRIME layer L_J,p. No c=1
+   compensation appears: d>=2 makes c=d*k>=2 for every p, including p~Y.
+   This is an APPLICATION of optimized_cofactor_cutoff.py (02e1627),
+   not a new prime-distribution theorem. Zeroing lambda on J preserves
+   lambda1=1 and changes R_lambda,p by exactly L_J,p. Every nontrivial
+   divisor layer can be removed this way, separately or all at once.
+9. In particular take J=D from(1), with the retained fixed polynomial
+   lambda_d=-(1-log d/log V)^k, k>=9. Let T_D,out be its prime-layer
+   correlation restricted to ALL p>U outside P, with no further tuple mask.
+   The two pieces partition L_D,p exactly, so for the ACTUAL E,
+    T_D,out(E)=-T_family(E)+O_A(Y/L^A).                    (13)
+   The same holds for E_*. Equation(13) does not estimate either piece
+   individually, and does not follow from the newer factored-modulus input.
+   It shows that solving the isolated rectangle variance is unnecessarily
+   strong for removing this COMPLETE layer from the global remainder.
+
+THE DIAGNOSTIC HAS A NONZERO FULL REMAINDER, DESPITE THAT CANCELLATION.
+10. Keep F>=f0>0 on[.7,.8]^2 and write
+     I_F=integral F(v,1.5-v)dv>0,
+     C0=log(a1/a0)log(b1/b0)>0.
+   Every Lambda-supported n in I has s(n)=t(n)=0 eventually: for a P-prime
+   base its first three powers are below Y/2 since 3a1=.90006<1, whereas
+   the fourth exceeds Y since 4a0=1.2>1. For a D-prime base use
+   4b1=.80048<1<5b0=1.0005. Other prime bases cannot have P or D divisors.
+   Thus f(n)=C_P C_D on ALL prime powers in the physical interval. Strong
+   ordinary PNT, already sourced below, gives
+    C_F(Lambda,E_*)=C0 Y I_F+O_A(Y/L^A).                  (14)
+   Here C_P=log(a1/a0)+O_A(L^-A), likewise C_D, by partial summation.
+   The full identity in optimized_cofactor_cutoff.py, its compensation
+   controlled by(4) and one Abel logarithm, and the paid pruning give
+    C_F(R_lambda,p,E_*)=C0 Y I_F+O_A(Y/L^A),              (15)
+   uniformly for ALL normalized bounded cutoffs lambda supported<=V.
+   Positivity and any ratio limit below require I_F>0; nonnegative F alone
+   would not suffice. This is a pairing with an ARTIFICIAL partner.
+11. There is also a precise size for the cancelling diagnostic pieces.
+   On n=pd*j<=Y put s'=s(n)-1 and t'=t(n)-1. Since 2(a0+b0)>1,
+   two P primes and two D primes cannot all divide n, so s't'=0. Exactly
+    f(pd*j)=(1-C_P)(1-C_D)+(1-C_D)s'+(1-C_P)t'.
+   The otherwise present fourth term s't' vanishes ONLY in this window.
+   Smooth progression counting for each extra prime divisor of j gives
+    B_pd^*=(Y/(pd)) I_F [1-C_P C_D-(1-C_D)/p-(1-C_P)/d]
+           +O_F(1+#P+#D).                               (16)
+   The fixed-degree polynomial coefficients satisfy
+    M=sum A_pd/(pd)=c L+O_A(L^-A),
+    c=(a1-a0) integral_(b0)^b1 (1-b/nu)^k db/b>0,
+   again by strong PNT. Floor V changes this by a fixed power-small error.
+   Multiplying the counting errors by A_pd<=L and summing costs
+   O_F(L #P #D(1+#P+#D))<<Y^(s1+a1)L=Y^.80016 L.
+   The reciprocal-p/d corrections cost O(Y^(1-b0)L); all are power-small.
+   Consequently
+    T_family(E_*)=(1-C0)c I_F Y L+O_A(Y/L^A),             (17)
+    T_D,out(E_*)=-(1-C0)c I_F Y L+O_A(Y/L^A).            (18)
+   The second follows from the ACTUAL complete-layer mechanism(11)-(12).
+   If instead T_rest means the ENTIRE remainder minus this rectangle,
+   its expansion is -(1-C0)c I_F Y L+C0 I_F Y+O_A(Y/L^A) by(15).
+   Both corresponding ratios to T_family tend to -1. The full artificial
+   remainder retains a positive Y main term; this does not refute the
+   one-sided lower bound sought for actual prime-pair coverage.
 
 WHAT THIS CHANGES.
 The useful model Kloosterman estimates, polynomial identities, actual good-
@@ -151,13 +233,22 @@ The construction does not satisfy the defining equality E=Lambda-Gamma_S,
 and no CROSS, nonnegative prime representation or prime support is claimed.
 Completion/dispersion can still work if it retains an additional arithmetic
 property of the actual primes which excludes this full-denominator resonance.
-Next question: can the COMPLETE signed cutoff identity cancel this resonance
-between divisor sectors, without requiring each sector to be small? Test
-the actual-first-prime pairing against this diagnostic E_* and its cutoff
-compensation, then isolate what still fails for the true E. A successful
-calculation for E_* would not be a true-prime correlation estimate. Preserve
-the polynomial identity; do not rerun another generic norm improvement.
-No universal coverage, actual signed prime estimate, or numerical onset.
+The complete-layer question is now answered by(11)-(18), with the actual
+scope separated from the diagnostic. Retire the isolated rectangle variance
+as a REQUIRED next gate for the full problem; preserve it as an optional
+sufficient condition and the factored-modulus theorem as a usable tool.
+All lambda_d for d>1 can be zeroed, leaving lambda=delta_1. Its exact
+prime remainder is -sum_(p|n,p>U,n!=p)log p. This is a simpler expression
+of the SAME missing correlation, not its solution. Polynomial weights can
+still help organize its arithmetic even though their full compensation is
+TI-small. Next concrete question: can a one-sided bound for prime factors
+of m-q, with q prime and m FIXED, improve this remainder's lower bound?
+First derive the exact log-factor inequality required, allowing the legal
+asymmetric choice lambda=delta_1, U=floor(Y^gamma), and test whether it is
+merely the same correlation rewritten. Then check any proposed arithmetic
+input for uniformity in m~Y and the needed sign/constant; an average over m
+or a theorem only for shift1 is insufficient. No new coverage or full
+actual estimate follows here; the asymmetric next test is not yet done.
 
 All analytic source input here is the already checked ordinary PNT in Tao
 2014 Notes2 Cor39/Ex40, referenced in factored_prime_ap_transfer.py. The
@@ -168,7 +259,8 @@ from fractions import Fraction as F
 
 from factored_prime_ap_transfer import two_prime_gap_geometry
 from major_arc_kernel import _factorization, ramanujan
-from unexceptional_vaughan_gate import _positive
+from optimized_cofactor_cutoff import _weights
+from unexceptional_vaughan_gate import _add, _clean, _divisors, _positive, mangoldt_log_vector
 
 
 def _prime_sets(left, right):
@@ -259,3 +351,53 @@ def weighted_progression_energy(y, coefficients, rows):
     if mass <= 0:
         raise ValueError('positive density mass required')
     return total, mass, energy, diagonal
+
+
+def complete_divisor_layer_vectors(n, internal_cutoff, weights, indices):
+    """Exact signed full-Lambda, prime-only, and log-minus-low layer vectors.
+
+    Only nontrivial divisor indices are accepted: lambda1 cannot be removed
+    while retaining cutoff normalization and the prime c=1 compensation.
+    The prime-only vector includes ALL internal primes above the cutoff.
+    """
+    _positive(n, 'n')
+    _positive(internal_cutoff, 'internal cutoff')
+    weights = _weights(weights)
+    indices = tuple(indices)
+    if (any(type(d) is not int or not 2 <= d < len(weights) for d in indices)
+            or len(set(indices)) != len(indices)):
+        raise ValueError('distinct supported divisor indices d>=2 required')
+    full, prime, compensation = {}, {}, {}
+    for d in indices:
+        if n % d:
+            continue
+        weight = -weights[d]
+        _add(compensation, _factorization(n//d), weight)
+        for b in _divisors(n//d):
+            term = mangoldt_log_vector(b)
+            if b <= internal_cutoff:
+                _add(compensation, term, -weight)
+            else:
+                _add(full, term, weight)
+                if _factorization(b) == ((b, 1),):
+                    _add(prime, term, weight)
+    return tuple(_clean(v) for v in (full, prime, compensation))
+
+
+def conditional_resonance_terms(n, p, d, left, right):
+    """Four exact terms, preserving extra-P times extra-D outside the window."""
+    _positive(n, 'n')
+    left, right = _prime_sets(left, right)
+    if p not in left or d not in right or n % (p*d):
+        raise ValueError('a selected modulus p*d must divide n')
+    cp = sum((F(1, q) for q in left), F(0))
+    cd = sum((F(1, q) for q in right), F(0))
+    extra_p = sum(n % q == 0 for q in left)-1
+    extra_d = sum(n % q == 0 for q in right)-1
+    return ((1-cp)*(1-cd), (1-cd)*extra_p, (1-cp)*extra_d, F(extra_p*extra_d))
+
+
+def resonance_power_gaps():
+    """Strict exponents excluding selected prime bases from Lambda's window."""
+    (a0, a1, b0, b1), _ = two_prime_gap_geometry()
+    return (3*a1, 4*a0), (4*b1, 5*b0), 2*(a0+b0), (a0+b0)+(a1-a0)+(b1-b0)+a1
