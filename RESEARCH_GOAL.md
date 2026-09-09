@@ -1078,3 +1078,45 @@ adds a verified failed-source application, with its useful setup preserved.
 No new coverage, zero, effective onset, publication, push, foreground work,
 installs or manual wake queue. Qwen remains unavailable without a retry.
 No research process is left running at this checkpoint. Overall goal active.
+
+The separate-factor pursuit proves a RESTRICTED EXPONENTIAL-KERNEL bound
+in `separate_factor_prime_kernel.py`. Keeping M,a separate, their exact
+double Fourier transform at prime modulus p is p*Kl_3(t*h*l;p) off the
+axes,1 on each single nonzero axis, and1-p at the origin, when p does not
+divide t. The t=0 case is separately the product of Ramanujan sums.
+Pointwise complete-sum bounds alone reach Y. Retaining the original
+frequency k and grouping w=k*l AFTER completion instead permits a bilinear
+application of Kowalski--Michel--Sawin Theorem1.1, equation(1.2):
+https://arxiv.org/pdf/1511.01636v5 . This is a different, successful
+source-strength test from the failed generic r=M*a reduction.
+
+The proved model has P=Y^(1/2), M~B=Y^b, a~A=Y^((1-b)/2), k<=K=Y^(b/2),
+1/5<=b<=12/25, smooth SEPARATE M,a weights and arbitrary bounded k weights
+for each PRIME modulus p in[P,2P]. With the actual Poisson prefactor
+Y/(B*A*p), the sum is O_epsilon(Y^(127/128+epsilon)), uniformly m in[Y,2Y].
+Dual lengths U=p/B,V=p/A satisfy U*V*K~p; the grouped coefficient at w=k*l
+is divisor-bounded. The source gives saving p^-1/64. Schwartz truncation
+preserves its hypotheses after small epsilon losses. Axes and p|m moduli
+cost O(B*A+A+B), at most Y^(37/50), and are treated without the unit formula.
+
+This is an analytic cancellation theorem in the stated model, NOT a new
+original-affine prime-pair estimate. The actual modulus d2*c is generally
+composite; rough/sieve/character coefficients and coupled Poisson weights
+have not been transferred. KMS section1.5.2 does not supply the needed
+composite version. Neither all hyperbola boxes nor the remaining b range
+are covered here. The latest ORIGINAL-AFFINE result remains2b8cf98.
+Preserve the polynomial identities, bounds and all previous components.
+Next concrete question: can a composite-modulus third-divisor/Kloosterman
+distribution estimate support these factors with the actual small sieve
+indices and conductor while retaining a power saving? Source hypotheses
+and losses, including any roughness relaxation, must be checked explicitly.
+Four exact cyclotomic/budget tests passed normally in0.062s and under -O
+in0.075s; they guard identities and bookkeeping, not the analytic source.
+Sol reviewer `/root/sieve_review` independently checked the source, theory
+and actual files: PASS, including all modes and the source's prime boundary.
+The pursuit returned `changed-under-evidence` within30 minutes: keeping
+factors separate now has a proved cancellation component worth transferring.
+The overall research goal remains active; no new coverage or signed
+prime-correlation estimate, publication, push, installs or manual wake queue.
+Qwen remains unavailable without a retry. No process is left running at
+this checkpoint, and no work between inactive turns is claimed.
