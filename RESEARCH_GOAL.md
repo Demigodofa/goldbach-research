@@ -1041,3 +1041,40 @@ values preserve the two character cancellations and gain the missing power?
 No new actual coverage, zero, numerical onset, publication, push, foreground
 work, installs or manual wake queue. No process is left running at this
 checkpoint. The overall Goldbach research goal remains active.
+
+The next cofactor-averaging pursuit returns a SOURCE-BUDGET FAILURE in
+`cofactor_averaging_budget.py`. Test: does Bettin--Chandee Theorem1,
+equation(1.2), https://arxiv.org/pdf/1502.00769v1 , give a power saving
+after grouping r=M*a in the actual inverse phase? For M~Y^b, small
+q-divisor a~Y^x and p-divisor c~Y^y, set r_exp=b+x, s=y and
+k_exp=b+x+y-1>=0. The Poisson prefactor is Y/(R*C), and the numerator
+parameter is the target m~Y. The generic L2 norms contribute
+(r_exp+s+k_exp)/2; the phase ratio m*K/(R*C) has exponent0.
+Even granting a COST-FREE separation of the actual coupled weights, the
+two source terms give worst-box exponents
+`39/40+19*b/40` and `15/16+b/2`, attained at x=(1-b)/2,y=1/2.
+At b=1/5 these are107/100 and83/80; at b=13/25 they are611/500 and479/400.
+Both exceed1 throughout the remaining interval. The theorem returns their
+SUM, not their minimum. Fixed-frequency application followed by summation
+worsens its first term and leaves the second unchanged; reciprocity does
+not change the exponents. The required separable decomposition has not
+been proved either, but granting it for free already fails the strength test.
+
+This is a calculation of substituted UPPER bounds, not evidence that the
+actual oscillatory error is large. It rules out only the unchanged generic-
+norm plug-in as a sufficient proof. No new prime estimate or coverage is
+claimed. Preserve cofactor averaging, the exact grouping/normalization, the
+polynomial tools and all previous arithmetic components. A materially new
+next test should retain the separate M and a structure after beta-sieving
+and test whether that gives stronger averaged cancellation; merely citing
+the same generic trilinear estimate under new notation is not a new route.
+Sol reviewer `/root/sieve_review` independently checked the source scaling,
+monotonicity and thresholds, then the actual files: PASS. Four exact tests
+passed normally in0.020s and under Python -O in0.036s. They test bookkeeping,
+not the coupled-sum source hypotheses or any analytic prime estimate. The
+pursuit returned `changed-under-evidence` within30 minutes. The previous
+actual affine result remains the latest arithmetic estimate; this pursuit
+adds a verified failed-source application, with its useful setup preserved.
+No new coverage, zero, effective onset, publication, push, foreground work,
+installs or manual wake queue. Qwen remains unavailable without a retry.
+No research process is left running at this checkpoint. Overall goal active.
