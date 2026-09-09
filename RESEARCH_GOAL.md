@@ -3502,3 +3502,34 @@ costs before drawing any conclusion. Model coefficients are not primes
 or zeros. This targets a specific transfer from the newly proved bounds;
 it must not repeat the older semiprime-modulus model or imply a global
 Goldbach obstruction. Fresh <=30 minutes; overall goal active.
+
+## 2026-09-09: complementary phase gives model reinforcement despite Fourier saving
+
+Started22:38:16 UTC, reassessed22:43:56 UTC, changed-under-evidence.
+Resumed verified clean main6cf340d; reviewed mathematics **1689968**,
+complementary_window_chirp.py. The exact current window operator on
+positive ARTIFICIAL coefficients b_N(n)=1+(1/2)cos[T f_N(n/N)],
+f_N(a)=lambda_N a+(a-1/2)^3, T=N9/10, has the pointwise expansion
+(1/4)sqrt(aN)chi(a f'_N(a))exp[iT f_N(a)]+O(N2/5).
+Choose lambda_N->3 with Tlambda_N an odd multiple of pi. Its exact
+complementary phase identity gives the paired functional -cN+O(N9/10),
+c>0. The model obeys the stated interval/energy mass inequalities AND
+has centered smooth global linear Fourier sums O(N7/10). The proof
+pays discretization, local linearization, Fourier inversion, all Poisson
+aliases and the phase-lattice error. Sol theory/actual-file PASS; six
+guards normal0.002s/-O0.002s. It is an N-dependent dense coefficient
+model, not Lambda, prime support, Type I, zeta zeros or a counterexample
+to Goldbach. The older semiprime-modulus model was checked; this is a
+specific complementary additive-phase mechanism in the current operator.
+
+Next unreviewed test returns to ACTUAL primes: source-check an applicable
+cubic prime-exponential-sum theorem and test whether
+sum psi(n/N)Lambda(n)exp[-iT f_N(n/N)] has a fixed power saving.
+Its leading coefficient has size T/(2piN^3), with a reciprocal rational
+approximant of denominator q~N21/10. Verify approximation tolerance,
+uniform lower coefficients, smoothing, prime powers and actual saving.
+The model has an order-N coefficient against its own phase; excluding
+that alignment would add a nonlinear arithmetic constraint. It would
+not bound arbitrary phase superpositions or the full signed correlation.
+Fresh <=30 minutes; overall goal active, full lower margin OPEN. All
+polynomial tools, source corrections and runtime restrictions persist.

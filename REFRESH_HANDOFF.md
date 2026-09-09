@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **ba1747b**, in short_prime_window_energy.py:
+Latest reviewed RESEARCH commit: **1689968**, in complementary_window_chirp.py:
+an N-dependent dense POSITIVE ARTIFICIAL coefficient model reinforces
+the exact central paired window as -cN+O(N9/10), c>0, despite all
+listed interval/energy bounds and centered smooth linear Fourier sums
+O(N7/10). Complementary cubic phases add to an odd multiple of pi.
+This is not Lambda, actual zero data, prime support or a Goldbach
+counterexample. It limits one proposed transfer from marginal bounds.
+Previous **ba1747b**, in short_prime_window_energy.py:
 at T=N9/10, fixed real smooth chi in(1,2), the ACTUAL moment is
 uniformly O(sqrtN) for x in[N/4,3N/4], its da-energy is O(N), and
 the ACTUAL COMPLEX chi-weighted comparable J_N band is O(N).
@@ -456,7 +463,46 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: short prime windows control a comparable band at main scale
+## Latest pursuit: complementary phase reinforcement survives linear Fourier control
+
+Started22:38:16 UTC, reassessed22:43:56 UTC, changed-under-evidence.
+Resumed verified clean main6cf340d; reviewed mathematics **1689968**.
+Use the SAME exact arithmetic-window operator with artificial weights
+b_N(n)=1+(1/2)cos[T f_N(n/N)], T=N9/10,
+f_N(a)=lambda_N a+(a-1/2)^3, lambda_N->3 and Tlambda_N an odd pi.
+The operator has main (1/4)sqrt(aN)chi(a f'_N(a))exp[iT f_N(a)]
+and uniform discretization error N2/5. Since f_N(a)+f_N(1-a)=lambda_N,
+its no-conjugation central paired functional is -cN+O(N9/10), c>0.
+The negative constant is1/8 times the positive cutoff integral.
+
+The dense positive weights satisfy the interval-mass, global-mass,
+pointwise window and energy INEQUALITIES used inba1747b. Nevertheless
+their centered global Fourier sums with ANY fixed smooth spatial
+cutoff are O(NT^-1/3)=O(N7/10). Poisson's zero alias has a nonzero
+constant third derivative; every other alias is nonstationary and
+summably paid. All statements retain N-dependence and smooth cutoffs.
+This model has no actual prime support, zeta explicit formula or Type I
+claim. The older bd7d1e4 Ramanujan/modulus countermodel was checked;
+this one identifies a different complementary additive-phase mechanism
+in the present window operator. No general barrier or negative actual
+Goldbach sum is asserted. Sol theory/actual-file PASS; six guards
+normal0.002s/-O0.002s. Full signed margin OPEN; overall goal active.
+
+Next concrete question, UNREVIEWED: can an ACTUAL prime polynomial-
+phase estimate exclude this very cubic modulation? For any fixed smooth
+psi, test sum_n psi(n/N)Lambda(n)exp[-iT f_N(n/N)]=O(N^(1-delta))
+for some explicit fixed delta>0. The model instead has an order-N
+coefficient against its own phase. Source-check a primary theorem for
+cubic exponential sums over primes, including uniformity in all lower
+coefficients and its full denominator range. The leading angular
+coefficient has size T/(2piN^3); a reciprocal rational approximation
+has denominator q~N^(21/10), with error O(q^-2). Pay smoothing and
+prime powers, and verify the actual permitted saving rather than
+guessing a remembered Weyl exponent. Success would exclude THIS
+coherent modulation for primes; it would not estimate a superposition
+of arbitrary phases or the full paired correlation. Fresh <=30 minutes.
+
+## Previous pursuit: short prime windows control a comparable band at main scale
 
 Started22:25:14 UTC, reassessed22:36:11 UTC, progress. Resumed verified
 clean mainc6421fc; reviewed mathematics **ba1747b**. Previous native
@@ -483,7 +529,7 @@ printedp3, applies to almost-all intervals of length at least X^(2/15+eps).
 It does NOT supply an asymptotic at our X1/10 window. Do not substitute
 prime existence or lower-density results for that missing asymptotic.
 
-Next concrete question, UNREVIEWED: can complementary smooth phase
+The then-next question, answered in1689968 above: can complementary smooth phase
 modulation reinforce the paired window functional at order N even
 while obeying the new interval/energy bounds and strong global Fourier
 cancellation? Test positive artificial coefficients
@@ -3471,7 +3517,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_short_prime_window_energy` (six guards) and
+Latest tests: `python -m unittest test_complementary_window_chirp` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
