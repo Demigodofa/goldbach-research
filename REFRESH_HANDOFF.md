@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **15b36b9**, in arithmetic_zero_energy.py:
+Latest reviewed RESEARCH commit: **55401fd**, in arithmetic_beta_transfer.py:
+the ACTUAL COMPLEX finite-period smooth comparable-band sum
+sum chi(gamma/N)chi(eta/N)J_N(rho,sigma) is O_chi(NlogN), with
+chi fixed real smooth in(1/100,1/50), no RH and all beta/copies retained.
+An exact beta-integral transfer uses the arithmetic energy; the missing
+negative half-line and positive tail are explicitly paid. The model's
+Nlog^2N reinforcement is excluded in this ACTUAL coupled band. The new
+bound is still too large for an all-log deletion or the full signed margin.
+Previous **15b36b9**, in arithmetic_zero_energy.py:
 the ACTUAL moment family has int_(1/3)^(2/3)|S_N(aN)|^2 da <<_chi NlogN.
 This is a frequency integral at FIXED N, not a target average. The sharper
 uniform approximation S_N(x)=-P_N(x)+O_chi(log^6N) pays the off-critical
@@ -408,7 +416,53 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: arithmetic energy with the approximation error paid
+## Latest pursuit: energy controls the actual coupled comparable band
+
+Started21:32:16 UTC, reassessed21:39:50 UTC, progress. Resumed verified
+clean main0073b6b; reviewed mathematics **55401fd**. The preceding
+bounded pursuit in this same live turn proved the arithmetic energy;
+the preceding goal turn proved the arithmetic moment. No stopped interval
+is claimed as research execution. The new complex bound is O_chi(NlogN)
+for the ACTUAL fixed smooth band, preserving beta, copies and the diagonal.
+
+The exact quotient 2N^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma)
+is paired by the beta integral with S_N(aN)S_N((1-a)N). Fresh source:
+NIST DLMF5.12.1, positive complex real parts. Three nonstationary
+endpoint integrations, zero-free/reflection and the first moment pay
+O(N^-1log^13N). The energy extends to the FIXED interval[1/4,3/4],
+with prime support[N/8,2N] and sampling slopes[2/3,8]; Cauchy pays
+the central integral. Full-line inversion is justified by a Gaussian
+approximate identity and improper-tail convergence, even when beta+beta'<=1.
+The negative half-line is exponentially paid. The upper tail has leading
+coefficient +i(-1)^N/[N(1-(gamma+eta)/(piN))], SUBTRACTED from the
+quotient to get J. Fixed endpoint projection pays O(N); the new density
+first moment pays its second-order remainder by log^12N. Retaining b/t
+in the modulus derivative is needed for uniformity as b decreases to0.
+No finite-period kernel was silently replaced by its infinite quotient.
+
+Sol theory/actual-file PASS; five guards normal0.001s/-O0.001s. No actual
+prime/zero calculation or all-log deletion. The sufficient lower margin
+remains OPEN. Polynomial tools, source corrections and runtime limits
+persist. No outside action, manual wake, novelty or post-stop process claim.
+
+Next concrete question, UNREVIEWED: does nonnegative chi provide a useful
+sign after this coupled band is transferred back to prime pairs? Derive
+the actual real-band expression with o(N) error in additive offsets
+k=n+m-N. A candidate leading coefficient, at a=n/N in the central
+range, is W_a(k)=(1/pi)int chi(a*v)chi((1-a)*v)exp(-ikv)dv.
+Check its factor, endpoint corrections, varying a, Fourier-cutoff tails
+and prime powers before promoting that formula. The uniform O(log^6N)
+moment error and the proved energy may pay its product replacement by
+O(sqrtN log^7N). For the real part, the saved endpoint parity projection
+may cancel the leading imaginary tail; this extension also needs proof.
+Concrete discriminator: can Re W_a(k) be nonnegative on every EVEN
+offset, or does Poisson summation force negative coefficients because
+the v support misses all multiples of pi? A negative coefficient alone
+is not an actual negative prime sum or an all-method barrier. This tests
+one positivity mechanism and identifies which signed arithmetic remains.
+Fresh <=30-minute pursuit, not yet performed. Overall goal stays active.
+
+## Previous pursuit: arithmetic energy with the approximation error paid
 
 Started21:24:53 UTC, reassessed21:31:02 UTC, progress. Resumed verified
 clean maina4ff5ac; reviewed mathematics **15b36b9**. The previous goal
@@ -428,7 +482,7 @@ Sol theory/actual-file PASS; six guards normal0.004s/-O0.004s. No new
 source theorem, actual prime/zero computation, outside action or manual
 wake. Earlier corrections and polynomial tools persist. Full margin OPEN.
 
-Next concrete question, UNREVIEWED: can the beta-integral representation
+The then-next question, answered in55401fd above: can the beta-integral representation
 of 2N^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma) transfer
 this energy to an O_chi(NlogN) bound for the ACTUAL finite-period
 smooth comparable linear-height band? The proposed integral is
@@ -3183,7 +3237,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_arithmetic_zero_energy` (six guards) and
+Latest tests: `python -m unittest test_arithmetic_beta_transfer` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

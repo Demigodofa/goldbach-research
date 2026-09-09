@@ -3298,3 +3298,43 @@ the new first moment may suffice. Prediction: O_chi(NlogN) for the
 smooth comparable linear-height band, still not all-log or a sufficient
 Goldbach margin. Falsifier: an unpaid tail or invalid coupled transfer.
 Fresh <=30-minute pursuit, not yet performed. Overall goal remains active.
+
+## 2026-09-09: arithmetic energy transfers to the actual coupled band
+
+Started21:32:16 UTC, reassessed21:39:50 UTC, progress. Resumed verified
+clean main0073b6b; reviewed mathematics **55401fd**,
+arithmetic_beta_transfer.py. This is the second bounded pursuit within
+the same live goal turn, following the reviewed arithmetic energy.
+For fixed real chi smooth in(1/100,1/50), the ACTUAL COMPLEX sum
+sum chi(gamma/N)chi(eta/N)J_N(rho,sigma) is O_chi(NlogN). All beta,
+multiplicities and diagonal terms remain; no RH or target averaging.
+This excludes the model's Nlog^2N reinforcement in the actual coupled
+band, but remains too large for an all-log deletion or the signed margin.
+
+NIST DLMF5.12.1 supplies the source-checked beta integral with positive
+complex real parts. The exact quotient has factor2 and becomes
+2 int S_N(aN)S_N((1-a)N)/sqrt(a(1-a)) da. Endpoint localization costs
+N^-1log^13N after three integrations, zero-free/reflection and the
+first moment. Extending the energy to fixed[1/4,3/4] with explicit
+constants pays the central integral. Gaussian-regularized inversion and
+improper convergence connect the quotient to the FULL line, not directly
+to J. The negative half-line is exponentially small; the positive tail
+is O(N)+O(log^12N), by fixed endpoint projection and the sharpened
+first moment. Its leading +i endpoint is subtracted to recover J.
+
+Sol theory/actual-file PASS; five guards normal0.001s/-O0.001s. No
+actual prime/zero computation, new coverage, novelty or outside action.
+All earlier corrections and polynomial tools persist. Full margin OPEN;
+overall goal active. No manual wake or post-stop execution claim.
+
+Next unreviewed test: derive the actual real-band prime-pair expression
+with o(N) error and investigate its sign. For k=n+m-N, a=n/N, the
+candidate coefficient is W_a(k)=(1/pi)int chi(av)chi((1-a)v)e^-ikv dv.
+Check all constants, variable-a errors, tails and prime powers; the
+improved moment replacement and energy suggest a sqrtN log^7N error.
+For real parts, test the saved parity projection's cancellation of the
+leading imaginary endpoint. Then test whether nonnegative chi can make
+Re W_a(k)>=0 for every even k, or whether Poisson summation forces
+negative coefficients because the v support misses pi times integers.
+This is a concrete test of a positivity mechanism, not a promised lower
+bound or an obstruction to every use of these tools. Fresh <=30 minutes.
