@@ -129,6 +129,10 @@ squarefree triples have W=0, so this positive formal triple kernel prevents
 reuse of a pointwise K<=C*W argument based on nonpositive triple weights.
 The formula is a candidate component, not a new controlled prime-pair bound.
 Changing coefficients alone has not closed the correlation gap.
+quintic_partner_weight.py now extends absolute rare-factor pruning to this
+alternative, identifies its surviving two-through-six-factor terms, and
+bounds its positive pure-triple contribution on the main scale. Positive
+five-factor terms also survive; sufficient composite control remains open.
 
 Helper inputs are exact rational polynomial coefficients in ascending degree,
 not sampled logarithms of actual primes. The degree64 cap is only a finite

@@ -849,3 +849,25 @@ and with Python -O, including sharp costs and an independent eight-divisor
 triple expansion. The pursuit closed within30 minutes, with no new actual
 coverage, zero, numerical onset, priority search, publication work or wake
 queue. Overall research remains active.
+
+The next pursuit controlled part of the alternative's new error in
+`quintic_partner_weight.py`. For ANY fixed polynomial, its rough-partner
+weight is bounded by C_f,theta*log(Y), so repeated factors, two or more
+positive-sign factors, and positive factors w<q<=Y^(1/2-2epsilon) can
+be discarded absolutely with o(Y*t) cost using the existing estimates.
+For the alternative quintic, seven or more negative factors give zero;
+five give the strictly positive normalized weight240*kappa*2^h*product x_i.
+The surviving signed reduction is exactly prime pairs plus two-, three-,
+four-, five- and six-factor partners and o(Y*t). Even classes have one
+positive-sign factor above the enlarged cutoff; odd classes have none.
+Positive pure triples force a prime larger than n^(18/25), leaving a
+two-prime cofactor below Y^(7/25). An auxiliary sieve then gives the actual
+bound S_3^+<<kappa*Y*S_2(m)*t with an absolute constant. Its remainder
+indices are NOT injective: at most binom(omega(index),2) choices cost
+O(log(Y)^2), still absorbed by the relative distribution budget. This is
+only a main-scale bound, not a small fraction or a positivity theorem.
+Positive balanced five-factor weights expose an additional surviving loss.
+Sol checked theory and actual files; five exact tests passed normally
+and with Python -O. The pursuit returned `changed-under-evidence` within30
+minutes. No new actual coverage, zero, numerical onset, priority search,
+publication work or wake queue. Overall research remains active.
