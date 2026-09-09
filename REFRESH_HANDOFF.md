@@ -35,9 +35,11 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **d945ac2**, a failed source-bound budget.
-Latest actual ARITHMETIC estimate: **2b8cf98**. The handoff is committed later.
-The preceding reviewed checkpoint was **9cd5a2e**, mathematics **2b8cf98**.
+Latest reviewed RESEARCH commit: **d42317b**, a restricted exponential-kernel
+theorem. Latest ORIGINAL-AFFINE arithmetic estimate: **2b8cf98**. The
+handoff is committed later. Preceding checkpoint **8eefa83** preserved the
+failed source-bound budget **d945ac2**; it remains valid.
+Earlier reviewed checkpoint **9cd5a2e** preserved mathematics **2b8cf98**.
 Earlier coefficient-one checkpoint: **b4bf033**, mathematics **c8724f7**.
 Earlier resumed checkpoints **b4dfc45** and mathematics **e86c878** remain valid.
 This resumes the verified clean **cf48198** checkpoint; **6f9a77b** remains
@@ -48,15 +50,17 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `cofactor_averaging_budget.py` — latest tested source route FAILED its
-   quantitative budget. It does not replace the actual arithmetic result.
-2. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+1. `separate_factor_prime_kernel.py` — latest proved restricted kernel.
+   A power saving works for smooth weights at PRIME moduli; transfer OPEN.
+2. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+   its quantitative budget. Do not retry the same generic grouping.
+3. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-3. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-4. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+4. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+5. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-5. `formal_weight_conservation.py` — completed formal result and exact gap.
-6. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+6. `formal_weight_conservation.py` — completed formal result and exact gap.
+7. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -64,7 +68,48 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: generic trilinear averaging fails its budget
+## Latest pursuit: a separate-factor prime kernel gains a power
+
+**d42317b**, `separate_factor_prime_kernel.py`. Sol reviewer
+`/root/sieve_review` independently passed source, theory and actual files.
+Four exact cyclotomic/budget tests passed normally in0.062s and under -O
+in0.075s. The pursuit returned `changed-under-evidence` within30 minutes.
+This is a proved EXPONENTIAL-KERNEL estimate in a restricted model; it
+does not supersede the original-affine estimate2b8cf98.
+
+For P=Y^(1/2), B=Y^b, A=Y^((1-b)/2), K=Y^(b/2), 1/5<=b<=12/25,
+the module bounds the sum over PRIME moduli p in[P,2P], frequencies k<=K,
+and separate smooth M~B,a~A weights of e_p(m*k*inverse(M*a)), with the
+original Poisson prefactor Y/(B*A*p), by Y^(127/128+epsilon). Arbitrary
+bounded frequency weights may depend on p; m is uniform in[Y,2Y].
+
+The exact double transform is p*Kl_3(t*h*l;p) off the axes,1 on each
+single nonzero axis, and1-p at the origin, for p not dividing t. The t=0
+case is separately a Ramanujan-product identity. After completion retain
+k and group w=k*l. The dual lengths U=p/B,V=p/A satisfy U*V*K~p and the
+grouped coefficients are divisor-bounded. Kowalski--Michel--Sawin
+Theorem1.1, equation(1.2), supplies saving p^-1/64:
+https://arxiv.org/pdf/1511.01636v5 . Its unit/support/length hypotheses
+survive Schwartz truncation with small epsilon losses. All axes and p|m
+moduli cost O(B*A+A+B)<=Y^(37/50), treated without misusing the unit formula.
+Pointwise complete-sum bounds alone reach Y. The material improvement is
+JOINT cancellation of the completed frequency h and product w=k*l.
+
+OPEN transfer: actual d2*c moduli are generally composite; the rough,
+sieve and character weights and coupled Poisson functions are outside
+the proved statement. KMS section1.5.2 does not supply a composite version.
+Other hyperbola boxes and b outside the stated interval are not covered.
+No new original prime-pair estimate or signed-correlation bound follows.
+
+Next concrete question: can composite-modulus third-divisor/Kloosterman
+distribution handle these factors, then the actual small sieve indices
+and conductor, while retaining a power saving? Check a source's explicit
+moduli and coefficient hypotheses. Removing M roughness entirely loses
+a logarithm in reciprocal mass and is not a free relaxation. Preserve all
+polynomial tools and the arithmetic components below. No process remains
+running at this checkpoint; overall goal active and no manual wake queue.
+
+## Previous pursuit: generic trilinear averaging fails its budget
 
 **d945ac2**, `cofactor_averaging_budget.py`, four exact scaling tests. Sol
 reviewer `/root/sieve_review` checked the source, formulas and actual files:
@@ -91,10 +136,10 @@ excess. These are substituted UPPER estimates, not evidence that the actual
 sum is large and not an impossibility theorem for cofactor averaging.
 Do not invoke this same generic-norm bound again under changed notation.
 
-Next concrete direction: retain M and a as separate variables after
-beta-sieving, and test whether their structure supplies stronger averaged
-cancellation. The generic convolution-coefficient norm discards precisely
-that information. This is an OPEN hypothesis, not a saved theorem. Preserve
+That pursuit's next question was whether retaining M and a as separate
+variables after beta-sieving gives stronger averaged cancellation. The
+restricted smooth prime-kernel result above now supplies a component;
+the actual sieve/arithmetic transfer remains OPEN. Preserve
 all polynomial tools and the arithmetic components below. No new actual
 coverage, zero, numerical onset, publication or wake queue. No process is
 left running at this checkpoint; overall research remains active.
