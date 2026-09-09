@@ -578,3 +578,25 @@ publication work or wake queue. A useful next approach must retain the
 character margin while repairing the arithmetic-distribution compatibility,
 or control the specific signed decomposition without that absolute Type I
 premise. Overall research remains active.
+
+The next pursuit tested weighted pooling of the small wheel models and
+returned `changed-under-evidence`. `wheel_mixture_obstruction.py` proves
+that ANY finite mixture of normalized unit wheels Q_i<=N^sigma, sigma<1,
+with real coefficients summing to1 and total variation<=C0*(logN)^B,
+still has absolute Type I error >>N/((logN)^(B+1)*loglogN). There is no
+bound on the component count or their combined least common multiple.
+The statement also allows a common primitive character correction, with
+one necessary prime-conductor exclusion handled explicitly. Weighted prime
+coverage and a nonnegative test align the signed defects; negative mixture
+coefficients are not treated as positive. Convex and bounded-variation
+signed mixtures fail already at the A=2 saving. Positive model margins
+are preserved only for nonnegative mixtures under the earlier common
+actual-zero premises. Sol checked the proof and actual helpers; four focused
+tests passed normally and with Python -O, including joint-period counts,
+negative coefficients, repeated prime powers and the character exclusion.
+The pursuit closed within30 minutes. Thus arbitrarily many easy models
+of this stated kind do not repair the distribution mismatch. Specific
+signed Vaughan cancellation, different residue weights or larger individual
+models remain distinct possibilities. No new actual coverage, zero detection,
+numerical onset, priority search, publication work or wake queue. Overall
+research remains active; the exact earlier-output parity mechanism is intact.
