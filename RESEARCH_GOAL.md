@@ -1417,3 +1417,50 @@ No old experiment was rerun. Qwen remains unavailable without retry;
 no model install, publication, push, foreground action or manual wake queue.
 No research process is left running at this checkpoint. The overall goal
 remains active, with no claim of execution during pauses.
+
+The next pursuit proves `squarefree_unbalanced_kernel.py`: the unbalanced
+MODEL box B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4) is now covered for
+ALL squarefree q. FKM1405.2293v2 Corollary3.4 supplies the prime four-factor
+bound with an explicit rank3 normality check. Divisor shifts preserve one
+modulus factor and expose this correlation on the other. A weighted signed
+congruence graph bounds every nonunit difference; they are not discarded.
+
+An integer factorization dichotomy combines that route with the retained
+prime/two-prime amplification. It gives norm factor X*q^(-1/256+epsilon)
+for arbitrary coefficients supported <=X, sqrt(q)<=X<=q^(1/2+1/256),
+for the natural K_q extension and ANY integer multiplier. A disjoint
+gcd(c,q), gcd(m,q0), gcd(n,q1) partition pays the nonunit cases explicitly.
+Fixing h before the l,k bilinear estimate needs only one period-residue
+split: the small-transform cost is T^3. All joint periods, nonunit modes,
+integer axes and their overlap remain included. The full MODEL satisfies
+  sum_q |E_q|<<Y^(1-1/4096+epsilon),
+with raw exponent1-511/1048576. The source hypotheses and the original
+arithmetic/sieve-transfer boundary remain explicit in the proof module.
+
+The exact exponent test corrected an overcount in the draft: the period
+decoration total is6+1/256, not7+1/256. The correction strengthens the
+bound. Eight NEW finite algebra/budget tests passed normally in0.124s and
+under -O in0.135s. Sol `/root/sieve_review` passed the theory, actual files,
+divisor-shift endpoints, corrected arithmetic and the following splice.
+
+The existing squarefull-part split does NOT finish the same box at the
+full period/frequency caps. Even after using the small-squarefull density,
+its head/tail exponents are
+  1-511/1048576+(3/2+1/256)*z, 1+5/4096-z/2.
+Their optimal maximum is467315/466944>1 at z=199/233472, within the
+proved support ranges. This is a failure of these upper bounds only.
+Do not repeat the same splice. Next concrete question: can a prime-square
+four-factor correlation, derived from the retained stationary-phase
+formula, save a power outside explicit exceptional congruences? Check
+the critical equations and exact finite sums before any general claim.
+
+Preserve KMS Proposition4.29's fixed integral bad hypersurface as another
+promising component; its full alternative CRT/amplification route was
+not proved or needed here. Prime powers in this box, full box coverage,
+original sieve transfer and the signed prime correlation remain OPEN.
+Latest original-affine remains2b8cf98; all polynomial tools survive.
+This pursuit began09:26:06 UTC and returns `changed-under-evidence` before
+its09:56 UTC ceiling. No old experiment, install, publication, push,
+foreground action or manual wake queue. Qwen remains unavailable without
+retry. No research process is left running at this checkpoint. The overall
+goal remains active, with no claim of execution during pauses.
