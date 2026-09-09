@@ -803,3 +803,26 @@ and actual files; four focused exact tests passed normally and with Python
 -O. The pursuit returned `changed-under-evidence` within30 minutes. No
 actual zero, numerical onset, new Goldbach coverage, priority search,
 publication work or wake queue. Overall research remains active.
+
+The positivity pursuit found a checked obstruction in
+`cubic_positivity_obstruction.py`. Pairing complementary divisors gives the
+exact cubic hyperbola kernel h(x)=(1-2x)*(1+kappa*x*(1-x)). Let T_low
+retain only divisors d<=Y^(1/2-2epsilon) in the SAME T_kappa. At fixed
+epsilon and sufficiently small delta, then sufficiently large fixed u,
+the actual-zero hypotheses imply T_low<=-(kappa/32)*Y*S_2(m)*t.
+The signed sieve expansion uses unique rough/smooth factorization of its
+remainder indices. Actual character rarity reduces its divisor MAIN to
+a Mobius simplex limit, the Dickman function. Its exact first three
+moments give the normalized coefficient (2-kappa)/2 as theta=delta/u
+decreases. Choosing u first makes the fixed sieve error sufficiently
+small; Y then grows. No growing-u or growing-kappa theorem is asserted.
+This is a negative estimate ONLY for T_low, not the full signed total.
+Its complementary divisor range must supply a substantial positive term
+for this weight to prove positivity; treating that range as negligible
+would make the route fail. The earlier composite-error inequality remains
+valid. Sol checked theory and actual files; five exact tests passed
+normally and with Python -O, including rational Dickman tail enclosures,
+both boundary signs, and complete finite divisor/support controls. The
+pursuit returned `changed-under-evidence` within30 minutes. No new actual
+Goldbach coverage, zero, numerical onset, priority search, publication
+work or wake queue. Overall research remains active.

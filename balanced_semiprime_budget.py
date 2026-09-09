@@ -100,6 +100,10 @@ The remaining requirement is a lower bound for T_kappa that exceeds the
 displayed budget. Taking epsilon to0 with Y, or assuming positivity from
 the original nonnegative total T, is not justified. No new actual Goldbach
 coverage, numerical onset, zero existence or historical novelty follows.
+cubic_positivity_obstruction.py now shows that, with u sufficiently large,
+the accessible initial divisor portion of this signed total is negative
+on the prime-pair scale. Its complementary divisor range cannot merely be
+treated as a negligible error in a successful positivity argument.
 """
 from fractions import Fraction as F
 
