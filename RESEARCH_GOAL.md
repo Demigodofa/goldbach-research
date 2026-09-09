@@ -2763,3 +2763,43 @@ and the height tail. Only polynomial-log losses may be absorbed into
 the power saving; fixed-G constants cannot be silently treated as uniform.
 No shrinking delta or stationary-region estimate is assumed. Fresh
 <=30-minute hypothesis, with the full signed Goldbach margin still open.
+
+## 2026-09-09: the full smooth nonstationary spectral tail is controlled
+
+Started19:16:56 UTC, reassessed19:27:08 UTC, progress. Resumed verified
+clean mainf2db6b6; reviewed mathematics **4c69475**,
+nonstationary_spectral_reduction.py. Previous goal turn was progress:
+fixed-box signed cancellation supplied a concrete extension mechanism.
+
+For fixed delta>0 and fixed smooth Psi, zero belowpi+delta and one above
+pi+2delta, the ACTUAL full positive-height pair sum weighted by
+Psi((gamma+eta)/N) has real part O_delta(sqrtNlog^40N). The extension
+pays support[-S,S] with projection error S Q12 sqrtNlogN, the O(logN)
+powers-of-two correction at the axis, and negative-height endpoint terms.
+At B=16pi logN the tensor coefficients cost B^32; all remaining support,
+seminorm, beta and integration-by-parts costs are explicit polynomial logs.
+The sharp absolute tail N^-11/2 log^(5/2)N at T=16piNlogN, multiplied
+by full absolute majorant N^(5/2)logN, also pays coupled bounded weights.
+
+Thus the remaining C_low is FINITE, supported on positive
+gamma+eta<=(pi+2delta)N, with weight1-Psi. The complete transfer is
+R(N)=2psi(N-1)-N+C_low+O_A,delta(N/log^A N), each fixed A. The author
+caught and corrected an initial square-root-error claim for this combined
+formula before promotion: the earlier opposite-sign error remains
+N sqrt(logN)exp(-c sqrt(logN)), so it cannot be absorbed into sqrtNlog^40N.
+The new tail alone has the stronger bound. A finite guard preserves this
+distinction, and independent actual-file review confirmed the correction.
+
+Sol theory/actual-file PASS; seven guards normal0.002s/-O0.004s. No RH,
+target averaging, hard/shrinking cutoff, practical zero certificate, new
+prime-pair coverage, numerical onset or worldwide novelty claim. The
+surviving signed lower margin stays OPEN. Polynomial tools and all source
+corrections persist. Overall goal active; no process claimed after the
+reviewed checkpoint, no outside action or manual wake queue.
+
+Next unperformed question: pay the identical-zero contribution in the
+surviving stationary sum using a uniform diagonal-kernel bound and a
+source-checked classical zero-density theorem. Include small heights,
+the finite-period endpoint transition and multiplicity-squared counts.
+Seek an all-log bound without RH or an assumption of simple zeros; any
+success would still leave the distinct-zero correlation. Fresh <=30 minutes.

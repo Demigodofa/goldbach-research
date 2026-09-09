@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **793b135**, in smooth_endpoint_cancellation.py:
+Latest reviewed RESEARCH commit: **4c69475**, in nonstationary_spectral_reduction.py:
+for fixed delta>0 and fixed smooth Psi=0 belowpi+delta, =1 abovepi+2delta,
+the FULL positive-height pair tail weighted Psi((gamma+eta)/N) has signed
+size O_delta(sqrtN log^40N). Axes, support growing like logN, seminorms,
+and bounded coupled tails are paid. The surviving pair sum has
+gamma+eta<=(pi+2delta)N. The combined R formula has O_A(N/log^A N) error,
+NOT a square-root error: retain the inherited N sqrt(logN)exp(-c sqrt(logN))
+opposite-sign loss. This correction was caught by the author and reviewed
+before promotion. The finite surviving signed lower bound stays OPEN;
+no hard/shrinking cutoff, practical zero certificate or new coverage.
+Previous **793b135**, in smooth_endpoint_cancellation.py:
 for each FIXED REAL G in C_c^infinity((8pi,9pi)^2), the ACTUAL signed
 weighted pair sum Re sum G(gamma/N,eta/N)J_N is
 O_G(sqrtN logN+log^2N), WITHOUT RH, target averaging or a PNT asymptotic.
@@ -233,7 +243,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the selected spectral lane first read `smooth_endpoint_cancellation.py`,
+For the selected spectral lane first read `nonstationary_spectral_reduction.py`,
+then `smooth_endpoint_cancellation.py`,
 then `spectral_endpoint_obstruction.py`,
 then `one_sided_zero_reduction.py`,
 then `pointwise_zero_pair_gate.py` and its CORRECTED source locators.
@@ -306,7 +317,43 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: prime parity pays an actual signed smooth endpoint region
+## Latest pursuit: the full smooth nonstationary spectral tail is paid
+
+Started19:16:56 UTC, reassessed19:27:08 UTC, progress. Resumed clean
+mainf2db6b6; reviewed mathematics **4c69475**. Previous turn was progress:
+the actual fixed-box signed cancellation supplied this extension mechanism.
+Positive-zero projection now allows support[-S,S], with error
+O(S Q12(w)sqrtNlogN). The powers-of-two correction is O(logN) at the
+axis; negative-height endpoint terms are absolutely bounded. With
+B=16pi logN, sixteen Fourier integrations per variable cost B^32;
+every support and seminorm cost is displayed. The leading error is
+O(sqrtNlog^34N+log^36N), safely inside sqrtNlog^40N.
+Three integrations by parts above a FIXED separation pi+delta have
+normalized error O(B^3N^-3). The sharp absolute tail at T=16piNlogN,
+N^-11/2 log^(5/2)N, is retained until multiplication by the full absolute
+majorant N^(5/2)logN. Thus arbitrary bounded coupled tail weights are paid.
+
+The result removes the full smooth tail Psi((gamma+eta)/N). What remains
+is FINITE, with positive gamma+eta<=(pi+2delta)N. The combined pointwise
+error is only O_A(N/log^A N), because the earlier opposite-sign error is
+N sqrt(logN)exp(-c sqrt(logN)). An initial author draft incorrectly used
+the new square-root bound for the combined formula; corrected before
+promotion, with a guard and independent actual-file confirmation.
+Sol theory/actual PASS; seven guards normal0.002s/-O0.004s. No zero/prime
+computation, coverage/onset/novelty claim, outside action or manual wake.
+All polynomial tools and source corrections persist. Overall goal active;
+no process claimed after this checkpoint.
+
+Next concrete question, UNPERFORMED: can the identical-zero contribution
+in the surviving stationary sum be bounded absolutely without RH? First
+prove a uniform diagonal kernel bound, including small heights and the
+endpoint transition, then source-check and apply a classical zero-density
+estimate. Count equal-location pairs with multiplicity squared, not merely
+once per zero. Seek an all-log error; reject a silent critical-line or
+simple-zero assumption. This would still leave distinct-zero correlations
+and the full Goldbach margin open. Fresh <=30-minute hypothesis.
+
+## Previous pursuit: prime parity pays an actual signed smooth endpoint region
 
 Started19:03:10 UTC, reassessed19:14:13 UTC, progress. Resumed verified
 clean maind104b80; reviewed mathematics **793b135**. The previous goal
@@ -335,7 +382,7 @@ novelty claim. The full same-sign lower margin stays OPEN. All polynomial
 components and source/runtime corrections persist; no process claimed after
 checkpoint. Overall goal active, no outside action or manual wake queue.
 
-Next concrete question, UNPERFORMED: can this mechanism control all smooth
+The then-next question (completed with uniform costs in4c69475): can this mechanism control all smooth
 positive-height pairs with gamma+eta>(pi+delta)N, fixed delta>0, through
 the licensed T=C NlogN? Pay the axes (one height near0), the growing
 support O(logN), every smooth seminorm, and the height tail. Seek only
@@ -2599,7 +2646,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_smooth_endpoint_cancellation` (six guards) and
+Latest tests: `python -m unittest test_nonstationary_spectral_reduction` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
