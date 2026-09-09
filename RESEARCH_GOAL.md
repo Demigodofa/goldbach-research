@@ -1680,3 +1680,51 @@ Kevin reiterated freedom to incorporate other mathematical approaches.
 No historical priority, prize entitlement, cash or universal coverage claim.
 Overall goal active. No research process remains running at the checkpoint;
 execution gaps remain gaps, and all polynomial components stay available.
+
+## 2026-09-09: cutoff bridge and conditional coverage of an entire band
+
+Started11:59:43 UTC, reassessed12:14 UTC, changed-under-evidence.
+Resumed clean main1e71488, mathematics2b72af7. New reviewed mathematics
+**9b6e7b4**, prime_cutoff_bridge.py, proves S_z-S_theta=o_theta(Yt), hence
+ P_g=S_2(m)t I_g+o_theta(Yt)
+for suppressed targets in the SAME actual-zero restricted large-V regime.
+The explicit cutoff error is S_2Yt^2U^8log(2U)+Y^(7/9+theta+o(1))
++S_2Y eta^-20. This is an ACTUAL prime-pair asymptotic, distinct from
+formal conservation6f9a77b. Its proof retains the original fixed parameters.
+
+An intermediate prime r in[z,z_old] yields three nonnegative union cases.
+Positive r on either side produces an affine lambda/W sum; one harmonic
+cancellation and the positive-prime reciprocal mass O(t) supply two rarity
+factors. Negative r on nonzero W support produces lambda/lambda and two
+harmonic cancellations, with reciprocal loss O(log U). Since r is small,
+Q=Y/r>>Y^(4/5); the direct Poisson proof handles both W placements at
+modulus Dd2c. Native(r,d2c)=1 remains until the zero mode. The prior
+cofactor theorem's stronger roughness hypothesis is replaced by an explicit
+prime-coefficient adaptation, not assumed away. Dynamic removals retain
+Y/z exp(O(U))L^C, rather than an unjustified fixed-power slogan.
+
+The source main multiplier1+C/A equals zero precisely on F_D and is >=2/3
+otherwise. Its CRT proof explicitly includes a vanishing8-part. MM
+Theorem1.4 therefore covers the nonsuppressed classes with relative o(1)
+error; proper prime powers cost O(sqrt(m)log^3m). That theorem has NO
+upper-V restriction. Combining the two cases proves a prime representation
+for EVERY even m in[5Y/4,7Y/4], conditional on the stated ACTUAL zero and
+eligible parameter regime. The nonsuppressed pair need not lie in(Y/2,Y].
+No eligible zero, numerical interval, effective onset, unconditional coverage
+or historical novelty has been established. Other zero regimes and the
+unexceptional branch remain outside this theorem; overall Goldbach is OPEN.
+
+Nine new exact tests passed normal0.021s and -O0.021s. Sol checked theory,
+actual proof/code/tests and coverage corollary, PASS. Source corrections and
+runtime limits persist; no scan, publication, contact, spend or wake queue.
+
+Next UNTESTED question: derive the exact Mobius-weighted Type II remainder
+in the unexceptional ramanujan_type_i.py comparison, using Vaughan's
+identity, and test whether the existing all-moduli reciprocal kernel can
+handle its actual large-factor weights. The model only promises smooth
+spatial factors and bounded joint periodic weights; arbitrary Mobius or
+divisor coefficients may fall outside it. Cost every norm/frequency loss
+before claiming a transfer, or preserve the specific remaining correlation.
+Do not rerun completed smooth-model cases or discard polynomial tools.
+This lane needs a new <=30-minute hypothesis and independent review.
+Goal active; no research process remains running at the checkpoint.

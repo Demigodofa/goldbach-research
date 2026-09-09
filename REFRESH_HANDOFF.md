@@ -35,13 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **2b72af7**, actual dynamic divisor
-correlation S_z=S_2(m)t I_g+o(Yt), and SEPARATE original-cutoff
-S_theta=P_g+o(Yt). The difference S_z-S_theta remains OPEN.
+Latest reviewed RESEARCH commit: **9b6e7b4**, prime cutoff bridge
+S_z-S_theta=o(Yt), positive-first prime asymptotic P_g=S_2(m)t I_g+o(Yt),
+and CONDITIONAL coverage of every even target in the eligible central band.
+The ACTUAL-zero and restricted large-V hypotheses remain essential.
+Previous **2b72af7** proved the two different-cutoff components separately.
 Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **1e71488** preserved2b72af7.
 Previous checkpoint **e436401** preserved e5c955d.
 Previous checkpoint **ddfa2aa** preserved4e106b6.
 Previous checkpoint **53eeab1** preserved the full smooth MODEL
@@ -72,8 +75,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `rare_divisor_calibration.py`, its two DISTINCT cutoffs and
-the still-open difference. Then `rare_class_elimination.py`, the coverage consequences
+First read `prime_cutoff_bridge.py`, its conditional coverage and exact
+remaining scope. Then `rare_divisor_calibration.py`, the two cutoffs now
+connected by that bridge, and `rare_class_elimination.py`, the coverage consequences
 and still-missing signed lower bound. Then read
 `rough_cofactor_sieve_bridge.py`, the actual affine transfer,
 positive weighted density lemma and exact source-sign correction.
@@ -116,7 +120,69 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual divisor correlation calibrated to rare-prime mass
+## Latest pursuit: cutoff bridge gives conditional prime-pair coverage
+
+**9b6e7b4**, `prime_cutoff_bridge.py`, proves in the SAME ACTUAL-zero
+large-V regime and original fixed parameter choices
+ 0<=S_z-S_theta
+   << S_2(m)Yt^2 U^8 log(2U)+Y^(7/9+theta+o(1))+S_2(m)Y eta^-20
+   =o_theta(Yt),
+with U=K log eta and theta=delta/u<1/5. It composes2b72af7 into
+ P_g=S_2(m)t I_g+o_theta(Yt)
+on suppressed targets. This is an ACTUAL weighted prime-pair estimate,
+not the earlier formal conservation identity. A smooth minorant I_g>>Y
+proves conditional positivity, with ineffective onset and no numerical example.
+
+Mechanism: remove squareful/shared terms with explicit Y/z exp(O(U))L^2.
+Any remaining cutoff-difference term has a prime r in[z,z_old]. Positive r
+in x or n gives respectively lambda(x)=2lambda(x/r) or W(n)=2W(n/r);
+negative r on nonzero W support is unique and W(rM)=lambda(M)log r.
+These are three nonnegative union cases, not a disjoint partition. Keep
+the reduced variable Q=Y/r as coefficient-r first form, Q>>Y^(4/5).
+The DIRECT Poisson proof has modulus Dd2c, with native(r,d2c)=1 retained
+until zero mode. Prime r>=z replaces the old cofactor roughness hypothesis
+by a proved local-factor bound1+O_A(1/r); it is not a theorem substitution.
+Zero-mode coprimality removals sum to Y L^C/z. Both W placements preserve
+the normalized smooth derivatives; nonzero modes sum with a fixed margin.
+
+Conductor means are A,0,0,-chi(r)A. Positive r gives one A_z cancellation
+and one B_z moment, then its reciprocal prime mass O(t) gives the second
+rarity factor. Negative r gives two A_z cancellations and costs only
+sum1/r=O(log U). This avoids the failed dynamic pointwise W estimate.
+
+An elementary residue gap completes ALL residue classes in the band:
+MM Theorem1.4's multiplier is kappa=1+C/A in {0} union[2/3,2]. The zero
+case is exactly F_D; an8-part may instead give C/A=0, so retain that case.
+For nonzero kappa, the existing source theorem has relative error o(1),
+and proper prime powers cost O(sqrt(m)log^3m). It only requires m>=D^10,
+with NO upper-V condition. Thus every even m in[5Y/4,7Y/4] has a prime
+representation under the same eligible zero and scale hypotheses. The
+nonsuppressed pair is not asserted to lie in(Y/2,Y]. This is CONDITIONAL
+coverage, not an actual eligible zero, effective onset, universal Goldbach
+or historical-priority claim. The unexceptional and other zero regimes remain.
+
+Started11:59:43 UTC, reassessed12:14 UTC, changed-under-evidence. Nine NEW
+finite guards passed normal0.021s and -O0.021s. Sol reviewed theory, actual
+files and the all-residue corollary, PASS. The source8-part zero and
+prime-power logarithm qualifications are explicitly preserved. No old
+prime scan or test campaign, outside action, publication or wake queue.
+
+Next concrete question, UNTESTED: can the retained all-moduli reciprocal
+kernel control the ACTUAL Mobius-weighted Type II remainder in the
+UNEXCEPTIONAL branch of ramanujan_type_i.py? Start with the exact Vaughan
+identity and identify the large-factor weights before any Poisson step.
+Test whether they genuinely satisfy full_model_box_kernel.py's smooth /
+bounded-periodic input conditions or a proved arbitrary-coefficient
+extension; do not silently replace Mobius or divisor coefficients by
+periodic weights. Observable test: derive the exact bilinear remainder,
+cost its frequency/coefficient norms and either prove a saving on Y or
+retain the specific unproved correlation. This is a new arithmetic lane,
+not a repeat of the completed smooth-model boxes or formal polynomial work.
+Give it a fresh <=30-minute clock and independent review. All polynomial,
+character and model components survive; the overall research goal is active.
+No research process remains running at this checkpoint. Execution gaps are gaps.
+
+## Preceding pursuit: actual divisor correlation calibrated to rare-prime mass
 
 **2b72af7**, `rare_divisor_calibration.py`, retains the ADDED actual-zero
 V>=log^3 eta regime, t=V/eta<=1/logY, central suppressed targets and fixed
@@ -1106,7 +1172,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rare_divisor_calibration.py` and the
+Latest tests: `python -m unittest test_prime_cutoff_bridge.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
