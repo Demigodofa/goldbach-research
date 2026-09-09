@@ -669,3 +669,18 @@ question is control of composite partners within the proved candidate pool.
 The pursuit returned `changed-under-evidence` within30 minutes. No actual
 zero, numerical onset, new Goldbach coverage, priority search, publication
 work or wake queue. Overall research remains active.
+
+The rare-factor pruning pursuit in `rare_factor_pruning.py` keeps the SAME
+conditional rare-prime pool and its conductor/zero hypotheses. With
+w=floor(sqrt(E)), candidates whose partner has a sign+ prime factor
+z<q<=w occupy only an o(1) fraction of that pool. An upper sieve on q|m-p
+uses each all-squarefree remainder index qd at most once. Matomaki--Merikoski
+Lemma2.2 bounds the reciprocal rare-prime sum by
+O_(delta,u)(eta^(-2/u)+t+1/z)=o(1), preserving >>Y*t/log(Y)^2 candidates.
+This is not an O(t) relative-loss claim. Even-factor composites with a
+sign+ factor>w and odd-factor composites made entirely of sign- primes
+remain uncontrolled. Sol checked the theory and actual files; five focused
+exact tests passed normally and with Python -O. The pursuit returned
+`changed-under-evidence` within30 minutes. No actual zero, numerical onset,
+prime-partner theorem, new Goldbach coverage, priority search, publication
+work or wake queue. Overall research remains active.
