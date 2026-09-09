@@ -513,3 +513,23 @@ computed; these separated outputs are not a contiguous count prefix.
 No new support theorem, universal positivity, historical-priority search,
 publication work, or wake queue. Overall research active; this improves
 the finite checker, while the universal exceptional-target gap remains.
+
+The next pursuit specified a composite-supported joint arithmetic target in
+`composite_bilinear_bridge.py`. For N=2x and I=(x/2,x], compare Lambda(N-n)
+with normalized roughness through exp(sqrt(log x)). Established BV and the
+fundamental lemma give the stated averaged Type I estimate and the correct
+singular-series prime-versus-rough main term, with uniform local factors,
+nonreduced progressions, short-interval remainders and prime powers charged.
+An explicitly UNPROVED Type II estimate for all divisor-bounded coefficients
+in the stated factor range would then imply positive actual Goldbach counts
+for every sufficiently large even N. A direct Vaughan decomposition reduces
+the sufficient missing estimate further to one fixed-coefficient composite
+correlation J_N=o(x); its definition and signs are retained in the verifier.
+This is a precise reformulation of the remaining pointwise correlation, not
+evidence that it is easier or has been proved. Sol checked the deduction and
+actual files. Four focused exact-rational tests passed normally and with
+Python -O, verifying the decomposition, prime-power retention, local residue
+normalization and input boundaries; they do not prove an analytic estimate.
+The pursuit returned `changed-under-evidence` within30 minutes. No new
+Goldbach coverage, numerical onset, historical-priority search, publication
+work or wake queue. Overall goal remains active; J_N=o(x) is unresolved.
