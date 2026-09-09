@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **d42317b**, a restricted exponential-kernel
-theorem. Latest ORIGINAL-AFFINE arithmetic estimate: **2b8cf98**. The
-handoff is committed later. Preceding checkpoint **8eefa83** preserved the
+Latest reviewed RESEARCH commit: **c72de0a**, the costed CRT/periodic-weight
+kernel extension. Latest ORIGINAL-AFFINE arithmetic estimate: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **dd07496** preserved
+the initial restricted kernel **d42317b**. Earlier **8eefa83** preserved the
 failed source-bound budget **d945ac2**; it remains valid.
 Earlier reviewed checkpoint **9cd5a2e** preserved mathematics **2b8cf98**.
 Earlier coefficient-one checkpoint: **b4bf033**, mathematics **c8724f7**.
@@ -50,17 +51,18 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `separate_factor_prime_kernel.py` — latest proved restricted kernel.
-   A power saving works for smooth weights at PRIME moduli; transfer OPEN.
-2. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+1. `decorated_prime_kernel.py` — latest CRT kernel, periodic/coupled weights
+   and roughness zero-mode lemma. General-composite/sieve transfer OPEN.
+2. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+3. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-3. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+4. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-4. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-5. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+5. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+6. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-6. `formal_weight_conservation.py` — completed formal result and exact gap.
-7. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+7. `formal_weight_conservation.py` — completed formal result and exact gap.
+8. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -68,7 +70,60 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: a separate-factor prime kernel gains a power
+## Latest pursuit: small modulus factors and arithmetic periods are costed
+
+**c72de0a**, `decorated_prime_kernel.py`, passed independent Sol theory and
+actual-file review. Five new exact CRT/budget tests passed in0.022s, and
+under -O in0.026s. The reviewer corrected a sum to explicitly range over
+DISTINCT PRIME divisors. The pursuit returned `changed-under-evidence`
+within30 minutes. This is a restricted exponential-kernel extension, not
+a new original-affine estimate; that remains2b8cf98.
+
+The modulus is now c=s*p, p prime near P=Y^(1/2), s<=S; the total modulus
+is allowed to grow. Periodic weights may couple M,a modulo J<=J0, may
+depend arbitrarily on k, and have absolute value<=1. Frequencies extend
+to H*K. With S,J0,H<=Y^(1/4096), the bound is
+`Y^(127/128+epsilon)*S^4*J0^4*H`, plus smaller axes/bad-prime terms,
+hence `Y^(4073/4096+epsilon)`. The original b interval[1/5,12/25] and
+critical divisor geometry remain in force. Uniformly smooth coupled M,a
+weights are also allowed by the proved Fourier-series corollary.
+
+CRT uses period cJ=p*(sJ), needs only gcd(p,sJ)=1, and RETAINS nonunits
+modulo J. The prime Kl3 argument is m*k*h*l*inverse(s^3*J^2). The small
+transform costs(sJ)^2; two dual residue splits cost(sJ)^2 more. Its entire
+k dependence is absorbed into a bounded k coefficient. There is no third
+residue split. All exceptional modes total
+`O(H*B*A*log(2S)+S*H*J0*(A+B))`, below Y^(3/4). These factors are actual
+budgeted losses, not an assertion that sieve costs vanish.
+
+Separately, relaxing original M to z-rough M preserves nonnegativity,
+has reciprocal mass O(U), and preserves both character harmonics in the
+existing zero mode. It only costs an additional U~log eta, still o(Y*t).
+This does NOT estimate the original nonzero modes. A new upper-sieve index
+e0 lengthens the dual M0 range by e0; the apparent1/e0 gain cancels. Index
+counts, coefficient norms, periods, frequency inflation and tails must all
+fit the remaining power margin. Their full arithmetic application is OPEN.
+
+Source tests: Topacogullari1506.02608v1 Thm1.3/section4 has the correct
+additive orientation but is untwisted. Drappeau--Topacogullari2019 Lemma4.5
+has characters but |h|<=X^(1/4) and an ordinary-divisor second factor.
+Neither directly supplies the needed large-target character correlation.
+The exact source links and boundaries are in the module. A primary locator
+for Heath-Brown1986 is https://matwbn.icm.edu.pl/ksiazki/aa/aa47/aa4713.pdf ;
+full retrieval returned403 through web/native routes and Python had a
+certificate-chain error. Its indexed opening is not a checked box theorem.
+Do not repeat those retrieval attempts without a changed route/condition.
+
+Next test remains a genuinely general-composite factor estimate, or a
+costed spectral adaptation meeting the character and large-target conditions.
+Preserve another UNTESTED option: change which two completed frequencies
+are grouped when treating the other hyperbola boxes; a successful critical
+corner is not proof of the whole box family. Balanced composite cores,
+the complete sieve transfer and the signed prime estimate remain OPEN.
+All polynomial tools remain preserved. No process is left running at this
+checkpoint; overall goal active, with no manual wake queue.
+
+## Previous pursuit: a separate-factor prime kernel gains a power
 
 **d42317b**, `separate_factor_prime_kernel.py`. Sol reviewer
 `/root/sieve_review` independently passed source, theory and actual files.
