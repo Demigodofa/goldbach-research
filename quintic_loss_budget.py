@@ -117,6 +117,10 @@ explicitly DEFINED here; it is not asserted to describe actual prime
 factor proportions or their correlation with m-n prime. Thus(7) cannot
 be substituted for an actual signed estimate. The small signed loss and
 the full-total positivity gap both remain open. No new Goldbach coverage.
+The general identity in formal_weight_conservation.py now explains(7):
+the total formal odd-factor integral equals the Dickman polynomial already
+present in the Type-I main, also at a nonzero cutoff. This does not turn
+the formal cancellation into an independent arithmetic estimate.
 """
 from fractions import Fraction as F
 from math import factorial, gcd

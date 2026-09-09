@@ -894,3 +894,25 @@ Sol checked theory and actual files. The pursuit returned
 `changed-under-evidence` within30 minutes.
 No new actual coverage, zero, numerical onset, priority search,
 publication work or wake queue. Overall research remains active.
+
+The signed-cancellation pursuit found a general conservation identity in
+`formal_weight_conservation.py`. For every normalized polynomial f of
+degree d and0<=theta<1/d, the sum of FORMAL odd all-negative factor
+integrals equals B_f(theta)=-E[h'(theta*V)]/2, h=f(1-x)-f(x), with V
+the normalized Dickman variable. At theta0 this is A_f, so the formal
+composite total is A_f-1. At nonzero theta the quintic gives exactly
+1-2kappa*theta+18kappa*theta^2-(170/3)kappa*theta^3
++(190/3)kappa*theta^4. A convolution generating function proves the
+identity for every degree; independent exact simplex and moment algorithms
+check it through degree10. A rational factorial enclosure connects B_f
+to the already proved accessible-divisor main, retaining its fixed sieve
+error separately. Thus the formal cancellation supplies no second estimate
+for actual composite correlations. The exact remaining identity is
+P/Z-1=T_boundary/Z-Delta/Z+(T_low/Z-B_f), where
+Delta=(T_f-P)-(B_f-1)Z and Z=length(J_real)*S_2(m)*t.
+The signed quantity T_boundary-Delta still lacks the estimate needed for
+positivity. Five focused exact tests passed normally and with Python -O.
+Sol checked theory and actual files. The pursuit returned
+`changed-under-evidence` within30 minutes.
+No new actual coverage, zero, numerical onset, priority search,
+publication work or wake queue. Overall research remains active.
