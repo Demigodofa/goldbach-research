@@ -600,3 +600,29 @@ signed Vaughan cancellation, different residue weights or larger individual
 models remain distinct possibilities. No new actual coverage, zero detection,
 numerical onset, priority search, publication work or wake queue. Overall
 research remains active; the exact earlier-output parity mechanism is intact.
+
+The next pursuit returned `changed-under-evidence` with a constructive
+two-scale signed comparison in `ramanujan_type_i.py`. Let S=Y^delta and
+R=S^12, with sufficiently small fixed delta. For the common exceptional
+alternative at level R^4, the unexceptional branch and the branch with an
+actual primitive exceptional conductor 24<D<=S^(1/4) now have both:
+an absolute Type I error O_A(Y/log(Y)^A) for every fixed A, and a pointwise
+positive prime-versus-coarse-model mass >>Y*S_2(m)*mu throughout the stated
+central band. Here mu=1 without an exceptional zero and
+mu=min(1,(1-beta)log(Y)) otherwise. The Ramanujan progression means reproduce
+the full reduced-residue density; the exceptional resonances are sparse
+enough for the absolute estimate by ineffective Siegel bounds. Separating
+the two scales bounds the fine Fourier residual against the coarse model
+and preserves its linear character margin. The model is signed and includes
+composites. The Type I error is not proved small relative to arbitrarily
+suppressed mu, and neither a Type II bound nor actual prime-pair positivity
+follows. Other exceptional-conductor regimes are outside this result.
+Sol checked the theory and actual files, correcting one displayed scale
+dependence to 1-beta<=kappa/(48*delta*log(Y)). Six focused tests passed
+normally and with Python -O: complete progression periods, nonreduced and
+prime-power moduli, whole-Dq character resonance, all four mixed-kernel
+correlations, unequal cutoffs and input boundaries. These finite tests
+verify algebra, not analytic estimates. The pursuit closed within30 minutes.
+No new Goldbach coverage, numerical onset, zero detection, priority search,
+publication work or wake queue. Overall research remains active; this repairs
+two comparison prerequisites while retaining the precise transfer gap.
