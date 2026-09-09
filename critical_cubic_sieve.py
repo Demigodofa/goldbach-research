@@ -136,6 +136,54 @@ cancellation of the linked prime conditions inside the remaining sums.
 The paid endpoint/localization estimates license the reduction; they do
 not establish Goldbach, a numerical onset, or a globally new identity.
 
+TRIPRIME DISPERSION PREFLIGHT: A PAID DIAGONAL, THE SAME OPEN COVARIANCE.
+7. Test whether three prime factors automatically supply another usable
+free average. Partition the ORDERED p<q<r sum into dyadic boxes
+p~P,q~Q,r~R, with PQR comparable to x and every factor>x^kappa.
+Use s=pq as row index; its ordered two-prime factorization is unique.
+Let F_s(r) be the full coefficient in T_kappa times w_(sr), retaining
+EVERY physical, ordering, squarefree, roughness and target-coprime mask.
+The denominator log(sr)^3 stays in F; it is not frozen without error.
+Writing K for the number of nonempty rows, Cauchy gives EXACTLY
+ |T_box|^2 <= K*(D+O),
+ D=sum_(s,r)|F_s(r)|^2,
+ O=sum_s sum_(r!=t) F_s(r) conjugate(F_s(t)).             (9)
+O is real and signed, and D+O>=0. Ordinary prime counting gives
+ K<<_kappa PQ/L^2,
+ D<<_kappa L^2*(P/L)*(Q/L)*(R/L)<<_kappa x/L.
+Here the logarithmic coefficient is bounded, and |w|<<L; no prime
+correlation estimate is used in this diagonal upper bound. Since r is
+the largest factor, R is at least a fixed multiple of x^(1/3). Hence
+ sqrt(KD)<<_kappa x/(sqrt(R)*L^(3/2))
+             <<_kappa x^(5/6)/L^(3/2).
+Even the crude O(L^3) box count leaves O_kappa(x^(5/6)L^(3/2)),
+which is all-log small. Thus a diagonal loss does not obstruct this step.
+
+8. Its off-diagonal reflected arguments are q1=N-sr,q2=N-st, and
+ t*q1-r*q2=(t-r)N.                                    (10)
+This is precisely the saved prime-dilation covariance, restricted now
+to semiprime s and weighted by the full triprime factors. The expansion
+of w*w has all four aa-ab-ba+bb terms with identical surviving masks.
+The third factor changes the row coefficient/support; it does not make
+either of the reflected primality conditions a free variable. In
+particular free_divisor_correlation.py requires unweighted free variables
+in TWO SEPARATE additive summands. Factoring s=pq does not meet that
+hypothesis. Nonnegativity of the full square does NOT license deleting
+prime restrictions inside its signed row sum. Any such relaxation still
+requires an explicit triangle/Cauchy positive majorant and its full cost;
+selected signed off-diagonal terms cannot simply be discarded.
+
+The finite toy row x601,N1202,s35,r in{11,13,17} obeys the retained
+support for a sufficiently small fixed kappa. Giving its three entries
+value-1 yields T=-3,D=3,O=6,K=1: three prime factors do not themselves
+force cancellation. These toy weights are not the actual w; this is
+neither an actual-prime counterexample nor a universal dispersion no-go.
+DISPOSITION: the proposed automatic extra-average mechanism is retired.
+The diagonal bound and exact surviving masks are preserved, but no new
+source is invoked for an unchanged missing input. E_kappa+24T_kappa
+remains OPEN. A future trilinear theorem with matching prime coefficients
+could reopen this route; the polynomial endpoint reduction remains useful.
+
 Source checks2026-09-09: Ford2023 notes Theorem3.4, printedp35 (BV with
 logarithmic margin, residue and endpoint maxima), Theorem3.6,p38
 (fundamental lemma): https://ford126.web.illinois.edu/sieve2023.pdf
@@ -148,8 +196,9 @@ route was retried. Exact helpers below guard coefficient algebra and
 error budgets; finite toy shares do not certify prime correlations.
 """
 from fractions import Fraction as F
-from math import prod
+from math import gcd, prod
 
+from major_arc_kernel import _factorization
 from polynomial_joint_majorant import polynomial_cofactor_samples
 from polynomial_rough_localization import polynomial_factor_pattern
 
@@ -209,3 +258,37 @@ def moving_prime_factor_majorant(logp_over_logx, logn_over_logx, t):
     moving = 2*min(F(1),2*t*logp_over_logx/logn_over_logx)
     fixed = 2*min(F(1),4*t*logp_over_logx)
     return moving, fixed
+
+
+def triprime_rows(x, rough_cutoff, weights):
+    """Exact retained toy rows; supplied values include the full log coefficient.
+
+    The integer cutoff stands in for x^kappa; it is not an asymptotic claim.
+    All supplied full weights survive unchanged on the retained support.
+    """
+    if type(x) is not int or x < 2 or type(rough_cutoff) is not int or rough_cutoff < 1:
+        raise ValueError('integer x>=2 and cutoff>=1 required')
+    rows = {}
+    for n, value in weights.items():
+        if type(n) is not int or n < 1 or type(value) is not F:
+            raise ValueError('positive integer inputs and rational full weights required')
+        if not x < 2*n <= 2*x or gcd(n,2*x) != 1:
+            continue
+        factors = _factorization(n)
+        if len(factors) != 3 or any(power != 1 for _,power in factors):
+            continue
+        p,q,r = (prime for prime,_ in factors)
+        if p <= rough_cutoff:
+            continue
+        rows.setdefault((p,q),{})[r] = value
+    return rows
+
+
+def triprime_row_energy(rows):
+    """Full real signed covariance and its exact finite Cauchy bound."""
+    row_sums = [sum(values.values(),F(0)) for values in rows.values() if values]
+    diagonal = sum((v*v for values in rows.values() for v in values.values()),F(0))
+    energy = sum((v*v for v in row_sums),F(0))
+    return {'sum':sum(row_sums,F(0)), 'rows':len(row_sums),
+            'diagonal':diagonal, 'off_diagonal':energy-diagonal,
+            'energy':energy, 'cauchy_bound_squared':len(row_sums)*energy}

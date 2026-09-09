@@ -5,6 +5,7 @@ import unittest
 from critical_cubic_sieve import (
     complement_identity, critical_pattern, fixed_x_pattern,
     moving_prime_factor_majorant, reduced_cubic_pattern, tail_log_profile,
+    triprime_row_energy, triprime_rows,
 )
 from polynomial_joint_majorant import polynomial_cofactor_samples
 
@@ -66,6 +67,32 @@ class CriticalCubicSieveTests(unittest.TestCase):
                     moving, fixed = moving_prime_factor_majorant(alpha,n_ratio,t)
                     self.assertLessEqual(moving,fixed)
                     self.assertLessEqual(fixed,2)
+
+
+    def test_triprime_rows_keep_ordering_and_all_arithmetic_masks(self):
+        # 385=5*7*11, 455=5*7*13, 595=5*7*17 share one unique row.
+        weights = {n:F(1) for n in (385,455,595,315,675,300,700)}
+        self.assertEqual(triprime_rows(601,3,weights),
+                         {(5,7):{11:F(1),13:F(1),17:F(1)}})
+        self.assertEqual(triprime_rows(601,5,weights),{})
+        self.assertEqual(triprime_rows(600,3,weights),{})  # common factor5
+
+    def test_triprime_count_does_not_force_signed_decorrelation(self):
+        rows = triprime_rows(601,3,{n:F(-1) for n in (385,455,595)})
+        result = triprime_row_energy(rows)
+        self.assertEqual(result,{'sum':F(-3),'rows':1,'diagonal':F(3),
+                                 'off_diagonal':F(6),'energy':F(9),
+                                 'cauchy_bound_squared':F(9)})
+        for r,t in ((11,13),(11,17),(13,17)):
+            self.assertEqual(t*(1202-35*r)-r*(1202-35*t),(t-r)*1202)
+
+    def test_triprime_energy_keeps_negative_cross_terms(self):
+        rows = triprime_rows(601,3,{385:F(1),455:F(-1),595:F(0)})
+        result = triprime_row_energy(rows)
+        self.assertEqual(result['diagonal'],2)
+        self.assertEqual(result['off_diagonal'],-2)
+        self.assertEqual(result['energy'],0)
+        self.assertLessEqual(result['sum']**2,result['cauchy_bound_squared'])
 
 
 if __name__ == '__main__':
