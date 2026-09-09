@@ -35,7 +35,20 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **276d174**, in window_phase_projection.py:
+Latest reviewed RESEARCH commit: **043cfe0**, in zero_packet_realpart_localization.py:
+within the ACTUAL smooth T=N9/10 band, the contribution from pairs
+where EITHER real part is <=16/25 or >=19/25 is O_A(N/log^A N)
+for every fixed A. Only BOTH real parts in(.64,.76) remain for this
+band, still O(N). A Gram bound pays masked energies by L times the
+coefficient square sum; actual prime energy is used only for the full
+factor. Ingham, GM with its fixed epsilon/grid charged, and Huxley/VK
+pay the deleted regions. Multiplicities, intersection subtraction and
+actual finite-period errors remain. This does not delete the full core.
+The natural exact phase expansion is admissible but its raw l1 cost
+lies between N2/5 L and N1/2 L6, too large for the prior sufficient
+budget. This failure does not rule out regrouping or other uses of
+the phase/polynomial tools. The full signed Goldbach margin is OPEN.
+Previous **276d174**, in window_phase_projection.py:
 the exact normalized ACTUAL prime window has O(N^-1/44 log^3N)
 projection against controlled varying phases; the actual zero moment
 has the same bound plus its paid N^-2/5 log^6N displacement error.
@@ -3770,7 +3783,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_window_phase_projection` (six guards) and
+Latest tests: `python -m unittest test_zero_packet_realpart_localization` (eight guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

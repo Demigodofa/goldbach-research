@@ -3705,3 +3705,52 @@ reflection and density, including multiplicities. This would falsify
 the DIRECT natural expansion's l1 budget, not the signed band or
 every possible recombination. No zero-range experiment is needed.
 Fresh <=30 minutes; overall goal active and the full gap remains OPEN.
+
+## 2026-09-09: actual real-part localization of the sublinear comparable band
+
+Started23:34:35 UTC, reassessed23:44:33 UTC, progress. Resumed verified
+clean mainbe62912; reviewed mathematics **043cfe0**, in
+zero_packet_realpart_localization.py. The previous native goal turn
+made progress through the exact-window projection and conditional bridge.
+The natural reflected-zero expansion really satisfies the common phase
+bounds, but its ACTUAL l1 cost is between N2/5 L and N1/2 L6 by
+counting/reflection and retained Ingham. This falsifies only that direct
+expansion's sufficient cost test, not the signed band or other expansions.
+
+The alternative square-sum argument advances the ACTUAL band. Uniform
+two-IBP Gram decay plus O(L) copy occupancy bounds a masked field by
+sqrt(L E_D), E_D=sum_D |chi|^2 N^(2beta-2). Use the O(1) arithmetic
+energy only for the full other factor; the masked intersection costs
+L E_D. For D={beta<=16/25 or beta>=19/25}, Ingham gives low exponent
+-9/1700. GM on beta[.76,.8] gives -3/850, and a fixed401-point grid
+with source epsilon1/10000 pays9/25000, retaining <-1/400. The original
+Huxley log-power bound gives -u/14 near1, where VK supplies the all-log
+saving without a fixed source epsilon. Thus E_D is all-log small.
+
+Inclusion-exclusion and the already ABSOLUTE beta/finite-period errors
+give the COMPLEX bound O_A(N/log^A N) for the actual weighted T=N9/10
+band with either real part in D. The remaining band has both real parts
+in(.64,.76) and stays O(N); its o(N) bound and the full signed Goldbach
+margin remain OPEN. No such off-line zeros are asserted to exist.
+Sol theory/actual-file PASS; eight guards normal0.013s/-O0.013s.
+Classic density, GM and VK sources were freshly accessible. Fresh
+Brent--Platt--Trudgian web open returned Internal Error; reuse the
+previously checked counting law, no fresh access or unchanged retry claim.
+No numerical zero run, outside action or post-stop execution claim.
+
+Next unreviewed question: do the current uniformly controlled C3 phase
+projection bounds suffice for paired cancellation? Test a dense positive
+ARTIFICIAL coefficient model with complementary phase
+ f_N(a)=lambda_N*a+K^-1*sin(K*(a-1/2)), K=N1/10,
+where T*lambda_N is an odd multiple of pi nearest3T. Its first derivative
+stays bounded, but higher derivatives grow, outside the proved common
+phase class. Prediction: the exact window retains a negative main of
+size N, while projections against every phase with fixed common C3
+bounds are small. Partition the rapid sine periods into second/third
+derivative regions; predicted normalized integral cost (K/T)1/3, with
+Euler discretization O(T/N). Pay exact-window Taylor cost K/T, and
+prove a positive lower bound for the paired amplitude using a fixed
+nonnegative nonzero chi. Failure of either uniform projection or actual
+window calculation falsifies this model test. It would limit this inverse
+implication, not actual primes or all uses of the retained tools.
+Fresh <=30 minutes; no claim yet and overall research goal remains active.
