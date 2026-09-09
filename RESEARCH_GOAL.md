@@ -2500,3 +2500,46 @@ loss for degree4 andO(kappa log(1/kappa)) for degree3, with both actual
 and comparison terms, uniform constants and all summation costs paid.
 Do not promote a divergent integral or logx loss. Fresh <=30-minute
 pursuit; the overall goal remains active, no process claimed after closeout.
+
+## 2026-09-09: direct Mellin localization for cubic and quartic sieves
+
+Started17:50:01 UTC, reassessed18:00:02 UTC, progress.
+Resumed verified clean maindbe552e; reviewed mathematics **85e7d44**,
+extending polynomial_rough_localization.py. The direct polynomial Mellin
+formula and saturated small-prime factor reduce the joint arithmetic
+cost toJ_k(beta)=int_1^infty min(1,beta*t)t^(1-k)dt. Uniform corrected
+Henriot/Mertens costs t^2 for t>=1; both actuala and comparisonb retain
+their required partner prefactors and moments. k>=4 givesJ<<beta,
+while k3 givesbeta*(1+log(1/beta)). The k2 positive majorant diverges;
+that does not make the exact coefficient integral divergent or disprove
+other quadratic approaches.
+
+Complete Chebyshev/Stieltjes summation, including the lower prime atom,
+gives relative lossO_(gamma,k)(kappa) for k>=4 and
+O_gamma(kappa*(2+log(gamma/kappa))) for k3, fixed
+0<kappa<=min(1/20,gamma/2). A separate logL/L error is unnecessary.
+The earlier exact NEW polynomial residual identity, common-factor/
+prime-power deletions and fixed-kappa squarefree removal all persist.
+The same direct calculation without a small factor proves
+sum|T_k|(a+b)<<_(gamma,k)S_2(N)x/L+all-log for k>=3. That main-scale
+bound has no certified positive margin. Cubic weights remain signed;
+C_(k,kappa) and Goldbach coverage remain OPEN.
+
+Sol theory/actual-file PASS, nineguards normal0.013s/-O0.014s.
+The added independent rational Riemann checks enclose the claimed J
+integrals; other guards preserve the degree2 limitation and cubic signs.
+No material correction. The initial review's lower-end error was removed
+by the justified cumulative upper bound, not by dropping its atom.
+Prior source/runtime corrections and unavailable Qwen exception remain.
+No outside action, old experiment rerun, foreground input or wake queue.
+
+Next preliminary hypothesis, unverified: use the MOVING cubic cutoff
+sqrt(n). Derive actual Type I at sqrt(x)/log^B x with all b/comparison
+errors, then pay the remaining near-cutoff divisors by cubic vanishing.
+The predicted tail x*(loglogx)^4/log^2x is small at prime scale. Only
+after this transfer, test exact squarefree divisor complementation:
+odd factor counts>=5 may vanish and the triprime weight may reduce to
+24*product(logp/logn). Check moving-cutoff localization separately;
+sqrt(x) and sqrt(n) must not be conflated. No endpoint result is yet
+promoted. Fresh <=30-minute test, overall goal active; no process claimed
+after closeout or manual continuation queue.

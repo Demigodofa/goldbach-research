@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **3882437**, in
+Latest reviewed RESEARCH commit: **85e7d44**, extending
+polynomial_rough_localization.py: direct Mellin integration reduces the
+ACTUAL fixed-power localization to degrees k>=4 with O(kappa) relative
+loss, and degree3 with O(kappa*(2+log(gamma/kappa))) loss. The full
+absolute a+b pairing is main-scale bounded for every k>=3. No signed
+residual estimate or positive margin follows. k=2 fails this positive
+majorant calculation only, not every quadratic approach.
+Previous **3882437**, in
 polynomial_rough_localization.py: the preserved full polynomial sieve
 coefficient admits ACTUAL fixed-power rough localization with loss
 O_(gamma,k)((kappa+1/L)S_2(N)x/L), k>=9, fixed0<kappa<=1/20. Its
@@ -241,7 +248,62 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual fixed-power localization using polynomial suppression
+## Latest pursuit: direct Mellin localization for cubic and quartic weights
+
+Started17:50:01 UTC, reassessed18:00:02 UTC, progress.
+Resumed verified clean maindbe552e; reviewed mathematics **85e7d44**.
+The existing exact polynomial Mellin formula converges for each n and
+k>=1. Use t=1+|u| directly; the corrected Henriot/Mertens cost is O(t^2)
+uniformly for t>=1. No fixed power10 majorant is needed on this factor.
+For exactp^j||n, retainmin(1,beta*t), beta=logp/logV, before removing
+coprimality. Both actuala and comparisonb reduce to the same integral
+ J_k(beta)=int_1^infty min(1,beta*t)t^(1-k)dt.
+For k>3,J=beta/(k-3)-beta^(k-2)/((k-3)(k-2)); for k3 it is
+beta*(1+log(1/beta)). For k2 the positive majorant's truncation grows
+as1-beta+log(beta B); the exact T_2 Mellin formula does NOT diverge.
+
+The complete prime-power sum is paid using
+B(v)=sum_(p<=exp(v))logp/(p-1)<=C v, including the atom atlog2.
+WithU=gammaL,Z=kappaL, integration fromlog2^- gives the cubic bound
+C(Z/U)*(2+log(U/Z)). No separate logL/L loss is needed for this upper
+bound; the endpoint atom is already included. Thus fixed
+0<kappa<=min(1/20,gamma/2) gives ACTUAL localization relative losses
+O_(gamma,k)(kappa) for k>=4 and O_gamma(kappa*(2+log(gamma/kappa)))
+for k3. Both vanish withkappa. The earlier gcd/power deletions and
+nonuniform-in-moving-kappa squareful remainder remain correctly paid.
+The exact NEW residual C_(k,kappa) stays signed and OPEN.
+
+Without a selected small prime, int_1^infty t^(1-k)dt=1/(k-2) also
+proves sum|T_k|(a+b)<<_(gamma,k)S_2(N)x/L+all-log for k>=3.
+This is a main-scale upper bound with no certified positivity constant.
+Cubic T has positive triprime and negative six-factor toy patterns;
+never replace it by a nonnegative weight. No new coverage or onset.
+
+Independent Sol theory/actual-file PASS. Nine guards pass normal0.013s
+and-O0.014s, including independent rational Riemann enclosures for J,
+complete-cost shrinkage, divergent-majorant scope and coefficient signs.
+No material correction; the simpler Stieltjes upper bound supersedes
+an unnecessary lower-end error in the initial review calculation.
+Live budget critical cap1, existing reviewer only; no new agent/tool route.
+All prior source corrections, unavailable Qwen exception and polynomial
+components remain. No old experiment rerun or external action.
+
+Next concrete hypothesis, NOT YET VERIFIED: reach the MOVING critical
+cutoffV(n)=sqrt(n) for the cubic weight. First prove actual Type I to
+D=sqrt(x)/(logx)^B from the already used BV and comparison inputs.
+Then bound d>D directly using the cubic's vanishing near the cutoff;
+the predicted crude tail is O_B(x*(loglogx)^4/(logx)^2)=o(x/logx).
+Do not silently replace sqrt(n) by sqrt(x): exact divisor complementation
+needs log-factor shares summing to1 for each squarefree n. Test whether
+that symmetry kills odd factor counts>=5 and gives the exact triprime
+coefficient24*product(logp/logn), while preserving every other term.
+Also recheck moving-cutoff localization and all source quantifiers.
+The endpoint transfer and cancellations are preliminary predictions,
+not promoted results. Fresh <=30-minute test; reject if a tail, source
+uniformity or changed remainder is unpaid. Overall goal remains active;
+no process claimed after closeout and no manual wake queue.
+
+## Previous pursuit: actual fixed-power localization using polynomial suppression
 
 Started17:29:50 UTC, reassessed17:47:33 UTC, changed-under-evidence.
 Resumed verified clean main3df33dc; reviewed mathematics **3882437**.
@@ -289,7 +351,7 @@ the authority; original definitions were rechecked, blocked erratum was
 not retried. Live budget balanced cap3, existing reviewer only; Qwen
 unavailable exception unchanged. No old experiment rerun or outside action.
 
-Next bounded question, UNTESTED: is k>=9 only a cost of routing through
+The then-next question, answered in85e7d44 above: is k>=9 only a cost of routing through
 the existing power10 majorant? Apply the exact polynomial Mellin formula
 directly and split its frequency integral at logV/logp, retaining
 min(1,t logp/logV). Prediction: quartic weights may retainO(kappa) loss,
@@ -2281,7 +2343,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_polynomial_rough_localization` and
+Latest tests: `python -m unittest test_polynomial_rough_localization` (nine guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
