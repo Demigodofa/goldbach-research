@@ -1637,3 +1637,46 @@ Keep original fixed-theta and growing-U cutoffs distinct. No new signed
 estimate is claimed, and formal conservation6f9a77b remains only its
 proved identity. All polynomial components survive. Goal active; no
 process remains running and no work is claimed during execution gaps.
+
+## 2026-09-09: actual divisor correlation and the cutoff comparison
+
+Started11:34:38 UTC, reassessed11:58 UTC, changed-under-evidence.
+Resumed clean main e436401, mathematics e5c955d. New reviewed mathematics
+**2b72af7**, rare_divisor_calibration.py, proves in the SAME ADDED actual-zero
+large-V regime, for central suppressed targets and fixed smooth g,
+ S_z=G_z Q_z+o(Yt)=S_2(m)t I_g+o(Yt),
+with U=K log eta, z=Y^(1/U). This is an actual nonnegative divisor sum.
+Q_z=(A/phi(D))t I_g+o(Yt/G_z) is calibrated by one-variable rare primes.
+Exact G_z=Sigma_(2,z)phi(D)/A, with the tail1+O(U/z). The four conductor
+orientations produce A_z B_z, MM Lemma2.4 gives B_z=2C_z(1+O(E)),
+A_z=O(E/U), and the replacement costs S_2 Y E^2=o(Yt). The outside1/2,
+Abel factor2, atom1, and absolute signed-integral error are all retained.
+
+Dynamic Q_z composite mass is relatively small by its unique largest
+positive prime. This is NOT a dynamic S_z prime-replacement theorem.
+Separately, ORIGINAL fixed theta permits first-variable replacement via
+an upper prime sieve at modulus Dd, never MDd. Explicit FULL/B_good
+pruning control and e5c955d then give S_theta=P_g+o(Yt), with factors
+strictly>z_old and equality endpoints paid. Growing-U divisor costs2^U
+and fixed-theta sieve errors prevent silently composing the two results.
+The difference S_z-S_theta and a positive prime-pair lower bound remain OPEN.
+
+Seven new finite algebra guards passed normal0.008s and -O0.007s. Sol
+/root/sieve_review checked theory, actual files, strict endpoints and pool
+composition, PASS. No finite test is an exceptional-zero or asymptotic proof.
+MM equation22 PLUS correction, corrected Henriot, and Thorner--Zaman bulk
+source remain in force. No old experiment, outside action or wake queue.
+
+Next UNPROVED test: expose a prime r in[z,z_old] in S_z-S_theta. Positive
+r produces affine lambda/W forms with SMALL coefficient r and one harmonic
+cancellation; its reciprocal prime mass may supply a second rarity factor.
+Negative r on nonzero squarefree W support produces lambda/lambda and two
+harmonic cancellations. Test the DIRECT small-cofactor Poisson proof for
+both placements and sum all errors: Q>=Y^(1-theta), r prime, theta<1/5,
+prospective nonzero cost Y^(7/9+theta+o(1)). Preserve any failing term.
+This comparison could avoid the unproved very-short-interval W estimate;
+it has not yet been established. Use a new <=30-minute hypothesis clock.
+Kevin reiterated freedom to incorporate other mathematical approaches.
+No historical priority, prize entitlement, cash or universal coverage claim.
+Overall goal active. No research process remains running at the checkpoint;
+execution gaps remain gaps, and all polynomial components stay available.

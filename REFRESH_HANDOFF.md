@@ -35,11 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **e5c955d**, elimination of positive-factor
-composite losses for every fixed polynomial, T_W=P+o(Yt), and the improved
-Buchstab endpoint. Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
+Latest reviewed RESEARCH commit: **2b72af7**, actual dynamic divisor
+correlation S_z=S_2(m)t I_g+o(Yt), and SEPARATE original-cutoff
+S_theta=P_g+o(Yt). The difference S_z-S_theta remains OPEN.
+Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
+Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **e436401** preserved e5c955d.
 Previous checkpoint **ddfa2aa** preserved4e106b6.
 Previous checkpoint **53eeab1** preserved the full smooth MODEL
 hyperbola-box theorem **220920c** for ALL integer moduli.
@@ -69,7 +72,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `rare_class_elimination.py`, the precise coverage consequences
+First read `rare_divisor_calibration.py`, its two DISTINCT cutoffs and
+the still-open difference. Then `rare_class_elimination.py`, the coverage consequences
 and still-missing signed lower bound. Then read
 `rough_cofactor_sieve_bridge.py`, the actual affine transfer,
 positive weighted density lemma and exact source-sign correction.
@@ -112,7 +116,59 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: all polynomial rare-factor composite errors are negligible
+## Latest pursuit: actual divisor correlation calibrated to rare-prime mass
+
+**2b72af7**, `rare_divisor_calibration.py`, retains the ADDED actual-zero
+V>=log^3 eta regime, t=V/eta<=1/logY, central suppressed targets and fixed
+nonnegative smooth support. With U=K log eta, z=Y^(1/U), it proves
+ Q_z=(A/phi(D))t I_g+o(Yt/G_z),
+ S_z=G_z Q_z+o(Yt)=S_2(m)t I_g+o(Yt).
+Q_z is the one-variable log(x)lambda(x) mass with partner UNIT mask only;
+S_z also requires BOTH variables rough and weights lambda(x)W(m-x)/2.
+This is an ACTUAL divisor-correlation asymptotic, not a formal density.
+It implies only P_g<=S_z until the composite difference is controlled.
+
+The four orientation means A/D,0,0,-A/D combine to A_z(y)B_z(m-y).
+MM Lemma2.4 gives B_z=2C_z(1+O(E)), A_z=O(E/U), E=tU^4+eta^-B.
+Retain the outside1/2, the Abel factor2, and the small-divisor atom1.
+Replacing B_z costs S_2 Y E^2=o(Yt), using the integral of |A_z|.
+Exact G_z=V2_D C_z/V1_D=Sigma_(2,z) phi(D)/A; tail1+O(U/z).
+One-variable beta-sieve tails are relative-small; dynamic Q_z composite
+mass is O(Yt^2U^2) plus smaller terms by the unique largest positive prime.
+Never replace this Q-only bound with an unsupported two-variable bound.
+
+Separately, at ORIGINAL fixed theta, a prime sieve with modulus Dd,
+not MDd, proves first-variable replacement. Paying FULL/B_good pruning
+explicitly then gives S_theta=P_g+o(Yt). Its factors are strictly>z_old.
+The equality endpoint costs Y^(1-theta+o(1)). Growing-U pointwise W costs
+can be2^U; fixed-theta sieve errors do not prove the dynamic asymptotic.
+The two theorems therefore do not yet compose into a prime lower bound.
+
+Next concrete hypothesis, UNPROVED: bound S_z-S_theta by exposing a prime
+r in[z,z_old], with z_old=ceil(Y^theta), theta<1/5. Squareful/shared terms
+are already small. Positive r dividing x gives lambda(x)=2lambda(x/r);
+positive r dividing negative n gives W(n)=2W(n/r). Their affine lambda/W
+forms have Q=Y/r>=Y^(1-theta), coefficient r prime and small. Test the
+direct small-cofactor Poisson adaptation, one A_z and one B_z, with
+per-r upper bound S_2(Y/r)t U^4 and positive-prime reciprocal mass O(t).
+Negative r can only occur on the W side; on squarefree nonzero support,
+W(rM)=lambda(M)log r. Test the two-A_z lambda/lambda bound and sum1/r
+with O(log U) loss. All three are positive majorizations; summing nonzero
+modes should cost Y^(7/9+theta+o(1)). Verify every zero-mode removal and
+r|m exception, rather than substituting into the older theorem's hypotheses.
+Prediction: cutoff difference o(Yt); falsifier: a surviving Yt-scale error
+or a coefficient/character hypothesis outside the cited direct proof.
+This is a NEW test, not a proved transfer. Give it a fresh <=30-minute clock.
+
+Started11:34:38 UTC, reassessed11:58 UTC, changed-under-evidence. Seven NEW
+finite guards passed normally0.008s and under -O0.007s; Sol reviewed the
+theory and actual files, including FULL/B_good and strict endpoints, PASS.
+No scans repeated. Polynomial tools and formal conservation6f9a77b survive.
+Kevin reiterated freedom to incorporate other mathematical approaches;
+historical recognition and prizes remain unverified, with no external action
+authorized. Goal active; no process remains running at this checkpoint.
+
+## Preceding pursuit: all polynomial rare-factor composite errors are negligible
 
 **e5c955d**, `rare_class_elimination.py`, composes the original pruning
 with4e106b6 for ANY fixed normalized polynomial f of degree d:
@@ -1050,7 +1106,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_squarefree_unbalanced_kernel.py` and the
+Latest tests: `python -m unittest test_rare_divisor_calibration.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
