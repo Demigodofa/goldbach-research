@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **b816865**, in finite_period_ratio_convolution.py:
+Latest reviewed RESEARCH commit: **ba1747b**, in short_prime_window_energy.py:
+at T=N9/10, fixed real smooth chi in(1,2), the ACTUAL moment is
+uniformly O(sqrtN) for x in[N/4,3N/4], its da-energy is O(N), and
+the ACTUAL COMPLEX chi-weighted comparable J_N band is O(N).
+Prime support, proper powers, beta displacement, beta endpoints and
+the actual finite-period remainder are all paid. No small constant,
+all-log deletion or sufficient signed lower margin follows.
+Previous **b816865**, in finite_period_ratio_convolution.py:
 the ACTUAL weighted complex unequal-tag family is all-log small through
 the FULL endpoint transition, with individual heights KN for fixed K.
 Exact Gamma-Laplace convolution pays every integration range and retains
@@ -449,7 +456,48 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: exact convolution crosses the endpoint transition
+## Latest pursuit: short prime windows control a comparable band at main scale
+
+Started22:25:14 UTC, reassessed22:36:11 UTC, progress. Resumed verified
+clean mainc6421fc; reviewed mathematics **ba1747b**. Previous native
+goal turn was progress: the selected unequal family crossed the full
+endpoint transition. At T=N9/10 the ACTUAL smooth moment S_T(x) is
+O(sqrtN), its central da-energy is O(N), and the actual complex
+chi-weighted J_N band is O(N). This surviving comparable band is not
+deleted: no all-log bound or small constant was obtained.
+
+New source: Yamada2312.16090v1 Theorem2 printedp3 eq13, k=a=1,
+weakened to the prime-interval upper bound2y/logy. Prime-power shell
+mass is paid separately by O((R/sqrtN+1)L^2). For effective window
+H=N/T=N1/10, all R>=H shells have Lambda mass O(R); Schwartz decay
+pays the apparent wider Fourier cutoff. Weighted Schur uses row H,
+column1/T and sum Lambda(n)/n=O(1), giving T^2*H/T=N. The actual
+Guinand replacement error is N1/10L^6, beta endpoint N^-7/10L^13,
+and actual J_N replacement N9/10L^12. All are paid with multiplicities.
+Sol theory/actual-file PASS; six guards normal0.020s/-O0.019s.
+The original Montgomery--Vaughan institutional-copy route returned403;
+the permitted Yamada primary source supplied the needed theorem.
+
+A source check for the next decision found GM2405.20552v2 Corollary1.4,
+printedp3, applies to almost-all intervals of length at least X^(2/15+eps).
+It does NOT supply an asymptotic at our X1/10 window. Do not substitute
+prime existence or lower-density results for that missing asymptotic.
+
+Next concrete question, UNREVIEWED: can complementary smooth phase
+modulation reinforce the paired window functional at order N even
+while obeying the new interval/energy bounds and strong global Fourier
+cancellation? Test positive artificial coefficients
+b_N(n)=1+(1/2)cos[T f_N(n/N)], f_N(a)=lambda_N*a+(a-1/2)^3,
+lambda_N->3 chosen so T*lambda_N is an odd multiple of pi.
+The exact symmetry f_N(a)+f_N(1-a)=lambda_N may make the paired
+window negative of order N. Prove the local-window approximation,
+its full discretization costs, and a smooth global Fourier bound
+O(N*T^-1/3)=O(N7/10) for b_N-1. This is a proposed model of ONE
+reinforcement mechanism, not actual primes, zeta zeros or an all-method
+barrier. Compare with the older semiprime-modulus countermodel before
+claiming a distinct result. Fresh <=30-minute pursuit.
+
+## Previous pursuit: exact convolution crosses the endpoint transition
 
 Started22:16:52 UTC, reassessed22:23:42 UTC, progress. Resumed verified
 clean main9d0edd8; reviewed mathematics **b816865**. The previous
@@ -476,7 +524,7 @@ onset. Sol theory/actual-file PASS; seven guards normal0.108s/-O0.098s.
 The quadrature guard uses ordinary Gamma parameters, not actual zeros;
 the theorem rests on its analytic proof. Full signed margin remains OPEN.
 
-Next concrete question, UNREVIEWED: can short-interval prime upper
+The then-next question, answered inba1747b above: can short-interval prime upper
 bounds remove a logarithm from the ACTUAL arithmetic energy at a
 surviving comparable height T=N^(9/10)? Fix smooth chi in(1,2), and
 test int_(1/3)^(2/3)|sum chi(gamma/T)(aN)^(rho-1/2)|^2 da=O_chi(N).
@@ -3423,7 +3471,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_finite_period_ratio_convolution` (seven guards) and
+Latest tests: `python -m unittest test_short_prime_window_energy` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

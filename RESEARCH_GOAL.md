@@ -3469,3 +3469,36 @@ beta displacement, entire-cutoff tails and uniformity. If the energy
 passes, test the beta and actual finite-period transfer for an O(N)
 complex band bound. This would remain a main-scale upper bound, not an
 all-log deletion or signed lower margin. Fresh <=30-minute pursuit.
+
+## 2026-09-09: prime support pays an actual comparable band at main scale
+
+Started22:25:14 UTC, reassessed22:36:11 UTC, progress. Resumed verified
+clean mainc6421fc; reviewed mathematics **ba1747b**,
+short_prime_window_energy.py. Previous native goal turn made progress
+through the endpoint-transition deletion. At fixed T=N9/10, chi real
+smooth in(1,2), the actual moment is O(sqrtN), central da-energy O(N),
+and actual COMPLEX comparable J_N band O(N). No small constant or
+all-log deletion follows; the signed lower margin stays OPEN.
+
+Yamada2312.16090v1 Theorem2 printedp3 eq13 supplies the interval
+upper bound. Full Lambda shell masses include explicitly paid proper
+powers. The effective H=N1/10 window, Schwartz shell sum and weighted
+Schur bounds pay the energy. Guinand displacement N1/10L^6, beta
+endpoint N^-7/10L^13, and actual kernel error N9/10L^12 are paid.
+Sol theory/actual-file PASS; six guards normal0.020s/-O0.019s. No
+actual zero computation, RH, target average, new coverage or outside
+action. Original MV institutional copy403; Yamada primary route worked.
+All polynomial tools, earlier source corrections and runtime limits stay.
+
+Fresh next-decision source check: GM2405.20552v2 Corollary1.4 printedp3
+requires interval length X^(2/15+eps), so it supplies no X1/10 asymptotic.
+Next unreviewed question tests a different mechanism: can a positive
+artificial additive chirp have strong centered global Fourier cancellation
+yet order-N reinforcement under the exact paired prime-window operator?
+Candidate f_N(a)=lambda_N a+(a-1/2)^3 has complementary phase sum
+lambda_N; choose Tlambda_N an odd multiple of pi and lambda_N->3.
+Test the local approximation, discretization and global O(N7/10) Fourier
+costs before drawing any conclusion. Model coefficients are not primes
+or zeros. This targets a specific transfer from the newly proved bounds;
+it must not repeat the older semiprime-modulus model or imply a global
+Goldbach obstruction. Fresh <=30 minutes; overall goal active.
