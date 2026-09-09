@@ -2842,3 +2842,47 @@ the density saving. Derive the unequal-zero kernel, retain the cost of
 unbalanced small heights, use local zero counts and a symmetric arithmetic
 mean inequality. No RH or pair-correlation input is licensed. Fresh
 <=30-minute hypothesis; separated-height signed interactions would remain.
+
+## 2026-09-09: a growing near-height zero-pair strip is negligible
+
+Started19:42:53 UTC, reassessed19:48:19 UTC, progress. Resumed verified
+clean main95d3e9d; reviewed mathematics **9f47ce4**,
+spectral_near_height_bound.py. Previous pursuit was progress: the
+identical-zero phase proof depended only on the sums of heights and real
+parts, giving a concrete unequal-zero extension.
+
+For all actual positive zeros, |J_N(rho,sigma)| is bounded by
+N^(beta+beta'-1)/sqrt(1+min(gamma,eta)). This follows from the uniform
+partial-integral bound and Gamma ratio; very unequal heights are paid.
+On |gamma-eta|<=W, the denominator comparison costs sqrt(W+1), the
+multiplicity-counted local Riemann-von Mangoldt count costs (W+1)logN,
+and AM-GM reduces the two real-part weights to the single moment F_K.
+The earlier density calculation bounds F_K DIRECTLY by
+Nlog^8N exp[-(alpha/10)sqrt(logN)], alpha=min(1,sqrt c). One cannot
+instead infer that bound by reversing diagonal<=F_K.
+
+Therefore, for fixed K,A>0, the ENTIRE strip of pairs 0<gamma,eta<=KN,
+|gamma-eta|<=exp[(alpha/30)sqrt(logN)], has absolute mass
+O_(A,K)(N/log^A N). The explicit intermediate bound is
+Nlog^9N exp[-(alpha/20)sqrt(logN)]. All product multiplicities are
+counted, including distinct real parts at the same height. Every fixed
+log^B N is eventually covered; a width N^epsilon is not. No numerical
+constant/onset or zero list is supplied.
+
+With K=pi+2delta the pointwise formula now retains only C_sep with
+positive gamma+eta<=(pi+2delta)N, |gamma-eta| above that strip, and the
+original bounded smooth weight1-Psi. The formula for R still has its
+inherited O_A(N/log^A N) error, not a square-root error. The required
+signed lower margin remains OPEN. Sol theory/actual-file PASS; five exact
+guards passed normal0.002s/-O0.002s. No RH, simple zeros, new prime/zero
+computation, coverage, onset, novelty, outside action or manual wake queue.
+All polynomial tools and corrected sources persist; overall goal active.
+No research process is claimed after this reviewed checkpoint.
+
+Next unperformed question: remove the low-height axes where
+min(gamma,eta)<=exp[(alpha/30)sqrt(logN)], preserving the stronger
+unequal-height Gamma ratio. Split the larger height at
+exp[(alpha/4)sqrt(logN)]; test zero-free counting below and dyadic ratio
+bounds above. A comparable-height replacement would miss the relevant
+cost. Fresh <=30 minutes; success would still leave the signed interaction
+between separated, growing positive heights, with no Goldbach margin.

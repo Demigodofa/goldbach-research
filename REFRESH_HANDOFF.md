@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **6abc250**, in spectral_diagonal_bound.py:
+Latest reviewed RESEARCH commit: **9f47ce4**, in spectral_near_height_bound.py:
+the ENTIRE near-height strip |gamma-eta|<=exp[(alpha/30)sqrt(logN)],
+0<gamma,eta<=KN, costs O_(A,K)(N/log^A N) absolutely, WITHOUT RH.
+Here alpha=min(1,sqrt c) uses the retained classical zero-free constant;
+there is no numerical width/onset claim. Product multiplicities and
+different real parts at the same height are included. The finite signed
+remainder now has separated positive heights and the original smooth
+height-sum weight. Its Goldbach lower margin remains OPEN.
+Previous **6abc250**, in spectral_diagonal_bound.py:
 the ENTIRE identical-complex-location diagonal through height KN, including
 m(rho)^2 pairs at a zero of multiplicity m, costs O_(A,K)(N/log^A N)
 absolutely, WITHOUT RH or simple zeros. A uniform partial-interval kernel
@@ -324,7 +332,40 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the identical-location spectral diagonal is paid
+## Latest pursuit: a growing near-height spectral strip is paid
+
+Started19:42:53 UTC, reassessed19:48:19 UTC, progress. Resumed verified
+clean main95d3e9d; reviewed mathematics **9f47ce4**. The previous
+pursuit's diagonal proof supplied a uniform unequal-zero extension:
+|J_N(rho,sigma)|<<N^(beta+beta'-1)/sqrt(1+min(gamma,eta)).
+This retains the loss when one height is much smaller than the other.
+Local multiplicity-counted Riemann-von Mangoldt and AM-GM give
+S_near(N,W)<<(W+1)^(3/2)logN F_K(N), where F_K is the single-zero
+weighted moment sum N^(2beta-1)/sqrt(1+gamma). The earlier density
+calculation bounds F_K DIRECTLY; do not reverse diagonal<=F_K.
+
+It gives F_K<<Nlog^8N exp[-(alpha/10)sqrt(logN)]. Taking
+W=exp[(alpha/30)sqrt(logN)] leaves Nlog^9N exp[-(alpha/20)sqrt(logN)],
+hence all-log saving. Every fixed log^B N is eventually included; a
+width N^epsilon is not licensed by this budget. All equal-height locations
+are now paid, including different real parts and every product multiplicity.
+The finite retained C_sep has gamma+eta<=(pi+2delta)N, |gamma-eta|>W,
+and the original1-Psi weight. The R error remains O_A(N/log^A N), with
+the inherited opposite-sign cost; its signed lower margin is OPEN.
+Sol theory/actual-file PASS; five exact guards normal0.002s/-O0.002s.
+No actual zero/prime computation, RH, coverage, numerical onset or novelty.
+Polynomial tools and all source corrections persist. Overall goal active.
+
+Next concrete question, UNPERFORMED: can the two low-height axes
+min(gamma,eta)<=exp[(alpha/30)sqrt(logN)] also be deleted absolutely?
+Preserve the stronger unequal-height Gamma ratio. Split the other height
+at exp[(alpha/4)sqrt(logN)]: test a classical zero-free/counting bound
+below it and the full ratio plus dyadic counting above it. Pay every
+power of the small height; a comparable-height estimate is invalid here.
+Fresh <=30 minutes, no RH or new pair-correlation assumption. This would
+still leave separated, growing heights in the stationary signed sum.
+
+## Previous pursuit: the identical-location spectral diagonal is paid
 
 Started19:29:02 UTC, reassessed19:41:46 UTC, progress. Resumed clean
 mainccf6291; reviewed mathematics **6abc250**. The previous turn was
@@ -347,13 +388,7 @@ error and OPEN signed lower margin. Sol theory/actual-file PASS; six
 guards normal0.007s/-O0.008s. All sources and polynomial tools persist.
 No new prime/zero computation, coverage, onset, novelty or outside action.
 
-Next concrete question, UNPERFORMED: can an entire growing near-height
-strip |gamma-eta|<=log^B N, B fixed, be deleted absolutely? Generalize
-the partial-integral estimate to unequal real parts and heights, pay
-unbalanced small heights and local multiplicity counts, and use a symmetric
-weight inequality. Test how fast the strip may grow before the density
-saving is lost. No pair-correlation assumption or RH. Fresh <=30 minutes;
-the remaining signed Goldbach margin is open. Overall goal stays active.
+The proposed growing near-height strip test is completed above.
 
 ## Previous pursuit: the full smooth nonstationary spectral tail is paid
 
@@ -2677,7 +2712,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_diagonal_bound` (six guards) and
+Latest tests: `python -m unittest test_spectral_near_height_bound` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
