@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **b2554fd**, in spectral_low_axis_bound.py:
+Latest reviewed RESEARCH commit: **0fed151**, in spectral_height_envelope.py:
+for each fixed kappa<(52+16sqrt3)/121=0.658783577860..., pairs with
+BOTH heights<=N^kappa have O_A(N/log^A N) absolute mass. The concrete
+retained cutoff is13/20. The new finite C_high has both heights>V_N,
+their difference>W_N, max height>N^(13/20), and the original smooth
+height-sum cap. The signed lower margin and all-log R error remain.
+The displayed kappa_* is only this Ingham upper-envelope boundary;
+no actual-mass lower bound, universal barrier, RH or coverage follows.
+Previous **b2554fd**, in spectral_low_axis_bound.py:
 uniformly1<=V<=sqrtN, pairs with min(gamma,eta)<=V and both heights<=KN
 have absolute mass <<_K log^14N[N exp(-c1 sqrtlogN)+sqrtN V]. Thus the
 single V_N=sqrtN exp[-(loglogN)^2] deletes the whole low-height axes
@@ -340,7 +348,42 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the low-height axes reach an almost-square-root cutoff
+## Latest pursuit: both-low heights and the density-envelope limit
+
+Started19:59:18 UTC, reassessed20:05:23 UTC, progress. Resumed verified
+clean main1e8c05b; reviewed mathematics **0fed151**. Previous pursuit
+was progress: the paid density-box exponent supplied this extension.
+The exponent increases with the smaller height scale g, so setting g=h
+bounds all boxes while retaining the smaller band's zero-free cap.
+The rational density majorant D(u)<=20u/13+49/200 gives
+E<=1-(1-20h/13)(u+v)-h/100 for h<=13/20. A zero-free small-height
+split then proves the actual all-log deletion of the whole both-low box.
+
+The exact uncapped envelope M(h) is1-h/2 up to1/3,
+3+(11/2)h-4sqrt(3h) through3/4, and3h/2 thereafter. Its relevant
+crossing of1 is kappa_*=(52+16sqrt3)/121. A tangent majorant proves
+all-log deletion for every FIXED kappa<kappa_*, with constants not uniform
+at the boundary. At kappa_* only this upper bound loses saving; actual
+zeros have not been shown to saturate it. The finite C_high now has
+max(gamma,eta)>N^(13/20), in addition to all prior core restrictions.
+Sol theory/actual-file PASS; five guards normal0.005s/-O0.005s. No RH,
+zero/prime computation, coverage/onset/novelty or square-root R error.
+All corrected sources and polynomial tools persist; overall goal active.
+
+Next concrete hypothesis, UNREVIEWED: on actual zeros in (T,2T],
+T=N^(2/3), the surviving INTERIOR pair kernels have absolute mass
+>>T^(3/2)log^2T= Nlog^2N. Test a uniform stationary-phase lower bound
+for the finite-period integral, then use beta->1-beta reflection and
+Riemann-von Mangoldt. A candidate normalized main is
+sqrt(2pi)e^-1 h^(1/2-b) exp(i[h-hlogh-b*pi/2+pi/4]), with relative
+O(h^-1/2), for h=gamma+eta, b=beta+beta', U=piN>=4h.
+All partial-endpoint errors, real parts and multiplicities must be paid.
+If valid, check that removing the already paid near-height strip leaves
+the lower bound inside the ACTUAL retained core. This would prove a need
+for signed cancellation there, not its absence or a Goldbach obstruction.
+Fresh <=30 minutes; no actual lower-bound claim has yet been promoted.
+
+## Previous pursuit: the low-height axes reach an almost-square-root cutoff
 
 Started19:49:53 UTC, reassessed19:58:16 UTC, progress. Resumed verified
 clean mainef67439; reviewed mathematics **b2554fd**. Previous turn was
@@ -362,7 +405,8 @@ Sol theory/actual-file PASS; five guards normal0.051s/-O0.046s. No RH,
 prime/zero computation, coverage, numerical onset or square-root R error.
 All sources and polynomial tools persist; overall goal active.
 
-Next concrete question, UNPERFORMED: use the same paid box density
+The proposed same-box density test is completed and extended above. Its
+original question was to use the same paid box density
 estimate to delete pairs with BOTH heights<=N^(13/20). Check the diagonal
 height endpoint for arbitrary real parts and identify the density method's
 actual cutoff limit, rather than treating this one exponent as universal.
@@ -2742,7 +2786,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_low_axis_bound` (five guards) and
+Latest tests: `python -m unittest test_spectral_height_envelope` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

@@ -2926,3 +2926,45 @@ N^(13/20), using the full paid density-box exponent. Derive the actual
 cutoff boundary of that density estimate and preserve its limitations.
 Fresh <=30 minutes; the remaining larger-height signed correlation and
 Goldbach margin would still require new control.
+
+## 2026-09-09: both-low heights are paid through the Ingham envelope range
+
+Started19:59:18 UTC, reassessed20:05:23 UTC, progress. Resumed verified
+clean main1e8c05b; reviewed mathematics **0fed151**,
+spectral_height_envelope.py. Previous pursuit was progress: the uniform
+axis theorem supplied a paid density-box exponent with explicit costs.
+
+For fixed0<kappa<(52+16sqrt3)/121=0.658783577860..., the ACTUAL
+absolute pair sum over gamma,eta<=N^kappa is O_(A,kappa)(N/log^A N)
+for every fixed A. The exponent is nondecreasing in the smaller scale g,
+so set g=h without dropping the smaller-band zero-free cap. At13/20,
+the rational density majorant D(u)<=20u/13+49/200 gives the explicit
+gap E<=1-(1-20h/13)(u+v)-h/100. The completed-square certificate,
+compact first band, small-height zero-free split and product counts are paid.
+
+Maximizing the uncapped exponent yields M(h)=1-h/2 up to1/3,
+3+(11/2)h-4sqrt(3h) up to3/4, and3h/2 thereafter. The relevant
+root M=1 is kappa_* above; the other polynomial root is outside its
+branch. A tangent density majorant proves the full fixed-kappa range,
+with no uniform constants as kappa approaches kappa_*. This is the
+CURRENT upper-envelope limit, not an actual zero-mass lower bound or
+an impossibility theorem for other density/cancellation inputs.
+
+The concrete retained C_high uses kappa=13/20 and now satisfies
+gamma,eta>V_N, |gamma-eta|>W_N, max(gamma,eta)>N^(13/20), and the
+original height-sum cap and smooth weight, with every product multiplicity.
+The combined R error remains O_A(N/log^A N); its signed lower margin
+is OPEN. Sol theory/actual-file PASS; five guards normal0.005s/-O0.005s.
+No RH, prime/zero computation, coverage, onset, novelty, outside action
+or manual wake. All sources and polynomial tools persist; overall goal
+active. No research process claimed after this reviewed checkpoint.
+
+Next unreviewed hypothesis: actual zeros with heights in(T,2T],
+T=N^(2/3), have pair-kernel absolute mass >>T^(3/2)log^2T=Nlog^2N
+INSIDE the remaining stationary region. Prove a uniform finite-period
+stationary-phase main and relative error, then use functional reflection
+in beta and multiplicity-counted Riemann-von Mangoldt. Check that the
+already paid near-height strip can be deleted without losing the lower
+bound. This would establish a real need for signed cancellation in the
+retained core, not failure of Goldbach or an impossibility of cancellation.
+Fresh <=30 minutes; the actual lower-bound claim is not yet reviewed.
