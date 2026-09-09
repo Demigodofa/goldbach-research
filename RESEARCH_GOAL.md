@@ -1464,3 +1464,48 @@ its09:56 UTC ceiling. No old experiment, install, publication, push,
 foreground action or manual wake queue. Qwen remains unavailable without
 retry. No research process is left running at this checkpoint. The overall
 goal remains active, with no claim of execution during pauses.
+
+The next pursuit, **90488ef**, saves the SAME unbalanced MODEL box for
+EVERY integer modulus, in `all_moduli_unbalanced_kernel.py`. The repeated
+prime factors stay in the factor r preserved by divisor shifts; only its
+coprime complement s needs to be squarefree. This uses the existing
+all-prime-power pointwise bound and avoids the failed residue-split cost.
+For full squarefull part U(q)<=q^(2/5), the corrected classification gives
+r in[q^(1/32),q^(69/160)] or a small factor with one/two large simple
+primes left. Independent review caught the missing transition cases in
+the proposed narrower2/5 upper limit. The wider range still saves1/256.
+
+All integer multipliers and prime-power zero patterns are included by the
+exact recursion G_e=K_(p^e)(hlt)+p*1_(p|h,l,t)*G_(e-1), ending at the
+retained prime identity. Its terms pay volume massD^-1 and fixed-h norm
+massD^-1/2, up to divisor factors. The exact period lift costs J^4;
+arbitrary-position second intervals and periods sharing q are paid.
+Using U(q)<=q^(39/100) as the good-modulus cutoff gives
+ Y^(1-1/512+epsilon)*J0^(7/2)*H^(3/2).
+The remaining O(C^(161/200)) moduli use squarefull density and the
+retained pointwise bound. Axes and overlap remain included. At the full
+H,J0 caps the good exponent is1-3/4096 and the theorem is1-1/4096.
+The preceding squarefull-residue budget remains a valid failed route.
+
+A separate retained component proves the prime-square four-factor bound
+<=108p for p>=5 and p not dividing a(u-v), uniformly in the Fourier
+twist. It comes from the exact unit-cube-root formula for K_(p^2), a
+tangent stationary equation and a degree<=12 polynomial with nonzero
+constant on each of at most9 branches. Explicit p=113 witnesses show
+both exceptional families can exceed108p. This component is promising
+but not needed by the all-integer MODEL proof.
+
+Nine NEW exact tests passed normally in0.195s and under -O in0.151s.
+Sol `/root/sieve_review` passed the derivation, corrected classification,
+actual files, interval transfer, recursion, exponent costs and fixtures.
+This pursuit began09:51:06 UTC and returns `changed-under-evidence`
+before its10:21 UTC ceiling. No old experiment or outside action occurred.
+Qwen remains unavailable without retry; no manual wake was queued.
+Next question: does the exact envelope of combined reviewed model bounds
+cover the canonical hyperbola-box domain, or which explicit box remains?
+Pay all period/frequency caps and source support conditions in that test.
+Full box coverage, original sieve transfer and signed prime correlation
+remain OPEN; latest original-affine stays2b8cf98, formal conservation
+6f9a77b stays distinct from the signed gap, and polynomial tools survive.
+No research process is left running at this checkpoint. The overall goal
+remains active, without claiming work during execution gaps.

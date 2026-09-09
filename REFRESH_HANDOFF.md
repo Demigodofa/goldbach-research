@@ -35,9 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **2c8d197**, the ALL-squarefree
-unbalanced-model saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **228c342** preserved
+Latest reviewed RESEARCH commit: **90488ef**, the ALL-integer-modulus
+unbalanced-model saving and prime-square correlation component.
+Latest ORIGINAL-AFFINE: **2b8cf98**. The handoff is committed later.
+Preceding checkpoint **912ec87** preserved the ALL-squarefree saving
+**2c8d197** and its failed squarefull-residue budget.
+Earlier checkpoint **228c342** preserved
 the two-large-prime Kl3 saving **eb4e380**. Earlier **5477e87** preserved
 the reciprocal-energy saving **af8f893**. Earlier **ab8dab9** preserved
 the all-integer-modulus balanced saving **6852af6**. Earlier **831bbb2** preserved
@@ -59,8 +62,10 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `squarefree_unbalanced_kernel.py`, the latest all-squarefree
-unbalanced saving and the failed squarefull-part extension budget.
+First read `all_moduli_unbalanced_kernel.py`, the latest all-integer
+unbalanced saving and separate prime-square four-factor component.
+Then use `squarefree_unbalanced_kernel.py` for its divisor-shift and
+prime/core dependencies and the retained failed squarefull-residue budget.
 Earlier dependencies, as needed:
 
 1. `two_prime_kl3_kernel.py` — retained two-large-prime correlation mechanism
@@ -94,7 +99,65 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the unbalanced saving covers all squarefree moduli
+## Latest pursuit: repeated factors stay inside the preserved shift factor
+
+**90488ef**, `all_moduli_unbalanced_kernel.py`, proves the SAME unbalanced
+MODEL box B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4) for EVERY integer q.
+The mechanism is cheaper than the preceding failed residue split: only
+the complementary factor s in q=r*s needs to be squarefree. The preserved
+r factor may contain arbitrary prime powers, since its role is bounded
+periodicity. The retained pointwise theorem provides that bound.
+
+Let U(q) be the FULL squarefull part. For U(q)<=q^(2/5), a corrected
+factorization dichotomy gives either a divisor r in[q^(1/32),q^(69/160)]
+containing U(q), with squarefree complement, or a small factor leaving
+one/two large simple primes. The earlier proposed upper divisor limit
+2/5 was too narrow when attaching U(q); independent review caught this.
+The widened window still saves1/256. Natural K handles every integer
+multiplier for U(q)<=q^(51/128), with all nonunit masks paid.
+
+For all prime powers, the EXACT normalized recursion is
+ G_e(h,l,t)=K_(p^e)(hlt)+p*1_(p|h,l,t)*G_(e-1)(h/p,l/p,t/p).
+It ends at the retained prime zero-pattern formula. Every reduction D
+has volume mass<=D^-1 and fixed-h bilinear norm mass<=D^-1/2, up to
+divisor factors. The exact joint-period Fourier lift costs J^4 and
+produces arbitrary-position second intervals, permitted by the proof.
+D|q and D|h'=(h+qa)/J imply D|h; the nonzero Schwartz divisor savings
+therefore survive periods sharing q. No expensive squarefull residue
+split is needed. For U(q)<=q^(39/100), the off-axis total is
+ Y^(1-1/512+epsilon)*J0^(7/2)*H^(3/2).
+The remaining moduli number O(C^(161/200)) by squarefull density and
+use the existing pointwise bound. Integer axes and overlap remain paid.
+At H,J0<=Y^(1/4096), the good exponent is1-3/4096 and the full MODEL
+claim is1-1/4096. The old failed budget remains valid for its own method.
+
+Separately, for p>=5, K_(p^2)(z) is exactly the sum of e_(p^2)(3w) over
+unit cube roots w^3=z. Its four-factor correlation is <=108p whenever
+p does not divide a(u-v), uniformly in the Fourier twist. Tangent
+stationarity reduces to a degree<=12 polynomial with nonzero constant,
+at most12 stationary bases for each of at most9 root branches. Both
+exceptional families are necessary: p=113 gives explicit correlations
+p(p-2) and p(p-1), each exceeding108p. Keep this as a separate promising
+component; the all-integer MODEL proof does not require it.
+
+Nine NEW exact checks passed normally in0.195s and under -O in0.151s.
+Sol `/root/sieve_review` passed the theory, corrected classification,
+actual files, arbitrary-interval transfer, recursion, costs and fixtures.
+This pursuit began09:51:06 UTC and returned `changed-under-evidence`
+before its10:21 UTC ceiling. Qwen remains unavailable without retry.
+No old experiment, outside action or manual wake queue occurred.
+
+Next concrete question: do the combined reviewed model bounds cover the
+full canonical hyperbola-box domain, or is there a specific surviving
+box? Test the exact exponent envelope with all periods, frequency caps
+and source support ranges, before proposing another analytic ingredient.
+Full box coverage, original sieve transfer and signed prime correlation
+remain OPEN. Latest original-affine stays2b8cf98; the formal identity
+6f9a77b and all polynomial tools remain available. No research process
+is left running at this checkpoint. The overall goal remains active;
+do not claim execution during pauses.
+
+## Previous pursuit: the unbalanced saving covers all squarefree moduli
 
 **2c8d197**, `squarefree_unbalanced_kernel.py`, proves the same unbalanced
 MODEL box B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4) for ALL squarefree q.
