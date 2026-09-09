@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **293fb8b**, in cubic_prime_chirp_exclusion.py:
+Latest reviewed RESEARCH commit: **a6edeb7**, in analytic_complementary_phase.py:
+one dense positive ARTIFICIAL sine-phase model has exact paired main
+-cN+O(N9/10), yet centered correlations with EVERY FIXED-DEGREE
+polynomial probe are O(N^(1-9/(10*(D+2)))). Constant/linear probe
+coefficients are arbitrary; nonlinear coefficients have a fixed bound.
+The same model works for each fixed D; no growing-degree uniformity.
+Thus the proposed inverse step from those probe bounds to paired
+cancellation fails. Prime support, Type I and actual correlations stay open.
+Previous **293fb8b**, in cubic_prime_chirp_exclusion.py:
 the ACTUAL Lambda coefficient against the model's global cubic phase is
 O_psi(N63/64), uniformly in all lower polynomial coefficients. The model
 instead has (N/4)int psi+O(N7/10). Checked Le--Spencer II Theorem5,
@@ -471,7 +479,57 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual primes exclude the model's coherent cubic coefficient
+## Latest pursuit: one analytic model defeats the proposed polynomial inverse step
+
+Started22:57:58 UTC, reassessed23:04:46 UTC, changed-under-evidence.
+Resumed verified clean mainf3ba9a7; reviewed mathematics **a6edeb7**.
+Previous native goal turn was progress: actual cubic-phase exclusion.
+The proposed quintic falsifier led to a stronger single model, avoiding
+repeated higher-degree tests: f_N(a)=lambda_N*a+sin(a-1/2)-(a-1/2),
+lambda_N->3 with Tlambda_N odd*pi, T=N9/10. Positive dense weights
+b_N=1+(1/2)cos(T f_N) retain the exact window expansion, with error
+N2/5, and the no-conjugation paired main -cN+O(N9/10), c>0.
+
+For every FIXED D>=1, fixed smooth psi of compact positive support,
+and polynomial g of degree<=D, allow arbitrary constant/linear
+coefficients and fixed bounded nonlinear coefficients. The centered
+correlation against exp[-iTg(n/N)] is uniformly O(N*T^-1/(D+2)).
+This is N7/10 for D1 and N41/50 for D3. Consecutive derivatives
+D+1,D+2 kill the polynomial and supply a sine/cosine partition;
+an elementary derivative-lemma induction and every Poisson alias are
+paid. Arbitrary linear coefficients use exact frequency reduction.
+The SAME model works for each fixed D, with degree-dependent constants
+and onset. Growing degree, unbounded nonlinear coefficients, and
+increasingly localized spatial cutoffs are outside the statement.
+
+This falsifies the specified model-shared inverse implication. It does
+not transfer the model to Lambda or invalidate all polynomial tools.
+Prime support, Type I, explicit formula and linked prime covariance are
+not supplied. Actual comparable-band O(N) and signed lower margin
+remain unchanged. Sol theory/actual-file PASS; seven guards normal
+0.005s/-O0.003s. No material correction, external source search,
+prime/zero experiment, outside action or claim of post-stop execution.
+All earlier source corrections and runtime limitations are preserved.
+
+Next concrete question, UNREVIEWED: does actual multiplicative
+decomposition exclude the sine alignment with a fixed power saving?
+For fixed psi smooth supported in(1/2,3/4), test the ACTUAL sum
+sum psi(n/N)Lambda(n)exp[-iT f_N(n/N)]. Reuse Vaughan's exact
+identity from unexceptional_vaughan_gate.py, including the essential
+free convolution1; that identity itself needs no unexceptional branch.
+Try U=V=N1/5. Source-check a discrete second-derivative sum bound.
+Candidate Type I budget N17/20 times logs comes from d<=N2/5.
+For Type II, orient M>=K with MK~N, both>=N1/5; the phase-difference
+curvature uses (u^2 f''(u))', bounded away from0 on the fixed support.
+Test the candidate estimate N[K^-1/2+T1/4 M^-1/2+T^-1/4] times logs,
+whose worst exponent is39/40. Keep product masks, actual arithmetic
+coefficients, weighted variation and diagonal terms. An N79/80 target
+would leave room for logarithms; it is NOT yet proved. This would
+identify a concrete arithmetic constraint beyond the fixed-degree
+tests, not settle the full paired prime correlation. Fresh <=30 minutes.
+Overall goal remains active; the Goldbach signed lower margin is OPEN.
+
+## Previous pursuit: actual primes exclude the model's coherent cubic coefficient
 
 Started22:46:05 UTC, reassessed22:56:14 UTC, progress. Resumed verified
 clean main6eabd32; reviewed mathematics **293fb8b**. Previous native
@@ -502,7 +560,7 @@ The monomial-only Kumchev theorem was not extended by assumption.
 No actual prime/zero computation or outside action. All polynomial
 components, earlier source corrections and runtime limits persist.
 
-Next concrete question, UNREVIEWED: does large negative paired-window
+The then-next question, answered and strengthened ina6edeb7 above: does large negative paired-window
 correlation force a large coefficient against a bounded smooth cubic
 phase? Test a falsifier before using any such inverse implication:
 replace the model's odd cubic by (a-1/2)^5 while retaining the odd-pi
@@ -3568,7 +3626,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_cubic_prime_chirp_exclusion` (six guards) and
+Latest tests: `python -m unittest test_analytic_complementary_phase` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

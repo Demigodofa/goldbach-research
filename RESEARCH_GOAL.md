@@ -3569,3 +3569,40 @@ coefficient bound. Pay fifth-derivative oscillation and Poisson aliases;
 no inference to actual primes or a general polynomial barrier. This
 tests the missing inverse implication before promoting the arithmetic
 exclusion to a paired estimate. Fresh <=30 minutes; overall goal active.
+
+## 2026-09-09: a single analytic phase defeats the proposed polynomial inverse step
+
+Started22:57:58 UTC, reassessed23:04:46 UTC, changed-under-evidence.
+Resumed verified clean mainf3ba9a7; reviewed mathematics **a6edeb7**,
+analytic_complementary_phase.py. Previous goal turn made progress with
+the actual cubic-prime exclusion. The quintic test suggested a single
+stronger falsifier: f_N(a)=lambda_N*a+sin(a-1/2)-(a-1/2), with
+T=N9/10 and Tlambda_N odd*pi near3T. Its positive dense model has
+the exact paired functional -cN+O(N9/10), c>0, but centered polynomial
+probe correlations O(N^(1-9/(10*(D+2)))) for every FIXED degree D.
+The constant and linear coefficients are arbitrary; nonlinear ones
+have a fixed bound. The same model works for each fixed D, with
+degree-dependent constants and onset. The proof pays local window
+errors, complementary normalization, a sine/cosine derivative partition,
+elementary high-derivative induction and every Poisson alias.
+
+The proposed inverse implication fails using only those shared probe
+and marginal bounds. Actual cubic-prime exclusion and polynomial tools
+remain valid. The model has no prime support, Type I or explicit formula;
+unbounded nonlinear coefficients, growing degrees and localized probes
+are not covered. No actual paired estimate or signed Goldbach margin
+has been added. Sol theory/actual-file PASS; seven guards normal0.005s
+and -O0.003s. No external source search, prime/zero run or outside action.
+All source corrections/runtime limits persist; overall goal active.
+
+Next unreviewed arithmetic test: apply the existing exact Vaughan identity
+to actual Lambda against this sine phase, with fixed smooth psi supported
+in(1/2,3/4). Try U=V=N1/5 and an applicable discrete second-derivative
+sum estimate. Candidate Type I cost is N17/20 times logs. In Type II,
+orient M>=K, MK~N, and use the nonzero derivative (u^2 f''(u))' on
+the support to test N[K^-1/2+T1/4 M^-1/2+T^-1/4] times logs.
+The candidate worst power39/40 would permit N79/80 after logs, but
+all masks, arithmetic coefficients, diagonal and variation costs need
+proof and review. This tests actual multiplicative structure against the
+model; it does not assume a bound for the full linked-prime covariance.
+Fresh <=30 minutes. No repeat of higher-degree countermodels is needed.
