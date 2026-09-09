@@ -684,3 +684,21 @@ exact tests passed normally and with Python -O. The pursuit returned
 `changed-under-evidence` within30 minutes. No actual zero, numerical onset,
 prime-partner theorem, new Goldbach coverage, priority search, publication
 work or wake queue. Overall research remains active.
+
+The next pursuit returned `changed-under-evidence`: the large-factor
+cofactor switch still leaves an uncontrolled two-prime correlation, but
+`character_partner_weight.py` gives a precise weighted reduction using the
+standard W=chi*log. On a negative-sign squarefree partner, W is zero unless
+there is exactly one negative prime r; then W=2^omega_+*log(r). On the SAME
+pruned pool, its weighted sum T equals the positive-first actual prime-pair
+mass P plus a nonnegative large-positive-factor squarefree term and a
+nonnegative repeated-factor term. The latter is at most
+Y^(1-delta/u+o(1))=o_A(Y*t/log(Y)^A) for every fixed A under the existing
+hypotheses. This removes pure negative-sign odd composites from the weighted
+equation, without claiming that they leave the candidate pool. A positive
+lower bound for T AND control of the large-factor term remain unproved;
+the known candidate count does not imply positivity of this new weight.
+Sol checked theory and actual files; five symbolic algebra tests passed
+normally and with Python -O. The pursuit closed within30 minutes. No new
+Goldbach coverage, actual zero, numerical onset, priority search, publication
+work or wake queue. Overall research remains active.
