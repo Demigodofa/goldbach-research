@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **6852af6**, the all-integer-modulus
-balanced kernel saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **831bbb2** preserved
+Latest reviewed RESEARCH commit: **af8f893**, the modulus-averaged
+reciprocal-energy saving. Latest ORIGINAL-AFFINE: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **ab8dab9** preserved
+the all-integer-modulus balanced saving **6852af6**. Earlier **831bbb2** preserved
 the squarefree correlation estimate **7d36ce8**. Earlier **a58428e** preserved
 the general-composite linear estimate **c2a5ac5** and its balanced failure.
 Earlier checkpoint **d82553e** preserved
@@ -56,26 +57,28 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `all_moduli_balanced_kernel.py` — latest balanced MODEL saving for all
+1. `reciprocal_energy_kernel.py` — latest elementary modulus-average
+   fourth-moment estimate, symmetric-box saving and remaining unbalanced gap.
+2. `all_moduli_balanced_kernel.py` — balanced MODEL saving for all
    integer moduli; prime-power stationary phase and squarefull-part split.
-2. `squarefree_correlation_kernel.py` — balanced squarefree-model
+3. `squarefree_correlation_kernel.py` — balanced squarefree-model
    saving; all nonunit modes and short-period costs are included.
-3. `composite_linear_kernel.py` — general-composite unbalanced
+4. `composite_linear_kernel.py` — general-composite unbalanced
    estimate, nonunit/period costs and balanced13/12 failure.
-4. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
+5. `hyperbola_prime_kernel.py` — full prime-core MODEL box coverage via changed
    grouping and linear completion. Composite/arithmetic transfer OPEN.
-5. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
+6. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
    and roughness zero-mode lemma. Its box range has now been extended.
-6. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
-7. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+7. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+8. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-8. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+9. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-9. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-10. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+10. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+11. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-11. `formal_weight_conservation.py` — completed formal result and exact gap.
-12. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+12. `formal_weight_conservation.py` — completed formal result and exact gap.
+13. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -83,7 +86,58 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the balanced saving covers all integer moduli
+## Latest pursuit: reciprocal energy saves the symmetric boundary
+
+**af8f893**, `reciprocal_energy_kernel.py`, passed independent Sol review
+of the critical proof, general family and actual files. Five NEW tests passed
+normally in0.112s and under -O in0.110s. No correction was needed. The
+pursuit began08:50 UTC and returned `changed-under-evidence` within30 minutes.
+
+The new arithmetic mechanism averages a fourth-moment majorant over q.
+For the reciprocal relation numerator
+`D=(a1+a2)*a3*a4-(a3+a4)*a1*a2`, a nonzero D contributes only through
+divisors of the common nonzero m*k*D. The D=0 rational relations are counted
+by `(u*a3-v)*(u*a4-v)=v^2`, giving O(A^(2+epsilon)). This includes
+non-diagonal relations such as1/3+1/6=1/4+1/4. Consequently
+`sum_(q near C) E_(q,mk)(A) <<Y^epsilon*(A^4+C*A^2)`.
+This is elementary and covers all integer moduli; no prime-only energy
+theorem or unsupported composite extension is imported.
+
+Holder and the inverse-residue multiplicity when B>q give
+`R(B,A,C)=C^(3/4)*B^(3/4)*(B+C)^(1/4)*(A^4+C*A^2)^(1/4)`.
+The full smooth model satisfies
+`sum_q |E_q| <<Y^epsilon*H*J0^2*min(R(B,A,C),R(A,B,C))`.
+The period Fourier series pays J^2 even with shared factors. The k count
+cancels the kernel prefactor. Arbitrary bounded separated spatial weights
+are allowed, and every mode is included without a Poisson-axis split.
+At B=A=Y^(1/4),C=Y^(1/2),K=1 the exponent is15/16 before decorations
+and3843/4096 after caps. More generally, valid boxes with b,x<=9/32 and
+y<=1/2 have exponent127/128 before caps and4067/4096 after caps.
+
+The common nonzero m*k across q is essential. Arbitrary t_q=q would make
+every phase1 and invalidate the divisor step. Arbitrary coupled arithmetic
+weights remain outside the separated-weight statement. The uniform smooth
+coupled-weight corollary retains its already proved derivative hypotheses.
+
+Next concrete UNTESTED question: at b=1/2,x=1/4,y=1/2, can completing
+the long M variable and then averaging correlations of the resulting
+ordinary Kloosterman sums over moduli save a power, with a,k nearY^(1/4)?
+At this box the current energy budget is9/8 and the earlier linear budget
+is1 before decorations. Neither budget is a lower bound on the true sum.
+Do not extrapolate the newly proved symmetric region to all box geometries.
+
+Full box coverage, original sieve/weight transfer, and the signed prime
+correlation remain OPEN. Latest original-affine result is still2b8cf98.
+All polynomial and previous kernel components are preserved. No old test
+or experiment was rerun; no new prime coverage, actual zero, effective onset,
+originality, publication, push, foreground work or installation is claimed.
+Qwen remains unavailable without retry. No research process is left running
+and no manual wake queue is armed; the overall goal remains active.
+
+## Previous pursuit: the balanced saving covers all integer moduli
+
+The symmetric boundary question pending below is now answered by the latest
+pursuit above. Other geometries and the original arithmetic transfer remain.
 
 **6852af6**, `all_moduli_balanced_kernel.py`, passed independent Sol review
 of the prime-power proof, global transfer and actual files. Six NEW exact
@@ -653,7 +707,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_all_moduli_balanced_kernel -v` and the
+Latest tests: `python -m unittest test_reciprocal_energy_kernel -v` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
