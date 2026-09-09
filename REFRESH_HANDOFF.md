@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **3bee966**, in arithmetic_zero_moment.py:
+Latest reviewed RESEARCH commit: **15b36b9**, in arithmetic_zero_energy.py:
+the ACTUAL moment family has int_(1/3)^(2/3)|S_N(aN)|^2 da <<_chi NlogN.
+This is a frequency integral at FIXED N, not a target average. The sharper
+uniform approximation S_N(x)=-P_N(x)+O_chi(log^6N) pays the off-critical
+displacement with Ingham density. Smooth sampling and Chebyshev then pay
+the energy. All beta and prime powers remain. No coupled-kernel transfer
+or new deletion follows from this alone; the signed lower margin is OPEN.
+Previous **3bee966**, in arithmetic_zero_moment.py:
 for actual zeros, fixed real smooth chi compactly supported in(1/100,1/50),
 and EVERY real N/3<=x<=2N/3, the complex moment
 sum_(gamma>0) chi(gamma/N)*x^(rho-1/2) is O_chi(sqrtN logN).
@@ -401,7 +408,43 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual arithmetic excludes the model's linear alignment
+## Latest pursuit: arithmetic energy with the approximation error paid
+
+Started21:24:53 UTC, reassessed21:31:02 UTC, progress. Resumed verified
+clean maina4ff5ac; reviewed mathematics **15b36b9**. The previous goal
+turn was progress: actual arithmetic excluded the mock lattice alignment.
+The frequency energy at fixed N is O_chi(NlogN), saving one log from the
+pointwise bound. In x measure it is O_chi(N^2logN), not O(NlogN).
+The exact same finite prime window P_N approximates S_N with O(log^6N)
+uniform error. A localized first Taylor term costs N^-1 W_N, where
+the retained Ingham identity D(u)-u<=1/2 pays W_N<<Nlog^6N. Global
+second-order and cutoff tails cost N^-1/2 logN, including negative
+heights. Vanishing chi(0),chi'(0) pays the pole tests by N^-3/2.
+The prior Gamma O(1) remains. The prime kernel's two Schur bounds are
+O(1) and O(1/N); Chebyshev pays sum Lambda(n)^2/n<<logN. Squaring
+the IMPROVED error costs log^12N and is small enough. All beta and
+multiplicities remain; no pair correlation or target average was used.
+Sol theory/actual-file PASS; six guards normal0.004s/-O0.004s. No new
+source theorem, actual prime/zero computation, outside action or manual
+wake. Earlier corrections and polynomial tools persist. Full margin OPEN.
+
+Next concrete question, UNREVIEWED: can the beta-integral representation
+of 2N^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma) transfer
+this energy to an O_chi(NlogN) bound for the ACTUAL finite-period
+smooth comparable linear-height band? The proposed integral is
+2 int_0^1 S_N(aN)S_N((1-a)N)/sqrt(a(1-a)) da, with the beta factors
+retained exactly. Source-check the identity and justify every exchange.
+Localize a to a fixed central interval using nonstationary integration,
+paying real parts near0 via the retained zero-free/reflection input;
+extend the energy to that fixed interval with its constants. The finite
+period is NOT the infinite Gamma quotient: pay the negative half-line
+and upper tail. A fixed endpoint projection from793b135 might pay
+the leading tail, with the new first moment paying its remainder.
+Falsifier: a main-sized unpaid tail or invalid moment-to-kernel transfer.
+This would improve a comparable-band bound, not an all-log deletion or
+the Goldbach lower margin. Fresh <=30-minute test; not yet performed.
+
+## Previous pursuit: actual arithmetic excludes the model's linear alignment
 
 Started21:09:52 UTC, reassessed21:22:23 UTC, progress. Resumed verified
 clean main55f2bbf; reviewed mathematics **3bee966**. Previous goal turn
@@ -438,7 +481,7 @@ density sources, polynomial components and runtime limits all persist.
 The remaining coupled signed margin is OPEN; no new C_remaining deletion,
 coverage, onset, novelty, outside action, manual wake or post-stop process.
 
-Next concrete question, UNREVIEWED: does the arithmetic family give
+The then-next question, answered in15b36b9 above: does the arithmetic family give
 the mean-square bound int_(1/3)^(2/3)|S_N(aN)|^2 da <<_chi NlogN?
 Mechanism: improve the off-critical replacement using the already proved
 Ingham first-moment inequality D(u)-u<=1/2, rather than sqrtN times
@@ -3140,7 +3183,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_arithmetic_zero_moment` (seven guards) and
+Latest tests: `python -m unittest test_arithmetic_zero_energy` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

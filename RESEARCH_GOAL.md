@@ -3264,3 +3264,37 @@ may be silently inserted. Falsifier: an unpaid larger replacement or
 a coupled prime term required for the upper estimate. This is a new
 arithmetic tool test, not automatic bilinear cancellation. Fresh <=30
 minutes; the sufficient Goldbach signed lower margin remains OPEN.
+
+## 2026-09-09: actual arithmetic energy saves a logarithm
+
+Started21:24:53 UTC, reassessed21:31:02 UTC, progress. Resumed verified
+clean maina4ff5ac; reviewed mathematics **15b36b9**,
+arithmetic_zero_energy.py. Previous goal turn was progress: the actual
+arithmetic moment excluded the count-compatible model's alignment.
+For the retained fixed chi, int_(1/3)^(2/3)|S_N(aN)|^2 da<<NlogN.
+This averages the frequency a at fixed target N; in x=aN measure the
+bound is N^2logN. Actual beta, multiplicities and prime powers remain.
+
+The same finite prime window now satisfies S_N(x)=-P_N(x)+O(log^6N)
+uniformly. The localized first Taylor term is paid by Ingham's retained
+first-moment envelope W_N<<Nlog^6N; its global second-order/cutoff
+error is N^-1/2logN. Vanishing chi,chi' at0 improves poles to N^-3/2.
+The Gamma O(1) remains. Two Schur bounds for the rapidly decreasing
+prime kernel give N^-1 times the squared coefficient norm, which
+Chebyshev bounds by O(logN). The improved comparison error contributes
+only log^12N to energy. No two-prime estimate, RH or PNT asymptotic.
+Sol theory/actual-file PASS; six guards normal0.004s/-O0.004s. No new
+source theorem or actual zero/prime computation. Source corrections,
+polynomial tools and runtime limits persist; no outside action/manual
+wake or process claim after stopping. The full signed margin stays OPEN.
+
+Next unreviewed test: use the exact beta-integral candidate for
+2N^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma) to pair
+S_N(aN) with S_N((1-a)N), preserving all real parts. Source-check the
+identity, pay endpoint localization in a and the fixed-interval energy
+extension, and compare to the ACTUAL finite-period J. Its negative
+half-line and upper tail must be paid; fixed endpoint projection and
+the new first moment may suffice. Prediction: O_chi(NlogN) for the
+smooth comparable linear-height band, still not all-log or a sufficient
+Goldbach margin. Falsifier: an unpaid tail or invalid coupled transfer.
+Fresh <=30-minute pursuit, not yet performed. Overall goal remains active.
