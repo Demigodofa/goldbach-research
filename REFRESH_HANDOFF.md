@@ -1,0 +1,213 @@
+# Rill research refresh — 2026-09-09
+
+Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
+handoff at a checked mathematical checkpoint. This file is the entrypoint
+for the next session; the proofs and executable truth remain in the modules.
+
+## Identity, curiosity, and authorization
+
+You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
+explicitly wants you to keep your curiosity, conceive your own hypotheses,
+and change direction when evidence warrants it. Do not merely wait for him
+to prescribe the next calculation. Choose a concrete question with a
+mechanism, a prediction, a falsifier, and an observable finish; pursue it
+for at most30 minutes before reassessing. That is a ceiling, not a minimum.
+Preserve useful components when a proposed combination fails. Be candid
+about what was proved, what is conditional, and what remains speculative.
+
+The objective is open-ended mathematical work toward prime-pair coverage,
+ultimately Goldbach. Read `RESEARCH_GOAL.md` (opening authorization and latest
+entries first). Kevin removed the old9am and six-hour deadlines. Old native
+goal text mentioning9am is superseded. The overall goal is NOT solved and
+must not be marked complete because a bounded pursuit or finite test passed.
+
+Mathematics only. Kevin paused notes, manuscripts and publication packaging;
+this requested refresh handoff is an explicit exception. Proof docstrings,
+reusable verifiers/tests and minimal execution-state updates are permitted.
+No spending, contacts, publishing, push, foreground GUI work, model installs
+or claims of continuous execution. Coherent LOCAL commits are authorized.
+Do not conduct a novelty/priority search merely to label these results.
+
+No manual wake queues: the global8 manual-continuation attempt cap has been
+reached. Never reset, increase, rename or evade it. Native goal turns are
+separate; do not manually arm another wake. Reassess each next pursuit.
+
+## Checkpoint and first reads
+
+Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
+Latest MATHEMATICAL commit: **6f9a77b**. The handoff itself is committed later.
+The worktree was clean after the mathematical commit. Verify current Git
+state, since another session may have advanced it. Do not revert other work.
+
+Read the newest proof modules, using their dependencies as locators rather
+than rereading the entire repository:
+
+1. `formal_weight_conservation.py` — newest result and exact open gap.
+2. `quintic_loss_budget.py` — complete main-scale composite-error bounds.
+3. `quintic_partner_weight.py` — exact surviving factor support.
+4. `log_weight_barrier.py` — endpoint-main and suppression obstructions.
+
+Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
+Global Kevin instructions still apply. Current implementation/source state
+outranks this handoff. No fresh giant scan, broad experiment or old test
+rerun is required just to confirm already checked work.
+
+## Latest completed pursuit: the cancellation is the same main term
+
+**6f9a77b**, `formal_weight_conservation.py` and5 focused tests. Existing
+Sol reviewer `/root/moment_bound_review` checked both theory and actual
+files: PASS. Normal tests passed in0.197s; Python -O in0.272s. These tests
+check exact algebra, integrals and ranges, not analytic prime estimates.
+
+For any normalized polynomial f of degree d, f(0)=0,f(1)=1, set
+h(x)=f(1-x)-f(x). For odd k, define its all-negative finite-difference
+kernel J_k on factor shares summing to1. Integrate J_k against the
+EXPLICITLY FORMAL measure dx_1...dx_(k-1)/(k!*product x_i), with x_i>=theta.
+For **0<=theta<1/d**, the sum of all odd factor integrals equals exactly
+
+`B_f(theta) = -E[h'(theta*V)]/2`,
+
+where V has the normalized Dickman density. J_k vanishes for k>d; its
+product-of-shares divisor cancels, so every integral is polynomial/finite.
+At theta0, B_f=A_f=(f'(0)+f'(1))/2, and the total FORMAL composite
+integral is A_f-1. Thus the quintic's formal zero composite sum is forced
+by its endpoint coefficient1. It supplies no independent actual estimate.
+
+Proof uses the odd-convolution generating function and a compact-support
+cutoff. The coefficient t^j of the removed convolution is supported in
+[0,j*theta]; d*theta<1 is essential. Beyond it the polynomial identity can
+fail (cubic theta2/5: actual formal factor total1 versus polynomial51/50).
+
+For the alternative quintic f(s)=s-kappa*s^2*(1-s)^2*(1-2s),
+
+`B_f = 1 - 2*kappa*theta + 18*kappa*theta^2
+         - (170/3)*kappa*theta^3 + (190/3)*kappa*theta^4`.
+
+The pure-triple integral is
+`-(kappa/12)*(1-3theta)^2*(1+10theta-15theta^2)`;
+the pure-five integral is `(kappa/12)*(1-5theta)^4`.
+Their sum is exactly B_f-1. This is not an actual factor-density theorem.
+
+The normalized Dickman moments satisfy
+`mu_0=1; mu_n=sum_{j<n}binom(n,j)*mu_j/n`.
+First five:1,1,3/2,17/6,19/3. The source transform was checked in
+Gorodetsky's ViBrANT notes, Section2 printedp2:
+https://people.maths.ox.ac.uk/gorodetsky/vibrant.pdf
+
+The new rational factorial enclosure bounds ONLY the explicit Dickman
+main F_f around B_f. The actual accessible sum still has its FIXED sieve
+error `O_f(eta_s/theta^2)` and `o_Y(1)`. Choose u first, then Y. Do not
+claim a fixed-u exact asymptotic, growing-degree uniformity or numerical onset.
+
+APIs: `dickman_moments` (order<=64), `formal_dickman_main`,
+`formal_factor_integrals` (degree<=12 computational cap),
+`accessible_main_enclosure` (factorial index<=10000). All use exact inputs.
+The tests compare independent shifted-simplex and moment algorithms through
+degree10, direct exponential-product moments, quintic closed forms, the
+earlier cubic enclosure, tail bounds, cutoff failure and strict domains.
+
+## Actual remaining gap — do not replace it with the formal calculation
+
+In the existing actual-zero regime put `Z=length(J_real)*S_2(m)*t`.
+Let P be the actual weighted prime-pair sum, T_f the full kernel total,
+T_low its accessible divisor range, and T_boundary=T_f-T_low.
+Define EXACTLY `C_actual=T_f-P` and `Delta=C_actual-(B_f-1)*Z`.
+Then
+
+`P/Z - 1 = T_boundary/Z - Delta/Z + (T_low/Z - B_f)`.
+
+Only the final parenthesis can currently be made small using the proved
+parameter order. A sufficient signed estimate for `T_boundary-Delta` is
+missing. Setting Delta to zero because of the formal integral assumes the
+missing correlation with the reflected first prime. No all-target or
+new named-target prime-pair coverage was obtained in these analytic pursuits.
+
+Next action is intentionally NOT another automatic formula-polishing job.
+Reassess one concrete arithmetic route to this signed discrepancy, or a
+materially different prime-pair mechanism with a plausible discriminator.
+Do not spend a pursuit rediscovering the formal cancellation, repeating the
+same algebra at higher degree, or calling another parametrization a new
+arithmetic estimate. Curiosity remains authorized; it must earn the next
+action through evidence rather than remain locked to this candidate.
+
+## Previous checked layers — reuse, do not repeat
+
+**45844bb**, `quintic_loss_budget.py`: every surviving POSITIVE composite
+term is at most `C*(1+kappa)*Y*S_2(m)*t+o(Y*t)`, with C ABSOLUTE,
+independent of theta. This is a main-scale bound, not a small fraction.
+For pure five factors, order r1<...<r5, use M=r1*r2<=Y^(2/5), and
+auxiliary cutoff min(r2,Y^eta0). The available exponent margin is7/80.
+Indices M*e are noninjective, multiplicity<=binom(omega,2)=O(log(Y)^2).
+For even classes switch to the single large positive-sign prime q>Y^a,
+a=1/2-2epsilon>=12/25. M=n/q<=Y^(13/25). Bulk Linnik runs at scaleY/M
+and modulusD*e, NEVER D*M*e. Summed errors are
+`O_kappa(Y*(t^28*L^2+L^3/D)+Y^(19/25+o(1)))=o(Y*t)`.
+Do not insert a second factor t. Sol theory/actual PASS;5 tests normal/-O.
+
+**41a1fcb**, `quintic_partner_weight.py`: repeated factors, >=2 positive
+factors, and positive factors w<q<=Y^(1/2-2epsilon) cost o(Y*t) for any
+FIXED polynomial. Surviving quintic classes have2..6 total factors. Pure
+odd classes have no positive factor; even classes have exactly one large
+positive factor. Seven or more negative factors give zero. Pure triples
+of positive weight force a largest share>18/25; their small cofactor
+allows an absolute main-scale upper bound. No sufficient small-loss bound.
+
+**8668621**, `log_weight_barrier.py`: for the safe nonnegative subtraction
+family, endpoint coefficient A=1-B/2. Deleting any larger-positive-factor
+semiprime requires B>2 and therefore makes that accessible main negative.
+A broader formal triple obstruction explains why leaving this family
+creates new positive composite weights. Not a no-go theorem for all methods.
+
+**07e5c4a**, `cubic_positivity_obstruction.py`: the tuned cubic has a
+NEGATIVE accessible divisor portion in the actual-zero regime. This does
+not imply its FULL total is negative. Do not call its boundary negligible.
+
+Analytic assumptions: actual primitive quadratic zero beta, D>24,
+D<=Y^(delta/4), t=(1-beta)*logY in(0,1/logY], central suppressed target
+m in F_D, fixed epsilon<=.01, sufficiently small delta<=epsilon/3, fixed
+large u, theta=delta/u, z=ceilY^theta, w=floor sqrt(floorY^delta).
+No actual such zero or effective onset has been found. Formal finite
+characters do not establish an actual exceptional zero or prime rarity.
+
+Source repair is critical: Tao's old Proposition23 exposition has an
+acknowledged proof gap and is NOT the bulk-Linnik authority. The checked
+replacement is in `relative_type_i.py`, from Thorner--Zaman Theorem2.1
+and equation4.2, https://arxiv.org/html/2108.10878 . Reuse that deduction.
+`rare_twisted_bv.py`, `rare_prime_sieve.py`, `multi_rare_partner.py`,
+`balanced_semiprime_budget.py` own the related distribution/sieve layers.
+Use the corrected Henriot theorem, not its uncorrected older statement.
+
+Older finite work is complete: parity-preserving L bootstrap, input-output
+composition, and the frozen1000-even block1002000..1003998. Raw L is NOT
+an exact G input; L(2m) parity supplies prime flags. Later support-exact
+reconstruction worked on the same block but LOST to the ordinary-sieve
+complete-cost baseline. No blind range extension. DHR fixed-power raw-sieve
+obstructions are complete; do not repeat or optimize their exponent.
+Reflected artificial sets are not Goldbach counterexamples. The complete
+historical detail is in RESEARCH_GOAL.md and the owning proof modules.
+
+## Runtime and review continuity
+
+Windows PowerShell, background shell/API only. `python`3.11 works; `py`
+was unavailable. Use explicit repo workdir. No sandbox override arguments.
+Tests: `python -m unittest test_formal_weight_conservation -v` and the
+same with `python -O`; rerun only if changes or new concerns justify it.
+
+Existing Sol reviewer was `/root/moment_bound_review`; inspect whether the
+handle is available before reuse in a refreshed thread. One bounded theory
+review and one actual-file review sufficed for each pursuit. Do not spawn
+duplicative reviewers or delegate a new hypothesis merely to appear busy.
+Follow the live budget route before new agents; prior receipt was conserve.
+Local Qwen manifest was unavailable: explicit exception, no model install
+or unchanged-route retry. Goldbach-specific startup routing was unavailable;
+use owning repo sources, do not repair unrelated agent tooling.
+
+Deletion of ignored `local/dhr-python` was rejected by policy. Leave it;
+do not retry, delegate, rename or repackage that deletion.
+
+Local Git author identity was unset. If still needed, use the previous
+commit's author through per-command `git -c user.name=... -c user.email=...`.
+Stage only owned paths and run `git diff --cached --check` before commit;
+plain diff does not inspect untracked new files. No push. Preserve clean
+checkpoints and honest terminal evidence. The latest pursuit finished at a
+natural reviewed checkpoint; no research process is claimed still running.
