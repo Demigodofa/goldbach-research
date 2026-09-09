@@ -35,7 +35,22 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **c0f70ca**, in critical_cubic_sieve.py:
+Latest reviewed RESEARCH commit: **02448f6**, in pointwise_zero_pair_gate.py:
+an ACTUAL unconditional one-period Fourier transfer gives, for each
+integer N, R(N)=2psi(N-1)-N+B_(N,T)+O(sqrtN log^(5/2)N+log^4N).
+B is the specified signed pair of zeta zeros with a FINITE-PERIOD kernel;
+all zeros to T=C_A NlogN suffice with the proved tail. This pays the
+pointwise approximation, NOT the one-sided lower bound for B. No RH,
+new coverage, practical zero certificate or effective onset is asserted.
+CRITICAL new source correction: arXiv1606.00860 Lemma5.1/Section6
+supersedes the O(sqrtN) Cesaro error still printed in arXiv1206.0251
+and the2015journalPDF. Correct normalized Cesaro error is O(N), and
+the exponential-sum remainder includes a constant1. Use the correction.
+Previous **98dc8b7**, extending critical_cubic_sieve.py: regrouping the
+retained triprimes gives an all-log small diagonal O_kappa(x^(5/6)L^(3/2)),
+but the SAME open dilation covariance with semiprime rows. The automatic
+extra-average hypothesis is retired; no generic trilinear impossibility.
+Previous **c0f70ca**, in critical_cubic_sieve.py:
 the MOVING cutoff sqrt(n) is reached for U_3 with ACTUAL total error
 O(x*(loglogx)^4/log^2x)=o(x/logx). Its fixed-power small-prime deletion
 cost is O(kappa*log(e/kappa) S_2(N)x/logx), uniform for fixed small kappa.
@@ -192,7 +207,10 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `critical_cubic_sieve.py`,
+For the selected spectral lane first read `pointwise_zero_pair_gate.py`
+and its CORRECTED source locators. The remaining prime correlation is now
+an explicit one-sided signed zero-pair target; the earlier sieve route is
+also preserved. For that unexceptional lane read `critical_cubic_sieve.py`,
 then `polynomial_rough_localization.py`
 and its required joint-bound source `polynomial_joint_majorant.py`,
 then `rough_mobius_dilation.py`,
@@ -259,7 +277,57 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: paid moving cubic cutoff and factor-class cancellation
+## Latest pursuits: triprime preflight and a pointwise spectral transfer
+
+The previous goal turn was PROGRESS: c0f70ca paid the moving cubic endpoint
+and changed the surviving coefficient classes. This turn resumed verified
+clean maine1e3779. No execution across the stopped checkpoint is claimed.
+
+Triprime test started18:18:01 UTC, reassessed by18:25:26 UTC,
+changed-under-evidence; reviewed mathematics **98dc8b7**. The diagonal
+can be paid at x^(5/6) times log powers after grouping the two smaller
+primes into a unique semiprime row. The off-diagonal is still
+t(N-sr)-r(N-st)=(t-r)N with all masks. Its third factor supplies no
+automatic free average. Nine guards normal0.139s/-O0.142s; Sol PASS.
+Reviewer clarified that even nonnegative complete squares do not license
+deleting restrictions INSIDE a signed row without a proved majorant.
+
+Spectral test started18:23:12 UTC, reassessed18:37:13 UTC, progress;
+reviewed mathematics **02448f6**. The source averaged formula's old error
+was caught before promotion: Languasco2016 explicitly corrects both the
+missing constant in Lemma5.1 and the normalized error O(sqrtN) to O(N).
+The initial reviewer accepted the old printed exponent, then retracted
+that conclusion after the later author correction was supplied. The
+corrected averaged error does not by itself permit unit-scale differences.
+
+The useful alternative takes a=1/N,z=a+it on ONE period[-pi,pi]. With
+S=sumLambda(n)e^(-nz), Z=sumGamma(rho)z^(-rho), M=1/z-Z, corrected
+S-M has L2 norm O(log^2N); Parseval gives ||S||2=O(sqrt(NlogN)).
+Hence replacing S^2 by M^2 in the exact target Fourier coefficient costs
+O(sqrtN log^(5/2)N+log^4N)=o(N), unconditionally. The single-zero part
+reduces to2psi(N-1)-N using V=(e^z-1)^-1. The pair term B_(N,T) remains
+SIGNED and contains the full kernel D_N(rho+sigma), ordered pairs and
+both signs of zero heights. No replacement by a full-line gamma quotient.
+Uniform damping and cumulative zero counting give tail
+N*T^(3/2)*log(2T)*exp(-T/(2piN)); T=C_A NlogN suffices. No zeros were
+computed or assumed complete on the critical line. A fixed lower margin
+B>=-(1-delta)N would yield prime pairs after the paid proper-power error,
+but that signed margin is OPEN. Six guards normal0.023s/-O0.034s;
+independent theory/actual-file PASS. No new coverage or effective onset.
+
+Next concrete question, UNPERFORMED: can the pairs of zeros with OPPOSITE
+imaginary signs be deleted from B at all-log precision? The proposed
+mechanism is one-sided Gamma damping, the classical zeta zero-free region,
+and the already proved total L2 norm. First bound Z_minus on t>=0 and
+Z_plus on t<=0, keeping small t, every zero and logarithmic losses. Only
+then apply Cauchy to the actual cross term. Success would leave a precise
+same-sign spectral problem; it would not evaluate its signed lower bound.
+Reject if the necessary one-sided norm is merely assumed, RH is silently
+inserted, or a positive norm is confused with the target square. Fresh
+<=30-minute pursuit. All earlier polynomial components and source/runtime
+corrections persist; no process is left running or manual wake queued.
+
+## Previous pursuit: paid moving cubic cutoff and factor-class cancellation
 
 Started18:03:24 UTC, reassessed18:15:16 UTC, progress.
 Resumed verified clean mainbd4a46b; reviewed mathematics **c0f70ca**.
@@ -293,7 +361,8 @@ algebra, wrong-cutoff and nonsquarefree counterexamples, local majorant
 domination and tail powers; the analytic argument is separately reviewed.
 No new Goldbach coverage, onset, novelty claim or external action.
 
-Next concrete question, unperformed: does the retained triprime product
+The following next test is now COMPLETED by98dc8b7 above. Its question
+was whether the retained triprime product
 supply an extra averaging variable that a dispersion estimate can use
 with PRIME coefficients and all the actual masks? First derive the exact
 off-diagonal form and its complete diagonal/coefficient costs, and compare
@@ -2403,7 +2472,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_critical_cubic_sieve` (six guards) and
+Latest tests: `python -m unittest test_pointwise_zero_pair_gate` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

@@ -2583,3 +2583,56 @@ at fixed N. Retire the route if it only restates the earlier covariance,
 needs free coefficients, drops masks or substitutes target averaging.
 Fresh <=30-minute pursuit; overall goal active, no process claimed after
 this reviewed checkpoint.
+
+## 2026-09-09: triprime extra-average test does not change the covariance
+
+Started18:18:01 UTC, reassessed by18:25:26 UTC, changed-under-evidence.
+Resumed clean maine1e3779; reviewed mathematics **98dc8b7**, extending
+critical_cubic_sieve.py. Grouping the two smaller primes into s leaves
+unique semiprime rows. Cauchy's actual diagonal costs at most
+O_kappa(x^(5/6)log^(3/2)x) over all boxes, but the remaining covariance
+t(N-sr)-r(N-st)=(t-r)N is the saved dilation shape with all prime/log
+coefficients and masks. No automatic additional free variable appears.
+The mechanism is retired; possible future matching trilinear estimates
+are not ruled out. Sol theory/actual PASS, nine guards normal0.139s/-O0.142s.
+Review corrected the inference that full-square nonnegativity alone
+licenses deleting restrictions inside signed rows. No new coverage.
+
+## 2026-09-09: individual target transfer to a finite spectral pair kernel
+
+Started18:23:12 UTC, reassessed18:37:13 UTC, progress.
+Reviewed mathematics **02448f6**, pointwise_zero_pair_gate.py. The failed
+averaged route exposed a source correction: Languasco2016 arXiv1606.00860
+Theorem2.2/Lemma5.1/Section6 supersedes the O(sqrtN) normalized Cesaro
+error still present in arXiv1206.0251 and the2015publishedPDF. It isO(N),
+and the exponential-sum error needs a constant1. Initial reviewer reliance
+on the older publication was retracted after the author's correction.
+Unit differences of the corrected averaged formula have unpaid error.
+
+A different route uses the corrected formula on one Fourier period.
+The actual coefficient identity R(N)=I_N[S^2] and L2 bounds
+||S||2<<sqrt(NlogN), ||S-(1/z-Z)||2<<log^2N pay a pointwise error
+O(sqrtN log^(5/2)N+log^4N). The finite-period pair kernel is essential.
+After removing the single-zero part usingV=(e^z-1)^-1, one obtains
+R(N)=2psi(N-1)-N+B_(N,T)+O(sqrtN log^(5/2)N+log^4N), without RH.
+All zeros, both height signs and multiplicities, are retained. A proved
+uniform Gamma/zero-count tail licenses T=C_A NlogN, but supplies no
+practical complete-zero computation. PNT gives2psi(N-1)-N=N+oN.
+The signed condition B_(N,T)>=-(1-delta)N would yield genuineprimepairs
+after O(sqrtNlog^2N) proper-power deletion; it remains OPEN. Ordinary
+pair-correlation inputs do not automatically estimate this complex kernel.
+The inspected stronger1996GMC corollary still permitsX^epsilon exceptions.
+
+Independent Sol theory/actual-file PASS; six exact guards passed
+normal0.023s/-O0.034s. No actual zeros or new prime ranges computed, no
+coverage/onset/novelty claim, no outside action or manual wake queue.
+The previous goal turn was progress and the overall goal remains active.
+
+Next concrete hypothesis, unperformed: opposite-height-sign zero pairs
+may be all-log small by one-sided Gamma damping plus the classical zeta
+zero-free region and the proved total L2 norm. Bound each suppressed
+half-period norm first, including small t and all log costs, then estimate
+the actual cross term. Preserve the remaining same-sign pair kernel with
+its signed lower-bound gap. Reject any silent RH assumption or substitution
+of a positive norm for the target square. Fresh <=30-minute pursuit;
+no process claimed after this checkpoint. Polynomial tools remain available.
