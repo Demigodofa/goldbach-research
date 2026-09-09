@@ -115,6 +115,12 @@ The five-factor class shows why checking only the previously noticed triple
 leak is insufficient. This pursuit preserves the alternative's component
 and closes two discardable classes; it has not closed its positivity gap.
 All analytic onsets remain ineffective; no zero existence or novelty claim.
+
+Continuation: quintic_loss_budget.py now bounds ALL surviving positive
+composite classes by C*(1+kappa)*Y*S_2(m)*t+o(Y*t), with C absolute.
+The adaptive five-factor cutoff and large-prime variable switch remove
+hidden dependence on theta from this upper-bound constant. This still does
+not give the small loss or full signed-total positivity required above.
 """
 from fractions import Fraction as F
 from itertools import combinations

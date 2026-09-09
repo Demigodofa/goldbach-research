@@ -871,3 +871,26 @@ Sol checked theory and actual files; five exact tests passed normally
 and with Python -O. The pursuit returned `changed-under-evidence` within30
 minutes. No new actual coverage, zero, numerical onset, priority search,
 publication work or wake queue. Overall research remains active.
+
+The next pursuit closes the remaining MAIN-SCALE error bounds for that
+quintic in `quintic_loss_budget.py`. In the same actual-zero regime,
+all surviving positive composite weights total at most
+C*(1+kappa)*Y*S_2(m)*t+o(Y*t), with C absolute, independent of theta.
+For five negative factors, use their two smallest factors as cofactor and
+adapt the auxiliary sieve cutoff to the second smallest. For the even
+factor classes, switch the actual prime variable to the single large
+positive-sign factor; repaired bulk Linnik then uses modulus D*e at scale
+Y/M, without requiring distribution at modulus M. Its summed errors are
+O_kappa(Y*(t^28*log(Y)^2+log(Y)^3/D)+Y^(19/25+o(1)))=o(Y*t).
+An explicitly FORMAL logarithmic-share measure gives signed pure-triple
+and pure-five integrals -kappa/12 and +kappa/12. This exact cancellation
+does not assert an actual prime-factor distribution or signed correlation.
+The composite bound is still not a small specified fraction, and the
+positive lower bound for the full signed total remains unproved.
+Five exact tests passed normally and with Python -O, covering adaptive
+index multiplicity, complete switched CRT counts, range slack, weighted
+factor shapes and independent iterated polynomial integration.
+Sol checked theory and actual files. The pursuit returned
+`changed-under-evidence` within30 minutes.
+No new actual coverage, zero, numerical onset, priority search,
+publication work or wake queue. Overall research remains active.
