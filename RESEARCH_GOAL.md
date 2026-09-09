@@ -3606,3 +3606,49 @@ all masks, arithmetic coefficients, diagonal and variation costs need
 proof and review. This tests actual multiplicative structure against the
 model; it does not assume a bound for the full linked-prime covariance.
 Fresh <=30 minutes. No repeat of higher-degree countermodels is needed.
+
+## 2026-09-09: actual multiplicative curvature excludes fixed analytic alignments
+
+Started23:06:52 UTC, reassessed23:15:26 UTC, progress. Resumed verified
+clean maind3aad7a; reviewed mathematics **bad0caf**,
+analytic_prime_curvature.py. Previous goal turn made progress by
+falsifying the polynomial inverse step. The ACTUAL sine-phase Lambda
+sum with fixed smooth support in(1/2,3/4) is O(N39/40 log^3N),
+hence O(N79/80), uniformly in affine slope. Exact Vaughan U=V=N1/5
+keeps the free convolution1 and actual bounded divisor coefficient.
+Type I costs N17/20 L+N11/20 L^2. Type II retains the full product
+intersection and diagonal, with the curvature of a dilation difference
+giving N[K^-1/2+T1/4 M^-1/2+T^-1/4]. Restoring coefficients and
+boxes gives the stated bound. The known discrete source is Robert,
+Section3.1 Theorem1 printedp5 eq6, read from the actual author PDF
+through web. A separate urllib hash request failed certificate checking;
+no bypass or unchanged retry, and no claimed local hash.
+
+The proof yields a reusable criterion with BOTH |f''| and |(u^2f'')'|
+bounded away from0. A fixed analytic complementary nonaffine phase h
+cannot make either identically zero. Remove its finitely many compact-
+support degeneracy points with fixed-delta neighborhoods, pay their
+absolute Lambda mass by the checked interval upper bound and powers,
+and take limsup N before delta->0. This gives ACTUAL o(N) correlation
+for every FIXED real-analytic nonaffine h with h(u)+h(1-u)=0,
+uniform in an arbitrary affine slope. No uniform rate over the nonlinear
+phase family or deleted neighborhoods is claimed. The sine model's own
+coefficient remains (N/4)int psi+O(N1/10), so it fails this arithmetic test.
+
+Sol theory/actual-file PASS; seven guards normal0.002s/-O0.004s.
+No actual prime/zero computation, external action or post-stop execution
+claim. These are applications of classical arithmetic methods, not an
+external novelty claim. The actual paired O(N) band and full signed
+Goldbach margin remain OPEN; all earlier tools/corrections are preserved.
+
+Next unreviewed test: uniform cancellation for N-dependent C^3 phases
+with |f'|, |f'+u f''| bounded below and first three derivatives bounded
+above on a fixed positive support. Try Vaughan U=V=N1/22 and bounded
+factor shifts R~N1/22. Both the Type I phase derivative T*d/N and
+the Type II difference derivative T*h/N are o(1) in these ranges.
+Prove a discrete derivative estimate retaining variation, then test
+the Cauchy bound N^2/R+N^2*K*logR/(T*R), with the shifted masks
+and actual coefficients kept. Candidate worst exponent43/44 before
+logs; no claim yet. This would handle affine and controlled varying
+nonlinear phases; the full paired problem still needs further structure.
+Fresh <=30 minutes; overall research goal active.

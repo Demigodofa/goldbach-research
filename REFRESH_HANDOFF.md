@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **a6edeb7**, in analytic_complementary_phase.py:
+Latest reviewed RESEARCH commit: **bad0caf**, in analytic_prime_curvature.py:
+ACTUAL Lambda correlation with the sine phase is O(N39/40 log^3N),
+hence O(N79/80), on any fixed smooth support in(1/2,3/4), uniformly
+in its affine slope. Vaughan's actual coefficients and all Type II
+product masks are retained. The reusable criterion requires BOTH
+|f''| and |(u^2 f'')'| bounded above/below on a fixed support interval.
+It also proves o(N) for ANY FIXED nonaffine real-analytic complementary
+phase h(u)+h(1-u)=0, with arbitrary affine slope. The latter is a
+qualitative fixed-phase statement, not uniform over changing h.
+No improved paired-band bound or signed Goldbach margin follows.
+Previous **a6edeb7**, in analytic_complementary_phase.py:
 one dense positive ARTIFICIAL sine-phase model has exact paired main
 -cN+O(N9/10), yet centered correlations with EVERY FIXED-DEGREE
 polynomial probe are O(N^(1-9/(10*(D+2)))). Constant/linear probe
@@ -479,7 +489,62 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: one analytic model defeats the proposed polynomial inverse step
+## Latest pursuit: actual prime factorization excludes fixed analytic alignments
+
+Started23:06:52 UTC, reassessed23:15:26 UTC, progress. Resumed verified
+clean maind3aad7a; reviewed mathematics **bad0caf**. Previous native
+goal turn made progress by falsifying the proposed polynomial inverse
+step. Actual Lambda against the sine phase, with fixed smooth support
+inside(1/2,3/4), is O(N39/40 log^3N), hence O(N79/80). Its model
+instead has (N/4)int psi+O(N1/10) against its own phase.
+
+Vaughan U=V=N1/5 gives Type I N17/20 L+N11/20 L^2. The exact
+free convolution1 remains in B_U; no unexceptional-branch assumption
+was imported with the elementary identity. Type II keeps arbitrary
+actual normalized coefficients and the full product intersection.
+For M>=K, MK~N, phase-difference curvature is
+-T/m^2 [G(mk/N)-G(mr/N)], G(u)=u^2 f''(u).
+The nonzero G' gives the complete box cost
+N[K^-1/2+T1/4 M^-1/2+T^-1/4]. Diagonal, weighted variation, one
+coefficient logarithm and O(log^2N) boxes are paid. Robert's author
+PDF Section3.1 Theorem1 printedp5 eq6 supplies the discrete second-
+derivative bound. Web PDF reading worked; separate urllib hash retrieval
+failed certificate verification, with no bypass or unchanged retry.
+
+Reusable criterion: fixed support and uniform positive lower/upper
+bounds for BOTH |f''| and |(u^2 f'')'|. The log phase shows why the
+second condition cannot be dropped. A corollary treats every FIXED
+nonaffine real-analytic h on(0,1) with h(u)+h(1-u)=0. Each curvature
+has only finitely many zeros on the compact support. Fixed-delta
+deleted neighborhoods cost O(delta N)+o(N) by the already checked
+Yamada interval bound and proper powers; the good pieces save a power.
+Take limsup N first, delta->0 second: the actual correlation is o(N),
+uniform in affine slope but with no uniform rate over h or delta.
+
+Sol theory/actual-file PASS; seven guards normal0.002s/-O0.004s.
+No actual prime/zero run, publication or outside action. N-dependent
+nonlinear phases and joint superpositions remain outside the corollary.
+The actual comparable-band O(N) and full signed margin are unchanged.
+All polynomial components, source corrections and runtime limits persist.
+
+Next concrete question, UNREVIEWED: can bounded factor differencing
+give a power saving UNIFORMLY for N-dependent C^3 phases without
+requiring nonzero second curvature? On a fixed positive support I,
+assume |f'| and |f'+u f''| have fixed positive lower bounds and
+the first three derivatives have fixed upper bounds. Try U=V=N1/22
+and a shift cutoff R~N1/22 below the shortest factor tag. Type I
+has angular derivative T*d/N=o(1) for d<=UV. Type II differences
+have derivative ~T*h/N=o(1) for h<=R, and derivative variation
+O(T*h/N). Prove an applicable discrete first-derivative bound with
+that variation; do not assume monotonicity. Preserve shifted product
+intersections and actual coefficients in the bounded-shift inequality.
+Candidate Cauchy bound: N^2/R+N^2*K*logR/(T*R), K<=O(sqrtN),
+giving N43/44 times logs before a fixed spare exponent. This is NOT
+yet reviewed or proved. It would include affine phases and controlled
+N-dependent nonlinear phases, but not arbitrary rapidly varying phases.
+Fresh <=30 minutes; overall goal active, Goldbach signed margin OPEN.
+
+## Previous pursuit: one analytic model defeats the proposed polynomial inverse step
 
 Started22:57:58 UTC, reassessed23:04:46 UTC, changed-under-evidence.
 Resumed verified clean mainf3ba9a7; reviewed mathematics **a6edeb7**.
@@ -511,7 +576,7 @@ remain unchanged. Sol theory/actual-file PASS; seven guards normal
 prime/zero experiment, outside action or claim of post-stop execution.
 All earlier source corrections and runtime limitations are preserved.
 
-Next concrete question, UNREVIEWED: does actual multiplicative
+The then-next question, answered and extended inbad0caf above: does actual multiplicative
 decomposition exclude the sine alignment with a fixed power saving?
 For fixed psi smooth supported in(1/2,3/4), test the ACTUAL sum
 sum psi(n/N)Lambda(n)exp[-iT f_N(n/N)]. Reuse Vaughan's exact
@@ -3626,7 +3691,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_analytic_complementary_phase` (seven guards) and
+Latest tests: `python -m unittest test_analytic_prime_curvature` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
