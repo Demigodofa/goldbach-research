@@ -1728,3 +1728,31 @@ before claiming a transfer, or preserve the specific remaining correlation.
 Do not rerun completed smooth-model cases or discard polynomial tools.
 This lane needs a new <=30-minute hypothesis and independent review.
 Goal active; no research process remains running at the checkpoint.
+
+## 2026-09-09: unexceptional Vaughan remainder and coefficient-transfer boundary
+
+Started12:16:10 UTC, reassessed12:29 UTC, changed-under-evidence. Resumed
+clean maince40960; conditional coverage9b6e7b4 remains valid. New reviewed
+mathematics **a771937**, unexceptional_vaughan_gate.py, isolates
+ T=sum_(ab in J,a>V0,b>U0)mu(a)B_U0(b)E(m-ab),
+with B_U0=Lambda_>U0*1 and the original unexceptional E=Lambda-M_S.
+Both Type I terms and proper prime powers are paid. CROSS+T gives actual
+prime-pair mass, but T has NO proved sufficient lower bound.
+
+Generic completion does not transfer the existing model: its sharp
+worst-case sqrt(N) coefficient cost exceeds the saved Y^(1/4096), even
+if one grants uniform additive-modulation bounds the theorem does not state.
+This says nothing about a lower bound for actual Mobius/divisor Fourier
+norms. Vaughan's free1 must stay; a finite n=30 guard catches its omission.
+Cauchy isolates signed prime/model covariance with exact intersection masks.
+Its diagonal is already negligible by a fixed power; only a sufficiently
+small one-sided upper bound on the weighted off-diagonal is needed.
+
+Nine finite guards passed normal0.008s and -O0.008s. Sol reviewed theory,
+actual proof/code/tests and diagonal delta, PASS. No old scan or outside action.
+Next test: keep the free divisor variable explicit in the multilinear
+Vaughan terms and attempt a LEGAL Poisson/dispersion transfer, accounting
+for every short-variable region including k=1. Full arithmetic Type II,
+not its smooth/periodic replacement, is the target. Use a new <=30-minute
+clock; preserve any remaining correlation. No unexceptional coverage is
+claimed. Goal stays active; no process remains running at this checkpoint.

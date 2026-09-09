@@ -35,7 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **9b6e7b4**, prime cutoff bridge
+Latest reviewed RESEARCH commit: **a771937**, exact unexceptional Vaughan
+remainder, failed generic coefficient transfer, and a negligible covariance
+diagonal. The weighted off-diagonal estimate is OPEN.
+Latest COVERAGE remains **9b6e7b4**, prime cutoff bridge
 S_z-S_theta=o(Yt), positive-first prime asymptotic P_g=S_2(m)t I_g+o(Yt),
 and CONDITIONAL coverage of every even target in the eligible central band.
 The ACTUAL-zero and restricted large-V hypotheses remain essential.
@@ -44,6 +47,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **ce40960** preserved9b6e7b4.
 Previous checkpoint **1e71488** preserved2b72af7.
 Previous checkpoint **e436401** preserved e5c955d.
 Previous checkpoint **ddfa2aa** preserved4e106b6.
@@ -75,7 +79,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `prime_cutoff_bridge.py`, its conditional coverage and exact
+For the next unexceptional lane first read `unexceptional_vaughan_gate.py`.
+Preserve `prime_cutoff_bridge.py`, its conditional coverage and exact
 remaining scope. Then `rare_divisor_calibration.py`, the two cutoffs now
 connected by that bridge, and `rare_class_elimination.py`, the coverage consequences
 and still-missing signed lower bound. Then read
@@ -120,7 +125,45 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: cutoff bridge gives conditional prime-pair coverage
+## Latest pursuit: exact unexceptional remainder and failed generic transfer
+
+**a771937**, unexceptional_vaughan_gate.py, derives the exact remaining sum
+ T=sum_(ab in J,a>V0,b>U0) mu(a) B_U0(b) E(m-ab),
+ B_U0(b)=sum_(d|b,d>U0)Lambda(d), E=Lambda-M_S on I,
+ U0=V0=floor(Y^(gamma/2)), gamma=1/2-eps.
+Type I terms and prime-power replacements are paid; CROSS+T gives the
+actual prime-pair mass. A sufficiently small one-sided lower bound on T
+would suffice. Absolute T=o(Y) is a stronger sufficient target, still OPEN.
+Keep Vaughan's free convolution1: B_U0 is neither Lambda nor log.
+Tao Notes3 Lemma18(32) is the identity source; this does not revive the
+excluded Notes7 Linnik proof. Its corrected *1 and divisor bounds persist.
+
+Generic Fourier completion has only l1<=sqrt(N), sharp for quadratic
+chirps. Even granting unproved phase-uniform model bounds, its generic
+cost defeats the saved1/4096 once length exponent exceeds1/2048. Actual
+factor spans exceed5/24. Period-N encoding also violates the model cap.
+This is a failed TRANSFER BUDGET, not a lower bound on actual arithmetic
+Fourier norms or a no-go theorem for Mobius/divisor cancellation.
+Cauchy gives K(b1,b2)=sum_a E(m-ab1)conj(E(m-ab2)), with all masks.
+The covariance diagonal is already <<Y^(1+4delta+epsilon), negligible
+against the sufficient energy target A B^2/log^6Y. Only a one-sided upper
+bound on the weighted OFF-DIAGONAL is needed. Its linked forms satisfy
+ b2*p1-b1*p2=(b2-b1)*m.
+
+Started12:16:10 UTC, reassessed12:29 UTC, changed-under-evidence. Nine
+new guards passed normal0.008s and -O0.008s; Sol theory/actual-files/delta
+review PASS. No unexceptional prime estimate, old scan or outside action.
+Next UNTESTED question: retain Vaughan's free divisor variable1 instead
+of hiding it in B_U0, and test whether a legal Poisson/dispersion step can
+use it while keeping Mobius and prime coefficients outside completion.
+Derive the exact multilinear terms and cost the SHORT free-variable cases,
+including k=1; do not assume a free variable is long or periodic. Observable
+test: control the actual Type II sum with all regions paid, or identify the
+specific surviving weighted correlation. Give it a fresh <=30-minute clock.
+Conditional coverage9b6e7b4 and all polynomial/model tools stay available.
+Goal active; no research process remains running at this checkpoint.
+
+## Preceding pursuit: cutoff bridge gives conditional prime-pair coverage
 
 **9b6e7b4**, `prime_cutoff_bridge.py`, proves in the SAME ACTUAL-zero
 large-V regime and original fixed parameter choices
@@ -1172,7 +1215,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_prime_cutoff_bridge.py` and the
+Latest tests: `python -m unittest test_unexceptional_vaughan_gate.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
