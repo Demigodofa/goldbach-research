@@ -2010,3 +2010,50 @@ fixed-small-delta condition for E(q)>0 and the singular-series average.
 This is a proposed falsifier of absolute summation, not of signed methods
 or the preserved polynomial/affine component. Fresh <=30-minute clock.
 Goal active; no research process remains running at this checkpoint.
+
+## 2026-09-09: actual absolute remainder mass survives every normalized cutoff
+
+Started14:11:13 UTC, reassessed14:21:20 UTC, changed-under-evidence.
+Resumed clean main65bf94b. Reviewed mathematics **dc7baa6**, in
+absolute_remainder_obstruction.py, proves a full absolute-sum obstruction.
+The explicit setup adds delta<=1/(80B), B=max(1,||G||infty), to the
+existing delta cap, and fixes nonnegative smooth F>=f0>0 on[.7,.8]^2.
+For every sufficiently large Y, SOME central even m in(1.4Y,1.6Y] has
+regrouped absolute mass at least(f0/32000)Y S_2(m), SIMULTANEOUSLY for
+all normalized bounded cutoffs supported<=V=W. This holds for full
+R_lambda, its prime restriction, original hard A, and tuplewise triangle.
+
+For actual prime q~Y, Gamma_S(q) is a constant B_S<=logY/4 eventually,
+so E(q)>=logY/2. At a distinct-prime semiprime pc with both factors>W,
+the actual coefficient is-log(pc) for every cutoff. Selectp in(Y^.3,Y^.4]
+and pc,q in(.7Y,.8Y]. PNT in fixed-relative intervals and partial summation
+give f0Y²/16000 total mass over m=pc+q. The triple-to(m,n) map is injective;
+p is the unique lower prime factor. No fixed-target prime independence
+or actual exceptional zero is assumed. PNT primarycheck: Tao Notes2,
+Corollary39/Exercise40(2014), not the excluded Notes7 proposition.
+
+A positive divisor expansion gives the exact mean bound
+sum_(m even<=2Y)S_2(m)<=2Y, using the local Euler cancellation
+(1-1/(ell-1)^2)(1+1/[ell(ell-2)])=1. The same cutoff-independent
+nonnegative mass supplies the same pigeonholed target for every cutoff,
+even target-dependent choices. The onset remains nonnumerical.
+
+This rules out uniform relative smallness of the FULL ABSOLUTE remainder,
+even after grouping at each n. It makes no lower bound on the absolute
+value of the SIGNED total. Other parts may cancel the selected negative
+component; Goldbach and the full signed estimate remain open. The joint
+polynomial/affine box bound is still useful for narrow ranges. All other
+polynomial, TI, projection, source-correction and conditional-coverage
+components remain preserved. Repeating full absolute summation with a
+new normalized cutoff cannot evade the proved obstruction.
+
+Six exact guards passed normal0.003s/-O0.003s. Sol theory/actual-file PASS,
+no correction. A single explicit prime triple tests geometry/coefficient
+normalization only; no range scan or numerical asymptotic claim.
+Next test: match an actual beyond-half prime-AP theorem to the signed
+moduli p*d, retained prime/Mobius/polynomial weights, and moving residue
+m~Y. Check uniformity, factor geometry, noncoprime cases and the model
+comparison error before importing any distribution conclusion. This is
+unproved; a label such as MPZ or well-factorable is insufficient. Fresh
+<=30-minute clock required. Goal active; no research process remains running
+at this checkpoint.

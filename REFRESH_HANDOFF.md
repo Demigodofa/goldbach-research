@@ -35,10 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **c19cb24**, an ACTUAL joint arithmetic
-bound O(Y S_2(m)/logY) for polynomial-cutoff prime/cofactor boxes. It uses
-corrected Henriot with both linked forms, not separate coefficient norms.
-The logarithmic number of boxes still prevents a full small remainder.
+Latest reviewed RESEARCH commit: **dc7baa6**, proving actual main-scale
+ABSOLUTE remainder mass for some central even target at every large Y,
+simultaneously for every normalized cutoff in the stated family. Taking
+absolute values after regrouping at n does not remove this obstruction.
+Its extra small-delta condition and positive physical rectangle are explicit.
+Latest JOINT ARITHMETIC bound **c19cb24** gives O(Y S_2(m)/logY) per
+polynomial-cutoff prime/cofactor box, using corrected Henriot. It remains
+useful for narrow bands; the full signed correlation remains OPEN.
 Previous **02e1627** proves exact cutoff freedom, the classical optimal
 cofactor norm, and its failed separate-moment budget O(Y sqrt(log Y)).
 Previous **3fcea6e** removes the internal proper prime powers with an
@@ -63,6 +67,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **65bf94b** preservedc19cb24.
 Previous checkpoint **35cc1e4** preserved02e1627.
 Previous checkpoint **45afe67** preserved3fcea6e.
 Previous checkpoint **a4a7944** preservedb7134e1.
@@ -101,7 +106,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `polynomial_joint_majorant.py`,
+For the next unexceptional lane first read `absolute_remainder_obstruction.py`,
+then `polynomial_joint_majorant.py`,
 then `optimized_cofactor_cutoff.py`,
 then `short_free_cancellation.py`,
 then `multifactor_identity_gate.py`,
@@ -153,7 +159,62 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: polynomial cutoff paired with an actual affine majorant
+## Latest pursuit: full absolute summation is actually too large
+
+**dc7baa6**, absolute_remainder_obstruction.py, fixes B=max(1,||G||infty),
+delta<=min(1/4800,1/(80B)), and a nonnegative fixed smooth F>=f0>0 on
+[.7,.8]^2. Keep that EXTRA small-delta condition; it is not automatic for
+arbitrary G at the old cap. For every sufficiently large Y there is an
+even m in(1.4Y,1.6Y] such that the REGROUPED absolute mass of
+R_lambda=(mu-lambda)*Lambda_>U*1 is at least(f0/32000)Y S_2(m),
+SIMULTANEOUSLY for every bounded lambda1=1 supported<=V, U=V=W.
+The same m works for the prime-pruned remainder, original hard A, and
+the tuplewise absolute sum. Cutoffs may even depend on m.
+
+The obstruction uses actual prime triples, not a random or formal model.
+For prime q~Y, Gamma_S(q)=B_S=sum_(r<=S²)mu²(r)G/phi(r), independent
+of q, and B_S<=5B(1+2delta logY)<=logY/4 eventually. Thus E(q)>=logY/2
+on q in(.7Y,.8Y]. Every cutoff has S_lambda(c)=1 for prime c>V; at
+distinct p,c>max(U,V), the FULL and pruned coefficients equal-log(pc).
+Taking p in(Y^.3,Y^.4], pc,q in(.7Y,.8Y], all prime, gives an injection
+of triples into(m,n=pc), because p is the unique lower prime factor.
+PNT and partial summation yield cutoff-independent mass f0Y²/16000
+summed over central even targets. The PNT source is Tao Notes2(2014),
+Cor39/Exercise40, not the excluded Notes7 proposition.
+
+The normalization is paid exactly: sum_(m even<=2Y)S_2(m)<=2Y.
+Expand the positive odd-squarefree divisor series and use
+(1-1/(ell-1)^2)(1+1/[ell(ell-2)])=1. A common nonnegative lower mass
+W_Y(m), independent of lambda, then supplies the SAME pigeonholed m
+for every cutoff. No numerical onset or assertion about every target.
+
+This disproves a uniform o(Y S_2(m)) bound for the FULL ABSOLUTE method
+in this setup, even after combining all terms at each integer. It does
+NOT bound the absolute value of the signed total. The selected component
+is negative in that total, and other components can compensate it. No
+Goldbach counterexample or new coverage follows. Preserve the successful
+polynomial/affine box estimate for narrow bands and error disposal, all
+TI/identity tools, balanced projection and actual-zero conditional coverage.
+Revisit absolute arguments only on restricted ranges or after a genuinely
+different comparison; changing normalized cutoff shape cannot evade this.
+
+Started14:11:13 UTC, reassessed14:21:20 UTC, changed-under-evidence.
+Six exact guards pass normal0.003s/-O0.003s. Sol theory/actual-file PASS,
+no correction. The Y1000,p13,c59,q769,m1536 fixture checks only exact
+geometry and coefficients; it is not a PNT-onset or cancellation experiment.
+
+Next concrete arithmetic test: can a beyond-half prime-AP distribution
+theorem control the ACTUAL signed divisor expansion with moduli p*d,
+prime p, the retained Mobius/polynomial d weight, and residue m~Y?
+Check a primary theorem's moving-residue uniformity, factor-size domain,
+coefficient norms, noncoprime residues and full error budget before use.
+An MPZ/factorable-moduli label alone does not supply pointwise Goldbach
+input. A hypothesis mismatch is the falsifier; a verified matching range
+would be new signed arithmetic input. No such application is established.
+Start a fresh <=30-minute clock. Goal active; no process is left running
+at this checkpoint.
+
+## Preceding pursuit: polynomial cutoff paired with an actual affine majorant
 
 **c19cb24**, polynomial_joint_majorant.py, chooses the exact cutoff
 lambda(d)=mu(d)(1-log d/logV)_+^k, fixed k>=9, U=V=floorY^(gamma/2).
@@ -196,7 +257,8 @@ correction. The first test run also caught an unintended float endpoint;
 both endpoints now stay Fraction and type guards preserve that fix.
 No old experiment or blocked source fetch was repeated.
 
-Next concrete test: is the remaining logarithmic accumulation intrinsic
+The next test, now proved indc7baa6 above, was whether the remaining
+logarithmic accumulation is intrinsic
 to the FULL ABSOLUTE method? On prime cofactors c>V, S_lambda(c)=1 for
 every normalized cutoff. Count actual triples p*c+q=m with p,c,q prime
 and p,c in interior size ranges. If their average over central even m is
@@ -1543,7 +1605,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_polynomial_joint_majorant.py` and the
+Latest tests: `python -m unittest test_absolute_remainder_obstruction.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
