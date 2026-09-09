@@ -719,3 +719,20 @@ with Python -O. The finite cofactor control used target17,918 inside the
 already certified prefix, adding no new coverage. The pursuit returned
 `changed-under-evidence` within30 minutes. No actual zero, numerical onset,
 priority search, publication work or wake queue. Overall research remains active.
+
+The rare-sign distribution pursuit in `rare_twisted_bv.py` returned
+`changed-under-evidence` within30 minutes. In the SAME actual-zero regime,
+with delta sufficiently small for this fixed saving, it proves a relative
+twisted Bombieri--Vinogradov error O(Y*t/log(Y)^6) through
+Q=floor(Y^(9/20)/D^3). A three-way conductor split combines quantitative
+Linnik, the aggregate corrected Gallagher estimate, and the induced-character
+mean bound; transformed-principal resonance is explicitly charged. Using
+the same injective sieve-remainder accounting raises the removable positive
+factor cutoff to w*=floor(sqrt(floor(Q/3))). Its semiprime contribution is
+O(Y*S_2(m)*t^2+Y*t/log(Y)^5)=o(Y*t). Consequently the SAME weighted total
+now satisfies T=P+E_1(q>w*)+o(Y*t), with nonnegative discarded error.
+Both positivity of T and control of the remaining large-q semiprimes remain
+unproved. Sol checked theory and actual files; five focused exact tests
+passed normally and with Python -O. No actual zero, numerical onset, new
+Goldbach coverage, priority search, publication work or wake queue.
+Overall research remains active.
