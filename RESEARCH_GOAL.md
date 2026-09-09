@@ -1797,3 +1797,45 @@ must pay the q>Y^delta tail and check whether an actual term of T cancels;
 an exact main-term rewrite alone will not close the remaining estimate.
 Keep all large-product and mixed remainders explicit, and start a fresh
 <=30-minute clock. Goal active; no process remains running at checkpoint.
+
+## 2026-09-09: balanced self-correlation removed by an actual Type I transfer
+
+Started12:47:52 UTC, reassessed12:58:25 UTC, changed-under-evidence.
+Resumed clean main7eff067. Reviewed mathematics **476e0c3**, in
+balanced_projection_transfer.py, composesa968833 with the earlier TI input.
+For B(n)=sum_(r|n,Y^gamma<r<=Y^.51)h_r, its exact Ramanujan coefficients
+H_B(q)=sum_(q|r)h_r/r satisfy |H_B(q)|<<L^2/q. Set Q=floor(S^2),
+P_Q=sum_(q<=Q)H_B(q)c_q and Z=B-P_Q. The signed gcd main has exact
+coefficient sum sum_q c_q(m)H_B(q)^2; its tail is <<L^4tau(m)/Q.
+Matching BB, BP, PB and PP mains and paying all interval errors gives
+ |C_F(Z,Z)|<<Y^(1983/2000+epsilon)+YL^4tau(m)/Q
+               +Y^.51 L^3Q^2+L^4Q^4
+           <<Y^(1-2delta+epsilon)
+for fixed smooth F. This is an ACTUAL self-correlation bound.
+
+The initial idea that P_Q might equal Gamma_S is unnecessary and is not
+asserted. Its coefficients differ from the prime model. Crucially P_Q
+itself has exact divisor coefficients p_d<<L^3 supported on d<=Q<=Y^gamma,
+so the existing TI estimate bounds C_F(P_Q,E) by every fixed logarithmic
+saving with E unchanged. For A=VaughanII, H=A-B and R=E-Z,
+ T_F=C_F(A,E)=C_F(Z,R)+C_F(H,E)+C_F(Z,Z)+C_F(P_Q,E).
+Thus only the first two correlations remain after the proved small terms
+are removed. R retains all mixed terms and P_Q-Gamma_S. No Cauchy or sign
+claim is inferred from a small additive self-correlation. The TI error
+remains logarithmic, separate from the power-saving self-correlation.
+
+For n=pq, distinct primes p,q>W, only h_n=-log n is nonzero among h_r
+with r|n; for n=p^2, h_n=-log p. When n is comparable to Y these k=1
+terms remain entirely in H. No unexceptional prime lower bound, new
+coverage or sharp-cutoff upgrade follows. Earlier conditional coverage,
+polynomial identities and analytic components remain intact.
+
+Eight guards passed normal0.009s and -O0.010s. Sol theory/actual-file
+review PASS. No previous experiment, scan or outside action was repeated.
+Next test: verify a multi-factor prime identity from a primary source and
+ask whether it supplies new long free variables in the remaining H.
+Use the complete factor-size domain, including all-short-free-variable
+terms, as the falsifier; retain actual Mobius/log coefficients and cost
+every reciprocal-estimate norm. A formal decomposition alone is not the
+missing estimate. Start a fresh <=30-minute clock with independent review.
+Goal active; no process remains running at this checkpoint.

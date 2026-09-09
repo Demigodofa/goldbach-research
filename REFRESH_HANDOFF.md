@@ -35,10 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **a968833**, an ACTUAL restricted divisor
-convolution with separate arithmetic coefficients and error
-O(Y^(1983/2000+epsilon)); its signed gcd main remains explicit. Larger
-product coefficients and the full unexceptional correlation stay OPEN.
+Latest reviewed RESEARCH commit: **476e0c3**, an ACTUAL transfer removing
+the balanced self-correlation from the smoothed unexceptional remainder:
+T_F=C_F(Z,E-Z)+C_F(A-B,E)+o(Y). Both surviving correlations remain OPEN.
+Previous **a968833** supplied the restricted arithmetic convolution with
+error O(Y^(1983/2000+epsilon)); its signed gcd main is now projected and
+cancelled only in the precise self-correlation sense of476e0c3.
 Previous **a771937** isolated the exact Vaughan remainder, failed generic
 coefficient transfer, and negligible covariance diagonal.
 Latest COVERAGE remains **9b6e7b4**, prime cutoff bridge
@@ -50,6 +52,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **7eff067** preserveda968833.
 Previous checkpoint **5842cd2** preserveda771937.
 Previous checkpoint **ce40960** preserved9b6e7b4.
 Previous checkpoint **1e71488** preserved2b72af7.
@@ -83,8 +86,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `free_divisor_correlation.py`,
-then `unexceptional_vaughan_gate.py` for the full remaining arithmetic sum.
+For the next unexceptional lane first read `balanced_projection_transfer.py`,
+then `free_divisor_correlation.py` for its analytic input, and use
+`unexceptional_vaughan_gate.py` for the full remaining arithmetic sum.
 Preserve `prime_cutoff_bridge.py`, its conditional coverage and exact
 remaining scope. Then `rare_divisor_calibration.py`, the two cutoffs now
 connected by that bridge, and `rare_class_elimination.py`, the coverage consequences
@@ -130,7 +134,53 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: an actual balanced convolution with two free variables
+## Latest pursuit: balanced self-correlation removed from the actual remainder
+
+**476e0c3**, balanced_projection_transfer.py, sets
+ B(n)=sum_(r|n,Y^gamma<r<=Y^.51)h_r,
+ H_B(q)=sum_(q|r,Y^gamma<r<=Y^.51)h_r/r,
+ Q=floor(S^2), P_Q(n)=sum_(q<=Q)H_B(q)c_q(n), Z=B-P_Q.
+The exact gcd main becomes sum_q c_q(m)H_B(q)^2. Its tail above Q is
+<<L^4 tau(m)/Q, including nontrivial gcds and nonsquarefree moduli.
+BP, PB and PP have matching truncated mains, with all period errors paid.
+Usinga968833 gives an ACTUAL fixed-smooth bound
+ |C_F(Z,Z)|<<Y^(1983/2000+epsilon)+YL^4tau(m)/Q
+               +Y^.51 L^3Q^2+L^4Q^4
+           <<Y^(1-2delta+epsilon).
+This signed additive self-correlation is not assumed positive.
+
+P_Q is NOT Gamma_S: its coefficients depend on B. Instead its exact
+divisor representation has support d<=Q<=Y^gamma and coefficients
+p_d=d sum_(q<=Q,d|q)H_B(q)mu(q/d)<<L^3. The existing TI input therefore
+proves C_F(P_Q,E)=O_A(Y/log(Y)^A), with E=Lambda-Gamma_S unchanged.
+Writing A=VaughanII, H=A-B and R=E-Z yields
+ T_F=C_F(Z,R)+C_F(H,E)+C_F(Z,Z)+C_F(P_Q,E).
+The last two terms are small by the ACTUAL estimates just given. The first
+two remain unestimated; R explicitly retains the P_Q-Gamma_S mismatch.
+Keep the arbitrary-logarithm TI saving separate from the power-saving ZZ.
+The result requires fixed smooth F; a sharp-cutoff upgrade is not asserted.
+
+The short-free-variable gap is concrete. For n=pq, distinct primes p,q>W,
+the only nonzero h_r with r|n is h_n=-log n; for n=p^2 it is -log p.
+At n comparable to Y these k=1 terms lie wholly in H. No new prime-pair
+coverage follows. Polynomial tools, conditional coverage9b6e7b4, source
+corrections and previous model boundaries are preserved.
+
+Started12:47:52 UTC, reassessed12:58:25 UTC, changed-under-evidence.
+Eight guards passed normal0.009s and -O0.010s. Sol theory and actual-file
+review PASS. No previous experiment, new prime scan or outside action.
+Next bounded question: can a multi-factor prime identity, such as the
+Heath-Brown identity, expose additional genuinely long free variables in
+H that Vaughan's grouping loses? First verify the exact identity from a
+primary source, then test its full factor-size domain, including terms
+with every free variable short. A successful grouping must preserve all
+actual Mobius/log coefficients and pass the existing reciprocal budget;
+otherwise retain the explicit uncovered box. A relabelled short variable
+or a formal identity alone does not supply cancellation. Give this a fresh
+<=30-minute clock and independent review. Goal active; no research process
+is left running at this checkpoint.
+
+## Preceding pursuit: an actual balanced convolution with two free variables
 
 **a968833**, free_divisor_correlation.py, keeps
  h_r=sum_(ad=r,a>W,d>W)mu(a)Lambda(d), |h_r|<=log r,
@@ -165,7 +215,8 @@ remain valid; no new unexceptional prime-pair coverage follows.
 Started12:30:54 UTC, reassessed12:45:47 UTC, changed-under-evidence.
 Eight new guards passed normal0.003s and -O0.002s. Sol theory and actual
 proof/code/test review PASS. No old scan, outside action, or priority claim.
-Next question: can this signed gcd main be matched to the same small-
+The next question, now tested in476e0c3 above, was whether the signed gcd
+main could be matched to the same small-
 modulus Ramanujan projection used in the unexceptional comparison?
 Concrete test: derive the exact coefficient identity, cost the moduli
 q>Y^delta tail, then check whether the resulting term actually cancels an
@@ -1265,7 +1316,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_free_divisor_correlation.py` and the
+Latest tests: `python -m unittest test_balanced_projection_transfer.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
