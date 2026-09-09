@@ -23,9 +23,12 @@ it does not assert every logarithmic saving with the same delta. Onsets and
 constants are ineffective. The maximal interval statement is only in the bulk.
 
 Sources, all three used with their actual conductor ranges:
-* Quantitative Linnik: Tao, Theorem2(ii), including y>=q^C and the
-  log(1/e) gain in exp(-c*log(y)/log(q)*log(1/e)).
-  https://terrytao.wordpress.com/2015/02/22/254a-notes-7-linniks-theorem-on-primes-in-arithmetic-progressions/
+* Bulk quantitative Linnik, deduced in relative_type_i.py from
+  Thorner--Zaman Theorem2.1 and equation(4.2), including Y/2>=q^C and
+  the log(1/e) gain in exp(-c*log(Y)/log(q)*log(1/e)). This replaces the
+  earlier Tao exposition whose Proposition23 proof has an acknowledged gap.
+  https://arxiv.org/html/2108.10878#S2
+  https://arxiv.org/html/2108.10878#S4
 * Grimmelt--Teravainen Lemma7.3(2): sum over ALL primitive characters
   up to R of corrected Lambda interval errors, divided by |I|+Y/R,
   is <<t*exp(-c*L/log(R)). Requires R>=exp(sqrt(L)) and an actual

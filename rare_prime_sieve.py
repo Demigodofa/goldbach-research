@@ -52,13 +52,14 @@ Relative weighted sieve proof:
 3. For squarefree d<=E, coprime to Dm, the condition d|(m-p) gives
    exactly A/2 reduced residue classes modulo Dd, by CRT. The exceptional
    character is +1 on every one. Apply the quantitative Linnik estimate
-   used in relative_type_i.py, Tao's Theorem2(ii):
-   https://terrytao.wordpress.com/2015/02/22/254a-notes-7-linniks-theorem-on-primes-in-arithmetic-progressions/
-   At endpoints y in[Y/2,Y], the main term for each class is
-     (y-y**beta/beta)/phi(Dd),
-   and the relative error inside y/phi(Dd) is
-     O(exp(-c*log(y)/log(Dd)*log(1/e_d)))
-                   +O(log(Dd)**2/(Dd)),
+   from the bulk source deduction in relative_type_i.py: Thorner--Zaman
+   Theorem2.1 and equation(4.2), https://arxiv.org/html/2108.10878#S2 .
+   This replaces the earlier Tao exposition with its acknowledged
+   Proposition23 proof gap. On J_real the main term for each class is
+     integral_{J_real}(1-v**(beta-1))dv/phi(Dd),
+   and the error inside Y/phi(Dd) is
+     O(exp(-c*log(Y)/log(Dd)*log(1/e_d)))
+                   +O(L**2/(Dd)),
      e_d=(1-beta)*log(Dd)<=5*delta*t/4.
    Since Dd<=Y**(5*delta/4), a sufficiently small fixed delta ensures
    y>=(Dd)**C and c*log(y)/log(Dd)>=8. Thus the first error is O(t**8).

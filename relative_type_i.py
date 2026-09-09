@@ -5,6 +5,8 @@ left explicit in ramanujan_type_i.py. The exact helper checks character
 lifting and normalization; it does not estimate primes or locate a zero.
 Sol checked the deduction and actual files. Four focused exact tests passed
 normally and with Python -O; they do not prove the analytic estimates.
+Sol also checked the replacement bulk source deduction below; the executable
+helpers were unchanged by that source repair.
 
 Theorem, with the deduction independently checked by Sol:
 Keep the setup, central band, common exceptional alternative and branches
@@ -21,18 +23,20 @@ RTI and the proved positive CROSS still do NOT prove the required Type II
 or fixed-coefficient prime-weighted residual estimate. Other exceptional
 conductor regimes, numerical onsets and universal coverage remain open.
 
-Source inputs, read 2026-09-08 Eastern:
-* Tao, 254A Notes7, Theorem2(ii), quantitative Linnik theorem:
-  https://terrytao.wordpress.com/2015/02/22/254a-notes-7-linniks-theorem-on-primes-in-arithmetic-progressions/
-  If beta=1-e/log(q) is an exceptional zero for a real character modulo q,
-  e sufficiently small, and y>=q**C, then uniformly over (a,q)=1,
-    psi(y;q,a)=y/phi(q)*(1-chi(a)*y**(beta-1)/beta
-          +O(exp(-c*log(y)/log(q)*log(1/e)))+O(log(q)**2/q)).
-  The first error equals O(e**(c*log(y)/log(q))); retaining the
-  logarithmic log(1/e) gain is essential to the relative estimate.
-  Absolute c,C>0 are fixed. The source's proof uses log-free density and
-  Deuring--Heilbronn repulsion, stated as its Theorems7 and9. We keep
-  y>=q**C; the redundant 'for all x>=1' line does not remove that premise.
+Source inputs:
+* The needed bulk quantitative Linnik estimate is deduced below from
+  Thorner--Zaman, Theorem2.1 and equation(4.2):
+  https://arxiv.org/html/2108.10878#S2
+  https://arxiv.org/html/2108.10878#S4
+  For e=(1-beta)*log(q) sufficiently small, Y/2>=q**C, and I an interval
+  in[Y/2,Y], the reduced progression sum has main
+    integral_I (1-chi(a)*v**(beta-1))dv/phi(q)
+  and error O((Y/phi(q))*(e**(c*log(Y)/log(q))+log(Y)**2/q)).
+  Absolute c,C>0 are fixed. The log(1/e) gain remains essential.
+  Tao's earlier exposition stated this type of estimate, but its proof of
+  Proposition23 has an acknowledged unresolved gap. It is no longer the
+  proof authority used here. Author correction:
+  https://terrytao.wordpress.com/2015/02/22/254a-notes-7-linniks-theorem-on-primes-in-arithmetic-progressions/#comment-648901
 * Drappeau--Fiorilli, The first moment of primes in arithmetic progressions:
   beyond the Siegel--Walfisz range, Lemma2.1:
   https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/tlm3.12030
@@ -48,6 +52,33 @@ Source inputs, read 2026-09-08 Eastern:
   Hence mu>=Y**(-h) eventually for each fixed h>0. This lower bound is
   uniform in the stated conductor range, but ineffective; no numerical
   expression or actual exceptional zero is supplied by (2).
+
+Bulk source deduction, replacing the affected exposition:
+Take density parameter3/5 and common height H=q^2 in Thorner--Zaman
+Theorem2.1. For the sum over ALL characters modulo q, excluding beta,
+  N_q^*(sigma,H)<<e*q**(24*(1-sigma)).
+Put d0=min(1/4,log(1/e)/(48*log(q))). At sigma=1-d0 the last bound is
+O(sqrt(e))<1 once e is small enough, so there are no other zeros there.
+If d0=1/4, the high-zero range below is empty. Otherwise, for L=log(Y)
+and Y>=q^48, integration of the density bound gives
+  sum_{Re(rho)>3/4, |Im(rho)|<=H, rho!=beta}Y**(Re(rho)-1)
+    << e*(q^24/Y)**d0
+     = e**(1/2+L/(48*log(q))).
+The integration factor L/(L-24*log(q)) is at most2, so no logarithm is lost.
+Subtract (4.2) at the endpoints of I with the SAME height H. Constant
+low-zero terms cancel; each remaining zero term is integral_I v**(rho-1)dv.
+There are O(q^3*log(q)) zeros up to H, by the per-character unit-height
+zero count also stated in Section4. Thus Re(rho)<=3/4 contributes at most
+O(Y**(3/4)*q^3*log(q)/phi(q)). The explicit remainders, and the O(sqrt(Y))
+cost of passing between primes and Lambda, are all absorbed by
+  O((Y/phi(q))*L^2/q)
+when Y/2>=q^C for a sufficiently large fixed C. In particular no individual
+bound for a reflected zero near0 is needed. The high zeros give the claimed
+e-power term, with the exceptional beta retained in the displayed main.
+This proves exactly the bulk interval estimate used below and in
+rare_prime_sieve.py and rare_twisted_bv.py. Decreasing the same fixed delta
+if necessary supplies exponents8 and28 at every required lifted modulus;
+it does not add a new hypothesis about the actual zero.
 
 Proof:
 1. Fix A. The branch mu=1 is already proved. If mu>=L**(-B), the earlier
@@ -73,10 +104,11 @@ Proof:
    Each weight has modulus1, so the phi(q) terms cancel the normalization
    1/phi(q); there is no extra factor phi(q) in the error. Lifting removes
    only powers of primes dividing q, of total weight O(log(Y)**2). Thus
-     psi(y,chi_r)=1_{r=1}*y
-                +O(Y*(mu**8+L**2/D)+L**2)             (3)
-   uniformly for r<=W and y in[Y/2,Y]. We do not claim this bound down to
-   y=0. Arbitrary subintervals of [Y/2,Y] use two such endpoint estimates.
+   directly on any interval I in[Y/2,Y],
+     sum_{n in I}Lambda(n)*chi_r(n)=1_{r=1}*|I|
+                +O(Y*(mu**8+L**2/D)+L**2).            (3)
+   Here |I| is its real length. This is uniform for r<=W and does not
+   assert a corresponding interval estimate reaching down to0.
 3. Sort low-conductor characters modulo d<=Q by their primitive inducer.
    One has
      sum_{d<=Q,r|d}1/phi(d)<<L/phi(r),
@@ -88,7 +120,7 @@ Proof:
    bound their contribution to the reduced progression error by
      O(Y*W*L*(mu**8+L**2/D)+W*L**3+Q*L**2).           (4)
    For the remaining characters use (1). The total, centered at the
-   ORDINARY reduced density y/phi(d), is bounded by (4) plus
+   ORDINARY reduced density |I|/phi(d), is bounded by (4) plus
      O(L**C0*(Y/W+Q*sqrt(Y)+Y**(5/6))).                (5)
    A large-conductor exceptional character is included in (5); it is not
    silently removed, and there is no exceptional main term in this bound.

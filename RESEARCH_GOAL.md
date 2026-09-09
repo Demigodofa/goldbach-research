@@ -755,3 +755,29 @@ negative weights and the one-sided partition at existing-prefix targets.
 The pursuit returned `changed-under-evidence` within30 minutes. No actual
 zero, numerical onset, new Goldbach coverage, priority search, publication
 work or wake queue. Overall research remains active.
+
+The higher-logarithm pursuit returned a checked obstruction in
+`log_weight_barrier.py`. For any prime-normalized kernel f, its mixed-sign
+semiprime multiplier is H(a)=1+f(1-a)-f(a), so H(a)+H(1-a)=2. Its integral
+over every symmetric share interval is fixed, and its positive-part integral
+cannot be smaller. The cubic kernel's uniform-share positive mass is10/9,
+versus1 for W; this is a formal comparison, not actual prime density.
+Moreover finite nonnegative subtractions of higher chi*log^j weights cannot
+decrease the q<=r semiprime contribution. Higher degree alone therefore
+does not remove the remaining range by this pointwise route. Arbitrary
+polynomial coefficients also have an explicit derivative-norm cost near
+balanced factors. Sol checked theory and actual files; five focused exact
+tests passed normally and with Python -O. The prior cubic identity remains
+valid; signed-total positivity and the actual composite correlation stay open.
+
+The same pursuit found Tao's acknowledged Proposition23 proof gap in the
+previous quantitative Linnik exposition. The required estimate was rederived
+from Thorner--Zaman Theorem2.1 and equation(4.2), using height q^2, an
+integer-zero-count cutoff, and endpoint subtraction to cancel low-zero
+constants. `relative_type_i.py` owns the checked replacement deduction;
+the rare-prime sieve and twisted distribution proof now point to it. This
+preserves the required t-power errors and normalized L^2/D error after a
+sufficiently small fixed delta choice. Sol checked the repair; no executable
+change or repeated old experiment was needed. The pursuit closed within30
+minutes, with no actual zero, numerical onset, new Goldbach coverage,
+priority search, publication work or wake queue. Overall research remains active.

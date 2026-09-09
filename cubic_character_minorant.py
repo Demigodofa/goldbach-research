@@ -43,6 +43,10 @@ Nonnegative comparison and exact cancellation:
      log(q)/log(n)>=(1+sqrt(1+16/kappa))/4.
    This threshold tends to1/2 from above as kappa grows; no estimate here
    is uniform in a growing kappa. The fixed choice kappa=9 gives (1).
+   log_weight_barrier.py checks the broader limitation: nonnegative higher
+   logarithmic penalties cannot reduce the q<=r weights.
+   A formal positive-part integral also records the cubic weight's cost;
+   it is not a density assertion for actual prime factors.
 
 One-sided prime-pair reduction:
 4. Define the NEW signed total
