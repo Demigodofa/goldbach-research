@@ -1199,3 +1199,42 @@ experiment was rerun. No new prime coverage, zero, effective onset,
 publication, push, foreground work, installs or manual wake queue.
 Qwen remains unavailable without a retry. No process is left running
 at this checkpoint; the overall research goal remains active.
+
+The next composite-modulus pursuit proves `composite_linear_kernel.py`:
+for ALL integers q near C=Y^y, including prime powers, the same smooth
+box model with arbitrary joint periods J_q<=J0 and k<=H*B*A*C/Y satisfies
+  sum_q |E_q| <<Y^epsilon*H*(J0^2*min(A,B)*C^(3/2)+J0*B*A).
+No coprimality between J_q and q, or between m*k and q, is required.
+The normalized complete transform in one frequency is an ordinary
+Kloosterman sum. Periodic lifting costs J^2; the nonzero-frequency gcd
+factor is absorbed by a divisor average. The h=0 mode uses a separate
+restricted Ramanujan decomposition and the modulus average of gcd(q,m*k).
+All its costs are included, including shared period factors and prime powers.
+The sole analytic input is the ordinary composite Weil bound, checked in
+Topacogullari1506.02608v1 section2 p4; no shifted-divisor or composite KMS
+theorem is imported.
+
+This saves a power when min(b,x)+3*y/2<=127/128, giving
+Y^(4067/4096+epsilon) with J0,H<=Y^(1/4096). It FAILS the required power
+budget at b=x=1/3,y=1/2, where the bound is Y^(13/12+epsilon) before
+decorations. That is a failure of this upper bound, not evidence that the
+true error is large. Preserve the composite unbalanced component, the
+prime-core theorem and all polynomial tools. The next method must save
+more than1/12 at this box and pay period/frequency costs.
+One concrete UNTESTED route is additive autocorrelation of multiplicative
+Kl3 dilates plus CRT. Check prime diagonal cases, coefficient nonunits and
+prime powers before claiming any composite bilinear consequence. KMS
+Remark1.2 points to FKM arXiv1211.6043 Theorem1.17; that exact theorem has
+not yet been read here and is only a primary locator.
+
+Six NEW exact composite-transform, restricted-Ramanujan, gcd-average and
+budget tests passed normally in0.774s and under -O in0.769s. Sol
+`/root/sieve_review` independently passed the transforms, full theory and
+actual files, with no correction required. The pursuit returned
+`changed-under-evidence` within30 minutes: useful general-composite
+coverage is preserved alongside a quantified critical failure.
+The full original arithmetic/sieve transfer and signed correlation remain
+OPEN; latest original-affine estimate remains2b8cf98. No old experiment,
+new prime coverage, zero, effective onset, publication, push, foreground
+work, installation or manual wake queue. Qwen remains unavailable without
+a retry. No process is left running at this checkpoint; overall goal active.
