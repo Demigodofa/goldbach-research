@@ -1,9 +1,9 @@
-"""A coefficient boundary for the unweighted cubic switching certificate.
+"""Coefficient boundaries for unweighted and weighted cubic switching.
 
 Owner: Kevin's research. Purpose: test switching on the actual cubic
 prime/composite partition, separately from the earlier 2T-M plug-in.
-Sol checked the deduction and actual verifier on 2026-09-08. Four focused
-tests passed normally and with Python -O.
+Sol checked both deductions and actual verifiers on 2026-09-08. Eight
+combined focused tests passed normally and with Python -O.
 
 Exact arithmetic identity:
 Let A=P+C be canonical square-start cubic survivors through H=N-3,
@@ -80,11 +80,76 @@ Unlike the previous 2T-M test, this one does not grant an upper bound for
 M=[A*A]. Its failure leaves stronger arithmetic input needed. No numerical
 onset, new actual prime coverage, Goldbach failure, or historical novelty
 is asserted. Exact counts from the small verifier are validation only.
+
+Weighted cubic extension:
+Keep v=3,S=1,R=2 and the same explicit distribution/mass grants. Fix a
+Lipschitz w with0<=w<=1 supported in[1/3,b], b<=1/2, and set
+  W(n)=1-sum_{p|n} w(log(p)/log(N)).
+The divisors here are DISTINCT primes: W(q^2)=1-w_q, not1-2w_q. Suppose
+theta1>b with the source's fixed margin, and delta<=theta2(alpha)<1.
+Let I_theta=integral w(alpha)/[alpha*(theta-alpha)] over[1/3,b]. With
+B0(theta1) from(2), the source's weighted lower coefficient is
+  B_w=B0(theta1)-2*I_theta1.                               (4)
+This follows from(4.17), since F(3*(theta1-alpha)) has its explicit2e^gamma/s
+form throughout the weight support. Equations(5.21)-(5.23) give the switched
+upper coefficient
+  C_w=2*integral_{1/3}^{1/2}(1-w(alpha))/
+                         [alpha*(1-alpha)*theta2(alpha)]. (5)
+In the leading last-prime-factor replacement, the larger factor's exponent
+is1-alpha>=1/2, so its w-value is0 (the boundary point is immaterial).
+Consequently (1-w(alpha)-w(1-alpha))_+=1-w(alpha). The source charges the
+last-factor replacement O(N*loglog(N)/log(N)^2) before the sieve factor
+1/log(N), hence o(K). Its triangular q<r truncation and the separate
+O(N/z+sqrt(N)+z) position allowances remain in force. This does not assert
+a new weighted remainder theorem or uniformity over N-dependent weights.
+The coefficient inequality below is uniform over the admitted profiles;
+the analytic o(K) statement is for each fixed Lipschitz profile. Any
+uniform analytic statement would also need a common Lipschitz norm bound
+and the corresponding uniform distribution/remainder hypotheses.
+
+Functional cancellation for EVERY such fixed weight:
+Since theta1<=1, I_theta1>=I_1. Since theta2<=1 and1-w>=0,
+  C_w>=2*(log2-I_1).
+It follows that
+  B_w-C_w<=B0(theta1)-2log2<0 for fixed theta1<1.           (6)
+At theta1=theta2=1 the formal limiting coefficients agree exactly:
+  B_w=C_w=2*(log2-I_1).
+This is an identity of the whole weight functional, not a parameter scan.
+It rules out a positive leading certificate from this particular fixed
+cubic, additive small-prime-divisor weight family with the stated sieve
+estimates. It does NOT rule out all weighted sieves. For a fixed smaller
+theta2, a weight may improve on the unweighted coefficient while both stay
+negative; (6) compares to the optimistic unweighted theta2=1 ceiling.
+
+Finite weighted certificate and its exact losses:
+Using nonnegative prime weights w_p<=1 and the truthful full cubic inputs,
+  Sigma1=sum_n P(N-n)*A(n)*W(n),
+  Sigma2=sum_n P(N-n)*C(n)*max(W(n),0), J_W=Sigma1-Sigma2.
+Then
+  G-J_W=sum_{n prime}P(N-n)*w_n
+        +sum_{n in C}P(N-n)*max(-W(n),0)>=0.              (7)
+Thus J_W<=G, but J_W is generally NOT the exact G=T-U identity. These
+finite weights need not be samples from the asymptotic Lipschitz profile;
+the finite identity and the source coefficient test have separate inputs.
+The verifier retains both prime-square and negative-composite terms.
+
+Exact profile verifier:
+Continuous piecewise-linear profiles are specified by rational knots from
+(1/3,0) to(1/2,0), with values in[0,1]. For an affine segment w=m*alpha+c,
+  integral_l^r w/[alpha*(theta-alpha)]
+    =(c/theta)*log(r/l)+(m+c/theta)*log((theta-l)/(theta-r)).
+For2/3<=theta<=1 both log arguments lie in[1,2], so the existing rational
+logarithm enclosure applies. The mathematical inequality(6) also treats
+the lower source-admissible theta1 range; there B0=0. The numerical helper
+deliberately covers only theta1>=2/3, where a positive lower-sieve term
+could first appear, and does not certify distribution assumptions.
 """
 from fractions import Fraction
 from math import isqrt
 
 from factored_linear_barrier import factored_bound, log_enclosure
+from cubic_sieve import exact_floor_cuberoot
+from redistribution import trial_prime
 
 
 def switching_mass(left: int | Fraction, right: int | Fraction,
@@ -146,3 +211,102 @@ def switch_partition(target: int, survivors: bytearray,
             else:
                 distinct += 1
     return t, distinct, square, t-distinct-square
+
+
+def _weight_knots(knots):
+    if (type(knots) is not tuple or len(knots) < 2
+            or any(type(k) is not tuple or len(k) != 2 for k in knots)
+            or any(type(v) not in (int, Fraction) for k in knots for v in k)):
+        raise ValueError("require a tuple of exact rational(alpha,height) knots")
+    converted = tuple((Fraction(a), Fraction(h)) for a, h in knots)
+    if (converted[0] != (Fraction(1, 3), 0) or converted[-1] != (Fraction(1, 2), 0)
+            or any(not 0 <= h <= 1 for _, h in converted)
+            or any(a >= b for (a, _), (b, _) in zip(converted, converted[1:]))):
+        raise ValueError("require increasing knots from(1/3,0) to(1/2,0), heights in[0,1]")
+    return converted
+
+
+def _scaled_interval(coefficient, interval):
+    low, high = interval
+    return (coefficient*low, coefficient*high) if coefficient >= 0 else (coefficient*high, coefficient*low)
+
+
+def weight_kernel_integral(knots: tuple, theta: int | Fraction,
+                           terms: int = 12) -> tuple[Fraction, Fraction]:
+    """Enclose I_theta for a continuous rational piecewise-linear weight.
+
+    Requires2/3<=theta<=1 and the endpoint-zero knots described above.
+    This is an exact integral enclosure, not prime-distribution evidence.
+    """
+    converted = _weight_knots(knots)
+    if type(theta) not in (int, Fraction) or not Fraction(2, 3) <= theta <= 1:
+        raise ValueError("require exact rational2/3<=theta<=1")
+    theta = Fraction(theta)
+    log_enclosure(1, terms)  # Validate precision even for the zero profile.
+    low = high = Fraction(0)
+    for (left, hleft), (right, hright) in zip(converted, converted[1:]):
+        slope = (hright-hleft)/(right-left)
+        intercept = hleft-slope*left
+        part1 = _scaled_interval(intercept/theta, log_enclosure(right/left, terms))
+        part2 = _scaled_interval(slope+intercept/theta,
+                                 log_enclosure((theta-left)/(theta-right), terms))
+        low += part1[0]+part2[0]
+        high += part1[1]+part2[1]
+    return max(Fraction(0), low), high
+
+
+def weighted_cubic_coefficient(knots: tuple, theta_original: int | Fraction,
+                               theta_switched: int | Fraction,
+                               terms: int = 12) -> tuple[Fraction, Fraction]:
+    """Enclose the weighted LOWER-CERTIFICATE coefficient, NOT actual G/K.
+
+    Requires2/3<=theta_original<=1. theta_switched in(0,1] is a constant
+    level or a uniform upper ceiling, as in switched_cubic_coefficient.
+    The level1 choices are formal limiting benchmarks only.
+    """
+    base = switched_cubic_coefficient(theta_original, theta_switched, terms)
+    original = Fraction(theta_original)
+    switched = Fraction(theta_switched)
+    i_original = weight_kernel_integral(knots, original, terms)
+    i_one = weight_kernel_integral(knots, 1, terms)
+    if original == 1:
+        # The two identical weighted terms cancel algebraically at(1,1).
+        log_low, log_high = log_enclosure(2, terms)
+        mass = (max(Fraction(0), log_low-i_one[1]), log_high-i_one[0])
+        return _scaled_interval(2*(1-1/switched), mass)
+    return (base[0]+2*i_one[0]/switched-2*i_original[1],
+            base[1]+2*i_one[1]/switched-2*i_original[0])
+
+
+def weighted_switch_partition(target: int, survivors: bytearray,
+                              composites: bytearray, prime_weights: dict
+                              ) -> tuple[Fraction, Fraction, Fraction, Fraction, Fraction]:
+    """Return(Sigma1,Sigma2,J_W,prime_loss,negative_composite_loss).
+
+    A,C are truthful full cubic odd-slot inputs; shape checks do not prove
+    that provenance. Prime weights are exact values in[0,1], keyed by odd
+    primes z<p<=floor(sqrt(N-3)); repeated prime factors count ONCE. These
+    finite weights do not establish an asymptotic Lipschitz profile or any
+    distribution theorem. The last two outputs sum to exact G-J_W.
+    """
+    switch_partition(target, survivors, composites)  # Shared input validation.
+    high = target-3
+    z = exact_floor_cuberoot(high)
+    if (type(prime_weights) is not dict
+            or any(type(p) is not int or p % 2 == 0 or not z < p <= isqrt(high)
+                   or not trial_prime(p) or type(w) not in (int, Fraction) or not 0 <= w <= 1
+                   for p, w in prime_weights.items())):
+        raise ValueError("require exact prime weights in[0,1] on odd primes z<p<=sqrt(H)")
+    primes = bytearray(a-c for a, c in zip(survivors, composites))
+    sigma1 = sigma2 = prime_loss = negative_loss = Fraction(0)
+    for i, a in enumerate(survivors):
+        if not primes[-1-i]:
+            continue
+        n = 3+2*i
+        weight = 1-sum((Fraction(w) for p, w in prime_weights.items() if n % p == 0),
+                       Fraction(0))
+        sigma1 += a*weight
+        sigma2 += composites[i]*max(weight, 0)
+        prime_loss += primes[i]*(1-weight)
+        negative_loss += composites[i]*max(-weight, 0)
+    return sigma1, sigma2, sigma1-sigma2, prime_loss, negative_loss

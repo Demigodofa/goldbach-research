@@ -446,3 +446,22 @@ negative G or L, no exclusion of other weights or coupled switching, and
 no new Goldbach coverage follows. The pursuit closed within30 minutes;
 no historical-priority search, publication work, or wake queue. Overall
 goal active; a stronger joint arithmetic estimate is still needed.
+
+The weighted cubic follow-up also returned `changed-under-evidence`.
+For every fixed Lipschitz profile 0<=w<=1 supported in[1/3,b], b<=1/2,
+the source-form additive distinct-prime-divisor weights have certificate
+coefficient B_w-C_w<=B0(theta1)-2log2<0 for fixed theta1<1 under the same
+explicit distribution/mass grants. At the formal two-level1 limit the
+entire weight functional cancels exactly. This excludes positive leading
+certificates only for this stated family and these sieve estimates; weights
+can improve a weaker certificate at lower switched levels while it remains
+negative. The inequality is uniform in profiles; analytic o(K) is only
+claimed for each fixed Lipschitz profile with its granted remainders.
+`switched_cubic_barrier.py` retains the deduction, rational piecewise-linear
+integral enclosures, and the exact finite weighted certificate J_W<=G.
+Its losses count small prime terms and negative composite weights; a prime
+square's divisor counts once. Sol checked the deduction and actual verifier;
+eight combined focused tests passed normally and with Python -O. This
+pursuit closed within30 minutes. No new actual Goldbach coverage, numerical onset,
+historical-priority search, publication work, or wake queue. Overall goal
+active; these separate weighted estimates do not close the pointwise gap.
