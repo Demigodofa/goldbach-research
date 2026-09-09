@@ -781,3 +781,25 @@ sufficiently small fixed delta choice. Sol checked the repair; no executable
 change or repeated old experiment was needed. The pursuit closed within30
 minutes, with no actual zero, numerical onset, new Goldbach coverage,
 priority search, publication work or wake queue. Overall research remains active.
+
+The next pursuit combined relative distribution with the tunable cubic
+weight in `balanced_semiprime_budget.py`. For each fixed0<epsilon<=1/100,
+choose delta sufficiently small DEPENDING on epsilon and kappa=1/epsilon.
+In the same actual-zero regime and on the original pruned pool at those
+parameters, the new signed total satisfies
+P>=T_kappa-C*epsilon*Y*S_2(m)*t-o_epsilon(Y*t), with C absolute.
+The relative distribution proof extends to Q=Y^(1/2-epsilon)/D^3;
+injective sieve support handles positive factors through Y^(1/2-2epsilon),
+without requiring q<=sqrt(level). The cubic weight makes larger factors
+nonpositive beyond Y^(1/2+2epsilon). Its positive multiplier is at most3
+on the remaining band, whose actual reciprocal rare-prime mass is
+2epsilon*t+o(t/loglog(Y)). An auxiliary fixed cutoff Y^(1/10) in Henriot's
+corrected theorem makes the two-prime upper-bound constant absolute.
+Thus the positive composite loss is an arbitrarily small FIXED fraction
+of the prime-pair scale. This is not a little-o bound for one fixed epsilon,
+a same-delta or growing-kappa theorem, or a positive lower bound for T_kappa.
+That signed-total lower bound remains the required gap. Sol checked theory
+and actual files; four focused exact tests passed normally and with Python
+-O. The pursuit returned `changed-under-evidence` within30 minutes. No
+actual zero, numerical onset, new Goldbach coverage, priority search,
+publication work or wake queue. Overall research remains active.

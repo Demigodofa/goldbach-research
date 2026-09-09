@@ -47,6 +47,11 @@ Nonnegative comparison and exact cancellation:
    logarithmic penalties cannot reduce the q<=r weights.
    A formal positive-part integral also records the cubic weight's cost;
    it is not a density assertion for actual prime factors.
+   balanced_semiprime_budget.py combines this family with a larger
+   distribution level: for each fixed epsilon, after choosing delta
+   depending on it, the positive composite loss is at most
+   C*epsilon*Y*S_2(m)*t+o_epsilon(Y*t), with C absolute. Signed-total
+   positivity is still required.
 
 One-sided prime-pair reduction:
 4. Define the NEW signed total
