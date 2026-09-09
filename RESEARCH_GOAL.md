@@ -3162,3 +3162,55 @@ coarse relative N^-1/2 error is insufficient on this full model band.
 No actual-zeta, Goldbach counterexample, model theorem or all-method
 barrier is claimed. Fresh <=30-minute test of sufficiency of these
 counting inputs; preserve all promising components and source boundaries.
+## 2026-09-09: the counting constraints permit comparable-height reinforcement
+
+Started20:55:30 UTC, reassessed21:07:44 UTC, progress. Resumed verified
+clean main89e7edd; reviewed mathematics **6fb7829**,
+spectral_count_resonance_model.py. Previous goal turn was progress:
+strongly unequal dyadic rectangles were paid through a linear ceiling.
+
+A global BUT N-DEPENDENT mock critical-line spectrum agrees with the
+smooth RVM main to O(1), has the retained density envelopes and local
+occupancy, yet its smooth weighted ACTUAL finite-period sum is
+ -(Nlog^2(N/2)/pi)int chi^2+O(Nlog^(3/2)N+sqrtN log^2N).
+Here chi is any fixed nonzero real smooth function supported in
+(1/100,1/50). This is a uniform-input countermodel for that weighted
+band only. It does not describe actual zeta zeros, produce one fixed
+spectrum across N, determine the full unweighted sum or refute Goldbach.
+
+The quarter-shift lattice gives a negative carrier and stationary
+transverse Fresnel main. Poisson zero frequency is asymptotic to
+4piN int chi^2, not exactly equal. InverseM(j) baseline heights rounded
+upward to the lattice inside an extended band change counts by at most
+one and omit only O(N) grid nodes. The existing discrete operator then
+pays Nlog^(3/2)N for thinning. Symmetry of locations does not supply
+the prime explicit formula, Euler product or zeta functional equation.
+
+Crucially, the ACTUAL kernel is handled: for beta=beta'=1/2 in this
+linear band it equals A exp(iTheta) plus the explicit upper endpoint
+N^-1 b(q)exp(i[phi(gamma)+phi(eta)+Npi]) and O(N^-3/2), with
+b(q)=-2e exp(-q/pi)/(pi-q), phi(t)=tlog(t/pi)-t. The proof uses an
+exponentially paid lower cutoff, a next-order Morse remainder and two
+noncentral integrations. The endpoint's lattice aliases are nonstationary;
+thinning costs NL and the summed pairwise remainder costs sqrtN L^2.
+The old coarse remainder would be main-sized and was not substituted.
+The model's near-height strip is absolutely all-log and can be removed.
+
+Fresh RVM source check: Brent-Platt-Trudgian, MathComp2021 printedp2926
+eqs(5)-(7), https://maths-people.anu.edu.au/brent/pd/rpb276-MC-preprint.pdf .
+Half-weight endpoints are absorbed by O(1); no numerical zero results used.
+Sol theory/actual-file PASS; seven guards normal0.002s/-O0.002s. All
+source corrections, phase tools and polynomial components persist.
+Actual full signed margin OPEN; overall goal active. No outside action,
+manual wake queue, novelty or claim of a process continuing after stopping.
+
+Next unreviewed test: can the ACTUAL prime explicit formula bound
+sum chi(gamma/N)*(N/2)^(rho-1/2) by O_chi(sqrtN log^2N), for fixed
+nonnegative chi in this band, without RH or target averaging? The mock
+quarter-grid gives an imaginary moment of order NlogN. A smoothed
+Guinand/Weil route might exclude that alignment, but the exact source,
+off-critical complex argument and analytic test-function conditions must
+be checked first. Candidate Fourier truncation must pay replacement,
+pole and Gamma terms; a rapidly weighted short prime window should
+remain. This single moment is not the missing bilinear estimate. Fresh
+<=30 minutes; no arithmetic moment or correlation theorem yet promoted.

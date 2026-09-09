@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **da07ce0**, in linear_height_ratio_cancellation.py:
+Latest reviewed RESEARCH commit: **6fb7829**, in spectral_count_resonance_model.py:
+a GLOBAL BUT N-DEPENDENT artificial critical-line spectrum can obey
+the smooth RVM count with O(1) error, all used density envelopes and
+local occupancy, yet its ACTUAL finite-period smooth comparable-band
+sum is -C_chi Nlog^2(N/2)+O(Nlog^(3/2)N+sqrtN log^2N), C_chi>0.
+A quarter-shifted lattice, count-preserving upward rounding, sharper
+central remainder and separately paid endpoint prove this. It limits
+uniform deductions for THAT weighted band from the listed counting
+inputs only. It is not actual zeta, a fixed spectrum across N, a full
+unweighted-sum obstruction, Goldbach counterexample or all-method barrier.
+Previous **da07ce0**, in linear_height_ratio_cancellation.py:
 the ACTUAL COMPLEX signed contribution of selected strongly unequal
 dyadic rectangles is paid through the fixed LINEAR ceiling N/10. For
 tags G<=H^theta, fixed1/2<theta<9/11, the main costs
@@ -382,7 +392,68 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: ratio savings reach selected linear-height rectangles
+## Latest pursuit: count-compatible reinforcement survives the actual kernel
+
+Started20:55:30 UTC, reassessed21:07:44 UTC, progress. Resumed verified
+clean main89e7edd; reviewed mathematics **6fb7829**. The previous goal
+turn was progress: selected strongly unequal linear-height boxes were paid.
+For fixed nonzero real chi in C_c^infinity((1/100,1/50)), a global
+N-dependent mock critical-line spectrum has weighted actual J sum
+ -(Nlog^2(N/2)/pi)int chi^2+O_chi(Nlog^(3/2)N+sqrtN log^2N).
+It matches the smooth RVM main M(t) with O(1) count error uniformly in
+N, has O(log(2t)) local occupancy and all the used single-zero density
+envelopes. This refutes only a UNIFORM weighted-band estimate from those
+constraints. It is not actual zeta or a fixed model resonating infinitely
+often, and a negative weighted band does not decide the unweighted sum.
+
+The lattice spacing2pi/log(N/2) with quarter-cell offset makes the
+separable pair carrier negative. The entropy phase has a stationary
+diagonal; transverse Fresnel phase cancels-pi/4. Poisson zero frequency
+is ASYMPTOTIC to4piN int chi^2; other modes are nonstationary. Starting
+from inverseM(j) heights and rounding upward inside[cN/2,3cN], c1/100,
+moves at most one point across any threshold, because M'(t)*spacing<1.
+Only O(N) lattice nodes are omitted, so the proved matrix bound pays
+the stationary thinning cost Nlog^(3/2)N. Conjugation/reflection here
+mean symmetry of LOCATIONS, not the zeta functional equation or Euler product.
+
+A reusable sharper ACTUAL expansion is also proved for beta=beta'=1/2
+in this fixed linear band:
+ J=A exp(iTheta)+N^-1 b(q)exp(i[phi(gamma)+phi(eta)+Npi])+O(N^-3/2),
+ q=(gamma+eta)/N, b(q)=-2e exp(-q/pi)/(pi-q), phi(t)=tlog(t/pi)-t.
+The lower t<=N^-1/4 integral is exponentially small; a flat cutoff
+licenses uniform amplitude derivatives. A next-order Morse calculation
+pays the central error, and two noncentral integrations keep the upper
+endpoint. On the full lattice its potentially close alias has derivative
+log(2gamma/(piN)) bounded away from0. Endpoint thinning costs NL;
+the remaining pairwise error sums to sqrtN L^2. The earlier coarse
+N^-1 remainder would NOT have proved this model. The model's near strip
+is absolutely all-log and can be removed, without transferring it to zeta.
+
+Fresh primary RVM authority: Brent-Platt-Trudgian, MathComp2021,
+printedp2926 eqs(5)-(7), author offprint
+https://maths-people.anu.edu.au/brent/pd/rpb276-MC-preprint.pdf .
+Its half-weight endpoint convention differs by O(1) on the simple model;
+no numerical first-zero or database claim was used. Sol theory/actual-file
+PASS; seven exact guards normal0.002s/-O0.002s. All earlier corrections,
+phase and polynomial components persist. Actual full signed margin OPEN;
+overall goal active. No outside action, manual wake or post-stop process claim.
+
+Next concrete question, UNREVIEWED: for the ACTUAL zeros, can the prime
+explicit formula prove
+ |sum chi(gamma/N)*(N/2)^(rho-1/2)| <<_chi sqrtN log^2N
+for fixed nonnegative smooth chi supported in this band, without RH or
+target averaging? The mock quarter-grid has an imaginary moment of
+order NlogN, so that estimate would exclude its specific alignment.
+Possible route: a smoothed Guinand/Weil formula with an entire Fourier-
+truncated approximation to chi, preserving the off-critical argument
+gamma/N-i(beta-1/2)/N. Pay the replacement, pole and Gamma terms;
+the prime side should be a rapidly weighted O(1)-scale window around
+N/2. The exact formula and its non-RH test-function hypotheses require
+a FRESH PRIMARY SOURCE CHECK before use. A recalled formula is only a
+locator. Proving this single moment would still not prove the bilinear
+correlation estimate; test that distinction explicitly. Fresh <=30 minutes.
+
+## Previous pursuit: ratio savings reach selected linear-height rectangles
 
 Started20:46:03 UTC, reassessed20:52:56 UTC, progress. Resumed verified
 clean main2f4c161; reviewed mathematics **da07ce0**. The previous goal
@@ -3008,7 +3079,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_linear_height_ratio_cancellation` (seven guards) and
+Latest tests: `python -m unittest test_spectral_count_resonance_model` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
