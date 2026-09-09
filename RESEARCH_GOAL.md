@@ -3013,3 +3013,51 @@ estimate alone at T=N^(2/3). Source-check a stronger near-one density
 bound and Vinogradov-Korobov zero-free region before any use; a recalled
 Huxley exponent is only an unverified locator in REFRESH_HANDOFF.md.
 Fresh <=30-minute test; no discrete signed estimate is yet proved.
+
+## 2026-09-09: actual signed cancellation in the two-thirds height band
+
+Started20:17:49 UTC, reassessed20:35 UTC, progress. Resumed verified
+clean maincda45e8; reviewed mathematics **feb00a9** in
+discrete_spectral_cancellation.py. Previous goal turn was progress:
+an actual absolute obstruction and controlled complex stationary phase.
+
+For T=N^(2/3), the COMPLEX sum of J_N over both heights in(T,2T]
+is O_A(N/log^A N) for every fixed A. This survives subtraction of the
+already paid near-height strip. The same band has actual termwise
+absolute mass >>Nlog^2N, so this proves cancellation rather than merely
+restating a formal identity. The remaining C_high and Goldbach margin
+are still OPEN; this result licenses only the specified band.
+
+Remove the separable logN carrier, prove continuous TT* norm sqrtT,
+then transfer through fixed Fourier projections with both tails paid.
+Schwartz-kernel Schur bounds use copy-counted local occupancy logT,
+including repeated zeros and arbitrarily close ordinates. Smooth Fourier
+expansion in the two beta parameters preserves coefficient l2 weights.
+The stationary factor cancels sqrtT, leaving logT sum N^(2beta-1).
+
+Source-check: Yashiro1310.0765v2 printedp2 eqs(1.1),(1.2) records
+Ingham log^5 and Huxley log^44 losses; their respective sigma ranges
+give the uniform weaker bound U^[(12/5)(1-sigma)]log^50U. The exact
+log-power versions matter; a fixed U^epsilon loss does not suffice.
+Mossinghoff-Trudgian-Yang2212.06867v1 printedp2 Theorem1.1 gives the
+Vinogradov-Korobov gap delta>>L^-2/3(logL)^-1/3. Layer cake then pays
+the energy at N^(2/3)L+N L^51 exp[-c L^(1/3)/(logL)^(1/3)].
+Adding the prior complex error N^(31/45)L^12 proves the actual result.
+Separate sharp row/column masks are allowed, arbitrary coupled masks
+are not; the near strip is handled by its separate absolute estimate.
+
+Sol theory/actual-file PASS; six guards normal0.016s/-O0.016s. No RH,
+target average, zero/prime computation, coverage, practical onset,
+novelty claim, external action or manual wake. Polynomial components
+and all source corrections persist. Overall goal active. No process
+is claimed to continue after a stopped checkpoint.
+
+Next unreviewed question: extend the same mechanism uniformly to unequal
+height boxes G<=H<=N^(5/6-epsilon) above the already deleted low axis.
+Scaling gamma=Gx,eta=Hy,r=G/H and removing gamma log r suggests a
+phase with parameter G and mixed derivative-1/(y+r*x), uniformly
+nondegenerate at r=0. Candidate physical norm sqrtH cancels the
+stationary H^-1/2, leaving sqrt(E_G(NG/H)E_H(N)) times local counts.
+Pay projection tails, beta amplitude, both energy gaps, actual stationary
+error and dyadic summation, or record the specific obstruction. Fresh
+<=30-minute test; no other band or full signed bound yet promoted.

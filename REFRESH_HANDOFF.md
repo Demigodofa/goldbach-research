@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **fb3da0f**, in stationary_spectral_core.py:
+Latest reviewed RESEARCH commit: **feb00a9**, in discrete_spectral_cancellation.py:
+the ACTUAL COMPLEX signed sum over both heights in(T,2T],T=N^(2/3),
+is O_A(N/log^A N), also after subtracting the paid near-height strip.
+Continuous mixed-phase TT*, fixed-frequency discrete transfer including
+coincident zero copies, and a smooth beta-parameter expansion cost
+logT times sum N^(2beta-1). Source-checked Ingham/Huxley log-power
+density and Vinogradov-Korobov zero-free input pay that energy. This is
+actual signed cancellation in a band of absolute mass >>Nlog^2N.
+It deletes this specified band; other heights and the full margin remain OPEN.
+Previous **fb3da0f**, in stationary_spectral_core.py:
 actual zeros in(T,2T],T=N^(2/3), have >>Nlog^2N termwise absolute
 kernel mass INSIDE the retained core, even after the near-height strip
 is removed. A uniform finite-period stationary main and beta reflection
@@ -355,7 +364,47 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual interior mass and its controlled phase
+## Latest pursuit: actual discrete signed cancellation in one interior band
+
+Started20:17:49 UTC, reassessed20:35 UTC, progress. Resumed verified
+clean maincda45e8; reviewed mathematics **feb00a9**. The previous goal
+turn was progress: an actual absolute obstruction and controlled phase.
+The complex sum of J over both heights in(T,2T],T=N^(2/3), is now
+O_A(N/log^A N). Removing the previously paid near-height strip preserves
+this estimate. This is an actual estimate where absolute mass is large;
+the remaining C_high and the sufficient Goldbach lower margin are OPEN.
+
+After removing the separable logN carrier, continuous TT* gives sqrtT.
+A fixed Fourier projection with both tails paid transfers to arbitrary
+zero spacings and coincident copies; local copy occupancy costs logT.
+The beta-dependent amplitude has a summable smooth Fourier expansion,
+so the resulting cost is logT E_N, E_N=sum N^(2beta-1). It licenses
+separate row/column masks, not arbitrary coupled masks. Yashiro1310.0765v2
+printedp2 eqs(1.1),(1.2) gives Ingham log^5 and Huxley log^44 bounds;
+together they imply the weaker uniform exponent(12/5)(1-sigma) with
+log^50 loss. Mossinghoff-Trudgian-Yang2212.06867v1 printedp2 Theorem1.1
+supplies beta<=1-delta with delta>>L^-2/3(logL)^-1/3. Consequently
+logT E_N << N^(2/3)L^2+N L^52 exp[-c L^(1/3)/(logL)^(1/3)].
+The prior complex stationary error N^(31/45)L^12 is paid separately.
+Do not replace these log-power density statements with fixed-epsilon
+estimates, or infer other height boxes. Sol theory/actual-file PASS;
+six exact guards normal0.016s/-O0.016s. No zero/prime computation,
+RH, coverage, onset or novelty claim. All older source corrections,
+polynomial tools and runtime limitations persist. Overall goal active.
+
+Next concrete question, UNREVIEWED: does the same mechanism uniformly
+pay unequal height boxes G<=H<=N^(5/6-epsilon), with G above the already
+deleted low axis? Scale gamma=Gx,eta=Hy,r=G/H and remove gamma log r.
+The residual phase has parameter G and mixed derivative-1/(y+r*x),
+uniform down to r=0. A candidate physical operator bound sqrtH would
+cancel the H^-1/2 stationary amplitude, leaving the two energies
+E_G(NG/H) and E_H(N). Test the uniform projection tails, beta amplitude,
+energy gaps, actual complex stationary remainder and dyadic summation.
+Falsifier: an unpaid ratio-dependent cost or error of order N. Fresh
+<=30-minute pursuit; no such extension or full correlation bound yet.
+No research process is claimed to run after a stopped checkpoint.
+
+## Previous pursuit: actual interior mass and its controlled phase
 
 Started20:06:48 UTC, reassessed20:16:00 UTC, progress. Resumed verified
 clean mainb780bbc; reviewed mathematics **fb3da0f**. Previous goal turn
@@ -2839,7 +2888,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_stationary_spectral_core` (five guards) and
+Latest tests: `python -m unittest test_discrete_spectral_cancellation` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
