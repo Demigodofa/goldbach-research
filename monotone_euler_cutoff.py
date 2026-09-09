@@ -88,6 +88,73 @@ not strengthen the old half-main-term lower bound to this exceptional
 size. The remaining Fourier errors and suppressed classes can still
 contain targets; no numerical exponent/onset, universal Goldbach coverage,
 named uncomputed interval, or historical novelty is asserted.
+
+Siegel refinement of the ACTUAL canonical-L theorem:
+Sol checked the deduction and actual proof text on 2026-09-08.
+For the same sufficiently small fixed delta>0 and EVERY fixed 0<k<2/3,
+  #{even m in[X,2X]: L(m)<=0} <<_{delta,k} X**(1-delta*k). (2)
+The starting threshold and constants in this refinement are ineffective.
+This is an asymptotic conclusion from the existing unconditional analytic
+inputs, not an additional assumption that an exceptional zero exists.
+The earlier effective zero-distance argument and its delta/4 exponent
+remain available separately; no effective onset was supplied for that result.
+
+Additional primary input: Matomaki--Merikoski, Siegel zeros, twin primes,
+Goldbach's conjecture, and primes in short intervals, IMRN2023, equation(6):
+https://arxiv.org/html/2112.11412v2
+Siegel's theorem gives eta <<_epsilon D**epsilon, for every fixed epsilon>0,
+when a primitive quadratic character has a real zero
+beta=1-1/(eta*log D), eta>=10. Its constants are ineffective.
+Only this zero-distance estimate is used here, not the paper's conditional
+pointwise Goldbach theorem or its separate target-range hypotheses.
+
+Proof with explicit exponent slack:
+Keep Y=2X, R=Y**delta and all dyadic intervals, cutoffs, normalizations,
+and error identities from prime_pair_transfer.py. Set
+  a=1/3+k/2, tau=1/6-k/4, so 1/3<a<2/3 and 0<tau<1/6.
+Split the active exceptional conductor at D=R**a.
+
+For D<=R**a, the exact periodic formulas in signed_pair_main_term.py
+already hold for every D<=R**2. Its absolute Euler tail, with Q=R/D,
+now gives error per unit length
+  O((D/R)**(1/2)*exp(O(sqrt(log Y))))
+    =O(R**(-(1-a)/2+o(1))).
+This includes the D*(|B|+|C|)/phi(D)**2 multiplier. The principal error
+O(R**(-1/3)) and the periodic error O(R**8/Y) are unchanged. Thus the
+full character-moment comparison extends beyond the earlier D<=R**(1/4).
+If eta>=10, choose epsilon=tau/(2*a) in Siegel's estimate. Then
+  t=(1-beta)*log Y >>_{delta,k} R**(-tau/2),
+since D**epsilon<=R**(tau/2) and log Y/log D>=1/(a*delta).
+If eta<10, directly t>=1/(10*a*delta). In either case
+  mu=min(1,t) >>_{delta,k} R**(-tau).
+The positive suppressed-model margin therefore survives uniformly, including
+targets in F_D: (1-a)/2-tau=1/6, 1/3>tau, and R**8/Y=o(R**(-tau)).
+The already checked pointwise errors are proportional to t and are absorbed
+by the same sufficiently small fixed delta, before applying Siegel's lower
+bound. Their absorption does not require an effective Siegel constant.
+
+Use the unsimplified Fourier residual energy from prime_pair_transfer.py:
+  sum_m |Q_+/-|**2 <<_delta Y**3*R**(-2/3)*log(Y)**2.
+At threshold c*Y*mu this discards at most
+  O_{delta,k}(Y*R**(-2/3+2*tau)*log(Y)**2)
+    =O_{delta,k}(Y*R**(-a)*log(Y)**2).
+The old omitted endpoints O(YR**(-1/2)) are o(Y*mu/log(Y)**2), so its
+unweighting and cubic-composite containment still give actual L(m)>0.
+
+For D>R**a, the monotone-cutoff argument above supplies a fixed margin
+outside F_D; it applies since a>1/4. The discarded arithmetic family has
+O(Y/D+1)=O(YR**(-a)) targets. At a fixed margin the SAME Fourier energy
+discards O_delta(YR**(-2/3)*log(Y)**2), retaining its full exponent instead
+of the earlier convenient R**(-1/2) simplification. The absent-model case
+uses this latter bound too. Finally a-k=1/3-k/2>0 absorbs the logarithms
+and proves(2), with all analytic constants and fixed cutoffs accounted for.
+
+For example k=1/2 gives an exceptional-size exponent delta/2 in place of
+delta/4 for the SAME delta. No k=2/3 endpoint, numerical delta or onset,
+uniformity as k approaches2/3, half-main-term bound on this smaller set,
+or coverage of every even integer is asserted. The Fourier-residual set
+can remain nonempty. This strengthens this recursive bound's theorem;
+it is not a claim to improve the literature's best Goldbach exceptional set.
 """
 from fractions import Fraction
 from math import gcd

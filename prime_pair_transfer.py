@@ -68,6 +68,9 @@ With the additional permissible monotone cutoff choice,
 monotone_euler_cutoff.py extends that localization to every active
 conductor and improves the exceptional-size exponent from delta/8 to
 delta/4. The proof below retains the original, more general cutoff bound.
+That module also contains the later Siegel refinement to delta*k for each
+fixed 0<k<2/3, with ineffective constants and onset; it uses the same delta
+and the unsimplified Fourier energy below. It does not remove all exceptions.
 
 Proof by composing the checked models:
 1. Set Y=2X, R=Y**delta, J=floor(log(R)/(2*log(2))), and T=Y/2**J.

@@ -465,3 +465,25 @@ eight combined focused tests passed normally and with Python -O. This
 pursuit closed within30 minutes. No new actual Goldbach coverage, numerical onset,
 historical-priority search, publication work, or wake queue. Overall goal
 active; these separate weighted estimates do not close the pointwise gap.
+
+The next pursuit strengthened the ACTUAL canonical-L exceptional-set theorem.
+Keeping the same sufficiently small fixed delta>0, every fixed 0<k<2/3
+now gives #{even m in[X,2X]: L(m)<=0}=O_{delta,k}(X^(1-delta*k)).
+For example k=1/2 replaces delta/4 by delta/2 for the same delta.
+The additional established input is Siegel's ineffective zero-distance
+bound, stated in Matomaki--Merikoski equation(6). The deduction is in
+`monotone_euler_cutoff.py`: enlarge the full-Euler comparison range to
+D<=R^a, a=1/3+k/2, retain the suppressed margin mu>>R^(-tau),
+tau=1/6-k/4, and use the unsimplified Fourier energy. Both the small-D
+Fourier residual and large-D arithmetic family cost O(YR^(-a)*log(Y)^2),
+which is smaller than O(YR^(-k)) for each fixed k. This is unconditional
+asymptotically but has ineffective constants and onset. It neither assumes
+an actual exceptional zero exists nor uses the separate conditional
+pointwise Goldbach theorem. No k=2/3 endpoint, numerical delta/onset,
+half-main-term strengthening, or empty exceptional set is proved. Sol
+checked the analytic deduction and actual proof text. The bounded pursuit
+closed within30 minutes. No executable implementation changed;
+syntax checks and four exact rational exponent controls also passed.
+No new prime-range scan, historical-priority search, publication work,
+or wake queue. Overall goal active; individual exceptional targets remain
+the unresolved step.
