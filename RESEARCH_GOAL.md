@@ -736,3 +736,22 @@ unproved. Sol checked theory and actual files; five focused exact tests
 passed normally and with Python -O. No actual zero, numerical onset, new
 Goldbach coverage, priority search, publication work or wake queue.
 Overall research remains active.
+
+The next pursuit tested a cofactor switch, then changed the partner weight
+in `cubic_character_minorant.py`. Put U=chi*log^3 and
+K(n)=10W(n)-9U(n)/log(n)^2. The finite-difference identity
+U=(1*chi)*(mu*log^3)>=0 proves K<=10W; K equals log(n) on negative-sign
+primes. For a mixed-sign squarefree semiprime n=rq, with r negative and
+q positive, its exact numerator is
+log(n)^2*K(n)=log(r)*(2log(r)-log(q))*(log(r)+7log(q)).
+Thus every q>r^2 contribution is negative and may be dropped in an upper
+bound for the NEW signed total T_K. Prior negligible-error estimates transfer
+with a factor10, yielding T_K<=P+E_mid+o(Y*t), where the remaining positive
+semiprimes satisfy w*<q<r^2, hence r>n^(1/3). This does not lower-bound T_K
+by the old nonnegative total T. Showing T_K exceeds E_mid and the error is
+still open. Sol checked theory and actual files; five exact tests passed
+normally and with Python -O, including an independent nonnegative convolution,
+negative weights and the one-sided partition at existing-prefix targets.
+The pursuit returned `changed-under-evidence` within30 minutes. No actual
+zero, numerical onset, new Goldbach coverage, priority search, publication
+work or wake queue. Overall research remains active.
