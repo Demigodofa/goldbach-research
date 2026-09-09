@@ -3434,3 +3434,38 @@ with only logarithmic cost, through individual heights KN and the
 original smooth transition weight. Pay x near0, bases below1, the
 far tail and Gamma approximation; no hidden coupled masks. This is
 a candidate endpoint mechanism, not yet a deletion. Fresh <=30 minutes.
+
+## 2026-09-09: exact convolution carries the ratio family through the transition
+
+Started22:16:52 UTC, reassessed22:23:42 UTC, progress. Resumed verified
+clean main9d0edd8; reviewed mathematics **b816865**,
+finite_period_ratio_convolution.py. Previous native goal turn was progress:
+actual prime-offset identity and positivity falsifier. This pursuit proves
+the exact identity J_N=e/(2pi) int exp(-x/N)K_pi(N-x)B_x dx, using
+checked NIST DLMF5.9.1, positive real parts and absolute finite-list
+Fubini. The beta quotient retains the unequal phase without a finite-
+time stationary error. Its integrated main costs an extra logarithm.
+Small x, below-one bases, the exponential tail and the Gamma remainder
+are all paid. Fixed Q=(K+2)N handles individual heights KN, K>1.
+
+With the ORIGINAL smooth weight1-Psi, selected theta53/64 tags and
+separate eta>N17/20 mask, the actual complex contribution is
+O(N^(25583/25600)L^55+N^.91L^15). The whole endpoint transition is
+included for this unequal family; its transpose is disjoint. Rebuild
+before the former N/2 union to avoid a coupled-mask argument. Comparable
+large heights and the full signed lower margin remain OPEN. Sol theory
+and actual-file PASS; seven guards normal0.108s/-O0.098s. The ordinary
+Gamma quadrature fixture only diagnoses normalization/orientation.
+No actual zero computation, RH, target average, coverage or outside action.
+All source corrections, polynomial tools and runtime limits persist.
+Overall goal active; no manual wake or claim of post-stop execution.
+
+Next unreviewed question: at the surviving comparable scale T=N9/10,
+can prime support improve the actual moment energy from NlogN to N?
+For fixed smooth chi in(1,2), the candidate uses the explicit formula
+and a weighted Schur bound on prime windows of width N/T=N1/10.
+Source-check an applicable short-interval upper sieve; pay prime powers,
+beta displacement, entire-cutoff tails and uniformity. If the energy
+passes, test the beta and actual finite-period transfer for an O(N)
+complex band bound. This would remain a main-scale upper bound, not an
+all-log deletion or signed lower margin. Fresh <=30-minute pursuit.

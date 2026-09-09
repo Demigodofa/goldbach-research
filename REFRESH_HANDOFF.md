@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **0172597**, in guth_maynard_ratio_cancellation.py:
+Latest reviewed RESEARCH commit: **b816865**, in finite_period_ratio_convolution.py:
+the ACTUAL weighted complex unequal-tag family is all-log small through
+the FULL endpoint transition, with individual heights KN for fixed K.
+Exact Gamma-Laplace convolution pays every integration range and retains
+the original smooth weight1-Psi. Concrete theta53/64, epsilon1/1170
+and the current eta>N17/20 mask give
+N^(25583/25600)L^55+N^.91L^15. No stationary ceiling remains for THIS
+selected family. Comparable high heights and the signed margin stay OPEN.
+Previous **0172597**, in guth_maynard_ratio_cancellation.py:
 the ACTUAL COMPLEX selected unequal-tag sum is all-log small through
 individual heights N/2, for fixed theta<59/71 with its source epsilon
 paid. Concrete theta53/64, epsilon1/1170 give decay1/1280; on the
@@ -441,7 +449,48 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the density shape enlarges unequal-height cancellation
+## Latest pursuit: exact convolution crosses the endpoint transition
+
+Started22:16:52 UTC, reassessed22:23:42 UTC, progress. Resumed verified
+clean main9d0edd8; reviewed mathematics **b816865**. The previous
+native goal turn made progress through the actual prime-offset formula
+and its positivity falsifier. This pursuit uses the EXACT identity
+J_N=e/(2pi) int_0^infinity exp(-x/N)K_pi(N-x)B_x dx,
+B_x=2x^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma).
+NIST DLMF5.9.1 was checked, including its positive-real-part conditions.
+Finite-list Fubini is absolute. The quotient has the saved phase and
+only a G^-1 Gamma remainder; the finite-time stationary approximation
+is no longer needed. The original fixed smooth1-Psi stays an amplitude.
+
+For x>=H/G the extended energy bound is max(Y,Z)Y^aL^51. Its main
+is max(H,x)H^-DeltaL^52, and the absolute convolution costs NlogN.
+For x<1, zero-free/reflection pays1/(beta+beta'); for1<=x<H/G the
+below-one row base is handled separately. Both costs are power-small.
+The exponential far tail is paid. The Gamma remainder costs an extra
+log; a fixed Q=(K+2)N reference pays K>1 explicitly. Result:
+N^(25583/25600)L^55+N^.91L^15 on the selected current-core union,
+through all individual heights KN and the entire endpoint transition.
+The transpose is disjoint; rebuild before the previous N/2 deletion.
+No arbitrary coupled mask, RH, target average, new coverage or practical
+onset. Sol theory/actual-file PASS; seven guards normal0.108s/-O0.098s.
+The quadrature guard uses ordinary Gamma parameters, not actual zeros;
+the theorem rests on its analytic proof. Full signed margin remains OPEN.
+
+Next concrete question, UNREVIEWED: can short-interval prime upper
+bounds remove a logarithm from the ACTUAL arithmetic energy at a
+surviving comparable height T=N^(9/10)? Fix smooth chi in(1,2), and
+test int_(1/3)^(2/3)|sum chi(gamma/T)(aN)^(rho-1/2)|^2 da=O_chi(N).
+The candidate arithmetic window has width N/T=N^(1/10). A weighted
+Schur argument would use sum Lambda(n)|hat_chi(Tlog(n/x))|=O(N/T)
+from a source-checked short-interval upper sieve, plus sum Lambda(n)/n
+=O(1), instead of discarding prime support and losing logN. Pay prime
+powers, complex beta shifts, entire-cutoff tails and all uniformity.
+If the energy passes, test its exact beta transfer and actual finite-
+period remainder for the comparable T band. Predicted bound O(N),
+not all-log or a sufficient signed margin. Fail if the prime-window
+bound or transfer costs remain unpaid. Fresh <=30-minute pursuit.
+
+## Previous pursuit: the density shape enlarges unequal-height cancellation
 
 Started22:00:55 UTC, reassessed22:10:26 UTC, progress. Resumed verified
 clean main6741752; reviewed mathematics **0172597**. The selected
@@ -458,7 +507,7 @@ and transpose contain the former theta4/5,N/10 deletion. Sol theory and
 actual-file PASS; seven guards normal0.005s/-O0.006s. No new coverage,
 RH, practical onset or signed margin. All previous corrections persist.
 
-Next concrete question, UNREVIEWED: can exact finite-period Fourier
+The then-next question, answered inb816865 above: can exact finite-period Fourier
 convolution carry this same unequal-tag cancellation through the whole
 endpoint transition? With B_x=2x^(rho+sigma-1)Gamma(rho)Gamma(sigma)/
 Gamma(rho+sigma), the candidate identity is
@@ -468,7 +517,7 @@ the weighted logarithmic integral cost, uniform Gamma error, and the
 original smooth weight1-Psi as an amplitude. The proposed extension
 would cover individual heights through fixed KN, not just N/2.
 Fail it if any endpoint cost or coupled-mask assumption is unpaid.
-Fresh <=30-minute pursuit; no transition deletion yet promoted.
+The later proof pays the transition with one extra logarithm.
 
 ## Previous pursuit: a density patch extends actual cancellation past five-sixths
 
@@ -3374,7 +3423,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_guth_maynard_ratio_cancellation` (seven guards) and
+Latest tests: `python -m unittest test_finite_period_ratio_convolution` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
