@@ -1594,3 +1594,46 @@ preserve any missing boundary or class instead of assuming it away.
 Formal conservation6f9a77b remains a known-main-term identity, with its
 signed difference OPEN. Polynomial tools survive and the goal stays active.
 No research process is left running; execution gaps remain gaps.
+
+## 2026-09-09: eliminate all polynomial rare-factor losses
+
+Started11:12:52 UTC, reassessed before11:42:52, changed-under-evidence.
+Resumed clean main ddfa2aa, actual affine mathematics4e106b6. New reviewed
+mathematics **e5c955d**, rare_class_elimination.py, proves for EVERY fixed
+normalized polynomial of degree d, in the ADDED actual-zero large-V regime,
+ T_f=P+sum_(3<=k<=d, k odd) C_(k,f)^all-negative+o_(f,theta)(Yt).
+Every positive-factor composite class is negligible in FULL ABSOLUTE
+weight. The quintic now leaves only pure triples and five-factor partners.
+The original W=chi*log has T_W=P+E with 0<=E=o_theta(Yt); normalized
+quadratics coincide with W exactly on negative-character units.
+
+The old pruning only used the fixed rough divisor bound. Remaining unique
+positive q>floor(Y^a) gives q>Y^a exactly, M=n/q<Y^(1-a)<=Y^(13/25),
+chi(M)=-1, (M,Dm)=1 and the exact bridge intervals. Q-dependent restrictions
+are dominated by the full nonnegative B_M. Never use the false reciprocal
+floor inequality. V>=log^3 eta stays an additional assumption; the original
+fixed delta,u and B_good are unchanged.
+
+The Buchstab terminal error E_R is also o(Yt), removing its previous
+C*epsilon*Z charge. The remaining one-sided prime-times-rough estimate is
+ U_A<=LXV(z_old)-(c+C0*eta_u/theta)*Z,
+with the original fixed sieve error and >=q least-factor condition intact.
+This estimate and a positive lower bound for FULL T_W remain OPEN.
+The exact n=957,R=26 fixture has truncated W=log(33/29)>0 and full W=0,
+so nonnegativity of W cannot make its signed truncation a lower bound.
+
+Seven new guards passed normally0.023s and under -O0.021s. Sol reviewed
+actual proof/code/tests, PASS after an eta_u notation correction. Finite
+S2,S4,S6 character fixtures verify support, not an exceptional zero or
+prime coverage. No old experiment, outside action, publication or wake queue.
+
+Next UNTESTED question: compare lambda_chi(p)*W(m-p) with one-variable
+rare-prime lambda_chi mass. Its zero mode may pair A_z(p) with the weighted
+log moment B_z(m-p); MM Lemma2.4 might calibrate B_z without discarding
+A_z. The decisive tests are exact local normalization and relative Yt
+errors in prime-to-divisor replacement and sieve tails. Existing errors
+of order Yt times logarithmic factors would not suffice for a lower bound.
+Keep original fixed-theta and growing-U cutoffs distinct. No new signed
+estimate is claimed, and formal conservation6f9a77b remains only its
+proved identity. All polynomial components survive. Goal active; no
+process remains running and no work is claimed during execution gaps.

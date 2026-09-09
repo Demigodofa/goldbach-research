@@ -35,9 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH and ORIGINAL-AFFINE commit: **4e106b6**, the
-positive cofactor sieve transfer through M<=Y^(13/25), in the retained
-actual-zero large-V regime. The handoff is committed later.
+Latest reviewed RESEARCH commit: **e5c955d**, elimination of positive-factor
+composite losses for every fixed polynomial, T_W=P+o(Yt), and the improved
+Buchstab endpoint. Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
+cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
+large-V regime. The handoff is committed later.
+Previous checkpoint **ddfa2aa** preserved4e106b6.
 Previous checkpoint **53eeab1** preserved the full smooth MODEL
 hyperbola-box theorem **220920c** for ALL integer moduli.
 Preceding checkpoint **83dce5e** preserved the all-integer unbalanced
@@ -66,7 +69,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `rough_cofactor_sieve_bridge.py`, the actual affine transfer,
+First read `rare_class_elimination.py`, the precise coverage consequences
+and still-missing signed lower bound. Then read
+`rough_cofactor_sieve_bridge.py`, the actual affine transfer,
 positive weighted density lemma and exact source-sign correction.
 Then read `full_model_box_kernel.py`, the full-domain MODEL proof,
 grouped-period transfer, rectangular bounds and exact budget API.
@@ -107,7 +112,58 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the model now transfers to actual affine rare/rare pairs
+## Latest pursuit: all polynomial rare-factor composite errors are negligible
+
+**e5c955d**, `rare_class_elimination.py`, composes the original pruning
+with4e106b6 for ANY fixed normalized polynomial f of degree d:
+ T_f=P+sum_(3<=k<=d, k odd) C_(k,f)^all-negative+o_(f,theta)(Yt).
+The ENTIRE absolute contribution of partners containing a positive-sign
+prime is negligible. For the quintic this removes S2,S4,S6 and leaves
+only the signed pure triple and positive pure five-factor classes.
+For the ORIGINAL W=chi*log, and every normalized quadratic, it proves
+ T_W=P+E, 0<=E=o_theta(Yt).
+This closes W's composite error. Its FULL weighted mass has no proved
+positive lower bound; the size of B_good and the accessible main do not
+provide one. At chi mod31,n=3*11*29=957,R=floor(n^(12/25))=26,
+the truncated W sum is log(33/29)>0 while full W(n)=0. This is an exact
+signed-truncation guard, not an actual-zero or asymptotic counterexample.
+
+In the Buchstab endpoint reduction, both terminal factors exceed R and
+map to B_M with M the negative prime. Hence E_R=o(Yt), improving the
+old C*epsilon*Z loss. The sufficient one-sided estimate is now
+ U_A<=LXV(z_old)-(c+C0*eta_u/theta)*Z;
+it remains OPEN. The >=q least-factor condition and repeated factors
+in U_A remain intact. Formal conservation6f9a77b is unchanged.
+
+Coverage guards: q>floor(Y^a) implies q>Y^a DIRECTLY. Do not use the
+false inequality Y/floor(Y^a)<Y^(1-a). Cofactor/character restrictions,
+original z_old=ceil(Y^theta), strict interval endpoints and central
+suppressed targets are all retained. Pruning can depend on q for each M;
+dominate by the full nonnegative B_M, not an invented M-only selection.
+V>=log^3 eta is explicitly additional, compatible with fixed delta,u,
+and does not follow from the original regime or imply zero existence.
+
+Seven NEW checks passed normally0.023s and under -O0.021s; Sol
+`/root/sieve_review` passed theory, actual proof/code/tests and the eta_u
+notation correction. Three finite character fixtures cover S2,S4,S6;
+they assert no exceptional zero. Started11:12:52 UTC; this pursuit returns
+`changed-under-evidence` before11:42:52. No old experiment was rerun.
+
+Next concrete question, UNTESTED: can the correlation lambda_chi(p)*W(m-p)
+be calibrated against a ONE-variable rare-prime lambda_chi mass? On F_D,
+its zero orientations suggest A_z(p)*B_z(m-p), where
+ B_z(y)=sum_(d rough)chi(d)/d*H(d^2/y)*log(y/d^2).
+MM Lemma2.4's logarithmic moment may control B_z, while a one-variable
+comparison could retain the same unknown A_z. Test exact local constants
+and, especially, prime-to-divisor replacement and sieve errors relative
+to Yt. An O(Yt*log^C eta) remainder is a failure of the proposed lower
+bound. Fixed original theta and the internal growing U must not be mixed.
+No positive lower bound from this idea has been proved. MM primary
+Lemma2.4/Proposition2.3 was re-opened, not a novelty search.
+No process is left running or manual wake queued. The overall goal stays
+active; Qwen remains unavailable without retry or installation.
+
+## Previous pursuit: the model transfers to actual affine rare/rare pairs
 
 **4e106b6**, `rough_cofactor_sieve_bridge.py`, proves, under the SAME
 actual-zero large-V hypotheses and for ANY original-Y^theta-rough subset
@@ -147,7 +203,7 @@ including the phase-sign and fixed-theta error-absorption clarifications.
 This pursuit began10:43:21 UTC and returns `changed-under-evidence`
 before11:13:21. Qwen remains unavailable; no old experiment was rerun.
 
-Next concrete test: does this bound cover the ENTIRE previously surviving
+The THEN-next concrete test was: does this bound cover the ENTIRE previously surviving
 even one-rare-factor composite class under its original pruning, fixed
 polynomial weights and parameter order? Match its exact cofactor and
 character conditions to B_M; any uncovered boundary or class is the
