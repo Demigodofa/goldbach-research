@@ -35,7 +35,16 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **2f03381**, in unequal_spectral_cancellation.py:
+Latest reviewed RESEARCH commit: **da07ce0**, in linear_height_ratio_cancellation.py:
+the ACTUAL COMPLEX signed contribution of selected strongly unequal
+dyadic rectangles is paid through the fixed LINEAR ceiling N/10. For
+tags G<=H^theta, fixed1/2<theta<9/11, the main costs
+N G^(11/20)H^(-9/20)log^52N, with both actual approximation errors paid.
+Choose theta=4/5 in the current core: eta>N^(4/5) is a separate column
+mask, giving total O(N^(124/125)log^54N+N^(91/100)log^14N). Delete
+that exact dyadic union and its transpose from the preceding C_high.
+The more comparable high heights and full signed lower margin remain OPEN.
+Previous **2f03381**, in unequal_spectral_cancellation.py:
 for EVERY FIXED kappa<5/6 the ACTUAL COMPLEX sum over
 0<gamma,eta<=N^kappa is O_(A,kappa)(N/log^A N). Unequal-scale TT*
 and discrete transfer remain uniform at vanishing height ratio; the
@@ -373,7 +382,61 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the whole fixed sub-five-sixths rectangle is signed small
+## Latest pursuit: ratio savings reach selected linear-height rectangles
+
+Started20:46:03 UTC, reassessed20:52:56 UTC, progress. Resumed verified
+clean main2f4c161; reviewed mathematics **da07ce0**. The previous goal
+turn was progress: the full fixed sub-five-sixths rectangle was paid.
+The new result controls complete dyadic rectangles with individual masks
+V_N<gamma,eta<=N/10, tags G<=H and G<=H^theta, fixed1/2<theta<9/11.
+It is a signed estimate, not an absolute estimate or a curved-mask theorem.
+
+The actual piecewise Ingham/Huxley exponent obeys D_*(u)<=2u+1/10;
+both rational slacks are explicitly nonnegative. Thus for Z>=Y,
+E_Y(Z)<<Z Y^(1/10)L^51, including the total-count baseline. The prior
+uniform discrete bound yields N G^(11/20)H^(-9/20)L^52, so the ratio
+pays energy growth. Set delta_theta=(9-11theta)/20>0. The full dyadic
+family costs N^[1-(9/20)delta_theta]L^54 plus N^(91/100)L^14.
+Actual finite-period stationarity holds through N/10. The errors
+H^-1/2 and G^-1 are kept SEPARATE at linear height; the old Ingham
+amplitude exponent E gives E-h/2 and E-g. Affine endpoint checks at
+h=g and h=1 pay both by91/100. No free Gamma-error absorption.
+
+For theta=4/5, selected boxes eventually have2G<H/2, hence gamma<eta
+and gap>H/2>>W_N. In the current core max>N^(4/5) therefore becomes
+the individual column mask eta>N^(4/5). It forces H>N^(4/5)/2 and
+improves the main to N^(124/125)L^54. The original weight1-Psi=1
+because both heights<=N/10. Delete exactly this union and its disjoint
+transpose; every other prior restriction, copy and all-log R error stays.
+The full signed lower margin remains OPEN. Sol theory/actual-file PASS;
+seven guards normal0.013s/-O0.017s. No actual prime/zero computation,
+RH, coverage/onset/novelty, outside action or manual wake. Sources,
+polynomial tools and runtime limitations persist; overall goal active.
+No process is claimed to continue after a stopped checkpoint.
+
+Next concrete question, UNREVIEWED: can comparable linear heights
+reinforce even in an artificial critical-line spectrum satisfying the
+Riemann-von Mangoldt counting main with O(logT) error, the retained
+single-zero density bounds and reflection symmetry? A candidate uses
+spacing a=2pi/log(N/2) and a quarter-cell offset in a fixed band
+gamma~cN<N/10. Its separable carrier is negative on each pair; the
+residual entropy phase is stationary on the diagonal. Fixed smooth
+separate masks might yield a stationary signed main of order-Nlog^2N.
+Thin the slightly denser lattice to the smooth RVM count: only O(N)
+points appear to be lost, whose stationary contribution should cost
+O(Nlog^(3/2)N) by the proved discrete norm. This is a CANDIDATE, not
+a zeta-zero claim or a Goldbach counterexample.
+
+Concrete test: prove or refute the model while paying the ACTUAL finite-
+period endpoint and stationary errors. Current coarse relative error
+N^-1/2 is not enough on the full comparable linear band; isolate the
+nonstationary endpoint and obtain a sharper central remainder before
+any actual-kernel claim. Keep model assumptions and source identities
+distinct. Such a result would test the sufficiency of these counting
+inputs only, not discard the phase method or polynomial components.
+Fresh <=30 minutes; no model result or all-method impossibility yet.
+
+## Previous pursuit: the whole fixed sub-five-sixths rectangle is signed small
 
 Started20:35:13 UTC, reassessed20:43:53 UTC, progress. Resumed verified
 clean mainf0af320; reviewed mathematics **2f03381**. The previous
@@ -2945,7 +3008,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_unequal_spectral_cancellation` (six guards) and
+Latest tests: `python -m unittest test_linear_height_ratio_cancellation` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

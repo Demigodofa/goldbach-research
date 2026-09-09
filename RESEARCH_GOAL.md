@@ -3112,3 +3112,53 @@ Gamma errors and all summation costs. Do not claim a curved coupled-mask
 bound, endpoint transition, or linear-height deletion before review.
 The fixed N/10 ceiling preserves the uniform finite-period stationary
 condition. Fresh <=30-minute test; overall correlation still unresolved.
+## 2026-09-09: ratio cancellation pays selected rectangles at linear heights
+
+Started20:46:03 UTC, reassessed20:52:56 UTC, progress. Resumed verified
+clean main2f4c161; reviewed mathematics **da07ce0**,
+linear_height_ratio_cancellation.py. Previous goal turn was progress:
+actual signed cancellation in every fixed sub-five-sixths rectangle.
+
+For fixed1/2<theta<9/11, the union of complete dyadic rectangles
+G<=H^theta with individually masked V_N<gamma,eta<=N/10 has complex
+sum bounded by N^[1-(9/20)delta_theta]L^54+N^(91/100)L^14,
+delta_theta=(9-11theta)/20>0. The actual piecewise Ingham/Huxley
+exponent satisfies D_*(u)<=2u+1/10 by two exact rational factorizations.
+Layer cake gives E_Y(Z)<<Z Y^(1/10)L^51 for Z>=Y. The phase bound
+then costs N G^(11/20)H^(-9/20)L^52; the ratio pays the energy growth.
+
+At linear heights the Gamma error G^-1 is not automatically absorbed
+by the normalized integral error H^-1/2. Both are explicitly paid:
+the direct old Ingham amplitude exponent E gives E-h/2 and E-g,
+affine in h, each bounded by91/100 at h=g and h=1. The N/10 ceiling
+keeps piN>=4(gamma+eta), so this is an actual finite-period bound.
+
+The concrete deletion uses theta=4/5 and the current core. Since
+2G<H/2 eventually, gamma<eta and their gap exceeds W_N. Therefore
+max>N^(4/5) is precisely a separate column mask eta>N^(4/5), forcing
+H>N^(4/5)/2. The total main improves to N^(124/125)L^54, with the
+same N^(91/100)L^14 actual error. The original1-Psi is exactly1 on
+this region. Delete this exact dyadic union and its disjoint transpose
+from the previous C_high; no curved mask is passed to the matrix bound.
+All other restrictions, multiplicities and the inherited all-log R error
+remain. The full signed lower margin remains OPEN.
+
+Sol theory/actual-file PASS; seven guards normal0.013s/-O0.017s. No
+actual prime/zero computation, RH, coverage, onset, novelty, outside
+action or manual wake. Sources, polynomial components and runtime
+limits persist. Overall goal active; no process claimed after stopping.
+
+Next unreviewed question: do the presently used counts/densities permit
+reinforcement at comparable linear heights in a MOCK critical-line
+spectrum? Candidate: a quarter-shifted lattice of spacing2pi/log(N/2)
+in a fixed band gamma~cN<N/10, with fixed smooth separate masks.
+The carrier becomes negative on pairs and the entropy phase has a
+stationary diagonal, suggesting a main of order-Nlog^2N. Thinning to
+the smooth RVM counting main appears to discard only O(N) points,
+whose stationary contribution should be smaller by sqrtlogN through
+the existing matrix bound. Prove or refute this, with an actual count
+construction and finite-period endpoint/stationary errors paid. The
+coarse relative N^-1/2 error is insufficient on this full model band.
+No actual-zeta, Goldbach counterexample, model theorem or all-method
+barrier is claimed. Fresh <=30-minute test of sufficiency of these
+counting inputs; preserve all promising components and source boundaries.
