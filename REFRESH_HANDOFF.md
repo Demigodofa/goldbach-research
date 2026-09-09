@@ -35,9 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **b7134e1**, a fixed divisor-weighted
-Type I theorem and the exact scope of the Heath-Brown identity route.
-The identity alone does not force long free variables in every term.
+Latest reviewed RESEARCH commit: **3fcea6e**, removing the internal proper
+prime powers from the ACTUAL Vaughan remainder and retaining an exact
+prime/cofactor correlation. Its new error is o(Y); the prime correlation
+itself remains OPEN. Combined short HB terms do not cancel internally.
+Previous **b7134e1** proves fixed divisor-weighted Type I and the precise
+scope of the Heath-Brown route; these remain useful components.
 Latest ACTUAL CORRELATION TRANSFER remains **476e0c3**, removing
 the balanced self-correlation from the smoothed unexceptional remainder:
 T_F=C_F(Z,E-Z)+C_F(A-B,E)+o(Y). Both surviving correlations remain OPEN.
@@ -55,6 +58,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **a4a7944** preservedb7134e1.
 Previous checkpoint **29b35c9** preserved476e0c3.
 Previous checkpoint **7eff067** preserveda968833.
 Previous checkpoint **5842cd2** preserveda771937.
@@ -90,7 +94,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `multifactor_identity_gate.py`,
+For the next unexceptional lane first read `short_free_cancellation.py`,
+then `multifactor_identity_gate.py`,
 then `balanced_projection_transfer.py`,
 then `free_divisor_correlation.py` for its analytic input, and use
 `unexceptional_vaughan_gate.py` for the full remaining arithmetic sum.
@@ -139,7 +144,58 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: fixed divisor-weighted TI and multi-factor route boundary
+## Latest pursuit: actual internal prime-power pruning and combined HB scope
+
+**3fcea6e**, short_free_cancellation.py, proves for the original
+A=mu_>W*Lambda_>W*1, W=floor(Y^(gamma/2)), gamma in(5/12,1/2), that
+A_p=mu_>W*(log(p)1_(p prime,p>W))*1 satisfies
+ sum_(n<=Y)|A-A_p|(n) << Y W^(-1/2)L^3,
+ |C_F(A-A_p,E)| << Y^(1-gamma/4+2delta+o(1))=o(Y).
+This removes INTERNAL proper prime powers, distinct from the previously
+handled outer ones. The proof is a positive tuple majorant, also valid
+on any selected support subset. The unchanged E has |E|<<L+S^2.
+
+Let S_W(c)=sum_(a|c,a<=W)mu(a). The remaining coefficient is EXACTLY
+ A_p(n)=-sum_(pc=n,p>W prime,c>W)log(p)S_W(c).
+The prime-divisor sum counts each prime once, not once per exponent.
+Primes contribute0; rough distinct semiprimes pq contribute-log(pq);
+p^2 contributes-log p. S_W is signed. Thus
+ T_F=-sum_(p>W prime,c>W)log(p)S_W(c)
+                  F(pc/Y,(m-pc)/Y)E(m-pc)+o(Y).
+This exposes the actual linked prime/cofactor correlation. It does NOT
+estimate it or produce a new prime lower bound or coverage.
+
+The all-short HB sum is also derived exactly. With fixed K>=2,
+z=floor(Y^(1/K)), T=floor(Y^eta), 0<eta<1/[K(K-1)], every j<K term
+vanishes on n~Y eventually. At Y=3p^K, n=2p^K, 2<=T<p, the ENTIRE
+short sector equals-log2, while full Lambda(n)=0. Its cancellation is
+outside that sector, not across its j terms. The factorization
+ S_short=[delta_1-(delta_1-mu_<=z*1_<=T)^{*K}]*Lambda_T
+uses Lambda_T=(1_<=T)^(-1)*(1_<=T log), not Lambda. At T2,n4 it is
+-log2. The inverse has fixed depth J<1/eta on n<=Y, with divisor bounds
+(J+1)tau_(2J+1) and(J+1)L tau_(2J+2) for the inverse and Lambda_T.
+These preserve norms but supply no estimate against E.
+
+Support qualifications: A_p is zero on final W-smooth n. If HB is put
+in the INTERNAL Lambda(d) slot and K>=5, short d is z-smooth with z<W.
+Only the FULL restored Lambda(d), d>W, then restricts to proper powers
+and is pruned by the actual estimate. Raw short HB terms can be nonzero
+at composites and MUST retain their compensation. Final n=adk need not
+be smooth. No short-sector removal is proved for HB in the PARTNER E.
+
+Started13:18:59 UTC, reassessed13:37:41 UTC, changed-under-evidence.
+Eight guards passed normal0.006s and -O0.008s. Sol theory/actual-file
+review PASS with no correction. No scan or outside action. Next bounded
+question: can a smoothed Mobius cutoff reduce the actual cofactor norm
+enough to improve the remaining correlation budget? First derive an
+EXACT generalized Vaughan identity including compensation, then pay the
+cofactor second moment and Cauchy costs. A smaller norm alone cannot
+stand in for prime covariance. No matching completed pursuit was found
+in the narrow repository search. Preserve polynomial and other reviewed
+tools; start a fresh <=30-minute clock. Goal active; no research process
+is left running at this checkpoint.
+
+## Preceding pursuit: fixed divisor-weighted TI and multi-factor route boundary
 
 **b7134e1**, multifactor_identity_gate.py, proves for fixed s,b,A that
  sum_(d<=Y^gamma)tau_s(d)L^b Delta_d <<_(s,b,A) Y/L^A,
@@ -181,7 +237,8 @@ Eight new guards passed normal0.006s and -O0.005s. Sol theory and actual
 file review PASS after the recorded wording correction. No new coverage,
 scan, publication or other outside action. Both correlations from476e0c3
 remain open; all polynomial/model tools and conditional coverage persist.
-Next bounded question: can combining specific Heath-Brown terms BEFORE
+The next question, now tested in3fcea6e above, was whether combining
+specific Heath-Brown terms BEFORE
 taking absolute values remove the all-short-free region while preserving
 an estimate against the unchanged E? Derive the combined coefficient and
 test its actual support and norm costs. A reconstruction of Lambda or an
@@ -1373,7 +1430,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_multifactor_identity_gate.py` and the
+Latest tests: `python -m unittest test_short_free_cancellation.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

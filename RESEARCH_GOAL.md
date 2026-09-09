@@ -1885,3 +1885,46 @@ signed correlation if no new estimate results; do not discard the useful
 divisor-weighted TI or earlier polynomial/model components. Use a fresh
 <=30-minute clock and independent review. Goal active; no research process
 remains running at this checkpoint.
+
+## 2026-09-09: actual prime-slot pruning and combined short HB coefficient
+
+Started13:18:59 UTC, reassessed13:37:41 UTC, changed-under-evidence.
+Resumed clean maina4a7944. Reviewed mathematics **3fcea6e**, in
+short_free_cancellation.py, removes INTERNAL proper prime powers from
+A=mu_>W*Lambda_>W*1. For A_p with Lambda_>W restricted to actual primes,
+ sum_(n<=Y)|A-A_p|(n)<<Y W^(-1/2)L^3,
+ |C_F(A-A_p,E)|<<Y^(1-gamma/4+2delta+o(1))=o(Y).
+The positive tuple proof survives support restrictions. For
+S_W(c)=sum_(a|c,a<=W)mu(a), the exact remaining prime/cofactor formula is
+ T_F=-sum_(p>W prime,c>W)log(p)S_W(c)
+                  F(pc/Y,(m-pc)/Y)E(m-pc)+o(Y).
+The sum is over distinct prime divisors, not multiplicities. S_W is signed;
+rough distinct semiprimes have A_p=-log n, squares p^2 have-log p.
+Both linked prime conditions remain and their signed correlation is OPEN.
+
+For the combined all-short HB sector, z=floor(Y^(1/K)), T=floor(Y^eta),
+0<eta<1/[K(K-1)], only j=K survives at n~Y eventually. At Y=3p^K,
+n=2p^K, 2<=T<p, its ENTIRE coefficient is-log2, though full Lambda=0.
+Thus the previous single-tuple witness does not cancel within this sector.
+The exact factorization [delta-(delta-mu_<=z*1_<=T)^K]*Lambda_T uses the
+truncated logarithmic derivative, not Lambda. Its inverse expansion has
+finite fixed depth J<1/eta, with paid divisor orders2J+1 and2J+2.
+This preserves a useful algebraic component but supplies no C(S_short,E).
+
+The actual A_p vanishes on final W-smooth numbers. For HB in the INTERNAL
+Lambda(d) slot and K>=5, short d is z-smooth with z<W; only the FULL
+restored Lambda(d), d>W, restricts to proper powers and is negligible.
+Raw HB short terms may be nonzero at composites and need compensation.
+Final n=adk need not be smooth. No such removal is proved for HB in E.
+No coverage or bound on the full remaining correlation follows; earlier
+balanced projection, divisor-weighted TI, polynomial and conditional
+coverage results all remain valid.
+
+Eight exact guards passed normal0.006s and -O0.008s. Sol theory and
+actual-file review PASS, no correction. No scan or outside action.
+Next test: derive an exact smoothed-cutoff Vaughan identity, including
+compensation, and determine whether its actual cofactor second moment
+improves the prime-correlation budget after Cauchy. A smaller coefficient
+norm is not prime covariance; retain that distinction. The narrow search
+found no completed equivalent pursuit. Fresh <=30-minute clock required.
+Goal active; no research process remains running at this checkpoint.
