@@ -1510,6 +1510,7 @@ remain OPEN; latest original-affine stays2b8cf98, formal conservation
 No research process is left running at this checkpoint. The overall goal
 remains active, without claiming work during execution gaps.
 
+
 The next pursuit, **220920c**, closes the smooth MODEL box geometry:
 `full_model_box_kernel.py` proves sum_q|E_q|<<Y^(1-1/4096+epsilon)
 for ALL integer moduli throughout 1/5<=b<=13/25,
@@ -1553,3 +1554,43 @@ latest original-affine remains2b8cf98 and formal conservation6f9a77b
 still leaves its signed difference unestimated. Polynomial tools survive.
 No research process is left running at this checkpoint. The overall goal
 remains active, without claiming work during execution gaps.
+
+## 2026-09-09: positive cofactor sieve transfers the full affine range
+
+Started10:43:21 UTC; reassessed before11:13:21, `changed-under-evidence`.
+Resumed clean main53eeab1 and model mathematics220920c. New reviewed
+mathematics **4e106b6**, `rough_cofactor_sieve_bridge.py`, extends the
+ACTUAL rare/rare affine bound to every original rough subset M<=Y^(13/25),
+with gcd(M,Dm)=1, in the SAME actual-zero large-V regime. Its bound is
+ S_2(m)Yt^2(log eta)^9+Y^(1-rho/2+o(1))+S_2(m)Y eta^-19=o_theta(Yt),
+rho=2^-20. It does not supply the missing signed prime estimate.
+
+The concrete test passed: upper-beta positivity plus a NEW weighted mean
+sum_(M~B)sigma(M)F_C(M)<<B/log z+R sqrt B yields O(U) harmonic mass.
+Small prime factors admitted by sigma are paid by F_C(M), not silently
+excluded. Corrected Henriot tails retain exact gcd(M,m)=1 and primitive
+forms. The zero mode keeps sigma and has two harmonic cancellations.
+Actual nonzero modes have q0=d2*c, conductor D, physical M,a, bounded
+periodic character factors and uniformly smooth Fourier amplitudes.
+Rescaling Ystar=YR^2 pays Hstar<=DR^4,J<=DR^5 and five indices R^5.
+The target-gcd tail costs Y^(1-rho+epsilon), including its zero counterpart.
+
+Independent review required native (M,q0)=1 in every truncated Mobius term;
+it is now explicit, along with (M,D)=1. Exact CRT signs agree in both
+phases. The inherited Y^(1-theta+o(1)) term is absorbed into Y eta^-20 for
+each fixed theta; no theta>=rho/2 condition is assumed.
+Primary source correction: MM2112.11412v2 equation(22) must use PLUS its
+upper-beta remainder. Exact witness1/3=8/35+11/105; relative-O lemma valid.
+
+Nine new exact guards passed normally0.024s and under -O0.017s. Sol
+`/root/sieve_review` reviewed theory and actual proof/code/tests, PASS.
+No repeated prime scan, outside action, publication, or manual wake queue.
+Qwen remains unavailable without retry. Only coherent local commits.
+
+Next question: does the new bound cover every previously surviving even
+one-rare-factor composite under the original pruning and fixed polynomial
+weights? Test exact cofactor/character coverage and parameter compatibility;
+preserve any missing boundary or class instead of assuming it away.
+Formal conservation6f9a77b remains a known-main-term identity, with its
+signed difference OPEN. Polynomial tools survive and the goal stays active.
+No research process is left running; execution gaps remain gaps.

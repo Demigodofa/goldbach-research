@@ -35,9 +35,11 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **220920c**, the FULL smooth MODEL
-hyperbola-box domain for ALL integer moduli.
-Latest ORIGINAL-AFFINE: **2b8cf98**. The handoff is committed later.
+Latest reviewed RESEARCH and ORIGINAL-AFFINE commit: **4e106b6**, the
+positive cofactor sieve transfer through M<=Y^(13/25), in the retained
+actual-zero large-V regime. The handoff is committed later.
+Previous checkpoint **53eeab1** preserved the full smooth MODEL
+hyperbola-box theorem **220920c** for ALL integer moduli.
 Preceding checkpoint **83dce5e** preserved the all-integer unbalanced
 MODEL saving and prime-square component **90488ef**.
 Preceding checkpoint **912ec87** preserved the ALL-squarefree saving
@@ -64,7 +66,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `full_model_box_kernel.py`, the full-domain MODEL proof,
+First read `rough_cofactor_sieve_bridge.py`, the actual affine transfer,
+positive weighted density lemma and exact source-sign correction.
+Then read `full_model_box_kernel.py`, the full-domain MODEL proof,
 grouped-period transfer, rectangular bounds and exact budget API.
 Then `all_moduli_unbalanced_kernel.py` supplies the all-integer
 unbalanced saving, degeneracy recursion and prime-square component.
@@ -89,8 +93,8 @@ Earlier dependencies, as needed:
 8. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
 9. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-10. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
-   M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
+10. `rare_affine_small_cofactor.py` — retained original affine definition
+   and M<=Y^(1/5) component, now extended by4e106b6 through Y^(13/25).
 11. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
 12. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
@@ -103,7 +107,57 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the full smooth MODEL box domain is covered
+## Latest pursuit: the model now transfers to actual affine rare/rare pairs
+
+**4e106b6**, `rough_cofactor_sieve_bridge.py`, proves, under the SAME
+actual-zero large-V hypotheses and for ANY original-Y^theta-rough subset
+with gcd(M,Dm)=1 and M<=Y^(13/25),
+ sum_M B_M <<_theta S_2(m)Yt^2(log eta)^9
+                 +Y^(1-rho/2+o(1))+S_2(m)Y eta^-19=o_theta(Yt),
+where rho=2^-20. This is an ACTUAL affine upper bound, not just a model.
+It does not estimate the signed prime correlation or prove coverage.
+
+The cofactor upper-beta sum sigma>=1_rough>=0 permits arbitrary subsets.
+It can admit nonrough M, so retain F_C(M)=prod_(p|M)(1+C/p). The new
+weighted mean is sum_(M~B)sigma(M)F_C(M)<<B/log z+R sqrt B, giving
+harmonic mass O(U) for B>=Y^(1/5), U=K0 log eta,R=Y^rho,z=Y^(1/U).
+This pays the coefficient-dependent Henriot tails and zero density.
+Recombine all four character orientations BEFORE absolute values. The
+two harmonic cancellations remain, at the explicit extra U cost.
+
+Keep exact (M,Dm)=1 during the Henriot tail estimates. Before truncating
+its Mobius expansion in the nonzero modes, insert native (M,q0)=1 and
+retain (M,D)=1; otherwise inverse(M) can be undefined in individual terms.
+Use physical M,a, q0=d2*c, conductor D, and a normalized bounded D-periodic
+character sum. Smooth derivatives are uniform by Fourier integration by
+parts. Ystar=YR^2 pays q0<=sqrt Ystar, Hstar<=DR^4,J<=DR^5 and five
+sieve/gcd indices costing R^5. The omitted target-gcd tail costs
+Y^(1-rho+epsilon), with reciprocal zero-mode weights and no hidden R^3.
+No chi(M) factor or enlarged conductor D*M is introduced.
+
+NEW SOURCE CORRECTION: MM2112.11412v2 equation(22) has the wrong sign.
+For its upper weights, sum lambda_d*g(d)=Euler product PLUS sum V_r.
+R=100,beta=2,z=10,g(d)=1/d gives 1/3=8/35+11/105. Its relative O
+lemma survives; retain this exact witness and never copy the minus sign.
+The saved CRT convention uses negative signs in BOTH additive phases.
+
+Nine NEW finite guards passed normally in0.024s and with -O in0.017s;
+Sol `/root/sieve_review` passed the derivation, actual proof and tests,
+including the phase-sign and fixed-theta error-absorption clarifications.
+This pursuit began10:43:21 UTC and returns `changed-under-evidence`
+before11:13:21. Qwen remains unavailable; no old experiment was rerun.
+
+Next concrete test: does this bound cover the ENTIRE previously surviving
+even one-rare-factor composite class under its original pruning, fixed
+polynomial weights and parameter order? Match its exact cofactor and
+character conditions to B_M; any uncovered boundary or class is the
+falsifier. Preserve that residual explicitly. Do not infer a signed lower
+bound from the already completed formal conservation identity6f9a77b.
+All polynomial components remain available. No process is left running
+at this checkpoint, no manual wake was queued, and the overall goal stays
+active without claiming work during pauses.
+
+## Previous pursuit: the full smooth MODEL box domain is covered
 
 **220920c**, `full_model_box_kernel.py`, proves
  sum_q |E_q| <<Y^(1-1/4096+epsilon)
@@ -144,7 +198,7 @@ implementation and tests. This pursuit began10:15:59 UTC and returned
 `changed-under-evidence` before its10:45:59 ceiling. No old experiment,
 outside action or manual wake queue occurred. Qwen remains unavailable.
 
-Next concrete question: can a POSITIVE upper-sieve weight replace the
+The THEN-next concrete question was: can a POSITIVE upper-sieve weight replace the
 original arbitrary rough-cofactor subset while preserving its harmonic
 density and keeping every period/frequency/index cost inside the saving?
 `rare_affine_small_cofactor.py` defines that actual family and its affine
@@ -152,8 +206,8 @@ Poisson step. A weaker fixed-power roughness cutoff is a candidate, not
 a proved transfer. Test majorant positivity, density, coefficient M's
 coprimality/discriminant cases, smooth amplitudes and all three original
 sieve indices. Do not simply call an arbitrary rough indicator smooth.
-Original sieve transfer and the signed prime correlation remain OPEN;
-latest original-affine stays2b8cf98 and formal conservation6f9a77b still
+At that checkpoint original sieve transfer and signed correlation were OPEN;
+the then-latest original-affine was2b8cf98 and formal conservation6f9a77b still
 does not estimate its signed difference. All polynomial tools survive.
 No research process is left running at this checkpoint; the overall goal
 remains active, with no claim of execution during pauses.
