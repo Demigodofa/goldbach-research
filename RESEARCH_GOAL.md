@@ -3407,3 +3407,30 @@ theta<59/71, after charging epsilon>0. Concrete candidatetheta53/64,
 epsilon1/1170 yields density excess109/1170 and decay1/1280. Pay
 both actual errors, the linear N/10 ceiling and the current individual
 eta>N17/20 mask before deleting anything. Fresh <=30-minute pursuit.
+
+## 2026-09-09: density shape enlarges the actual unequal-height deletion
+
+Started22:00:55 UTC, reassessed22:10:26 UTC, progress. Resumed verified
+clean main6741752; reviewed mathematics **0172597**,
+guth_maynard_ratio_cancellation.py. The selected Huxley/GM/Ingham
+envelope satisfies D(u)<=2u+6/65; the fixed positive GM epsilon is
+paid by ratio decay. For fixed theta<59/71 choose epsilon such that
+Delta=[1-a-(1+a)theta]/2>0, a6/65+epsilon. Concrete theta53/64 and
+epsilon1/1170 give Delta1/1280. The selected actual complex rectangles
+extend to separate individual heights N/2: the smaller height=o(N)
+pays the finite-period stationary condition. Both relative errors
+H^-1/2 and G^-1 remain separate and total N^.91L^14. The current
+eta>N17/20 mask gives N^(25583/25600)L^54+N^.91L^14. This union and
+transpose contain the previous theta4/5,N/10 deletion; no curved mask.
+Sol theory/actual-file PASS; seven guards normal0.005s/-O0.006s.
+Full signed margin OPEN; overall goal active. All polynomial tools,
+source corrections and runtime restrictions persist. No outside action.
+
+Next unreviewed test: use the exact Laplace representation to write
+J_N=e/(2pi) int_0^infinity exp(-x/N)K_pi(N-x)B_x dx,
+B_x=2x^(rho+sigma-1)Gamma(rho)Gamma(sigma)/Gamma(rho+sigma).
+Test whether the unequal-height operator bound survives integration
+with only logarithmic cost, through individual heights KN and the
+original smooth transition weight. Pay x near0, bases below1, the
+far tail and Gamma approximation; no hidden coupled masks. This is
+a candidate endpoint mechanism, not yet a deletion. Fresh <=30 minutes.

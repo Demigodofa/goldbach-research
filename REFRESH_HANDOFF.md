@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **6942c66**, in guth_maynard_spectral_cancellation.py:
+Latest reviewed RESEARCH commit: **0172597**, in guth_maynard_ratio_cancellation.py:
+the ACTUAL COMPLEX selected unequal-tag sum is all-log small through
+individual heights N/2, for fixed theta<59/71 with its source epsilon
+paid. Concrete theta53/64, epsilon1/1170 give decay1/1280; on the
+current separate eta>N17/20 core the total costs
+N^(25583/25600)L^54+N^.91L^14. Both actual errors and the N/2 ceiling
+are licensed by tag asymmetry. The full signed lower margin stays OPEN.
+Previous **6942c66**, in guth_maynard_spectral_cancellation.py:
 the ACTUAL COMPLEX sum with BOTH heights<=N^kappa is all-log small for
 EVERY fixed kappa<13/15. A fixed-epsilon Guth--Maynard bound is used
 only away from real part1, with log-power Huxley/VK retained near1.
@@ -434,7 +441,36 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: a density patch extends actual cancellation past five-sixths
+## Latest pursuit: the density shape enlarges unequal-height cancellation
+
+Started22:00:55 UTC, reassessed22:10:26 UTC, progress. Resumed verified
+clean main6741752; reviewed mathematics **0172597**. The selected
+Huxley/GM/Ingham envelope obeys D(u)<=2u+6/65, with exact positive
+slack factorizations and fixed source epsilon retained. Its energy
+bound gives ratio decay Delta=[1-a-(1+a)theta]/2, a6/65+epsilon.
+The permitted fixed theta interval ends strictly below59/71. Concrete
+theta53/64, epsilon1/1170 give a109/1170, Delta1/1280. The individual
+height ceiling enlarges to N/2: smaller height=o(N) verifies the actual
+finite-period stationary condition. Both H^-1/2 and G^-1 errors are
+paid separately, totaling N^.91L^14. The current core uses the separate
+eta>N17/20 mask and costs N^(25583/25600)L^54+N^.91L^14. Its union
+and transpose contain the former theta4/5,N/10 deletion. Sol theory and
+actual-file PASS; seven guards normal0.005s/-O0.006s. No new coverage,
+RH, practical onset or signed margin. All previous corrections persist.
+
+Next concrete question, UNREVIEWED: can exact finite-period Fourier
+convolution carry this same unequal-tag cancellation through the whole
+endpoint transition? With B_x=2x^(rho+sigma-1)Gamma(rho)Gamma(sigma)/
+Gamma(rho+sigma), the candidate identity is
+J_N=e/(2pi) int_0^infinity exp(-x/N)K_pi(N-x)B_x dx,
+K_pi(y)=int_0^pi exp(iyt)dt. Test all constants, x near0, bases below1,
+the weighted logarithmic integral cost, uniform Gamma error, and the
+original smooth weight1-Psi as an amplitude. The proposed extension
+would cover individual heights through fixed KN, not just N/2.
+Fail it if any endpoint cost or coupled-mask assumption is unpaid.
+Fresh <=30-minute pursuit; no transition deletion yet promoted.
+
+## Previous pursuit: a density patch extends actual cancellation past five-sixths
 
 Started21:52:54 UTC, reassessed21:59:54 UTC, progress. Resumed verified
 clean main60ba300; reviewed mathematics **6942c66**. The previous goal
@@ -454,7 +490,7 @@ N^(1983/2000)L^54+N^.91L^14. No coupled mask entered the operator bound.
 Sol theory/actual-file PASS; seven guards normal0.013s/-O0.014s. Sources,
 polynomial tools and runtime limits persist; the full margin stays OPEN.
 
-Next concrete question, UNREVIEWED: can the sharper piecewise density
+The then-next question, answered in0172597 above: can the sharper piecewise density
 shape enlarge the selected linear-height tag family from theta<9/11
 to theta<59/71? The candidate combines Huxley for u<=1/5, GM's actual
 15u/(8-5u) for1/5<=u<=3/10, and Ingham above3/10. Its proposed
@@ -465,7 +501,7 @@ Test fixed theta=53/64 with epsilon1/1170, predicting a109/1170 and
 decay1/1280, including BOTH actual errors at the linear N/10 ceiling
 and the current separate eta>N17/20 core mask. Verify every interval
 and source-loss convention; no theta endpoint or uncharged epsilon.
-Fresh <=30-minute pursuit; no new ratio family yet promoted.
+The later proof also enlarged the individual ceiling from N/10 to N/2.
 
 ## Previous pursuit: the actual prime-offset formula has unavoidable signed weights
 
@@ -3338,7 +3374,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_guth_maynard_spectral_cancellation` (seven guards) and
+Latest tests: `python -m unittest test_guth_maynard_ratio_cancellation` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
