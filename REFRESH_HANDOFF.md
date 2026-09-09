@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **9f47ce4**, in spectral_near_height_bound.py:
+Latest reviewed RESEARCH commit: **b2554fd**, in spectral_low_axis_bound.py:
+uniformly1<=V<=sqrtN, pairs with min(gamma,eta)<=V and both heights<=KN
+have absolute mass <<_K log^14N[N exp(-c1 sqrtlogN)+sqrtN V]. Thus the
+single V_N=sqrtN exp[-(loglogN)^2] deletes the whole low-height axes
+with O_A(N/log^A N) error. This contains every fixed N^theta,theta<1/2
+eventually. No RH, numerical onset, or saving at V=sqrtN is asserted.
+The finite signed core now has BOTH heights>V_N and separated ordinates.
+Its lower margin remains OPEN, with the inherited all-log R error.
+Previous **9f47ce4**, in spectral_near_height_bound.py:
 the ENTIRE near-height strip |gamma-eta|<=exp[(alpha/30)sqrt(logN)],
 0<gamma,eta<=KN, costs O_(A,K)(N/log^A N) absolutely, WITHOUT RH.
 Here alpha=min(1,sqrt c) uses the retained classical zero-free constant;
@@ -332,7 +340,36 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: a growing near-height spectral strip is paid
+## Latest pursuit: the low-height axes reach an almost-square-root cutoff
+
+Started19:49:53 UTC, reassessed19:58:16 UTC, progress. Resumed verified
+clean mainef67439; reviewed mathematics **b2554fd**. Previous turn was
+progress: the near-height theorem left a precise unequal-height test.
+The correct box kernel is N^(b+d-1)G^(b-1/2)H^(-b), G<=H. An initial
+scratch idea wrongly supplied H^(-b-1/2); this was caught before promotion.
+Two genuine single-zero density estimates preserve the real-part weights.
+With g=logG/logX, h=logH/logX, the resulting exponent is affine in h.
+Its endpoints are <=1-(1-2g)(u+v)-g/4 at h=g, and <=1/2+g at h=1.
+The zero-free restriction on the smaller band pays bounded/small G.
+All compact bands, beta<1/2 baselines and product multiplicities are paid.
+
+The uniform result is log^14N[N exp(-c1 sqrtlogN)+sqrtN V] for axes
+min(gamma,eta)<=V,1<=V<=sqrtN. The canonical cutoff
+V_N=sqrtN exp[-(loglogN)^2] therefore has all-log error. The finite
+remaining C_core retains gamma,eta>V_N, |gamma-eta|>W_N, the previous
+height-sum cap and original smooth weight. Its signed margin is OPEN.
+Sol theory/actual-file PASS; five guards normal0.051s/-O0.046s. No RH,
+prime/zero computation, coverage, numerical onset or square-root R error.
+All sources and polynomial tools persist; overall goal active.
+
+Next concrete question, UNPERFORMED: use the same paid box density
+estimate to delete pairs with BOTH heights<=N^(13/20). Check the diagonal
+height endpoint for arbitrary real parts and identify the density method's
+actual cutoff limit, rather than treating this one exponent as universal.
+The larger-height region and signed lower margin would remain open.
+Fresh <=30-minute hypothesis; no new zero-pair correlation assumption.
+
+## Previous pursuit: a growing near-height spectral strip is paid
 
 Started19:42:53 UTC, reassessed19:48:19 UTC, progress. Resumed verified
 clean main95d3e9d; reviewed mathematics **9f47ce4**. The previous
@@ -356,14 +393,7 @@ Sol theory/actual-file PASS; five exact guards normal0.002s/-O0.002s.
 No actual zero/prime computation, RH, coverage, numerical onset or novelty.
 Polynomial tools and all source corrections persist. Overall goal active.
 
-Next concrete question, UNPERFORMED: can the two low-height axes
-min(gamma,eta)<=exp[(alpha/30)sqrt(logN)] also be deleted absolutely?
-Preserve the stronger unequal-height Gamma ratio. Split the other height
-at exp[(alpha/4)sqrt(logN)]: test a classical zero-free/counting bound
-below it and the full ratio plus dyadic counting above it. Pay every
-power of the small height; a comparable-height estimate is invalid here.
-Fresh <=30 minutes, no RH or new pair-correlation assumption. This would
-still leave separated, growing heights in the stationary signed sum.
+The proposed low-height axes test is completed and strengthened above.
 
 ## Previous pursuit: the identical-location spectral diagonal is paid
 
@@ -2712,7 +2742,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_near_height_bound` (five guards) and
+Latest tests: `python -m unittest test_spectral_low_axis_bound` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

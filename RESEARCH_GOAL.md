@@ -2886,3 +2886,43 @@ exp[(alpha/4)sqrt(logN)]; test zero-free counting below and dyadic ratio
 bounds above. A comparable-height replacement would miss the relevant
 cost. Fresh <=30 minutes; success would still leave the signed interaction
 between separated, growing positive heights, with no Goldbach margin.
+
+## 2026-09-09: low-height axes are paid nearly through square root
+
+Started19:49:53 UTC, reassessed19:58:16 UTC, progress. Resumed verified
+clean mainef67439; reviewed mathematics **b2554fd**,
+spectral_low_axis_bound.py. Previous goal turn was progress: the reviewed
+near-height bound supplied a concrete unequal-height question.
+
+The correct Gamma/phase box majorant for gamma~G<=H~eta is
+N^(b+d-1)G^(b-1/2)H^(-b). The author caught an extra H^-1/2 in the
+preliminary crude idea before promotion; the missing power is guarded.
+Two multiplicity-counted Ingham density estimates, with the beta<1/2
+baseline handled by total zero counting, reduce each box to a real-part
+exponent affine in h=logH/logX. At h=g it is bounded by
+1-(1-2g)(u+v)-g/4; at h=1 by1/2+g. The smaller band's zero-free
+restriction pays the low-height limit, including the compact first band.
+
+For every fixed K, uniformly1<=V<=sqrtN, the actual absolute mass of
+pairs gamma,eta<=KN with min(gamma,eta)<=V is at most
+C_K log^14N [N exp(-c1 sqrtlogN)+sqrtN V]. Consequently the SINGLE
+V_N=sqrtN exp[-(loglogN)^2] removes the axes with all-log error and
+eventually includes every fixed N^theta,theta<1/2. A fixed logarithmic
+divisor gives only its displayed finite rate; V=sqrtN supplies no saving
+in this bound. No RH, numerical zero-free constant or onset is supplied.
+
+The retained finite C_core has both heights>V_N, their difference>W_N,
+the original height-sum cap and smooth weight, and product multiplicities.
+Overlap with the previously removed near-height strip is paid by the
+absolute bound on their union. The R error remains O_A(N/log^A N), with
+the inherited opposite-sign cost. Its signed lower margin is still OPEN.
+Sol theory/actual-file PASS; five guards normal0.051s/-O0.046s. No new
+prime/zero computation, coverage, novelty, outside action or manual wake.
+Polynomial tools and corrected authorities persist; overall goal active.
+No research process is claimed after the reviewed checkpoint.
+
+Next unperformed question: delete pairs whose BOTH heights are below
+N^(13/20), using the full paid density-box exponent. Derive the actual
+cutoff boundary of that density estimate and preserve its limitations.
+Fresh <=30 minutes; the remaining larger-height signed correlation and
+Goldbach margin would still require new control.
