@@ -2192,3 +2192,52 @@ using the actual-first-prime support and paying cutoff compensation.
 The result for artificialE_* would not estimate the actual signed prime
 correlation. Preserve prior identities, actual partial estimates and gaps.
 Fresh <=30-minute clock; goal active. No process remains running here.
+
+## 2026-09-09: complete layers cancel, so isolated rectangle control is optional
+
+Started15:14:58 UTC, reassessed15:33:15 UTC, changed-under-evidence.
+Resumed verified clean maina650b77. Reviewed mathematics **cb04788** extends
+resonant_semiprime_error.py sections8-11. A useful routing correction came
+from reapplying the saved cutoff freedom02e1627; no new distribution theorem.
+
+For any subset J of nontrivial d<=V, w_d=-lambda_d, the exact full layer
+sum_(d in J,b>U,db|n)w_d Lambda(b) equals a log-weighted d-divisor sum
+minus a low-b divisor sum at moduli db<=UV. The latter coefficients are
+bounded by log(db). Existing TI and the saved internal-power pruning prove
+the complete PRIME layer is O_A(Y/L^A) against actual E=Lambda-Gamma_S.
+The same holds for the diagnostic E_*. No c=1 appears because d>=2.
+Further prime/cofactor masks do not retain this full identity automatically.
+
+Consequently the old D-band, summed over p>U outside P, equals the negative
+of its P-rectangle correlation plus a negligible error, for ACTUAL E too.
+It is unnecessary to force the isolated rectangle variance small just to
+remove this complete layer. Preserve those sufficient variance conditions,
+their generic countermodel and the actual factored-modulus estimate, but
+retire that variance as a required next gate. Zeroing all d>1 leaves
+lambda=delta_1 and exact remainder -sum_(p|n,p>U,n!=p)logp. This retains
+the same missing prime compensation; it is not a Goldbach proof.
+
+The diagnostic cancellation is explicit: selected prime bases have no
+powers in the physical window, so its actual-first-Lambda pairing is
+C0 I_FY+O_A(Y/L^A), C0=log(a1/a0)log(b1/b0)>0. Complete compensation
+and pruning give the same full R_lambda,p pairing for every bounded
+normalized cutoff. Meanwhile the isolated polynomial rectangle equals
+(1-C0)c I_F YlogY+O_A(Y/L^A); its same-D complementary prime range is
+the negative at that precision. The full remaining sectors also carry
+C0 I_FY. The exact extra-prime product vanishes only under2(a0+b0)>1;
+counting error exponent .80016 and reciprocal errors are power-small.
+Keep I_F>0, guaranteed by F>=f0>0 on the saved rectangle. These E_*
+statements do not estimate actual prime pairs or refute a one-sided bound.
+
+Ten finite guards pass normal0.019s/-O0.016s; Sol theory and actual-file
+PASS, no correction beyond the explicit positive-integral requirement.
+No source fetch, repeated range experiment, install, foreground input,
+publishing/push, or manual wake queue. All source/runtime corrections stay.
+
+Next concrete test: derive the precise one-sided prime-factor inequality
+over m-q (q prime, m fixed) required after an asymmetric U=Y^gamma,
+lambda=delta_1 reduction. Check for a tautological restatement first; then
+test proposed arithmetic input for the needed sign/constant and uniform
+m~Y, rejecting averages over m or results only for shift1. This next test
+is unperformed. Fresh <=30-minute clock; overall research goal active.
+No research process remains running at this reviewed checkpoint.

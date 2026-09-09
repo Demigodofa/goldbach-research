@@ -35,7 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **bd7d1e4**, an explicit ARTIFICIAL error
+Latest reviewed RESEARCH commit: **cb04788**, a direct APPLICATION of the
+saved cutoff-freedom theorem: every complete nontrivial divisor layer is
+TI-small for the ACTUAL prime error. Its prime-range pieces may cancel
+large individual contributions. The isolated rectangle variance is no
+longer a required next gate. The full prime-compensation gap remains OPEN.
+Previous **bd7d1e4** supplies an explicit ARTIFICIAL error
 with strong Type I, bounded size/L2 and Fourier supremumY^.50018 logY,
 yet large semiprime-row variance and positive polynomial-family sum>>YlogY.
 This refutes a generic transfer from those controls, NOT the actual prime
@@ -84,6 +89,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **a650b77** preservedbd7d1e4.
 Previous checkpoint **d87403b** preserved6a7c8ac.
 Previous checkpoint **10321f3** preserved06acf3b.
 Previous checkpoint **6d0a20b** preserveddc7baa6.
@@ -181,7 +187,67 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: generic norms admit coherent semiprime progression errors
+## Latest pursuit: complete divisor layers cancel by the saved cutoff identity
+
+Started2026-09-09 15:14:58 UTC, reassessed15:33:15 UTC, changed-under-evidence.
+Resumed verified clean maina650b77. Reviewed mathematics **cb04788** extends
+`resonant_semiprime_error.py`, sections8-11. This is an application of
+**02e1627**, not a new distribution theorem or additional prime-pair coverage.
+
+For ANY subset J of2<=d<=V, w_d=-lambda_d, the COMPLETE internal layer is
+ L_J(n)=sum_(d in J,b>U,db|n)w_d Lambda(b)
+       =sum_(d in J,d|n)w_d log(n/d)
+        -sum_(d in J,b<=U,db|n)w_d Lambda(b).
+The first part is TI with one Abel log. The second has modulus h=db<=UV
+and coefficient magnitude<=logh. Thus C_F(L_J,E)=O_A(Y/L^A) for actual
+unexceptional E, and also for E_* by its proved TI bound. Saved internal
+proper-power pruning makes the complete PRIME layer equally small.
+Because d>=2, c=dk>=2: no c=1 compensation enters, even when p~Y.
+Weights may depend on d,Y,m, but further prime/cofactor masks are not
+licensed in this estimate. Zeroing lambda on J preserves lambda1=1.
+
+For J=D, split ALL p>U into the old P rectangle and its complement.
+Their actual signed correlations satisfy T_D,out=-T_family+O_A(Y/L^A).
+Neither isolated piece is estimated. All nontrivial d can be removed at
+once; lambda=delta_1 leaves exact prime remainder
+ -sum_(p|n,p>U,n!=p)logp.
+The missing prime compensation/correlation remains. Retire the rectangle
+variance as a REQUIRED next step, preserving it as a sufficient optional
+target and keeping the polynomial and factored-modulus tools available.
+
+The diagnostic gives an explicit cancellation check. Its selected P bases
+have3a1<1<4a0, and D bases4b1<1<5b0, so f(n)=C_P C_D on every Lambda
+support point n~Y. For the same F>=f0>0 on[.7,.8]^2, I_F>0, ordinary
+strong PNT and the complete compensated identity give
+ C_F(R_lambda,p,E_*)=C0 I_FY+O_A(Y/L^A), C0=log(a1/a0)log(b1/b0)>0.
+This is UNIFORMLY for normalized bounded cutoffs, but with artificial E_*.
+On n=pd*j<=Y, two extra prime types cannot coexist since2(a0+b0)>1.
+Exact row expansion, smooth counts and PNT sharpen the old lower bound to
+ T_family(E_*)=(1-C0)c I_F YL+O_A(Y/L^A),
+ T_D,out(E_*)=-(1-C0)c I_F YL+O_A(Y/L^A).
+Here c is the saved fixed-polynomial density constant. Counting errors
+costY^.80016 L; reciprocal corrections are power-small. The ENTIRE
+remainder complement additionally carries C0 I_FY. The positive full
+diagnostic main is neither an actual-prime estimate nor a counterexample
+to the one-sided lower bound needed for coverage. I_F>0 is essential.
+
+Ten exact guards pass normal0.019s/-O0.016s. Sol theory/actual-file PASS,
+including composite d, signs, proper powers, prime compensation and the
+outside-window fourth term. No source refetch, range experiment, install,
+foreground work, publishing/push or manual wake. Live15:18:01 UTC budget
+receipt was conserve, spawncap2, researchTerra/high, independent reviewSol.
+The earlier Qwen unavailable exception and source/runtime limits remain.
+
+Next concrete question: can a one-sided bound for prime factors of m-q,
+with q prime and m FIXED, improve the full remainder's lower bound? First
+derive the exact log-factor inequality required, allowing lambda=delta_1
+and U=floor(Y^gamma), and reject it if it only restates the same open
+correlation. Then check proposed arithmetic input for uniformity in m~Y,
+the precise sign and constant; averages over m or shift1-only results are
+insufficient. This next asymmetric test is NOT completed. Fresh <=30-minute
+clock. Goal active; no research process remains running at this checkpoint.
+
+## Preceding pursuit: generic norms admit coherent semiprime progression errors
 
 Started2026-09-09 14:54:20 UTC, reassessed15:12:23 UTC, changed-under-evidence.
 Resumed clean maind87403b; reviewed mathematics **bd7d1e4**, in
