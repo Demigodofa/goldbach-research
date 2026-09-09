@@ -2284,3 +2284,47 @@ partner q, n=m-q. Check whether an arithmetic correlation theorem supplies
 a useful negative margin with these unaveraged moving-target quantifiers.
 Do not repeat the failed one-dimensional sieve plug-in. Fresh <=30 minutes.
 Overall goal active; no research process remains running at this checkpoint.
+
+## 2026-09-09: the rough Liouville bias exists; its prime-partner transfer is open
+
+Started15:56:23 UTC, reassessed16:09:06 UTC, changed-under-evidence.
+Resumed verified clean main6dee23f. Reviewed mathematics **ed0d334**, in
+rough_liouville_transfer_gate.py, completed the signed-parity source test.
+Strict cubic roughness leaves primes and semiprimes including squares.
+With the actual prime partner and nonnegative log/F weight, A=C+G and
+Q=C-G exactly. Q<=-kappa Y S2(m) would suffice for G>=kappa Y S2(m);
+this stronger-than-necessary estimate remains OPEN.
+
+The saved PNT and semiprime integral do prove a useful free-variable bias:
+sum R(n)ell(n)logn g(n/Y)=(log2-1)Y integral g+O_g(Y/logY), fixed C1 g
+compact in(.5,1). Thus uncentered uniform o(Y) Fourier cancellation after
+inserting R is false at frequency0. This does not exclude a centered model.
+Exact inclusion-exclusion has positive outer coefficients and inner ell:
+R(n)ell(n)=sum_(d|n,d|P(z))ell(n/d). For fixed gamma<1 its d<=Y^gamma
+layer is all-log small by the saved Liouville summatory bound and Abel;
+the long-d layer carries the free negative mean. It is not rough support,
+and neither layer estimate has been transferred to q prime in dk+q=m.
+
+Source-fit conclusion: Lichtman2009.08969v2 averages multiplicative shifts;
+its typical-factor cancellation set is disjoint from cubic roughness,
+and Theorem6.2 leaves the bad-set contribution. Mangerel2404.12117 treats
+full unweighted convolution; its2412.17199v1 GRH followup gives unmasked
+sign patterns, with quantitative frequency for prime targets. Neither
+supplies our fixed-even-target masks. Krishnamoorthy2608.13266v1 Thm2
+is only an averaged binary exceptional-set estimate; no other claim used.
+No new prime coverage, historical novelty, or missing signed estimate.
+
+Sol theory/actual-file PASS without material correction. Sixguards pass
+normal0.008s/-O0.007s. Preserve all polynomial components and source/runtime
+corrections. The OUP IMRN request later returned Internal Error; its earlier
+full-text receipt and arxiv route are retained. No installs, spending,
+contacts, publication/push, foreground work, or manual continuation queue.
+
+Next concrete test: check Ford--Maynard(b.1)/(b.2) against the existing
+nonnegative comparison in composite_bilinear_bridge.py, then identify
+which Type II factor region could give a positive lower bound. Do not
+repeat its old Vaughan sufficient-condition proof or confuse arbitrary
+coefficient Type II with the saved restricted factored-modulus input.
+Retain the exceptional-character obstruction to uncorrected asymptotics.
+This application test is unperformed. Fresh <=30-minute clock on resumption.
+Overall goal active; no research process remains running at this checkpoint.

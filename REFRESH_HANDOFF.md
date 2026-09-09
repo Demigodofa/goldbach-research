@@ -35,12 +35,18 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **cb01376**, in prime_factor_endpoint_gate.py:
+Latest reviewed RESEARCH commit: **ed0d334**, in rough_liouville_transfer_gate.py:
+the cubic-rough Liouville mean is (log2-1)Y times the test integral,
+and its short inclusion-exclusion layers are all-log small. The signed
+prime-partner criterion is exact but OPEN; inspected Liouville correlation
+sources do not supply its masks or quantifiers. Next test is a bounded
+prime-producing-sieve comparison/input check, retaining polynomial tools.
+Previous **cb01376**, in prime_factor_endpoint_gate.py:
 the asymmetric full log-factor moment is already TI-controlled; the precise
 composite-only deficit remains open. The exact odd prime endpoint isY/3,
 and a classical parity sequence has full fixed-scale factor laws but no
 primes. This is a source-checked application and an input boundary, not
-new coverage. Next test targets a signed Liouville/prime-partner sum.
+new coverage. Its proposed signed Liouville test is now completed above.
 Previous **cb04788** is a direct APPLICATION of the
 saved cutoff-freedom theorem: every complete nontrivial divisor layer is
 TI-small for the ACTUAL prime error. Its prime-range pieces may cancel
@@ -139,8 +145,14 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `prime_factor_endpoint_gate.py`,
-then recover `factored_linear_barrier.py` before testing a Liouville input.
+For the next unexceptional lane first read `rough_liouville_transfer_gate.py`,
+then `composite_bilinear_bridge.py` for the already defined nonnegative
+comparison and its exceptional-character correction. Before importing a
+Ford--Maynard prime-producing theorem, check its actual(b.1)/(b.2), growth,
+coefficient and factor-range hypotheses. The previous use in
+`buchstab_endpoint_bridge.py` was motivational only. Do not repeat either
+that old framework setup or the now-completed Liouville source-fit test.
+Use `prime_factor_endpoint_gate.py` for the precise one-sided factor deficit.
 Use `resonant_semiprime_error.py` for the complete-layer correction,
 then `factored_prime_ap_transfer.py`,
 then `absolute_remainder_obstruction.py`,
@@ -196,7 +208,67 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: fixed-target factor deficit and the missing prime endpoint
+## Latest pursuit: rough Liouville bias and the prime-partner transfer gate
+
+Started2026-09-09 15:56:23 UTC, reassessed16:09:06 UTC, changed-under-evidence.
+Resumed verified clean main6dee23f. Reviewed mathematics **ed0d334**, in
+`rough_liouville_transfer_gate.py`, gives the exact cubic-rough signed target
+and tests whether an existing Liouville correlation theorem supplies it.
+
+For strict P^-(n)>Y^(1/3), n in(Y/2,Y], Omega(n)<=2 with multiplicity.
+With q PRIME, n+q=m, and nonnegative weight logn logq F(n/Y,q/Y), write
+A for all rough mass, C for rough semiprimes including squares, Q for
+the Liouville-signed mass, and G for actual prime pairs. Exactly A=C+G,
+Q=C-G. Thus Q<=-kappa Y S2(m) would give G>=kappa Y S2(m). This is a
+stronger-than-necessary sufficient input, not an estimate already proved.
+
+There is a proved one-variable bias: for fixed C1 g compact in(.5,1),
+sum R(n)ell(n)logn g(n/Y)=(log2-1)Y integral g+O_g(Y/logY).
+This is an APPLICATION of the saved PNT and semiprime integral. The
+semiprime prefix sum is sum_(z<p<=sqrtx)[pi(x/p)-pi(p)+1], with fixed
+z=Y^(1/3), and has leading(log2)x/logY uniformly x in[Y/2,Y]. Squares
+are retained. For nonnegative nonzero g, the log-weighted Fourier sum
+therefore cannot be uniformly o(Y): frequency0 already has main scale.
+A centered model or a minor-arc estimate is not ruled out.
+
+Exact inclusion-exclusion gives R(n)ell(n)=sum_(d|n,d|P(z))ell(n/d),
+with POSITIVE outer coefficients. For any fixed gamma<1, d<=Y^gamma
+contributes O_A(Y/log^A Y) to the one-variable log-weighted sum by the
+saved strong Liouville summatory estimate and Abel. Thus the d>Y^gamma
+tail carries the negative main. This is an inclusion-exclusion tail,
+not a subset of rough n; for rough n only d=1 occurs. Its analogue with
+q prime introduces ell(k) in dk+q=m and is not controlled by free Type I.
+
+Primary source fit: Lichtman arxiv2009.08969v2 averages multiplicative
+shifts, and its typical-factor set S requires a prime <=exp((logY)^(1-delta/2)).
+For fixed delta>0 and large Y it is DISJOINT from our cubic-rough set.
+Theorem6.2 retains the bad-set term, exactly where our support lies.
+Mangerel arxiv2404.12117/IMRN2024 has full-interval sign rigidity;
+arxiv2412.17199v1 adds conditional GRH sign-pattern results, with its
+quantitative statement for prime targets. Neither preserves our masks.
+Krishnamoorthy arxiv2608.13266v1 Theorem2 is an averaged exceptional-set
+statement for unmasked binary sums. No other claim from it was imported.
+
+Independent Sol theory and actual-file PASS, no material correction.
+Six new guards pass normal0.008s/-O0.007s. No completed experiment was
+rerun. No new prime-pair coverage or actual signed correlation estimate.
+Preserve polynomial tools, all source corrections, and runtime limitations.
+The OUP canonical IMRN URL returned Internal Error on this later request;
+its earlier full-text receipt and primary arxiv route remain available.
+
+Next concrete question: does the existing NONNEGATIVE comparison in
+composite_bilinear_bridge.py satisfy the factor-pattern regularity(b.1)/(b.2)
+needed for Ford--Maynard's prime-producing sieve, and what exact additional
+Type II region would yield only a positive lower bound? Read the source's
+actual conditions before selecting a region. Its framework and a stronger
+Vaughan bilinear condition were already recorded; do not rederive those.
+Retain the exceptional-character obstruction to an uncorrected asymptotic,
+and distinguish actual factored-modulus estimates from arbitrary-coefficient
+Type II. This next application test is unperformed; fresh <=30-minute clock.
+Overall research goal remains active. No research process remains running
+at this reviewed checkpoint; no manual wake queue or push was issued.
+
+## Preceding pursuit: fixed-target factor deficit and the missing prime endpoint
 
 Started2026-09-09 15:34:56 UTC, reassessed15:52:58 UTC, changed-under-evidence.
 Resumed verified clean main4adb690. Reviewed mathematics **cb01376**, in
@@ -1949,7 +2021,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_resonant_semiprime_error.py` and the
+Latest tests: `python -m unittest test_rough_liouville_transfer_gate.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
