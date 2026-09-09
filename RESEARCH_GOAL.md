@@ -487,3 +487,29 @@ syntax checks and four exact rational exponent controls also passed.
 No new prime-range scan, historical-priority search, publication work,
 or wake queue. Overall goal active; individual exceptional targets remain
 the unresolved step.
+
+The next finite pursuit implemented the existing square-root support
+identity with the parity bootstrap in `support_exact_batch.py`. A fixed
+z=708 for the SAME1000 evens1002000..1003998 leaves2042 composites, all
+above half the last target, so G=[A*A]-2[A*C] is exact throughout the band.
+Only canonical earlier bounds through2830 are needed, classifying odd
+prime inputs through1415, instead of the prior20000-prefix cubic run.
+Binary reflected-intersection counts replace wide packed multiplication;
+the production route uses neither exact-count input nor a high prime square.
+A,C still encode full primality information through earlier-factor arithmetic.
+Every one of the1000 counts matched an independent ordinary-sieve/packed
+prime-square control. Minimum ordered G is7925 at1002002 (M8399,AC237);
+there were no zero targets. Complete production time was0.1106447s,
+including0.0027641s input generation; independent full-square validation
+was2.1423617s. The same-block ordinary-sieve/bitset reference was faster
+at0.0559214s, so no superiority over that baseline is claimed. Four focused
+tests passed normally and with Python -O, including complete small exact
+counts, exhaustive small binary correlations, negative parity inputs,
+diagonals, strict support boundaries and unsafe ranges. Sol checked the
+mechanism, implementation and evidence. The pursuit closed within30 minutes.
+`evidence/support-exact-batch.json` retains the exact counts for
+future same-block comparisons. The gap between2830 and1002000 was not
+computed; these separated outputs are not a contiguous count prefix.
+No new support theorem, universal positivity, historical-priority search,
+publication work, or wake queue. Overall research active; this improves
+the finite checker, while the universal exceptional-target gap remains.
