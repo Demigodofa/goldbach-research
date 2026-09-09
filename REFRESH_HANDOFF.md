@@ -35,9 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **c72de0a**, the costed CRT/periodic-weight
-kernel extension. Latest ORIGINAL-AFFINE arithmetic estimate: **2b8cf98**.
-The handoff is committed later. Preceding checkpoint **dd07496** preserved
+Latest reviewed RESEARCH commit: **1ab2d03**, the full smooth prime-core
+hyperbola-box theorem. Latest ORIGINAL-AFFINE estimate: **2b8cf98**.
+The handoff is committed later. Preceding checkpoint **3b66378** preserved
+the costed CRT extension **c72de0a**. Earlier **dd07496** preserved
 the initial restricted kernel **d42317b**. Earlier **8eefa83** preserved the
 failed source-bound budget **d945ac2**; it remains valid.
 Earlier reviewed checkpoint **9cd5a2e** preserved mathematics **2b8cf98**.
@@ -51,18 +52,20 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `decorated_prime_kernel.py` — latest CRT kernel, periodic/coupled weights
-   and roughness zero-mode lemma. General-composite/sieve transfer OPEN.
-2. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
-3. `cofactor_averaging_budget.py` — preceding generic source route FAILED
+1. `hyperbola_prime_kernel.py` — latest full MODEL box coverage via changed
+   grouping and linear completion. Composite/arithmetic transfer OPEN.
+2. `decorated_prime_kernel.py` — CRT kernel, periodic/coupled weights
+   and roughness zero-mode lemma. Its box range has now been extended.
+3. `separate_factor_prime_kernel.py` — initial restricted prime kernel.
+4. `cofactor_averaging_budget.py` — preceding generic source route FAILED
    its quantitative budget. Do not retry the same generic grouping.
-4. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
+5. `rare_affine_small_cofactor.py` — latest actual affine bound, aggregate
    M<=Y^(1/5). The remaining range through Y^(13/25) is OPEN.
-5. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
-6. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
+6. `rare_shifted_divisor_bound.py` — preceding coefficient-one component.
+7. `buchstab_endpoint_bridge.py` — arithmetic endpoint reduction and
    its OPEN one-sided prime-times-rough estimate, equation(7).
-7. `formal_weight_conservation.py` — completed formal result and exact gap.
-8. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+8. `formal_weight_conservation.py` — completed formal result and exact gap.
+9. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
    latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
@@ -70,7 +73,42 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: small modulus factors and arithmetic periods are costed
+## Latest pursuit: every smooth prime-core hyperbola box is covered
+
+**1ab2d03**, `hyperbola_prime_kernel.py`, passed independent Sol review
+of the linear lemma, full theory and actual files, with no correction.
+Five NEW exact tests passed normally in0.222s and under -O in0.226s.
+They guard the Fourier zero convention, progression transforms and exact
+boundary budgets; the proof owns continuous analytic uniformity.
+The pursuit returned `changed-under-evidence` within30 minutes.
+
+The theorem now allows B=Y^b,A=Y^x,P=Y^y,K=B*A*P/Y throughout
+`1/5<=b<=13/25, 0<=x<=(1-b)/2, 0<=y<=1/2`. Keep c=s*p with p prime
+near P, bounded joint periodic weights, and S,J0,H<=Y^(1/4096). The bound
+remains `Y^(127/128+epsilon)*S^4*J0^4*H` plus the same smaller exceptional
+terms, hence `Y^(4073/4096+epsilon)`. Nonempty boxes force p>sJ and k<p.
+
+For y<=49/100, pointwise complete-sum bounds suffice. In the remaining
+strip, x>=1/16 is handled by keeping l separate and grouping w=k*|h|;
+the bulk exponent is(103*y+12)/64<=127/128. For x<1/16, the exact finite
+Fourier transform of normalized Kl3, extended by1/p at zero, is an
+ordinary Kl2 sum at nonzero frequencies and zero at frequency0. Smooth
+linear completion on l=r+T*j has j-scale p/A<=p, even if the l-scale
+exceeds p. All prime-axis modes, bad p|m and the thin dual-length strip
+below1 are counted. Arbitrary bounded linear coefficients are NOT allowed.
+
+This closes the full box-range gap in the smooth decorated MODEL. The
+latest ORIGINAL-AFFINE estimate remains2b8cf98. General composite cores,
+the costed original sieve/weight transfer and the signed prime-correlation
+estimate remain OPEN. Polynomial identities and bounds remain tools.
+Next concrete test: can factorization or completion give a power saving
+for general composite cores in the critical modulus boxes, retaining
+nonunit modes and the actual coefficient costs? Do not assume a composite
+KMS theorem. No old experiment was rerun; Qwen remains unavailable.
+No process is left running at this checkpoint. Overall goal active; no
+manual wake queue, publication, push, foreground work or installations.
+
+## Previous pursuit: small modulus factors and arithmetic periods are costed
 
 **c72de0a**, `decorated_prime_kernel.py`, passed independent Sol theory and
 actual-file review. Five new exact CRT/budget tests passed in0.022s, and
@@ -116,9 +154,8 @@ Do not repeat those retrieval attempts without a changed route/condition.
 
 Next test remains a genuinely general-composite factor estimate, or a
 costed spectral adaptation meeting the character and large-target conditions.
-Preserve another UNTESTED option: change which two completed frequencies
-are grouped when treating the other hyperbola boxes; a successful critical
-corner is not proof of the whole box family. Balanced composite cores,
+The previously untested frequency-regrouping option has now been completed
+by1ab2d03 above for the whole MODEL box family. Balanced composite cores,
 the complete sieve transfer and the signed prime estimate remain OPEN.
 All polynomial tools remain preserved. No process is left running at this
 checkpoint; overall goal active, with no manual wake queue.
