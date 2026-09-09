@@ -2150,3 +2150,45 @@ paying actual-prime coefficient transfer. A smooth MODEL saving alone
 does not license the result. Do not repeat cap optimization or the already
 paid norm/diagonal. Fresh <=30-minute clock; the overall goal remains active.
 No research process remains running at this reviewed checkpoint.
+
+## 2026-09-09: strong generic error controls still permit coherent resonance
+
+Started14:54:20 UTC, reassessed15:12:23 UTC, changed-under-evidence.
+Resumed clean maind87403b. Reviewed mathematics **bd7d1e4**, in
+resonant_semiprime_error.py, constructs an ARTIFICIAL errorE_* which
+passes the proposed generic controls but defeats the family correlation.
+This is a transfer-input countermodel, not Lambda-Gamma or a Goldbach claim.
+
+For the same two-prime rectangle and m0=3Y/2, define
+E_*(q)=1_I(q)sum_(p,d)c_pd(m0-q)/(pd). Exact factorization is
+f(N)=(s(N)-C_P)(t(N)-C_D), where s,t count prime divisors in the two
+intervals and C_P,C_D are their reciprocal sums. PNT makes eachC<=.001.
+Thus |E_*|<=4, sum|E_*|^2<=16Y, but E_* is>1/2 on every selected
+progression q=m0-rj in the physical interval. The primitive full-pd
+denominator removes all proper-divisor mean resonances.
+
+For gamma49/100, the interval-maximum Type I sum is O(Y^.99014/logY^2),
+uniformly in shifts. This includes h sharing a prime with pd: each exact
+zero-mean component has endpoint error<2. The general permitted gamma
+range for this proof is5/12<gamma<1-s1, not everygamma<1/2. Farey spacing
+and interval-kernel packing prove Fourier supremumO(Y^.50018 logY).
+The same E_* nevertheless has H_*>>Y^(2-s0)/logY^2, exceeding the
+old sufficient variance scale, and its actual-polynomial family sum is
+>>YlogY. These are rigorous artificial-sequence claims, not measured prime
+asymptotics. No actual prime support, CROSS or equalityE=Lambda-Gamma.
+
+The next actual variance formulation uses w=A_r/r, M=sumw~cL,
+e_r=rB_r/Y, K=sumw|e_r|^2. Exact Cauchy gives|T/Y|^2<=M K, so
+K=o(1/L) is sufficient. Its ACTUAL diagonal is O((Rmax/Y)L^2), negligible.
+The weighted real off-diagonal stays open; E_* givesK_*>>L. Review
+corrected an ordering claim: this condition and the old unweighted one
+are nonordered alternatives, with different endpoint/logarithmic costs.
+
+Six guards pass normal0.007s/-O0.009s; independent Sol theory/actual-file
+PASS. No source refetch, prime-range experiment, install, foreground work
+or manual wake. Next test: restore the COMPLETE signed cutoff identity
+against this resonance and check cancellation between divisor sectors,
+using the actual-first-prime support and paying cutoff compensation.
+The result for artificialE_* would not estimate the actual signed prime
+correlation. Preserve prior identities, actual partial estimates and gaps.
+Fresh <=30-minute clock; goal active. No process remains running here.

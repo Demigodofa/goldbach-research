@@ -35,7 +35,13 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **6a7c8ac**, proving that EVERY factor
+Latest reviewed RESEARCH commit: **bd7d1e4**, an explicit ARTIFICIAL error
+with strong Type I, bounded size/L2 and Fourier supremumY^.50018 logY,
+yet large semiprime-row variance and positive polynomial-family sum>>YlogY.
+This refutes a generic transfer from those controls, NOT the actual prime
+error or Goldbach. A naturally weighted variance target and its actual
+small diagonal are retained; the two variance conditions are not ordered.
+Previous **6a7c8ac** proves that EVERY factor
 choice in Maynard III Theorem1.2 misses a two-prime modulus family inside
 the numericalY^.5002 level. Its fixed-polynomial density mass is c logY
 and its actual Gamma contribution has positiveY logY scale; neither is a
@@ -78,6 +84,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **d87403b** preserved6a7c8ac.
 Previous checkpoint **10321f3** preserved06acf3b.
 Previous checkpoint **6d0a20b** preserveddc7baa6.
 Previous checkpoint **65bf94b** preservedc19cb24.
@@ -119,7 +126,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `factored_prime_ap_transfer.py`,
+For the next unexceptional lane first read `resonant_semiprime_error.py`,
+then `factored_prime_ap_transfer.py`,
 then `absolute_remainder_obstruction.py`,
 then `polynomial_joint_majorant.py`,
 then `optimized_cofactor_cutoff.py`,
@@ -173,7 +181,69 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: universal factor-range gap and an intact variance target
+## Latest pursuit: generic norms admit coherent semiprime progression errors
+
+Started2026-09-09 14:54:20 UTC, reassessed15:12:23 UTC, changed-under-evidence.
+Resumed clean maind87403b; reviewed mathematics **bd7d1e4**, in
+`resonant_semiprime_error.py`. The intended Kloosterman transfer was tested
+against its necessary input distinction. A defined comparison-error sequence
+satisfies the relevant generic controls and still has large signed row sums.
+No assertion about the actual Lambda-Gamma_S is changed by this example.
+
+Reuse the prime rectangle a0=.3,a1=.30002,b0=.2001,b1=.20012,
+s0=.5001,s1=.50014. For Y through multiples4, m0=3Y/2, define
+ E_*(q)=1_(Y/2,Y](q) f(m0-q),
+ f(N)=sum_(p,d)c_pd(N)/(pd)=(s(N)-C_P)(t(N)-C_D),
+where C_P=sum_p1/p,C_D=sum_d1/d and s,t count prime divisors from the
+two disjoint intervals. PNT gives C_P,C_D<=1/1000 eventually. On physical
+N in[Y/2,Y], |f|<=4 and sum|E_*|^2<=16Y; on every family modulus row,
+r|N forces f(N)>1/2. The proper-divisor subtractions in c_pd are essential.
+
+For fixedgamma49/100 (or5/12<gamma<1-s1), every h<=Y^gamma is below r.
+The primitive complete progression mean is0, including h sharing p or d.
+The expanded three indicator counts give endpoint error<2 per(p,d), so
+the FULL interval-maximum TI sum is O(Y^.99014/logY^2), uniformly in
+the target shift. This is stronger than any fixed logarithmic saving.
+Distinct reduced frequenciesa/r are Rmax^-2-separated. Direct interval
+kernel packing gives ||E_*hat||infty<<Y^.50018 logY. These are proved
+bounds for E_*, not a licensed match to the smooth MODEL input theorem.
+
+For fixed nonnegative F>=f0 on[.7,.8]^2, every family row has
+B_r^*(m0)>=f0Y/(40r). PNT at the LOWER prime endpoints gives
+sum1/r^2~Y^-s0/(a0b0 logY^2), so
+H_*>>Y^(2-s0)/logY^2. This exceeds the old targetY^(2-s1) by a factor
+Y^(s1-s0)/logY^2 tending to infinity, despite a diagonal onlyO(Y).
+The actual fixed-polynomial coefficientsA_r>0 also satisfy
+T_family(E_*)>>YlogY, using sumA_r/r~c logY. This defeats the signed-family
+estimate itself for the artificial sequence, not merely one Cauchy target.
+No actual prime support, equalityE=Lambda-Gamma, or CROSS is asserted.
+
+For a next ACTUAL attempt keep a natural weighted normalization:
+w_r=A_r/r, M=sumw~cL, e_r=rB_r/Y, K=sumw|e_r|^2. Exact Cauchy is
+|T/Y|^2<=M K. Sufficient K=o(1/L), equivalentlyK/M=o(1/L^2). Its actual
+diagonal is O((Rmax/Y)L^2)=o(1/L), using multiplicity3 and actualsum|E|^2.
+The weighted real off-diagonal is OPEN. The countermodel hasK_*>>L.
+Reviewer correction preserved: this and the previous unweighted condition
+are NOT globally ordered. Weighting removes a power mismatch nearRmin but
+can require finer logarithmic precision nearRmax. Both remain sufficient.
+
+Six finite guards passed normal0.007s/-O0.009s; Sol theory/actual-file PASS,
+including weighted normalization. The tests cover Ramanujan factorization,
+partial/full resonances, endpoint counts, exponent gates, coherent finite
+rows, and exact weighted Cauchy. They are not prime-range experiments.
+No source refetch, install, foreground work or wake queue. Live14:58:54 UTC
+budget receipt: conserve, spawncap2, researchTerra/high and reviewSol.
+
+Next concrete question: can the COMPLETE signed cutoff identity cancel this
+diagnostic resonance between divisor sectors, without demanding smallness
+of each sector? Test the actual-first-prime pairing against E_* together
+with the exact cutoff compensation, and isolate what still fails for trueE.
+An identity or estimate for E_* must not be promoted to the missing actual
+prime correlation. Preserve the polynomial tools and the good-modulus result;
+do not rerun generic norm completion. Fresh <=30-minute clock. Goal active;
+no research process remains running at this reviewed checkpoint.
+
+## Preceding pursuit: universal factor-range gap and an intact variance target
 
 Started2026-09-09 14:39:59 UTC, reassessed14:52:29 UTC, changed-under-evidence.
 Resumed clean main10321f3; reviewed mathematics **6a7c8ac** extends
@@ -1738,7 +1808,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_factored_prime_ap_transfer.py` and the
+Latest tests: `python -m unittest test_resonant_semiprime_error.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
