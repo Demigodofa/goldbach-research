@@ -3,6 +3,10 @@
 Owner: Kevin's research. Purpose: retain the distribution-compatible
 comparison and verify its exact progression and mixed-scale identities.
 Finite rational tests verify algebra, not analytic estimates or prime counts.
+Follow-on: unexceptional_vaughan_gate.py gives the exact unexceptional
+Mobius/divisor remainder, pays its Type I and prime-power terms, and
+isolates the still-open off-diagonal covariance. No automatic transfer
+from the smooth reciprocal model to these arithmetic weights is licensed.
 
 Setup and scope:
 Let I=(Y/2,Y], m even in [5Y/4,7Y/4], J_m={n:n,m-n in I}. Fix
