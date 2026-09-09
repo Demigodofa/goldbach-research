@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **85e7d44**, extending
+Latest reviewed RESEARCH commit: **c0f70ca**, in critical_cubic_sieve.py:
+the MOVING cutoff sqrt(n) is reached for U_3 with ACTUAL total error
+O(x*(loglogx)^4/log^2x)=o(x/logx). Its fixed-power small-prime deletion
+cost is O(kappa*log(e/kappa) S_2(N)x/logx), uniform for fixed small kappa.
+On the retained squarefree support, odd factor counts>=5 vanish exactly
+and the triprime coefficient is24*product(logp/logn). The remaining
+even-class sum E_kappa and triprime sum T_kappa obey prime mass
+=B_P-E_kappa-24T_kappa+small errors. Their signed margin stays OPEN;
+no new coverage or numerical onset. This pays a specific endpoint
+coefficient, not arbitrary Type I at square-root level.
+Previous **85e7d44**, extending
 polynomial_rough_localization.py: direct Mellin integration reduces the
 ACTUAL fixed-power localization to degrees k>=4 with O(kappa) relative
 loss, and degree3 with O(kappa*(2+log(gamma/kappa))) loss. The full
@@ -182,7 +192,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `polynomial_rough_localization.py`
+For the next unexceptional lane first read `critical_cubic_sieve.py`,
+then `polynomial_rough_localization.py`
 and its required joint-bound source `polynomial_joint_majorant.py`,
 then `rough_mobius_dilation.py`,
 then `specialized_sieve_coefficients.py`,
@@ -248,7 +259,55 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: direct Mellin localization for cubic and quartic weights
+## Latest pursuit: paid moving cubic cutoff and factor-class cancellation
+
+Started18:03:24 UTC, reassessed18:15:16 UTC, progress.
+Resumed verified clean mainbd4a46b; reviewed mathematics **c0f70ca**.
+The actual comparison supports Type I to sqrt(x)/log^B x: Ford2023
+Theorem3.4 provides BV with the logarithmic margin and endpoint maxima;
+Theorem3.6 with sieve level x^(1/4) pays the comparison floor errors.
+All nonreduced and large common-prime mismatches are all-log small.
+Abel handles the moving low-divisor weights; cubic vanishing pays the
+remaining tail x*(loglogx)^4/log^2x. This is o(x/logx), not all-log.
+
+Moving-cutoff localization requires a FIXED multiplicative majorant;
+dominate the n-dependent factors by W_(2t,sqrtx) before Henriot.
+Exact p-power extraction retains min(1,4t logp/logx), so the saved
+cubic saturated integral gives kappa*log(e/kappa) relative loss.
+Common factors, large powers and rough squares remain paid. Constants
+in the leading loss are uniform for fixed0<kappa<=1/20; the squareful
+error's onset is not uniform for kappa moving with x.
+
+On squarefree n, complementing d and n/d at sqrt(n) gives
+[1+(-1)^(k+omega(n))]U_k equal to a degree-k finite difference.
+Thus cubic odd classes>=5 vanish; triprimes have coefficient
+24 logp logq logr/(logn)^3. EVEN classes stay, including negative
+six-factor patterns. Fixed sqrt(x) and repeated-factor inputs do not
+share the exact zero. The resulting prime identity retains E+24T
+with every roughness/coprimality mask and p<q<r ordering. Neither
+that signed sum nor its sufficient positive margin is estimated.
+
+Sol theory/actual-file PASS, six focused guards normal0.106s/-O0.108s.
+No material correction. The checks cover exact complement/triprime
+algebra, wrong-cutoff and nonsquarefree counterexamples, local majorant
+domination and tail powers; the analytic argument is separately reviewed.
+No new Goldbach coverage, onset, novelty claim or external action.
+
+Next concrete question, unperformed: does the retained triprime product
+supply an extra averaging variable that a dispersion estimate can use
+with PRIME coefficients and all the actual masks? First derive the exact
+off-diagonal form and its complete diagonal/coefficient costs, and compare
+it against the saved rough_mobius_dilation.py and free_divisor_correlation.py
+input boundaries. Only inspect a new source if the third factor creates
+a materially different applicable hypothesis. Success means a signed
+saving for a specified nonempty factor region at fixed target N. Reject
+the route if it merely reproduces the saved dilation covariance, requires
+free coefficients, loses masks or replaces pointwise N by an average.
+Fresh <=30-minute test; do not redo the old free-variable or generic
+variance experiments. Keep the overall goal active; no process is claimed
+after closeout and no manual continuation is queued.
+
+## Previous pursuit: direct Mellin localization for cubic and quartic weights
 
 Started17:50:01 UTC, reassessed18:00:02 UTC, progress.
 Resumed verified clean maindbe552e; reviewed mathematics **85e7d44**.
@@ -288,7 +347,8 @@ Live budget critical cap1, existing reviewer only; no new agent/tool route.
 All prior source corrections, unavailable Qwen exception and polynomial
 components remain. No old experiment rerun or external action.
 
-Next concrete hypothesis, NOT YET VERIFIED: reach the MOVING critical
+The following predicted test is now COMPLETED by c0f70ca above. Its
+original concrete hypothesis was: reach the MOVING critical
 cutoffV(n)=sqrt(n) for the cubic weight. First prove actual Type I to
 D=sqrt(x)/(logx)^B from the already used BV and comparison inputs.
 Then bound d>D directly using the cubic's vanishing near the cutoff;
@@ -2343,7 +2403,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_polynomial_rough_localization` (nine guards) and
+Latest tests: `python -m unittest test_critical_cubic_sieve` (six guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

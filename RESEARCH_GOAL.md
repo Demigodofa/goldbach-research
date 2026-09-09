@@ -2543,3 +2543,43 @@ odd factor counts>=5 may vanish and the triprime weight may reduce to
 sqrt(x) and sqrt(n) must not be conflated. No endpoint result is yet
 promoted. Fresh <=30-minute test, overall goal active; no process claimed
 after closeout or manual continuation queue.
+
+## 2026-09-09: moving cubic endpoint with actual errors paid
+
+Started18:03:24 UTC, reassessed18:15:16 UTC, progress.
+Resumed verified clean mainbd4a46b; reviewed mathematics **c0f70ca**,
+critical_cubic_sieve.py. ACTUAL Type I now reaches sqrt(x)/log^B x
+for this comparison, using the source logarithmic BV range and paying
+all b floor/density errors. Moving polynomial coefficients permit Abel;
+the cubic near-cutoff tail is O(x*(loglogx)^4/log^2x)=o(x/logx).
+This controls the full U_3(n)=sum_(d|n)mu(d)(1-2logd/logn)_+^3 pairing.
+It does not supply arbitrary square-root Type I or endpoint all-log error.
+
+The moving small-prime deletion also holds with relative loss
+O(kappa*log(e/kappa)), fixed0<kappa<=1/20, by dominating its Euler
+factors with a FIXED multiplicative function before corrected Henriot.
+Common target factors, high powers and rough squares are paid as before.
+On retained squarefree n, exact complementation at sqrt(n) kills odd
+factor counts>=5, and U_3(pqr)=24*product(logp/logn). Even classes retain
+their signs; prime value is1. Fixed sqrt(x) and nonsquarefree inputs do
+not admit that same cancellation. The actual prime identity is
+prime mass=B_P-E_kappa(w)-24T_kappa(w)
+ +O(kappa log(e/kappa) S_2(N)x/logx)+o_kappa(x/logx),
+where E contains even factor counts and T contains ordered triprimes
+weighted by product(logp/logn), with all roughness/coprimality masks.
+The signed E+24T remains OPEN. No new coverage or effective onset.
+
+Independent Sol theory/actual-file PASS; six focused guards passed
+normal0.106s/-O0.108s. No material correction. Prior source/runtime
+corrections, unavailable Qwen exception and polynomial tools persist.
+No old experiment rerun, install, outside action or manual wake queue.
+
+Next unperformed question: can the retained three-factor product create
+a usable extra average in a dispersion estimate with PRIME coefficients?
+Derive the exact off-diagonal forms and full cost first; compare the saved
+rough-Mobius dilation and free-divisor input boundaries before fetching
+new sources. Seek a signed saving on a specified nonempty factor region
+at fixed N. Retire the route if it only restates the earlier covariance,
+needs free coefficients, drops masks or substitutes target averaging.
+Fresh <=30-minute pursuit; overall goal active, no process claimed after
+this reviewed checkpoint.
