@@ -1839,3 +1839,49 @@ terms, as the falsifier; retain actual Mobius/log coefficients and cost
 every reciprocal-estimate norm. A formal decomposition alone is not the
 missing estimate. Start a fresh <=30-minute clock with independent review.
 Goal active; no process remains running at this checkpoint.
+
+## 2026-09-09: multi-factor identity boundary and divisor-weighted Type I
+
+Started13:01:48 UTC, reassessed13:16:56 UTC, changed-under-evidence.
+Resumed clean main29b35c9. Reviewed mathematics **b7134e1**, in
+multifactor_identity_gate.py, adds the actual unexceptional estimate
+ sum_(d<=Y^gamma)tau_s(d)L^b Delta_d <<_(A,s,b)Y/L^A
+for FIXED divisor order s and log power b. The proof combines
+Delta_d<<YL tau(d)/d+S^4 with tau_s^2 tau_2<=tau_(2s^2) and Cauchy;
+the input TI saving2(A+b)+2s^2+1 pays the whole coefficient moment.
+This preserves a useful extension for actual grouped arithmetic weights.
+
+The Heath-Brown identity was verified from Tao's2013 subset-sum post and
+proved with its exact residual mu_>z^{*K}*1^{*(K-1)}*log. The residual
+vanishes below2(z+1)^K, but at K2,z2,n18 equals+log2. A raw top-order
+term can have all Mobius variables of scaleY^(1/K) and all free variables
+bounded: Y=3p^K, n=2p^K, log variable2 gives the nonzero tuple -log2.
+Thus the identity plus TERMWISE application of existing TI/free-variable
+BC bounds does not cover every factor box. Grouping Mobius factors into
+balanced products retains arithmetic weights; it does not create a free
+variable. The optimistic r=s=1 source budgets9/5 and15/8 also fail.
+
+The raw witness cancels in the FULL identity at that composite n. It is
+not a lower bound for actual H, a Goldbach counterexample, or a barrier
+to cross-term cancellation. Some squarefree smooth inputs already have
+original Vaughan A=0. Source MPZ distribution estimates are not our
+pointwise correlation input, and no excluded or blocked old route was reused.
+
+Useful restricted components remain: genuine free factors of scale
+>=Y^(1-gamma+eta) are controlled by divisor-weighted TI; paired terms
+with one original free1 per side and complementary products in the saved
+[Y^gamma,Y^.51] range admit the BC proof with fixed divisor-moment norms.
+The reviewer corrected a coefficient description: leaving log free removes
+the grouped coefficient's L, but its safe divisor order remains2j-1;
+the free log variation is paid separately. All parameters remain fixed.
+
+Eight guards passed normal0.006s and -O0.005s. Sol theory/actual-file
+review PASS after that correction. No coverage, scan or outside action.
+Next test: combine specific HB terms before absolute estimates, derive the
+short-free coefficient, and check whether its cancellation gives a bound
+against the unchanged E. A reconstruction of Lambda or a prime/roughness
+support restriction alone is insufficient. Preserve the exact unresolved
+signed correlation if no new estimate results; do not discard the useful
+divisor-weighted TI or earlier polynomial/model components. Use a fresh
+<=30-minute clock and independent review. Goal active; no research process
+remains running at this checkpoint.

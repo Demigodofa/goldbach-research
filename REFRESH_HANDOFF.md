@@ -35,7 +35,10 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **476e0c3**, an ACTUAL transfer removing
+Latest reviewed RESEARCH commit: **b7134e1**, a fixed divisor-weighted
+Type I theorem and the exact scope of the Heath-Brown identity route.
+The identity alone does not force long free variables in every term.
+Latest ACTUAL CORRELATION TRANSFER remains **476e0c3**, removing
 the balanced self-correlation from the smoothed unexceptional remainder:
 T_F=C_F(Z,E-Z)+C_F(A-B,E)+o(Y). Both surviving correlations remain OPEN.
 Previous **a968833** supplied the restricted arithmetic convolution with
@@ -52,6 +55,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **29b35c9** preserved476e0c3.
 Previous checkpoint **7eff067** preserveda968833.
 Previous checkpoint **5842cd2** preserveda771937.
 Previous checkpoint **ce40960** preserved9b6e7b4.
@@ -86,7 +90,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `balanced_projection_transfer.py`,
+For the next unexceptional lane first read `multifactor_identity_gate.py`,
+then `balanced_projection_transfer.py`,
 then `free_divisor_correlation.py` for its analytic input, and use
 `unexceptional_vaughan_gate.py` for the full remaining arithmetic sum.
 Preserve `prime_cutoff_bridge.py`, its conditional coverage and exact
@@ -134,7 +139,58 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: balanced self-correlation removed from the actual remainder
+## Latest pursuit: fixed divisor-weighted TI and multi-factor route boundary
+
+**b7134e1**, multifactor_identity_gate.py, proves for fixed s,b,A that
+ sum_(d<=Y^gamma)tau_s(d)L^b Delta_d <<_(s,b,A) Y/L^A,
+where Delta_d is the original unexceptional absolute TI discrepancy.
+Its proof uses Delta_d<<YL tau(d)/d+S^4, then the elementary divisor
+moment tau_s^2 tau_2<=tau_(2s^2) and weighted Cauchy. The needed input
+TI log saving is2(A+b)+2s^2+1. This pays actual grouped divisor weights;
+their maximum Y^epsilon is NOT absorbed into a logarithmic saving.
+
+The verified Heath-Brown identity has exact residual
+ Lambda-HB_(K,z)=mu_>z^{*K}*1^{*(K-1)}*log,
+which vanishes for n<2(z+1)^K. At K2,z2,n18 it equals+log2 and
+HB=-log2. The primary identity source is Tao's2013 combinatorial subset-
+sum post, equations24-25 and the following display. Its MPZ distribution
+theorems are not imported as pointwise Goldbach estimates; no old blocked
+Heath-Brown1986 route or excluded Notes7 argument was retried.
+
+For j=K, Y=3p^K, all K Mobius variables p, all free1 variables1,
+and logarithmic variable2 give a real localized term -log2 at n=2p^K.
+Every genuinely free variable is bounded; the grouped arithmetic product
+index has exponent1. It misses TI and the free-variable BC range. Grouping
+Mobius factors near sqrt(Y) does not make either product a smooth variable.
+Even the optimistic r=s=1 BC budgets are9/5 and15/8. This rejects only
+TERMWISE treatment by the current estimates. The FULL identity cancels at
+this composite n; the witness is not an actual-H lower bound or no-go.
+Squarefree smooth composites may have original Vaughan A=0 already.
+
+Positive components persist. A genuine 1/log factor longer than
+Y^(1-gamma+eta) is handled by the new divisor-weighted TI lemma. Paired
+terms with one untouched free1 per side and complementary products in
+[Y^gamma,Y^.51] admit the BC proof with fixed divisor-moment L2 costs.
+The grouped coefficient alpha_j=mu_<=z^{*j}*1^{*(j-2)}*log is retained.
+All K/divisor orders stay fixed. When log is the free factor the grouped
+divisor order remains2j-1; only its grouped coefficient's L disappears,
+and the free logarithm's variation is paid separately (review correction).
+
+Started13:01:48 UTC, reassessed13:16:56 UTC, changed-under-evidence.
+Eight new guards passed normal0.006s and -O0.005s. Sol theory and actual
+file review PASS after the recorded wording correction. No new coverage,
+scan, publication or other outside action. Both correlations from476e0c3
+remain open; all polynomial/model tools and conditional coverage persist.
+Next bounded question: can combining specific Heath-Brown terms BEFORE
+taking absolute values remove the all-short-free region while preserving
+an estimate against the unchanged E? Derive the combined coefficient and
+test its actual support and norm costs. A reconstruction of Lambda or an
+untreated prime/roughness indicator is not a cancellation bound. Either
+prove a licensed estimate or retain the precise remaining signed weight.
+Start a fresh <=30-minute clock and independent review. Goal active; no
+research process is left running at this checkpoint.
+
+## Preceding pursuit: balanced self-correlation removed from the actual remainder
 
 **476e0c3**, balanced_projection_transfer.py, sets
  B(n)=sum_(r|n,Y^gamma<r<=Y^.51)h_r,
@@ -169,7 +225,8 @@ corrections and previous model boundaries are preserved.
 Started12:47:52 UTC, reassessed12:58:25 UTC, changed-under-evidence.
 Eight guards passed normal0.009s and -O0.010s. Sol theory and actual-file
 review PASS. No previous experiment, new prime scan or outside action.
-Next bounded question: can a multi-factor prime identity, such as the
+The next question, now tested inb7134e1 above, was whether a multi-factor
+prime identity, such as the
 Heath-Brown identity, expose additional genuinely long free variables in
 H that Vaughan's grouping loses? First verify the exact identity from a
 primary source, then test its full factor-size domain, including terms
@@ -1316,7 +1373,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_balanced_projection_transfer.py` and the
+Latest tests: `python -m unittest test_multifactor_identity_gate.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
