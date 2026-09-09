@@ -35,7 +35,13 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **cb04788**, a direct APPLICATION of the
+Latest reviewed RESEARCH commit: **cb01376**, in prime_factor_endpoint_gate.py:
+the asymmetric full log-factor moment is already TI-controlled; the precise
+composite-only deficit remains open. The exact odd prime endpoint isY/3,
+and a classical parity sequence has full fixed-scale factor laws but no
+primes. This is a source-checked application and an input boundary, not
+new coverage. Next test targets a signed Liouville/prime-partner sum.
+Previous **cb04788** is a direct APPLICATION of the
 saved cutoff-freedom theorem: every complete nontrivial divisor layer is
 TI-small for the ACTUAL prime error. Its prime-range pieces may cancel
 large individual contributions. The isolated rectangle variance is no
@@ -89,6 +95,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **4adb690** preservedcb04788.
 Previous checkpoint **a650b77** preservedbd7d1e4.
 Previous checkpoint **d87403b** preserved6a7c8ac.
 Previous checkpoint **10321f3** preserved06acf3b.
@@ -132,7 +139,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `resonant_semiprime_error.py`,
+For the next unexceptional lane first read `prime_factor_endpoint_gate.py`,
+then recover `factored_linear_barrier.py` before testing a Liouville input.
+Use `resonant_semiprime_error.py` for the complete-layer correction,
 then `factored_prime_ap_transfer.py`,
 then `absolute_remainder_obstruction.py`,
 then `polynomial_joint_majorant.py`,
@@ -187,7 +196,73 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: complete divisor layers cancel by the saved cutoff identity
+## Latest pursuit: fixed-target factor deficit and the missing prime endpoint
+
+Started2026-09-09 15:34:56 UTC, reassessed15:52:58 UTC, changed-under-evidence.
+Resumed verified clean main4adb690. Reviewed mathematics **cb01376**, in
+`prime_factor_endpoint_gate.py`, tests the proposed largest-factor input.
+The full additive factor moment repeats saved TI; its needed restriction
+has exactly the original prime-correlation gap.
+
+With lambda=delta_1 and U=floor(Y^gamma), define B_U(n)=sum_(p|n,p>U)logp,
+and C_U=1_composite B_U. On the physical support B_U=P+C_U. The full
+Lambda-divisor identity plus proper-power pruning proves C_F(B_U,E) is
+O_A(Y/L^A), now with pruning exponent1-gamma/2+2delta<1. Let
+A_C=sum C_U(n)Lambda(m-n)F and M_B=sum B_U(n)Gamma_S(m-n)F, exactly.
+Then the genuine weighted prime-pair sum is G_F=M_B-A_C+O_A(Y/L^A).
+A sufficient new ONE-SIDED estimate is A_C<=M_B-kappa Y S_2(m), kappa>0.
+Neither the first-moment identity nor the source bounds prove this deficit.
+
+The saved all-modulus Gamma comparison computes
+ M_B=Y I_F(L-K_U(m))+Y J_F+O_A(Y/L^A),
+ K_U=sum_(h<=U,(h,m)=1)Lambda(h)/phi(h), J_F=int F(v,m/Y-v)logv dv.
+Uniformly K_U=gamma L+O(loglogY); omitted prime towers for p|m cost
+O(loglogY). Thus M_B=(1-gamma)I_F YL+O(YloglogY). That coarse main
+cannot replace EXACT M_B when deciding the required Y S_2 margin.
+
+For odd n in(Y/2,Y], primality is EXACTLY P+(n)>Y/3. Consequently the
+Y/3-tail with a prime partner is the Goldbach sum itself. A fixed theta<1
+does not reach it: n=3p, Y=4p is composite with P+(n)>Y^theta eventually.
+This is a factor witness, not a fixed-target prime-pair count or lower bound.
+
+A sharper diagnostic applies a published factor-statistics theorem to the
+CLASSICAL parity sequence a_n=1+ell(n), ell=Liouville. It has a_p=0 at
+every prime but exact N_d=floor(x/d)+ell(d)H(x/d). Tao2014Notes2Ex41's
+strong Mobius sum, and ell=mu*square-indicator, give H(x)=O_A(x/log^A x).
+Thus a has level1 for every FIXED c<1, with g(d)=1/d, index1 and the
+required congruence bound. All density hypotheses are checked explicitly.
+Bharadwaj--Rodgers (Cambridge online17April2026), section1.2 and Theorem7,
+then give the full fixed-dimensional Poisson--Dirichlet factor laws despite
+zero prime support. This does not model the actual shifted-prime local
+densities or prove any statement about actual Goldbach exceptions.
+The level estimate fails at c=1: prime d in(x/2,x] alone give discrepancy
+of order x/logx. Neither fixed-c estimates nor weak limiting laws license
+the moving 1/logY endpoint needed here.
+
+Primary sources/locators are in the module. Li arXiv2508.18285v1 Theorem1
+reports a fixed-shift .679-epsilon factor threshold, not the needed endpoint
+or moving-target uniformity; no numerical sieve result from it is used.
+The attempted arxiv HTML2211.09641v4 URL returned Internal Error; its abstract
+was readable. No unchanged retry or broader runtime failure is inferred.
+The prior TaoNotes7 exclusion and all other source corrections remain.
+
+Seven guards pass normal0.008s/-O0.006s; Sol theory/actual-file PASS after
+adding the remaining local-density condition(B) checks. A test initially
+chose H(10)=0 for a sign discriminator; replacing it with H(9)=-1 made the
+guard nonvacuous. No theorem changed. No range scan, installs, foreground
+work, contacts, spending, publishing/push or manual wake queues. Live
+15:36:55 UTC budget: conserve, spawncap2, researchTerra/high, reviewSol.
+
+Next concrete question: on cubic-rough n=m-q, can a genuinely signed
+Liouville estimate against the PRIME q give a useful negative margin?
+Recover the exact prime/semiprime split from factored_linear_barrier.py,
+write the rough reflected prime sum with all weights, and check a primary
+correlation theorem against its unaveraged, moving-m quantifiers. Do not
+repeat the old one-dimensional linear-sieve substitution or infer a moving
+endpoint from a fixed-scale limit. The next test is unperformed. Fresh
+<=30-minute clock; overall goal active. No research process remains running.
+
+## Preceding pursuit: complete divisor layers cancel by the saved cutoff identity
 
 Started2026-09-09 15:14:58 UTC, reassessed15:33:15 UTC, changed-under-evidence.
 Resumed verified clean maina650b77. Reviewed mathematics **cb04788** extends

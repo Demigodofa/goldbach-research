@@ -2241,3 +2241,46 @@ test proposed arithmetic input for the needed sign/constant and uniform
 m~Y, rejecting averages over m or results only for shift1. This next test
 is unperformed. Fresh <=30-minute clock; overall research goal active.
 No research process remains running at this reviewed checkpoint.
+
+## 2026-09-09: the largest-factor route needs a prime-scale endpoint deficit
+
+Started15:34:56 UTC, reassessed15:52:58 UTC, changed-under-evidence.
+Resumed verified clean main4adb690. Reviewed mathematics **cb01376**,
+prime_factor_endpoint_gate.py, answers the fixed-target factor question.
+
+The asymmetric legal cutoff lambda=delta_1, U=floor(Y^gamma), makes the
+complete B_U(n)=sum_(p|n,p>U)logp moment TI-small against actual E after
+paid power pruning. With C_U its composite restriction, define exact
+A_C=sum C_U(n)Lambda(m-n)F and M_B=sum B_U(n)Gamma_S(m-n)F. Then actual
+weighted Goldbach mass G_F=M_B-A_C+O_A(Y/L^A). The missing one-sided
+input is A_C<=M_B-kappa Y S_2(m). This is not supplied by the identity.
+Existing Gamma comparison gives M_B=Y I_F(L-K_U(m))+Y J_F+small, with
+K_U=sum_(h<=U,(h,m)=1)Lambda(h)/phi(h). Its coarse leading expansion is
+(1-gamma)I_F YL+O(YloglogY), too imprecise at the desired deficit scale.
+
+The actual odd-variable endpoint is exact: n in(Y/2,Y] is prime iff
+P+(n)>Y/3. Any fixed-power threshold Y^theta, theta<1, admits composites
+3p with Y=4p eventually. No fixed-target 3p+q lower bound is claimed.
+Moreover, the classical parity sequence a_n=1+Liouville(n) has no prime
+support and satisfies every local-density, congruence and level1 hypothesis
+of Bharadwaj--Rodgers Theorem7. Strong all-log Liouville sums follow from
+Tao2014Notes2Ex41 and the square-convolution identity. The source theorem
+therefore gives full fixed-dimensional Poisson--Dirichlet factor limits
+even though the prime event has probability0. Its local densities are not
+those of the actual prime partner. The distinction between all fixed c<1
+and the moving endpoint is essential: c=1 has discrepancy at least x/logx.
+
+This is a source-checked application and input limitation, not new prime
+coverage or a rejection of polynomial tools. Li arxiv2508.18285v1's reported
+fixed-shift factor threshold does not supply the needed endpoint/uniformity;
+no estimate from its numerical sieve is used. Preserve all source corrections.
+Seven guards pass normal0.008s/-O0.006s; Sol actual-file PASS after explicitly
+recording all condition(B) clauses. The first sign fixture had H(10)=0;
+H(9)=-1 supplies the corrected nonvacuous guard. No mathematical correction.
+
+Next test: recover the cubic-rough prime/semiprime Liouville split from
+factored_linear_barrier.py and write the exact signed sum against a PRIME
+partner q, n=m-q. Check whether an arithmetic correlation theorem supplies
+a useful negative margin with these unaveraged moving-target quantifiers.
+Do not repeat the failed one-dimensional sieve plug-in. Fresh <=30 minutes.
+Overall goal active; no research process remains running at this checkpoint.
