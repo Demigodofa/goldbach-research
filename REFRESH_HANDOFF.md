@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **16fa2d0**, in
+Latest reviewed RESEARCH commit: **3882437**, in
+polynomial_rough_localization.py: the preserved full polynomial sieve
+coefficient admits ACTUAL fixed-power rough localization with loss
+O_(gamma,k)((kappa+1/L)S_2(N)x/L), k>=9, fixed0<kappa<=1/20. Its
+remaining signed composite sum has fewer than1/kappa prime factors.
+This is a different exact coefficient and remainder; it does not prove
+the original hard-H localization or estimate the retained correlation.
+Previous **16fa2d0**, in
 rough_mobius_dilation.py: the actual long-Mobius term can also be made
 coprime to the target with all-log error. A classical Ramare identity
 then has no reconstruction residual; its full diagonal cost is all-log
@@ -168,7 +175,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `rough_mobius_dilation.py`,
+For the next unexceptional lane first read `polynomial_rough_localization.py`
+and its required joint-bound source `polynomial_joint_majorant.py`,
+then `rough_mobius_dilation.py`,
 then `specialized_sieve_coefficients.py`,
 `critical_factor_mass.py` and `prime_producing_comparison_gate.py`, then
 `composite_bilinear_bridge.py`
@@ -232,7 +241,66 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: exact prime-dilation criterion and actual coprime localization
+## Latest pursuit: actual fixed-power localization using polynomial suppression
+
+Started17:29:50 UTC, reassessed17:47:33 UTC, changed-under-evidence.
+Resumed verified clean main3df33dc; reviewed mathematics **3882437**.
+The available hard-H fundamental-lemma proof does not reach fixed-power
+roughness at prime precision: its sieve ratio becomes fixed, leaving
+unpaid logarithmic factors. This is a failed bound, not a lower bound
+for the actual error. A single small-prime layer can still fit Type I
+whenkappa<e; do not say every such layer crosses the half-level. The
+unresolved issue is reconstructing the full union/products accurately.
+
+The successful alternative is the preserved FULL polynomial coefficient
+T_k(n)=sum_(d|n)mu(d)(1-logd/logV)_+^k, V=x^gamma,gamma<1/2,k>=9.
+There is no P+(d)<n^nu mask. Its prime value is1 and full w-pairing is
+TI-small. Actual small-prime loss satisfies
+ sum_(n inI,P-n<=x^kappa)|T_k(n)w_n|
+ <<_(gamma,k)(kappa+1/L)S_2(N)x/L+all-log,
+with the leading constant uniform0<kappa<=1/20. The accuracy is relative
+toB_P~S_2(N)x/(2L), not a uniformdelta*x/L with S_2 omitted.
+
+Mechanism: the polynomial Mellin majorant has local factor
+a_t(p)<=2t logp/logV. Removegcd(n,N)>1 at all-log cost; small common
+primes force partner proper powers/b0, large ones use averagedtau.
+For n=p^j m, extract the ENTIRE p-power so(p,m)=1, then extracta_t(p)
+BEFORE dropping that condition. Atp^j<=x^(1/10), corrected Henriot on
+m,N-p^j m has variable length>=x^.9, primitive degree2 forms and the
+same exact local valuation factors independent ofj. Both actualLambda
+and comparisonb cost (x/p^j)S_2(N)logp/L^2. Forb, its Euler factor
+logX/logy cancelsc_y<<logy. The extra third kernel moment is finite.
+Summinglogp/(p^j) givesO(kappa L+1). Higherp^j costO(x^(39/40)L).
+
+The exact NEW residual is
+ prime mass=B_P-C_(k,kappa)(w)+O((kappa+1/L)S_2(N)x/L)+all-log,
+whereC sumsT_k(n)w_n on COMPOSITE, squarefree, target-coprime n with
+P-n>x^kappa. Its squareful deletion costsxL^2/x^kappa. Fixedkappa makes
+Omega(n)<1/kappa, but this is not a practically small factor count or
+effective onset. The squareful all-log remainder is not uniform when
+kappa varies withx. C remains OPEN; do not import the oldH/M/R pieces.
+For a small/large semiprime the oldH is0 whileT_k=1-(1-a/gamma)^k>0;
+the new composite contributions are indispensable.
+
+Independent Sol theory/actual-file PASS. Five guards pass normal0.001s
+and-O0.002s. No mathematical correction; root/reviewer scoped the hard-H
+single-layer statement correctly. NewTheorem5 of Henriot's erratum is
+the authority; original definitions were rechecked, blocked erratum was
+not retried. Live budget balanced cap3, existing reviewer only; Qwen
+unavailable exception unchanged. No old experiment rerun or outside action.
+
+Next bounded question, UNTESTED: is k>=9 only a cost of routing through
+the existing power10 majorant? Apply the exact polynomial Mellin formula
+directly and split its frequency integral at logV/logp, retaining
+min(1,t logp/logV). Prediction: quartic weights may retainO(kappa) loss,
+and cubic weights may giveO(kappa log(1/kappa)) loss, still arbitrarily
+small relative toB_P. Check source uniformity, both a/b terms, full prime
+sum, constants and the unchanged exact NEW residual before promoting.
+No low-degree result has yet been proved here. Reject a divergent or
+logx-sized loss rather than hiding it in a constant. Fresh <=30 minutes.
+Overall goal active; no running process claimed after closeout, no wake queue.
+
+## Previous pursuit: exact prime-dilation criterion and actual coprime localization
 
 Started17:03:39 UTC, reassessed17:21:42 UTC, changed-under-evidence.
 Resumed verified clean mainab82775; reviewed mathematics **16fa2d0**.
@@ -281,7 +349,7 @@ overwrite, then tests passed. No mathematical correction; reviewer wording
 clarified reflected von Mangoldt arguments. All earlier corrections and
 polynomial components remain valid. No new Goldbach coverage or onset.
 
-Next bounded hypothesis, UNTESTED: can the small-prime localization be
+The then-next hypothesis, tested in3882437 above: can the small-prime localization be
 raised fromy=exp(sqrtL) to a fixed powerx^kappa, with actual error at most
 delta*x/L for any prescribed smalldelta? Use the existing joint arithmetic
 majorants/sieve sandwich to pay the |wH|-weighted approximation cost;
@@ -2213,7 +2281,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rough_mobius_dilation` and
+Latest tests: `python -m unittest test_polynomial_rough_localization` and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

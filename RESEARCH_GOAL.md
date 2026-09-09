@@ -2455,3 +2455,48 @@ First derive the full kappa,e,delta and logarithmic budget; reject it if
 the approximation error cannot reach prime precision. Do not substitute
 formal main-term matching for that bound. Fresh <=30-minute pursuit;
 overall goal stays active, no process claimed after closeout or manual wake.
+
+## 2026-09-09: actual fixed-power localization for a full polynomial sieve
+
+Started17:29:50 UTC, reassessed17:47:33 UTC, changed-under-evidence.
+Resumed verified clean main3df33dc; reviewed mathematics **3882437**,
+polynomial_rough_localization.py. The existing hard-H localization proof
+does not pay a fixed-power cutoff at prime precision; its bounded sieve
+ratio leaves logarithmic losses. A single small-prime layer may still fit
+near-half Type I, so this is not a universal boundary-layer obstruction.
+
+The successful alternative is the preserved full polynomial
+T_k(n)=sum_(d|n)mu(d)(1-logd/logV)_+^k, V=x^gamma,gamma<1/2,k>=9.
+An ACTUAL joint bound proves small-prime loss
+O_(gamma,k)((kappa+1/L)S_2(N)x/L)+all-log, fixed0<kappa<=1/20,
+with leading constant independent ofkappa. This is relative precision
+againstB_P, not a uniformdelta*x/L assertion without the singular series.
+Exact p-power extraction retains the Mellin factor logp/L; corrected
+Henriot handles m,N-p^j m uniformly whenp^j<=x^.1. Comparisonb is paid
+separately through its rough Euler product, whose logy cancelsc_y.
+The extra third kernel moment is finite and sumlogp/(p^j)=O(kappa L+1).
+Higherpowers costx^(39/40)L; common target factors costall-log.
+
+The polynomial has prime value1 and its whole w-pairing isTI-small.
+Therefore prime mass=B_P-C_(k,kappa)(w)+O((kappa+1/L)S_2(N)x/L)+all-log,
+whereC sumsT_k(n)w_n over squarefree target-coprime composites with
+P-n>x^kappa. Squareful removal costsxL^2/x^kappa; its onset depends on
+fixedkappa. The retained factors number strictly less than1/kappa.
+This is a NEW exact coefficient/remainder, not oldH/M/R with a mask added.
+It introduces necessary composite terms that the hard coefficient killed.
+The signedC is stillOPEN; no new Goldbach coverage or numerical onset.
+
+Sol theory and actual-file PASS, fiveguards normal0.001s/-O0.002s.
+No mathematical correction. The hard-H single-layer diagnosis was scoped
+correctly before promotion. All earlier source corrections and polynomial
+tools remain. Original Henriot definitions were rechecked; the corrected
+erratum remains authority and its blocked route was not retried. No
+publication, external action, install, old experiment rerun or manual wake.
+
+Next unperformed test: derive the polynomial Mellin bound directly rather
+than through the fixed power10 majorant. Split at logV/logp while keeping
+the saturated local factor. Test the concrete predictions ofO(kappa)
+loss for degree4 andO(kappa log(1/kappa)) for degree3, with both actual
+and comparison terms, uniform constants and all summation costs paid.
+Do not promote a divergent integral or logx loss. Fresh <=30-minute
+pursuit; the overall goal remains active, no process claimed after closeout.
