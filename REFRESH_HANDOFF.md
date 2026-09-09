@@ -35,24 +35,67 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest MATHEMATICAL commit: **6f9a77b**. The handoff itself is committed later.
+Latest MATHEMATICAL commit: **e86c878**. The handoff itself is committed later.
+This resumes the verified clean **cf48198** checkpoint; **6f9a77b** remains
+the completed formal-conservation result, not a superseded proof.
 The worktree was clean after the mathematical commit. Verify current Git
 state, since another session may have advanced it. Do not revert other work.
 
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-1. `formal_weight_conservation.py` — newest result and exact open gap.
-2. `quintic_loss_budget.py` — complete main-scale composite-error bounds.
-3. `quintic_partner_weight.py` — exact surviving factor support.
-4. `log_weight_barrier.py` — endpoint-main and suppression obstructions.
+1. `buchstab_endpoint_bridge.py` — latest arithmetic endpoint reduction and
+   its OPEN one-sided prime-times-rough estimate, equation(7).
+2. `formal_weight_conservation.py` — completed formal result and exact gap.
+3. `balanced_semiprime_budget.py` — actual rare-factor bound used by the
+   latest reduction. Open other dependencies only for a task-required step.
 
 Use `README.md` as the project entrypoint; no project `AGENTS.md` existed.
 Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest completed pursuit: the cancellation is the same main term
+## Latest resumed pursuit: isolate the actual balanced endpoint
+
+Kevin clarified on2026-09-09: seeking an arithmetic ingredient beyond the
+previous polynomial approach must preserve the identities and bounds for
+future combinations. Their limitations are specific, not a prohibition on
+all uses. The question is what mechanism could make the linked prime
+conditions cancel or reinforce one another, and what would demonstrate it.
+
+**e86c878**, `buchstab_endpoint_bridge.py`, five exact tests. Sol reviewer
+`/root/sieve_review` checked theory, actual files and the final test delta:
+PASS. Tests passed normally in0.019s and under Python -O in0.017s. The
+pursuit ran about15 minutes and returned `changed-under-evidence`.
+
+In the same actual-zero regime, take the full rare-first pool and ordinary
+positive pair-log weight A(n). Exact least-prime Buchstab subtraction from
+z to R=floor(Y^(1/2-2epsilon)) leaves S_A(R)=P+E_R. Every composite in
+E_R is a distinct semiprime with one unique rare positive factor between
+Y^(1/2-2epsilon) and Y^(1/2+2epsilon); squares cannot have character -1.
+The existing corrected Henriot and reciprocal-rarity estimates prove
+E_R<=C*epsilon*Z+o(Y*t), Z=length(J_real)*S_2(m)*t, with C absolute.
+The initial pool is L*X*V(z)+O(eta_u*L*X*V(z))+o(Y*t). Keep the FIXED
+fundamental-lemma error; it is not an o_Y(1) term.
+
+The remaining sum U_A(z,R) has q prime, z<q<=R, n=q*k, P^-(k)>=q,
+and m-q*k prime of sign+. Equation(7) states the sufficient one-sided
+estimate. It is UNPROVED. The q-dependent roughness condition couples q,k,
+so ordinary separated-coefficient Type II cannot be invoked automatically.
+This range adds small factors while excluding the balanced endpoint; it
+is not claimed a subset or a proved easier version of the Vaughan target.
+Ford--Maynard's bounded-sequence theorem motivated the audit but its
+comparison/positivity and boundedness hypotheses are not established here.
+
+Polynomial K_f weights also satisfy the exact subtraction, but their
+initial S(z) is the FULL kernel total. Do not substitute the accessible
+T_low,f or its formal main. The next pursuit must test arithmetic for U
+or another concrete correlation; do not just iterate this counting identity.
+No new actual coverage, zero, numerical onset or cancellation estimate.
+No process is left running by this checkpoint, and no activity during the
+earlier session gap is claimed. Overall research goal remains active.
+
+## Previous completed pursuit: the cancellation is the same main term
 
 **6f9a77b**, `formal_weight_conservation.py` and5 focused tests. Existing
 Sol reviewer `/root/moment_bound_review` checked both theory and actual
@@ -190,11 +233,12 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Tests: `python -m unittest test_formal_weight_conservation -v` and the
+Latest tests: `python -m unittest test_buchstab_endpoint_bridge -v` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
-Existing Sol reviewer was `/root/moment_bound_review`; inspect whether the
-handle is available before reuse in a refreshed thread. One bounded theory
+Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
+was `/root/moment_bound_review`. Inspect whether a handle is available
+before reuse in a refreshed thread. One bounded theory
 review and one actual-file review sufficed for each pursuit. Do not spawn
 duplicative reviewers or delegate a new hypothesis merely to appear busy.
 Follow the live budget route before new agents; prior receipt was conserve.
