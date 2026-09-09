@@ -992,3 +992,52 @@ No new actual coverage, zero, numerical onset, publication, push, foreground
 work, installs or manual wake queue. The saved Qwen-unavailable exception
 remains unchanged; this was active execution, with no intervening idle work
 claimed.
+
+The affine-extension pursuit in `rare_affine_small_cofactor.py` proves
+negligibility for a part of the ACTUAL cofactor range, while the full range
+remains open. Retain the new actual-zero/large-V assumptions Y=D^V,
+V>=log^3 eta, t=V/eta<=1/log Y. For fixed0<theta<1/5, sum the positive-prime
+pair-log mass for q and p=m-M*q over all original-Y^theta-rough integers
+2<=M<=Y^(1/5) with gcd(M,Dm)=1. The total is o_theta(Y*t), uniformly over
+even m in[Y,2Y] with q in(Y/(2M),Y/M] and p in(Y/2,Y]. Squarefreeness
+and a five-factor cap are unnecessary. The actual even quintic classes are
+a subset, and the fixed-polynomial bound |K_f(n)|<<_(f,theta)log Y transfers
+this to their FULL ABSOLUTE contribution in that cofactor range.
+
+This adapts the proof of Matomaki--Merikoski Proposition2.3; it is not an
+invocation of its coefficient-one statement for a different equation.
+Directly making p's large divisor implicit leaves Poisson modulus D*d2*c;
+M enters as an invertible inverse-phase factor. The derivative scales
+1/(Y/M) and M/Y agree. The two rough harmonic character cancellations
+survive, after every orientation main is recombined before absolute values.
+Corrected Henriot New Theorem5 bounds the affine divisor-weighted sieve
+tails; its norm and function-class conditions are included. Shared primes
+dividing m are removed on the original rough support without applying
+Henriot at an unjustified tiny divided scale. Conductor and M-coprimality
+local factors are separately restored. With sum_M1/M=O_theta(1), the main
+is O_theta(S_2(m)*Y*t^2*log^8 eta). The summed oscillatory error is
+D^2*Y^(44/45+o(1)); the M-coprimality error is Y^(1-theta+o(1)), and
+the remaining errors are O_theta(S_2(m)*Y*eta^-20). These are all o(Y*t)
+in the stated regime. The exact density verifier retains the1/a Jacobian.
+
+The full M<=Y^(13/25) extension FAILS the available error-budget test.
+Ignoring small conductor/sieve/log losses, direct absolute Weil bounds
+sum to Y^(3/4+alpha), and the reversed-orientation budget to
+Y^(3/4+3alpha/4), for M<=Y^alpha. The latter is Y^(57/50) at alpha13/25.
+These are METHOD upper bounds, not lower bounds or universal obstructions.
+The reversed complete theorem is not promoted. A new estimate, plausibly
+averaging across cofactors before absolute values, is needed for the larger
+range. All-negative odd composite classes and the positive lower bound
+for the signed total also remain open. Preserve all polynomial components,
+the coefficient-one theorem and the new partial affine theorem together.
+Sol reviewer `/root/sieve_review` passed both the theory and actual files,
+including the affine source adaptation, corrected sieve-tail conditions,
+all M/theta factors and the final o(Y*t) conclusion. Four exact tests passed
+normally and under Python -O, both in0.011s. The pursuit returned
+`changed-under-evidence` within30 minutes: a small-cofactor arithmetic loss
+is now negligible, while full-range absolute summation failed its budget.
+Next concrete test: can averaging the remaining cofactors BEFORE absolute
+values preserve the two character cancellations and gain the missing power?
+No new actual coverage, zero, numerical onset, publication, push, foreground
+work, installs or manual wake queue. No process is left running at this
+checkpoint. The overall Goldbach research goal remains active.

@@ -114,6 +114,12 @@ atom1 and gave no second rarity factor; (5) supplies the missing cancellation
 only in the geometry just proved. Preserve the polynomial tools for a future
 combination; neither this success nor that failure settles their usefulness.
 
+Follow-on: rare_affine_small_cofactor.py now supplies a DIRECT affine proof
+for the aggregate over original-Y^theta-rough M<=Y^(1/5), in the same new
+large-V regime. Its total rare/rare contribution is o(Y*t), also after
+fixed polynomial kernel weights. The full M<=Y^(13/25) range remains open;
+the follow-on does not obtain it by the invalid substitution described here.
+
 The finite routines below verify identities and local factors only. Their
 rational reflection weight is NOT smooth and is not used in the analytic
 proof. No finite character, test, or symbolic identity proves an actual zero,
