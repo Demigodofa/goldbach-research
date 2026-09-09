@@ -2968,3 +2968,48 @@ already paid near-height strip can be deleted without losing the lower
 bound. This would establish a real need for signed cancellation in the
 retained core, not failure of Goldbach or an impossibility of cancellation.
 Fresh <=30 minutes; the actual lower-bound claim is not yet reviewed.
+
+## 2026-09-09: the surviving interior really requires signed cancellation
+
+Started20:06:48 UTC, reassessed20:16:00 UTC, progress. Resumed verified
+clean mainb780bbc; reviewed mathematics **fb3da0f**,
+stationary_spectral_core.py. Previous goal turn was progress: the reviewed
+height envelope distinguished its own limit from an actual-mass question.
+
+A uniform finite-period stationary-phase main is proved with normalized
+error O(h^-b), for h=gamma+eta,b=beta+beta' in(0,2),piN>=4h.
+Compact Morse/Fresnel analysis and the paid nonstationary complement give
+sqrt(2pi)e^-1 h^(1/2-b)exp(i[h-hlogh-b*pi/2+pi/4]). Restoring both
+complex Gamma phases and N^(rho+sigma-1) gives positive amplitude
+A=2sqrt(2pi)h^-1/2(Ngamma/h)^(beta-1/2)(Neta/h)^(beta'-1/2)
+and phase Theta=gamma log(Ngamma/h)+eta log(Neta/h)-pi/4, with relative
+error O(T^-1/2) on gamma,eta in(T,2T],T=N^(2/3).
+
+At each fixed ordinate pair, functional reflection in beta pairs x and1/x
+with multiplicities. Riemann-von Mangoldt yields absolute kernel mass
+>>T^(3/2)log^2T=Nlog^2N, without RH. This band lies inside the actual
+retained1-Psi support, above the axis and both-low cutoffs; deleting the
+all-log near-height strip preserves the lower bound. This is an actual
+obstruction to termwise absolute deletion of that region, not a lower
+bound for its signed sum or an impossibility of cancellation.
+
+The total leading amplitude is independently bounded by N^(46/45)log^12N
+using the rational density majorant D(u)<=3u/2+4/15. Thus the summed
+relative error is O(N^(31/45)log^12N)=o(N), and the signed band truly
+equals sum A cosTheta plus that paid error. The cosine sum remains OPEN;
+the full pointwise R formula retains its inherited all-log error.
+Sol theory/actual-file PASS; five guards normal0.004s/-O0.004s. No actual
+zero/prime computation, RH, coverage/onset/novelty, outside action or
+manual wake queue. Polynomial tools and source corrections persist;
+overall goal active. No process claimed after the reviewed checkpoint.
+
+Next unreviewed question: prove or refute a discrete bilinear L2 estimate
+for this entropy phase, using a continuous TT* bound, fixed-frequency
+projections and local zero counts, with every sampling/tail cost explicit.
+The candidate matrix norm is sqrtT logT; the smooth beta-dependent
+amplitude requires its own separable expansion. Even if that works,
+the resulting energy sum N^(2beta-1) is not paid by the current Ingham
+estimate alone at T=N^(2/3). Source-check a stronger near-one density
+bound and Vinogradov-Korobov zero-free region before any use; a recalled
+Huxley exponent is only an unverified locator in REFRESH_HANDOFF.md.
+Fresh <=30-minute test; no discrete signed estimate is yet proved.

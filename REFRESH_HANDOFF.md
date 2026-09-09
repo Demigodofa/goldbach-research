@@ -35,7 +35,14 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **0fed151**, in spectral_height_envelope.py:
+Latest reviewed RESEARCH commit: **fb3da0f**, in stationary_spectral_core.py:
+actual zeros in(T,2T],T=N^(2/3), have >>Nlog^2N termwise absolute
+kernel mass INSIDE the retained core, even after the near-height strip
+is removed. A uniform finite-period stationary main and beta reflection
+prove this WITHOUT RH. It is not a signed lower bound or no-cancellation
+claim. The signed band equals an explicit positive-amplitude cosine sum
+with PAID O(N^(31/45)log^12N) error; the cosine sum remains OPEN.
+Previous **0fed151**, in spectral_height_envelope.py:
 for each fixed kappa<(52+16sqrt3)/121=0.658783577860..., pairs with
 BOTH heights<=N^kappa have O_A(N/log^A N) absolute mass. The concrete
 retained cutoff is13/20. The new finite C_high has both heights>V_N,
@@ -348,7 +355,52 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: both-low heights and the density-envelope limit
+## Latest pursuit: actual interior mass and its controlled phase
+
+Started20:06:48 UTC, reassessed20:16:00 UTC, progress. Resumed verified
+clean mainb780bbc; reviewed mathematics **fb3da0f**. Previous goal turn
+was progress: absolute reductions isolated a precise surviving-band test.
+For h=gamma+eta,b=beta+beta',U=piN>=4h, the normalized integral is
+sqrt(2pi)e^-1 h^(1/2-b)exp(i[h-hlogh-b*pi/2+pi/4])+O(h^-b),
+uniformly0<b<2 and in every such finite endpoint. Compact Morse/Fresnel
+analysis pays the central region; first-derivative bounds pay its complement.
+Restoring all Gamma and N phases gives J=A exp(iTheta)[1+O(T^-1/2)],
+A=2sqrt(2pi)h^-1/2(Ngamma/h)^(beta-1/2)(Neta/h)^(beta'-1/2),
+Theta=gamma log(Ngamma/h)+eta log(Neta/h)-pi/4.
+
+For each fixed ordinate pair, beta reflection pairs reciprocal positive
+weights with multiplicity. Riemann-von Mangoldt then gives actual absolute
+mass >>T^(3/2)log^2T=Nlog^2N. This band lies inside1-Psi=1 and above
+the previous axes/both-low cuts. Deleting the all-log near strip preserves
+the lower bound. No signed size or sign follows. Separately the rational
+density bound D(u)<=3u/2+4/15 bounds total leading amplitude by
+N^(46/45)log^12N, so its relative error totals N^(31/45)log^12N=o(N).
+Thus the cosine replacement is an actual paid reduction, with its cosine
+sum still OPEN. Sol theory/actual-file PASS; five guards normal0.004s/
+-O0.004s. All sources and polynomial tools persist; overall goal active.
+
+Next concrete hypothesis, UNREVIEWED: can the explicit phase support a
+DISCRETE bilinear L2 bound of size sqrtT*logT times the coefficient norms,
+using only multiplicity-counted O(logT) zeros per unit interval? Remove
+the separable carrier(gamma+eta)logN. The remaining entropy phase has
+mixed derivative-1/(gamma+eta), while its full Hessian has rank1.
+Candidate mechanism: a continuous compact-kernel TT* bound O(sqrtT),
+then fixed-frequency smooth projections to transfer to the discrete zero
+measure. Projection-kernel Schur bounds would cost logT; tails must be
+proved negligible. Fourier expansion in the two beta parameters would
+handle the smooth amplitude without pretending beta is smooth in height.
+
+If that transfer works, its remaining energy is sum N^(2beta-1) over
+the band. Current Ingham alone gives exponent1-2u^2/(1+u) at T=N^(2/3)
+and does not establish the required all-log bound nearu=0. A fresh primary
+source check is required for a stronger near-one density estimate and
+Vinogradov-Korobov zero-free input. A possible Huxley exponent recalled
+as3(1-sigma)/(3sigma-1), with logarithmic losses, is UNVERIFIED here;
+do not use it before checking its range, constants and exact statement.
+No discrete cancellation or energy estimate has yet been promoted.
+Fresh <=30 minutes; the full Goldbach margin would still remain open.
+
+## Previous pursuit: both-low heights and the density-envelope limit
 
 Started19:59:18 UTC, reassessed20:05:23 UTC, progress. Resumed verified
 clean main1e8c05b; reviewed mathematics **0fed151**. Previous pursuit
@@ -370,7 +422,8 @@ Sol theory/actual-file PASS; five guards normal0.005s/-O0.005s. No RH,
 zero/prime computation, coverage/onset/novelty or square-root R error.
 All corrected sources and polynomial tools persist; overall goal active.
 
-Next concrete hypothesis, UNREVIEWED: on actual zeros in (T,2T],
+The following proposed actual-band test is completed above. Its original
+hypothesis was: on actual zeros in (T,2T],
 T=N^(2/3), the surviving INTERIOR pair kernels have absolute mass
 >>T^(3/2)log^2T= Nlog^2N. Test a uniform stationary-phase lower bound
 for the finite-period integral, then use beta->1-beta reflection and
@@ -2786,7 +2839,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_spectral_height_envelope` (five guards) and
+Latest tests: `python -m unittest test_stationary_spectral_core` (five guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
