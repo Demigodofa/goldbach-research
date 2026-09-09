@@ -2366,3 +2366,47 @@ its retained Mobius/log structure gives a usable existing arithmetic input.
 Reject a mere renaming of the open prime correlation or completed TI work.
 This is unperformed; fresh <=30-minute clock next pursuit. Overall goal
 active, no manual wake queue, and no process claimed running after closeout.
+
+## 2026-09-09: actual localization to rough squarefree Mobius coefficients
+
+Started16:39:03 UTC, reassessed17:01:31 UTC, changed-under-evidence.
+Resumed verified clean maind2379cb; reviewed mathematics **3def1c4**, in
+specialized_sieve_coefficients.py. The source coefficient audit found
+H(n)=sum_(d|rad u,d<=n^gamma)mu(d), whereu is the entire n^nu-smooth
+part ofn. Nonzero nonrough terms require rad u>n^gamma andv=n/u is1
+oroneprime. The pure smooth case and a moving nonseparable cutoff remain.
+Complementing divisors gives a short t<n^(1/6+3e) in the prime branch,
+but its sign is initiallymu(rad u), notmu(u). A rank-two fixture rejects
+only a single separated product, not more general decompositions.
+
+An ACTUAL arithmetic improvement followed. A small-prime sieve at level
+x^(e/4), multiplied byH, has LCM moduli<=x^(1/2-3e/4), so saved Type I
+controls it. Its approximation error is paid by the nonnegative upper/
+lower gap and the tau^3 moment. This removes n with a prime factor<=y
+from the smooth error, with all-log error. On remaining y-roughn, repeated
+factors cost at mostxlog^2x/y. The error can therefore be restricted to
+squarefree n, and ordinarymu(u) now replacesmu(rad u) legitimately.
+The exact remaining term is S_e=-M_e+all-log, whereM_e=sum mu(r)w_(trv),
+r>n^gamma, mu^2(tr)=1, primes oftr in(y,n^nu), andv1orprime>=n^nu.
+Keep t1 and every mask. Prime mass=B_P-R_nu(w)+M_e(w)+all-log, stillOPEN.
+
+Actual power pruning also reduces the source root-lift decomposition to
+HB4's8 primitive factors per prime slot, with error exponent<=64/75
+apart from fixed logarithms. No new free-variable length is obtained.
+The saved classical parity model gives S_e(ell)=(1-log2+O(e)+o(1))B0,
+showing why this surviving sector cannot be silently dropped. This is an
+application/calibration, not another claim about the actual prime partner.
+The earlier critical-mass bound and conditional positivity remain valid;
+no new Goldbach coverage or quantitative onset was established.
+
+Independent Sol theory and actual-file PASS, including the new sieve
+localization. Sixguards pass normal0.015s/-O0.013s; an initial expected
+list was corrected to the existing tuple API. Source/runtime corrections,
+polynomial tools and exceptions remain preserved. No external actions.
+
+Next bounded test: a quantitative multiplicative-sign criterion on the
+newly rough squarefree mu(r) support, with auxiliary primes>y. Derive the
+actual masked dilation covariance and its full required error budget;
+check for an available arithmetic saving before expanding the method.
+Reject mere recovery of a previously open covariance. Unperformed; fresh
+<=30-minute clock. Overall goal active; no process claimed beyond closeout.

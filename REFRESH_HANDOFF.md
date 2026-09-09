@@ -35,14 +35,22 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **a301a46**, in
+Latest reviewed RESEARCH commit: **3def1c4**, in
+specialized_sieve_coefficients.py: an ACTUAL Type I/fundamental-lemma
+estimate removes small prime factors from the surviving smooth-cofactor
+error, after which repeated factors cost O(x log^2x/y). Thus the remaining
+term has ordinary long Mobius coefficients on rough squarefree integers.
+Its linked prime correlation remains OPEN. The coefficient and support
+extraction is complete; next test is a quantitative multiplicative-sign
+criterion with all masks retained, not another automatic decomposition.
+Previous **a301a46**, in
 prime_producing_comparison_gate.py and critical_factor_mass.py: the existing
 comparison satisfies the source factor-pattern conditions, and an ACTUAL
 upper sieve bounds critical composite mass by C e S2(2x)x/logx with C
 independent of small e. A specified short-factor Type II estimate would
 therefore imply positivity without pointwise divisor boundedness. That
-signed estimate remains OPEN; no new unconditional coverage. Next test:
-extract the actual coefficient family needed by this sieve decomposition.
+signed estimate remains OPEN; no new unconditional coverage. Its proposed
+coefficient-family extraction is now completed above.
 Previous **ed0d334**, in rough_liouville_transfer_gate.py:
 the cubic-rough Liouville mean is (log2-1)Y times the test integral,
 and its short inclusion-exclusion layers are all-log small. The signed
@@ -153,8 +161,9 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `critical_factor_mass.py` and
-`prime_producing_comparison_gate.py`, then `composite_bilinear_bridge.py`
+For the next unexceptional lane first read `specialized_sieve_coefficients.py`,
+`critical_factor_mass.py` and `prime_producing_comparison_gate.py`, then
+`composite_bilinear_bridge.py`
 for the saved nonnegative comparison and exceptional-character correction.
 The source(b.1)/(b.2), growth and fixed-divisor Type I checks are complete;
 the full short-factor Type II remains open. The older framework setup and
@@ -215,7 +224,63 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual critical composite mass and a conditional positive sieve
+## Latest pursuit: actual rough-squarefree localization of the Mobius cofactor
+
+Started16:39:03 UTC, reassessed17:01:31 UTC, changed-under-evidence.
+Resumed verified clean maind2379cb; reviewed mathematics **3def1c4**.
+The immediate rank-one coefficient shortcut failed: a finite 2x2 minor
+of H(uv) is [[1,1],[1,0]]. The moving cutoff remains coupled. The exact
+specialization nevertheless gives useful support: n=u v, all primes ofu
+<n^nu and all primes ofv>=n^nu; H=sum_(d|rad u,d<=n^gamma)mu(d).
+Foru>1 it vanishes ifrad u<=n^gamma; otherwisev is1 oroneprime.
+The pure smooth v=1 class remains. Complementing divisors gives
+H=-mu(rad u) sum_(t|rad u,t<rad u/n^gamma)mu(t). In the prime branch
+t<n^(1/6+3e). Nonsquarefreeu cannot be discarded pointwise: n420 has
+u60,v7,H1 althoughmu(u)=0. Nonzero nonroughH already excludes sourceN,
+so no additional N-mask is needed on this surviving smooth sector.
+
+A further ACTUAL estimate resolves that multiplicity problem in aggregate.
+Use y=floor exp(sqrt(logx)), fundamental-lemma levelD=x^(e/4), and the
+nonnegative upper-minus-lower sieve gapdelta. Its all-log mean plus
+Cauchy andsumtau^3<<xlog^7x pays |wH|<<logx*tau(n). Expanding the upper
+sieve andH gives moduli lcm(a,d)<=x^(1/2-3e/4), with multiplicity<=tau^2;
+the saved Type I proves the y-rough H-pairing all-log small. Consequently
+the smooth error S_e(w) may be restricted to y-roughn. Squarefuln then
+cost O(xlog^2x/y), using tau(p^2m)<=3tau(m), and may be removed.
+
+On this PAID rough squarefree support, S_e(w)=-M_e(w)+all-log, where
+M_e=sum_(n=trv inI)mu(r)w_n with r>n^gamma, mu^2(tr)=1, all primes oftr
+in(y,n^nu), andv1orprime>=n^nu. Keep t1; the prime branch has
+t<n^(1/6+3e). Therefore prime mass=B_P-R_nu(w)+M_e(w)+all-log, R_nu
+the full rough COMPOSITE error. Neither remaining signed sum is estimated.
+This preserves one ordinary long Mobius sign, not arbitrary coefficients,
+but the smoothness, product, squarefree and prime conditions stay coupled.
+
+Other checked components: actual prime-slot powers cost
+O_eta(x^(1-nu/2+eta)log^C x), with exponent<=64/75 ateta=.01. HB4 then
+needs at most8 primitive mu/free/log factors per slot rather than the
+source's12 root-lift factors. This does not create a long free variable.
+Applying saved parity/PNT laws toell gives S_e(ell)=(1-J2+J3+o)B0,
+J2=log((1-nu)/nu), J3<=3e^2/nu^3, coefficient>1/5 andtending1-log2.
+That is an ARTIFICIAL parity calibration, not an actual prime estimate;
+it shows the surviving smooth sector cannot just be assumed negligible.
+
+Sol theory/actual-file PASS, including the later localization refinement.
+Sixguards pass normal0.015s/-O0.013s. An initial tuple/list assertion was
+corrected to the existing factorization API; no mathematical correction.
+Live16:39 budget was conserve; Qwen/routing exceptions remain unchanged.
+No previous experiment rerun, install, publication/push, foreground or wake.
+
+Next question, UNTESTED: can a quantitative multiplicative-correlation
+criterion exploit mu(pr)=-mu(r) on this squarefree support, using auxiliary
+primes ABOVEy? Derive its required dilation covariance and complete loss
+budget with the actual masks before checking an arithmetic estimate.
+The old unmasked Liouville imports and generic covariance budget do not
+answer this masked question. Reject the route if it merely restores the
+same untreated correlation without a better estimate. Fresh <=30 minutes.
+Overall goal active; no process is claimed running after this checkpoint.
+
+## Previous pursuit: actual critical composite mass and a conditional positive sieve
 
 Started16:11:58 UTC, reassessed16:36:57 UTC, changed-under-evidence.
 Resumed verified clean main8a3f971; reviewed mathematics **a301a46**.
@@ -2077,9 +2142,8 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_prime_producing_comparison_gate
-test_critical_factor_mass` and the same with `python -O`; rerun only if
-changes or new concerns justify it.
+Latest tests: `python -m unittest test_specialized_sieve_coefficients` and
+the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
 was `/root/moment_bound_review`. Inspect whether a handle is available
