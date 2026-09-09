@@ -1928,3 +1928,42 @@ improves the prime-correlation budget after Cauchy. A smaller coefficient
 norm is not prime covariance; retain that distinction. The narrow search
 found no completed equivalent pursuit. Fresh <=30-minute clock required.
 Goal active; no research process remains running at this checkpoint.
+
+## 2026-09-09: exact cutoff freedom and a failed optimal-norm budget
+
+Started13:39:04 UTC, reassessed13:51:50 UTC, changed-under-evidence.
+Resumed clean main45afe67. Reviewed mathematics **02e1627**, in
+optimized_cofactor_cutoff.py, proves the exact generalized Vaughan identity
+for any bounded real lambda supported d<=V with lambda1=1. If U,V,UV are
+within Y^gamma, its compensating terms are controlled by existing TI;
+the actual remainder changes by O_A(Y/L^A). Internal proper-power pruning
+persists, but arbitrary lambda can introduce small cofactors c>=2.
+
+The exact cofactor norm is C Q(lambda)+O(||lambda||1^2), with the endpoint
+error<=V^2. The classical Selberg minimum Q=1/G(V), G(V) asymp logV,
+has a bounded admissible optimizer. This known theorem was checked in
+Steve Lester's2015 notes, proof printedpp5-7, and independently derived.
+For balanced C~sqrtY and V=W, the best bounded norm is asymp C/logV.
+It remains signed: V3 gives S(2)=1/5 and S(6)=-2/5. One must not square
+S to create a positive sieve weight while retaining the original identity.
+
+An actual E second-moment bound O(YL) follows from Chebyshev, Ramanujan
+orthogonality and the paid S^8 period error. Separate pairwise Cauchy then
+gives only O(YsqrtL) for one balanced box, even at the optimal norm.
+This is a failed upper-bound calculation, not an actual lower bound or a
+no-go theorem for polynomial weights. The exact cutoff freedom and optimal
+weights are preserved. Revisit only with a stronger JOINT moment or signed
+covariance estimate, not another shape in the same norm-only family.
+Keeping the prime sum intact gives the sufficient balanced energy target
+H<<Y^2/(C L^5); its diagonal is O(Y L^3), while the weighted off-diagonal
+remains OPEN. No new coverage or full remainder estimate follows.
+
+Eight exact tests passed normal0.018s and -O0.020s. Sol theory/actual-file
+review PASS without correction. Next question: can the fixed polynomial
+cutoff (1-log d/log V)_+^k, k>=9, be dominated by the corrected radical
+majorant H_V/logV, then paired with H_S(m-pc) using corrected Henriot to
+prove an actual per-box O(Y S_2(m)/logY) bound? Check primitive forms,
+coefficient-size and interval conditions, p|m, prime powers and summing
+all boxes. This is proposed, not proved. Reuse the existing corrected
+source; do not retry blocked fetches. Fresh <=30-minute clock required.
+Goal active; no research process remains running at this checkpoint.

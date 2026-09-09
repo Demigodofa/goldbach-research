@@ -35,10 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **3fcea6e**, removing the internal proper
-prime powers from the ACTUAL Vaughan remainder and retaining an exact
-prime/cofactor correlation. Its new error is o(Y); the prime correlation
-itself remains OPEN. Combined short HB terms do not cancel internally.
+Latest reviewed RESEARCH commit: **02e1627**, exact cutoff freedom in the
+ACTUAL Vaughan remainder, a classical optimal cofactor norm, and its
+failed separate-moment budget O(Y sqrt(log Y)) on a balanced box.
+Previous **3fcea6e** removes the internal proper prime powers with an
+o(Y) error and retains the exact prime/cofactor correlation, still OPEN.
+Combined short HB terms do not cancel internally.
 Previous **b7134e1** proves fixed divisor-weighted Type I and the precise
 scope of the Heath-Brown route; these remain useful components.
 Latest ACTUAL CORRELATION TRANSFER remains **476e0c3**, removing
@@ -58,6 +60,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **45afe67** preserved3fcea6e.
 Previous checkpoint **a4a7944** preservedb7134e1.
 Previous checkpoint **29b35c9** preserved476e0c3.
 Previous checkpoint **7eff067** preserveda968833.
@@ -94,7 +97,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `short_free_cancellation.py`,
+For the next unexceptional lane first read `optimized_cofactor_cutoff.py`,
+then `short_free_cancellation.py`,
 then `multifactor_identity_gate.py`,
 then `balanced_projection_transfer.py`,
 then `free_divisor_correlation.py` for its analytic input, and use
@@ -144,7 +148,55 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: actual internal prime-power pruning and combined HB scope
+## Latest pursuit: exact cutoff freedom and the optimal cofactor norm budget
+
+**02e1627**, optimized_cofactor_cutoff.py, permits any real lambda supported
+on d<=V, lambda1=1, |lambda_d|<=1. For R_lambda=(mu-lambda)*Lambda_>U*1,
+ Lambda=Lambda_<=U+lambda*log-lambda*Lambda_<=U*1+R_lambda.
+If U,V,UV<=Y^gamma, the compensating correlations with E are TI-small,
+uniformly in lambda. With U=V=W the internal-power pruning still applies.
+The exact remaining prime coefficient is
+ -sum_(pc=n,p>U prime,c>=2)log p S_lambda(c), S_lambda(c)=sum_(d|c)lambda_d.
+General lambda can introduce SMALL cofactors; do not inherit c>W.
+
+The classical Selberg form Q=sum lambda_d lambda_e/[d,e] diagonalizes as
+sum_r phi(r)(sum_(r|d)lambda_d/d)^2. Its exact minimum is1/G(V), where
+G(V)=sum_(r<=V)mu(r)^2/phi(r) asymp log(2V). The optimizer is
+lambda_d=mu(d)d/phi(d)*G_d(V/d)/G(V), and |lambda_d|<=1. This is a known
+classical result, checked in Steve Lester's2015 notes, proof printedpp5-7;
+the reciprocal normalization is independently derived in the module.
+Its cofactor interval norm is C Q+O(||lambda||1^2), with error<=V^2.
+For C~sqrt Y and V=W, the best bounded norm is therefore asymp C/log V.
+At V3 the optimizer(1,-4/5,-3/5) gives S(2)=1/5 and S(6)=-2/5.
+
+The actual E has second moment O(Y logY), by Chebyshev, Ramanujan
+orthogonality, and the paid S^8 incomplete-period error. Pairwise Cauchy
+then gives only |T_box|<<Y sqrt(logY) with the optimal weights. This is
+a failed upper-bound budget, NOT a lower bound for the real correlation.
+Norm-only retuning within this family cannot improve its order. Retain
+the identities and optimizer; reactivate with a stronger JOINT moment or
+signed covariance estimate. No broad exclusion of polynomial weights.
+
+Keeping the prime sum intact yields |T_box|^2<=M(C) H, with
+H=sum_(c~C)|sum_(p~P prime>U)log p F E(m-pc)|^2. On balanced boxes,
+H<<Y^2/(C L^5) is sufficient; diagonal H_diag<<Y L^3 is small. The
+weighted off-diagonal remains unproved. No coverage or full T estimate.
+
+Started13:39:04 UTC, reassessed13:51:50 UTC, changed-under-evidence.
+Eight guards passed normal0.018s and -O0.020s. Sol theory/actual-file
+review PASS, no correction. Next concrete test: a fixed degree>=9
+polynomial cutoff may obey |S_lambda(c)|<<H_V(c)/log V via Mellin
+factorization. Can the corrected Henriot theorem, with primitive forms
+c and m-pc, then give an ACTUAL per-box bound O(Y S_2(m)/logY)?
+Check coefficient norm/interval hypotheses, p|m, all prime powers, and
+the number of boxes. This would be new joint arithmetic input to the
+cutoff method, not another marginal norm optimization. The proposed
+bound is NOT yet proved. Use radical_majorant_correlation.py and its
+already corrected source rather than retrying the blocked erratum URL.
+Fresh <=30-minute clock required. Goal active; no process is left running
+at this checkpoint.
+
+## Preceding pursuit: actual internal prime-power pruning and combined HB scope
 
 **3fcea6e**, short_free_cancellation.py, proves for the original
 A=mu_>W*Lambda_>W*1, W=floor(Y^(gamma/2)), gamma in(5/12,1/2), that
@@ -185,8 +237,9 @@ be smooth. No short-sector removal is proved for HB in the PARTNER E.
 
 Started13:18:59 UTC, reassessed13:37:41 UTC, changed-under-evidence.
 Eight guards passed normal0.006s and -O0.008s. Sol theory/actual-file
-review PASS with no correction. No scan or outside action. Next bounded
-question: can a smoothed Mobius cutoff reduce the actual cofactor norm
+review PASS with no correction. No scan or outside action. The next
+question, now tested in02e1627 above, was whether a smoothed Mobius cutoff
+could reduce the actual cofactor norm
 enough to improve the remaining correlation budget? First derive an
 EXACT generalized Vaughan identity including compensation, then pay the
 cofactor second moment and Cauchy costs. A smaller norm alone cannot
@@ -1430,7 +1483,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_short_free_cancellation.py` and the
+Latest tests: `python -m unittest test_optimized_cofactor_cutoff.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
