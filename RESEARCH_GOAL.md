@@ -1163,3 +1163,39 @@ experiment was rerun. The pursuit returned `changed-under-evidence`
 within30 minutes. No new coverage, zero, effective onset, publication, push,
 foreground work, installs or manual wake queue. Qwen remains unavailable;
 no process is left running at this checkpoint. Overall research goal active.
+
+The next bounded pursuit proves `hyperbola_prime_kernel.py`: changing the
+completed-frequency grouping, with a linear-completion estimate in the
+small-divisor region, covers EVERY box of the smooth decorated prime-core
+model. The parameters are B=Y^b,A=Y^x,P=Y^y,K=B*A*P/Y, with
+  1/5<=b<=13/25, 0<=x<=(1-b)/2, 0<=y<=1/2.
+The preceding modulus c=s*p, p prime near P, joint periodic weights and
+S,J0,H<=Y^(1/4096) remain. The final bound is unchanged:
+  Y^(127/128+epsilon)*S^4*J0^4*H
+    +H*B*A*log(2S)+S*H*J0*(A+B) <<Y^(4073/4096+epsilon).
+Nonempty boxes force p large enough for CRT and k<p. For y<=49/100,
+pointwise complete-sum bounds suffice. For y>=49/100 and x>=1/16,
+keep the completed divisor frequency l separate and group w=k*|h|.
+KMS's bulk exponent becomes(103*y+12)/64<=127/128. For x<1/16,
+the exact Fourier transform of Kl3, extended at zero by1/p, is a
+classical Kl2 sum at nonzero frequencies and zero at frequency0.
+Linear completion on l=r+T*j uses j-scale p/A<=p, even when the
+l-scale exceeds p. Every prime-axis mode and the thin dual-length
+strip below1 are included. Smooth coefficients remain essential.
+
+This closes the box-range gap in the MODEL, including b through13/25.
+It does not close the general-composite core, original coefficient/sieve
+transfer, or signed prime-correlation gaps. The latest original-affine
+estimate remains2b8cf98. Polynomial components remain preserved.
+Next concrete test: can factorization or completion give a power saving
+for a general composite core in the critical modulus boxes, after
+explicitly retaining nonunit modes and the actual coefficient costs?
+Do not import an unstated composite-modulus KMS theorem.
+Five NEW exact Fourier/progression/budget tests passed normally in0.222s
+and under -O in0.226s. Sol `/root/sieve_review` independently passed the
+linear lemma, full theory and actual files, with no correction required.
+The pursuit returned `changed-under-evidence` within30 minutes. No old
+experiment was rerun. No new prime coverage, zero, effective onset,
+publication, push, foreground work, installs or manual wake queue.
+Qwen remains unavailable without a retry. No process is left running
+at this checkpoint; the overall research goal remains active.
