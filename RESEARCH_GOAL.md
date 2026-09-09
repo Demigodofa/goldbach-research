@@ -1120,3 +1120,46 @@ The overall research goal remains active; no new coverage or signed
 prime-correlation estimate, publication, push, installs or manual wake queue.
 Qwen remains unavailable without a retry. No process is left running at
 this checkpoint, and no work between inactive turns is claimed.
+
+The next transfer pursuit proves `decorated_prime_kernel.py`: the kernel
+now permits c=s*p with p prime near P=Y^(1/2), s<=S, arbitrary bounded
+joint residue weights modulo J<=J0, and frequencies k<=H*K. The underlying
+B=Y^b,A=Y^((1-b)/2),K=Y^(b/2),1/5<=b<=12/25 geometry is retained. The
+TOTAL modulus grows with s; the frequency inflation H is explicit. For
+S,J0,H<=Y^(1/4096), the proved bound is
+  Y^(127/128+epsilon)*S^4*J0^4*H
+    +H*B*A*log(2S)+S*H*J0*(A+B) <<Y^(4073/4096+epsilon).
+CRT at period cJ splits off prime p even if gcd(s,J)>1. The prime Kl3
+argument is m*k*h*l*inverse(s^3*J^2), with any stated unit multiplier.
+The small transform has magnitude at most(sJ)^2. Splitting the two dual
+residue classes costs(sJ)^2 more; its k dependence is absorbed as a bounded
+k coefficient. No third residue split is needed. Axes and p|m modes are
+below Y^(3/4). Uniform smooth coupling of M,a is allowed via a convergent
+Fourier decomposition, with k-dependent coefficients handled explicitly.
+
+A second retained component is the NONNEGATIVE relaxation of original M
+to z-rough M: its reciprocal mass is O(U), and the existing zero mode keeps
+both character harmonics, giving at most one extra factor U~log eta and
+still o(Y*t). No chi(M) factor appears. Prime-divisor coprimality costs
+are O(U/z). This is a statement about the zero-mode expression, not a
+replacement of the entire arithmetic sum. A beta sieve introduces a new
+index e0; its longer dual range cancels the apparent1/e0 gain. Index counts,
+periods, frequency inflation and tails must be paid before any prime result.
+
+The source search did not justify a general-composite plug-in. Topacogullari
+1506.02608v1 Thm1.3/section4 treats the right additive orientation but is
+untwisted; Drappeau--Topacogullari2019 Lemma4.5 allows characters but has
+|h|<=X^(1/4) and an ordinary-divisor second factor. Do not combine their
+separate features into an unstated theorem. Their methods remain candidates.
+The CRT theorem covers SMALL prime multiples, not balanced composite cores.
+All original sieve costs, other boxes/ranges and the signed correlation
+remain OPEN; latest original-affine estimate remains2b8cf98. Polynomial
+components remain preserved. Next test: a general-composite factor estimate
+or a costed spectral adaptation meeting the actual character/shift conditions.
+Sol reviewer `/root/sieve_review` passed theory and actual files, after
+correcting a divisor-sum notation to DISTINCT PRIME divisors. Five new exact
+CRT/budget tests passed normally in0.022s and under -O in0.026s. No old
+experiment was rerun. The pursuit returned `changed-under-evidence`
+within30 minutes. No new coverage, zero, effective onset, publication, push,
+foreground work, installs or manual wake queue. Qwen remains unavailable;
+no process is left running at this checkpoint. Overall research goal active.
