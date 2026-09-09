@@ -953,3 +953,42 @@ The next useful action must test an arithmetic estimate for U, possibly
 using preserved polynomial components, not iterate this counting identity.
 No new actual coverage, zero, numerical onset, priority search, publication
 work, push, foreground operation, or wake queue. Overall research active.
+
+The next pursuit tests whether lambda_chi=1*chi can supply a SECOND rarity
+factor for two linked positive-character primes. The direct multiplicative
+upper bound retains the empty-cofactor atom1 and supplies none. A restricted
+coefficient-one route succeeds in `rare_shifted_divisor_bound.py`: with an
+ACTUAL zero beta=1-1/(eta*log D), X=D^V, V>=log^3 eta and t=V/eta<=1/log X,
+the weighted sum over X<p<=2X, p,p+h prime, chi(p)=chi(p+h)=+1 satisfies
+Q++<<S_2(h)*X*t^2*log^8 eta=o(S_2(h)*X*t), uniformly for even0<h<=X/2.
+This is a deduction from Matomaki--Merikoski Proposition2.3, equation(15)
+and Lemma2.4, https://arxiv.org/html/2112.11412v2 . It is an actual
+conditional upper estimate, with no assumption of independent prime signs.
+Subtracting the lemma's y=X and y=X^2 evaluations bounds each rough harmonic
+character partial sum by O(E/U), E=O(t*U^4)+O(eta^-20), U=K*log eta.
+The smooth hyperbola identity produces two such factors after ALL main
+terms are recombined before absolute values. Complete residue sums restore
+the conductor-prime local factors. The proof budgets every dyadic error.
+Growing U is justified directly by the source, in this NEW restricted regime;
+it does not alter the earlier fixed-u conclusions or parameter order.
+
+The original transfer to q,p=m-M*q, chi(M)=-1, M<=Y^(13/25), remains OPEN.
+The source only gives coefficient-one relations. Substitution n=M*q kills
+lambda_chi(n) exactly; a divisor divisibility restriction or an enlarged
+modulus requires a new uniform theorem. Cowan's twisted-divisor Theorem1.1
+does not cover the zero shifts in its divisor parameters and the principal
+product chi^2; Tao--Teravainen supplies no stated variable-M transfer either.
+Neither the rare/common Goldbach pair nor the Buchstab one-sided target is
+estimated here. Preserve the polynomial identities and bounds for future
+combinations with this or another arithmetic ingredient. Five finite tests
+check exact hyperbola recombination, log-form cancellation, conductor factors,
+and the failed multiplier substitution; they are not tests of an actual zero
+or an infinite prime estimate. Overall research remains active.
+Sol reviewer `/root/sieve_review` independently passed both the theory and
+actual files. The five focused tests passed normally in0.088s and under
+Python -O in0.093s. Reassessment: `changed-under-evidence` within30 minutes;
+retain the coefficient-one component, leave the variable-M transfer open.
+No new actual coverage, zero, numerical onset, publication, push, foreground
+work, installs or manual wake queue. The saved Qwen-unavailable exception
+remains unchanged; this was active execution, with no intervening idle work
+claimed.
