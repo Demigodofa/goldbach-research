@@ -1509,3 +1509,47 @@ remain OPEN; latest original-affine stays2b8cf98, formal conservation
 6f9a77b stays distinct from the signed gap, and polynomial tools survive.
 No research process is left running at this checkpoint. The overall goal
 remains active, without claiming work during execution gaps.
+
+The next pursuit, **220920c**, closes the smooth MODEL box geometry:
+`full_model_box_kernel.py` proves sum_q|E_q|<<Y^(1-1/4096+epsilon)
+for ALL integer moduli throughout 1/5<=b<=13/25,
+0<=x<=(1-b)/2,0<=y<=1/2, with the stated full period/frequency caps,
+nonunit modes, integer axes and overlap. This is not sieve transfer.
+
+Swapping the balanced grouping gives a broad regional theorem with
+bare exponent<=63/64 and a paid squarefull cutoff Z=Y^(1/256). The
+residual strip requires two new transfers: rectangular divisor shifts
+with an arbitrary coupled periodic local factor, and exact grouping of
+the completed h,k variables after fixing kappa modulo J. The local
+factor remains periodic mod rJ even when q and J share primes. The
+prime/two-prime core amplification also retains unequal interval lengths.
+The total period cost is J^5; no coupled weight is separated for free.
+
+The grouped recursion L2 mass is merely bounded, not D^-1/2. Small
+divisors use the nonnegative modulus powers of the rectangular bounds;
+large divisors use their volume1/D. Complementary simple-prime nonunit
+partitions pay1/Ds and preserve the local period. The critical residual
+exponents at full caps are1-(19/8)/4096,1-(81/16)/4096 and1-2/4096,
+all below the uniform claim. Earlier failed combinations and the
+prime-square component remain available with their original boundaries.
+
+Eight NEW exact checks passed normally in0.148s and under -O in0.134s.
+Sol `/root/sieve_review` passed the theory and actual proof/code/tests.
+The checks cover shared periods/nonunit kappa, grouped mass=1 witnesses,
+rectangular moment normalization, exact supports/costs and domain cuts.
+This pursuit began10:15:59 UTC and returns `changed-under-evidence`
+before its10:45:59 ceiling. No old experiment or outside action occurred;
+Qwen remains unavailable without retry and no manual wake was queued.
+
+The next test concerns actual arithmetic: can a positive upper-sieve
+majorant of a weaker fixed-power cofactor roughness condition preserve
+harmonic density while fitting all original sieve-index, period and
+frequency costs within the saving? The actual family allows an arbitrary
+rough subset, so direct treatment as a smooth/short-period weight is
+invalid. Test positivity, density, M's coprimality/discriminant cases
+and amplitude regularity explicitly before transferring the theorem.
+Original sieve transfer and signed prime correlation remain OPEN;
+latest original-affine remains2b8cf98 and formal conservation6f9a77b
+still leaves its signed difference unestimated. Polynomial tools survive.
+No research process is left running at this checkpoint. The overall goal
+remains active, without claiming work during execution gaps.

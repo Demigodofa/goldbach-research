@@ -35,9 +35,11 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **90488ef**, the ALL-integer-modulus
-unbalanced-model saving and prime-square correlation component.
+Latest reviewed RESEARCH commit: **220920c**, the FULL smooth MODEL
+hyperbola-box domain for ALL integer moduli.
 Latest ORIGINAL-AFFINE: **2b8cf98**. The handoff is committed later.
+Preceding checkpoint **83dce5e** preserved the all-integer unbalanced
+MODEL saving and prime-square component **90488ef**.
 Preceding checkpoint **912ec87** preserved the ALL-squarefree saving
 **2c8d197** and its failed squarefull-residue budget.
 Earlier checkpoint **228c342** preserved
@@ -62,8 +64,10 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-First read `all_moduli_unbalanced_kernel.py`, the latest all-integer
-unbalanced saving and separate prime-square four-factor component.
+First read `full_model_box_kernel.py`, the full-domain MODEL proof,
+grouped-period transfer, rectangular bounds and exact budget API.
+Then `all_moduli_unbalanced_kernel.py` supplies the all-integer
+unbalanced saving, degeneracy recursion and prime-square component.
 Then use `squarefree_unbalanced_kernel.py` for its divisor-shift and
 prime/core dependencies and the retained failed squarefull-residue budget.
 Earlier dependencies, as needed:
@@ -99,7 +103,62 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: repeated factors stay inside the preserved shift factor
+## Latest pursuit: the full smooth MODEL box domain is covered
+
+**220920c**, `full_model_box_kernel.py`, proves
+ sum_q |E_q| <<Y^(1-1/4096+epsilon)
+for EVERY integer modulus and the ENTIRE canonical domain
+ 1/5<=b<=13/25, 0<=x<=(1-b)/2, 0<=y<=1/2,
+with the same smooth MODEL, arbitrary joint periods including gcd(q,J)>1,
+all nonunit modes, H,J0<=Y^(1/4096), and all axes/overlap paid.
+This closes the model's box geometry; it does NOT transfer sieve weights.
+
+The exact domain partition uses the retained pointwise, linear and energy
+bounds. Swapping the balanced grouping covers max(b,x) in[9/32,15/32]:
+its bare exponent is<=63/64, and Z=Y^(1/256) pays the old squarefull split.
+Both head/tail reach at most1-3/4096. The remainder has b>15/32,
+31/128<x<17/64 and49/100<y<=1/2, handled by a new grouping mechanism.
+
+After the exact period lift and prime-power recursion, fix kappa modJ
+and group w=eta*kappa, where h=Hdiv*eta,k=Kdiv*kappa. The retained local
+kernel is an ACTUALLY coupled function periodic mod rJ in both w,l.
+The complement is squarefree and coprime to J. Divisor shifts preserve
+this periodic kernel, so unequal interval lengths can be kept. The
+prime/two-prime core has rectangular norm R^(11/64)*(MN)^(5/16), with
+its shift/support conditions checked. The total period charge is J^5.
+
+Important normalization: grouping gives only bounded recursion L2 mass,
+not D^-1/2. Small D use the nonnegative modulus powers in the displayed
+bounds; large D retain volume1/D. Complementary simple-prime zero modes
+have factor1/Ds; their masks preserve the rJ period. Exact norm=1
+fixtures prevent silently reusing the stronger fixed-h mass bound.
+At full caps the decisive residual exponents are
+ 1-(19/8)/4096 (divisor shifts), 1-(81/16)/4096 (core),
+ 1-2/4096 (large degeneracy divisors).
+All are below the uniform claim1-1/4096. The old budget failures and
+prime-square correlation remain valid components, with their own scopes.
+
+Eight NEW checks passed normally in0.148s and under -O in0.134s.
+Sol `/root/sieve_review` passed the independent derivation, actual proof,
+implementation and tests. This pursuit began10:15:59 UTC and returned
+`changed-under-evidence` before its10:45:59 ceiling. No old experiment,
+outside action or manual wake queue occurred. Qwen remains unavailable.
+
+Next concrete question: can a POSITIVE upper-sieve weight replace the
+original arbitrary rough-cofactor subset while preserving its harmonic
+density and keeping every period/frequency/index cost inside the saving?
+`rare_affine_small_cofactor.py` defines that actual family and its affine
+Poisson step. A weaker fixed-power roughness cutoff is a candidate, not
+a proved transfer. Test majorant positivity, density, coefficient M's
+coprimality/discriminant cases, smooth amplitudes and all three original
+sieve indices. Do not simply call an arbitrary rough indicator smooth.
+Original sieve transfer and the signed prime correlation remain OPEN;
+latest original-affine stays2b8cf98 and formal conservation6f9a77b still
+does not estimate its signed difference. All polynomial tools survive.
+No research process is left running at this checkpoint; the overall goal
+remains active, with no claim of execution during pauses.
+
+## Previous pursuit: repeated factors stay inside the preserved shift factor
 
 **90488ef**, `all_moduli_unbalanced_kernel.py`, proves the SAME unbalanced
 MODEL box B=Y^(1/2),A=Y^(1/4),C=Y^(1/2),K=Y^(1/4) for EVERY integer q.
