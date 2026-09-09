@@ -3376,3 +3376,34 @@ Candidate gap at17/20 is1/26; epsilon1/442 suggests a far-range saving
 energies and actual approximation errors, and check the new core mask.
 The speculative error envelope max(91/100,kappa) also needs review.
 No new height deletion from the source check alone. Fresh <=30 minutes.
+
+## 2026-09-09: Guth--Maynard input enlarges the actual cancelled square
+
+Started21:52:54 UTC, reassessed21:59:54 UTC, progress. Resumed verified
+clean main60ba300; reviewed mathematics **6942c66**,
+guth_maynard_spectral_cancellation.py. Previous goal turn made progress:
+the actual prime-offset formula refuted one positivity mechanism.
+The ACTUAL complex sum with both heights<=N^kappa is all-log small for
+every fixed kappa<13/15. GM2405.20552v2 Theorem1.2/eq1.4 is used only
+away from real part1, with fixed epsilon paid; a finite sigma grid
+provides uniformity. Huxley log-power/VK retain the near-one saving.
+At17/20 the far gap is1/26, epsilon1/442 and power saving1/520.
+Both unequal energy bases and baselines are included. The actual error
+stays N^.91L^14 by changing the majorant branch above h=5/6.
+
+The concrete retained core now has max(gamma,eta)>N17/20. Its axes,
+near strip, original sum cap and weights remain. Reconstruct before
+the old rectangle deletion to pay overlap correctly. The preserved
+theta4/5 tag family uses the separate larger-column mask eta>N17/20,
+with total N^(1983/2000)L^54+N^.91L^14. Full signed margin OPEN.
+Sol theory/actual-file PASS; seven guards normal0.013s/-O0.014s. No
+actual prime/zero computation, target average, RH, novelty or coverage.
+All source corrections and polynomial tools remain; overall goal active.
+
+Next unreviewed test: combine the exact GM exponent15u/(8-5u) on
+[1/5,3/10] with Huxley below and Ingham above. The proposed majorant
+D(u)<=2u+6/65 would enlarge the linear-height ratio family to fixed
+theta<59/71, after charging epsilon>0. Concrete candidatetheta53/64,
+epsilon1/1170 yields density excess109/1170 and decay1/1280. Pay
+both actual errors, the linear N/10 ceiling and the current individual
+eta>N17/20 mask before deleting anything. Fresh <=30-minute pursuit.

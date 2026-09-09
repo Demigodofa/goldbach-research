@@ -35,7 +35,15 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **3421a80**, in arithmetic_prime_offset.py:
+Latest reviewed RESEARCH commit: **6942c66**, in guth_maynard_spectral_cancellation.py:
+the ACTUAL COMPLEX sum with BOTH heights<=N^kappa is all-log small for
+EVERY fixed kappa<13/15. A fixed-epsilon Guth--Maynard bound is used
+only away from real part1, with log-power Huxley/VK retained near1.
+The actual stationary error stays N^(91/100)log^14N. Concrete cutoff
+is now17/20: the core has max height>N^(17/20), with prior axes/strip
+and original cap. The previous theta4/5 tag deletion remains with the
+new separate column mask. The full signed lower margin remains OPEN.
+Previous **3421a80**, in arithmetic_prime_offset.py:
 the REAL actual smooth band equals the ordered odd-prime sum
 sum logp logq Re W_[p/(p+q)](p+q-N)+O_chi(sqrtN log^7N), where
 W_a(k)=(1/pi)int chi(av)chi((1-a)v)exp(-ikv)dv. The transfer pays
@@ -426,7 +434,40 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: the actual prime-offset formula has unavoidable signed weights
+## Latest pursuit: a density patch extends actual cancellation past five-sixths
+
+Started21:52:54 UTC, reassessed21:59:54 UTC, progress. Resumed verified
+clean main60ba300; reviewed mathematics **6942c66**. The previous goal
+turn made progress: the actual prime-offset identity and a positivity
+falsifier were proved. The new theorem covers every fixed kappa<13/15,
+with no endpoint or uniformity as kappa approaches it. It is actual
+complex cancellation, not a density-only surrogate or absolute bound.
+Use GM2405.20552v2 Theorem1.2/eq1.4 only for u>=1/10, fixed epsilon
+made uniform by a finite sigma grid; near1 retain Huxley log-power and
+VK. At kappa17/20, gap1/26, epsilon1/442 and saving1/520 are paid.
+The stationary-error envelope splits at h=5/6: it is <=91/100 below,
+and <=h<91/100 above. All Gamma errors are absorbed because13/15<9/10.
+Rebuild the exact core before old rectangle deletions, remove the full
+17/20 square, and subtract its already-paid axis/strip intersections.
+The prior theta4/5 union now has individual eta>N17/20 and costs
+N^(1983/2000)L^54+N^.91L^14. No coupled mask entered the operator bound.
+Sol theory/actual-file PASS; seven guards normal0.013s/-O0.014s. Sources,
+polynomial tools and runtime limits persist; the full margin stays OPEN.
+
+Next concrete question, UNREVIEWED: can the sharper piecewise density
+shape enlarge the selected linear-height tag family from theta<9/11
+to theta<59/71? The candidate combines Huxley for u<=1/5, GM's actual
+15u/(8-5u) for1/5<=u<=3/10, and Ingham above3/10. Its proposed
+envelope is D(u)<=2u+6/65, with a fixed epsilon explicitly charged to
+the GM piece. If valid, E_Y(Z)<=Z Y^(6/65+epsilon)L^51 for Z>=Y;
+the ratio bound has decay [1-a-(1+a)theta]/2, a=6/65+epsilon.
+Test fixed theta=53/64 with epsilon1/1170, predicting a109/1170 and
+decay1/1280, including BOTH actual errors at the linear N/10 ceiling
+and the current separate eta>N17/20 core mask. Verify every interval
+and source-loss convention; no theta endpoint or uncharged epsilon.
+Fresh <=30-minute pursuit; no new ratio family yet promoted.
+
+## Previous pursuit: the actual prime-offset formula has unavoidable signed weights
 
 Started21:41:24 UTC, reassessed21:50:22 UTC, changed-under-evidence.
 Resumed verified clean main530acc2; reviewed mathematics **3421a80**.
@@ -456,7 +497,7 @@ is now falsified. Preserve the transform and norm bounds, but do not
 repeat positivity algebra or claim the prime-offset identity supplies
 the missing correlation. A different quantitative input is the next test.
 
-Next concrete question, UNREVIEWED: can Guth--Maynard zero density extend
+The then-next question, answered in6942c66 above: can Guth--Maynard zero density extend
 the ACTUAL full signed rectangle from every fixed kappa<5/6 to every
 fixed kappa<13/15, concretely17/20? Fresh primary source checked during
 reassessment: arXiv2405.20552v2 (7Apr2026), Theorem1.2 and eq(1.4),
@@ -3297,7 +3338,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_arithmetic_prime_offset` (five guards) and
+Latest tests: `python -m unittest test_guth_maynard_spectral_cancellation` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
