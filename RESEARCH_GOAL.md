@@ -647,3 +647,25 @@ residual remain unproved; other exceptional-conductor regimes are still
 outside this theorem. No new actual Goldbach coverage, numerical onset,
 zero detection, priority search, publication work or wake queue. Overall
 research remains active.
+
+The next pursuit proved a conditional rare-sign candidate-pool theorem in
+`rare_prime_sieve.py`. On the exact suppression classes F_D, allowed unit
+pairs always have opposite character signs, and A/phi(D) is1 or1/2. Under
+the stronger actual-zero condition 0<t=(1-beta)log(Y)<=1/log(Y), with
+D<=Y^(delta/4), every central suppressed target has >>_delta Y*t/log(Y)^2
+primes of sign+ whose reflected partners are coprime to D and have no prime
+factor at most ceil(Y^(delta/u)), for sufficiently small fixed delta and
+large fixed integer u. Quantitative Linnik progression errors, normalized
+CRT counts and Ford's fundamental lemma keep the entire sieve remainder
+small relative to the rare-prime population. Integer rounding and prime
+powers are charged. The partners have fewer than u/delta prime factors
+WITH MULTIPLICITY; they are not proved prime or P_2. Sol checked the theory
+and actual files. Five exact tests passed normally and with Python -O.
+A finite guard, D31,m2790,p1459,m-p=11^3, shows why the sign and roughness
+conditions alone do not force primality; it asserts no exceptional zero.
+For sign- composites, even total factor multiplicity requires a sign+
+factor, whereas odd multiplicity can use only sign- factors. The remaining
+question is control of composite partners within the proved candidate pool.
+The pursuit returned `changed-under-evidence` within30 minutes. No actual
+zero, numerical onset, new Goldbach coverage, priority search, publication
+work or wake queue. Overall research remains active.
