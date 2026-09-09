@@ -35,9 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **a771937**, exact unexceptional Vaughan
-remainder, failed generic coefficient transfer, and a negligible covariance
-diagonal. The weighted off-diagonal estimate is OPEN.
+Latest reviewed RESEARCH commit: **a968833**, an ACTUAL restricted divisor
+convolution with separate arithmetic coefficients and error
+O(Y^(1983/2000+epsilon)); its signed gcd main remains explicit. Larger
+product coefficients and the full unexceptional correlation stay OPEN.
+Previous **a771937** isolated the exact Vaughan remainder, failed generic
+coefficient transfer, and negligible covariance diagonal.
 Latest COVERAGE remains **9b6e7b4**, prime cutoff bridge
 S_z-S_theta=o(Yt), positive-first prime asymptotic P_g=S_2(m)t I_g+o(Yt),
 and CONDITIONAL coverage of every even target in the eligible central band.
@@ -47,6 +50,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **5842cd2** preserveda771937.
 Previous checkpoint **ce40960** preserved9b6e7b4.
 Previous checkpoint **1e71488** preserved2b72af7.
 Previous checkpoint **e436401** preserved e5c955d.
@@ -79,7 +83,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `unexceptional_vaughan_gate.py`.
+For the next unexceptional lane first read `free_divisor_correlation.py`,
+then `unexceptional_vaughan_gate.py` for the full remaining arithmetic sum.
 Preserve `prime_cutoff_bridge.py`, its conditional coverage and exact
 remaining scope. Then `rare_divisor_calibration.py`, the two cutoffs now
 connected by that bridge, and `rare_class_elimination.py`, the coverage consequences
@@ -125,7 +130,52 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: exact unexceptional remainder and failed generic transfer
+## Latest pursuit: an actual balanced convolution with two free variables
+
+**a968833**, free_divisor_correlation.py, keeps
+ h_r=sum_(ad=r,a>W,d>W)mu(a)Lambda(d), |h_r|<=log r,
+ T=sum_(rk in J)h_r E(m-rk).
+Only the floor strip W^2<r<=Y^gamma is already Type I. The full remainder
+includes k=1; the old smooth-model input still cannot absorb unchanged
+Mobius/prime coefficients just because this k is called free.
+
+For fixed smooth F, separate actual coefficients alpha_M,beta_N bounded
+by log(2Y), and dyadic scales Y^gamma<=R,S<=Y^(51/100), the new theorem is
+ sum_(Mk+Nl=m)alpha_M beta_N F(Mk/Y,Nl/Y)
+  =Y I_F(m/Y)sum_(gcd(M,N)|m)alpha_M beta_N gcd(M,N)/(MN)
+    +O_(F,epsilon)(Y^(1983/2000+epsilon)).
+It applies to h_M,h_N in the Type-II-by-Type-II term. This is an ACTUAL
+arithmetic-coefficient estimate, not a substitution into the old smooth
+MODEL. The fixed smooth physical-variable cutoff is part of the theorem.
+
+For g=gcd(M,N)|m, M=gu,N=gv,X=Y/g, Poisson in k gives prefactor
+X/(uv), phase e_v(h*(m/g)*inverse(u)), and H0=uv/X. Fixed-box Mellin
+separation leaves the actual coefficients outside completion. Bettin--
+Chandee Theorem1 permits these separate sequences directly. BOTH source
+terms, all three L2 norms, the gcd sums, H0<1 padding, and Schwartz tails
+are paid. With R=Y^r,S=Y^s,g=Y^d, the two complete error exponents are
+ E1=3/20+7(r+s)/10+max(r,s)/4-9d/5,
+ E2=7(r+s)/8+max(r,s)/8-15d/8.
+Their worst values are1983/2000 and153/160. The signed gcd zero mode
+is NOT identified with a positive prime/model main. Larger M or N, mixed
+Vaughan/model terms and short-free-variable regions remain uncontrolled.
+The old cofactor geometry's107/100 failure and generic completion loss
+remain valid; no new unexceptional prime-pair coverage follows.
+
+Started12:30:54 UTC, reassessed12:45:47 UTC, changed-under-evidence.
+Eight new guards passed normal0.003s and -O0.002s. Sol theory and actual
+proof/code/test review PASS. No old scan, outside action, or priority claim.
+Next question: can this signed gcd main be matched to the same small-
+modulus Ramanujan projection used in the unexceptional comparison?
+Concrete test: derive the exact coefficient identity, cost the moduli
+q>Y^delta tail, then check whether the resulting term actually cancels an
+existing term of T. A formal rewrite alone is insufficient; preserve any
+large-product/mixed remainder. This is the next bounded hypothesis, not
+a completed cancellation estimate. Give it a fresh <=30-minute clock.
+Conditional coverage9b6e7b4, polynomial identities and model bounds stay
+available. Goal active; no research process is left running at checkpoint.
+
+## Preceding pursuit: exact unexceptional remainder and failed generic transfer
 
 **a771937**, unexceptional_vaughan_gate.py, derives the exact remaining sum
  T=sum_(ab in J,a>V0,b>U0) mu(a) B_U0(b) E(m-ab),
@@ -153,7 +203,7 @@ bound on the weighted OFF-DIAGONAL is needed. Its linked forms satisfy
 Started12:16:10 UTC, reassessed12:29 UTC, changed-under-evidence. Nine
 new guards passed normal0.008s and -O0.008s; Sol theory/actual-files/delta
 review PASS. No unexceptional prime estimate, old scan or outside action.
-Next UNTESTED question: retain Vaughan's free divisor variable1 instead
+The next question, now tested in a968833 above, was to retain the free1 instead
 of hiding it in B_U0, and test whether a legal Poisson/dispersion step can
 use it while keeping Mobius and prime coefficients outside completion.
 Derive the exact multilinear terms and cost the SHORT free-variable cases,
@@ -1215,7 +1265,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_unexceptional_vaughan_gate.py` and the
+Latest tests: `python -m unittest test_free_divisor_correlation.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

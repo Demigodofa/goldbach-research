@@ -1756,3 +1756,44 @@ for every short-variable region including k=1. Full arithmetic Type II,
 not its smooth/periodic replacement, is the target. Use a new <=30-minute
 clock; preserve any remaining correlation. No unexceptional coverage is
 claimed. Goal stays active; no process remains running at this checkpoint.
+
+## 2026-09-09: actual balanced divisor convolution with free variables
+
+Started12:30:54 UTC, reassessed12:45:47 UTC, changed-under-evidence.
+Resumed clean main5842cd2. Reviewed mathematics **a968833**, in
+free_divisor_correlation.py, retains the exact grouping
+ h_r=sum_(ad=r,a>W,d>W)mu(a)Lambda(d), |h_r|<=log r,
+ T=sum_(rk in J)h_r E(m-rk).
+The tiny floor strip r<=Y^gamma is Type I; larger r with k=1 persists.
+Merely keeping that k does not license the saved smooth-model input.
+
+A changed grouping gives a POSITIVE component: after expanding Vaughan
+on both sides, for coefficient scales Y^gamma<=R,S<=Y^(51/100), fixed
+smooth F and actual separate coefficients bounded by log(2Y),
+ sum_(Mk+Nl=m)alpha_M beta_N F(Mk/Y,Nl/Y)
+  =Y I_F(m/Y)sum_(gcd(M,N)|m)alpha_M beta_N gcd(M,N)/(MN)
+    +O_(F,epsilon)(Y^(1983/2000+epsilon)).
+This applies to the arithmetic h_M,h_N themselves. Poisson acts only on
+the free k variable; a fixed-box Mellin expansion separates the smooth
+coupled factor while preserving the outside arithmetic coefficient norms.
+Bettin--Chandee Theorem1 then applies directly. Both source terms, gcd
+conditions and divisors of m, negative frequencies, unit reduced variables,
+small-frequency padding and the Schwartz tail are explicitly included.
+The two worst exponents are1983/2000 and153/160, a17/2000 margin.
+
+This is a restricted ACTUAL coefficient convolution, beyond the prior
+smooth/periodic model input. Its SIGNED gcd main is still explicit. No
+positive prime main, bound on all larger factors or mixed terms, or full
+unexceptional T=o(Y) follows. Conditional coverage9b6e7b4 and previous
+polynomial/model components remain unchanged. In particular, the failed
+old cofactor grouping and generic Fourier-completion budgets are preserved
+as method-specific limits, not broad impossibility assertions.
+
+Eight exact guards passed normal0.003s and -O0.002s. Sol reviewed theory
+and the actual proof/code/tests, PASS. No scan, publishing or other outside
+action occurred. Next bounded question: compare the signed gcd main with
+the small-modulus Ramanujan projection of the same coefficients. The test
+must pay the q>Y^delta tail and check whether an actual term of T cancels;
+an exact main-term rewrite alone will not close the remaining estimate.
+Keep all large-product and mixed remainders explicit, and start a fresh
+<=30-minute clock. Goal active; no process remains running at checkpoint.
