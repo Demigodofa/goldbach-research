@@ -35,7 +35,19 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **043cfe0**, in zero_packet_realpart_localization.py:
+Latest reviewed RESEARCH commit: **e368c38**, in rapid_complementary_phase.py:
+an N-dependent dense positive ARTIFICIAL model with phase
+lambda_N*a+N^-1/10*sin(N1/10*(a-1/2)) has exact paired value
+-cN+O(N9/10), c>0, while its normalized exact-window projections
+against EVERY phase in the common bounded C3 class, with |g'|>=c,
+are O(N^-1/10). This includes the prior controlled prime-phase class.
+All O(K) derivative cells, Euler cost, exact-window errors and periodic
+averaging are paid. Thus the marginal controlled-phase tests alone
+cannot imply paired cancellation. This model lacks prime support,
+Type I identities and actual zeta-zero structure. Its growing higher
+derivatives are outside the existing prime theorem; no contradiction
+or new actual band bound. Turn next to actual zero-detecting structure.
+Previous **043cfe0**, in zero_packet_realpart_localization.py:
 within the ACTUAL smooth T=N9/10 band, the contribution from pairs
 where EITHER real part is <=16/25 or >=19/25 is O_A(N/log^A N)
 for every fixed A. Only BOTH real parts in(.64,.76) remain for this
@@ -3783,7 +3795,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_zero_packet_realpart_localization` (eight guards) and
+Latest tests: `python -m unittest test_rapid_complementary_phase` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

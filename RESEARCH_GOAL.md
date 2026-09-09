@@ -3754,3 +3754,52 @@ nonnegative nonzero chi. Failure of either uniform projection or actual
 window calculation falsifies this model test. It would limit this inverse
 implication, not actual primes or all uses of the retained tools.
 Fresh <=30 minutes; no claim yet and overall research goal remains active.
+
+## 2026-09-09: controlled C3 projections alone do not control the pair
+
+Started23:47:00 UTC, reassessed23:52:05 UTC, changed-under-evidence.
+Resumed clean main96db12d. Previous goal turn made progress through
+actual real-part localization. Reviewed mathematics **e368c38**, in
+rapid_complementary_phase.py, proves the proposed ARTIFICIAL rapid
+complementary model works: positive b_N in[.5,1.5], phase
+lambda_N*a+K^-1 sin(K*(a-.5)), K=N1/10, gives EXACT window pair
+-cN+O(N9/10), with fixed c>0 by periodic averaging. Its centered
+coefficient probes are O(N9/10) uniformly over bounded C3 phases
+and bounded C1 amplitude variation. The normalized FULL window
+projections, with |g'|>=c, are O(N^-1/10), beating the existing
+actual-prime projection exponent while the paired main persists.
+
+The O(K) second/third derivative cells, the dominant Euler O(T)
+cost, local window Taylor K/T, and periodic N/K error are retained.
+The precise inference from these marginal phase tests to paired
+cancellation fails. This does not change any actual-prime theorem:
+the model's higher derivatives grow, and prime support, Type I
+identities, real-part localization and the zeta spectrum are absent.
+Sol theory/actual-file PASS; seven guards normal0.001s/-O0.000s.
+No model experiment claimed to be actual primes or actual zeros.
+The full signed margin and overall goal remain OPEN.
+
+Next concrete question: can ACTUAL zero-detecting structure remove
+the nondetected columns of the remaining(.64,.76) band, leaving a
+precise shared Dirichlet-polynomial condition on every surviving zero?
+Primary locators checked: Guth--Maynard2405.20552v2 Section13.1,
+printedpp48-49, https://arxiv.org/pdf/2405.20552v2 ; and
+Maynard--Pratt, https://arxiv.org/pdf/2206.11729 , Definition22 and
+Lemmas23-24 printedp16, Appendix C pp36-37. Confirm the latter PDF
+version and audit the Appendix C proof before importing its uniform
+bound. The paper's later Hypothesis F/finitely-many-lines conclusions
+are NOT authorized assumptions and must not be imported.
+
+The source detector uses dyadic lengths M between T1/100 and
+T1/2(logT)^2, coefficients (sum_(d|n,d<=2T1/100)mu(d))*exp(-n/sqrtT),
+and |D_M(rho)|>=1/(3logT). Every zero is Type I or Type II, possibly
+both. Lemma24 states the Type II count above sigma is
+O(T^(2(1-sigma)) log^C T). Define the complement of the Type I
+condition to obtain a disjoint split; do not presume the original
+types are disjoint. If verified uniformly on[.64,.76], layer cake
+predicts its coefficient energy O(N^-6/125 log^(C+1)N), since
+(.9)*2u-2u=-u/5 and u>=6/25. The existing full/masked Gram
+argument would then delete those actual columns with a power saving.
+This is a falsifiable source-and-transfer test, not yet a proved result.
+Keep these zero-detection Type I/II names distinct from Vaughan sums.
+Fresh <=30 minutes; no further artificial phase family is needed now.
