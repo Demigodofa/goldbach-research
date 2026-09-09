@@ -35,7 +35,12 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **dc7baa6**, proving actual main-scale
+Latest reviewed RESEARCH commit: **06acf3b**, transferring Maynard III's
+uniform-residue theorem to an ACTUAL signed divisor component with factored
+moduli up to Y^0.5002. Canonical factorizations retain the prime and bounded
+polynomial weights; moving residue m, model comparison and prime powers
+are paid. This is a restricted subset, not full beyond-half TI or coverage.
+Previous **dc7baa6** proves actual main-scale
 ABSOLUTE remainder mass for some central even target at every large Y,
 simultaneously for every normalized cutoff in the stated family. Taking
 absolute values after regrouping at n does not remove this obstruction.
@@ -67,6 +72,7 @@ Previous mathematics **e5c955d** eliminated polynomial positive-factor losses.
 Latest ORIGINAL-AFFINE remains **4e106b6**, the positive
 cofactor sieve transfer through M<=Y^(13/25). Both use the ADDED actual-zero
 large-V regime. The handoff is committed later.
+Previous checkpoint **6d0a20b** preserveddc7baa6.
 Previous checkpoint **65bf94b** preservedc19cb24.
 Previous checkpoint **35cc1e4** preserved02e1627.
 Previous checkpoint **45afe67** preserved3fcea6e.
@@ -106,7 +112,8 @@ state, since another session may have advanced it. Do not revert other work.
 Read the newest proof modules, using their dependencies as locators rather
 than rereading the entire repository:
 
-For the next unexceptional lane first read `absolute_remainder_obstruction.py`,
+For the next unexceptional lane first read `factored_prime_ap_transfer.py`,
+then `absolute_remainder_obstruction.py`,
 then `polynomial_joint_majorant.py`,
 then `optimized_cofactor_cutoff.py`,
 then `short_free_cancellation.py`,
@@ -159,7 +166,67 @@ Global Kevin instructions still apply. Current implementation/source state
 outranks this handoff. No fresh giant scan, broad experiment or old test
 rerun is required just to confirm already checked work.
 
-## Latest pursuit: full absolute summation is actually too large
+## Latest pursuit: actual signed transfer on factored moduli beyond half
+
+Started2026-09-09 14:24:20 UTC, reassessed14:38:06 UTC, progress.
+Resumed clean main6d0a20b; reviewed mathematics **06acf3b**.
+`factored_prime_ap_transfer.py` proves O_A(Y/log(Y)^A) for a selected
+ACTUAL component of the prime-slot divisor expansion, uniformly for central
+even m and bounded lambda supported d<=V with lambda1=1. The prior
+polynomial weights are retained. No full remainder or new coverage follows.
+
+Primary input is Maynard III, arXiv:2006.08250v1, Theorem1.2 printedp3:
+https://arxiv.org/pdf/2006.08250
+Its nested residue sup allows the common moving target m. Choose fixed
+sigma1/2000, exponents(.3935,.025,.082), subtract1/10000 from each
+actual cap. The source inequalities have strict margins; the same fixed
+source parameters cover every endpoint x in[Y/2,Y] eventually.
+Actual caps(P,A0,B0) have exponents(.3934,.0249,.0819), productY^.5002.
+
+Keep U=V=floorY^(gamma/2), gamma in(5/12,1/2). Select(p,d) with p>U
+prime, d<=V, and d=h*a*b, p*h<=P,a<=A0,b<=B0. A SINGLE canonical
+ordered triple(p*h,a,b) per modulus suffices. Every modulus p*d has a
+unique prime factor>V, and the source permits composite first factors.
+This includes h>1 and avoids multiplicity. Any bounded coefficient mask
+depending on(p,d,m,Y) is allowed, including p*d>sqrtY; it must be independent
+of the progression variable k. The physical weight remains the common
+fixed smooth F(pdk/Y,(m-pdk)/Y). No unrelated endpoint maximum is claimed.
+
+Two logarithms are paid by increasing the source saving. Strong ordinary
+PNT changes pi(x)/phi(r) to real prime-log density; sum1/phi(r)<<logY.
+Tao2014Notes2 Cor39/Ex40 primary checked, separate from excludedNotes7.
+The elementary Gamma progression comparison extends to D=Y^.5002 with
+summed error YL S^(-1/2)exp(O(sqrtL))+D S^4, plus D*polylogs for lengths.
+Multiplying by logp remains power-small for modeldelta<=1/4800. The full
+nonreduced mean is0, but truncated Gamma is paid by these same errors.
+Partner proper powers costY^(.5+o(1)). Nonreduced progressions contain no
+prime partner>Y/2 once r<Y/2. The c=1 compensation vanishes ONLY in this
+component since p<=P<Y/2; d=1,k>1 remains. The full expansion is unchanged.
+
+Maynard II, arXiv:2006.07088v1 Defs1-2/Thm1.1 printedp2 is not a direct
+alternative: its constant depends on fixed residue a, and every triply
+well-factorable sequence at levelQ vanishes at moduli with prime factor
+>Q^(1/3). Here p>Y^(gamma/2)>Y^(5/24), while even allowed levelY^(3/5)
+has cube-rootY^(1/5). No permitted level padding repairs that support gap.
+This is a limitation of the specific import, not of polynomial weights.
+
+Seven finite guards pass normal0.003s/-O0.003s; Sol theory/actual-file PASS.
+They check exact exponent margins, canonical h>1 splitting, symbolic
+coefficient signs, nonreduced model means and balanced-factor support.
+No numerical asymptotic onset or source theorem was inferred from tests.
+Oxford accepted-PDF URLs returned403; arxiv v1 PDFs were readable. Do not
+retry the unchanged Oxford route. No model install or outside action.
+
+Next concrete question: does a positive logarithmic-size family of moduli
+p*d with BOTH factors prime near exponents(.30,.20) escape EVERY allowed
+Maynard III factor geometry, not just these caps? Test the full inequalities
+and quantify the surviving coefficient mass before seeking a signed estimate
+on that family. A coefficient-mass result alone would not bound its actual
+correlation. Do not spend another pursuit merely tuning this cap choice.
+Fresh <=30-minute clock required. Goal active; no research process remains
+running at this reviewed checkpoint.
+
+## Preceding pursuit: full absolute summation is actually too large
 
 **dc7baa6**, absolute_remainder_obstruction.py, fixes B=max(1,||G||infty),
 delta<=min(1/4800,1/(80B)), and a nonnegative fixed smooth F>=f0>0 on
@@ -1605,7 +1672,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_absolute_remainder_obstruction.py` and the
+Latest tests: `python -m unittest test_factored_prime_ap_transfer.py` and the
 same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

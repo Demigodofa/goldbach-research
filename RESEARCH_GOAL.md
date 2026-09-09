@@ -2057,3 +2057,51 @@ comparison error before importing any distribution conclusion. This is
 unproved; a label such as MPZ or well-factorable is insufficient. Fresh
 <=30-minute clock required. Goal active; no research process remains running
 at this checkpoint.
+
+## 2026-09-09: actual signed component gains a beyond-half distribution input
+
+Started14:24:20 UTC, reassessed14:38:06 UTC, progress. Resumed clean
+main6d0a20b; reviewed mathematics **06acf3b**, factored_prime_ap_transfer.py.
+Maynard III arXiv:2006.08250v1 Thm1.2 printedp3 has sufficient uniformity
+for the actual moving target m. Its absolute discrepancy over factored
+moduli allows retained prime and bounded Mobius/polynomial coefficients.
+
+Fixed source sigma1/2000, exponents(.3935,.025,.082), and actual cap
+exponents(.3934,.0249,.0819) give a real restricted levelY^.5002. The
+strict power slack makes the SAME source parameters valid at all endpoints
+in[Y/2,Y]. Select pairs(p,d) with p>U=V=floorY^(gamma/2), d<=V, and
+d=h*a*b where p*h,a,b obey those caps. Each modulus has a unique prime
+factor>V; one canonical ordered triple avoids multiplicity and allows
+composite p*h. This generalization retains h>1. Modulus-only bounded masks
+are allowed, including pd>sqrtY. Arbitrary k-dependent masks are not.
+
+The selected ACTUAL signed sum against the unchanged E=Lambda-Gamma_S
+is O_A(Y/log(Y)^A) for every fixedA. Common-weight Abel costs two logs;
+ordinary strong PNT, checked in Tao2014Notes2 Cor39/Ex40, pays the change
+from pi to real density. The elementary Gamma comparison extends to
+D=Y^.5002 with YL S^-1/2 exp(O(sqrtL))+D S4 and endpoint costs, all
+power-small at modeldelta<=1/4800. Nonreduced Gamma is retained in these
+errors; only its FULL mean is0. Nonreduced prime partners are impossible
+eventually, and proper powers costY^(.5+o(1)) by divisor counting. The
+c=1 compensation vanishes in this component because p<Y/2; d1,k>1 stays.
+
+The direct Maynard II triply-well-factorable import fails both its fixed-a
+uniformity gate and an exact support test: balanced factorization forces
+coefficients with prime factor>Q^(1/3) to0, but our p>Y^(gamma/2)>Y^(5/24)
+exceeds even the maximal allowed cube-root levelY^(1/5). Level padding
+does not help. This preserves the polynomial tools for other combinations.
+
+Seven finite guards pass normal0.003s/-O0.003s; Sol theory/actual-file PASS.
+PNT normalization and truncated nonreduced Gamma were explicitly checked.
+Oxford accepted-PDF403 preserved; readable arxivv1 supplied primary text.
+No scan, installation, foreground action or manual wake was performed.
+
+This is an actual partial estimate, not full beyond-half TI, new coverage,
+or a percentage of Goldbach solved. Next test: do two-prime moduli with
+factor exponents near(.30,.20) leave positive logarithmic coefficient mass
+outside EVERY permitted source factor geometry? Check all parameter
+inequalities, then identify the exact signed estimate needed there. A
+coefficient-mass lower bound would not itself bound the actual correlation.
+Do not repeat the cap calculation without a new discriminator. Fresh
+<=30-minute clock required. Goal active; no research process remains running
+at this reviewed checkpoint.
