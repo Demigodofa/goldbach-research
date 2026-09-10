@@ -5001,3 +5001,24 @@ Three guards normal/optimized and independent review PASS.  Status `progress`.
 Next derive the exact l-Fourier representation and locate the joint active-h,
 positive-dyadic-multiplier region.  Tensor resonance is the falsifier.  The
 same-row and d>1 obligations and the signed Goldbach gap remain OPEN.
+
+### 2026-09-10: exact active-band reduction after l-Fourier diagonalization
+
+Zero-padding the aligned row sequence to any `L>=2A-1` gives the exact identity
+`C_j(m)=L^-1 sum_k W_j(k)G_m(k)`, where `W_j` is the dyadic cosine multiplier
+and `G_m` is active h-band energy minus its uniform `rho_m` share.  This locates
+the possible tensor resonance without claiming spectral equidistribution.
+
+Splitting `C_j=D_j+O_j` into active and outside h modes is sharper.  The
+outside coefficient is `-rho_m`, so pairwise Cauchy proves
+`max(O_j,0)<=P_j`.  Only the positive signed active-band autocorrelation needs
+a new bound: `max(D_j,0)<<N^epsilon P_j`.  Its largest measured ratios are
+`.00296848,.01150376,.01022114,.00278596` in the four saved configurations;
+nearly all positive total covariance is supplied by the already-paid outside
+term.  H=2--4 gives no asymptotic theorem.
+
+Arbitrary-array identities at three padding factors, actual-data guards and
+independent review PASS.  Status `aha-candidate`, new-to-this-task.  Next split
+`D_j` by dyadic Mobius-divisor ranges and test its factor diagonal before any
+absolute values.  A principal-size positive diagonal falsifies that route.
+The same-row, d>1 and full signed Goldbach estimates remain OPEN.

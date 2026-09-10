@@ -4792,52 +4792,6 @@ selectors. Free modulus-dependent endpoints or a surviving `N^.18` frequency
 cluster falsify this refinement. The fixed Mobius covariance and signed
 Goldbach correlation remain OPEN; no process runs.
 
-## 2026-09-10: an exact dyadic-lag sublemma survives resonance testing
-
-`mobius_dyadic_lag_gate.py` states one exact d=1 sublemma.  For the aligned
-rows `Phi_(m,l)`, row energy `E_(m,l)`, and dyadic block
-`D_j={2^j<=Delta<min(2^(j+1),A)}`, it defines the signed block covariance
-`C_j` with every prime weight `(log m)^2/m`.  Its positive Cauchy scale is
-
-`P_j=sum_m (log m)^2/m * rho_m * 2 sum_(Delta in D_j,l)
-sqrt(E_(m,l)E_(m,l+Delta))`, where `rho_m=|I_m|/(m-1)`.
-
-The proposed sublemma is `max(C_j,0)<=C_epsilon*N^epsilon*P_j`, uniformly in
-`j` and every integer A for which all `J_m=(mA,2mA]` are admissible.  This is
-an exact H^-1-scale statement relative to the coefficient-blind Cauchy bound.
-Identical arbitrary resonant rows make `C_j/P_j` asymptotic to `1/rho_m`, so
-the statement requires the fixed Mobius--log arithmetic.  Even if proved,
-the same-row term and d>1 transfer remain separate obligations.
-
-The measured signed ratios by increasing dyadic block are:
-
-`N=32000,A=9,H=2`: `.56517,-.08626,-.00395,-.20842`;
-
-`N=200000,A=19,H=3`: `.33922,.10709,-.05897,-.00498,.03086`;
-
-`N=200000,A=30,H=3`: `.34099,.11155,-.05439,-.00887,.01364`;
-
-`N=1200000,A=39,H=4`: `.30564,.12891,-.05906,-.00171,.01024,.00694`.
-
-No tested block exceeds its H^-1 Cauchy budget, so the concrete sublemma
-survives this finite falsification attempt.  The main sign pattern is shared
-across essentially every prime modulus: at N=1200000 all 444 moduli are
-positive on blocks 1 and 2--3, and all are negative on block 4--7.  Thus the
-observed gain is internal cancellation across lags, not cancellation from the
-prime-m average.  Tiny H,V and four blocks prove no uniform constant or trend.
-
-Three guards pass normally and optimized.  Independent review PASSed the
-annulus contract, FFT/energy identities, factor 2, dyadic partition, Cauchy
-scale, resonance comparison, and per-modulus diagnostics; it independently
-matched the m=457,Delta=1 ratio.  Status `progress`.
-
-Next concrete question: Fourier-transform the l-autocorrelation identity.
-Determine exactly which two-dimensional `(h,theta)` spectral region makes a
-dyadic block positive, then test whether the actual Mobius--log array avoids
-that region.  A tensor resonance concentrating in both active h and positive
-dyadic multiplier arcs is the falsifier.  The signed Goldbach estimate remains
-OPEN; no process runs.
-
 ## 2026-09-10: physical endpoints form aligned affine families
 
 Tracing the arbitrary `J_m` surrogate back through the actual product transfer
@@ -4980,3 +4934,94 @@ Mobius--log coefficients while retaining `q*Delta+(s-r)`?  A resonant family
 whose positive block contribution stays of principal size for growing `D`
 falsifies that blockwise mechanism.  The fixed band inequality and signed
 Goldbach correlation remain OPEN; no process runs.
+
+## 2026-09-10: an exact dyadic-lag sublemma survives resonance testing
+
+`mobius_dyadic_lag_gate.py` states one exact d=1 sublemma.  For the aligned
+rows `Phi_(m,l)`, row energy `E_(m,l)`, and dyadic block
+`D_j={2^j<=Delta<min(2^(j+1),A)}`, it defines the signed block covariance
+`C_j` with every prime weight `(log m)^2/m`.  Its positive Cauchy scale is
+
+`P_j=sum_m (log m)^2/m * rho_m * 2 sum_(Delta in D_j,l)
+sqrt(E_(m,l)E_(m,l+Delta))`, where `rho_m=|I_m|/(m-1)`.
+
+The proposed sublemma is `max(C_j,0)<=C_epsilon*N^epsilon*P_j`, uniformly in
+`j` and every integer A for which all `J_m=(mA,2mA]` are admissible.  This is
+an exact H^-1-scale statement relative to the coefficient-blind Cauchy bound.
+Identical arbitrary resonant rows make `C_j/P_j` asymptotic to `1/rho_m`, so
+the statement requires the fixed Mobius--log arithmetic.  Even if proved,
+the same-row term and d>1 transfer remain separate obligations.
+
+The measured signed ratios by increasing dyadic block are:
+
+`N=32000,A=9,H=2`: `.56517,-.08626,-.00395,-.20842`;
+
+`N=200000,A=19,H=3`: `.33922,.10709,-.05897,-.00498,.03086`;
+
+`N=200000,A=30,H=3`: `.34099,.11155,-.05439,-.00887,.01364`;
+
+`N=1200000,A=39,H=4`: `.30564,.12891,-.05906,-.00171,.01024,.00694`.
+
+No tested block exceeds its H^-1 Cauchy budget, so the concrete sublemma
+survives this finite falsification attempt.  The main sign pattern is shared
+across essentially every prime modulus: at N=1200000 all 444 moduli are
+positive on blocks 1 and 2--3, and all are negative on block 4--7.  Thus the
+observed gain is internal cancellation across lags, not cancellation from the
+prime-m average.  Tiny H,V and four blocks prove no uniform constant or trend.
+
+Three guards pass normally and optimized.  Independent review PASSed the
+annulus contract, FFT/energy identities, factor 2, dyadic partition, Cauchy
+scale, resonance comparison, and per-modulus diagnostics; it independently
+matched the m=457,Delta=1 ratio.  Status `progress`.
+
+Next concrete question: Fourier-transform the l-autocorrelation identity.
+Determine exactly which two-dimensional `(h,theta)` spectral region makes a
+dyadic block positive, then test whether the actual Mobius--log array avoids
+that region.  A tensor resonance concentrating in both active h and positive
+dyadic multiplier arcs is the falsifier.  The signed Goldbach estimate remains
+OPEN; no process runs.
+
+## 2026-09-10: a second Fourier transform isolates the dangerous term
+
+`mobius_lag_spectral_probe.py` exactly diagonalizes each dyadic l-lag block.
+For any zero-padding length `L>=2A-1`, it defines
+
+`Psi_m(k,h)=sum_(0<=u<A) Phi_(m,A+u)(h)e_L(-ku)`,
+
+`G_m(k)=sum_(h in I_m)|Psi_m(k,h)|^2
+-rho_m sum_(1<=h<m)|Psi_m(k,h)|^2`, and
+
+`W_j(k)=2 sum_(Delta in D_j) cos(2*pi*k*Delta/L)`.
+
+The exact identity is `C_j(m)=L^-1 sum_k W_j(k)G_m(k)`.  It holds for an
+arbitrary complex row array, not only the Mobius data.
+
+More usefully, split `C_j=D_j+O_j` into h inside and outside `I_m`, retaining
+coefficients `1-rho_m` and `-rho_m`.  Pairwise Cauchy proves exactly
+`max(O_j,0)<=P_j`, hence
+
+`max(C_j,0)<=max(D_j,0)+P_j`.
+
+Thus the outside-band contribution already has the required H^-1 coefficient.
+The new arithmetic obligation is only
+`max(D_j,0)<<_epsilon N^epsilon P_j`, the signed dyadic autocorrelation inside
+the active h-band.  This does not pay the same-row term or d>1.
+
+Normalized by `P_j`, the largest positive measured `D_j` is `.00296848` at
+`N=32000,A=9`, `.01150376` at `N=200000,A=19`, `.01022114` at
+`N=200000,A=30`, and `.00278596` at `N=1200000,A=39`.  In the positive total
+blocks, nearly all measured covariance comes from the already-paid outside
+term.  The active quantity is therefore much smaller in these runs, but H is
+only 2--4 and this is not an asymptotic bound.
+
+Two guards pass normally and optimized, including arbitrary complex arrays at
+padding factors 2,5,11.  Independent review PASSed the no-alias threshold,
+FFT signs, varying-rho aggregation, active/outside split, Cauchy reduction and
+all four receipts.  Status `aha-candidate`, new-to-this-task.
+
+Next concrete question: expand the remaining active `D_j` by dyadic Mobius
+divisor ranges before taking absolute values.  Determine whether its smallness
+comes from individually paid factor-diagonal blocks or signed interaction
+between divisor ranges.  A positive diagonal block of principal size is the
+falsifier.  Polynomial identities remain available as components.  The full
+signed Goldbach estimate remains OPEN; no process runs.
