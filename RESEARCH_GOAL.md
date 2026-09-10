@@ -4902,3 +4902,27 @@ family J_m, allowing the signed m-average to be used before the stronger
 arbitrary-selector supremum. Free endpoints or persistence of the known
 dense frequency-cluster loss falsifies that route. The fixed Mobius-band
 inequality and signed prime correlation remain OPEN.
+
+### 2026-09-10: exact endpoint alignment survives the physical transfer
+
+For a physical cofactor block `A<n<=2A`, expanding `d|n` and setting `n=d*l`,
+`q=dm` gives the common progression-index interval
+`floor(A/d)+1<=l<=floor(2A/d)`. The conjugated and reflected partner primes are
+exactly `q*l+r` and `N-q*l+r`. Their interval endpoints are therefore affine
+and residue-aligned modulo q, rather than arbitrary independent selectors in
+m. The strong arbitrary-`J_m` inequality remains sufficient if proved, but it
+is not forced by the original endpoint geometry.
+
+A finite d=1 test retains the exact Mobius tail, active angular band and outer
+prime weights. Every admissible dyadic affine location at N=32000 and N=200000
+has negative aggregate covariance for both orientations and `r=-H,0,H`; the
+ranges are `-.289474..-.009879` and `-.163491..-.000267`. The default
+N=1200000 block gives `-.1569` and `-.1775`. These results reject the earlier
+arbitrary-selector positive resonance on this actual-shaped family, but the
+near-zero margin and omitted full Schwartz-weighted r-sum give no sign or
+power theorem. Two guards normal/optimized and independent direct review PASS.
+
+Curiosity status `aha-candidate`, new-to-this-task. Next derive the full
+aligned `(d,m,l,r,h)` form before endpoint maximization and test whether its
+r-transform eliminates the long-block collision or dense-frequency loss.
+The fixed band inequality and signed prime correlation remain OPEN.

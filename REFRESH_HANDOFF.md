@@ -4791,3 +4791,45 @@ to average the signed active-band kernels before taking a supremum over
 selectors. Free modulus-dependent endpoints or a surviving `N^.18` frequency
 cluster falsify this refinement. The fixed Mobius covariance and signed
 Goldbach correlation remain OPEN; no process runs.
+
+## 2026-09-10: physical endpoints form aligned affine families
+
+Tracing the arbitrary `J_m` surrogate back through the actual product transfer
+recovers structure that the maximal-prefix estimate discarded. For a dyadic
+cofactor block `A<n<=2A`, prime companion m and shift r, the conjugated prime
+window is `(mA+r,2mA+r]`; the reflected integer window is
+`(N-2mA+r-1,N-mA+r-1]`. After expanding `d|n`, write `n=d*l` and `q=dm`.
+Exactly
+
+`floor(A/d)+1 <= l <= floor(2A/d)`,
+
+independent of m, and the primes are `q*l+r` or `N-q*l+r`. Thus both physical
+endpoints are aligned to the same residue modulo q. Arbitrary independent
+`J_m` locations are sufficient proof surrogates, not a necessary feature of
+the original correlation. The exact smooth kernel and r-sum still have to be
+retained; this observation does not supply their missing transfer.
+
+`mobius_structured_endpoint_probe.py` tests the unchanged d=1
+`mu_>V*log` coefficient on actual-shaped dyadic affine families. At N=32000,
+all admissible `A=9..15` and shifts `r=-H,0,H` in both orientations have
+negative aggregate OFF/DIAG, ranging `-.289474..-.009879`. At N=200000 all
+`A=19..32` remain negative, `-.163491..-.000267`. At N=1200000 the default
+block gives about `-.1569` conjugated and `-.1775` reflected. This sharply
+contrasts with the earlier arbitrary-selector positive ratios
+`.1383,.1161,.0600`, but the margin can approach zero and no asymptotic trend
+or sign follows. The selected block is actual-shaped, not asserted to be a
+literal finite detector block.
+
+Two guards pass normally and optimized. Independent review PASSed the exact
+endpoint conventions, d*l reduction, FFT normalization and surrogate scope,
+and direct-summed the first N=32000 modulus to within `5e-8`. Curiosity status
+`aha-candidate`, new-to-this-task: preserve q-aligned common progression
+indices as a possible arithmetic ingredient; abandon arbitrary endpoint
+selection as an assumed physical obstruction.
+
+Next concrete question: derive the exact aligned `(d,m,l,r,h)` energy before
+maximal-prefix Cauchy, with the Schwartz kernel and both reflected phases.
+Test whether completing the r-transform first removes the `Y^2` collision or
+the known `N^.18` frequency-cluster loss. Reduction to the same arbitrary
+selector norm, or either full loss with unchanged coefficient, falsifies the
+route. The signed Goldbach correlation remains OPEN; no process runs.
