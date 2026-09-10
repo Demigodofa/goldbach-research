@@ -5843,3 +5843,25 @@ perturbation proof.  First measure the minimum rowwise generalized eigenvalue
 under project scaling and attack its exact centered-divisibility factorization.
 Polynomial rowwise collapse is the falsifier.  The assembled exponent remains
 `.295`, and the signed prime correlation is open.
+
+## 2026-09-10 continuation: exact Mobius lcm identity, truncated L1 obstruction
+
+Every tested exact single-row Gram at project scaling retained 98%--99% of
+the ideal multiband minimum through `M=16001`.  A rowwise theorem specialized
+to the actual Mobius vector would be enough for the scalar lag denominator.
+Independent review verified both statements and their limits.
+
+For the actual Mobius-log coefficients, the complete squarefree divisor cube
+over a fixed lcm collapses exactly to
+`mu(q)[log(X)^2-sum_(p|q)log(p)^2]`.  The actual truncated interval destroys
+most of that cancellation: over `B=32` through `2048`, more than 90% and
+eventually 99.8% of grouped L1 mass comes from incomplete `q>B`, and the total
+remains on the finite `B^2` scale.
+
+The identity is retained, but the L1 proof route is rejected.  The next
+30-minute hypothesis is that the signed high-lcm coefficients cancel against
+the exact CRT count discrepancies across `q` for the actual Mobius vector.
+Measure the rowwise signed-to-absolute ratio at project scaling before seeking
+a bilinear estimate.  A ratio bounded away from zero across scales falsifies
+this route.  The assembled exponent remains `.295`; the signed prime
+correlation remains open.

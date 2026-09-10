@@ -136,6 +136,9 @@ def matrix_geometric_lag_probe(
     rows = {}
     minimum_input_eigenvalue = math.inf
     minimum_ideal_input_eigenvalue = math.inf
+    minimum_exact_row_frame = math.inf
+    minimum_exact_row_label = None
+    minimum_ideal_row_frame = math.inf
     for modulus in moduli:
         rho = len(_active_modes(modulus, shift_length)) / (modulus - 1)
         weight = math.log(modulus) ** 2 / modulus * rho
@@ -152,6 +155,15 @@ def matrix_geometric_lag_probe(
                 minimum_ideal_input_eigenvalue,
                 float(np.linalg.eigvalsh(ideal)[0]))
             frame = modulus ** 2 * logs ** 2 * totients / divisor_array ** 2
+            exact_row_minimum = float(
+                _generalized_spectrum(exact, frame)[0])
+            ideal_row_minimum = float(
+                _generalized_spectrum(ideal, frame)[0])
+            if exact_row_minimum < minimum_exact_row_frame:
+                minimum_exact_row_frame = exact_row_minimum
+                minimum_exact_row_label = (modulus, ell)
+            minimum_ideal_row_frame = min(
+                minimum_ideal_row_frame, ideal_row_minimum)
             rows[(modulus, ell)] = (weight, exact, ideal, frame)
 
     block_receipts = []
@@ -245,6 +257,11 @@ def matrix_geometric_lag_probe(
         "minimum_input_gram_eigenvalue": minimum_input_eigenvalue,
         "minimum_ideal_input_gram_eigenvalue":
             minimum_ideal_input_eigenvalue,
+        "minimum_exact_single_row_over_frame": minimum_exact_row_frame,
+        "minimum_exact_single_row_label": minimum_exact_row_label,
+        "minimum_ideal_single_row_over_frame": minimum_ideal_row_frame,
+        "exact_over_ideal_single_row_minimum_ratio":
+            minimum_exact_row_frame / minimum_ideal_row_frame,
         "linearization_step": linearization_step,
         "lag_blocks": tuple(block_receipts),
         "matrix_geometric_scalar_minorization_proved": True,

@@ -6480,3 +6480,47 @@ be proved `N^-eps` coercive by a direct divisibility/covariance argument?  Such
 a rowwise theorem would imply the matrix-geometric lag frame immediately by
 monotonicity and avoid curvature.  The assembled range remains `.295-delta`;
 the signed prime correlation remains OPEN.
+
+## 2026-09-10: rowwise frame survives, but lcm L1 collapse fails
+
+The direct rowwise generalized-eigenvalue falsifier was run over every tested
+prime-row cell at project scaling.  At `M=1009,4001,8009,16001`, the worst
+exact row/frame minima were
+
+`.198438,.181235,.160176,.151650`.
+
+They retained respectively `.982513,.987058,.988760,.991991` of the proved
+ideal multiband minimum.  Independent review reproduced the worst row labels
+and values.  This is strong finite support for a rowwise exact lower frame,
+but it is not a proof.  A result specialized to the actual coefficients
+`c_a=mu(a)` would suffice for the scalar lag denominator, although it would
+not prove the stronger Kubo--Ando operator statement.
+
+For those actual coefficients, grouping the frozen count error by
+`q=lcm(a,b)` exposes the exact complete-cube identity, for squarefree `q`,
+
+`sum_(lcm(a,b)=q) mu(a)mu(b)log(X/a)log(X/b)
+ =mu(q){log(X)^2-sum_(p|q)log(p)^2}`.
+
+The proof uses the local bivariate factor
+`-exp(u log p)-exp(v log p)+exp((u+v)log p)`: its first derivatives vanish and
+its mixed derivative supplies the prime-square-log correction.  This is a
+proved new-to-this-task arithmetic cancellation retaining the polynomial log
+weights.
+
+The actual interval `V<a,b<=B` truncates the Boolean divisor cube.  A fixed
+project-ratio sweep from `B=32` to `2048` found grouped/raw pair L1 ratios only
+falling from `.7060` to `.6064`, while the share from incomplete `q>B` rose
+from `.9019` to `.9984`.  After division by `log(X)^2`, grouped mass rose from
+`99.276` to `468080.5`, consistent with finite `B^2`-scale growth.  Therefore
+complete-cube lcm grouping plus triangle inequality does not improve the
+rowwise perturbation exponent.
+
+Independent review PASSed the rowwise spectra, complete identity, ordered-pair
+grouping, high/low lcm split, seven normal/optimized tests, and the negative
+interpretation.  Preserve the exact identity for a later signed argument.
+The next bounded question is whether the actual signs of the incomplete
+high-lcm coefficients cancel against the exact CRT count discrepancies as `q`
+varies.  Measure signed/absolute cancellation row by row; persistent ratios of
+constant size falsify that route.  Complete assembly remains `.295-delta`, and
+the signed prime correlation remains OPEN.

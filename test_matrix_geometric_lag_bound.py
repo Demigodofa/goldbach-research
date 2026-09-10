@@ -41,6 +41,13 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
         self.assertGreater(receipt["minimum_input_gram_eigenvalue"], 0)
         self.assertGreater(
             receipt["minimum_ideal_input_gram_eigenvalue"], 0)
+        self.assertGreater(
+            receipt["minimum_exact_single_row_over_frame"], 0)
+        self.assertGreater(
+            receipt["minimum_ideal_single_row_over_frame"], 0)
+        self.assertEqual(len(receipt["minimum_exact_single_row_label"]), 2)
+        self.assertGreater(
+            receipt["exact_over_ideal_single_row_minimum_ratio"], 0)
         for block in receipt["lag_blocks"]:
             self.assertGreater(
                 block[
