@@ -4568,3 +4568,7 @@ For the full periodized shift lattice, the actual C0 kernel has no zero additive
 ### 2026-09-10: exact Fourier energy gate
 
 The q/H active modes have amplitude H, so their kernel square mass is qH. Parseval shows this is exactly the old residue-space Cauchy budget; localization alone gives no saving. The required new theorem is now precise: active-band prime-discrepancy energy at most H^-1 of total energy, producing H^-1/2 in the correlation. The generic large sieve remains q-dominated because q/H<q. Four guards and independent review PASS. Masks and endpoints can spread the DFT and need separate leakage bounds. Status `changed-under-evidence`; preserve the arithmetic band-energy target, but do not claim the conditional N^-.001 gain. Next test the Gauss-transform/Burgess route with every normalization factor retained.
+
+### 2026-09-10: direct Burgess dual estimate fails the budget
+
+After the H/sqrt(q) transform factor and L=q/H dual length are retained, the Burgess exponent is E_r=h-q/2+(q-h)(1-1/r)+q(r+1)/(4r^2). At q=.599,h=.1 every licensed r>=2 is worse than the direct .1 bound; r=2 gives .1623125. A cost-free replacement q by the prime component m=.59 still gives .160625. Exact guards and independent review PASS. The refined cited result covers r>2, classical Burgess supplies r=2, and r=1 is only a formal endpoint comparison. Status `changed-under-evidence`. This rejects the direct single-character plug-in, not bilinear CRT/induced-character averaging. Next quantify whether d-averaging can possibly pay the remaining deficit.

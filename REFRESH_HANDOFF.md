@@ -4224,3 +4224,12 @@ Next bounded question: derive the exact additive-character form of the high-cond
 Four exact guards pass normally and optimized; independent review PASS. Hard shift truncations, endpoint masks and other r-dependent weights spread the DFT, so leakage must be paid before using the full-lattice support. Status `changed-under-evidence`: the automatic bandpass-saving hypothesis is falsified, while the precise arithmetic band-energy target survives.
 
 Next bounded question: test the most obvious arithmetic input on the dual band. Use the exact Gauss transform for high multiplicative characters and a Burgess short-character-sum budget at dual length q/H. Include the H/sqrt(q) transform factor and compare against the direct length-H trivial bound. Any exponent no smaller than H falsifies that route.
+
+## 2026-09-10: direct dual Burgess plug-in loses
+
+`dual_burgess_gate.py` retains the Gauss/Poisson factor H/sqrt(q) and the dual length L=q/H. Granting the prime-modulus Burgess shape gives transformed exponent
+`E_r=h-q/2+(q-h)(1-1/r)+q(r+1)/(4r^2)`. At q=.599,h=.1, `4r^2(E_r-h)=(r-1)(.798r-.599)`, so every licensed integer r>=2 is worse than the direct length-H exponent. Specifically E_2=2597/16000=.1623125. Even granting a cost-free reduction to the prime component m=N^.59 gives E_2=257/1600=.160625>.1.
+
+Five guards plus the prime-component check pass normally and optimized; independent review PASS. Source precision: Kerr--Shparlinski--Yau arXiv:1711.10582 refines r>2; r=2 uses the classical Burgess bound quoted there, and r=1 is only a Polya--Vinogradov/trivial endpoint comparison. A naive split into d residue classes costs more, but CRT/induced-character structure or genuinely bilinear d,m averaging remains open. Status `changed-under-evidence`: abandon direct one-character Burgess, preserve the band-energy target.
+
+Next bounded question: keep d and m coupled in the Gauss-transformed band and derive the exact bilinear character sum. Test whether averaging over the short d<=N^.009 family can improve the prime-component benchmark without taking absolute values. The maximum possible d-average square-root gain N^.0045 is far smaller than the single-character r=2 deficit .060625, so success would require additional m or spectral cancellation; verify that budget before source hunting.
