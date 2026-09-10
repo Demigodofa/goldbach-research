@@ -4250,3 +4250,30 @@ Next bounded question: write the exact joint m,h form after the Gauss transform 
 Four exhaustive CRT/support guards pass normally and optimized; independent review PASS. The imprimitive d-Gauss factor, sums over high characters, target phase, endpoint/mask leakage and all spectral cancellation remain unpaid. Status `changed-under-evidence`: the joint phase exists and is now explicit, but it is not yet estimated.
 
 Next bounded question: search for a primary bilinear Kloosterman or spectral large-sieve theorem matching the exact m,h phase and coefficient norms. Build a source gate before importing any exponent. The theorem must tolerate m prime near N^.59, h near N^.499, d<=N^.009, target N varying, and character-sum coefficients from primes; otherwise preserve the mismatch.
+
+## 2026-09-10: the full high character family collapses exactly
+
+`high_character_collapse.py` sums the complete high family before Cauchy.
+For q=dm, reduced p,a, m prime and all characters modulo d paired with
+nonprincipal characters modulo m, the normalized projector is exactly
+`1_(p=a mod q)-(m-1)^-1*1_(p=a mod d)`. Equivalently, for c nonzero
+modulo m,
+`sum_(chi_m nonprincipal)chi_m(p)G_m(conj(chi_m),c)
+ =(m-1)e_m(cp)+1`.
+
+Thus the prime Gauss family reconstructs the already known full-minus-low
+projector. It leaves an ordinary additive prime phase; character
+orthogonality itself creates no Kloosterman sum and proves no saving.
+Composite/imprimitive d-characters are included exactly. Endpoint and mask
+leakage, max-prefix weights, target phases and every joint m,h estimate remain
+unpaid. Five new exact guards, plus the four joint-CRT guards, pass normally
+and optimized. Independent review PASS. Status `changed-under-evidence`:
+the direct Kloosterman source hunt was one transformation too early.
+
+Next bounded question: retain the ordinary additive prime sums after this
+collapse and test their joint frequency spacing as m and active
+|h|~dm/H vary. Can an additive large-sieve/dispersion estimate put at most
+H^-1 of the prime Fourier energy in the active band, including the low
+subtraction, target phase, endpoints and masks? A diagonal or near-collision
+family of full size falsifies this route. Do not infer the needed saving from
+the mean-zero projector alone.

@@ -4580,3 +4580,19 @@ At the favorable prime component m=N^.59, r=2 is the best licensed Burgess param
 ### 2026-09-10: joint high-character Gauss form derived
 
 For q=dm, the high-character shift transform is exactly q^-1 sum_h What(h)e(-hN/q) times a CRT product of d- and m-Gauss sums. High conductor means the prime-m component is nonprincipal. Since active |h| has exponent .499 below m exponent .59, its Gauss factor is always nonzero with magnitude sqrt(m). Four exhaustive guards and independent review PASS. No spectral saving follows: the d component, prime character sums, target phase and mask leakage remain. Status `changed-under-evidence`. Next source-gate a bilinear Kloosterman/spectral theorem against these exact ranges and coefficients.
+
+### 2026-09-10: full high-character collapse redirects the source target
+
+Summing all d-characters and all nonprincipal m-characters before Cauchy
+gives the exact normalized projector
+`1_(p=a mod dm)-(m-1)^-1*1_(p=a mod d)`. The prime Gauss identity is
+`sum_(chi_m nonprincipal)chi_m(p)G_m(conj(chi_m),c)
+ =(m-1)e_m(cp)+1` for c nonzero modulo prime m. This is full minus low in
+additive Fourier coordinates, not a newly produced Kloosterman phase or a
+prime-correlation estimate. Five exact guards and the preceding four CRT
+guards pass normally and optimized; independent review PASS. Status
+`changed-under-evidence`. The remaining concrete target is an H^-1
+active-band energy estimate for the resulting ordinary additive prime sums,
+jointly over m and h, with endpoints, masks, the low subtraction and target
+phase retained. A full-size diagonal or frequency near-collision falsifies
+that route.
