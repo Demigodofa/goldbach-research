@@ -38,12 +38,20 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
             receipt["matrix_geometric_scalar_minorization_proved"])
         self.assertFalse(receipt["asymptotic_all_lag_lower_frame_proved"])
         self.assertGreater(receipt["minimum_input_gram_eigenvalue"], 0)
+        self.assertGreater(
+            receipt["minimum_ideal_input_gram_eigenvalue"], 0)
         for block in receipt["lag_blocks"]:
             self.assertGreater(
                 block[
                     "matrix_geometric_over_arithmetic_frame_minimum"], 0)
             self.assertTrue(
                 block["measured_positive_generalized_eigenvalue"])
+            self.assertGreater(
+                block[
+                    "ideal_matrix_geometric_over_arithmetic_frame_minimum"],
+                0)
+            self.assertGreater(
+                block["exact_over_ideal_matrix_geometric_minimum_ratio"], 0)
 
     def test_invalid_input_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "prime"):

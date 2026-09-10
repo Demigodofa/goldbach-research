@@ -5788,3 +5788,22 @@ and divisor cutoff together at the project exponents.  The target theorem is
 subpower coercivity of the summed matrix-geometric operator through
 `beta<49/150`; polynomial eigenvalue decay falsifies it.  The assembled range
 remains `.295`, and the signed prime correlation is open.
+
+## 2026-09-10 continuation: ideal all-lag frame closes
+
+At project-like simultaneous scaling, exact matrix-geometric lag certificates
+remain between `.334` and `.153` from `M=251` through `16001`.  Direct
+exact-versus-frozen-ideal lag comparisons approach ratio one: `1.0038` at
+`M=1009` and `1.00037` at `M=16001`.  Independent review reproduced the
+receipts and kept them finite in scope.
+
+The frozen ideal lag frame is now a theorem.  Rowwise multiband inversion,
+monotonicity of the matrix geometric mean, and the uniform central-row log
+comparison prove its summed operator is `N^-epsilon` coercive on every
+nonempty dyadic lag block, without a boundary loss.  The next concrete
+question is whether the exact summed matrix-geometric operator differs from
+the frozen ideal by `o(N^-epsilon)` through `beta<49/150`.  A polynomially
+negative normalized eigenvalue of that difference, or a project-scaled exact
+certificate falling polynomially below the ideal one, falsifies the transfer.
+No assembled range beyond `.295` is claimed; the signed prime correlation is
+still open.

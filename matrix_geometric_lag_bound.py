@@ -20,6 +20,15 @@ After summing weighted lag edges, (1)-(2) minorize the exact nonlinear lag
 quotient by one generalized eigenvalue.  The matrix inequalities are exact;
 the eigenvalues produced here are finite floating-point measurements rather
 than asymptotic lower-frame theorems.
+
+The frozen ideal operator does have an asymptotic lower frame.  The existing
+multiples-poset theorem gives ``P0_v >= eta F_v`` rowwise with
+``eta=N^(-o(1))``.  Monotonicity and homogeneity give
+``P0_u#P0_v >= eta(F_u#F_v)``.  The diagonal frame mean ``F_u#F_v`` differs
+from ``(F_u+F_v)/2`` by ``1-O_beta(log(N)^-2)`` on a fixed central
+multiplicative row range.  Thus the summed ideal matrix-geometric operator is
+``N^(-epsilon)`` coercive.  Comparing the exact summed operator to this ideal
+one remains open.
 """
 
 import math
@@ -109,8 +118,13 @@ def matrix_geometric_lag_probe(
         raise ValueError("the squarefree divisor range must be nonempty")
     divisor_array = np.array(divisors, dtype=float)
     totients = np.array([_totient(value) for value in divisors], dtype=float)
+    divisor_integers = np.array(divisors, dtype=np.int64)
+    gcd_matrix = np.gcd.outer(divisor_integers, divisor_integers).astype(float)
+    gcd_kernel = ((gcd_matrix - 1)
+                  / np.multiply.outer(divisor_array, divisor_array))
     rows = {}
     minimum_input_eigenvalue = math.inf
+    minimum_ideal_input_eigenvalue = math.inf
     for modulus in moduli:
         rho = len(_active_modes(modulus, shift_length)) / (modulus - 1)
         weight = math.log(modulus) ** 2 / modulus * rho
@@ -121,13 +135,19 @@ def matrix_geometric_lag_probe(
                 minimum_input_eigenvalue,
                 float(np.linalg.eigvalsh(exact)[0]))
             logs = np.log(modulus * ell / divisor_array)
+            ideal = (modulus ** 2 * logs[:, None] * logs[None, :]
+                     * gcd_kernel)
+            minimum_ideal_input_eigenvalue = min(
+                minimum_ideal_input_eigenvalue,
+                float(np.linalg.eigvalsh(ideal)[0]))
             frame = modulus ** 2 * logs ** 2 * totients / divisor_array ** 2
-            rows[(modulus, ell)] = (weight, exact, frame)
+            rows[(modulus, ell)] = (weight, exact, ideal, frame)
 
     block_receipts = []
     for lag_first, lag_stop in lag_blocks:
         lower_operator = np.zeros(
             (len(divisors), len(divisors)), dtype=float)
+        ideal_lower_operator = np.zeros_like(lower_operator)
         upper_frame = np.zeros(len(divisors), dtype=float)
         edge_count = 0
         for modulus in moduli:
@@ -135,14 +155,20 @@ def matrix_geometric_lag_probe(
             for delta in range(lag_first, lag_stop):
                 for ell in range(
                         ell_first, ell_first + row_count - delta):
-                    _, left_exact, left_frame = rows[(modulus, ell)]
-                    _, right_exact, right_frame = rows[
+                    (_, left_exact,
+                     left_ideal, left_frame) = rows[(modulus, ell)]
+                    (_, right_exact,
+                     right_ideal, right_frame) = rows[
                         (modulus, ell + delta)]
                     lower_operator += weight * matrix_geometric_mean(
                         left_exact, right_exact)
+                    ideal_lower_operator += weight * matrix_geometric_mean(
+                        left_ideal, right_ideal)
                     upper_frame += weight * (left_frame + right_frame) / 2
                     edge_count += 1
         values = _generalized_spectrum(lower_operator, upper_frame)
+        ideal_values = _generalized_spectrum(
+            ideal_lower_operator, upper_frame)
         block_receipts.append({
             "lag_range": (lag_first, lag_stop - 1),
             "edge_count": edge_count,
@@ -150,6 +176,10 @@ def matrix_geometric_lag_probe(
                 float(values[0]),
             "matrix_geometric_over_arithmetic_frame_maximum":
                 float(values[-1]),
+            "ideal_matrix_geometric_over_arithmetic_frame_minimum":
+                float(ideal_values[0]),
+            "exact_over_ideal_matrix_geometric_minimum_ratio":
+                float(values[0] / ideal_values[0]),
             "measured_positive_generalized_eigenvalue": bool(values[0] > 0),
         })
     return {
@@ -158,6 +188,8 @@ def matrix_geometric_lag_probe(
         "divisor_range": (divisor_lower, divisor_upper),
         "divisor_count": len(divisors),
         "minimum_input_gram_eigenvalue": minimum_input_eigenvalue,
+        "minimum_ideal_input_gram_eigenvalue":
+            minimum_ideal_input_eigenvalue,
         "lag_blocks": tuple(block_receipts),
         "matrix_geometric_scalar_minorization_proved": True,
         "asymptotic_all_lag_lower_frame_proved": False,

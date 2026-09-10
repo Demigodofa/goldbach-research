@@ -6357,3 +6357,51 @@ of `M,A,B`; polynomial decay beyond the known subpower multiband loss is the
 falsifier.  A proof would still need an arithmetic lower bound for the summed
 matrix means.  Complete assembly remains `.295-delta`, and the signed prime
 correlation remains OPEN.
+
+## 2026-09-10: the ideal matrix-geometric lag frame is proved
+
+The project-scaled experiment set `N=M^(1/.59)`, `H=floor(N^.1)`,
+`A=ceil(N/(8M))`, `V=max(H,floor(N^.15))`, `B=floor(N^.32)`, used two primes
+near `M`, rows `[A,2A)`, and the long lag block `[floor(A/2),A)`.  For
+`M=251,503,1009,2003,4001,8009,16001`, the exact matrix-geometric certificates
+were
+
+`.333909,.316971,.202358,.201253,.183604,.161934,.152809`.
+
+The code now builds the frozen ideal matrix-geometric lag operator on the
+identical edge set.  At `M=1009,4001,8009,16001`, the exact/ideal minimum
+eigenvalue ratios were `1.003779,1.001180,1.000575,1.000374`.  This is finite
+evidence that the exact operator adds no visible loss at project scaling, not
+an asymptotic comparison theorem.
+
+The ideal side itself is now proved.  The existing multiples-poset inversion
+gives uniformly in each row
+
+`P0_v >= eta F_v`, with `eta=N^-o(1)`.
+
+Kubo--Ando monotonicity and homogeneity imply
+
+`P0_u#P0_v >= eta(F_u#F_v)`.
+
+The frames are diagonal.  Writing `L_u=log(mu/a)` and `L_v=log(mv/a)`, the
+coordinate ratio of `F_u#F_v` to `(F_u+F_v)/2` is
+
+`2L_u L_v/(L_u^2+L_v^2)
+ =1-(L_u-L_v)^2/(L_u^2+L_v^2)`.
+
+On one fixed central multiplicative row interval, `|L_u-L_v|=O(1)` while
+`min L >=(1-beta)log N-O(1)` for fixed `beta<1`.  Hence the ratio is
+`1-O_beta(log^-2 N)` uniformly in divisor, edge, and lag.  Summing any
+nonempty positive-weight edge block proves
+
+`sum_edges w(P0_u#P0_v) >= N^-eps sum_edges w(F_u+F_v)/2`
+
+after epsilon renaming, with no boundary-degree loss.
+
+Independent review PASSed the simultaneous scaling, exact and ideal matrix
+formulas, identical weights and normalization, matrix monotonicity, uniform
+log comparison, squarefree multiband factor, and theorem scope.  The exact
+summed matrix-geometric operator has not been compared asymptotically to the
+ideal one.  That is now the sole open all-lag divisor-frame step before the
+separate signed prime-correlation estimate.  The assembled range remains
+`.295-delta` until that transfer is proved.
