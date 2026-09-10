@@ -4960,3 +4960,23 @@ cancellation is false in these measurements, so the signed recombination must
 remain intact. Next decompose the reinforcing cross-row term by l-lag and test
 whether it is local or oscillatory before the prime-m sum. The fixed band
 inequality and signed Goldbach correlation remain OPEN.
+
+### 2026-09-10: positive aligned covariance is not lag-local
+
+The exact d=1 aligned covariance was decomposed by progression-index lag
+`Delta=l2-l1`.  Every lag recombines to the previous same-row, cross-row and
+total values.  Across `N=32000`, `200000` and `1200000`, between `.21012` and
+`.40049` of all positive cross-row mass lies in the last half of the available
+lags, with positive mass reaching `Delta=A-2`.  This is finite evidence only,
+but it rejects truncating the reinforcing term to a bounded local-lag model at
+the tested scales.
+
+Since the underlying integer difference is `q*Delta+(s-r)`, the missing input
+would have to control a prime-weighted family of growing shifts while retaining
+the signed same-row/cross-row recombination.  One guard passes normally and
+optimized.  Independent review checked the exact lag identity, indexing,
+centering and normalization and matched a direct Q-matrix sum to rounding.
+Status `changed-under-evidence`.
+Next test one dyadic lag block and demand an `H^-1` saving from the actual
+Mobius--log coefficients; principal-size positive resonance across growing
+blocks is the falsifier.  The exact band inequality remains OPEN.

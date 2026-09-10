@@ -4904,3 +4904,33 @@ has an oscillatory tail that cancels before summing m. A broad same-sign tail
 of principal size falsifies lag-local treatment. Keep the same-row negative
 term beside it; do not claim that their finite cancellation is an estimate.
 The signed Goldbach correlation remains OPEN; no process runs.
+
+## 2026-09-10: reinforcing cross-row mass extends to long lags
+
+`mobius_aligned_lag_probe.py` resolves the preceding d=1 cross-row term by
+`Delta=l2-l1`.  It computes the exact real ordered contribution for every
+`0<=Delta<A`; `Delta=0` is the complete same-row term, and all lags recombine
+to the previously verified total covariance.
+
+The positive cross-row mass is not confined near `Delta=1`.  The fraction of
+that mass in the last half of the available positive lags is `.40049` for
+`N=32000,A=9`, `.24194` for `N=200000,A=19`, `.24549` for
+`N=200000,A=30`, and `.21012` for `N=1200000,A=39`.  A positive contribution
+occurs as far as `Delta=A-2` in each run.  The total normalized cross-row terms
+remain `2.761953,2.608294,3.726097,4.729663`, respectively.
+
+This finite evidence falsifies a mechanism that discards all but a bounded
+number of lags at these scales.  It establishes no asymptotic lower bound or
+sign.  In the original integer coordinates, a lag contributes shifts
+`q*Delta+(s-r)`, so the surviving family reaches macroscopic shifts rather
+than a fixed-shift regime.  One guard passes normally and optimized.
+Independent review PASSed the lag identity, row slices, centering, baseline and
+scope, and matched the N=32000,m=457 direct Q-matrix sum to `1.5e-9` rounding.
+Status `changed-under-evidence`.
+
+Next concrete question: for one dyadic lag block `D<Delta<=2D`, can the exact
+prime-weighted signed sum over `m` gain a factor `H^-1` from the fixed
+Mobius--log coefficients while retaining `q*Delta+(s-r)`?  A resonant family
+whose positive block contribution stays of principal size for growing `D`
+falsifies that blockwise mechanism.  The fixed band inequality and signed
+Goldbach correlation remain OPEN; no process runs.
