@@ -35,7 +35,28 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **bda7f22**, prime_companion_dispersion.py.
+Latest reviewed RESEARCH commit: **151e7c9**, adjacent_polynomial_norm.py.
+Pursuit2026-09-10 02:25:27--02:45:30UTC: changed under evidence.
+The proposed polynomial norm closure for N^.41<=n<N^.46 is falsified.
+At beta=19/25 the first-power T exponent is
+21/50-(13/25)h, positive from517/2500 at h=.41 to113/625 at h=.46.
+The k=2 exponent is negative and licensed, but it controls D_M^2,
+not D_M or the first-power arithmetic field. The detector threshold
+only applies on selected detected zeros; no lower bound bridges the
+fourth moment to the full arithmetic coefficient. Guinand transfer
+and proper-power payment remain small at support .46 but do not repair
+this. Independent Sol review PASS after correcting one prose exponent;
+five guards normal/-O passed. This is a route limitation, not an
+all-method barrier; retain the k=2 component and paid .46 tail.
+
+Next concrete question: can the core n<N^.41 be decomposed bilinearly
+with a genuinely short factor? Test a Vaughan-style Type I/II split
+preserving both reflected prime conditions and hard endpoints. Type I
+needs progression Poisson; Type II needs a sourced bilinear mean-square.
+Any positive exponent or unpaid endpoint falsifies that route. Fresh
+<=30min, UNREVIEWED.
+
+Previous **bda7f22**, prime_companion_dispersion.py.
 Pursuit2026-09-10 02:25:27--02:44:21UTC: progress.
 The ACTUAL conjugated and reflected cofactor tail is now paid down
 to n>=N^.46, improving the previous N^.51 cutoff. For the intermediate

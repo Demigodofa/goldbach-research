@@ -4380,6 +4380,26 @@ resonance, main term or modulus loss. The original bad range
 n<=2N^.41 is not brought inside BV's level by this observation.
 Fresh <=30min; this proposed estimate is UNREVIEWED.
 
+### 2026-09-10: first-power polynomial norm route fails
+
+Pursuit02:25:27--02:45:30UTC, reassessment: changed under evidence.
+Commit151e7c9 records that for b=a_B restricted to N^.41<=n<N^.46,
+the retained first-power T-term exponent at beta=19/25 is
+21/50-(13/25)h>0 throughout the strip (517/2500 down to113/625).
+The second-power detector moment is saving and licensed, but it controls
+D_M^2 on detected zeros, not the first-power arithmetic coefficient.
+The detector threshold does not provide a lower bound on the nondetected
+complement, and Holder cannot identify the missing field. Transfer and
+proper-power errors at support .46 remain small. Independent review PASS;
+five guards normal/-O passed. This limits one route and preserves the
+successful k=2 machinery and paid tail.
+
+Next bounded question: decompose n<N^.41 bilinearly with a genuinely
+short factor, preserving both reflected prime conditions and endpoints.
+Type I requires progression Poisson; Type II requires a sourced bilinear
+mean-square. Any positive exponent or unpaid endpoint is a falsifier.
+Fresh <=30min; UNREVIEWED.
+
 ### 2026-09-10: large cofactors paid in the actual reflected band
 
 Pursuit02:06:50--02:23:12UTC, reassessment: progress. Research
