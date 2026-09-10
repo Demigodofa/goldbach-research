@@ -6443,3 +6443,40 @@ right side is a proposed analogue of the proved aggregate full-Gram bound,
 not a theorem.  A first proof attempt must account for the nonlinearity of
 `#`; aggregate cancellation of `G-P0` alone does not imply it.  The assembled
 range remains `.295-delta`, and the signed prime correlation remains OPEN.
+
+## 2026-09-10: first variation alone cannot transfer the exact lag frame
+
+The matrix-geometric probe can now evaluate the central first variation at
+the ideal pair.  For each edge put `R_v=G_v-P0_v` and
+
+`f(t)=(P0_u+tR_u)#(P0_v+tR_v)`.
+
+It computes `[f(h)-f(-h)]/(2h)` and then the exact finite decomposition
+
+`f(1)-f(0) = linearized difference + nonlinear remainder`.
+
+At `M=1009`, `h=.001` and `.0005` agreed in the normalized linear spectrum to
+about `4e-12`.  For project-scaled `.32` long lags, the measurements were
+
+| `M` | total norm | linear negative edge | remainder negative edge |
+|---:|---:|---:|---:|
+| 1009 | `.0429562` | `-.0037675` | `-.0038716` |
+| 4001 | `.0129883` | `-.0012562` | `-.0019074` |
+| 8009 | `.0088563` | `-.0007442` | `-.0014364` |
+
+The remainder spectra were wholly negative in all three cases.  This agrees
+with joint Loewner concavity: on a positive path the tangent or central secant
+at the ideal point lies above the value at `t=1`.  The nonlinear harmful part
+is comparable to the total negative edge, so controlling only the first
+variation by the existing joint prime-row cancellation cannot prove the
+transfer.
+
+Independent review PASSed the decomposition, step-size stability, common
+normalization, concavity direction, tests, and receipt reproduction.  A
+quantitative curvature bound would require control near poorly conditioned
+row Grams and is not presently available.  Preserve the linearization as a
+diagnostic, but change the next question: can the exact row Grams themselves
+be proved `N^-eps` coercive by a direct divisibility/covariance argument?  Such
+a rowwise theorem would imply the matrix-geometric lag frame immediately by
+monotonicity and avoid curvature.  The assembled range remains `.295-delta`;
+the signed prime correlation remains OPEN.

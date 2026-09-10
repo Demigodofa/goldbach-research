@@ -5825,3 +5825,21 @@ the matrix geometric mean before claiming that cancellation transfers through
 it; a dependence on an unavailable rowwise condition number falsifies that
 proof route.  The complete range remains `.295`, and the signed prime
 correlation is open.
+
+## 2026-09-10 continuation: nonlinear curvature is a real term
+
+A stable central linearization split the exact matrix-geometric perturbation
+into its first variation and nonlinear remainder.  The remainder is negative
+as joint concavity predicts, and its negative norm is comparable to the
+harmful total perturbation from `M=1009` through `8009`.  Independent review
+verified the calculation.
+
+Therefore first-order prime-row cancellation alone is insufficient.  The
+curvature route would need a new quantitative lower-conditioning estimate.
+The next bounded hypothesis is stronger and cleaner: the exact individual-row
+full Grams may themselves satisfy the subpower multiband lower frame through
+the active endpoint range, despite failure of the earlier absolute
+perturbation proof.  First measure the minimum rowwise generalized eigenvalue
+under project scaling and attack its exact centered-divisibility factorization.
+Polynomial rowwise collapse is the falsifier.  The assembled exponent remains
+`.295`, and the signed prime correlation is open.

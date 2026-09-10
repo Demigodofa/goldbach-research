@@ -33,7 +33,8 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
 
     def test_finite_probe_returns_direct_lower_operator(self):
         receipt = matrix_geometric_lag_probe(
-            (101, 103), 3, 5, 6, 3, 14, ((1, 2), (3, 6)))
+            (101, 103), 3, 5, 6, 3, 14, ((1, 2), (3, 6)),
+            linearization_step=1e-4)
         self.assertTrue(
             receipt["matrix_geometric_scalar_minorization_proved"])
         self.assertFalse(receipt["asymptotic_all_lag_lower_frame_proved"])
@@ -59,6 +60,10 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
                 block[
                     "matrix_geometric_over_arithmetic_frame_minimum"]
                 + 1e-12)
+            self.assertGreaterEqual(
+                block["linearized_difference_normalized_operator_norm"], 0)
+            self.assertGreaterEqual(
+                block["nonlinear_remainder_normalized_operator_norm"], 0)
 
     def test_invalid_input_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "prime"):
@@ -66,6 +71,10 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
                 (105,), 3, 5, 6, 3, 14, ((1, 2),))
         with self.assertRaises(ValueError):
             matrix_geometric_mean(np.eye(2), np.eye(3))
+        with self.assertRaises(ValueError):
+            matrix_geometric_lag_probe(
+                (101,), 3, 5, 6, 3, 14, ((1, 2),),
+                linearization_step=-.1)
 
 
 if __name__ == "__main__":

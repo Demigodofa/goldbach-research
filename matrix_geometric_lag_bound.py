@@ -29,6 +29,12 @@ from ``(F_u+F_v)/2`` by ``1-O_beta(log(N)^-2)`` on a fixed central
 multiplicative row range.  Thus the summed ideal matrix-geometric operator is
 ``N^(-epsilon)`` coercive.  Comparing the exact summed operator to this ideal
 one remains open.
+
+An optional central finite-difference diagnostic separates the exact-minus-
+ideal operator into its first variation at the ideal pair and a nonlinear
+remainder.  Joint Loewner concavity makes the exact remainder nonpositive
+along a positive path.  The diagnostic tests whether first-order joint
+cancellation is enough or quantitative curvature control is also required.
 """
 
 import math
@@ -86,7 +92,7 @@ def _generalized_spectrum(matrix, positive_diagonal):
 
 def matrix_geometric_lag_probe(
         moduli, shift_length, ell_first, row_count,
-        divisor_lower, divisor_upper, lag_blocks):
+        divisor_lower, divisor_upper, lag_blocks, linearization_step=0.0):
     """Measure the direct matrix-geometric lower operator by lag block."""
     if not isinstance(moduli, (tuple, list)) or not moduli:
         raise ValueError("moduli must be a nonempty tuple or list")
@@ -96,6 +102,11 @@ def matrix_geometric_lag_probe(
             shift_length, ell_first, row_count,
             divisor_lower, divisor_upper)):
         raise ValueError("range parameters must be integers")
+    if (isinstance(linearization_step, bool)
+            or not isinstance(linearization_step, (int, float))
+            or not 0 <= linearization_step <= .1):
+        raise ValueError("linearization_step must lie in [0,.1]")
+    linearization_step = float(linearization_step)
     if (not 2 <= shift_length <= divisor_lower
             or ell_first < 1 or row_count < 2
             or divisor_lower < 2 or divisor_upper <= divisor_lower
@@ -148,6 +159,8 @@ def matrix_geometric_lag_probe(
         lower_operator = np.zeros(
             (len(divisors), len(divisors)), dtype=float)
         ideal_lower_operator = np.zeros_like(lower_operator)
+        linearized_difference_operator = (
+            np.zeros_like(lower_operator) if linearization_step else None)
         upper_frame = np.zeros(len(divisors), dtype=float)
         edge_count = 0
         for modulus in moduli:
@@ -164,6 +177,17 @@ def matrix_geometric_lag_probe(
                         left_exact, right_exact)
                     ideal_lower_operator += weight * matrix_geometric_mean(
                         left_ideal, right_ideal)
+                    if linearization_step:
+                        left_error = left_exact - left_ideal
+                        right_error = right_exact - right_ideal
+                        plus = matrix_geometric_mean(
+                            left_ideal + linearization_step * left_error,
+                            right_ideal + linearization_step * right_error)
+                        minus = matrix_geometric_mean(
+                            left_ideal - linearization_step * left_error,
+                            right_ideal - linearization_step * right_error)
+                        linearized_difference_operator += weight * (
+                            plus - minus) / (2 * linearization_step)
                     upper_frame += weight * (left_frame + right_frame) / 2
                     edge_count += 1
         values = _generalized_spectrum(lower_operator, upper_frame)
@@ -171,7 +195,7 @@ def matrix_geometric_lag_probe(
             ideal_lower_operator, upper_frame)
         difference_values = _generalized_spectrum(
             lower_operator - ideal_lower_operator, upper_frame)
-        block_receipts.append({
+        block_receipt = {
             "lag_range": (lag_first, lag_stop - 1),
             "edge_count": edge_count,
             "matrix_geometric_over_arithmetic_frame_minimum":
@@ -191,7 +215,28 @@ def matrix_geometric_lag_probe(
             "weyl_lower_certificate_from_ideal_and_difference":
                 float(ideal_values[0] + difference_values[0]),
             "measured_positive_generalized_eigenvalue": bool(values[0] > 0),
-        })
+        }
+        if linearization_step:
+            linearized_values = _generalized_spectrum(
+                linearized_difference_operator, upper_frame)
+            remainder_values = _generalized_spectrum(
+                lower_operator - ideal_lower_operator
+                - linearized_difference_operator, upper_frame)
+            block_receipt.update({
+                "linearized_difference_normalized_eigenvalue_minimum":
+                    float(linearized_values[0]),
+                "linearized_difference_normalized_eigenvalue_maximum":
+                    float(linearized_values[-1]),
+                "linearized_difference_normalized_operator_norm": float(max(
+                    abs(linearized_values[0]), abs(linearized_values[-1]))),
+                "nonlinear_remainder_normalized_eigenvalue_minimum":
+                    float(remainder_values[0]),
+                "nonlinear_remainder_normalized_eigenvalue_maximum":
+                    float(remainder_values[-1]),
+                "nonlinear_remainder_normalized_operator_norm": float(max(
+                    abs(remainder_values[0]), abs(remainder_values[-1]))),
+            })
+        block_receipts.append(block_receipt)
     return {
         "moduli": tuple(moduli),
         "row_range": (ell_first, ell_first + row_count - 1),
@@ -200,6 +245,7 @@ def matrix_geometric_lag_probe(
         "minimum_input_gram_eigenvalue": minimum_input_eigenvalue,
         "minimum_ideal_input_gram_eigenvalue":
             minimum_ideal_input_eigenvalue,
+        "linearization_step": linearization_step,
         "lag_blocks": tuple(block_receipts),
         "matrix_geometric_scalar_minorization_proved": True,
         "asymptotic_all_lag_lower_frame_proved": False,
