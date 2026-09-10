@@ -35,7 +35,32 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **5b7dd4e**, in mixed_detector_weighted_mask.py:
+Latest reviewed RESEARCH commit: **b42ab25**, in weighted_detector_mask_bridge.py:
+the FULL H_N-weighted removed middle strip and LOW exterior are now
+paid. All middle Type II copies have weighted energy N^-1/125 times
+logs, using pure moments at their actual lengths and360 fixed beta bins.
+For G minus II, full-good polynomial moments plus the saved exact signed
+zero equation control H_N, giving weighted energy N^-4/625 times logs.
+This covers EVERY good-detected middle zero, not only the high-M slice.
+Low exterior beta<=16/25 has weighted energy N^-11/3750 L72:
+powers4,4,3,2 of the four bad gaps fit the broader low-beta moment
+range, with the beta=0 layer-cake baseline explicitly retained.
+Union weighted energy is N^-11/3750 times logs. Its one-coordinate
+ACTUAL J sum has central exponent7489/7500, finite-period3557/3750,
+and beta-endpoint-3193/3750. All new complex-weight errors are paid.
+The exact central L2 survivor bridge is now
+Z_(H,R)=-P_(h*Lambda)/sqrtN-Z_(H,beta>=19/25)+small.
+ONLY the H-weighted HIGH exterior remains unpaid in this bridge.
+Even paying it would not by itself prove the signed prime correlation.
+Next concrete test: try the high exterior against actual applicable
+density and pure/mixed moments. Test the critical corner beta=5/6,
+bad length exponent h=2/5 FIRST: retained Huxley gives base energy
+exponent-1/30, whereas H^2 and H^3 moments give+1/30 and+1/15,
+so the natural Holder combinations reach ZERO, not a saving. Verify
+the strongest applicable primary density input before treating this
+as a method limitation. No actual zero at that corner is asserted.
+Preserve this as an unreviewed next test, fresh <=30 minutes.
+Previous **5b7dd4e**, in mixed_detector_weighted_mask.py:
 mixed products D_M^r D_H^s, at their ACTUAL length M^r H^s in
 [N41/50,N49/50], pay the H-weighted energy on good-M detected zeros.
 The threshold costs2r logs; weighted Holder preserves N^-4/625.
@@ -49,13 +74,9 @@ For m=logM/logN in[.44,.45], gaps1/2 are fully compatible; gap3
 requires h<= (.98-m)/2 and gap4 h>=.82-m. The rectangle
 m in[.44,.45],h in[.34,.36] is outside this specific criterion,
 not a general impossibility or evidence about actual zeros.
-Next test: weighted Holder may cover those missed pieces using a
-stronger M-specific energy and H^3/H^4 moments even when their
-product length exceeds N. Localize beta in fixed bins, retain the
-positive cost of those longer moments, and test whether the ENTIRE
-H_N-weighted mask for zeros detected at some M in[ N.44,N.45 ]
-is negligible. Candidate exponents and bin width are at the latest
-RESEARCH_GOAL.md entry; this extension is not yet promoted.
+The proposed higher-moment test is completed above and superseded
+by the stronger entire-middle-strip result. Its reviewed high-M
+component remains in the new module for possible later reuse.
 Previous **5bd0b48**, in detector_prime_product_transfer.py:
 the FULL actual H-weighted zero field has a prime-product window with
 coefficient h*Lambda and uniform error O(N41/200 L7). The exact
@@ -3880,7 +3901,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_mixed_detector_weighted_mask` (eight guards) and
+Latest tests: `python -m unittest test_weighted_detector_mask_bridge` (eight guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

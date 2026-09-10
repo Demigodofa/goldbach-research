@@ -4120,3 +4120,87 @@ is N^-1/500 times fixed logs. If the binning or moment supports defeat
 the gain, preserve the precise failure. This new hypothesis receives
 a fresh <=30-minute test and independent correctness review; no claim
 yet that the uncovered rectangle or a complete weighted mask is paid.
+
+## 2026-09-10: all middle and low detector-weighted masks paid
+
+Started00:50:45 UTC, reassessed01:07:16 UTC, progress beyond the initial
+high-M test. Resumed verified clean main5908ff7. Previous native turn
+made progress through compatible mixed weighted masks. Reviewed math
+**b42ab25**, weighted_detector_mask_bridge.py, now pays the FULL H_N
+weight on every removed middle-strip zero and every low-exterior zero.
+The high-exterior H-weighted field is the sole unpaid component of this
+particular survivor-to-prime-product bridge; the signed paired estimate
+is still a separate unresolved step.
+
+The initial hypothesis did pass: good detector m in[.44,.45] plus
+pure multiplier powers6,5,4,3,2 across the four bad gaps gives energy
+N^-1/500 L50 after360 beta bins of width1/3000. The support switch
+is explicit: powers>=3 have length exponent>.98, while the upper
+fourth-gap square is below.82. Longer-than-N moments pay their positive
+cost. That valid component is retained, but the actual source Type II
+count permits a stronger synthesis.
+
+For ALL middle Type II zeros, including overlap with G, their bin energy
+exponent is-u/5+2Delta. Holder with those same pure multiplier moments
+has worst unbinned exponent-6/625; the bin loss1/1500 leaves
+-67/7500, weakened to-1/125. Logs remain fixed and all bad lengths
+are summed. Then take X=G minus II. Every GOOD M has a pre-threshold
+full-middle moment of D_M^k with energy N^-4/625, for its licensed k.
+Holder on X against E_X<=E_G preserves that saving, WITHOUT assuming
+that X is detected at this particular M. Sum good polynomials into A_N.
+The saved source equation H_N=-A_N-1+I_T+small has |I_T|<1/3 on X,
+so it pays H_N after charging the constant term by E_X. Consequently
+the ENTIRE middle removed set G union II has H-weighted energy
+N^-4/625 times logs. This uses actual estimates with the identity;
+it does not mistake the identity alone for a correlation bound.
+
+For the low exterior beta<=16/25, use powers4,4,3,2 on the four
+bad gaps. Their actual product exponents lie in[49/75,41/50].
+The variable-beta mean-square proof extends to[0,16/25]; positive
+layer cake keeps the N^-2 baseline. Its worst normalized moment is
+-11/3750. Holder with the stronger saved low-set energy, followed by
+the two bad-length logs, gives E_(D_low,H)<=N^-11/3750 L72.
+Union weighted energy is bounded by the sum, including middle overlaps.
+
+Gram gives normalized covered-field norm N^-11/7500 times logs.
+The opposite field alone uses arithmetic energy O(1). Newly weighted
+J-minus-beta and endpoint bounds give exponents3557/3750 and
+-3193/3750, below the central7489/7500. The exact cutoff central
+L2 field relation is now
+ Z_(H,R)=-P_(h*Lambda)/sqrtN-Z_(H,D_high)+O_L2(N^-11/7500 L^C).
+The full-field transfer error N^-59/200 L7 is smaller. No small bound
+for Z_(H,D_high), inverse operator, full pair sign or universal coverage
+is inferred. The surviving disk and all polynomial components persist.
+
+Independent Sol theory and actual-file PASS for the consolidated proof,
+including the Type II synthesis, low-real-part extension and exact field
+decomposition. Eight guards normal0.031s/-O0.032s. No new external
+theorem, numerical-zero campaign or finite Goldbach range was imported.
+All earlier source corrections, runtime limits, the aggregate H^2
+retraction, no-push/publication and no-manual-wake boundaries remain.
+The overall research goal stays OPEN; no post-stop execution is claimed.
+
+Next concrete question: can the remaining H-weighted HIGH exterior
+beta>=19/25 be paid by actual density bounds, moment interpolation
+and the signed detector equation? First test the critical candidate
+corner beta=5/6, u=1/6 and bad multiplier exponent h=2/5. The
+retained Huxley count has exponent3u/(2-3u)=1/3 in T, giving
+normalized coefficient energy exponent-1/30 at T=N9/10.
+The H^2 moment (p=.8<T exponent.9) gives+1/30, and H^3
+(p=1.2) gives+1/15. Holder respectively with weights1/2,1/2
+and2/3,1/3 gives ZERO in both cases. Do not call that a saving
+or infer that actual zeros occupy the corner.
+
+Concrete test and falsifier: verify the strongest applicable primary
+zero-density input at that real part, then determine whether a uniform
+strict saving survives the real-part and dyadic-length neighborhoods.
+If the existing ingredients reach only zero, preserve the exact scope
+of that method limitation and seek an additional arithmetic input; do
+not repeat the same integer-moment search under a new name. Source
+2507.15184v2 Corollary1/Table1 is an existing locator for comparison,
+not unverified authority for a stronger exponent. If extending the
+source Type II count above19/25, recheck its uniform Gamma bound,
+copy count and beta range before using it. Near beta=1 a fixed bin
+width or fixed source epsilon can overwhelm the zero-free saving;
+retain the known log-power/Vinogradov--Korobov boundary. This next
+high-exterior hypothesis is UNREVIEWED and gets a fresh <=30 minutes.
