@@ -4432,3 +4432,37 @@ the desired `H^-1`, while off-diagonal short character sums encode possible
 reinforcement. Determine the precise weighted covariance and whether a
 second-moment bound saves the remaining square root. Keep product endpoints,
 the d-component, and the distinction between a model box and the full sum.
+
+## 2026-09-10: exact Mobius-band character covariance
+
+`mobius_band_character_covariance.py` answers the mechanism question on a
+separated d=1 product box. For nonzero h modulo prime m, the centered additive
+kernel is exactly the sum over nonprincipal multiplicative characters. If
+`A(chi),B(chi)` are the two factor transforms and
+`c_chi=m^(-1/2)G(conj(chi),-1)A(chi)B(chi)`, then the band energy is
+
+`m/(m-1)^2 * sum_eta W_m(eta) C_m(eta)`,
+
+where `W_m(eta)=sum_(h in active band)eta(h)` and
+`C_m(eta)=sum_chi c_(eta*chi)conj(c_chi)`. The principal eta diagonal is
+exactly `m*R_m/(m-1)^2 sum|A(chi)B(chi)|^2`, with
+`R_m=m/(pi H)+O(1)`: it already has the desired `H^-1` scale. Every possible
+reinforcement or cancellation is confined to the signed nonprincipal
+covariance. This is an arithmetic statement about the actual product
+transforms; arbitrary character coefficients can still resonate.
+
+The exact sufficient model-box inequality is equation (10), which keeps the
+prime-m sum signed before absolute value. Character orthogonality gives the
+exact second moment of `W_m`, but Cauchy alone treats `W_m` and `C_m`
+adversarially and does not supply `H^-1`. Three finite-field identity guards
+pass normally and optimized; independent review PASS on Gauss signs,
+conjugations, covariance indexing and normalization. Status `aha-candidate`,
+new-to-this-task. Hard hyperbolic endpoints and d>1 CRT remain outside this
+model identity, and the signed covariance estimate is OPEN.
+
+Next bounded question: source-check a hybrid or short-interval multiplicative
+character large sieve against equation (10). Compute its exact exponent after
+inserting the actual `A(chi)B(chi)` fourth/mixed moment. Success must bound the
+SIGNED W-C covariance at H^-1 after the prime-m average; a bound only on W,
+C, or their absolute product is insufficient. Reject the route if its large
+sieve M^2 term reproduces the known frequency-crowding loss.

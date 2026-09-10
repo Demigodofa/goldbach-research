@@ -4563,6 +4563,19 @@ ratio was `.104735`, versus `1/(pi H)=.106103`; this found no resonance but
 has only finite cutoff `V=6`. The live analytic target is cancellation of the
 Mobius-weighted off-diagonal character covariance, not a generic `B_U` form.
 
+### 2026-09-10: character diagonal has the H^-1 gain; covariance is open
+
+On a separated `d=1` product box, Gauss expansion gives the exact band energy
+`m/(m-1)^2 sum_eta W_m(eta)C_m(eta)`. Here `W_m` is the character sum over
+the active h interval and `C_m` is the multiplicative autocorrelation of the
+actual Gauss-phased product `A(chi)B(chi)`. The principal eta term is exactly
+an `H^-1` fraction of full character energy. Thus the diagonal has the wanted
+gain, and the sole model-box obstruction is signed nonprincipal covariance:
+positive alignment reinforces, while cancellation proves the target.
+Individual L2 bounds do not control that alignment. Three exact finite-field
+guards pass normal and optimized; independent review PASS. The product mask,
+hard endpoints, d-component, and covariance estimate remain open.
+
 Review correction for the balanced Vaughan test: its Type-II support calculation is a hypothetical Lambda(n_core) diagnostic, not an identity applied to the actual a_B(n_core)*Lambda(m) residual. Also m>=N^.59 in the reflected product; .8395 is only the top-block q=dm configuration, while smaller core blocks permit larger m. The code and handoff now preserve this narrower scope. The actual signed core remains open.
 
 ### 2026-09-10: companion Vaughan scale test reviewed
