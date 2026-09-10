@@ -5225,3 +5225,42 @@ and test whether a Schur/Gershgorin row-sum bound stays O(N^epsilon) after the
 prime-m average.  A row sum or generalized eigenvalue growing like H is the
 falsifier.  The same-row, d>1 and full signed Goldbach estimates remain OPEN;
 no process runs.
+
+## 2026-09-10: diagonal Gershgorin is falsified, but the Schur route survives
+
+`divisor_schur_falsifier.py` tests one explicit proof of the preceding matrix
+inequality.  Put `D=diag(P)`, `B=D^(-1/2) A D^(-1/2)`, and
+`Q=D^(-1/2) P D^(-1/2)`.  Schur plus Gershgorin would give
+
+`lambda_max(P^(-1/2) A P^(-1/2))
+ <=max_i sum_j|B_ij| / min_i(1-sum_(j!=i)|Q_ij|)`
+
+when the denominator is positive.  Replacing the Gershgorin denominator by
+the exact `lambda_min(Q)` always gives the valid hybrid bound
+`max-row-sum(B)/lambda_min(Q)`.
+
+For the five saved prime-averaged bands `(N,U)=(32000,4)` and
+`(200000,6),(200000,12),(200000,24),(200000,48)`, the exact Gershgorin
+certificates are `1.7499,1.8651,2.7593,3.2483,4.0575`; all denominators remain
+positive.  The corresponding actual generalized eigenvalues are
+`1.7482,1.8648,1.8149,1.3012,1.1553`.
+
+The no-prime-average stress cases `(m,H,U)=(1009,5,8)`, `(10007,10,24)`,
+`(30011,14,40)`, `(100003,20,64)` give full off-diagonal absolute row sums
+`.4513,.5598,.7446,1.0786`.  The last therefore has Gershgorin lower bound
+`-.07859`: the pure diagonal Gershgorin proof is FALSIFIED.  Nevertheless its
+exact `lambda_min(Q)=.57739`, its valid hybrid bound is `3.38353`, and the
+actual worst resonant quotient is `2.65303`.  The failure comes from taking
+absolute values in the denominator, not from a small measured spectral
+denominator or a large active numerator.
+
+This preserves two components: the active Schur row sum stays below `1.954`
+in every stress case, and the full normalized Gram has measured minimum
+eigenvalue at least `.577`.  Neither is a theorem or trend.  Next concrete
+question: can the exact common-multiple quadratic form prove a uniform lower
+frame bound `Q >= c I` on a squarefree dyadic divisor band, perhaps after the
+prime average?  A minimum eigenvalue tending to zero is the falsifier.  The
+shifted-row, d>1 and full signed Goldbach estimates remain OPEN; no process
+runs.  Independent review PASSed the matrix normalization, Schur and
+Gershgorin bounds, exact aggregation, highlighted receipt, tests, and narrow
+falsifier scope.

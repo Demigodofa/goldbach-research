@@ -5106,3 +5106,24 @@ new-to-this-task.  Next test an explicit Schur/Gershgorin bound for the
 normalized active off-diagonal kernel after prime averaging, then transfer it
 to shifted row pairs.  Growth like H is the falsifier.  The same-row, d>1 and
 signed Goldbach gaps remain OPEN.
+
+### 2026-09-10: pure Gershgorin fails at H=20
+
+Diagonal normalization gives a concrete proof attempt: Schur bounds the
+active numerator by its maximum absolute row sum, while Gershgorin bounds the
+full denominator below by one minus its maximum absolute off-diagonal row
+sum.  It survives all five saved prime-averaged bands with certificates
+`1.750--4.058`.
+
+The stronger single-prime stress at `(m,H,U,row_count)=(100003,20,64,4)`
+falsifies that denominator step: its off-diagonal row sum is `1.07859`, so the
+Gershgorin lower bound is `-.07859`.  This does not falsify the active/full
+matrix inequality.  The exact normalized denominator eigenvalue is `.57739`,
+the active Schur row sum is `1.95360`, their valid ratio is `3.38353`, and the
+actual generalized eigenvalue is `2.65303`.
+
+The surviving question is now sharper: prove or falsify a uniform lower frame
+bound for the exact full common-multiple Gram, retaining spectral cancellation
+that Gershgorin discards.  The active row-sum upper bound is separately
+promising.  Shifted rows, d>1, and the signed Goldbach estimate remain OPEN.
+Independent review PASSed the derivation, computation, and scope.
