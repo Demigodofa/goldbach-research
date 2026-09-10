@@ -5645,3 +5645,41 @@ interval kernel constant, signed-representative factor, frame normalization,
 Schur step, exponents, receipts, and normal/optimized tests.  This closes the
 raw exact-minus-triangular discrepancy.  The centering correction remains
 OPEN, as do shifted rows, `d>1`, and the signed Goldbach correlation.
+
+## 2026-09-10: exact resonant coefficients do not break the active frame scale
+
+`resonant_coefficient_falsifier.py` attacks the active/totient-frame
+inequality with the strongest possible complex coefficient vector for each
+finite matrix.  If `A` is the exact active Gram and `F` the diagonal totient
+frame, it diagonalizes `F^(-1/2) A F^(-1/2)`.  With top unit eigenvector `d`,
+the project coefficient convention is `c_a=conj(d_a)/sqrt(F_a)`, so
+`sum_a F_a|c_a|^2=1` and its quotient is the exact finite maximum over every
+complex `c`.
+
+Two more structured attacks were added.  A single-mode lock uses
+`c_a proportional to conj(u_a(h))/F_a`; an equal-frame-magnitude coordinate
+ascent chooses every phase adversarially while forcing
+`|sqrt(F_a)c_a|=|D_U|^(-1/2)`.  These test both a sharp Fourier peak and
+coherent cross-divisor phase alignment.
+
+New single-prime cases `(m,H,l_first,row_count,U)`
+`(100003,30,32,2,96)`, `(100003,40,32,1,128)`,
+`(100003,50,32,1,160)`, `(100003,80,32,1,256)`, and
+`(100003,120,32,1,384)` have exact optimal quotients
+`5.83271,5.68998,6.57528,6.37258,8.32580`.  The last case has 236 squarefree
+divisors; its ratios to `H` and the divisor count are `.06938` and `.03528`.
+Its single-mode, flat-phase, and fixed-Mobius quotients are respectively
+`7.90929,4.59297,2.18449`.  The optimal whitened coordinate at `a=390` has
+amplitude `.95128`, hence carries `.905` of the coefficient norm.
+
+Thus a constant-one inequality is exactly falsified, but the new campaign
+finds no `H`-sized or divisor-count-sized resonance.  The worst vector is
+mostly a one-divisor Fourier resonance rather than a coherent divisor-band
+amplification.  This is finite evidence only and does not exclude slower
+growth or prove the `N^epsilon` estimate.
+
+Independent review PASSed the complex conjugation convention, whitening,
+coefficient reconstruction, single-mode maximizer, flat-phase coordinate
+updates, deterministic starts, all receipts, and normal/optimized tests.  The
+next proof obligation is still the centering correction; shifted rows, `d>1`,
+and the signed Goldbach correlation remain OPEN.
