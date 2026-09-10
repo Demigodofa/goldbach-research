@@ -4199,3 +4199,12 @@ Next bounded question: use the exact complement identity a_B(n)=-sum_(d|n,d>B)mu
 Three exact source-gate tests pass normally and optimized; independent source review PASS and supplied the exact balanced-factor obstruction. Status `changed-under-evidence`: the exponent coincidence is real but cannot be transferred through this theorem. This does not limit adaptations of its underlying spectral method or a different factorable majorant.
 
 Next bounded question returns to the signed coefficient itself: can the complementary divisor identity for a_B expose a boundary layer whose weights are genuinely factorable enough for a large-modulus theorem, while the remainder is power-small? Test exact factorability and total mass before any source transfer.
+
+## 2026-09-10: complementary divisor boundary preserves the sign problem
+
+`short_divisor_complement_gate.py` proves exactly, for n>1,
+`a_B(n)=-sum_(d|n,d>B)mu(d)`, and partitions every omitted squarefree d=pe by its unique largest prime p, with coefficient mu(e). This canonical expansion does not create nonnegative or factorable weights. In the top core block m~N^.59, d>B~N^.009 puts q=dm strictly above the exponent infimum .599; d may approach n~N^.41, so q may approach N. The inherited conductor-gap dispersion budget loses the power N^(.459-.41)=N^.049 at this boundary. The exact partition retains both negative a_B(15)=-1 and positive prime-cofactor weights.
+
+Four tests over all 2<=n<100 and cutoffs2..12 pass normally and optimized. Independent review PASS after correcting the wording: .599 is an unattained infimum below 3/5, not a claim that every boundary modulus exceeds 3/5. Status `changed-under-evidence`. The factorability formulation is abandoned; cancellation among signed boundary layers remains possible.
+
+Next bounded question: target the explicit N^.049 loss in the high-conductor dispersion estimate. Test whether retaining the signed d-boundary and the r-average before Cauchy yields an additional bilinear/Kloosterman saving, rather than taking absolute values across q and r. Preserve target-dependent residues, periodization and endpoints. A diagonal of size N^.049 or an unavailable spectral uniformity is the falsifier.
