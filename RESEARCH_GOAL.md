@@ -4319,3 +4319,63 @@ of a predicted main term. Falsifier: an explicit residual or loss
 which still consumes the shift-average gain; preserve useful factors
 without calling this an all-method barrier. Do not repeat the completed
 Gram models, diagonal or proper-power work. Fresh <=30min, UNREVIEWED.
+
+### 2026-09-10: completed short-divisor field suppressed; complement retained
+
+Pursuit01:41:02--02:04:10UTC, reassessment: changed under evidence.
+Research commitde84c06, short_divisor_overlap.py. For every possibly
+N-dependent |b_d|<=1,d<=B=2N^.009, let
+v_b(k)=sum_(d|k,d<=B)b_d log(k/d). With the same T=N^.9,V=N^.125,
+Hwin=N/T and cutoffs, the actual central field satisfies
+ sup_x |P_vb(x)|/sqrtN
+ <<_(M,K) L^2(T^-M+V^-K)+L(B/Hwin)^M=O_A(N^-A)
+after choosing fixed M,K for each A. The completed complex overlap
+with P_Lambda is therefore also O_A(N^-A).
+
+The initial proof used BV in moduli d<=B, fixed-shift weighted
+variation L/(NT), then Poisson on reduced residue classes. It pays
+the actual prime discrepancy O(L^(1-D)), freezing BL/T, cutoff
+BLV^-K and opposite proper powers N^-1/4 L4. The primary Ford
+Sieve Methods2023 Theorem3.4 printedp35 states pi-minus-li; log-Abel
+costs an extra logarithm. This is a valid alternative all-log proof.
+
+During audit a stronger elementary proof emerged: the COMPLETED
+field is already small without prime distribution. For
+f_d,x(u)=log(u/d)u^-1/2 F(Tlog(u/x)), its Mth derivative integral
+is O_M(LN^-1/2 Hwin^(1-M)). Nonzero progression Poisson modes sum
+to L(B/Hwin)^M after normalization. The zero mode uses the exact
+u=x exp(y/T) substitution and Taylor ONLY on the compact cutoff.
+All full hatChi moments vanish because chi is supported away0;
+cutoff moment tails cost V^-K and the Taylor remainder T^-M.
+Summing 1/d costs another L. Thus BV is unnecessary for this saving,
+which supplies NO new two-prime correlation ingredient. The result
+is stronger than a formal identity but still concerns completion.
+
+For actual a_B=mu_<=B*1, a_B*Lambda=mu_<=B*log uses ALL Lambda
+prime powers on the left. Set r_B=a_B-delta_1-h. Exactly,
+ C_h+C_r=-E_Lambda+O_A(N^-A), E_Lambda>=0 and O(1).
+The complementary cofactor lengths, damping corrections and long
+cofactors beyond the original detector list remain in C_r. No sign
+for C_h follows; no positive lower bound for E_Lambda is asserted.
+The survivor's conjugated overlap connection still has its inherited
+all-log error and remains different from reflected Goldbach pairing.
+
+Independent Sol theory/actual-file PASS including the stronger
+elementary proof. Nine guards normal0.007s/-O0.006s. An initial
+review concern about the L5 coefficient norm was retracted: the
+fixed annulus has 1/k=O(1/N), so the tau4 mean costs only L3,
+plus L2 from the coefficient. No old experiments, manuscript,
+publication, push or manual wake. The overall goal remains ACTIVE
+and OPEN; no execution after this checkpoint is claimed.
+
+Next bounded test: restrict the complementary cofactor to n>=N^.6.
+Then the product window forces m<=2N^.4 and the expanded moduli
+q=dm are below4N^.409, within BV. Keep all Lambda(m), endpoints,
+and the complex kernel. Test whether the modulus multiplicity can
+be paid by sum_(m|q)Lambda(m)=logq and whether the reduced-residue
+Poisson main can be bounded when q>=Hwin, where it no longer
+vanishes automatically. Success is an actual saving for this
+complementary range with every error paid. Falsifier: an unpaid
+resonance, main term or modulus loss. The original bad range
+n<=2N^.41 is not brought inside BV's level by this observation.
+Fresh <=30min; this proposed estimate is UNREVIEWED.

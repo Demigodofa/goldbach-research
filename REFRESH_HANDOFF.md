@@ -35,7 +35,46 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **8173dbe**, in detector_gram_coercivity.py:
+Latest reviewed RESEARCH commit: **de84c06**, short_divisor_overlap.py.
+Pursuit2026-09-10 01:41:02--02:04:10UTC: changed under evidence.
+For arbitrary |b_d|<=1,d<=B=2N^.009, the COMPLETED coefficient
+v_b(k)=sum_(d|k,d<=B)b_d log(k/d) has a central window field satisfying
+ sup_x |P_vb(x)|/sqrtN <<_(M,K)
+ L^2(T^-M+V^-K)+L(B/(N/T))^M.
+Thus it is O_A(N^-A) for every fixed A. This is an ACTUAL estimate,
+but elementary: progression Poisson, vanishing Fourier moments and
+the gap B<<N/T suffice. It needs no prime distribution or Mobius
+cancellation. The initially derived BV proof remains valid as an
+alternative all-log estimate, with its weighted variation and source
+losses paid. Do not describe BV as the ingredient causing this saving.
+
+For a_B=mu_<=B*1, KEEP ALL prime powers in a_B*Lambda=v_mu.
+With r_B=a_B-delta_1-h, the exact complex conjugated balance is
+ C_h+C_r=-E_Lambda+O_A(N^-A), E_Lambda>=0 and O(1).
+No positive lower bound for E_Lambda is claimed. The complement r_B
+includes cofactor lengths up to the product scale, not merely the
+original short good-polynomial sum. C_r remains unpaid, with only
+O(L^(5/2)) direct overlap budget. The survivor connection retains
+its previous all-log transfer error. No sign for C_h or the original
+NONCONJUGATED reflected Goldbach pairing has been established.
+Independent Sol theory/actual-file PASS including the elementary
+strengthening; nine guards normal0.007s/-O0.006s.
+
+Next concrete question: can BV control the complementary cofactor
+range n>=N^(3/5) in its actual conjugated overlap? Product k~N then
+forces m<=2N^(2/5), so expanding a_B gives moduli q=d*m below
+4N^.409. Keep ALL Lambda(m), the actual cofactor endpoints, and
+the complex shift kernel. Test the exact reduced-residue Poisson
+main even when q is comparable to or larger than N/T; do not assert
+that every lattice is annihilated. Charge multiplicities in the
+modulus sum (the candidate identity is sum_(m|q)Lambda(m)=logq),
+weight variation, Fourier tails and opposite prime powers. Success
+requires an actual saving for this restricted complementary range;
+an unpaid resonance/main term or modulus loss is the falsifier.
+This next hypothesis is UNREVIEWED, fresh <=30min. It does not
+claim that the bad range n<=2N^.41 falls within BV's modulus level.
+
+Previous **8173dbe**, in detector_gram_coercivity.py:
 the proposed DISK-ONLY homogeneous coercivity/inverse inference is false.
 Exact artificial Gram G=[[1,r],[r,1]], r=19/20, multipliers-1+-i/2
 and c=(1,-1+i/2) give norm7/20 but POSITIVE mixed overlap1/8.
@@ -63,7 +102,7 @@ or the original nonconjugated reflected Goldbach pairing.
 
 Independent Sol theory/actual-file PASS; nine guards normal/-O0.001s.
 Pursuit2026-09-10 01:24:30--01:39:27UTC: changed under evidence.
-Next concrete question: can the NONZERO SHIFT AVERAGE in this exact
+That pursuit's next question, now tested in de84c06, was whether the NONZERO SHIFT AVERAGE in this exact
 actual sum give a saving when the specific a_T(n)=sum_(d|n,d<=B)mu(d)
 is expanded BEFORE Cauchy? Keep both prime conditions and the complex
 kernel. Test whether the extra r-average supplies a genuine signed
@@ -71,7 +110,7 @@ estimate, compared with the current O(L^(5/2)) overlap bound, or
 whether a definite residual still consumes the gain. A formal main-term
 identity or removal of prime conditions is not success. Do not redo
 the completed Gram models, diagonal or prime-power estimates. Fresh
-<=30min; this next arithmetic hypothesis is UNREVIEWED.
+<=30min; the completed estimate and explicit residual are recorded above.
 
 Previous **45f87c0**, in high_detector_weighted_bridge.py:
 the remaining H-weighted HIGH exterior is now paid. Consequently ALL
