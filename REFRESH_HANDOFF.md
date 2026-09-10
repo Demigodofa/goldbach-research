@@ -4761,3 +4761,33 @@ a stable low-energy eigendirection, or whether its cancellation is merely the
 known convolution identity in finite-dimensional form. Instability across
 scale or exact reduction to that identity is the falsifier. Goal active; no
 process runs.
+
+## 2026-09-10: factor eigentest finds identity geometry, not a new OFF mode
+
+`mobius_factor_eigen_probe.py` diagonalizes the measured principal matrix D
+and the generalized covariance problem O v=lambda D v for the lower,
+balanced, and upper Mobius-factor components. The all-factor vector
+e=(1,1,1) is close, in the natural unscaled component coordinates, to the
+smallest-principal-energy vector: Euclidean cosines `.986820`, `.993335`, and
+`.995139` at `N=32000,200000,1200000`. This is consistent with the exact
+complementary convolution identity `mu_>V*log=Lambda-mu_<=V*log`; the identity
+still supplies no active-band estimate.
+
+The generalized OFF spectrum does not reveal a stable special cancellation
+mode. The weight of e on the positive generalized eigenvalue moves from
+`6.899%` to `30.438%` to `.011%`, while the direct OFF/principal ratios are
+`-.060914`, `-.041560`, and `-.039048`. D-metric weights exactly reconstruct
+those ratios. The Euclidean cosine is basis-scale dependent; the generalized
+spectrum and reconstruction are the invariant checks. One guard passes
+normally and optimized; independent review reproduced all three scales and
+PASSed the algebra, identity, and scope. Status `changed-under-evidence`:
+abandon a stable positive or special OFF eigendirection as the mechanism,
+retain the finite principal-alignment clue and every factor component.
+
+Next concrete question: the arbitrary-J_m target is a deliberately strong
+sufficient theorem. Recover the interval family imposed by the actual
+Goldbach transfer and test whether its dependence on m has enough structure
+to average the signed active-band kernels before taking a supremum over
+selectors. Free modulus-dependent endpoints or a surviving `N^.18` frequency
+cluster falsify this refinement. The fixed Mobius covariance and signed
+Goldbach correlation remain OPEN; no process runs.

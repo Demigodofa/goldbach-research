@@ -4878,3 +4878,27 @@ rebalancing, not the factors or the signed covariance. Next test whether the
 full factor vector occupies a stable low-energy covariance eigendirection and
 whether any such relation contains information beyond the known convolution
 identity. The Goldbach correlation remains OPEN.
+
+### 2026-09-10: factor eigentest reduces to the complementary identity
+
+For the measured three-component principal matrix D and OFF matrix O, the
+generalized eigentest `O v=lambda D v` exactly reconstructs the all-factor
+ratio from the D-spectral weights of `e=(1,1,1)`. At
+`N=32000,200000,1200000`, e has natural-coordinate cosine
+`.986820,.993335,.995139` with the smallest-D vector, matching the geometry
+expected from `mu_>V*log=Lambda-mu_<=V*log`. That cosine is coordinate-scale
+dependent and is only a finite clue.
+
+There is no stable generalized OFF mode: the positive-mode weight of e is
+`6.899%,30.438%,.011%` across the three scales, although its direct
+OFF/principal ratio remains modestly negative. One guard passes normal and
+optimized; independent review reproduced the data and PASSed the exact linear
+algebra and convolution sign. Status `changed-under-evidence`. The identity
+geometry and factor components remain useful, but no new sign, saving, or
+power law was found.
+
+Next test whether the actual Goldbach transfer produces a structured interval
+family J_m, allowing the signed m-average to be used before the stronger
+arbitrary-selector supremum. Free endpoints or persistence of the known
+dense frequency-cluster loss falsifies that route. The fixed Mobius-band
+inequality and signed prime correlation remain OPEN.
