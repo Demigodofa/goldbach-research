@@ -4858,3 +4858,23 @@ Four exact guards and independent primary-source review PASS. Status
 the exact pair-weight encoding, factors and rank payment are preserved. Next
 test prime-exponent rebalancing against every inherited budget and a sourced
 beyond-one-half convolution range. The signed Goldbach estimate remains OPEN.
+
+### 2026-09-10: companion-exponent rebalancing gate
+
+With companion exponent `mu`, the exact active-band benchmark is `.909+mu`,
+the retained U=1 Type-I exponent is `.318+2mu`, and the margin is `.591-mu`.
+Lowering `.59` keeps that component valid. It does not reach the checked
+distribution sources in the still-open range: cofactors below `N^.46` force
+`mu>.54`, while Wright Theorem 2.2's two modulus inequalities permit some
+factor exponent only when `mu<17/33=.51515...`. Balanced factors directly
+violate its required factor-longer-than-modulus inequality. Classical BV with
+`d<=N^.009` requires the strict condition `mu<.491`.
+
+The Wright/BV ranges are contained in companion ranges already paid by the
+actual tail estimates. Six guards pass normal/optimized; independent review
+held the first draft for strict BV and longer-factor boundary corrections and
+then PASSed them. Status `changed-under-evidence`. This rejects source-range
+rebalancing, not the factors or the signed covariance. Next test whether the
+full factor vector occupies a stable low-energy covariance eigendirection and
+whether any such relation contains information beyond the known convolution
+identity. The Goldbach correlation remains OPEN.

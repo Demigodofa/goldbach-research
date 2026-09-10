@@ -4732,3 +4732,32 @@ from `.59` can enter a sourced beyond-one-half convolution range while keeping
 every earlier Type-I, proper-power, conductor-gap and overlap budget valid.
 An unpaid old term or no common parameter interval falsifies this rebalancing.
 Overall goal active; no process runs.
+
+## 2026-09-10: prime-exponent rebalancing has no source-range intersection
+
+`mobius_prime_exponent_rebalance_gate.py` varies the companion exponent `mu`
+while retaining `b=.009`, shift exponent `.1`, and Mobius cutoff `.15`. The
+active-band benchmark is `.909+mu`, the U=1 Type-I exponent is `.318+2mu`,
+and their exact margin is `.591-mu`; lowering `.59` therefore preserves that
+component. But the unpaid cofactor is strictly below `N^.46`, so the current
+companion exponent is strictly above `.54`, with `.54` only an infimum.
+
+For the favorable d=1 case, Wright arXiv:2608.27732v1 Theorem 2.2 requires
+`34nu-17<mu<nu` for a convolution factor exponent `nu`. Such a `nu` exists
+only if `mu<17/33=.51515...`, disjoint from the unpaid range. In a balanced
+box both factor exponents are already below `mu`, directly reversing the
+upper condition. Adding `d` only lengthens the modulus. Classical BV with
+the small divisor requires the strict margin `mu+.009<.5`, hence `mu<.491`.
+Both source ranges lie inside companion regions already paid by the actual
+large-cofactor/dispersion estimates.
+
+Six exact guards pass normally and optimized; independent review first held
+the result for strict BV and boundary wording, then PASSed the corrected
+version. Status `changed-under-evidence`. Rebalancing within the unresolved
+range is rejected as a way to invoke these sources. The Type-I margin and
+factor components remain useful. Next concrete question: use the measured
+3-by-3 factor covariance to test whether the actual all-factor vector follows
+a stable low-energy eigendirection, or whether its cancellation is merely the
+known convolution identity in finite-dimensional form. Instability across
+scale or exact reduction to that identity is the falsifier. Goal active; no
+process runs.
