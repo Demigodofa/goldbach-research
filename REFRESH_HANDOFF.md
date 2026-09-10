@@ -5162,3 +5162,66 @@ growing like H or the divisor count falsifies the mechanism.  A bounded result
 would combine with the one-divisor theorem without the V-sized Cauchy loss.
 The l-lag, same-row, d>1 and full signed Goldbach estimates remain OPEN; no
 process runs.
+
+## 2026-09-10: active energy matches its rho-share on the divisor subspace
+
+`divisor_active_full_gram.py` tests the direct matrix inequality suggested by
+the preceding Gram experiment.  Its numerator is the active Gram with
+coefficient `1-rho_m`; its denominator is `rho_m` times the full nonzero-
+frequency Gram, with every prime, row and `(log m)^2/m` weight retained.
+Precisely, for `H=floor(N^.1)`, `M=floor(N^.59)`, `V=floor(N^.15)`,
+`A=ceil(N/(8M))`, `U=2^j V`, squarefree `D_U=(U,2U]`, arbitrary complex
+`c_a`, `I_m={1<=h<m:m/(2*pi*H)<min(h,m-h)<m/(pi*H)}`, and
+`rho_m=|I_m|/(m-1)`, the proposed estimate is
+
+`sum_(M<m<=2M prime) (log m)^2/m*(1-rho_m)
+ sum_(A<=l<2A) sum_(h in I_m)|sum_(a in D_U)c_a u_(a,m,l)(h)|^2
+ <=C_eps N^eps sum_(M<m<=2M prime) (log m)^2/m*rho_m
+ sum_(A<=l<2A) sum_(1<=h<m)|sum_(a in D_U)c_a u_(a,m,l)(h)|^2`.
+
+Here `u_(a,m,l)(h)=sum_(ml<ab<m(l+1))log(b)
+[e_m(-hab)+1/(m-1)]`; the constant must be independent of `N,j,c`.
+
+The denominator is arithmetic rather than numerical.  If `f_a(r)` is the
+logarithmic progression on nonzero residues and `S_a=sum_r f_a(r)`, Parseval
+gives exactly
+
+`G_full(a,a')=m*(sum_(ml<n<m(l+1),lcm(a,a')|n)
+log(n/a)log(n/a')-S_a*S_a'/(m-1))`.
+
+The measured `(Mobius quotient, largest generalized eigenvalue, denominator
+condition number)` are:
+
+`N=32000,A=9,(4,8],K=3`: `(.489293,1.748192,1.4313)`;
+
+`N=200000,A=19,(6,12],K=3`: `(1.001051,1.864768,1.6421)`;
+
+`N=200000,A=19,(12,24],K=8`: `(.962124,1.814855,2.6377)`;
+
+`N=200000,A=19,(24,48],K=15`: `(1.018993,1.301185,2.7393)`;
+
+`N=200000,A=19,(48,96],K=29`: `(.914781,1.155265,3.3729)`.
+
+Thus the exact active energy is within a small constant of its uniform
+rho-share throughout this finite divisor-progression campaign, including the
+worst normalized coefficient vector.  No eigenvalue grows with K here.
+
+Single-prime stress tests use exact calls `(m,H,l_first,row_count,U)`:
+`(1009,5,9,8,8)`, `(10007,10,20,8,24)`, `(30011,14,24,6,40)`, and
+`(100003,20,32,4,64)`.  Their `(Mobius quotient,largest eigenvalue)` pairs are
+`(.00932,.04220)`, `(1.06009,2.04186)`, `(1.17615,2.72358)`, and
+`(1.40988,2.65303)`.  Up through H=20 and K=39 this finite stress test finds
+no H-sized or K-sized resonance.  It proves no bound or trend.
+
+Three guards pass normally and optimized.  Independent review PASSed the
+common-multiple formula, centering, weights, whitening, conditioning, every
+aggregate receipt, and the exact larger-H call tuples.  Status `aha-candidate`,
+new-to-this-task.
+
+This remains a same-row matrix experiment.  To use it in D_j, the corresponding
+bilinear inequality must tolerate shifted row pairs and endpoint multiplicity.
+Next concrete question: expand the normalized active off-diagonal Gram kernel
+and test whether a Schur/Gershgorin row-sum bound stays O(N^epsilon) after the
+prime-m average.  A row sum or generalized eigenvalue growing like H is the
+falsifier.  The same-row, d>1 and full signed Goldbach estimates remain OPEN;
+no process runs.

@@ -5080,3 +5080,29 @@ Next compare the active Gram to rho times the exact full-frequency collision
 Gram on the divisor-progression subspace.  A generalized eigenvalue growing
 like H or band size falsifies the route.  The l-lag, same-row, d>1 and signed
 Goldbach gaps remain OPEN.
+
+### 2026-09-10: restricted active/full matrix inequality survives finite stress
+
+The full-frequency divisor Gram now has an exact Parseval formula through
+common multiples of `lcm(a,a')`.  Comparing the active Gram with `rho_m` times
+this full Gram gives fixed-Mobius quotients `.489--1.019` and worst generalized
+eigenvalues `1.155--1.865` across the saved N=32000/200000 bands of size
+3,8,15,29.  Denominator condition numbers are below 3.38.
+
+The exact proposed inequality, including the definitions of `H,M,V,A,U,D_U`,
+the active band `I_m`, every prime/row/frequency range, both `rho_m` factors,
+the `(log m)^2/m` weight, arbitrary coefficients `c_a`, and the centered
+progression `u_(a,m,l)(h)`, is recorded in `divisor_active_full_gram.py` and
+`REFRESH_HANDOFF.md`.  Its generalized eigenvector is the finite worst-case
+resonant coefficient choice; the Mobius receipt uses `c_a=mu(a)`.
+
+Single-prime stress tests at H=5,10,14,20 and up to 39 divisors give largest
+eigenvalues `.042,2.042,2.724,2.653`, with fixed-Mobius quotients
+`.009,1.060,1.176,1.410`.  This rejects H-sized and divisor-count-sized
+resonance in the tested range, but proves no uniform estimate or trend.
+
+Three guards and independent review PASS.  Status `aha-candidate`,
+new-to-this-task.  Next test an explicit Schur/Gershgorin bound for the
+normalized active off-diagonal kernel after prime averaging, then transfer it
+to shifted row pairs.  Growth like H is the falsifier.  The same-row, d>1 and
+signed Goldbach gaps remain OPEN.
