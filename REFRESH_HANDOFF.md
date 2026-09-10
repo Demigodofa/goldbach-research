@@ -4674,3 +4674,28 @@ balanced `.41<alpha<.59` box first. Expand the signed prime-m average before
 Cauchy and test whether the asymptotic-large-sieve diagonal architecture can
 incorporate the active numerator band as a third short transform. A surviving
 Q^2/positive-norm term falsifies this adaptation. Goal active; no process runs.
+
+## 2026-09-10: factor covariance does not isolate the balanced box
+
+`mobius_factor_covariance_probe.py` partitions the exact d=1 central tail into
+`V<a<=floor(N^.41)`, `floor(N^.41)<a<M`, and `a>=M`, with
+`M=floor(N^.59)`, then forms the full 3 by 3 principal and OFF covariance
+matrices over all prime moduli. At `N=200000,H=3,V=6`, the component
+`OFF/DIAG` ratios are `-.051785,+.006337,-.006914`; at
+`N=1200000,H=4,V=8`, they are `-.035441,+.002394,+.005203`.
+
+The balanced diagonal is close to uniform active-frequency allocation in both
+finite tests and shows no resonance. This is only a clue: the sum of component
+principal diagonals is `4.63` and `5.43` times the recombined total because the
+factor ranges have large cross terms. Cross OFF changes sign between the two
+scales. Therefore no componentwise positive theorem or omission of cross-regime
+terms is licensed. The tiny V values also support no asymptotic trend claim.
+The exact matrix recombination guard passes normally and optimized; independent
+review reproduced both scales and PASSed after requiring the literal floor/M
+boundary above. Status `progress`; the signed estimate remains OPEN.
+
+Next concrete question: write the balanced factor contribution as an exact
+three-variable transform in `(a,b,h)` before Cauchy, and source-gate a trilinear
+finite-field estimate against its actual support and coefficient norms. A
+surviving full-norm or modulus-family term above `N^1.499` is the falsifier.
+Overall goal active; no process runs.

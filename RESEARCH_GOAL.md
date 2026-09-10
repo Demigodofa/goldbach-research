@@ -4821,3 +4821,18 @@ omitted `+1` for a generic long outer factor; the final proof always chooses
 but their signs or joint m,h average must precede Cauchy. Next test a direct
 signed adaptation on the balanced `.41<alpha<.59` box, where both factor
 supports are below m. The Goldbach signed estimate remains OPEN.
+
+### 2026-09-10: balanced factor covariance matrix
+
+The exact d=1 central tail was split at the literal finite boundaries
+`V<a<=floor(N^.41)`, `floor(N^.41)<a<M`, and `a>=M`, where
+`M=floor(N^.59)`. The reproducible 3 by 3 covariance probe gives balanced
+component `OFF/DIAG=+.006337` at `N=200000,H=3,V=6` and `+.002394` at
+`N=1200000,H=4,V=8`, so this component shows no finite resonant concentration.
+It cannot be separated from the full tail: component principal diagonals total
+`4.63` and `5.43` times the recombined diagonal, and cross OFF changes sign.
+The result is finite evidence at tiny V, not an asymptotic estimate or a license
+to discard polynomial/factor components. The recombination guard passes normal
+and optimized; independent review reproduced both scales and PASSed. Status
+`progress`. Next source-gate an exact balanced `(a,b,h)` trilinear estimate;
+any full-norm or family term above the `N^1.499` budget falsifies that route.
