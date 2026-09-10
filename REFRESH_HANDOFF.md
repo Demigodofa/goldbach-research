@@ -5115,3 +5115,50 @@ Next concrete question: test the exact cross-divisor quasi-orthogonality
 A ratio growing proportionally to V, or a resonant Gram eigenvector aligned
 with mu(a), falsifies this mechanism.  The l-lag, same-row, d>1 and full signed
 Goldbach estimates remain OPEN; no process runs.
+
+## 2026-09-10: near-cutoff divisor Gram is almost orthogonal in finite tests
+
+`mobius_cross_divisor_gram.py` forms the exact active-band Gram matrix for
+`u_(a,m,l)` over a dyadic divisor band, summed over every aligned row and prime
+m with weight `(log m)^2(1-rho_m)/m`.  It records both the Rayleigh quotient of
+the fixed mu(a) vector and the largest generalized eigenvalue after normalizing
+each divisor's diagonal energy.
+
+The measured `(number of squarefree divisors, Mobius quotient, worst uniform
+eigenvalue)` triples are:
+
+`N=32000,A=9,(4,8]`: `(3,1.000609,1.140689)`;
+
+`N=200000,A=19,(6,12]`: `(3,1.0000065,1.000203)`;
+
+`N=200000,A=19,(12,24]`: `(8,1.000351,1.001010)`;
+
+`N=200000,A=19,(24,48]`: `(15,1.088041,1.704487)`;
+
+`N=200000,A=19,(48,96]`: `(29,1.067771,1.571749)`.
+
+For `N=200000,A=30,(6,12]`, the Mobius quotient is `.999720` and the uniform
+maximum is `1.001217`.  Neither the fixed vector nor the worst normalized
+coefficient tracks the raw divisor count through 29 divisors.  This supports
+cross-divisor quasi-orthogonality at these finite scales; it does not prove a
+uniform large-sieve estimate.  The calculation is a same-row active norm and
+does not yet control signed l-lags.
+
+Two guards pass normally and optimized.  Independent review PASSed the exact
+progression endpoints, phase, centering, Gram orientation, weight,
+normalization, eigenvalue interpretation and independent N=32k/N=200k
+receipts.  Status `progress`.
+
+Next concrete question: form the exact full-frequency collision Gram without
+summing all h, using Parseval and common-multiple counts, and test the matrix
+inequality
+
+`sum_m w_m G_active(m) <= C_epsilon N^epsilon
+* sum_m w_m rho_m G_full(m)`.
+
+This is restricted to the divisor-progression subspace, so the earlier
+arbitrary-residue resonance does not settle it.  A generalized eigenvalue
+growing like H or the divisor count falsifies the mechanism.  A bounded result
+would combine with the one-divisor theorem without the V-sized Cauchy loss.
+The l-lag, same-row, d>1 and full signed Goldbach estimates remain OPEN; no
+process runs.

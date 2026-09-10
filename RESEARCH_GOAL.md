@@ -5061,3 +5061,22 @@ The unresolved loss is coherent summation across `V<a<=2V`; plain Cauchy loses
 that band cardinality.  Next test cross-divisor Gram quasi-orthogonality with
 the fixed mu(a) vector.  Growth proportional to V is the falsifier.  The
 l-lag, same-row, d>1 and signed Goldbach estimates remain OPEN.
+
+### 2026-09-10: finite cross-divisor Gram quasi-orthogonality
+
+The exact active-band Gram matrix of the near-cutoff divisor progressions was
+measured over all prime companions and aligned rows.  For divisor-band sizes
+`3,8,15,29`, the fixed Mobius Rayleigh ratios are
+`1.000006--1.08804`, while the largest diagonal-normalized arbitrary-coefficient
+eigenvalues are `1.00020,1.00101,1.70449,1.57175` in the N=200000 campaign.
+The N=32000 three-divisor values are `1.000609,1.140689`.
+
+No measured ratio follows the raw divisor count.  This is useful finite support
+for quasi-orthogonality, not an asymptotic theorem, and it currently controls
+same-row active energy rather than signed l-lags.  Two guards and independent
+review PASS.  Status `progress`.
+
+Next compare the active Gram to rho times the exact full-frequency collision
+Gram on the divisor-progression subspace.  A generalized eigenvalue growing
+like H or band size falsifies the route.  The l-lag, same-row, d>1 and signed
+Goldbach gaps remain OPEN.
