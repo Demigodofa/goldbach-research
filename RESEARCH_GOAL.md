@@ -4804,3 +4804,20 @@ Only longer blocks need new cancellation. Next split `mu_>V*log` by factor
 exponent alpha into the below/above-m regimes separated at `.41` and `.59`,
 and compute their individual averaged-energy budgets before applying another
 large-sieve or bilinear theorem. The signed prime correlation remains OPEN.
+
+### 2026-09-10: the best factor-by-factor Cauchy still retains Y^2
+
+On a surviving block `Y=N^y`, split the Mobius factor at `N^alpha` and choose
+the shorter of it and its `N^(1-alpha)` cofactor as the outer variable
+`Z=N^s`. Since `s<=.5<y`, each fixed outer value leaves `O(Y/Z)` inner values.
+Parseval plus Cauchy gives `Y^2+ZqY` per modulus and
+`N^o(1)(Y^2+ZBMY)` after the exact outer family. Its exponent is
+`max(2y,y+s+.599)`. The `2y` term exceeds 1.499 for every `y>.7495`, in the
+lower, balanced and upper factor regimes alike.
+
+Four guards and independent review PASS after correcting the initially
+omitted `+1` for a generic long outer factor; the final proof always chooses
+`Z<Y`. Status `changed-under-evidence`. The factor components remain available,
+but their signs or joint m,h average must precede Cauchy. Next test a direct
+signed adaptation on the balanced `.41<alpha<.59` box, where both factor
+supports are below m. The Goldbach signed estimate remains OPEN.

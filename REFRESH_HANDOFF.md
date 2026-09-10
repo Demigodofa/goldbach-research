@@ -4640,3 +4640,37 @@ factor exponent alpha. Preserve the three natural regimes
 the two factors lie below or above the prime modulus. Compute a separate
 energy budget and falsifier for each before choosing a source theorem. Goal
 active; no process running.
+
+## 2026-09-10: factor-by-factor Cauchy fails every surviving long block
+
+`mobius_long_block_factor_gate.py` splits the exact `mu_>V*log` convolution
+on `Y=N^y`, `y>.7495`, by Mobius-factor scale `A=N^alpha`. The exponent
+regimes are lower `.15<alpha<=.41` (log factor above m), balanced
+`.41<alpha<.59` (both factors below m), and upper `alpha>=.59` (Mobius factor
+above m). Fixed-gap statements require epsilon slack at `.41,.59`.
+
+Choose the shorter factor `Z=N^s`, `s=min(alpha,1-alpha)<=.5`, as the outer
+Cauchy variable. Because `Z<Y`, the other factor has `O(Y/Z)` values for each
+outer value. Parseval, residue collisions and Cauchy give per q
+`N^o(1)(Y^2+ZqY)`; after the exact outer family this is
+
+`N^o(1)(Y^2+ZBMY)`, exponent `max(2y,y+s+.599)`.
+
+The family term fits only for `s<=.9-y`. The common collision term `2y`
+exceeds 1.499 for every surviving `y>.7495`, independent of alpha. Thus the
+best factor-by-factor Parseval/Cauchy route fails all three regimes; finer
+alpha splitting cannot remove Y^2. This does not discard the factors or
+polynomial identities: their signs or the m,h average must enter before
+Cauchy. Four guards pass normally/optimized. Independent review first found
+and then verified the correction that a generic fixed factor has
+`O(Y/A+1)` inner values; the final proof uses only shorter `Z<Y`. Status
+`changed-under-evidence`.
+
+The balanced region still matches the superficial factor-support geometry of
+the checked asymptotic large sieve, the lower region places short Mobius in a
+mollifier-like orientation, and the upper long-Mobius region is least matched.
+No local covariance theorem is supplied. Next concrete question: attack the
+balanced `.41<alpha<.59` box first. Expand the signed prime-m average before
+Cauchy and test whether the asymptotic-large-sieve diagonal architecture can
+incorporate the active numerator band as a third short transform. A surviving
+Q^2/positive-norm term falsifies this adaptation. Goal active; no process runs.
