@@ -4637,3 +4637,21 @@ generic spacing/minimum-gap large-sieve proof, not the fixed centered
 prime-log inequality. Next test a sourced Vaughan/Heath--Brown expansion in
 the p-variable against the dense m,h cluster, retaining the full-minus-low
 correction and long endpoints.
+
+### 2026-09-10: pointwise prime estimates cannot pay band energy
+
+Maynard--Pandey--Radziwill arXiv:2608.14777v1 Theorem1.1 bounds a prime
+exponential sum by `X^(o(1))*(X/D^.5+X^(19/24))`. For the exact reduced
+h/m with m=X^.59, every allowed q<=X^.5 approximation is distinct and rational
+separation forces D>=X/m=X^.41. The resulting pointwise exponent is
+159/200=.795. Prime powers cost X^(.5+o(1)) and the d=1 low correction X^.41.
+
+Summing its square over X^1.08 active frequencies with weight X^-.59 gives
+X^2.08, while the required H^-1 band budget is X^1.49. The miss is X^.59.
+Classical Vaughan .8 misses by X^.60. Algebraically any pointwise exponent
+s must satisfy s<=1/2 to reach the energy target. Helfgott
+arXiv:1501.05438 equations (3.6)--(3.9) confirms that a global Lambda sum can
+be decomposed into Type I/II pieces without pretending an individual prime
+factors. Five guards pass normally and optimized; independent source review
+PASS. Status `changed-under-evidence`. Preserve the .795 component; the next
+test must average explicit Vaughan pieces over m,h before absolute values.

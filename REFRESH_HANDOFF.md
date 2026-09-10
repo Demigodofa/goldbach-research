@@ -4351,3 +4351,36 @@ and Type II exponent budgets across the dense m,h cluster. Preserve the exact
 full-minus-low correction and long interval endpoints. A Type I modulus above
 the licensed distribution level or a Type II diagonal of size N^.18 is the
 falsifier.
+
+## 2026-09-10: current pointwise prime bounds miss by N^.59 in energy
+
+`prime_pointwise_band_gate.py` source-checks the opposite-prime exponential
+sum. Maynard--Pandey--Radziwill arXiv:2608.14777v1, Theorem 1.1, gives
+`X^(o(1))*(X/D^(1/2)+X^(19/24))` for a Dirichlet approximation denominator
+q<=X^.5 and `D=max(q,qX|epsilon|)`. For the reduced exact rational h/m with
+m=X^.59, the approximant cannot equal h/m. Rational separation forces
+`qX|epsilon|>=X/m=X^.41`, hence the checked source gives pointwise exponent
+`max(1-.41/2,19/24)=159/200=.795`. The interval J_m is a difference of two
+prefix sums. Proper prime powers cost X^(.5+o(1)); the d=1 low correction is
+X^.41 up to logs. Both are smaller.
+
+There are X^(1.08+o(1)) active (m,h) pairs and energy weight m^-1=X^-.59.
+Squaring and summing the source bound gives X^2.08. The existing d=1
+all-frequency variance is X^1.59, so the required H^-1 band budget is X^1.49:
+the pointwise route misses by X^.59. Classical Vaughan exponent .8 would give
+X^2.09 and miss by X^.60. In general a pointwise exponent s reaches the target
+only if s<=1/2 exactly. Thus averaging must precede absolute values.
+
+Helfgott arXiv:1501.05438, equations (3.6)--(3.9), licenses applying Vaughan's
+identity to the full Lambda sum. This creates Type I/II convolution sums for
+analysis; it does not assign factors to an individual prime and does not
+contradict the earlier pointwise companion warning. Five guards pass normally
+and optimized; independent source/mathematical review PASS. Status
+`changed-under-evidence`. The .795 result is preserved as a useful component,
+but pointwise estimation is abandoned for the active-band energy target.
+
+Next bounded question: choose explicit Vaughan cutoffs U=V=X^u and average
+each Type I/II piece over the d=1 family m~X^.59 and the actual angular h-band
+BEFORE triangle or pointwise bounds. First test whether complete-period
+cancellation pays Type I for some u; then compute the Type II congruence
+diagonal. Any remaining exponent above X^1.49 falsifies that cutoff.
