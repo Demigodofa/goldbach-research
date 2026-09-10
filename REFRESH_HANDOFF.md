@@ -4610,3 +4610,33 @@ block length Y=2^j. Identify exactly which Y are already affordable against
 `N^1.499`; only then spend arithmetic input on the surviving long scales.
 Any collision factor moving the threshold below the derived value falsifies
 the hoped-for pruning. Overall goal active; no process running.
+
+## 2026-09-10: Parseval pays all dyadic blocks through exponent .7495
+
+`mobius_covariance_dyadic_scale_gate.py` keeps the full `d<=B`, prime
+`m~M`, `q=dm`, low-projector kernel, coprimality masks and outer
+`mu(d)^2(log m)^2/q` weight. On a block of length Y the exact tail coefficient
+has square mass `Y*N^o(1)`. Full-q Parseval and residue occupancy give
+
+`sum_(h in B_q)|T_mu(h)|^2 <=4(Y+q)Y*N^o(1)`.
+
+After the outer family is summed, uniformly in every modulus-dependent block
+location,
+
+`E_Y <=N^o(1)(Y^2+B*M*Y)`.
+
+For `Y=N^y`, the exponents are `2y` and `y+599/1000`. Against the application
+benchmark `1499/1000`, every `y<=1499/2000=.7495` is paid. At the endpoint the
+collision term reaches 1.499, while the family term is only
+`2697/2000=1.3485`, margin `301/2000=.1505`. The prior dyadic recombination
+cost is logarithmic and absorbed. Three guards pass normally/optimized;
+independent review PASS. Status `progress`.
+
+Only dyadic lengths `N^.7495<Y<=3N/4` remain. The estimate supplies no H gain
+there: its `Y^2` collision term is too large. Next concrete question: split
+the exact `mu_>V*log` convolution on one surviving long n-block by the Mobius
+factor exponent alpha. Preserve the three natural regimes
+`.15<alpha<=.41`, `.41<alpha<.59`, and `alpha>=.59`, determined by whether
+the two factors lie below or above the prime modulus. Compute a separate
+energy budget and falsifier for each before choosing a source theorem. Goal
+active; no process running.

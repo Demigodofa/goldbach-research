@@ -4789,3 +4789,18 @@ Next compute the full Parseval collision budget for common block length Y and
 discard every scale already below exponent 1.499. The remaining long-block
 threshold will define the next arithmetic input. The signed Goldbach estimate
 and d>1 transfer remain OPEN.
+
+### 2026-09-10: Parseval prunes dyadic lengths through N^.7495
+
+For one selected block of length Y, full-frequency Parseval with exact q- and
+d-residue collision counts bounds the continued full-minus-low kernel by
+`4(Y+q)Y*N^o(1)`. Inserting `mu(d)^2(log m)^2/q` and summing the complete
+family gives `E_Y<<N^o(1)(Y^2+BMY)`. Thus lengths `Y=N^y` have exponents
+`2y` and `y+.599`; both fit the `1.499` benchmark exactly when
+`y<=1499/2000=.7495`. Three guards and independent review PASS. Status
+`progress`.
+
+Only longer blocks need new cancellation. Next split `mu_>V*log` by factor
+exponent alpha into the below/above-m regimes separated at `.41` and `.59`,
+and compute their individual averaged-energy budgets before applying another
+large-sieve or bilinear theorem. The signed prime correlation remains OPEN.
