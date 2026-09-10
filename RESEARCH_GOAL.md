@@ -4926,3 +4926,20 @@ Curiosity status `aha-candidate`, new-to-this-task. Next derive the full
 aligned `(d,m,l,r,h)` form before endpoint maximization and test whether its
 r-transform eliminates the long-block collision or dense-frequency loss.
 The fixed band inequality and signed prime correlation remain OPEN.
+
+### 2026-09-10: endpoint alignment does not itself remove the collision
+
+On either physical progression `p=q*l+r` or `p=N-q*l+r`, both terms of the
+full-minus-low additive kernel are independent of l. This invalidates treating
+the aligned object as a generic collection of unrelated length-N frequencies,
+but exact Parseval followed by Cauchy across K progression indices still costs
+`q*K*sum|c|^2`. Since `Y=qK` and the coefficient square mass is `Y*N^o(1)`,
+the old `Y^2` collision survives. It exceeds `N^1.499` for every
+`y>.7495`.
+
+Two exact guards normal/optimized and independent review PASS. Status
+`changed-under-evidence`: preserve the aligned common-index formulation, but
+reject phase collapse alone as the missing H gain. Next expand the actual
+progression covariance before Cauchy, separate its paid diagonal, and test the
+signed l1!=l2 correlations averaged over prime m. The fixed band inequality
+and signed Goldbach correlation remain OPEN.

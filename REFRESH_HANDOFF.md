@@ -4833,3 +4833,35 @@ Test whether completing the r-transform first removes the `Y^2` collision or
 the known `N^.18` frequency-cluster loss. Reduction to the same arbitrary
 selector norm, or either full loss with unchanged coefficient, falsifies the
 route. The signed Goldbach correlation remains OPEN; no process runs.
+
+## 2026-09-10: aligned phases collapse, but Parseval keeps Y squared
+
+`mobius_aligned_band_gate.py` retains `q=dm` and the exact full-minus-low
+kernel on the physical progressions. For `p=q*l+r`, both phases reduce exactly
+to functions of r; for `p=N-q*l+r`, both reduce to functions of `N+r`. The
+long index l disappears, while any target phase remains common in l. Thus the
+previous dense `h/m` frequencies should not be treated as unrelated length-N
+exponentials before using the physical alignment.
+
+This coordinate improvement alone supplies no saving. For
+`F_q(r)=sum_(l in L)c_(l,r)`, full Parseval and Cauchy give
+
+`sum_h |Fhat_q(h)|^2 = q sum_r |F_q(r)|^2
+                      <= q*K sum_(r,l)|c_(l,r)|^2`.
+
+With block length `Y=qK` and coefficient square mass `Y*N^o(1)`, the result is
+still `Y^2*N^o(1)`. Its exponent `2y` crosses the target `1499/1000` at exactly
+`y=1499/2000`; every surviving longer block remains unpaid. The normalized
+low-projector term is no worse in power. Two guards pass normally/optimized;
+independent review PASSed both phases, the target-phase scope, Parseval
+normalization, low term and threshold, including an extra composite-d check.
+
+Status `changed-under-evidence`: endpoint alignment and progression coordinates
+remain an `aha-candidate`, but algebraic phase collapse is not the arithmetic
+ingredient and does not remove the collision. Next concrete question: expand
+the active-band energy of the actual `F_q(r)` into its l1=l2 diagonal and
+l1!=l2 signed correlations before Cauchy, summed over the prime companion m.
+The diagonal must fit the known H^-1 budget; a positive off-diagonal term of
+`Y^2` size falsifies this route. Otherwise source-test an averaged shifted
+Mobius/prime-correlation input matching the exact q-multiple shifts. The signed
+Goldbach estimate remains OPEN; no process runs.
