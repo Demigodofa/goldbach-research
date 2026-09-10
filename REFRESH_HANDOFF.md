@@ -5482,3 +5482,38 @@ OPEN.  Next concrete question: express the unequal kernel by the exact
 geometric formula for `K_I(n-n')` and test which separation classes
 `|n-n'|`, `gcd(a,b)`, or residues modulo `H` carry its Schur mass.  No process
 runs.
+
+## 2026-09-10: unequal cancellation needs the complete Dirichlet kernel
+
+`unequal_distance_band_probe.py` decomposes the exact unequal-integer matrix
+by cyclic separation
+`(0,H],(H,2H],(2H,4H],...,(m/4,m/2]`.  It uses the exact kernel
+`K_I(r)=sum_(h in I)e_m(-hr)`, active and frame weights, and direct pair
+enumeration for modest prime moduli.
+
+For `(m,H,l_first,row_count,U)=(1009,5,9,8,8)`, the `d<=H` band reinforces
+the equality matrix: its negative projection is `-1.10388`.  The
+`H<d<=2H` band supplies the main reversal, projection `+2.46041`, but leaves
+the equality-plus-unequal residual at `.50560` of equality.  Successive
+dyadic cumulative residuals are `.47735,.12918,.28891,.07649,.00866,.00524`.
+The farther lobes alternate and are necessary for the final cancellation.
+
+The `(457,2,9,9,4)` case agrees: first projections `-1.58049,+2.79113`,
+residual `.21110` after `2H`, and final `.00817`.  Reconstruction errors are
+below `1.7e-7`.
+
+Independent review PASSed the FFT sign, raw-Gram orientation, equality
+exclusion, cyclic bin coverage, active/frame weights, reconstruction,
+receipts, tests, and scope.  The exact tested hypothesis “cancellation is
+localized to `d<=2H`” is DIRECTLY CONTRADICTED and should not be retried
+unchanged.  The retained component is that the `H--2H` lobe gives the main
+sign reversal while the full alternating tail completes it.  Its epistemic
+state is supported finite mechanism evidence; attention remains active via a
+new representation.
+
+Next concrete question: write the unequal entry as
+`sum_(r!=0) C_(a,b)(r) K_I(r)` and apply discrete summation by parts to the
+complete lobe sequence, using CRT to compare the weighted pair-count function
+`C_(a,b)(r)` with its smooth triangular density.  A remainder whose Schur
+row sum grows like `V` falsifies the route.  The active unequal theorem,
+shifted rows, d>1, and signed Goldbach remain OPEN; no process runs.

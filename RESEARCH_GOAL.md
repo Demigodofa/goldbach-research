@@ -5212,3 +5212,17 @@ At `U=N^.15,m=N^.59`, the boundary term is
 test.  Equality collisions are no longer the same-row obstruction.  The
 unequal-difference active Dirichlet kernel remains OPEN, as do shifted rows,
 d>1, and signed Goldbach cancellation.
+
+### 2026-09-10: local-lobe explanation is falsified
+
+An exact cyclic-distance decomposition of the unequal Dirichlet kernel shows
+that `d<=H` reinforces equality and `H<d<=2H` gives the main sign reversal,
+but the residual after `2H` is still `.506` and `.211` in two tested rows.
+Alternating dyadic tails reduce it to `.00524` and `.00817`.
+
+Independent review PASSed the Fourier sign, pair enumeration, bins,
+normalization, receipts, and tests.  Cancellation confined to `d<=2H` is
+directly contradicted for this tested family.  The preserved route is to keep
+the complete Dirichlet kernel and use summation by parts against the CRT pair-
+count function.  The unequal-kernel theorem, shifted rows, d>1, and signed
+Goldbach remain OPEN.
