@@ -5560,3 +5560,46 @@ Schur loss for the count error is `H U^2 log(m)/m=N^(-.19+o(1))` at the
 project exponents.  Every factor, the centering correction, and the sampled
 Fejer remainder must be checked before promotion.  The active same-row,
 shifted-row, d>1, and signed Goldbach estimates remain OPEN; no process runs.
+
+## 2026-09-10: triangular CRT main satisfies the active frame bound
+
+`triangular_crt_main_bound.py` proves the sampled Fejer main from the previous
+section is harmless at the required scale.  For `g=gcd(a,b)`, its triangular
+kernel is a sum over `g` residue classes of squared geometric progressions, so
+
+`T_g(h)<=g*min(ceil(m/g),m/(2|hg|_m))^2`.
+
+When `g>=H`, the reviewed one-divisor lemma gives
+`sum_(h in I)T_g(h)<=96m^2/H`.  When `g<H`, the active half-band has no
+modular wrap and a reciprocal-square tail gives
+`sum_(h in I)T_g(h)<=2*pi*mH/g`.  Also `rho>=1/(2*pi*H)` under the explicit
+project condition `m>=16*pi*H`.
+
+After division by the rho-weighted totient frame, the resulting entries are
+bounded by
+
+`192*pi*g/sqrt(phi(a)phi(b))` for `g>=H`, and
+`4*pi^2 H^2/(m sqrt(phi(a)phi(b)))` for `g<H`.
+
+The dyadic gcd row sum and totient lower bound therefore prove
+
+`||M_CRT||_(rho F) <<_eps N^eps(1+H^2/m)`.
+
+At `H=N^.1,m=N^.59`, the additional term is `N^(-.39+eps)`.  The explicit
+constants are loose: saved near-cutoff Schur certificates are
+`1809.8,1508.1,2041.2`, and larger stress certificates are
+`2041.6,2262.4,2609.0,2459.9`, versus measured values near `1e-4--1e-3`.
+
+Independent review PASSed the residue-class Gram, both gcd regimes, rho lower
+bound, normalization, Schur/Loewner step, gcd row sum, exponent, receipts,
+and normal/optimized tests.  The reviewer noted standalone helper scope; the
+APIs now explicitly reject composite moduli and a regression test covers it.
+This closes the triangular CRT main only.  The exact-minus-main discrepancy
+and centering remain OPEN.
+
+Next concrete question: prove the discrepancy with the discrete bound
+`sum_(r mod m)|K_I(r)| << m log m`.  Entrywise CRT count error is at most one
+and logarithmic variation at most `1/l`; the predicted normalized row loss is
+`O_eps(H U^2 log(m)/m+H log(m)/l)`, decaying as
+`N^(-.19+eps)+N^(-.31+eps)`.  Then bound centering separately.  No process
+runs.

@@ -5241,3 +5241,18 @@ attempt a full bound: apply the one-divisor geometric lemma to the sampled
 gcd kernel and the discrete Dirichlet `L1` bound to endpoint/log discrepancy.
 The predicted count-error loss is `H U^2 log(m)/m=N^(-.19+o(1))`.  Same-row
 active control, shifted rows, d>1, and signed Goldbach remain OPEN.
+
+### 2026-09-10: triangular CRT main is now proved
+
+The sampled triangular kernel is a residue-class Gram.  Splitting
+`g=gcd(a,b)` at `H`, the one-divisor geometric lemma handles `g>=H`, while a
+no-wrap reciprocal-square tail handles `g<H`.  After rho-frame normalization
+and the dyadic gcd row sum this proves
+
+`M_CRT <= O_eps(N^eps(1+H^2/m))*rho F`.
+
+The extra term is `N^(-.39+eps)`.  Independent review PASSed every bound,
+normalization, exponent, receipt, and test; standalone APIs were tightened to
+reject composite moduli.  The triangular main is closed.  Endpoint/log CRT
+discrepancy and centering remain OPEN, along with shifted rows, d>1, and the
+signed Goldbach estimate.
