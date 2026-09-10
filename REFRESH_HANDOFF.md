@@ -4699,3 +4699,36 @@ three-variable transform in `(a,b,h)` before Cauchy, and source-gate a trilinear
 finite-field estimate against its actual support and coefficient norms. A
 surviving full-norm or modulus-family term above `N^1.499` is the falsifier.
 Overall goal active; no process runs.
+
+## 2026-09-10: finite-field trilinear black boxes lose the L2 band norm
+
+`mobius_balanced_trilinear_source_gate.py` encodes one balanced d=1 block by
+duality as the exact `(a,b,h)` sum with `mu(a)log(b)`, hard `ab in J`, and an
+`l2`-normalized active-frequency coefficient. Petridis--Shparlinski
+arXiv:1604.08469v4 Theorem 1.3 legally accepts the hard product condition in
+its arbitrary pair weight. After the optimal relative endpoint localization,
+its dual-norm exponent is at least `.405625` WORSE than the existing Parseval
+exponent y. Theorem 1.1, even with a cost-free separation of the hard endpoint
+that it does not supply, remains at least `.265` worse.
+
+Macourt--Petridis--Shkredov--Shparlinski arXiv:2003.03493v1 Theorem 6.1 has
+the checked `47/52` improvement only when the two smaller supports are at most
+`p^.5`; where applicable both of its terms remain more than `.4` worse than
+Parseval. These sup-norm theorems do not use `||gamma||_2=1`. Wright
+arXiv:2608.27732v1 Theorem 2.2 also misses the range: it requires
+`Q<=N_factor*X^-epsilon`, but `Q=N^.59` is strictly longer than either
+balanced factor. Its fixed-residue L1 discrepancy is also not the current
+Fourier-band L2 statement.
+
+The exact low-projector rank term is separately paid by
+`N^(y+.245-.59+o(1))=N^(y-.345+o(1))<=N^.655`, below the dual target `.7495`.
+Four exponent guards pass normally and optimized; independent primary-source
+review PASS. Status `changed-under-evidence`. This rejects direct use of these
+black boxes, not an L2-sensitive trilinear theorem using Mobius signs or the
+prime-modulus average. The exact pair-weight encoding and paid rank term remain.
+
+Next concrete question: test whether lowering the prime-companion exponent
+from `.59` can enter a sourced beyond-one-half convolution range while keeping
+every earlier Type-I, proper-power, conductor-gap and overlap budget valid.
+An unpaid old term or no common parameter interval falsifies this rebalancing.
+Overall goal active; no process runs.

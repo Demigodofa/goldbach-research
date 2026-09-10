@@ -4836,3 +4836,25 @@ to discard polynomial/factor components. The recombination guard passes normal
 and optimized; independent review reproduced both scales and PASSed. Status
 `progress`. Next source-gate an exact balanced `(a,b,h)` trilinear estimate;
 any full-norm or family term above the `N^1.499` budget falsifies that route.
+
+### 2026-09-10: balanced finite-field trilinear source gate
+
+The d=1 balanced block has an exact dual `(a,b,h)` representation with the
+hard product interval inside an arbitrary pair weight. Petridis--Shparlinski
+Theorem 1.3 therefore applies legally, but after optimal endpoint localization
+its bound is at least `N^.405625` worse than the existing Parseval dual norm.
+Even an optimistic use of its separable Theorem 1.1 is at least `N^.265`
+worse. The refined `47/52` theorem of Macourt--Petridis--Shkredov--Shparlinski
+remains more than `N^.4` worse wherever its two-small-support condition holds.
+All use coefficient sup norms and discard the decisive `l2` normalization of
+the active-frequency dual vector.
+
+Wright's 2026 nearly-balanced convolution theorem requires the chosen factor
+length to exceed the modulus by a fixed power; both current balanced factors
+are strictly shorter than `N^.59`, so its range fails. The low-projector rank
+term itself is paid with dual exponent `y-.345<=.655`, below `.7495`.
+Four exact guards and independent primary-source review PASS. Status
+`changed-under-evidence`: these black-box source routes are rejected, while
+the exact pair-weight encoding, factors and rank payment are preserved. Next
+test prime-exponent rebalancing against every inherited budget and a sourced
+beyond-one-half convolution range. The signed Goldbach estimate remains OPEN.
