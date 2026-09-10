@@ -5146,3 +5146,22 @@ prove or falsify a normalized Schur perturbation estimate in the near-cutoff
 band `U=V`: count discrepancies appear to cost `U^2/m` and log variation
 `U/A`, which decay under the selected exponents.  Shifted rows, d>1, and the
 signed Goldbach estimate remain OPEN.
+
+### 2026-09-10: near-cutoff full denominator now has a theorem
+
+The exact endpoint and logarithmic perturbation of the positive gcd frame can
+be bounded entrywise.  If `F_aa=m^2 log(ml/a)^2 phi(a)/a^2`, an explicit Schur
+sum `eta` proves row by row that the exact full-frequency Gram satisfies
+`G>=(1-eta)F`.
+
+For `U=V=N^.15`, the proved estimate is
+`eta <<_eps U^(2+eps)/m+U^(1+eps)/l
+ <<_eps N^(-.29+eps)+N^(-.26+eps)=o(1)`.
+Thus `G>=F/2` for every complete near-cutoff row at sufficiently large N,
+without using prime averaging.  Exact finite constants over all saved rows
+are `.58623,.85083,.89862` at N=32000,200000,1200000.
+
+Independent review PASSed every inequality, asymptotic exponent, receipt, and
+test.  This closes the same-row full-frequency denominator lower frame only.
+The next obstruction is the active cross-divisor numerator normalized by this
+frame; shifted rows, d>1, and signed Goldbach cancellation remain OPEN.

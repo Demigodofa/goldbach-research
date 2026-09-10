@@ -5310,3 +5310,53 @@ approximately `U^2/m`, and logarithmic variation approximately `U/A`; both
 decay at the present exponents.  Exact constants and centering terms remain
 to be checked.  Shifted rows, d>1, and the signed Goldbach estimate remain
 OPEN; no process runs.
+
+## 2026-09-10: rigorous near-cutoff full-frame lower bound
+
+`near_cutoff_full_frame_bound.py` turns the preceding gcd frame into a
+deterministic theorem for the crucial `U=V=floor(N^.15)` band.  For one
+complete row `x=ml`, let `G` be the exact full-frequency divisor Gram,
+`L_a=log(x/a)`, and
+
+`F_aa=m^2 L_a^2 phi(a)/a^2`.
+
+For `C_q=#{x<n<x+m:q|n}`, the exact inequalities
+`|C_q-m/q|<2` and `0<log(n/x)<1/l` give the displayed collision error in the
+module.  With `alpha_a=mL_a/a` and
+`Delta_a=2L_a+(m/a+2)/l`, they also give
+`|S_a-alpha_a|<=Delta_a` and an explicit bound for the centering error.
+Writing `P0` for the positive gcd frame and `E=G-P0`, define
+
+`eta=max_a sum_b R_(a,b)/sqrt(F_aa F_bb)`
+
+from those exact entrywise error bounds.  Schur and `P0>=F` then prove
+
+`G >= (1-eta)F`.
+
+This implication is exact for every accepted finite input.  In the project
+range, `a,b asymp U`, `log(ml/a) asymp log N`, and the elementary bound
+`phi(a) >>_eps a^(1-eps)` give
+
+`eta <<_eps U^(2+eps)/m + U^(1+eps)/l`.
+
+At `U=N^.15`, `m=N^.59`, and `l=N^.41`, this is
+`O_eps(N^(-.29+eps)+N^(-.26+eps))=o(1)`.  Hence every complete near-cutoff
+row satisfies `G>=F/2` for all sufficiently large N, without prime averaging.
+
+The explicit uniform finite certificates over all saved prime/row ranges are:
+`N=32000: G>=.58623F`; `N=200000: G>=.85083F`;
+`N=1200000: G>=.89862F`.  The four larger-H single-row stress certificates
+are `.55017,.61849,.68484,.77669`.
+
+Independent review PASSed the count, logarithmic, collision, centering,
+entrywise, Schur, and asymptotic arguments; reproduced every receipt; and ran
+normal and optimized tests.  This closes the full-frequency denominator lower
+frame for the same-row near-cutoff band.  It does NOT bound the active
+cross-divisor numerator, shifted rows, d>1, or the signed Goldbach correlation.
+
+Next concrete question: normalize the active near-cutoff Gram by this proven
+totient frame and seek a Schur or arithmetic feature bound of size
+`N^epsilon`.  The one-divisor theorem controls its diagonal after the
+`rho_m~1/H` denominator factor; cross-divisor absolute row sums are the exact
+remaining same-row obstruction.  Growth like `V` is the falsifier.  No
+process runs.
