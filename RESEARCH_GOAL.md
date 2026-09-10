@@ -4534,3 +4534,7 @@ identity, preserving its free convolution factor, both reflected prime
 conditions and hard endpoints. Test Type-I Poisson and a sourced Type-II
 bilinear mean-square. Any positive exponent or unpaid endpoint falsifies
 the route. Fresh <=30min; UNREVIEWED.
+
+### 2026-09-10: balanced Vaughan core test
+
+The new bounded test `core_vaughan_type_i.py` asks whether the exact balanced Vaughan decomposition can close the remaining n<N^.41 core. It shows Type-II is structurally absent because U*V=N^.499>N^.41. Type-I still fails the available progression route: d<=N^.2495 and a reflected companion m<N^.59 produce modulus dm up to N^.8395, beyond BV level N^.5; fixing d leaves a linked two-prime condition. Exact identity guards and direct checks pass, with pytest unavailable. Preserve this as a limitation of the balanced Type-I route, not an all-method impossibility. Next question: find an arithmetic estimate for that linked Type-I correlation or a deliberately unbalanced decomposition that creates a genuinely usable Type-II range, while retaining endpoints and both prime conditions.
