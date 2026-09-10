@@ -1,7 +1,8 @@
 """Bounded scale test for the exact Vaughan split in the Goldbach core.
 
-This records a new limitation test, not a prime-pair estimate.  The core is
-the reflected product p=N-d*k*m+r with d*k<N**.41 and m a prime companion.
+This records a new limitation test, not a prime-pair estimate.  It is a
+diagnostic for a hypothetical Lambda(n_core) factor; the actual residual has
+a_B(n_core)*Lambda(m), so Vaughan is not silently applied to that coefficient.
 """
 from fractions import Fraction as F
 
@@ -28,8 +29,8 @@ def type_ii_vanishes_on_core(epsilon=F(1, 1000)):
     return type_ii_support_exponent(epsilon) > CORE
 
 
-def reflected_modulus_exponent(cofactor_exponent=CORE, companion_exponent=F(59, 100)):
-    """Exponent of q=d*m when d<N**cofactor_exponent and m<N**companion_exponent."""
+def reflected_modulus_exponent(cofactor_exponent, companion_exponent):
+    """Exponent of q=d*m for the named dyadic exponents."""
     if not all(isinstance(x, F) and 0 <= x <= 1 for x in (cofactor_exponent, companion_exponent)):
         raise ValueError("exact exponents in [0,1] required")
     return cofactor_exponent + companion_exponent
@@ -56,14 +57,40 @@ def term_sum(terms):
 
 
 def type_i_obstruction(epsilon=F(1, 1000)):
-    """Concrete falsifier: balanced Vaughan is Type-I-only but BV misses q."""
+    """Concrete top-block diagnostic: balanced Type-I modulus misses BV."""
     gamma, u, v = balanced_cutoffs(epsilon)
     # In the linear Vaughan term d<=V; k carries the rest of the core.
     q = reflected_modulus_exponent(v, F(59, 100))
     return {
         "gamma": gamma, "U_exponent": u, "V_exponent": v,
         "core_exponent": CORE, "type_ii_support_exponent": u + v,
-        "type_ii_vanishes": u + v > CORE, "worst_modulus_exponent": q,
+        "type_ii_vanishes": u + v > CORE, "top_block_modulus_exponent": q,
         "BV_margin": F(1, 2) - q,
+        "scope": "hypothetical Lambda(n_core), not the actual a_B(n_core) coefficient",
         "remaining_problem": "fixing d leaves simultaneous primality of m and N-d*k*m+r",
     }
+
+
+def unbalanced_budget(u_exponent, v_exponent, companion_exponent=F(59, 100),
+                     bv_level=F(1, 2)):
+    """Check the two plain requirements for an unbalanced split.
+
+    Type-II needs UV below the core.  The straightforward Type-I treatment
+    of p=N-d*k*m+r needs the modulus d*m inside BV.  These are necessary
+    conditions only; satisfying them would not prove the correlation.
+    """
+    if not all(isinstance(x, F) and 0 <= x <= 1
+               for x in (u_exponent, v_exponent, companion_exponent, bv_level)):
+        raise ValueError("exact exponents in [0,1] required")
+    return {
+        "type_ii_can_survive": u_exponent + v_exponent < CORE,
+        "type_i_bv_usable": v_exponent + companion_exponent <= bv_level,
+        "type_ii_margin": CORE - u_exponent - v_exponent,
+        "type_i_bv_margin": bv_level - v_exponent - companion_exponent,
+    }
+
+
+def no_plain_unbalanced_window(companion_exponent=F(59, 100),
+                               bv_level=F(1, 2)):
+    """There is no nonnegative V exponent making the plain Type-I BV test pass."""
+    return bv_level - companion_exponent < 0
