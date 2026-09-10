@@ -5818,3 +5818,45 @@ with `G_l>=F_l/2`, this gives a pairwise active/full estimate with at most a
 factor two.  Summing all pairs in a dyadic lag block remains separate
 bookkeeping; cross-factor-band terms, `d>1`, and the signed Goldbach
 correlation remain OPEN.
+
+## 2026-09-10: near-cutoff dyadic lag sums lose no row-count factor
+
+For one prime and one squarefree near-cutoff divisor band, let `E_l` be the
+exact full-frequency energy in row `l` and
+
+`B_(l,r)=(1-rho)sum_(h in I)Phi_l(h)conj(Phi_r(h))`.
+
+The shifted-pair theorem gives
+
+`|B_(l,r)|<=eta*rho*sqrt(F_l F_r)`.
+
+If the full row frames satisfy `G_l>=kappa F_l`, then
+
+`|B_(l,r)|<=(eta*rho/kappa)sqrt(E_l E_r)`.
+
+For any dyadic lag set `J`, define
+
+`D_J=2 Re sum_(Delta in J,l)B_(l,l+Delta)`,
+`P_J=2 rho sum_(Delta in J,l)sqrt(E_l E_(l+Delta))`.
+
+Termwise summation over exactly the same pairs proves
+
+`|D_J|<=(eta/kappa)P_J`.
+
+Thus neither the number of rows nor the number of lags is lost.  At the
+project exponents `eta<<_eps N^eps` and eventually `kappa>=1/2`.  Positive
+prime weights can sum the same inequality, and the logarithmic number of
+dyadic lag blocks is absorbed by `N^eps`.
+
+`near_cutoff_dyadic_lag_bound.py` retains the exact pair enumeration and full
+energies.  Small finite receipts have deliberately huge theorem constants but
+exact signed ratios between `-.263` and `+.031`.  Independent review PASSed
+the factor of rho, lower-frame transfer, factor two, pair ranges, conjugation,
+and normal/optimized tests.
+
+This closes the dyadic active-lag bookkeeping for one near-cutoff divisor
+band.  It does not combine distinct divisor bands, compare `P_J` with any
+other global denominator, handle `d>1`, or prove the signed Goldbach
+correlation.  Next test the rectangular active operator between two different
+dyadic divisor bands; growth like the square root of their scale ratio is the
+falsifier for naive band summation.
