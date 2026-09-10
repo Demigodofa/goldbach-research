@@ -5428,3 +5428,46 @@ feature identity, Cauchy step, logarithm/frame cancellation, and scope.  This
 closes the triangular main for each shifted row pair only.  Summing lags still
 needs explicit bookkeeping; shifted CRT discrepancy and centering remain
 OPEN, as do `d>1` and the signed Goldbach correlation.
+
+## 2026-09-10: every shifted near-cutoff row pair satisfies the active frame bound
+
+For complete rows `l_L,l_R`, signed within-row separation `s=x-y`, and
+`g=gcd(a,b)`, CRT compatibility is
+
+`g | s-m(l_R-l_L)`.
+
+With `L_a=log(m l_L/a)` and `L'_b=log(m l_R/b)`, the exact shifted
+pair-count/log discrepancy at each compatible separation is bounded by
+
+`L_a L'_b+(m/lcm(a,b)+1)
+ [L'_b/l_L+L_a/l_R+1/(l_L l_R)]`.
+
+The signed-residue multiplicity remains at most two, so the discrete
+Dirichlet L1 proof gives the same discrepancy scale as in one row.  The
+cross-row centering identity also retains the same bounds with the two
+row-specific logs.  Combining those terms with the shifted triangular main,
+and normalizing the left and right coordinates by their respective totient
+frames, rectangular Schur proves
+
+`||F_L^(-1/2) A_(L,R) F_R^(-1/2)||
+ <<_eps N^eps`
+
+for every pair `A<=l_L,l_R<2A` in the near-cutoff band.  The vanishing losses
+are still
+
+`N^eps[H U^2 log(m)/m+H log(m)/A
+       +H U log(m)/m*(1+U/m)+1/m]`.
+
+`shifted_active_frame_bound.py` implements the exact entry majorants and
+compares them with the full cross-row active matrix.  For row separations
+`3,7,16,28`, the exact normalized operator norms are
+`.04454,2.68364,3.38796,6.16660`; there is no measured lag-count or divisor-
+count amplification.  The explicit proof constants are deliberately loose.
+
+Independent review PASSed the asymmetric log errors, CRT condition, signed
+multiplicity, centering, two-frame normalization, rectangular Schur step,
+SVD comparisons, asymptotic uniformity, and normal/optimized tests.  Combined
+with `G_l>=F_l/2`, this gives a pairwise active/full estimate with at most a
+factor two.  Summing all pairs in a dyadic lag block remains separate
+bookkeeping; cross-factor-band terms, `d>1`, and the signed Goldbach
+correlation remain OPEN.
