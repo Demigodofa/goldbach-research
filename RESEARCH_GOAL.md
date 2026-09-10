@@ -3803,3 +3803,67 @@ argument would then delete those actual columns with a power saving.
 This is a falsifiable source-and-transfer test, not yet a proved result.
 Keep these zero-detection Type I/II names distinct from Vaughan sums.
 Fresh <=30 minutes; no further artificial phase family is needed now.
+
+## 2026-09-09/10: actual zero-detector reduction of the remaining band
+
+Started2026-09-09 23:53:45 UTC, reassessed2026-09-10 00:02:48 UTC,
+progress. Resumed verified clean mainc2248a5. Previous native turn
+made progress by falsifying the common-C3 inverse implication.
+Reviewed mathematics **0b1a7ba**, zero_detector_band_reduction.py.
+The ACTUAL smooth T=N9/10 band reduces with all-log error to zeros
+whose real parts are in(.64,.76) and which satisfy a specified classical
+Dirichlet-polynomial detector at some allowed dyadic length. The
+remaining paired sum is still O(N); its o(N) bound and full signed
+Goldbach margin remain OPEN.
+
+Primary source pinned and checked: Maynard--Pratt2206.11729v2,
+29May2023,39pages, SHA256
+e6407c953c4ddcbf9daa2fa941d1a84bf9db90f19a96e50ee8796bf9aea5947a.
+Definition17/equations15-16p14, Definition22/Lemmas23-24p16, and
+AppendixCpp36-38. These detector lemmas are unconditional; the later
+Hypothesis F is not imported. The original types can overlap; define
+the nondetected complement explicitly. The source p6 convention is
+M<n<=2M. Its mollified fourth moment is a log-power bound, not a
+T^epsilon estimate. The middle-strip Type II count is uniform and
+copies are paid by local Riemann-von Mangoldt occupancy.
+
+Preserve a NEW SOURCE CORRECTION: rendered pp37-38 print
+Gamma(beta-.5+iu), inconsistent with their contour Re z=.5-beta.
+Use the actual Gamma(-delta+iu), delta=beta-.5 in[.14,.26], and
+Gamma(z)=Gamma(1+z)/z. Euler's integral bounds it uniformly; Stirling
+pays the tail. This repairs the needed restricted count without copying
+the incorrect argument. Temporary raster crops were removed afterward.
+
+For nondetected middle-strip U, layer cake including the lower boundary
+gives E_U<<N^-6/125 log^C N. The existing Gram estimate and FULL
+unmasked arithmetic energy give actual row/column union
+O(N122/125 log^C N+N^.9L12+N^-.7L13). Combine the exterior set D
+with U BEFORE the Gram bound to obtain the final all-log reduction.
+Least detecting length partitions survivors into O(L) disjoint lists and
+O(L^2) Cartesian pair lists, with no claimed estimate for that remainder.
+Sol theory/actual-file PASS; seven guards normal0.003s/-O0.002s.
+No actual prime/zero computation or post-stop execution claim.
+
+Next concrete test: can elementary mean-square estimates delete any
+surviving zero detected at a length M with an integer power satisfying
+ N^(41/50)<=M^k<=N^(49/50), 1<=k<=100?
+For D_M^k, coefficients are bounded by tau_(2k), with support
+M^k<n<=(2M)^k. Prediction: mean value plus actual O(L) local zero
+occupancy and real-part partial summation give a uniform detector count
+<<(T+M^k)*(M^k)^(1-2sigma)*log^C N, with C fixed for k<=100.
+Keep the threshold (3logT)^(-k), all coefficient moments and copy costs.
+With beta in[.64,.76], the two normalized-energy exponents are at most
+-4/625 and -6/625 respectively on this power-length interval. A
+positive layer cake and the full/masked Gram argument would give a
+power-saving ACTUAL deletion, including a sum over O(L) lengths.
+This is not yet reviewed or proved. No numerical zero run is needed.
+
+Concrete proof test: use an interval Sobolev bound to pass zero samples
+to mean squares of the polynomial and its derivative, retaining the
+O(L) overlap factor. Treat varying beta by the fundamental theorem
+of calculus in beta and Cauchy before mean-square integration. Prove
+the divisor second-moment bound, and verify the precise primary
+Dirichlet-polynomial mean-value input. If the source/normalization or
+threshold losses defeat the exponent, record that failure. Otherwise
+determine the remaining length intervals exactly; do not presume all
+detector lengths admit a suitable integer power. Fresh <=30 minutes.

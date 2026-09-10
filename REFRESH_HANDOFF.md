@@ -35,7 +35,22 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **e368c38**, in rapid_complementary_phase.py:
+Latest reviewed RESEARCH commit: **0b1a7ba**, in zero_detector_band_reduction.py:
+the ACTUAL smooth T=N9/10 band now reduces, with all-log error, to
+zeros with BOTH beta in(.64,.76) AND a classical zero detector
+|D_M(rho)|>=1/(3logT), at some allowed dyadic length M. Nondetected
+middle-strip columns have coefficient energy N^-6/125 times logs,
+so their ACTUAL paired union costs N122/125 times logs plus the
+paid finite-period errors. Least detecting length gives disjoint lists;
+no saving for the remaining detected-pair sum is yet proved.
+Primary Maynard--Pratt2206.11729v2 Definition22/Lemmas23-24 and
+Appendix C are unconditional here; DO NOT import Hypothesis F.
+Source correction: printed pp37-38 use Gamma(beta-.5+iu) after
+a contour with real part .5-beta. The actual negative argument is
+retained and bounded by Gamma recurrence on the fixed beta interval.
+The rendered PDF confirmed the discrepancy; bound and uniformity
+are repaired in the module. Copies and overlapping source types paid.
+Previous **e368c38**, in rapid_complementary_phase.py:
 an N-dependent dense positive ARTIFICIAL model with phase
 lambda_N*a+N^-1/10*sin(N1/10*(a-1/2)) has exact paired value
 -cN+O(N9/10), c>0, while its normalized exact-window projections
@@ -3795,7 +3810,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_rapid_complementary_phase` (seven guards) and
+Latest tests: `python -m unittest test_zero_detector_band_reduction` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
