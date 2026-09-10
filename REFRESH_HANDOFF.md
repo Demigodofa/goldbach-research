@@ -4551,3 +4551,35 @@ reinforcing window. Test whether aggregate nonpositivity survives, or whether
 only an `O(H^-1)` magnitude conjecture remains plausible. A positive aggregate
 or an OFF/DIAG ratio growing under endpoint choice falsifies the sign mechanism,
 but not the stated energy inequality. Overall goal active; no process running.
+
+## 2026-09-10: endpoint choice falsifies uniform negativity, not magnitude
+
+`mobius_covariance_endpoint_probe.py` scans all 276 intervals with endpoints
+on the N/32 grid in `[N/8,7N/8]` and length at least N/16. It retains the exact
+`mu_>V*log` coefficient, residue-zero mask, active modes and `(log m)^2/m`
+weight. Every common grid interval had negative aggregate OFF at all tested
+scales. But the actual theorem permits J_m to depend on m; selecting each
+prime's most reinforcing admissible grid interval gives:
+
+`N=32000,H=2`: 62/68 positive choices, `OFF/DIAG=+.138274`;
+`N=200000,H=3`: 157/171 positive choices, `OFF/DIAG=+.116086`;
+`N=1200000,H=4`: 374/444 positive choices, `OFF/DIAG=+.059999`.
+
+Thus aggregate nonpositivity is not a valid finite uniform-family mechanism.
+The magnitude target survives: the adversarial positive excess is still a
+small fraction of the natural diagonal, individual ratios remain bounded in
+these runs, and three tiny cutoffs `V=4,6,8` establish no asymptotic trend.
+The N=200000 common ratios range `-.293706..-.031212`; the full interval
+reproduces `-.041560`. One guard passes normally/optimized. Independent review
+PASS with an independent N=32000 reproduction and prior N=200000 reproduction.
+Status `changed-under-evidence`: abandon a sign proof uniform in J_m, retain
+the signed magnitude estimate.
+
+Next concrete question: remove endpoint choice analytically rather than hoping
+for a sign. Because the mean-zero projection is linear in the interval
+coefficient, test an exact dyadic decomposition of every J_m. Determine whether
+Cauchy costs only `O(log^2 N)` and reduces the theorem to single dyadic blocks
+without altering the `H^-1` target. Any modulus-dependent block count or mean
+term causing a power loss falsifies this reduction. If it passes, source-test
+the resulting fixed-block Mobius bilinear form. Overall goal active; no process
+is claimed running.

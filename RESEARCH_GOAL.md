@@ -4752,3 +4752,24 @@ admissible hard windows and allowing each prime modulus its most reinforcing
 choice. Uniform sign failure redirects the target to magnitude rather than
 negativity; growth of OFF/DIAG is the falsifier. Polynomial and asymptotic
 large-sieve components remain available; the Goldbach signed gap stays OPEN.
+
+### 2026-09-10: endpoint freedom defeats a uniform sign mechanism
+
+All 276 admissible N/32-grid windows common to every modulus had negative
+aggregate covariance at `N=32000,200000,1200000`. The theorem allows J_m to
+depend on m, however. Choosing the most positive grid interval independently
+gives `OFF/DIAG=.138274,.116086,.059999` at `H=2,3,4`, with respectively
+62/68, 157/171 and 374/444 positive modulus choices. This numerically rejects
+uniform aggregate nonpositivity as the mechanism.
+
+It does not reject the needed magnitude estimate: each positive aggregate is
+a small fraction of DIAG, individual ratios remain moderate, and the cutoffs
+`V=4,6,8` are far from asymptotic. The reproducible probe keeps every fixed
+arithmetic coefficient and mask. One guard passes normally/optimized;
+independent review reproduced H=2 and H=3. Status `changed-under-evidence`.
+
+Next test a deterministic dyadic reduction for arbitrary J_m. Mean removal is
+linear, so the hoped-for cost is only `O(log^2 N)` by block decomposition and
+Cauchy. A power-sized modulus-dependent multiplicity or surviving mean term is
+the falsifier. Passing this gate would isolate fixed dyadic Mobius bilinear
+blocks for a new arithmetic estimate. The signed Goldbach gap remains OPEN.
