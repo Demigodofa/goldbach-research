@@ -35,7 +35,30 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **8911d43**, in detector_power_length_filter.py:
+Latest reviewed RESEARCH commit: **ec39d86**, in signed_zero_detector.py:
+delete ALL middle-strip Type II zeros, including ones also Type I,
+and combine exterior/Type-II/good-length masks BEFORE Gram. Their
+overlap costs only the sum of nonnegative coefficient energies.
+Every ACTUAL survivor now satisfies |1+H_N(rho)|<=3/4 for ONE
+common polynomial H_N=sum of all bad-length D_M. In particular
+Re H_N<=-1/4 and |1/H_N|<=4. Its support is <=2N41/100.
+The source smoothed identity, inclusive dyadic endpoints and count
+are paid uniformly. This is NOT a sign estimate for the paired kernel.
+The direct geometric inverse has actual residual norm
+O((3/4)^J N21/100 L) by the crude copy energy and Gram bound.
+J of order logN is SUFFICIENT to make that bound power-small;
+the straightforward support majorant is exp(O((logN)^2)). Neither
+is a necessary degree/length lower bound. Existing fixed-power
+moments do not control this changing-degree expansion. Preserve the
+disk and reciprocal for use with another arithmetic ingredient.
+Next concrete test, still UNREVIEWED: translate multiplication by H_N
+into dilations S_T(x/n), then an exact prime-product window with
+coefficient (h_N*Lambda)(k). Pay the summed beta-shift/Gamma errors
+when T=N9/10 exceeds x/n for the bad-length n. Determine whether
+the full convolution identity (a_T*Lambda)=mu_<=B*log actually controls
+the retained bad-length restriction or leaves a signed remainder.
+No automatic extension of the earlier central-window energy estimate.
+Previous **8911d43**, in detector_power_length_filter.py:
 remove every ACTUAL middle-strip zero detected at ANY allowed length
 M with N41/50<=M^k<=N49/50 for some integer1<=k<=100. Its energy
 is O(N^-4/625 log^C N), giving an actual paired-union bound
@@ -3820,7 +3843,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_detector_power_length_filter` (seven guards) and
+Latest tests: `python -m unittest test_signed_zero_detector` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

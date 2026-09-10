@@ -3921,3 +3921,58 @@ but all nonnegative integer combinations are multiples of.204, missing
 [.82,.98] (4*.204=.816,5*.204=1.02). This is a candidate length-
 arithmetic limitation, not actual zero evidence or a reviewed theorem.
 Prioritize retaining the signed detector equation. Fresh <=30 minutes.
+
+## 2026-09-10: a common signed detector disk for actual survivors
+
+Started00:13:23 UTC, reassessed00:22:12 UTC, progress. Resumed verified
+clean main4dadb63. Reviewed mathematics **ec39d86**, signed_zero_detector.py.
+The preceding native turn made progress by isolating four detector-length
+gaps. This pursuit removes ALL middle-strip Type II zeros, including ones
+also Type I. The already proved restricted count gives the same energy
+N^-6/125 times logs. Combine exterior/Type-II/good-length masks before
+Gram, using the inequality for overlapping nonnegative energies. Retain
+the unmasked arithmetic energy only for the full opposite factor.
+
+There is now ONE common polynomial H_N, the sum of all allowed bad-length
+detectors, such that EVERY surviving actual zero copy satisfies
+|1+H_N(rho)|<=3/4. The source smoothed zero identity, inclusive dyadic
+endpoints and fewer-than-logT block count give the disk uniformly for
+sufficiently large N. Thus Re H_N<=-1/4 and 1/4<=|H_N|<=7/4,
+with |1/H_N|<=4. Its support is <=2N41/100. The corrected negative
+Gamma argument remains in force; no source Hypothesis F is imported.
+
+The finite inverse identity has the necessary minus sign:
+1=-H_N sum_(j<J)(1+H_N)^j+(1+H_N)^J. The actual residual zero
+field has norm O((3/4)^J N21/100 L), paying its crude coefficient
+energy N21/50 L and the Gram logarithm. A degree of order logN is
+SUFFICIENT for power-small error by this bound. Its straightforward
+support majorant is exp(O((logN)^2)), outside the existing fixed-power
+estimate. Neither statement is a minimal-degree/length obstruction;
+different cancellations, resummations or improved energies may help.
+
+Independent Sol theory and actual-file PASS; seven guards normal0.002s
+and -O0.002s. Primary source Appendix C of Maynard--Pratt2206.11729v2
+was reread; no new numerical zero run or repeat finite Goldbach experiment.
+The disk is signed arithmetic information, not the sign of the paired
+kernel. The surviving smooth band remains O(N); the full signed margin,
+universal coverage and overall research goal stay OPEN. No post-stop
+execution claim, push, publication or manual continuation queue.
+
+Next concrete question: does multiplication by this ACTUAL common H_N
+produce a useful prime-product window with a controlled error? Writing
+H_N(s)=sum h_N(n)n^-s, the finite zero sum gives the exact dilation
+identity H_N acting on S_T(x)=sum h_N(n)n^-1/2 S_T(x/n). The hoped
+prime-side expression has coefficient (h_N*Lambda)(k), with the SAME
+window Fourier kernel at T log(k/x). This must be derived with actual
+zero real parts, source Gamma terms and all summed error costs retained.
+Here n can reach2N41/100, so T=N9/10 exceeds x/n; the previous
+central-window bound cannot simply be applied at the dilated scales.
+
+Prediction to test, not a theorem: the transfer error can remain smaller
+than the N-scale paired target when summed with these specific h_N.
+Then compare (h_N*Lambda) with the exact full coefficient identity
+(a_T*Lambda)=mu_<=B*log, keeping the bad-length and smoothing masks.
+The concrete falsifier is an unpaid main-scale transfer cost or a claim
+that drops the residual restriction. A successful identity alone would
+still leave its signed prime-pair estimate to prove. Fresh <=30 minutes;
+retain useful polynomial and disk components if the proposed use fails.
