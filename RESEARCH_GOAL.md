@@ -4044,3 +4044,79 @@ The concrete test is a reviewed sufficient weighted-mask deletion and
 an exact uncovered-pair record, not another aggregate-upper-support
 substitution. If the masks or costs defeat it, retain the counterbudget.
 This test is UNREVIEWED and receives a fresh <=30 minutes.
+
+## 2026-09-10: compatible weighted detector masks paid at actual product lengths
+
+Started00:38:54 UTC, reassessed00:49:13 UTC, progress. Resumed verified
+clean main94e5784. The preceding native turn made progress through the
+full prime-product transfer and identified its survivor-mask limitation.
+Reviewed mathematics **5b7dd4e**, mixed_detector_weighted_mask.py.
+For a good detecting length M and bad multiplier length H, a mixed
+product D_M^r D_H^s with actual P=M^r H^s in[N41/50,N49/50]
+and r,s>=1,r+s<=100 has normalized moment N^-4/625 times logs.
+The same variable-beta proof and positive layer cake apply to its
+actual support(P,2^(r+s)P]; no maximal-support substitution is made.
+The M threshold costs2r log powers, and Holder in the positive copy
+measure with E_(X_M) preserves the N^-4/625 second-moment saving.
+
+Coverage uses ANY compatible good detector for EACH bad multiplier H.
+For fixed H, assign a copy to its least compatible good detecting M;
+the assignment is disjoint only in M, while the H overlap is paid by
+Cauchy. The aggregate C_cov has coefficient energy N^-4/625 L40230.
+It is a one-coordinate weight on rho, so Gram and the full opposite
+arithmetic norm give the central paired exponent623/625. NEW weighted
+finite-period errors are explicitly paid: Cauchy over O(TL) copies
+bounds its l1 norm by N^(9/20-2/625), while the improved full l1 norm
+is N2/5 times logs. J-minus-beta costs exponent2367/2500; the beta
+endpoint costs-2133/2500, with the actual small-real-part denominators.
+Thus the covered one-coordinate ACTUAL J sum is all-log small.
+No full H-weighted G deletion or nonindicator union identity is claimed.
+
+The compatibility set is an exact finite union of strips
+.82<=r*m+s*h<=.98. For m in[.44,.45], only r=1,s<=3 can work:
+the first bad gap is wholly covered with s=3, the second with s=2,
+the third iff h<=(.98-m)/2, and the fourth iff h>=.82-m.
+Product-window equality is included. The remaining pieces are open.
+The closed rectangle m in[.44,.45],h in[.34,.36] is uncovered by
+this criterion; a different good detector on the SAME zero may still
+pay a multiplier. This is a length-arithmetic limitation, not an
+actual-zero population claim or a barrier to every weighted moment.
+
+Independent Sol theory/actual-file PASS. Eight guards normal0.359s,
+-O0.400s. The weighted kernel proof was checked against the existing
+uniform stationary expansion and actual beta endpoint proof; no new
+external theorem was imported. Prior source corrections and the rejected
+aggregate H^2 shortcut persist. No new numerical-zero or finite-Goldbach
+experiment, publication, push, or manual wake queue. Overall goal,
+surviving signed correlation and universal coverage remain OPEN.
+
+Next concrete question: can we pay the ENTIRE H_N-weighted mask of
+zeros detected at ANY M with m in[.44,.45], by trading its stronger
+M-specific energy against a higher H moment outside the fixed window?
+This is a different sufficient estimate, not a retry of the failed
+integer-strip membership. Candidate derivation, not yet promoted:
+partition beta in[16/25,19/25] into360 bins of width1/3000. At lower
+bin edge sigma, write u=1-sigma. D_M^2 has length N^(2m)<=T and
+predicts bin energy exponent eM=.9-2m+(4m-2)u, plus2/3000 for
+the maximum N^(2beta-2) weight in the bin. Its detector threshold
+and logs must remain explicit.
+
+For a fourth-gap multiplier with h<=.38, H^3 has length N^(3h)>T;
+its sixth moment pays the POSITIVE possible exponent2u(3h-1), not
+a fictitious saving. Holder with exponents2/3 and1/3 predicts
+ .6-(4/3)m+u[(8/3)m+2h-2] <=-1/375.
+The beta-bin loss2/3000 leaves at least1/500 saving. Combined with
+the already paid h>=.82-m (which is <=.38), this could cover the
+ENTIRE fourth gap. For the third gap, H^4 and Holder3/4,1/4 give
+ .675-1.5m+u(3m+2h-2) <=-17/1000,
+before the same bin loss, covering its entire range as well. Gaps1/2
+are already covered by the present mixed criterion.
+
+Concrete test: prove these bin moments and every threshold, count,
+Holder, union, complex-coefficient and J-kernel transfer cost, then
+check whether some good detecting M in[.44,.45] suffices even if
+other detected lengths occur. The predicted final coefficient energy
+is N^-1/500 times fixed logs. If the binning or moment supports defeat
+the gain, preserve the precise failure. This new hypothesis receives
+a fresh <=30-minute test and independent correctness review; no claim
+yet that the uncovered rectangle or a complete weighted mask is paid.

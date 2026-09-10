@@ -35,7 +35,28 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **5bd0b48**, in detector_prime_product_transfer.py:
+Latest reviewed RESEARCH commit: **5b7dd4e**, in mixed_detector_weighted_mask.py:
+mixed products D_M^r D_H^s, at their ACTUAL length M^r H^s in
+[N41/50,N49/50], pay the H-weighted energy on good-M detected zeros.
+The threshold costs2r logs; weighted Holder preserves N^-4/625.
+For EACH bad multiplier H, use ANY compatible good detecting M of
+the zero, assigning to the least compatible one to avoid duplication.
+The covered coefficient C_cov has energy N^-4/625 L40230.
+Its one-coordinate ACTUAL finite-period paired sum is all-log small:
+central exponent623/625, newly paid J-minus-beta2367/2500, and
+beta endpoint-2133/2500. No old unweighted error is silently reused.
+For m=logM/logN in[.44,.45], gaps1/2 are fully compatible; gap3
+requires h<= (.98-m)/2 and gap4 h>=.82-m. The rectangle
+m in[.44,.45],h in[.34,.36] is outside this specific criterion,
+not a general impossibility or evidence about actual zeros.
+Next test: weighted Holder may cover those missed pieces using a
+stronger M-specific energy and H^3/H^4 moments even when their
+product length exceeds N. Localize beta in fixed bins, retain the
+positive cost of those longer moments, and test whether the ENTIRE
+H_N-weighted mask for zeros detected at some M in[ N.44,N.45 ]
+is negligible. Candidate exponents and bin width are at the latest
+RESEARCH_GOAL.md entry; this extension is not yet promoted.
+Previous **5bd0b48**, in detector_prime_product_transfer.py:
 the FULL actual H-weighted zero field has a prime-product window with
 coefficient h*Lambda and uniform error O(N41/200 L7). The exact
 dilation n^-1/2 S_T(x/n) is retained down to x/n~N59/100, even
@@ -52,13 +73,9 @@ cannot replace shorter product scales in the weighted coefficient norm.
 A component at m=.35 has squared length .7 and POSITIVE energy
 budget7/125, not the saving falsely obtained by substituting .82.
 No weighted finite-period J transfer or new paired saving is claimed.
-Next concrete test: bound H-weighted good-detector masks one pair of
-dyadic lengths at a time. If M is a good detecting length and H is a
-bad multiplier length, test D_M^r D_H^s with actual product
-P=M^r H^s in[N41/50,N49/50], r,s>=1,r+s<=100. Use the M detector
-threshold and Holder with its already-small coefficient energy, paying
-every log and length sum. Determine covered and uncovered pairs; do
-not assume the criterion works for m=.45,h=.35. Fresh <=30 minutes.
+The proposed mixed-moment criterion is completed above. Its uncovered
+length pieces remain for that criterion; other weighted-moment choices
+have not been excluded. The Type II and exterior weighted masks remain.
 Previous **ec39d86**, in signed_zero_detector.py:
 delete ALL middle-strip Type II zeros, including ones also Type I,
 and combine exterior/Type-II/good-length masks BEFORE Gram. Their
@@ -3863,7 +3880,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_detector_prime_product_transfer` (seven guards) and
+Latest tests: `python -m unittest test_mixed_detector_weighted_mask` (eight guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
