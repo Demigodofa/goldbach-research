@@ -4773,3 +4773,19 @@ linear, so the hoped-for cost is only `O(log^2 N)` by block decomposition and
 Cauchy. A power-sized modulus-dependent multiplicity or surviving mean term is
 the falsifier. Passing this gate would isolate fixed dyadic Mobius bilinear
 blocks for a new arithmetic estimate. The signed Goldbach gap remains OPEN.
+
+### 2026-09-10: dyadic endpoint reduction costs only logarithms
+
+Every hard interval splits into at most two aligned dyadic blocks per scale
+and at most `K=2ceil(log_2(N+1))` blocks total. Tail formation and d=1 mean
+removal are exactly linear. Cauchy contributes one K; the scale/slot selector
+families contribute another. Hence a block-selector estimate uniform over all
+scales and modulus-dependent locations implies the arbitrary-interval theorem
+with only `K^2`, absorbed in epsilon. Four exhaustive guards and independent
+review PASS. Status `progress`.
+
+This does not estimate a block or make its location modulus-independent.
+Next compute the full Parseval collision budget for common block length Y and
+discard every scale already below exponent 1.499. The remaining long-block
+threshold will define the next arithmetic input. The signed Goldbach estimate
+and d>1 transfer remain OPEN.

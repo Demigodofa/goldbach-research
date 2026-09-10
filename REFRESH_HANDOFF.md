@@ -4583,3 +4583,30 @@ without altering the `H^-1` target. Any modulus-dependent block count or mean
 term causing a power loss falsifies this reduction. If it passes, source-test
 the resulting fixed-block Mobius bilinear form. Overall goal active; no process
 is claimed running.
+
+## 2026-09-10: arbitrary endpoints reduce to dyadic selectors at log cost
+
+`mobius_covariance_dyadic_reduction.py` proves a deterministic endpoint
+reduction. Every integer interval `J=(L,R]` has a maximal aligned dyadic
+partition with at most two blocks of each length and at most
+`K=2ceil(log_2(N+1))` blocks. The exact tail sum is linear in `1_J`; for d=1,
+the residue vector, its mean and the mean-zero discrepancy are also linear.
+Thus no new mean term appears when blocks are recombined.
+
+Cauchy costs one K inside each modulus. Grouping the at-most-two blocks at
+each scale into selector families costs at most a second K. Consequently a
+uniform `N^(1499/1000+epsilon)` estimate for every family selecting one aligned
+length-`2^j` block per modulus implies the arbitrary-J_m estimate with only
+`K^2`, absorbed after shrinking epsilon. Four exhaustive finite guards pass
+normally and optimized; independent review PASS after clarifying that the
+constant must be uniform over every scale/slot occurring at N. Status
+`progress`: endpoint choice is no longer a power-scale obstruction.
+
+The selector estimate remains OPEN. Locations may still depend on m; sharp
+blocks are not smooth; unit-size boundary blocks remain; and no Mobius,
+prime-modulus or d>1 cancellation was supplied. Next concrete question:
+compute the unconditional Parseval/trivial budget for a selector of common
+block length Y=2^j. Identify exactly which Y are already affordable against
+`N^1.499`; only then spend arithmetic input on the surviving long scales.
+Any collision factor moving the threshold below the derived value falsifies
+the hoped-for pruning. Overall goal active; no process running.
