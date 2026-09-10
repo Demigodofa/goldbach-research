@@ -4576,3 +4576,7 @@ After the H/sqrt(q) transform factor and L=q/H dual length are retained, the Bur
 ### 2026-09-10: d-averaging budget is insufficient
 
 At the favorable prime component m=N^.59, r=2 is the best licensed Burgess parameter and misses the direct shift bound by .060625. Square-root cancellation over d<=N^.009 saves only .0045, and even complete d-cancellation leaves a positive .051625 exponent. Four guards and independent review PASS. Status `changed-under-evidence`. This closes only d-averaging as the sole repair; the surviving route must exploit the long m-family, prime coefficients, or a joint spectral estimate. Next derive and source-check that joint m,h form with the target phase retained.
+
+### 2026-09-10: joint high-character Gauss form derived
+
+For q=dm, the high-character shift transform is exactly q^-1 sum_h What(h)e(-hN/q) times a CRT product of d- and m-Gauss sums. High conductor means the prime-m component is nonprincipal. Since active |h| has exponent .499 below m exponent .59, its Gauss factor is always nonzero with magnitude sqrt(m). Four exhaustive guards and independent review PASS. No spectral saving follows: the d component, prime character sums, target phase and mask leakage remain. Status `changed-under-evidence`. Next source-gate a bilinear Kloosterman/spectral theorem against these exact ranges and coefficients.

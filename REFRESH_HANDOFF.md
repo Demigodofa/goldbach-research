@@ -4241,3 +4241,12 @@ Next bounded question: keep d and m coupled in the Gauss-transformed band and de
 Four exact guards pass normally and optimized; independent review PASS. Status `changed-under-evidence`: d-averaging alone is abandoned for this Burgess route. This does not address joint d,m structure, bilinear cancellation in the primes, or spectral cancellation across target shifts.
 
 Next bounded question: write the exact joint m,h form after the Gauss transform and compare it with a sourced bilinear Kloosterman/spectral estimate. The required gain is H^-1/2 in correlation, equivalently H^-1 in active-band energy. Reject any theorem that averages a fixed residue, loses the target N phase, or replaces the prime-dependent conductor by arbitrary moduli.
+
+## 2026-09-10: exact joint CRT/Gauss band form
+
+`joint_crt_band_form.py` retains the full periodized-kernel DFT convention. For q=dm, every high character factors as chi_d*chi_m with chi_m nonprincipal modulo prime m. The weighted shift transform is
+`q^-1 sum_h What(h)e(-hN/q)G_q(conj(chi),h)`, and CRT factors the Gauss sum exactly into d and m components with inverse twists. The active signed frequency satisfies |h|~q/H=N^.499<m=N^.59, so m does not divide h and the prime-component Gauss factor has magnitude sqrt(m). If unsigned DFT indices lie near q, the signed representative gives the same nonzero residue modulo m.
+
+Four exhaustive CRT/support guards pass normally and optimized; independent review PASS. The imprimitive d-Gauss factor, sums over high characters, target phase, endpoint/mask leakage and all spectral cancellation remain unpaid. Status `changed-under-evidence`: the joint phase exists and is now explicit, but it is not yet estimated.
+
+Next bounded question: search for a primary bilinear Kloosterman or spectral large-sieve theorem matching the exact m,h phase and coefficient norms. Build a source gate before importing any exponent. The theorem must tolerate m prime near N^.59, h near N^.499, d<=N^.009, target N varying, and character-sum coefficients from primes; otherwise preserve the mismatch.
