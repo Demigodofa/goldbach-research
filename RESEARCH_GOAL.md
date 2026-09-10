@@ -4379,3 +4379,64 @@ complementary range with every error paid. Falsifier: an unpaid
 resonance, main term or modulus loss. The original bad range
 n<=2N^.41 is not brought inside BV's level by this observation.
 Fresh <=30min; this proposed estimate is UNREVIEWED.
+
+### 2026-09-10: large cofactors paid in the actual reflected band
+
+Pursuit02:06:50--02:23:12UTC, reassessment: progress. Research
+commit9470731, large_cofactor_overlap.py. The actual cofactor tail
+n>=N^.51 has an all-log-small complex overlap, both conjugated and
+NONCONJUGATED reflected. This improves the proposed .6 cutoff.
+Every fixed eta>.509 works, with no claim at the boundary or of an
+effective onset. The bad cofactor ranges remain below the cutoff.
+
+Expanding a_B gives moduli q=dm<=4N^.499. Their error multiplicity
+is bounded by sum_(m|q)Lambda(m)=logq. All left prime powers remain;
+the opposite proper-power replacement costs N^-1/4 L4. Fixed-shift
+variation is1/(NT); the actual hard cofactor boundary contributes
+one paid jump. Ford Sieve Methods2023 Theorem3.4 was freshly checked;
+its prime-count statement costs an extra log under log-Abel. BV pays
+the actual discrepancy O(L^(1-D)), not just a predicted mean.
+
+Reduced-residue Poisson main terms need NOT vanish at large moduli.
+Divisor inversion splits their lattices: small spacing is annihilated
+by the missing Fourier frequencies; the remaining direct lattice
+sums are O(1). Hence the residue main is O(tau(q)). Elementary
+totient and harmonic divisor bounds give total main N^-1/10 L9,
+freezing N^-9/10 L5 and Fourier cutoff N^-2 L5.
+
+The reflected form was proved separately: l=N-k+r, c=k/(N-k),
+leading correlation D_c(s)=int hatChi(y)hatChi(s-cy)dy and transform
+(2pi)^2 chi(-c*xi)chi(-xi). BV residues are N+r modq. Shifted Poisson
+lattices retain their target-dependent phases, with the same tau(q)
+bound. This is not an inference from the conjugated estimate.
+Using the established FULL-field Guinand/beta/finite-period bridge
+and only THEN splitting the arithmetic coefficient gives
+ sum_(actual rho,sigma)chi(gamma/T)chi(gamma'/T)J_N(rho,sigma)/N
+       =-R_h-R_(r_<)+O_A(L^-A),
+ r_<=a_B*1_(n<N^.51)-delta_1-h.
+All zero copies in that full T=N^.9 band remain. No new masked-zero
+norm, weighted J replacement or positive reflected energy is assumed.
+
+Independent Sol theory and actual-file PASS. Review corrected the
+inherited central formula's rate to S_T=-P+O(N^.1 L6), giving
+normalized cross N^-2/5 L6 and square N^-4/5 L12; these suffice.
+Eleven guards normal0.010s/-O0.014s. No old experiment, numerical
+campaign, manuscript, publication, push or manual wake. All earlier
+source corrections, polynomial components and runtime limits persist.
+The core belowN^.51, its signed combination with h, other heights
+and Goldbach coverage remain OPEN. Overall goal ACTIVE; no execution
+after this checkpoint is claimed.
+
+Next question: can the prime companion's conductor factorization
+extend the paid range to N^.46<=n<N^.51? First pay left proper
+powers using the bounded cofactor support. Then m is prime and m>B;
+a conductor dividing dm either divides d or contains m. Derive the
+exact character decomposition, preserving induced coprimality masks,
+cofactor endpoints and reflected target phases. Test low conductors
+against the bandpass cancellation and large conductors against a
+fresh primary mean-square/large-sieve source. The tentative shift
+average suggests a q<N^.55 threshold, but that is only a heuristic
+until all weights and losses are paid. Success requires an actual
+saving on this named range. An unpaid small-conductor, endpoint,
+character multiplicity or Cauchy loss falsifies the proposed step.
+Fresh <=30min; this next hypothesis is UNREVIEWED.

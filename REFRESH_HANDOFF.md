@@ -35,7 +35,47 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **de84c06**, short_divisor_overlap.py.
+Latest reviewed RESEARCH commit: **9470731**, large_cofactor_overlap.py.
+Pursuit2026-09-10 02:06:50--02:23:12UTC: progress.
+The complementary range n>=N^.51 now has an ACTUAL all-log-small
+overlap, both CONJUGATED and NONCONJUGATED REFLECTED. More generally
+any fixed eta>.509 works; equality is not licensed. Expanding the
+small divisor gives q=dm<=4N^.499. BV discrepancies are paid with
+sum_(m|q)Lambda(m)=logq, including prime powers and hard endpoints.
+Resonant reduced-residue lattice sums are bounded by tau(q), not
+assumed zero. The main costs N^-1/10 L9; freezing N^-9/10 L5,
+cutoff N^-2 L5, opposite proper powers N^-1/4 L4. Only the BV
+error is all-log rather than a fixed power. ALL left powers remain.
+
+The reflected calculation uses l=N-k+r, c=k/(N-k), and
+D_c(s)=int hatChi(y)hatChi(s-cy)dy, with Fourier transform
+(2pi)^2 chi(-c*xi)chi(-xi). Residues are N+r modq, and Poisson
+retains exp(-2pi*i*ell*N/e). The actual FULL band at T=N^.9 is
+ sum chi*chi*J_N/N = -R_h-R_(r_<)+O_A(L^-A),
+r_<=a_B*1_(n<N^.51)-delta_1-h. This uses the previously paid
+full-field bridge BEFORE the arithmetic split, not a new weighted
+J or masked-zero inference. Corrected inherited central Guinand
+cross error is N^-2/5 L6, square N^-4/5 L12. The smaller residual
+and its signed combination with h remain OPEN, as do other heights
+and universal Goldbach coverage. No positive reflected energy claim.
+Independent Sol theory/actual-file PASS after that error-rate fix;
+eleven guards normal0.010s/-O0.014s.
+
+Next concrete question: does the PRIME companion create a useful
+gap between small and large character conductors in q=d*m? Test
+the remaining range N^.46<=n<N^.51. First pay left proper powers
+using the actual upper cofactor support; then m is prime, exceeds
+B, and a conductor dividing dm either divides d or contains m.
+Derive the exact character decomposition with all induced coprimality
+masks, hard endpoints and reflected target phases. Test whether
+low conductors can be paid by the window cancellation and the large
+ones by a sourced mean-square/large-sieve estimate. A heuristic
+shift-average threshold would allow q<N^.55, suggesting .46 as a
+concrete target, but this has NOT been proved. Falsifier: an unpaid
+small-conductor, endpoint, character multiplicity or Cauchy loss.
+Fresh <=30min, UNREVIEWED; do not promote that heuristic to a theorem.
+
+Previous **de84c06**, short_divisor_overlap.py.
 Pursuit2026-09-10 01:41:02--02:04:10UTC: changed under evidence.
 For arbitrary |b_d|<=1,d<=B=2N^.009, the COMPLETED coefficient
 v_b(k)=sum_(d|k,d<=B)b_d log(k/d) has a central window field satisfying
@@ -60,7 +100,7 @@ NONCONJUGATED reflected Goldbach pairing has been established.
 Independent Sol theory/actual-file PASS including the elementary
 strengthening; nine guards normal0.007s/-O0.006s.
 
-Next concrete question: can BV control the complementary cofactor
+That pursuit's next question, now answered in9470731, was whether BV could control the complementary cofactor
 range n>=N^(3/5) in its actual conjugated overlap? Product k~N then
 forces m<=2N^(2/5), so expanding a_B gives moduli q=d*m below
 4N^.409. Keep ALL Lambda(m), the actual cofactor endpoints, and
@@ -71,7 +111,7 @@ modulus sum (the candidate identity is sum_(m|q)Lambda(m)=logq),
 weight variation, Fourier tails and opposite prime powers. Success
 requires an actual saving for this restricted complementary range;
 an unpaid resonance/main term or modulus loss is the falsifier.
-This next hypothesis is UNREVIEWED, fresh <=30min. It does not
+The reviewed strengthening is recorded above. It does not
 claim that the bad range n<=2N^.41 falls within BV's modulus level.
 
 Previous **8173dbe**, in detector_gram_coercivity.py:
