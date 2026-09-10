@@ -5127,3 +5127,22 @@ bound for the exact full common-multiple Gram, retaining spectral cancellation
 that Gershgorin discards.  The active row-sum upper bound is separately
 promising.  Shifted rows, d>1, and the signed Goldbach estimate remain OPEN.
 Independent review PASSed the derivation, computation, and scope.
+
+### 2026-09-10: exact gcd feature frame found inside the full denominator
+
+Freezing `log(n/a)` at the left row endpoint gives ideal kernel
+`m^2 log(ml/a)log(ml/a')*(gcd(a,a')-1)/(aa')`.  The totient identity expands
+this as a positive feature Gram.  On one dyadic band, the `d=a` feature is
+unique to coordinate `a`, proving the exact row-wise Loewner lower bound
+`P0>=diag(m^2 log(ml/a)^2 phi(a)/a^2)`.
+
+The exact-minus-ideal perturbation is also small in every finite stress.  Its
+frame-normalized minimum eigenvalue is positive `.00190--.00888`, its norm is
+below `.0305`, and the exact/frame minimum is above `1.002`.  These are finite
+certificates; the positivity itself is not claimed uniformly.
+
+Independent review PASS.  Status `aha-candidate`, new-to-this-task.  Next
+prove or falsify a normalized Schur perturbation estimate in the near-cutoff
+band `U=V`: count discrepancies appear to cost `U^2/m` and log variation
+`U/A`, which decay under the selected exponents.  Shifted rows, d>1, and the
+signed Goldbach estimate remain OPEN.

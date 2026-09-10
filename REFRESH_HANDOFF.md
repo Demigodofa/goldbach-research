@@ -5264,3 +5264,49 @@ shifted-row, d>1 and full signed Goldbach estimates remain OPEN; no process
 runs.  Independent review PASSed the matrix normalization, Schur and
 Gershgorin bounds, exact aggregation, highlighted receipt, tests, and narrow
 falsifier scope.
+
+## 2026-09-10: the full Gram contains an exact positive gcd frame
+
+`divisor_full_frame_probe.py` isolates arithmetic structure that survives the
+failed absolute-value Gershgorin step.  Freeze the row logarithm at
+`L_a=log(ml/a)`.  The ideal full-frequency covariance is
+
+`P0_(a,a')=m^2 L_a L_a' (gcd(a,a')-1)/(aa')`.
+
+The identity
+
+`gcd(a,a')-1=sum_(d>1,d|a,d|a') phi(d)`
+
+makes `P0` a positive feature Gram.  Moreover, for `a,a' in (U,2U]`, the
+feature `d=a` occurs only when `a'=a`.  Therefore the rigorous matrix bound
+
+`P0 >= F`, where `F_aa=m^2 L_a^2 phi(a)/a^2`,
+
+holds row by row and remains true after all positive prime, row,
+`rho_m(log m)^2/m` weights are aggregated.  This is an exact theorem, not a
+finite inference.
+
+For the exact logarithmic/end-point Gram `P`, write `E=P-P0`.  The finite
+Weyl certificate is
+
+`F^(-1/2) P F^(-1/2) >=
+ (1+lambda_min(F^(-1/2) E F^(-1/2))) I`.
+
+Across all five prime-averaged saved bands, the ideal/frame minimum is `1` to
+rounding, the normalized error minimum is positive `.00350--.00876`, its
+operator norm is below `.0230`, and the actual exact/frame minimum is
+`1.00350--1.00877`.  Across the four single-prime H=5,10,14,20 stresses, the
+error minimum is positive `.00190--.00888`, its norm is below `.0305`, and the
+exact/frame minimum is `1.00212--1.00966`.
+
+Independent review PASSed the gcd/totient feature decomposition, dyadic
+uniqueness, Loewner aggregation, Weyl implication, exact endpoint/centering
+code, receipts, tests, and scope.  Status `aha-candidate`, new-to-this-task.
+The finite positivity of `E` is not promoted to a theorem.  Next concrete
+question: for the crucial `U=V=floor(N^.15)` band, prove an entrywise bound
+whose normalized Schur sum gives
+`||F^(-1/2) E F^(-1/2)||=o(1)`.  Endpoint count errors should cost
+approximately `U^2/m`, and logarithmic variation approximately `U/A`; both
+decay at the present exponents.  Exact constants and centering terms remain
+to be checked.  Shifted rows, d>1, and the signed Goldbach estimate remain
+OPEN; no process runs.
