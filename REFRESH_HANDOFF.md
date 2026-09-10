@@ -4507,3 +4507,47 @@ oscillatory Kloosterman/Ramanujan-type remainder. Success is an `H^-1` bound
 with prime weights and the Gauss phase retained; a positive resonant diagonal
 of full-energy size falsifies this route. Hard endpoints and d>1 remain named
 transfer obligations. Overall goal active; no process is claimed running.
+
+## 2026-09-10: actual covariance is a mean-zero additive energy excess
+
+`mobius_covariance_additive_kernel.py` completes the proposed expansion for
+the d=1 hard interval. Collapse the tail exactly to
+`r_V(n)=sum_(a|n,a>V)mu(a)log(n/a)` and let `F_m(x)` be its sum in nonzero
+residue x over the literal J_m. Undoing the character/Gauss expansion gives a
+centered additive Dirichlet kernel, not a Kloosterman phase. Its literal raw
+residue diagonal has trace zero and pointwise size `O(H^-1)`; no positive
+full-energy diagonal survives.
+
+More cleanly, put `delta_m(x)=F_m(x)-average_x F_m(x)`. The centered projector
+annihilates the average exactly, so
+
+`S_m(h)=sum_x delta_m(x)e_m(-h*x)`
+
+and
+
+`OFF_m=sum_(h in I_m)|delta_hat_m(h)|^2
+       -R_m*m/(m-1) sum_x|delta_m(x)|^2`.
+
+Thus OFF is exactly the actual residue discrepancy's excess active-band energy
+above the uniform fraction `R_m/(m-1)` of its full Fourier energy. This is the
+narrowest d=1 formulation; it retains every hard endpoint and fixed arithmetic
+coefficient. It proves no spectral saving.
+
+`mobius_covariance_lag_probe.py` reproduces a new finite decomposition at
+`N=200000,H=3,V=6`, all 171 primes. Weighted aggregate OFF is `-3.85508e7`,
+while the raw literal residue diagonal is only `-6.44318e2`. Before exact mean
+removal, the W off-diagonal is `-1.90631e10` and the centering correction is
+`+1.90245e10`; the first two lag lobes are `+5.59840e10` and `-7.34683e10`.
+This rejects dropping later lobes or triangle-bounding raw pieces at this
+tested scale only. It is tiny-cutoff floating evidence, not an asymptotic
+claim. Six new guards, and 18 related guards in total, pass normally and
+optimized. Independent review PASS after narrowing two initial scope phrases.
+Status `progress`.
+
+Next concrete question: the target is uniform in every permissible J_m, while
+the negative finite OFF used only the central interval. Scan admissible hard
+windows for the actual coefficient and let each prime modulus choose its most
+reinforcing window. Test whether aggregate nonpositivity survives, or whether
+only an `O(H^-1)` magnitude conjecture remains plausible. A positive aggregate
+or an OFF/DIAG ratio growing under endpoint choice falsifies the sign mechanism,
+but not the stated energy inequality. Overall goal active; no process running.

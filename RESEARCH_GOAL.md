@@ -4724,3 +4724,31 @@ phases and character shifts to see whether it becomes a diagonal plus a signed
 Kloosterman/Ramanujan-type remainder. A retained full-energy positive diagonal
 is the falsifier. Polynomial identities remain available as components;
 overall Goldbach signed correlation remains OPEN.
+
+### 2026-09-10: mean-zero additive form of the actual covariance
+
+For d=1 and every literal hard interval, the tail collapses to the fixed
+coefficient `r_V(n)=sum_(a|n,a>V)mu(a)log(n/a)`. If `F_m(x)` is its nonzero
+residue sum and `delta_m=F_m-average(F_m)`, the centered projector kills the
+average exactly. The open covariance is therefore
+
+`OFF_m=sum_(h in I_m)|delta_hat_m(h)|^2
+       -R_m*m/(m-1)sum_x|delta_m(x)|^2`.
+
+No Kloosterman phase or positive full-energy diagonal appears. OFF is precisely
+the excess of the actual discrepancy's active Fourier energy above its uniform
+share. The raw kernel diagonal has trace zero and pointwise size `O(H^-1)`;
+all possible excess is off-diagonal in the mean-zero residue correlations.
+
+A reproducible finite lag decomposition at `N=200000` confirms the previous
+`OFF/DIAG=-.041560`, but shows much larger cancellation among raw pieces:
+W off-diagonal `-1.90631e10`, centering `+1.90245e10`, first lobe
+`+5.59840e10`, second lobe `-7.34683e10`. This only rejects dropping those
+pieces at that tested scale. Six new guards and independent review PASS after
+scope correction. Status `progress`; the spectral estimate remains OPEN.
+
+Next test endpoint robustness of the apparent negative covariance by scanning
+admissible hard windows and allowing each prime modulus its most reinforcing
+choice. Uniform sign failure redirects the target to magnitude rather than
+negativity; growth of OFF/DIAG is the falsifier. Polynomial and asymptotic
+large-sieve components remain available; the Goldbach signed gap stays OPEN.
