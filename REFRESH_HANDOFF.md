@@ -5966,3 +5966,57 @@ route.  Its CRT count-error term is `H B^2/m`, which becomes order one at
 signed sawtooth in the CRT count discrepancy and test whether averaging it
 over divisor pairs or prime moduli gains a power.  Larger factors, `d>1`, and
 the final signed Goldbach prime-correlation estimate remain OPEN.
+
+## 2026-09-10: signed CRT endpoint isolated; full row periods cancel
+
+`signed_crt_discrepancy_probe.py` separates the unweighted exact CRT count
+error from the triangular density before applying the totient-frame
+normalization.  For a compatible residue `y0 mod q`, `q=lcm(a,b)`, and its
+allowed inclusive interval `[L,T]`, the exact error is
+
+`E={ (L-1-y0)/q }-{ (T-y0)/q }`.
+
+The probe forms the resulting Hermitian active matrix and computes its largest
+absolute generalized eigenvalue, so its falsifier already includes arbitrary
+complex resonant coefficients.  Single-row operator norms grow, but far below
+the previous absolute endpoint scale `H U^2/m`: at `(m,H,U)=(1009,5,50),
+(1009,5,100),(1009,5,200)` they are `1.949,4.041,6.099`, while the endpoint
+scales are `12.39,49.55,198.22`; at `(10007,10,320),(10007,10,640),
+(10007,10,1200)` they are `3.226,5.420,8.502`, versus
+`102.33,409.31,1438.99`.  This refutes growth on the crude tested scale but
+does not prove a uniform estimate.
+
+Row averaging is much stronger in the finite tests.  At `m=1009,H=5,U=100`,
+the resonant norm falls from `4.041` for one row to `.755,.416,.193` for
+`8,16,32` rows.  At `m=10007,H=10,U=640`, it falls from `5.420` to `2.267`
+and `.810` for `4` and `16` rows.  Averaging 20 nearby primes in one row only
+moves `4.041` to `2.783`; averaging the same primes jointly with 32 rows gives
+`.132`.  These are finite measurements, not asymptotic bounds.
+
+`row_periodic_crt_cancellation.py` proves the mechanism.  Increasing the row
+index sends the compatible CRT residue to `y0-m mod q`.  Since the project
+has prime `m>max(a,b)`, this permutes every residue modulo `q`.  Therefore,
+for every fixed compatible `(a,b,s)` and every starting row,
+
+`sum_(ell=ell0)^(ell0+q-1) E_(a,b,s)(ell)=0`.
+
+The incomplete sequence has an exact nonzero-frequency Fourier expansion with
+phases `e_q(-k m ell)`.  Periodicity alone is insufficient: for
+`m=71 == 1 mod 35`, `a=5,b=7,s=17`, an eight-row block retains `.514` of
+the trivial row-count scale.  Thus a uniform incomplete-row saving needs a
+new arithmetic input.
+
+Independent review first caught and HOLDed a missing coprimality guard in the
+Fourier helper.  The guard and regression were added.  The reviewer then
+PASSed the endpoint formula, direct count and matrix reconstructions, frame
+normalization, complete-period theorem, Fourier description, resonant
+counterexample, joint prime-row aggregation, and 14 tests in normal and
+optimized modes.
+
+The next concrete question is: can the joint average over prime
+`M<m<=2M` and rows `A<=ell<2A` bound the bilinear phases
+`e_q(-k m ell)`, with the endpoint Fourier coefficients and full active
+kernel retained, uniformly for `q=lcm(a,b)<=B^2`, strongly enough at
+`B=N^.245`?  A resonant generalized eigenvalue that retains polynomial
+`H B^2/m` growth after the joint average is the falsifier.  The signed
+prime-correlation estimate, larger divisor bands, and `d>1` remain OPEN.

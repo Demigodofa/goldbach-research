@@ -5619,3 +5619,29 @@ route.  Its CRT count-error term is `H B^2/m`, which becomes order one at
 signed sawtooth in the CRT count discrepancy and test whether averaging it
 over divisor pairs or prime moduli gains a power.  Larger factors, `d>1`, and
 the final signed Goldbach prime-correlation estimate remain OPEN.
+
+## 2026-09-10 continuation: the missing arithmetic ingredient is now explicit
+
+The CRT endpoint loss has been rewritten as an exact signed
+fractional-part difference.  Every fixed compatible divisor pair and
+separation has zero total error over a complete `lcm(a,b)` row period.
+Finite worst-coefficient tests show substantial cancellation over consecutive
+rows and over the joint prime-row average.  They do not supply a theorem.
+
+The full-period identity cannot finish the endpoint by itself.  A checked
+example with prime `m=71 == 1 mod lcm(5,7)` retains more than half of the
+trivial scale on a suitable eight-row block.  The new bounded hypothesis is
+therefore a joint bilinear one: after retaining the endpoint Fourier
+coefficients and the complete active kernel, the sum over prime moduli
+`M<m<=2M` and rows `A<=ell<2A` should gain a power over the absolute CRT
+count bound for `q=lcm(a,b)<=B^2`.  Test it first at and above
+`B=N^.245`; falsify it with the exact generalized eigenvector.  Reassess
+within 30 minutes.  Polynomial/logarithmic weights, the triangular main,
+the centering estimates, and the lower full frame remain available tools.
+
+This is a new-to-this-task mechanism statement, not a signed
+prime-correlation estimate or a Goldbach proof.  Independent review PASSed
+the exact identity and finite probe after correcting the Fourier helper's
+coprimality guard.  Publication of this repository was explicitly authorized
+on 2026-09-10; manuscript preparation, outside contacts, spending, and
+foreground work remain excluded.

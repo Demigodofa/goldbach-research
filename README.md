@@ -43,6 +43,15 @@ of row lags can be summed without losing a factor equal to its number of pairs.
 Rectangular cross-band bounds and a Mobius-inversion lower frame extend this
 control to the union `N^.15<a<=N^(.245-delta)` for every fixed `delta>0`.
 
+The exact CRT endpoint error has now been isolated as a signed fractional-part
+difference.  For each divisor pair it has mean zero over a complete
+`lcm(a,b)` block of rows.  Finite generalized-eigenvalue tests show strong
+row-average cancellation even against arbitrary complex coefficients, but a
+proved resonant incomplete-row example shows that full-period cancellation
+alone gives no uniform power saving.  The current concrete question is whether
+the joint prime-modulus and row average supplies a bilinear exponential-sum
+bound strong enough to cross the `N^.245` endpoint.
+
 This closes a genuine component of the method. It does not prove the signed
 prime-correlation estimate, control the larger divisor scales, handle `d>1`,
 or prove Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the
