@@ -4277,3 +4277,43 @@ H^-1 of the prime Fourier energy in the active band, including the low
 subtraction, target phase, endpoints and masks? A diagonal or near-collision
 family of full size falsifies this route. Do not infer the needed saving from
 the mean-zero projector alone.
+
+## 2026-09-10: exact active-band inequality survives only for prime weights
+
+`active_band_energy_conjecture.py` states one literal candidate energy input
+for the critical block. Put H=floor(N^.1), B=floor(2N^.009),
+M=floor(N^.59), q=dm, 1<=d<=B with mu(d)!=0, and M<m<=2M prime. For each m
+allow a long interval J_m inside [N/8,7N/8], of length at least N/16. The
+Fourier coefficient uses the exact target phase, prime coefficient log(p),
+and high projector
+`1_(p=a mod q)-(m-1)^-1*1_(p=a mod d)`. The energy measure is
+`mu(d)^2*(log m)^2/q`, the Parseval weight matching the residue variance.
+
+With signed frequency h_tilde, the CORRECT angular band is
+`q/(2*pi*H)<|h_tilde|<q/(pi*H)`. The earlier q/H..2q/H literal band was
+wrong under the saved C0 normalization and was corrected before commit. The
+proposed inequality is
+`E_band <= C*(log N)^20/H*E_all`. It would supply the required H^-1/2 only
+after a separate lemma pays the actual shift-dependent endpoints, kernel
+coefficients and mask leakage. That transfer is not proved.
+
+The elementary arithmetic resonance cancels exactly. Since active
+0<|h_tilde|<m, m does not divide h, and
+`c_(dm)(h)/phi(dm)=-c_d(h)/(phi(d)*(m-1))`; the low-projector correction
+contributes the opposite Ramanujan main, including when (h,d)>1.
+
+The coefficient-uniform extension is exactly FALSE. For d=1 and one
+coefficient per nonzero residue, choose c_p=e_m(h0*p) with h0 in the active
+band. One mode then contains exactly `(m-2)/(m-1)` of the total energy, tending
+to 1 instead of H^-1. This does not falsify the stated prime-log inequality:
+its fixed positive coefficients have their uniform reduced-residue main
+annihilated by the high projector. Six new guards and the preceding nine
+identity/CRT guards pass normally and optimized. Independent review PASS
+after the 2*pi correction. Status `changed-under-evidence`.
+
+Next bounded question: expand the remaining fixed prime-log energy and test
+the frequency-pair diagonal for h/(dm)-h'/(d'm'). Determine whether the
+large prime factors force enough spacing after the exact Ramanujan main is
+removed, or whether a near-collision family still has full large-sieve size.
+Keep the long interval family and q^-1 Parseval weights; do not reintroduce
+arbitrary chirp coefficients.

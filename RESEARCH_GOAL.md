@@ -4596,3 +4596,25 @@ active-band energy estimate for the resulting ordinary additive prime sums,
 jointly over m and h, with endpoints, masks, the low subtraction and target
 phase retained. A full-size diagonal or frequency near-collision falsifies
 that route.
+
+### 2026-09-10: a literal energy conjecture and its resonant boundary
+
+For the top block H=floor(N^.1), B=floor(2N^.009), M=floor(N^.59), q=dm,
+the new candidate uses the exact high projector, prime weights log(p), target
+phase, long m-dependent prime intervals, and Parseval weight
+`mu(d)^2*(log m)^2/q`. With signed h, the corrected angular band is
+`q/(2*pi*H)<|h|<q/(pi*H)`. The proposed bound is
+`E_band <= C*(log N)^20/H*E_all`. It is only a candidate input: an unproved
+transfer must still pay shift-dependent endpoints, kernel weights and mask
+leakage.
+
+The uniform prime-density Ramanujan mains cancel exactly between the full and
+low terms, even when (h,d)>1. But a coefficient-uniform extension is false:
+for d=1, coefficients c_p=e_m(h0*p) on all nonzero residues place exactly
+`(m-2)/(m-1)` of total energy in the resonant active mode. Thus a generic
+coefficient large sieve cannot prove the candidate; the fixed centered prime
+weights must be used. Six new guards and the preceding nine identity/CRT
+guards pass normally and optimized. Independent review PASS after correcting
+the initially wrong q/H..2q/H band. Status `changed-under-evidence`. Next test
+the exact frequency-pair diagonal for the fixed prime-log coefficients and
+large-prime moduli, preserving long endpoints and q^-1 weights.
