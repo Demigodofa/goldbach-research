@@ -4518,3 +4518,19 @@ upper cofactor scale N^.46 rather than citing the old N^.41 error
 unchanged. Success removes this adjacent band by an actual norm
 bound. An unpaid exponent, endpoint or transfer loss falsifies the
 proposed step. Fresh <=30min, UNREVIEWED; no arbitrary zero mask.
+
+### 2026-09-10: first-power polynomial norm route fails
+
+Pursuit02:25:27--02:45:30UTC changed under evidence; commit151e7c9.
+The first-power T-term exponent for b=a_B on N^.41..N^.46 is
+21/50-(13/25)h>0 at beta=19/25. The k=2 moment is saving but
+controls D_M^2 on detected zeros, not the first-power arithmetic field.
+The threshold gives no lower-bound bridge on the nondetected complement.
+Independent review PASS; five guards normal/-O passed. Preserve k=2
+and the paid N^.46 tail.
+
+Next bounded question: decompose n<N^.41 with the exact retained Vaughan
+identity, preserving its free convolution factor, both reflected prime
+conditions and hard endpoints. Test Type-I Poisson and a sourced Type-II
+bilinear mean-square. Any positive exponent or unpaid endpoint falsifies
+the route. Fresh <=30min; UNREVIEWED.

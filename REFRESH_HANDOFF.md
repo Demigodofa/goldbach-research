@@ -91,6 +91,24 @@ scale N^.46. Success pays this adjacent cofactor band in both forms;
 an unpaid exponent, endpoint or transfer loss is the falsifier.
 Fresh <=30min, UNREVIEWED. No arbitrary masked-field bound is assumed.
 
+### 2026-09-10: first-power polynomial norm route falsified
+
+Pursuit02:25:27--02:45:30UTC changed under evidence; commit151e7c9.
+The adjacent first-power T-term exponent at beta=19/25 is
+21/50-(13/25)h, positive from517/2500 to113/625 for h=.41..46.
+The saving k=2 detector moment controls D_M^2 on detected zeros,
+not D_M or the full arithmetic field. The threshold gives no lower
+bound on the nondetected complement. Transfer and proper-power errors
+remain small but do not bridge these objects. Independent review PASS;
+five guards normal/-O passed. This preserves the k=2 component and
+paid .46 tail; it is not an all-method barrier.
+
+Next question: can n<N^.41 be decomposed by the retained exact Vaughan
+identity into Type-I progression pieces and a Type-II bilinear piece,
+keeping its free convolution factor, both reflected prime conditions
+and hard endpoints? Any positive exponent or dropped endpoint falsifies
+that route. Fresh <=30min, UNREVIEWED.
+
 Previous **9470731**, large_cofactor_overlap.py.
 Pursuit2026-09-10 02:06:50--02:23:12UTC: progress.
 The complementary range n>=N^.51 now has an ACTUAL all-log-small
