@@ -5399,3 +5399,41 @@ kernel, and centering pieces.  Determine whether the small total comes from
 rarity of collisions or cancellation between large components.  Component
 growth like `V` without cancellation is the falsifier.  Shifted rows, d>1,
 and the full signed Goldbach estimate remain OPEN; no process runs.
+
+## 2026-09-10: active off-diagonal cancellation is inside the raw kernel
+
+`active_cross_component_probe.py` decomposes the exact centered active Gram
+into three matrices: equal-integer collisions in the two divisor
+progressions, unequal-integer differences through the active Dirichlet
+kernel, and the centering correction.  Their sum reconstructs the active Gram
+to numerical error below `2.5e-7` in every stress case.
+
+For the four single-prime H=5,10,14,20 cases, the frame-normalized
+`(equality,unequal,total)` maximum off-diagonal row sums are
+`(1.510,1.505,.00718)`, `(2.409,2.369,.07134)`,
+`(3.100,3.105,.05421)`, and `(3.457,3.434,.06908)`.  Centering is about
+`.001`.  The equality/unequal off-diagonal Frobenius cosines are
+`-.999989,-.999499,-.999708,-.999698`; bounding components separately loses
+factors `420,67,114,100` against the total.
+
+The prime-averaged near-cutoff N=32000 band is tighter: cosine `-.999993`,
+total off-diagonal row sum `.002186`, and separate-component loss `499`.
+Thus its small active cross term is produced by the linked equality and
+unequal-difference contributions of the same Fourier kernel; centering is not
+the measured mechanism.
+
+This explanation is not universal across divisor bands.  The N=200000
+`(48,96]` aggregate has cosine only `-.0471`, equality/unequal maxima
+`2.140/1.957`, total `1.094`, and separate loss `3.744`.  Its total remains
+small, but not by global antiparallelity of those component matrices.
+
+Independent review PASSed the algebraic split, collision recovery,
+progression weights, frame normalization, reconstruction, cosines, every
+receipt, tests, and the non-universality qualification.  Status
+`aha-candidate`, new-to-this-task.  This remains finite mechanism evidence.
+Next concrete question: prove the equality-collision component has
+`N^epsilon` Schur norm in the near-cutoff band.  After frame normalization its
+main kernel is `gcd(a,b)/sqrt(phi(a)phi(b))`, whose dyadic row sum should be
+controlled by `sum_(d|a)phi(d)(U/d+1)`.  Then only the unequal-difference
+kernel remains.  Shifted rows, d>1, and signed Goldbach remain OPEN; no
+process runs.

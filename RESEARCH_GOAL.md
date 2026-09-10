@@ -5181,3 +5181,19 @@ receipts, and scope.  This remains finite evidence.  Next decompose active
 off-diagonal entries into equality collisions, unequal differences, and
 centering to locate the observed cancellation.  Shifted rows, d>1, and the
 signed estimate remain OPEN.
+
+### 2026-09-10: located the near-cutoff active cancellation
+
+The exact active off-diagonal Gram splits into equality collisions,
+unequal-integer Dirichlet-kernel terms, and centering.  In the four
+single-prime stresses, equality and unequal row sums are `1.5--3.5` each but
+their total is only `.007--.071`; their matrix cosines are below `-.99949`.
+The prime-averaged N=32000 near-cutoff cosine is `-.999993` and separate
+bounds lose a factor `499`.  Centering is around `.001`.
+
+The N=200000 `(48,96]` aggregate is a useful counterexample to universality:
+its equality/unequal cosine is only `-.047`, although total off-diagonal mass
+is still `1.094`.  Independent review PASSed all formulas, receipts, and
+scope.  Next prove the equality component directly through its normalized
+gcd kernel; the unequal-difference kernel is then the remaining same-row
+piece.  Shifted rows, d>1, and signed Goldbach remain OPEN.
