@@ -6314,3 +6314,46 @@ variance for every coefficient vector.  The next concrete route is a direct
 lag operator lower bound, or a variance statement localized to the low
 aggregate-energy cone.  Complete assembly remains `.295-delta`; the all-lag
 transfer and signed prime correlation remain OPEN.
+
+## 2026-09-10: matrix geometric means give a direct all-coefficient minorant
+
+For positive row Grams `G_u,G_v`, let `G_u#G_v` be their Kubo--Ando matrix
+geometric mean.  Block positivity gives, for every common coefficient vector,
+
+`c*(G_u#G_v)c <= sqrt((c*G_u c)(c*G_v c))`.
+
+For the diagonal row frames, scalar AM--GM gives the reverse denominator
+comparison
+
+`sqrt((c*F_u c)(c*F_v c)) <= c*((F_u+F_v)/2)c`.
+
+After summing the exact prime-row-lag weights, the nonlinear lag quotient is
+therefore bounded below by the minimum generalized eigenvalue of
+
+`sum_edges w(G_u#G_v)` relative to
+`sum_edges w(F_u+F_v)/2`.
+
+This is an exact deterministic minorization for every coefficient vector and
+bypasses the failed blanket-variance requirement.  The computed eigenvalues
+are floating-point measurements, not interval certificates.  For two primes,
+rows 9--24, and lags `8<=Delta<16`, the measured lower eigenvalues at divisor
+cutoffs `32,64,128,192,256,320` are
+
+`.383240,.293900,.164774,.141205,.131975,.125305`.
+
+All input row Grams remained numerically positive definite; at cutoff 320 the
+smallest input eigenvalue was `2622.423`.  Independent review PASSed the block
+matrix inequality, denominator direction, weighted quotient step, spectral
+implementation, receipts, and four tests in normal and optimized modes.
+
+This closes a direct finite all-coefficient certificate, not the asymptotic
+lag frame.  The concrete conjecture is
+
+`sum_edges w(G_u#G_v) >= N^-eps sum_edges w(F_u+F_v)/2`
+
+on each dyadic lag block through the active-endpoint range
+`B<=N^(49/150-delta)`.  Test it next under project-like simultaneous scaling
+of `M,A,B`; polynomial decay beyond the known subpower multiband loss is the
+falsifier.  A proof would still need an arithmetic lower bound for the summed
+matrix means.  Complete assembly remains `.295-delta`, and the signed prime
+correlation remains OPEN.

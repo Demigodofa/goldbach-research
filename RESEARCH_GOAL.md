@@ -5770,3 +5770,21 @@ the whole lag numerator into one positive quadratic operator whose generalized
 eigenvalue can be tested against the arithmetic-mean frame denominator.  A
 zero or rapidly collapsing eigenvalue falsifies that route.  No assembled
 range beyond `.295` is claimed.
+
+## 2026-09-10 continuation: direct matrix-geometric lag certificate
+
+The nonlinear lag numerator has an exact quadratic minorant: sum the
+Kubo--Ando geometric means of each pair of exact row Grams.  Scalar AM--GM
+simultaneously turns the frame denominator into a quadratic upper bound.  The
+resulting minimum generalized eigenvalue is a valid lower certificate for all
+coefficient vectors in each finite instance.  Independent review verified
+the inequality directions and implementation.
+
+For the fixed two-prime, 16-row experiment, the long-lag certificate stays
+positive from divisor cutoff 32 through 320, decreasing from `.38324` to
+`.12531`.  This is much stronger than sampled optimization but remains finite
+floating-point evidence.  The next bounded test must scale modulus, row range,
+and divisor cutoff together at the project exponents.  The target theorem is
+subpower coercivity of the summed matrix-geometric operator through
+`beta<49/150`; polynomial eigenvalue decay falsifies it.  The assembled range
+remains `.295`, and the signed prime correlation is open.
