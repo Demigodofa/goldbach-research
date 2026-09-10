@@ -5513,3 +5513,46 @@ other global denominator, handle `d>1`, or prove the signed Goldbach
 correlation.  Next test the rectangular active operator between two different
 dyadic divisor bands; growth like the square root of their scale ratio is the
 falsifier for naive band summation.
+
+## 2026-09-10: rectangular Schur controls cross-bands below N^.245
+
+`cross_divisor_band_probe.py` tests the exact active operator between
+squarefree bands `(U,2U]` and `(W,2W]`, with separate rho-weighted totient
+frames.  The exact worst complex-coefficient singular values stay between
+`2.066` and `4.032` as `W/U` grows from `2` to `16` in the new
+m=`10007,30011,100003` cases.  Their ratios to `sqrt(W/U)` fall at the larger
+scale ratios; fixed-Mobius quotients are `.0023--.1517`.  This finite evidence
+rejects observed square-root scale growth but is not a theorem by itself.
+
+`cross_divisor_band_bound.py` supplies the theorem.  Assume
+`H<=U<=W`, both complete-row indices are comparable to `A`, and the project
+central ranges make the frozen logs comparable to `log N`.  The triangular
+gcd majorant has row sum
+`O_eps(N^eps sqrt(W/U))` and column sum
+`O_eps(N^eps sqrt(U/W))`; rectangular Schur cancels the scale ratio.  The
+remaining normalized operator losses are
+
+`O_eps(N^eps[H U W log(m)/m+H log(m)/A
+              +H W log(m)/m+1/m])`.
+
+Thus, for `H=N^.1`, `m=N^.59`, and `A=N^.41`, every pair of divisor bands
+with
+
+`H<=U,W<=N^(.245-delta)`
+
+is controlled for each fixed `delta>0`.  The endpoint exponent is strict:
+`.1+2(.245)-.59=0`, so `N^.245` itself is not claimed.
+
+Independent review PASSed the exact cross matrix, two frames, SVD and Mobius
+quotients, transposition test, truncated column gcd sum, rectangular Schur,
+all asymptotic losses, strict exponent, corrected range statement, and six
+normal/optimized tests.
+
+This extends the active-frame theorem from the near-cutoff band to every pair
+of lower bands below `N^(.245-delta)`.  It does not yet assemble those bands
+against the exact full energy: cross-band terms in that denominator can
+cancel, so a multi-band lower frame or another coercive comparison remains
+OPEN.  Larger factors, `d>1`, and the signed Goldbach correlation also remain
+OPEN.  Next test the exact full Gram of the union of lower bands against the
+block totient frame; a minimum generalized eigenvalue tending to zero is the
+falsifier.

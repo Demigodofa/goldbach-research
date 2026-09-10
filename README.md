@@ -2,8 +2,8 @@
 
 Owner: Kevin; research and integration: Rill (`agent.rill`).
 Purpose: investigate a sequence of small proved statements that could help explain
-prime-pair coverage of even integers. This is a local research deliverable, not a
-claimed proof or a publication. Retain checked proofs, source references,
+prime-pair coverage of even integers. This is a research record, not a claimed
+proof of Goldbach. Retain checked proofs, source references,
 reproducible experiments, counterexamples, and precise remaining questions.
 
 ## Active goal
@@ -19,8 +19,9 @@ does not consume an unlimited run. Preserve checked results and precise gaps.
 The first milestone is an independently checked theorem with a bounded
 prior-art assessment; worldwide novelty and a complete Goldbach proof are
 not established. Any eventual external submission requires Kevin's approval.
-No spending, public repository creation, publishing, or contacting others.
-Use background execution only. Do not change unrelated projects or user files.
+Kevin authorized publication of this repository on public GitHub on 2026-09-10.
+No spending or contacting others. Use background execution only. Do not change
+unrelated projects or user files.
 
 Original start: 2026-09-08 03:22:30 UTC; original deadline: 09:00 Eastern.
 Execution audit after resumption: the sustained run through09:00 was not
@@ -31,6 +32,19 @@ goal flag must not be treated as evidence that execution continued. The
 native goal text retains that earlier deadline because its available update
 interface changes terminal status only; Kevin's latest instruction and the
 current contract control scope. See `notes/six-hour-renewal-2026-09-08.md`.
+
+## Current mathematical checkpoint (2026-09-10)
+
+The same-complete-row active/full matrix inequality is proved for the critical
+near-cutoff squarefree divisor band. The proof combines a triangular CRT density,
+an exact endpoint/log discrepancy bound, and a centering bound. The corresponding
+pairwise estimate also holds between any two complete rows, and one dyadic block
+of row lags can be summed without losing a factor equal to its number of pairs.
+
+This closes a genuine component of the method. It does not prove the signed
+prime-correlation estimate, combine all divisor scales, handle `d>1`, or prove
+Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the current theorem,
+tests, independent-review boundary, and next question.
 
 ## Starting facts
 
@@ -86,9 +100,11 @@ The local Qwen default runtime manifest is absent at
 therefore cannot pass. Record the exception and do not install a multi-gigabyte
 runtime merely for this mathematical task. No local-Qwen contribution is claimed.
 
-## Current next action
+## Research record and navigation
 
-The fixed-radius question has a checked negative theorem; the adaptive
+The current next action is maintained at the end of `REFRESH_HANDOFF.md` and
+`RESEARCH_GOAL.md`. The historical record begins with a fixed-radius question,
+which has a checked negative theorem; the adaptive
 displacement-4 observation has been identified as a stronger conjecture.
 The active direction follows Kevin's later steering: stacked1,000-number
 blocks and calculation-based elimination of certified spans.
