@@ -6020,3 +6020,74 @@ kernel retained, uniformly for `q=lcm(a,b)<=B^2`, strongly enough at
 `B=N^.245`?  A resonant generalized eigenvalue that retains polynomial
 `H B^2/m` growth after the joint average is the falsifier.  The signed
 prime-correlation estimate, larger divisor bands, and `d>1` remain OPEN.
+
+## 2026-09-10: joint prime-row cancellation crosses the .245 endpoint
+
+`joint_prime_row_crt_bound.py` proves an elementary bilinear bound for the
+signed endpoint error.  Its row Fourier expansion has no constant term and
+
+`|c_(m,k)|<=1/[2 min(k,q-k)]`, `q=lcm(a,b)`.
+
+For `S_k(t)=sum_ell e_q(k t ell)` and `Q=q/gcd(k,q)`, exact orthogonality over
+one multiplier period gives
+
+`sum_(t mod Q)|S_k(t)|^2
+ =Q #{(ell,r):ell=r mod Q} <= A^2+QA`.
+
+Cauchy therefore controls any subset of `P` prime moduli in an interval of
+`M` integers by
+
+`sum_(m prime)|S_k(m)|
+ <=sqrt(P ceil(M/Q)(A^2+QA))`.
+
+Grouping frequencies by `Q|q`, using `P>>M/log M`, and assuming the project
+condition `A<=M`, gives the normalized phase saving
+
+`N^eps{A^(-1/2)+sqrt(q/(MA))+q^(-1/2)}`.
+
+The incomplete-period remainder also produces `M^(-1/2)`, which is dominated
+by `A^(-1/2)` here.  Abel summation pays the smooth row-log weights at
+logarithmic cost, and the complete active kernel is paid by its existing
+signed-residue L1 bound.  For divisor bands of scales `U,W`, the correct lcm
+range is `max(U,W)<q<=4UW`.  Rectangular Schur followed by maximizing
+`U,W<=B` proves
+
+`||D_endpoint||_F << N^eps (H B^2/M)
+ {A^(-1/2)+B/sqrt(MA)+B^(-1/2)}`.
+
+This holds uniformly at a fixed shifted-row lag for a common divisor
+coefficient vector across the prime-row sum, which includes the actual Mobius
+vector.  The prior lag bookkeeping sums the fixed-lag estimates without a
+lag-count loss.  It does not claim independently chosen coefficients on every
+row.
+
+At `H=N^.1,M=N^.59,A=N^.41,B=N^beta`, the three endpoint exponents are
+
+`2 beta-.695`, `3 beta-.99`, and `1.5 beta-.49`.
+
+Thus the signed endpoint is power-small for `beta<49/150=.32666...`.
+The already proved exact-full-frame perturbation `B^2/M+B/A` is now the
+stricter constraint: it is power-small for `beta<.295`.  Combining the new
+endpoint theorem with the triangular, log-variation, centering, cross-band,
+lag, and multiband-frame results extends the complete controlled lower union
+to
+
+`N^.15<a<=N^(.295-delta)`
+
+for every fixed `delta>0`.
+
+Independent review HOLDed two initial wording omissions: the absorbed
+`M^(-1/2)` term needed `A<=M`, and the lcm range had to be stated bandwise as
+`max(U,W)<q<=4UW`.  Both were corrected.  The reviewer then PASSed the
+Fourier coefficient bound, exact rotation moment, arbitrary-prime-subset
+Cauchy step, divisor grouping, active-kernel and Abel factors, rectangular
+Schur, lag integration, exponent arithmetic, and six normal/optimized tests.
+
+This is a genuine extension of the divisor-frame component, not the signed
+prime-correlation estimate.  The next concrete question is whether the exact
+full Gram minus its frozen gcd feature has analogous joint prime-row
+cancellation, replacing the absolute `B^2/M` perturbation at `B=N^.295`.
+The first falsifier is the minimum generalized eigenvalue of the joint exact
+full Gram on unions extending above `.295`; polynomial collapse relative to
+the block totient frame rejects the route.  Larger divisor ranges, `d>1`, and
+the final signed Goldbach correlation remain OPEN.

@@ -5645,3 +5645,26 @@ the exact identity and finite probe after correcting the Fourier helper's
 coprimality guard.  Publication of this repository was explicitly authorized
 on 2026-09-10; manuscript preparation, outside contacts, spending, and
 foreground work remain excluded.
+
+## 2026-09-10 continuation: lower-band control reaches .295-delta
+
+The joint prime-row hypothesis passed.  Exact row-rotation orthogonality plus
+Cauchy over the prime subset proves a signed endpoint saving
+
+`N^eps{A^(-1/2)+sqrt(q/(MA))+q^(-1/2)}`.
+
+After bandwise rectangular Schur, the endpoint component is power-small for
+all divisor scales `B<N^(49/150)`.  Combining it with the previously checked
+components advances the complete lower union from `.245-delta` to
+`.295-delta`.  Independent review PASSed after two scope corrections recorded
+in `REFRESH_HANDOFF.md`.
+
+The active endpoint is no longer the immediate barrier.  The exact full Gram
+was compared to its frozen positive gcd feature with an absolute perturbation
+`N^eps(B^2/M+B/A)`, which becomes order one at `B=N^.295`.  The next bounded
+question is whether that signed exact-minus-frozen perturbation cancels after
+the joint prime-row sum.  Test the minimum generalized eigenvalue for unions
+crossing `.295`, and derive the exact signed perturbation before proposing a
+uniform bound.  A polynomially collapsing minimum eigenvalue is the falsifier.
+Reassess within 30 minutes.  The signed prime-correlation estimate remains
+open and must not be inferred from this divisor-frame extension.
