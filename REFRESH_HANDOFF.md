@@ -4865,3 +4865,42 @@ The diagonal must fit the known H^-1 budget; a positive off-diagonal term of
 `Y^2` size falsifies this route. Otherwise source-test an averaged shifted
 Mobius/prime-correlation input matching the exact q-multiple shifts. The signed
 Goldbach estimate remains OPEN; no process runs.
+
+## 2026-09-10: aligned row correlations have opposing large signs
+
+`mobius_aligned_covariance_probe.py` expands the exact d=1 aligned block
+`J_m=(mA,2mA]` into rows
+`C_l(r)=r_V(ml+r)`, `A<=l<2A`, `1<=r<m`. It evaluates the saved centered
+active-band covariance bilinearly and separates the true point diagonal,
+same-row nonpoint pairs, and ordered cross-row pairs. These three pieces
+recombine exactly to total OFF.
+
+Normalized by the total principal baseline, the measured splits are:
+
+`N=32000,A=9`: point `+5.64e-7`, same-row `-2.990264`, cross-row `+2.761953`,
+total `-.228310`;
+
+`N=200000,A=19`: `+1.42e-7,-2.768728,+2.608294`, total `-.160433`;
+
+`N=200000,A=30`: `+1.02e-8,-3.729491,+3.726097`, total `-.003395`;
+
+`N=1200000,A=39`: `-1.05e-8,-4.886587,+4.729663`, total `-.156924`.
+
+Thus the literal diagonal is harmless in these finite tests, but cross-row
+correlations reinforce strongly rather than cancel. The modest total is a
+delicate signed difference from the large negative same-row family. Taking
+absolute values or proving separate component bounds loses the observed gain.
+No persistent sign, trend or power estimate follows from these tiny H,V.
+
+One guard passes normally/optimized. Independent review PASSed row indexing,
+FFT convention, centered baseline, literal point formula and recombination;
+it also matched a direct two-row residue-kernel calculation at N=32000,m=457.
+Status `changed-under-evidence`: reject cancellation of every off-diagonal
+family as the mechanism, preserve the intact row recombination.
+
+Next concrete question: resolve the cross-row term by lag
+`Delta=l2-l1`. Test whether its positive mass is confined to bounded Delta or
+has an oscillatory tail that cancels before summing m. A broad same-sign tail
+of principal size falsifies lag-local treatment. Keep the same-row negative
+term beside it; do not claim that their finite cancellation is an estimate.
+The signed Goldbach correlation remains OPEN; no process runs.

@@ -4943,3 +4943,20 @@ reject phase collapse alone as the missing H gain. Next expand the actual
 progression covariance before Cauchy, separate its paid diagonal, and test the
 signed l1!=l2 correlations averaged over prime m. The fixed band inequality
 and signed Goldbach correlation remain OPEN.
+
+### 2026-09-10: same-row cancellation and cross-row reinforcement
+
+The aligned d=1 covariance now has an exact finite row decomposition. Its true
+point diagonal is negligible at all tested scales. Same-row, distinct-residue
+correlations are large and negative, while different-l correlations are almost
+equally large and positive. For example at `N=1200000,A=39`, normalized pieces
+are `-1.05e-8,-4.886587,+4.729663`, leaving total `-.156924`; at the weak
+`N=200000,A=30` block, `-3.729491+3.726097` leaves `-.003395`.
+
+Independent review verified the exact indexing, kernel, centering and
+recombination and reproduced a direct two-row case; one guard passes normal
+and optimized. Status `changed-under-evidence`. Componentwise off-diagonal
+cancellation is false in these measurements, so the signed recombination must
+remain intact. Next decompose the reinforcing cross-row term by l-lag and test
+whether it is local or oscillatory before the prime-m sum. The fixed band
+inequality and signed Goldbach correlation remain OPEN.
