@@ -4980,3 +4980,24 @@ Status `changed-under-evidence`.
 Next test one dyadic lag block and demand an `H^-1` saving from the actual
 Mobius--log coefficients; principal-size positive resonance across growing
 blocks is the falsifier.  The exact band inequality remains OPEN.
+
+### 2026-09-10: dyadic lag cancellation survives a quantified gate
+
+For each dyadic lag block, define `C_j` as the exact prime-weighted signed
+cross-row covariance and `P_j` as `rho_m=|I_m|/(m-1)` times its row-energy
+Cauchy baseline.  The concrete sublemma
+`max(C_j,0)<=C_epsilon*N^epsilon*P_j` is coefficient-uniformly false under
+identical resonant rows, which give ratio about `1/rho_m`, but it remains
+plausible for the fixed Mobius--log array.
+
+At `(N,A)=(32000,9),(200000,19),(200000,30),(1200000,39)`, the maximum
+positive ratios are `.56517,.33922,.34099,.30564`; no tested dyadic block
+exceeds one H^-1 Cauchy budget.  The main block signs agree across all sampled
+prime moduli, so prime-m averaging is not producing the observed cancellation.
+The gain occurs inside complete dyadic sums over lags.  This is finite evidence
+at H=2,3,4, not a uniform estimate.
+
+Three guards normal/optimized and independent review PASS.  Status `progress`.
+Next derive the exact l-Fourier representation and locate the joint active-h,
+positive-dyadic-multiplier region.  Tensor resonance is the falsifier.  The
+same-row and d>1 obligations and the signed Goldbach gap remain OPEN.

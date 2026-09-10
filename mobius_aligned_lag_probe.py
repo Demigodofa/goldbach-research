@@ -92,6 +92,8 @@ def finite_aligned_lag_probe(N=32000, cofactor_left=None):
         "V": V,
         "cofactor_left": cofactor_left,
         "prime_count": prime_count,
+        "lag_contributions": tuple(float(x) for x in lag_totals),
+        "principal_total": float(principal_total),
         "normalized_lag_contributions": tuple(float(x) for x in normalized),
         "normalized_total_off": float(np.sum(normalized)),
         "normalized_same_row": float(normalized[0]),

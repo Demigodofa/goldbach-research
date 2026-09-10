@@ -4792,6 +4792,52 @@ selectors. Free modulus-dependent endpoints or a surviving `N^.18` frequency
 cluster falsify this refinement. The fixed Mobius covariance and signed
 Goldbach correlation remain OPEN; no process runs.
 
+## 2026-09-10: an exact dyadic-lag sublemma survives resonance testing
+
+`mobius_dyadic_lag_gate.py` states one exact d=1 sublemma.  For the aligned
+rows `Phi_(m,l)`, row energy `E_(m,l)`, and dyadic block
+`D_j={2^j<=Delta<min(2^(j+1),A)}`, it defines the signed block covariance
+`C_j` with every prime weight `(log m)^2/m`.  Its positive Cauchy scale is
+
+`P_j=sum_m (log m)^2/m * rho_m * 2 sum_(Delta in D_j,l)
+sqrt(E_(m,l)E_(m,l+Delta))`, where `rho_m=|I_m|/(m-1)`.
+
+The proposed sublemma is `max(C_j,0)<=C_epsilon*N^epsilon*P_j`, uniformly in
+`j` and every integer A for which all `J_m=(mA,2mA]` are admissible.  This is
+an exact H^-1-scale statement relative to the coefficient-blind Cauchy bound.
+Identical arbitrary resonant rows make `C_j/P_j` asymptotic to `1/rho_m`, so
+the statement requires the fixed Mobius--log arithmetic.  Even if proved,
+the same-row term and d>1 transfer remain separate obligations.
+
+The measured signed ratios by increasing dyadic block are:
+
+`N=32000,A=9,H=2`: `.56517,-.08626,-.00395,-.20842`;
+
+`N=200000,A=19,H=3`: `.33922,.10709,-.05897,-.00498,.03086`;
+
+`N=200000,A=30,H=3`: `.34099,.11155,-.05439,-.00887,.01364`;
+
+`N=1200000,A=39,H=4`: `.30564,.12891,-.05906,-.00171,.01024,.00694`.
+
+No tested block exceeds its H^-1 Cauchy budget, so the concrete sublemma
+survives this finite falsification attempt.  The main sign pattern is shared
+across essentially every prime modulus: at N=1200000 all 444 moduli are
+positive on blocks 1 and 2--3, and all are negative on block 4--7.  Thus the
+observed gain is internal cancellation across lags, not cancellation from the
+prime-m average.  Tiny H,V and four blocks prove no uniform constant or trend.
+
+Three guards pass normally and optimized.  Independent review PASSed the
+annulus contract, FFT/energy identities, factor 2, dyadic partition, Cauchy
+scale, resonance comparison, and per-modulus diagnostics; it independently
+matched the m=457,Delta=1 ratio.  Status `progress`.
+
+Next concrete question: Fourier-transform the l-autocorrelation identity.
+Determine exactly which two-dimensional `(h,theta)` spectral region makes a
+dyadic block positive, then test whether the actual Mobius--log array avoids
+that region.  A tensor resonance concentrating in both active h and positive
+dyadic multiplier arcs is the falsifier.  The signed Goldbach estimate remains
+OPEN; no process runs.
+
 ## 2026-09-10: physical endpoints form aligned affine families
 
 Tracing the arbitrary `J_m` surrogate back through the actual product transfer
