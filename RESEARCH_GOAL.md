@@ -4539,6 +4539,30 @@ the route. Fresh <=30min; UNREVIEWED.
 
 The new bounded test `core_vaughan_type_i.py` asks whether the exact balanced Vaughan decomposition can close the remaining n<N^.41 core. It shows Type-II is structurally absent because U*V=N^.499>N^.41. Type-I still fails the available progression route: d<=N^.2495 and a reflected companion m<N^.59 produce modulus dm up to N^.8395, beyond BV level N^.5; fixing d leaves a linked two-prime condition. Exact identity guards and direct checks pass, with pytest unavailable. Preserve this as a limitation of the balanced Type-I route, not an all-method impossibility. Next question: find an arithmetic estimate for that linked Type-I correlation or a deliberately unbalanced decomposition that creates a genuinely usable Type-II range, while retaining endpoints and both prime conditions.
 
+### 2026-09-10: active-band Vaughan Type I terms are affordable
+
+The full-minus-low kernel and a coprimality-twisted exact Vaughan identity,
+with `U=V=N^(3/40)`, reduce the new active-band arithmetic question to its
+Type II term. Complete unit-residue periods cancel for every active frequency.
+Hard-endpoint progression discrepancies have size `O(1)` for constant weight
+and `O(log N)` for logarithmic weight; Parseval is taken before Cauchy.
+Including every `d<=N^.009` and prime `m~N^.59`, the two Type I energy
+exponents are `1.348` and `1.498`, below the absolute `H^-1` benchmark
+`1.499`; prime powers sit at that benchmark. This is an absolute-budget
+result, not the stronger relative energy conjecture. Independent review PASS
+and five exact guards pass normal and optimized. The remaining equation is
+the `N^(1.499+o(1))` band-energy bound for the exact
+`mu_>V*Lambda_>U*1` term. Its diagonal is target-sized; signed off-diagonal
+congruences and the final endpoint/kernel transfer remain open.
+
+The reduction sharpens further with `U=1`, `V=N^(3/20)`. The grouped term is
+then identically zero and the exact remainder is simply `mu_>V*log`. Its one
+Type I complement still has exponent `1.498`. At `N=200000`, `H=3`, all 171
+prime moduli in the finite block and `d=1,2`, its measured band/all energy
+ratio was `.104735`, versus `1/(pi H)=.106103`; this found no resonance but
+has only finite cutoff `V=6`. The live analytic target is cancellation of the
+Mobius-weighted off-diagonal character covariance, not a generic `B_U` form.
+
 Review correction for the balanced Vaughan test: its Type-II support calculation is a hypothetical Lambda(n_core) diagnostic, not an identity applied to the actual a_B(n_core)*Lambda(m) residual. Also m>=N^.59 in the reflected product; .8395 is only the top-block q=dm configuration, while smaller core blocks permit larger m. The code and handoff now preserve this narrower scope. The actual signed core remains open.
 
 ### 2026-09-10: companion Vaughan scale test reviewed

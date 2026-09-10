@@ -4384,3 +4384,51 @@ each Type I/II piece over the d=1 family m~X^.59 and the actual angular h-band
 BEFORE triangle or pointwise bounds. First test whether complete-period
 cancellation pays Type I for some u; then compute the Type II congruence
 diagonal. Any remaining exponent above X^1.49 falsifies that cutoff.
+
+## 2026-09-10: Vaughan Type I pieces fit the full active-band budget
+
+`prime_band_vaughan_type_i.py` proves the Type I pieces affordable against
+the application-level absolute energy benchmark, now retaining the entire
+`d<=B` family. Twist the exact Vaughan identity by the completely
+multiplicative coprimality mask `f_q(n)=1_((n,q)=1)` and take
+`U=V=N^(3/40)`. For each fixed short factor, the full-minus-low kernel has
+zero mean on a complete unit-residue period whenever `m` does not divide the
+active frequency. Unit progression sums of `1` differ by at most one, and
+those of `log` differ by `O(log N)`, uniformly in both hard endpoints.
+Parseval therefore gives `O(q^2)` or `O(q^2 log^2 N)` full-frequency energy
+before Cauchy over the actual short factors.
+
+After the exact outer weight and sums over `d,m`, the linear Type I exponent
+is `1.348`; the grouped `mu_<=V*Lambda_<=U*1` exponent is `1.498`. The full
+absolute `H^-1` benchmark is `1.499`, so the harder piece has margin `.001`.
+Proper prime powers reach exponent `1.499` with only logarithmic losses. This
+does not prove the stronger relative `E_band<=L^20 E_all/H` statement when
+`E_all` is smaller, and it does not pay endpoint/kernel transfer.
+
+The surviving exact question is equation (18): prove energy at most
+`N^(1.499+o(1))` for the retained Type II term
+`mu_>V*Lambda_>U*1`, with `a>V`, `B_U(b)=sum_(r|b,r>U)Lambda(r)`, both
+coprimality masks, every `d,m,h`, and every hard interval. Its literal tuple
+diagonal is at the target scale up to divisor/log factors; the signed
+off-diagonal congruences remain open. Five guards pass normally and optimized.
+Independent review PASS after clarifying the absolute-versus-relative scope.
+Status `progress`. Polynomial and projector components are retained.
+
+A sharper exact specialization sets `U=1`, `V=N^(3/20)`. Since
+`Lambda_<=1=0`, the low and grouped subtraction terms vanish identically,
+the single Type I term remains at exponent `1.498`, and the remainder is
+exactly `mu_>V*log`, with both coprimality masks. This is now the narrowest
+target; the balanced `B_U` form remains available. A finite double-precision
+stress test at `N=200000`, `H=3`, all 171 primes `m` in the computed block,
+and `d=1,2` measured band/all ratio `.104735`, near the geometric
+`1/(pi*H)=.106103`; no actual-coefficient resonance appeared. The feasible
+cutoff was only `V=6`, so this is diagnostic rather than asymptotic evidence.
+Six guards pass normally and optimized; independent review PASS.
+
+Next bounded question: for the exact `mu_>V*log` tail, use multiplicative
+characters modulo the large prime `m` on a separated dyadic product box.
+The h-band has length `m/H`; its character-ratio diagonal should give exactly
+the desired `H^-1`, while off-diagonal short character sums encode possible
+reinforcement. Determine the precise weighted covariance and whether a
+second-moment bound saves the remaining square root. Keep product endpoints,
+the d-component, and the distinction between a model box and the full sum.
