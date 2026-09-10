@@ -40,11 +40,13 @@ near-cutoff squarefree divisor band. The proof combines a triangular CRT density
 an exact endpoint/log discrepancy bound, and a centering bound. The corresponding
 pairwise estimate also holds between any two complete rows, and one dyadic block
 of row lags can be summed without losing a factor equal to its number of pairs.
+Rectangular cross-band bounds and a Mobius-inversion lower frame extend this
+control to the union `N^.15<a<=N^(.245-delta)` for every fixed `delta>0`.
 
 This closes a genuine component of the method. It does not prove the signed
-prime-correlation estimate, combine all divisor scales, handle `d>1`, or prove
-Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the current theorem,
-tests, independent-review boundary, and next question.
+prime-correlation estimate, control the larger divisor scales, handle `d>1`,
+or prove Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the
+current theorem, tests, independent-review boundary, and next question.
 
 ## Starting facts
 

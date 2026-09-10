@@ -5903,3 +5903,66 @@ OPEN.  Larger factors, `d>1`, and the signed Goldbach correlation also remain
 OPEN.  Next test the exact full Gram of the union of lower bands against the
 block totient frame; a minimum generalized eigenvalue tending to zero is the
 falsifier.
+
+## 2026-09-10: lower divisor bands assemble through a subpower full frame
+
+`multiband_full_frame_probe.py` tests the exact full-frequency Gram `G`, the
+frozen positive gcd-feature Gram `P0`, and block totient frame `F` on every
+squarefree divisor in `(V,B]`.  As the scale ratio `B/V` grows from `2` to
+`64`, the measured ideal minimum eigenvalue falls from `1` to `.099` at
+m=1009 and `.092` at m=10007.  The exact minima remain positive (`.0165` and
+`.0416` in the widest finite cases).  Thus a constant lower frame is not
+supported, but no polynomial collapse is observed.
+
+The mechanism is finite Mobius inversion over multiples.  Put
+
+`x_a=c_a log(ml/a)/a`,
+`y_d=sum_(a in D,d|a)x_a`, `D={V<a<=B:mu(a)^2=1}`.
+
+Then
+
+`P0=sum_(d>1)phi(d)|y_d|^2`,
+`F=sum_(a in D)phi(a)|x_a|^2`, and
+`x_a=sum_(k<=B/a)mu(k)y_(ak)`.
+
+Harmonic-weighted Cauchy proves exactly
+
+`F<=H_(floor(B/(V+1))) C_D P0`,
+
+where
+
+`C_D=max_(1<d<=B) phi(d)^(-1)
+ sum_(a in D,a|d,mu(d/a)^2=1)phi(a)d/a`.
+
+Since `C_D<=max_(d<=B)(d/phi(d))tau(d)=N^o(1)`, this yields
+`P0>=N^-eps F`.  The exact-minus-frozen union perturbation satisfies
+
+`||G-P0||_F <<_eps N^eps(B^2/m+B/l)`.
+
+For `B<=N^(.245-delta)`, this is power-small relative to the subpower ideal
+coercivity, so the exact full Gram obeys `G>=N^-eps F` after epsilon
+renaming.
+
+There are only `O(log N)` dyadic bands.  The reviewed cross-band active
+operator bounds assemble by Cauchy with one logarithmic factor, which is
+absorbed into `N^eps`; the multiband lower frame then transfers the result to
+exact full energy.  Consequently the same-row, shifted-row, and dyadic-lag
+active/full controls now hold for the complete lower divisor union
+
+`N^.15<a<=N^(.245-delta)`
+
+for each fixed `delta>0`.
+
+Independent review PASSed the multiples-poset inversion, harmonic inequality,
+feature coefficient, subpower estimate, union perturbation, epsilon renaming,
+eigenvalue probes, six normal/optimized tests, and the band-assembly argument.
+Finite explicit perturbation constants are too loose to certify the larger
+small-N unions, so no finite positivity is inferred from them; the directly
+computed exact eigenvalues are separate evidence.
+
+The remaining divisor range begins at the sharp boundary of this elementary
+route.  Its CRT count-error term is `H B^2/m`, which becomes order one at
+`B=N^.245`; absolute endpoint errors cannot cross it.  Next isolate the
+signed sawtooth in the CRT count discrepancy and test whether averaging it
+over divisor pairs or prime moduli gains a power.  Larger factors, `d>1`, and
+the final signed Goldbach prime-correlation estimate remain OPEN.
