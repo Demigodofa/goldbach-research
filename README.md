@@ -55,6 +55,13 @@ bound strong enough to cross the `N^.245` endpoint.  That bound is now proved:
 the endpoint component is power-small through `B<N^(49/150)`.  The next
 barrier is the exact-full-frame perturbation at `B=N^.295`.
 
+Joint row-prime cancellation also improves the aggregate exact full-frame
+comparison through `B<N^(109/300)`.  This does not yet improve the completely
+assembled range: lags near the row-block edge have fewer base-row pairs, and
+the aggregate frame does not supply the termwise geometric-energy lower bound
+used by the existing lag argument.  The assembled checkpoint remains
+`N^.295-delta` pending a weighted all-lag frame lemma.
+
 This closes a genuine component of the method. It does not prove the signed
 prime-correlation estimate, control the larger divisor scales, handle `d>1`,
 or prove Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the

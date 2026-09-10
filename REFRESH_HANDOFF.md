@@ -6091,3 +6091,52 @@ The first falsifier is the minimum generalized eigenvalue of the joint exact
 full Gram on unions extending above `.295`; polynomial collapse relative to
 the block totient frame rejects the route.  Larger divisor ranges, `d>1`, and
 the final signed Goldbach correlation remain OPEN.
+
+## 2026-09-10: aggregate full frame improves, all-lag transfer remains open
+
+`joint_full_frame_cancellation.py` applies the same row rotation to the exact
+full-frequency Gram.  For `q=lcm(a,b)`, split its common-multiple count as
+
+`C_q(m,ell)-m/q=[C_q(m,ell)-(m-1)/q]-1/q`.
+
+The bracket is mean-zero over the row rotation and receives the reviewed
+joint saving.  The fixed `-1/q` bias, smooth log variation, and centering
+terms fit the non-endpoint `N^eps B/A` remainder.  Relative to the summed
+block totient frame, rectangular Schur gives
+
+`||G_joint-P0_joint||_F << N^eps{
+ (B^2/M)[A^(-1/2)+B/sqrt(MA)+B^(-1/2)] + B/A}`.
+
+At project exponents the four terms are
+
+`N^(2 beta-.795)`, `N^(3 beta-1.09)`,
+`N^(1.5 beta-.59)`, and `N^(beta-.41)`.
+
+Thus the aggregate exact full frame is coercive against the subpower
+Mobius-inversion frame for `beta<109/300=.36333...`.  A finite union probe on
+`8<a<=64` measured the normalized error minimum as `-.263` for one
+prime/one row, `-.0134` for one prime/eight rows, `-.0072` for five
+primes/eight rows, and `+.00097` for five primes/32 rows.  These measurements
+support the mechanism but are not the theorem.
+
+Independent review caught an attempted over-integration.  For lag `Delta`,
+only `L=A-Delta` base-row pairs remain, so the joint bounds use `L`, not `A`.
+Summing active/F numerators over the lag edge can recover the average saving,
+but the aggregate lower frame does not imply the termwise lower bounds for
+`sqrt(E_ell E_(ell+Delta))` used by the prior lag budget.  The claim was
+narrowed and then PASSed review, including the count split, Abel factors,
+fixed bias, centering remainder, Weyl receipt, exponents, and four tests in
+normal and optimized modes.
+
+Therefore the fully assembled lower union remains
+
+`N^.15<a<=N^(.295-delta)`.
+
+The active endpoint and aggregate frame components separately have room to
+`49/150` and `109/300`, respectively.  The next concrete question is whether
+a weighted all-lag lower-frame inequality can compare the summed exact row
+energies with the lag budget when coefficients are common across rows.  The
+falsifier is a common divisor coefficient vector whose aggregate full energy
+is healthy but whose energy is concentrated on rows that make the lag-pair
+geometric means polynomially smaller than their frame analogue.  The signed
+prime correlation, larger factors, and `d>1` remain OPEN.

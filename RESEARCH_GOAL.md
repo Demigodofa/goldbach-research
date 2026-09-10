@@ -5668,3 +5668,20 @@ crossing `.295`, and derive the exact signed perturbation before proposing a
 uniform bound.  A polynomially collapsing minimum eigenvalue is the falsifier.
 Reassess within 30 minutes.  The signed prime-correlation estimate remains
 open and must not be inferred from this divisor-frame extension.
+
+## 2026-09-10 continuation: aggregate frame gain does not yet transfer to all lags
+
+The signed joint rotation also improves the aggregate exact full-frame error:
+it is power-small through `B<N^(109/300)`.  Finite generalized eigenvalues
+show the expected row-average improvement.  This result passed independent
+review after narrowing an invalid integration claim.
+
+The complete active/full and dyadic-lag result remains at `.295-delta`.
+For a lag `Delta`, only `A-Delta` base rows remain, and aggregate coercivity
+does not imply the termwise geometric-energy lower bounds in the current lag
+budget.  The next bounded hypothesis is a weighted all-lag lower-frame
+inequality for a common divisor coefficient vector.  Test whether aggregate
+full energy can coexist with polynomial collapse of the sum of lag-pair
+geometric means; such a coefficient vector falsifies the transfer.  Reassess
+within 30 minutes.  Do not report the separate `49/150` active endpoint and
+`109/300` aggregate-frame thresholds as an assembled range.
