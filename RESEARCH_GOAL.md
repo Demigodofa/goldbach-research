@@ -5394,3 +5394,37 @@ same-row closure.  It does not control shifted row pairs, `d>1`, or the
 remaining signed Goldbach prime-correlation estimate.  The next concrete
 question is whether the same CRT/Dirichlet representation extends to a fixed
 nonzero row shift without losing a factor equal to the number of rows.
+
+## 2026-09-10: shifted triangular CRT main has no lag loss
+
+For rows `m*l+x` and `m*(l+Delta)+y`, put `s=x-y` and
+`g=gcd(a,b)`.  The two divisor conditions are CRT-compatible exactly when
+
+`s == m*Delta (mod g)`.
+
+Thus the shifted triangular kernel is
+
+`T_(g,t)(h)=sum_(|s|<m-1,s==t mod g)(m-1-|s|)e_m(-hs)`,
+`t=m*Delta mod g`.
+
+If `A_r(h)=sum_(1<=x<m,x==r mod g)e_m(-hx)`, exact pair counting gives
+
+`T_(g,t)(h)=sum_(r mod g)A_r(h)conj(A_(r-t)(h))`.
+
+Cauchy and permutation of the residue classes prove pointwise
+
+`|T_(g,t)(h)|<=sum_r|A_r(h)|^2=T_(g,0)(h)`.
+
+Therefore the complete shifted active sum is dominated by the previously
+proved zero-shift sampled Fejer kernel.  Every shifted triangular-density
+block has the same frame-normalized Schur bound
+`O_eps(N^eps(1+H^2/m))`, uniformly in the row separation `Delta`, with no
+lag-count factor.
+
+`shifted_triangular_crt_main_bound.py` verifies the exact cross-correlation
+identity, pointwise domination, and inherited active bound.  Four tests pass
+normally and optimized.  Independent review PASSed the CRT orientation,
+feature identity, Cauchy step, logarithm/frame cancellation, and scope.  This
+closes the triangular main for each shifted row pair only.  Summing lags still
+needs explicit bookkeeping; shifted CRT discrepancy and centering remain
+OPEN, as do `d>1` and the signed Goldbach correlation.
