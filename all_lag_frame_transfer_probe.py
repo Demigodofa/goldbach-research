@@ -29,6 +29,7 @@ from divisor_full_frame_probe import _totient
 from mobius_covariance_endpoint_probe import _prime_flags
 from mobius_covariance_lag_probe import _mobius_values
 from near_cutoff_geometric_bound import _active_modes
+from weighted_lag_graph_lemma import weighted_geometric_variance_bound
 
 
 def _minimum_generalized_vector(matrix, diagonal):
@@ -204,20 +205,37 @@ def all_lag_frame_transfer_probe(
             max(exact_rows) / aggregate_exact_energy,
         )
 
-    def row_ratio_statistics(coefficients):
+    def row_ratio_statistics(coefficients, lag_first, lag_stop):
         ratios = []
         vertex_weights = []
-        for weight, exact, frame in row_data.values():
+        frame_energies = {}
+        key_indices = {}
+        for key, (weight, exact, frame) in row_data.items():
             exact_energy = _quadratic_energy(exact, coefficients)
             frame_energy = float(np.sum(
                 frame * np.abs(coefficients) ** 2))
+            key_indices[key] = len(ratios)
+            frame_energies[key] = frame_energy
             ratios.append(exact_energy / frame_energy)
             vertex_weights.append(weight * frame_energy)
         ratios = np.array(ratios)
         vertex_weights = np.array(vertex_weights)
-        mean = float(np.average(ratios, weights=vertex_weights))
-        variance = float(np.average(
-            (ratios - mean) ** 2, weights=vertex_weights))
+        edges = []
+        for modulus in moduli:
+            weight = row_data[(modulus, ell_first)][0]
+            for delta in range(lag_first, lag_stop):
+                for ell in range(
+                        ell_first, ell_first + row_count - delta):
+                    left = (modulus, ell)
+                    right = (modulus, ell + delta)
+                    edges.append((
+                        key_indices[left], key_indices[right],
+                        weight * math.sqrt(
+                            frame_energies[left] * frame_energies[right])))
+        graph = weighted_geometric_variance_bound(
+            ratios, vertex_weights, edges)
+        mean = graph["weighted_vertex_mean"]
+        variance = graph["weighted_vertex_variance"]
         return {
             "frame_weighted_row_ratio_mean": mean,
             "frame_weighted_row_ratio_variance": variance,
@@ -227,6 +245,10 @@ def all_lag_frame_transfer_probe(
             "frame_weight_below_half_mean_fraction": float(
                 np.sum(vertex_weights[ratios < mean / 2])
                 / np.sum(vertex_weights)),
+            "variance_graph_degree_factor": graph["edge_degree_factor"],
+            "variance_graph_lower_bound": graph["variance_lower_bound"],
+            "variance_graph_actual_quotient":
+                graph["weighted_edge_geometric_mean"],
         }
 
     def lag_value_gradient(coefficients, lag_first, lag_stop):
@@ -301,7 +323,7 @@ def all_lag_frame_transfer_probe(
             "candidate_max_weighted_row_energy_fraction": best[3],
             "nonlinear_total_accepted_steps_across_starts": accepted_steps,
             "nonlinear_improvement": sampled_minimum - best[0],
-            **row_ratio_statistics(best[4]),
+            **row_ratio_statistics(best[4], lag_first, lag_stop),
         })
     return {
         "moduli": tuple(moduli),

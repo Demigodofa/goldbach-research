@@ -5734,3 +5734,21 @@ edges, including boundary degrees and varying frame energies.  Only after that
 lemma is checked should the arithmetic variance estimate be attempted.  The
 all-lag transfer, any assembled exponent beyond `.295`, and the signed prime
 correlation remain open.
+
+## 2026-09-10 continuation: deterministic graph step closes
+
+For arbitrary weighted lag graphs, a proved inequality now bounds the edge
+average of `sqrt(r_u r_v)` below by the vertex mean minus an explicit
+boundary-degree factor times the weighted standard deviation.  Substituting
+the exact Goldbach frame weights makes its left side precisely the all-lag
+quotient.  Independent review verified the proof, implementation, and nine
+normal/optimized tests.
+
+The finite certificates retain most of the aggregate lower frame even on the
+long boundary-heavy lag block.  This does not prove uniform small variance.
+The next bounded experiment maximizes relative row-ratio variance across the
+full adversarial coefficient family; checking only the lag minimizer is too
+narrow.  Order-one or divisor-range-growing variance is the falsifier.  If it
+does not occur, formulate the exact arithmetic second-moment operator bound.
+The assembled exponent remains `.295`, and the signed prime correlation is
+open.

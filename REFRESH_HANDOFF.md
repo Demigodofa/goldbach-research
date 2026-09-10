@@ -6246,3 +6246,40 @@ variance estimate.  A graph bound that loses an uncontrolled factor at the
 edge rows, or a variance estimate comparable to the square of the mean,
 falsifies this route.  The complete assembled range remains `.295-delta`, and
 the signed prime-correlation estimate remains OPEN.
+
+## 2026-09-10: a weighted variance-to-lag graph lemma is proved
+
+Let `alpha_v>0` be vertex weights, `beta_uv>=0` edge weights, `r_v>=0`,
+`A=sum alpha_v`, `W=sum beta_uv`, and
+
+`mu=A^(-1)sum_v alpha_v r_v`,
+`sigma^2=A^(-1)sum_v alpha_v(r_v-mu)^2`.
+
+If `D=max_v deg_beta(v)/alpha_v`, then the exact deterministic inequality
+
+`W^(-1)sum_(uv) beta_uv sqrt(r_u r_v)
+ >= max(0,mu-(DA/W)sigma)`
+
+holds.  It follows from
+`sqrt(xy)>=mu-|x-mu|-|y-mu|`, the degree bound, and weighted Cauchy.  Thus
+`DA/W` records boundary-degree and varying-frame distortion explicitly;
+there is no hidden regularity assumption.
+
+`weighted_lag_graph_lemma.py` implements this certificate.  In the Goldbach
+lag graph take `alpha_(m,ell)=w_m F_(m,ell)`,
+`beta=w_m sqrt(F_(m,ell)F_(m,ell+Delta))`, and `r=E/F`.  The left side is
+then exactly the tested lag quotient.  On `8<a<=64`, the four dyadic lag
+blocks have degree factors `2.0619,2.2761,3.0655,4.5924`; the lemma certifies
+`.284758,.283704,.279821,.272310` against measured quotients
+`.294818,.294874,.294902,.295019`.  On the boundary-heavy `8<a<=128` edge
+block the factor is `6.5002`, and the certificate is `.139305` against
+`.166888`.
+
+Independent review PASSed the proof, incidence accounting, exact Goldbach
+weight substitution, numerical receipts, and nine tests in normal and
+optimized modes.  This closes the deterministic graph step only.  The next
+falsifier must maximize relative row-ratio variance over the whole tested
+coefficient family rather than inspect only lag minimizers.  If that remains
+small, seek the coefficient-uniform arithmetic second-moment estimate needed
+to use the lemma asymptotically.  The all-lag transfer, assembly beyond
+`.295-delta`, and signed prime correlation remain OPEN.

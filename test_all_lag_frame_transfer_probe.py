@@ -48,6 +48,12 @@ class AllLagFrameTransferProbeTests(unittest.TestCase):
                 block["frame_weight_below_half_mean_fraction"], 0)
             self.assertLessEqual(
                 block["frame_weight_below_half_mean_fraction"], 1)
+            self.assertAlmostEqual(
+                block["variance_graph_actual_quotient"],
+                block["minimum_tested_exact_over_frame_lag_budget"])
+            self.assertLessEqual(
+                block["variance_graph_lower_bound"],
+                block["minimum_tested_exact_over_frame_lag_budget"] + 1e-12)
         self.assertFalse(receipt["weighted_all_lag_lower_frame_proved"])
 
     def test_seeded_probe_is_reproducible(self):
