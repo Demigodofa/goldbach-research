@@ -35,7 +35,42 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **9470731**, large_cofactor_overlap.py.
+Latest reviewed RESEARCH commit: **bda7f22**, prime_companion_dispersion.py.
+Pursuit2026-09-10 02:25:27--02:44:21UTC: progress.
+The ACTUAL conjugated and reflected cofactor tail is now paid down
+to n>=N^.46, improving the previous N^.51 cutoff. For the intermediate
+band, BOTH proper-power replacements are separately paid before using
+characters; the left norm is N^-49/400 L^(11/2). With m prime>B,
+q=dm has conductors dividing d or containing m. The exact low
+projection is 1_(m does not divide a)*A_d(a)/(m-1); its mask stays.
+BV on d<=B pays O(L^(2-D)). Primitive large sieve plus induced-lift
+weights and binary endpoint decomposition gives high variance
+(NQ+N^2/M)L8. The periodized shift weights give a high contribution
+L6*(N^-1/1000+N^-91/2000). This is an ACTUAL two-prime estimate.
+
+The full T=N^.9 reflected band still equals -R_h-R_(r_core)+all-log,
+but now r_core=a_B*1_(n<N^.46)-delta_1-h. The signed core is OPEN.
+The bounds are uniform in literal tail endpoints and extend to a
+profile f with |f(U)|+Var(f) bounded, U>=N^.46. Variation alone
+is insufficient. This also pays the auxiliary a_B exp(-n/N^.47)
+overlap, with a below-cutoff norm error N^-.01 L^(5/2). This does
+not replace the original N^.45 detector damping or license a zero mask.
+Independent Sol theory/actual-file/profile PASS; eleven guards
+normal0.017s/-O0.011s. Harcos primitive large sieve Theorem2 p1
+was checked directly; the endpoint maximum stays INSIDE the residue sum.
+
+Next concrete question: do retained polynomial moments and zero
+density bounds give an all-log SMALL NORM for the actual coefficient
+b(n)=a_B(n)*1_(N^.41<=n<N^.46), convolved with Lambda? Test
+squares (fourth moments) on compact beta strips and cubes near1,
+including every zero copy and actual real part. Verify source ranges,
+epsilon losses and relative near1 bins; no fixed epsilon near1.
+The zero-to-prime transfer must be paid at the NEW upper cofactor
+scale N^.46. Success pays this adjacent cofactor band in both forms;
+an unpaid exponent, endpoint or transfer loss is the falsifier.
+Fresh <=30min, UNREVIEWED. No arbitrary masked-field bound is assumed.
+
+Previous **9470731**, large_cofactor_overlap.py.
 Pursuit2026-09-10 02:06:50--02:23:12UTC: progress.
 The complementary range n>=N^.51 now has an ACTUAL all-log-small
 overlap, both CONJUGATED and NONCONJUGATED REFLECTED. More generally
@@ -61,7 +96,7 @@ and universal Goldbach coverage. No positive reflected energy claim.
 Independent Sol theory/actual-file PASS after that error-rate fix;
 eleven guards normal0.010s/-O0.014s.
 
-Next concrete question: does the PRIME companion create a useful
+That pursuit's next question, now answered inbda7f22, was whether the PRIME companion creates a useful
 gap between small and large character conductors in q=d*m? Test
 the remaining range N^.46<=n<N^.51. First pay left proper powers
 using the actual upper cofactor support; then m is prime, exceeds
@@ -73,7 +108,7 @@ ones by a sourced mean-square/large-sieve estimate. A heuristic
 shift-average threshold would allow q<N^.55, suggesting .46 as a
 concrete target, but this has NOT been proved. Falsifier: an unpaid
 small-conductor, endpoint, character multiplicity or Cauchy loss.
-Fresh <=30min, UNREVIEWED; do not promote that heuristic to a theorem.
+The reviewed exact conductor argument and its scope are recorded above.
 
 Previous **de84c06**, short_divisor_overlap.py.
 Pursuit2026-09-10 01:41:02--02:04:10UTC: changed under evidence.

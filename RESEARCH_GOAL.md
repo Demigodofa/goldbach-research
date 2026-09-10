@@ -4440,3 +4440,61 @@ until all weights and losses are paid. Success requires an actual
 saving on this named range. An unpaid small-conductor, endpoint,
 character multiplicity or Cauchy loss falsifies the proposed step.
 Fresh <=30min; this next hypothesis is UNREVIEWED.
+
+### 2026-09-10: prime-companion conductor gap lowers the cutoff to N^.46
+
+Pursuit02:25:27--02:44:21UTC, reassessment: progress. Research
+commitbda7f22, prime_companion_dispersion.py. Both actual conjugated
+and nonconjugated reflected overlaps for N^.46<=n<N^.51 are
+all-log small. Together with the previous tail result, this pays
+every n>=N^.46. The bad range below2N^.41 and the signed core remain.
+
+Both prime powers are paid BEFORE the conductor step. The left
+cofactor support N^.51 gives energy N^-49/200 L11 and norm
+N^-49/400 L^(11/2); the opposite error stays N^-1/4 L4.
+For prime m>B and q=dm, low conductors divide d; all others contain
+m. The exact low projection is 1_(m does not divide a)A_d(a)/(m-1),
+with a=r or N+r. BV on only d<=B gives error L^(2-D), including
+the harmonic companion sum. Its mean is the full reduced-residue
+mean, whose resonant tau(q) bound was already paid.
+
+Harcos's primitive large sieve Theorem2 p1 was checked directly.
+Binary intervals handle max endpoints BEFORE residue orthogonality.
+Central primes p>q make induced lifts exact; their total weight is
+at most L2/phi(f). Dyadic conductors and tree levels give maximal
+all-residue high variance (NQ+N^2/M)L8. Periodized r weights avoid
+a repeated-residue loss. The normalized high bound is
+L6*(N^-1/1000+N^-91/2000). No cancellation in mu(d) is assumed.
+
+The actual normalized full T=N^.9 band is now
+ sum chi*chi*J_N/N=-R_h-R_(r_core)+O_A(L^-A),
+ r_core=a_B*1_(n<N^.46)-delta_1-h.
+The full-field bridge and its corrected errors are inherited with
+their original scope. No weighted J, masked-zero or positive reflected
+energy inference is made. Other heights and Goldbach coverage remain open.
+
+The proof is uniform in literal cofactor endpoints. Stieltjes
+superposition pays tail profiles with bounded |f(U)|+Var(f), U>=N^.46.
+Review explicitly required the amplitude as well as variation.
+Consequently auxiliary a_B(n)exp(-n/N^.47) has both overlaps small:
+the below-cutoff difference is N^-.01 tau(n), and the remaining
+profile has bounded amplitude and variation. The original N^.45
+detector and zero masks are not automatically changed by this result.
+
+Independent Sol theory, actual-file and profile-extension PASS.
+Eleven guards normal0.017s/-O0.011s. No old experiment, manuscript,
+publication, push or manual wake. All source corrections, runtime
+limits and useful polynomial components remain. Goal ACTIVE/OPEN;
+no execution after this checkpoint is claimed.
+
+Next concrete test brings those polynomial components back into the
+arithmetic reduction: can b=a_B*1_(N^.41<=n<N^.46) have
+||theta*P_(b*Lambda)/sqrtN||_2=O_A(L^-A)? Try fourth moments
+on compact beta strips and sixth moments near1, paired with the
+retained actual zero-density bounds. Verify each density source's
+range and epsilon/log distinction; near1 needs relative bins and
+the zero-free region, not fixed epsilon. Pay full-field transfer at
+upper cofactor scale N^.46 rather than citing the old N^.41 error
+unchanged. Success removes this adjacent band by an actual norm
+bound. An unpaid exponent, endpoint or transfer loss falsifies the
+proposed step. Fresh <=30min, UNREVIEWED; no arbitrary zero mask.
