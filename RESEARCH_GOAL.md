@@ -4259,3 +4259,63 @@ countermodel to the disk-only implication; such a model is not an
 actual-zero counterexample or an all-method impossibility. Do not
 promote pointwise bounded reciprocals into an operator bound. Fresh
 <=30min; this next hypothesis is UNREVIEWED.
+
+### 2026-09-10: disk coercivity falsified; actual short-shift overlap isolated
+
+Pursuit01:24:30--01:39:27UTC, reassessment: changed under evidence.
+Research commit8173dbe, detector_gram_coercivity.py. The exact Gram
+form is Re(c*GDc), not a coefficientwise negative sum. An artificial
+two-packet witness withr=19/20 and multipliers-1+-i/2 has norm7/20
+and POSITIVE mixed form1/8 despite both values lying inside the
+survivor disk. Another coefficient choice has bounded pointwise
+reciprocals but a synthesized inverse quotient diverging asr tends1.
+
+The strengthened model uses a COMMON real bounded-coefficient
+Dirichlet polynomial in one actual allowed bad-length block.
+With beta=.7, alpha=atan(.5), t=pi+alpha, m=2alpha/t~.2572076,
+delta=t/logN, averaged mean value selects gamma0 with a well-conditioned
+two-real-component interpolation. Its coefficients have |b|<=1 and
+produce values-1-i/2,-1+i/2+o1. Actual-shaped c coefficients have
+ratioe^it(1+o1); normalized norm tends2-4/sqrt5, mixed form tends
+sqrt5-2>0. These are ARTIFICIAL frequencies and designed coefficients,
+not actual zeros, actual Mobius coefficients or all survivor predicates.
+The raw scaleN^-3/5 explicitly does not disprove an ACTUAL estimate
+with additive all-log error. The homogeneous disk-only step fails;
+special arithmetic coercivity remains open. The exact commutator
+retains sum h(n)(n^-sigma-n^-rho); its available derivative upper
+budget losesN369/2500 and supplies no small relative norm.
+
+The actual mixed conjugated overlap C_R transfers with all-log error
+to (1/N)Re int theta² P_h conj(P_Lambda). Its exact coefficient
+kernel K_N(k,l) has sizeT^-1(1+|k-l|/(N/T))^-B. The prefactor
+isT²/(4pi²N). For |k-l|>N^.1logN, the Schur norm is
+(N/T²)L^(1-B); the coefficient norms addL³, so the tail isL^(4-B).
+Prime and square diagonal coefficients vanish; higher powers are
+N^-23/30L², using the actual small-prime Mobius cancellation and
+the bounded prime-power exponent whenever p>B=2N^.009.
+
+All proper powers are also paid separately. Divisor Cauchy gives
+sum|h*Lambda_pp(k)|²/k<=N^-59/200 L11, using tau³<=tau8.
+The normalized window norm isN^-59/400 L^(11/2). Opposite proper
+powers costN^-1/4 L4 in the mixed overlap. Hence, with all-log error,
+C_R equals the exact nonzero-shift sum with h(n), K_N(nm,nm+r),
+and TWO PRIME conditions m andnm+r, for0<|r|<=N^.1logN.
+The bad cofactor mask, damping, complex kernel and target N persist.
+No sign, decay or small constant is proved for that remaining sum.
+Its conjugation differs from the original reflected Goldbach pairing.
+
+Independent Sol theory and actual-file PASS, including the final
+proper-power strengthening. Nine guards normal/-O0.001s. No old
+zero/Goldbach experiment, manuscript, push or manual wake. All prior
+source corrections, components and runtime limits remain. The overall
+goal is ACTIVE/OPEN; no execution after this checkpoint is claimed.
+
+Next test: expand the specific truncated-Mobius coefficient BEFORE
+Cauchy in the ACTUAL short-shift sum, and determine whether averaging
+the nonzero r gives a signed saving beyond the current O(L^(5/2))
+overlap bound. Keep both prime conditions, all masks and the complex
+kernel. Success requires an actual estimate, not formal cancellation
+of a predicted main term. Falsifier: an explicit residual or loss
+which still consumes the shift-average gain; preserve useful factors
+without calling this an all-method barrier. Do not repeat the completed
+Gram models, diagonal or proper-power work. Fresh <=30min, UNREVIEWED.

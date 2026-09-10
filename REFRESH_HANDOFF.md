@@ -35,7 +35,45 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **45f87c0**, in high_detector_weighted_bridge.py:
+Latest reviewed RESEARCH commit: **8173dbe**, in detector_gram_coercivity.py:
+the proposed DISK-ONLY homogeneous coercivity/inverse inference is false.
+Exact artificial Gram G=[[1,r],[r,1]], r=19/20, multipliers-1+-i/2
+and c=(1,-1+i/2) give norm7/20 but POSITIVE mixed overlap1/8.
+An inverse quotient also diverges as r approaches1. A stronger model
+uses ONE real |b(n)|<=1 polynomial on an allowed bad block, exponent
+m=2atan(.5)/(pi+atan(.5))~.2572, and actual-shaped N-phase coefficients.
+Its mixed overlap stays positive after normalization. These are NOT
+actual zeros or the true truncated-Mobius coefficients. The model's
+unnormalized scale N^-3/5 does not falsify actual inequalities with
+additive all-log errors. Polynomial tools and special arithmetic
+coercivity remain possible; no all-method barrier is proved.
+
+For the ACTUAL detector, the mixed CONJUGATED overlap now has an
+explicit short-shift arithmetic form with h(n), the complex window
+kernel K_N(nm,nm+r), and TWO GENUINE prime conditions m,nm+r.
+Only0<|r|<=N^(1/10)*logN is retained; all-log errors pay the rest.
+The kernel is T^-1 Schwartz at difference scaleN/T. Its tail Schur
+bound cancels the T^2/N prefactor; coefficient logs costL^3.
+Original diagonal prime/square terms vanish, and higher powers cost
+N^-23/30 L2. All proper powers can then be removed: h*Lambda_pp
+has normalized window norm N^-59/400 L^(11/2), from tau^3<=tau8;
+the opposite proper-power overlap costs N^-1/4 L4. All masks persist.
+This is a reduction of the overlap obstruction, NOT a signed saving
+or the original nonconjugated reflected Goldbach pairing.
+
+Independent Sol theory/actual-file PASS; nine guards normal/-O0.001s.
+Pursuit2026-09-10 01:24:30--01:39:27UTC: changed under evidence.
+Next concrete question: can the NONZERO SHIFT AVERAGE in this exact
+actual sum give a saving when the specific a_T(n)=sum_(d|n,d<=B)mu(d)
+is expanded BEFORE Cauchy? Keep both prime conditions and the complex
+kernel. Test whether the extra r-average supplies a genuine signed
+estimate, compared with the current O(L^(5/2)) overlap bound, or
+whether a definite residual still consumes the gain. A formal main-term
+identity or removal of prime conditions is not success. Do not redo
+the completed Gram models, diagonal or prime-power estimates. Fresh
+<=30min; this next arithmetic hypothesis is UNREVIEWED.
+
+Previous **45f87c0**, in high_detector_weighted_bridge.py:
 the remaining H-weighted HIGH exterior is now paid. Consequently ALL
 previously removed zeros have all-log-small H-weighted energy, and the
 actual central survivor field satisfies
@@ -70,7 +108,7 @@ small, including J-minus-beta and endpoint errors. Independent Sol
 theory/actual-file PASS; eight guards normal0.101s/-O0.083s.
 Pursuit started2026-09-10 01:08:59UTC, reassessed01:22:55UTC: progress.
 
-Next concrete question: can the survivor disk Re H_N<=-1/4 support
+The next question at that checkpoint was whether Re H_N<=-1/4 supports
 a coercive inequality for the actual packet synthesis or reflected
 pairing? First test the exact finite Gram form: negative multiplier
 values on individual copies need not imply a negative operator when
@@ -79,7 +117,7 @@ limitation and express the missing term using the actual common
 Dirichlet polynomial and its prime-product transfer. Test whether the
 checked moments pay that term; do not silently assume a bounded
 inverse, rename the original correlation as a proof, or infer a
-barrier for all polynomial tools. This is UNREVIEWED, fresh <=30min.
+barrier for all polynomial tools. This test is now completed in8173dbe.
 
 Previous **b42ab25**, in weighted_detector_mask_bridge.py:
 the FULL H_N-weighted removed middle strip and LOW exterior are now
@@ -3947,7 +3985,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_high_detector_weighted_bridge` (eight guards) and
+Latest tests: `python -m unittest test_detector_gram_coercivity` (nine guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
