@@ -204,6 +204,31 @@ def all_lag_frame_transfer_probe(
             max(exact_rows) / aggregate_exact_energy,
         )
 
+    def row_ratio_statistics(coefficients):
+        ratios = []
+        vertex_weights = []
+        for weight, exact, frame in row_data.values():
+            exact_energy = _quadratic_energy(exact, coefficients)
+            frame_energy = float(np.sum(
+                frame * np.abs(coefficients) ** 2))
+            ratios.append(exact_energy / frame_energy)
+            vertex_weights.append(weight * frame_energy)
+        ratios = np.array(ratios)
+        vertex_weights = np.array(vertex_weights)
+        mean = float(np.average(ratios, weights=vertex_weights))
+        variance = float(np.average(
+            (ratios - mean) ** 2, weights=vertex_weights))
+        return {
+            "frame_weighted_row_ratio_mean": mean,
+            "frame_weighted_row_ratio_variance": variance,
+            "row_ratio_relative_variance": variance / mean ** 2,
+            "minimum_row_exact_over_frame": float(np.min(ratios)),
+            "maximum_row_exact_over_frame": float(np.max(ratios)),
+            "frame_weight_below_half_mean_fraction": float(
+                np.sum(vertex_weights[ratios < mean / 2])
+                / np.sum(vertex_weights)),
+        }
+
     def lag_value_gradient(coefficients, lag_first, lag_stop):
         """Return Q_J and its real gradient on complex coefficient space."""
         edges = []
@@ -276,6 +301,7 @@ def all_lag_frame_transfer_probe(
             "candidate_max_weighted_row_energy_fraction": best[3],
             "nonlinear_total_accepted_steps_across_starts": accepted_steps,
             "nonlinear_improvement": sampled_minimum - best[0],
+            **row_ratio_statistics(best[4]),
         })
     return {
         "moduli": tuple(moduli),

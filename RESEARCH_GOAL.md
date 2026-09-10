@@ -5718,3 +5718,19 @@ worst resonant vectors have bounded or decreasing variance relative to their
 mean as primes and rows are added.  Falsifier: healthy aggregate energy paired
 with order-one or polynomially growing normalized variance.  No assembled
 exponent beyond `.295` is claimed.
+
+## 2026-09-10 continuation: finite variance falsifier remains favorable
+
+The exact frame-weighted row-ratio variance was added to the nonlinear
+all-lag probe.  On the current `8<a<=64` and `8<a<=128` worst vectors, the
+relative variances were `2.78e-4` and `6.61e-4`; no tested frame mass lay below
+half the mean.  Independent review reproduced the measurements and verified
+that the weighted mean is exactly the candidate aggregate quotient.
+
+This is finite evidence, not the needed uniform second-moment theorem.  The
+next bounded task is to prove the deterministic weighted lag-graph lemma that
+states precisely how a row-ratio variance controls the loss of geometric-mean
+edges, including boundary degrees and varying frame energies.  Only after that
+lemma is checked should the arithmetic variance estimate be attempted.  The
+all-lag transfer, any assembled exponent beyond `.295`, and the signed prime
+correlation remain open.

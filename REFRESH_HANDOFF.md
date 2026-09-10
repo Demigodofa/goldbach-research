@@ -6216,3 +6216,33 @@ test it on the same resonant vectors.  A coefficient vector with healthy mean
 but order-one or growing normalized variance is the falsifier.  Complete
 assembly remains `.295-delta`; the all-lag transfer and final signed prime
 correlation remain OPEN.
+
+## 2026-09-10: tested resonant vectors have nearly constant row ratios
+
+The all-lag probe now reports the frame-energy-weighted variance of the cell
+ratios `r_(m,ell)=E_(m,ell)/F_(m,ell)` for each minimizing coefficient vector.
+The weighting is `(log m)^2 rho_m F_(m,ell)/m`, so the weighted mean is exactly
+the same vector's aggregate exact/frame quotient.
+
+For five primes, 32 rows, and `8<a<=64`, the aggregate minimizer had relative
+variance `0.0002782344`, cell ratios between `.2839886` and `.3081814`, and
+zero frame mass below half its mean.  For the nonlinear edge-lag minimizer on
+three primes, 24 rows, and `8<a<=128`, the corresponding values were relative
+variance `0.0006607608`, range `.1588161` to `.1812455`, and again zero frame
+mass below half the mean.
+
+Independent review reproduced both receipts and PASSed the definitions,
+weights, implementation, and five tests in normal and optimized modes.  This
+explains the finite observation that the tested lag quotients track their
+aggregate quotients: their row ratios are already very uniform.  It does not
+prove a uniform variance theorem, asymptotic persistence, or the all-lag
+transfer.
+
+The next concrete question is whether an exact weighted graph inequality can
+turn a coefficient-uniform second-moment bound for `r_(m,ell)` into a lower
+bound for each dyadic lag block.  Derive that inequality with boundary degrees
+and the nonconstant frame energies included before attempting the arithmetic
+variance estimate.  A graph bound that loses an uncontrolled factor at the
+edge rows, or a variance estimate comparable to the square of the mean,
+falsifies this route.  The complete assembled range remains `.295-delta`, and
+the signed prime-correlation estimate remains OPEN.
