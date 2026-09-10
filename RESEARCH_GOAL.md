@@ -5197,3 +5197,18 @@ is still `1.094`.  Independent review PASSed all formulas, receipts, and
 scope.  Next prove the equality component directly through its normalized
 gcd kernel; the unequal-difference kernel is then the remaining same-row
 piece.  Shifted rows, d>1, and signed Goldbach remain OPEN.
+
+### 2026-09-10: equality-collision component is now proved
+
+The equal-integer part of the active Gram has an explicit frame-normalized
+Schur majorant.  Combining `C_lcm<=m/lcm(a,b)+2` with the dyadic gcd row sum
+`sum_b gcd(a,b)<=U tau(a)+a` proves
+
+`Eeq <= O_eps(N^eps(1+U^2/m))*rho*F`.
+
+At `U=N^.15,m=N^.59`, the boundary term is
+`N^(-.29+eps)`.  The nondecaying divisor contribution is retained as
+`N^eps`.  Independent review PASSed every formula, exponent, receipt, and
+test.  Equality collisions are no longer the same-row obstruction.  The
+unequal-difference active Dirichlet kernel remains OPEN, as do shifted rows,
+d>1, and signed Goldbach cancellation.

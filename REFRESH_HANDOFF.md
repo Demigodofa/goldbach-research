@@ -5437,3 +5437,48 @@ main kernel is `gcd(a,b)/sqrt(phi(a)phi(b))`, whose dyadic row sum should be
 controlled by `sum_(d|a)phi(d)(U/d+1)`.  Then only the unequal-difference
 kernel remains.  Shifted rows, d>1, and signed Goldbach remain OPEN; no
 process runs.
+
+## 2026-09-10: equality collisions satisfy the required frame bound
+
+`active_equality_schur_bound.py` proves the equal-integer component of the
+active Gram is `O_eps(N^eps)` against the totient frame.  For one row, with
+`L_a=log(ml/a)`, `q=lcm(a,b)`, and `C_q` the number of multiples of `q` in
+the row, its matrix entry is
+
+`Eeq_(a,b)=(1-rho)|I| sum_(q|n)log(n/a)log(n/b)`.
+
+Since `|I|=rho(m-1)`, `C_q<=m/q+2`, and
+`log(n/a)<=L_a+1/l`, division by the frame
+`rho*m^2 L_a^2 phi(a)/a^2` gives the exact normalized entry majorant
+
+`R_(a,b)=(1-rho)(m-1)(m/q+2)(L_a+1/l)(L_b+1/l)ab
+ /(m^2 L_a L_b sqrt(phi(a)phi(b)))`.
+
+Schur proves `Eeq<=eta_eq*rho*F`, where
+`eta_eq=max_a sum_b R_(a,b)`.  The gcd identity gives
+
+`sum_(U<b<=2U)gcd(a,b)
+ <=sum_(d|a)phi(d)(U/d+1)<=U tau(a)+a`.
+
+Together with `phi(a)>>_eps a^(1-eps)`, this proves
+
+`eta_eq <<_eps N^eps(1+U^2/m)`.
+
+For `U=V=N^.15` and `m=N^.59`, the endpoint term is
+`N^(-.29+eps)`, while the divisor-factor term correctly remains `N^eps`.
+Thus the complete equality-collision matrix has the strength required by the
+active/frame conjecture.
+
+The exact uniform certificates over every saved near-cutoff prime and row are
+`3.32034,2.66704,3.84427` at N=32000,200000,1200000.  The four larger stress
+rows give `4.18093,6.34214,6.75310,6.74507`.
+
+Independent review PASSed the collision count, log bound, rho cancellation,
+normalization, Schur argument, gcd divisor sum, totient estimate, exponent,
+receipts, optimized scanner, tests, and scope.  This closes equality
+collisions only.  The unequal-difference Dirichlet kernel remains the precise
+same-row active obstruction; shifted rows, d>1, and signed Goldbach remain
+OPEN.  Next concrete question: express the unequal kernel by the exact
+geometric formula for `K_I(n-n')` and test which separation classes
+`|n-n'|`, `gcd(a,b)`, or residues modulo `H` carry its Schur mass.  No process
+runs.
