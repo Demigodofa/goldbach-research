@@ -5043,3 +5043,21 @@ Next test whether geometric cancellation in the near-cutoff progressions,
 quantified by `||h*a/m||`, survives the h and prime-m averages.  Resonant
 positive density is the falsifier.  Polynomial/log weights remain usable by
 partial summation.  The same-row, d>1 and signed Goldbach gaps remain OPEN.
+
+### 2026-09-10: deterministic geometric saving for each near-cutoff divisor
+
+For every `m>a>=H>=2` with `(a,m)=1`, the exact active band satisfies
+
+`sum_h min(ceil(m/a),m/(2|ha|_m))^2 <=96m^2/(aH)`.
+
+Abel summation and the centered term give the rigorous weighted consequence
+`sum_h|Phi_(a,m,l)(h)|^2<=800mu(a)^2 log(N)^2m^2/(aH)`.  Thus each individual
+near-cutoff divisor progression has the desired geometric cancellation.  The
+actual finite prime/divisor averages are only `1.04,2.01,1.89` times the
+square-root scale and below `.009` of the pointwise-trivial scale.
+
+Three guards and independent review PASS.  Status `progress`, new-to-this-task.
+The unresolved loss is coherent summation across `V<a<=2V`; plain Cauchy loses
+that band cardinality.  Next test cross-divisor Gram quasi-orthogonality with
+the fixed mu(a) vector.  Growth proportional to V is the falsifier.  The
+l-lag, same-row, d>1 and signed Goldbach estimates remain OPEN.

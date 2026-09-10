@@ -5072,3 +5072,46 @@ after the h and prime-m averages.  A positive-density set with
 `||h*a/m||<<a/m` and principal-size weighted energy falsifies this mechanism.
 Polynomial/logarithmic weights remain available through partial summation.
 The same-row, d>1 and full signed Goldbach estimates remain OPEN.
+
+## 2026-09-10: one-divisor active energy has a deterministic geometric saving
+
+`near_cutoff_geometric_bound.py` proves an elementary lemma for
+`m>a>=H>=2`, `(a,m)=1`, and the exact active band `I`.  With
+`|x|_m=min(x mod m,(-x) mod m)` and `L=ceil(m/a)`, it proves
+
+`sum_(h in I) min(L,m/(2|ha|_m))^2 <= 96m^2/(aH)`.
+
+The proof counts `|ah-km|<=T` on the positive h interval, reflects it, and
+sums dyadic residue-distance shells.  Partial summation retains the logarithmic
+weight and the exact centered single-divisor row transform, giving
+
+`sum_(h in I)|Phi_(a,m,l)(h)|^2
+<=800mu(a)^2 log(N)^2 m^2/(aH)`
+
+whenever the complete row lies in `1..N`.  This is a genuine H-scale saving
+for each divisor progression and uses the polynomial/logarithmic weight by
+partial summation rather than discarding it.
+
+The exact finite average over prime m, squarefree `V<a<=2V`, and weight
+`(log m)^2/m` has geometric-majorant energy divided by
+`sum R_m ceil(m/a)` equal to `1.0375,2.0070,1.8940` at
+`N=32000,200000,1200000`.  Relative to the pointwise-trivial
+`sum R_m ceil(m/a)^2`, the ratios are `.00843,.00827,.00377`; saturated
+resonant pairs occupy `.00620,.00628,.00261` of the respective samples.
+These measurements agree with the proved scale but are not asymptotic data.
+
+Three guards pass normally and optimized.  Independent review PASSed the
+lattice count, constants 96 and 800, Abel summation, centered term, strict
+ranges, phase, implementation and aggregate receipts.  Status `progress`,
+new-to-this-task.
+
+This lemma controls one a.  Cauchy across every `V<a<=2V` loses the divisor
+band cardinality, so it does not yet bound the coherent factor band or D_j.
+Next concrete question: test the exact cross-divisor quasi-orthogonality
+
+`sum_(m,l) w_m ||sum_(V<a<=2V) mu(a)u_(a,m,l)||_(I_m)^2
+<=N^epsilon sum_(m,l)w_m sum_a mu(a)^2||u_(a,m,l)||_(I_m)^2`.
+
+A ratio growing proportionally to V, or a resonant Gram eigenvector aligned
+with mu(a), falsifies this mechanism.  The l-lag, same-row, d>1 and full signed
+Goldbach estimates remain OPEN; no process runs.
