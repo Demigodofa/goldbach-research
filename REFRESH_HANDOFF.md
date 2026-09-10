@@ -4466,3 +4466,44 @@ inserting the actual `A(chi)B(chi)` fourth/mixed moment. Success must bound the
 SIGNED W-C covariance at H^-1 after the prime-m average; a bound only on W,
 C, or their absolute product is insufficient. Reject the route if its large
 sieve M^2 term reproduces the known frequency-crowding loss.
+
+## 2026-09-10: asymptotic-large-sieve source gate and exact resonance
+
+`mobius_covariance_source_gate.py` checks Conrey--Iwaniec--Soundararajan's
+*Asymptotic Large Sieve* against the covariance. The exponent geometry is
+close: with `Q=N^.59`, the product length is `Q^(100/59)<Q^2`, a balanced
+factor is `Q^(50/59)<Q`, the Mobius cutoff is `Q^(15/59)<Q`, and the active
+numerator length is `Q^(49/59)<Q`. But the published forms average smooth
+all-moduli primitive-character boxes. They do not license prime-only moduli,
+the modulus-dependent numerator band, linked character indices and Gauss
+phase, the long `mu_>V` tail, or hard hyperbolic endpoints. The classical
+large sieve retains its `Q^2` cost, and positive norm bounds cannot decide the
+signed covariance. Independent source review PASS; one guard passes normally
+and optimized. Status `changed-under-evidence`: preserve the direct-bilinear
+architecture, but no sourced theorem closes the covariance.
+
+`resonant_covariance_falsifier.py` now states the actual remaining inequality
+with every floor, range, mask, kernel and coefficient: equation (6) is exactly
+the `N^(1499/1000+epsilon)` target for `mu_>V*log` over all `d,m,h` and hard
+interval families. A coefficient-uniform strengthening is false exactly. For
+one prime m, choose an active h0, `alpha_a=e_m(h0*a)` on all nonzero residues,
+and `beta_1=1`. Then `S(h0)=m(m-2)/(m-1)` and every other nonzero h has
+`S(h)=-m/(m-1)`. If R is the active-band size, the signed off-diagonal ratio is
+
+`OFF/E_all=(m-3)(m-1-R)/((m-2)(m-1))`,
+
+which tends to one when `H` tends to infinity and `H=o(m)`. At `m=1009,H=5`,
+the exact band ratio is `63382/63441=.999070...` and the positive OFF ratio is
+`59354/63441=.935577...`. Thus linked conditions can reinforce almost
+maximally for resonant coefficients. This does not falsify the actual target:
+the resonance depends on m and h0 and is neither the shared Mobius coefficient
+nor the hard Mobius--log hyperbola. Two guards pass normally and optimized;
+independent review PASS. Curiosity status `changed-under-evidence`.
+
+Next concrete question: expand the prime-modulus sum for the ACTUAL shared
+`mu(a)log(b)` coefficients before any absolute value. Determine whether the
+modulus average turns the nonprincipal covariance into a diagonal plus an
+oscillatory Kloosterman/Ramanujan-type remainder. Success is an `H^-1` bound
+with prime weights and the Gauss phase retained; a positive resonant diagonal
+of full-energy size falsifies this route. Hard endpoints and d>1 remain named
+transfer obligations. Overall goal active; no process is claimed running.

@@ -4692,3 +4692,35 @@ be decomposed into Type I/II pieces without pretending an individual prime
 factors. Five guards pass normally and optimized; independent source review
 PASS. Status `changed-under-evidence`. Preserve the .795 component; the next
 test must average explicit Vaughan pieces over m,h before absolute values.
+
+### 2026-09-10: covariance source gate and resonant falsifier
+
+The classical multiplicative large sieve has a `Q^2` family cost and loses the
+sign of the new `W_m C_m` covariance. Conrey--Iwaniec--Soundararajan's
+asymptotic large sieve reaches superficially compatible support exponents, but
+its theorems do not include this prime-modulus, shrinking-numerator,
+Gauss-phased two-character covariance or the long complementary Mobius tail.
+The architecture is retained as a clue; direct applicability is rejected.
+Independent source review PASS; the source guard passes normally and optimized.
+
+The actual conjecture is now written without suppressed data in
+`resonant_covariance_falsifier.py` (1)--(6): for every epsilon>0, its exact
+`mu_>N^(3/20)*log` band energy, including all `d<=2N^.009`, prime
+`N^.59<m<=2N^.59`, strict centered angular modes, coprimality masks, hard
+intervals, and weight `mu(d)^2(log m)^2/(dm)`, should be
+`O_epsilon(N^(1499/1000+epsilon))`.
+
+A fully coefficient-uniform version is exactly false. On one complete prime
+residue box, `alpha_a=e_m(h0*a)`, `beta_1=1` puts
+`((m-2)^2+R-1)/((m-2)(m-1))` of all energy in the active band and makes
+`OFF/E_all=(m-3)(m-1-R)/((m-2)(m-1))`. This tends to one, not `H^-1`. The
+finite exact receipt `m=1009,H=5` gives band ratio `63382/63441` and positive
+OFF ratio `59354/63441`. This falsifies generic coefficient arguments only;
+the fixed shared Mobius--log coefficients remain open. Two guards pass normally
+and optimized; independent review PASS. Status `changed-under-evidence`.
+
+Next test the actual prime-modulus sum before absolute values: expand its Gauss
+phases and character shifts to see whether it becomes a diagonal plus a signed
+Kloosterman/Ramanujan-type remainder. A retained full-energy positive diagonal
+is the falsifier. Polynomial identities remain available as components;
+overall Goldbach signed correlation remains OPEN.
