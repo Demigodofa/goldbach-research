@@ -3867,3 +3867,57 @@ Dirichlet-polynomial mean-value input. If the source/normalization or
 threshold losses defeat the exponent, record that failure. Otherwise
 determine the remaining length intervals exactly; do not presume all
 detector lengths admit a suitable integer power. Fresh <=30 minutes.
+
+## 2026-09-10: actual detector length filter and four integer-power gaps
+
+Started00:04:41 UTC, reassessed00:11:25 UTC, progress. Resumed verified
+clean main50b7604. Previous native turn made progress through the
+actual zero-detector reduction. Reviewed mathematics **8911d43**,
+detector_power_length_filter.py, deletes every middle-strip zero
+detected at ANY allowed M with N41/50<=M^k<=N49/50,1<=k<=100.
+Powered coefficients obey tau_(2k); the matrix-margin proof gives
+tau_r^2<=tau_(r^2), and harmonic products pay their second moments.
+An elementary mean-square proof with its extra logarithm retained,
+unit-interval Sobolev and actual copy occupancy, and integration in
+beta pay all sampling and real-part variation costs. The powered
+threshold contributes2k to the log exponent, not an unchanged threshold.
+
+The two normalized energy exponents are <=-4/625 and <=-6/625.
+Summing all lengths/powers gives energy O(N^-4/625 log^40220 N),
+with no numerical-onset claim. Full-unmasked arithmetic energy plus
+the restricted Gram bound yields actual union N623/625 times logs;
+intersection621/625 and inherited errors are smaller. Combine masks
+before applying Gram. Surviving zeros have EVERY detecting length in
+one of four OPEN exponent gaps:
+(49/300,41/250), (49/250,41/200), (49/200,41/150), (49/150,41/100).
+The integer-power coverage is exact; a fractional power is not allowed.
+The detector's upper range N9/20 log^2T is retained before taking N large.
+
+Primary mean-value locator checked: Tao254A Notes6,13Feb2015,
+Exercise2(ii),eq3; the needed weaker estimate is also fully proved in
+the module. This uses no unrelated zero-detector statements on that page.
+Sol theory/actual-file PASS; seven guards normal0.050s/-O0.048s.
+No numerical zero computation or post-stop execution claim. The signed
+sum over surviving detector pairs, full Goldbach margin and goal stay OPEN.
+
+Next concrete question: can the ACTUAL signed zero-detector equation
+be retained, instead of only the magnitude threshold? Remove ALL
+middle-strip Type II zeros, including ones also Type I: the already
+proved restricted Type II count should give the same N^-6/125 energy.
+After combining that mask with exterior/good-length masks, every
+survivor would have |I(rho)|<1/3 for the exact contour detector I,
+and every good-length D_M would be below1/(3logT). The source identity
+1+sum_all D_M(rho)=I(rho)+O(T^-1/2), with fewer than logT lengths,
+then predicts Re sum_bad_lengths D_M(rho)<=-1/3+o(1), hence<=-1/4
+eventually. Test all constants, masks, dyadic endpoints and the actual
+source Gamma correction. This would give a common signed polynomial
+condition, but is NOT itself the missing signed Goldbach estimate.
+
+A related bounded test may use mixed products D_M^r D_H^s to exclude
+simultaneous detections whose product length falls in the same paid
+window. Do not assume this forces one gap per zero: the algebraic
+length exponents51/250=.204 and51/125=.408 lie in different gaps,
+but all nonnegative integer combinations are multiples of.204, missing
+[.82,.98] (4*.204=.816,5*.204=1.02). This is a candidate length-
+arithmetic limitation, not actual zero evidence or a reviewed theorem.
+Prioritize retaining the signed detector equation. Fresh <=30 minutes.

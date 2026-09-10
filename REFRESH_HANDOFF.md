@@ -35,7 +35,17 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **0b1a7ba**, in zero_detector_band_reduction.py:
+Latest reviewed RESEARCH commit: **8911d43**, in detector_power_length_filter.py:
+remove every ACTUAL middle-strip zero detected at ANY allowed length
+M with N41/50<=M^k<=N49/50 for some integer1<=k<=100. Its energy
+is O(N^-4/625 log^C N), giving an actual paired-union bound
+N623/625 times logs plus the paid errors. Powered coefficients,
+thresholds, changing beta, copies and dyadic sums are all paid.
+Surviving detector length exponents logM/logN lie only in four OPEN
+gaps: (49/300,41/250), (49/250,41/200), (49/200,41/150),
+(49/150,41/100). Every detecting length must lie there, not just
+the least one. The signed paired sum over those survivors is OPEN.
+Previous **0b1a7ba**, in zero_detector_band_reduction.py:
 the ACTUAL smooth T=N9/10 band now reduces, with all-log error, to
 zeros with BOTH beta in(.64,.76) AND a classical zero detector
 |D_M(rho)|>=1/(3logT), at some allowed dyadic length M. Nondetected
@@ -3810,7 +3820,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_zero_detector_band_reduction` (seven guards) and
+Latest tests: `python -m unittest test_detector_power_length_filter` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer
