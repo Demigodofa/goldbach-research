@@ -6181,3 +6181,38 @@ optimizer, seed it from the current worst vectors, and treat reproducible
 downward drift beyond the known subpower frame loss as the falsifier.  The
 all-lag inequality, the `.32666...` assembled extension, and the final signed
 prime correlation remain OPEN.
+
+## 2026-09-10: nonlinear all-lag resonance remains near the aggregate floor
+
+The all-lag probe now includes coherent `+,-,+i,-i` combinations of adjacent
+row-minimum generalized eigenvectors and scale-invariant projected-gradient
+descent from the best sampled starts.  The complex analytic gradient was
+checked against a central finite difference, and every accepted backtracking
+step recomputes and lowers the exact quotient.
+
+On the five-prime, 32-row union `8<a<=64`, 959 sampled candidates plus two
+nonlinear starts left all four lag minima unchanged to displayed precision:
+`.29481770,.29487434,.29490156,.29501925`.  Some descent steps improved the
+secondary starts, but none beat the aggregate minimum eigenvector.
+
+On the wider `8<a<=128` union with three primes and 24 rows, three nonlinear
+starts on the edge lag block `16<=Delta<24` lowered the sampled minimum only
+from `.16690300884` to `.16688794097`, a change of `1.5068e-5`.  The refined
+vector retained aggregate exact/frame ratio `.1672503` and maximum weighted
+row-energy fraction `.01627`.  This is a real finite local improvement, not
+evidence of polynomial collapse.
+
+Independent review PASSed the complex directional gradient, scale and tangent
+handling, line search, multistart bookkeeping, coherent candidates, exact
+receipt, and five tests in normal and optimized modes.  The nonlinear search
+remains nonconvex and nonexhaustive; it does not prove the all-lag inequality.
+
+The evidence suggests a sharper mechanism question.  If the normalized row
+energies have small variance uniformly in the common coefficient vector, then
+only a small fraction of rows can fall far below their aggregate frame level;
+dyadic lag graphs cannot lose most of their edges to that exceptional set.
+Next seek an operator/second-moment bound for the row-energy deviations and
+test it on the same resonant vectors.  A coefficient vector with healthy mean
+but order-one or growing normalized variance is the falsifier.  Complete
+assembly remains `.295-delta`; the all-lag transfer and final signed prime
+correlation remain OPEN.

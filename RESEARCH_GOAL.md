@@ -5701,3 +5701,20 @@ combinations of row-minimum modes, still cannot beat the aggregate minimum by
 a polynomial factor.  A reproducible ratio that decays materially faster
 with divisor-range growth falsifies it.  Keep the complete assembled exponent
 at `.295` until a uniform all-lag lower bound is actually proved.
+
+## 2026-09-10 continuation: nonlinear lag minimization changes direction
+
+Projected complex-gradient descent and coherent combinations of row-minimum
+modes did not materially lower the finite all-lag quotient.  The only new
+minimum was `.16688794` versus `.16690301` before refinement on the wider
+tested union.  Independent review verified the optimizer and preserved its
+nonexhaustive scope.
+
+The next 30-minute hypothesis is that a uniform second-moment bound for
+normalized row-energy deviations can replace the unavailable termwise lower
+frame.  Mechanism: small variance makes low-energy rows sparse, and a dyadic
+lag graph loses only the edges incident to that sparse set.  Prediction: the
+worst resonant vectors have bounded or decreasing variance relative to their
+mean as primes and rows are added.  Falsifier: healthy aggregate energy paired
+with order-one or polynomially growing normalized variance.  No assembled
+exponent beyond `.295` is claimed.

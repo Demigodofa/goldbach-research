@@ -11,10 +11,12 @@ For one common divisor coefficient vector ``c`` define exact row energies
 
 The aggregate lower frame does not formally imply a lower bound for (1).
 This probe attacks that gap with the aggregate minimum generalized
-eigenvector, every single-row minimum generalized eigenvector, coordinate and
-Mobius vectors, and seeded real and complex random coefficients.  The minimum
-reported quotient is therefore a finite adversarial measurement, not a
-uniform theorem.  Polynomial decay as the divisor union grows is the
+eigenvector, every single-row minimum generalized eigenvector, coherent
+``+,-,+i,-i`` combinations of adjacent row minima, coordinate and Mobius
+vectors, and seeded real and complex random coefficients.  An optional
+scale-invariant projected-gradient descent refines the best sampled starts.
+The minimum reported quotient is therefore a finite adversarial measurement,
+not a uniform theorem.  Polynomial decay as the divisor union grows is the
 falsifier.
 """
 
@@ -49,10 +51,43 @@ def _quadratic_energy(matrix, coefficients):
     return max(0.0, value)
 
 
+def _weighted_geometric_ratio_gradient(row_matrices, edges, coefficients):
+    """Return (1) and its real directional-gradient representative."""
+    statistics = {}
+    for key, (weight, exact, frame) in row_matrices.items():
+        exact_vector = exact @ coefficients
+        frame_vector = frame * coefficients
+        exact_energy = max(1e-300, float(np.real(
+            np.conjugate(coefficients) @ exact_vector)))
+        frame_energy = max(1e-300, float(np.real(
+            np.conjugate(coefficients) @ frame_vector)))
+        statistics[key] = (
+            weight, exact_energy, frame_energy, exact_vector, frame_vector)
+    exact_sum = frame_sum = 0.0
+    exact_gradient = np.zeros_like(coefficients, dtype=complex)
+    frame_gradient = np.zeros_like(coefficients, dtype=complex)
+    for left_key, right_key in edges:
+        left = statistics[left_key]
+        right = statistics[right_key]
+        weight = left[0]
+        exact_term = math.sqrt(left[1] * right[1])
+        frame_term = math.sqrt(left[2] * right[2])
+        exact_sum += weight * exact_term
+        frame_sum += weight * frame_term
+        exact_gradient += weight * exact_term * (
+            left[3] / left[1] + right[3] / right[1])
+        frame_gradient += weight * frame_term * (
+            left[4] / left[2] + right[4] / right[2])
+    quotient = exact_sum / frame_sum
+    gradient = (exact_gradient - quotient * frame_gradient) / frame_sum
+    return quotient, gradient
+
+
 def all_lag_frame_transfer_probe(
         moduli, shift_length, ell_first, row_count,
         divisor_lower, divisor_upper, lag_blocks,
-        random_trials=256, random_seed=20260910):
+        random_trials=256, random_seed=20260910,
+        gradient_steps=0, gradient_starts=1):
     """Return adversarial finite quotients (1) for several lag blocks."""
     if not isinstance(moduli, (tuple, list)) or not moduli:
         raise ValueError("moduli must be a nonempty tuple or list")
@@ -60,12 +95,14 @@ def all_lag_frame_transfer_probe(
         raise ValueError("every modulus must be an integer")
     if any(type(value) is not int for value in (
             shift_length, ell_first, row_count,
-            divisor_lower, divisor_upper, random_trials, random_seed)):
+            divisor_lower, divisor_upper, random_trials, random_seed,
+            gradient_steps, gradient_starts)):
         raise ValueError("integer parameters must be integers")
     if (not 2 <= shift_length <= divisor_lower
             or ell_first < 1 or row_count < 2
             or divisor_lower < 2 or divisor_upper <= divisor_lower
-            or divisor_upper >= min(moduli) or random_trials < 0):
+            or divisor_upper >= min(moduli) or random_trials < 0
+            or gradient_steps < 0 or gradient_starts < 1):
         raise ValueError("invalid all-lag ranges")
     if not isinstance(lag_blocks, (tuple, list)) or not lag_blocks:
         raise ValueError("lag_blocks must be nonempty")
@@ -102,6 +139,7 @@ def all_lag_frame_transfer_probe(
             aggregate_frame += weight * frame
 
     candidates = []
+    row_minimum_vectors = []
     aggregate_minimum, aggregate_vector = _minimum_generalized_vector(
         aggregate_exact, aggregate_frame)
     candidates.append(("aggregate_minimum", aggregate_vector))
@@ -110,6 +148,20 @@ def all_lag_frame_transfer_probe(
             _, exact, frame = row_data[(modulus, ell)]
             _, vector = _minimum_generalized_vector(exact, frame)
             candidates.append((f"row_minimum_m{modulus}_l{ell}", vector))
+            row_minimum_vectors.append((modulus, ell, vector))
+    for left, right in zip(row_minimum_vectors, row_minimum_vectors[1:]):
+        left_label = f"m{left[0]}_l{left[1]}"
+        right_label = f"m{right[0]}_l{right[1]}"
+        candidates.extend((
+            (f"coherent_plus_{left_label}_{right_label}",
+             left[2] + right[2]),
+            (f"coherent_minus_{left_label}_{right_label}",
+             left[2] - right[2]),
+            (f"coherent_plus_i_{left_label}_{right_label}",
+             left[2] + 1j * right[2]),
+            (f"coherent_minus_i_{left_label}_{right_label}",
+             left[2] - 1j * right[2]),
+        ))
     candidates.append((
         "mobius", np.array([mobius[value] for value in divisors], dtype=float)))
     for index in range(len(divisors)):
@@ -152,20 +204,78 @@ def all_lag_frame_transfer_probe(
             max(exact_rows) / aggregate_exact_energy,
         )
 
+    def lag_value_gradient(coefficients, lag_first, lag_stop):
+        """Return Q_J and its real gradient on complex coefficient space."""
+        edges = []
+        for modulus in moduli:
+            for delta in range(lag_first, lag_stop):
+                for ell in range(
+                        ell_first, ell_first + row_count - delta):
+                    edges.append(((modulus, ell),
+                                  (modulus, ell + delta)))
+        return _weighted_geometric_ratio_gradient(
+            row_data, edges, coefficients)
+
+    def nonlinear_refinement(coefficients, lag_first, lag_stop):
+        current = np.asarray(coefficients, dtype=complex)
+        current /= np.linalg.norm(current)
+        value, _ = lag_value_gradient(current, lag_first, lag_stop)
+        accepted = 0
+        for _ in range(gradient_steps):
+            _, gradient = lag_value_gradient(current, lag_first, lag_stop)
+            gradient -= current * (
+                np.vdot(current, gradient).real
+                / np.vdot(current, current).real)
+            gradient_norm = np.linalg.norm(gradient)
+            if gradient_norm < 1e-13:
+                break
+            direction = gradient / gradient_norm
+            improved = False
+            for step in (.25, .1, .04, .016, .0064, .00256):
+                trial = current - step * direction
+                trial /= np.linalg.norm(trial)
+                trial_value, _ = lag_value_gradient(
+                    trial, lag_first, lag_stop)
+                if trial_value < value - 1e-12:
+                    current, value = trial, trial_value
+                    accepted += 1
+                    improved = True
+                    break
+            if not improved:
+                break
+        return current, value, accepted
+
     blocks = []
     for lag_first, lag_stop in lag_blocks:
-        best = None
+        evaluated = []
         for name, coefficients in candidates:
             quotient, aggregate_ratio, concentration = lag_quotient(
                 coefficients, lag_first, lag_stop)
-            if best is None or quotient < best[0]:
-                best = (quotient, name, aggregate_ratio, concentration)
+            evaluated.append((quotient, name, aggregate_ratio,
+                              concentration, coefficients))
+        evaluated.sort(key=lambda item: item[0])
+        best = evaluated[0]
+        sampled_minimum = best[0]
+        accepted_steps = 0
+        if gradient_steps:
+            for start in evaluated[:min(gradient_starts, len(evaluated))]:
+                refined, refined_value, steps = nonlinear_refinement(
+                    start[4], lag_first, lag_stop)
+                accepted_steps += steps
+                if refined_value < best[0]:
+                    quotient, aggregate_ratio, concentration = lag_quotient(
+                        refined, lag_first, lag_stop)
+                    best = (quotient, f"nonlinear_from_{start[1]}",
+                            aggregate_ratio, concentration, refined)
         blocks.append({
             "lag_range": (lag_first, lag_stop - 1),
+            "minimum_sampled_exact_over_frame_lag_budget": sampled_minimum,
             "minimum_tested_exact_over_frame_lag_budget": best[0],
             "minimizing_candidate": best[1],
             "candidate_aggregate_exact_over_frame": best[2],
             "candidate_max_weighted_row_energy_fraction": best[3],
+            "nonlinear_total_accepted_steps_across_starts": accepted_steps,
+            "nonlinear_improvement": sampled_minimum - best[0],
         })
     return {
         "moduli": tuple(moduli),
@@ -176,6 +286,8 @@ def all_lag_frame_transfer_probe(
         "divisor_count": len(divisors),
         "aggregate_exact_over_frame_minimum": aggregate_minimum,
         "candidate_count": len(candidates),
+        "gradient_step_limit": gradient_steps,
+        "gradient_start_limit": gradient_starts,
         "lag_blocks": tuple(blocks),
         "weighted_all_lag_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,
@@ -185,6 +297,7 @@ def all_lag_frame_transfer_probe(
 if __name__ == "__main__":
     result = all_lag_frame_transfer_probe(
         (1009, 1013, 1019, 1021, 1031), 5, 9, 32, 8, 64,
-        ((1, 2), (1, 8), (8, 16), (16, 32)), random_trials=128)
+        ((1, 2), (1, 8), (8, 16), (16, 32)),
+        random_trials=128, gradient_steps=32, gradient_starts=4)
     for key, value in result.items():
         print(f"{key}: {value}")
