@@ -5807,3 +5807,21 @@ negative normalized eigenvalue of that difference, or a project-scaled exact
 certificate falling polynomially below the ideal one, falsifies the transfer.
 No assembled range beyond `.295` is claimed; the signed prime correlation is
 still open.
+
+## 2026-09-10 continuation: direct exact-to-ideal falsifier is favorable
+
+The full normalized spectrum of the exact-minus-ideal matrix-geometric lag
+operator was measured under project scaling.  From `M=1009` to `16001`, its
+negative edge shrank from `-.00463` to `-.000743`, while its norm shrank from
+`.04296` to `.00502`.  Weyl retained `.15201` of an ideal minimum `.15275` at
+the largest test.  Independent review verified the spectrum and inequality
+direction.
+
+This rules out a hidden bad eigendirection in the tested cases only.  The next
+30-minute proof hypothesis is that the nonlinear exact-to-ideal perturbation
+obeys a power-small joint prime-row estimate comparable to the already-proved
+aggregate full-Gram perturbation.  Test the Fréchet/variational structure of
+the matrix geometric mean before claiming that cancellation transfers through
+it; a dependence on an unavailable rowwise condition number falsifies that
+proof route.  The complete range remains `.295`, and the signed prime
+correlation is open.

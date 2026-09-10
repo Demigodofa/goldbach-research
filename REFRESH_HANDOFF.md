@@ -6405,3 +6405,41 @@ summed matrix-geometric operator has not been compared asymptotically to the
 ideal one.  That is now the sole open all-lag divisor-frame step before the
 separate signed prime-correlation estimate.  The assembled range remains
 `.295-delta` until that transfer is proved.
+
+## 2026-09-10: exact matrix-mean perturbation shrinks in scaled tests
+
+The matrix-geometric probe now forms the normalized difference operator
+
+`T^(-1/2) sum_edges w[(G_u#G_v)-(P0_u#P0_v)] T^(-1/2)`,
+
+where `T=sum_edges w(F_u+F_v)/2`, and reports its full extremal spectrum.
+This is the direct finite falsifier for the remaining exact-to-ideal transfer;
+comparing only the two separate minimum eigenvalues could have hidden a bad
+direction.
+
+At the project-scaled `.32` divisor exponent, the results were
+
+| `M` | negative edge | operator norm | ideal minimum | Weyl lower bound |
+|---:|---:|---:|---:|---:|
+| 1009 | `-.0046270` | `.0429562` | `.2015965` | `.1969696` |
+| 4001 | `-.0018225` | `.0129883` | `.1833877` | `.1815653` |
+| 8009 | `-.0013461` | `.0088563` | `.1618407` | `.1604945` |
+| 16001 | `-.0007431` | `.0050174` | `.1527523` | `.1520092` |
+
+The exact minimum eigenvalues were respectively
+`.2023584,.1836042,.1619338,.1528095`.  Thus the normalized negative edge
+shrinks across every tested scale, and Weyl preserves nearly the full proved
+ideal frame.  Independent review PASSed the common normalization, difference
+spectrum, operator norm, Weyl direction, tests, and endpoint receipts.
+
+This is finite floating-point evidence, not the uniform perturbation theorem.
+The next exact question is whether joint prime-row cancellation yields
+
+`||T^(-1/2) sum_edges w[(G_u#G_v)-(P0_u#P0_v)] T^(-1/2)||
+ <= N^eps{(B^2/M)[A^-1/2+B/sqrt(MA)+B^-1/2]+B/A}`
+
+or any power-small substitute through `B<N^(49/150-delta)`.  The displayed
+right side is a proposed analogue of the proved aggregate full-Gram bound,
+not a theorem.  A first proof attempt must account for the nonlinearity of
+`#`; aggregate cancellation of `G-P0` alone does not imply it.  The assembled
+range remains `.295-delta`, and the signed prime correlation remains OPEN.

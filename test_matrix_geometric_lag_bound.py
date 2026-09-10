@@ -52,6 +52,13 @@ class MatrixGeometricLagBoundTests(unittest.TestCase):
                 0)
             self.assertGreater(
                 block["exact_over_ideal_matrix_geometric_minimum_ratio"], 0)
+            self.assertGreaterEqual(
+                block["exact_minus_ideal_normalized_operator_norm"], 0)
+            self.assertLessEqual(
+                block["weyl_lower_certificate_from_ideal_and_difference"],
+                block[
+                    "matrix_geometric_over_arithmetic_frame_minimum"]
+                + 1e-12)
 
     def test_invalid_input_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "prime"):

@@ -169,6 +169,8 @@ def matrix_geometric_lag_probe(
         values = _generalized_spectrum(lower_operator, upper_frame)
         ideal_values = _generalized_spectrum(
             ideal_lower_operator, upper_frame)
+        difference_values = _generalized_spectrum(
+            lower_operator - ideal_lower_operator, upper_frame)
         block_receipts.append({
             "lag_range": (lag_first, lag_stop - 1),
             "edge_count": edge_count,
@@ -180,6 +182,14 @@ def matrix_geometric_lag_probe(
                 float(ideal_values[0]),
             "exact_over_ideal_matrix_geometric_minimum_ratio":
                 float(values[0] / ideal_values[0]),
+            "exact_minus_ideal_normalized_eigenvalue_minimum":
+                float(difference_values[0]),
+            "exact_minus_ideal_normalized_eigenvalue_maximum":
+                float(difference_values[-1]),
+            "exact_minus_ideal_normalized_operator_norm": float(max(
+                abs(difference_values[0]), abs(difference_values[-1]))),
+            "weyl_lower_certificate_from_ideal_and_difference":
+                float(ideal_values[0] + difference_values[0]),
             "measured_positive_generalized_eigenvalue": bool(values[0] > 0),
         })
     return {
