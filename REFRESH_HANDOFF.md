@@ -4233,3 +4233,11 @@ Next bounded question: test the most obvious arithmetic input on the dual band. 
 Five guards plus the prime-component check pass normally and optimized; independent review PASS. Source precision: Kerr--Shparlinski--Yau arXiv:1711.10582 refines r>2; r=2 uses the classical Burgess bound quoted there, and r=1 is only a Polya--Vinogradov/trivial endpoint comparison. A naive split into d residue classes costs more, but CRT/induced-character structure or genuinely bilinear d,m averaging remains open. Status `changed-under-evidence`: abandon direct one-character Burgess, preserve the band-energy target.
 
 Next bounded question: keep d and m coupled in the Gauss-transformed band and derive the exact bilinear character sum. Test whether averaging over the short d<=N^.009 family can improve the prime-component benchmark without taking absolute values. The maximum possible d-average square-root gain N^.0045 is far smaller than the single-character r=2 deficit .060625, so success would require additional m or spectral cancellation; verify that budget before source hunting.
+
+## 2026-09-10: short-divisor averaging cannot rescue Burgess
+
+`short_divisor_average_gate.py` uses the most favorable direct benchmark: replace q=dm cost-free by its prime component m=N^.59 and optimize the licensed Burgess integers. The transformed exponent E_r is increasing for r>=1 because the derivative numerator `(3q/4-h)r-q/2` is positive already at r=1, so r=2 is optimal. Its deficit over the direct H exponent is `97/1600=.060625`. The entire d-family has exponent .009: square-root cancellation saves .0045 and leaves `449/8000=.056125`; even complete cancellation saves only .009 and leaves `413/8000=.051625`.
+
+Four exact guards pass normally and optimized; independent review PASS. Status `changed-under-evidence`: d-averaging alone is abandoned for this Burgess route. This does not address joint d,m structure, bilinear cancellation in the primes, or spectral cancellation across target shifts.
+
+Next bounded question: write the exact joint m,h form after the Gauss transform and compare it with a sourced bilinear Kloosterman/spectral estimate. The required gain is H^-1/2 in correlation, equivalently H^-1 in active-band energy. Reject any theorem that averages a fixed residue, loses the target N phase, or replaces the prime-dependent conductor by arbitrary moduli.

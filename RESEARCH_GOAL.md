@@ -4572,3 +4572,7 @@ The q/H active modes have amplitude H, so their kernel square mass is qH. Parsev
 ### 2026-09-10: direct Burgess dual estimate fails the budget
 
 After the H/sqrt(q) transform factor and L=q/H dual length are retained, the Burgess exponent is E_r=h-q/2+(q-h)(1-1/r)+q(r+1)/(4r^2). At q=.599,h=.1 every licensed r>=2 is worse than the direct .1 bound; r=2 gives .1623125. A cost-free replacement q by the prime component m=.59 still gives .160625. Exact guards and independent review PASS. The refined cited result covers r>2, classical Burgess supplies r=2, and r=1 is only a formal endpoint comparison. Status `changed-under-evidence`. This rejects the direct single-character plug-in, not bilinear CRT/induced-character averaging. Next quantify whether d-averaging can possibly pay the remaining deficit.
+
+### 2026-09-10: d-averaging budget is insufficient
+
+At the favorable prime component m=N^.59, r=2 is the best licensed Burgess parameter and misses the direct shift bound by .060625. Square-root cancellation over d<=N^.009 saves only .0045, and even complete d-cancellation leaves a positive .051625 exponent. Four guards and independent review PASS. Status `changed-under-evidence`. This closes only d-averaging as the sole repair; the surviving route must exploit the long m-family, prime coefficients, or a joint spectral estimate. Next derive and source-check that joint m,h form with the target phase retained.
