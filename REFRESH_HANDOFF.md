@@ -6140,3 +6140,44 @@ falsifier is a common divisor coefficient vector whose aggregate full energy
 is healthy but whose energy is concentrated on rows that make the lag-pair
 geometric means polynomially smaller than their frame analogue.  The signed
 prime correlation, larger factors, and `d>1` remain OPEN.
+
+## 2026-09-10: sampled all-lag adversaries show no extra collapse
+
+`all_lag_frame_transfer_probe.py` evaluates the exact weighted lag quotient
+
+`Q_J(c)=sum_(m,Delta,ell) w_m rho_m sqrt(E_(m,ell)E_(m,ell+Delta))
+       /sum_(m,Delta,ell) w_m rho_m sqrt(F_(m,ell)F_(m,ell+Delta))`
+
+for one common divisor coefficient vector.  Its adversarial family contains
+the aggregate minimum generalized eigenvector, every individual-row minimum
+generalized eigenvector, all coordinate vectors, the Mobius vector, and
+seeded real and complex Gaussian vectors.
+
+For five primes beginning at `1009`, 32 rows, and the squarefree union
+`8<a<=64`, 451 tested vectors gave aggregate exact/frame minimum `.294900`.
+The minimum lag quotients were `.294818` for lag 1, `.294874` for lags 1--7,
+`.294902` for lags 8--15, and `.295019` for lags 16--31.  The minimizing
+aggregate eigenvector put at most `.00756` of its weighted energy on one of
+the 160 prime-row cells.
+
+The wider finite unions behaved similarly.  On `8<a<=128`, three primes and
+24 rows gave aggregate minimum `.167236` and lag minima from `.166903` to
+`.167269`.  On `8<a<=256`, two primes and 16 rows gave aggregate minimum
+`.137724` and lag minima from `.137316` to `.137762`.  The decrease as the
+union widens follows the known subpower multiband-frame loss; no additional
+lag-specific collapse appeared in these samples.
+
+Independent review PASSed the weights, exact and frame energies, complex
+quadratic forms, generalized-vector construction, lag indexing,
+concentration statistic, and three normal/optimized tests.  This is finite
+evidence against the enumerated falsifiers only.  The reviewer identified a
+stronger untested family: direct nonlinear minimization of `Q_J`, including
+phase-coherent combinations of row-minimum vectors.
+
+The next bounded question is whether such nonlinear resonant coefficients can
+drive `Q_J` materially below the aggregate generalized eigenvalue as the
+union widens.  Implement a scale-invariant gradient or equivalent deterministic
+optimizer, seed it from the current worst vectors, and treat reproducible
+downward drift beyond the known subpower frame loss as the falsifier.  The
+all-lag inequality, the `.32666...` assembled extension, and the final signed
+prime correlation remain OPEN.

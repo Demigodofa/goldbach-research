@@ -5685,3 +5685,19 @@ full energy can coexist with polynomial collapse of the sum of lag-pair
 geometric means; such a coefficient vector falsifies the transfer.  Reassess
 within 30 minutes.  Do not report the separate `49/150` active endpoint and
 `109/300` aggregate-frame thresholds as an assembled range.
+
+## 2026-09-10 continuation: first all-lag falsifier did not collapse
+
+A finite weighted all-lag probe tested aggregate and rowwise minimum
+generalized eigenvectors, coordinates, Mobius coefficients, and seeded real
+and complex random vectors.  Across lower unions ending at `64,128,256`, the
+minimum lag quotient stayed essentially equal to the aggregate full-frame
+minimum; no separate lag-energy collapse was measured.  Independent review
+PASSed the probe and its deliberately finite scope.
+
+This does not prove the weighted transfer.  The next 30-minute hypothesis is
+that direct nonlinear minimization of the lag quotient, seeded by coherent
+combinations of row-minimum modes, still cannot beat the aggregate minimum by
+a polynomial factor.  A reproducible ratio that decays materially faster
+with divisor-range growth falsifies it.  Keep the complete assembled exponent
+at `.295` until a uniform all-lag lower bound is actually proved.
