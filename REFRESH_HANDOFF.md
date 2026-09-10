@@ -35,7 +35,31 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **ec39d86**, in signed_zero_detector.py:
+Latest reviewed RESEARCH commit: **5bd0b48**, in detector_prime_product_transfer.py:
+the FULL actual H-weighted zero field has a prime-product window with
+coefficient h*Lambda and uniform error O(N41/200 L7). The exact
+dilation n^-1/2 S_T(x/n) is retained down to x/n~N59/100, even
+when T>x/n. An Ingham tangent gives W_T(y)<<T L6 on that range.
+The full normalized field has L2 norm O(L5/2), from the exact
+majorant tau*Lambda=(tau log)/2 and Schur on the PRODUCT index.
+Removing exp(-n/sqrtT) costs O(N^-1/25 L5/2) in that full norm;
+the bad-length mask remains. The unrestricted identity
+a_T*Lambda=mu_<=B*log cannot replace this restricted convolution.
+The survivor disk does NOT yet transfer: H can amplify removed zeros,
+and their H-weighted energy remains uncontrolled. A proposed aggregate
+H^2 fourth-moment shortcut was RETRACTED in review: upper support .82
+cannot replace shorter product scales in the weighted coefficient norm.
+A component at m=.35 has squared length .7 and POSITIVE energy
+budget7/125, not the saving falsely obtained by substituting .82.
+No weighted finite-period J transfer or new paired saving is claimed.
+Next concrete test: bound H-weighted good-detector masks one pair of
+dyadic lengths at a time. If M is a good detecting length and H is a
+bad multiplier length, test D_M^r D_H^s with actual product
+P=M^r H^s in[N41/50,N49/50], r,s>=1,r+s<=100. Use the M detector
+threshold and Holder with its already-small coefficient energy, paying
+every log and length sum. Determine covered and uncovered pairs; do
+not assume the criterion works for m=.45,h=.35. Fresh <=30 minutes.
+Previous **ec39d86**, in signed_zero_detector.py:
 delete ALL middle-strip Type II zeros, including ones also Type I,
 and combine exterior/Type-II/good-length masks BEFORE Gram. Their
 overlap costs only the sum of nonnegative coefficient energies.
@@ -51,13 +75,9 @@ the straightforward support majorant is exp(O((logN)^2)). Neither
 is a necessary degree/length lower bound. Existing fixed-power
 moments do not control this changing-degree expansion. Preserve the
 disk and reciprocal for use with another arithmetic ingredient.
-Next concrete test, still UNREVIEWED: translate multiplication by H_N
-into dilations S_T(x/n), then an exact prime-product window with
-coefficient (h_N*Lambda)(k). Pay the summed beta-shift/Gamma errors
-when T=N9/10 exceeds x/n for the bad-length n. Determine whether
-the full convolution identity (a_T*Lambda)=mu_<=B*log actually controls
-the retained bad-length restriction or leaves a signed remainder.
-No automatic extension of the earlier central-window energy estimate.
+The proposed full-field prime-product transfer and error test is now
+completed above. Its survivor-mask bridge remains OPEN; do not repeat
+the transfer or replace the restricted convolution by the full identity.
 Previous **8911d43**, in detector_power_length_filter.py:
 remove every ACTUAL middle-strip zero detected at ANY allowed length
 M with N41/50<=M^k<=N49/50 for some integer1<=k<=100. Its energy
@@ -3843,7 +3863,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_signed_zero_detector` (seven guards) and
+Latest tests: `python -m unittest test_detector_prime_product_transfer` (seven guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

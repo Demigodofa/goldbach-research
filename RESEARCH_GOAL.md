@@ -3976,3 +3976,71 @@ The concrete falsifier is an unpaid main-scale transfer cost or a claim
 that drops the residual restriction. A successful identity alone would
 still leave its signed prime-pair estimate to prove. Fresh <=30 minutes;
 retain useful polynomial and disk components if the proposed use fails.
+
+## 2026-09-10: full detector field to prime products, with the mask gap retained
+
+Started00:23:34 UTC, reassessed00:36:45 UTC, progress with a precise
+remaining limitation. Resumed verified clean main85252c3. The previous
+native turn made progress through the signed common detector disk.
+Reviewed mathematics **5bd0b48**, detector_prime_product_transfer.py,
+proves the full-field transfer for ANY coefficients |b(n)|<=A tau(n)
+supported on n<=2N41/100, uniformly also for N-dependent A:
+S_B(x)=-P_(b*Lambda)(x)+O(A N41/200 L7), x in[N/4,3N/4].
+The exact dilation factor is n^-1/2. Its smaller arguments reach
+N59/100/8, where T can exceed the prime-window center. The Ingham
+tangent D(u)<=1-(4/3)(.5-u), with exact nonnegative difference
+(1-2u)^2/[3(1+u)], gives W_T(y)<<T L6 uniformly. The localized
+complex shift, global Taylor/Fourier tails, poles and Gamma integral
+are all paid before summation. No short-interval prime bound below
+length one is assumed.
+
+The exact majorant |b*Lambda|<=A(tau log)/2, including prime powers,
+and tau^2<=tau4 give coefficient square sum O(A^2 L5). Schur on
+the PRODUCT index k~N has row N/T and column1/T, proving full-field
+energy O(A^2 N L5). For the actual detector, exp(-n/sqrtT) can be
+removed in this full normalized L2 norm with error N^-1/25 L5/2;
+the separate normalized transfer error is N^-67/200 L7. This is not
+a pointwise replacement at each survivor zero. The bad dyadic mask
+survives, and the unrestricted identity a_T*Lambda=mu_<=B*log leaves
+an explicit residual convolution. Conditional prime and semiprime
+coefficient examples and exact prime-log fixtures guard that boundary.
+
+The hoped transfer of the SURVIVING pair still needs H-weighted energy
+for the removed zeros. Their old unweighted small energy is insufficient
+for this step. Crude coefficient amplification gives positive attempted
+upper exponents361/1250 for G and309/1250 for Type II, not actual
+lower bounds. The reviewer proposed an aggregate H^2 fourth-moment
+repair; the lead caught that it substituted the maximal product length
+.82 for shorter terms under a negative coefficient exponent. Reviewer
+explicitly RETRACTED it. A component at m=.35 has squared length .7,
+giving normalized time exponent7/125>0. Preserve this correction; no
+masked-energy improvement from that shortcut is promoted.
+
+Independent Sol theory and actual-file PASS after that adjudication.
+Seven new guards normal0.059s/-O0.045s. Ingham's source display in
+Yashiro1310.0765v2,p2,(1.1) was freshly read; the earlier unconditional
+Guinand conventions and source corrections remain. No actual numerical
+zero run, new Goldbach range, publication, push or manual wake queue.
+No new weighted finite-period J transfer is asserted: those errors
+would need fresh bounds with the new weights. The survivor pair estimate,
+full signed margin, universal coverage and overall goal stay OPEN.
+
+Next concrete question: can mixed moments pay PART of the H-weighted
+good-detector mask while retaining the actual dyadic product scale?
+For X_M={middle-strip zeros detected at a good M}, and a bad multiplier
+length H, test integers r,s>=1,r+s<=100 with
+P=M^r H^s in[N41/50,N49/50]. The polynomial D_M^r D_H^s has
+coefficients bounded by tau_(2(r+s)) on(P,2^(r+s)P]. The same
+variable-beta mean-square proof predicts normalized moment N^-4/625
+times fixed logs. The M threshold bounds the 2s moment of D_H on
+X_M; Holder with the existing E_(X_M)<<N^-4/625 times logs should
+then bound its weighted second moment with a saving. Pay threshold
+power r, Holder weights, copy/length sums and all boundary terms.
+
+Determine which actual pairs (logM/logN,logH/logN) satisfy this
+integer-product criterion. Do not infer universal coverage: (.45,.35)
+has its smallest mixed sum .80 and every higher one exceeds .98.
+The concrete test is a reviewed sufficient weighted-mask deletion and
+an exact uncovered-pair record, not another aggregate-upper-support
+substitution. If the masks or costs defeat it, retain the counterbudget.
+This test is UNREVIEWED and receives a fresh <=30 minutes.
