@@ -6,6 +6,7 @@ from mobius_covariance_lag_probe import _mobius_values
 from mobius_lcm_coefficient_collapse import (
     complete_lcm_log_coefficient,
     mobius_lcm_collapse_probe,
+    mobius_lcm_signed_count_probe,
 )
 
 
@@ -37,11 +38,31 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
             receipt["grouped_lcm_l1_over_log_X_squared"], 0)
         self.assertFalse(receipt["mobius_lcm_collapse_asymptotic_proved"])
 
+    def test_signed_count_probe_uses_exact_interval_count(self):
+        receipt = mobius_lcm_signed_count_probe(101, 5, 3, 14)
+        self.assertAlmostEqual(
+            receipt["signed_grouped_count_error"],
+            receipt["low_lcm_signed_count_error"]
+            + receipt["high_lcm_signed_count_error"])
+        self.assertAlmostEqual(
+            receipt["absolute_grouped_count_error"],
+            receipt["low_lcm_absolute_count_error"]
+            + receipt["high_lcm_absolute_count_error"])
+        self.assertLessEqual(
+            abs(receipt["signed_to_absolute_count_error_ratio"]), 1)
+        self.assertLessEqual(
+            abs(receipt["cyclic_signed_to_absolute_ratio"]), 1)
+        self.assertFalse(receipt["signed_lcm_count_cancellation_proved"])
+
     def test_invalid_inputs_are_rejected(self):
         with self.assertRaisesRegex(ValueError, "squarefree"):
             complete_lcm_log_coefficient(12, 100)
         with self.assertRaises(ValueError):
             mobius_lcm_collapse_probe(20, 3, 30)
+        with self.assertRaisesRegex(ValueError, "prime"):
+            mobius_lcm_signed_count_probe(105, 5, 3, 14)
+        with self.assertRaisesRegex(ValueError, "squarefree"):
+            mobius_lcm_signed_count_probe(101, 5, 3, 4)
 
 
 if __name__ == "__main__":

@@ -5865,3 +5865,21 @@ Measure the rowwise signed-to-absolute ratio at project scaling before seeking
 a bilinear estimate.  A ratio bounded away from zero across scales falsifies
 this route.  The assembled exponent remains `.295`; the signed prime
 correlation remains open.
+
+## 2026-09-10 continuation: signed lcm cancellation survives truncation
+
+Although grouped L1 mass remains on the `B^2` scale, its actual correlation
+with the strict CRT count error cancels increasingly under project scaling.
+From `M=1009` to `16001`, the worst rowwise signed/absolute ratio falls from
+`.1680` to `.0377`, its median from `.0290` to `.00949`, and the worst frozen
+count perturbation/frame ratio from `.0203` to `.00434`.  Independent review
+verified the exact count, normalization, receipts, and repaired empty-range
+guard.
+
+This is finite evidence for a signed-q mechanism, not a theorem.  The next
+30-minute question uses the exact factorization `a=gr,b=gs`, which turns the
+coefficient into `mu(r)mu(s)` and the sawtooth modulus into `grs`.  Compare
+this structured trilinear cancellation with randomized signs; if Mobius is no
+better than the random baseline or a resonant sign family keeps a constant
+ratio, do not attribute the effect to the complete-cube identity.  The
+assembled exponent remains `.295`, and the signed prime correlation is open.

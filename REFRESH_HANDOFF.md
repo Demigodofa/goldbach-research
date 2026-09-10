@@ -6481,6 +6481,50 @@ a rowwise theorem would imply the matrix-geometric lag frame immediately by
 monotonicity and avoid curvature.  The assembled range remains `.295-delta`;
 the signed prime correlation remains OPEN.
 
+## 2026-09-10: signed high-lcm count errors cancel in scaled rows
+
+`mobius_lcm_signed_count_probe` now pairs the exact truncated coefficient
+`K_q` with the strict row count
+
+`C_q=floor((m(ell+1)-1)/q)-floor(m ell/q)`.
+
+The frozen collision perturbation is
+
+`m sum_q K_q(C_q-m/q)`,
+
+and division by the actual Mobius totient frame
+`m^2 sum_a phi(a)log(mell/a)^2/a^2` gives the implemented normalized ratio.
+The separate cyclic statistic uses `C_q-(m-1)/q` and is labeled separately.
+
+Across both tested primes and every row in the project-scaled interval, for
+`M=1009,4001,8009,16001`, the maximum absolute signed/absolute ratios were
+
+`.16797,.08184,.06357,.03773`,
+
+and their medians were
+
+`.02905,.02204,.01683,.00949`.
+
+The maximum frozen count perturbations relative to the totient frame fell
+from `.02034` to `.00434`.  Restricting to the dominant high-lcm region gave
+maximum ratios `.15827,.08460,.06554,.03693` and medians
+`.03041,.02103,.01822,.00941`.  Thus the incomplete `q>B` coefficients that
+failed the L1 test recover increasing signed cancellation against the exact
+CRT sawtooth in every tested scale.
+
+Independent review PASSed the strict interval count, `m` normalization,
+cyclic/exact distinction, high/low split, all receipts, and four tests in
+normal and optimized modes.  Review initially HOLDed an empty-squarefree
+interval division; an explicit guard and regression resolved it.  These are
+finite measurements, not a uniform signed-q theorem.
+
+The next exact reparameterization is `a=gr,b=gs`, where `g=gcd(a,b)` and
+`g,r,s` are pairwise coprime squarefree.  Then `lcm(a,b)=grs` and
+`mu(a)mu(b)=mu(r)mu(s)`: the common factor loses its Mobius sign.  Test the
+resulting reciprocal trilinear sawtooth sum against randomized coefficient
+signs before selecting a bilinear estimate.  The all-lag exact frame,
+assembly beyond `.295-delta`, and final signed prime correlation remain OPEN.
+
 ## 2026-09-10: rowwise frame survives, but lcm L1 collapse fails
 
 The direct rowwise generalized-eigenvalue falsifier was run over every tested
