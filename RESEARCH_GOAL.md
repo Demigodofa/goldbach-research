@@ -5226,3 +5226,18 @@ directly contradicted for this tested family.  The preserved route is to keep
 the complete Dirichlet kernel and use summation by parts against the CRT pair-
 count function.  The unequal-kernel theorem, shifted rows, d>1, and signed
 Goldbach remain OPEN.
+
+### 2026-09-10: triangular CRT main isolates the true residual
+
+The frozen signed-difference density has an exact sampled Fejer formula after
+writing `m-1=gJ+s`.  Across five single-prime stresses its frame-normalized
+Frobenius size is `.00216` down to `.000059` of equality.  The exact raw
+residual is `.00524--.03241`, and the exact-minus-main discrepancy carries
+essentially all of it.
+
+Independent review PASSed the CRT model, Fejer identity, optimized geometric
+formula, weights, receipts, and tests.  This is finite evidence only.  Next
+attempt a full bound: apply the one-divisor geometric lemma to the sampled
+gcd kernel and the discrete Dirichlet `L1` bound to endpoint/log discrepancy.
+The predicted count-error loss is `H U^2 log(m)/m=N^(-.19+o(1))`.  Same-row
+active control, shifted rows, d>1, and signed Goldbach remain OPEN.

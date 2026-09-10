@@ -5517,3 +5517,46 @@ complete lobe sequence, using CRT to compare the weighted pair-count function
 `C_(a,b)(r)` with its smooth triangular density.  A remainder whose Schur
 row sum grows like `V` falsifies the route.  The active unequal theorem,
 shifted rows, d>1, and signed Goldbach remain OPEN; no process runs.
+
+## 2026-09-10: triangular CRT density is suppressed by a sampled Fejer kernel
+
+`triangular_crt_main_probe.py` freezes the pair-count density before the full
+active convolution.  With `R=m-1`, `g=gcd(a,b)`, `q=lcm(a,b)`, and
+`L_a=log(ml/a)`, its signed-difference model is
+
+`C0_(a,b)(r)=1_(g|r)(R-|r|)L_aL_b/q`, `|r|<R`.
+
+The corresponding kernel is
+
+`T_g(h)=sum_(|r|<R,g|r)(R-|r|)e_m(-hr)`.
+
+Writing `R=gJ+s`, `0<=s<g`, and `z=e_m(-hg)`, the exact identity
+
+`T_g(h)=g|sum_(j=0)^(J-1)z^j|^2+s sum_(t=-J)^J z^t`
+
+expresses it as a sampled Fejer term plus the remainder strip.  The code uses
+closed geometric quotients; an initial term-by-term evaluator was stopped as
+quadratic-scale and superseded before the largest case was rerun.
+
+For single-prime cases `m=457,1009,10007,30011,100003`, the exact raw
+equality-plus-unequal Frobenius norm divided by equality is respectively
+`.008170,.005240,.032406,.024182,.024585`.  The triangular main ratios are
+only `.002162,.001331,.000216,.000111,.000059`; the exact-minus-main
+remainders are `.006753,.004764,.032379,.024186,.024587`.  Main Schur row
+sums fall from `.00172` to `.000105` in the larger stresses, while remainder
+row sums carry essentially all of the exact `.00368--.07116` residual.
+
+Independent review PASSed the CRT model, `R=gJ+s` identity, `s=0` endpoint,
+geometric quotient, Fourier signs, active/frame weights, exact comparison,
+all receipts, tests, and scope.  Status `aha-candidate`, new-to-this-task.
+Finite evidence says the leading triangular CRT density is already suppressed
+and the endpoint/log discrepancy is the real residual.  Neither statement is
+yet a uniform theorem.
+
+Next concrete question: prove the triangular main with the existing
+one-divisor geometric lemma applied to `g`, splitting `g>=H` and `g<H`; bound
+the discrepancy by the discrete `L1` norm of `K_I`.  The predicted normalized
+Schur loss for the count error is `H U^2 log(m)/m=N^(-.19+o(1))` at the
+project exponents.  Every factor, the centering correction, and the sampled
+Fejer remainder must be checked before promotion.  The active same-row,
+shifted-row, d>1, and signed Goldbach estimates remain OPEN; no process runs.
