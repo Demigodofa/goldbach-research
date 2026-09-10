@@ -35,7 +35,53 @@ separate; do not manually arm another wake. Reassess each next pursuit.
 ## Checkpoint and first reads
 
 Repo: `C:/Users/benja/source/repos/Demigodofa/goldbach-research`, branch `main`.
-Latest reviewed RESEARCH commit: **b42ab25**, in weighted_detector_mask_bridge.py:
+Latest reviewed RESEARCH commit: **45f87c0**, in high_detector_weighted_bridge.py:
+the remaining H-weighted HIGH exterior is now paid. Consequently ALL
+previously removed zeros have all-log-small H-weighted energy, and the
+actual central survivor field satisfies
+ theta*Z_(H,R)=-theta*P_(h*Lambda)/sqrtN+O_L2,A(logN^-A)
+for every fixed A. The bad cofactor mask and smoothing stay in h.
+This closes the weighted deletion error in this transfer, NOT the
+inverse problem, signed prime correlation, or Goldbach coverage.
+
+The old zero-saving corner beta=5/6,h=2/5 is repaired by the known
+Ivic density bound A(sigma)<=3/(2sigma), verified in TTY2501.16779v1
+Table2 p33 and the author-maintained ExpDB Corollary11.31. Its base
+energy exponent is-19/300, so square/cube Holder gives-3/200,-1/50
+before epsilon, instead of the old Huxley ZERO. No actual zero there
+is asserted. Use this epsilon-loss source ONLY on compact[4/5,7/8):
+750 fixed bins, epsilon1/10000, all losses paid, energy N^-1/200 L153.
+For beta>=7/8 use retained LOG-POWER Huxley and relative u bins
+(.99v,v], v=(1/8)*.99^j. The worst exponent after weight loss is
+-17v/325<-v/20. VK and O(loglogN) bins give stretched-exponential
+decay in logN. Never replace that step with fixed epsilon/bins.
+
+The lower high strip[19/25,4/5) is paid at N^-1/400 times logs.
+The corrected source Gamma recurrence extends uniformly to delta
+in[.26,.3], licensing the restricted Type II count. Its bad powers
+6,5,4,3/2 now switch at h=.39; the OLD .38 switch fails here.
+For non-Type-II zeros, GM plus each full good-polynomial moment
+gives a weighted saving; k>=2 and convexity pay even p=.82.
+The exact signed detector equation then pays H_N, including its
+constant term. It requires no new detection predicate on this strip.
+
+The actual newly weighted one-coordinate J contribution is all-log
+small, including J-minus-beta and endpoint errors. Independent Sol
+theory/actual-file PASS; eight guards normal0.101s/-O0.083s.
+Pursuit started2026-09-10 01:08:59UTC, reassessed01:22:55UTC: progress.
+
+Next concrete question: can the survivor disk Re H_N<=-1/4 support
+a coercive inequality for the actual packet synthesis or reflected
+pairing? First test the exact finite Gram form: negative multiplier
+values on individual copies need not imply a negative operator when
+the packets overlap. If the disk alone fails, preserve that precise
+limitation and express the missing term using the actual common
+Dirichlet polynomial and its prime-product transfer. Test whether the
+checked moments pay that term; do not silently assume a bounded
+inverse, rename the original correlation as a proof, or infer a
+barrier for all polynomial tools. This is UNREVIEWED, fresh <=30min.
+
+Previous **b42ab25**, in weighted_detector_mask_bridge.py:
 the FULL H_N-weighted removed middle strip and LOW exterior are now
 paid. All middle Type II copies have weighted energy N^-1/125 times
 logs, using pure moments at their actual lengths and360 fixed beta bins.
@@ -50,16 +96,16 @@ ACTUAL J sum has central exponent7489/7500, finite-period3557/3750,
 and beta-endpoint-3193/3750. All new complex-weight errors are paid.
 The exact central L2 survivor bridge is now
 Z_(H,R)=-P_(h*Lambda)/sqrtN-Z_(H,beta>=19/25)+small.
-ONLY the H-weighted HIGH exterior remains unpaid in this bridge.
-Even paying it would not by itself prove the signed prime correlation.
-Next concrete test: try the high exterior against actual applicable
+At that checkpoint ONLY the H-weighted HIGH exterior remained unpaid;
+45f87c0 above now pays it. The signed prime correlation remains open.
+The completed test examined the high exterior against actual applicable
 density and pure/mixed moments. Test the critical corner beta=5/6,
 bad length exponent h=2/5 FIRST: retained Huxley gives base energy
 exponent-1/30, whereas H^2 and H^3 moments give+1/30 and+1/15,
 so the natural Holder combinations reach ZERO, not a saving. Verify
 the strongest applicable primary density input before treating this
 as a method limitation. No actual zero at that corner is asserted.
-Preserve this as an unreviewed next test, fresh <=30 minutes.
+This test is completed above; do not repeat the old corner experiment.
 Previous **5b7dd4e**, in mixed_detector_weighted_mask.py:
 mixed products D_M^r D_H^s, at their ACTUAL length M^r H^s in
 [N41/50,N49/50], pay the H-weighted energy on good-M detected zeros.
@@ -3901,7 +3947,7 @@ historical detail is in RESEARCH_GOAL.md and the owning proof modules.
 
 Windows PowerShell, background shell/API only. `python`3.11 works; `py`
 was unavailable. Use explicit repo workdir. No sandbox override arguments.
-Latest tests: `python -m unittest test_weighted_detector_mask_bridge` (eight guards) and
+Latest tests: `python -m unittest test_high_detector_weighted_bridge` (eight guards) and
 the same with `python -O`; rerun only if changes or new concerns justify it.
 
 Latest Sol reviewer was `/root/sieve_review`; the earlier formal reviewer

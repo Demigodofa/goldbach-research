@@ -4204,3 +4204,58 @@ copy count and beta range before using it. Near beta=1 a fixed bin
 width or fixed source epsilon can overwhelm the zero-free saving;
 retain the known log-power/Vinogradov--Korobov boundary. This next
 high-exterior hypothesis is UNREVIEWED and gets a fresh <=30 minutes.
+
+### 2026-09-10: high weighted exterior paid; survivor transfer closed
+
+Pursuit01:08:59--01:22:55UTC, reassessment: progress. Research commit
+45f87c0, high_detector_weighted_bridge.py. The old Huxley zero-saving
+corner was not a barrier: a stronger KNOWN Ivic density estimate gives
+base energy-19/300 at beta5/6, hence square/cube Holder-3/200,-1/50.
+Primary research source TTY2501.16779v1 Table2 p33 and its authors'
+maintained ExpDB Corollary11.31 were checked. No novelty/priority claim.
+
+On[4/5,7/8), pure bad powers6,5,4,3 plus that epsilon-loss density,
+750 fixed bins and fixed epsilon1/10000 give weighted energy
+N^-1/200 L153. On beta>=7/8 use classical Huxley LOG powers with
+relative u bins(.99v,v]; exponent-47v/650 plus v/50 becomes
+-17v/325<-v/20. VK and O(loglogN) bins give all-log decay.
+No fixed epsilon is used near1.
+
+On[19/25,4/5), the source Type II proof extends with corrected
+negative Gamma argument, uniform delta in[.26,.3], existing mollified
+fourth moment and copy count. Pure moments now switch at h=.39;
+the old .38 switch would leave a positive cost. Four hundred fixed
+bins preserve N^-1/400. On non-II copies, GM plus EVERY good
+polynomial's full moment gives the same saving: licensedk>=2, p<.9
+uses convexity with worst-11/3500, and p>=.9 is easier. The bin
+and source loss29/100000 is paid. The signed equation H=-A-1+I+small
+then controls H, including the constant term. No detection predicate
+or arbitrary masked arithmetic norm is assumed.
+
+Thus the entire high H-weighted energy is at most fixed logs times
+N^-1/400+exp(-c(logN)^(1/3)/(loglogN)^(1/3)). Together with the
+previous middle/low bounds, ALL removed H-weighted zeros are paid.
+The exact central norm relation is now
+ theta*Z_(H,R)=-theta*P_(h*Lambda)/sqrtN+O_L2,A(logN^-A).
+The bad mask and smoothing remain in h. The new one-coordinate
+actual J contribution of removed copies is all-log small; its
+weighted J-minus-beta and beta endpoint errors are separately paid.
+
+Independent Sol theory and actual-file PASS, no material correction.
+Eight new guards normal0.101s/-O0.083s. No old experiment repeated,
+numerical zero campaign, push, manuscript, publication or manual wake.
+Earlier source corrections, runtime limits and polynomial components
+remain. The overall goal stays ACTIVE and mathematically OPEN; no
+post-stop execution is claimed.
+
+Next concrete test: does the survivor disk Re H<=-1/4 yield a
+coercive inequality for the actual Gram synthesis or reflected pair?
+First test the proposed inference in the exact finite Gram form,
+including off-diagonal packet overlap. If disk information alone
+fails, identify the precise missing term with the actual common H
+and prime-product transfer, then test it against retained moments.
+Falsifier: an unpaid commutator/inverse/correlation term, or a finite
+countermodel to the disk-only implication; such a model is not an
+actual-zero counterexample or an all-method impossibility. Do not
+promote pointwise bounded reciprocals into an operator bound. Fresh
+<=30min; this next hypothesis is UNREVIEWED.
