@@ -5336,3 +5336,61 @@ coefficient reconstruction, single-mode maximizer, flat-phase coordinate
 updates, deterministic starts, all receipts, and normal/optimized tests.  The
 next proof obligation is still the centering correction; shifted rows, `d>1`,
 and the signed Goldbach correlation remain OPEN.
+
+## 2026-09-10: same-row near-cutoff active/full inequality is proved
+
+For one complete row write the raw progression transform as `r_a(h)`, its
+weight sum as `S_a`, and the centered transform as
+`u_a(h)=r_a(h)+S_a/(m-1)`.  If `Q_a=sum_(h in I)r_a(h)`, the centering
+matrix is exactly
+
+`C_(a,b)=(1-rho){S_a*conj(Q_b)/(m-1)+S_b*Q_a/(m-1)
+                 +|I|S_aS_b/(m-1)^2}`.
+
+The progression contains at most `m/a+1` terms, all on distinct residues
+modulo the prime `m`.  With `L_a=log(ml/a)` and `W_a=L_a+1/l`,
+
+`S_a<=(m/a+1)W_a`,
+`|Q_a|<=4m(1+log m)W_a`.
+
+After division by the geometric mean of the rho-weighted totient frames and
+Schur summation, `active_centering_schur_bound.py` proves
+
+`||C||_(rho F)
+ <<_eps N^eps{H U log(m)/m*(1+U/m)+1/m}`.
+
+At `H=N^.1,U=N^.15,m=N^.59` its leading exponent is `-.34+eps`, so the
+centering correction is `o(1)`.  The uniform explicit certificates over all
+saved near-cutoff rows are `4.76675,2.45576,2.34078` at
+N=`32000,200000,1200000`; direct exact centering norms are orders of magnitude
+smaller.  The deliberately off-exponent H=120,U=384 stress has a loose bound
+`231.90` against exact `.01113`; it does not contradict the project-exponent
+theorem.
+
+`near_cutoff_active_frame_theorem.py` now assembles the compatible identity
+
+`A_exact_centered=M_triangular+D_CRT+C_centering`.
+
+The triangular term is `O_eps(N^eps(1+H^2/m))`; the CRT discrepancy is
+`O_eps(N^eps[H U^2 log(m)/m+H log(m)/l])`; and the centering bound is above.
+Therefore every same complete near-cutoff row satisfies
+
+`A_exact_centered <= O_eps(N^eps) rho F`.
+
+The previously proved full-frequency lower frame gives `G_full>=F/2` for all
+sufficiently large N.  Hence
+
+`A_exact_centered <= O_eps(N^eps) rho G_full`,
+
+which proves the exact active/full matrix inequality for the same-row
+near-cutoff divisor band.  Positive `(log m)^2/m` weights allow direct
+summation over every project prime and row.
+
+Independent review PASSed the centering identity, counts, distinct-residue
+argument, kernel bound, normalization, asymptotic exponent, exact comparisons,
+and the integration of all three matrices.  Fifteen linked tests pass in
+normal and optimized modes with warnings treated as errors.  This is a real
+same-row closure.  It does not control shifted row pairs, `d>1`, or the
+remaining signed Goldbach prime-correlation estimate.  The next concrete
+question is whether the same CRT/Dirichlet representation extends to a fixed
+nonzero row shift without losing a factor equal to the number of rows.
