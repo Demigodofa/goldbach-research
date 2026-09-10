@@ -5165,3 +5165,19 @@ Independent review PASSed every inequality, asymptotic exponent, receipt, and
 test.  This closes the same-row full-frequency denominator lower frame only.
 The next obstruction is the active cross-divisor numerator normalized by this
 frame; shifted rows, d>1, and signed Goldbach cancellation remain OPEN.
+
+### 2026-09-10: active numerator passes the proven-frame finite gate
+
+The exact active Gram normalized by the totient frame has largest
+eigenvalues `1.765,4.211,2.815,4.220,3.348` across the five saved aggregate
+bands; absolute Schur bounds are `1.766,4.211,2.817,4.225,4.113`.  Larger-H
+single-prime stresses through H=20 and 39 divisors have eigenvalue at most
+`6.196` and Schur bound at most `6.252`.
+
+No tested coefficient resonance grows like the divisor count.  Wider bands
+do contain individual off-diagonal-heavy rows, so uniform near-diagonality is
+not inferred.  Independent review PASSed the exact weights, normalization,
+receipts, and scope.  This remains finite evidence.  Next decompose active
+off-diagonal entries into equality collisions, unequal differences, and
+centering to locate the observed cancellation.  Shifted rows, d>1, and the
+signed estimate remain OPEN.

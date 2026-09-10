@@ -5360,3 +5360,42 @@ totient frame and seek a Schur or arithmetic feature bound of size
 `rho_m~1/H` denominator factor; cross-divisor absolute row sums are the exact
 remaining same-row obstruction.  Growth like `V` is the falsifier.  No
 process runs.
+
+## 2026-09-10: active Gram remains bounded against the totient frame
+
+`active_totient_frame_probe.py` tests the exact sufficient same-row estimate
+
+`sum_(m,l) (log m)^2/m*(1-rho_m)
+ sum_(h in I_m)|sum_a c_a u_(a,m,l)(h)|^2
+ <=C_eps N^eps sum_(m,l) (log m)^2/m*rho_m
+ sum_a |c_a|^2 m^2 log(ml/a)^2 phi(a)/a^2`.
+
+The right side is the proven positive frame `F`.  Since the exact full Gram
+`P>=cF` in the near-cutoff band, proving `A<=C F` would imply
+`A<=(C/c)P`.  The probe records both the optimal eigenvalue of
+`F^(-1/2)AF^(-1/2)` and its absolute Schur row-sum bound.
+
+For the five prime-averaged saved bands `(N,U)=(32000,4)` and
+`(200000,6),(200000,12),(200000,24),(200000,48)`, the
+`(largest eigenvalue,Schur bound)` pairs are
+`(1.76509,1.76597)`, `(4.21138,4.21140)`, `(2.81495,2.81730)`,
+`(4.21984,4.22542)`, and `(3.34831,4.11269)`.  Fixed-Mobius quotients are
+`.614--1.498`.
+
+The single-prime H=5,10,14,20 stresses give
+`(.06546,.07231)`, `(5.09816,5.16923)`, `(4.31504,4.35871)`, and
+`(6.19621,6.25238)`.  Thus no eigenvalue or Schur bound grows like the tested
+divisor counts through `K=39`.  Some wider-band rows have off-diagonal mass
+near one: the data do not show uniform entrywise near-diagonality.  Precisely,
+the row with maximum off-diagonal mass need not be the row with maximum
+diagonal or total row sum.
+
+Independent review PASSed all ranges, weights, progression orientation,
+normalization, Mobius/eigen/Schur receipts, logical sufficiency, tests, and
+scope.  Status `aha-candidate`, new-to-this-task.  This is finite evidence,
+not an active-frame theorem.  Next concrete question: decompose each active
+off-diagonal entry into equal-integer collision, unequal-difference Dirichlet
+kernel, and centering pieces.  Determine whether the small total comes from
+rarity of collisions or cancellation between large components.  Component
+growth like `V` without cancellation is the falsifier.  Shifted rows, d>1,
+and the full signed Goldbach estimate remain OPEN; no process runs.
