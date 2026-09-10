@@ -5025,3 +5025,50 @@ comes from individually paid factor-diagonal blocks or signed interaction
 between divisor ranges.  A positive diagonal block of principal size is the
 falsifier.  Polynomial identities remain available as components.  The full
 signed Goldbach estimate remains OPEN; no process runs.
+
+## 2026-09-10: the active factor diagonal changes sign
+
+`mobius_active_factor_probe.py` partitions every divisor `V<a<=N` into exact
+dyadic bands and expands the remaining active term `D_j` bilinearly.  The
+sum of the factor diagonal and all ordered cross-band entries exactly
+reconstructs `D_j`.  The implementation computes the total from the summed
+bands and each diagonal entry separately, avoiding an unnecessary quadratic
+factor-matrix output.
+
+Normalized by the same H^-1 Cauchy budget `P_j`, the lag-1 split is:
+
+`N=32000,A=9`: diagonal `-.0793409`, cross `+.0823093`, total `+.00296848`;
+
+`N=200000,A=19`: diagonal `+.0766459`, cross `-.0651421`, total `+.0115038`;
+
+`N=200000,A=30`: diagonal `+.0767580`, cross `-.0665368`, total `+.0102211`;
+
+`N=1200000,A=39`: diagonal `+.0287434`, cross `-.0259575`, total `+.00278596`.
+
+Thus the factor diagonal is not sign-definite.  No positive diagonal is close
+to principal size in these runs: the largest sum of positive aggregate
+factor-band diagonals is `.08415*P_j`.  Other blocks can have much larger
+negative diagonal and positive cross pieces; at N=200000,A=30,lags 4--7 they
+are `-.374806` and `+.358400`.  The signed recombination still matters.
+
+At N=200000,A=19 the first divisor band `(V,2V]=(6,12]` dominates several
+diagonal signs: `+.066887` at lag 1, `-.167563` at lags 4--7, and `+.049600`
+at lags 8--15.  This points to the near-cutoff divisor progression as the next
+arithmetic object; it is finite evidence, not a dominance theorem.
+
+Two guards pass normally and optimized.  Independent review PASSed exact band
+coverage, tail reconstruction, linear centering, active coefficient, ordered
+factor expansion, diagonal-only equivalence and normalization.  The original
+full K^2 diagnostic was stopped as redundant after about five minutes; the
+exact linear-cost N=1200000 run still took about four minutes, so N=200000 is
+the routine factor-resolution ceiling.  No process remains.  Status
+`changed-under-evidence`: reject a diagonal-sign proof, retain a possible
+componentwise magnitude bound and the exact factor expansion.
+
+Next concrete question: for the dominant near-cutoff band `V<a<=2V`, expand
+its residue transform as arithmetic progressions in r.  Test whether the
+geometric denominator `||h*a/m||` supplies the missing active-band saving
+after the h and prime-m averages.  A positive-density set with
+`||h*a/m||<<a/m` and principal-size weighted energy falsifies this mechanism.
+Polynomial/logarithmic weights remain available through partial summation.
+The same-row, d>1 and full signed Goldbach estimates remain OPEN.

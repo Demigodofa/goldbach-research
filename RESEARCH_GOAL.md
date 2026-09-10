@@ -5022,3 +5022,24 @@ independent review PASS.  Status `aha-candidate`, new-to-this-task.  Next split
 `D_j` by dyadic Mobius-divisor ranges and test its factor diagonal before any
 absolute values.  A principal-size positive diagonal falsifies that route.
 The same-row, d>1 and full signed Goldbach estimates remain OPEN.
+
+### 2026-09-10: factor-diagonal sign fails, near-cutoff band survives
+
+The active dyadic remainder `D_j` was expanded exactly over dyadic Mobius
+divisor ranges.  Its factor diagonal changes sign: the lag-1 diagonal/P_j is
+`-.07934` at N=32000, `+.07665` at N=200000,A=19, `+.07676` at A=30, and
+`+.02874` at N=1200000.  Cross-band terms nearly reverse those values, leaving
+the previously measured totals `.00297,.01150,.01022,.00279`.
+
+No positive diagonal is principal-size in these finite runs; the largest sum
+of positive band diagonals is `.08415*P_j`.  At N=200000 the near-cutoff band
+`V<a<=2V` dominates several signs, making its exact residue progression the
+next target.  Independent review and two normal/optimized guards PASS.  A
+redundant full matrix run was stopped; even the linear-cost exact N=1200000
+case takes about four minutes, so N=200000 is the routine ceiling.  Status
+`changed-under-evidence`.
+
+Next test whether geometric cancellation in the near-cutoff progressions,
+quantified by `||h*a/m||`, survives the h and prime-m averages.  Resonant
+positive density is the falsifier.  Polynomial/log weights remain usable by
+partial summation.  The same-row, d>1 and signed Goldbach gaps remain OPEN.
