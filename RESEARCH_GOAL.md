@@ -4618,3 +4618,22 @@ guards pass normally and optimized. Independent review PASS after correcting
 the initially wrong q/H..2q/H band. Status `changed-under-evidence`. Next test
 the exact frequency-pair diagonal for the fixed prime-log coefficients and
 large-prime moduli, preserving long endpoints and q^-1 weights.
+
+### 2026-09-10: frequency spacing alone is overcrowded
+
+Already for d=1, the exact rational subband m/(6H)<h<m/(4H) lies inside the
+correct angular band and contains `M^2/(H log M)=N^(1.08+o(1))` distinct
+fractions h/m. There are only O(N/H)=N^.9 cells of width 1/(100N), so one
+cell has `>>M^2/(N log M)=N^(.18+o(1))` members. Its length-N exponentials
+are nearly parallel. The Gram operator pays this cluster multiplicity; under
+the actual q^-1=m^-1 weight, cluster and single-frequency scales are
+c*R*N/M and N/M, so the relative loss remains R. The .18 crowding exceeds
+the desired .10 gain.
+
+At N=120000,H=3,M=990 an exact finite check found 5414 distinct frequencies
+and a width-1/N cluster of 10. Four guards pass normally and optimized;
+independent review PASS. Status `changed-under-evidence`. This rejects only a
+generic spacing/minimum-gap large-sieve proof, not the fixed centered
+prime-log inequality. Next test a sourced Vaughan/Heath--Brown expansion in
+the p-variable against the dense m,h cluster, retaining the full-minus-low
+correction and long endpoints.

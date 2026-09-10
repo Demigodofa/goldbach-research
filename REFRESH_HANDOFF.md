@@ -4317,3 +4317,37 @@ large prime factors force enough spacing after the exact Ramanujan main is
 removed, or whether a near-collision family still has full large-sieve size.
 Keep the long interval family and q^-1 Parseval weights; do not reintroduce
 arbitrary chirp coefficients.
+
+## 2026-09-10: large-prime frequencies are distinct but overcrowded
+
+`active_frequency_spacing_gate.py` falsifies denominator spacing as the sole
+proof of the active-band conjecture. It already fails with d=1. Restrict to
+the exact rational subband `m/(6H)<h<m/(4H)`, which lies inside the corrected
+angular band because 2*pi>6 and pi<4. Fractions h/m with distinct prime
+denominators m are exactly distinct: equality would force m|h, impossible
+for 0<h<m.
+
+They are nevertheless too dense at the relevant resolution. PNT gives
+`K asymp M^2/(H log M)=N^(1.08+o(1))` frequencies in an interval of length
+1/(12H). Partitioning into width 1/(100N) cells forces a cluster of size
+`>>M^2/(N log M)=N^(.18+o(1))`. After rephasing on a length-N interval, its
+exponentials have pairwise phase drift at most 2*pi/100. The unweighted Gram
+top eigenvalue is at least c*R*N for cluster size R. With the actual d=1
+weight q^-1=m^-1 it is c*R*N/M versus single-frequency N/M, so the relative
+crowding loss remains R. This .18 loss exceeds the desired .10 energy gain.
+
+An exact finite shape check at N=120000,H=3,M=990 found 5414 distinct
+frequencies and a width-1/N cell containing 10. Four guards pass normally
+and optimized; independent review PASS after the weighted normalization was
+made explicit. Status `changed-under-evidence`. This does NOT falsify the
+fixed positive prime-log energy conjecture: its centered coefficients and
+opposite-prime arithmetic may cancel a dense cluster. It does rule out a
+generic coefficient large sieve based only on minimum spacing.
+
+Next bounded question: use the fixed prime coefficient rather than frequency
+geometry alone. Expand the centered prime exponential sum with a sourced
+Vaughan/Heath--Brown identity in the p-variable and test the resulting Type I
+and Type II exponent budgets across the dense m,h cluster. Preserve the exact
+full-minus-low correction and long interval endpoints. A Type I modulus above
+the licensed distribution level or a Type II diagonal of size N^.18 is the
+falsifier.
