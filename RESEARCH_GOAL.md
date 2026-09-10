@@ -5256,3 +5256,45 @@ normalization, exponent, receipt, and test; standalone APIs were tightened to
 reject composite moduli.  The triangular main is closed.  Endpoint/log CRT
 discrepancy and centering remain OPEN, along with shifted rows, d>1, and the
 signed Goldbach estimate.
+
+## 2026-09-10: CRT pair discrepancy satisfies the active frame bound
+
+Let `S={m*l+1,...,m*l+m-1}`, `R=m-1`, `g=gcd(a,b)`,
+`q=lcm(a,b)`, and `L_a=log(m*l/a)`.  If `C_(a,b)(r)` is the exact
+log-weighted number of pairs in `S` with difference `r`, divisible by `a`
+and `b` respectively, its triangular model is
+
+`C0_(a,b)(r)=1_(g|r)(R-|r|)L_aL_b/q`, `|r|<R`.
+
+CRT and endpoint log variation give the exact uniform error
+
+`|C_(a,b)(r)-C0_(a,b)(r)|
+ <=1_(g|r){L_aL_b+(m/q+1)[(L_a+L_b)/l+1/l^2]}`.
+
+For the two-interval active set, the discrete Dirichlet kernel satisfies
+`sum_(s mod m)|K_I(s)|<=4m(1+log m)`.  Since each residue has at most two
+signed representatives with `|r|<R`, the exact normalized entry majorant for
+the raw exact-minus-triangular matrix `D` is
+
+`|D_(a,b)|/[rho*m^2*L_a*L_b*sqrt(phi(a)phi(b))/(ab)]
+ <=8(1-rho)m(1+log m)
+ {L_aL_b+(m/q+1)[(L_a+L_b)/l+1/l^2]}
+ /[rho*m^2*L_a*L_b*sqrt(phi(a)phi(b))/(ab)]`.
+
+Schur and the dyadic gcd/divisor sums therefore prove
+
+`||D||_(rho F)
+ <<_eps N^eps{H U^2 log(m)/m+H log(m)/l}`.
+
+At the project exponents `H=N^.1`, `U=N^.15`, `m=N^.59`, `l=N^.41`, the
+two terms are `N^(-.19+eps)` and `N^(-.31+eps)`.  Thus the raw CRT
+pair-count discrepancy is `o(1)` against the totient frame.  Exact finite
+Schur certificates are `66.01,44.75,44.80` over all saved near-cutoff rows at
+N=`32000,200000,1200000`; their looseness is harmless to the asymptotic
+statement.
+
+Independent review PASSed the signed ranges, CRT count, log error, two-
+interval kernel constant, signed-representative factor, frame normalization,
+Schur step, exponents, receipts, and normal/optimized tests.  This closes the
+raw exact-minus-triangular discrepancy.  The centering correction remains
+OPEN, as do shifted rows, `d>1`, and the signed Goldbach correlation.
