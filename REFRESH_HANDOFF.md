@@ -6283,3 +6283,34 @@ coefficient family rather than inspect only lag minimizers.  If that remains
 small, seek the coefficient-uniform arithmetic second-moment estimate needed
 to use the lemma asymptotically.  The all-lag transfer, assembly beyond
 `.295-delta`, and signed prime correlation remain OPEN.
+
+## 2026-09-10: blanket uniform-variance route is falsified finitely
+
+The probe now maximizes relative row-ratio variance over its entire sampled
+adversarial coefficient family, not only over the vectors minimizing a lag
+quotient.  With two fixed primes, 16 fixed rows, lag block `8<=Delta<16`, and
+divisor upper cutoffs `32,64,96,128,160,192,224,256`, the maximum sampled
+relative variances were respectively
+
+`.000310,.002192,.005556,.009554,.014994,.033187,.073384,.119068`.
+
+At cutoff 320 the value reached `.162314`; the vector's aggregate ratio was
+`.393519`, its row ratios ranged from `.076555` to `.581687`, and `.232429`
+of its frame mass lay below half the mean.  Thus coefficient-uniform tiny
+variance is not a credible blanket asymptotic mechanism.
+
+This does not falsify the lag inequality.  The variance maximizers at cutoffs
+256 and 320 had actual lag quotients `.344242` and `.389137`, far above the
+tested lag minima `.137316` and `.132195`.  Their variance certificates were
+zero because the deterministic graph lemma is sufficient but deliberately
+coarse.  High variance and low lag quotient did not occur in the same tested
+vector.
+
+Independent review reproduced the fixed-geometry sweep and PASSed the
+candidate-family maximum, lag evaluation, scope labels, and nine tests in
+normal and optimized modes.  Preserve the graph lemma and the observation
+that low-lag vectors remain uniform, but abandon a theorem demanding tiny
+variance for every coefficient vector.  The next concrete route is a direct
+lag operator lower bound, or a variance statement localized to the low
+aggregate-energy cone.  Complete assembly remains `.295-delta`; the all-lag
+transfer and signed prime correlation remain OPEN.

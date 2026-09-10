@@ -5752,3 +5752,21 @@ narrow.  Order-one or divisor-range-growing variance is the falsifier.  If it
 does not occur, formulate the exact arithmetic second-moment operator bound.
 The assembled exponent remains `.295`, and the signed prime correlation is
 open.
+
+## 2026-09-10 continuation: uniform variance is too strong
+
+A fixed two-prime, 16-row sweep found the maximum sampled relative row-ratio
+variance rising from `.00031` at divisor cutoff 32 to `.11907` at 256 and
+`.16231` at 320.  Independent review reproduced the results.  The high
+variance vectors retained lag quotients `.34424` and `.38914`, while the
+actual tested lag minima were `.13732` and `.13220`; the two threats did not
+coincide.
+
+The deterministic variance-to-graph lemma remains proved, but requiring tiny
+variance for every coefficient vector is abandoned.  Preserve the possible
+low-energy-cone version.  The next 30-minute hypothesis is that the scalar
+geometric means can be minorized directly by matrix geometric means, turning
+the whole lag numerator into one positive quadratic operator whose generalized
+eigenvalue can be tested against the arithmetic-mean frame denominator.  A
+zero or rapidly collapsing eigenvalue falsifies that route.  No assembled
+range beyond `.295` is claimed.

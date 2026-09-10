@@ -205,7 +205,7 @@ def all_lag_frame_transfer_probe(
             max(exact_rows) / aggregate_exact_energy,
         )
 
-    def row_ratio_statistics(coefficients, lag_first, lag_stop):
+    def row_ratio_data(coefficients):
         ratios = []
         vertex_weights = []
         frame_energies = {}
@@ -218,8 +218,27 @@ def all_lag_frame_transfer_probe(
             frame_energies[key] = frame_energy
             ratios.append(exact_energy / frame_energy)
             vertex_weights.append(weight * frame_energy)
-        ratios = np.array(ratios)
-        vertex_weights = np.array(vertex_weights)
+        return (np.array(ratios), np.array(vertex_weights),
+                frame_energies, key_indices)
+
+    def basic_row_ratio_statistics(ratios, vertex_weights):
+        mean = float(np.average(ratios, weights=vertex_weights))
+        variance = float(np.average(
+            (ratios - mean) ** 2, weights=vertex_weights))
+        return {
+            "frame_weighted_row_ratio_mean": mean,
+            "frame_weighted_row_ratio_variance": variance,
+            "row_ratio_relative_variance": variance / mean ** 2,
+            "minimum_row_exact_over_frame": float(np.min(ratios)),
+            "maximum_row_exact_over_frame": float(np.max(ratios)),
+            "frame_weight_below_half_mean_fraction": float(
+                np.sum(vertex_weights[ratios < mean / 2])
+                / np.sum(vertex_weights)),
+        }
+
+    def row_ratio_statistics(coefficients, lag_first, lag_stop):
+        (ratios, vertex_weights,
+         frame_energies, key_indices) = row_ratio_data(coefficients)
         edges = []
         for modulus in moduli:
             weight = row_data[(modulus, ell_first)][0]
@@ -234,22 +253,25 @@ def all_lag_frame_transfer_probe(
                             frame_energies[left] * frame_energies[right])))
         graph = weighted_geometric_variance_bound(
             ratios, vertex_weights, edges)
-        mean = graph["weighted_vertex_mean"]
-        variance = graph["weighted_vertex_variance"]
         return {
-            "frame_weighted_row_ratio_mean": mean,
-            "frame_weighted_row_ratio_variance": variance,
-            "row_ratio_relative_variance": variance / mean ** 2,
-            "minimum_row_exact_over_frame": float(np.min(ratios)),
-            "maximum_row_exact_over_frame": float(np.max(ratios)),
-            "frame_weight_below_half_mean_fraction": float(
-                np.sum(vertex_weights[ratios < mean / 2])
-                / np.sum(vertex_weights)),
+            **basic_row_ratio_statistics(ratios, vertex_weights),
             "variance_graph_degree_factor": graph["edge_degree_factor"],
             "variance_graph_lower_bound": graph["variance_lower_bound"],
             "variance_graph_actual_quotient":
                 graph["weighted_edge_geometric_mean"],
         }
+
+    sampled_variances = []
+    for name, coefficients in candidates:
+        ratios, vertex_weights, _, _ = row_ratio_data(coefficients)
+        sampled_variances.append((
+            basic_row_ratio_statistics(ratios, vertex_weights),
+            name, coefficients))
+    sampled_variances.sort(
+        key=lambda item: item[0]["row_ratio_relative_variance"],
+        reverse=True)
+    (maximum_variance_statistics, maximum_variance_name,
+     maximum_variance_coefficients) = sampled_variances[0]
 
     def lag_value_gradient(coefficients, lag_first, lag_stop):
         """Return Q_J and its real gradient on complex coefficient space."""
@@ -314,6 +336,10 @@ def all_lag_frame_transfer_probe(
                         refined, lag_first, lag_stop)
                     best = (quotient, f"nonlinear_from_{start[1]}",
                             aggregate_ratio, concentration, refined)
+        variance_maximum_lag = lag_quotient(
+            maximum_variance_coefficients, lag_first, lag_stop)[0]
+        variance_maximum_graph = row_ratio_statistics(
+            maximum_variance_coefficients, lag_first, lag_stop)
         blocks.append({
             "lag_range": (lag_first, lag_stop - 1),
             "minimum_sampled_exact_over_frame_lag_budget": sampled_minimum,
@@ -323,6 +349,10 @@ def all_lag_frame_transfer_probe(
             "candidate_max_weighted_row_energy_fraction": best[3],
             "nonlinear_total_accepted_steps_across_starts": accepted_steps,
             "nonlinear_improvement": sampled_minimum - best[0],
+            "variance_maximizer_exact_over_frame_lag_budget":
+                variance_maximum_lag,
+            "variance_maximizer_graph_lower_bound":
+                variance_maximum_graph["variance_graph_lower_bound"],
             **row_ratio_statistics(best[4], lag_first, lag_stop),
         })
     return {
@@ -334,6 +364,18 @@ def all_lag_frame_transfer_probe(
         "divisor_count": len(divisors),
         "aggregate_exact_over_frame_minimum": aggregate_minimum,
         "candidate_count": len(candidates),
+        "maximum_sampled_row_ratio_relative_variance":
+            maximum_variance_statistics["row_ratio_relative_variance"],
+        "variance_maximizing_candidate": maximum_variance_name,
+        "variance_maximizer_aggregate_exact_over_frame":
+            maximum_variance_statistics["frame_weighted_row_ratio_mean"],
+        "variance_maximizer_minimum_row_exact_over_frame":
+            maximum_variance_statistics["minimum_row_exact_over_frame"],
+        "variance_maximizer_maximum_row_exact_over_frame":
+            maximum_variance_statistics["maximum_row_exact_over_frame"],
+        "variance_maximizer_frame_weight_below_half_mean_fraction":
+            maximum_variance_statistics[
+                "frame_weight_below_half_mean_fraction"],
         "gradient_step_limit": gradient_steps,
         "gradient_start_limit": gradient_starts,
         "lag_blocks": tuple(blocks),

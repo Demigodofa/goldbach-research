@@ -38,6 +38,19 @@ class AllLagFrameTransferProbeTests(unittest.TestCase):
             (101, 103), 3, 5, 6, 3, 14,
             ((1, 2), (3, 6)), random_trials=8, random_seed=7)
         self.assertGreaterEqual(receipt["candidate_count"], 16)
+        self.assertGreaterEqual(
+            receipt["maximum_sampled_row_ratio_relative_variance"], 0)
+        self.assertIn("variance_maximizing_candidate", receipt)
+        self.assertGreater(
+            receipt["variance_maximizer_aggregate_exact_over_frame"], 0)
+        self.assertGreaterEqual(
+            receipt[
+                "variance_maximizer_frame_weight_below_half_mean_fraction"],
+            0)
+        self.assertLessEqual(
+            receipt[
+                "variance_maximizer_frame_weight_below_half_mean_fraction"],
+            1)
         self.assertEqual(len(receipt["lag_blocks"]), 2)
         for block in receipt["lag_blocks"]:
             self.assertGreater(
@@ -54,6 +67,12 @@ class AllLagFrameTransferProbeTests(unittest.TestCase):
             self.assertLessEqual(
                 block["variance_graph_lower_bound"],
                 block["minimum_tested_exact_over_frame_lag_budget"] + 1e-12)
+            self.assertGreater(
+                block["variance_maximizer_exact_over_frame_lag_budget"], 0)
+            self.assertLessEqual(
+                block["variance_maximizer_graph_lower_bound"],
+                block["variance_maximizer_exact_over_frame_lag_budget"]
+                + 1e-12)
         self.assertFalse(receipt["weighted_all_lag_lower_frame_proved"])
 
     def test_seeded_probe_is_reproducible(self):
