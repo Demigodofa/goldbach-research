@@ -4544,3 +4544,7 @@ Review correction for the balanced Vaughan test: its Type-II support calculation
 ### 2026-09-10: companion Vaughan scale test reviewed
 
 For the actual residual a_B(n_core)*Lambda(m), Vaughan applied to the long companion m~N^.59 yields a linear triple-convolution scale x=n*a in [.41,.6595], with free factor b in [.3405,.59] and x*b~N. The balanced Type-II factors begin at .2495, giving n*a,n*b at least .6595. This is only scale bookkeeping and proves no correlation estimate. Independent review corrected the earlier double-counting. Next question remains a sourced estimate for this linked bilinear form, with all free factors and endpoints retained.
+
+### 2026-09-10: actual companion Vaughan has no Type II term
+
+The scale picture above is only hypothetical composite support. In the paid prime-only replacement used by the actual residual, m is prime. Its exact Vaughan expansion has only the trivial-divisor linear term log m; the low, subtracted and Type-II terms vanish. Six exact guards pass normally and optimized, and independent review PASS. The proposed dispersion pursuit therefore returned `changed-under-evidence`: it dissolved before Cauchy because there is no actual companion factorization to disperse. Preserve the composite ranges as a warning, not an estimate. Next test the equivalent unique-large-prime-factor formulation using a Buchstab or Chen-style switching identity; success requires a one-sided signed estimate, while an upper-bound-only parity remainder falsifies that route.

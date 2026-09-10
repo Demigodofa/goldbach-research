@@ -4177,3 +4177,9 @@ Correction after independent review: the Vaughan support calculation is only a d
 ## 2026-09-10: companion Vaughan ranges corrected and reviewed
 
 Applying Vaughan to the actual long companion Lambda(m), rather than the hypothetical Lambda(n_core), gives the top core block m~N^.59. In the linear term, x=n*a ranges from exponents .41 through .6595 and the complementary free factor b ranges .3405 through .59, with x*b at exponent 1. In the Type-II term a,b each start at .2495 and reach .3405, while n*a and n*b start at .6595. These are necessary scale ranges only; no bilinear estimate is proved. Independent review corrected a prior double-counting of the split factor. Direct checks and py_compile pass.
+
+## 2026-09-10: actual companion Vaughan pursuit dissolved
+
+The proposed dispersion form does not exist after the already-paid power-small prime-only replacement. The actual companion m is prime and exceeds both Vaughan cutoffs. Evaluating the exact four-term identity at such a prime gives zero low, subtracted and Type-II terms; only the linear a=1 divisor remains and equals log m. Thus the tempting factor ranges in `companion_vaughan_scales.py` are hypothetical composite support, not factors available in the actual residual. Six exact guards pass normally and under `python -O`; independent review PASS. Curiosity status: `changed-under-evidence`. This limits companion Vaughan, not Vaughan elsewhere or bilinear methods with a new arithmetic decomposition. The signed prime correlation remains open.
+
+Next bounded question: view k=N-p as an integer with its unique large prime factor m>N^.59 and cofactor n<N^.41. Test whether a Buchstab or Chen-style switching identity gives an actual one-sided estimate for the a_B(n) log(m) weight, rather than only re-deriving the completed full convolution or an upper-bound sieve. A parity obstruction or unsigned remainder is a falsifier.
