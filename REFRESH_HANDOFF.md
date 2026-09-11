@@ -14181,3 +14181,63 @@ using the full `33`-residue norm, and freeze the separable-local-factor gate as
 and mod-13 marginal fluctuations as the dominant arithmetic mechanism.
 Failure would show that joint CRT interaction dominates while preserving the
 exact decomposition for use with the existing source coefficients.
+
+## 2026-09-11 linked-prime discrepancy is dominated by joint CRT interaction
+
+`residue_orbit_crt_anova_receipt` verifies that the `33` odd admissible
+residues for `N congruent 72 (mod 130)` are exactly
+
+`A_5 x A_13`, with
+`A_5=(1,3,4)` and
+`A_13=(1,2,3,4,5,6,8,9,10,11,12)`.
+
+Lifting each orbit discrepancy to this `3 by 11` table handles the fixed
+reflection singleton once and every two-element orbit twice.  The zero grand
+mean is the earlier orbit-size conservation identity.  The mod-5 marginal,
+mod-13 marginal, and joint interaction reconstruct every target and are
+mutually orthogonal in the full `33`-cell norm, with maximum numerical error
+below `1.11e-14`.
+
+In ascending dyadic order, the separable marginal energy fractions are
+
+`.33853, .25435, .31119, .28005, .25702, .34782, .32426`.
+
+All seven fall below `.75`, so the frozen separable-local-factor count is
+`0/7`.  The mod-5 marginal alone contributes only about `.0214` to `.0495`;
+the mod-13 marginal contributes about `.2075` to `.3049`.  The joint
+interaction therefore carries `.6522` to `.7456` of the measured raw
+linked-prime discrepancy energy in every block.
+
+Curiosity status: `exact-decomposition-pass/separable-mechanism-fail`, novelty
+`new-to-this-task`.  Preserve the CRT ANOVA decomposition and its zero-marginal
+interaction.  Reject separate mod-5 and mod-13 fluctuations as the dominant
+measured mechanism.  “Interaction dominates” here is an ANOVA energy fact on
+these targets, not a causal or asymptotic statement.
+
+Independent review verified the CRT bijection, singleton multiplicity,
+orthogonal decomposition, full-residue norm, every dyadic fraction, distinction
+from the earlier fixed-source character tests, and scope.  Focused normal and
+optimized tests pass.  No joint-interaction estimate, signed prime-correlation
+theorem, or Goldbach result has been proved.
+
+The next bounded question uses the exact affine reflection instead of fitting
+another basis.  On `A_5 x A_13`, let
+
+`(R_5F)(a,b)=F(2-a,b)` and `(R_13F)(a,b)=F(a,7-b)`.
+
+The linked-prime table satisfies `R_5 R_13 D_N=D_N`.  Apply the same operators
+to the zero-marginal interaction `J_N`.  Verify that its mixed even-odd and
+odd-even sectors vanish and that
+
+`J_N=J_N^(++)+J_N^(--)`
+
+orthogonally, where
+
+`J_N^(--)=(I-R_5)(I-R_13)J_N/4`.
+
+Freeze the simultaneous-antisymmetry mechanism as: the odd-odd sector carries
+at least `.75` of total interaction energy in at least five of seven dyadic
+blocks.  Passing would identify a precise linked local-sign mechanism: both
+CRT factors reverse together and therefore reinforce under the full affine
+reflection.  Failure would preserve the exact parity decomposition but show
+that this coupled antisymmetry does not dominate the joint interaction.

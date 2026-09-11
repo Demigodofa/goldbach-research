@@ -15,6 +15,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_covariance_mode_receipt,
     residue_orbit_covariance_subspace_receipt,
     residue_orbit_conservation_covariance_receipt,
+    residue_orbit_crt_anova_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -132,6 +133,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_conservation_covariance_receipt(
                 maximum_unexplained_frobenius_ratio=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_crt_anova_receipt(
+                minimum_separable_energy_fraction=-.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1141,6 +1145,72 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertTrue(receipt[
             "finite_conservation_covariances_measured"])
         self.assertFalse(receipt["conservation_covariance_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_crt_anova(self):
+        receipt = residue_orbit_crt_anova_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["residue5_values"], (1, 3, 4))
+        self.assertEqual(
+            receipt["residue13_values"],
+            (1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12))
+        self.assertEqual(receipt["crt_residue_cell_count"], 33)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(len(receipt["dyadic_crt_summaries"]), 7)
+        dyadic = receipt["dyadic_crt_summaries"]
+        expected_mod5_fractions = (
+            .03818606115057578, .02138872046752309,
+            .030892791396908342, .04007022374322855,
+            .04951847698949289, .042930444351003696,
+            .04672099348546361)
+        expected_mod13_fractions = (
+            .300344271478263, .232962189321563,
+            .2802965437011038, .2399804004935556,
+            .20749912245081767, .3048891494202483,
+            .27754381626485836)
+        expected_separable_fractions = (
+            .33853033262883875, .2543509097890861,
+            .31118933509801217, .2800506242367842,
+            .25701759944031055, .347819593771252,
+            .32426480975032196)
+        for row, mod5, mod13, separable in zip(
+                dyadic.values(), expected_mod5_fractions,
+                expected_mod13_fractions, expected_separable_fractions):
+            self.assertAlmostEqual(
+                row["mod5_marginal_energy_fraction"], mod5, places=12)
+            self.assertAlmostEqual(
+                row["mod13_marginal_energy_fraction"], mod13, places=12)
+            self.assertAlmostEqual(
+                row["separable_marginal_energy_fraction"],
+                separable, places=12)
+            self.assertAlmostEqual(
+                row["interaction_energy_fraction"],
+                1 - separable, places=12)
+        self.assertEqual(
+            tuple(row["passes_separable_energy_gate"]
+                  for row in dyadic.values()),
+            (False, False, False, False, False, False, False))
+        self.assertEqual(receipt["separable_dyadic_block_count"], 0)
+        self.assertFalse(receipt[
+            "crt_separable_marginal_mechanism_gate_passes"])
+        self.assertLess(receipt["maximum_mean_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_reconstruction_relative_error"], 1e-12)
+        self.assertLess(receipt["maximum_energy_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_orthogonality_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_interaction_marginal_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_reflection_symmetry_relative_error"], 1e-12)
+        self.assertTrue(receipt["finite_crt_anova_measured"])
+        self.assertFalse(receipt[
+            "crt_separable_prime_discrepancy_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

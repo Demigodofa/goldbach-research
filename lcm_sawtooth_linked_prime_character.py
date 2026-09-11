@@ -2584,6 +2584,209 @@ def residue_orbit_conservation_covariance_receipt(
     }
 
 
+def residue_orbit_crt_anova_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        minimum_separable_energy_fraction=.75,
+        minimum_separable_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(minimum_separable_energy_fraction)
+            or not 0 <= minimum_separable_energy_fraction <= 1):
+        raise ValueError("separable energy gate must lie in [0, 1]")
+    if (type(minimum_separable_dyadic_block_count) is not int
+            or minimum_separable_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum separable dyadic block count must be nonnegative")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    residue5_values = tuple(
+        value for value in range(5)
+        if value and (target_residue - value) % 5)
+    residue13_values = tuple(
+        value for value in range(13)
+        if value and (target_residue - value) % 13)
+    expected_cell_count = len(residue5_values) * len(residue13_values)
+    if expected_cell_count != len(base["admissible_residues"]):
+        raise AssertionError("admissible residues do not have CRT product size")
+    residue5_index = {
+        value: index for index, value in enumerate(residue5_values)}
+    residue13_index = {
+        value: index for index, value in enumerate(residue13_values)}
+    crt_residues = {}
+    for residue in base["admissible_residues"]:
+        cell = (residue % 5, residue % 13)
+        if cell in crt_residues:
+            raise AssertionError("odd admissible CRT cell is not unique")
+        if cell[0] not in residue5_index or cell[1] not in residue13_index:
+            raise AssertionError("admissible residue lies outside CRT product")
+        crt_residues[cell] = residue
+    expected_cells = {
+        (residue5, residue13)
+        for residue5 in residue5_values
+        for residue13 in residue13_values}
+    if set(crt_residues) != expected_cells:
+        raise AssertionError("admissible CRT product is incomplete")
+    orbit_by_residue = {
+        residue: orbit_index
+        for orbit_index, orbit in enumerate(base["reflection_orbits"])
+        for residue in orbit}
+
+    targets = tuple(base["orbit_weight_discrepancy_rows"])
+    target_energies = {}
+    maximum_mean_relative_error = 0.0
+    maximum_reconstruction_relative_error = 0.0
+    maximum_energy_relative_error = 0.0
+    maximum_orthogonality_relative_error = 0.0
+    maximum_interaction_marginal_relative_error = 0.0
+    maximum_reflection_symmetry_relative_error = 0.0
+    for target in targets:
+        orbit_row = base["orbit_weight_discrepancy_rows"][target]
+        table = np.empty(
+            (len(residue5_values), len(residue13_values)),
+            dtype=np.float64)
+        for (residue5, residue13), residue in crt_residues.items():
+            table[
+                residue5_index[residue5],
+                residue13_index[residue13]] = orbit_row[
+                    orbit_by_residue[residue]]
+        table_scale = max(1.0, float(np.sum(np.abs(table))))
+        reflection_error = 0.0
+        for row_index, residue5 in enumerate(residue5_values):
+            partner5 = (target_residue - residue5) % 5
+            for column_index, residue13 in enumerate(residue13_values):
+                partner13 = (target_residue - residue13) % 13
+                reflection_error = max(
+                    reflection_error,
+                    abs(table[row_index, column_index]
+                        - table[residue5_index[partner5],
+                                residue13_index[partner13]]))
+        overall_mean = float(np.mean(table))
+        row_component = (
+            np.mean(table, axis=1, keepdims=True) - overall_mean)
+        row_component = np.broadcast_to(row_component, table.shape)
+        column_component = (
+            np.mean(table, axis=0, keepdims=True) - overall_mean)
+        column_component = np.broadcast_to(column_component, table.shape)
+        interaction = table - overall_mean - row_component - column_component
+        reconstruction = row_component + column_component + interaction
+        total_energy = float(np.sum(table ** 2))
+        if total_energy <= 0:
+            raise ValueError("CRT discrepancy table has zero energy")
+        row_energy = float(np.sum(row_component ** 2))
+        column_energy = float(np.sum(column_component ** 2))
+        interaction_energy = float(np.sum(interaction ** 2))
+        energy_scale = max(1.0, total_energy)
+        orthogonality_error = max(
+            abs(float(np.sum(row_component * column_component))),
+            abs(float(np.sum(row_component * interaction))),
+            abs(float(np.sum(column_component * interaction))))
+        interaction_marginal_error = max(
+            float(np.max(np.abs(np.mean(interaction, axis=0)))),
+            float(np.max(np.abs(np.mean(interaction, axis=1)))))
+        target_energies[target] = {
+            "total_energy": total_energy,
+            "mod5_marginal_energy": row_energy,
+            "mod13_marginal_energy": column_energy,
+            "interaction_energy": interaction_energy,
+        }
+        maximum_mean_relative_error = max(
+            maximum_mean_relative_error,
+            abs(overall_mean) * table.size / table_scale)
+        maximum_reconstruction_relative_error = max(
+            maximum_reconstruction_relative_error,
+            float(np.max(np.abs(table - reconstruction)))
+            * table.size / table_scale)
+        maximum_energy_relative_error = max(
+            maximum_energy_relative_error,
+            abs(row_energy + column_energy + interaction_energy
+                - total_energy) / energy_scale)
+        maximum_orthogonality_relative_error = max(
+            maximum_orthogonality_relative_error,
+            orthogonality_error / energy_scale)
+        maximum_interaction_marginal_relative_error = max(
+            maximum_interaction_marginal_relative_error,
+            interaction_marginal_error * table.size / table_scale)
+        maximum_reflection_symmetry_relative_error = max(
+            maximum_reflection_symmetry_relative_error,
+            reflection_error * table.size / table_scale)
+
+    dyadic_crt_summaries = {}
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in targets
+            if block_lower <= target < block_upper)
+        total_energy = math.fsum(
+            target_energies[target]["total_energy"]
+            for target in block_targets)
+        mod5_energy = math.fsum(
+            target_energies[target]["mod5_marginal_energy"]
+            for target in block_targets)
+        mod13_energy = math.fsum(
+            target_energies[target]["mod13_marginal_energy"]
+            for target in block_targets)
+        interaction_energy = math.fsum(
+            target_energies[target]["interaction_energy"]
+            for target in block_targets)
+        separable_fraction = (mod5_energy + mod13_energy) / total_energy
+        dyadic_crt_summaries[block] = {
+            "target_count": len(block_targets),
+            "total_energy": total_energy,
+            "mod5_marginal_energy_fraction": mod5_energy / total_energy,
+            "mod13_marginal_energy_fraction": mod13_energy / total_energy,
+            "separable_marginal_energy_fraction": separable_fraction,
+            "interaction_energy_fraction": interaction_energy / total_energy,
+            "passes_separable_energy_gate": bool(
+                separable_fraction >= minimum_separable_energy_fraction),
+        }
+    if minimum_separable_dyadic_block_count > len(dyadic_crt_summaries):
+        raise ValueError(
+            "minimum separable dyadic block count exceeds measured blocks")
+    separable_dyadic_block_count = sum(
+        row["passes_separable_energy_gate"]
+        for row in dyadic_crt_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "residue5_values": residue5_values,
+        "residue13_values": residue13_values,
+        "crt_residue_cell_count": len(crt_residues),
+        "tested_target_count": len(targets),
+        "maximum_mean_relative_error": maximum_mean_relative_error,
+        "maximum_reconstruction_relative_error": (
+            maximum_reconstruction_relative_error),
+        "maximum_energy_relative_error": maximum_energy_relative_error,
+        "maximum_orthogonality_relative_error": (
+            maximum_orthogonality_relative_error),
+        "maximum_interaction_marginal_relative_error": (
+            maximum_interaction_marginal_relative_error),
+        "maximum_reflection_symmetry_relative_error": (
+            maximum_reflection_symmetry_relative_error),
+        "minimum_separable_energy_fraction_gate": (
+            minimum_separable_energy_fraction),
+        "minimum_separable_dyadic_block_count_gate": (
+            minimum_separable_dyadic_block_count),
+        "dyadic_crt_summaries": dyadic_crt_summaries,
+        "separable_dyadic_block_count": separable_dyadic_block_count,
+        "crt_separable_marginal_mechanism_gate_passes": bool(
+            separable_dyadic_block_count
+            >= minimum_separable_dyadic_block_count),
+        "finite_crt_anova_measured": True,
+        "crt_separable_prime_discrepancy_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):
