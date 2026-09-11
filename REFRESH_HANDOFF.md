@@ -11090,3 +11090,39 @@ coefficients and absolute-mass denominator. If any of the five quotients
 exceeds `.10`, Ramanujan signs are essential for that finite cancellation;
 if all remain below `.10`, the endpoint coefficients already supply it in
 this fixed grouping.
+
+## 2026-09-11: Ramanujan signs are not required, but their magnitudes remain
+
+Starting from the phase-removed counterfactual, replace each signed
+`c_g(n)` by `|c_g(n)|`. The denominator remains exactly the termwise absolute
+mass of this new numerator. The resulting means and quotients are
+
+- lag `140`: approximately `-79695/4`, quotient
+  `.026600419846471005`;
+- lag `154`: approximately `-78771/10`, quotient
+  `.01887694609342913`;
+- lag `156`: approximately `9945`, quotient
+  `.020154236588502503`;
+- lag `182`: approximately `-571529/36`, quotient
+  `.04039920063212698`;
+- lag `240`: approximately `-27225/2`, quotient
+  `.015052682132974667`.
+
+Every lag still clears `.10`. Independent review verified the ablation,
+unchanged absolute denominator, values, regression tests, and scope and
+returned PASS. The simple fractions remain numerical observations.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Neither the CRT phases nor the Ramanujan signs are required for the observed
+small finite quotient. In this fixed grouping, the phases/signs of the
+endpoint coefficient products cancel strongly under the retained positive,
+frequency-dependent Ramanujan magnitudes. Do not shorten this to an
+unweighted endpoint-only result: the magnitudes still select and weight modes.
+No uniform or prime estimate follows.
+
+The next bounded question removes that last arithmetic weighting. Replace
+every Ramanujan magnitude by `1` and normalize by the corresponding unweighted
+sum of endpoint-mode product magnitudes. If all five unweighted endpoint
+quotients remain at most `.10`, the coefficient geometry itself supplies the
+finite cancellation; a failure identifies positive Ramanujan magnitude
+weighting as essential at the first offending lag.

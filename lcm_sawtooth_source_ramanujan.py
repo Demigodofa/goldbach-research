@@ -138,6 +138,7 @@ def source_ramanujan_mean_receipt(
     ramanujan_weight_cache = {}
     total = 0.0j
     phase_removed_total = 0.0j
+    unsigned_ramanujan_total = 0.0j
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     matched_source_residue_pairs = 0
@@ -169,6 +170,8 @@ def source_ramanujan_mean_receipt(
                     total += contribution
                     phase_removed_total += (
                         mode_product * ramanujan_weight)
+                    unsigned_ramanujan_total += (
+                        mode_product * abs(ramanujan_weight))
                     absolute_mode_contribution_mass += abs(contribution)
                     frequency_gcd = math.gcd(frequency, common)
                     frequency_gcd_totals[frequency_gcd] = (
@@ -182,6 +185,8 @@ def source_ramanujan_mean_receipt(
     source_mean = complex(total / unit_class_count)
     phase_removed_source_mean = complex(
         phase_removed_total / unit_class_count)
+    unsigned_ramanujan_source_mean = complex(
+        unsigned_ramanujan_total / unit_class_count)
     normalized_absolute_mode_contribution_mass = (
         absolute_mode_contribution_mass / unit_class_count)
     source_mode_cancellation_quotient = (
@@ -189,6 +194,10 @@ def source_ramanujan_mean_receipt(
         if normalized_absolute_mode_contribution_mass > 0 else None)
     phase_removed_cancellation_quotient = (
         abs(phase_removed_source_mean)
+        / normalized_absolute_mode_contribution_mass
+        if normalized_absolute_mode_contribution_mass > 0 else None)
+    unsigned_ramanujan_cancellation_quotient = (
+        abs(unsigned_ramanujan_source_mean)
         / normalized_absolute_mode_contribution_mass
         if normalized_absolute_mode_contribution_mass > 0 else None)
     frequency_gcd_means = {
@@ -265,6 +274,15 @@ def source_ramanujan_mean_receipt(
         "phase_removed_cancellation_gate_passes": bool(
             phase_removed_cancellation_quotient is not None
             and phase_removed_cancellation_quotient
+            <= maximum_source_mode_cancellation_quotient),
+        "unsigned_ramanujan_source_mean_correlation": (
+            unsigned_ramanujan_source_mean.real,
+            unsigned_ramanujan_source_mean.imag),
+        "unsigned_ramanujan_cancellation_quotient": (
+            unsigned_ramanujan_cancellation_quotient),
+        "unsigned_ramanujan_cancellation_gate_passes": bool(
+            unsigned_ramanujan_cancellation_quotient is not None
+            and unsigned_ramanujan_cancellation_quotient
             <= maximum_source_mode_cancellation_quotient),
         "frequency_gcd_mean_correlations": {
             divisor: (subtotal.real, subtotal.imag)
@@ -347,6 +365,12 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "phase_removed_source_mean_correlations": {
             lag: result["phase_removed_source_mean_correlation"]
             for lag, result in results.items()},
+        "unsigned_ramanujan_cancellation_quotients": {
+            lag: result["unsigned_ramanujan_cancellation_quotient"]
+            for lag, result in results.items()},
+        "unsigned_ramanujan_source_mean_correlations": {
+            lag: result["unsigned_ramanujan_source_mean_correlation"]
+            for lag, result in results.items()},
         "maximum_source_mode_cancellation_quotient": max(
             result["source_mode_cancellation_quotient"]
             for result in results.values()),
@@ -355,6 +379,9 @@ def leading_lag_source_receipt(tolerance=1e-12):
             for result in results.values()),
         "all_phase_removed_cancellation_gates_pass": all(
             result["phase_removed_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_unsigned_ramanujan_cancellation_gates_pass": all(
+            result["unsigned_ramanujan_cancellation_gate_passes"]
             for result in results.values()),
         "maximum_source_to_canonical_relative_error": maximum_relative_error,
         "all_leading_lag_source_reductions_pass": bool(

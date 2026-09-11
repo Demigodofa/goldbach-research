@@ -106,6 +106,19 @@ class SourceRamanujanTests(unittest.TestCase):
             receipt["phase_removed_cancellation_quotient"],
             .00880666368319958, places=12)
         self.assertTrue(receipt["phase_removed_cancellation_gate_passes"])
+        self.assertIsNotNone(
+            receipt["unsigned_ramanujan_cancellation_quotient"])
+        self.assertAlmostEqual(
+            receipt["unsigned_ramanujan_source_mean_correlation"][0],
+            -571529 / 36, places=8)
+        self.assertAlmostEqual(
+            receipt["unsigned_ramanujan_source_mean_correlation"][1],
+            0, places=8)
+        self.assertAlmostEqual(
+            receipt["unsigned_ramanujan_cancellation_quotient"],
+            .04039920063212698, places=12)
+        self.assertTrue(receipt[
+            "unsigned_ramanujan_cancellation_gate_passes"])
 
     def test_guards(self):
         with self.assertRaises(ValueError):
@@ -127,6 +140,9 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertFalse(receipt["source_mode_cancellation_gate_passes"])
         self.assertIsNone(receipt["phase_removed_cancellation_quotient"])
         self.assertFalse(receipt["phase_removed_cancellation_gate_passes"])
+        self.assertIsNone(receipt["unsigned_ramanujan_cancellation_quotient"])
+        self.assertFalse(receipt[
+            "unsigned_ramanujan_cancellation_gate_passes"])
 
     def test_source_reduction_across_five_leading_lags(self):
         receipt = leading_lag_source_receipt()
@@ -177,6 +193,32 @@ class SourceRamanujanTests(unittest.TestCase):
                 receipt["phase_removed_cancellation_quotients"][lag],
                 expected_phase_removed_quotients[lag], places=12)
         self.assertTrue(receipt["all_phase_removed_cancellation_gates_pass"])
+        expected_unsigned_ramanujan_means = {
+            140: -79695 / 4,
+            154: -78771 / 10,
+            156: 9945,
+            182: -571529 / 36,
+            240: -27225 / 2,
+        }
+        expected_unsigned_ramanujan_quotients = {
+            140: .026600419846471005,
+            154: .01887694609342913,
+            156: .020154236588502503,
+            182: .04039920063212698,
+            240: .015052682132974667,
+        }
+        for lag in receipt["lags"]:
+            unsigned_mean = receipt[
+                "unsigned_ramanujan_source_mean_correlations"][lag]
+            self.assertAlmostEqual(
+                unsigned_mean[0], expected_unsigned_ramanujan_means[lag],
+                places=8)
+            self.assertAlmostEqual(unsigned_mean[1], 0, places=8)
+            self.assertAlmostEqual(
+                receipt["unsigned_ramanujan_cancellation_quotients"][lag],
+                expected_unsigned_ramanujan_quotients[lag], places=12)
+        self.assertTrue(
+            receipt["all_unsigned_ramanujan_cancellation_gates_pass"])
         self.assertFalse(
             receipt["unit_frame_classes_enumerated_by_source_calculation"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
