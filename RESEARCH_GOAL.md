@@ -6224,3 +6224,28 @@ signed residual cancellation. A feature class with fixed-power quotient
 growth or no signed/absolute separation falsifies that proposed mechanism.
 The incomplete boundary, signed prime correlation, and Goldbach remain open;
 complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: isolate alternating common-part cancellation
+
+The dominant residual blocks now have an exact two-class decomposition by
+whether `d_C=gcd(d,gcd(a,b))` equals one. At `M=16001`, the median separate
+and common class quotients are `.35337` and `.89806`, so common-prime terms do
+not cancel more strongly in isolation. Their collapsed correlation is
+`-.88213`, however, and cross-class interference reduces the within-class
+quotient `.41975` to the actual `.17292`.
+
+The sign source is explicit:
+`mu(a)mu(b)=mu(d)mu(d_C)mu(alpha)mu(beta)`. Removing only `mu(d_C)` raises the
+dominant-block median quotient to `.51663`, `2.986` times the actual value;
+the increase occurs for all eight largest-scale samples. This is finite
+causal evidence for alternating common-part ownership, not an asymptotic
+bound. Independent review verified the identities, intervention, data, code,
+and tests.
+
+The next target is a weighted almost-orthogonality estimate for the exact
+common-part divisor transform
+`S_d=mu(d)d^(-1)sum_(c|d)mu(c)A_(d,c)`. A power-growing layer Gram eigenvalue
+or actual-vector alignment falsifies this route. The incomplete boundary,
+signed prime correlation, and Goldbach remain open; complete assembly remains
+`.295-delta`.

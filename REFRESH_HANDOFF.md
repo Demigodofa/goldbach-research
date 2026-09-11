@@ -7091,3 +7091,51 @@ and compare signed with absolute residual sums. Loss of the observed gap at
 larger scales, or a feature class with fixed-power quotient growth, rejects
 that mechanism. The incomplete boundary, signed prime correlation, and
 Goldbach remain OPEN.
+
+
+## 2026-09-10: common-part alternation is a concrete cancellation source
+
+`lcm_sawtooth_common_prime_cancellation.py` decomposes each exact residual
+coefficient according to
+
+`d_C=gcd(d,gcd(a,b))=1` or `d_C>1`.
+
+The two classes reconstruct every `K_(dr)/(dr)` exactly. Their separate
+numerators and diagonals, their cross terms before and after residual
+collapse, and the resulting quotient identity are all computed with the same
+nonnegative primitive weights `H_m(d)`.
+
+The initial hypothesis that the common-prime class cancels more strongly on
+its own is false. At `M=16001`, across eight sampled primes, the dominant
+block median residual quotients are `.35337` for `d_C=1` and `.89806` for
+`d_C>1`; the common class has median `.12206` of the class-separated
+diagonal. The extra reduction comes from interaction between them. Their
+median correlation after residual collapse is `-.88213`, compared with
+`-.70029` in the uncollapsed diagonal space. Equivalently, the within-class
+quotient `.41975` is multiplied by a cross-class interference factor
+`.41301`, giving the actual `.17292`.
+
+There is a direct sign falsifier. For squarefree `d`,
+
+`mu(a)mu(b)=mu(d)mu(d_C)mu(alpha)mu(beta)`.
+
+Multiplying each pair term by `mu(d_C)` removes only this alternating
+common-part sign. In that counterfactual the `M=16001` dominant-block median
+quotient rises from `.17292` to `.51663`, a factor `2.986`; all eight sampled
+factors lie in `[2.877,3.093]`. This finite intervention identifies the
+`mu(d_C)` alternation as a material source of the observed cancellation. It
+does not prove an asymptotic contraction.
+
+Independent review PASSed the assignment classification, coefficient
+reconstruction, exact Hilbert-space accounting, correlations, counterfactual
+sign identity, implementation, measurements, and 44 combined tests in normal
+and optimized modes.
+
+The next <=30-minute theorem question is whether the exact form
+
+`S_d=mu(d)/d sum_(c|d)mu(c) A_(d,c)`
+
+admits an almost-orthogonality bound for its common-part layers `c`. A
+weighted layer Gram eigenvalue growing like a fixed power, or alignment of
+the actual vector with such an eigenmode, falsifies that route. The
+incomplete boundary, signed prime correlation, and Goldbach remain OPEN.
