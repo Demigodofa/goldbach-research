@@ -626,3 +626,10 @@ the exact scalar form
 therefore have normalized determinant invariants `.999260` and `.996461`.
 The earlier 10-percent axial threshold is equivalently the single inequality
 `J(K)>=.955188`, giving a concrete invariant target for uniform estimation.
+
+The selected axial direction is not the actual polynomial selector: their
+projective angle is `60.9` degrees at `M=127`. After mapping back through the
+arithmetic whitening, however, it is within `4.17e-5` and `5.55e-5` of the
+moment curve `(t^2,t,1)` at `M=127,251`, with `t=.27957,.28090`. Such a
+selector evaluates the exact conductor quadratic `K_q(L)` at `tL`, placing
+the effective log scale inside the divisor support exponents `.15--.32`.

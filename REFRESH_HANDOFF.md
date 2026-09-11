@@ -9217,3 +9217,31 @@ Status: `aha-candidate`, novelty `new-to-this-task`. The identity converts the
 observed response axiality into one scalar arithmetic target. It supplies no
 uniform lower bound for `J` and does not close the axial energy, lower-frame,
 signed prime-correlation, or Goldbach gaps.
+
+## 2026-09-11: the axial axis follows the conductor polynomial moment curve
+
+`lcm_sawtooth_axial_moment_curve.py` maps the distinguished Schur-response
+axis through the inverse of the arithmetic coordinate change and fits it
+projectively to `(t^2,t,1)`. The fit checks every real stationary point of the
+squared correlation, plus the projective point at infinity.
+
+The actual selector hypothesis fails first: at `M=127`, the axis is
+`60.9127` degrees from `(1,1,1)` in the whitened parameter metric, beyond the
+declared `15`-degree bound. Preserve this only as a rejection of `t=1`.
+
+The free moment-curve fit is much stronger:
+
+`M=127: t=.2795716513, projective distance=4.16667e-5`,
+
+`M=251: t=.2809004167, projective distance=5.55179e-5`.
+
+The larger complete 42-prime scan took `382.3` seconds. Both distances are
+far below the `.01` falsifier. This curve has an exact source meaning:
+`(t^2,t,1)` changes `A_q L^2+B_q L+C_q` into
+`A_q(tL)^2+B_q(tL)+C_q`. The fitted `t` is also inside the normalized divisor
+log support `.15--.32`, suggesting an effective divisor-log scale.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. No analytic formula for
+`t`, uniform alignment, or resulting frame bound is proved. Next test an
+explicit covariance-weighted statistic of `log d/log(m*ell)` against these
+two fitted values. The signed prime correlation and Goldbach remain OPEN.

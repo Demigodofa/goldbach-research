@@ -7273,3 +7273,29 @@ novelty `new-to-this-task`: a five-coordinate spectral-looking condition is
 now one scalar determinant/norm inequality. A uniform lower bound for this
 specific arithmetic response invariant, the axial/nonaxial energy estimates,
 the lower frame, signed prime correlation, and Goldbach remain OPEN.
+
+### 2026-09-11 continuation: the axial axis lies on a scaled-log moment curve
+
+The first interpretation test is negative: at `M=127`, the selected axial
+axis in arithmetic-whitened parameter space is `60.9127` degrees from the
+actual selector `lambda=(1,1,1)`. Status `abandoned` applies only to identifying
+the weak frame direction with the actual selector.
+
+After mapping the axis back to original degree parameters, a stronger pattern
+appears. Its best projective fits to `(t^2,t,1)` are
+
+`M=127: t=.2795716513, distance=4.16667e-5`,
+
+`M=251: t=.2809004167, distance=5.55179e-5`.
+
+Both pass the predeclared one-percent falsifier by more than two orders of
+magnitude. Since `K_q(L)=A_q L^2+B_q L+C_q`, the selector `(t^2,t,1)` exactly
+evaluates the same conductor polynomial at `tL`. The fitted `t` values also
+lie inside the divisor-log exponent support `.15--.32` when `L` is the global
+`log(m*ell)` scale.
+
+Status `aha-candidate`, novelty `new-to-this-task`. The next concrete question
+is whether `t` equals or is controlled by an explicit weighted statistic of
+`log d/log(m*ell)` from the one-frequency conductor covariance. No formula,
+uniform moment-curve alignment, lower frame, signed prime correlation, or
+Goldbach theorem is proved.
