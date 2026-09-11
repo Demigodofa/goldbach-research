@@ -72,8 +72,10 @@ def diagonally_equilibrated_spectrum(matrix):
     return values, condition_number
 
 
-def project_one_frequency_covariance(scale_modulus, frame):
+def project_one_frequency_covariance(
+        scale_modulus, frame, excluded_conductors=()):
     """Aggregate the unsummed primitive-frequency covariance for a block."""
+    excluded_conductors = tuple(excluded_conductors)
     covariance = np.zeros((3, 3), dtype=float)
     flags = _prime_flags(2 * scale_modulus)
     counted_primes = 0
@@ -82,7 +84,8 @@ def project_one_frequency_covariance(scale_modulus, frame):
         if not flags[modulus]:
             continue
         _, _, geometrics, coordinates = _lifted_frequency_data(
-            modulus, frame["ell_freeze"], *frame["divisor_range"])
+            modulus, frame["ell_freeze"], *frame["divisor_range"],
+            excluded_conductors)
         covariance += weighted_coordinate_covariance(
             coordinates, np.abs(geometrics) ** 2)
         counted_primes += 1

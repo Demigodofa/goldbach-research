@@ -79,10 +79,14 @@ def moment_curve_projective_fit(vector):
     }
 
 
-def project_axial_moment_curve_receipt(scale_modulus):
+def project_axial_moment_curve_receipt(
+        scale_modulus, excluded_conductors=()):
     """Fit the complete-block axial response axis in original coordinates."""
-    frame = project_prime_block_lifted_endpoint_scan(scale_modulus)
-    covariance, _ = project_one_frequency_covariance(scale_modulus, frame)
+    excluded_conductors = tuple(excluded_conductors)
+    frame = project_prime_block_lifted_endpoint_scan(
+        scale_modulus, excluded_conductors)
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, frame, excluded_conductors)
     arithmetic_transform, _ = covariance_inverse_root(covariance)
     trace_traceless = trace_traceless_transform()
     transform = symmetric_square_transform(
@@ -111,6 +115,7 @@ def project_axial_moment_curve_receipt(scale_modulus):
         "prime_count": frame["prime_count"],
         "row_count": frame["row_count"],
         "divisor_range": frame["divisor_range"],
+        "excluded_conductors": tuple(sorted(set(excluded_conductors))),
         "original_parameter_axis": tuple(
             float(value) for value in original_axis),
         "original_axis_normalized_constant_one": tuple(

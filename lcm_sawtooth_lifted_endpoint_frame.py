@@ -140,7 +140,12 @@ def _generalized_psd_receipt(numerator, denominator):
 
 
 def _lifted_frequency_data(
-        modulus, ell_freeze, divisor_lower, divisor_upper):
+        modulus, ell_freeze, divisor_lower, divisor_upper,
+        excluded_conductors=()):
+    excluded_conductors = frozenset(excluded_conductors)
+    if any(type(value) is not int or value < 2
+           for value in excluded_conductors):
+        raise ValueError("excluded conductors must be integers at least two")
     logarithm = math.log(modulus * ell_freeze)
     powers = np.array((logarithm ** 2, logarithm, 1.0))
     denominators = []
@@ -149,6 +154,8 @@ def _lifted_frequency_data(
     coordinates = []
     for denominator, polynomial in _quadratic_support_data(
             divisor_lower, divisor_upper)[1]:
+        if denominator in excluded_conductors:
+            continue
         if sawtooth_gcd_mobius_transform(modulus, denominator) <= 0:
             continue
         candidates = np.arange(1, denominator, dtype=np.int64)
@@ -177,13 +184,15 @@ def _lifted_frequency_data(
 
 def lifted_endpoint_residue_gram_receipt(
         modulus, row_count, ell_freeze,
-        divisor_lower, divisor_upper):
+        divisor_lower, divisor_upper, excluded_conductors=()):
     """Construct the exact one-prime lifted endpoint and residue matrices."""
+    excluded_conductors = tuple(excluded_conductors)
     _validate_inputs(
         modulus, ell_freeze, row_count, divisor_lower, divisor_upper)
     denominators, numerators, geometrics, coordinates = (
         _lifted_frequency_data(
-            modulus, ell_freeze, divisor_lower, divisor_upper))
+            modulus, ell_freeze, divisor_lower, divisor_upper,
+            excluded_conductors))
     endpoint = (
         (numerators == 1) | (numerators == denominators - 1))
     threshold = modulus * row_count
@@ -298,6 +307,7 @@ def lifted_endpoint_residue_gram_receipt(
         "row_count": row_count,
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
+        "excluded_conductors": tuple(sorted(set(excluded_conductors))),
         "primitive_frequency_count": len(denominators),
         "endpoint_frequency_count": int(np.count_nonzero(endpoint)),
         "high_Q_residue_cell_count": len(residue_cells),
@@ -349,8 +359,10 @@ def lifted_endpoint_residue_gram_receipt(
     }
 
 
-def project_prime_block_lifted_endpoint_scan(scale_modulus):
+def project_prime_block_lifted_endpoint_scan(
+        scale_modulus, excluded_conductors=()):
     """Aggregate the lifted matrices over every prime in ``[M,2M]``."""
+    excluded_conductors = tuple(excluded_conductors)
     if type(scale_modulus) is not int or scale_modulus < 17:
         raise ValueError("scale_modulus must be an integer at least 17")
     inferred_N = scale_modulus ** (1 / .59)
@@ -374,7 +386,7 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             continue
         receipt = lifted_endpoint_residue_gram_receipt(
             modulus, row_count, ell_freeze,
-            divisor_lower, divisor_upper)
+            divisor_lower, divisor_upper, excluded_conductors)
         numerator += np.asarray(receipt["endpoint_pair_square_gram"])
         denominator += np.asarray(receipt["full_residue_energy_gram"])
         active_denominator += np.asarray(
@@ -445,6 +457,7 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
         "row_count": row_count,
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
+        "excluded_conductors": tuple(sorted(set(excluded_conductors))),
         "rows": tuple(rows),
         "maximum_individual_lifted_ratio": max(
             row["lifted_ratio"] for row in rows),

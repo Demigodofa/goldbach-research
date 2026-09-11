@@ -9272,3 +9272,28 @@ the `A_d^2|G|^2` weights by conductor, the leaders are `d=91` and `d=30`,
 whose midpoint vertices `.2526121254,.2532200077` miss the fitted parameters
 by `.02696,.02768`. Neither the positive centroid nor its largest conductor
 weight explains the finite upper-boundary proximity.
+
+## 2026-09-11: no single conductor controls the effective scale
+
+`lcm_sawtooth_signed_conductor_ablation.py` removes each conductor in turn
+from both the active/full residue matrices and the one-frequency arithmetic
+covariance, then recomputes the whitening, Schur response, axial axis, and
+moment-curve fit at `M=127`. This tests the signed interaction that the earlier
+positive-weight statistics omitted.
+
+The predeclared sparse upper-support hypothesis required an omission to move
+the fitted parameter by at least `.005`, with the largest mover in the upper
+half of the 28-conductor support. It fails: the largest shift is only
+`-.00099746499`, caused by omitting `d=55`. The location component survives.
+The four largest absolute shifts come from `d=55,78,143,77`, all in the
+rank-defined upper half `d>=33`; their shifts are respectively
+`-.000997465,-.000961733,+.000942214,-.000794704`.
+
+Pursuit status: `changed-under-evidence`. Reject a single dominant-conductor
+explanation. Preserve the upper-range concentration and mixed signs as a
+candidate distributed mechanism: several conductors may cancel or reinforce
+through the active-minus-half-full Schur response. A concrete follow-up is to
+measure pair/group nonadditivity among `55,77,78,143`, comparing the joint
+shift with the sum of individual shifts. This finite ablation proves no
+uniform effective-scale formula, lower frame, signed prime correlation, or
+Goldbach result.

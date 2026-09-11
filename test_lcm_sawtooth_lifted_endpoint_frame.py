@@ -157,6 +157,22 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
                 "active_over_full_largest_generalized_eigenvalue"]
             * (1 + 1e-10))
 
+    def test_conductor_exclusion_removes_only_requested_frequencies(self):
+        baseline = _lifted_frequency_data(31, 10, 2, 8)
+        excluded = _lifted_frequency_data(31, 10, 2, 8, (7,))
+        self.assertIn(7, baseline[0])
+        self.assertNotIn(7, excluded[0])
+        self.assertEqual(len(baseline[0]) - len(excluded[0]), 6)
+        with self.assertRaises(ValueError):
+            _lifted_frequency_data(31, 10, 2, 8, (1,))
+        with self.assertRaises(ValueError):
+            _lifted_frequency_data(31, 10, 2, 8, (7.0,))
+
+        receipt = lifted_endpoint_residue_gram_receipt(
+            31, 1, 10, 2, 8, (value for value in (7,)))
+        self.assertEqual(receipt["excluded_conductors"], (7,))
+        self.assertEqual(receipt["primitive_frequency_count"], len(excluded[0]))
+
     def test_complete_small_prime_block_is_finite(self):
         receipt = project_prime_block_lifted_endpoint_scan(127)
         self.assertEqual(receipt["prime_count"], 24)
