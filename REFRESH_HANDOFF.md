@@ -6994,3 +6994,61 @@ three-way expansion and whether the short residual modulus produces a usable
 bound. A missing coprimality or a residual larger than `B^2/d` rejects the
 formulation. The incomplete boundary, signed prime correlation, and Goldbach
 remain OPEN.
+
+
+## 2026-09-10: high conductors reduce to a short residual Bessel problem
+
+The three-way assignment is exact. For squarefree `d|lcm(a,b)`, assign every
+prime of `d` uniquely to the left-only, right-only, or common part and write
+
+`d=d_L d_R d_C`, `a=d_L d_C alpha`, `b=d_R d_C beta`.
+
+The three parts are pairwise coprime, `(alpha beta,d)=1`, and
+
+`lcm(a,b)=d lcm(alpha,beta)`,
+`mu(a)mu(b)=mu(d_Ld_R)mu(alpha)mu(beta)`.
+
+Thus
+
+`S_d=d^(-1) sum_(d_Ld_Rd_C=d) mu(d_Ld_R)
+ sum_(alpha,beta) mu(alpha)mu(beta)L_aL_b/lcm(alpha,beta)`,
+
+with the original hard ranges on `a,b`, and
+`lcm(alpha,beta)<=B^2/(d d_C)<=B^2/d`. This proves the structural reduction,
+not a bound for the resulting signed sum.
+
+There is also an exact residual Bessel formulation. Put
+`y_(d,r)=K_(dr)/(dr)` for each supported residual `r`. Then
+
+`complete energy = sum_d H_m(d)[sum_r y_(d,r)]^2`,
+
+while its diagonal is
+
+`diagonal energy = sum_d H_m(d)sum_r y_(d,r)^2`.
+
+Singleton residual coordinates equal their own diagonal exactly. At the
+central `M=16001` row, coordinates with maximum residual at most
+`1,2,4,8,16,32,64` carry respectively
+
+`.5974,.6870,.7368,.7871,.8024,.8805,.9369`
+
+of the total complete energy. The singleton part is `.5974` of the numerator
+but `.2836` of the diagonal; on the remaining multi-residual coordinates the
+numerator/diagonal quotient is `.26675`. This is strong finite cancellation
+evidence, not an asymptotic estimate. Independent review PASSed the assignment
+identity, hard ranges, Mobius signs, residual bound, exact energy identities,
+singleton/multi split, zero-weight diagnostics, implementation, and tests.
+
+A universal sign shortcut is false. The exact interval
+`m=31, ell=11, 13<a<=21` has diagonal `440.5571552`, positive ordered
+off-diagonal contribution `192.0119662`, and total/diagonal
+`1.4358389461`. Mobius cross terms can therefore reinforce. Any proof must
+use the project scaling or quantitative structure of the residual sums. The
+counterexample and its limited scope also independently PASSed review.
+
+The next <=30-minute question is whether each project-scaled dyadic conductor
+block satisfies a subpower multi-residual Bessel bound. Plain Cauchy loses the
+residual support size, at most `B^2/d`, which is about `N^.05` near the
+dominant conductor and is too costly. A dyadic block quotient growing like a
+fixed positive power falsifies this route. The incomplete boundary, signed
+prime correlation, and Goldbach remain OPEN.

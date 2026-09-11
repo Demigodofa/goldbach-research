@@ -6167,3 +6167,37 @@ at most `B^2/d`, which is only `N^.05` near the dominant `d=N^.59` scale.
 The next target is to verify and bound that three-way assignment expansion.
 The incomplete boundary, signed prime correlation, and Goldbach remain open;
 complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: exact short-residual Bessel reduction
+
+The proposed three-way assignment has now been verified exactly. For
+`d=d_Ld_Rd_C`, with primes assigned to left-only, right-only, or common,
+
+`a=d_Ld_C alpha`, `b=d_Rd_C beta`,
+`lcm(a,b)=d lcm(alpha,beta)`,
+
+and the remaining lcm satisfies
+`lcm(alpha,beta)<=B^2/(d d_C)<=B^2/d`. Substitution gives an exact signed
+formula for `S_d` with the original hard ranges and the correct Mobius sign
+`mu(d_Ld_R)mu(alpha)mu(beta)`.
+
+Writing the supported lcm as `q=dr` gives the exact target
+
+`sum_d H_m(d)[sum_r K_(dr)/(dr)]^2
+ <= N^epsilon sum_d H_m(d)sum_r K_(dr)^2/(d^2r^2)`.
+
+At `M=16001`, singleton residual coordinates contribute `.5974` of the full
+numerator and equal their diagonal exactly. The multi-residual quotient is
+`.26675`; conductors whose maximum residual is at most `64` account for
+`.9369` of the full complete energy. These are finite measurements.
+Independent review verified the exact identities, support diagnostics,
+implementation, and stated theorem boundary.
+
+Universal nonpositive Mobius cross terms cannot prove the inequality: the
+exact case `m=31, ell=11, 13<a<=21` has total/diagonal `1.4358389461`.
+The next bounded test is the multi-residual quotient on dyadic conductor
+blocks at project scales. Fixed-power growth rejects the route; stable
+subpower behavior identifies the precise signed residual sum requiring a
+theorem. The incomplete boundary, signed prime correlation, and Goldbach
+remain open; complete assembly remains `.295-delta`.
