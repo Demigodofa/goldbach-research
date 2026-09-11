@@ -102,7 +102,8 @@ def _conditioned_unit_exponential_sum(period, lag, difference, frequency):
 def source_ramanujan_mean_receipt(
         families=((77, 65), (143, 35)), lag=182,
         canonical_target=(-25042.404948829146, -1431.9765245642259),
-        minimum_factor_seven_signed_fraction=.75, tolerance=1e-12):
+        minimum_factor_seven_signed_fraction=.75,
+        maximum_source_mode_cancellation_quotient=.10, tolerance=1e-12):
     """Evaluate a lag mean from source modes and conditioned CRT sums."""
     families = tuple(families)
     if (len(families) != 2 or any(len(family) != 2 for family in families)
@@ -120,6 +121,8 @@ def source_ramanujan_mean_receipt(
         raise ValueError("tolerance must be finite and nonnegative")
     if not 0 < minimum_factor_seven_signed_fraction <= 1:
         raise ValueError("factor-seven fraction must lie in (0,1]")
+    if not 0 < maximum_source_mode_cancellation_quotient <= 1:
+        raise ValueError("cancellation quotient must lie in (0,1]")
     target = complex(*canonical_target)
 
     left_sources, left_pair_count = _family_source_modes(
@@ -133,6 +136,7 @@ def source_ramanujan_mean_receipt(
         if math.gcd(value, quotient) == 1)
     conditioned_cache = {}
     total = 0.0j
+    absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     matched_source_residue_pairs = 0
     expanded_mode_products = 0
@@ -158,6 +162,7 @@ def source_ramanujan_mean_receipt(
                         * np.conjugate(right_coefficient)
                         * conditioned_sum)
                     total += contribution
+                    absolute_mode_contribution_mass += abs(contribution)
                     frequency_gcd = math.gcd(frequency, common)
                     frequency_gcd_totals[frequency_gcd] = (
                         frequency_gcd_totals.get(frequency_gcd, 0.0j)
@@ -168,6 +173,11 @@ def source_ramanujan_mean_receipt(
         prime_power - prime_power // prime
         for prime, prime_power in _prime_power_factors(period))
     source_mean = complex(total / unit_class_count)
+    normalized_absolute_mode_contribution_mass = (
+        absolute_mode_contribution_mass / unit_class_count)
+    source_mode_cancellation_quotient = (
+        abs(source_mean) / normalized_absolute_mode_contribution_mass
+        if normalized_absolute_mode_contribution_mass > 0 else None)
     frequency_gcd_means = {
         divisor: complex(subtotal / unit_class_count)
         for divisor, subtotal in sorted(frequency_gcd_totals.items())}
@@ -194,9 +204,10 @@ def source_ramanujan_mean_receipt(
     equal_share_reconstruction_relative_error = (
         abs(equal_share_reconstruction - source_mean)
         / max(1.0, abs(source_mean)))
-    largest_absolute_equal_share_prime = max(
-        common_primes,
-        key=lambda prime: abs(frequency_equal_share_means[prime]))
+    largest_absolute_equal_share_prime = (
+        max(common_primes,
+            key=lambda prime: abs(frequency_equal_share_means[prime]))
+        if common_primes else None)
     factor_seven_has_largest_absolute_equal_share = (
         largest_absolute_equal_share_prime == 7)
     factor_seven_mean = prime_frequency_means.get(7, 0.0j)
@@ -224,6 +235,16 @@ def source_ramanujan_mean_receipt(
         "conditioned_sum_cache_size": len(conditioned_cache),
         "source_ramanujan_mean_correlation": (
             source_mean.real, source_mean.imag),
+        "normalized_absolute_mode_contribution_mass": (
+            normalized_absolute_mode_contribution_mass),
+        "source_mode_cancellation_quotient": (
+            source_mode_cancellation_quotient),
+        "maximum_source_mode_cancellation_quotient": (
+            maximum_source_mode_cancellation_quotient),
+        "source_mode_cancellation_gate_passes": bool(
+            source_mode_cancellation_quotient is not None
+            and source_mode_cancellation_quotient
+            <= maximum_source_mode_cancellation_quotient),
         "frequency_gcd_mean_correlations": {
             divisor: (subtotal.real, subtotal.imag)
             for divisor, subtotal in frequency_gcd_means.items()},
@@ -296,6 +317,15 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "source_to_canonical_relative_errors": {
             lag: result["source_to_canonical_relative_error"]
             for lag, result in results.items()},
+        "source_mode_cancellation_quotients": {
+            lag: result["source_mode_cancellation_quotient"]
+            for lag, result in results.items()},
+        "maximum_source_mode_cancellation_quotient": max(
+            result["source_mode_cancellation_quotient"]
+            for result in results.values()),
+        "all_source_mode_cancellation_gates_pass": all(
+            result["source_mode_cancellation_gate_passes"]
+            for result in results.values()),
         "maximum_source_to_canonical_relative_error": maximum_relative_error,
         "all_leading_lag_source_reductions_pass": bool(
             maximum_relative_error <= tolerance),

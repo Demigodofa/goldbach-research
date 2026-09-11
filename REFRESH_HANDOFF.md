@@ -11006,3 +11006,47 @@ magnitudes of its canonical endpoint-mode contributions. A uniform quotient
 at most `.10` is the falsifiable threshold for pursuing a phase-sensitive
 large-sieve bound on these source modes. Any lag above `.10` rejects that
 specific uniform-cancellation hypothesis while preserving the CRT reduction.
+
+## 2026-09-11: all five leading source expansions show strong finite cancellation
+
+Fix the source-mode basis by first aggregating each family coefficient by
+`(source residue, endpoint frequency)`. For each matched left/right pair,
+take the magnitude after multiplying one such left mode, one conjugated right
+mode, and the conditioned CRT/Ramanujan factor, but before regrouping equal
+final conditioned frequencies. The quotient is the magnitude of the full
+complex sum divided by this canonical-basis absolute mass.
+
+The measured quotients are
+
+- lag `140`: `.022079556630137137`;
+- lag `154`: `.02041835507328635`;
+- lag `156`: `.01237114100186055`;
+- lag `182`: `.06382956757596069`;
+- lag `240`: `.020494909233862327`.
+
+All five pass the predeclared `.10` gate. Lag `182` has normalized absolute
+mode mass `392973.25954838906`; lag `240`, the largest computation, has mass
+`904323.885919512`. The `240` calculation takes roughly `27` seconds alone,
+and the full focused suite takes roughly `59` seconds normally on this
+machine.
+
+Independent review reproduced every quotient and confirmed that the common
+`phi(Q)` normalization cancels in the ratio. It also found an accepted
+zero-mass edge case: odd lag `1` initially divided by zero and then exposed an
+empty prime-allocation `max`. The corrected receipt returns quotient `None`,
+a false cancellation gate, and no largest prime for that case. A warnings-as-
+errors regression now covers both paths; review returned PASS.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+These small ratios justify pursuing a phase-sensitive estimate in this chosen
+source expansion. They are basis- and grouping-dependent finite measurements,
+not a large-sieve theorem, a uniform bound, or the signed prime-correlation
+estimate.
+
+The next bounded question separates two candidate cancellation mechanisms.
+In the same fixed source-mode expansion, replace the CRT phase
+`e_(Q/g)(n*p0*g^(-1))` by `1` while retaining the exact Ramanujan weight
+`c_g(n)`. Compare the resulting phase-removed quotient with the actual one at
+the five leading lags. If removing the phase pushes any quotient above `.10`,
+the CRT phase is essential there; if all remain below `.10`, endpoint-mode
+coefficients and Ramanujan signs already supply the measured cancellation.

@@ -84,6 +84,18 @@ class SourceRamanujanTests(unittest.TestCase):
             gcd_total
             - complex(*receipt["source_ramanujan_mean_correlation"])), 1e-9)
         self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertGreater(
+            receipt["normalized_absolute_mode_contribution_mass"],
+            abs(complex(*receipt["source_ramanujan_mean_correlation"])))
+        self.assertEqual(
+            receipt["maximum_source_mode_cancellation_quotient"], .10)
+        self.assertAlmostEqual(
+            receipt["normalized_absolute_mode_contribution_mass"],
+            392973.25954838906, places=6)
+        self.assertAlmostEqual(
+            receipt["source_mode_cancellation_quotient"],
+            .06382956757596069, places=12)
+        self.assertTrue(receipt["source_mode_cancellation_gate_passes"])
 
     def test_guards(self):
         with self.assertRaises(ValueError):
@@ -93,6 +105,16 @@ class SourceRamanujanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_ramanujan_mean_receipt(
                 minimum_factor_seven_signed_fraction=0)
+        with self.assertRaises(ValueError):
+            source_ramanujan_mean_receipt(
+                maximum_source_mode_cancellation_quotient=0)
+
+    def test_zero_mass_lag_has_no_cancellation_quotient(self):
+        receipt = source_ramanujan_mean_receipt(
+            lag=1, canonical_target=(0.0, 0.0))
+        self.assertEqual(receipt["normalized_absolute_mode_contribution_mass"], 0)
+        self.assertIsNone(receipt["source_mode_cancellation_quotient"])
+        self.assertFalse(receipt["source_mode_cancellation_gate_passes"])
 
     def test_source_reduction_across_five_leading_lags(self):
         receipt = leading_lag_source_receipt()
@@ -103,6 +125,21 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertLess(
             receipt["maximum_source_to_canonical_relative_error"], 1e-12)
         self.assertTrue(receipt["all_leading_lag_source_reductions_pass"])
+        expected_quotients = {
+            140: .022079556630137137,
+            154: .02041835507328635,
+            156: .01237114100186055,
+            182: .06382956757596069,
+            240: .020494909233862327,
+        }
+        for lag, expected in expected_quotients.items():
+            self.assertAlmostEqual(
+                receipt["source_mode_cancellation_quotients"][lag],
+                expected, places=12)
+        self.assertAlmostEqual(
+            receipt["maximum_source_mode_cancellation_quotient"],
+            expected_quotients[182], places=12)
+        self.assertTrue(receipt["all_source_mode_cancellation_gates_pass"])
         self.assertFalse(
             receipt["unit_frame_classes_enumerated_by_source_calculation"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
