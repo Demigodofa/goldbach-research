@@ -1,5 +1,6 @@
 """Frequency-resolved partial Fourier form of the resonant source correlation."""
 
+import itertools
 import math
 
 import numpy as np
@@ -222,6 +223,143 @@ def _legendre_symbol_on_unit(value, prime):
     raise AssertionError("quadratic character evaluated off the unit group")
 
 
+def _prime_divisors(value):
+    divisors = []
+    candidate = 2
+    while candidate * candidate <= value:
+        if value % candidate == 0:
+            divisors.append(candidate)
+            while value % candidate == 0:
+                value //= candidate
+        candidate += 1
+    if value > 1:
+        divisors.append(value)
+    return tuple(divisors)
+
+
+def _primitive_root_mod_prime(prime):
+    order = prime - 1
+    order_primes = _prime_divisors(order)
+    for candidate in range(2, prime):
+        if all(pow(candidate, order // factor, prime) != 1
+               for factor in order_primes):
+            return candidate
+    raise AssertionError("odd prime has no primitive root")
+
+
+def _unit_character_table(common, primitive_parameters):
+    odd_primes = tuple(
+        prime for prime, prime_power in _prime_power_factors(common)
+        if prime == prime_power and prime % 2 == 1)
+    local_logs = {}
+    for prime in odd_primes:
+        generator = _primitive_root_mod_prime(prime)
+        log_table = {}
+        value = 1
+        for exponent in range(prime - 1):
+            log_table[value] = exponent
+            value = value * generator % prime
+        local_logs[prime] = log_table
+    labels = tuple(itertools.product(*(
+        range(prime - 1) for prime in odd_primes)))
+    table = np.ones(
+        (len(labels), len(primitive_parameters)), dtype=np.complex128)
+    for row, label in enumerate(labels):
+        for prime, character_exponent in zip(odd_primes, label):
+            logs = np.asarray(tuple(
+                local_logs[prime][int(parameter) % prime]
+                for parameter in primitive_parameters), dtype=np.float64)
+            table[row] *= np.exp(
+                2j * np.pi * character_exponent * logs / (prime - 1))
+    return odd_primes, labels, table
+
+
+def _primitive_character_energy(
+        frequencies, common, quotient, divisor_stratum_totals,
+        active_divisors, tolerance, leading_count=4):
+    primitive_mask = np.asarray(tuple(
+        math.gcd(int(frequency), common) == 1
+        for frequency in frequencies), dtype=bool)
+    primitive_parameters = frequencies[primitive_mask] // quotient
+    odd_primes, labels, character_table = _unit_character_table(
+        common, primitive_parameters)
+    group_order = len(primitive_parameters)
+    if len(labels) != group_order:
+        raise AssertionError("character table does not span the unit group")
+    rows = {}
+    for divisor, totals in divisor_stratum_totals.items():
+        values = totals[primitive_mask]
+        coefficients = np.conjugate(character_table) @ values
+        coefficient_energy = np.abs(coefficients) ** 2
+        expected_energy = group_order * float(np.sum(np.abs(values) ** 2))
+        actual_energy = float(np.sum(coefficient_energy))
+        ranked = sorted(
+            zip(coefficient_energy, labels),
+            key=lambda item: (-item[0], item[1]))
+        retained = ranked[:min(leading_count, len(ranked))]
+        retained_energy = float(sum(item[0] for item in retained))
+        cumulative_energy = 0.0
+        characters_for_ninety_percent = 0
+        for energy, _ in ranked:
+            cumulative_energy += float(energy)
+            characters_for_ninety_percent += 1
+            if cumulative_energy >= .9 * actual_energy:
+                break
+        effective_character_rank = (
+            actual_energy * actual_energy
+            / float(np.sum(coefficient_energy ** 2))
+            if actual_energy else 0.0)
+        reconstruction = coefficients @ character_table / group_order
+        reconstruction_error = float(np.max(np.abs(reconstruction - values)))
+        reconstruction_scale = max(1.0, float(np.sum(np.abs(values))))
+        rows[divisor] = {
+            "active": divisor in active_divisors,
+            "primitive_unit_count": group_order,
+            "character_count": len(labels),
+            "leading_character_count": len(retained),
+            "leading_character_labels": tuple(item[1] for item in retained),
+            "leading_character_energy_fraction": (
+                retained_energy / actual_energy if actual_energy else 1.0),
+            "characters_for_ninety_percent_energy": (
+                characters_for_ninety_percent),
+            "effective_character_rank": effective_character_rank,
+            "parseval_relative_error": (
+                abs(actual_energy - expected_energy)
+                / max(1.0, expected_energy)),
+            "reconstruction_natural_scale_relative_error": (
+                reconstruction_error / reconstruction_scale),
+            "character_expansion_reconstructs": bool(
+                reconstruction_error / reconstruction_scale <= tolerance),
+        }
+    active_rows = tuple(rows[divisor] for divisor in active_divisors)
+    return {
+        "odd_character_primes": odd_primes,
+        "unit_group_order": group_order,
+        "character_count": len(labels),
+        "active_divisors": tuple(active_divisors),
+        "divisor_rows": rows,
+        "minimum_leading_four_energy_fraction": min(
+            (row["leading_character_energy_fraction"] for row in active_rows),
+            default=1.0),
+        "maximum_characters_for_ninety_percent_energy": max(
+            (row["characters_for_ninety_percent_energy"]
+             for row in active_rows), default=0),
+        "effective_character_rank_range": (
+            min((row["effective_character_rank"] for row in active_rows),
+                default=0.0),
+            max((row["effective_character_rank"] for row in active_rows),
+                default=0.0)),
+        "maximum_parseval_relative_error": max(
+            (row["parseval_relative_error"] for row in active_rows),
+            default=0.0),
+        "maximum_reconstruction_natural_scale_relative_error": max(
+            (row["reconstruction_natural_scale_relative_error"]
+             for row in active_rows), default=0.0),
+        "all_character_expansions_reconstruct": all(
+            row["character_expansion_reconstructs"] for row in active_rows),
+    }
+
+
 def _primitive_quadratic_character_fits(
         frequencies, common, quotient, divisor_stratum_totals, tolerance):
     odd_primes = tuple(
@@ -330,6 +468,9 @@ def frequency_resolved_fourier_case_receipt(
         quadratic_fits = _primitive_quadratic_character_fits(
             frequencies, common, quotient,
             divisor_stratum_totals, tolerance)
+        character_energy = _primitive_character_energy(
+            frequencies, common, quotient, divisor_stratum_totals,
+            quadratic_fits["active_divisors"], tolerance)
         rows[quotient] = {
             "lag": lag,
             "gcd_lag_period": common,
@@ -354,6 +495,7 @@ def frequency_resolved_fourier_case_receipt(
                 / max(1.0, divisor_stratum_absolute_mass) <= tolerance),
             "divisor_stratum_sign_cells": sign_cells,
             "primitive_quadratic_character_fits": quadratic_fits,
+            "primitive_dirichlet_character_energy": character_energy,
             "direct_signed_total": complex(np.sum(direct)),
             "formula_signed_total": complex(np.sum(formula_totals)),
             "every_frequency_reconstructs": bool(
@@ -465,5 +607,66 @@ def quadratic_character_factor_reallocation_receipt(
         "orientation_stable_mod5_component_supported": bool(passes),
         "uniform_frequency_resolved_bound_proved": False,
         "uniform_source_sum_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def dirichlet_character_energy_holdout_receipt(
+        minimum_leading_four_energy_fraction=.90,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(minimum_leading_four_energy_fraction)
+            or not 0 < minimum_leading_four_energy_fraction <= 1):
+        raise ValueError("character-energy threshold must lie in (0,1]")
+    cases = {
+        "canonical": frequency_resolved_fourier_case_receipt(
+            CANONICAL_FAMILIES, CANONICAL_LAGS, tolerance, batch_size),
+        "alternate": frequency_resolved_fourier_case_receipt(
+            ALTERNATE_FAMILIES, ALTERNATE_LAGS, tolerance, batch_size),
+    }
+    cells = []
+    characters_for_ninety_percent = []
+    effective_character_ranks = []
+    for case_name, case in cases.items():
+        for quotient, row in case["rows"].items():
+            energy = row["primitive_dirichlet_character_energy"]
+            for divisor in energy["active_divisors"]:
+                fraction = energy["divisor_rows"][divisor][
+                    "leading_character_energy_fraction"]
+                cells.append((case_name, quotient, divisor, fraction))
+                characters_for_ninety_percent.append(
+                    energy["divisor_rows"][divisor][
+                        "characters_for_ninety_percent_energy"])
+                effective_character_ranks.append(
+                    energy["divisor_rows"][divisor][
+                        "effective_character_rank"])
+    all_reconstruct = all(
+        row["primitive_dirichlet_character_energy"][
+            "all_character_expansions_reconstruct"]
+        for case in cases.values() for row in case["rows"].values())
+    passing_cells = tuple(
+        cell[:3] for cell in cells
+        if cell[3] >= minimum_leading_four_energy_fraction)
+    all_cells_pass = bool(
+        len(cells) == 16 and len(passing_cells) == len(cells))
+    return {
+        "minimum_leading_four_energy_fraction": (
+            minimum_leading_four_energy_fraction),
+        "cases": cases,
+        "active_cell_count": len(cells),
+        "passing_cells": passing_cells,
+        "passing_cell_count": len(passing_cells),
+        "minimum_observed_leading_four_energy_fraction": min(
+            (cell[3] for cell in cells), default=None),
+        "characters_for_ninety_percent_energy_range": (
+            min(characters_for_ninety_percent, default=0),
+            max(characters_for_ninety_percent, default=0)),
+        "effective_character_rank_range": (
+            min(effective_character_ranks, default=0.0),
+            max(effective_character_ranks, default=0.0)),
+        "all_character_expansions_reconstruct": bool(all_reconstruct),
+        "all_sixteen_cells_pass_low_rank_gate": all_cells_pass,
+        "four_character_low_rank_mechanism_supported": bool(all_cells_pass),
+        "uniform_character_large_sieve_estimate_proved": False,
+        "uniform_frequency_resolved_bound_proved": False,
         "signed_prime_correlation_proved": False,
     }

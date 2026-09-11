@@ -12839,3 +12839,53 @@ carry at least `.90` of Parseval energy in every canonical and alternate
 divisor cell.  Passing would reduce the linked source condition to a few
 character correlations; failure would reject bounded-rank character control
 and point instead to an averaged large-sieve estimate over the full spectrum.
+
+## 2026-09-11: primitive source energy occupies a broad character spectrum
+
+The four-character low-rank gate fails in all sixteen canonical and alternate
+divisor cells.  For `g=130` and `g=110`, explicit primitive roots and local
+discrete logs construct all `48` and `40` Dirichlet characters of the
+squarefree unit groups.  With
+
+`f_d(r)=Z_(q*r,d)`, and
+`fhat_d(chi)=sum_(r in U_g) f_d(r) conjugate(chi(r))`,
+
+the inverse character expansion and Parseval identity both reconstruct within
+the `1e-12` gate.  The largest observed Parseval relative error is below
+`4.3e-16` and the largest inverse-reconstruction relative error is below
+`7.4e-16`.
+
+The four largest character coefficients carry only `.20558068443802235` to
+`.494365769703` of the energy, so no cell reaches the frozen `.90` threshold.
+Accumulating `.90` of the energy requires between `12` and `31` characters;
+the inverse-participation effective ranks range from `11.215577271870771` to
+`27.96018345266816`.  The primitive source is spectrally broad rather than a
+small collection of exceptional characters.
+
+Curiosity status: `decisive-fail/useful-interface`, novelty
+`new-to-this-task`.  This rejects the specified four-Dirichlet-character gate
+on these sixteen cells.  It does not reject an arbitrary rank-four basis or
+prove a uniform spectral theorem.  Preserve the exact character expansion;
+it points toward an averaged full-spectrum estimate rather than character
+selection.  No character large-sieve estimate, prime-distribution result, or
+signed prime-correlation bound has been proved.
+
+Independent review checked the unit-group construction, coefficient
+convention, inverse normalization, Parseval scale, all sixteen active cells,
+energy fractions, 90-percent counts, effective ranks, conclusion flags, and
+their regression coverage.  Focused tests pass normally and under Python
+optimization.
+
+The next bounded question connects this broad spectrum to the prime variable
+instead of continuing source-only classification.  For every unit `p mod g`,
+test the exact Gauss transfer
+
+`sum_(r in U_g) f_d(r)e_g(r*p)
+ =1/phi(g) sum_(chi mod g) fhat_d(chi) tau_g(chi) conjugate(chi(p))`,
+
+where `tau_g(chi)=sum_(r in U_g)chi(r)e_g(r)`.  Reconstruct every unit `p` in
+all canonical and alternate divisor cells within `1e-12`, including
+imprimitive characters.  Also apply the same `.90` four-term gate after the
+Gauss weights.  Identity failure rejects the proposed prime interface;
+weighted-rank failure preserves the interface but requires an averaged
+Dirichlet-character estimate for the two linked prime conditions.

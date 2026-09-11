@@ -6,6 +6,7 @@ from lcm_sawtooth_frequency_resolved_fourier import (
     EXACT_ZERO_FAMILIES,
     frequency_resolved_fourier_case_receipt,
     frequency_resolved_fourier_receipt,
+    dirichlet_character_energy_holdout_receipt,
     quadratic_character_factor_reallocation_receipt,
 )
 
@@ -29,6 +30,9 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             quadratic_character_factor_reallocation_receipt(
                 minimum_mod5_winning_cells=9)
+        with self.assertRaises(ValueError):
+            dirichlet_character_energy_holdout_receipt(
+                minimum_leading_four_energy_fraction=0)
 
     def test_every_resonant_frequency_reconstructs(self):
         receipt = frequency_resolved_fourier_receipt()
@@ -159,6 +163,72 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
         self.assertFalse(receipt[
             "orientation_stable_mod5_component_supported"])
         self.assertFalse(receipt["uniform_frequency_resolved_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_four_character_energy_is_not_low_rank(self):
+        receipt = dirichlet_character_energy_holdout_receipt()
+        self.assertEqual(receipt["minimum_leading_four_energy_fraction"], .9)
+        self.assertEqual(receipt["active_cell_count"], 16)
+        self.assertEqual(receipt["passing_cell_count"], 0)
+        self.assertEqual(receipt["passing_cells"], ())
+        self.assertAlmostEqual(
+            receipt["minimum_observed_leading_four_energy_fraction"],
+            .20558068443802235, places=12)
+        self.assertEqual(
+            receipt["characters_for_ninety_percent_energy_range"], (12, 31))
+        self.assertAlmostEqual(
+            receipt["effective_character_rank_range"][0],
+            11.215577271870771, places=11)
+        self.assertAlmostEqual(
+            receipt["effective_character_rank_range"][1],
+            27.96018345266816, places=11)
+        expected_fractions = {
+            ("canonical", 77): {
+                1: .20558068443802235,
+                7: .219652715072,
+                11: .237732099573,
+                77: .207319967865,
+            },
+            ("canonical", 91): {
+                1: .244509895632,
+                7: .2409200854182761,
+                13: .309497610936,
+                91: .301935434884,
+            },
+            ("alternate", 77): {
+                1: .245214825778,
+                7: .2426317296426457,
+                11: .278331040196,
+                77: .262289456197,
+            },
+            ("alternate", 91): {
+                1: .405222101455,
+                7: .3790910631128297,
+                13: .494365769703,
+                91: .423828577974,
+            },
+        }
+        for (case, quotient), fractions in expected_fractions.items():
+            energy = receipt["cases"][case]["rows"][quotient][
+                "primitive_dirichlet_character_energy"]
+            self.assertEqual(
+                energy["unit_group_order"], 48 if quotient == 77 else 40)
+            self.assertTrue(energy["all_character_expansions_reconstruct"])
+            self.assertLess(energy["maximum_parseval_relative_error"], 1e-12)
+            self.assertLess(
+                energy["maximum_reconstruction_natural_scale_relative_error"],
+                1e-12)
+            for divisor, expected in fractions.items():
+                self.assertAlmostEqual(
+                    energy["divisor_rows"][divisor][
+                        "leading_character_energy_fraction"],
+                    expected, places=11)
+        self.assertTrue(receipt["all_character_expansions_reconstruct"])
+        self.assertFalse(receipt["all_sixteen_cells_pass_low_rank_gate"])
+        self.assertFalse(receipt[
+            "four_character_low_rank_mechanism_supported"])
+        self.assertFalse(receipt[
+            "uniform_character_large_sieve_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 
