@@ -9978,3 +9978,62 @@ before aggregation. A proposed transfer must reconstruct each doubled packet
 within `1e-12` after its declared permutation and scalar factors; failure
 rejects that transformation while preserving the exact primitive-residue
 bijection and even-`Q` folding.
+
+## 2026-09-11: partner doubling introduces an exact half-interval twist
+
+For odd `d`, reduction modulo `d` maps the primitive residues modulo `2d`
+bijectionally onto the primitive residues modulo `d`. If `a mod d` is
+primitive, its unique odd lift is `k=a` when `a` is odd and `k=a+d` when
+`a` is even. Writing an odd prime as `p=2s+1`, the doubled-partner geometric
+sum satisfies the exact identity
+
+`G_p(k;2d)=(1+exp(-pi*i*k/d))*sum_(m=1)^s exp(2*pi*i*k*m/d)`.
+
+The factor multiplies the first-half sum into the odd and even terms
+`n=1,...,2s`. Across all 24 active primes and `d=35,65`, the maximum mixed
+absolute-relative numerical error is `1.87e-13`.
+
+The predeclared stronger hypothesis allowed the best complex scalar
+separately for every prime and partner, requiring relative reconstruction
+error at most `1e-12` for each full geometric vector, plus a scalar transfer
+of each three-coordinate support polynomial. It fails:
+
+- nontrivial geometric-vector residuals range from `.6972166887783966` to
+  `.9981053173424562`;
+- the polynomial-vector residual is `.2755577081330059` for `35 -> 70`;
+- the polynomial-vector residual is `.29666696754607497` for `65 -> 130`.
+
+Two channels, `(p,d)=(131,65)` and `(211,35)`, are exact zero-to-zero cases:
+`p-1` is divisible by both `d` and `2d`, so both geometric vectors are
+complete-period sums. An initial floating `sin(pi)` residue made the doubled
+side look tiny but nonzero; this was caught before commit, corrected by the
+exact divisibility condition, and regression-tested. These rows are neutral,
+not scalar-transfer obstructions.
+
+Independent review verified the primitive bijection, half-interval algebra,
+stable evaluation, exact-zero correction, least-squares orientation,
+residuals, tests, and finite scope. Three focused tests pass normally and
+under Python optimization.
+
+Curiosity status: `aha-candidate` for the half-interval identity and
+`changed-under-evidence` for scalar transfer. Preserve the exact primitive
+lift and half-interval factor. Reject only a single scalar copy from `d` to
+`2d`; residue-dependent or higher-dimensional transfer remains open. No
+signed prime-correlation estimate follows.
+
+The next bounded question uses the same half sum on both sides. With
+`s=(p-1)/2`, splitting the base full sum gives
+
+`G_p(a;d)=(1+exp(2*pi*i*a*s/d))*H_(p,d)(a)`.
+
+Combining this with the doubled identity predicts an exact diagonal transfer
+`G_p(k;2d)=T_(p,d)(a) G_p(a;d)`, where `k` is the odd lift and
+
+`T_(p,d)(a)=(1+exp(-pi*i*k/d))/(1+exp(2*pi*i*a*s/d))`.
+
+Verify this coefficientwise, including complete-period zeros, to relative
+error `1e-12`. Then expose the products of the left and right diagonal
+multipliers in the packet cross-correlation and test whether their
+phase-rotated real parts supply a stable sign bias. Failure of the diagonal
+identity rejects the derivation; success preserves an exact arithmetic
+multiplier without presuming its sign.
