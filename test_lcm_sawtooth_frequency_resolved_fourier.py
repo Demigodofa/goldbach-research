@@ -7,6 +7,7 @@ from lcm_sawtooth_frequency_resolved_fourier import (
     frequency_resolved_fourier_case_receipt,
     frequency_resolved_fourier_receipt,
     dirichlet_character_energy_holdout_receipt,
+    gauss_prime_interface_receipt,
     quadratic_character_factor_reallocation_receipt,
 )
 
@@ -33,6 +34,9 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             dirichlet_character_energy_holdout_receipt(
                 minimum_leading_four_energy_fraction=0)
+        with self.assertRaises(ValueError):
+            gauss_prime_interface_receipt(
+                minimum_gauss_weighted_leading_four_energy_fraction=2)
 
     def test_every_resonant_frequency_reconstructs(self):
         receipt = frequency_resolved_fourier_receipt()
@@ -229,6 +233,61 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
             "four_character_low_rank_mechanism_supported"])
         self.assertFalse(receipt[
             "uniform_character_large_sieve_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_gauss_transfer_reaches_primes_but_stays_broad(self):
+        receipt = gauss_prime_interface_receipt()
+        self.assertEqual(
+            receipt["minimum_gauss_weighted_leading_four_energy_fraction"],
+            .9)
+        self.assertEqual(receipt["active_cell_count"], 16)
+        self.assertEqual(receipt["passing_cell_count"], 0)
+        self.assertEqual(receipt["passing_cells"], ())
+        self.assertAlmostEqual(
+            receipt[
+                "observed_gauss_weighted_leading_four_energy_fraction_range"][
+                    0],
+            .26480825526731777, places=12)
+        self.assertAlmostEqual(
+            receipt[
+                "observed_gauss_weighted_leading_four_energy_fraction_range"][
+                    1],
+            .6167096361723723, places=12)
+        self.assertEqual(
+            receipt[
+                "gauss_weighted_characters_for_ninety_percent_energy_range"],
+            (10, 27))
+        expected_summary = {
+            ("canonical", 77): (.26480825526731777, (17, 17)),
+            ("canonical", 91): (.3157552840257354, (12, 14)),
+            ("alternate", 77): (.30126580886673077, (24, 27)),
+            ("alternate", 91): (.4328122635592582, (10, 12)),
+        }
+        for (case, quotient), (minimum_fraction, count_range) in (
+                expected_summary.items()):
+            transfer = receipt["cases"][case]["rows"][quotient][
+                "primitive_gauss_transfer"]
+            self.assertTrue(
+                transfer["all_gauss_transfers_reconstruct_every_unit"])
+            self.assertLess(
+                transfer["maximum_gauss_transfer_natural_scale_relative_error"],
+                1e-12)
+            self.assertAlmostEqual(
+                transfer[
+                    "minimum_gauss_weighted_leading_four_energy_fraction"],
+                minimum_fraction, places=12)
+            self.assertEqual(
+                transfer[
+                    "gauss_weighted_characters_for_ninety_percent_energy_range"],
+                count_range)
+        self.assertTrue(receipt[
+            "all_gauss_transfers_reconstruct_every_unit"])
+        self.assertFalse(receipt[
+            "all_sixteen_cells_pass_gauss_weighted_low_rank_gate"])
+        self.assertFalse(receipt[
+            "gauss_weighted_four_character_mechanism_supported"])
+        self.assertFalse(receipt[
+            "two_linked_prime_character_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 

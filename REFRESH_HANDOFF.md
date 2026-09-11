@@ -12889,3 +12889,61 @@ imprimitive characters.  Also apply the same `.90` four-term gate after the
 Gauss weights.  Identity failure rejects the proposed prime interface;
 weighted-rank failure preserves the interface but requires an averaged
 Dirichlet-character estimate for the two linked prime conditions.
+
+## 2026-09-11: exact Gauss transfer reaches the prime variable
+
+The Gauss-transfer identity passes for every unit residue in all sixteen
+canonical and alternate divisor cells.  With
+
+`fhat_d(chi)=sum_(r in U_g)f_d(r)conjugate(chi(r))`, and
+`tau_g(chi)=sum_(r in U_g)chi(r)e_g(r)`,
+
+character inversion and the substitution `r -> r*p^(-1)` give, for every
+unit `p`,
+
+`sum_(r in U_g) f_d(r)e_g(r*p)
+ =1/phi(g) sum_(chi mod g)
+      fhat_d(chi)tau_g(chi)conjugate(chi(p))`.
+
+The explicit implementation includes all characters modulo squarefree `g`,
+including trivial and imprimitive characters.  Direct additive evaluation and
+the Gauss reconstruction agree with maximum natural-scale relative error
+`3.939140836423818e-15`.
+
+Gauss weights improve concentration but do not create a four-character
+shortcut.  Across the sixteen cells, the leading-four weighted energy ranges
+from `.26480825526731777` to `.6167096361723723`; no cell reaches the frozen
+`.90` gate.  Reaching `.90` requires `10` to `27` characters.  Thus the exact
+prime interface is valid and remains spectrally broad.
+
+Curiosity status: `interface-pass/shortcut-fail`, novelty
+`new-to-this-task`.  Preserve this identity: the output-frequency source
+profile now becomes an explicit weighted family of Dirichlet characters at
+the prime residue.  Retire only the Gauss-weighted four-character reduction
+on these fixtures.  This proves no estimate for two linked prime conditions,
+no uniform source bound, and no signed prime-correlation theorem.
+
+Independent review checked the coefficient convention, Gauss-sum orientation,
+additive matrix, imprimitive characters, all active cells, reconstruction
+error, complete weighted-energy range, 90-percent counts, scope flags, and
+normal/optimized tests.  Its initial coverage hold on the maximum energy
+fraction was corrected by returning and asserting the full range.
+
+The next bounded question writes the missing arithmetic input in this basis.
+For an even target `N` and interval `I`, define
+
+`P_N(chi)=sum_(p in I, N-p prime)
+             (log p)(log(N-p))conjugate(chi(p))`.
+
+First derive the exact finite identity
+
+`sum_(p in I, N-p prime)(log p)(log(N-p))
+       sum_r f_d(r)e_g(r*p)
+ =1/phi(g) sum_chi fhat_d(chi)tau_g(chi)P_N(chi)`,
+
+with all nonunit and endpoint terms stated explicitly.  Then apply character
+orthogonality to the right side and compare its Cauchy bound with the signed
+scale required by the existing Goldbach transfer.  If orthogonality yields
+only the unsaved positive residue-class second moment, plain character large
+sieve is insufficient; any viable estimate must retain joint cancellation
+between the coefficient phases and the linked-prime correlations.

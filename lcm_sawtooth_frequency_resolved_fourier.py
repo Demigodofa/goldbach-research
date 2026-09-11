@@ -360,6 +360,83 @@ def _primitive_character_energy(
     }
 
 
+def _primitive_gauss_transfer(
+        frequencies, common, quotient, divisor_stratum_totals,
+        active_divisors, tolerance, leading_count=4):
+    primitive_mask = np.asarray(tuple(
+        math.gcd(int(frequency), common) == 1
+        for frequency in frequencies), dtype=bool)
+    units = frequencies[primitive_mask] // quotient
+    odd_primes, labels, character_table = _unit_character_table(common, units)
+    group_order = len(units)
+    additive_at_one = np.exp(2j * np.pi * units / common)
+    gauss_sums = character_table @ additive_at_one
+    additive_matrix = np.exp(
+        2j * np.pi * ((units[:, None] * units[None, :]) % common) / common)
+    rows = {}
+    for divisor, totals in divisor_stratum_totals.items():
+        values = totals[primitive_mask]
+        coefficients = np.conjugate(character_table) @ values
+        direct = additive_matrix @ values
+        weighted_coefficients = coefficients * gauss_sums
+        reconstructed = (
+            weighted_coefficients @ np.conjugate(character_table)
+            / group_order)
+        errors = np.abs(reconstructed - direct)
+        natural_scale = max(1.0, float(np.sum(np.abs(values))))
+        weighted_energy = np.abs(weighted_coefficients) ** 2
+        total_weighted_energy = float(np.sum(weighted_energy))
+        ranked = sorted(
+            zip(weighted_energy, labels),
+            key=lambda item: (-item[0], item[1]))
+        leading = ranked[:min(leading_count, len(ranked))]
+        leading_energy = float(sum(item[0] for item in leading))
+        cumulative_energy = 0.0
+        characters_for_ninety_percent = 0
+        for energy, _ in ranked:
+            cumulative_energy += float(energy)
+            characters_for_ninety_percent += 1
+            if cumulative_energy >= .9 * total_weighted_energy:
+                break
+        rows[divisor] = {
+            "active": divisor in active_divisors,
+            "odd_character_primes": odd_primes,
+            "character_count": len(labels),
+            "leading_character_labels": tuple(item[1] for item in leading),
+            "gauss_weighted_leading_four_energy_fraction": (
+                leading_energy / total_weighted_energy
+                if total_weighted_energy else 1.0),
+            "gauss_weighted_characters_for_ninety_percent_energy": (
+                characters_for_ninety_percent),
+            "maximum_gauss_transfer_absolute_error": float(np.max(errors)),
+            "maximum_gauss_transfer_natural_scale_relative_error": float(
+                np.max(errors) / natural_scale),
+            "gauss_transfer_reconstructs_every_unit": bool(
+                np.max(errors) / natural_scale <= tolerance),
+        }
+    active_rows = tuple(rows[divisor] for divisor in active_divisors)
+    return {
+        "unit_group_order": group_order,
+        "character_count": len(labels),
+        "active_divisors": tuple(active_divisors),
+        "divisor_rows": rows,
+        "minimum_gauss_weighted_leading_four_energy_fraction": min(
+            (row["gauss_weighted_leading_four_energy_fraction"]
+             for row in active_rows), default=1.0),
+        "gauss_weighted_characters_for_ninety_percent_energy_range": (
+            min((row["gauss_weighted_characters_for_ninety_percent_energy"]
+                 for row in active_rows), default=0),
+            max((row["gauss_weighted_characters_for_ninety_percent_energy"]
+                 for row in active_rows), default=0)),
+        "maximum_gauss_transfer_natural_scale_relative_error": max(
+            (row["maximum_gauss_transfer_natural_scale_relative_error"]
+             for row in active_rows), default=0.0),
+        "all_gauss_transfers_reconstruct_every_unit": all(
+            row["gauss_transfer_reconstructs_every_unit"]
+            for row in active_rows),
+    }
+
+
 def _primitive_quadratic_character_fits(
         frequencies, common, quotient, divisor_stratum_totals, tolerance):
     odd_primes = tuple(
@@ -471,6 +548,9 @@ def frequency_resolved_fourier_case_receipt(
         character_energy = _primitive_character_energy(
             frequencies, common, quotient, divisor_stratum_totals,
             quadratic_fits["active_divisors"], tolerance)
+        gauss_transfer = _primitive_gauss_transfer(
+            frequencies, common, quotient, divisor_stratum_totals,
+            quadratic_fits["active_divisors"], tolerance)
         rows[quotient] = {
             "lag": lag,
             "gcd_lag_period": common,
@@ -496,6 +576,7 @@ def frequency_resolved_fourier_case_receipt(
             "divisor_stratum_sign_cells": sign_cells,
             "primitive_quadratic_character_fits": quadratic_fits,
             "primitive_dirichlet_character_energy": character_energy,
+            "primitive_gauss_transfer": gauss_transfer,
             "direct_signed_total": complex(np.sum(direct)),
             "formula_signed_total": complex(np.sum(formula_totals)),
             "every_frequency_reconstructs": bool(
@@ -667,6 +748,69 @@ def dirichlet_character_energy_holdout_receipt(
         "all_sixteen_cells_pass_low_rank_gate": all_cells_pass,
         "four_character_low_rank_mechanism_supported": bool(all_cells_pass),
         "uniform_character_large_sieve_estimate_proved": False,
+        "uniform_frequency_resolved_bound_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def gauss_prime_interface_receipt(
+        minimum_gauss_weighted_leading_four_energy_fraction=.90,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(
+            minimum_gauss_weighted_leading_four_energy_fraction)
+            or not 0 < minimum_gauss_weighted_leading_four_energy_fraction
+            <= 1):
+        raise ValueError("Gauss-weighted energy threshold must lie in (0,1]")
+    cases = {
+        "canonical": frequency_resolved_fourier_case_receipt(
+            CANONICAL_FAMILIES, CANONICAL_LAGS, tolerance, batch_size),
+        "alternate": frequency_resolved_fourier_case_receipt(
+            ALTERNATE_FAMILIES, ALTERNATE_LAGS, tolerance, batch_size),
+    }
+    cells = []
+    counts_for_ninety_percent = []
+    for case_name, case in cases.items():
+        for quotient, row in case["rows"].items():
+            transfer = row["primitive_gauss_transfer"]
+            for divisor in transfer["active_divisors"]:
+                divisor_row = transfer["divisor_rows"][divisor]
+                cells.append((
+                    case_name, quotient, divisor,
+                    divisor_row[
+                        "gauss_weighted_leading_four_energy_fraction"]))
+                counts_for_ninety_percent.append(
+                    divisor_row[
+                        "gauss_weighted_characters_for_ninety_percent_energy"])
+    passing_cells = tuple(
+        cell[:3] for cell in cells
+        if cell[3] >= minimum_gauss_weighted_leading_four_energy_fraction)
+    all_reconstruct = all(
+        row["primitive_gauss_transfer"][
+            "all_gauss_transfers_reconstruct_every_unit"]
+        for case in cases.values() for row in case["rows"].values())
+    all_cells_pass = bool(
+        len(cells) == 16 and len(passing_cells) == len(cells))
+    return {
+        "identity": (
+            "sum_r f_d(r)e_g(rp)=phi(g)^-1 sum_chi "
+            "fhat_d(chi)tau_g(chi)conj(chi(p))"),
+        "minimum_gauss_weighted_leading_four_energy_fraction": (
+            minimum_gauss_weighted_leading_four_energy_fraction),
+        "cases": cases,
+        "active_cell_count": len(cells),
+        "passing_cells": passing_cells,
+        "passing_cell_count": len(passing_cells),
+        "observed_gauss_weighted_leading_four_energy_fraction_range": (
+            min((cell[3] for cell in cells), default=None),
+            max((cell[3] for cell in cells), default=None)),
+        "gauss_weighted_characters_for_ninety_percent_energy_range": (
+            min(counts_for_ninety_percent, default=0),
+            max(counts_for_ninety_percent, default=0)),
+        "all_gauss_transfers_reconstruct_every_unit": bool(all_reconstruct),
+        "all_sixteen_cells_pass_gauss_weighted_low_rank_gate": all_cells_pass,
+        "gauss_weighted_four_character_mechanism_supported": bool(
+            all_cells_pass),
+        "two_linked_prime_character_estimate_proved": False,
         "uniform_frequency_resolved_bound_proved": False,
         "signed_prime_correlation_proved": False,
     }
