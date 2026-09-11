@@ -11588,3 +11588,98 @@ the endpoint modes mainly avoid the reinforcing constant eigenspace of
 `(J-I) tensor (J-I)`.  Failure would redirect the search to cancellation
 between endpoint frequencies or tensor sectors while preserving the
 resonance measurements.
+
+## 2026-09-11: exact resonant eigensectors reveal a lag-dependent mechanism
+
+For every fully resonant frequency `q|n`, the quotient-prime kernel is exactly
+`tensor_(r|q)(J-I)`.  Decomposing each source-frequency tensor into constant
+and mean-zero components on each quotient-prime coordinate gives sectors `S`
+with eigenvalue
+
+`lambda_S = product_(r|q) (r-2 if r not in S else -1)`.
+
+The common-prime coordinates contribute the scalar
+`product_(r|g)c_r(n)`.  Therefore the exact fixed-frequency component is
+
+`B_(n,S) = product_(r|g)c_r(n) lambda_S
+           sum_k <R_(k-n,S),L_(k,S)> / phi(Q)`.
+
+Summing over `S` reconstructs the original conditioned source calculation.
+The implementation independently recomputes the direct fully resonant terms;
+across all five leading lags the maximum reconstruction error is below
+`1.5e-14` on the sectorwise natural scale.  Direct-relative error is not the
+acceptance scale because the sectors can nearly cancel; at lag `182` the
+largest absolute discrepancy is about `8.24e-8` after floating sums of much
+larger terms, while natural-scale relative error is
+`1.5477309244355973e-15`.
+
+At lag `182`, the sector data are:
+
+| mean-zero coordinates `S` | eigenvalue | signed mean | absolute mass |
+|---|---:|---:|---:|
+| `()` | `27` | `-7104.502499999947` | `7165.205395435115` |
+| `(5)` | `-9` | `3196.5949999999775` | `3238.5396263388807` |
+| `(11)` | `-3` | `3913.0170833333086` | `3938.9788713068133` |
+| `(5,11)` | `1` | `-4483.909583333306` | `4501.581265974542` |
+
+The proposed `.75` mean-zero mass gate fails: those sectors carry
+`.6197681296838912` of the sectorwise mass.  Yet each sector is highly coherent
+across its own frequencies, with signed/absolute quotients from
+`.9870482899150687` to `.9960743388607003`.  Alternating sector signs then
+reduce sectorwise mass `18844.30515905535` to fully resonant mass `4478.8`, a
+recombination quotient `.23767392653624825`.  Thus lag `182` has an exact
+finite cancellation mechanism between spatial eigensectors, but mean-zero
+mass alone does not dominate enough to satisfy the declared hypothesis.
+
+The next `.95` coherence plus `.25` recombination conjunction fails narrowly
+at lag `154`: its minimum sector coherence is `.9437562361787301`, although
+its recombination quotient is `.10828557400915777`.  The all-five
+generalization fails more substantially:
+
+| lag | sector recombination quotient | parity-sign pattern |
+|---:|---:|:---:|
+| `140` | `.5885702865074277` | pass |
+| `154` | `.10828557400915777` | pass |
+| `156` | `.5013118107746192` | fail |
+| `182` | `.23767392653624825` | pass |
+| `240` | `.6393288305288406` | fail |
+
+Consequently eigensector interference is a demonstrated mechanism at lags
+`154` and `182`, not a uniform explanation of all five leading lags.
+
+A complete two-odd-prime quotient probe then tested the tentative idea that a
+quotient containing `5` is the discriminator.  The recombination quotients are
+
+`q=35: .24470719651873438`,
+`q=55: .23767392653624825`,
+`q=65: .10828557400915777`,
+`q=77: .05717700197074396`,
+`q=91: .26932831859740486`,
+`q=143: .5885702865074277`.
+
+The first three pass `.25`, but `q=77` also passes without prime `5`; the
+prime-`5` necessity hypothesis is falsified.  Quotient size alone also does
+not order the values.  Preserve the full six-case pattern for a future exact
+conductor-alignment invariant rather than fitting another threshold.
+
+Independent review verified the fixed-frequency formula, inner-product
+orientation, constant/mean-zero projections, Ramanujan multipliers,
+normalization, natural reconstruction scale, every reported leading-lag
+failure, and the `q=35,77,91` discriminator fixtures.  The final four tests
+pass normally and under Python optimization; the reviewer independently ran
+both modes, compilation, and diff checks and returned PASS.
+
+Curiosity status: `useful-falsification` with a genuine `aha-candidate` at
+lags `154/182`; novelty `new-to-this-task`.  The exact tensor identity and the
+lag-specific interference survive all failed generalizations.  No uniform
+source estimate, prime-distribution estimate, or signed prime-correlation
+estimate follows.
+
+The next bounded question should split each `B_(n,S)` by the two endpoint
+orientations in `_family_source_modes`.  Test whether the six two-prime
+quotient recombination values are determined by a low-rank orientation
+interaction matrix, with exact sector reconstruction at natural-scale error
+at most `1e-12`.  A concrete first falsifier is whether the four orientation
+pair contributions span more than rank two for either failing quotient
+`q=91` or `q=143`; if they do, abandon the low-rank explanation while keeping
+the eigensector tables.
