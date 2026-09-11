@@ -12066,7 +12066,80 @@ residue the arithmetic finite-difference identity
 
 Use both actual endpoint families, all `t mod 10010`, and the declared spatial
 steps `v in {1,70,77,91,110,130,143}`; require natural-scale relative error at
-most `1e-12`.  Passing would identify a concrete cancellation/reinforcement
-mechanism: the linked endpoint conditions multiply finite differences of
-Moebius-sawtooth transforms, whose unit jumps are adjacent Ramanujan sums.
-It would still be an identity rather than the missing uniform estimate.
+most `1e-12`.  Passing would identify an exact candidate factorization for
+cancellation or reinforcement: the linked endpoint conditions multiply
+finite differences of Moebius-sawtooth transforms, whose unit jumps are
+adjacent Ramanujan sums.  A quantitative signed comparison in the projected
+correlation would still be required to demonstrate a mechanism, and even then
+would not be the missing uniform estimate.
+
+## 2026-09-11: the cotangent source factors into Ramanujan intervals
+
+The forward-variable candidate passes as an exact identity.  Use the
+unnormalized positive-exponent transform
+
+`Fhat(t,v)=sum_(u,k mod Q) F(u,k)e_Q(t*u+v*k)`
+
+for the count-`2` part of one oriented family source.  The four cotangent-only
+endpoint modes have signs `(+,-,-,+)/4`.  With `u=pB-qA`, summing first over
+the primitive endpoint numerators gives
+
+`Fhat(t,v)=(1/4)*(T_A(t+v)-T_A(t))
+                    *(T_B(-t-v)-T_B(-t))`.
+
+The finite differences have a second exact arithmetic form.  The unit jump is
+
+`T_D(t+1)-T_D(t)=i*(c_D(t)+c_D(t+1))`,
+
+and telescoping gives, for every positive integer `v`,
+
+`T_D(t+v)-T_D(t)
+   =i*(c_D(t)+c_D(t+v)+2*sum_(j=1)^(v-1)c_D(t+j))`.
+
+Thus the complete two-dimensional cotangent-only source transform is a
+product of two explicitly weighted Ramanujan interval sums.  This retains
+both sides of the earlier work: linear sawtooth/polynomial weights produce
+`T_D`, while primitive arithmetic appears through the Ramanujan sums in its
+finite differences.
+
+The sparse source transform was evaluated independently by positive-exponent
+FFTs for both endpoint families, every `t mod 10010`, and
+`v in {1,70,77,91,110,130,143}`.  The maximum absolute discrepancy was
+`2.9455508770356535e-11`; against the sum of absolute sparse source
+coefficients, the maximum natural-scale relative error was
+`1.0370581585196675e-15`.  The unit and full interval Ramanujan identities
+were exact in integer arithmetic at every endpoint residue and all seven
+declared steps.
+
+Curiosity status: `aha`, novelty `new-to-this-task`.  This gives an exact
+candidate structure for cancellation or reinforcement: a mode vanishes when
+either endpoint interval sum vanishes, while aligned endpoint interval sums
+produce a large mode.  It does not yet show that those modes cancel in the
+actual projected left/right correlation, and it proves no uniform source,
+prime-distribution, or signed prime-correlation estimate.
+
+Independent review verified the positive Fourier convention, endpoint-mode
+signs, conjugation, factor `1/4`, unit jump, telescoped interval identity,
+source-L1 natural scale, guards, and all-frequency coverage.  Both focused
+tests passed normally and under Python optimization.  The reviewer held the
+word `mechanism` until the result was narrowed to an exact factorization and
+candidate structure; a quantitative signed projected comparison remains
+required.
+
+The next bounded question performs that comparison without leaving the exact
+Fourier coordinates.  Put `g=gcd(lag,Q)` and `q=Q/g`.  For the count-`4`
+fully resonant total `B_g`, test the diagonalized formula
+
+`B_g=(g/Q^2) sum_(t mod Q) c_q(t)
+                 sum_(v mod Q, gcd(v,g)=1)
+                 Fhat_L(t,v)*conjugate(Fhat_R(t,v))`.
+
+The source-difference kernel has transform `c_q(t)` and the resonant spatial
+kernel has transform `g*1_(gcd(v,g)=1)`, so this formula should reconstruct
+the direct conditioned count-`4` total.  Test `lag=130` (`q=77`) and
+`lag=110` (`q=91`) at natural-scale error at most `1e-12`.  For the individual
+Fourier summands `z_(t,v)`, predeclare the cancellation quotient
+`rho=|sum z|/sum |z|`: the candidate mechanism distinguishes the cases if
+`rho_77 <= .25` and `rho_91 >= .50`.  Failure rejects that aggregate Fourier
+cancellation discriminator while retaining the exact diagonalization and
+Ramanujan-interval factors.
