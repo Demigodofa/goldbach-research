@@ -8606,3 +8606,69 @@ complete conductor energy sum_d H_m(d)|S_d|^2 together with the active/full
 window comparison, without discarding the Q and endpoint restrictions that
 produced the measured gain. An inequality that pays a power of B or loses the
 1/A incidence saving falsifies that formulation.
+
+## 2026-09-11: conductor energy alone has a quadratic endpoint obstruction
+
+The proposed generic conductor-energy comparison was tested analytically.
+Put `n=m-1`,
+
+`G_(m,d)(k)=sum_(0<=x<n)e(kx/d)`,
+
+and let `E_end(d)` be the sum of `|G_(m,d)(k)|^2` over the distinct endpoint
+modes `k=1,d-1`. For every squarefree `d>1`,
+
+`E_end(d)/H_m(d)
+ <=min(1,2*pi^2*n*2^omega(d)/phi(d)).`                 (1)
+
+For the nontrivial case, count primitive `k<=d/(2n)` by inclusion-exclusion.
+The count differs from its `K*phi(d)/d` main term by at most `2^omega(d)`.
+Each retained `k` and its conjugate have geometric magnitude at least
+`2n/pi`; this proves (1). Thus endpoint modes really can be diluted into the
+complete conductor energy, with only a subpower arithmetic loss once `d` is
+long enough. This component remains supported.
+
+But the `Q` weight reverses that gain for arbitrary conductor coefficients.
+Let coprime squarefree `d,e>=2n` also satisfy `(m,de)=1` and `de>mA`. Choose
+
+`S_d=H_m(d)^(-1/2), S_e=H_m(e)^(-1/2)`,
+
+and all other conductor coordinates zero. The complete conductor energy is
+2. Every one of the eight ordered cross-endpoint pairs has reduced denominator
+`de`. Since endpoint magnitude squared is at least `4n^2/pi^2` and
+`H_m(d)<=nd`, their cross-endpoint envelope obeys
+
+`sum Q|c_i c_j|^2 / (sum_f H_m(f)|S_f|^2)^2
+ >=32n^2/pi^4.`                                        (2)
+
+This is a quadratic, not subpower, loss. It can occur on the actual conductor
+support: in the project exponents, four distinct retained primes near
+`sqrt(m)` give `d=p1*p2`, `e=p3*p4`, while `B` is eventually larger than
+`sqrt(m)`. The finite certificate `m=101,A=10,d=221,e=437` has normalized
+cross envelope `19452.67`, above the proved lower bound `3285.11`; both
+conductors are lcms of retained primes at most 23.
+
+Independent review verified every constant, the eight ordered pairs,
+denominator preservation after multiplication by `m`, and the scope. Focused
+tests pass normally and under `-O`; an independent exhaustive check covered
+24,095 squarefree `(m,d)` cases and 51,675 valid conductor pairs without a
+mathematical failure.
+
+Curiosity status: `changed-under-evidence`, within the 30-minute local
+derivation/code budget. Block an unchanged attempt to control the endpoint
+pair-square envelope by complete conductor energy squared for arbitrary
+conductor vectors. Preserve (1), the exact endpoint denominator/incidence
+work, and the actual shared polynomial coefficient family. Neither (2) nor
+the arbitrary-vector witness refutes the structured polynomial span or prime
+averaging.
+
+The next concrete hypothesis uses that preserved restriction. A conductor
+coefficient is linear in the three polynomial coordinates, so every pair
+coefficient is linear in the six monomials in their symmetric square. Both the
+endpoint pair-square envelope and the full residue energy are therefore
+quadratic forms on a six-dimensional lifted space. Compute their complete-
+prime-block generalized eigenvalue. A power-growing eigenvalue, or a positive
+endpoint direction in the nullspace of the residue-energy form, falsifies this
+six-dimensional lifted sufficient route, not necessarily the rank-one actual
+polynomial family. An order-one finite result would identify the exact
+six-entry bilinear prime-row estimate still needing proof. The signed prime
+correlation and Goldbach remain OPEN.

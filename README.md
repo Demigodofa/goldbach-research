@@ -508,3 +508,17 @@ multiplicity-weighted Cauchy bound is .259--5.153 on the scan and 1.275 on
 that larger fixture. This shows that the three proposed endpoint components
 are quantitatively compatible in the measured data; no uniform envelope or
 complete-prime-block theorem has been proved.
+
+Complete conductor energy alone cannot prove that comparison. A new elementary
+endpoint lemma bounds the endpoint share of conductor `d` by
+`min(1,2*pi^2*(m-1)*2^omega(d)/phi(d))`. However, two coprime supported
+conductors `d,e>=2(m-1)` with `(m,de)=1` and `de>mA`, normalized to total
+conductor energy 2, force the high-Q cross-endpoint envelope divided by energy
+squared to be at least `32(m-1)^2/pi^4`. This rigorously rejects a generic
+conductor-vector subpower bound while preserving the actual polynomial
+coefficient span, prime aggregation, and the endpoint dilution lemma. The next
+sufficient test lifts the three polynomial coordinates to their
+six-dimensional symmetric square so
+the endpoint envelope and full residue energy can be compared without allowing
+arbitrary conductor coefficients; failure of that relaxation would not by
+itself reject the actual rank-one polynomial lifts.

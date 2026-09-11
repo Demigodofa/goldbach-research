@@ -6902,3 +6902,42 @@ envelope with complete conductor energy and then transfer full-period energy
 to the active row window while preserving the Q restriction and 1/A incidence
 gain. Any power loss in B rejects that formulation. Non-endpoint modes, signed
 prime correlation, and Goldbach stay OPEN.
+
+### 2026-09-11 continuation: arbitrary conductor energy cannot close endpoints
+
+The endpoint/conductor comparison splits into one surviving lemma and one
+sharp obstruction. For `n=m-1` and squarefree `d`, the distinct endpoint
+frequency energy satisfies
+
+`E_end(d)<=min(1,2*pi^2*n*2^omega(d)/phi(d))*H_m(d)`.
+
+This follows by counting primitive frequencies up to `d/(2n)`, where every
+geometric sum has magnitude at least `2n/pi`. It is a reusable subpower
+endpoint-dilution tool.
+
+It does not absorb the difference-denominator weight. For coprime supported
+conductors `d,e>=2n`, `(m,de)=1`, `de>mA`, normalize an otherwise zero
+coefficient vector by `S_d=H_m(d)^(-1/2)` and
+`S_e=H_m(e)^(-1/2)`. Its conductor energy is 2, while its eight ordered
+cross-endpoint pairs all have `Q=de` and force
+
+`endpoint pair-square envelope / conductor energy^2
+ >=32n^2/pi^4`.
+
+The exact certificate `(m,A,d,e)=(101,10,221,437)` gives `19452.67` against
+the rigorous lower bound `3285.11`. Independent proof/code review PASSed,
+including exhaustive squarefree and conductor-pair checks. Therefore a
+generic arbitrary-conductor-vector, conductor-energy-only subpower comparison
+is directly contradicted. The actual three-coordinate polynomial family,
+prime aggregation, endpoint incidence, and endpoint-dilution lemma remain
+active; no polynomial tool is discarded.
+
+The next bounded test lifts the three polynomial coordinates to the six
+symmetric-square monomials. In that space the endpoint envelope and the full
+exact-Q residue energy become two explicit positive semidefinite quadratic
+forms. Test their complete-prime-block generalized eigenvalue and nullspace.
+Growth or a numerator-positive denominator-null direction rejects this lifted
+sufficient route, not necessarily the rank-one actual polynomial family.
+Passing finite blocks would leave a concrete six-entry
+bilinear prime-row theorem, not a proof of it. The signed prime-correlation
+estimate and Goldbach remain OPEN.
