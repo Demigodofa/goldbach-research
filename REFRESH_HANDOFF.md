@@ -9367,6 +9367,30 @@ analytic target is the sign of this Rayleigh contribution in source residue
 coordinates. No uniform sign or magnitude bound, lower frame, signed prime
 correlation, or Goldbach claim is proved.
 
+## 2026-09-11: shared-factor quadratic character fails generalization
+
+`lcm_sawtooth_character_phase_test.py` tests the simplest arithmetic phase
+label suggested by the conductor factorizations. For a pair sharing prime
+`p`, the first 12 primes choose between `chi_p(m)` and `-chi_p(m)` by weighted
+correlation; the last 12 primes are held out, with a declared requirement of
+at least `9/12` correct nonzero signs.
+
+The original `(77,143)` pair, sharing `11`, selects the negative orientation
+and passes exactly `9/12`; its full-sample weighted character correlation is
+`-.413884`. Even with the training-chosen orientation fixed, the fair-sign
+tail for at least nine held-out matches is `299/4096=.072998`, so this alone
+is weak evidence.
+
+The two natural neighboring tests fail: `(55,143)` modulo shared factor `11`
+gets `5/12`, and `(78,143)` modulo shared factor `13` gets `8/12`. Thus only
+one of three pairs passes.
+
+Pursuit status: `changed-under-evidence`. Reject the shared-prime quadratic
+character as a cluster mechanism. Preserve the `(77,143)` alignment only as
+a finite coincidence that a richer phase decomposition might explain; do not
+promote or fit around it. No uniform character rule, signed prime correlation,
+lower frame, or Goldbach claim is proved.
+
 ## 2026-09-11: the off-diagonal mechanism is still primewise signed
 
 The primewise `(77,143)` receipt now also forms
