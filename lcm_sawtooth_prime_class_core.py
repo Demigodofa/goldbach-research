@@ -13,7 +13,6 @@ import numpy as np
 
 from lcm_sawtooth_partner_doubling_transfer import (
     _matched_doubled_packet,
-    _packet_lag_contributions,
     _project_fragile_direction,
 )
 from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
@@ -85,12 +84,42 @@ def _family_arithmetic_core_packet(
     return packet, unexpected_denominator_count
 
 
+def _window_signed_core(packet_left, packet_right, row_count):
+    """Evaluate the near-lag signed core with the exact interval kernel."""
+    packet_left = np.asarray(packet_left, dtype=complex)
+    packet_right = np.asarray(packet_right, dtype=complex)
+    if (packet_left.ndim != 1 or packet_right.shape != packet_left.shape
+            or len(packet_left) < 2 or type(row_count) is not int
+            or row_count < 1):
+        raise ValueError("invalid packet window inputs")
+    denominator = len(packet_left)
+    correlation = np.fft.ifft(
+        np.fft.fft(packet_left) * np.conjugate(np.fft.fft(packet_right)))
+    lags = np.arange(denominator)
+    kernel = np.ones(denominator, dtype=complex)
+    nonzero = lags != 0
+    active_lags = lags[nonzero]
+    kernel[nonzero] = (
+        np.exp(
+            1j * np.pi * (3 * row_count - 1)
+            * active_lags / denominator)
+        * np.sin(np.pi * row_count * active_lags / denominator)
+        / (row_count * np.sin(np.pi * active_lags / denominator)))
+    contributions = 2 * denominator * (kernel * correlation).real
+    distances = np.minimum(lags, denominator - lags)
+    near = distances * row_count <= denominator
+    near[0] = False
+    return float(np.sum(contributions[near]))
+
+
 def prime_class_core_receipt(
         scale_modulus=127,
         families=((77, 65, 1), (143, 35, 2)),
         minimum_reinforcement_fraction=.25,
         polynomial_cycle_multiples=(1, 10, 100),
         maximum_final_cycle_relative_difference=.10,
+        kernel_row_scales=(28, 50, 75),
+        minimum_kernel_ratio_fraction=.50,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -113,6 +142,14 @@ def prime_class_core_receipt(
         raise ValueError("cycle multiples must be strictly increasing")
     if not 0 <= maximum_final_cycle_relative_difference <= 1:
         raise ValueError("final-cycle difference must lie in [0,1]")
+    kernel_row_scales = tuple(kernel_row_scales)
+    if (not kernel_row_scales
+            or any(type(value) is not int or value < 1
+                   for value in kernel_row_scales)
+            or tuple(sorted(set(kernel_row_scales))) != kernel_row_scales):
+        raise ValueError("kernel row scales must be strictly increasing")
+    if not 0 < minimum_kernel_ratio_fraction <= 1:
+        raise ValueError("kernel ratio fraction must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -123,6 +160,8 @@ def prime_class_core_receipt(
     if len(set(periods)) != 1:
         raise ValueError("families must share one arithmetic period")
     period = periods[0]
+    if kernel_row_scales[0] != baseline["row_count"]:
+        raise ValueError("first kernel scale must equal the baseline row count")
 
     source_errors = []
     for frame_row in baseline["rows"]:
@@ -158,7 +197,8 @@ def prime_class_core_receipt(
             factors.append(float(lifted_coordinate @ direction))
         return factors[0] * factors[1]
 
-    signed_cores = []
+    signed_cores_by_scale = {
+        row_scale: [] for row_scale in kernel_row_scales}
     representative_errors = []
     for residue in unit_classes:
         packets = []
@@ -171,21 +211,41 @@ def prime_class_core_receipt(
                 raise ArithmeticError("family has lower-denominator cells")
             representative_errors.append(float(np.max(np.abs(first - second))))
             packets.append(first)
-        contributions = _packet_lag_contributions(
-            packets[0], packets[1], baseline["row_count"],
-            baseline["row_count"])
-        lags = np.arange(period)
-        near = (
-            np.minimum(lags, period - lags) * baseline["row_count"]
-            <= period)
-        near[0] = False
-        signed_cores.append(float(np.sum(contributions[near])))
+        for row_scale in kernel_row_scales:
+            signed_cores_by_scale[row_scale].append(
+                _window_signed_core(packets[0], packets[1], row_scale))
 
-    signed_cores = np.asarray(signed_cores)
+    signed_cores_by_scale = {
+        row_scale: np.asarray(values)
+        for row_scale, values in signed_cores_by_scale.items()}
+    signed_cores = signed_cores_by_scale[baseline["row_count"]]
     complete_mean = float(np.mean(signed_cores))
     mean_absolute = float(np.mean(np.abs(signed_cores)))
     reinforcement_fraction = (
         complete_mean / mean_absolute if mean_absolute else None)
+    kernel_scale_rows = []
+    for row_scale in kernel_row_scales:
+        values = signed_cores_by_scale[row_scale]
+        signed_mean = float(np.mean(values))
+        absolute_mean = float(np.mean(np.abs(values)))
+        kernel_scale_rows.append({
+            "row_scale": row_scale,
+            "actual_prime_high_denominator_row_count": sum(
+                period > frame_row["modulus"] * row_scale
+                for frame_row in baseline["rows"]),
+            "complete_class_signed_core_mean": signed_mean,
+            "complete_class_absolute_core_mean": absolute_mean,
+            "signed_to_absolute_ratio": (
+                signed_mean / absolute_mean if absolute_mean else None),
+        })
+    minimum_kernel_ratio = (
+        minimum_kernel_ratio_fraction * reinforcement_fraction
+        if reinforcement_fraction is not None else None)
+    kernel_stability_passes = bool(
+        minimum_kernel_ratio is not None
+        and all(row["signed_to_absolute_ratio"] is not None
+                and row["signed_to_absolute_ratio"] >= minimum_kernel_ratio
+                for row in kernel_scale_rows))
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -233,6 +293,10 @@ def prime_class_core_receipt(
         "arithmetic_period": period,
         "reduced_residue_class_count": len(unit_classes),
         "minimum_reinforcement_fraction": minimum_reinforcement_fraction,
+        "kernel_row_scales": kernel_row_scales,
+        "minimum_kernel_ratio_fraction": minimum_kernel_ratio_fraction,
+        "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
+        "kernel_scale_rows": tuple(kernel_scale_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
         "maximum_period_representative_absolute_error": max(
             representative_errors),
@@ -261,6 +325,8 @@ def prime_class_core_receipt(
         "prime_class_reinforcement_hypothesis_passes": reinforcement_passes,
         "polynomial_weight_stability_hypothesis_passes": (
             polynomial_stability_passes),
+        "fixed_q_kernel_window_stability_hypothesis_passes": (
+            kernel_stability_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }

@@ -10453,10 +10453,61 @@ classes at one fixed frozen row and direction.  It samples no primes, includes
 no prime-distribution error, and proves no signed prime-correlation estimate.
 
 The next bounded question tests whether the small positive class coefficient
-is merely a feature of the `R=127` interval kernel.  Keep the same exact
-arithmetic packets and compute complete-class signed-to-absolute ratios with
-row windows `[R,2R)` at `R=127,251,337`; all three retain `Q=10010` in the
-same high-denominator regime `Q>28R`.  Kernel-window stability passes only if
-every ratio is positive and at least half the `R=127` value, namely
-`.023843056672601255`.  Failure preserves the periodic packet identity while
-rejecting a stable favorable sign across these admissible row scales.
+is merely a feature of the interval kernel.  A pre-measurement guard corrected
+the notation: `127` is the prime-block scale `M`, while the baseline row count
+is `A=28`.  Keep `M=127` and the same exact arithmetic packets, then compute
+complete-class signed-to-absolute ratios with row windows `[A,2A)` at
+`A=28,50,75`.  All three satisfy the block-scale inequality `Q>M*A`, but the
+exact packet cutoff is `Q>p*A` separately for every prime row.  Consequently
+this is a fixed-`Q`, complete-period kernel sensitivity diagnostic, not a
+uniformly reselected high-denominator prime-block experiment.  Kernel-window
+stability passes only if every ratio is positive and at least half the `A=28`
+value, namely `.023843056672601255`.  Failure preserves the periodic packet
+identity while rejecting a stable favorable sign in this fixed-`Q`
+diagnostic.
+
+## 2026-09-11: the complete-class sign changes with the fixed-Q window
+
+The interval kernel for rows `ell=A,...,2A-1` was evaluated in its exact
+closed form
+
+`K_(Q,A)(h)=exp(pi*i*(3A-1)h/Q)*sin(pi*A*h/Q)/(A*sin(pi*h/Q))`.
+
+A direct synthetic comparison verifies the same FFT orientation, `2Q`
+normalization, near mask, and signed sum as explicit row averaging.  Holding
+the periodic `Q=10010` arithmetic packets fixed, the complete-class results
+are
+
+- `A=28`: mean `857935410.0801768`, ratio `.04768611334520412`;
+- `A=50`: mean `-34368521.10543309`, ratio `-.0024036335849087005`;
+- `A=75`: mean `158792612.02464136`, ratio `.015101085640400937`.
+
+The predeclared half-baseline gate was `.02384305667260206`.  It fails at
+both new windows, and the complete-class mean reverses sign at `A=50`.
+Therefore the small favorable coefficient seen at `A=28` is not stable under
+this fixed-`Q` window change.
+
+Independent review caught and corrected the scope before promotion.  The
+exact high-denominator cutoff is `Q>p*A`, not merely `Q>M*A`.  Among the 24
+actual baseline prime rows, `Q=10010` remains selected on respectively
+`24,16,2` rows at `A=28,50,75`.  The computation is consequently a fixed-Q,
+complete-period kernel sensitivity diagnostic.  It does not describe the
+fully reselected actual prime sum at the latter two windows.  After this
+correction, independent review verified the kernel, ratios, selection counts,
+gate, tests, and scope and returned PASS.  Four focused tests pass normally
+and under Python optimization.
+
+Curiosity status: `changed-under-evidence`.  Preserve the exact periodic
+packet core, its clean polynomial pairing, and the explicit window response.
+Reject only a window-independent favorable sign for this artificial fixed-Q
+diagnostic.  No prime-distribution or signed prime-correlation estimate is
+proved.
+
+The next bounded question keeps the exact high-denominator selection intact
+for every one of the 24 baseline prime rows.  Repeat the complete-class
+kernel calculation at `A=28,34,39`; the largest actual prime is `251`, and
+`251*39=9789<10010`, while `A=40` would cross the cutoff.  The retained-window
+hypothesis passes only if every ratio is positive and at least half the
+`A=28` ratio.  A failure would locate the sign instability inside the fully
+retained high-denominator range; a pass would restrict the previous reversal
+to windows where the actual packet selection has already begun to change.
