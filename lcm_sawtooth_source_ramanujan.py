@@ -94,8 +94,9 @@ def _conditioned_unit_exponential_sum(period, lag, difference, frequency):
         reduced_lag * pow(reduced_difference, -1, quotient)) % quotient
     phase_class = (
         fixed_class * pow(common, -1, quotient)) % quotient
-    phase = np.exp(2j * np.pi * (frequency % quotient)
-                   * phase_class / quotient)
+    phase_residue = (
+        (frequency % quotient) * phase_class) % quotient
+    phase = np.exp(2j * np.pi * phase_residue / quotient)
     return phase * _ramanujan_sum(common, frequency)
 
 

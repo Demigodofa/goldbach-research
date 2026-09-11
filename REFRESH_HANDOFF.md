@@ -11334,3 +11334,55 @@ Test this tensor product directly against the exact constrained unit sum for
 all five leading lag gcd patterns and representative endpoint frequencies.
 Success would make the local cancel/reinforce rule an exact global kernel
 identity; failure would identify the missing CRT phase factor.
+
+## 2026-09-11: the local Kloosterman blocks transfer exactly through CRT
+
+Let `Q=g*q`, `h=g*h'`, and an allowed source difference be
+`Delta=g*t`. For a prime `r|q`, the constrained unit satisfies
+`p=h'*t^(-1) (mod r)`. Factoring the global additive character through CRT
+cancels the factor `g` and produces the local inverse-difference parameter
+
+`a_r=n*h'*(q/r)^(-1) (mod r)`.
+
+For `r|g`, the source coordinates must agree and the free unit sum is
+`c_r(n) I_(r-1)`. Thus the conditioned frequency-`n` source kernel factors
+exactly as
+
+`tensor_(r|g) c_r(n)I tensor tensor_(r|q) K_(a_r)`.
+
+The implementation checks `24528` allowed-difference entries at representative
+frequencies across the five leading lag gcd patterns. The maximum relative
+error is `1.857534510744269e-14`. A shared evaluator initially missed the
+`1e-12` gate because it exponentiated a large unreduced but congruent integer
+angle; reducing the phase product modulo `q` before floating exponentiation
+is algebraically identical and fixes the numerical error.
+
+For fully nonresonant quotient frequencies, multiplying the hybrid
+`min(r-2,2*sqrt(r))` local bounds gives ratios to the zero-quotient graph
+degree
+
+- lag `140`: `.48316205022631903`;
+- lag `154`: `.6555547773570889`;
+- lag `156`: `.7370277311900889`;
+- lag `182`: `.7370277311900888`;
+- lag `240`: `.48316205022631903`.
+
+Independent review verified the CRT coefficient, cancellation of `g`, common-
+prime Ramanujan factors, tensor norm product, modular phase correction, all
+row values, and `13` affected tests normally and optimized and returned PASS.
+The checked frequencies are representative; exactness comes from the proved
+factorization, not finite exhaustiveness over every frequency.
+
+Curiosity status: `aha-candidate`, novelty `apparently-uncommon-synthesis`.
+The local cancel/reinforce rule is now an exact global finite kernel identity.
+A frequency resonant modulo a quotient prime retains the `r-2` block; a
+nonresonant frequency admits the local square-root bound. This is not yet a
+uniform bound after summing endpoint frequencies or primes.
+
+The next bounded question tests the most direct aggregation. Write the family
+source coefficients as frequency vectors `L_k(u),R_l(v)` and apply the tensor
+operator bound separately to every kernel frequency `n=k-l`, followed by
+triangle inequality over `k,l`. Compare that rigorous bound with the existing
+canonical termwise absolute source-mode mass. A ratio at most `.10` is the
+usefulness gate. Failure preserves the local/tensor mechanism but proves that
+cross-frequency cancellation must be retained.
