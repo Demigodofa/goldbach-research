@@ -6722,3 +6722,40 @@ blocks whose covariance/diagonal ratio grows like a positive power falsifies
 that proposal. No uniform arbitrary-coefficient estimate is claimed. The
 fixed-Mobius all-row second moment, the signed prime correlation, and Goldbach
 remain OPEN; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10: complete-period cross covariance is a gcd kernel
+
+`lcm_sawtooth_cross_covariance.py` identifies an exact arithmetic mechanism
+for cross-modulus cancellation and reinforcement. Put
+`s_q=(m-1) mod q` and let `n_t(q)` count the final `s_q` residue classes
+modulo `g=gcd(q,r)`. For the centered cyclic discrepancies, averaging over
+one complete common row period gives
+
+`Cov_m(q,r)
+ = [g sum_(t mod g)n_t(q)n_t(r)-s_q s_r]/(qr)`.
+
+Writing each residue count as its mean plus a zero-sum error proves
+
+`|Cov_m(q,r)| <= gcd(q,r)^2/(4qr)`.
+
+In particular, coprime lcm moduli are exactly uncorrelated; only shared prime
+factors carry complete-period cross terms. Independent review PASSed the CRT
+count, the sharp residue-error calculation, coefficient quadratic-form split,
+optimized residue counter, guards, and eight combined tests in normal and
+optimized modes.
+
+For the actual Mobius lcm coefficient vector frozen at one row, small finite
+tests gave total/diagonal complete-period energy ratios `.5638,.3903` for
+`(m,B)=(101,32),(101,64)` and `.4472,.3277` for
+`(251,64),(251,96)`. Thus the shared-factor terms reinforced negatively in
+these tests. This is finite evidence, not a sign theorem.
+
+The result applies to a complete common period with the logarithmic
+coefficients frozen. The project averages an incomplete row interval and its
+logs vary with the row. The next <=30-minute question is to split that finite
+interval covariance into this gcd-kernel main term and an explicit boundary
+term, then test whether the prime-`m` average cancels the boundary. A boundary
+energy/diagonal ratio growing like `N^c` for any fixed `c>0` falsifies this
+route. The fixed-Mobius second moment and signed prime correlation remain
+OPEN.

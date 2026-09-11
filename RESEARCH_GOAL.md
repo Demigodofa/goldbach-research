@@ -5992,3 +5992,35 @@ dyadic pair of `q` blocks has a covariance/diagonal ratio growing by any fixed
 positive power. The fixed-Mobius all-row second moment, signed prime
 correlation, and Goldbach remain open; the assembled exponent is still
 `.295-delta`.
+
+
+## 2026-09-10 continuation: shared factors are the cross-term mechanism
+
+The complete-period cross covariance is now exact. If
+`s_q=(m-1) mod q`, `g=gcd(q,r)`, and `n_t(q)` counts the final `s_q` residues
+in class `t mod g`, then
+
+`Cov_m(q,r)
+ = [g sum_(t mod g)n_t(q)n_t(r)-s_q s_r]/(qr)`
+
+and
+
+`|Cov_m(q,r)| <= gcd(q,r)^2/(4qr)`.
+
+Consequently coprime lcm moduli have zero complete-period covariance. The
+linked conditions can cancel or reinforce only through shared prime factors;
+the sign is the alignment of their terminal residue-class errors. Independent
+review verified the CRT formula, bound, frozen-coefficient energy split,
+optimized implementation, and tests.
+
+For the actual frozen Mobius coefficient vector, sampled complete-period
+total/diagonal ratios decreased from `.5638` to `.3277` across four small
+`(m,B)` choices, so the shared-factor off-diagonal was negative there. This
+does not establish its sign or asymptotic size.
+
+The incomplete row interval and row-varying logs remain outside the lemma.
+The next concrete test isolates their boundary covariance and averages it over
+the project primes. Any fixed positive-power growth relative to the proved
+diagonal rejects the route. The fixed-Mobius second moment, signed prime
+correlation, and Goldbach remain open; complete assembly stays
+`.295-delta`.
