@@ -500,3 +500,11 @@ The live endpoint target requires a weighted incidence bound, a representation
 bound, and a comparison of the total endpoint pair-square envelope with the
 active-window denominator. The non-endpoint and final signed correlation
 estimates remain open.
+
+The third endpoint input also passes finite checks. The total high-Q endpoint
+pair-square envelope is only .233--.303 of the active-window denominator on
+the ten-prime scan and .232 at the larger project m=503 fixture. The exact
+multiplicity-weighted Cauchy bound is .259--5.153 on the scan and 1.275 on
+that larger fixture. This shows that the three proposed endpoint components
+are quantitatively compatible in the measured data; no uniform envelope or
+complete-prime-block theorem has been proved.

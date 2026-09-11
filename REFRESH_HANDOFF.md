@@ -8561,3 +8561,48 @@ the normalized endpoint score. Even all three would leave the measured
 non-endpoint baseline and the full signed prime-row estimate. The earlier
 prime-aggregation theorem target is preserved; no completed prime scan was
 repeated. Goldbach remains OPEN.
+
+## 2026-09-11: endpoint envelope normalization passes finite falsifiers
+
+The third endpoint obligation was measured directly. Define
+
+E_end =
+sum_(Q>mA) Q sum_(endpoint pairs mapping to Q)|c_i c_j|^2
+/ sum_(Q>mA) Q mean_I|T_Q|^2.
+
+Across the ten-prime fixed-geometry family, E_end lies in
+[.23300,.30345]. At the larger project fixture
+(m,A,V,B)=(503,75,4,29), it is .23214. Thus the total endpoint
+pair-square envelope is smaller than the measured active-window denominator
+on all eleven fixtures. This is the exact normalization needed after weighted
+incidence and multiplicity, but only as finite evidence.
+
+The three ingredients were also composed without multiplying separate
+worst-case summaries. For each exact Q, Cauchy gives
+
+|sum_(near endpoint terms mapping to Q) z|^2
+<= n_Q sum |z|^2.
+
+After the A and Q weights and active-window normalization, the exact Cauchy
+bounds range from .25907 to 5.15290 on the ten-prime family and equal
+1.27488 on the project m=503 fixture. The two exceptional primes have bounds
+3.25768 and 3.53222 for actual endpoint scores 1.73924 and 2.04118.
+The largest bound occurs at m=487, not at an endpoint spike. At m=479 the
+Cauchy slack relative to the almost-zero signed endpoint score is large, but
+the normalized bound itself is only .25907.
+
+This passes the stated finite assembled-Cauchy threshold 10 and shows no hidden
+large finite loss in the assembled endpoint route. It proves neither a uniform
+envelope comparison nor the required weighted complete-prime-block version.
+Status:
+
+- finite endpoint incidence, multiplicity accounting, and envelope
+  normalization are mutually compatible and supported;
+- a uniform or N^epsilon assembled endpoint theorem remains proposed;
+- the non-endpoint baseline and full signed prime-row estimate remain OPEN.
+
+The next proof-oriented question is whether E_end can be bounded using the
+complete conductor energy sum_d H_m(d)|S_d|^2 together with the active/full
+window comparison, without discarding the Q and endpoint restrictions that
+produced the measured gain. An inequality that pays a power of B or loses the
+1/A incidence saving falsifies that formulation.

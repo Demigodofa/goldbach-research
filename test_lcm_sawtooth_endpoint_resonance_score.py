@@ -19,6 +19,10 @@ class LcmSawtoothEndpointResonanceScoreTests(unittest.TestCase):
         self.assertGreaterEqual(
             receipt["endpoint_near_Q_weighted_square_score"], 0)
         self.assertGreaterEqual(
+            receipt["endpoint_near_packet_cauchy_score_bound"],
+            receipt["endpoint_near_Q_weighted_square_score"] - 1e-10)
+        self.assertGreater(receipt["complete_energy"], 0)
+        self.assertGreaterEqual(
             receipt["high_Q_endpoint_ordered_pair_count"],
             receipt["near_high_Q_ordered_pair_count"])
         self.assertGreaterEqual(

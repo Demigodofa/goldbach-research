@@ -86,11 +86,16 @@ def endpoint_resonance_score_receipt(
     grouped = (
         np.bincount(inverse, weights=contributions.real)
         + 1j * np.bincount(inverse, weights=contributions.imag))
+    grouped_term_squares = np.bincount(
+        inverse, weights=np.abs(contributions) ** 2)
     ranked = sorted(
         zip(q_values, grouped), key=lambda item: abs(item[1]), reverse=True)
     score = row_count * sum(
         int(q_value) * abs(value) ** 2
         for q_value, value in ranked) / complete_energy ** 2
+    cauchy_score_bound = row_count * float(np.sum(
+        q_values * q_multiplicities * grouped_term_squares)
+        / complete_energy ** 2)
     direct_sum = np.sum(contributions)
     grouped_sum = np.sum(grouped)
     absolute_envelope = float(np.sum(np.abs(contributions)))
@@ -106,6 +111,7 @@ def endpoint_resonance_score_receipt(
         "ell_range": (ell_first, ell_first + row_count - 1),
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
+        "complete_energy": complete_energy,
         "endpoint_frequency_count": len(coefficients),
         "high_Q_endpoint_ordered_pair_count": int(np.sum(high_q)),
         "near_high_Q_ordered_pair_count": int(np.sum(selected)),
@@ -125,6 +131,8 @@ def endpoint_resonance_score_receipt(
             if high_q_product_weight else 0.0),
         "high_Q_Q_weighted_squared_coefficient_product": (
             high_q_Q_squared_product_weight),
+        "high_Q_Q_weighted_squared_coefficient_product_over_complete_squared": (
+            high_q_Q_squared_product_weight / complete_energy ** 2),
         "near_high_Q_Q_weighted_squared_coefficient_product": (
             near_Q_squared_product_weight),
         "row_count_scaled_near_Q_squared_product_weight_fraction": float(
@@ -135,6 +143,9 @@ def endpoint_resonance_score_receipt(
         "maximum_near_exact_Q_ordered_pair_multiplicity": int(
             np.max(q_multiplicities) if len(q_multiplicities) else 0),
         "endpoint_near_Q_weighted_square_score": float(score),
+        "endpoint_near_packet_cauchy_score_bound": cauchy_score_bound,
+        "endpoint_near_packet_cauchy_slack": float(
+            cauchy_score_bound / score if score else 0.0),
         "endpoint_near_signed_sum_over_complete": float(
             grouped_sum.real / complete_energy),
         "endpoint_near_imaginary_error_over_complete": float(

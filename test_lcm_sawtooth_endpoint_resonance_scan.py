@@ -15,6 +15,12 @@ class LcmSawtoothEndpointResonanceScanTests(unittest.TestCase):
         self.assertEqual(len(receipt["endpoint_score_leaders"]), 1)
         self.assertTrue(-1 <= receipt["raw_pearson_correlation"] <= 1)
         self.assertTrue(-1 <= receipt["spearman_rank_correlation"] <= 1)
+        envelope_minimum, envelope_maximum = receipt[
+            "endpoint_pair_square_envelope_ratio_range"]
+        cauchy_minimum, cauchy_maximum = receipt[
+            "endpoint_packet_cauchy_bound_ratio_range"]
+        self.assertTrue(0 <= envelope_minimum <= envelope_maximum)
+        self.assertTrue(0 <= cauchy_minimum <= cauchy_maximum)
         self.assertTrue(receipt["finite_endpoint_score_scan"])
         self.assertFalse(
             receipt["endpoint_score_predicts_uniform_row_bound_proved"])

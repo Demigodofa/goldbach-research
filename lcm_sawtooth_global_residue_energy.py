@@ -150,6 +150,13 @@ def global_residue_energy_receipt(
             / active_weighted),
         "endpoint_near_Q_weighted_square_score": endpoint_score[
             "endpoint_near_Q_weighted_square_score"],
+        "endpoint_near_packet_cauchy_bound_over_active_window_l2": (
+            endpoint_score["endpoint_near_packet_cauchy_score_bound"]
+            / active_weighted),
+        "endpoint_pair_square_envelope_over_active_window_l2": (
+            endpoint_score[
+                "high_Q_Q_weighted_squared_coefficient_product_over_complete_squared"]
+            / active_weighted),
         "positive_packet_excess_sum_over_complete_squared": (
             positive_packet_excess_sum),
         "top_five_positive_packet_excess_fraction": (

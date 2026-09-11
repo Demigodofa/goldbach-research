@@ -43,6 +43,13 @@ class LcmSawtoothGlobalResidueEnergyTests(unittest.TestCase):
             0 < receipt["constant_direction_sign_probe_percentile"] <= 1)
         self.assertGreaterEqual(
             receipt["endpoint_near_score_over_active_window_l2"], 0)
+        self.assertGreaterEqual(
+            receipt[
+                "endpoint_pair_square_envelope_over_active_window_l2"], 0)
+        self.assertGreaterEqual(
+            receipt[
+                "endpoint_near_packet_cauchy_bound_over_active_window_l2"],
+            receipt["endpoint_near_score_over_active_window_l2"] - 1e-10)
         self.assertTrue(
             0 <= receipt["top_five_positive_packet_excess_fraction"] <= 1)
         self.assertLess(

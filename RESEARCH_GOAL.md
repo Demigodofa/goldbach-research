@@ -6882,3 +6882,23 @@ of the resulting total endpoint pair-square envelope with the active-window
 denominator under the correct prime weights. Incidence plus multiplicity alone
 controls the near packet sum only relative to that envelope. Non-endpoint
 modes, the full signed prime-row estimate, and Goldbach remain OPEN.
+
+### 2026-09-11 continuation: assembled endpoint bound stays finite
+
+The missing envelope normalization was measured on the ten-prime fixed
+geometry: the total high-Q endpoint pair-square envelope divided by the
+active-window denominator lies in [.23300,.30345]. At the larger project
+m=503 fixture it is .23214. Combining actual near terms by exact Q and
+applying the exact multiplicity-weighted Cauchy bound gives normalized values
+in [.25907,5.15290] on the ten-prime family and 1.27488 at project m=503.
+The resonant m=499,509 bounds are 3.25768,3.53222.
+
+This finite test passes the stated finite assembled-Cauchy threshold 10 and
+confirms that weighted incidence, packet multiplicity, and envelope
+normalization can coexist without a large measured loss. It does not prove the
+envelope comparison uniformly or with the required complete-prime-block
+weights. The next analytic target is to compare the endpoint pair-square
+envelope with complete conductor energy and then transfer full-period energy
+to the active row window while preserving the Q restriction and 1/A incidence
+gain. Any power loss in B rejects that formulation. Non-endpoint modes, signed
+prime correlation, and Goldbach stay OPEN.

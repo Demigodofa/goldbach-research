@@ -35,6 +35,10 @@ def endpoint_resonance_scan_receipt(
                 "row_count_scaled_packet_square_over_active_window_l2"],
             "normalized_endpoint_score": receipt[
                 "endpoint_near_score_over_active_window_l2"],
+            "endpoint_pair_square_envelope_over_active_window_l2": receipt[
+                "endpoint_pair_square_envelope_over_active_window_l2"],
+            "endpoint_packet_cauchy_bound_over_active_window_l2": receipt[
+                "endpoint_near_packet_cauchy_bound_over_active_window_l2"],
         })
     full = np.array([row["full_row_quotient"] for row in rows])
     endpoint = np.array([row["normalized_endpoint_score"] for row in rows])
@@ -57,6 +61,18 @@ def endpoint_resonance_scan_receipt(
         "raw_pearson_correlation": float(np.corrcoef(full, endpoint)[0, 1]),
         "spearman_rank_correlation": float(
             np.corrcoef(full_rank, endpoint_rank)[0, 1]),
+        "endpoint_pair_square_envelope_ratio_range": (
+            min(row["endpoint_pair_square_envelope_over_active_window_l2"]
+                for row in rows),
+            max(row["endpoint_pair_square_envelope_over_active_window_l2"]
+                for row in rows)),
+        "endpoint_packet_cauchy_bound_ratio_range": (
+            min(row[
+                "endpoint_packet_cauchy_bound_over_active_window_l2"]
+                for row in rows),
+            max(row[
+                "endpoint_packet_cauchy_bound_over_active_window_l2"]
+                for row in rows)),
         "finite_endpoint_score_scan": True,
         "endpoint_score_predicts_uniform_row_bound_proved": False,
     }
