@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 
 from lcm_sawtooth_active_full_gershgorin import (
+    coordinate_scaled_difference_gershgorin_receipt,
     project_aggregate_gershgorin_receipt,
     whitened_gershgorin_lower_frame_receipt,
 )
@@ -18,6 +19,13 @@ class LcmSawtoothActiveFullGershgorinTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["gershgorin_lower_frame_bound"], .75)
         self.assertTrue(receipt["one_half_lower_frame_certified"])
+        scaled = coordinate_scaled_difference_gershgorin_receipt(
+            active, full)
+        np.testing.assert_allclose(
+            sorted(scaled["scaled_difference_gershgorin_edges"]),
+            (.25, .75, 1.5))
+        self.assertTrue(
+            scaled["coordinate_scaled_gershgorin_certifies_candidate"])
 
     def test_m127_aggregate_certifies_one_half(self):
         receipt = project_aggregate_gershgorin_receipt(127)
@@ -33,6 +41,12 @@ class LcmSawtoothActiveFullGershgorinTests(unittest.TestCase):
             receipt["exact_smallest_generalized_eigenvalue"])
         self.assertTrue(receipt["one_half_lower_frame_certified"])
         self.assertFalse(receipt["uniform_entrywise_bound_proved"])
+        scaled = receipt["coordinate_scaled_one_half_receipt"]
+        self.assertAlmostEqual(
+            scaled["scaled_difference_gershgorin_lower_edge"],
+            -1.8462120978156262)
+        self.assertFalse(
+            scaled["coordinate_scaled_gershgorin_certifies_candidate"])
 
     def test_guards_singular_denominator(self):
         with self.assertRaises(ValueError):

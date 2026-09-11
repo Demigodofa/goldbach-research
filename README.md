@@ -577,3 +577,10 @@ After exact whitening by the full-period Gram, Gershgorin gives lower bounds
 one-half bound. The corresponding exact minima are `.876880` and `1.000055`.
 Uniform control of the six whitened diagonal errors and off-diagonal row sums
 is now a concrete proof target; the finite certificates do not prove it.
+
+Diagonal coordinate scaling cannot replace the full-Gram whitening. At
+`M=127`, Gershgorin applied directly to the scaled difference
+`D_active-D_full/2` has minimum edge `-1.846212`, despite that difference being
+positive semidefinite. The six monomial coordinates are too correlated for
+this simpler certificate; an analytic basis change or basis-free argument is
+required.

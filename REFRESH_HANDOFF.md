@@ -8672,6 +8672,39 @@ six-dimensional lifted sufficient route, not necessarily the rank-one actual
 polynomial family. An order-one finite result would identify the exact
 six-coordinate bilinear prime-row estimate still needing proof. The signed prime
 correlation and Goldbach remain OPEN.
+
+## 2026-09-11: diagonal scaling cannot replace exact whitening
+
+The next bounded hypothesis asked whether the analytically explicit congruence
+
+`C(D_active-D_full/2)C`, `C_ii=D_full(ii)^(-1/2)`,
+
+is already diagonally dominant. If so, raw normalized coordinate estimates
+would prove the half-frame without controlling a moving full-Gram eigenbasis.
+
+At the complete `M=127` aggregate, the six scaled difference diagonals lie in
+`[.455089,.469415]`, while absolute off-diagonal row sums lie in
+`[2.284714,2.312280]`. The Gershgorin lower edges are all negative, with
+minimum `-1.846212097816`. The actual scaled difference remains PSD
+numerically (minimum eigenvalue about `4.5e-12`), and exact whitening still
+gives generalized minimum `.876880294682` and Gershgorin certificate
+`.745431302419`.
+
+Independent review reproduced the diagonal, radius, edge, and PSD values;
+verified the congruence and implication; and returned PASS. The `M=251`
+repetition was not run because the claimed universal simple route was already
+falsified at `M=127`.
+
+Status: `abandoned` for diagonal-only normalization followed by raw-coordinate
+Gershgorin. This does not contradict the half-frame inequality, the successful
+exact-whitening certificate, the rank-one family, or polynomial weights. The
+failure is the absolute row-sum treatment of a highly correlated monomial
+basis. Reactivate only after a new analytic basis or preconditioner controls
+those correlations. The next concrete question is whether centering and
+scaling the underlying three polynomial coordinates before taking their
+symmetric square yields a fixed, explicit six-coordinate basis with bounded
+full-Gram condition and positive Gershgorin margin. The signed prime
+correlation and Goldbach remain OPEN.
 ## 2026-09-11: the six-coordinate full-period relaxation passes two blocks
 
 The proposed lift is now exact and executable. Embed the logarithmic powers in

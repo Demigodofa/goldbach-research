@@ -7116,3 +7116,19 @@ The uniform entrywise estimates are OPEN. The next proof target is
 `W_ii-sum_(j!=i)|W_ij|>=1/2` for all six rows at project scale. This finite
 certificate does not prove the lower-frame theorem, signed prime correlation,
 or Goldbach.
+
+### 2026-09-11 continuation: raw coordinate Gershgorin is falsified
+
+For `C_ii=D_full(ii)^(-1/2)`, the direct scaled difference
+`C(D_active-D_full/2)C` at `M=127` has diagonal range
+`[.455089,.469415]`, absolute row-radius range `[2.284714,2.312280]`, and
+minimum Gershgorin edge `-1.846212097816`. The difference is nevertheless PSD,
+so this is cancellation lost by the certificate rather than failure of the
+lower-frame inequality.
+
+Independent review reproduced the values and returned PASS. Status
+`abandoned` applies only to diagonal scaling plus raw-coordinate Gershgorin.
+Exact whitening, the half-frame candidate, rank-one/polynomial components, and
+the signed problem remain active. The next test seeks an explicit centered
+polynomial basis whose symmetric square approximates full-Gram whitening.
+Goldbach remains OPEN.

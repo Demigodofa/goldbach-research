@@ -61,9 +61,47 @@ def whitened_gershgorin_lower_frame_receipt(active, full):
     }
 
 
+def coordinate_scaled_difference_gershgorin_receipt(
+        active, full, candidate=.5):
+    """Test diagonal scaling without the essential full-Gram whitening."""
+    active = np.asarray(active, dtype=float)
+    full = np.asarray(full, dtype=float)
+    if (active.ndim != 2 or active.shape[0] != active.shape[1]
+            or full.shape != active.shape or candidate < 0):
+        raise ValueError("require same-size square matrices and candidate>=0")
+    diagonal = np.diag(full)
+    if np.any(diagonal <= 0):
+        raise ValueError("full matrix must have a positive diagonal")
+    coordinate_scale = diagonal ** -.5
+    difference = (active - candidate * full) * np.outer(
+        coordinate_scale, coordinate_scale)
+    difference = (difference + difference.T) / 2
+    difference_diagonal = np.diag(difference)
+    radii = (
+        np.sum(np.abs(difference), axis=1)
+        - np.abs(difference_diagonal))
+    lower_edges = difference_diagonal - radii
+    return {
+        "candidate_lower_frame_constant": candidate,
+        "scaled_difference_diagonal": tuple(
+            float(value) for value in difference_diagonal),
+        "scaled_difference_radii": tuple(float(value) for value in radii),
+        "scaled_difference_gershgorin_edges": tuple(
+            float(value) for value in lower_edges),
+        "scaled_difference_gershgorin_lower_edge": float(
+            np.min(lower_edges)),
+        "coordinate_scaled_gershgorin_certifies_candidate": bool(
+            np.min(lower_edges) >= 0),
+        "full_gram_whitening_applied": False,
+    }
+
+
 def project_aggregate_gershgorin_receipt(scale_modulus):
     frame = project_prime_block_lifted_endpoint_scan(scale_modulus)
     receipt = whitened_gershgorin_lower_frame_receipt(
+        frame["aggregate_active_window_residue_energy_gram"],
+        frame["aggregate_full_residue_energy_gram"])
+    coordinate_scaled = coordinate_scaled_difference_gershgorin_receipt(
         frame["aggregate_active_window_residue_energy_gram"],
         frame["aggregate_full_residue_energy_gram"])
     return {
@@ -72,6 +110,7 @@ def project_aggregate_gershgorin_receipt(scale_modulus):
         "row_count": frame["row_count"],
         "divisor_range": frame["divisor_range"],
         **receipt,
+        "coordinate_scaled_one_half_receipt": coordinate_scaled,
         "finite_complete_prime_block_measurement": True,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,
