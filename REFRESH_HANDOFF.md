@@ -6759,3 +6759,54 @@ term, then test whether the prime-`m` average cancels the boundary. A boundary
 energy/diagonal ratio growing like `N^c` for any fixed `c>0` falsifies this
 route. The fixed-Mobius second moment and signed prime correlation remain
 OPEN.
+
+
+## 2026-09-10: incomplete-row boundary isolated and measured
+
+`lcm_sawtooth_incomplete_covariance.py` isolates the two effects left outside
+the complete-period gcd lemma. For fixed `q`, the exact lcm coefficient is a
+quadratic polynomial in `L=log(m*l)`,
+
+`K_q(L)=A_q L^2+B_q L+C_q`,
+
+so row-varying logarithms can be evaluated without rebuilding the divisor-pair
+sum. Freezing at the midpoint `l_0`, define
+
+`T_m(l)=sum_q K_q(log(m*l_0)) d_(m,q)(l)`,
+`D_m=sum_q K_q(log(m*l_0))^2 v_(m,q)`.
+
+The verifier computes exactly
+
+`B_m=A^(-1)sum_(A<=l<2A)|T_m(l)|^2
+     -sum_(q,r)K_q K_r Cov_m(q,r)`,
+
+and separately the signed difference produced by replacing the frozen `K_q`
+with their exact row-varying polynomials. These are algebraic decompositions,
+not orthogonal nonnegative components.
+
+With eight evenly spaced primes in `[M,2M]` and the project scales
+`N=M^(1/.59)`, `A=floor(N^.41)`, `V=floor(N^.15)`,
+`B=floor(N^.32)`, the maximum absolute values of `B_m/D_m` were `.12105`
+at `M=1009` and `.03037` at `M=4001`. The maximum absolute varying-log
+differences divided by `D_m` were `.01964` and `.005770`. Frozen incomplete
+total/diagonal ratios were at most `.6718` and `.5776`, respectively.
+Independent review reproduced the formulas and receipts and PASSed 14 tests
+in normal and optimized modes.
+
+The dense exact complete-covariance step is quadratic in the number of lcm
+values; an eight-prime `M=8009` sweep exceeded the useful interactive runtime
+and its output was discarded. This is a verifier limit, not mathematical
+evidence.
+
+A concrete sufficient boundary target is, with the exact positive outer/frame
+weights `w_m`,
+
+`sum_(m prime in [M,2M]) w_m |B_m|
+ <= N^epsilon sum_m w_m D_m`
+
+uniformly for `beta<=49/150-delta`. The finite data do not falsify it. The
+next <=30-minute question is whether the complete-period gcd kernel can be
+bounded by `N^epsilon D_m` through a divisor/GCD-sum factorization without a
+dense `q,r` expansion. Failure of that normalized GCD operator bound for the
+actual coefficient support rejects this route. The signed prime correlation
+and Goldbach remain OPEN.

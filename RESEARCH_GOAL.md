@@ -6024,3 +6024,34 @@ the project primes. Any fixed positive-power growth relative to the proved
 diagonal rejects the route. The fixed-Mobius second moment, signed prime
 correlation, and Goldbach remain open; complete assembly stays
 `.295-delta`.
+
+
+## 2026-09-10 continuation: the incomplete boundary stays small in the next test
+
+The remaining finite effects now have an exact decomposition. Each grouped
+lcm coefficient is a quadratic `K_q(L)=A_qL^2+B_qL+C_q` in
+`L=log(m*l)`. After freezing it at the midpoint row, the boundary excess is
+
+`B_m=A^(-1)sum_(A<=l<2A)|sum_q K_q d_(m,q)(l)|^2
+     -sum_(q,r)K_qK_r Cov_m(q,r)`.
+
+The verifier also computes the exact signed difference after restoring the
+row-varying quadratic coefficients. Independent review confirmed the
+polynomial identity, both energy differences, project scaling, prime sampler,
+normalization, and tests.
+
+Over eight evenly spaced primes, the maximum `|B_m|/D_m`, with
+`D_m=sum_q K_q^2v_(m,q)`, decreased from `.12105` at `M=1009` to
+`.03037` at `M=4001`. The maximum varying-log difference/diagonal decreased
+from `.01964` to `.005770`; every frozen incomplete total/diagonal ratio was
+below `.672`. These measurements support a subpower boundary but prove no
+asymptotic estimate.
+
+Exact dense cross-covariance evaluation is quadratic in the number of lcm
+values. The `M=8009` eight-prime sweep exceeded the useful interactive
+runtime, and no result from it is retained. The next target is a sparse
+divisor/GCD-sum factorization proving both the complete-period kernel and the
+absolute prime-averaged boundary are at most `N^epsilon` times the diagonal.
+A normalized operator norm growing as `N^c` for fixed `c>0` falsifies the
+route. The signed prime correlation and Goldbach remain open; complete
+assembly remains `.295-delta`.
