@@ -428,3 +428,8 @@ The increase is distributed: at `m=503` the largest exact-`Q` packet carries
 under 5% of the packet sum, 108 of 181 packets are needed for 90%, and the
 effective count is 71. The next route tests a `1/Q`-weighted Cauchy square-sum
 rather than trying to discard a short exceptional set.
+
+That exact Cauchy majorant is within factor `1.79` of the packet sum but equals
+`1.06524` complete energies at `m=503`. It isolates
+`sum_(Q>mA)Q|C_Q|^2` as a plausible square-sum target without proving the
+needed `N^epsilon` bound.

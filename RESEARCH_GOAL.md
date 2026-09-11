@@ -6711,3 +6711,9 @@ carry `.4091`, and 108 are needed for 90% of `sum_Q|C_Q|`. Independent review
 returned PASS. Short exceptional-packet removal is therefore not the measured
 mechanism. Next test the exact `Q`-weighted Cauchy majorant and, if it remains
 comparable, target a weighted square-sum bound for the whole packet family.
+
+The reviewed weighted Cauchy bound remains within a factor `1.79` of the exact
+packet sum, but reaches `1.06524` times complete energy at `m=503`. It therefore
+provides no constant-below-one closure. The route survives only as the explicit
+square-sum obligation `sum Q|C_Q|^2`, whose required `N^epsilon` estimate is
+open.

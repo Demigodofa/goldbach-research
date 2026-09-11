@@ -42,6 +42,11 @@ class LcmSawtoothSignedDifferenceBinTests(unittest.TestCase):
         self.assertTrue(all(
             top_packets[index][1] >= top_packets[index + 1][1]
             for index in range(len(top_packets) - 1)))
+        self.assertGreaterEqual(
+            receipt["high_Q_weighted_cauchy_bound_over_complete"] + 1e-12,
+            receipt["high_Q_fixed_Q_residual_over_complete"])
+        self.assertGreaterEqual(
+            receipt["high_Q_weighted_cauchy_slack_over_packet_sum"], 1)
 
     def test_conductor_sign_removal_preserves_energy_but_changes_boundary(self):
         actual = signed_difference_bin_receipt(101, 24, 24, 36, 3, 12)

@@ -160,6 +160,13 @@ def signed_difference_bin_receipt(
     effective_packet_count = (
         fixed_q_residual ** 2 / float(np.sum(packet_magnitudes ** 2))
         if fixed_q_residual else 0.0)
+    reciprocal_q_sum = float(sum(
+        1 / q_value for q_value in high_q_group_sums))
+    q_weighted_packet_square_sum = float(sum(
+        q_value * abs(value) ** 2
+        for q_value, value in high_q_group_sums.items()))
+    weighted_cauchy_bound = math.sqrt(
+        reciprocal_q_sum * q_weighted_packet_square_sum)
     return {
         "modulus": modulus,
         "ell_range": (ell_first, ell_first + row_count - 1),
@@ -181,6 +188,14 @@ def signed_difference_bin_receipt(
         "high_Q_ninety_percent_mass_packet_count": (
             packet_count_for_fraction(.9)),
         "high_Q_effective_packet_count": effective_packet_count,
+        "high_Q_reciprocal_denominator_sum": reciprocal_q_sum,
+        "high_Q_Q_weighted_packet_square_over_complete_squared": (
+            q_weighted_packet_square_sum / complete_energy ** 2),
+        "high_Q_weighted_cauchy_bound_over_complete": (
+            weighted_cauchy_bound / complete_energy),
+        "high_Q_weighted_cauchy_slack_over_packet_sum": (
+            weighted_cauchy_bound / fixed_q_residual
+            if fixed_q_residual else 0.0),
         "top_high_Q_packets": tuple(
             (int(q_value),
              float(abs(value) / complete_energy),
@@ -222,6 +237,8 @@ if __name__ == "__main__":
                 "high_Q_half_mass_packet_count",
                 "high_Q_ninety_percent_mass_packet_count",
                 "high_Q_effective_packet_count",
+                "high_Q_weighted_cauchy_bound_over_complete",
+                "high_Q_weighted_cauchy_slack_over_packet_sum",
                 "high_Q_within_Q_residual_over_pair_envelope",
                 "high_Q_across_Q_residual",
                 "high_Q_net_over_absolute")})

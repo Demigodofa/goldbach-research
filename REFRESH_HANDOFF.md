@@ -8113,3 +8113,28 @@ relative to complete energy. If its quotient grows rapidly already on these
 fixtures, this weight is rejected; if it stays comparable to the packet sum,
 the proof target becomes the weighted `Q|C_Q|^2` estimate. The signed prime-
 correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: weighted Cauchy isolates a square-sum obligation
+
+For the active exact-`Q` packets, ordinary Cauchy gives the rigorous identity
+
+`sum_Q |C_Q| <= (sum_Q 1/Q)^(1/2)(sum_Q Q|C_Q|^2)^(1/2)`.
+
+The bound divided by complete energy is `.46919,.37759,.54933` at
+`m=251,373,499`, with slack over the exact packet sum between `1.48` and
+`1.71`. At the next project fixture `m=503`, `sum 1/Q=.00224808` and
+`sum Q|C_Q|^2/E^2=504.758`, giving bound `1.06524 E` and slack `1.78811`.
+Independent review checked the inequality, units, normalizations, zero cases,
+tests, and receipts and returned PASS.
+
+This majorant is still comparable to the packet sum, but it no longer gives a
+constant below one at `m=503`. It neither proves nor falsifies an `N^epsilon`
+bound. Its useful surviving component is the exact reduction of the broad
+packet problem to the weighted square-sum
+
+`sum_(Q>mA) Q|C_Q|^2`.
+
+The next proof question for this route is whether conductor support and
+primitive-residue orthogonality bound that square-sum by
+`N^epsilon E^2/(sum_Q 1/Q)`. A power-growing weighted-Cauchy quotient is the
+falsifier. The signed prime-correlation estimate and Goldbach remain OPEN.
