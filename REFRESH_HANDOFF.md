@@ -10359,3 +10359,61 @@ is positive and
 Failure preserves the periodic decomposition and polynomial weights as tools,
 while rejecting the idea that the finite positive block is explained by a
 large positive reduced-prime-class main term.
+
+## 2026-09-11: the complete prime-class core has only a small positive mean
+
+For each doubled family, divide its packet by the explicit real direction
+polynomial.  The remaining arithmetic packet is evaluated canonically by
+discarding complete periods from every root sum.  Both families have the
+same exact period
+
+`lcm(77,130)=lcm(143,70)=10010`.
+
+The canonical packet is invariant under changing a representative by
+`10010` with zero numerical error.  On the 24 actual prime frames it matches
+the previously reviewed transferred packet after division by its direction
+factor with maximum relative error `9.405605046782073e-13`.  The product of
+the two direction polynomials is positive on every canonical unit-class
+representative; its range is `7.6120471448e-10` to
+`3.4188023372e-9`.  Removing the polynomial factors therefore does not
+reverse a classwise sign, although it does remove their unequal positive
+magnitudes.
+
+Enumerating all `phi(10010)=2880` reduced residue classes and applying the
+same reviewed lag orientation, row window, and near mask gives
+
+- complete-class signed core mean: `857935410.0801451`;
+- mean absolute core: `17991305013.044395`;
+- signed-to-absolute ratio: `.04768611334520251`;
+- fraction of classes with positive signed core: `.47256944444444443`;
+- class range: `-145283796330.57092` to `377133803754.9143`.
+
+The predeclared prime-class reinforcement gate required a positive mean with
+ratio at least `.25`.  It fails: the mean is positive but only `4.77%` of
+mean absolute mass.  This rejects a large, broadly positive complete-class
+main term, not the small positive mean itself.
+
+Independent review verified the complete-period root sum, full-denominator
+support, normalization by the direction polynomial, period, all 2,880 unit
+classes, FFT lag convention, near mask, direction-product sign, numerical
+values, gate, and scope.  Three focused tests pass normally and under Python
+optimization; the previously affected 18-test suite also passes in both
+modes.
+
+Curiosity status: `interesting-finite-failure`, novelty `new-to-this-task`.
+Preserve the exact polynomial-times-periodic decomposition and the small
+positive trivial-class coefficient.  The calculation is an unweighted
+finite arithmetic diagnostic.  It is not a theorem on primes in progressions
+and proves no signed prime-correlation estimate.
+
+The next bounded question puts the polynomial weights back rather than
+discarding them.  For cycle starts `X=m*10010`, `m=1,10,100`, define the
+positive direction-product weight `W_X(u)` and test
+
+`rho_X=sum_u W_X(u)S(u) / sum_u W_X(u)|S(u)|`.
+
+The polynomial-stability hypothesis passes only if all three `rho_X` are
+positive and `rho_(100*10010)` is within ten percent, relatively, of the
+unweighted `.04768611334520251`.  A negative value or failed convergence
+rejects stable polynomial pairing while preserving both the exact periodic
+core and the polynomial factors separately.
