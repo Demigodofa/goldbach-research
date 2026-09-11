@@ -10927,3 +10927,42 @@ split each nonempty subtotal equally among its prime factors. Test whether
 factor `7` remains the largest absolute allocation after this adjustment.
 Failure preserves the joint `{7,13}` frequency mechanism and rejects factor
 `7` as its leading individual frequency-side marker.
+
+## 2026-09-11: overlap adjustment rejects factor 7 as the leading frequency marker
+
+Define a game on `{2,7,13}` whose Harsanyi dividend for a subset `T` is the
+exact `gcd(n,182)` subtotal having precisely the prime set `T`; the
+`gcd=1` row is the empty-set baseline. Splitting every nonempty complex
+dividend equally among its primes gives
+
+- factor `2`: `-3387.3799587328717 - 193.697394103966 i`, magnitude
+  `3392.9134479541`;
+- factor `7`: `-10533.888282760554 - 602.3495252999212 i`, magnitude
+  `10551.096023840799`;
+- factor `13`: `-11122.65510486987 - 636.0164302727313 i`, magnitude
+  `11140.824632021844`.
+
+Together with the empty baseline
+`1.518397534418899 + .08682511239172731 i`, these allocations reconstruct the
+full source mean with relative error `3.8144850495674003e-14`. Factor `13`,
+not factor `7`, has the largest complex allocation magnitude. The stated
+factor-7 hypothesis therefore fails.
+
+Independent review caught and corrected an initial precision mismatch between
+"absolute allocation" and code that ranked absolute real parts. The final
+calculation ranks full complex magnitudes; normal and optimized tests pass,
+and review returned PASS.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`. Preserve
+the joint factor-7/factor-13 frequency localization and the exact source CRT
+mechanism. Reject factor `7` as the leading individual frequency-side marker
+under this equal-share attribution. This says nothing causal or uniform.
+
+The partition has reached diminishing returns, so change direction. The next
+bounded question tests whether the source CRT mechanism generalizes beyond
+one chosen lag. Apply it to the five leading absolute response pairs with
+positive representatives `{140,154,156,182,240}`. For each lag, compare the
+source calculation to an independently enumerated canonical unit-class mean.
+The family passes only if all five relative errors are at most `1e-12`, while
+the source calculation itself never enumerates frame classes. Failure keeps
+the lag-182 identity and identifies the first unsupported gcd pattern.

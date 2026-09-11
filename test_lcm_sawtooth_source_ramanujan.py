@@ -66,6 +66,16 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertGreater(
             receipt["prime_frequency_signed_real_fractions"][13],
             receipt["factor_seven_signed_real_fraction"])
+        allocations = receipt["frequency_equal_share_mean_correlations"]
+        self.assertAlmostEqual(allocations[2][0], -3387.3799587328717, places=7)
+        self.assertAlmostEqual(allocations[7][0], -10533.888282760554, places=7)
+        self.assertAlmostEqual(allocations[13][0], -11122.65510486987, places=7)
+        self.assertLess(
+            receipt["equal_share_reconstruction_relative_error"], 1e-12)
+        self.assertEqual(
+            receipt["largest_absolute_equal_share_prime"], 13)
+        self.assertFalse(
+            receipt["factor_seven_has_largest_absolute_equal_share"])
         gcd_total = sum(
             complex(*subtotal) for subtotal in
             receipt["frequency_gcd_mean_correlations"].values())

@@ -171,6 +171,25 @@ def source_ramanujan_mean_receipt(
     prime_frequency_signed_real_fractions = {
         prime: abs(subtotal.real) / max(1.0, abs(source_mean.real))
         for prime, subtotal in prime_frequency_means.items()}
+    frequency_equal_share_means = {prime: 0.0j for prime in common_primes}
+    for divisor, subtotal in frequency_gcd_means.items():
+        active_primes = tuple(
+            prime for prime in common_primes if divisor % prime == 0)
+        if active_primes:
+            share = subtotal / len(active_primes)
+            for prime in active_primes:
+                frequency_equal_share_means[prime] += share
+    empty_frequency_mean = frequency_gcd_means.get(1, 0.0j)
+    equal_share_reconstruction = (
+        empty_frequency_mean + sum(frequency_equal_share_means.values()))
+    equal_share_reconstruction_relative_error = (
+        abs(equal_share_reconstruction - source_mean)
+        / max(1.0, abs(source_mean)))
+    largest_absolute_equal_share_prime = max(
+        common_primes,
+        key=lambda prime: abs(frequency_equal_share_means[prime]))
+    factor_seven_has_largest_absolute_equal_share = (
+        largest_absolute_equal_share_prime == 7)
     factor_seven_mean = prime_frequency_means.get(7, 0.0j)
     factor_seven_signed_fraction = (
         abs(factor_seven_mean.real) / max(1.0, abs(source_mean.real)))
@@ -206,6 +225,17 @@ def source_ramanujan_mean_receipt(
             for prime, subtotal in prime_frequency_means.items()},
         "prime_frequency_signed_real_fractions": (
             prime_frequency_signed_real_fractions),
+        "empty_frequency_mean_correlation": (
+            empty_frequency_mean.real, empty_frequency_mean.imag),
+        "frequency_equal_share_mean_correlations": {
+            prime: (subtotal.real, subtotal.imag)
+            for prime, subtotal in frequency_equal_share_means.items()},
+        "equal_share_reconstruction_relative_error": (
+            equal_share_reconstruction_relative_error),
+        "largest_absolute_equal_share_prime": (
+            largest_absolute_equal_share_prime),
+        "factor_seven_has_largest_absolute_equal_share": (
+            factor_seven_has_largest_absolute_equal_share),
         "factor_seven_signed_real_fraction": factor_seven_signed_fraction,
         "minimum_factor_seven_signed_fraction": (
             minimum_factor_seven_signed_fraction),
