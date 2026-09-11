@@ -2219,6 +2219,98 @@ def residue_orbit_covariance_subspace_receipt(
     }
 
 
+def residue_orbit_adjacent_covariance_subspace_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        subspace_dimension=4,
+        minimum_normalized_projector_overlap=.75,
+        minimum_stable_adjacent_pair_count=4,
+        tolerance=1e-12, batch_size=32):
+    if type(subspace_dimension) is not int or subspace_dimension < 1:
+        raise ValueError("subspace dimension must be a positive integer")
+    if (not math.isfinite(minimum_normalized_projector_overlap)
+            or not 0 <= minimum_normalized_projector_overlap <= 1):
+        raise ValueError("projector overlap gate must lie in [0, 1]")
+    if (type(minimum_stable_adjacent_pair_count) is not int
+            or minimum_stable_adjacent_pair_count < 0):
+        raise ValueError(
+            "minimum stable adjacent pair count must be a nonnegative integer")
+    base = residue_orbit_covariance_subspace_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        subspace_dimension=subspace_dimension,
+        minimum_positive_spectral_concentration=0,
+        minimum_normalized_projector_overlap=0,
+        minimum_stable_dyadic_block_count=0,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    blocks = tuple(base["dyadic_subspace_summaries"])
+    if minimum_stable_adjacent_pair_count > len(blocks) - 1:
+        raise ValueError(
+            "minimum stable adjacent pair count exceeds measured pairs")
+    bases = tuple(
+        np.asarray(base["dyadic_subspace_summaries"][block][
+            "subspace_basis"], dtype=np.float64).T
+        for block in blocks)
+    identity = np.eye(subspace_dimension)
+    maximum_basis_orthonormality_error = max(
+        float(np.linalg.norm(basis.T @ basis - identity, ord=2))
+        for basis in bases)
+    adjacent_pair_summaries = {}
+    for index in range(len(blocks) - 1):
+        left_block = blocks[index]
+        right_block = blocks[index + 1]
+        cross_basis = bases[index].T @ bases[index + 1]
+        singular_values = np.linalg.svd(cross_basis, compute_uv=False)
+        squared_canonical_correlations = singular_values ** 2
+        normalized_projector_overlap = float(
+            np.sum(squared_canonical_correlations) / subspace_dimension)
+        adjacent_pair_summaries[(left_block, right_block)] = {
+            "normalized_projector_overlap": normalized_projector_overlap,
+            "squared_canonical_correlations": tuple(
+                float(value) for value in squared_canonical_correlations),
+            "minimum_squared_canonical_correlation": float(
+                squared_canonical_correlations[-1]),
+            "maximum_squared_canonical_correlation": float(
+                squared_canonical_correlations[0]),
+            "passes_projector_overlap_gate": bool(
+                normalized_projector_overlap
+                >= minimum_normalized_projector_overlap),
+        }
+    stable_adjacent_pair_count = sum(
+        row["passes_projector_overlap_gate"]
+        for row in adjacent_pair_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_count": base["orbit_count"],
+        "subspace_dimension": subspace_dimension,
+        "dyadic_blocks": blocks,
+        "minimum_normalized_projector_overlap_gate": (
+            minimum_normalized_projector_overlap),
+        "minimum_stable_adjacent_pair_count_gate": (
+            minimum_stable_adjacent_pair_count),
+        "adjacent_pair_summaries": adjacent_pair_summaries,
+        "stable_adjacent_pair_count": stable_adjacent_pair_count,
+        "local_covariance_subspace_coherence_gate_passes": bool(
+            stable_adjacent_pair_count
+            >= minimum_stable_adjacent_pair_count),
+        "maximum_basis_orthonormality_error": (
+            maximum_basis_orthonormality_error),
+        "finite_adjacent_covariance_subspaces_measured": True,
+        "local_covariance_subspace_coherence_proved": False,
+        "asymptotic_covariance_subspace_stabilization_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

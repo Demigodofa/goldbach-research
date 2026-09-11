@@ -13989,3 +13989,67 @@ so a high average caused by only a few shared directions remains visible.
 Passing would isolate a slowly varying scale-local envelope for arithmetic
 analysis.  Failure would reject this local-continuity mechanism while
 preserving individual block subspaces and the high pooled concentration.
+
+## 2026-09-11 adjacent top-four subspaces are not locally coherent
+
+`residue_orbit_adjacent_covariance_subspace_receipt` removes the pooled-space
+comparison.  It reconstructs each dyadic `17 by 4` orthonormal basis and uses
+the singular values of `V_j^T V_(j+1)` to measure adjacent principal angles.
+The average squared canonical correlation equals
+
+`||V_j^T V_(j+1)||_F^2/4 = trace(P_j P_(j+1))/4`.
+
+In ascending adjacent-block order, the normalized projector overlaps are
+
+`.35339, .30655, .31767, .38994, .58540, .38828`.
+
+All six fall below `.75`, so the frozen local-coherence count is `0/6` rather
+than the required `4/6`.  The individual squared canonical correlations are
+
+`(.85276,.36547,.19136,.00395)`,
+`(.77097,.33703,.11818,.00000182)`,
+`(.69091,.52415,.05112,.00450)`,
+`(.90406,.43426,.13689,.08453)`,
+`(.96598,.76089,.60699,.00772)`, and
+`(.71956,.50759,.30621,.01978)`.
+
+Each adjacent pair therefore shares at least one moderate or strong direction,
+but the fourth direction is nearly orthogonal in every pair.  The full
+four-dimensional envelope is not locally coherent.  Maximum reconstructed-
+basis orthonormality error is about `2.1e-15`.
+
+Curiosity status: `decisive-fail/partial-direction-preserved`, novelty
+`new-to-this-task`.  Reject a slowly varying top-four covariance envelope at
+these scales.  Preserve the leading adjacent canonical directions and their
+strongest correlations; they may reflect a lower-rank arithmetic component
+surrounded by scale-changing directions.
+
+Independent review verified basis reconstruction, block ordering, SVD and
+projector identities, every overlap and canonical correlation, and the exact
+scope of the failure.  Focused normal and optimized tests pass.  No local or
+asymptotic stabilization, signed prime-correlation estimate, or Goldbach
+result has been proved.
+
+Do not restart the earlier quadratic-character classification here.  The
+handoff already records its canonical near-alignments, factor-reallocation
+failure, broad full character spectrum, and exact Gauss transfer.
+
+The next bounded question separates the new prime-pair evidence from the
+fixed source coefficients.  Write each orbit term exactly as
+
+`T_N(O)=D_N(O) C(O)`,
+
+where `D_N(O)` is the centered linked-prime residue weight and `C(O)` is the
+fixed centered source coefficient.  Return `D_N(O)` directly rather than
+recovering it by division, verify the factorization for all 761 targets, and
+form the off-diagonal covariance of the real vectors `D_N` in every dyadic
+block.  Test the adjacent top-four projectors with the same frozen gate
+
+`#{j: trace(Q_j Q_(j+1))/4 >= .75} >= 4`.
+
+Passing would identify a scale-local structure in the two linked prime
+conditions that can later be paired with, rather than substituted for, the
+existing polynomial/source coefficients.  Failure would show that removing
+the fixed source geometry does not reveal this particular stable arithmetic
+envelope; it would preserve the exact factorization and permit other norms,
+bases, or averaged estimates.

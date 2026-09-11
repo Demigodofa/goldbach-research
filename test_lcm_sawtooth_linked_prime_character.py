@@ -11,6 +11,7 @@ from lcm_sawtooth_linked_prime_character import (
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
     residue_orbit_reinforcement_receipt,
+    residue_orbit_adjacent_covariance_subspace_receipt,
     residue_orbit_covariance_mode_receipt,
     residue_orbit_covariance_subspace_receipt,
     residue_orbit_sign_cube_receipt,
@@ -116,6 +117,12 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
                 subspace_dimension=0)
         with self.assertRaises(ValueError):
             residue_orbit_covariance_subspace_receipt(
+                minimum_normalized_projector_overlap=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_adjacent_covariance_subspace_receipt(
+                minimum_stable_adjacent_pair_count=-1)
+        with self.assertRaises(ValueError):
+            residue_orbit_adjacent_covariance_subspace_receipt(
                 minimum_normalized_projector_overlap=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
@@ -956,6 +963,61 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["stable_covariance_subspace_gate_passes"])
         self.assertTrue(receipt["finite_covariance_subspaces_measured"])
         self.assertFalse(receipt["stable_covariance_subspace_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_adjacent_covariance_subspace(self):
+        receipt = residue_orbit_adjacent_covariance_subspace_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(receipt["subspace_dimension"], 4)
+        self.assertEqual(len(receipt["dyadic_blocks"]), 7)
+        self.assertEqual(len(receipt["adjacent_pair_summaries"]), 6)
+        adjacent = receipt["adjacent_pair_summaries"]
+        expected_overlaps = (
+            .35338500645207943, .30654738297042794,
+            .31766746208199753, .38993607810825776,
+            .5853962515989712, .38828335460373065)
+        expected_canonical_correlations = (
+            (.8527604785052174, .3654681229421213,
+             .19135793117070912, .003953493190269815),
+            (.7709703113234467, .33703335250375294,
+             .118184052939431, .0000018151150810788208),
+            (.6909091222094652, .5241488363925265,
+             .05111677742785788, .004495112298140396),
+            (.9040576083349865, .43426204576711447,
+             .13689071290167024, .08453394542925971),
+            (.9659849746638701, .7608872996527108,
+             .6069884550699286, .007724277009375598),
+            (.7195555107103625, .5075903681053604,
+             .306208817509344, .01977872208985547))
+        for row, overlap, correlations in zip(
+                adjacent.values(), expected_overlaps,
+                expected_canonical_correlations):
+            self.assertAlmostEqual(
+                row["normalized_projector_overlap"], overlap, places=12)
+            for measured, expected in zip(
+                    row["squared_canonical_correlations"], correlations):
+                self.assertAlmostEqual(measured, expected, places=12)
+        self.assertEqual(
+            tuple(row["passes_projector_overlap_gate"]
+                  for row in adjacent.values()),
+            (False, False, False, False, False, False))
+        self.assertEqual(receipt["stable_adjacent_pair_count"], 0)
+        self.assertFalse(receipt[
+            "local_covariance_subspace_coherence_gate_passes"])
+        self.assertLess(receipt[
+            "maximum_basis_orthonormality_error"], 1e-12)
+        self.assertTrue(receipt[
+            "finite_adjacent_covariance_subspaces_measured"])
+        self.assertFalse(receipt[
+            "local_covariance_subspace_coherence_proved"])
+        self.assertFalse(receipt[
+            "asymptotic_covariance_subspace_stabilization_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
