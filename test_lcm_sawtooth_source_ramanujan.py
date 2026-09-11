@@ -119,6 +119,16 @@ class SourceRamanujanTests(unittest.TestCase):
             .04039920063212698, places=12)
         self.assertTrue(receipt[
             "unsigned_ramanujan_cancellation_gate_passes"])
+        self.assertIsNotNone(
+            receipt["unweighted_endpoint_cancellation_quotient"])
+        self.assertTrue(receipt["two_orientation_source_bijection"])
+        self.assertTrue(receipt["coprime_family_denominator_pairs"])
+        self.assertEqual(
+            receipt["unweighted_endpoint_local_count_prediction"], 108)
+        self.assertLess(
+            receipt["unweighted_endpoint_local_count_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "unweighted_endpoint_local_count_identity_passes"])
 
     def test_guards(self):
         with self.assertRaises(ValueError):
@@ -143,6 +153,13 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertIsNone(receipt["unsigned_ramanujan_cancellation_quotient"])
         self.assertFalse(receipt[
             "unsigned_ramanujan_cancellation_gate_passes"])
+        self.assertIsNone(receipt["unweighted_endpoint_cancellation_quotient"])
+        self.assertFalse(receipt[
+            "unweighted_endpoint_cancellation_gate_passes"])
+        self.assertEqual(
+            receipt["unweighted_endpoint_local_count_prediction"], 0)
+        self.assertTrue(receipt[
+            "unweighted_endpoint_local_count_identity_passes"])
 
     def test_source_reduction_across_five_leading_lags(self):
         receipt = leading_lag_source_receipt()
@@ -219,6 +236,37 @@ class SourceRamanujanTests(unittest.TestCase):
                 expected_unsigned_ramanujan_quotients[lag], places=12)
         self.assertTrue(
             receipt["all_unsigned_ramanujan_cancellation_gates_pass"])
+        expected_unweighted_endpoint_means = {
+            140: 396,
+            154: 132,
+            156: 540,
+            182: 108,
+            240: 1980,
+        }
+        expected_unweighted_endpoint_quotients = {
+            140: .004626159973297765,
+            154: .00608933744949246,
+            156: .00711325997241756,
+            182: .006252333817381112,
+            240: .005473702593802904,
+        }
+        self.assertEqual(
+            receipt["unweighted_endpoint_local_count_predictions"],
+            expected_unweighted_endpoint_means)
+        for lag in receipt["lags"]:
+            unweighted_mean = receipt[
+                "unweighted_endpoint_source_mean_correlations"][lag]
+            self.assertAlmostEqual(
+                unweighted_mean[0], expected_unweighted_endpoint_means[lag],
+                places=8)
+            self.assertAlmostEqual(unweighted_mean[1], 0, places=8)
+            self.assertAlmostEqual(
+                receipt["unweighted_endpoint_cancellation_quotients"][lag],
+                expected_unweighted_endpoint_quotients[lag], places=12)
+        self.assertTrue(
+            receipt["all_unweighted_endpoint_cancellation_gates_pass"])
+        self.assertTrue(receipt[
+            "all_unweighted_endpoint_local_count_identities_pass"])
         self.assertFalse(
             receipt["unit_frame_classes_enumerated_by_source_calculation"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])

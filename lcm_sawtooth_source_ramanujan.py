@@ -139,6 +139,8 @@ def source_ramanujan_mean_receipt(
     total = 0.0j
     phase_removed_total = 0.0j
     unsigned_ramanujan_total = 0.0j
+    unweighted_endpoint_total = 0.0j
+    absolute_unweighted_endpoint_mass = 0.0
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     matched_source_residue_pairs = 0
@@ -172,6 +174,8 @@ def source_ramanujan_mean_receipt(
                         mode_product * ramanujan_weight)
                     unsigned_ramanujan_total += (
                         mode_product * abs(ramanujan_weight))
+                    unweighted_endpoint_total += mode_product
+                    absolute_unweighted_endpoint_mass += abs(mode_product)
                     absolute_mode_contribution_mass += abs(contribution)
                     frequency_gcd = math.gcd(frequency, common)
                     frequency_gcd_totals[frequency_gcd] = (
@@ -187,6 +191,10 @@ def source_ramanujan_mean_receipt(
         phase_removed_total / unit_class_count)
     unsigned_ramanujan_source_mean = complex(
         unsigned_ramanujan_total / unit_class_count)
+    unweighted_endpoint_source_mean = complex(
+        unweighted_endpoint_total / unit_class_count)
+    normalized_absolute_unweighted_endpoint_mass = (
+        absolute_unweighted_endpoint_mass / unit_class_count)
     normalized_absolute_mode_contribution_mass = (
         absolute_mode_contribution_mass / unit_class_count)
     source_mode_cancellation_quotient = (
@@ -200,6 +208,31 @@ def source_ramanujan_mean_receipt(
         abs(unsigned_ramanujan_source_mean)
         / normalized_absolute_mode_contribution_mass
         if normalized_absolute_mode_contribution_mass > 0 else None)
+    unweighted_endpoint_cancellation_quotient = (
+        abs(unweighted_endpoint_source_mean)
+        / normalized_absolute_unweighted_endpoint_mass
+        if normalized_absolute_unweighted_endpoint_mass > 0 else None)
+    coprime_family_denominator_pairs = all(
+        math.gcd(conductor, 2 * partner) == 1
+        and conductor * (2 * partner) == period
+        for conductor, partner in families)
+    two_orientation_source_bijection = bool(
+        coprime_family_denominator_pairs
+        and
+        left_pair_count == 2 * len(left_sources) == 2 * unit_class_count
+        and right_pair_count == 2 * len(right_sources) == 2 * unit_class_count)
+    quotient_factors = _prime_power_factors(quotient)
+    squarefree_period = all(
+        prime == prime_power
+        for prime, prime_power in _prime_power_factors(period))
+    unweighted_endpoint_local_count_prediction = (
+        4 * math.prod(prime - 2 for prime, _ in quotient_factors)
+        if two_orientation_source_bijection and squarefree_period else None)
+    unweighted_endpoint_local_count_relative_error = (
+        abs(unweighted_endpoint_source_mean
+            - unweighted_endpoint_local_count_prediction)
+        / max(1.0, abs(unweighted_endpoint_local_count_prediction))
+        if unweighted_endpoint_local_count_prediction is not None else None)
     frequency_gcd_means = {
         divisor: complex(subtotal / unit_class_count)
         for divisor, subtotal in sorted(frequency_gcd_totals.items())}
@@ -284,6 +317,28 @@ def source_ramanujan_mean_receipt(
             unsigned_ramanujan_cancellation_quotient is not None
             and unsigned_ramanujan_cancellation_quotient
             <= maximum_source_mode_cancellation_quotient),
+        "unweighted_endpoint_source_mean_correlation": (
+            unweighted_endpoint_source_mean.real,
+            unweighted_endpoint_source_mean.imag),
+        "normalized_absolute_unweighted_endpoint_mass": (
+            normalized_absolute_unweighted_endpoint_mass),
+        "unweighted_endpoint_cancellation_quotient": (
+            unweighted_endpoint_cancellation_quotient),
+        "unweighted_endpoint_cancellation_gate_passes": bool(
+            unweighted_endpoint_cancellation_quotient is not None
+            and unweighted_endpoint_cancellation_quotient
+            <= maximum_source_mode_cancellation_quotient),
+        "two_orientation_source_bijection": (
+            two_orientation_source_bijection),
+        "coprime_family_denominator_pairs": (
+            coprime_family_denominator_pairs),
+        "unweighted_endpoint_local_count_prediction": (
+            unweighted_endpoint_local_count_prediction),
+        "unweighted_endpoint_local_count_relative_error": (
+            unweighted_endpoint_local_count_relative_error),
+        "unweighted_endpoint_local_count_identity_passes": bool(
+            unweighted_endpoint_local_count_relative_error is not None
+            and unweighted_endpoint_local_count_relative_error <= tolerance),
         "frequency_gcd_mean_correlations": {
             divisor: (subtotal.real, subtotal.imag)
             for divisor, subtotal in frequency_gcd_means.items()},
@@ -371,6 +426,15 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "unsigned_ramanujan_source_mean_correlations": {
             lag: result["unsigned_ramanujan_source_mean_correlation"]
             for lag, result in results.items()},
+        "unweighted_endpoint_cancellation_quotients": {
+            lag: result["unweighted_endpoint_cancellation_quotient"]
+            for lag, result in results.items()},
+        "unweighted_endpoint_source_mean_correlations": {
+            lag: result["unweighted_endpoint_source_mean_correlation"]
+            for lag, result in results.items()},
+        "unweighted_endpoint_local_count_predictions": {
+            lag: result["unweighted_endpoint_local_count_prediction"]
+            for lag, result in results.items()},
         "maximum_source_mode_cancellation_quotient": max(
             result["source_mode_cancellation_quotient"]
             for result in results.values()),
@@ -382,6 +446,12 @@ def leading_lag_source_receipt(tolerance=1e-12):
             for result in results.values()),
         "all_unsigned_ramanujan_cancellation_gates_pass": all(
             result["unsigned_ramanujan_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_unweighted_endpoint_cancellation_gates_pass": all(
+            result["unweighted_endpoint_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_unweighted_endpoint_local_count_identities_pass": all(
+            result["unweighted_endpoint_local_count_identity_passes"]
             for result in results.values()),
         "maximum_source_to_canonical_relative_error": maximum_relative_error,
         "all_leading_lag_source_reductions_pass": bool(

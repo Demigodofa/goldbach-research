@@ -11126,3 +11126,57 @@ sum of endpoint-mode product magnitudes. If all five unweighted endpoint
 quotients remain at most `.10`, the coefficient geometry itself supplies the
 finite cancellation; a failure identifies positive Ramanujan magnitude
 weighting as essential at the first offending lag.
+
+## 2026-09-11: the unweighted endpoint ablation is an exact local count
+
+Remove the CRT phase and replace every Ramanujan magnitude by `1`, now using
+the corresponding unweighted sum of endpoint-mode product magnitudes as the
+denominator. The five unweighted means and quotients are
+
+- lag `140`: `396`, quotient `.004626159973297765`;
+- lag `154`: `132`, quotient `.00608933744949246`;
+- lag `156`: `540`, quotient `.00711325997241756`;
+- lag `182`: `108`, quotient `.006252333817381112`;
+- lag `240`: `1980`, quotient `.005473702593802904`.
+
+These integer means have an exact explanation for the present squarefree
+period and coprime denominator pairs. Each orientation bijects primitive
+numerator pairs with the unit source residues, so every residue has two
+source contributions per family. At the unweighted point `p=0`, every
+primitive endpoint sum is `-1`; each family coefficient therefore sums to
+`2`, and each matched left/right residue pair contributes `4`.
+
+Let `g=gcd(h,Q)` and `q=Q/g`. For fixed unit source residue `u`, every prime
+`r|q` excludes `t=0` and the one class making `u-g*t=0 (mod r)`, leaving
+`r-2` choices. Thus the matched-pair count is
+
+`phi(Q)*product_(r|q)(r-2)`,
+
+and the normalized unweighted mean is exactly
+
+`4*product_(r|Q/g)(r-2)`.
+
+If `2|q` the product is zero, which also explains the zero-mass odd-lag case.
+The receipt now enables this prediction only when `Q` is squarefree and each
+family pair `(c,2d)` is coprime with product `Q`. Independent review verified
+the derivation, executable hypotheses, five values, quotients, and tests and
+returned PASS.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The endpoint
+coefficient geometry has an exact local-count collapse after all arithmetic
+weights are removed. This explains the tiny unweighted quotients, but it also
+shows they are a formal endpoint-evaluation identity rather than the missing
+weighted cancellation. Preserve the identity as a tool; keep the
+Ramanujan-weighted and prime-weighted problems open.
+
+The next bounded question restores the signed Ramanujan weights through their
+divisor identity
+
+`c_g(n)=sum_(d|(g,n)) d*mu(g/d)`.
+
+Use `1_(d|n)=d^(-1)sum_(j<d)e_d(j*n)` to rewrite every frequency-filtered
+endpoint sum as samples at `p=j*Q/d`. Test whether this divisor-sampling
+formula reconstructs the phase-removed signed means at all five lags within
+`1e-12`, without applying a frequency-by-frequency Ramanujan weight. Success
+would turn the numerical rational observations into a finite endpoint-sample
+mechanism; it would still require a separate uniform and prime-weighted bound.
