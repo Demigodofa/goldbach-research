@@ -6271,3 +6271,26 @@ is the analytic Loewner inequality `G_col<=N^epsilon G_diag`; a growing
 eigenvalue, rank failure, or increasing actual extremizer alignment rejects
 this reduced route. The incomplete boundary, signed prime correlation, and
 Goldbach remain open; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: absolute common layers remain constant-scale
+
+Replacing each aggregated `A_c(d,r)` by its absolute value raises the
+largest-scale median common-layer eigenvalue from `1.02474` to `2.17966`.
+This shows that layer-entry signs provide about a factor-two improvement,
+while the observed support geometry alone still avoids the available
+`N^.05` Cauchy loss.
+
+New eight-prime sweeps at `M=32003` and `64007` give signed worst-eigenvalue
+medians `1.02898,1.03814`, absolute medians `2.23308,2.27972`, and actual
+Mobius quotients `.16088,.16916`. The active layer count stays six and the
+actual worst-mode overlap falls to `.000155` at the largest scale.
+Independent review verified the construction, data, code, and tests. These
+remain finite measurements.
+
+The next target tests a Schur bound arising from the nested supports
+`r<=B^2/(dc)` by measuring individual layer quotients and normalized
+cross-layer row sums. Growth comparable to the raw residual count falsifies
+that support-geometric route. The incomplete boundary, signed prime
+correlation, and Goldbach remain open; complete assembly remains
+`.295-delta`.

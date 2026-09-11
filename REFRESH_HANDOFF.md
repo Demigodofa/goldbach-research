@@ -7186,3 +7186,36 @@ from the divisibility geometry of the `c` layers. A power-growing generalized
 eigenvalue at a larger scale, a lost diagonal rank, or a growing actual
 overlap with the extremizer falsifies the route. The incomplete boundary,
 signed prime correlation, and Goldbach remain OPEN.
+
+
+## 2026-09-10: layer signs help, but support geometry remains bounded-looking
+
+The common-layer operator now has a direct sign-removal falsifier. After raw
+pair contributions have been aggregated into each exact entry `A_c(d,r)`, it
+replaces that entry by `|A_c(d,r)|` in both Gram matrices. This preserves the
+measured layer magnitudes and supports while removing signs across residual
+coordinates; it does not remove signs inside the raw pair aggregation.
+
+At `M=16001`, the median worst signed eigenvalue is `1.02474` and the
+entrywise-absolute value is `2.17966`. Thus aggregated layer signs improve
+the finite operator by a factor about `2.13`, but the sign-free layer operator
+still has constant-scale size in the observed range.
+
+Two new eight-prime sweeps extend the previous evidence. At `M=32003`, the
+signed/absolute/actual medians are `1.02898/2.23308/.16088`, with actual
+extremizer overlap `.000781`. At `M=64007` they are
+`1.03814/2.27972/.16916`, with overlap `.000155`. The active common-layer
+count remains six at both scales. These 16 extended rows completed in about
+13.5 seconds on the current Python route; no larger run is needed before the
+analytic question changes.
+
+Independent review PASSed the absolute-entry construction, both whitenings,
+expanded receipts, implementation, and 46 combined normal/optimized tests.
+No asymptotic conclusion follows from the slowly rising absolute values.
+
+The next <=30-minute question is whether the near-constant absolute operator
+comes from nested residual supports `r<=B^2/(dc)`. The test will expose each
+layer's individual quotient and normalized cross-layer row sums. A growing
+Schur row sum or a layer whose quotient follows `B^2/(dc)` rejects a
+support-geometric proof. The incomplete boundary, signed prime correlation,
+and Goldbach remain OPEN.

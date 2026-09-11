@@ -92,6 +92,8 @@ def common_layer_operator_probe(
     size = len(active_common_parts)
     collapsed_gram = np.zeros((size, size), dtype=float)
     diagonal_gram = np.zeros((size, size), dtype=float)
+    absolute_collapsed_gram = np.zeros((size, size), dtype=float)
+    absolute_diagonal_gram = np.zeros((size, size), dtype=float)
     coordinate_count = 0
     for divisor, q_layers in layers.items():
         if (divisor <= divisor_upper
@@ -103,6 +105,7 @@ def common_layer_operator_probe(
             continue
         coordinate_count += 1
         collapsed_vector = np.zeros(size, dtype=float)
+        absolute_collapsed_vector = np.zeros(size, dtype=float)
         for common_layers in q_layers.values():
             residual_vector = np.zeros(size, dtype=float)
             for common, value in common_layers.items():
@@ -110,8 +113,14 @@ def common_layer_operator_probe(
             collapsed_vector += residual_vector
             diagonal_gram += weight * np.outer(
                 residual_vector, residual_vector)
+            absolute_residual_vector = np.abs(residual_vector)
+            absolute_collapsed_vector += absolute_residual_vector
+            absolute_diagonal_gram += weight * np.outer(
+                absolute_residual_vector, absolute_residual_vector)
         collapsed_gram += weight * np.outer(
             collapsed_vector, collapsed_vector)
+        absolute_collapsed_gram += weight * np.outer(
+            absolute_collapsed_vector, absolute_collapsed_vector)
 
     diagonal_eigenvalues, diagonal_eigenvectors = np.linalg.eigh(
         diagonal_gram)
@@ -128,6 +137,25 @@ def common_layer_operator_probe(
         normalized)
     largest_generalized_eigenvalue = float(normalized_eigenvalues[-1])
     extremizer = normalized_eigenvectors[:, -1]
+
+    absolute_diagonal_eigenvalues, absolute_diagonal_eigenvectors = (
+        np.linalg.eigh(absolute_diagonal_gram))
+    largest_absolute_diagonal_eigenvalue = float(
+        absolute_diagonal_eigenvalues[-1])
+    absolute_tolerance = max(
+        1e-12, largest_absolute_diagonal_eigenvalue * 1e-10)
+    absolute_retained = absolute_diagonal_eigenvalues > absolute_tolerance
+    if not np.any(absolute_retained):
+        raise ArithmeticError("absolute common-layer diagonal has zero rank")
+    absolute_basis = absolute_diagonal_eigenvectors[:, absolute_retained]
+    absolute_eigenvalues = absolute_diagonal_eigenvalues[absolute_retained]
+    absolute_inverse_root = (
+        absolute_basis @ np.diag(absolute_eigenvalues ** -.5))
+    absolute_normalized = (
+        absolute_inverse_root.T @ absolute_collapsed_gram
+        @ absolute_inverse_root)
+    largest_absolute_generalized_eigenvalue = float(
+        np.linalg.eigvalsh(absolute_normalized)[-1])
 
     actual_coefficients = np.array(
         [int(mobius[common]) for common in active_common_parts], dtype=float)
@@ -153,6 +181,11 @@ def common_layer_operator_probe(
             eigenvalues[-1] / eigenvalues[0]),
         "largest_common_layer_generalized_eigenvalue": (
             largest_generalized_eigenvalue),
+        "largest_absolute_layer_generalized_eigenvalue": (
+            largest_absolute_generalized_eigenvalue),
+        "absolute_over_signed_generalized_eigenvalue": (
+            largest_absolute_generalized_eigenvalue
+            / largest_generalized_eigenvalue),
         "actual_mobius_common_layer_quotient": actual_ratio,
         "actual_extremizer_squared_overlap": squared_overlap,
         "common_layer_generalized_operator_computed": True,
@@ -194,6 +227,10 @@ def project_common_layer_operator_probe(
         "divisor_range": (divisor_lower, divisor_upper),
         "largest_eigenvalue_min_median_max": summary(
             "largest_common_layer_generalized_eigenvalue"),
+        "absolute_eigenvalue_min_median_max": summary(
+            "largest_absolute_layer_generalized_eigenvalue"),
+        "absolute_over_signed_eigenvalue_min_median_max": summary(
+            "absolute_over_signed_generalized_eigenvalue"),
         "actual_quotient_min_median_max": summary(
             "actual_mobius_common_layer_quotient"),
         "squared_overlap_min_median_max": summary(
@@ -208,5 +245,6 @@ def project_common_layer_operator_probe(
 
 
 if __name__ == "__main__":
-    for scale in (251, 503, 1009, 2003, 4001, 8009, 16001):
+    for scale in (
+            251, 503, 1009, 2003, 4001, 8009, 16001, 32003, 64007):
         print(project_common_layer_operator_probe(scale))
