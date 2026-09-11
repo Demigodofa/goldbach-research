@@ -612,3 +612,10 @@ only `.0128` and `.0280` from the axial orbit `alpha*(u*u^T-I/3)` at
 `M=127,251`. This suggests that the Schur interaction may be organized around
 one quadratic axis. Uniform axiality and preservation of the lower-frame
 margin under axial approximation remain open.
+
+Completing the square makes the axial clue quantitative. The exact trace
+Schur margin equals the best-axial trial value minus the nonaxial
+`C_0`-energy error. At `M=127,251`, that error is respectively `.9365` and
+`.5737` of the positive Schur margin, or `.4836` and `.3645` of the axial
+trial value. This finite decomposition passes the stated error-below-margin
+test, but uniform bounds for its two terms are still missing.

@@ -35,7 +35,7 @@ class LcmSawtoothAxialSchurResponseTests(unittest.TestCase):
             (-.56586236, -.54126770, 1.10713006), rtol=2e-8)
         self.assertAlmostEqual(
             receipt["projective_axial_frobenius_distance"],
-            .012824661363213067)
+            .01282466536678671)
         self.assertLess(
             receipt["projective_axial_frobenius_distance"], .1)
         self.assertFalse(receipt["uniform_axial_schur_response_proved"])

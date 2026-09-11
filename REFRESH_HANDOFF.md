@@ -6621,6 +6621,8 @@ Goldbach remain OPEN.
 
 
 
+
+
 ## 2026-09-10: fixed-Mobius second moment survives the full row
 
 Commit `b0e5f17` turns the next combination into an exact finite verifier.
@@ -9143,11 +9145,16 @@ rotation-invariant projective Frobenius distance to
 `alpha*(u*u^T-I/3)`. This axial orbit has eigenvalue pattern `2:-1:-1`.
 
 The complete `M=127` response has eigenvalues
-`(-.56586236,-.54126770,1.10713006)` and axial distance
-`.0128246614`. At `M=251`, the response eigenvalues are
-`(-.57894893,-.52528253,1.10423146)` and its axial distance is
-`.0280485781`. The larger scan used 42 primes and took `326.0` seconds. Both
+`(-.56586237,-.54126770,1.10713007)` and axial distance
+`.0128246654`. At `M=251`, the response eigenvalues are approximately
+`(-.578949,-.525283,1.104231)` and its axial distance is
+`.0280485715`. The larger stable scan used 42 primes and took `371.8` seconds. Both
 response distances are well below the predeclared `.1` falsifier.
+
+Numerical-order warning: form `D_active-D_full/2` in the original coordinates
+before applying the ill-conditioned congruence. Transforming the two terms
+separately and subtracting afterward perturbed the tiny `M=127` Schur margin
+by about `8e-8`; those earlier last digits were superseded before promotion.
 
 Coordinate warning: `b` is a covector. It cannot be mapped to a primal
 symmetric tensor by the response mapper; its Frobenius-dual matrix would halve
@@ -9162,3 +9169,25 @@ axial tensor preserves the small positive Schur margin. The next test must
 measure and bound that replacement error relative to the margin rather than
 repeat closeness alone. The uniform lower frame, signed prime correlation, and
 Goldbach remain OPEN.
+
+## 2026-09-11: axial/nonaxial completion preserves the finite margin
+
+`lcm_sawtooth_axial_schur_energy.py` takes the best Frobenius axial
+approximation `v_ax` to the primal Schur response and verifies
+
+`s=q(v_ax)-(v_ax-v)^T C_0 (v_ax-v)`,
+
+where `s` is the exact trace Schur margin. This identity converts the axial
+observation into a one-axis trial value minus a nonaxial energy error.
+
+For `M=127`, `s=.005795730854`, the error is `.005427450063`, error/margin is
+`.9364565`, and error/axial-trial is `.4835929`. For `M=251`, the corresponding
+values are `.3004649470`, `.1723708946`, `.5736805`, and `.3645406`. Thus the
+nonaxial error is below the positive margin on both finite blocks, but nearly
+uses all of it at the smaller fixture.
+
+Pursuit status: `changed-under-evidence`. The next proof-shaped question is
+whether arithmetic estimates can lower-bound the axial trial value while
+upper-bounding the nonaxial `C_0`-energy by a strictly smaller amount. These
+uniform estimates, the active/full lower frame, the signed prime correlation,
+and Goldbach remain OPEN.

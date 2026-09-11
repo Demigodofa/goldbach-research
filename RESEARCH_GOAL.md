@@ -7215,7 +7215,8 @@ At `M=127`, the response eigenvalues are
 `(-.565862,-.541268,1.107130)` and the axial distance is `.0128247`. The
 independently larger complete block `M=251` gives
 `(-.578949,-.525283,1.104231)` and distance `.0280486`. The latter scan took
-`326.0` seconds. Both pass the declared 10-percent falsifier by a wide margin.
+`371.8` seconds on the stable difference-first route. Both pass the declared
+10-percent falsifier by a wide margin.
 
 The cross row `b` itself is a covector; directly treating its monomial
 coefficients as a primal symmetric tensor misses the Frobenius-dual
@@ -7228,3 +7229,24 @@ is whether the non-axial residual
 can be bounded uniformly relative to the positive trace Schur margin. No
 uniform axial theorem, margin-preserving replacement, active/full lower frame,
 signed prime correlation, or Goldbach theorem follows yet.
+
+### 2026-09-11 continuation: axial error stays below the Schur margin finitely
+
+Let `v_ax` be the best Frobenius axial approximation to the exact response
+`v=-C_0^(-1)b^T`. Completing the square gives the exact finite identity
+
+`Schur margin = q(v_ax)-(v_ax-v)^T C_0 (v_ax-v)`.
+
+At `M=127`, the margin is `.005795730854` and the nonaxial energy error is
+`.005427450063`, ratio `.9364565`; the error is `.4835929` of the axial trial
+value. At `M=251`, the margin is `.3004649470`, error `.1723708946`, ratio
+`.5736805`; the error is `.3645406` of the axial trial value. Both pass the
+predeclared error-below-margin test, though the smaller fixture is close.
+
+The stable computation forms `D_active-D_full/2` before the arithmetic
+congruence. Subtracting separately transformed forms perturbs the tiny smaller
+margin, so that order is superseded. Pursuit status `changed-under-evidence`:
+the axial pattern now supplies two explicit analytic obligations—lower-bound
+`q(v_ax)` and upper-bound the nonaxial `C_0`-energy. Neither uniform bound is
+proved. The active/full lower frame, signed prime correlation, and Goldbach
+remain OPEN.

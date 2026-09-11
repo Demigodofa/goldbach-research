@@ -87,11 +87,10 @@ def project_axial_schur_response_receipt(scale_modulus):
     lifted_arithmetic = symmetric_square_transform(arithmetic_transform)
     trace_traceless = trace_traceless_transform()
     transform = lifted_arithmetic @ trace_traceless
-    active = transform.T @ np.asarray(
-        frame["aggregate_active_window_residue_energy_gram"]) @ transform
-    full = transform.T @ np.asarray(
-        frame["aggregate_full_residue_energy_gram"]) @ transform
-    difference = active - .5 * full
+    active = np.asarray(
+        frame["aggregate_active_window_residue_energy_gram"])
+    full = np.asarray(frame["aggregate_full_residue_energy_gram"])
+    difference = transform.T @ (active - .5 * full) @ transform
     difference = (difference + difference.T) / 2
     cross = difference[:1, 1:]
     traceless = difference[1:, 1:]
