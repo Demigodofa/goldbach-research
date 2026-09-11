@@ -12591,3 +12591,70 @@ third geometry at `q=21,55`, with natural-scale error at most `1e-12`.
 Passing would retain the Ramanujan source cancellation while replacing the
 destructive global numerator `|sum_n b_n|` by its required frequency-resolved
 quantity `sum_n|b_n|`.  It remains an identity until a uniform bound is found.
+
+## 2026-09-11: the partial Fourier identity retains every resonant frequency
+
+The frequency-resolved identity passes its full falsification gate.  With
+
+`Ftilde(t,k)=sum_(u mod Q) F(u,k)e_Q(t*u)`,
+
+the direct conditioned contribution at every output frequency is
+
+`b_n=1_(q|n)*c_g(n)/Q * sum_(t mod Q)c_q(t)
+       *sum_(k mod Q) Ftilde_L(t,k)
+                         conjugate(Ftilde_R(t,k-n))`.
+
+The sign, `k-n` index, conjugation, and `1/Q` normalization follow from
+positive-exponent Fourier inversion.  The implementation evaluates the inner
+frequency correlation with an FFT but retains each resonant `n` rather than
+forming one global signed total.
+
+Every resonant frequency reconstructed in both canonical `Q=10010` cases
+`q=77,91` and both exact-zero `Q=2310` cases `q=21,55`: 392 frequency values
+in all.  The largest absolute discrepancy was `7.451259607911058e-9`; relative
+to the explicit Cauchy validation envelope
+
+`|c_g(n)|/Q * sum_t |c_q(t)| ||Ftilde_L(t,.)||_2
+                                      ||Ftilde_R(t,.)||_2`,
+
+the maximum error was `3.6254386073613046e-17`.  Normal and optimized Python
+tests both passed.  An independent batch-size-`17` computation also passed,
+so the reconstruction is not tied to the production batch partition.
+
+The retained absolute masses make the information loss in the former global
+numerator explicit:
+
+| geometry | `q` | `sum_n|b_n|` | `sum_n b_n` |
+|---|---:|---:|---:|
+| canonical | 77 | `476488.03905536514` | `462020.9999999925` |
+| canonical | 91 | `4091159.9999999423` | `4091159.9999999423` |
+| exact-zero | 21 | `12299.999999999853` | `0` exactly |
+| exact-zero | 55 | `7019.999999999944` | `0` exactly |
+
+Thus the partial transform keeps the large frequency-resolved quantity needed
+after the aggregate signed total has vanished.  This is an exact finite
+identity and a better analytic target, not a bound for that target.  The
+Cauchy envelope above validates numerical error; its size is not evidence of
+useful cancellation.  No uniform source, prime-distribution, or signed
+prime-correlation estimate follows.
+
+Curiosity status: `aha-pass`, novelty `new-to-this-task`.  Preserve the
+frequency-resolved identity alongside the polynomial, cotangent, interval,
+sector, and norm-bridge components.  Retire only the premature global sum,
+not those tools.
+
+The next bounded question asks whether Ramanujan divisor strata produce the
+within-frequency cancellation that a bound on `sum_n|b_n|` needs.  For each
+`d|q`, define
+
+`Z_(n,d)=c_g(n)c_q(d)/Q
+          *sum_(t mod Q: gcd(t,q)=d)
+             sum_k Ftilde_L(t,k)conjugate(Ftilde_R(t,k-n))`.
+
+Test `b_n=sum_(d|q)Z_(n,d)` first, then compare
+`sum_n|b_n|` with `sum_(n,d)|Z_(n,d)|` and with the result after replacing
+the alternating Ramanujan signs by their absolute values.  Opposite
+`mu(q/d)` strata are a demonstrated mechanism only if the exact
+reconstruction passes and sign removal consistently weakens the observed
+within-`n` cancellation.  A mixed or negligible response falsifies that
+sign-stratum explanation while preserving the decomposition.
