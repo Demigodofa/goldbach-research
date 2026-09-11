@@ -240,6 +240,9 @@ def _linked_prime_character_row(
         "excluded_endpoint_prime_pairs": endpoint_pairs,
         "direct_unit_correlation": direct_unit_correlation,
         "character_unit_correlation": character_reconstruction,
+        "unit_residues": units,
+        "character_prime_correlation_values": (
+            character_prime_correlation),
         "direct_total_with_nonunit_correction": direct_total,
         "character_total_with_nonunit_correction": reconstructed_total,
         "reconstruction_natural_scale_relative_error": (
@@ -518,6 +521,132 @@ def linked_prime_centering_receipt(
             "the residue source has (quotient, divisor, target) inputs; "
             "the formal Dickman main has (polynomial, cutoff, scale) "
             "inputs and no coefficient-preserving map is defined"),
+        "centered_target_dispersion_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def recombined_centered_character_receipt(
+        leading_count=4, minimum_leading_energy_fraction=.90,
+        targets=LINKED_PRIME_TARGETS, tolerance=1e-12, batch_size=32):
+    if type(leading_count) is not int or leading_count < 1:
+        raise ValueError("leading count must be a positive integer")
+    if (not math.isfinite(minimum_leading_energy_fraction)
+            or not 0 <= minimum_leading_energy_fraction <= 1):
+        raise ValueError("minimum leading energy fraction must lie in [0, 1]")
+    centering = linked_prime_centering_receipt(
+        targets=targets, tolerance=tolerance, batch_size=batch_size)
+    quotient = 77
+    first_target = centering["targets"][0]
+    source_rows = tuple(
+        row for (row_quotient, _, target), row in centering["rows"].items()
+        if row_quotient == quotient and target == first_target)
+    units = source_rows[0]["unit_residues"]
+    recombined_source = sum((
+        row["additive_unit_source_values"] for row in source_rows),
+        np.zeros_like(source_rows[0]["additive_unit_source_values"]))
+    source_mean = complex(np.mean(recombined_source))
+    centered_source = recombined_source - source_mean
+    common = centering["arithmetic_period"] // quotient
+    _, character_labels, character_table = _unit_character_table(
+        common, units)
+    group_order = len(units)
+    principal_row = _principal_character_row(character_labels)
+    # This orientation expands G(p) against conjugate(chi(p)), matching
+    # character_prime_correlation_values and the linked-prime identity.
+    coefficients = character_table @ centered_source
+    principal_coefficient = coefficients[principal_row]
+    nonprincipal_rows = tuple(
+        row for row in range(group_order) if row != principal_row)
+    coefficient_energies = np.abs(coefficients) ** 2
+    nonprincipal_energy = float(np.sum(
+        coefficient_energies[list(nonprincipal_rows)]))
+    ranked = sorted(
+        ((float(coefficient_energies[row]), character_labels[row], row)
+         for row in nonprincipal_rows),
+        key=lambda item: (-item[0], item[1]))
+    retained = ranked[:min(leading_count, len(ranked))]
+    retained_energy = math.fsum(item[0] for item in retained)
+    cumulative_energy = 0.0
+    characters_for_ninety_percent = 0
+    for energy, _, _ in ranked:
+        cumulative_energy += energy
+        characters_for_ninety_percent += 1
+        if cumulative_energy >= .9 * nonprincipal_energy:
+            break
+    expected_energy = group_order * float(
+        np.sum(np.abs(centered_source) ** 2))
+    reconstruction = (
+        coefficients @ np.conjugate(character_table) / group_order)
+    reconstruction_scale = max(
+        1.0, float(np.sum(np.abs(centered_source))))
+    linked_rows = {}
+    for target in centering["targets"]:
+        prime_row = next(
+            row for (row_quotient, _, row_target), row
+            in centering["rows"].items()
+            if row_quotient == quotient and row_target == target)
+        character_value = (
+            coefficients
+            @ prime_row["character_prime_correlation_values"] / group_order)
+        direct_value = centering["quotient_summaries"][quotient][
+            "target_summaries"][target][
+                "recombined_centered_source_correlation"]
+        scale = max(1.0, math.fsum(
+            abs(row["centered_source_linked_prime_correlation"])
+            for (row_quotient, _, row_target), row
+            in centering["rows"].items()
+            if row_quotient == quotient and row_target == target))
+        linked_rows[target] = {
+            "direct_centered_correlation": direct_value,
+            "character_centered_correlation": character_value,
+            "reconstruction_natural_scale_relative_error": (
+                abs(character_value - direct_value) / scale),
+        }
+    leading_energy_fraction = (
+        retained_energy / nonprincipal_energy
+        if nonprincipal_energy else 1.0)
+    return {
+        "families": centering["families"],
+        "arithmetic_period": centering["arithmetic_period"],
+        "quotient": quotient,
+        "common_modulus": common,
+        "targets": centering["targets"],
+        "divisor_count": len(source_rows),
+        "recombined_source_mean": source_mean,
+        "principal_centered_coefficient": principal_coefficient,
+        "principal_centered_coefficient_relative_error": (
+            abs(principal_coefficient)
+            / max(1.0, math.sqrt(expected_energy))),
+        "leading_nonprincipal_character_count": len(retained),
+        "leading_nonprincipal_character_labels": tuple(
+            item[1] for item in retained),
+        "leading_nonprincipal_energy_fraction": leading_energy_fraction,
+        "minimum_leading_energy_fraction_gate": (
+            minimum_leading_energy_fraction),
+        "characters_for_ninety_percent_energy": (
+            characters_for_ninety_percent),
+        "effective_nonprincipal_character_rank": (
+            nonprincipal_energy * nonprincipal_energy
+            / float(np.sum(
+                coefficient_energies[list(nonprincipal_rows)] ** 2))
+            if nonprincipal_energy else 0.0),
+        "parseval_relative_error": (
+            abs(nonprincipal_energy - expected_energy)
+            / max(1.0, expected_energy)),
+        "reconstruction_natural_scale_relative_error": (
+            float(np.max(np.abs(reconstruction - centered_source)))
+            / reconstruction_scale),
+        "linked_prime_rows": linked_rows,
+        "maximum_linked_reconstruction_relative_error": max(
+            row["reconstruction_natural_scale_relative_error"]
+            for row in linked_rows.values()),
+        "four_character_shortcut_gate_passes": bool(
+            leading_count == 4
+            and leading_energy_fraction
+            >= minimum_leading_energy_fraction),
+        "recombined_centered_character_expansion_proved": True,
         "centered_target_dispersion_estimate_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,

@@ -13290,3 +13290,56 @@ Passing would reduce the remaining primitive target-dispersion problem to a
 small explicit character family.  Failure preserves the exact q91 removal
 and q77 `.060835...` recombination while rejecting only a four-character
 description of the recombined centered source.
+
+## 2026-09-11: the surviving centered source is still character-broad
+
+The four-character shortcut fails after applying the exact simplifications
+in the correct order.  Sum all four active quotient-`77` divisor strata at
+the additive-source level, obtaining `G(p)`, and then center globally:
+
+`G_0(p)=G(p)-mean_(a in U_130)G(a)`.
+
+With the character-table convention `table[chi,p]=chi(p)`, use
+
+`Ghat_0(chi)=sum_(p in U_130)chi(p)G_0(p)`,
+
+so that
+
+`G_0(p)=1/phi(130) sum_chi Ghat_0(chi)conjugate(chi(p))`.
+
+Parseval, inverse reconstruction, removal of the exact principal label, and
+the linked-prime reconstruction at `N=1000,1002` all pass within `1e-12`.
+The leading four nonprincipal character labels are
+`(3,9),(1,3),(1,9),(3,3)`, but together they carry only
+`.43856546708556404` of the centered energy, far below the frozen `.90` gate.
+Reaching `.90` requires `13` characters; the effective nonprincipal rank is
+`12.203257528896303`.
+
+Curiosity status: `recombined-four-character-shortcut-fail`, novelty
+`new-to-this-task`.  Preserve the exact q91 primitive-source cancellation,
+the q77 `.06083544156586752` signed divisor recombination, its principal
+centering, and the full q77 character expansion.  Retire only the claim that
+four individual nonprincipal characters describe the surviving centered
+source.  This result supplies no target-dispersion estimate, signed
+prime-correlation theorem, or Goldbach proof.
+
+Independent review checked the transform orientation, signed source
+recombination before centering, unique principal removal, nonprincipal
+Parseval and ranking, labels, energy figures, both linked-prime
+reconstructions, and scope.  Focused normal and optimized tests pass.
+
+The next bounded question moves back to the actual linked-prime functional.
+For every even `1000<=N<=5000`, use the strict symmetric central interval
+`floor(N/3)<p<N-floor(N/3)` and the recombined centered source `G_0`.  When
+the interval contains a linked-prime pair, compute the exact finite phase
+ratio
+
+`rho_N=|sum_(p,N-p prime) log(p)log(N-p)G_0(p)|
+       /sum_(p,N-p prime) log(p)log(N-p)|G_0(p)|`.
+
+Freeze the falsifier `rho_N<=.25` for every tested target.  Record the largest
+ratio, its target, target residue modulo `130`, pair count, and individual
+residue contributions.  A violation identifies a concrete resonant target
+and rejects uniform strong phase cancellation.  A full pass would be finite
+evidence for pursuing a target-dispersion inequality, not a proof outside the
+range and not the missing estimate itself.

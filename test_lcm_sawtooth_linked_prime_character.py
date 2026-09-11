@@ -7,6 +7,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_character_receipt,
     linked_prime_centering_receipt,
     linked_prime_parity_selection_receipt,
+    recombined_centered_character_receipt,
 )
 
 
@@ -41,6 +42,11 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             affine_reflection_residue_scan_receipt(tolerance=-1)
         with self.assertRaises(ValueError):
             affine_reflection_residue_scan_receipt(batch_size=0)
+        with self.assertRaises(ValueError):
+            recombined_centered_character_receipt(leading_count=0)
+        with self.assertRaises(ValueError):
+            recombined_centered_character_receipt(
+                minimum_leading_energy_fraction=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -310,6 +316,41 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "all_divisor_recombinations_reconstruct"])
         self.assertFalse(receipt[
             "formal_dickman_main_identification_applicable"])
+        self.assertFalse(receipt[
+            "centered_target_dispersion_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_recombined_centered_source_remains_character_broad(self):
+        receipt = recombined_centered_character_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertEqual(receipt["divisor_count"], 4)
+        self.assertAlmostEqual(
+            receipt["recombined_source_mean"].real, -196.4375, places=9)
+        self.assertLess(receipt[
+            "principal_centered_coefficient_relative_error"], 1e-12)
+        self.assertEqual(
+            receipt["leading_nonprincipal_character_labels"],
+            ((3, 9), (1, 3), (1, 9), (3, 3)))
+        self.assertAlmostEqual(
+            receipt["leading_nonprincipal_energy_fraction"],
+            .43856546708556404, places=12)
+        self.assertEqual(
+            receipt["characters_for_ninety_percent_energy"], 13)
+        self.assertAlmostEqual(
+            receipt["effective_nonprincipal_character_rank"],
+            12.203257528896303, places=12)
+        self.assertLess(receipt["parseval_relative_error"], 1e-12)
+        self.assertLess(receipt[
+            "reconstruction_natural_scale_relative_error"], 1e-12)
+        self.assertLess(receipt[
+            "maximum_linked_reconstruction_relative_error"], 1e-12)
+        self.assertEqual(set(receipt["linked_prime_rows"]), {1000, 1002})
+        self.assertFalse(receipt["four_character_shortcut_gate_passes"])
+        self.assertTrue(receipt[
+            "recombined_centered_character_expansion_proved"])
         self.assertFalse(receipt[
             "centered_target_dispersion_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
