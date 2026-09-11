@@ -7309,3 +7309,50 @@ polynomial/divisibility problem. The next <=30-minute target is
 A fixed-power increase in the measured majorant/diagonal ratio, or an
 unavoidable Cauchy loss in `e` or `u`, rejects this positive route. The
 incomplete boundary, signed prime correlation, and Goldbach remain OPEN.
+
+
+## 2026-09-10: dyadic `e` reduction and the limit of universal contraction
+
+The Walsh positive majorant now has an exact attribution by the gcd-expansion
+variable `e`. If
+
+`m_(d,e)=phi(e)d^(-1)sum_(u|d)F_(u,e)^2`
+
+and `M_d=sum_e m_(d,e)`, then the contribution of `e` to the squared majorant
+energy is exactly `H_m(d) M_d m_(d,e)`. Grouping `e` in dyadic blocks gives
+
+`M_d^2 <= J sum_j M_(d,j)^2`,
+
+where `J` is the number of nonempty blocks and
+`J<=1+floor(log_2 B)`. Thus the remaining positive estimate reduces
+rigorously to one estimate per dyadic `e` block, at the cost of at most a
+logarithm.
+
+For the complete central dominant blocks at `M=16001,32003,64007`, `e=1`
+accounts for `.57484,.55633,.54428` of the majorant energy attribution, and
+`e<=64` accounts for `.93950,.92320,.90605`. The effective numbers of dyadic
+blocks are `2.727,2.888,3.022`. The sums of the dyadic block-square energies
+divided by the exact `c=1` diagonal are `.91159,1.02198,1.05333`; after the
+proved factor `J` the corresponding bounds are `7.29270,9.19778,9.48001`.
+At `M=64007`, the `e=1` block contributes `.91072` and all later blocks
+together `.14262` before the factor `J`.
+
+The tempting universal contraction `E_[1,2)<Delta_(c=1)` is false.
+`lcm_sawtooth_e1_block_falsifier.py` records the strongest witness from an
+8,588-case exact small-range scan: `(m,ell,V,B)=(131,2,8,17)`, dominant block
+`[16,32)`, two multi-residual coordinates, and
+
+`E_[1,2)/Delta_(c=1)=32.9683041217`.
+
+This directly contradicts only the constant-one, all-range statement. The
+Walsh factorization, positive majorant, and dyadic Cauchy reduction remain
+proved. The project-scaled central measurements of the same ratio remain
+below one (`.799` to `.911` in the measured rows), but they are finite evidence
+and no project-scaled bound is proved.
+
+The next <=30-minute question is whether the actual hard scaling suppresses
+the two-coordinate resonance enough to give a uniform or subpower estimate
+for each dyadic `e` block. A project-scaled block ratio growing like a fixed
+power, or a comparable sparse resonance persisting along the scaling family,
+falsifies that route. The signed prime-correlation estimate and Goldbach
+remain OPEN.

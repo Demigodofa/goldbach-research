@@ -30,6 +30,17 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
             receipt["selected_walsh_majorant_over_no_common_diagonal"],
             receipt["selected_walsh_majorant_over_actual_energy"]
             * receipt["selected_no_common_actual_over_diagonal"])
+        self.assertAlmostEqual(
+            sum(receipt[
+                "dyadic_common_divisor_majorant_attribution"].values()), 1)
+        self.assertTrue(
+            receipt[
+                "common_divisor_majorant_attribution_identity_proved"])
+        self.assertGreaterEqual(
+            receipt["dyadic_cauchy_bound_over_no_common_diagonal"],
+            receipt["selected_walsh_majorant_over_no_common_diagonal"])
+        self.assertTrue(
+            receipt["dyadic_common_divisor_cauchy_reduction_proved"])
         self.assertTrue(receipt["finite_dominant_walsh_measurement"])
 
     def test_nonsquarefree_target_is_rejected(self):

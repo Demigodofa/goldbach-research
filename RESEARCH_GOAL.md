@@ -6343,3 +6343,30 @@ majorant, full-block measurements, code, and tests. The next target is a
 subpower bound for the square of this positive `e,u` sum against the `c=1`
 residual diagonal. The incomplete boundary, signed prime correlation, and
 Goldbach remain open; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: reduce the Walsh majorant dyadically in `e`
+
+Writing the exact positive Walsh majorant as `M_d=sum_e m_(d,e)` and grouping
+`e` dyadically gives the rigorous pointwise Cauchy reduction
+
+`M_d^2 <= J sum_j M_(d,j)^2`, with `J<=1+floor(log_2 B)`.
+
+At `M=16001,32003,64007`, the resulting sums of block-square energies divided
+by the exact `c=1` diagonal are `.91159,1.02198,1.05333`; the full Cauchy
+bounds are `7.29270,9.19778,9.48001`. Small `e` dominates: `e<=64` carries
+between `.906` and `.940` of the exact majorant-energy attribution.
+
+The strongest possible first-block lemma is false without project scaling.
+An exact 8,588-case scan found `(m,ell,V,B)=(131,2,8,17)`, where the dominant
+block has two coordinates and the `e=1` block-square/diagonal ratio is
+`32.9683041217`. This blocks unchanged attempts to prove the universal
+constant-one inequality. It does not contradict the exact Walsh identity,
+the positive majorant, the dyadic reduction, or the narrower project-scaled
+possibility; central project rows have measured the `e=1` ratio below one.
+
+The next target is a scaled per-block estimate that uses the hard relation
+among `m,ell,V,B,D`, allowing a subpower factor. A fixed-power increase or a
+sparse resonance persisting along that family rejects it. The incomplete
+boundary, signed prime correlation, and Goldbach remain open; complete
+assembly remains `.295-delta`.

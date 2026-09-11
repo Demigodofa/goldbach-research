@@ -91,6 +91,7 @@ def _target_receipt(
                 mask_by_divisor[assigned_part]] += base_term
 
     even_mass = odd_mass = 0.0
+    positive_majorant_by_common_divisor = {}
     direct_assignment_convolution = 0.0
     walsh_assignment_convolution = 0.0
     for common_divisor, values in values_by_e.items():
@@ -108,6 +109,8 @@ def _target_receipt(
             if mask.bit_count() % 2 == 1) / group_size
         even_mass += weight * even
         odd_mass += weight * odd
+        positive_majorant_by_common_divisor[common_divisor] = (
+            weight * (even + odd) / target_divisor)
         walsh_assignment_convolution += weight * (even - odd)
     expanded = (
         int(mobius[target_divisor]) / target_divisor
@@ -130,6 +133,8 @@ def _target_receipt(
         "even_walsh_mass": even_mass,
         "odd_walsh_mass": odd_mass,
         "walsh_positive_majorant": positive_majorant,
+        "positive_majorant_by_common_divisor": tuple(sorted(
+            positive_majorant_by_common_divisor.items())),
         "walsh_majorant_over_absolute_sum": majorant_over_absolute_direct,
         "walsh_majorant_energy_factor": majorant_over_absolute_direct ** 2,
         "walsh_parity_relative_imbalance": (
@@ -245,6 +250,52 @@ def dominant_no_common_walsh_probe(
     selected_majorant_energy = sum(
         energy * receipt["walsh_majorant_energy_factor"]
         for (_, _, energy), receipt in zip(selected, receipts))
+    common_divisor_attribution = {}
+    dyadic_square_energy = {}
+    for (divisor, _, _), receipt in zip(selected, receipts):
+        weight = sawtooth_gcd_mobius_transform(modulus, divisor)
+        majorant = receipt["walsh_positive_majorant"]
+        components_by_block = {}
+        for common_divisor, component in receipt[
+                "positive_majorant_by_common_divisor"]:
+            common_divisor_attribution[common_divisor] = (
+                common_divisor_attribution.get(common_divisor, 0.0)
+                + weight * majorant * component)
+            block = 1 << (common_divisor.bit_length() - 1)
+            components_by_block[block] = (
+                components_by_block.get(block, 0.0) + component)
+        for block, component in components_by_block.items():
+            dyadic_square_energy[block] = (
+                dyadic_square_energy.get(block, 0.0)
+                + weight * component ** 2)
+    attribution_total = sum(common_divisor_attribution.values())
+    if abs(attribution_total - selected_majorant_energy) > max(
+            1e-9, 1e-9 * selected_majorant_energy):
+        raise ArithmeticError("common-divisor attribution failed")
+    dyadic_common_divisor_attribution = {}
+    for common_divisor, attribution in common_divisor_attribution.items():
+        block = 1 << (common_divisor.bit_length() - 1)
+        dyadic_common_divisor_attribution[block] = (
+            dyadic_common_divisor_attribution.get(block, 0.0) + attribution)
+    thresholds = (1, 2, 4, 8, 16, 32, 64)
+    cumulative_attribution = {
+        threshold: sum(
+            attribution for common_divisor, attribution
+            in common_divisor_attribution.items()
+            if common_divisor <= threshold) / selected_majorant_energy
+        for threshold in thresholds}
+    dyadic_attribution_fractions = {
+        block: attribution / selected_majorant_energy
+        for block, attribution in sorted(
+            dyadic_common_divisor_attribution.items())}
+    effective_dyadic_block_count = 1 / sum(
+        fraction ** 2 for fraction in dyadic_attribution_fractions.values())
+    dyadic_square_energy_over_diagonal = {
+        block: energy / selected_diagonal
+        for block, energy in sorted(dyadic_square_energy.items())}
+    dyadic_block_count = len(dyadic_square_energy)
+    dyadic_cauchy_bound_over_diagonal = dyadic_block_count * sum(
+        dyadic_square_energy_over_diagonal.values())
     return {
         "modulus": modulus,
         "ell": ell,
@@ -259,6 +310,17 @@ def dominant_no_common_walsh_probe(
             total_selected_energy / selected_diagonal),
         "selected_walsh_majorant_over_no_common_diagonal": (
             selected_majorant_energy / selected_diagonal),
+        "common_divisor_cumulative_majorant_attribution": (
+            cumulative_attribution),
+        "dyadic_common_divisor_majorant_attribution": (
+            dyadic_attribution_fractions),
+        "effective_dyadic_common_divisor_block_count": (
+            effective_dyadic_block_count),
+        "dyadic_common_divisor_square_energy_over_diagonal": (
+            dyadic_square_energy_over_diagonal),
+        "dyadic_common_divisor_block_count": dyadic_block_count,
+        "dyadic_cauchy_bound_over_no_common_diagonal": (
+            dyadic_cauchy_bound_over_diagonal),
         "selected_receipts": receipts,
         "maximum_assignment_identity_error": max(
             abs(receipt["assignment_identity_error"]) for receipt in receipts),
@@ -271,6 +333,8 @@ def dominant_no_common_walsh_probe(
             receipt["walsh_parity_relative_imbalance"]
             for receipt in receipts),
         "finite_dominant_walsh_measurement": True,
+        "common_divisor_majorant_attribution_identity_proved": True,
+        "dyadic_common_divisor_cauchy_reduction_proved": True,
         "walsh_parity_cancellation_bound_proved": False,
     }
 
