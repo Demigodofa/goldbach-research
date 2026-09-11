@@ -6853,3 +6853,42 @@ worst vector with the actual Mobius `K_q`; polynomial growth of that eigenvalue
 rejects the absolute-majorant route while preserving the signed gcd kernel.
 The incomplete boundary estimate, fixed-Mobius second moment, signed prime
 correlation, and Goldbach remain OPEN.
+
+
+## 2026-09-10: coarse uniform gcd operator rejected; exact operator survives
+
+`lcm_sawtooth_normalized_operator.py` corrects the proposed uniform use of the
+sparse gcd majorant. If `q|(m-1)`, then `v_(m,q)=0` and the true centered
+sawtooth, hence its entire covariance row, is identically zero. The coarse
+gcd majorant nevertheless assigns that coordinate diagonal weight `1/4`.
+Therefore no uniform inequality comparing the coarse majorant with
+`sum_q |x_q|^2v_(m,q)` can hold. This rejects that use of the majorant, not its
+valid bound on the actual Mobius vector.
+
+After removing zero-variance coordinates, the correct absolute normalized
+operator is
+
+`R_(q,r)=|Cov_m(q,r)|/sqrt(v_(m,q)v_(m,r))`.
+
+Its Perron eigenvalue is the sharp constant for termwise absolute covariance
+on the chosen lcm support. For central project rows at
+`M=251,503,1009,2003,4001,8009`, these eigenvalues were
+
+`2.479,3.064,3.063,3.323,4.639,4.372`.
+
+The actual Mobius absolute Rayleigh ratios were only
+`1.842,2.263,2.155,2.077,2.222,2.332`, while the signed ratios were
+`.727,.586,.550,.583,.527,.471`. The squared overlap of the absolute Mobius
+direction with the resonant eigenvector fell from `.312,.421` at the two
+smallest scales to `.0272,.0336` at the two largest. Thus the true vector is
+not tracking the worst finite resonance. Independent review PASSed the
+zero-coordinate falsifier, normalized forms, eigenvalue and overlap
+calculations, receipts, and tests.
+
+No subpower spectral bound follows from these values. The next <=30-minute
+question is whether the exact normalized kernel has a divisor/frequency
+factorization with `N^epsilon` spectral norm, or whether only the actual
+Mobius direction admits such a bound. A power-growing eigenvalue rejects the
+uniform exact-operator route; a bounded eigenvalue still leaves the incomplete
+prime-row boundary to prove. The signed prime correlation and Goldbach remain
+OPEN.

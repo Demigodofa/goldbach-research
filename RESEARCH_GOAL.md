@@ -6083,3 +6083,30 @@ coefficient direction. Polynomial eigenvalue growth closes the absolute route
 but leaves signed cancellation available. The incomplete boundary, signed
 prime correlation, and Goldbach remain open; complete assembly remains
 `.295-delta`.
+
+
+## 2026-09-10 continuation: resonant coefficients do not match Mobius
+
+The coarse gcd majorant cannot be promoted to a uniform weighted theorem.
+Whenever an lcm support coordinate satisfies `q|(m-1)`, its true variance and
+all true covariances are zero, but the coarse majorant retains diagonal
+weight `1/4`. This is an exact counterexample to the proposed uniform coarse
+operator comparison.
+
+The correct test deletes those null coordinates and diagonalizes
+
+`R_(q,r)=|Cov_m(q,r)|/sqrt(v_(m,q)v_(m,r))`.
+
+Its largest eigenvalues at six scales through `M=8009` were
+`2.479,3.064,3.063,3.323,4.639,4.372`, with no observed power growth. The
+actual Mobius absolute Rayleigh ratios stayed in `[1.842,2.332]`, and its
+signed ratios decreased overall from `.727` to `.471`. At the largest two
+scales the squared overlap between the absolute Mobius vector and the worst
+resonant vector was only `.0272,.0336`. Independent review verified the exact
+falsifier, operator normalization, computations, and tests.
+
+The sparse majorant remains a valid actual-vector bound and the exact operator
+remains a possible subpower object. The next task seeks a shared-factor
+frequency factorization of the exact normalized kernel and tests its Schur or
+spectral growth. The incomplete boundary, signed prime correlation, and
+Goldbach remain open; complete assembly remains `.295-delta`.
