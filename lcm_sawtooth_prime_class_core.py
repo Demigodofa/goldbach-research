@@ -48,7 +48,9 @@ def _prime_divisors(value):
 
 
 def _family_arithmetic_core_packet(
-        frame_modulus, conductor, odd_partner):
+        frame_modulus, conductor, odd_partner, geometric_sum=None):
+    if geometric_sum is None:
+        geometric_sum = _canonical_periodic_geometric_sum
     doubled_partner = 2 * odd_partner
     reduced_denominator = math.lcm(conductor, doubled_partner)
     conductor_numerators = np.arange(1, conductor, dtype=np.int64)
@@ -57,9 +59,9 @@ def _family_arithmetic_core_packet(
     partner_numerators = np.arange(1, doubled_partner, dtype=np.int64)
     partner_numerators = partner_numerators[
         np.gcd(partner_numerators, doubled_partner) == 1]
-    conductor_geometric = _canonical_periodic_geometric_sum(
+    conductor_geometric = geometric_sum(
         frame_modulus, conductor, conductor_numerators)
-    partner_geometric = _canonical_periodic_geometric_sum(
+    partner_geometric = geometric_sum(
         frame_modulus, doubled_partner, partner_numerators)
     packet = np.zeros(reduced_denominator, dtype=complex)
     unexpected_denominator_count = 0

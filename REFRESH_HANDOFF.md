@@ -10795,3 +10795,59 @@ enumerated all-class mean correlation for that orbit within `1e-12` relative
 error.  Success would convert the observed gcd/conductor pattern into an
 exact arithmetic mechanism; failure preserves the endpoint and packet
 identities while rejecting this particular Ramanujan reduction.
+
+## 2026-09-11: generic periodic Ramanujan projection passes; source reduction remains open
+
+The first endpoint/Ramanujan test now has a narrower, reviewed interpretation.
+For the leading lag `182`, direct averaging of the endpoint-form packets over
+the `2880` unit classes gives
+
+`-25042.404948829135 - 1431.976524564371 i`,
+
+while the canonical packet calculation gives
+
+`-25042.404948829146 - 1431.9765245642259 i`.
+
+Their relative error is `5.799647753628246e-15`. Fourier transforming the
+complete `10010`-periodic endpoint correlation and applying
+
+`mean_(p in (Z/QZ)^*) f(p) = (1/(Q*phi(Q))) sum_n f_hat(n)c_Q(n)`
+
+reconstructs the endpoint mean with relative error
+`2.9021323440678843e-16`. After inserting the row-window kernel changes for
+`A=28 -> 34` and pairing lags `182` and `9828`, it reconstructs the canonical
+paired reweighting `-378954805.6330534` with relative error
+`6.920625708218851e-15`.
+
+One auxiliary cellwise floating-point comparison does not clear the fixed
+`1e-12` threshold: the maximum endpoint-packet relative residual is
+`1.313285128036442e-12`. It is recorded as a failed auxiliary check and is
+not needed for the averaged identity above.
+
+Independent review passed the code and finite reconstruction but placed the
+initial arithmetic interpretation on HOLD. The displayed Fourier/Ramanujan
+formula is a generic identity for every periodic sequence: the calculation
+still computes the entire correlation, Fourier transforms it, and obtains no
+complexity saving or explanation of the conductor-gcd pattern. Preserve the
+endpoint evaluator and exact finite projection. Do not call them a source-term
+reduction, a prime-distribution estimate, or the missing signed
+prime-correlation estimate.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+The next bounded question asks whether the generic projection can be replaced
+by an explicit source-level calculation for lag `182`, without enumerating
+the `2880` unit classes. Let an oriented left/right source pair have residue
+difference `w=u-v` modulo `Q=10010`. Contributions require
+`p*w = 182 (mod Q)`, hence `gcd(w,Q)=182`, and after division by `182` they fix
+one class `p=p0 (mod 55)`. For every endpoint Fourier mode `n`, test the CRT
+identity
+
+`sum_((p,Q)=1, p*w=182) e_Q(n*p)
+ = e_55(n*p0*inverse_55(182))*c_182(n)`.
+
+Expand and sum the explicit source and endpoint choices. The test passes only
+if this conditioned source calculation reconstructs the direct unit-class
+mean correlation within `1e-12` relative error without enumerating the unit
+classes. Success would supply a first exact source-level arithmetic mechanism
+for this one lag; failure preserves the generic projection and rejects the
+proposed conditioned reduction.
