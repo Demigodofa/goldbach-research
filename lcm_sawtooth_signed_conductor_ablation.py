@@ -360,5 +360,47 @@ def project_pair_matrix_interaction_receipt(
     }
 
 
+def project_cluster_matrix_stabilization_receipt(
+        scale_modulus, pairs, minimum_restoration_fraction=.75):
+    """Test fragile-mode stabilization across selected conductor pairs."""
+    pairs = tuple(tuple(sorted(set(pair))) for pair in pairs)
+    if (not pairs or any(
+            len(pair) != 2
+            or any(type(value) is not int or value < 2 for value in pair)
+            for pair in pairs)):
+        raise ValueError("require at least one pair of distinct conductors")
+    if not 0 < minimum_restoration_fraction <= 1:
+        raise ValueError("restoration fraction must lie in (0,1]")
+    rows = tuple(
+        project_pair_matrix_interaction_receipt(scale_modulus, pair)
+        for pair in pairs)
+    positive_rayleigh_pairs = tuple(
+        row["conductors"] for row in rows
+        if row["cross_rayleigh_on_additive_weakest_direction"] > 0)
+    restoration_pairs = tuple(
+        row["conductors"] for row in rows
+        if row["cross_restores_traceless_positive_definiteness"])
+    restoration_fraction = len(restoration_pairs) / len(rows)
+    all_positive = len(positive_rayleigh_pairs) == len(rows)
+    passes = bool(
+        all_positive
+        and restoration_fraction >= minimum_restoration_fraction)
+    return {
+        "scale_modulus": scale_modulus,
+        "pairs": pairs,
+        "minimum_restoration_fraction": minimum_restoration_fraction,
+        "rows": rows,
+        "positive_fragile_direction_rayleigh_pairs": positive_rayleigh_pairs,
+        "positive_definiteness_restoration_pairs": restoration_pairs,
+        "positive_definiteness_restoration_fraction": restoration_fraction,
+        "all_pair_cross_rayleigh_contributions_positive": all_positive,
+        "cluster_fragile_mode_stabilization_hypothesis_passes": passes,
+        "finite_cluster_matrix_stabilization_measured": True,
+        "uniform_pair_matrix_stabilization_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(project_signed_conductor_ablation_receipt(127))

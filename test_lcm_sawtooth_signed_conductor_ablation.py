@@ -3,6 +3,7 @@ import unittest
 from lcm_sawtooth_signed_conductor_ablation import (
     classify_conductor_ablation,
     classify_pair_interactions,
+    project_cluster_matrix_stabilization_receipt,
     project_cluster_pair_interaction_receipt,
     project_frozen_whitening_interaction_receipt,
     project_pair_matrix_interaction_receipt,
@@ -140,6 +141,47 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_pair_matrix_interaction_receipt(
                 127, (77, 143), dominance_threshold=1.1)
+
+    def test_m127_cluster_stabilizes_all_four_fragile_modes(self):
+        pairs = ((55, 143), (77, 78), (77, 143), (78, 143))
+        receipt = project_cluster_matrix_stabilization_receipt(127, pairs)
+        self.assertEqual(
+            receipt["positive_fragile_direction_rayleigh_pairs"], pairs)
+        self.assertEqual(
+            receipt["positive_definiteness_restoration_pairs"], pairs)
+        self.assertEqual(
+            receipt["positive_definiteness_restoration_fraction"], 1)
+        measured = {
+            row["conductors"]: (
+                row["additive_surrogate_traceless_smallest_eigenvalue"],
+                row["exact_joint_traceless_smallest_eigenvalue"],
+                row["cross_rayleigh_on_additive_weakest_direction"])
+            for row in receipt["rows"]
+        }
+        expected = {
+            (55, 143): (-.1033168874069742, .09500378572432736,
+                        .2342041070706142),
+            (77, 78): (-.23568244027752927, .2232498794788733,
+                       1.1876021360675244),
+            (77, 143): (-.7445050404108796, .052517093474779286,
+                        1.0940198731962434),
+            (78, 143): (-.08833756349499475, .09898488816478801,
+                        .21533787174406685),
+        }
+        for pair in pairs:
+            for actual, target in zip(measured[pair], expected[pair]):
+                self.assertAlmostEqual(actual, target)
+        self.assertTrue(receipt[
+            "cluster_fragile_mode_stabilization_hypothesis_passes"])
+        self.assertFalse(receipt["uniform_pair_matrix_stabilization_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_cluster_matrix_receipt_guards_pairs_and_fraction(self):
+        with self.assertRaises(ValueError):
+            project_cluster_matrix_stabilization_receipt(127, ())
+        with self.assertRaises(ValueError):
+            project_cluster_matrix_stabilization_receipt(
+                127, ((55, 143),), 0)
 
 
 if __name__ == "__main__":

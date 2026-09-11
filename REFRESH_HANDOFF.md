@@ -9343,6 +9343,30 @@ residue forms from nonlinearity in the Schur inverse, axial approximation, or
 moment-curve fit. It proves no uniform estimate, lower frame, signed prime
 correlation, or Goldbach claim.
 
+## 2026-09-11: fragile-mode stabilization holds across the upper cluster
+
+`project_cluster_matrix_stabilization_receipt` repeats the fixed-whitening
+matrix inclusion-exclusion test on the four pairs that passed the earlier
+output-interaction thresholds. The prediction required a positive
+joint-dependence Rayleigh contribution on every pair's additive-surrogate
+weakest traceless direction, and positive-definiteness restoration for at
+least three of four pairs.
+
+All four restore positivity:
+
+- `(55,143)`: smallest traceless eigenvalue `-.10331689 -> +.09500379`,
+  fragile-direction contribution `+.23420411`;
+- `(77,78)`: `-.23568244 -> +.22324988`, contribution `+1.18760214`;
+- `(77,143)`: `-.74450504 -> +.05251709`, contribution `+1.09401987`;
+- `(78,143)`: `-.08833756 -> +.09898489`, contribution `+.21533787`.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. At `M=127`, positive
+alignment of the Boolean pair interaction with the fragile traceless mode is
+a four-pair cluster pattern, not a one-pair accident. The promising next
+analytic target is the sign of this Rayleigh contribution in source residue
+coordinates. No uniform sign or magnitude bound, lower frame, signed prime
+correlation, or Goldbach claim is proved.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`
