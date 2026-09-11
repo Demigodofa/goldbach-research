@@ -361,5 +361,47 @@ def two_prime_cotangent_count_receipt(tolerance=1e-12):
     }
 
 
+def three_prime_cotangent_count_receipt(tolerance=1e-12):
+    quotient_lags = {
+        385: 156,
+        455: 22,
+        715: 14,
+        1001: 240,
+    }
+    results = {
+        quotient: cotangent_count_source_receipt(
+            lag=lag, tolerance=tolerance)
+        for quotient, lag in quotient_lags.items()}
+    count_four_shares = {
+        quotient: result[
+            "even_count_shapley_recombination_loss_fractions"][4]
+        for quotient, result in results.items()}
+    full_quotients = {
+        quotient: result["full_recombination_quotient"]
+        for quotient, result in results.items()}
+    contains_five_predictions_match = {
+        quotient: bool(
+            ((quotient % 5 == 0) == (count_four_shares[quotient] >= .75)))
+        for quotient in quotient_lags}
+    return {
+        "quotients": tuple(quotient_lags),
+        "count_four_shapley_loss_fractions": count_four_shares,
+        "full_recombination_quotients": full_quotients,
+        "minimum_count_four_shapley_loss_fraction": .75,
+        "leading_dimension_stability_gate_passes": bool(
+            count_four_shares[385] >= .75
+            and count_four_shares[1001] >= .75),
+        "contains_five_predictions_match": contains_five_predictions_match,
+        "all_contains_five_predictions_match": all(
+            contains_five_predictions_match.values()),
+        "all_reconstructions_pass": all(
+            result["cotangent_count_reconstruction_passes"]
+            for result in results.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(cotangent_count_discriminator_receipt())

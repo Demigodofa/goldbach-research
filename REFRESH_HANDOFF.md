@@ -11876,3 +11876,54 @@ both, with full source and conditioned reconstruction error at most `1e-12`.
 Failure rejects count `4` as a dimension-stable carrier; passing preserves it
 as an analytic component without claiming that it controls the final signed
 sum.
+
+## 2026-09-11: count-four Shapley dominance is not dimension-stable or necessary
+
+The leading three-prime confirmation gate fails.  At `q=385` the count-`4`
+Shapley allocation is `1.0325006383402588`, but at `q=1001` it is only
+`.5557110297061323`, below the declared `.75` threshold.  Source and direct
+conditioned reconstructions remain below `7e-15` on their stated relative
+scales.
+
+Because the passing case contains prime `5` while the failing case does not,
+the two missing three-prime quotients containing `5` were tested under the
+same `.75` gate.  Both falsify that arithmetic discriminator: `q=455` is
+`.7445336910069194`, narrowly below the gate, and `q=715` is only
+`.42628706912934505`.
+
+The complete three-prime table is:
+
+| `q` | quotient primes | count-`4` Shapley allocation | full sector recombination |
+|---:|---|---:|---:|
+| `385` | `{5,7,11}` | `1.0325006383402588` | `.5013118107746221` |
+| `455` | `{5,7,13}` | `.7445336910069194` | `.24840921606041405` |
+| `715` | `{5,11,13}` | `.42628706912934505` | `.022976628574723844` |
+| `1001` | `{7,11,13}` | `.5557110297061323` | `.6393288305288424` |
+
+The `q=715` result is the decisive counterexample to the proposed necessary
+`.75` dominance criterion: it has the strongest full recombination in this
+table even though count `4` receives less than half of the nonlinear loss
+allocation.  Four-cotangent terms remain a large exact component and may
+still be necessary in particular cases, but their `.75` Shapley dominance is
+neither dimension-stable nor necessary for strong recombination.  Preserve
+their exact decomposition and retire only the dominant count-`4` hypothesis.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`.  No
+uniform source or signed prime-correlation estimate follows.
+
+Independent review first caught and held a misplaced function boundary that
+made the two-prime wrapper return `None`.  After repair, the reviewer ran the
+two- and three-prime wrappers together normally and under Python optimization,
+verified every value and reconstruction, and raised one further scope HOLD:
+a sub-half Shapley allocation does not prove that a component is unnecessary.
+The claims were narrowed to the declared `.75` dominance criterion, possible
+casewise necessity was explicitly preserved, and the reviewer returned PASS.
+
+The next bounded question changes from magnitude classification to arithmetic
+identification.  Determine whether the exact count-`4` sector totals can be
+rewritten as products or convolutions of classical two-cotangent sums
+(Dedekind-sum type objects) with CRT arguments.  First test `q=77` and `q=91`:
+an independently evaluated cotangent-sum formula must reconstruct every
+fully resonant count-`4` `(n,S)` value to natural-scale relative error at most
+`1e-12`.  Failure rejects reduction to classical two-cotangent factors while
+retaining the count decomposition as a generalized fourfold cotangent sum.

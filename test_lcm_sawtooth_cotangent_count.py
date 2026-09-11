@@ -3,6 +3,7 @@ import unittest
 from lcm_sawtooth_cotangent_count import (
     cotangent_count_discriminator_receipt,
     cotangent_count_source_receipt,
+    three_prime_cotangent_count_receipt,
     two_prime_cotangent_count_receipt,
 )
 
@@ -88,6 +89,37 @@ class CotangentCountTests(unittest.TestCase):
              77: True, 91: False, 143: True})
         self.assertFalse(receipt[
             "all_mass_ratio_classifier_predictions_match"])
+        self.assertTrue(receipt["all_reconstructions_pass"])
+
+    def test_three_prime_count_four_rules_fail(self):
+        receipt = three_prime_cotangent_count_receipt()
+        self.assertEqual(receipt["quotients"], (385, 455, 715, 1001))
+        expected_shares = {
+            385: 1.0325006383402588,
+            455: .7445336910069194,
+            715: .42628706912934505,
+            1001: .5557110297061323,
+        }
+        expected_full_quotients = {
+            385: .5013118107746221,
+            455: .24840921606041405,
+            715: .022976628574723844,
+            1001: .6393288305288424,
+        }
+        for quotient, expected in expected_shares.items():
+            self.assertAlmostEqual(
+                receipt["count_four_shapley_loss_fractions"][quotient],
+                expected, places=12)
+        for quotient, expected in expected_full_quotients.items():
+            self.assertAlmostEqual(
+                receipt["full_recombination_quotients"][quotient],
+                expected, places=12)
+        self.assertFalse(receipt[
+            "leading_dimension_stability_gate_passes"])
+        self.assertEqual(
+            receipt["contains_five_predictions_match"],
+            {385: True, 455: False, 715: False, 1001: True})
+        self.assertFalse(receipt["all_contains_five_predictions_match"])
         self.assertTrue(receipt["all_reconstructions_pass"])
 
 
