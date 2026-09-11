@@ -11749,3 +11749,58 @@ is that odd-cotangent components must account for at least `.75` of the mass
 lost on sector recombination at `q=77` and at most `.25` at `q=143`.
 Failure rejects that parity mechanism while retaining the exact orientation
 symmetry and eigensector decomposition.
+
+## 2026-09-11: odd cotangent parity is negligible in both comparison cases
+
+For one exact endpoint orientation, write each endpoint factor as
+
+`G_(p,D)(x)=(-1/2)(e_D(px)+1)
+             +(-i/2)cot(pi*p/D)(e_D(px)-1)`.
+
+The implementation expands the four endpoint factors in a left/right source
+correlation, groups terms by even or odd total cotangent count, and then
+repeats the fully resonant spatial eigensector calculation.  The parity source
+coefficients reconstruct the original one-orientation coefficient
+dictionaries with relative error `1.6054317928195755e-15`.  The full direct
+conditioned sums reconstruct with natural-scale errors
+`4.066515780615066e-15` for `q=77` and
+`6.858341335464874e-15` for `q=143`.
+
+To make “accounts for the cancellation” non-arbitrary, define the game value
+for a chosen parity set as its sectorwise absolute mass minus its recombined
+absolute mass.  The two-player Shapley allocation assigns the full
+recombination loss between even and odd components.  The measured values are:
+
+| quantity | strong `q=77` | weak `q=143` |
+|---|---:|---:|
+| even sectorwise mass | `3201.9484410382192` | `2767.2627603368287` |
+| even recombined mass | `156.24684759544033` | `1610.0040591466416` |
+| odd sectorwise mass | `55.53759041351561` | `108.07821585330996` |
+| odd recombined mass | `45.151757794827276` | `100.05910175868648` |
+| full recombination loss | `3043.656249172302` | `1159.4346146954415` |
+| odd Shapley loss share | `.0013701429572540208` | `.004396551332287038` |
+
+The declared strong-case `.75` gate fails by more than two orders of
+magnitude; the weak-case `.25` gate passes, so the conjunction is false.  Odd
+cotangent parity explains essentially none of the distinction.  The strong
+`q=77` cancellation is already present almost entirely in the even-cotangent
+component.  Preserve the exact cotangent split, source reconstruction, and
+Shapley accounting; reject odd parity as the missing mechanism.  No uniform
+source estimate or signed prime-correlation estimate follows.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`.
+
+Independent review verified the endpoint expansion, parity aggregation,
+source and conditioned reconstructions, Ramanujan/sector factors, and the
+two-player Shapley calculation.  A notation HOLD was resolved by distinguishing
+the primitive numerator `p` from the endpoint variable `x`; the reviewer then
+returned PASS.  Both focused tests pass normally and under Python
+optimization.
+
+The next bounded question refines only the surviving even component.  Split
+it by exact cotangent count `0`, `2`, or `4` and allocate the recombination
+loss by the three-player Shapley formula.  The concrete discriminator is that
+count `2` receives at least `.75` of the loss for `q=77` and at most `.25` for
+`q=143`, with source and conditioned reconstructions at natural-scale error
+at most `1e-12`.  Failure rejects cotangent-count attribution while retaining
+the endpoint formula as a possible analytic tool.
