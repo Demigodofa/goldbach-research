@@ -1568,6 +1568,7 @@ def residue_orbit_reinforcement_receipt(
     primes = _prime_table(target_maximum)
     rows = {}
     orbit_term_rows = {}
+    orbit_weight_discrepancy_rows = {}
     for target in targets:
         lower = target // 3
         residue_weights = {
@@ -1619,10 +1620,13 @@ def residue_orbit_reinforcement_receipt(
         uniform_ordered_residue_weight = (
             ordered_total_weight / len(admissible_residues))
         paired_discrepancy = _complex_fsum(paired_terms)
+        orbit_weight_discrepancies = tuple(
+            weight - uniform_ordered_residue_weight
+            for weight in orbit_weights)
         orbit_terms = tuple(
-            (weight - uniform_ordered_residue_weight) * coefficient
-            for weight, coefficient in zip(
-                orbit_weights, orbit_coefficients))
+            discrepancy * coefficient
+            for discrepancy, coefficient in zip(
+                orbit_weight_discrepancies, orbit_coefficients))
         orbit_discrepancy = _complex_fsum(orbit_terms)
         orbit_square_function = math.fsum(
             abs(term) ** 2 for term in orbit_terms)
@@ -1649,6 +1653,7 @@ def residue_orbit_reinforcement_receipt(
                 abs(paired_discrepancy - orbit_discrepancy) / scale),
         }
         orbit_term_rows[target] = orbit_terms
+        orbit_weight_discrepancy_rows[target] = orbit_weight_discrepancies
 
     nonempty_targets = tuple(
         target for target, row in rows.items()
@@ -1752,6 +1757,7 @@ def residue_orbit_reinforcement_receipt(
             maximum_aggregate_orbit_ratio),
         "rows": rows,
         "orbit_term_rows": orbit_term_rows,
+        "orbit_weight_discrepancy_rows": orbit_weight_discrepancy_rows,
         "tested_target_count": len(rows),
         "nonempty_target_count": len(nonempty_targets),
         "aggregate_orbit_ratio": aggregate_orbit_ratio,
@@ -2306,6 +2312,139 @@ def residue_orbit_adjacent_covariance_subspace_receipt(
         "finite_adjacent_covariance_subspaces_measured": True,
         "local_covariance_subspace_coherence_proved": False,
         "asymptotic_covariance_subspace_stabilization_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def residue_orbit_prime_weight_covariance_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        subspace_dimension=4,
+        minimum_normalized_projector_overlap=.75,
+        minimum_stable_adjacent_pair_count=4,
+        tolerance=1e-12, batch_size=32):
+    if type(subspace_dimension) is not int or subspace_dimension < 1:
+        raise ValueError("subspace dimension must be a positive integer")
+    if (not math.isfinite(minimum_normalized_projector_overlap)
+            or not 0 <= minimum_normalized_projector_overlap <= 1):
+        raise ValueError("projector overlap gate must lie in [0, 1]")
+    if (type(minimum_stable_adjacent_pair_count) is not int
+            or minimum_stable_adjacent_pair_count < 0):
+        raise ValueError(
+            "minimum stable adjacent pair count must be a nonnegative integer")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    targets = tuple(base["orbit_term_rows"])
+    discrepancy_rows = np.asarray(tuple(
+        base["orbit_weight_discrepancy_rows"][target]
+        for target in targets), dtype=np.float64)
+    orbit_count = discrepancy_rows.shape[1]
+    if subspace_dimension >= orbit_count:
+        raise ValueError(
+            "subspace dimension must be smaller than the orbit count")
+    coefficients = np.asarray(base["orbit_coefficients"], dtype=np.complex128)
+    reconstructed_terms = discrepancy_rows * coefficients[np.newaxis, :]
+    measured_terms = np.asarray(tuple(
+        base["orbit_term_rows"][target] for target in targets),
+        dtype=np.complex128)
+    factorization_scale = max(1.0, float(np.max(np.abs(measured_terms))))
+    factorization_relative_error = float(
+        np.max(np.abs(reconstructed_terms - measured_terms))
+        / factorization_scale)
+
+    def subspace_summary(row_matrix):
+        covariance = row_matrix.T @ row_matrix
+        off_diagonal_covariance = covariance.copy()
+        np.fill_diagonal(off_diagonal_covariance, 0.0)
+        eigenvalues, eigenvectors = np.linalg.eigh(off_diagonal_covariance)
+        positive_threshold = tolerance * max(
+            1.0, float(np.max(np.abs(eigenvalues))))
+        positive_eigenvalues = eigenvalues[eigenvalues > positive_threshold]
+        positive_spectral_mass = float(np.sum(positive_eigenvalues))
+        if len(positive_eigenvalues) < subspace_dimension:
+            raise ValueError(
+                "prime-weight covariance has fewer positive eigenvalues "
+                "than the requested subspace dimension")
+        return {
+            "eigenvalues": tuple(float(value) for value in eigenvalues),
+            "basis": eigenvectors[:, -subspace_dimension:],
+            "positive_eigenvalue_count": len(positive_eigenvalues),
+            "top_subspace_positive_spectral_concentration": float(
+                np.sum(eigenvalues[-subspace_dimension:])
+                / positive_spectral_mass),
+        }
+
+    blocks = tuple(base["dyadic_block_summaries"])
+    if minimum_stable_adjacent_pair_count > len(blocks) - 1:
+        raise ValueError(
+            "minimum stable adjacent pair count exceeds measured pairs")
+    block_summaries = {}
+    bases = []
+    for block in blocks:
+        block_lower, block_upper = block
+        block_indices = np.asarray(tuple(
+            index for index, target in enumerate(targets)
+            if block_lower <= target < block_upper), dtype=np.int64)
+        summary = subspace_summary(discrepancy_rows[block_indices])
+        basis = summary.pop("basis")
+        summary.update({
+            "target_count": len(block_indices),
+            "subspace_basis": tuple(
+                tuple(float(value) for value in column)
+                for column in basis.T),
+        })
+        block_summaries[block] = summary
+        bases.append(basis)
+    adjacent_pair_summaries = {}
+    for index in range(len(blocks) - 1):
+        cross_basis = bases[index].T @ bases[index + 1]
+        squared_canonical_correlations = (
+            np.linalg.svd(cross_basis, compute_uv=False) ** 2)
+        normalized_projector_overlap = float(
+            np.sum(squared_canonical_correlations) / subspace_dimension)
+        adjacent_pair_summaries[(blocks[index], blocks[index + 1])] = {
+            "normalized_projector_overlap": normalized_projector_overlap,
+            "squared_canonical_correlations": tuple(
+                float(value) for value in squared_canonical_correlations),
+            "passes_projector_overlap_gate": bool(
+                normalized_projector_overlap
+                >= minimum_normalized_projector_overlap),
+        }
+    stable_adjacent_pair_count = sum(
+        row["passes_projector_overlap_gate"]
+        for row in adjacent_pair_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_count": orbit_count,
+        "subspace_dimension": subspace_dimension,
+        "tested_target_count": len(targets),
+        "orbit_term_factorization_relative_error": (
+            factorization_relative_error),
+        "orbit_term_factorization_passes": bool(
+            factorization_relative_error <= tolerance),
+        "dyadic_block_summaries": block_summaries,
+        "minimum_normalized_projector_overlap_gate": (
+            minimum_normalized_projector_overlap),
+        "minimum_stable_adjacent_pair_count_gate": (
+            minimum_stable_adjacent_pair_count),
+        "adjacent_pair_summaries": adjacent_pair_summaries,
+        "stable_adjacent_pair_count": stable_adjacent_pair_count,
+        "prime_weight_local_subspace_gate_passes": bool(
+            stable_adjacent_pair_count
+            >= minimum_stable_adjacent_pair_count),
+        "finite_prime_weight_covariances_measured": True,
+        "prime_weight_covariance_stabilization_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }

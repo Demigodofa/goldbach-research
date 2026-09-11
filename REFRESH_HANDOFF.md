@@ -14053,3 +14053,67 @@ existing polynomial/source coefficients.  Failure would show that removing
 the fixed source geometry does not reveal this particular stable arithmetic
 envelope; it would preserve the exact factorization and permit other norms,
 bases, or averaged estimates.
+
+## 2026-09-11 source-free linked-prime covariance test
+
+The orbit receipt now returns the real centered linked-prime weights
+`D_N(O)` directly and verifies the exact factorization
+
+`T_N(O)=D_N(O) C(O)`
+
+for all `761` targets.  The measured factorization error is zero.  This keeps
+the polynomial/source coefficients available while separating their geometry
+from the arithmetic covariance of the two linked prime conditions.
+
+For the seven dyadic raw-prime covariance matrices, the positive eigenvalue
+counts are `4,6,5,6,5,6,6`.  Their top-four positive spectral concentrations
+are approximately
+
+`1.00000, .96500, .99838, .95915, .97025, .95202, .93460`.
+
+Thus four directions again capture nearly all positive off-diagonal spectral
+mass inside each block.  Nevertheless, their adjacent normalized projector
+overlaps are only
+
+`.32709, .32631, .39331, .35705, .47702, .36987`.
+
+All six fail `.75`, so the frozen local-stability count is `0/6` rather than
+`4/6`.  The fourth squared canonical correlations range from about
+`.00050` to `.06109`; the relative fourth-to-fifth cutoff gaps independently
+checked by the reviewer range from about `.219` to `1.026`.
+
+Curiosity status: `decisive-fail/factorization-preserved`, novelty
+`new-to-this-task`.  Removing the fixed source coefficients does not reveal a
+stable local top-four envelope.  The scale-changing geometry is already
+present in the linked-prime residue discrepancies.  Preserve the exact
+factorization, high within-block concentration, and leading adjacent canonical
+directions.  This rejects only the tested covariance mechanism; polynomial
+weights remain valid components to pair with a different arithmetic input.
+
+Independent review checked the centered weights, ordered singleton handling,
+factorization, real covariance, diagonal removal, dyadic SVDs, spectra, gates,
+and scope.  Focused normal and optimized tests pass.  No covariance theorem,
+signed prime-correlation estimate, or Goldbach result has been proved.
+
+The next bounded question tests an exact mechanism before fitting another
+subspace.  If `s_O=|O|`, the centered orbit weights obey
+
+`sum_O s_O D_N(O)=0`
+
+for every target.  Verify this identity on all targets.  For each dyadic block
+write `K_B=sum_N D_N D_N^T`, `v_B=diag(K_B)`, and `A_B=K_B-diag(K_B)`.
+Let `A_B^0` be the minimum-Frobenius-norm real symmetric zero-diagonal matrix
+satisfying the conservation constraint
+
+`A_B^0 s = -(v_B elementwise-product s)`.
+
+Measure the unexplained ratio
+
+`rho_B=||A_B-A_B^0||_F/||A_B||_F`
+
+and freeze the conservation-mechanism gate as `rho_B<=.5` in at least five of
+seven blocks.  Passing would show that exact total-weight conservation alone
+accounts for at least three quarters of squared cross-covariance energy in
+most blocks.  Failure would prove that substantial cross-orbit covariance
+remains beyond the conservation law and requires a further arithmetic
+mechanism.  Either outcome preserves `D_N`, `C(O)`, and their exact product.

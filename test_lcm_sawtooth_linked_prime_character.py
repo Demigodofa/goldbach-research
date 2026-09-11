@@ -14,6 +14,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_adjacent_covariance_subspace_receipt,
     residue_orbit_covariance_mode_receipt,
     residue_orbit_covariance_subspace_receipt,
+    residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
@@ -124,6 +125,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_adjacent_covariance_subspace_receipt(
                 minimum_normalized_projector_overlap=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_prime_weight_covariance_receipt(
+                minimum_stable_adjacent_pair_count=-1)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1018,6 +1022,72 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "local_covariance_subspace_coherence_proved"])
         self.assertFalse(receipt[
             "asymptotic_covariance_subspace_stabilization_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_prime_weight_covariance(self):
+        receipt = residue_orbit_prime_weight_covariance_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(receipt["subspace_dimension"], 4)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(len(receipt["dyadic_block_summaries"]), 7)
+        self.assertEqual(len(receipt["adjacent_pair_summaries"]), 6)
+        dyadic = receipt["dyadic_block_summaries"]
+        self.assertEqual(
+            tuple(row["positive_eigenvalue_count"] for row in dyadic.values()),
+            (4, 6, 5, 6, 5, 6, 6))
+        expected_concentrations = (
+            1.0, .9650016610433938, .9983754772281508,
+            .9591496863043465, .9702527683758472,
+            .952022403111819, .9346039694227366)
+        for row, expected in zip(dyadic.values(), expected_concentrations):
+            self.assertAlmostEqual(
+                row["top_subspace_positive_spectral_concentration"],
+                expected, places=12)
+        adjacent = receipt["adjacent_pair_summaries"]
+        expected_overlaps = (
+            .32708882382696103, .3263052022814833,
+            .39331201892041523, .35704818850300346,
+            .4770198297484316, .36987101431228087)
+        expected_canonical_correlations = (
+            (.8407093125979679, .3800677988775205,
+             .08137927326054971, .0061989105718060315),
+            (.7499665625647399, .38389006719384305,
+             .11027561609958601, .061088563267764184),
+            (.8970005263756874, .421053578073227,
+             .19565034374750123, .05954362748524524),
+            (.7492561430779247, .42032964871933853,
+             .2581103942550327, .0004965679597180789),
+            (.9554531430255542, .5559005724997789,
+             .3952143740127102, .0015112294556832045),
+            (.6940968525069939, .518251591842784,
+             .2248546034386871, .04228100946065846))
+        for row, overlap, correlations in zip(
+                adjacent.values(), expected_overlaps,
+                expected_canonical_correlations):
+            self.assertAlmostEqual(
+                row["normalized_projector_overlap"], overlap, places=12)
+            for measured, expected in zip(
+                    row["squared_canonical_correlations"], correlations):
+                self.assertAlmostEqual(measured, expected, places=12)
+        self.assertEqual(
+            tuple(row["passes_projector_overlap_gate"]
+                  for row in adjacent.values()),
+            (False, False, False, False, False, False))
+        self.assertEqual(receipt["stable_adjacent_pair_count"], 0)
+        self.assertFalse(receipt["prime_weight_local_subspace_gate_passes"])
+        self.assertLess(receipt[
+            "orbit_term_factorization_relative_error"], 1e-12)
+        self.assertTrue(receipt["orbit_term_factorization_passes"])
+        self.assertTrue(receipt[
+            "finite_prime_weight_covariances_measured"])
+        self.assertFalse(receipt[
+            "prime_weight_covariance_stabilization_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
