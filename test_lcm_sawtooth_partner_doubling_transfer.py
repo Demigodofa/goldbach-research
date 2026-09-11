@@ -16,6 +16,10 @@ class PartnerDoublingTransferTests(unittest.TestCase):
             1e-12)
         self.assertTrue(receipt[
             "exact_half_interval_geometric_identity_test_passes"])
+        self.assertLess(
+            receipt["diagonal_transfer_maximum_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "exact_residue_diagonal_transfer_test_passes"])
 
     def test_project_fixture_applies_predeclared_scalar_gate(self):
         receipt = partner_doubling_transfer_receipt()
@@ -24,6 +28,14 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         self.assertEqual(receipt["tolerance"], 1e-12)
         self.assertTrue(receipt[
             "exact_primitive_lift_half_interval_identity_proved"])
+        self.assertTrue(receipt[
+            "exact_residue_dependent_diagonal_transfer_proved"])
+        self.assertLess(
+            receipt["maximum_base_half_factorization_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["maximum_residue_diagonal_transfer_relative_error"],
+            1e-12)
         self.assertLess(
             receipt["maximum_half_interval_factorization_relative_error"],
             1e-12)

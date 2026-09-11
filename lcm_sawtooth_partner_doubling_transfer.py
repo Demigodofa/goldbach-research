@@ -76,6 +76,22 @@ def doubled_partner_geometric_receipt(
         (prime_modulus - 1) % odd_partner == 0)
     if base_complete_period:
         base_geometric = np.zeros_like(base_geometric)
+    base_half_factor = (
+        1 + np.exp(2j * np.pi * base * half_length / odd_partner))
+    doubled_endpoint_factor = (
+        1 + np.exp(-1j * np.pi * lifted / odd_partner))
+    diagonal_multiplier = doubled_endpoint_factor / base_half_factor
+    base_half_prediction = base_half_factor * half_sum
+    base_half_error = float(np.max(
+        np.abs(base_geometric - base_half_prediction)
+        / np.maximum(1.0, np.abs(base_geometric))))
+    # Use the common half-sum representation for the numerical transfer.
+    # Directly multiplying the independently rounded full-period base sum by
+    # T amplifies its error when the base half factor is small.
+    diagonal_prediction = diagonal_multiplier * base_half_prediction
+    diagonal_error = float(np.max(
+        np.abs(direct - diagonal_prediction)
+        / np.maximum(1.0, np.abs(direct))))
     scalar, scalar_residual = _relative_best_scalar_residual(
         base_geometric, direct)
     return {
@@ -90,6 +106,11 @@ def doubled_partner_geometric_receipt(
             doubled_complete_period),
         "both_geometric_vectors_are_exactly_zero": bool(
             base_complete_period and doubled_complete_period),
+        "minimum_base_half_factor_absolute_value": float(np.min(
+            np.abs(base_half_factor))),
+        "base_half_interval_factorization_maximum_relative_error": (
+            base_half_error),
+        "diagonal_transfer_maximum_relative_error": diagonal_error,
         "half_interval_factorization_maximum_error": identity_error,
         "half_interval_factorization_maximum_relative_error": (
             identity_relative_error),
@@ -99,6 +120,8 @@ def doubled_partner_geometric_receipt(
         "best_full_geometric_transfer_relative_residual": scalar_residual,
         "exact_half_interval_geometric_identity_test_passes": bool(
             lift_is_bijection and identity_relative_error <= tolerance),
+        "exact_residue_diagonal_transfer_test_passes": bool(
+            base_half_error <= tolerance and diagonal_error <= tolerance),
         "single_scalar_full_geometric_transfer_test_passes": bool(
             scalar_residual <= tolerance),
     }
@@ -146,6 +169,9 @@ def partner_doubling_transfer_receipt(
     exact_half_identity = all(
         row["exact_half_interval_geometric_identity_test_passes"]
         for row in geometric_rows)
+    exact_diagonal_transfer = all(
+        row["exact_residue_diagonal_transfer_test_passes"]
+        for row in geometric_rows)
     scalar_geometric = all(
         row["single_scalar_full_geometric_transfer_test_passes"]
         for row in geometric_rows)
@@ -168,6 +194,15 @@ def partner_doubling_transfer_receipt(
         "maximum_half_interval_factorization_relative_error": max(
             row["half_interval_factorization_maximum_relative_error"]
             for row in geometric_rows),
+        "maximum_residue_diagonal_transfer_relative_error": max(
+            row["diagonal_transfer_maximum_relative_error"]
+            for row in geometric_rows),
+        "maximum_base_half_factorization_relative_error": max(
+            row["base_half_interval_factorization_maximum_relative_error"]
+            for row in geometric_rows),
+        "minimum_base_half_factor_absolute_value": min(
+            row["minimum_base_half_factor_absolute_value"]
+            for row in geometric_rows),
         "trivial_zero_geometric_channel_count": (
             len(geometric_rows) - len(nontrivial_geometric_rows)),
         "minimum_nontrivial_full_geometric_transfer_relative_residual": min(
@@ -178,6 +213,8 @@ def partner_doubling_transfer_receipt(
             for row in nontrivial_geometric_rows),
         "exact_primitive_lift_half_interval_identity_proved": bool(
             exact_half_identity),
+        "exact_residue_dependent_diagonal_transfer_proved": bool(
+            exact_diagonal_transfer),
         "single_scalar_geometric_transfer_all_channels_passes": bool(
             scalar_geometric),
         "single_scalar_polynomial_transfer_all_partners_passes": bool(

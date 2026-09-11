@@ -10037,3 +10037,54 @@ multipliers in the packet cross-correlation and test whether their
 phase-rotated real parts supply a stable sign bias. Failure of the diagonal
 identity rejects the derivation; success preserves an exact arithmetic
 multiplier without presuming its sign.
+
+## 2026-09-11: the partner lift is an exact diagonal transfer
+
+The common half sum gives more than the previous factorization. For
+`p=2s+1`, primitive `a mod d`, and its odd lift `k mod 2d`, let
+
+`H_(p,d)(a)=sum_(m=1)^s exp(2*pi*i*a*m/d)`.
+
+Because `k=a mod d`, splitting the base full sum and the doubled sum gives
+
+- `G_p(a;d)=(1+exp(2*pi*i*a*s/d))*H_(p,d)(a)`;
+- `G_p(k;2d)=(1+exp(-pi*i*k/d))*H_(p,d)(a)`.
+
+The base factor cannot vanish for odd `d`: equality to zero would require
+`exp(2*pi*i*a*s/d)=-1`, an impossible half-integer residue modulo odd `d`.
+Therefore the doubled vector is the exact residue-dependent diagonal transfer
+
+`G_p(k;2d)=T_(p,d)(a)G_p(a;d)`,
+
+with
+
+`T_(p,d)(a)=(1+exp(-pi*i*k/d))/(1+exp(2*pi*i*a*s/d))`.
+
+Across `d=35,65` and all 24 prime frames, the base full-sum to common-half
+reconstruction has maximum mixed relative error `5.20e-13`; applying the
+diagonal multiplier to that common representation reconstructs the doubled
+sum within `1.87e-13`. The smallest base factor magnitude is `.04832749`, so
+the implementation deliberately avoids amplifying an independently rounded
+full-period sum. Complete-period zero channels retain `H=0` and remain zero.
+
+Independent review verified the algebra, nonvanishing denominator, lift,
+two-stage numerical test, exact-zero handling, thresholds, and scope. Three
+focused tests pass normally and under Python optimization.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The failed
+single-scalar model is replaced by an exact diagonal arithmetic multiplier.
+This is a useful mechanism for transporting doubled partner frequencies, but
+it has no established favorable sign and does not estimate the signed prime
+correlation.
+
+The next concrete question lifts the identity from individual geometric sums
+to the source-pair packet coefficients. Match each base pair `(c,d)` with
+`(c,2d)` by keeping the conductor numerator and applying the odd primitive
+lift to the partner numerator. Include the exact diagonal multiplier, the
+change from the support vector of `d` to `2d`, the fixed fragile direction,
+and the induced folded-residue permutation. The transferred coefficients
+must reconstruct every doubled packet within `1e-12`. If they do, decompose
+the resulting cross-correlation by the phase of the left/right multiplier
+product and test a predeclared `75%` favorable absolute-mass gate on at least
+two prime channels. Exact reconstruction without the phase gate preserves
+the transport identity while rejecting it as a broad sign mechanism.
