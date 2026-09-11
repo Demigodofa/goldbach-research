@@ -1,10 +1,12 @@
 import unittest
 
 from lcm_sawtooth_frequency_resolved_fourier import (
+    ALTERNATE_FAMILIES,
     CANONICAL_FAMILIES,
     EXACT_ZERO_FAMILIES,
     frequency_resolved_fourier_case_receipt,
     frequency_resolved_fourier_receipt,
+    quadratic_character_factor_reallocation_receipt,
 )
 
 
@@ -24,6 +26,9 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             frequency_resolved_fourier_case_receipt(
                 ((3, 5), (3, 5)), (1,), batch_size=0)
+        with self.assertRaises(ValueError):
+            quadratic_character_factor_reallocation_receipt(
+                minimum_mod5_winning_cells=9)
 
     def test_every_resonant_frequency_reconstructs(self):
         receipt = frequency_resolved_fourier_receipt()
@@ -88,6 +93,71 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
             "all_active_sign_cells_have_stable_sign"])
         self.assertFalse(receipt[
             "coarse_gcd_divisor_sign_table_supported"])
+        expected_quadratic_fits = {
+            ("canonical", 77): (0, .07934640183001507),
+            ("canonical", 91): (0, .2499155658369732),
+            ("exact_zero", 21): (4, 0.0),
+            ("exact_zero", 55): (4, 0.0),
+        }
+        for (case, quotient), (perfect_count, worst_minority) in (
+                expected_quadratic_fits.items()):
+            fits = receipt[case]["rows"][quotient][
+                "primitive_quadratic_character_fits"]
+            self.assertEqual(fits["active_divisor_count"], 4)
+            self.assertEqual(fits["perfect_fit_divisor_count"], perfect_count)
+            self.assertAlmostEqual(
+                fits["maximum_best_twisted_minority_mass_fraction"],
+                worst_minority, places=12)
+        q77_d1 = receipt["canonical"]["rows"][77][
+            "primitive_quadratic_character_fits"]["divisor_rows"][1]
+        self.assertEqual(q77_d1["best_character_primes"], (5,))
+        self.assertAlmostEqual(
+            q77_d1["best_character_alignment"], .9691380010385221,
+            places=12)
+        q91_d91 = receipt["canonical"]["rows"][91][
+            "primitive_quadratic_character_fits"]["divisor_rows"][91]
+        self.assertEqual(q91_d91["best_character_primes"], (5,))
+        self.assertAlmostEqual(
+            q91_d91["best_character_alignment"], .5001688683260535,
+            places=12)
+        self.assertFalse(receipt[
+            "all_primitive_divisors_have_perfect_quadratic_sign_fit"])
+        self.assertFalse(receipt[
+            "quadratic_character_sign_mechanism_supported"])
+        self.assertFalse(receipt["uniform_frequency_resolved_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_mod5_character_clue_fails_factor_reallocation_holdout(self):
+        receipt = quadratic_character_factor_reallocation_receipt()
+        self.assertEqual(receipt["families"], ALTERNATE_FAMILIES)
+        self.assertEqual(receipt["quotients"], (77, 91))
+        self.assertEqual(receipt["minimum_mod5_winning_cells"], 6)
+        self.assertEqual(receipt[
+            "active_primitive_divisor_cell_count"], 8)
+        self.assertTrue(receipt[
+            "all_eight_primitive_divisor_cells_are_active"])
+        self.assertEqual(receipt["mod5_winning_cells"], (
+            (77, 1), (77, 7), (77, 11), (91, 91)))
+        self.assertEqual(receipt["mod5_winning_cell_count"], 4)
+        expected_characters = {
+            (77, 1): (5,),
+            (77, 7): (5,),
+            (77, 11): (5,),
+            (77, 77): (),
+            (91, 1): (),
+            (91, 7): (),
+            (91, 13): (),
+            (91, 91): (5,),
+        }
+        for (quotient, divisor), expected in expected_characters.items():
+            actual = receipt["rows"][quotient][
+                "primitive_quadratic_character_fits"][
+                    "divisor_rows"][divisor]["best_character_primes"]
+            self.assertEqual(actual, expected)
+        self.assertFalse(receipt[
+            "mod5_factor_reallocation_prediction_passes"])
+        self.assertFalse(receipt[
+            "orientation_stable_mod5_component_supported"])
         self.assertFalse(receipt["uniform_frequency_resolved_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 

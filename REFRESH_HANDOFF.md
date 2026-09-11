@@ -12758,3 +12758,84 @@ If some `chi` gives `A_(d,chi)=1` for every divisor cell, then its sign exactly
 organizes the primitive modes and earns a fresh-geometry test.  If any cell
 has a nonzero minority-sign mass after every quadratic twist, the quadratic
 sign mechanism is falsified while the real-stratum decomposition remains.
+
+## 2026-09-11: quadratic twists are suggestive but not exact
+
+The exact quadratic-character sign mechanism fails in both canonical cases.
+For a resonant output write `n=q*r`.  On `gcd(n,g)=1`, the parameter `r` is a
+unit modulo every odd prime dividing `g`.  The test enumerated every product
+of the corresponding Legendre characters and, independently in each divisor
+stratum, chose the twist minimizing the minority-sign mass.
+
+At `q=77`, none of the four divisor cells had a perfect quadratic fit; the
+largest best-case minority fraction was `.07934640183001507`.  At `q=91`,
+again none of four fit perfectly, and the largest best-case minority fraction
+was `.2499155658369732`.  Thus even the best real quadratic character leaves
+materially mixed signs.
+
+There is nevertheless a specific component worth preserving.  The quadratic
+character modulo `5` is the best twist in three of four `q=77` cells and all
+four `q=91` cells.  Its alignment reaches `.9691380010385221` at `q=77,d=1`,
+`.9873878937808734` at `q=77,d=77`, and `.9779149239444646` at `q=91,d=1`.
+But it falls to `.5001688683260535` at `q=91,d=91`; this is evidence of an
+influence, not a complete law.  Prime `5` is structurally shared by the two
+canonical endpoint pairs and lies in `g` for both quotients.
+
+Curiosity status: `near-component/composite-fail`, novelty
+`new-to-this-task`.  Preserve the mod-`5` character clue and the exact real
+strata.  Retire the claim that products of quadratic characters completely
+organize the primitive signs.  No uniform bound, source estimate, or signed
+prime-correlation estimate follows.
+
+Independent review checked the `n=q*r` unit parameter, Legendre evaluation,
+complete enumeration of real quadratic candidates, weighted alignment and
+minority metrics, top-level falsifier, and regression fixtures.  Focused
+normal and optimized tests passed.
+
+The next bounded question gives the mod-`5` clue a factor-reallocation
+holdout.  Use the already-defined alternate `Q=10010` geometry
+`((35,143),(65,77))` at `q=77,91`, which has not been used for this character
+test.  Freeze the prediction that a quadratic character containing the
+mod-`5` factor is the best twist in at least six of the eight primitive
+divisor cells.  Passing would show an orientation-stable mod-`5` component,
+not a bound; fewer than six cells falsifies even that restricted component.
+
+## 2026-09-11: the mod-5 clue fails factor reallocation
+
+The alternate `Q=10010` geometry falsifies the frozen mod-`5` prediction.
+All eight primitive divisor cells are active under the same scale-relative
+mass rule used by the character fitter.  A character containing the mod-`5`
+factor wins only in
+
+`(q,d)=(77,1),(77,7),(77,11),(91,91)`,
+
+so the result is `4/8`, below the required `6/8`.  At `q=77`, the corresponding
+best alignments for `d=1,7,11` are only `.4483065,.3618409,.4574068`; the
+principal character wins `d=77`.  At `q=91`, the principal character wins
+`d=1,7,13`, and mod `5` wins only `d=91` with alignment `.3626789`.
+
+The strong canonical mod-`5` alignments are therefore allocation-specific in
+these tested fixtures.  They remain valid observations and may still enter a
+geometry-sensitive argument, but they do not provide an orientation-stable
+arithmetic label.
+
+Curiosity status: `holdout-fail`, novelty `new-to-this-task`.  Preserve the
+real divisor strata, their exact reconstruction, and the individual canonical
+near-alignments.  Retire the restricted claim that the shared prime `5`
+uniformly organizes primitive signs under factor reallocation.  No uniform
+bound or signed prime-correlation estimate follows.
+
+Independent review found and corrected one activity-predicate inconsistency:
+the holdout now reuses the scale-relative active-divisor set from the fitter
+and requires all eight cells to be active before applying the `6/8` gate.
+The corrected focused test passes normally and under Python optimization.
+
+The next bounded question stops classifying only signs and retains full
+complex character energy, which can interface with prime large-sieve input.
+On each primitive function `r -> Z_(q*r,d)` over `(Z/gZ)^*`, compute the exact
+finite Fourier expansion in all Dirichlet characters of the squarefree group.
+Freeze the low-rank test at: the four largest character coefficients must
+carry at least `.90` of Parseval energy in every canonical and alternate
+divisor cell.  Passing would reduce the linked source condition to a few
+character correlations; failure would reject bounded-rank character control
+and point instead to an averaged large-sieve estimate over the full spectrum.

@@ -18,6 +18,8 @@ CANONICAL_FAMILIES = ((77, 65), (143, 35))
 CANONICAL_LAGS = (130, 110)
 EXACT_ZERO_FAMILIES = ((21, 55), (55, 21))
 EXACT_ZERO_LAGS = (110, 42)
+ALTERNATE_FAMILIES = ((35, 143), (65, 77))
+ALTERNATE_LAGS = (130, 110)
 
 
 def _source_term_arrays(sources):
@@ -211,6 +213,90 @@ def _divisor_stratum_sign_cells(
     }
 
 
+def _legendre_symbol_on_unit(value, prime):
+    residue = pow(int(value) % prime, (prime - 1) // 2, prime)
+    if residue == 1:
+        return 1
+    if residue == prime - 1:
+        return -1
+    raise AssertionError("quadratic character evaluated off the unit group")
+
+
+def _primitive_quadratic_character_fits(
+        frequencies, common, quotient, divisor_stratum_totals, tolerance):
+    odd_primes = tuple(
+        prime for prime, prime_power in _prime_power_factors(common)
+        if prime == prime_power and prime % 2 == 1)
+    primitive_mask = np.asarray(tuple(
+        math.gcd(int(frequency), common) == 1
+        for frequency in frequencies), dtype=bool)
+    primitive_parameters = frequencies[primitive_mask] // quotient
+    character_values = {}
+    for subset_mask in range(1 << len(odd_primes)):
+        character_primes = tuple(
+            prime for index, prime in enumerate(odd_primes)
+            if subset_mask & (1 << index))
+        values = np.ones(len(primitive_parameters), dtype=np.float64)
+        for prime in character_primes:
+            values *= np.asarray(tuple(
+                _legendre_symbol_on_unit(parameter, prime)
+                for parameter in primitive_parameters), dtype=np.float64)
+        character_values[character_primes] = values
+
+    divisor_rows = {}
+    for divisor, totals in divisor_stratum_totals.items():
+        primitive_values = totals[primitive_mask].real
+        absolute_mass = float(np.sum(np.abs(primitive_values)))
+        fits = []
+        for character_primes, characters in character_values.items():
+            twisted = characters * primitive_values
+            positive_mass = float(np.sum(np.maximum(twisted, 0.0)))
+            negative_mass = float(np.sum(np.maximum(-twisted, 0.0)))
+            signed_mass = positive_mass + negative_mass
+            minority_fraction = (
+                min(positive_mass, negative_mass) / signed_mass
+                if signed_mass else 0.0)
+            alignment = (
+                abs(float(np.sum(twisted))) / signed_mass
+                if signed_mass else 1.0)
+            fits.append((
+                minority_fraction, -alignment, character_primes,
+                positive_mass, negative_mass))
+        best = min(fits)
+        divisor_rows[divisor] = {
+            "primitive_absolute_mass": absolute_mass,
+            "best_character_primes": best[2],
+            "best_character_alignment": -best[1],
+            "best_twisted_positive_mass": best[3],
+            "best_twisted_negative_mass": best[4],
+            "best_twisted_minority_mass_fraction": best[0],
+            "perfect_quadratic_sign_fit": bool(best[0] <= tolerance),
+        }
+    total_primitive_mass = math.fsum(
+        row["primitive_absolute_mass"] for row in divisor_rows.values())
+    active_divisors = tuple(
+        divisor for divisor, row in divisor_rows.items()
+        if row["primitive_absolute_mass"]
+        > tolerance * max(1.0, total_primitive_mass))
+    for divisor, row in divisor_rows.items():
+        row["active"] = divisor in active_divisors
+    active_rows = tuple(divisor_rows[divisor] for divisor in active_divisors)
+    return {
+        "odd_character_primes": odd_primes,
+        "candidate_character_count": len(character_values),
+        "divisor_rows": divisor_rows,
+        "active_divisors": active_divisors,
+        "active_divisor_count": len(active_rows),
+        "perfect_fit_divisor_count": sum(
+            row["perfect_quadratic_sign_fit"] for row in active_rows),
+        "maximum_best_twisted_minority_mass_fraction": max(
+            (row["best_twisted_minority_mass_fraction"]
+             for row in active_rows), default=0.0),
+        "all_primitive_divisors_have_perfect_quadratic_sign_fit": all(
+            row["perfect_quadratic_sign_fit"] for row in active_rows),
+    }
+
+
 def frequency_resolved_fourier_case_receipt(
         families, lags, tolerance=1e-12, batch_size=32):
     families, lags, period = _validate_case(
@@ -241,6 +327,9 @@ def frequency_resolved_fourier_case_receipt(
             sum(divisor_stratum_totals.values()) - formula_totals)))
         sign_cells = _divisor_stratum_sign_cells(
             frequencies, common, divisor_stratum_totals, tolerance)
+        quadratic_fits = _primitive_quadratic_character_fits(
+            frequencies, common, quotient,
+            divisor_stratum_totals, tolerance)
         rows[quotient] = {
             "lag": lag,
             "gcd_lag_period": common,
@@ -264,6 +353,7 @@ def frequency_resolved_fourier_case_receipt(
                 divisor_reconstruction_error
                 / max(1.0, divisor_stratum_absolute_mass) <= tolerance),
             "divisor_stratum_sign_cells": sign_cells,
+            "primitive_quadratic_character_fits": quadratic_fits,
             "direct_signed_total": complex(np.sum(direct)),
             "formula_signed_total": complex(np.sum(formula_totals)),
             "every_frequency_reconstructs": bool(
@@ -299,6 +389,10 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
         row["divisor_stratum_sign_cells"][
             "all_active_cells_have_stable_sign"]
         for row in all_rows)
+    all_primitive_divisors_have_perfect_quadratic_sign_fit = all(
+        row["primitive_quadratic_character_fits"][
+            "all_primitive_divisors_have_perfect_quadratic_sign_fit"]
+        for row in all_rows)
     return {
         "identity": (
             "b_n=1_(q|n)c_g(n)/Q sum_t c_q(t) "
@@ -322,8 +416,53 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
         "coarse_gcd_divisor_sign_table_supported": bool(
             all_active_sign_cells_are_real
             and all_active_sign_cells_have_stable_sign),
+        "all_primitive_divisors_have_perfect_quadratic_sign_fit": (
+            all_primitive_divisors_have_perfect_quadratic_sign_fit),
+        "quadratic_character_sign_mechanism_supported": bool(
+            all_primitive_divisors_have_perfect_quadratic_sign_fit),
         "frequency_resolved_identity_proved": True,
         "divisor_stratum_decomposition_proved": True,
+        "uniform_frequency_resolved_bound_proved": False,
+        "uniform_source_sum_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def quadratic_character_factor_reallocation_receipt(
+        minimum_mod5_winning_cells=6, tolerance=1e-12, batch_size=32):
+    if (type(minimum_mod5_winning_cells) is not int
+            or not 0 <= minimum_mod5_winning_cells <= 8):
+        raise ValueError("mod-5 winning-cell threshold must lie in [0,8]")
+    alternate = frequency_resolved_fourier_case_receipt(
+        ALTERNATE_FAMILIES, ALTERNATE_LAGS, tolerance, batch_size)
+    winning_cells = []
+    active_cells = []
+    for quotient, row in alternate["rows"].items():
+        fits = row["primitive_quadratic_character_fits"]
+        divisor_rows = fits["divisor_rows"]
+        for divisor in fits["active_divisors"]:
+            fit = divisor_rows[divisor]
+            active_cells.append((quotient, divisor))
+            if 5 in fit["best_character_primes"]:
+                winning_cells.append((quotient, divisor))
+    all_eight_cells_are_active = len(active_cells) == 8
+    passes = bool(
+        all_eight_cells_are_active
+        and len(winning_cells) >= minimum_mod5_winning_cells)
+    return {
+        "families": ALTERNATE_FAMILIES,
+        "arithmetic_period": alternate["arithmetic_period"],
+        "quotients": alternate["quotients"],
+        "rows": alternate["rows"],
+        "minimum_mod5_winning_cells": minimum_mod5_winning_cells,
+        "active_primitive_divisor_cells": tuple(active_cells),
+        "active_primitive_divisor_cell_count": len(active_cells),
+        "all_eight_primitive_divisor_cells_are_active": (
+            all_eight_cells_are_active),
+        "mod5_winning_cells": tuple(winning_cells),
+        "mod5_winning_cell_count": len(winning_cells),
+        "mod5_factor_reallocation_prediction_passes": bool(passes),
+        "orientation_stable_mod5_component_supported": bool(passes),
         "uniform_frequency_resolved_bound_proved": False,
         "uniform_source_sum_estimate_proved": False,
         "signed_prime_correlation_proved": False,
