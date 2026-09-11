@@ -9618,3 +9618,39 @@ prime resonances. For each `Q`, test its nonzero prime contributions using the
 existing `75%` positive-fraction and `25%` largest-positive-mass thresholds;
 fewer than two passing channels rejects a denominatorwise sign shortcut while
 preserving the exact localization.
+
+## 2026-09-11: every localized channel fails the broad prime-sign test
+
+The reduced-denominator receipt now retains each exact prime contribution
+`c_Q(m)=c_active,Q(m)-c_full,Q(m)` on the same fixed aggregate fragile
+direction. The declared test ignored only values of magnitude at most
+`10^-12`; a channel required at least `75%` positive nonzero primes and no one
+prime above `25%` of its positive mass. At least two of the three channels had
+to pass.
+
+None passes:
+
+- `Q=5005`: `6/9` positive; `m=167` supplies `.5138202` of positive mass;
+- `Q=6006`: `11/14` positive, but `m=181` supplies `.4276844`;
+- `Q=10010`: `9/22` positive; `m=179` supplies `.2708963`.
+
+Independent review reproduced all three rows, checked the fixed direction,
+`2Q/R` active and `2Q` full normalizations, conjugation, and nonzero-support
+convention, and returned PASS. Five focused tests pass normally and with
+Python optimization.
+
+Pursuit status: `abandoned` for the exact denominatorwise broad-sign shortcut
+at `M=127`. Its epistemic state is directly contradicted on this fixture and
+it stays blocked unless the scale/support changes or a new lag-level mechanism
+changes the representation. Preserve as supported components the exact
+three-`Q` localization, each signed channel total, the packet identity,
+polynomial direction, and interval kernel. The positive total is assembled
+from different channel-specific prime resonances; this gives no termwise or
+uniform positivity and no signed prime-correlation or Goldbach theorem.
+
+The next bounded question moves inside each `Q`. Group the off-diagonal term
+after prime aggregation by cyclic residue lag `h=r-s`, and call a lag near when
+`min(h,Q-h)<=Q/R`, with `R=28`. Test whether at least two of the three channels
+place at least `75%` of `sum_h |C_(Q,h)|` in near lags. Failure rejects a
+small-lag Dirichlet-kernel mechanism while retaining the exact lag expansion;
+success isolates a narrower arithmetic sum for analysis.

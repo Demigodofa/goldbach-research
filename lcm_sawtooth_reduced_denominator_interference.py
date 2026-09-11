@@ -61,6 +61,86 @@ def classify_shared_prime_denominator_mass(
     }
 
 
+def classify_primewise_denominator_signs(
+        rows, denominators, contribution_tolerance=1e-12,
+        minimum_positive_fraction=.75, maximum_positive_mass_share=.25,
+        minimum_passing_channel_count=2):
+    """Test primewise sign breadth separately on each selected Q-channel."""
+    rows = tuple(rows)
+    denominators = tuple(sorted(set(denominators)))
+    if not rows or not denominators:
+        raise ValueError("require contribution rows and denominators")
+    if not math.isfinite(contribution_tolerance) or contribution_tolerance < 0:
+        raise ValueError("contribution_tolerance must be finite and nonnegative")
+    if not 0 < minimum_positive_fraction <= 1:
+        raise ValueError("positive fraction threshold must lie in (0,1]")
+    if not 0 < maximum_positive_mass_share <= 1:
+        raise ValueError("positive mass share cap must lie in (0,1]")
+    if (type(minimum_passing_channel_count) is not int
+            or not 1 <= minimum_passing_channel_count <= len(denominators)):
+        raise ValueError("passing channel count must fit the denominator set")
+
+    channel_rows = []
+    for denominator in denominators:
+        selected = tuple(
+            row for row in rows if row["reduced_denominator"] == denominator
+            and abs(row["off_diagonal_window_interference"])
+            > contribution_tolerance)
+        if not selected:
+            raise ArithmeticError("selected denominator has no nonzero primes")
+        positive = tuple(
+            row for row in selected
+            if row["off_diagonal_window_interference"] > 0)
+        positive_mass = sum(
+            row["off_diagonal_window_interference"] for row in positive)
+        negative_mass = -sum(
+            row["off_diagonal_window_interference"] for row in selected
+            if row["off_diagonal_window_interference"] < 0)
+        positive_fraction = len(positive) / len(selected)
+        if positive_mass:
+            largest = max(
+                positive,
+                key=lambda row: row["off_diagonal_window_interference"])
+            largest_modulus = largest["modulus"]
+            largest_share = (
+                largest["off_diagonal_window_interference"] / positive_mass)
+        else:
+            largest_modulus = None
+            largest_share = float("inf")
+        passes = bool(
+            positive_fraction >= minimum_positive_fraction
+            and largest_share <= maximum_positive_mass_share)
+        channel_rows.append({
+            "reduced_denominator": denominator,
+            "nonzero_prime_count": len(selected),
+            "positive_prime_count": len(positive),
+            "positive_prime_fraction": positive_fraction,
+            "positive_mass": positive_mass,
+            "negative_mass": negative_mass,
+            "signed_sum": positive_mass - negative_mass,
+            "largest_positive_contributor": largest_modulus,
+            "largest_positive_mass_share": largest_share,
+            "primewise_broad_sign_hypothesis_passes": passes,
+            "prime_contributions": tuple(
+                (row["modulus"], row["off_diagonal_window_interference"])
+                for row in selected),
+        })
+    passing = tuple(
+        row["reduced_denominator"] for row in channel_rows
+        if row["primewise_broad_sign_hypothesis_passes"])
+    return {
+        "contribution_tolerance": contribution_tolerance,
+        "minimum_positive_fraction": minimum_positive_fraction,
+        "maximum_positive_mass_share": maximum_positive_mass_share,
+        "minimum_passing_channel_count": minimum_passing_channel_count,
+        "primewise_denominator_rows": tuple(channel_rows),
+        "passing_denominators": passing,
+        "passing_channel_count": len(passing),
+        "denominatorwise_prime_sign_hypothesis_passes": bool(
+            len(passing) >= minimum_passing_channel_count),
+    }
+
+
 def shared_prime_high_q_support_obstruction(
         modulus, row_count, divisor_lower, divisor_upper,
         conductors, shared_prime):
@@ -263,6 +343,7 @@ def project_reduced_denominator_interference_receipt(
     original_direction = transform6[:, 1:] @ fragile
 
     aggregate = {}
+    prime_contribution_rows = []
     mixed_pair_count = 0
     nonshared_single_pair_count = 0
     for frame_row in baseline["rows"]:
@@ -275,6 +356,13 @@ def project_reduced_denominator_interference_receipt(
         contributions = _cross_by_denominator(
             packets[1], packets[2], baseline["row_count"])
         for denominator, values in contributions.items():
+            prime_contribution_rows.append({
+                "modulus": frame_row["modulus"],
+                "reduced_denominator": denominator,
+                "active_window_interference": values[0],
+                "full_residue_interference": values[1],
+                "off_diagonal_window_interference": values[2],
+            })
             previous = aggregate.get(denominator, (0.0, 0.0, 0.0))
             aggregate[denominator] = tuple(
                 old + new for old, new in zip(previous, values))
@@ -312,6 +400,9 @@ def project_reduced_denominator_interference_receipt(
     positive_rows = tuple(
         row for row in nonzero_rows
         if row["off_diagonal_window_interference"] > 0)
+    primewise_classification = classify_primewise_denominator_signs(
+        prime_contribution_rows,
+        tuple(row["reduced_denominator"] for row in nonzero_rows))
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -324,6 +415,7 @@ def project_reduced_denominator_interference_receipt(
             row["reduced_denominator"] for row in nonzero_rows),
         "positive_nonzero_denominator_count": len(positive_rows),
         "nonzero_denominator_count": len(nonzero_rows),
+        "prime_contribution_rows": tuple(prime_contribution_rows),
         "active_window_boolean_cross_rayleigh": active_total,
         "full_residue_boolean_cross_rayleigh": full_total,
         "off_diagonal_window_boolean_cross_rayleigh": off_diagonal_total,
@@ -333,6 +425,7 @@ def project_reduced_denominator_interference_receipt(
         "nonshared_single_packet_high_q_pair_count": (
             nonshared_single_pair_count),
         **classification,
+        **primewise_classification,
         **obstruction,
         "finite_reduced_denominator_interference_measured": True,
         "uniform_signed_denominator_interference_proved": False,
