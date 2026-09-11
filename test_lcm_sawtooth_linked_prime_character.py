@@ -2,6 +2,7 @@ import unittest
 
 from lcm_sawtooth_linked_prime_character import (
     _principal_character_row,
+    all_residue_reflection_block_receipt,
     affine_reflection_residue_scan_receipt,
     affine_reflection_selection_receipt,
     linked_prime_character_receipt,
@@ -81,6 +82,11 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             resonant_progression_diagonal_square_receipt(
                 target_minimum=1000, target_maximum=1000)
+        with self.assertRaises(ValueError):
+            all_residue_reflection_block_receipt(target_minimum=999)
+        with self.assertRaises(ValueError):
+            all_residue_reflection_block_receipt(
+                maximum_pointwise_ratio=-1)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -593,6 +599,63 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt[
             "pointwise_paired_reflection_bound_proved"])
         self.assertFalse(receipt["averaged_diagonal_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_all_residue_reflection_block_scan(self):
+        receipt = all_residue_reflection_block_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 20000))
+        self.assertEqual(len(receipt["residue_summaries"]), 65)
+        self.assertEqual(receipt["tested_target_count"], 9501)
+        self.assertEqual(receipt["nonempty_target_count"], 9501)
+        self.assertEqual(receipt["empty_target_count"], 0)
+        self.assertEqual(receipt["gate_pass_count"], 9501)
+        self.assertEqual(receipt["worst_target"], 3708)
+        worst = receipt["worst_target_row"]
+        self.assertEqual(worst["target_residue"], 68)
+        self.assertEqual(worst["ordered_linked_prime_pair_count"], 58)
+        self.assertEqual(worst["reflection_block_count"], 29)
+        self.assertAlmostEqual(
+            worst["pointwise_discrepancy_to_paired_ratio"],
+            2.996912452633917, places=12)
+        blocks = receipt["dyadic_block_summaries"]
+        self.assertEqual(
+            tuple(blocks),
+            ((1000, 2000), (2000, 4000), (4000, 8000),
+             (8000, 16000), (16000, 20001)))
+        self.assertEqual(
+            tuple(row["target_count"] for row in blocks.values()),
+            (500, 1000, 2000, 4000, 2001))
+        self.assertAlmostEqual(
+            blocks[(1000, 2000)]["summed_squared_to_paired_ratio"],
+            .9296466125593036, places=12)
+        self.assertAlmostEqual(
+            blocks[(16000, 20001)]["summed_squared_to_paired_ratio"],
+            .7425809321516373, places=12)
+        residue_88 = receipt["residue_summaries"][88]
+        self.assertEqual(residue_88["maximum_target"], 9578)
+        self.assertAlmostEqual(
+            residue_88["maximum_pointwise_ratio"],
+            2.639006322098773, places=12)
+        residue_72 = receipt["residue_summaries"][72]
+        self.assertEqual(residue_72["target_count"], 146)
+        self.assertEqual(residue_72["maximum_target"], 17622)
+        self.assertAlmostEqual(
+            residue_72["maximum_pointwise_ratio"],
+            2.8015538046555166, places=12)
+        self.assertAlmostEqual(
+            residue_72["summed_squared_to_paired_ratio"],
+            1.8067856583141206, places=12)
+        self.assertLess(
+            receipt["maximum_centered_source_sum_relative_error"], 1e-12)
+        self.assertTrue(receipt["all_prime_terms_are_units"])
+        self.assertTrue(receipt["all_even_residue_classes_measured"])
+        self.assertTrue(receipt["all_nonempty_targets_pass_pointwise_gate"])
+        self.assertTrue(receipt["finite_all_residue_reflection_scan_measured"])
+        self.assertFalse(receipt["uniform_residue_pointwise_bound_proved"])
+        self.assertFalse(receipt["uniform_residue_averaged_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

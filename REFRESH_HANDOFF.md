@@ -13570,3 +13570,67 @@ aggregate ratios.  A violation would localize a residue-dependent coherent
 mechanism hidden by the `n=88` progression.  A full pass would justify asking
 for an averaged inequality uniform in the local residue class, while still
 providing finite evidence only.
+
+## 2026-09-11: the reflection-block gate survives every local residue class
+
+The frozen all-residue scan passes.  Every one of the `9501` even targets
+`1000<=N<=20000` has a nonzero central reflection-block square function, and
+all satisfy
+
+`|D_N| / sqrt(S_N^pair) <= 4`.
+
+The maximum is `2.996912452633917` at `N=3708`, residue `68`, with `58`
+ordered linked-prime pairs and `29` reflection blocks.  Thus residue `88` was
+not uniquely favorable, and it was not the worst class on this enlarged
+range.  The residue-88 maximum through `20000` is
+`2.639006322098773` at `N=9578`.
+
+The five dyadic aggregate ratios
+`sum_N |D_N|^2 / sum_N S_N^pair` are approximately
+`.92965, .82491, .66595, .68186, .74258`; none exceeds one.  Local centering
+leaves centered-source sums of relative size at most `1.43e-16`, and all prime
+terms are units modulo `130`.
+
+The residue-class summaries expose a narrower tension that the global blocks
+hide.  Residue `72` has the largest full-range aggregate ratio,
+`1.8067856583141206` across `146` targets; its pointwise maximum is
+`2.8015538046555166` at `N=17622`.  Residue `22` also has aggregate ratio
+about `1.52122`.  Independent review verified that ratios above one are real
+positive cross terms between distinct reflection blocks, not double counting.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.  The
+uniform finite pointwise gate remains supported on this range, while the next
+question changes from whether residue `88` is exceptional to why residue `72`
+has persistent block reinforcement.  This computation proves no uniform
+pointwise or averaged residue bound, signed prime-correlation estimate, or
+Goldbach statement.
+
+Independent review reproduced all target and orbit conventions, the worst
+case, centered-source error, five dyadic ratios, and the residue-72 aggregate.
+The focused test passes in normal and optimized Python.
+
+The next bounded question separates reinforcement within one residue orbit
+from reinforcement across different residue orbits.  On `A_72`, let `O` run
+over the affine-reflection orbits.  Put
+
+`C_O=H_72(a)+H_72(72-a)`
+
+for a two-element orbit, with `C_O=H_72(a)` for a fixed point, and let
+`W_N(O)` be the total `log(p)log(N-p)` weight of unordered central prime pairs
+in orbit `O`.  If `u_N` is the uniform ordered-residue weight, define
+
+`T_N(O)=(W_N(O)-u_N)C_O`,
+`S_N^orbit=sum_O |T_N(O)|^2`.
+
+Check the exact reconstruction `D_N=sum_O T_N(O)` for every
+`N congruent 72 (mod 130)` in `1000<=N<=100000`, and freeze the mechanistic
+falsifier
+
+`sum_N |D_N|^2 / sum_N S_N^orbit <= 1`
+
+both over the full progression and in each dyadic block.  A pass would show
+that residue 72's pair-level excess is absorbed by repeated contributions
+inside the same residue orbit.  A violation would isolate genuine cross-orbit
+reinforcement and identify the orbit pairs carrying it.  Either outcome keeps
+the residue and polynomial tools available; it rejects or supports only this
+specific explanation.

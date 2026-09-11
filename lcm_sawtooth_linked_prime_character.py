@@ -1275,6 +1275,219 @@ def resonant_progression_diagonal_square_receipt(
     }
 
 
+def all_residue_reflection_block_receipt(
+        target_minimum=1000, target_maximum=20000,
+        maximum_pointwise_ratio=4.0, tolerance=1e-12, batch_size=32):
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 20 or target_minimum % 2
+            or target_maximum < target_minimum or target_maximum % 2):
+        raise ValueError(
+            "target bounds must be even integers with 20 <= minimum <= maximum")
+    if not math.isfinite(maximum_pointwise_ratio) or maximum_pointwise_ratio < 0:
+        raise ValueError("pointwise ratio gate must be finite and nonnegative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch size must be a positive integer")
+    common = 130
+    character = recombined_centered_character_receipt(
+        targets=LINKED_PRIME_TARGETS, tolerance=tolerance,
+        batch_size=batch_size)
+    if character["common_modulus"] != common:
+        raise AssertionError("unexpected recombined centered source modulus")
+    source_by_residue = {
+        int(unit): value for unit, value in zip(
+            character["unit_residues"],
+            character["centered_source_values"])}
+    even_residues = tuple(range(0, common, 2))
+    local_sources = {}
+    for target_residue in even_residues:
+        admissible_residues = tuple(
+            residue for residue in source_by_residue
+            if math.gcd(
+                (target_residue - residue) % common, common) == 1)
+        source_mean = sum((
+            source_by_residue[residue] for residue in admissible_residues),
+            0.0j) / len(admissible_residues)
+        centered_source = {
+            residue: source_by_residue[residue] - source_mean
+            for residue in admissible_residues}
+        centered_sum = sum(centered_source.values(), 0.0j)
+        centered_scale = max(
+            1.0, math.fsum(abs(value) for value in centered_source.values()))
+        local_sources[target_residue] = {
+            "admissible_residues": admissible_residues,
+            "source_mean": source_mean,
+            "centered_source": centered_source,
+            "centered_source_sum_relative_error": (
+                abs(centered_sum) / centered_scale),
+        }
+
+    primes = _prime_table(target_maximum)
+    rows = {}
+    for target in range(target_minimum, target_maximum + 1, 2):
+        target_residue = target % common
+        centered_source = local_sources[target_residue]["centered_source"]
+        lower = target // 3
+        discrepancy = 0.0j
+        paired_square_function = 0.0
+        reflection_block_count = 0
+        ordered_pair_count = 0
+        nonunit_primes = []
+        for prime in range(max(2, lower + 1), target // 2 + 1):
+            partner = target - prime
+            if not primes[prime] or not primes[partner]:
+                continue
+            if (math.gcd(prime, common) != 1
+                    or math.gcd(partner, common) != 1):
+                nonunit_primes.append((prime, partner))
+                continue
+            weight = math.log(prime) * math.log(partner)
+            if prime < partner:
+                block_term = weight * (
+                    centered_source[prime % common]
+                    + centered_source[partner % common])
+                ordered_pair_count += 2
+            else:
+                block_term = weight * centered_source[prime % common]
+                ordered_pair_count += 1
+            discrepancy += block_term
+            paired_square_function += abs(block_term) ** 2
+            reflection_block_count += 1
+        paired_scale = math.sqrt(paired_square_function)
+        pointwise_ratio = (
+            abs(discrepancy) / paired_scale if paired_scale else None)
+        rows[target] = {
+            "target_residue": target_residue,
+            "ordered_linked_prime_pair_count": ordered_pair_count,
+            "reflection_block_count": reflection_block_count,
+            "nonunit_prime_pairs": tuple(nonunit_primes),
+            "centered_discrepancy_correlation": discrepancy,
+            "paired_reflection_square_function": paired_square_function,
+            "paired_reflection_scale": paired_scale,
+            "pointwise_discrepancy_to_paired_ratio": pointwise_ratio,
+            "passes_pointwise_gate": (
+                bool(pointwise_ratio <= maximum_pointwise_ratio)
+                if pointwise_ratio is not None else None),
+        }
+
+    nonempty_targets = tuple(
+        target for target, row in rows.items()
+        if row["pointwise_discrepancy_to_paired_ratio"] is not None)
+    if not nonempty_targets:
+        raise ValueError("target range has no nonzero paired linked-prime target")
+    worst_target = max(
+        nonempty_targets,
+        key=lambda target: rows[target][
+            "pointwise_discrepancy_to_paired_ratio"])
+    residue_summaries = {}
+    for target_residue in even_residues:
+        residue_targets = tuple(
+            target for target in nonempty_targets
+            if rows[target]["target_residue"] == target_residue)
+        if not residue_targets:
+            residue_summaries[target_residue] = {
+                "target_count": 0,
+                "maximum_pointwise_ratio": None,
+                "median_pointwise_ratio": None,
+                "maximum_target": None,
+                "summed_squared_to_paired_ratio": None,
+            }
+            continue
+        ratios = tuple(
+            rows[target]["pointwise_discrepancy_to_paired_ratio"]
+            for target in residue_targets)
+        summed_squared_discrepancy = math.fsum(
+            abs(rows[target]["centered_discrepancy_correlation"]) ** 2
+            for target in residue_targets)
+        summed_paired_square_function = math.fsum(
+            rows[target]["paired_reflection_square_function"]
+            for target in residue_targets)
+        maximum_target = max(
+            residue_targets,
+            key=lambda target: rows[target][
+                "pointwise_discrepancy_to_paired_ratio"])
+        residue_summaries[target_residue] = {
+            "target_count": len(residue_targets),
+            "maximum_pointwise_ratio": max(ratios),
+            "median_pointwise_ratio": float(np.median(ratios)),
+            "maximum_target": maximum_target,
+            "summed_squared_discrepancy": summed_squared_discrepancy,
+            "summed_paired_reflection_square_function": (
+                summed_paired_square_function),
+            "summed_squared_to_paired_ratio": (
+                summed_squared_discrepancy / summed_paired_square_function),
+        }
+    dyadic_block_summaries = {}
+    block_lower = target_minimum
+    while block_lower <= target_maximum:
+        block_upper = min(target_maximum + 1, 2 * block_lower)
+        block_targets = tuple(
+            target for target in nonempty_targets
+            if block_lower <= target < block_upper)
+        if block_targets:
+            ratios = tuple(
+                rows[target]["pointwise_discrepancy_to_paired_ratio"]
+                for target in block_targets)
+            summed_squared_discrepancy = math.fsum(
+                abs(rows[target]["centered_discrepancy_correlation"]) ** 2
+                for target in block_targets)
+            summed_paired_square_function = math.fsum(
+                rows[target]["paired_reflection_square_function"]
+                for target in block_targets)
+            maximum_target = max(
+                block_targets,
+                key=lambda target: rows[target][
+                    "pointwise_discrepancy_to_paired_ratio"])
+            dyadic_block_summaries[(block_lower, block_upper)] = {
+                "target_count": len(block_targets),
+                "maximum_pointwise_ratio": max(ratios),
+                "median_pointwise_ratio": float(np.median(ratios)),
+                "maximum_target": maximum_target,
+                "summed_squared_discrepancy": summed_squared_discrepancy,
+                "summed_paired_reflection_square_function": (
+                    summed_paired_square_function),
+                "summed_squared_to_paired_ratio": (
+                    summed_squared_discrepancy
+                    / summed_paired_square_function),
+            }
+        block_lower *= 2
+    gate_pass_count = sum(
+        rows[target]["passes_pointwise_gate"] for target in nonempty_targets)
+    return {
+        "families": character["families"],
+        "arithmetic_period": character["arithmetic_period"],
+        "quotient": character["quotient"],
+        "common_modulus": common,
+        "target_range": (target_minimum, target_maximum),
+        "maximum_pointwise_ratio_gate": maximum_pointwise_ratio,
+        "local_source_rows": local_sources,
+        "rows": rows,
+        "residue_summaries": residue_summaries,
+        "dyadic_block_summaries": dyadic_block_summaries,
+        "tested_target_count": len(rows),
+        "nonempty_target_count": len(nonempty_targets),
+        "empty_target_count": len(rows) - len(nonempty_targets),
+        "gate_pass_count": gate_pass_count,
+        "worst_target": worst_target,
+        "worst_target_row": rows[worst_target],
+        "maximum_centered_source_sum_relative_error": max(
+            row["centered_source_sum_relative_error"]
+            for row in local_sources.values()),
+        "all_prime_terms_are_units": all(
+            not row["nonunit_prime_pairs"] for row in rows.values()),
+        "all_nonempty_targets_pass_pointwise_gate": bool(
+            gate_pass_count == len(nonempty_targets)),
+        "all_even_residue_classes_measured": all(
+            row["target_count"] for row in residue_summaries.values()),
+        "finite_all_residue_reflection_scan_measured": True,
+        "uniform_residue_pointwise_bound_proved": False,
+        "uniform_residue_averaged_bound_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):
