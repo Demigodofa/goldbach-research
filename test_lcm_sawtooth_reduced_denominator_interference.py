@@ -2,6 +2,9 @@ import unittest
 
 from lcm_sawtooth_reduced_denominator_interference import (
     _require_no_mixed_high_q_packet,
+    _cross_by_denominator,
+    _offdiagonal_lags_by_denominator,
+    classify_near_lag_mass,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
     project_reduced_denominator_interference_receipt,
@@ -10,6 +13,32 @@ from lcm_sawtooth_reduced_denominator_interference import (
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_fft_lag_decomposition_reconstructs_offdiagonal_cross(self):
+        left = {
+            (5, 0): 1 + 2j,
+            (5, 2): -3 + 1j,
+            (5, 4): 2 - 4j,
+        }
+        right = {
+            (5, 1): 2 - 1j,
+            (5, 2): 4 + 3j,
+            (5, 3): -2 + 2j,
+        }
+        direct = _cross_by_denominator(left, right, 4)[5][2]
+        lags = _offdiagonal_lags_by_denominator(left, right, 4, 4)[5]
+        self.assertAlmostEqual(float(lags.sum()), direct, places=10)
+
+    def test_near_lag_classifier_uses_cyclic_main_lobe(self):
+        contributions = [0.0] * 12
+        contributions[1] = 3.0
+        contributions[5] = -1.0
+        receipt = classify_near_lag_mass(
+            {12: contributions}, 4, minimum_passing_channel_count=1)
+        row = receipt["near_lag_channel_rows"][0]
+        self.assertEqual(row["near_lag_maximum_cyclic_distance"], 3)
+        self.assertEqual(row["near_lag_absolute_mass_fraction"], .75)
+        self.assertTrue(receipt["near_lag_absolute_mass_hypothesis_passes"])
+
     def test_primewise_classifier_applies_both_channel_thresholds(self):
         rows = tuple(
             {"modulus": modulus, "reduced_denominator": denominator,
@@ -60,9 +89,31 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         self.assertEqual(receipt["passing_denominators"], ())
         self.assertFalse(receipt[
             "denominatorwise_prime_sign_hypothesis_passes"])
+        self.assertEqual(receipt["near_lag_passing_channel_count"], 0)
+        self.assertEqual(receipt["near_lag_passing_denominators"], ())
+        self.assertFalse(receipt["near_lag_absolute_mass_hypothesis_passes"])
+        self.assertLess(max(
+            abs(error) for _, error in receipt["lag_reconstruction_errors"]),
+            3e-12)
         primewise = {
             row["reduced_denominator"]: row
             for row in receipt["primewise_denominator_rows"]}
+        lag_rows = {
+            row["reduced_denominator"]: row
+            for row in receipt["near_lag_channel_rows"]}
+        self.assertAlmostEqual(
+            lag_rows[5005]["near_lag_absolute_mass_fraction"],
+            .5084107132570644, places=10)
+        self.assertAlmostEqual(
+            lag_rows[6006]["near_lag_absolute_mass_fraction"],
+            .5041716929298857, places=10)
+        self.assertAlmostEqual(
+            lag_rows[10010]["near_lag_absolute_mass_fraction"],
+            .517849903995512, places=10)
+        self.assertTrue(all(
+            row["near_lag_signed_sum"] > 0 for row in lag_rows.values()))
+        self.assertTrue(all(
+            row["far_lag_signed_sum"] < 0 for row in lag_rows.values()))
         self.assertEqual(
             (primewise[5005]["positive_prime_count"],
              primewise[5005]["nonzero_prime_count"]), (6, 9))

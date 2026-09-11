@@ -281,6 +281,104 @@ def _cross_by_denominator(left, right, row_count):
     return result
 
 
+def _offdiagonal_lags_by_denominator(left, right, row_first, row_count):
+    """Resolve direct packet interference by cyclic residue lag ``h=r-s``."""
+    if (type(row_first) is not int or type(row_count) is not int
+            or row_first < 0 or row_count < 1):
+        raise ValueError("row range must be integral and nonempty")
+    result = {}
+    denominators = sorted({key[0] for key in left} | {key[0] for key in right})
+    rows = np.arange(row_first, row_first + row_count, dtype=np.int64)
+    for denominator in denominators:
+        left_values = np.zeros(denominator, dtype=complex)
+        right_values = np.zeros(denominator, dtype=complex)
+        for (local_denominator, residue), value in left.items():
+            if local_denominator == denominator:
+                left_values[residue] += value
+        for (local_denominator, residue), value in right.items():
+            if local_denominator == denominator:
+                right_values[residue] += value
+        correlation = np.fft.ifft(
+            np.fft.fft(left_values) * np.conjugate(np.fft.fft(right_values)))
+        lags = np.arange(denominator, dtype=np.int64)
+        kernel = np.mean(np.exp(
+            2j * np.pi * rows[:, None] * lags[None, :] / denominator),
+            axis=0)
+        contributions = 2 * denominator * (kernel * correlation).real
+        contributions[0] = 0.0
+        result[denominator] = contributions
+    return result
+
+
+def classify_near_lag_mass(
+        lag_contributions, row_count, minimum_absolute_mass_fraction=.75,
+        minimum_passing_channel_count=2):
+    """Test absolute-lag-mass concentration in the kernel main lobe."""
+    lag_contributions = dict(lag_contributions)
+    if not lag_contributions:
+        raise ValueError("at least one lag channel is required")
+    if type(row_count) is not int or row_count < 1:
+        raise ValueError("row_count must be a positive integer")
+    if not 0 < minimum_absolute_mass_fraction <= 1:
+        raise ValueError("mass fraction threshold must lie in (0,1]")
+    if (type(minimum_passing_channel_count) is not int
+            or not 1 <= minimum_passing_channel_count <= len(lag_contributions)):
+        raise ValueError("passing channel count must fit the channel set")
+
+    channel_rows = []
+    for denominator in sorted(lag_contributions):
+        contributions = np.asarray(
+            lag_contributions[denominator], dtype=float)
+        if contributions.shape != (denominator,):
+            raise ValueError("each lag array must have length Q")
+        distances = np.minimum(
+            np.arange(denominator),
+            denominator - np.arange(denominator))
+        near = distances * row_count <= denominator
+        near[0] = False
+        absolute_mass = float(np.sum(np.abs(contributions[1:])))
+        if not absolute_mass:
+            raise ArithmeticError("lag channel has zero absolute mass")
+        near_mass = float(np.sum(np.abs(contributions[near])))
+        fraction = near_mass / absolute_mass
+        nonzero_lags = np.flatnonzero(np.abs(contributions) > 1e-12)
+        ranked = sorted(
+            nonzero_lags,
+            key=lambda lag: abs(contributions[lag]), reverse=True)
+        channel_rows.append({
+            "reduced_denominator": denominator,
+            "near_lag_maximum_cyclic_distance": denominator // row_count,
+            "absolute_lag_mass": absolute_mass,
+            "near_lag_absolute_mass": near_mass,
+            "near_lag_absolute_mass_fraction": fraction,
+            "signed_lag_sum": float(np.sum(contributions)),
+            "near_lag_signed_sum": float(np.sum(contributions[near])),
+            "far_lag_signed_sum": float(np.sum(contributions[~near])),
+            "nonzero_lag_count": len(nonzero_lags),
+            "near_lag_absolute_mass_hypothesis_passes": bool(
+                fraction >= minimum_absolute_mass_fraction),
+            "top_absolute_lags": tuple(
+                (int(lag), int(distances[lag]), float(contributions[lag]),
+                 float(abs(contributions[lag]) / absolute_mass))
+                for lag in ranked[:10]),
+        })
+    passing = tuple(
+        row["reduced_denominator"] for row in channel_rows
+        if row["near_lag_absolute_mass_hypothesis_passes"])
+    return {
+        "near_lag_rule": "min(h,Q-h)*R<=Q",
+        "minimum_near_lag_absolute_mass_fraction": (
+            minimum_absolute_mass_fraction),
+        "minimum_passing_near_lag_channel_count": (
+            minimum_passing_channel_count),
+        "near_lag_channel_rows": tuple(channel_rows),
+        "near_lag_passing_denominators": passing,
+        "near_lag_passing_channel_count": len(passing),
+        "near_lag_absolute_mass_hypothesis_passes": bool(
+            len(passing) >= minimum_passing_channel_count),
+    }
+
+
 def _require_no_mixed_high_q_packet(mixed_pair_count):
     """Guard the specialization of the Boolean identity to ``2 Re<b,c>``."""
     if type(mixed_pair_count) is not int or mixed_pair_count < 0:
@@ -343,6 +441,7 @@ def project_reduced_denominator_interference_receipt(
     original_direction = transform6[:, 1:] @ fragile
 
     aggregate = {}
+    aggregate_lags = {}
     prime_contribution_rows = []
     mixed_pair_count = 0
     nonshared_single_pair_count = 0
@@ -355,6 +454,9 @@ def project_reduced_denominator_interference_receipt(
         nonshared_single_pair_count += nonshared_count
         contributions = _cross_by_denominator(
             packets[1], packets[2], baseline["row_count"])
+        lag_contributions = _offdiagonal_lags_by_denominator(
+            packets[1], packets[2], baseline["row_count"],
+            baseline["row_count"])
         for denominator, values in contributions.items():
             prime_contribution_rows.append({
                 "modulus": frame_row["modulus"],
@@ -366,6 +468,10 @@ def project_reduced_denominator_interference_receipt(
             previous = aggregate.get(denominator, (0.0, 0.0, 0.0))
             aggregate[denominator] = tuple(
                 old + new for old, new in zip(previous, values))
+            if denominator in aggregate_lags:
+                aggregate_lags[denominator] += lag_contributions[denominator]
+            else:
+                aggregate_lags[denominator] = lag_contributions[denominator]
     _require_no_mixed_high_q_packet(mixed_pair_count)
 
     rows = tuple({
@@ -403,6 +509,17 @@ def project_reduced_denominator_interference_receipt(
     primewise_classification = classify_primewise_denominator_signs(
         prime_contribution_rows,
         tuple(row["reduced_denominator"] for row in nonzero_rows))
+    selected_lags = {
+        row["reduced_denominator"]: aggregate_lags[
+            row["reduced_denominator"]]
+        for row in nonzero_rows}
+    lag_classification = classify_near_lag_mass(
+        selected_lags, baseline["row_count"])
+    lag_reconstruction_errors = tuple(
+        (row["reduced_denominator"],
+         float(np.sum(selected_lags[row["reduced_denominator"]])
+               - row["off_diagonal_window_interference"]))
+        for row in nonzero_rows)
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -416,6 +533,7 @@ def project_reduced_denominator_interference_receipt(
         "positive_nonzero_denominator_count": len(positive_rows),
         "nonzero_denominator_count": len(nonzero_rows),
         "prime_contribution_rows": tuple(prime_contribution_rows),
+        "lag_reconstruction_errors": lag_reconstruction_errors,
         "active_window_boolean_cross_rayleigh": active_total,
         "full_residue_boolean_cross_rayleigh": full_total,
         "off_diagonal_window_boolean_cross_rayleigh": off_diagonal_total,
@@ -426,6 +544,7 @@ def project_reduced_denominator_interference_receipt(
             nonshared_single_pair_count),
         **classification,
         **primewise_classification,
+        **lag_classification,
         **obstruction,
         "finite_reduced_denominator_interference_measured": True,
         "uniform_signed_denominator_interference_proved": False,

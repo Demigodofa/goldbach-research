@@ -9652,5 +9652,48 @@ The next bounded question moves inside each `Q`. Group the off-diagonal term
 after prime aggregation by cyclic residue lag `h=r-s`, and call a lag near when
 `min(h,Q-h)<=Q/R`, with `R=28`. Test whether at least two of the three channels
 place at least `75%` of `sum_h |C_(Q,h)|` in near lags. Failure rejects a
-small-lag Dirichlet-kernel mechanism while retaining the exact lag expansion;
-success isolates a narrower arithmetic sum for analysis.
+near-lag absolute-mass concentration hypothesis while retaining the exact lag
+expansion; success isolates a narrower arithmetic sum for analysis.
+
+## 2026-09-11: near lags supply the sign but not most absolute mass
+
+For each fixed `Q`, the direct packet interference is now decomposed exactly
+after prime aggregation as
+
+`C_(Q,h)=2Q Re(K_Q(h) sum_r b_(r+h) conjugate(c_r))`, `h != 0`,
+
+where `K_Q(h)=R^-1 sum_(ell=R)^(2R-1)e(h ell/Q)`. FFT correlation uses the
+orientation `h=r-s`. The sums over `h` reconstruct the three reviewed
+off-diagonal channel totals with maximum error `2.1e-15`.
+
+The declared absolute-mass concentration test fails on every channel. With
+near defined by `min(h,Q-h)R<=Q`, the near shares of `sum_h|C_(Q,h)|` are
+
+- `Q=5005`: `.5084107`;
+- `Q=6006`: `.5041717`;
+- `Q=10010`: `.5178499`.
+
+None reaches `.75`. Independent review verified the FFT identity,
+normalization, prime-before-absolute aggregation, cyclic cutoff, values, and
+tests. Seven focused tests pass normally and under Python optimization.
+
+The signed split behaves differently. Near-lag sums are respectively
+`+.6497109,+.6262379,+.0657428`, each larger than its final positive channel
+total; far-lag sums are `-.0104656,-.1004062,-.0182900`. Thus near lags supply
+the favorable sign in all three finite channels while far lags partly cancel
+it.
+
+Pursuit status: `changed-under-evidence`. Abandon only the hypothesis that the
+kernel main lobe contains at least `75%` of total lag variation. Preserve the
+exact lag expansion and the finite positive signed-near observation; do not
+misstate the failed absolute-mass test as rejection of a signed small-lag
+mechanism. No uniform lag estimate, signed prime correlation, or Goldbach
+claim is proved.
+
+The next arithmetic question is whether the cutoff forces the full linked
+conductor core, not merely the shared prime: `77|Q` on every left-only high-`Q`
+packet and `143|Q` on every right-only packet, hence `1001|Q` whenever they
+interfere. Prove or falsify this factor by factor on the exact support, then
+seek a CRT split `Q=1001*k` for the signed near-lag term. Any surviving cell
+that loses a conductor prime falsifies the divisibility step; a CRT
+reconstruction residual falsifies the proposed representation.
