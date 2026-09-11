@@ -432,6 +432,8 @@ def project_primewise_pair_rayleigh_receipt(
     covariance, _ = project_one_frequency_covariance(
         scale_modulus, frames[()])
     baseline_transform, _ = covariance_inverse_root(covariance)
+    lifted_transform = symmetric_square_transform(
+        baseline_transform) @ trace_traceless_transform()
     differences = {
         excluded: trace_traceless_difference_from_frame(
             frame, baseline_transform)
@@ -455,26 +457,38 @@ def project_primewise_pair_rayleigh_receipt(
     for frame_row in frames[()]["rows"]:
         modulus = frame_row["modulus"]
         prime_differences = {}
+        prime_active = {}
+        prime_full = {}
         for excluded in exclusions:
             receipt = lifted_endpoint_residue_gram_receipt(
                 modulus, row_count, ell_freeze,
                 divisor_lower, divisor_upper, excluded)
-            prime_frame = {
-                "aggregate_active_window_residue_energy_gram": receipt[
-                    "active_window_residue_energy_gram"],
-                "aggregate_full_residue_energy_gram": receipt[
-                    "full_residue_energy_gram"],
-            }
+            active_gram = np.asarray(
+                receipt["active_window_residue_energy_gram"])
+            full_gram = np.asarray(receipt["full_residue_energy_gram"])
+            active = lifted_transform.T @ active_gram @ lifted_transform
+            full = lifted_transform.T @ full_gram @ lifted_transform
+            prime_active[excluded] = (active + active.T) / 2
+            prime_full[excluded] = (full + full.T) / 2
             prime_differences[excluded] = (
-                trace_traceless_difference_from_frame(
-                    prime_frame, baseline_transform))
+                prime_active[excluded] - .5 * prime_full[excluded])
         prime_cross = (
             prime_differences[conductors] - prime_differences[left]
             - prime_differences[right] + prime_differences[()])
+        active_cross = (
+            prime_active[conductors] - prime_active[left]
+            - prime_active[right] + prime_active[()])
+        full_cross = (
+            prime_full[conductors] - prime_full[left]
+            - prime_full[right] + prime_full[()])
         rows.append({
             "modulus": modulus,
             "fragile_direction_cross_rayleigh": float(
                 fragile @ prime_cross[1:, 1:] @ fragile),
+            "active_window_cross_rayleigh": float(
+                fragile @ active_cross[1:, 1:] @ fragile),
+            "minus_half_full_cross_rayleigh": float(
+                -.5 * fragile @ full_cross[1:, 1:] @ fragile),
         })
 
     contribution_sum = sum(
@@ -497,6 +511,33 @@ def project_primewise_pair_rayleigh_receipt(
     fraction_passes = (
         nonnegative_fraction >= nonnegative_fraction_threshold)
     concentration_passes = largest_share <= maximum_positive_mass_share
+
+    def component_summary(key):
+        values = tuple(row[key] for row in rows)
+        component_positive_mass = sum(max(0.0, value) for value in values)
+        if not component_positive_mass:
+            raise ArithmeticError(f"{key} has no positive mass")
+        component_nonnegative_count = sum(value >= 0 for value in values)
+        largest_index = max(range(len(rows)), key=lambda index: values[index])
+        component_largest_share = (
+            values[largest_index] / component_positive_mass)
+        component_fraction = component_nonnegative_count / len(rows)
+        return {
+            "sum": sum(values),
+            "positive_mass": component_positive_mass,
+            "negative_mass": -sum(min(0.0, value) for value in values),
+            "nonnegative_count": component_nonnegative_count,
+            "nonnegative_fraction": component_fraction,
+            "largest_positive_contributor": rows[largest_index]["modulus"],
+            "largest_positive_mass_share": component_largest_share,
+            "broad_sign_falsifier_passes": bool(
+                component_fraction >= nonnegative_fraction_threshold
+                and component_largest_share <= maximum_positive_mass_share),
+        }
+
+    active_summary = component_summary("active_window_cross_rayleigh")
+    full_subtraction_summary = component_summary(
+        "minus_half_full_cross_rayleigh")
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -517,6 +558,12 @@ def project_primewise_pair_rayleigh_receipt(
         "positive_mass_concentration_falsifier_passes": concentration_passes,
         "broad_primewise_sign_hypothesis_passes": bool(
             fraction_passes and concentration_passes),
+        "active_window_component": active_summary,
+        "minus_half_full_component": full_subtraction_summary,
+        "active_component_broad_sign_hypothesis_passes": active_summary[
+            "broad_sign_falsifier_passes"],
+        "full_subtraction_broad_sign_candidate_passes": (
+            full_subtraction_summary["broad_sign_falsifier_passes"]),
         "uniform_primewise_cross_rayleigh_sign_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,

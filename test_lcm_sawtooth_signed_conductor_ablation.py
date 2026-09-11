@@ -202,6 +202,22 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         self.assertFalse(receipt[
             "positive_mass_concentration_falsifier_passes"])
         self.assertFalse(receipt["broad_primewise_sign_hypothesis_passes"])
+        active = receipt["active_window_component"]
+        self.assertEqual(active["nonnegative_count"], 13)
+        self.assertEqual(active["largest_positive_contributor"], 167)
+        self.assertAlmostEqual(
+            active["largest_positive_mass_share"], .3668353024206913)
+        full_subtraction = receipt["minus_half_full_component"]
+        self.assertEqual(full_subtraction["nonnegative_count"], 20)
+        self.assertEqual(
+            full_subtraction["largest_positive_contributor"], 191)
+        self.assertAlmostEqual(
+            full_subtraction["largest_positive_mass_share"],
+            .20158411406592963)
+        self.assertFalse(receipt[
+            "active_component_broad_sign_hypothesis_passes"])
+        self.assertTrue(receipt[
+            "full_subtraction_broad_sign_candidate_passes"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_primewise_receipt_guards_pair_and_thresholds(self):

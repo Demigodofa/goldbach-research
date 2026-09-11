@@ -9407,6 +9407,26 @@ direction at `M=127`; the preceding primewise test already rules out a simple
 termwise-positive proof. No uniform active contribution, lower frame, signed
 prime correlation, or Goldbach claim is proved.
 
+## 2026-09-11: only the smaller full subtraction is primewise broad
+
+The primewise receipt now splits every `(77,143)` contribution into its
+active-window and minus-half-full parts on the same fixed aggregate fragile
+vector. The active component fails the earlier breadth thresholds exactly as
+the net did: only `13/24` primes are nonnegative, and `m=167` supplies
+`.3668353` of positive active mass.
+
+The smaller full-energy subtraction behaves differently. It is nonnegative
+for `20/24=.833333` primes, and its largest positive contributor `m=191`
+supplies only `.2015841` of positive mass. It therefore passes the declared
+`75%` breadth and `25%` concentration thresholds. Its aggregate contribution
+is `+.11851057`, compared with the signed active sum `+.97550910`.
+
+Pursuit status: `changed-under-evidence`. Reject a broad primewise sign for
+the leading active-window component. Preserve the minus-half-full component
+as a smaller but more regularly signed analytic candidate. It cannot prove
+the full lower frame alone, and no uniform sign, signed prime correlation, or
+Goldbach claim is established.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`
