@@ -2450,6 +2450,140 @@ def residue_orbit_prime_weight_covariance_receipt(
     }
 
 
+def residue_orbit_conservation_covariance_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_unexplained_frobenius_ratio=.5,
+        minimum_explained_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_unexplained_frobenius_ratio)
+            or not 0 <= maximum_unexplained_frobenius_ratio <= 1):
+        raise ValueError("unexplained Frobenius ratio gate must lie in [0, 1]")
+    if (type(minimum_explained_dyadic_block_count) is not int
+            or minimum_explained_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum explained dyadic block count must be nonnegative")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    targets = tuple(base["orbit_weight_discrepancy_rows"])
+    discrepancies = np.asarray(tuple(
+        base["orbit_weight_discrepancy_rows"][target]
+        for target in targets), dtype=np.float64)
+    orbit_sizes = np.asarray(tuple(
+        len(orbit) for orbit in base["reflection_orbits"]),
+        dtype=np.float64)
+    conservation_values = discrepancies @ orbit_sizes
+    row_scales = np.maximum(
+        1.0, np.sum(np.abs(discrepancies * orbit_sizes), axis=1))
+    maximum_conservation_relative_error = float(
+        np.max(np.abs(conservation_values) / row_scales))
+
+    orbit_count = discrepancies.shape[1]
+    pairs = tuple(
+        (left, right)
+        for left in range(orbit_count)
+        for right in range(left + 1, orbit_count))
+    constraint_matrix = np.zeros((orbit_count, len(pairs)), dtype=np.float64)
+    for column, (left, right) in enumerate(pairs):
+        constraint_matrix[left, column] = orbit_sizes[right]
+        constraint_matrix[right, column] = orbit_sizes[left]
+    constraint_rank = int(np.linalg.matrix_rank(constraint_matrix))
+    if constraint_rank != orbit_count:
+        raise ValueError("off-diagonal conservation constraint is rank deficient")
+
+    dyadic_conservation_summaries = {}
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_indices = np.asarray(tuple(
+            index for index, target in enumerate(targets)
+            if block_lower <= target < block_upper), dtype=np.int64)
+        block_rows = discrepancies[block_indices]
+        covariance = block_rows.T @ block_rows
+        diagonal = np.diag(covariance).copy()
+        off_diagonal_covariance = covariance.copy()
+        np.fill_diagonal(off_diagonal_covariance, 0.0)
+        required_action = -(diagonal * orbit_sizes)
+        minimum_norm_entries = np.linalg.lstsq(
+            constraint_matrix, required_action, rcond=None)[0]
+        forced_covariance = np.zeros_like(off_diagonal_covariance)
+        for value, (left, right) in zip(minimum_norm_entries, pairs):
+            forced_covariance[left, right] = value
+            forced_covariance[right, left] = value
+        unexplained_covariance = off_diagonal_covariance - forced_covariance
+        off_diagonal_norm = float(
+            np.linalg.norm(off_diagonal_covariance, ord="fro"))
+        if off_diagonal_norm <= 0:
+            raise ValueError("off-diagonal covariance has zero Frobenius norm")
+        unexplained_norm = float(
+            np.linalg.norm(unexplained_covariance, ord="fro"))
+        forced_norm = float(np.linalg.norm(forced_covariance, ord="fro"))
+        required_scale = max(1.0, float(np.linalg.norm(required_action)))
+        decomposition_scale = max(1.0, off_diagonal_norm ** 2)
+        unexplained_ratio = unexplained_norm / off_diagonal_norm
+        dyadic_conservation_summaries[block] = {
+            "target_count": len(block_indices),
+            "empirical_covariance_conservation_relative_error": float(
+                np.linalg.norm(covariance @ orbit_sizes) / required_scale),
+            "forced_constraint_relative_error": float(
+                np.linalg.norm(
+                    forced_covariance @ orbit_sizes - required_action)
+                / required_scale),
+            "forced_to_empirical_frobenius_inner_product": float(
+                np.sum(forced_covariance * off_diagonal_covariance)),
+            "forced_frobenius_norm": forced_norm,
+            "unexplained_frobenius_norm": unexplained_norm,
+            "off_diagonal_frobenius_norm": off_diagonal_norm,
+            "unexplained_frobenius_ratio": unexplained_ratio,
+            "forced_squared_frobenius_fraction": (
+                forced_norm ** 2 / off_diagonal_norm ** 2),
+            "pythagorean_relative_error": abs(
+                forced_norm ** 2 + unexplained_norm ** 2
+                - off_diagonal_norm ** 2) / decomposition_scale,
+            "passes_conservation_explanation_gate": bool(
+                unexplained_ratio
+                <= maximum_unexplained_frobenius_ratio),
+        }
+    if minimum_explained_dyadic_block_count > len(
+            dyadic_conservation_summaries):
+        raise ValueError(
+            "minimum explained dyadic block count exceeds measured blocks")
+    explained_dyadic_block_count = sum(
+        row["passes_conservation_explanation_gate"]
+        for row in dyadic_conservation_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_sizes": tuple(int(value) for value in orbit_sizes),
+        "orbit_count": orbit_count,
+        "tested_target_count": len(targets),
+        "off_diagonal_constraint_rank": constraint_rank,
+        "maximum_conservation_relative_error": (
+            maximum_conservation_relative_error),
+        "maximum_unexplained_frobenius_ratio_gate": (
+            maximum_unexplained_frobenius_ratio),
+        "minimum_explained_dyadic_block_count_gate": (
+            minimum_explained_dyadic_block_count),
+        "dyadic_conservation_summaries": dyadic_conservation_summaries,
+        "explained_dyadic_block_count": explained_dyadic_block_count,
+        "conservation_covariance_mechanism_gate_passes": bool(
+            explained_dyadic_block_count
+            >= minimum_explained_dyadic_block_count),
+        "finite_conservation_covariances_measured": True,
+        "conservation_covariance_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

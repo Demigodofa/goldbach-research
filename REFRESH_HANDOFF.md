@@ -14112,8 +14112,72 @@ Measure the unexplained ratio
 `rho_B=||A_B-A_B^0||_F/||A_B||_F`
 
 and freeze the conservation-mechanism gate as `rho_B<=.5` in at least five of
-seven blocks.  Passing would show that exact total-weight conservation alone
-accounts for at least three quarters of squared cross-covariance energy in
-most blocks.  Failure would prove that substantial cross-orbit covariance
-remains beyond the conservation law and requires a further arithmetic
-mechanism.  Either outcome preserves `D_N`, `C(O)`, and their exact product.
+seven blocks.  Passing would show that the exact total-weight conservation
+constraint, together with the empirical diagonal variances, accounts for at
+least three quarters of squared cross-covariance energy in most blocks.
+Failure would prove that substantial cross-orbit covariance remains beyond
+that forced component and requires a further arithmetic mechanism.  Either
+outcome preserves `D_N`, `C(O)`, and their exact product.
+
+## 2026-09-11 conservation-forced covariance is a small component
+
+`residue_orbit_conservation_covariance_receipt` verifies
+
+`sum_O |O|D_N(O)=0`
+
+for all `761` targets with maximum relative error about `1.10e-14`.  The orbit
+sizes are sixteen copies of `2` and the fixed singleton size `1`.  The linear
+map from the `136` symmetric off-diagonal entries to `A_B s` has full row rank
+`17`, so each block has a unique minimum-Frobenius-norm forced component.
+
+In ascending dyadic order, the unexplained Frobenius ratios are
+
+`.98871, .98313, .97206, .95609, .96834, .95224, .92876`.
+
+All seven exceed `.5`; the frozen explanation count is therefore `0/7`.
+Equivalently, the squared Frobenius fractions in the minimum-norm component
+forced by conservation and the empirical diagonal variances are only
+
+`.02246, .03346, .05509, .08589, .06232, .09324, .13740`.
+
+The forced component and residual obey the Pythagorean identity within
+`5.7e-16` relative error.  Thus the small explained fractions are not caused
+by a nonorthogonal decomposition.
+
+Curiosity status: `exact-law-pass/mechanism-fail`, novelty `new-to-this-task`.
+Preserve the exact weighted conservation identity and its orthogonal
+minimum-norm covariance decomposition.  Reject the claim that this forced
+component accounts for most cross-orbit covariance.  Between about `86%` and
+`98%` of squared off-diagonal covariance energy remains beyond it in these
+blocks.
+
+Independent review verified the singleton, constraint map and rank,
+minimum-Frobenius property, covariance identity, Pythagorean interpretation,
+all ratios, and the scope correction that empirical diagonal variances are an
+input.  Focused normal and optimized tests pass.  No asymptotic covariance
+estimate, signed prime-correlation theorem, or Goldbach result has been proved.
+
+The next bounded question changes from spectral fitting to an arithmetic CRT
+decomposition.  For `N congruent 72 (mod 130)`, identify each odd admissible
+residue with `(a,b)=(r mod 5,r mod 13)`.  Verify that the admissible set is the
+Cartesian product
+
+`A_5={a mod 5:a!=0,2}` and `A_13={b mod 13:b!=0,7}`.
+
+Lift each reflection-orbit discrepancy to the resulting `3 by 11` table
+`D_N(a,b)`.  Since its uniform mean is zero, form the orthogonal two-way split
+
+`D_N(a,b)=D_N^5(a)+D_N^13(b)+D_N^int(a,b)`,
+
+where the first two terms are row and column means and the interaction has
+zero row and column means.  Verify exact reconstruction and energy
+orthogonality for all targets.  In each dyadic block measure
+
+`eta_B=(sum_N ||D_N^5||_2^2+||D_N^13||_2^2)
+       /sum_N ||D_N||_2^2`,
+
+using the full `33`-residue norm, and freeze the separable-local-factor gate as
+`eta_B>=.75` in at least five of seven blocks.  Passing would identify mod-5
+and mod-13 marginal fluctuations as the dominant arithmetic mechanism.
+Failure would show that joint CRT interaction dominates while preserving the
+exact decomposition for use with the existing source coefficients.

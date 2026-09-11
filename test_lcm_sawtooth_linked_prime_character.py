@@ -14,6 +14,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_adjacent_covariance_subspace_receipt,
     residue_orbit_covariance_mode_receipt,
     residue_orbit_covariance_subspace_receipt,
+    residue_orbit_conservation_covariance_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -128,6 +129,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_prime_weight_covariance_receipt(
                 minimum_stable_adjacent_pair_count=-1)
+        with self.assertRaises(ValueError):
+            residue_orbit_conservation_covariance_receipt(
+                maximum_unexplained_frobenius_ratio=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1088,6 +1092,55 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "finite_prime_weight_covariances_measured"])
         self.assertFalse(receipt[
             "prime_weight_covariance_stabilization_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_conservation_covariance(self):
+        receipt = residue_orbit_conservation_covariance_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["off_diagonal_constraint_rank"], 17)
+        self.assertEqual(len(receipt["dyadic_conservation_summaries"]), 7)
+        dyadic = receipt["dyadic_conservation_summaries"]
+        expected_unexplained_ratios = (
+            .9887075778192358, .9831299609019895,
+            .9720623865269723, .9560904166448615,
+            .9683412308690381, .9522419601361698,
+            .9287599944043562)
+        expected_forced_fractions = (
+            .022457325562820152, .03345547997685263,
+            .05509471669948699, .08589111519985489,
+            .06231526059903609, .09323524935602588,
+            .13740487279402008)
+        for row, unexplained, forced in zip(
+                dyadic.values(), expected_unexplained_ratios,
+                expected_forced_fractions):
+            self.assertAlmostEqual(
+                row["unexplained_frobenius_ratio"], unexplained, places=12)
+            self.assertAlmostEqual(
+                row["forced_squared_frobenius_fraction"], forced, places=12)
+            self.assertLess(row[
+                "empirical_covariance_conservation_relative_error"], 1e-12)
+            self.assertLess(row[
+                "forced_constraint_relative_error"], 1e-12)
+            self.assertLess(row["pythagorean_relative_error"], 1e-12)
+        self.assertEqual(
+            tuple(row["passes_conservation_explanation_gate"]
+                  for row in dyadic.values()),
+            (False, False, False, False, False, False, False))
+        self.assertEqual(receipt["explained_dyadic_block_count"], 0)
+        self.assertFalse(receipt[
+            "conservation_covariance_mechanism_gate_passes"])
+        self.assertLess(receipt[
+            "maximum_conservation_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "finite_conservation_covariances_measured"])
+        self.assertFalse(receipt["conservation_covariance_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
