@@ -39,6 +39,9 @@ class LcmSawtoothSignedDifferenceBinTests(unittest.TestCase):
             receipt["high_Q_ninety_percent_mass_packet_count"],
             receipt["high_Q_half_mass_packet_count"])
         top_packets = receipt["top_high_Q_packets"]
+        self.assertEqual(
+            len(receipt["high_Q_denominators"]),
+            receipt["high_Q_distinct_denominator_count"])
         self.assertTrue(all(
             top_packets[index][1] >= top_packets[index + 1][1]
             for index in range(len(top_packets) - 1)))

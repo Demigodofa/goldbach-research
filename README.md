@@ -446,3 +446,10 @@ ten leading `m=503` packets: every active/full L2 ratio lies between `.880`
 and `1.467`. The exact packet/Parseval compression is a reviewed
 `new-to-this-task` aha candidate, while the uniform window and global residue-
 energy bounds remain open.
+
+The all-packet `m=251` residue calculation shows why the spectral window alone
+is insufficient: active-window L2 is `.995` of full-period L2, but averaging
+across rows supplies a further `.0202`, approximately `1/A`. The `A`-scaled
+aggregate is `.930`; selected `m=503` packets are much less uniform, with a
+biased top-ten aggregate `6.33`. The next target is an aggregate row-by-`Q`
+large-sieve bound, not constant-one cancellation for every packet.

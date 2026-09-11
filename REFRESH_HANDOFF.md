@@ -8247,3 +8247,62 @@ The proof route now has two explicit obligations:
 A power-growing window ratio or coefficient-energy quotient falsifies the
 corresponding component. Varying logs, prime aggregation, the signed prime-
 correlation estimate, and Goldbach remain OPEN.
+
+## 2026-09-11: window L2 control alone loses the row-mean saving
+
+The residue-energy calculation was extended from the leading packets to all
+44 exact `Q>mA` packets at `m=251`. With `E` denoting complete energy,
+
+`sum_Q Q sum_r|D_Q(r)|^2/E^2 = 5858.3786`,
+
+while the active-window version is `5829.2641`. Their ratio is `.995030`, and
+the individual active/full window ratios range from `.70181` to `1.46684`.
+Thus the full-family window L2 equidistribution seen in the leading packets is
+real at this fixture.
+
+However,
+
+`sum_Q Q|C_Q|^2/E^2 = 117.8001`,
+
+only `.0202084` of the active-window L2 quantity. Jensen loses a factor
+`49.48`, so window L2 control by itself cannot explain or prove the row mean.
+The exact scale-normalized aggregate is
+
+`A sum_Q Q|C_Q|^2 / sum_Q Q mean_(ell in I)|T_Q(ell)|^2 = .929586`.
+
+This is close to the `1` predicted by square-root cancellation across `A=46`
+rows, but that behavior is not uniform packet by packet. On the ten leading
+`m=503` packets, the corresponding individual factors range from `1.544` to
+`20.422`; their deliberately biased top-ten aggregate is `6.33188`. The all-
+packet `m=503` aggregate remains unmeasured.
+
+Independent review PASSed the all-packet wrapper, common normalizations,
+Parseval/Jensen identities, tests, and receipts. It corrected the scope: finite
+values up to `20.422` reject constant-one or any predeclared smaller constant,
+but do not falsify an unspecified uniform `O(1)` or `N^epsilon` theorem.
+
+Preserved hypothesis boundary:
+
+- The additive transform and finite active/full L2 observations remain
+  `supported` and active.
+- The conjunction "window L2 equidistribution plus Jensen supplies the needed
+  packet bound" is `directly-contradicted` at `m=251`; unchanged retries are
+  blocked.
+- Per-packet constant-one row cancellation is `directly-contradicted` on the
+  selected `m=503` leaders. A general `O(1)` or `N^epsilon` bound remains
+  `proposed`, not rejected.
+- Aggregate row cancellation is `supported` at `m=251` and on the biased top-
+  ten `m=503` subset with cost `6.33`; attention stays active pending the full
+  family or an analytic estimate.
+
+The concrete next theorem target is the aggregate large-sieve form
+
+`sum_(Q>mA) Q|A^(-1)sum_(ell in I)T_Q(ell)|^2`
+
+` <= N^epsilon A^(-1) sum_(Q>mA) Q A^(-1)sum_(ell in I)|T_Q(ell)|^2`.
+
+It retains cancellation across both rows and `Q` instead of demanding a
+uniform bound for each packet. A power-growing aggregate quotient falsifies
+it. The full `m=503` computation needs a more efficient all-residue grouping;
+no result is claimed until that route is implemented and captured. The signed
+prime-correlation estimate and Goldbach remain OPEN.

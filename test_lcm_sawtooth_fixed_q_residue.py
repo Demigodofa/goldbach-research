@@ -23,6 +23,12 @@ class LcmSawtoothFixedQResidueTests(unittest.TestCase):
             packet["additive_transform_parseval_relative_error"], 1e-12)
         self.assertGreaterEqual(
             packet["active_window_transform_l2_over_full_period"], 0)
+        self.assertAlmostEqual(
+            packet["row_count_scaled_mean_square_over_l2"],
+            10 * packet["active_window_mean_square_over_l2"])
+        self.assertAlmostEqual(
+            packet["Q_weighted_residue_l2_over_complete_squared"],
+            target * packet["residue_l2_over_complete_squared"])
         for split in packet["crt_prime_split_metrics"]:
             self.assertTrue(
                 0 <= split["leading_singular_energy_fraction"] <= 1)

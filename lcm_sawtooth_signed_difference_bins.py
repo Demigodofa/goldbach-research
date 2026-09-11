@@ -183,6 +183,7 @@ def signed_difference_bin_receipt(
         "high_Q_signed_over_complete": high_q_signed,
         "high_Q_absolute_over_complete": high_q_absolute,
         "high_Q_distinct_denominator_count": len(high_q_group_sums),
+        "high_Q_denominators": tuple(sorted(high_q_group_sums)),
         "high_Q_top_1_5_10_20_packet_shares": top_packet_shares,
         "high_Q_half_mass_packet_count": packet_count_for_fraction(.5),
         "high_Q_ninety_percent_mass_packet_count": (

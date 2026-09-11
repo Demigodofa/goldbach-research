@@ -197,9 +197,20 @@ def fixed_q_residue_receipt(
             "additive_transform_parseval_relative_error": float(
                 abs(full_transform_l2 - np.sum(np.abs(values) ** 2))
                 / full_transform_l2 if full_transform_l2 else 0.0),
+            "residue_l2_over_complete_squared": float(
+                np.sum(np.abs(values) ** 2) / complete_energy ** 2),
+            "Q_weighted_residue_l2_over_complete_squared": float(
+                target * np.sum(np.abs(values) ** 2)
+                / complete_energy ** 2),
             "active_window_transform_l2_over_full_period": (
                 active_transform_l2 / full_transform_l2
                 if full_transform_l2 else 0.0),
+            "active_window_mean_square_over_l2": float(
+                abs(transform_packet) ** 2 / active_transform_l2
+                if active_transform_l2 else 0.0),
+            "row_count_scaled_mean_square_over_l2": float(
+                row_count * abs(transform_packet) ** 2 / active_transform_l2
+                if active_transform_l2 else 0.0),
             "crt_prime_split_metrics": _crt_tensor_metrics(
                 target, units, centered),
             "ramanujan_kernel_sum": float(ramanujan_mean),

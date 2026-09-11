@@ -6736,3 +6736,16 @@ leading `m=251` and ten leading `m=503` packets, with independent review PASS.
 This finite prediction survived its next-scale falsifier. The candidate route
 is a window-equidistribution bound for `T_Q`, followed by a global bound for
 `sum_Q Q sum_r|D_Q(r)|^2`. Neither estimate is proved.
+
+### 2026-09-11 continuation: row means require aggregate cancellation
+
+Across all 44 high-`Q` packets at `m=251`, active-window/full-period weighted
+L2 is `.99503`, but Jensen leaves `5829.26 E^2` against the actual weighted
+packet square `117.80 E^2`. The missing row-mean factor is `.020208`, close to
+`1/A`; its `A`-scaled aggregate is `.92959`. Individual selected `m=503`
+packets instead cost as much as `20.42`, and their biased top-ten aggregate is
+`6.3319`. Independent review PASSed the receipts and corrected the scope:
+these finite values reject constant-one/small-constant per-packet cancellation,
+not an unspecified `O(1)` or `N^epsilon` bound. The live target is now an
+aggregate large-sieve inequality over rows and exact `Q`; all-packet `m=503`
+remains unmeasured.
