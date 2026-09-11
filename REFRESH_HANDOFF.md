@@ -11927,3 +11927,78 @@ an independently evaluated cotangent-sum formula must reconstruct every
 fully resonant count-`4` `(n,S)` value to natural-scale relative error at most
 `1e-12`.  Failure rejects reduction to classical two-cotangent factors while
 retaining the count decomposition as a generalized fourfold cotangent sum.
+
+## 2026-09-11: primitive cotangents are divisor-sawtooth transforms
+
+The arithmetic identification question has a more direct answer than the
+proposed pairing into classical two-cotangent sums.  For every integer
+`D >= 3` and frequency `n`, define
+
+`s_M(n)=0` if `n == 0 (mod M)`, and otherwise
+`s_M(n)=M-2*(n mod M)`.
+
+Then the primitive cotangent Fourier transform is exactly
+
+`sum_(a mod D, gcd(a,D)=1) cot(pi*a/D) e_D(a*n)
+   = i sum_(M|D) mu(D/M) s_M(n)`.
+
+This follows by inserting
+`1_(gcd(a,D)=1)=sum_(d|gcd(a,D)) mu(d)`, putting `M=D/d`, and using the full
+residue cotangent transform
+`sum_(b=1)^(M-1) cot(pi*b/M)e_M(b*n)=i*s_M(n)`.
+Fourier inversion therefore expresses each primitive cotangent coefficient
+as a divisor combination of linear sawtooth weights.  This is an exact bridge
+back to polynomial weights with a new arithmetic ingredient: the divisor
+lattice and its Moebius signs.
+
+Direct finite transforms and inverses were checked for endpoint denominators
+`77,130,143,70`.  The maximum forward natural-scale relative error was
+`3.891967878542638e-14`; the maximum inverse relative error was
+`7.90021862989749e-15`.  Sample exact transform values include
+`T_77(1)=61i`, `T_77(11)=56i`, `T_143(1)=121i`, and
+`T_143(11)=130i`.
+
+Replacing both cotangent endpoint sequences in each count-`2` family source
+by this independently evaluated inverse transform reconstructs the source
+coefficient dictionaries with maximum relative error
+`2.1371793224034263e-14`.  Correlating those two count-`2` sources is exactly
+the count-`4` part of the four-endpoint correlation.  Every fully resonant
+count-`4` `(n,S)` value was reconstructed for the `q=77` and `q=91` cases:
+
+| quotient | lag | maximum sector natural-scale relative error | direct conditioned reconstruction error |
+|---:|---:|---:|---:|
+| `77` | `130` | `2.1582558203706833e-14` | `1.0074969802637514e-14` |
+| `91` | `110` | `8.275983562541567e-15` | `3.6408451883105274e-15` |
+
+Thus the declared reconstruction gate passes without using a classical
+two-cotangent product formula.  Preserve the generalized cotangent sums too;
+this result supplies a stronger available representation rather than proving
+that other representations are impossible or useless.  It also vindicates
+the qualification that polynomial-weight identities should remain available:
+the cotangent component itself is Fourier-equivalent to explicitly linear
+weights once Moebius restriction to primitive residues is included.
+
+Curiosity status: `aha`, novelty `new-to-this-task`.  This is an exact finite
+identity and reconstruction, not a bound.  It proves no uniform source-sum,
+prime-distribution, or signed prime-correlation estimate, so the Goldbach gap
+remains open.
+
+Independent review derived the full-residue transform and Moebius restriction,
+checked the inverse DFT sign and odd pairing, verified that count `4` is the
+left count-`2` source correlated with the right count-`2` source, and audited
+the sector eigenvalues, common Ramanujan multipliers, natural scales, guards,
+and proof flags.  A separate sweep over every `D=3,...,50` had maximum forward
+natural-scale error `2.25e-14`.  All three focused tests passed normally and
+under Python optimization, and the reviewer returned PASS with the same scope
+boundary: exact transform and finite reconstruction only.
+
+The next bounded question asks whether the Moebius signs do any actual
+cancellation after the CRT/eigensector projection.  Expand the four
+cotangent factors by divisor level, aggregate terms by the product of their
+four Moebius signs, and reconstruct every fully resonant count-`4` sector for
+`q=77` and `q=91` to natural-scale error at most `1e-12`.  Compare the absolute
+mass before and after the positive- and negative-sign aggregates are combined.
+The mechanism would be demonstrated if the strong `q=77` case loses at least
+`.75` of that signed divisor-level mass while the weak `q=91` case loses at
+most `.25`; failure rejects this sign-only explanation while preserving the
+divisor-sawtooth representation for finer arithmetic tests.
