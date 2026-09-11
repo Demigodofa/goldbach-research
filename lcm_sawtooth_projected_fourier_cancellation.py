@@ -17,6 +17,22 @@ from lcm_sawtooth_resonant_source_sectors import (
 
 
 PROJECTED_LAGS = (130, 110)
+TWO_PRIME_QUOTIENT_LAGS = {
+    35: 286,
+    55: 182,
+    65: 154,
+    77: 130,
+    91: 110,
+    143: 70,
+}
+COUNT_FOUR_RECOMBINATION_TARGETS = {
+    35: .16118908808873234,
+    55: .3024507788824479,
+    65: .014327564985042195,
+    77: .06505818067801658,
+    91: .5047491987897079,
+    143: .09820822341044044,
+}
 
 
 def _imaginary_transform_table(denominator, period):
@@ -80,6 +96,62 @@ def _projected_fourier_total(
     }
 
 
+def _projected_fourier_identity_row(
+        period, lag, families, left_sources, right_sources, tolerance):
+    row = _projected_fourier_total(
+        period, lag, families[0], families[1])
+    direct_frequency_totals = _direct_fully_resonant_totals(
+        period, lag, left_sources, right_sources)
+    direct_total = complex(np.sum(direct_frequency_totals))
+    reconstruction_error = abs(row["signed_total"] - direct_total)
+    reconstruction_natural_scale_relative_error = (
+        reconstruction_error / max(1.0, row["absolute_fourier_mass"]))
+    row.update({
+        "direct_conditioned_total": (direct_total.real, direct_total.imag),
+        "reconstruction_absolute_error": reconstruction_error,
+        "reconstruction_natural_scale_relative_error": (
+            reconstruction_natural_scale_relative_error),
+        "projected_fourier_identity_passes": bool(
+            reconstruction_natural_scale_relative_error <= tolerance),
+    })
+    return row
+
+
+def _average_ranks(values):
+    order = sorted(range(len(values)), key=values.__getitem__)
+    ranks = [0.0] * len(values)
+    start = 0
+    while start < len(order):
+        stop = start + 1
+        while stop < len(order) and values[order[stop]] == values[order[start]]:
+            stop += 1
+        average_rank = (start + stop - 1) / 2
+        for position in range(start, stop):
+            ranks[order[position]] = average_rank
+        start = stop
+    return tuple(ranks)
+
+
+def _pearson_correlation(left, right):
+    left_mean = math.fsum(left) / len(left)
+    right_mean = math.fsum(right) / len(right)
+    centered_left = tuple(value - left_mean for value in left)
+    centered_right = tuple(value - right_mean for value in right)
+    denominator = math.sqrt(
+        math.fsum(value * value for value in centered_left)
+        * math.fsum(value * value for value in centered_right))
+    if denominator == 0:
+        return None
+    return math.fsum(
+        left_value * right_value
+        for left_value, right_value in zip(
+            centered_left, centered_right)) / denominator
+
+
+def _spearman_correlation(left, right):
+    return _pearson_correlation(_average_ranks(left), _average_ranks(right))
+
+
 def projected_fourier_cancellation_receipt(
         families=((77, 65), (143, 35)), lags=PROJECTED_LAGS,
         strong_maximum_cancellation_quotient=.25,
@@ -112,25 +184,8 @@ def projected_fourier_cancellation_receipt(
         period, *families[1])[2]
     rows = {}
     for lag in lags:
-        row = _projected_fourier_total(
-            period, lag, families[0], families[1])
-        direct_frequency_totals = _direct_fully_resonant_totals(
-            period, lag, left_sources, right_sources)
-        direct_total = complex(np.sum(direct_frequency_totals))
-        reconstruction_error = abs(row["signed_total"] - direct_total)
-        reconstruction_natural_scale_relative_error = (
-            reconstruction_error
-            / max(1.0, row["absolute_fourier_mass"]))
-        row.update({
-            "direct_conditioned_total": (
-                direct_total.real, direct_total.imag),
-            "reconstruction_absolute_error": reconstruction_error,
-            "reconstruction_natural_scale_relative_error": (
-                reconstruction_natural_scale_relative_error),
-            "projected_fourier_identity_passes": bool(
-                reconstruction_natural_scale_relative_error <= tolerance),
-        })
-        rows[lag] = row
+        rows[lag] = _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
 
     strong_row = rows[lags[0]]
     weak_row = rows[lags[1]]
@@ -155,6 +210,59 @@ def projected_fourier_cancellation_receipt(
         "weak_cancellation_gate_passes": weak_gate,
         "fourier_cancellation_discriminator_passes": bool(
             strong_gate and weak_gate),
+        "all_projected_fourier_identities_pass": all(
+            row["projected_fourier_identity_passes"]
+            for row in rows.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def two_prime_projected_fourier_holdout_receipt(
+        minimum_holdout_spearman_correlation=.8, tolerance=1e-12):
+    if not -1 <= minimum_holdout_spearman_correlation <= 1:
+        raise ValueError("minimum Spearman correlation must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    families = ((77, 65), (143, 35))
+    period = 10010
+    left_sources = _one_orientation_count_source_modes(
+        period, *families[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *families[1])[2]
+    rows = {
+        quotient: _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
+        for quotient, lag in TWO_PRIME_QUOTIENT_LAGS.items()}
+    fourier_quotients = {
+        quotient: row["fourier_cancellation_quotient"]
+        for quotient, row in rows.items()}
+    holdout_quotients = (35, 55, 65, 143)
+    holdout_spearman = _spearman_correlation(
+        tuple(fourier_quotients[q] for q in holdout_quotients),
+        tuple(COUNT_FOUR_RECOMBINATION_TARGETS[q]
+              for q in holdout_quotients))
+    all_quotients = tuple(TWO_PRIME_QUOTIENT_LAGS)
+    all_six_spearman = _spearman_correlation(
+        tuple(fourier_quotients[q] for q in all_quotients),
+        tuple(COUNT_FOUR_RECOMBINATION_TARGETS[q] for q in all_quotients))
+    return {
+        "families": families,
+        "arithmetic_period": period,
+        "quotients": tuple(TWO_PRIME_QUOTIENT_LAGS),
+        "discovery_quotients": (77, 91),
+        "holdout_quotients": holdout_quotients,
+        "fourier_cancellation_quotients": fourier_quotients,
+        "count_four_recombination_quotients": (
+            COUNT_FOUR_RECOMBINATION_TARGETS.copy()),
+        "holdout_spearman_correlation": holdout_spearman,
+        "all_six_spearman_correlation": all_six_spearman,
+        "minimum_holdout_spearman_correlation": (
+            minimum_holdout_spearman_correlation),
+        "holdout_rank_gate_passes": bool(
+            holdout_spearman is not None
+            and holdout_spearman >= minimum_holdout_spearman_correlation),
         "all_projected_fourier_identities_pass": all(
             row["projected_fourier_identity_passes"]
             for row in rows.values()),

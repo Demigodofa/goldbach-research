@@ -12202,3 +12202,55 @@ count-`4` sector recombination quotient is at least `.8`, with every projected
 identity reconstructed to natural-scale error at most `1e-12`.  Failure
 rejects the aggregate Fourier quotient as a stable proxy while preserving the
 exact summand formula for more local sign analysis.
+
+## 2026-09-11: Fourier cancellation perfectly ranks the two-prime holdout
+
+The post hoc `q=77,91` separation survives its predeclared holdout.  The exact
+projected Fourier calculation was extended to every two-prime quotient while
+keeping `77,91` out of the confirmatory rank gate:
+
+| `q` | Fourier cancellation quotient | count-`4` sector recombination quotient |
+|---:|---:|---:|
+| `35` | `.010906884721340548` | `.16118908808873234` |
+| `55` | `.024560020667301303` | `.3024507788824479` |
+| `65` | `.0005487547365190931` | `.014327564985042195` |
+| `77` | `.0045059566848989745` | `.06505818067801658` |
+| `91` | `.04566543309435243` | `.5047491987897079` |
+| `143` | `.006101857449924944` | `.09820822341044044` |
+
+On the holdout `q in {35,55,65,143}`, the Spearman rank correlation is exactly
+`1.0`, passing the declared `.8` gate.  The descriptive all-six correlation
+is also `1.0`: both statistics give the strict ascending order
+
+`65 < 77 < 143 < 35 < 55 < 91`.
+
+Every projected Parseval identity again reconstructs its direct conditioned
+count-`4` total at the `1e-12` natural-scale gate.  This is finite confirmatory
+evidence that, for this fixed period and pair of endpoint families, the
+aggregate cancellation among the Ramanujan-interval Fourier summands tracks
+the independently defined sector recombination strength.  It is stronger
+than a fitted threshold because the rank gate was frozen on four unseen
+quotients, but it is not evidence of a uniform law or stability under a new
+family geometry.
+
+Curiosity status: `confirmatory-pass`, novelty `new-to-this-task`.  Preserve
+the exact Fourier quotient as a promising diagnostic and possible analytic
+target.  The result concerns the finite fully resonant count-`4` component;
+it proves no uniform source, prime-distribution, or signed prime-correlation
+estimate.
+
+Independent review checked the refactor, quotient-to-lag map, frozen earlier
+targets, rank implementation, all six numerical fixtures, and every projected
+reconstruction.  It independently recovered the same rank vector and both
+Spearman values `1.0`, then ran all three tests normally and under Python
+optimization before returning PASS.  The all-six statistic remains
+descriptive because two of its cases were used for discovery.
+
+The next bounded question tests dimensional stability on the four untouched
+three-prime quotients `385,455,715,1001`.  Compute both the projected Fourier
+cancellation quotient and the count-`4` sector recombination quotient without
+using either value to set the gate.  Predeclare a Spearman correlation of at
+least `.8` across all four cases, with both exact constructions passing their
+`1e-12` reconstruction gates.  Failure confines the perfect ordering to the
+two-prime geometry; passing preserves the Fourier quotient as a
+dimension-stable finite target without implying a uniform estimate.
