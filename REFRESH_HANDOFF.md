@@ -9511,3 +9511,24 @@ is small in total Frobenius norm relative to the two single-removal changes
 a concrete finite reinforcement mechanism. It is not yet a uniform lower
 bound for such contributions and proves no lower frame, signed prime
 correlation, or Goldbach claim.
+
+## 2026-09-11: off-diagonal window phases reverse the interference sign
+
+`lcm_sawtooth_window_interference.py` proves the finite kernel identity for
+residue packets `b_r,c_r` modulo `Q`. Their active-window cross energy equals
+the full same-residue cross energy plus the `r != s` terms weighted by
+`K(h)=R^-1 sum_{ell=R}^{2R-1} e(h*ell/Q)`. Geometric summation gives
+`|K(h)|=|sin(pi*R*h/Q)|/(R*|sin(pi*h/Q)|)` for nonzero `h mod Q`, hence the
+standard `min(1,1/(R|sin(pi*h/Q)|))` bound.
+
+For the actual `(77,143)` fragile direction, the full diagonal interference
+is `-.23702124`. The off-diagonal window contribution is `+1.21253048`, or
+`5.115704` times the diagonal magnitude, producing active interference
+`+.97550925`. Thus the active-window sign reversal is exactly an off-diagonal
+finite-Dirichlet-kernel effect.
+
+Status: exact window-interference identity plus finite `aha-candidate`, novelty
+`new-to-this-task`. This identifies the signed sum that a proof must control;
+the pointwise kernel magnitude bound alone does not give its favorable sign
+across primes. No uniform off-diagonal estimate, lower frame, signed prime
+correlation, or Goldbach claim is proved.

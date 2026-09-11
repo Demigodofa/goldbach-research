@@ -696,5 +696,32 @@ def project_cluster_primewise_component_receipt(
     }
 
 
+def project_offdiagonal_window_reversal_receipt(
+        scale_modulus, conductors):
+    """Measure whether off-diagonal window phases reverse the full sign."""
+    split = project_active_full_pair_rayleigh_split_receipt(
+        scale_modulus, conductors)
+    diagonal = split["full_residue_boolean_cross_rayleigh"]
+    active = split["active_window_boolean_cross_rayleigh"]
+    off_diagonal = active - diagonal
+    if not diagonal:
+        raise ArithmeticError("full diagonal interference is zero")
+    sign_reversed = bool(diagonal < 0 < active and off_diagonal > 0)
+    return {
+        "scale_modulus": scale_modulus,
+        "conductors": split["conductors"],
+        "full_diagonal_boolean_interference": diagonal,
+        "off_diagonal_window_boolean_interference": off_diagonal,
+        "active_window_boolean_interference": active,
+        "off_diagonal_to_absolute_diagonal_ratio": (
+            off_diagonal / abs(diagonal)),
+        "off_diagonal_window_reverses_full_interference_sign": sign_reversed,
+        "finite_window_interference_reversal_measured": True,
+        "uniform_signed_off_diagonal_bound_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(project_signed_conductor_ablation_receipt(127))

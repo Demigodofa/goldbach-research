@@ -8,6 +8,7 @@ from lcm_sawtooth_signed_conductor_ablation import (
     project_cluster_pair_interaction_receipt,
     project_cluster_primewise_component_receipt,
     project_frozen_whitening_interaction_receipt,
+    project_offdiagonal_window_reversal_receipt,
     project_pair_matrix_interaction_receipt,
     project_primewise_pair_rayleigh_receipt,
     project_signed_conductor_ablation_receipt,
@@ -281,6 +282,24 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_cluster_primewise_component_receipt(
                 127, ((77, 143),), minimum_passing_fraction=0)
+
+    def test_m127_offdiagonal_window_interference_reverses_sign(self):
+        receipt = project_offdiagonal_window_reversal_receipt(127, (77, 143))
+        self.assertAlmostEqual(
+            receipt["full_diagonal_boolean_interference"],
+            -.23702123573859438)
+        self.assertAlmostEqual(
+            receipt["off_diagonal_window_boolean_interference"],
+            1.2125304838658841)
+        self.assertAlmostEqual(
+            receipt["active_window_boolean_interference"],
+            .9755092481272897)
+        self.assertAlmostEqual(
+            receipt["off_diagonal_to_absolute_diagonal_ratio"],
+            5.115704000476809)
+        self.assertTrue(receipt[
+            "off_diagonal_window_reverses_full_interference_sign"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 
 if __name__ == "__main__":
