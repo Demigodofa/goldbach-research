@@ -12143,3 +12143,62 @@ Fourier summands `z_(t,v)`, predeclare the cancellation quotient
 `rho_77 <= .25` and `rho_91 >= .50`.  Failure rejects that aggregate Fourier
 cancellation discriminator while retaining the exact diagonalization and
 Ramanujan-interval factors.
+
+## 2026-09-11: exact projection reveals cancellation in both cases
+
+The two-dimensional Parseval formula passes.  Extend each sparse count-`2`
+source by zero to `(Z/QZ)^2`.  For the fully resonant count-`4` correlation,
+the source-difference kernel is
+`1_(difference=g*r, r in U_q)` and has transform `c_q(t)`.  The spatial kernel
+is `1_(q|n)c_g(n)` and has transform
+`g*1_(gcd(v,g)=1)`.  Since both kernels are real and even, the raw conditioned
+total is exactly
+
+`B_g=(g/Q^2) sum_(t mod Q) c_q(t)
+                 sum_(v mod Q, gcd(v,g)=1)
+                 Fhat_L(t,v)*conjugate(Fhat_R(t,v))`.
+
+Substituting the Ramanujan-interval factorization for each `Fhat` reconstructs
+the direct cotangent count-`4` totals as follows:
+
+| quotient | raw signed total | Fourier absolute mass | `rho` | natural-scale reconstruction error |
+|---:|---:|---:|---:|---:|
+| `77` | `462021.00000000023` | `102535606.1562671` | `.0045059566848989745` | `7.493407927845051e-17` |
+| `91` | `4091159.9999999995` | `89589865.30461626` | `.04566543309435243` | `6.393171609769199e-16` |
+
+The strong-case gate `rho_77<=.25` passes, but the declared weak-case gate
+`rho_91>=.50` fails badly.  The proposed absolute-threshold discriminator is
+therefore false: both cases exhibit substantial signed cancellation among
+their exact Fourier summands.  The `q=77` quotient is nevertheless only
+`.0986732497552123` times the `q=91` quotient.  That tenfold relative
+separation was observed after the absolute gates were declared and is not a
+confirmed rule.
+
+This is the first exact coordinate system in this thread that both reduces
+the cotangent source to elementary arithmetic interval sums and measures
+their cancellation inside the actual fully resonant projection.  It locates
+the relevant signs in products of four Ramanujan interval sums weighted by
+`c_q(t)`.  It does not yet show a stable law across quotients or give a
+uniform bound.
+
+Curiosity status: `changed-under-evidence` with a preserved `aha` component;
+novelty `new-to-this-task`.  The exact factorization and diagonal projection
+survive; the `.25/.50` discriminator does not.  No uniform source,
+prime-distribution, or signed prime-correlation estimate follows.
+
+Independent review verified the transform tables and shifts, the complete
+`v` support, `c_q(t)` weights, `g/Q^2` normalization, direct raw target,
+natural scale, and both numerical quotients.  The reviewer reproduced the
+values and ran both tests normally and under Python optimization before
+returning PASS.  The relative tenfold separation is explicitly post hoc.
+
+The next bounded confirmatory question tests whether that relative separation
+tracks the already-measured count-`4` sector recombination rather than merely
+these two selected cases.  Compute the Fourier cancellation quotient for all
+six two-prime quotients `35,55,65,77,91,143`.  Treat `77,91` as discovery
+cases and `35,55,65,143` as the holdout.  Predeclare that on the four holdout
+cases the Spearman rank correlation between the Fourier quotient and the
+count-`4` sector recombination quotient is at least `.8`, with every projected
+identity reconstructed to natural-scale error at most `1e-12`.  Failure
+rejects the aggregate Fourier quotient as a stable proxy while preserving the
+exact summand formula for more local sign analysis.
