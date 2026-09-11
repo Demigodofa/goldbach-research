@@ -9322,3 +9322,23 @@ recomputed arithmetic whitening, or the Schur inverse. It is not a uniform
 estimate and proves no lower frame, signed prime correlation, or Goldbach
 claim. A sharper next question is to freeze the baseline whitening and repeat
 the pair test, separating basis feedback from the signed Schur interaction.
+
+## 2026-09-11: strongest interaction survives frozen whitening
+
+`project_frozen_whitening_interaction_receipt` holds the baseline `M=127`
+arithmetic inverse-root transform fixed while recomputing the active/full
+forms for the strongest pair `(77,143)`. The hypothesis required the frozen
+interaction to keep its sign and at least `75%` of the recomputed-whitening
+interaction.
+
+It passes. The frozen interaction is `+.00166344745`, retaining `.9768925`
+of the original `+.00170279477`, with the same sign. Thus changing the
+covariance whitening is not necessary for this finite nonadditivity and has
+only a small net effect on its magnitude. The effect persists on the
+active/full-through-Schur side of the pipeline.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. This controlled freeze
+does not yet separate cross-conductor terms already present in the active/full
+residue forms from nonlinearity in the Schur inverse, axial approximation, or
+moment-curve fit. It proves no uniform estimate, lower frame, signed prime
+correlation, or Goldbach claim.

@@ -79,15 +79,11 @@ def moment_curve_projective_fit(vector):
     }
 
 
-def project_axial_moment_curve_receipt(
-        scale_modulus, excluded_conductors=()):
-    """Fit the complete-block axial response axis in original coordinates."""
-    excluded_conductors = tuple(excluded_conductors)
-    frame = project_prime_block_lifted_endpoint_scan(
-        scale_modulus, excluded_conductors)
-    covariance, _ = project_one_frequency_covariance(
-        scale_modulus, frame, excluded_conductors)
-    arithmetic_transform, _ = covariance_inverse_root(covariance)
+def axial_moment_curve_fit_from_frame(frame, arithmetic_transform):
+    """Fit the axial response using a supplied arithmetic transform."""
+    arithmetic_transform = np.asarray(arithmetic_transform, dtype=float)
+    if arithmetic_transform.shape != (3, 3):
+        raise ValueError("arithmetic transform must be 3 by 3")
     trace_traceless = trace_traceless_transform()
     transform = symmetric_square_transform(
         arithmetic_transform) @ trace_traceless
@@ -111,11 +107,6 @@ def project_axial_moment_curve_receipt(
     actual_cosine = abs(float(whitened_axis @ actual_in_whitened))
     actual_distance = math.sqrt(max(0.0, 1 - actual_cosine ** 2))
     return {
-        "scale_modulus": scale_modulus,
-        "prime_count": frame["prime_count"],
-        "row_count": frame["row_count"],
-        "divisor_range": frame["divisor_range"],
-        "excluded_conductors": tuple(sorted(set(excluded_conductors))),
         "original_parameter_axis": tuple(
             float(value) for value in original_axis),
         "original_axis_normalized_constant_one": tuple(
@@ -123,6 +114,26 @@ def project_axial_moment_curve_receipt(
         "actual_selector_projective_distance": actual_distance,
         "actual_selector_angle_degrees": math.degrees(
             math.asin(actual_distance)),
+        **fit,
+    }
+
+
+def project_axial_moment_curve_receipt(
+        scale_modulus, excluded_conductors=()):
+    """Fit the complete-block axial response axis in original coordinates."""
+    excluded_conductors = tuple(excluded_conductors)
+    frame = project_prime_block_lifted_endpoint_scan(
+        scale_modulus, excluded_conductors)
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, frame, excluded_conductors)
+    arithmetic_transform, _ = covariance_inverse_root(covariance)
+    fit = axial_moment_curve_fit_from_frame(frame, arithmetic_transform)
+    return {
+        "scale_modulus": scale_modulus,
+        "prime_count": frame["prime_count"],
+        "row_count": frame["row_count"],
+        "divisor_range": frame["divisor_range"],
+        "excluded_conductors": tuple(sorted(set(excluded_conductors))),
         **fit,
         "moment_curve_selects_scaled_logarithm_proved": True,
         "uniform_moment_curve_alignment_proved": False,

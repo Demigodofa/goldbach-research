@@ -16,9 +16,17 @@ candidate mechanism, not prove uniform control or prime correlation.
 from itertools import combinations
 
 from lcm_sawtooth_axial_moment_curve import (
+    axial_moment_curve_fit_from_frame,
     project_axial_moment_curve_receipt,
 )
+from lcm_sawtooth_arithmetic_covariance_basis import (
+    covariance_inverse_root,
+    project_one_frequency_covariance,
+)
 from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
+from lcm_sawtooth_lifted_endpoint_frame import (
+    project_prime_block_lifted_endpoint_scan,
+)
 
 
 def classify_conductor_ablation(rows, upper_conductors, threshold=.005):
@@ -177,6 +185,68 @@ def project_cluster_pair_interaction_receipt(scale_modulus, conductors):
         "rows": tuple(rows),
         **classification,
         "finite_nonlinear_pair_interaction_measured": True,
+        "uniform_effective_log_mechanism_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def project_frozen_whitening_interaction_receipt(
+        scale_modulus, conductors, retention_threshold=.75):
+    """Compare a pair interaction with baseline whitening held fixed."""
+    conductors = tuple(sorted(set(conductors)))
+    if (len(conductors) != 2
+            or any(type(value) is not int or value < 2
+                   for value in conductors)):
+        raise ValueError("require exactly two distinct integer conductors")
+    if not 0 < retention_threshold <= 1:
+        raise ValueError("retention threshold must lie in (0,1]")
+    recomputed = project_cluster_pair_interaction_receipt(
+        scale_modulus, conductors)
+    recomputed_row = recomputed["rows"][0]
+    recomputed_interaction = recomputed_row["interaction_shift"]
+    if not recomputed_interaction:
+        raise ArithmeticError("recomputed pair interaction is zero")
+
+    baseline_frame = project_prime_block_lifted_endpoint_scan(scale_modulus)
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, baseline_frame)
+    baseline_transform, _ = covariance_inverse_root(covariance)
+
+    def fitted_parameter(excluded=()):
+        frame = (baseline_frame if not excluded
+                 else project_prime_block_lifted_endpoint_scan(
+                     scale_modulus, excluded))
+        parameter = axial_moment_curve_fit_from_frame(
+            frame, baseline_transform)["best_parameter"]
+        if parameter is None:
+            raise ArithmeticError(
+                f"frozen-whitening ablation {excluded} selected infinity")
+        return parameter
+
+    baseline_parameter = fitted_parameter()
+    left_parameter = fitted_parameter((conductors[0],))
+    right_parameter = fitted_parameter((conductors[1],))
+    joint_parameter = fitted_parameter(conductors)
+    left_shift = left_parameter - baseline_parameter
+    right_shift = right_parameter - baseline_parameter
+    joint_shift = joint_parameter - baseline_parameter
+    frozen_interaction = joint_shift - left_shift - right_shift
+    retained_fraction = abs(frozen_interaction / recomputed_interaction)
+    same_sign = frozen_interaction * recomputed_interaction > 0
+    passes = same_sign and retained_fraction >= retention_threshold
+    return {
+        "scale_modulus": scale_modulus,
+        "conductors": conductors,
+        "retention_threshold": retention_threshold,
+        "recomputed_whitening_interaction_shift": recomputed_interaction,
+        "frozen_whitening_left_shift": left_shift,
+        "frozen_whitening_right_shift": right_shift,
+        "frozen_whitening_joint_shift": joint_shift,
+        "frozen_whitening_interaction_shift": frozen_interaction,
+        "interaction_retained_fraction": retained_fraction,
+        "interaction_sign_preserved": same_sign,
+        "frozen_whitening_retention_hypothesis_passes": bool(passes),
         "uniform_effective_log_mechanism_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,

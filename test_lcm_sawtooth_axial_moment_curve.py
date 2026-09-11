@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 
 from lcm_sawtooth_axial_moment_curve import (
+    axial_moment_curve_fit_from_frame,
     moment_curve_projective_fit,
     project_axial_moment_curve_receipt,
 )
@@ -44,6 +45,8 @@ class LcmSawtoothAxialMomentCurveTests(unittest.TestCase):
             moment_curve_projective_fit(np.ones(2))
         with self.assertRaises(ValueError):
             moment_curve_projective_fit(np.zeros(3))
+        with self.assertRaises(ValueError):
+            axial_moment_curve_fit_from_frame({}, np.ones((2, 2)))
 
 
 if __name__ == "__main__":

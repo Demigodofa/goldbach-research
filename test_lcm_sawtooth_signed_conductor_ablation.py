@@ -4,6 +4,7 @@ from lcm_sawtooth_signed_conductor_ablation import (
     classify_conductor_ablation,
     classify_pair_interactions,
     project_cluster_pair_interaction_receipt,
+    project_frozen_whitening_interaction_receipt,
     project_signed_conductor_ablation_receipt,
 )
 
@@ -90,6 +91,27 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         self.assertTrue(
             receipt["nonlinear_pair_interaction_hypothesis_passes"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_m127_strongest_interaction_survives_frozen_whitening(self):
+        receipt = project_frozen_whitening_interaction_receipt(
+            127, (77, 143))
+        self.assertAlmostEqual(
+            receipt["frozen_whitening_interaction_shift"],
+            .0016634474513739228)
+        self.assertAlmostEqual(
+            receipt["interaction_retained_fraction"],
+            .9768925051459755)
+        self.assertTrue(receipt["interaction_sign_preserved"])
+        self.assertTrue(receipt[
+            "frozen_whitening_retention_hypothesis_passes"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_frozen_whitening_receipt_guards_pair_and_threshold(self):
+        with self.assertRaises(ValueError):
+            project_frozen_whitening_interaction_receipt(127, (77,))
+        with self.assertRaises(ValueError):
+            project_frozen_whitening_interaction_receipt(
+                127, (77, 143), retention_threshold=0)
 
 
 if __name__ == "__main__":
