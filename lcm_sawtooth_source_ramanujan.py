@@ -135,7 +135,9 @@ def source_ramanujan_mean_receipt(
         value for value in range(quotient)
         if math.gcd(value, quotient) == 1)
     conditioned_cache = {}
+    ramanujan_weight_cache = {}
     total = 0.0j
+    phase_removed_total = 0.0j
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     matched_source_residue_pairs = 0
@@ -157,11 +159,16 @@ def source_ramanujan_mean_receipt(
                         conditioned_sum = _conditioned_unit_exponential_sum(
                             period, lag, difference, frequency)
                         conditioned_cache[cache_key] = conditioned_sum
-                    contribution = (
-                        left_coefficient
-                        * np.conjugate(right_coefficient)
-                        * conditioned_sum)
+                    ramanujan_weight = ramanujan_weight_cache.get(frequency)
+                    if ramanujan_weight is None:
+                        ramanujan_weight = _ramanujan_sum(common, frequency)
+                        ramanujan_weight_cache[frequency] = ramanujan_weight
+                    mode_product = (
+                        left_coefficient * np.conjugate(right_coefficient))
+                    contribution = mode_product * conditioned_sum
                     total += contribution
+                    phase_removed_total += (
+                        mode_product * ramanujan_weight)
                     absolute_mode_contribution_mass += abs(contribution)
                     frequency_gcd = math.gcd(frequency, common)
                     frequency_gcd_totals[frequency_gcd] = (
@@ -173,10 +180,16 @@ def source_ramanujan_mean_receipt(
         prime_power - prime_power // prime
         for prime, prime_power in _prime_power_factors(period))
     source_mean = complex(total / unit_class_count)
+    phase_removed_source_mean = complex(
+        phase_removed_total / unit_class_count)
     normalized_absolute_mode_contribution_mass = (
         absolute_mode_contribution_mass / unit_class_count)
     source_mode_cancellation_quotient = (
         abs(source_mean) / normalized_absolute_mode_contribution_mass
+        if normalized_absolute_mode_contribution_mass > 0 else None)
+    phase_removed_cancellation_quotient = (
+        abs(phase_removed_source_mean)
+        / normalized_absolute_mode_contribution_mass
         if normalized_absolute_mode_contribution_mass > 0 else None)
     frequency_gcd_means = {
         divisor: complex(subtotal / unit_class_count)
@@ -244,6 +257,14 @@ def source_ramanujan_mean_receipt(
         "source_mode_cancellation_gate_passes": bool(
             source_mode_cancellation_quotient is not None
             and source_mode_cancellation_quotient
+            <= maximum_source_mode_cancellation_quotient),
+        "phase_removed_source_mean_correlation": (
+            phase_removed_source_mean.real, phase_removed_source_mean.imag),
+        "phase_removed_cancellation_quotient": (
+            phase_removed_cancellation_quotient),
+        "phase_removed_cancellation_gate_passes": bool(
+            phase_removed_cancellation_quotient is not None
+            and phase_removed_cancellation_quotient
             <= maximum_source_mode_cancellation_quotient),
         "frequency_gcd_mean_correlations": {
             divisor: (subtotal.real, subtotal.imag)
@@ -320,11 +341,20 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "source_mode_cancellation_quotients": {
             lag: result["source_mode_cancellation_quotient"]
             for lag, result in results.items()},
+        "phase_removed_cancellation_quotients": {
+            lag: result["phase_removed_cancellation_quotient"]
+            for lag, result in results.items()},
+        "phase_removed_source_mean_correlations": {
+            lag: result["phase_removed_source_mean_correlation"]
+            for lag, result in results.items()},
         "maximum_source_mode_cancellation_quotient": max(
             result["source_mode_cancellation_quotient"]
             for result in results.values()),
         "all_source_mode_cancellation_gates_pass": all(
             result["source_mode_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_phase_removed_cancellation_gates_pass": all(
+            result["phase_removed_cancellation_gate_passes"]
             for result in results.values()),
         "maximum_source_to_canonical_relative_error": maximum_relative_error,
         "all_leading_lag_source_reductions_pass": bool(

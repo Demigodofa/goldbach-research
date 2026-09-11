@@ -11050,3 +11050,43 @@ In the same fixed source-mode expansion, replace the CRT phase
 the five leading lags. If removing the phase pushes any quotient above `.10`,
 the CRT phase is essential there; if all remain below `.10`, endpoint-mode
 coefficients and Ramanujan signs already supply the measured cancellation.
+
+## 2026-09-11: CRT phases are not required for the small finite quotients
+
+In the same fixed source-mode grouping, replace only the unit CRT phase by
+`1`, retaining each complex endpoint-mode product and the signed integer
+Ramanujan weight `c_g(n)`. Since the removed phase has unit modulus, the
+absolute-mode denominator is unchanged. The phase-removed means and
+cancellation quotients are
+
+- lag `140`: approximately `-85437/4`, quotient
+  `.02851697183540638`;
+- lag `154`: approximately `20185/9`, quotient
+  `.005374667734400949`;
+- lag `156`: approximately `12375/2`, quotient
+  `.012539400592394204`;
+- lag `182`: approximately `207647/60`, quotient
+  `.00880666368319958`;
+- lag `240`: approximately `-27225/2`, quotient
+  `.015052682132974667`.
+
+The imaginary residuals are below `1e-13`, and every quotient remains below
+`.10`. The displayed simple fractions are numerical rational-value
+observations, not exact identities; no symbolic cyclotomic derivation has
+been supplied. Independent review verified the counterfactual, shared
+denominator, values, tests, and scope and returned PASS. Six focused tests
+pass normally and optimized, taking roughly `86--88` seconds under the
+current full multi-lag route.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`. The
+CRT phases materially change the values, but are not necessary for strong
+finite cancellation in this chosen expansion. The joint endpoint
+coefficients and signed Ramanujan weights already suffice. This does not yet
+separate those two ingredients and proves no uniform or prime estimate.
+
+The next bounded question separates them. Starting from the phase-removed
+sum, replace every `c_g(n)` by `|c_g(n)|`, keeping the same endpoint-mode
+coefficients and absolute-mass denominator. If any of the five quotients
+exceeds `.10`, Ramanujan signs are essential for that finite cancellation;
+if all remain below `.10`, the endpoint coefficients already supply it in
+this fixed grouping.

@@ -96,6 +96,16 @@ class SourceRamanujanTests(unittest.TestCase):
             receipt["source_mode_cancellation_quotient"],
             .06382956757596069, places=12)
         self.assertTrue(receipt["source_mode_cancellation_gate_passes"])
+        self.assertIsNotNone(receipt["phase_removed_cancellation_quotient"])
+        self.assertAlmostEqual(
+            receipt["phase_removed_source_mean_correlation"][0],
+            207647 / 60, places=8)
+        self.assertAlmostEqual(
+            receipt["phase_removed_source_mean_correlation"][1], 0, places=8)
+        self.assertAlmostEqual(
+            receipt["phase_removed_cancellation_quotient"],
+            .00880666368319958, places=12)
+        self.assertTrue(receipt["phase_removed_cancellation_gate_passes"])
 
     def test_guards(self):
         with self.assertRaises(ValueError):
@@ -115,6 +125,8 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertEqual(receipt["normalized_absolute_mode_contribution_mass"], 0)
         self.assertIsNone(receipt["source_mode_cancellation_quotient"])
         self.assertFalse(receipt["source_mode_cancellation_gate_passes"])
+        self.assertIsNone(receipt["phase_removed_cancellation_quotient"])
+        self.assertFalse(receipt["phase_removed_cancellation_gate_passes"])
 
     def test_source_reduction_across_five_leading_lags(self):
         receipt = leading_lag_source_receipt()
@@ -140,6 +152,31 @@ class SourceRamanujanTests(unittest.TestCase):
             receipt["maximum_source_mode_cancellation_quotient"],
             expected_quotients[182], places=12)
         self.assertTrue(receipt["all_source_mode_cancellation_gates_pass"])
+        expected_phase_removed_means = {
+            140: -85437 / 4,
+            154: 20185 / 9,
+            156: 12375 / 2,
+            182: 207647 / 60,
+            240: -27225 / 2,
+        }
+        expected_phase_removed_quotients = {
+            140: .02851697183540638,
+            154: .005374667734400949,
+            156: .012539400592394204,
+            182: .00880666368319958,
+            240: .015052682132974667,
+        }
+        for lag in receipt["lags"]:
+            phase_removed_mean = receipt[
+                "phase_removed_source_mean_correlations"][lag]
+            self.assertAlmostEqual(
+                phase_removed_mean[0], expected_phase_removed_means[lag],
+                places=8)
+            self.assertAlmostEqual(phase_removed_mean[1], 0, places=8)
+            self.assertAlmostEqual(
+                receipt["phase_removed_cancellation_quotients"][lag],
+                expected_phase_removed_quotients[lag], places=12)
+        self.assertTrue(receipt["all_phase_removed_cancellation_gates_pass"])
         self.assertFalse(
             receipt["unit_frame_classes_enumerated_by_source_calculation"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
