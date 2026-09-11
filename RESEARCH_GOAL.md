@@ -6588,8 +6588,28 @@ uniformly over `lambda in R^3` and the project ranges. The actual weights are
 `lambda=(1,1,1)`. Independent review returned PASS on this exact reduction.
 
 The sharp varying-family maxima over every prime in `[M,2M]` are
-`1.660,1.733,1.602` at `M=251,503,1009`; actual-weight maxima are
-`1.569,1.594,1.339`. The central `M=16001` values are `1.139` and `1.036`.
+`1.665,1.733,1.604` at `M=251,503,1009`; actual-weight maxima are
+`1.502,1.594,1.361`. The central `M=16001` values are `1.139` and `1.036`.
 No asymptotic inference is made. A power-growing full-block generalized
 eigenvalue is the concrete falsifier. The signed prime-correlation estimate
 and Goldbach remain open.
+
+### 2026-09-11 continuation: the resonance moves with the prime
+
+The actual outer sum uses one common polynomial family, so the worst
+coefficient vector cannot depend freely on `m`. Exact full-prime-block Gram
+aggregation confirms that this matters. At `M=251,503,1009`, per-prime sharp
+ratios as large as `1.665,1.733,1.604` fall to aggregate ratios
+`1.0419,1.0195,1.0324`. Four positive weight choices, including the two
+`rho_m` active-frequency weights, change these values only within the ranges
+`1.0411--1.0440`, `1.0193--1.0195`, and `1.0307--1.0338`. Independent review
+returned PASS; these are finite weighted results only.
+
+The geometric numerator turns every boundary entry into four terms of the
+form `e(m*l*theta)` with rational `theta`, summed jointly over prime `m` and
+row `l`. This is the concrete candidate mechanism: prime multiplication moves
+the resonant Farey clusters while the polynomial coefficient directions stay
+common. The next proof target is a subpower weighted prime-row bilinear bound
+for the resulting three aggregate matrix entries. A power-growing aggregate
+generalized eigenvalue falsifies it. The signed prime-correlation estimate and
+Goldbach remain open.

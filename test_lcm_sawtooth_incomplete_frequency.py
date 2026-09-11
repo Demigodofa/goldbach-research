@@ -86,6 +86,26 @@ class LcmSawtoothIncompleteFrequencyTests(unittest.TestCase):
         self.assertGreaterEqual(
             receipt["maximum_sharp_varying_span_ratio"],
             receipt["maximum_actual_varying_ratio"])
+        self.assertLessEqual(
+            receipt["aggregate_prime_block_sharp_varying_span_ratio"],
+            receipt["maximum_sharp_varying_span_ratio"] + 1e-10)
+        self.assertLessEqual(
+            receipt["aggregate_prime_block_actual_varying_ratio"],
+            receipt["aggregate_prime_block_sharp_varying_span_ratio"]
+            + 1e-10)
+        self.assertEqual(
+            set(receipt["aggregate_weighted_ratio_receipts"]), {
+                "unweighted", "log_squared_over_m",
+                "rho_log_squared_over_m", "rho_m_log_squared"})
+        for weighted in receipt[
+                "aggregate_weighted_ratio_receipts"].values():
+            self.assertLessEqual(
+                weighted["actual_varying_ratio"],
+                weighted["sharp_varying_span_ratio"] + 1e-10)
+            self.assertAlmostEqual(
+                weighted["boundary_operator_norm"], max(
+                    abs(weighted["minimum_varying_span_ratio"] - 1),
+                    abs(weighted["sharp_varying_span_ratio"] - 1)))
         self.assertTrue(receipt["finite_whole_prime_block_scan"])
         self.assertFalse(
             receipt["row_varying_quadratic_span_bound_proved"])

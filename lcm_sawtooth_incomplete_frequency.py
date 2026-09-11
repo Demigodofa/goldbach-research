@@ -36,6 +36,7 @@ from lcm_sawtooth_incomplete_covariance import _cyclic_discrepancy
 from lcm_sawtooth_incomplete_covariance import _lcm_coefficient_polynomials
 from lcm_sawtooth_structured_divisor_sum import _coefficient_data
 from mobius_covariance_endpoint_probe import _prime_flags
+from near_cutoff_geometric_bound import _active_modes
 
 
 def _geometric_numerator(modulus, denominator, numerator):
@@ -381,6 +382,12 @@ def primitive_conductor_operator_receipt(
         "actual_row_varying_complete_energy": actual_varying_complete,
         "actual_row_varying_energy_ratio": (
             actual_varying_incomplete / actual_varying_complete),
+        "row_varying_incomplete_quadratic_gram": tuple(
+            tuple(float(value) for value in row)
+            for row in varying_incomplete_gram),
+        "row_varying_complete_quadratic_gram": tuple(
+            tuple(float(value) for value in row)
+            for row in varying_complete_gram),
         "largest_eigenvalue_dominates_trace_rank_bound_verified": (
             sharp_ratio + 1e-10 >= trace_rank_lower_bound),
         "exact_conductor_packet_identity_proved": True,
@@ -397,8 +404,15 @@ def project_prime_block_quadratic_scan(scale_modulus):
     row_count = int(inferred_N ** .41)
     divisor_lower = int(inferred_N ** .15)
     divisor_upper = int(inferred_N ** .32)
+    shift_length = int(inferred_N ** .1)
     flags = _prime_flags(2 * scale_modulus)
     rows = []
+    aggregate_grams = {
+        mode: [np.zeros((3, 3), dtype=float),
+               np.zeros((3, 3), dtype=float)]
+        for mode in (
+            "unweighted", "log_squared_over_m",
+            "rho_log_squared_over_m", "rho_m_log_squared")}
     for modulus in range(scale_modulus, 2 * scale_modulus + 1):
         if not flags[modulus]:
             continue
@@ -415,13 +429,61 @@ def project_prime_block_quadratic_scan(scale_modulus):
             "sharp_frozen_curve_ratio": receipt[
                 "sharp_project_log_curve_ratio"],
         })
+        incomplete_gram = np.array(
+            receipt["row_varying_incomplete_quadratic_gram"])
+        complete_gram = np.array(
+            receipt["row_varying_complete_quadratic_gram"])
+        logarithmic_weight = math.log(modulus) ** 2 / modulus
+        rho = len(_active_modes(
+            modulus, shift_length)) / (modulus - 1)
+        weights = {
+            "unweighted": 1.0,
+            "log_squared_over_m": logarithmic_weight,
+            "rho_log_squared_over_m": rho * logarithmic_weight,
+            "rho_m_log_squared": (
+                rho * modulus * math.log(modulus) ** 2),
+        }
+        for mode, weight in weights.items():
+            aggregate_grams[mode][0] += weight * incomplete_gram
+            aggregate_grams[mode][1] += weight * complete_gram
     if not rows:
         raise ArithmeticError("prime block is empty")
+    actual_selector = np.ones(3)
+    weighted_ratios = {}
+    for mode, (aggregate_incomplete, aggregate_complete) in (
+            aggregate_grams.items()):
+        denominator_values, denominator_vectors = np.linalg.eigh(
+            aggregate_complete)
+        positive = denominator_values > (
+            max(denominator_values) * np.finfo(float).eps * 100)
+        inverse_square_root = (
+            denominator_vectors[:, positive]
+            / np.sqrt(denominator_values[positive]))
+        normalized_aggregate = (
+            inverse_square_root.T @ aggregate_incomplete
+            @ inverse_square_root)
+        aggregate_eigenvalues = np.linalg.eigvalsh(
+            (normalized_aggregate + normalized_aggregate.T) / 2)
+        weighted_ratios[mode] = {
+            "minimum_varying_span_ratio": float(aggregate_eigenvalues[0]),
+            "sharp_varying_span_ratio": float(aggregate_eigenvalues[-1]),
+            "boundary_operator_norm": float(max(
+                abs(aggregate_eigenvalues[0] - 1),
+                abs(aggregate_eigenvalues[-1] - 1))),
+            "actual_varying_ratio": float(
+                (actual_selector @ aggregate_incomplete @ actual_selector)
+                / (actual_selector @ aggregate_complete @ actual_selector)),
+        }
+    aggregate_sharp_ratio = weighted_ratios[
+        "unweighted"]["sharp_varying_span_ratio"]
+    aggregate_actual_ratio = weighted_ratios[
+        "unweighted"]["actual_varying_ratio"]
     return {
         "scale_modulus": scale_modulus,
         "inferred_N": inferred_N,
         "row_range": (row_count, 2 * row_count - 1),
         "divisor_range": (divisor_lower, divisor_upper),
+        "shift_length": shift_length,
         "prime_count": len(rows),
         "maximum_sharp_varying_span_ratio": max(
             row["sharp_varying_span_ratio"] for row in rows),
@@ -429,6 +491,11 @@ def project_prime_block_quadratic_scan(scale_modulus):
             row["actual_varying_ratio"] for row in rows),
         "maximum_sharp_frozen_curve_ratio": max(
             row["sharp_frozen_curve_ratio"] for row in rows),
+        "aggregate_prime_block_sharp_varying_span_ratio": (
+            aggregate_sharp_ratio),
+        "aggregate_prime_block_actual_varying_ratio": (
+            aggregate_actual_ratio),
+        "aggregate_weighted_ratio_receipts": weighted_ratios,
         "top_varying_span_rows": tuple(sorted(
             rows, key=lambda row: row["sharp_varying_span_ratio"],
             reverse=True)[:8]),

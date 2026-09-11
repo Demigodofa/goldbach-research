@@ -7773,7 +7773,7 @@ energy.
 On the central rows through `M=16001`, the sharp varying-family ratios are
 `1.392,1.159,1.199,1.091,1.139`, while the actual ratios are
 `.648,.928,1.007,.926,1.036`. Whole-prime-block scans give maxima
-`1.660,1.733,1.602` for the sharp family and `1.569,1.594,1.339` for the
+`1.665,1.733,1.604` for the sharp family and `1.502,1.594,1.361` for the
 actual weight at `M=251,503,1009`. These are finite results only.
 `project_prime_block_quadratic_scan` makes the scans reproducible.
 
@@ -7782,3 +7782,52 @@ This replaces the broader Abel-transfer question with the exact inequality
 falsifier. If (R) can be proved at subpower cost, the incomplete-period
 boundary component will return to the already controlled complete energy.
 The separate signed prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: prime aggregation suppresses the moving resonance
+
+The worst row-varying polynomial direction depends on `m`; it cannot be
+chosen separately at each prime in the actual problem. Summing the exact
+`3 x 3` numerator and complete-energy Grams first, then taking one common
+generalized eigenvector, tests this mechanism without assuming independence.
+
+Over every prime in `[M,2M]` for `M=251,503,1009`, the unweighted aggregate
+sharp ratios are `1.04193,1.01948,1.03237`, compared with per-prime maxima
+`1.66539,1.73266,1.60403`. The aggregate actual-weight ratios are
+`1.02129,.99154,1.00190`. The normalized aggregate boundary-operator norms
+are `.04193,.03007,.03237`.
+
+The same calculation was repeated with each Gram multiplied by the same
+positive outer weight. For `1`, `log(m)^2/m`,
+`rho_m log(m)^2/m`, and `rho_m*m*log(m)^2`, the sharp aggregate ratios lie in
+
+`[1.04110,1.04398]`, `[1.01927,1.01948]`,
+`[1.03072,1.03377]`
+
+at the three scales. The actual ratios lie in
+
+`[1.01721,1.02844]`, `[.99043,.99381]`,
+`[1.00150,1.00208]`.
+
+Independent review PASSed the shared polynomial directions, positive weights,
+sum-before-whitening order, actual selector, and focused tests. This is finite
+evidence for four weight families, not an arbitrary-weight theorem.
+
+The exact arithmetic mechanism is visible in each primitive packet:
+
+`G_(m,d,k)e(k*m*l/d)
+ =[e(k*m*(l+1)/d)-e(k*(m*l+1)/d)]/[e(k/d)-1]`.
+
+Consequently every aggregate boundary-matrix entry is a finite combination
+of bilinear rational phases summed jointly over prime `m` and consecutive
+rows `l`. The theorem target is the weighted prime-block version of (R):
+
+`sum_(m prime in [M,2M]) w_m A^(-1)sum_l
+ |sum_d P_(m,d,l)(lambda)Z_(m,d)(l)|^2
+ <=N^epsilon sum_m w_m A^(-1)sum_l sum_d
+ H_m(d)|P_(m,d,l)(lambda)|^2`,
+
+uniformly for the three-dimensional common `lambda`. A power-growing
+aggregate generalized eigenvalue is the concrete falsifier. Proving this
+requires a bilinear prime-row estimate for the rational phase differences;
+the finite matrices do not supply it. The final signed prime-correlation
+estimate and Goldbach remain OPEN.

@@ -372,3 +372,9 @@ resulting `3 x 3` generalized eigenvalue remains below `1.74` in whole-prime
 block scans through `M=1009` and is `1.139` at the central `M=16001` row.
 Proving a uniform subpower bound for this explicit matrix is the current
 complete-period transfer problem.
+
+Across every prime in the project blocks `M=251,503,1009`, aggregating before
+choosing the worst quadratic-log direction reduces the sharp ratios to
+`1.042,1.019,1.032`. Four natural positive outer weights give the same finite
+picture. This identifies joint prime-row phase rotation as the current
+candidate mechanism; its asymptotic bilinear estimate is still open.
