@@ -10710,3 +10710,42 @@ absolute value of the full linked signed subtotal.  Success would locate the
 finite reinforcement mainly on lags coupled to the left conductor `77`;
 failure preserves the subset partition without assigning one conductor
 prime the dominant signed role.
+
+## 2026-09-11: factor-7 subsets carry most of the linked signed subtotal
+
+Partition every conductor-linked inversion pair by the exact subset of
+`{7,11,13}` dividing its lag.  The six nonempty subset signed subtotals are
+
+- `{7}`: `-395566069.16251725`;
+- `{7,11}`: `-194208842.55395436`;
+- `{7,13}`: `-378954805.633054`;
+- `{11}`: `-139314132.6078064`;
+- `{11,13}`: `-3946621.5791001855`;
+- `{13}`: `-108428116.98508833`.
+
+All six are negative in this fixture.  The union of subsets containing `7`
+has signed subtotal `-968729717.3495257`, absolute mass
+`1549060865.5713286`, and carries `.7937684057427344` of the absolute value
+of the full linked signed subtotal.  It clears the predeclared `.75` gate.
+Signed and absolute subset totals reconstruct the linked partition within
+`1e-12` relative error.
+
+Independent review verified exact single-subset assignment, overlap handling,
+all six rows, aggregates, gate, tests, and scope and returned PASS.  The
+reviewer specifically noted that the large `{7,11}` and `{7,13}` overlaps
+prevent pure causal attribution to factor `7`.  Four focused tests pass
+normally and under Python optimization.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+Preserve factor `7` as the largest visible conductor-side marker in the
+linked negative subtotal and preserve the unanimity of subset signs as a
+finite observation.  Do not call this a factor-7 cause or a uniform law.
+
+The next bounded question removes overlap ambiguity with an order-independent
+equal-share attribution: allocate each exact subset subtotal equally among
+the conductor primes in that subset.  This is the Shapley allocation of the
+additive subset game and must reconstruct the full linked subtotal within
+`1e-12`.  The factor-7 attribution passes only if it has the linked negative
+sign, is largest in absolute value, and carries at least `.50` of the full
+linked signed magnitude.  Failure preserves the subset table without
+promoting factor `7` to the leading order-independent contributor.

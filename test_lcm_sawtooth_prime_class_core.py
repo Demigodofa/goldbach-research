@@ -50,6 +50,8 @@ class PrimeClassCoreTests(unittest.TestCase):
             receipt["minimum_conductor_linked_mass_fraction"], .75)
         self.assertEqual(
             receipt["minimum_conductor_linked_coherence"], .40)
+        self.assertEqual(
+            receipt["minimum_seven_linked_signed_fraction"], .75)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
@@ -114,6 +116,24 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertTrue(all(
             row["lag_gcd"] % 2 == 0
             for row in receipt["common_reweighting_gcd_strata"]))
+        self.assertEqual(receipt["conductor_primes"], (7, 11, 13))
+        self.assertTrue(receipt[
+            "seven_linked_signed_mechanism_hypothesis_passes"])
+        self.assertAlmostEqual(
+            receipt["seven_linked_signed_common_reweighting"],
+            -968729717.3495257, places=2)
+        self.assertAlmostEqual(
+            receipt["seven_linked_absolute_signed_subtotal_fraction"],
+            .7937684057427344, places=10)
+        self.assertTrue(all(
+            row["signed_common_reweighting"] < 0
+            for row in receipt["conductor_prime_subset_rows"]))
+        self.assertLess(receipt[
+            "conductor_subset_signed_reconstruction_relative_error"],
+            1e-12)
+        self.assertLess(receipt[
+            "conductor_subset_absolute_reconstruction_relative_error"],
+            1e-12)
         self.assertLess(
             receipt["window_difference_decomposition_relative_error"],
             1e-12)
@@ -186,6 +206,8 @@ class PrimeClassCoreTests(unittest.TestCase):
                 minimum_conductor_linked_mass_fraction=0)
         with self.assertRaises(ValueError):
             prime_class_core_receipt(minimum_conductor_linked_coherence=0)
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(minimum_seven_linked_signed_fraction=0)
 
 
 if __name__ == "__main__":
