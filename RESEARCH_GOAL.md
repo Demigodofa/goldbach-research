@@ -6639,3 +6639,14 @@ The exact witness and exponent budget passed independent review. This does
 not reject weighted or signed averaging over difference moduli. That narrower
 arithmetic distribution is now the next falsifiable question; the aggregate
 matrix measurements remain promising finite evidence only.
+
+### 2026-09-11 continuation: positive conductor sparsity fails finitely
+
+With `E_d=H_m(d)|S_d|^2`, the ordered product-energy fraction on conductor
+pairs with `lcm(d,e)>MA` rises from `.10838` at `M=251` to `.51043` at
+`M=16001` for the actual vector; each of the three polynomial basis vectors
+is at least as concentrated there. Independent review returned PASS. Because
+the reduced frequency-difference denominator only divides `lcm(d,e)`, this
+rules out conductor-pair sparsity alone, not frequency-level reduction or
+signed cancellation. The next bounded test measures the actual reduced-
+denominator distribution before choosing between those mechanisms.

@@ -388,3 +388,9 @@ ruled out beyond `beta=1/4`: supported frequency differences can have reduced
 denominator of order `B^4`, producing a power loss at `beta=.32`. Any proof of
 the observed aggregate cancellation must retain coefficient-weighted or
 signed difference-modulus structure.
+
+A reviewed positive-energy diagnostic now rules out the simplest sparse-pair
+escape on the tested scales: the actual conductor product-energy fraction with
+`lcm(d,e)>MA` grows from `.108` at `M=251` to `.510` at `M=16001`. This is not
+yet a reduced-frequency or signed estimate; the next test resolves the actual
+denominator of `k/d-h/e` under the primitive-frequency energy distribution.

@@ -7893,3 +7893,36 @@ question is whether the actual three polynomial coefficient vectors put
 power-small complete-energy mass on pairs with `Q>N^(1-epsilon)`, or whether
 that positive weighted statement is itself false. The prime-averaged signed
 matrix estimate and Goldbach remain OPEN.
+
+## 2026-09-11: positive conductor-pair sparsity is false on the tested scales
+
+For a frozen conductor vector put `E_d=H_m(d)|S_d|^2`. The new diagnostic
+measures the ordered product-energy fraction
+
+`sum_(lcm(d,e)>T) E_d E_e / (sum_d E_d)^2`
+
+at `T=MA/4,MA,4MA`. For the actual quadratic-log vector, the fractions above
+`MA` at central project scales `M=251,503,1009,4001,16001` are respectively
+
+`.10838,.17072,.24122,.39038,.51043`.
+
+The actual vector has the smallest fraction among the quadratic, linear,
+constant, and actual vectors at each scale. None of these four positive
+component-energy distributions supports a shrinking high-lcm tail in this
+finite range. Independent review reproduced the values and PASSed the energy
+normalization, ordered-pair accounting, thresholds, and component construction.
+
+This is narrower than a difference-modulus result. The reduced denominator
+`Q` of `k/d-h/e` divides `lcm(d,e)`, so `lcm(d,e)<=MA` is safe, but
+`lcm(d,e)>MA` does not imply `Q>MA`. The computation rejects only discarding
+high-lcm conductor pairs by positive product-energy sparsity. It does not
+reject frequency-level denominator reduction, coefficient-weighted averaging,
+or signed cancellation, and it proves no asymptotic trend.
+
+The next <=30-minute hypothesis is that primitive-frequency reduction makes
+the actual energy fraction with `Q>MA` small even though the conductor-lcm
+proxy is not small. Test it exactly at small scales and by a deterministic
+weighted sample at larger scales. If an order-one high-`Q` fraction survives,
+then positive denominator sparsity also fails and the remaining explanation
+must use the signed prime-row structure. The signed prime-correlation estimate
+and Goldbach remain OPEN.
