@@ -914,6 +914,51 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_residue_orbit_covariance_subspace_dimension_four(self):
+        receipt = residue_orbit_covariance_subspace_receipt(
+            subspace_dimension=4)
+        self.assertEqual(receipt["subspace_dimension"], 4)
+        self.assertEqual(receipt["full_positive_eigenvalue_count"], 7)
+        self.assertAlmostEqual(
+            receipt["full_top_subspace_positive_spectral_concentration"],
+            .9963784813632321, places=12)
+        self.assertAlmostEqual(
+            receipt["full_relative_cutoff_eigengap"],
+            .9687768841322789, places=12)
+        dyadic = receipt["dyadic_subspace_summaries"]
+        expected_overlaps = (
+            .21876284166862417, .32351477045875515,
+            .4130101223030622, .4713901203906712,
+            .5957561715378465, .7150062121120525,
+            .7355744786574699)
+        expected_relative_cutoff_gaps = (
+            1.0005493994939658, .5757719311193253,
+            .9997873606658071, .6349953890589985,
+            .5060314856925672, .9107211133100169,
+            .5194359721393883)
+        for row, overlap, gap in zip(
+                dyadic.values(), expected_overlaps,
+                expected_relative_cutoff_gaps):
+            self.assertAlmostEqual(
+                row["normalized_projector_overlap_with_full_subspace"],
+                overlap, places=12)
+            self.assertAlmostEqual(
+                row["relative_cutoff_eigengap"], gap, places=12)
+        self.assertTrue(receipt[
+            "full_positive_spectral_concentration_passes_gate"])
+        self.assertEqual(
+            tuple(row["passes_projector_overlap_gate"]
+                  for row in dyadic.values()),
+            (False, False, False, False, False, False, False))
+        self.assertEqual(receipt["stable_dyadic_block_count"], 0)
+        self.assertFalse(receipt[
+            "dyadic_projector_overlap_count_passes_gate"])
+        self.assertFalse(receipt["stable_covariance_subspace_gate_passes"])
+        self.assertTrue(receipt["finite_covariance_subspaces_measured"])
+        self.assertFalse(receipt["stable_covariance_subspace_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
 
 if __name__ == "__main__":
     unittest.main()

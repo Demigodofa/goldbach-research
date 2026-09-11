@@ -13930,3 +13930,62 @@ whose internal leading directions may rotate.  Failure would reject every
 fixed all-block-positive envelope of dimensions one through four under the
 same overlap criterion, while preserving scale-dependent and arithmetic-
 basis explanations.
+
+## 2026-09-11 fixed four-dimensional envelope test
+
+The frozen dimension-four specialization of
+`residue_orbit_covariance_subspace_receipt` finds that the top four full-range
+eigenvalues contain approximately `.9963784813632321` of the positive
+off-diagonal spectral mass.  The full relative fourth-to-fifth eigengap is
+approximately `.9687768841322789`, so the full space is both highly
+concentrated and cleanly separated at this cutoff.
+
+In ascending dyadic order, the four-dimensional normalized projector overlaps
+with the full-range projector are
+
+`.21876, .32351, .41301, .47139, .59576, .71501, .73557`.
+
+No block reaches the frozen `.75` overlap gate, so the stability count is
+`0/7` rather than the required `5/7`.  The dyadic relative fourth-to-fifth
+eigengaps are approximately
+
+`1.00055, .57577, .99979, .63500, .50603, .91072, .51944`.
+
+The fixed four-dimensional envelope therefore fails despite explaining
+nearly all pooled positive spectral mass.
+
+A dimension-two completeness diagnostic gives full positive concentration
+`.6985288244750121`, below `.75`, and only `1/7` blocks reach `.75` overlap.
+Together with the earlier dimension-one and dimension-three receipts, each
+tested fixed positive-spectrum dimension from one through four fails its
+frozen conjunction.  This finite result does not exclude larger spaces,
+scale-dependent spaces, another arithmetic basis, or asymptotic stabilization.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Reject fixed dimensions one through four as the measured cross-scale
+mechanism.  Preserve the high pooled concentration at dimensions three and
+four and the generally rising dimension-four overlap with scale.  That rise
+is only a lead because the full-range projector contains the blocks against
+which it is compared.
+
+Independent review reproduced the dimension-four and dimension-two
+concentrations, cutoff gaps, overlaps, and gate outcomes.  The frozen
+dimension-four test passes normally and under optimized Python.  No local or
+asymptotic subspace stabilization, signed prime-correlation estimate, or
+Goldbach result has been proved.
+
+The next bounded question removes the pooled-projector leakage: do neighboring
+dyadic blocks share a locally coherent top-four positive subspace?  For the
+seven dyadic projectors `P_1,...,P_7`, measure
+
+`a_j = trace(P_j P_(j+1)) / 4`, for `1 <= j <= 6`,
+
+and freeze the local-coherence falsifier as
+
+`#{j: a_j >= .75} >= 4`.
+
+Also report the four squared canonical correlations for every adjacent pair,
+so a high average caused by only a few shared directions remains visible.
+Passing would isolate a slowly varying scale-local envelope for arithmetic
+analysis.  Failure would reject this local-continuity mechanism while
+preserving individual block subspaces and the high pooled concentration.
