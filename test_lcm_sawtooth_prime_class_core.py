@@ -41,6 +41,8 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertEqual(
             receipt["kernel_row_scales"], (28, 34, 39, 50, 75))
         self.assertEqual(receipt["minimum_kernel_ratio_fraction"], .50)
+        self.assertEqual(
+            receipt["minimum_lost_shell_component_fraction"], .75)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
@@ -63,6 +65,23 @@ class PrimeClassCoreTests(unittest.TestCase):
             "fixed_q_kernel_window_stability_hypothesis_passes"])
         self.assertFalse(receipt[
             "fully_retained_kernel_window_stability_hypothesis_passes"])
+        self.assertFalse(receipt[
+            "lost_near_boundary_shell_mechanism_hypothesis_passes"])
+        self.assertLess(
+            receipt["window_difference_decomposition_relative_error"],
+            1e-12)
+        self.assertAlmostEqual(
+            receipt["observed_window_signed_mean_difference"],
+            -918053374.0407975, places=2)
+        self.assertAlmostEqual(
+            receipt["common_lag_kernel_reweighting_component"],
+            -994323641.3059229, places=2)
+        self.assertAlmostEqual(
+            receipt["lost_near_boundary_shell_component"],
+            76270267.26512504, places=2)
+        self.assertAlmostEqual(
+            receipt["lost_shell_absolute_component_fraction"],
+            .07124108091267316, places=10)
         self.assertEqual(
             receipt["fully_retained_kernel_row_scales"], (28, 34, 39))
         self.assertEqual(
@@ -110,6 +129,9 @@ class PrimeClassCoreTests(unittest.TestCase):
                 maximum_final_cycle_relative_difference=2)
         with self.assertRaises(ValueError):
             prime_class_core_receipt(kernel_row_scales=(28, 39, 34))
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(
+                minimum_lost_shell_component_fraction=0)
 
 
 if __name__ == "__main__":

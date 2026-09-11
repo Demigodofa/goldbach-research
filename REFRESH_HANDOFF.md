@@ -10550,4 +10550,44 @@ shell term is minus the `A=28` contribution on lags retained at `28` but
 dropped at `34`.  Require reconstruction within `1e-12` relative error.  The
 lost-shell mechanism passes only if its component has the sign of `Delta`
 and at least `.75` of `|shell|+|common|`.  Failure preserves the exact
-decomposition and points instead to broad kernel phase/amplitude reweighting.
+decomposition and points instead to kernel phase/amplitude reweighting on the
+common retained support.
+
+## 2026-09-11: retained-lag kernel reweighting drives the first sign reversal
+
+Average the lag contribution vector over all 2,880 unit classes and compare
+`A=28` with `A=34`.  Because the latter near mask is contained in the former,
+the exact difference splits into
+
+- common-support kernel reweighting: `-994323641.3059229`;
+- loss of the `A=28` boundary shell: `+76270267.26512504`;
+- observed total difference: `-918053374.0407975`.
+
+The two components reconstruct the observed difference with relative error
+`3.8955019257567814e-16`.  The lost shell has the opposite sign from the
+observed reversal and only `.07124108091267316` of the two-component absolute
+mass, far below the predeclared `.75` gate.  Removing near-boundary lags
+therefore opposes the sign reversal; the reversal is caused by changing the
+kernel phase and amplitude on lags retained by both windows.
+
+Independent review verified the analytic near masks, nesting, exact
+decomposition, values, gate, tests, and finite scope.  It also required the
+word `broad` to be removed because no concentration statistic had yet been
+computed.  After that correction review returned PASS.  Four focused tests
+pass normally and under Python optimization.
+
+Curiosity status: `aha-candidate` for the exact mechanism split and
+`changed-under-evidence` for the lost-shell explanation.  Preserve both
+components and the finding that the shell partially protects the favorable
+sign.  Do not call the common-support effect broad or localized without a
+separate lag-concentration test.  No signed prime-correlation estimate is
+proved.
+
+The next bounded question supplies that missing concentration test.  Pair
+each common-support lag with its inversion partner `h <-> Q-h`, compute the
+`A=34` minus `A=28` reweighting contribution of each pair, and rank pairs by
+absolute contribution.  A localized-resonance mechanism passes only if the
+five largest inversion pairs carry at least `.75` of total paired absolute
+mass while reconstructing the common-support component within `1e-12`.
+Failure would demonstrate that the common-support reweighting is distributed
+beyond five dominant lag pairs, without itself providing cancellation.

@@ -84,8 +84,8 @@ def _family_arithmetic_core_packet(
     return packet, unexpected_denominator_count
 
 
-def _window_signed_cores(packet_left, packet_right, row_counts):
-    """Evaluate near-lag signed cores with exact interval kernels."""
+def _window_lag_data(packet_left, packet_right, row_counts):
+    """Return near-lag sums and masked lag vectors for exact kernels."""
     packet_left = np.asarray(packet_left, dtype=complex)
     packet_right = np.asarray(packet_right, dtype=complex)
     row_counts = tuple(row_counts)
@@ -102,6 +102,7 @@ def _window_signed_cores(packet_left, packet_right, row_counts):
     active_lags = lags[nonzero]
     distances = np.minimum(lags, denominator - lags)
     results = []
+    lag_vectors = {}
     for row_count in row_counts:
         kernel = np.ones(denominator, dtype=complex)
         kernel[nonzero] = (
@@ -113,8 +114,15 @@ def _window_signed_cores(packet_left, packet_right, row_counts):
         contributions = 2 * denominator * (kernel * correlation).real
         near = distances * row_count <= denominator
         near[0] = False
-        results.append(float(np.sum(contributions[near])))
-    return tuple(results)
+        masked = np.where(near, contributions, 0.0)
+        results.append(float(np.sum(masked)))
+        lag_vectors[row_count] = masked
+    return tuple(results), lag_vectors
+
+
+def _window_signed_cores(packet_left, packet_right, row_counts):
+    """Evaluate near-lag signed cores with exact interval kernels."""
+    return _window_lag_data(packet_left, packet_right, row_counts)[0]
 
 
 def _window_signed_core(packet_left, packet_right, row_count):
@@ -129,6 +137,7 @@ def prime_class_core_receipt(
         maximum_final_cycle_relative_difference=.10,
         kernel_row_scales=(28, 34, 39, 50, 75),
         minimum_kernel_ratio_fraction=.50,
+        minimum_lost_shell_component_fraction=.75,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -159,6 +168,8 @@ def prime_class_core_receipt(
         raise ValueError("kernel row scales must be strictly increasing")
     if not 0 < minimum_kernel_ratio_fraction <= 1:
         raise ValueError("kernel ratio fraction must lie in (0,1]")
+    if not 0 < minimum_lost_shell_component_fraction <= 1:
+        raise ValueError("shell component fraction must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -208,6 +219,9 @@ def prime_class_core_receipt(
 
     signed_cores_by_scale = {
         row_scale: [] for row_scale in kernel_row_scales}
+    mean_lag_sums = {
+        row_scale: np.zeros(period)
+        for row_scale in kernel_row_scales[:2]}
     representative_errors = []
     for residue in unit_classes:
         packets = []
@@ -220,10 +234,12 @@ def prime_class_core_receipt(
                 raise ArithmeticError("family has lower-denominator cells")
             representative_errors.append(float(np.max(np.abs(first - second))))
             packets.append(first)
-        window_values = _window_signed_cores(
+        window_values, lag_vectors = _window_lag_data(
             packets[0], packets[1], kernel_row_scales)
         for row_scale, value in zip(kernel_row_scales, window_values):
             signed_cores_by_scale[row_scale].append(value)
+        for row_scale in mean_lag_sums:
+            mean_lag_sums[row_scale] += lag_vectors[row_scale]
 
     signed_cores_by_scale = {
         row_scale: np.asarray(values)
@@ -266,6 +282,36 @@ def prime_class_core_receipt(
         and all(row["signed_to_absolute_ratio"] is not None
                 and row["signed_to_absolute_ratio"] >= minimum_kernel_ratio
                 for row in fully_retained_kernel_rows))
+    first_scale, second_scale = kernel_row_scales[:2]
+    first_mean_lags = mean_lag_sums[first_scale] / len(unit_classes)
+    second_mean_lags = mean_lag_sums[second_scale] / len(unit_classes)
+    lag_distances = np.minimum(np.arange(period), period - np.arange(period))
+    first_support = lag_distances * first_scale <= period
+    second_support = lag_distances * second_scale <= period
+    first_support[0] = False
+    second_support[0] = False
+    common_reweighting = float(np.sum(
+        second_mean_lags[second_support]
+        - first_mean_lags[second_support]))
+    lost_boundary_shell = float(-np.sum(
+        first_mean_lags[first_support & ~second_support]))
+    observed_window_difference = float(
+        np.sum(second_mean_lags) - np.sum(first_mean_lags))
+    decomposed_window_difference = common_reweighting + lost_boundary_shell
+    window_decomposition_relative_error = (
+        abs(decomposed_window_difference - observed_window_difference)
+        / max(1.0, abs(observed_window_difference)))
+    component_absolute_mass = (
+        abs(common_reweighting) + abs(lost_boundary_shell))
+    lost_shell_component_fraction = (
+        abs(lost_boundary_shell) / component_absolute_mass
+        if component_absolute_mass else None)
+    lost_shell_mechanism_passes = bool(
+        window_decomposition_relative_error <= tolerance
+        and observed_window_difference * lost_boundary_shell > 0
+        and lost_shell_component_fraction is not None
+        and lost_shell_component_fraction
+        >= minimum_lost_shell_component_fraction)
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -315,8 +361,19 @@ def prime_class_core_receipt(
         "minimum_reinforcement_fraction": minimum_reinforcement_fraction,
         "kernel_row_scales": kernel_row_scales,
         "minimum_kernel_ratio_fraction": minimum_kernel_ratio_fraction,
+        "minimum_lost_shell_component_fraction": (
+            minimum_lost_shell_component_fraction),
         "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
         "kernel_scale_rows": tuple(kernel_scale_rows),
+        "window_decomposition_first_row_scale": first_scale,
+        "window_decomposition_second_row_scale": second_scale,
+        "observed_window_signed_mean_difference": observed_window_difference,
+        "common_lag_kernel_reweighting_component": common_reweighting,
+        "lost_near_boundary_shell_component": lost_boundary_shell,
+        "lost_shell_absolute_component_fraction": (
+            lost_shell_component_fraction),
+        "window_difference_decomposition_relative_error": (
+            window_decomposition_relative_error),
         "fully_retained_kernel_row_scales": tuple(
             row["row_scale"] for row in fully_retained_kernel_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
@@ -351,6 +408,8 @@ def prime_class_core_receipt(
             kernel_stability_passes),
         "fully_retained_kernel_window_stability_hypothesis_passes": (
             retained_kernel_stability_passes),
+        "lost_near_boundary_shell_mechanism_hypothesis_passes": (
+            lost_shell_mechanism_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }
