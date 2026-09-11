@@ -43,6 +43,9 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertEqual(receipt["minimum_kernel_ratio_fraction"], .50)
         self.assertEqual(
             receipt["minimum_lost_shell_component_fraction"], .75)
+        self.assertEqual(receipt["localized_inversion_pair_count"], 5)
+        self.assertEqual(
+            receipt["minimum_localized_pair_mass_fraction"], .75)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
@@ -67,6 +70,20 @@ class PrimeClassCoreTests(unittest.TestCase):
             "fully_retained_kernel_window_stability_hypothesis_passes"])
         self.assertFalse(receipt[
             "lost_near_boundary_shell_mechanism_hypothesis_passes"])
+        self.assertFalse(receipt[
+            "localized_inversion_pair_reweighting_hypothesis_passes"])
+        self.assertLess(receipt[
+            "common_reweighting_paired_reconstruction_relative_error"],
+            1e-12)
+        self.assertEqual(
+            receipt["common_support_inversion_pair_count"], 294)
+        self.assertAlmostEqual(
+            receipt["leading_inversion_pair_absolute_mass_fraction"],
+            .20225846376702175, places=10)
+        self.assertEqual(
+            tuple(row["lag"] for row in
+                  receipt["leading_common_reweighting_inversion_pairs"]),
+            (182, 140, 240, 154, 156))
         self.assertLess(
             receipt["window_difference_decomposition_relative_error"],
             1e-12)
@@ -132,6 +149,8 @@ class PrimeClassCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             prime_class_core_receipt(
                 minimum_lost_shell_component_fraction=0)
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(localized_inversion_pair_count=0)
 
 
 if __name__ == "__main__":

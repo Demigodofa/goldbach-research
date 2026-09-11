@@ -10591,3 +10591,42 @@ five largest inversion pairs carry at least `.75` of total paired absolute
 mass while reconstructing the common-support component within `1e-12`.
 Failure would demonstrate that the common-support reweighting is distributed
 beyond five dominant lag pairs, without itself providing cancellation.
+
+## 2026-09-11: five lag resonances do not localize the kernel response
+
+On the common `A=34` near support, pair every lag with its inversion partner
+`h <-> 10010-h` before taking absolute values.  The 294 pair contributions
+reconstruct the common-support reweighting with relative error
+`3.596694816414534e-16`.
+
+The five leading pairs are
+
+- `h=182`: `-378954805.633054`;
+- `h=140`: `-331772775.9327886`;
+- `h=240`: `+275029571.14003146`;
+- `h=154`: `-194208842.55395436`;
+- `h=156`: `+139302611.9896521`.
+
+Together they carry only `.20225846376702175` of total paired absolute mass,
+far below the predeclared `.75` localization gate.  The window response
+therefore extends beyond five inversion-paired resonances.  This does not say
+that the mass is uniform or that its signed pieces cancel favorably.
+
+Independent review verified orbit representatives, the inactive self-inverse
+case, sign-before-absolute aggregation, reconstruction, ranking, values,
+tests, and scope and returned PASS.  Four focused tests pass normally and
+under Python optimization.
+
+Curiosity status: `changed-under-evidence`.  Preserve the leading resonances
+and the full paired decomposition; reject only five-pair localization.  Four
+of the five leading lags share a factor with the exact conductor core
+`1001=7*11*13`, which motivates an arithmetic grouping rather than a larger
+arbitrary top-k test.
+
+The next bounded question groups every inversion-pair contribution by
+`gcd(h,10010)` and marks a pair conductor-linked when
+`gcd(h,1001)>1`.  The conductor-core mechanism passes only if linked pairs
+carry at least `.75` of total paired absolute mass and their signed subtotal
+has the sign of the full common-support reweighting.  Failure preserves the
+exact gcd-stratum decomposition while rejecting the conductor core as the
+dominant source of this window response.

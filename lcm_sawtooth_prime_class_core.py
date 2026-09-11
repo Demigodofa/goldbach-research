@@ -138,6 +138,8 @@ def prime_class_core_receipt(
         kernel_row_scales=(28, 34, 39, 50, 75),
         minimum_kernel_ratio_fraction=.50,
         minimum_lost_shell_component_fraction=.75,
+        localized_inversion_pair_count=5,
+        minimum_localized_pair_mass_fraction=.75,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -170,6 +172,11 @@ def prime_class_core_receipt(
         raise ValueError("kernel ratio fraction must lie in (0,1]")
     if not 0 < minimum_lost_shell_component_fraction <= 1:
         raise ValueError("shell component fraction must lie in (0,1]")
+    if (type(localized_inversion_pair_count) is not int
+            or localized_inversion_pair_count < 1):
+        raise ValueError("localized pair count must be positive")
+    if not 0 < minimum_localized_pair_mass_fraction <= 1:
+        raise ValueError("localized mass fraction must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -312,6 +319,40 @@ def prime_class_core_receipt(
         and lost_shell_component_fraction is not None
         and lost_shell_component_fraction
         >= minimum_lost_shell_component_fraction)
+    common_lag_delta = second_mean_lags - first_mean_lags
+    paired_reweighting_rows = []
+    for lag in range(1, period // 2 + 1):
+        if not second_support[lag]:
+            continue
+        inverse = (-lag) % period
+        value = float(common_lag_delta[lag])
+        if inverse != lag:
+            value += float(common_lag_delta[inverse])
+        paired_reweighting_rows.append({
+            "lag": lag,
+            "inverse_lag": inverse,
+            "paired_common_reweighting": value,
+        })
+    paired_reweighting_rows.sort(
+        key=lambda row: abs(row["paired_common_reweighting"]), reverse=True)
+    paired_reconstruction = sum(
+        row["paired_common_reweighting"] for row in paired_reweighting_rows)
+    paired_reconstruction_relative_error = (
+        abs(paired_reconstruction - common_reweighting)
+        / max(1.0, abs(common_reweighting)))
+    paired_absolute_mass = sum(
+        abs(row["paired_common_reweighting"])
+        for row in paired_reweighting_rows)
+    leading_pair_absolute_mass = sum(
+        abs(row["paired_common_reweighting"])
+        for row in paired_reweighting_rows[:localized_inversion_pair_count])
+    leading_pair_mass_fraction = (
+        leading_pair_absolute_mass / paired_absolute_mass
+        if paired_absolute_mass else None)
+    localized_pair_mechanism_passes = bool(
+        paired_reconstruction_relative_error <= tolerance
+        and leading_pair_mass_fraction is not None
+        and leading_pair_mass_fraction >= minimum_localized_pair_mass_fraction)
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -363,6 +404,9 @@ def prime_class_core_receipt(
         "minimum_kernel_ratio_fraction": minimum_kernel_ratio_fraction,
         "minimum_lost_shell_component_fraction": (
             minimum_lost_shell_component_fraction),
+        "localized_inversion_pair_count": localized_inversion_pair_count,
+        "minimum_localized_pair_mass_fraction": (
+            minimum_localized_pair_mass_fraction),
         "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
         "kernel_scale_rows": tuple(kernel_scale_rows),
         "window_decomposition_first_row_scale": first_scale,
@@ -374,6 +418,13 @@ def prime_class_core_receipt(
             lost_shell_component_fraction),
         "window_difference_decomposition_relative_error": (
             window_decomposition_relative_error),
+        "common_support_inversion_pair_count": len(paired_reweighting_rows),
+        "leading_common_reweighting_inversion_pairs": tuple(
+            paired_reweighting_rows[:localized_inversion_pair_count]),
+        "common_reweighting_paired_reconstruction_relative_error": (
+            paired_reconstruction_relative_error),
+        "leading_inversion_pair_absolute_mass_fraction": (
+            leading_pair_mass_fraction),
         "fully_retained_kernel_row_scales": tuple(
             row["row_scale"] for row in fully_retained_kernel_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
@@ -410,6 +461,8 @@ def prime_class_core_receipt(
             retained_kernel_stability_passes),
         "lost_near_boundary_shell_mechanism_hypothesis_passes": (
             lost_shell_mechanism_passes),
+        "localized_inversion_pair_reweighting_hypothesis_passes": (
+            localized_pair_mechanism_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }
