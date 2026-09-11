@@ -6,6 +6,7 @@ from lcm_sawtooth_signed_conductor_ablation import (
     project_active_full_pair_rayleigh_split_receipt,
     project_cluster_matrix_stabilization_receipt,
     project_cluster_pair_interaction_receipt,
+    project_cluster_primewise_component_receipt,
     project_frozen_whitening_interaction_receipt,
     project_pair_matrix_interaction_receipt,
     project_primewise_pair_rayleigh_receipt,
@@ -256,6 +257,30 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_active_full_pair_rayleigh_split_receipt(
                 127, (77, 143), active_fraction_threshold=0)
+
+    def test_m127_no_primewise_component_is_broad_across_cluster(self):
+        pairs = ((55, 143), (77, 78), (77, 143), (78, 143))
+        receipt = project_cluster_primewise_component_receipt(127, pairs)
+        self.assertEqual(
+            receipt["active_component_broad_pairs"], ((77, 78),))
+        self.assertEqual(
+            receipt["full_subtraction_broad_pairs"], ((77, 143),))
+        self.assertEqual(
+            receipt["active_component_cluster_passing_fraction"], .25)
+        self.assertEqual(
+            receipt["full_subtraction_cluster_passing_fraction"], .25)
+        self.assertFalse(receipt[
+            "active_component_cluster_hypothesis_passes"])
+        self.assertFalse(receipt[
+            "full_subtraction_cluster_hypothesis_passes"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_cluster_component_receipt_guards_pairs_and_fraction(self):
+        with self.assertRaises(ValueError):
+            project_cluster_primewise_component_receipt(127, ())
+        with self.assertRaises(ValueError):
+            project_cluster_primewise_component_receipt(
+                127, ((77, 143),), minimum_passing_fraction=0)
 
 
 if __name__ == "__main__":

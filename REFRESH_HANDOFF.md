@@ -9427,6 +9427,26 @@ as a smaller but more regularly signed analytic candidate. It cannot prove
 the full lower frame alone, and no uniform sign, signed prime correlation, or
 Goldbach claim is established.
 
+## 2026-09-11: no primewise component is broad across the cluster
+
+`project_cluster_primewise_component_receipt` repeats the active/full
+primewise breadth test on all four stabilizing conductor pairs. The hypothesis
+required the minus-half-full component to pass on at least three of four pairs.
+It fails: only `(77,143)` passes. The active component also passes on only one
+pair, `(77,78)`.
+
+The component balances are pair-dependent. `(55,143)` and `(78,143)` have no
+broad component under the declared thresholds; `(77,78)` has broad active but
+not full-subtraction behavior; `(77,143)` has the reverse. Nevertheless, all
+four net Boolean matrices stabilize their selected fragile modes.
+
+Pursuit status: `changed-under-evidence`. Reject both active-only and
+full-subtraction-only cluster explanations. Preserve their pair-specific
+successes as components, and move to the exact Boolean energy
+inclusion-exclusion identity, which separates direct and mixed-packet
+interference without assuming either component has a uniform sign. No uniform
+frame, signed prime correlation, or Goldbach claim is proved.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`

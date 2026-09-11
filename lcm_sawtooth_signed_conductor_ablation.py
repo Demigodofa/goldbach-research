@@ -655,5 +655,46 @@ def project_active_full_pair_rayleigh_split_receipt(
     }
 
 
+def project_cluster_primewise_component_receipt(
+        scale_modulus, pairs, minimum_passing_fraction=.75):
+    """Test whether either primewise component is broad across a cluster."""
+    pairs = tuple(tuple(sorted(set(pair))) for pair in pairs)
+    if (not pairs or any(
+            len(pair) != 2
+            or any(type(value) is not int or value < 2 for value in pair)
+            for pair in pairs)):
+        raise ValueError("require at least one pair of distinct conductors")
+    if not 0 < minimum_passing_fraction <= 1:
+        raise ValueError("passing fraction must lie in (0,1]")
+    rows = tuple(
+        project_primewise_pair_rayleigh_receipt(scale_modulus, pair)
+        for pair in pairs)
+    active_broad_pairs = tuple(
+        row["conductors"] for row in rows
+        if row["active_component_broad_sign_hypothesis_passes"])
+    full_subtraction_broad_pairs = tuple(
+        row["conductors"] for row in rows
+        if row["full_subtraction_broad_sign_candidate_passes"])
+    active_fraction = len(active_broad_pairs) / len(rows)
+    full_fraction = len(full_subtraction_broad_pairs) / len(rows)
+    return {
+        "scale_modulus": scale_modulus,
+        "pairs": pairs,
+        "minimum_passing_fraction": minimum_passing_fraction,
+        "rows": rows,
+        "active_component_broad_pairs": active_broad_pairs,
+        "full_subtraction_broad_pairs": full_subtraction_broad_pairs,
+        "active_component_cluster_passing_fraction": active_fraction,
+        "full_subtraction_cluster_passing_fraction": full_fraction,
+        "active_component_cluster_hypothesis_passes": bool(
+            active_fraction >= minimum_passing_fraction),
+        "full_subtraction_cluster_hypothesis_passes": bool(
+            full_fraction >= minimum_passing_fraction),
+        "uniform_primewise_component_sign_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(project_signed_conductor_ablation_receipt(127))
