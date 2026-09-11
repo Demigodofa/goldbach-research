@@ -6650,3 +6650,15 @@ the reduced frequency-difference denominator only divides `lcm(d,e)`, this
 rules out conductor-pair sparsity alone, not frequency-level reduction or
 signed cancellation. The next bounded test measures the actual reduced-
 denominator distribution before choosing between those mechanisms.
+
+### 2026-09-11 continuation: positive reduced-Q sparsity fails finitely
+
+Weighting every primitive `k/d` by its exact energy
+`|S_d|^2|G_(m,d,k)|^2` and reducing `k/d-h/e`, the fraction with `Q>MA` is
+`.0973180,.1421667,.2089,.34115` at `M=251,503,1009,4001`. The first two are
+exact enumerations; the latter two are deterministic weighted samples with
+standard errors below `.00091`. Independent review returned PASS. Reduction
+lowers the corresponding conductor-lcm fractions but leaves an increasing,
+order-one finite mass. This rejects only positive denominator sparsity on the
+tested scales. The next bounded experiment bins the actual signed incomplete-
+row pair sum by `Q` and compares every bin with its absolute envelope.

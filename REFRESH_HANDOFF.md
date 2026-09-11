@@ -7926,3 +7926,37 @@ weighted sample at larger scales. If an order-one high-`Q` fraction survives,
 then positive denominator sparsity also fails and the remaining explanation
 must use the signed prime-row structure. The signed prime-correlation estimate
 and Goldbach remain OPEN.
+
+## 2026-09-11: reduced-frequency sparsity also fails finitely
+
+Give each primitive frequency `k/d` its exact positive Parseval mass
+
+`|S_d|^2 |G_(m,d,k)|^2`.
+
+For two independent draws, reduce `k/d-h/e` to denominator
+
+`Q=L/gcd(|kL/d-hL/e|,L)`, where `L=lcm(d,e)`.
+
+Multiplication of both frequencies by the prime `m` leaves `Q` unchanged
+because every support conductor is coprime to `m`. Exact enumeration gives
+the `Q>MA` fractions `.0973180` at `M=251` and `.1421667` at `M=503`, compared
+with conductor-lcm fractions `.1083817` and `.1707183`. Deterministic weighted
+sampling gives `.2089` at `M=1009` and `.34115` at `M=4001`; the corresponding
+plug-in standard errors are below `.00091`. A second `M=4001` seed agrees
+within one standard error. The frequency energies reproduce the conductor
+Parseval energy to relative error below `2e-13`.
+
+Independent review checked the geometric weights, multiplier invariance,
+ordered-pair enumeration, sampling, standard errors, and finite inference and
+returned PASS. Denominator reduction is real but modest; it does not make the
+positive high-`Q` mass negligible or decreasing over these tested scales.
+This rules out only the positive frequency-sparsity explanation in the finite
+range. It proves no asymptotic lower bound and does not measure the signed
+boundary form.
+
+The next <=30-minute question is now signed: when the exact incomplete-row
+pair sum is binned by reduced `Q`, do the order-one high-`Q` positive masses
+cancel within each bin, across bins, or only after prime aggregation? A useful
+test must compare each signed bin with its absolute envelope; small net values
+without a large envelope would merely restate small coefficients. The signed
+prime-correlation estimate and Goldbach remain OPEN.

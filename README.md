@@ -394,3 +394,9 @@ escape on the tested scales: the actual conductor product-energy fraction with
 `lcm(d,e)>MA` grows from `.108` at `M=251` to `.510` at `M=16001`. This is not
 yet a reduced-frequency or signed estimate; the next test resolves the actual
 denominator of `k/d-h/e` under the primitive-frequency energy distribution.
+
+That reduced-frequency test now also rejects positive sparsity finitely. The
+reviewed `Q>MA` mass rises from `.0973` at `M=251` to `.3411` at `M=4001`;
+the first two scales were enumerated exactly and the larger two were sampled
+with recorded errors. The next test asks where the actual signed pair
+contributions cancel, both by `Q` range and after prime aggregation.
