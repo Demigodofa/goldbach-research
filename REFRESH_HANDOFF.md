@@ -9367,6 +9367,24 @@ analytic target is the sign of this Rayleigh contribution in source residue
 coordinates. No uniform sign or magnitude bound, lower frame, signed prime
 correlation, or Goldbach claim is proved.
 
+## 2026-09-11: the off-diagonal mechanism is still primewise signed
+
+The primewise `(77,143)` receipt now also forms
+`c_offdiag(m)=c_active(m)-c_full(m)`. The predeclared broad-sign test required
+at least `75%` nonnegative primes and no one prime above `25%` of positive
+off-diagonal mass.
+
+It fails. Only `13/24=.541667` primes are nonnegative, while `m=167` supplies
+`.3171119` of positive mass. Positive off-diagonal mass `1.63434887` is offset
+by negative mass `.42181863`, leaving primewise sum `1.21253024`.
+
+Pursuit status: `changed-under-evidence`. The off-diagonal Dirichlet-kernel
+identity identifies the exact finite sign-reversal mechanism, but does not
+make it primewise positive or diffuse. Preserve the kernel formulation and
+reject a termwise-sign shortcut. A proof still needs a signed average over
+primes or a new arithmetic organization of the phase sum. No uniform bound,
+lower frame, signed prime correlation, or Goldbach claim is proved.
+
 ## 2026-09-11: the stabilizing Rayleigh sign is not primewise broad
 
 `project_primewise_pair_rayleigh_receipt` fixes the aggregate additive

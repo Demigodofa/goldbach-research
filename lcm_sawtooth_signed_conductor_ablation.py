@@ -490,6 +490,9 @@ def project_primewise_pair_rayleigh_receipt(
             "minus_half_full_cross_rayleigh": float(
                 -.5 * fragile @ full_cross[1:, 1:] @ fragile),
         })
+        rows[-1]["off_diagonal_window_cross_rayleigh"] = (
+            rows[-1]["active_window_cross_rayleigh"]
+            + 2 * rows[-1]["minus_half_full_cross_rayleigh"])
 
     contribution_sum = sum(
         row["fragile_direction_cross_rayleigh"] for row in rows)
@@ -538,6 +541,8 @@ def project_primewise_pair_rayleigh_receipt(
     active_summary = component_summary("active_window_cross_rayleigh")
     full_subtraction_summary = component_summary(
         "minus_half_full_cross_rayleigh")
+    off_diagonal_summary = component_summary(
+        "off_diagonal_window_cross_rayleigh")
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -560,10 +565,13 @@ def project_primewise_pair_rayleigh_receipt(
             fraction_passes and concentration_passes),
         "active_window_component": active_summary,
         "minus_half_full_component": full_subtraction_summary,
+        "off_diagonal_window_component": off_diagonal_summary,
         "active_component_broad_sign_hypothesis_passes": active_summary[
             "broad_sign_falsifier_passes"],
         "full_subtraction_broad_sign_candidate_passes": (
             full_subtraction_summary["broad_sign_falsifier_passes"]),
+        "off_diagonal_window_broad_sign_hypothesis_passes": (
+            off_diagonal_summary["broad_sign_falsifier_passes"]),
         "uniform_primewise_cross_rayleigh_sign_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,

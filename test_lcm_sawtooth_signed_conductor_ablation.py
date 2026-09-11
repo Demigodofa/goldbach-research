@@ -220,6 +220,17 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
             "active_component_broad_sign_hypothesis_passes"])
         self.assertTrue(receipt[
             "full_subtraction_broad_sign_candidate_passes"])
+        off_diagonal = receipt["off_diagonal_window_component"]
+        self.assertEqual(off_diagonal["nonnegative_count"], 13)
+        self.assertEqual(
+            off_diagonal["largest_positive_contributor"], 167)
+        self.assertAlmostEqual(
+            off_diagonal["sum"], 1.2125302353360201)
+        self.assertAlmostEqual(
+            off_diagonal["largest_positive_mass_share"],
+            .31711194601240417)
+        self.assertFalse(receipt[
+            "off_diagonal_window_broad_sign_hypothesis_passes"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_primewise_receipt_guards_pair_and_thresholds(self):
