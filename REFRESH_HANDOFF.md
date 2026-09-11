@@ -10136,3 +10136,56 @@ at least `75%` of delta absolute mass on at least two prime channels, with
 actual and neutral packets independently reconstructed within `1e-12`.
 Failure rejects a broad favorable dyadic-phase rule while preserving the
 exact diagonal packet transport.
+
+## 2026-09-11: diagonal phases can reinforce selected prime channels
+
+The phase-neutral counterfactual replaces every residue-dependent multiplier
+`T_(p,d)(a)` by its positive magnitude while preserving the base common-half
+geometric sum, multiplier magnitude, conductor geometric, doubled support
+vector, fragile direction, induced residue, both orientations, and interval
+kernel. The phase delta is the actual near-lag contribution minus this
+counterfactual.
+
+The predeclared finite gate required positive phase deltas to carry at least
+`.75` of delta absolute lag mass on at least two eligible prime channels. It
+passes on three of 22:
+
+- `p=139`: `.8716577` favorable delta mass; the phase makes a negative term
+  less negative;
+- `p=179`: `.7615313`; the phase changes the near signed term from
+  `-.22141963114248936` to `.10502950751076004`;
+- `p=233`: `.7550561`.
+
+Only ten of 22 channelwise signed deltas are positive. Aggregated over all
+eligible primes, the actual near signed sum is `.06574279317545717`, the
+phase-neutral sum is `.012887840697077239`, and the phase increment is
+`.052854952478380006`. However, positive phase-delta lag mass is only
+`.5053738213828133` of aggregate delta absolute mass. The positive aggregate
+increment therefore comes from close signed cancellation, not broad
+termwise positivity.
+
+Independent review checked the `T -> |T|` counterfactual, retained factors,
+orientations, FFT correlation convention, kernel, near mask, packet
+reconstruction dependency, numerical values, tests, and scope. A separate
+direct correlation sum agreed within `3.6e-15`. Five focused tests pass
+normally and under Python optimization.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+Preserve the three channel witnesses, especially the `p=179` sign flip, and
+the positive aggregate phase increment. Do not promote them to a broad phase
+bias: the aggregate absolute-mass split is nearly balanced and no uniform
+prime estimate is proved.
+
+The next bounded question factors the multiplier itself. Using
+`1+exp(i theta)=2 cos(theta/2) exp(i theta/2)`, write
+
+`T_(p,d)(a)=R_(p,d)(a) E_(p,d)(a)`,
+
+where `R` is the real signed ratio of the two cosine factors and `E` is its
+unit additive phase. Verify this factorization within `1e-12`. Construct a
+sign-only packet using `R` and compare neutral -> sign-only -> full. A
+component explains the positive aggregate increment only if its signed
+increment has the same sign and magnitude at least `.75` of the full
+`.052854952478380006` increment. This distinguishes reinforcement from the
+real cosine sign and from the additive phase without discarding the exact
+diagonal transport.

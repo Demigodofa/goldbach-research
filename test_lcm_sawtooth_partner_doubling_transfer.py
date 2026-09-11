@@ -1,13 +1,31 @@
 import unittest
 
+import numpy as np
+
 from lcm_sawtooth_partner_doubling_transfer import (
     doubled_partner_geometric_receipt,
+    classify_diagonal_multiplier_phase_bias,
     partner_packet_transfer_receipt,
     partner_doubling_transfer_receipt,
 )
 
 
 class PartnerDoublingTransferTests(unittest.TestCase):
+    def test_phase_bias_classifier_applies_delta_mass_gate(self):
+        actual_left = np.asarray((1, 0, 0, 0, 0), dtype=complex)
+        actual_right = np.asarray((0, 1, 0, 0, 0), dtype=complex)
+        neutral_left = actual_left.copy()
+        neutral_right = -actual_right
+        receipt = classify_diagonal_multiplier_phase_bias(
+            {17: (actual_left, actual_right,
+                  neutral_left, neutral_right)},
+            1, 1, minimum_passing_channel_count=1)
+        row = receipt["phase_bias_channel_rows"][0]
+        self.assertIsNotNone(
+            row["positive_phase_delta_absolute_mass_fraction"])
+        self.assertEqual(receipt[
+            "minimum_positive_phase_delta_absolute_mass_fraction"], .75)
+
     def test_project_packets_transfer_under_primitive_lift(self):
         receipt = partner_packet_transfer_receipt()
         self.assertEqual(receipt["prime_count"], 24)
@@ -30,6 +48,40 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         self.assertEqual(empty_packets, {(131, 77), (211, 143)})
         self.assertTrue(receipt[
             "exact_doubled_packet_diagonal_transfer_test_passes"])
+        self.assertEqual(
+            receipt["minimum_positive_phase_delta_absolute_mass_fraction"],
+            .75)
+        self.assertEqual(
+            receipt["minimum_passing_phase_bias_channel_count"], 2)
+        self.assertEqual(receipt["eligible_phase_bias_channel_count"], 22)
+        self.assertEqual(receipt["phase_bias_passing_channel_count"], 3)
+        self.assertEqual(
+            receipt["phase_bias_passing_channels"], (139, 179, 233))
+        self.assertTrue(receipt[
+            "diagonal_multiplier_phase_bias_hypothesis_passes"])
+        self.assertEqual(
+            receipt["positive_signed_phase_delta_channel_count"], 10)
+        self.assertAlmostEqual(
+            receipt["aggregate_actual_near_lag_signed_sum"],
+            .06574279317545717, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_phase_neutral_near_lag_signed_sum"],
+            .012887840697077239, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_phase_delta_near_lag_signed_sum"],
+            .052854952478380006, places=10)
+        self.assertAlmostEqual(
+            receipt[
+                "aggregate_positive_phase_delta_absolute_mass_fraction"],
+            .5053738213828133, places=10)
+        phase_rows = {
+            row["channel"]: row for row in receipt["phase_bias_channel_rows"]}
+        self.assertAlmostEqual(
+            phase_rows[179]["actual_near_lag_signed_sum"],
+            .10502950751076004, places=10)
+        self.assertAlmostEqual(
+            phase_rows[179]["phase_neutral_near_lag_signed_sum"],
+            -.22141963114248936, places=10)
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_half_interval_identity_and_primitive_lift(self):
