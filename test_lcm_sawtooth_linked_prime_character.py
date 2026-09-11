@@ -8,6 +8,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_centering_receipt,
     linked_prime_parity_selection_receipt,
     recombined_centered_character_receipt,
+    recombined_centered_prime_phase_scan_receipt,
 )
 
 
@@ -47,6 +48,15 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             recombined_centered_character_receipt(
                 minimum_leading_energy_fraction=1.01)
+        with self.assertRaises(ValueError):
+            recombined_centered_prime_phase_scan_receipt(
+                target_minimum=999)
+        with self.assertRaises(ValueError):
+            recombined_centered_prime_phase_scan_receipt(
+                target_minimum=1002, target_maximum=1000)
+        with self.assertRaises(ValueError):
+            recombined_centered_prime_phase_scan_receipt(
+                maximum_phase_ratio=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -106,7 +116,6 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "joint_coefficient_prime_phase_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
-
     def test_target_divisibility_selects_even_characters(self):
         receipt = linked_prime_parity_selection_receipt()
         self.assertEqual(
@@ -320,7 +329,6 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "centered_target_dispersion_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
-
     def test_recombined_centered_source_remains_character_broad(self):
         receipt = recombined_centered_character_receipt()
         self.assertEqual(receipt["quotient"], 77)
@@ -351,6 +359,55 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["four_character_shortcut_gate_passes"])
         self.assertTrue(receipt[
             "recombined_centered_character_expansion_proved"])
+        self.assertFalse(receipt[
+            "centered_target_dispersion_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_finite_target_scan_finds_strong_prime_phase_resonance(self):
+        receipt = recombined_centered_prime_phase_scan_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 5000))
+        self.assertEqual(receipt["tested_target_count"], 2001)
+        self.assertEqual(receipt["nonempty_target_count"], 2001)
+        self.assertEqual(receipt["empty_target_count"], 0)
+        self.assertEqual(receipt["phase_gate_pass_count"], 1571)
+        self.assertEqual(receipt["worst_target"], 1258)
+        worst = receipt["worst_target_row"]
+        self.assertEqual(worst["target_residue"], 88)
+        self.assertEqual(worst["linked_prime_pair_count"], 12)
+        self.assertEqual(worst["nonunit_prime_terms"], ())
+        self.assertAlmostEqual(
+            worst["phase_cancellation_ratio"],
+            .9582327297547517, places=12)
+        self.assertAlmostEqual(
+            worst["direct_centered_correlation"].real,
+            -2376517.0151526285, places=6)
+        self.assertAlmostEqual(
+            worst["direct_triangle_mass"],
+            2480104.1974018877, places=6)
+        contributions = receipt["worst_target_contributions"]
+        self.assertEqual(len(contributions), 12)
+        self.assertEqual(contributions[0][:3], (599, 659, 79))
+        empty = recombined_centered_prime_phase_scan_receipt(
+            target_minimum=26, target_maximum=26)
+        self.assertEqual(empty["nonempty_target_count"], 0)
+        self.assertEqual(empty["empty_target_count"], 1)
+        self.assertEqual(empty["rows"][26]["nonunit_prime_terms"], (13,))
+        self.assertIsNone(empty["worst_target"])
+        self.assertIsNone(empty["worst_target_row"])
+        self.assertEqual(empty["worst_target_contributions"], ())
+        self.assertIsNone(empty[
+            "all_tested_nonempty_targets_pass_phase_gate"])
+        self.assertFalse(empty[
+            "finite_range_phase_cancellation_measured"])
+        self.assertTrue(receipt["all_prime_terms_are_units"])
+        self.assertFalse(receipt[
+            "all_tested_nonempty_targets_pass_phase_gate"])
+        self.assertTrue(receipt[
+            "finite_range_phase_cancellation_measured"])
+        self.assertFalse(receipt["uniform_phase_cancellation_proved"])
         self.assertFalse(receipt[
             "centered_target_dispersion_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])

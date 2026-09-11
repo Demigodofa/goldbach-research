@@ -614,6 +614,8 @@ def recombined_centered_character_receipt(
         "common_modulus": common,
         "targets": centering["targets"],
         "divisor_count": len(source_rows),
+        "unit_residues": units,
+        "centered_source_values": centered_source,
         "recombined_source_mean": source_mean,
         "principal_centered_coefficient": principal_coefficient,
         "principal_centered_coefficient_relative_error": (
@@ -647,6 +649,110 @@ def recombined_centered_character_receipt(
             and leading_energy_fraction
             >= minimum_leading_energy_fraction),
         "recombined_centered_character_expansion_proved": True,
+        "centered_target_dispersion_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def recombined_centered_prime_phase_scan_receipt(
+        target_minimum=1000, target_maximum=5000,
+        maximum_phase_ratio=.25, tolerance=1e-12, batch_size=32):
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 20 or target_minimum % 2
+            or target_maximum < target_minimum or target_maximum % 2):
+        raise ValueError(
+            "target bounds must be even integers with 20 <= minimum <= maximum")
+    if (not math.isfinite(maximum_phase_ratio)
+            or not 0 <= maximum_phase_ratio <= 1):
+        raise ValueError("maximum phase ratio must lie in [0, 1]")
+    character = recombined_centered_character_receipt(
+        targets=LINKED_PRIME_TARGETS, tolerance=tolerance,
+        batch_size=batch_size)
+    common = character["common_modulus"]
+    source_by_residue = {
+        int(unit): value for unit, value in zip(
+            character["unit_residues"],
+            character["centered_source_values"])}
+    primes = _prime_table(target_maximum)
+    rows = {}
+    contribution_rows = {}
+    for target in range(target_minimum, target_maximum + 1, 2):
+        lower = target // 3
+        upper = target - lower
+        contributions = []
+        direct = 0.0j
+        triangle = 0.0
+        nonunit_primes = []
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if not primes[prime] or not primes[partner]:
+                continue
+            weight = math.log(prime) * math.log(partner)
+            if math.gcd(prime, common) != 1:
+                nonunit_primes.append(prime)
+                continue
+            source_value = source_by_residue[prime % common]
+            contribution = weight * source_value
+            direct += contribution
+            triangle += weight * abs(source_value)
+            contributions.append((
+                prime, partner, prime % common, weight,
+                source_value, contribution))
+        ratio = abs(direct) / triangle if triangle else None
+        rows[target] = {
+            "target_residue": target % common,
+            "linked_prime_pair_count": len(contributions),
+            "nonunit_prime_terms": tuple(nonunit_primes),
+            "direct_centered_correlation": direct,
+            "direct_triangle_mass": triangle,
+            "phase_cancellation_ratio": ratio,
+            "passes_phase_ratio_gate": (
+                bool(ratio <= maximum_phase_ratio)
+                if ratio is not None else None),
+        }
+        contribution_rows[target] = tuple(contributions)
+
+    nonempty_targets = tuple(
+        target for target, row in rows.items()
+        if row["phase_cancellation_ratio"] is not None)
+    worst_target = (
+        max(nonempty_targets,
+            key=lambda target: rows[target]["phase_cancellation_ratio"])
+        if nonempty_targets else None)
+    worst_contributions = (
+        tuple(sorted(
+            contribution_rows[worst_target],
+            key=lambda item: (-abs(item[-1]), item[0])))
+        if worst_target is not None else ())
+    gate_pass_count = sum(
+        rows[target]["passes_phase_ratio_gate"]
+        for target in nonempty_targets)
+    return {
+        "families": character["families"],
+        "arithmetic_period": character["arithmetic_period"],
+        "quotient": character["quotient"],
+        "common_modulus": common,
+        "target_range": (target_minimum, target_maximum),
+        "interval_convention": "floor(N/3) < p < N-floor(N/3)",
+        "maximum_phase_ratio_gate": maximum_phase_ratio,
+        "rows": rows,
+        "tested_target_count": len(rows),
+        "nonempty_target_count": len(nonempty_targets),
+        "empty_target_count": len(rows) - len(nonempty_targets),
+        "phase_gate_pass_count": gate_pass_count,
+        "worst_target": worst_target,
+        "worst_target_row": (
+            rows[worst_target] if worst_target is not None else None),
+        "worst_target_contributions": worst_contributions,
+        "all_prime_terms_are_units": all(
+            not row["nonunit_prime_terms"] for row in rows.values()),
+        "all_tested_nonempty_targets_pass_phase_gate": (
+            bool(gate_pass_count == len(nonempty_targets))
+            if nonempty_targets else None),
+        "finite_range_phase_cancellation_measured": bool(
+            nonempty_targets),
+        "uniform_phase_cancellation_proved": False,
         "centered_target_dispersion_estimate_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,

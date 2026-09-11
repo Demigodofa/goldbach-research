@@ -13343,3 +13343,66 @@ residue contributions.  A violation identifies a concrete resonant target
 and rejects uniform strong phase cancellation.  A full pass would be finite
 evidence for pursuing a target-dispersion inequality, not a proof outside the
 range and not the missing estimate itself.
+
+## 2026-09-11: finite targets contain nearly total prime-phase resonance
+
+The proposed `.25` phase-cancellation gate fails strongly on the actual
+linked-prime fixtures.  For the signed-recombined and globally centered
+quotient-`77` source `G_0`, every one of the `2001` even targets
+`1000<=N<=5000` has at least one ordered linked-prime pair in the strict
+central interval, and all prime terms are units modulo `130`.  Only
+`1571/2001` targets satisfy
+
+`rho_N=|sum_p log(p)log(N-p)G_0(p)|
+       /sum_p log(p)log(N-p)|G_0(p)| <= .25`.
+
+The worst target is `N=1258`, residue `88 mod 130`, with `12` ordered pairs:
+
+`rho_1258=.9582327297547517`.
+
+Its signed correlation is `-2376517.0151526285+O(1e-8)i`, against triangle
+mass `2480104.1974018877`.  The largest individual residue contributions are
+from `599+659`, `701+557`, and `809+449`; almost every substantial term has
+the same negative phase.  This is a concrete resonant coefficient witness,
+not a failure inferred from a generic norm bound.
+
+Curiosity status: `finite-uniform-phase-gate-fail/resonant-target-found`,
+novelty `new-to-this-task`.  Preserve `G_0`, the exact source/character
+decompositions, and the measured target rows.  Retire only uniform strong
+phase cancellation on this finite range.  A finite counterexample does not
+rule out an averaged or scale-dependent dispersion theorem, but no such
+theorem, signed prime-correlation estimate, or Goldbach result is proved.
+
+Independent review verified the source provenance, interval endpoints,
+ordered-pair convention, log weights, unit support, denominator, counts,
+worst target, and scope.  It initially held an allowed range having no
+unit-supported pair: `(26,26)` contains only the nonunit `13+13` term and
+previously reached an accidental `max()` failure.  The receipt now preserves
+that evidence with no worst row and explicitly reports that no phase
+measurement occurred.  The reviewer returned PASS; default-plus-empty tests
+pass normally and under Python `-O`.
+
+The next bounded question separates deterministic local bias from actual
+prime-pair residue discrepancy.  For even residue `n mod 130`, let
+
+`A_n={a in U_130:n-a in U_130}`,
+
+and for an actual target write its residue weight as
+
+`W_N(a)=W_N/|A_n|+delta_N(a)`.
+
+Then test the exact decomposition
+
+`L_N(G_0)=(W_N/|A_n|)sum_(a in A_n)G_0(a)
+           +sum_(a in A_n)delta_N(a)G_0(a)`
+
+on all `2001` targets.  Freeze a source-only local-bias gate
+
+`beta_n=|sum_(a in A_n)G_0(a)|/sum_(a in A_n)|G_0(a)| <= .15`
+
+for every even residue modulo `130`.  A preliminary calculation gives
+`beta_88=.058630719657540006` at the worst prime-phase target and maximum
+about `.12969013345` over all residues.  If verified, the `.958...` resonance
+cannot be attributed to the uniform admissible-residue main alone; the new
+arithmetic target becomes a dispersion bound for `delta_N`.  Failure would
+identify the deterministic local main as the dominant obstruction instead.
