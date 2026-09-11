@@ -17,6 +17,9 @@ class LcmSawtoothFixedQResidueTests(unittest.TestCase):
         self.assertLess(packet["ramanujan_kernel_identity_error"], 1e-10)
         self.assertLess(
             packet["packet_imaginary_error_over_complete"], 1e-12)
+        self.assertAlmostEqual(
+            packet["packet_absolute_square_over_complete_squared"],
+            packet["packet_over_complete"] ** 2)
         self.assertLess(
             packet["additive_transform_packet_error_over_complete"], 1e-12)
         self.assertLess(
@@ -31,6 +34,10 @@ class LcmSawtoothFixedQResidueTests(unittest.TestCase):
                 "active_window_lag_inner_products_over_complete_squared"])
         active_energy = packet[
             "active_window_transform_energy_over_complete_squared"]
+        self.assertAlmostEqual(
+            sum(abs(value) ** 2 for value in packet[
+                "active_window_transform_over_complete"]),
+            active_energy)
         self.assertAlmostEqual(
             packet["row_count_scaled_mean_square_over_l2"],
             1 + 2 * lag_sum / active_energy)

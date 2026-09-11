@@ -191,6 +191,8 @@ def fixed_q_residue_receipt(
             "represented_residue_count": len(residue_sum),
             "represented_residue_fraction": len(residue_sum) / len(units),
             "packet_over_complete": float(packet.real / complete_energy),
+            "packet_absolute_square_over_complete_squared": float(
+                abs(packet) ** 2 / complete_energy ** 2),
             "packet_imaginary_error_over_complete": float(
                 abs(packet.imag) / complete_energy),
             "constant_projection_over_complete": float(
@@ -221,6 +223,9 @@ def fixed_q_residue_receipt(
                 if active_transform_l2 else 0.0),
             "active_window_transform_energy_over_complete_squared": float(
                 active_transform_energy / complete_energy ** 2),
+            "active_window_transform_over_complete": tuple(
+                complex(value / complete_energy)
+                for value in active_transform),
             "active_window_lag_inner_products_over_complete_squared": (
                 lag_inner_products),
             "crt_prime_split_metrics": _crt_tensor_metrics(

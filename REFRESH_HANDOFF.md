@@ -8354,3 +8354,102 @@ sum across both rows and exact denominators. Test a coefficient-sensitive
 large-sieve/operator bound against the `m=499` broad-correlation fixture; a
 power-growing all-packet quotient falsifies the proposed route. The signed
 prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: exceptional row directions localize to conductor packets
+
+The row Gram diagnostic fixes every measured coefficient and exact-Q
+coordinate, then compares the constant row direction with 16,384
+deterministic Rademacher sign probes. Its normalized quotient reconstructs the
+lag calculation to 1.4e-14. At m=251,373 and the project m=503 fixture,
+the actual quotients .92959,.87218,1.20314 lie inside the empirical central
+95% intervals [.560,1.577], [.500,1.712], [.739,1.312]. At m=499,
+the actual 3.07581 exceeds every probe; the empirical upper endpoint is
+1.74559. Thus the constant direction is arithmetically exceptional in that
+fixture. The probes are a conditional finite diagnostic, not an independence
+model or an asymptotic estimate.
+
+The predeclared hypothesis that m=499 was an isolated modulus resonance is
+directly contradicted. With (A,L,B)=(46,46,20) held fixed, neighboring
+primes 439,457,461,463,479,487,491,503 give quotients between .902 and
+1.624, but m=509 gives 2.62084, above its 1.76253 empirical 97.5%
+endpoint and at sign-probe percentile .99951.
+
+Positive excess over diagonal row scale is nevertheless concentrated by exact
+denominator. The five largest packets carry .9262 at m=499 and .9858 at
+m=509. Their leaders are
+
+Q=62985=3*5*13*17*19 and
+Q=67830=2*3*5*7*17*19.
+
+An exact conductor-channel decomposition gives a mechanism for the first but
+not a universal one. At (m,Q)=(499,62985), the three complementary pairs
+(221,285),(195,323),(247,255) have channel coherence .9820; the largest
+share is .5339, so multiple channels reinforce. At (509,67830), the three
+pairs also have coherence .9855, but (210,323) alone carries .9538.
+Therefore:
+
+- exceptional exact-Q localization is supported at both tested resonant
+  moduli;
+- multi-channel reinforcement is supported for m=499;
+- the conjunction that multi-channel reinforcement explains every exception
+  is directly contradicted by m=509;
+- the exact conductor-channel split remains active and reusable.
+
+The next concrete question is why the single (210,323) channel is large at
+m=509. Split it by reduced numerator size and individual primitive-frequency
+pairs. If a predeclared small near-resonant set carries most of the signed
+channel, pursue a Diophantine classification; if its mass is broad, rewrite
+the channel as a correlation of the two cyclic Ramanujan-sum row sequences.
+The aggregate inequality, signed prime-correlation estimate, and Goldbach
+remain OPEN.
+
+## 2026-09-11: endpoint Diophantine resonance explains the named exceptions
+
+The near-resonance falsifier was run inside the material conductor channels.
+Near means the exact main-lobe condition
+
+min(r,Q-r) <= Q/A.
+
+For the dominant (210,323) channel at (m,Q)=(509,67830), only .04340 of
+ordered primitive-frequency pairs are near, but they supply .98810 of the
+signed channel and .76781 of its termwise-absolute envelope. The four largest
+ordered terms carry .6763 of that envelope. They are the conjugate endpoint
+modes k,h in {+1,-1}, which supply .98414 of the signed channel.
+
+The actual rotated endpoint frequencies include
+
+121/210 and 186/323, with
+
+121/210 - 186/323 = 23/67830.
+
+Equivalently,
+
+4*210*323 - 509*(210+323) = 23.
+
+Thus the two large endpoint geometric coefficients remain almost phase-locked
+over all 46 active rows. This is an exact finite arithmetic mechanism for the
+largest m=509 packet.
+
+The two material m=499 channels show the same mechanism with less extreme
+residuals. For (221,285), near terms supply .96401 of the signed channel and
+endpoint modes supply .62765; their leading residual is
+
+499*(221+285) - 4*221*285 = 554.
+
+For (195,323), near terms supply 1.10365 (far terms partly cancel them) and
+endpoint modes supply .95169; their leading residual is
+
+499*(323-195) - 195*323 = 887.
+
+Both 554 and 887 are below Q/A=1369.24. This result is
+new-to-this-task finite mechanism evidence. It does not prove that endpoint
+resonances are sparse or harmless after summing conductors and primes.
+
+The next concrete hypothesis is that a coefficient-weighted endpoint-resonance
+score predicts every exceptional row quotient in the fixed-geometry prime
+scan. Define the score from the k,h in {+1,-1} terms with
+min(r,Q-r)<=Q/A, retaining the actual structured coefficients and kernels.
+Test whether m=499 and 509 are the two largest scores among the scanned primes
+and whether score rank tracks row-quotient rank. Failure would show that
+non-endpoint near modes are essential. Even success would leave the required
+uniform near-resonance count and signed outer-prime estimate OPEN.

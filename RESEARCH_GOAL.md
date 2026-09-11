@@ -6780,3 +6780,49 @@ exact denominators, plausibly through a coefficient-sensitive large sieve or
 operator estimate. Its concrete target is the aggregate inequality displayed
 in `REFRESH_HANDOFF.md`; a power-growing all-packet quotient falsifies it.
 The signed prime-correlation estimate and Goldbach remain OPEN.
+
+### 2026-09-11 curiosity continuation: recurring exceptional row directions
+
+Against 16,384 deterministic sign probes of each actual row Gram matrix, the
+constant direction is ordinary at m=251,373 and the project m=503 fixture,
+but the m=499 quotient 3.07581 exceeds every probe. A fixed-geometry
+neighbor scan falsifies the idea that this is isolated: m=509 gives
+2.62084, at empirical percentile .99951, while eight other neighboring
+primes lie in .902--1.624. These probes preserve the measured Gram matrix
+and diagnose exceptional alignment; they do not model arithmetic independence
+or prove a bound.
+
+The exceptions localize sharply by exact denominator: five packets carry
+.9262 and .9858 of positive excess at m=499,509. The leaders are
+Q=62985 and 67830. A new exact conductor-pair split shows coherent
+reinforcement among (221,285),(195,323),(247,255) for the former
+(.9820 coherence, .5339 largest share). For the latter, coherence is
+.9855 but (210,323) carries .9538; hence a universal multi-channel
+mechanism is rejected. Preserve exact-Q localization and the channel
+decomposition. Next falsify a small-near-resonant-frequency explanation inside
+the exceptional (210,323) channel before attempting a cyclic Ramanujan
+correlation estimate. The signed Goldbach correlation remains OPEN.
+
+### 2026-09-11 curiosity continuation: an explicit endpoint resonance
+
+Inside the dominant (m,Q)=(509,67830) packet, only .04340 of ordered
+primitive-frequency pairs satisfy min(r,Q-r)<=Q/A, yet they supply .98810
+of the signed (210,323) channel. Endpoint modes k,h in {+1,-1} alone supply
+.98414. The exact rotated fractions satisfy
+
+121/210 - 186/323 = 23/67830,
+
+equivalently 4*210*323-509*(210+323)=23. Their phase separation across
+A=46 rows is therefore tiny. The material m=499 channels also pass the
+predeclared 60% endpoint test: (221,285) gives .62765 with residual 554,
+and (195,323) gives .95169 with residual 887. Their full near-main-lobe
+signed fractions are .96401 and 1.10365.
+
+This identifies a new-to-this-task finite mechanism: endpoint-amplified
+geometric coefficients reinforce when their modulus-rotated conductor
+fractions obey a small integer residual. The exact-Q, conductor-channel,
+near-resonance, and endpoint components are preserved. What remains unproved
+is the arithmetic statement needed for Goldbach: that all such resonances,
+with their actual coefficients and outer prime signs, have a sufficiently
+small aggregate. Next test a coefficient-weighted endpoint score on the fixed
+prime scan; score/rank failure falsifies endpoint sufficiency.

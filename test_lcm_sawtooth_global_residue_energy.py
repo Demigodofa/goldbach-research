@@ -30,6 +30,21 @@ class LcmSawtoothGlobalResidueEnergyTests(unittest.TestCase):
             0 <= receipt["top_five_absolute_lag_mass_fraction"] <= 1)
         self.assertTrue(
             0 <= receipt["first_five_absolute_lag_mass_fraction"] <= 1)
+        self.assertLess(
+            receipt["row_gram_constant_direction_reconstruction_error"],
+            1e-12)
+        self.assertTrue(1 <= receipt["row_gram_effective_rank"] <= 10)
+        self.assertEqual(receipt["rademacher_sign_probe_count"], 16384)
+        lower, median, upper = receipt[
+            "rademacher_sign_probe_central_95_interval"]
+        self.assertLess(lower, median)
+        self.assertLess(median, upper)
+        self.assertTrue(
+            0 < receipt["constant_direction_sign_probe_percentile"] <= 1)
+        self.assertTrue(
+            0 <= receipt["top_five_positive_packet_excess_fraction"] <= 1)
+        self.assertLess(
+            receipt["packet_excess_reconstruction_relative_error"], 1e-12)
         self.assertTrue(
             receipt["finite_global_residue_energy_measurement"])
         self.assertFalse(receipt["window_l2_equidistribution_bound_proved"])

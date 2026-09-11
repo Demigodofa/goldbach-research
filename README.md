@@ -462,3 +462,21 @@ lags explain the result: the five largest lags carry only 34%--43% of absolute
 lag mass, and the first five only 16%--29%. The surviving target is a broad,
 coefficient-sensitive row-by-exact-`Q` large-sieve/operator estimate. The
 signed prime correlation and Goldbach remain open.
+
+A deterministic row-Gram sign-probe test now finds that m=499 is genuinely
+exceptional relative to its own measured Gram matrix, and a fixed-geometry
+scan finds a second exception at m=509. In both cases five exact denominators
+carry over 92% of positive row-scale excess. The leading m=499 packet is
+coherent reinforcement of several complementary conductor pairs; the leading
+m=509 packet is instead 95% dominated by (210,323). This rejects one
+universal internal explanation while localizing the next arithmetic question
+to primitive-frequency structure inside a named conductor pair.
+
+That internal test finds an explicit mechanism. At m=509, the rotated
+endpoint modes 121/210 and 186/323 differ by only 23/67830; four conjugate
+terms account for about 68% of the dominant channel envelope and endpoint
+modes supply 98.4% of its signed value. The two material m=499 channels have
+analogous main-lobe endpoint residuals 554 and 887. This explains the measured
+exceptional packets through endpoint-amplified near frequencies, while the
+uniform count, coefficient-weighted aggregate, outer prime correlation, and
+Goldbach remain open.
