@@ -100,6 +100,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_sign_cube_receipt(
                 maximum_actual_upper_tail_fraction=-.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_sign_cube_receipt(
+                minimum_stable_dyadic_block_count=-1)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -775,8 +778,27 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             receipt["actual_ratio_reconstruction_relative_error"], 1e-12)
         self.assertLess(
             receipt["orbit_diagonal_reconstruction_relative_error"], 1e-12)
+        self.assertEqual(len(receipt["dyadic_sign_cube_summaries"]), 7)
+        dyadic = receipt["dyadic_sign_cube_summaries"]
+        self.assertEqual(
+            tuple(row["patterns_at_or_above_actual"]
+                  for row in dyadic.values()),
+            (2816, 48177, 7854, 762, 1344, 19203, 1187))
+        self.assertEqual(
+            tuple(row["passes_upper_tail_gate"] for row in dyadic.values()),
+            (True, False, False, True, True, False, True))
+        self.assertTrue(all(
+            row["pattern_count"] == 65536 for row in dyadic.values()))
+        self.assertTrue(all(
+            row["actual_ratio_reconstruction_relative_error"] < 1e-12
+            for row in dyadic.values()))
+        self.assertEqual(receipt["stable_dyadic_block_count"], 4)
+        self.assertFalse(receipt["passes_dyadic_stability_gate"])
+        self.assertTrue(receipt["finite_dyadic_sign_cubes_exhausted"])
         self.assertTrue(receipt["finite_sign_cube_exhausted"])
         self.assertFalse(receipt["source_sign_alignment_proved"])
+        self.assertFalse(receipt[
+            "scale_stable_source_sign_alignment_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

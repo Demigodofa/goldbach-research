@@ -1794,10 +1794,15 @@ def residue_orbit_reinforcement_receipt(
 def residue_orbit_sign_cube_receipt(
         target_minimum=1000, target_maximum=100000, target_residue=72,
         maximum_actual_upper_tail_fraction=.05,
+        minimum_stable_dyadic_block_count=5,
         tolerance=1e-12, batch_size=32):
     if (not math.isfinite(maximum_actual_upper_tail_fraction)
             or not 0 <= maximum_actual_upper_tail_fraction <= 1):
         raise ValueError("upper-tail fraction gate must lie in [0, 1]")
+    if (type(minimum_stable_dyadic_block_count) is not int
+            or minimum_stable_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum stable dyadic block count must be a nonnegative integer")
     base = residue_orbit_reinforcement_receipt(
         target_minimum=target_minimum,
         target_maximum=target_maximum,
@@ -1835,6 +1840,49 @@ def residue_orbit_sign_cube_receipt(
     direct_denominator = math.fsum(
         base["rows"][target]["orbit_discrepancy_square_function"]
         for target in targets)
+    dyadic_sign_cube_summaries = {}
+    for block, block_row in base["dyadic_block_summaries"].items():
+        block_lower, block_upper = block
+        block_indices = tuple(
+            index for index, target in enumerate(targets)
+            if block_lower <= target < block_upper)
+        block_terms = orbit_terms[np.asarray(block_indices, dtype=np.int64)]
+        block_covariance = block_terms.conjugate().T @ block_terms
+        block_real_covariance = block_covariance.real
+        block_denominator = float(np.trace(block_real_covariance))
+        block_ratios = np.einsum(
+            "bi,ij,bj->b", signs, block_real_covariance, signs,
+            optimize=True) / block_denominator
+        block_actual_ratio = float(block_ratios[0])
+        block_rank_tolerance = tolerance * max(
+            1.0, abs(block_actual_ratio))
+        block_at_or_above = int(np.count_nonzero(
+            block_ratios >= block_actual_ratio - block_rank_tolerance))
+        block_upper_tail_fraction = block_at_or_above / pattern_count
+        block_maximum_index = int(np.argmax(block_ratios))
+        dyadic_sign_cube_summaries[block] = {
+            "target_count": len(block_indices),
+            "pattern_count": pattern_count,
+            "actual_ratio": block_actual_ratio,
+            "base_actual_ratio": block_row["aggregate_orbit_ratio"],
+            "actual_ratio_reconstruction_relative_error": abs(
+                block_actual_ratio - block_row["aggregate_orbit_ratio"])
+                / max(1.0, abs(block_row["aggregate_orbit_ratio"])),
+            "patterns_at_or_above_actual": block_at_or_above,
+            "actual_upper_tail_fraction": block_upper_tail_fraction,
+            "passes_upper_tail_gate": bool(
+                block_upper_tail_fraction
+                <= maximum_actual_upper_tail_fraction),
+            "maximum_ratio": float(block_ratios[block_maximum_index]),
+            "maximum_sign_pattern": tuple(
+                int(value) for value in signs[block_maximum_index]),
+        }
+    if minimum_stable_dyadic_block_count > len(dyadic_sign_cube_summaries):
+        raise ValueError(
+            "minimum stable dyadic block count exceeds measured blocks")
+    stable_dyadic_block_count = sum(
+        row["passes_upper_tail_gate"]
+        for row in dyadic_sign_cube_summaries.values())
     return {
         "families": base["families"],
         "arithmetic_period": base["arithmetic_period"],
@@ -1849,6 +1897,8 @@ def residue_orbit_sign_cube_receipt(
         "pattern_count": pattern_count,
         "maximum_actual_upper_tail_fraction_gate": (
             maximum_actual_upper_tail_fraction),
+        "minimum_stable_dyadic_block_count_gate": (
+            minimum_stable_dyadic_block_count),
         "actual_ratio": actual_ratio,
         "base_actual_ratio": base["aggregate_orbit_ratio"],
         "actual_ratio_reconstruction_relative_error": abs(
@@ -1869,8 +1919,15 @@ def residue_orbit_sign_cube_receipt(
         "orbit_diagonal": denominator,
         "orbit_diagonal_reconstruction_relative_error": abs(
             denominator - direct_denominator) / max(1.0, direct_denominator),
+        "dyadic_sign_cube_summaries": dyadic_sign_cube_summaries,
+        "stable_dyadic_block_count": stable_dyadic_block_count,
+        "passes_dyadic_stability_gate": bool(
+            stable_dyadic_block_count
+            >= minimum_stable_dyadic_block_count),
         "finite_sign_cube_exhausted": True,
+        "finite_dyadic_sign_cubes_exhausted": True,
         "source_sign_alignment_proved": False,
+        "scale_stable_source_sign_alignment_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }

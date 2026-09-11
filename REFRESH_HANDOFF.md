@@ -13753,3 +13753,65 @@ full-range alignment to an unstable finite aggregate and redirect the search
 to the blocks where it appears or disappears.  Report all seven exact rank
 fractions and block-specific maximizing patterns; do not infer an asymptotic
 law from either outcome.
+
+## 2026-09-11: the q77 sign alignment is not dyadically stable
+
+The frozen five-of-seven stability gate fails.  The actual q77 signs lie in
+the top five percent in only four of the seven dyadic sign cubes.  In ascending
+block order, the exact inclusive upper-tail counts out of `65536` are
+
+`2816, 48177, 7854, 762, 1344, 19203, 1187`,
+
+giving fractions approximately
+`.04297, .73512, .11984, .01163, .02051, .29301, .01811`.
+The pass pattern is therefore
+
+`true, false, false, true, true, false, true`.
+
+The full-range rank `565/65536=.0086212158203125` remains an exact finite fact
+for the pooled covariance matrix.  It is not evidence that the same alignment
+recurs at most dyadic scales.  In particular, the `2000<=N<4000` block places
+the actual signs below roughly `73.5%` of the sign patterns, while the
+`8000<=N<16000` and final blocks place them in roughly the top `1.16%` and
+`1.81%`.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.  Demote
+the `aha-candidate` from a scale-stable mechanism to a pooled finite alignment.
+Preserve the exhaustive sign cube, q77 coefficients, orbit terms, and the four
+positive blocks; reject only the conjunction requiring stability in at least
+five blocks.
+
+Independent review rebuilt all seven block covariances, verified their trace
+denominators and actual-ratio reconstructions, reproduced every rank count and
+block-specific maximizer, and confirmed the four-of-seven failure.  Focused
+normal and optimized tests pass.  No scale-stable sign alignment, asymptotic
+covariance estimate, signed prime-correlation theorem, or Goldbach result has
+been proved.
+
+The next bounded question asks whether the changing sign ranks conceal a
+stable low-rank covariance direction.  For the full residue-72 orbit matrix
+and for each dyadic block, form
+
+`K_B=Re(T_B^* T_B)`,
+`A_B=K_B-diag(K_B)`.
+
+Let `v_B` be a unit eigenvector for the largest eigenvalue of `A_B`, and let
+`v_*` be the corresponding full-range vector.  Record the positive spectral
+concentration
+
+`lambda_max(A_*) / sum_(lambda_j>0) lambda_j(A_*)`
+
+and the seven squared overlaps `|v_B^T v_*|^2`.  Freeze the rank-one stability
+falsifier as the conjunction
+
+`full positive spectral concentration >= .5`
+
+and
+
+`#{B: |v_B^T v_*|^2 >= .5} >= 5`.
+
+Also report the leading eigengaps so a nearly degenerate eigenvalue is not
+misread as rotating arithmetic structure.  Passing would isolate one stable
+weighted orbit combination as a possible analytic target.  Failure would
+reject the stable rank-one explanation while preserving the measured
+covariances and sign-cube controls.
