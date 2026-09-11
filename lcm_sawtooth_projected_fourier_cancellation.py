@@ -45,6 +45,15 @@ THREE_PRIME_COUNT_FOUR_RECOMBINATION_TARGETS = {
     715: .21612322122320057,
     1001: .4110607307856016,
 }
+ALTERNATE_GEOMETRY_FAMILIES = ((35, 143), (65, 77))
+ALTERNATE_GEOMETRY_COUNT_FOUR_RECOMBINATION_TARGETS = {
+    35: .012964790897655157,
+    55: .022032024950575643,
+    65: .05159105243056866,
+    77: .5443296939839037,
+    91: .4838958192651274,
+    143: .4693160590983769,
+}
 
 
 def _imaginary_transform_table(denominator, period):
@@ -315,6 +324,54 @@ def three_prime_projected_fourier_holdout_receipt(
         "fourier_cancellation_quotients": fourier_quotients,
         "count_four_recombination_quotients": (
             THREE_PRIME_COUNT_FOUR_RECOMBINATION_TARGETS.copy()),
+        "spearman_correlation": spearman,
+        "minimum_spearman_correlation": minimum_spearman_correlation,
+        "rank_gate_passes": bool(
+            spearman is not None
+            and spearman >= minimum_spearman_correlation),
+        "maximum_reconstruction_natural_scale_relative_error": max(
+            row["reconstruction_natural_scale_relative_error"]
+            for row in rows.values()),
+        "all_projected_fourier_identities_pass": all(
+            row["projected_fourier_identity_passes"]
+            for row in rows.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def alternate_geometry_projected_fourier_holdout_receipt(
+        minimum_spearman_correlation=.8, tolerance=1e-12):
+    if not -1 <= minimum_spearman_correlation <= 1:
+        raise ValueError("minimum Spearman correlation must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    families = ALTERNATE_GEOMETRY_FAMILIES
+    period = 10010
+    left_sources = _one_orientation_count_source_modes(
+        period, *families[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *families[1])[2]
+    rows = {
+        quotient: _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
+        for quotient, lag in TWO_PRIME_QUOTIENT_LAGS.items()}
+    fourier_quotients = {
+        quotient: row["fourier_cancellation_quotient"]
+        for quotient, row in rows.items()}
+    quotients = tuple(TWO_PRIME_QUOTIENT_LAGS)
+    spearman = _spearman_correlation(
+        tuple(fourier_quotients[q] for q in quotients),
+        tuple(ALTERNATE_GEOMETRY_COUNT_FOUR_RECOMBINATION_TARGETS[q]
+              for q in quotients))
+    return {
+        "families": families,
+        "arithmetic_period": period,
+        "quotients": quotients,
+        "fourier_cancellation_quotients": fourier_quotients,
+        "count_four_recombination_quotients": (
+            ALTERNATE_GEOMETRY_COUNT_FOUR_RECOMBINATION_TARGETS.copy()),
         "spearman_correlation": spearman,
         "minimum_spearman_correlation": minimum_spearman_correlation,
         "rank_gate_passes": bool(

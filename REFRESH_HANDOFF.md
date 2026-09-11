@@ -12305,3 +12305,56 @@ from scratch.  Predeclare Spearman correlation at least `.8`, with both exact
 constructions passing their `1e-12` gates.  Failure confines the observed
 ordering to the original endpoint geometry; passing supplies finite evidence
 that the comparison survives an independent CRT factor allocation.
+
+## 2026-09-11: rank tracking survives an independent factor allocation
+
+The alternate endpoint-geometry gate passes.  For
+`families=((35,143),(65,77))`, all endpoint pairs remain coprime and have
+period `10010`, but the five prime factors are allocated differently from the
+discovery geometry.  The independently computed data are:
+
+| `q` | Fourier cancellation quotient | count-`4` sector recombination quotient |
+|---:|---:|---:|
+| `35` | `.000411050504581161` | `.012964790897655157` |
+| `55` | `.0006575542046656703` | `.022032024950575643` |
+| `65` | `.0018985106434786139` | `.05159105243056866` |
+| `77` | `.016937294036465392` | `.5443296939839037` |
+| `91` | `.025097070129322056` | `.4838958192651274` |
+| `143` | `.014480420356702415` | `.4693160590983769` |
+
+The first four ranks agree; the two largest Fourier values order `77<91`,
+while the sector quotients order `91<77`.  This one adjacent swap gives
+Spearman correlation `33/35=.9428571428571428`, above the predeclared `.8`
+gate.  The maximum projected reconstruction error was
+`6.169606561424587e-16` on its natural scale.  All six count decompositions
+also passed: maximum source reconstruction error
+`1.114136580696928e-15` and maximum direct natural-scale error
+`1.619635259835386e-14`.
+
+The perfect ordering was not invariant, and that loss is preserved rather
+than rounded away.  The more important finite result is that the high rank
+association survives a complete redistribution of endpoint primes.  This
+supports the Fourier quotient as a stable diagnostic within period `10010`,
+while the `77/91` inversion shows it is not simply identical to the sector
+quotient.
+
+Curiosity status: `confirmatory-pass-with-loss`, novelty `new-to-this-task`.
+No general comparison inequality, uniform source estimate, prime-distribution
+estimate, or signed prime-correlation estimate follows.
+
+Independent review recomputed all six count decompositions and projected
+values, confirmed the single rank inversion and exact Spearman value, checked
+every reconstruction scale, and ran the projected suite normally and under
+Python optimization before returning PASS.  The count targets remain frozen
+reviewed fixtures backed by the generic exact count receipt rather than being
+recomputed in every fast projected test.
+
+The next bounded question changes the arithmetic period as well as the
+geometry.  Use squarefree `Q=2310=2*3*5*7*11` with untouched families
+`((15,77),(35,33))`.  For all six two-prime quotients
+`15,21,33,35,55,77`, compute both cancellation measures from scratch and
+predeclare Spearman correlation at least `.8`, with both reconstruction gates
+at `1e-12`.  Failure shows that the association does not survive this new
+period and geometry, leaving the positive evidence so far confined to period
+`10010`; passing gives finite evidence that the Ramanujan-interval diagnostic
+survives new primes, period, and endpoint allocation.

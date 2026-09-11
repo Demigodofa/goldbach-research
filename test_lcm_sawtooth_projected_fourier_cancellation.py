@@ -1,6 +1,7 @@
 import unittest
 
 from lcm_sawtooth_projected_fourier_cancellation import (
+    alternate_geometry_projected_fourier_holdout_receipt,
     projected_fourier_cancellation_receipt,
     three_prime_projected_fourier_holdout_receipt,
     two_prime_projected_fourier_holdout_receipt,
@@ -24,6 +25,9 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
                 minimum_holdout_spearman_correlation=2)
         with self.assertRaises(ValueError):
             three_prime_projected_fourier_holdout_receipt(
+                minimum_spearman_correlation=2)
+        with self.assertRaises(ValueError):
+            alternate_geometry_projected_fourier_holdout_receipt(
                 minimum_spearman_correlation=2)
 
     def test_q77_q91_projected_fourier_discriminator(self):
@@ -90,6 +94,45 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
                 receipt["fourier_cancellation_quotients"][quotient],
                 expected, places=14)
         self.assertEqual(receipt["spearman_correlation"], 1.0)
+        self.assertTrue(receipt["rank_gate_passes"])
+        self.assertTrue(receipt["all_projected_fourier_identities_pass"])
+        self.assertLess(
+            receipt[
+                "maximum_reconstruction_natural_scale_relative_error"],
+            1e-12)
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_alternate_geometry_rank_gate(self):
+        receipt = alternate_geometry_projected_fourier_holdout_receipt()
+        self.assertEqual(receipt["families"], ((35, 143), (65, 77)))
+        self.assertEqual(receipt["quotients"], (35, 55, 65, 77, 91, 143))
+        expected_fourier_quotients = {
+            35: .000411050504581161,
+            55: .0006575542046656703,
+            65: .0018985106434786139,
+            77: .016937294036465392,
+            91: .025097070129322056,
+            143: .014480420356702415,
+        }
+        expected_count_four_quotients = {
+            35: .012964790897655157,
+            55: .022032024950575643,
+            65: .05159105243056866,
+            77: .5443296939839037,
+            91: .4838958192651274,
+            143: .4693160590983769,
+        }
+        for quotient, expected in expected_fourier_quotients.items():
+            self.assertAlmostEqual(
+                receipt["fourier_cancellation_quotients"][quotient],
+                expected, places=14)
+        for quotient, expected in expected_count_four_quotients.items():
+            self.assertAlmostEqual(
+                receipt["count_four_recombination_quotients"][quotient],
+                expected, places=14)
+        self.assertAlmostEqual(
+            receipt["spearman_correlation"],
+            .9428571428571428, places=14)
         self.assertTrue(receipt["rank_gate_passes"])
         self.assertTrue(receipt["all_projected_fourier_identities_pass"])
         self.assertLess(
