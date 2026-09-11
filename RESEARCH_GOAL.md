@@ -6294,3 +6294,27 @@ cross-layer row sums. Growth comparable to the raw residual count falsifies
 that support-geometric route. The incomplete boundary, signed prime
 correlation, and Goldbach remain open; complete assembly remains
 `.295-delta`.
+
+
+## 2026-09-10 continuation: prove the singleton common-layer tail
+
+For a dominant conductor block `d>=D`, common part `c=d_C`, and residual
+`r=lcm(alpha,beta)`, the hard ranges prove
+`r<=B^2/(dc)<=B^2/(Dc)`. Therefore every layer with
+`c>B^2/(2D)` has `r=1` and equals its own diagonal exactly.
+
+At `M=64007`, this leaves only `c=1,2,3` interactive; `c=5,6,7` are the
+proved singleton tail. The `c=1` layer alone carries median `.89995` of the
+separated diagonal. Its signed quotient is `.33394`, versus `1.89497` after
+removing aggregated residual signs.
+
+A simple layer-diagonal Schur/coercivity argument gives the valid but loose
+median upper bound `7.64511`, while the true generalized eigenvalue is
+`1.03814`. Independent review verified the exact tail theorem, numerical
+receipts, code, and tests.
+
+The next target is an exact convolution formula for the dominant `c=1`
+layer over assignments `d_Ld_R=d`, with the established polynomial and
+gcd/totient tools retained. The incomplete boundary, signed prime
+correlation, and Goldbach remain open; complete assembly remains
+`.295-delta`.

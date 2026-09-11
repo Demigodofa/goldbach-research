@@ -7219,3 +7219,41 @@ layer's individual quotient and normalized cross-layer row sums. A growing
 Schur row sum or a layer whose quotient follows `B^2/(dc)` rejects a
 support-geometric proof. The incomplete boundary, signed prime correlation,
 and Goldbach remain OPEN.
+
+
+## 2026-09-10: large common-part layers are exactly diagonal
+
+There is now a proved structural tail. In a dominant block `D<=d<2D`, an
+exact common-part layer `c=d_C` has residual
+
+`r=lcm(alpha,beta)<=B^2/(dc)<=B^2/(Dc)`.
+
+Consequently, if `c>B^2/(2D)`, then the positive integer `r<2`, hence `r=1`.
+Every such layer has exactly one residual per conductor and its signed and
+absolute collapsed quotients both equal one. Equality at the threshold stays
+on the interacting side.
+
+At `M=64007`, the dominant block is `[16384,32768)` and
+`B^2/D=9.96`. Only `c=1,2,3` are interactive; `c=5,6,7` form the proved
+singleton tail. The `c=1` layer carries median `.89995` of the
+class-separated diagonal, with signed quotient `.33394` and absolute
+quotient `1.89497`.
+
+The naive layer-diagonal proof is measurable but loose. Diagonal-normalizing
+the layers gives median collapsed Schur row sum `2.14055` and diagonal Gram
+coercivity `.28003`, hence upper bound `7.64511`, compared with the exact
+generalized eigenvalue `1.03814`. This does not falsify a subpower Schur
+bound, but it shows that discarding the shared near-null geometry costs a
+factor greater than seven at the largest tested scale.
+
+Independent review PASSed the residual inequality, strict threshold,
+singleton conclusion, layer receipts, Schur/coercivity calculation,
+implementation, and 46 combined normal/optimized tests.
+
+The dominant problem has therefore reduced from six active common layers to
+three interacting ones, with about 90% of their separated diagonal in
+`c=1`. The next <=30-minute target is the exact `c=1` assignment convolution
+over `d_Ld_R=d`, retaining the hard divisor ranges and gcd/totient expansion.
+A failed reconstruction or a residual operator growing by a fixed power
+rejects that reduction. The incomplete boundary, signed prime correlation,
+and Goldbach remain OPEN.

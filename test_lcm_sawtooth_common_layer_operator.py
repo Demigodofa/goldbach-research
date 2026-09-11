@@ -23,6 +23,14 @@ class LcmSawtoothCommonLayerOperatorTests(unittest.TestCase):
             receipt["actual_mobius_common_layer_quotient"])
         self.assertGreater(
             receipt["largest_absolute_layer_generalized_eigenvalue"], 0)
+        self.assertGreater(
+            receipt["layer_schur_over_coercivity_bound"],
+            receipt["largest_common_layer_generalized_eigenvalue"])
+        self.assertEqual(
+            len(receipt["individual_layers"]),
+            receipt["active_common_part_count"])
+        self.assertTrue(receipt["singleton_common_tail_verified"])
+        self.assertTrue(receipt["large_common_part_singleton_tail_proved"])
         self.assertGreaterEqual(receipt["actual_extremizer_squared_overlap"], 0)
         self.assertLessEqual(receipt["actual_extremizer_squared_overlap"], 1)
         self.assertTrue(

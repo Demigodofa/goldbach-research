@@ -157,6 +157,49 @@ def common_layer_operator_probe(
     largest_absolute_generalized_eigenvalue = float(
         np.linalg.eigvalsh(absolute_normalized)[-1])
 
+    layer_diagonal = np.diag(diagonal_gram)
+    if np.any(layer_diagonal <= 0):
+        raise ArithmeticError("an active common layer has zero diagonal")
+    layer_scale = layer_diagonal ** -.5
+    layer_scaling = np.outer(layer_scale, layer_scale)
+    layer_normalized_collapsed = collapsed_gram * layer_scaling
+    layer_normalized_diagonal = diagonal_gram * layer_scaling
+    layer_schur_row_sum = float(np.max(
+        np.sum(np.abs(layer_normalized_collapsed), axis=1)))
+    layer_diagonal_coercivity = float(
+        np.linalg.eigvalsh(layer_normalized_diagonal)[0])
+    layer_schur_over_coercivity = (
+        layer_schur_row_sum / layer_diagonal_coercivity
+        if layer_diagonal_coercivity > 0 else float("inf"))
+    individual_layers = tuple({
+        "common_part": common,
+        "signed_residual_quotient": float(
+            collapsed_gram[position, position]
+            / diagonal_gram[position, position]),
+        "absolute_residual_quotient": float(
+            absolute_collapsed_gram[position, position]
+            / absolute_diagonal_gram[position, position]),
+        "separated_diagonal_fraction": float(
+            diagonal_gram[position, position] / np.trace(diagonal_gram)),
+    } for position, common in enumerate(active_common_parts))
+    residual_budget_upper_bound = divisor_upper ** 2 / dominant_lower
+    singleton_common_threshold = residual_budget_upper_bound / 2
+    interactive_common_parts = tuple(
+        common for common in active_common_parts
+        if common <= singleton_common_threshold)
+    singleton_common_parts = tuple(
+        common for common in active_common_parts
+        if common > singleton_common_threshold)
+    individual_by_common = {
+        layer["common_part"]: layer for layer in individual_layers}
+    singleton_tail_verified = all(
+        abs(individual_by_common[common]["signed_residual_quotient"] - 1)
+        < 1e-9
+        and abs(individual_by_common[common][
+            "absolute_residual_quotient"] - 1) < 1e-9
+        for common in singleton_common_parts)
+    no_common_layer = individual_by_common[1]
+
     actual_coefficients = np.array(
         [int(mobius[common]) for common in active_common_parts], dtype=float)
     actual_numerator = float(
@@ -186,9 +229,27 @@ def common_layer_operator_probe(
         "absolute_over_signed_generalized_eigenvalue": (
             largest_absolute_generalized_eigenvalue
             / largest_generalized_eigenvalue),
+        "layer_diagonal_normalized_schur_row_sum": layer_schur_row_sum,
+        "layer_diagonal_gram_coercivity": layer_diagonal_coercivity,
+        "layer_schur_over_coercivity_bound": (
+            layer_schur_over_coercivity),
+        "individual_layers": individual_layers,
+        "dominant_residual_budget_upper_bound": residual_budget_upper_bound,
+        "singleton_common_part_strict_threshold": (
+            singleton_common_threshold),
+        "interactive_common_parts": interactive_common_parts,
+        "singleton_common_parts": singleton_common_parts,
+        "singleton_common_tail_verified": singleton_tail_verified,
+        "no_common_layer_signed_quotient": no_common_layer[
+            "signed_residual_quotient"],
+        "no_common_layer_absolute_quotient": no_common_layer[
+            "absolute_residual_quotient"],
+        "no_common_layer_separated_diagonal_fraction": no_common_layer[
+            "separated_diagonal_fraction"],
         "actual_mobius_common_layer_quotient": actual_ratio,
         "actual_extremizer_squared_overlap": squared_overlap,
         "common_layer_generalized_operator_computed": True,
+        "large_common_part_singleton_tail_proved": True,
         "common_layer_subpower_bound_proved": False,
     }
 
@@ -231,6 +292,25 @@ def project_common_layer_operator_probe(
             "largest_absolute_layer_generalized_eigenvalue"),
         "absolute_over_signed_eigenvalue_min_median_max": summary(
             "absolute_over_signed_generalized_eigenvalue"),
+        "layer_schur_row_sum_min_median_max": summary(
+            "layer_diagonal_normalized_schur_row_sum"),
+        "layer_diagonal_coercivity_min_median_max": summary(
+            "layer_diagonal_gram_coercivity"),
+        "layer_schur_over_coercivity_min_median_max": summary(
+            "layer_schur_over_coercivity_bound"),
+        "interactive_common_part_count_min_median_max": (
+            min(len(cell["interactive_common_parts"]) for cell in cells),
+            statistics.median(
+                len(cell["interactive_common_parts"]) for cell in cells),
+            max(len(cell["interactive_common_parts"]) for cell in cells)),
+        "no_common_signed_quotient_min_median_max": summary(
+            "no_common_layer_signed_quotient"),
+        "no_common_absolute_quotient_min_median_max": summary(
+            "no_common_layer_absolute_quotient"),
+        "no_common_diagonal_fraction_min_median_max": summary(
+            "no_common_layer_separated_diagonal_fraction"),
+        "all_singleton_common_tails_verified": all(
+            cell["singleton_common_tail_verified"] for cell in cells),
         "actual_quotient_min_median_max": summary(
             "actual_mobius_common_layer_quotient"),
         "squared_overlap_min_median_max": summary(
@@ -240,6 +320,7 @@ def project_common_layer_operator_probe(
         "retained_condition_min_median_max": summary(
             "diagonal_gram_condition_on_retained_space"),
         "finite_project_common_layer_operator_measurement": True,
+        "large_common_part_singleton_tail_proved": True,
         "common_layer_subpower_bound_proved": False,
     }
 
