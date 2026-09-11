@@ -54,6 +54,14 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
             abs(receipt["signed_to_absolute_count_error_ratio"]), 1)
         self.assertLessEqual(
             abs(receipt["cyclic_signed_to_absolute_ratio"]), 1)
+        self.assertAlmostEqual(
+            receipt["signed_grouped_count_error"],
+            receipt["cyclic_signed_grouped_count_error"]
+            - receipt["reciprocal_bias"])
+        self.assertAlmostEqual(
+            receipt["frozen_count_error_over_totient_frame"],
+            receipt["cyclic_count_error_over_totient_frame"]
+            - receipt["reciprocal_bias_over_totient_frame"])
         self.assertFalse(receipt["signed_lcm_count_cancellation_proved"])
 
     def test_random_sign_comparison_is_reproducible(self):

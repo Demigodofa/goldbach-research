@@ -5883,3 +5883,37 @@ this structured trilinear cancellation with randomized signs; if Mobius is no
 better than the random baseline or a resonant sign family keeps a constant
 ratio, do not attribute the effect to the complete-cube identity.  The
 assembled exponent remains `.295`, and the signed prime correlation is open.
+
+
+## 2026-09-10 continuation: reciprocal sawtooth, not the fixed bias
+
+The incomplete high-lcm cancellation was compared with 256 seeded independent
+Rademacher signs on the squarefree divisors. Depending on the project-scaled
+row, between `.0820` and `.7148` of random trials had a signed/absolute ratio
+at most the Mobius ratio. Mobius therefore has no consistent finite advantage
+over this random-sign baseline. Independent review verified the construction
+after correcting the even-sample median. This rejects a uniquely complete-cube
+explanation, not every deterministic use of Mobius structure.
+
+The exact change of variables `a=gr,b=gs`, with `g=gcd(a,b)`, is now executable
+and independently checked. It is a bijection from ordered squarefree pairs to
+pairwise-coprime squarefree triples satisfying `V<gr,gs<=B`, and it turns the
+coefficient sign into `mu(r)mu(s)` with modulus `grs`. This preserves a real
+bilinear arithmetic ingredient after the random-sign comparison.
+
+A separate decomposition tests whether the good frozen count error was only
+created by the deterministic `-1/q` correction. It was not: from `M=1009`
+through `16001`, maximum cyclic-sawtooth/frame ratios decreased from `.01934`
+to `.00438`, while the reciprocal-bias maximum decreased from `.001006` to
+`.0000408`. The cyclic component closely tracks the full frozen error at every
+tested scale. Independent review verified the fractional-part identity, sign,
+normalization, and full row sweeps. These are finite measurements and prove no
+asymptotic cancellation.
+
+The next <=30-minute question is whether a Fourier expansion of
+`{X/(grs)}-{(X+m-1)/(grs)}` exposes a bilinear reciprocal-phase estimate in
+`r,s` that survives the pairwise-coprime constraints and hard ranges
+`V<gr,gs<=B`. Any candidate must be compared with the exact sum and rejected
+if a dyadic/frequency block retains constant normalized size or endpoint loss
+exceeds the frame. The assembled exponent remains `.295`; the signed prime
+correlation and Goldbach remain open.

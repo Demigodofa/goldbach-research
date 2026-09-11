@@ -24,8 +24,10 @@ must not be marked complete because a bounded pursuit or finite test passed.
 Mathematics only. Kevin paused notes, manuscripts and publication packaging;
 this requested refresh handoff is an explicit exception. Proof docstrings,
 reusable verifiers/tests and minimal execution-state updates are permitted.
-No spending, contacts, publishing, push, foreground GUI work, model installs
-or claims of continuous execution. Coherent LOCAL commits are authorized.
+No spending, contacts, manuscript publishing, foreground GUI work, model
+installs or claims of continuous execution. Kevin explicitly authorized
+committing and pushing mathematical checkpoints to the existing public repo
+`https://github.com/Demigodofa/goldbach-research` on 2026-09-10.
 Do not conduct a novelty/priority search merely to label these results.
 
 No manual wake queues: the global8 manual-continuation attempt cap has been
@@ -6568,3 +6570,50 @@ high-lcm coefficients cancel against the exact CRT count discrepancies as `q`
 varies.  Measure signed/absolute cancellation row by row; persistent ratios of
 constant size falsify that route.  Complete assembly remains `.295-delta`, and
 the signed prime correlation remains OPEN.
+
+
+## 2026-09-10: random signs, exact trilinear form, and bias falsifier
+
+Commit `5caf564` adds a seeded random-sign comparison and the exact
+squarefree-pair parametrization. For `g=gcd(a,b)`, `r=a/g`, and `s=b/g`,
+the variables `g,r,s` are pairwise coprime and squarefree, and
+
+`a=gr, b=gs, lcm(a,b)=grs, mu(a)mu(b)=mu(r)mu(s)`.
+
+The code independently enumerates these triples and reproduces both signed
+count errors from the ordered pair sum. Independent review PASSed the
+bijection, signs, ranges, strict CRT count, conventional sample median, and
+six tests in normal and optimized modes. This is an exact reparametrization;
+it is not an estimate for the remaining constrained `mu(r)mu(s)` sum.
+
+In 256 seeded divisor-sign trials at selected project-scaled rows, the
+fraction of random signed/absolute ratios at most the Mobius ratio ranged
+from `.0820` to `.7148`. Mobius was often below the random median, but not
+uniformly, and an all-positive sign vector was occasionally smaller. The
+finite cancellation therefore has roughly random-sign scale in this test;
+the complete-cube identity does not uniquely explain it. This does not rule
+out a deterministic Mobius estimate using the bilinear structure.
+
+The exact decomposition
+
+`C_q-m/q = {X/q}-{(X+m-1)/q}-1/q`
+
+separates the cyclic CRT sawtooth from the reciprocal bias. Across every
+project-scaled row at `M=1009,4001,8009,16001`, maximum absolute cyclic/frame
+ratios were `.01934,.01000,.00669,.00438`, close to the frozen-error maxima
+`.02034,.00979,.00678,.00434`; the bias maxima were only
+`.001006,.0002087,.0000922,.0000408`. Thus the shrinking finite error is not
+mainly subtraction of the fixed `1/q` bias. The cyclic reciprocal sawtooth
+itself is the active cancellation target. Independent review PASSed the
+fractional-part identity, sign, normalization, full row sweeps, and six tests
+in normal and optimized modes.
+
+Next concrete question: after Fourier expanding the centered sawtooth, what
+bilinear reciprocal-phase estimate can control the constrained sum over
+pairwise-coprime squarefree `g,r,s`, with `V<gr,gs<=B`, uniformly for the
+project rows through `B<=N^(49/150-delta)`? The first bounded test must keep
+the hard endpoints and compare every proposed estimate with the exact finite
+sum. A frequency or dyadic block retaining a constant normalized size, or a
+bound whose endpoint loss exceeds the frame, falsifies that formulation.
+Complete assembly remains `.295-delta`; the signed prime correlation and
+Goldbach remain OPEN.

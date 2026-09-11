@@ -173,6 +173,7 @@ def mobius_lcm_signed_count_probe(
         else:
             high_signed += term
             high_absolute += abs(term)
+    reciprocal_bias = cyclic_signed - signed
     return {
         "modulus": modulus,
         "ell": ell,
@@ -186,12 +187,17 @@ def mobius_lcm_signed_count_probe(
         "cyclic_absolute_grouped_count_error": cyclic_absolute,
         "cyclic_signed_to_absolute_ratio": (
             cyclic_signed / cyclic_absolute if cyclic_absolute else 0.0),
+        "reciprocal_bias": reciprocal_bias,
         "low_lcm_signed_count_error": low_signed,
         "high_lcm_signed_count_error": high_signed,
         "low_lcm_absolute_count_error": low_absolute,
         "high_lcm_absolute_count_error": high_absolute,
         "frozen_count_error_over_totient_frame":
             signed / (modulus * frame_base),
+        "cyclic_count_error_over_totient_frame":
+            cyclic_signed / (modulus * frame_base),
+        "reciprocal_bias_over_totient_frame":
+            reciprocal_bias / (modulus * frame_base),
         "signed_lcm_count_cancellation_proved": False,
     }
 
