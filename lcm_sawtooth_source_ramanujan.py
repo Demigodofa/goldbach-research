@@ -13,6 +13,15 @@ import numpy as np
 from lcm_sawtooth_ramanujan_class_mean import _ramanujan_sum
 
 
+LEADING_LAG_CANONICAL_TARGETS = {
+    140: (-16521.656388184376, -726.4019852849893),
+    154: (-8510.359796742974, -411.64495068670993),
+    156: (6097.158242471013, 298.754919837435),
+    182: (-25042.404948829204, -1431.9765245642232),
+    240: (-18481.48402179967, -1394.7176473717648),
+}
+
+
 def _primitive_numerators(denominator):
     return tuple(
         value for value in range(1, denominator)
@@ -265,6 +274,35 @@ def _prime_power_factors(value):
     if remaining > 1:
         factors.append((remaining, remaining))
     return tuple(factors)
+
+
+def leading_lag_source_receipt(tolerance=1e-12):
+    """Test the source reduction on the five leading finite lag pairs."""
+    results = {
+        lag: source_ramanujan_mean_receipt(
+            lag=lag, canonical_target=target, tolerance=tolerance)
+        for lag, target in LEADING_LAG_CANONICAL_TARGETS.items()}
+    maximum_relative_error = max(
+        result["source_to_canonical_relative_error"]
+        for result in results.values())
+    return {
+        "lags": tuple(results),
+        "lag_gcds": {
+            lag: result["gcd_lag_period"]
+            for lag, result in results.items()},
+        "source_mean_correlations": {
+            lag: result["source_ramanujan_mean_correlation"]
+            for lag, result in results.items()},
+        "source_to_canonical_relative_errors": {
+            lag: result["source_to_canonical_relative_error"]
+            for lag, result in results.items()},
+        "maximum_source_to_canonical_relative_error": maximum_relative_error,
+        "all_leading_lag_source_reductions_pass": bool(
+            maximum_relative_error <= tolerance),
+        "unit_frame_classes_enumerated_by_source_calculation": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
 
 
 if __name__ == "__main__":

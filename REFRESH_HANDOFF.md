@@ -10966,3 +10966,43 @@ source calculation to an independently enumerated canonical unit-class mean.
 The family passes only if all five relative errors are at most `1e-12`, while
 the source calculation itself never enumerates frame classes. Failure keeps
 the lag-182 identity and identifies the first unsupported gcd pattern.
+
+## 2026-09-11: source CRT reduction passes across all five leading lag pairs
+
+The source-only calculation was applied to positive lag representatives
+`{140,154,156,182,240}`. Their gcds with `Q=10010` are respectively
+`{70,154,26,182,10}`, sampling five distinct conductor patterns. The
+source means and relative errors against independently enumerated canonical
+unit-class targets are
+
+- `140`: `-16521.65638818485 - 726.40198528536 i`, error
+  `3.633269317851745e-14`;
+- `154`: `-8510.359796743067 - 411.6449506866019 i`, error
+  `1.6715087850863616e-14`;
+- `156`: `6097.158242471157 + 298.75491983736225 i`, error
+  `2.6385644336871738e-14`;
+- `182`: the source result above, error about `2.5e-14` against the
+  one-pass multi-lag target;
+- `240`: `-18481.484021805278 - 1394.7176473700315 i`, error
+  `3.1660413023318166e-13`.
+
+All five clear the fixed `1e-12` gate. The source route itself never
+enumerates unit frame classes; its frozen targets came from a separate
+one-pass enumeration over all `2880` units. Independent review reproduced the
+targets, gcds, errors, CRT applicability, and scope and returned PASS. Five
+focused tests pass normally and optimized; the optimized multi-lag run takes
+about `42` seconds on this machine.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The exact
+conditioned source mechanism is robust across the five leading finite lag
+pairs and is not an artifact of choosing lag `182`. Inverse representatives
+follow by conjugation. This is not an all-lag theorem, an asymptotic
+complexity saving, a prime-distribution result, or a signed Goldbach estimate.
+
+The next bounded question asks whether this expansion exposes quantitatively
+strong cancellation rather than merely reindexing it. For each of the five
+lags, compare the magnitude of the complex source sum with the sum of the
+magnitudes of its canonical endpoint-mode contributions. A uniform quotient
+at most `.10` is the falsifiable threshold for pursuing a phase-sensitive
+large-sieve bound on these source modes. Any lag above `.10` rejects that
+specific uniform-cancellation hypothesis while preserving the CRT reduction.

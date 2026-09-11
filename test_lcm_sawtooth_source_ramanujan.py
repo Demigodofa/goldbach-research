@@ -6,6 +6,7 @@ import numpy as np
 from lcm_sawtooth_source_ramanujan import (
     _conditioned_unit_exponential_sum,
     _endpoint_modes,
+    leading_lag_source_receipt,
     source_ramanujan_mean_receipt,
 )
 
@@ -92,6 +93,19 @@ class SourceRamanujanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_ramanujan_mean_receipt(
                 minimum_factor_seven_signed_fraction=0)
+
+    def test_source_reduction_across_five_leading_lags(self):
+        receipt = leading_lag_source_receipt()
+        self.assertEqual(receipt["lags"], (140, 154, 156, 182, 240))
+        self.assertEqual(
+            receipt["lag_gcds"],
+            {140: 70, 154: 154, 156: 26, 182: 182, 240: 10})
+        self.assertLess(
+            receipt["maximum_source_to_canonical_relative_error"], 1e-12)
+        self.assertTrue(receipt["all_leading_lag_source_reductions_pass"])
+        self.assertFalse(
+            receipt["unit_frame_classes_enumerated_by_source_calculation"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 
 if __name__ == "__main__":
