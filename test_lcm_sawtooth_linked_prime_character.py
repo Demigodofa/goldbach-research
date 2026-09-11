@@ -1,15 +1,21 @@
 import unittest
 
 from lcm_sawtooth_linked_prime_character import (
+    _principal_character_row,
     affine_reflection_residue_scan_receipt,
     affine_reflection_selection_receipt,
     linked_prime_character_receipt,
+    linked_prime_centering_receipt,
     linked_prime_parity_selection_receipt,
 )
 
 
 class LinkedPrimeCharacterTests(unittest.TestCase):
     def test_guards(self):
+        self.assertEqual(
+            _principal_character_row(((1, 0), (0, 0), (0, 1))), 1)
+        with self.assertRaises(AssertionError):
+            _principal_character_row(((1, 0), (0, 1)))
         with self.assertRaises(ValueError):
             linked_prime_character_receipt(targets=(21,))
         with self.assertRaises(ValueError):
@@ -247,6 +253,65 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "all_even_target_residues_in_canonical_cells_pass_gate"])
         self.assertFalse(receipt[
             "uniform_all_source_energy_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_centering_is_the_principal_character_channel(self):
+        receipt = linked_prime_centering_receipt()
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertEqual(len(receipt["rows"]), 16)
+        self.assertLess(receipt[
+            "maximum_source_mean_principal_character_relative_error"],
+            1e-12)
+        self.assertLess(receipt[
+            "maximum_principal_constant_component_relative_error"],
+            1e-12)
+        self.assertLess(receipt[
+            "maximum_centered_reconstruction_relative_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["constant_source_amplitude_range"][0],
+            463.4505494505553, places=9)
+        self.assertAlmostEqual(
+            receipt["constant_source_amplitude_range"][1],
+            1260.7368131868054, places=9)
+        self.assertAlmostEqual(
+            receipt[
+                "centered_to_original_cauchy_envelope_ratio_range"][0],
+            .022407821921949688, places=12)
+        self.assertAlmostEqual(
+            receipt[
+                "centered_to_original_cauchy_envelope_ratio_range"][1],
+            .14728612254523085, places=12)
+        quotient_77 = receipt["quotient_summaries"][77]
+        quotient_91 = receipt["quotient_summaries"][91]
+        self.assertAlmostEqual(
+            quotient_77["recombined_source_mean"].real,
+            -196.4375, places=9)
+        self.assertAlmostEqual(
+            quotient_77["additive_source_recombination_quotient"],
+            .06083544156586752, places=12)
+        self.assertFalse(quotient_77[
+            "primitive_additive_source_cancels"])
+        self.assertLess(
+            abs(quotient_91["recombined_source_mean"]), 1e-10)
+        self.assertLess(
+            quotient_91["additive_source_recombination_quotient"], 1e-12)
+        self.assertTrue(quotient_91[
+            "primitive_additive_source_cancels"])
+        for target_row in quotient_91["target_summaries"].values():
+            self.assertLess(
+                target_row["recombined_direct_relative_to_natural_scale"],
+                1e-12)
+        self.assertEqual(
+            receipt["cancelling_primitive_source_quotients"], (91,))
+        self.assertTrue(receipt[
+            "all_constant_source_components_are_principal_channels"])
+        self.assertTrue(receipt[
+            "all_divisor_recombinations_reconstruct"])
+        self.assertFalse(receipt[
+            "formal_dickman_main_identification_applicable"])
+        self.assertFalse(receipt[
+            "centered_target_dispersion_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

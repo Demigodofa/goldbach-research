@@ -13224,3 +13224,69 @@ endpoint; exact agreement preserves the centering as a useful reduction but
 adds no prime estimate.  Any mismatch rejects the proposed identification.
 After that bookkeeping, the genuinely new arithmetic question would be a
 target-dispersion bound for the mean-zero symmetric component.
+
+## 2026-09-11: centering isolates the principal character, not the Dickman main
+
+The proposed cross-identification with formal conservation `6f9a77b` is not
+available in the current record.  Its `B_f(theta)` is a scalar built from a
+polynomial, cutoff, and factor-share measure.  The present `F_d` is a finite
+cotangent/Fourier residue source indexed by quotient and divisor stratum.  No
+coefficient-preserving map between those input spaces is currently defined.
+The exact source calculation instead identifies the constant component with
+the principal Dirichlet character.
+
+For
+
+`F_d(p)=sum_(r in U_g) f_d(r)e_g(rp)`,
+
+the full character expansion gives
+
+`mean_(p in U_g) F_d(p)
+ =fhat_d(chi_0)tau_g(chi_0)/phi(g)`.
+
+Consequently, with `W_N` the actual total unit linked-prime log weight,
+
+`L_N(F_d)=mean(F_d) W_N+L_N(F_d-mean(F_d))`.
+
+The first term is exactly the principal-character channel and contains the
+actual linked-prime pair weight.  Calling it the formal Dickman main would
+assume a bridge that has not been defined or proved.  All sixteen canonical
+cells pass the source-mean/principal-character identity, the constant-channel
+identity, and centered-plus-constant reconstruction within `1e-12`.  The
+centered cellwise correlations remain `.022407821921949688` to
+`.14728612254523085` of the original character-Cauchy envelope, so centering
+alone is not the missing estimate.
+
+Signed divisor-stratum recombination adds a separate exact simplification.
+For quotient `q=91` (`g=110`), the entire current canonical primitive
+additive source vector cancels across `d=1,7,13,91`: its recombined/sectorwise
+L2 quotient is `2.446659437662094e-16`.  It therefore annihilates every
+unit-residue prime weighting of this defined vector, independently of prime
+distribution.  For `q=77` (`g=130`), the corresponding quotient is
+`.06083544156586752`, with recombined source mean `-196.4375` up to numerical
+error; this is the surviving primitive channel.
+
+Curiosity status: `proposed-main-map-rejected/principal-channel-pass`, with
+`q91-source-cancellation-pass`; novelty `new-to-this-task`.  Preserve the
+centering decomposition, exact q91 cancellation, and strong q77 divisor
+recombination.  The q91 result is limited to the current canonical primitive
+source; it says nothing about nonunit prime terms or other source layers.
+No target-dispersion estimate, signed prime-correlation theorem, or Goldbach
+result follows.
+
+Independent review initially held the implementation because principal-row
+detection used the caller's numerical tolerance.  It now selects the unique
+exact all-zero character label structurally, with a regression for a
+non-first principal row and a missing label.  The reviewer then returned
+PASS.  Focused guard and centering tests pass normally and under Python `-O`.
+
+The next bounded question uses the surviving components rather than
+discarding the character tools.  Recombine the four `q=77` divisor strata at
+the additive-source level, subtract its principal mean, and expand that
+single surviving function in the full Dirichlet-character basis modulo
+`130`.  Freeze the previous concrete shortcut gate: the leading four
+nonprincipal characters must carry at least `.90` of the centered energy.
+Passing would reduce the remaining primitive target-dispersion problem to a
+small explicit character family.  Failure preserves the exact q91 removal
+and q77 `.060835...` recombination while rejecting only a four-character
+description of the recombined centered source.

@@ -76,6 +76,16 @@ def _affine_reflection_projection(
     }
 
 
+def _principal_character_row(character_labels):
+    zero_label = tuple(0 for _ in character_labels[0])
+    matches = tuple(
+        index for index, label in enumerate(character_labels)
+        if label == zero_label)
+    if len(matches) != 1:
+        raise AssertionError("expected exactly one principal character label")
+    return matches[0]
+
+
 def _linked_prime_character_row(
         common, quotient, frequencies, stratum_totals,
         target, lower, upper, tolerance):
@@ -86,8 +96,10 @@ def _linked_prime_character_row(
         for frequency in frequencies), dtype=bool)
     units = frequencies[primitive_mask] // quotient
     values = stratum_totals[primitive_mask]
-    _, _, character_table = _unit_character_table(common, units)
+    _, character_labels, character_table = _unit_character_table(
+        common, units)
     group_order = len(units)
+    trivial_character_row = _principal_character_row(character_labels)
     coefficients = np.conjugate(character_table) @ values
     gauss_sums = character_table @ np.exp(2j * np.pi * units / common)
     gauss_coefficients = coefficients * gauss_sums
@@ -137,6 +149,23 @@ def _linked_prime_character_row(
     additive_unit_values = np.asarray(tuple(
         np.sum(values * np.exp(2j * np.pi * units * unit / common))
         for unit in units), dtype=np.complex128)
+    source_unit_mean = complex(np.mean(additive_unit_values))
+    principal_character_source_mean = complex(
+        gauss_coefficients[trivial_character_row] / group_order)
+    unit_linked_prime_pair_weight = math.fsum(
+        unit_residue_weights.values())
+    constant_source_linked_prime_correlation = (
+        source_unit_mean * unit_linked_prime_pair_weight)
+    principal_character_linked_prime_correlation = (
+        gauss_coefficients[trivial_character_row]
+        * character_prime_correlation[trivial_character_row]
+        / group_order)
+    centered_source_linked_prime_correlation = (
+        direct_unit_correlation - constant_source_linked_prime_correlation)
+    source_mean_scale = max(1.0, abs(source_unit_mean))
+    principal_channel_scale = max(
+        1.0, direct_triangle_mass,
+        abs(constant_source_linked_prime_correlation))
     projection = _affine_reflection_projection(
         common, units, additive_unit_values, target % common)
     admissible_columns = projection["admissible_columns"]
@@ -234,6 +263,35 @@ def _linked_prime_character_row(
         "cauchy_to_direct_triangle_ratio": (
             cauchy_envelope / direct_triangle_mass
             if direct_triangle_mass else None),
+        "source_unit_mean": source_unit_mean,
+        "additive_unit_source_values": additive_unit_values,
+        "principal_character_source_mean": (
+            principal_character_source_mean),
+        "source_mean_principal_character_relative_error": (
+            abs(source_unit_mean - principal_character_source_mean)
+            / source_mean_scale),
+        "unit_linked_prime_pair_weight": unit_linked_prime_pair_weight,
+        "constant_source_linked_prime_correlation": (
+            constant_source_linked_prime_correlation),
+        "principal_character_linked_prime_correlation": (
+            principal_character_linked_prime_correlation),
+        "principal_character_constant_component_relative_error": (
+            abs(principal_character_linked_prime_correlation
+                - constant_source_linked_prime_correlation)
+            / principal_channel_scale),
+        "centered_source_linked_prime_correlation": (
+            centered_source_linked_prime_correlation),
+        "centered_plus_constant_reconstruction_relative_error": (
+            abs(centered_source_linked_prime_correlation
+                + constant_source_linked_prime_correlation
+                - direct_unit_correlation)
+            / principal_channel_scale),
+        "constant_source_is_principal_character_channel": bool(
+            abs(source_unit_mean - principal_character_source_mean)
+            / source_mean_scale <= tolerance
+            and abs(principal_character_linked_prime_correlation
+                    - constant_source_linked_prime_correlation)
+            / principal_channel_scale <= tolerance),
         "admissible_residue_count": len(admissible_columns),
         "affine_reflection_is_involution": affine_reflection_is_involution,
         "symmetric_source_energy": symmetric_source_energy,
@@ -332,6 +390,135 @@ def affine_reflection_selection_receipt(
         "all_canonical_cells_remove_at_least_quarter_energy": bool(
             exact_selection_passes and gate_pass_count == len(rows)),
         "uniform_quarter_energy_removal_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def linked_prime_centering_receipt(
+        targets=LINKED_PRIME_TARGETS, tolerance=1e-12, batch_size=32):
+    base = linked_prime_character_receipt(
+        targets=targets, tolerance=tolerance, batch_size=batch_size)
+    rows = base["rows"]
+    constant_to_triangle_ratios = tuple(
+        abs(row["constant_source_linked_prime_correlation"])
+        / row["unit_linked_prime_pair_weight"]
+        for row in rows.values())
+    centered_to_cauchy_ratios = tuple(
+        abs(row["centered_source_linked_prime_correlation"])
+        / row["character_cauchy_envelope"]
+        for row in rows.values())
+    quotient_summaries = {}
+    for quotient in sorted({key[0] for key in rows}):
+        quotient_rows = {
+            key: row for key, row in rows.items() if key[0] == quotient}
+        target_means = {
+            target: sum((
+                row["source_unit_mean"]
+                for (row_quotient, _, row_target), row
+                in quotient_rows.items()
+                if row_quotient == quotient and row_target == target), 0.0j)
+            for target in base["targets"]}
+        target_summaries = {}
+        for target in base["targets"]:
+            target_rows = tuple(
+                row for (_, _, row_target), row in quotient_rows.items()
+                if row_target == target)
+            recombined_direct = sum((
+                row["direct_unit_correlation"] for row in target_rows),
+                0.0j)
+            recombined_constant = sum((
+                row["constant_source_linked_prime_correlation"]
+                for row in target_rows), 0.0j)
+            recombined_centered = sum((
+                row["centered_source_linked_prime_correlation"]
+                for row in target_rows), 0.0j)
+            scale = max(1.0, math.fsum(
+                abs(row["direct_unit_correlation"])
+                + abs(row["constant_source_linked_prime_correlation"])
+                + abs(row["centered_source_linked_prime_correlation"])
+                for row in target_rows))
+            target_summaries[target] = {
+                "recombined_direct_unit_correlation": recombined_direct,
+                "recombined_constant_source_correlation": (
+                    recombined_constant),
+                "recombined_centered_source_correlation": (
+                    recombined_centered),
+                "divisor_recombination_natural_scale": scale,
+                "recombined_direct_relative_to_natural_scale": (
+                    abs(recombined_direct) / scale),
+                "recombined_constant_relative_to_natural_scale": (
+                    abs(recombined_constant) / scale),
+                "centered_plus_constant_reconstruction_relative_error": (
+                    abs(recombined_centered + recombined_constant
+                        - recombined_direct) / scale),
+            }
+        mean_values = tuple(target_means.values())
+        source_rows = tuple(
+            row for (_, _, row_target), row in quotient_rows.items()
+            if row_target == base["targets"][0])
+        recombined_source_values = sum((
+            row["additive_unit_source_values"] for row in source_rows),
+            np.zeros_like(source_rows[0]["additive_unit_source_values"]))
+        source_recombination_scale = max(1.0, math.fsum(
+            float(np.linalg.norm(row["additive_unit_source_values"]))
+            for row in source_rows))
+        quotient_summaries[quotient] = {
+            "recombined_source_mean": mean_values[0],
+            "maximum_target_source_mean_spread": max(
+                abs(value - mean_values[0]) for value in mean_values),
+            "recombined_additive_source_l2": float(
+                np.linalg.norm(recombined_source_values)),
+            "divisor_sectorwise_additive_source_l2": (
+                source_recombination_scale),
+            "additive_source_recombination_quotient": (
+                float(np.linalg.norm(recombined_source_values))
+                / source_recombination_scale),
+            "primitive_additive_source_cancels": bool(
+                float(np.linalg.norm(recombined_source_values))
+                / source_recombination_scale <= tolerance),
+            "target_summaries": target_summaries,
+        }
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "targets": base["targets"],
+        "rows": rows,
+        "quotient_summaries": quotient_summaries,
+        "maximum_source_mean_principal_character_relative_error": max(
+            row["source_mean_principal_character_relative_error"]
+            for row in rows.values()),
+        "maximum_principal_constant_component_relative_error": max(
+            row["principal_character_constant_component_relative_error"]
+            for row in rows.values()),
+        "maximum_centered_reconstruction_relative_error": max(
+            row["centered_plus_constant_reconstruction_relative_error"]
+            for row in rows.values()),
+        "constant_source_amplitude_range": (
+            min(constant_to_triangle_ratios),
+            max(constant_to_triangle_ratios)),
+        "centered_to_original_cauchy_envelope_ratio_range": (
+            min(centered_to_cauchy_ratios), max(centered_to_cauchy_ratios)),
+        "all_constant_source_components_are_principal_channels": all(
+            row["constant_source_is_principal_character_channel"]
+            for row in rows.values()),
+        "all_divisor_recombinations_reconstruct": all(
+            row["centered_plus_constant_reconstruction_relative_error"]
+            <= tolerance
+            for summary in quotient_summaries.values()
+            for row in summary["target_summaries"].values()),
+        "cancelling_primitive_source_quotients": tuple(
+            quotient for quotient, summary in quotient_summaries.items()
+            if summary["primitive_additive_source_cancels"]),
+        "constant_component_classification": (
+            "principal Dirichlet character times the actual unit "
+            "linked-prime pair weight"),
+        "formal_dickman_main_identification_applicable": False,
+        "formal_dickman_main_identification_reason": (
+            "the residue source has (quotient, divisor, target) inputs; "
+            "the formal Dickman main has (polynomial, cutoff, scale) "
+            "inputs and no coefficient-preserving map is defined"),
+        "centered_target_dispersion_estimate_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }
