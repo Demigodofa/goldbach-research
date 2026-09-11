@@ -9928,3 +9928,53 @@ signal within `1e-12`. The canceled-`2` mechanism passes only if that
 has signed normalized alignment at least `.75` with the folded `Q=10010`
 signal. Failure rejects this specific two-adic transfer while preserving the
 source-level decomposition.
+
+## 2026-09-11: canceled source parity is absent from the base channel
+
+The source-level factor-`2` decomposition expands the `Q=5005` packet cross
+term into four bilinear blocks: odd-source-lcm/odd-source-lcm, the two mixed
+blocks, and canceled-`2`/canceled-`2`. Packet and lag reconstruction errors
+are exactly zero.
+
+The predeclared hypothesis required the canceled-`2`/canceled-`2` block to
+supply at least `.5` of the base near absolute mass and have signed normalized
+alignment at least `.75` with the folded `Q=10010` signal. It fails by exact
+support absence: the candidate block has zero mass and hence no defined
+alignment. All `2.161700482667657` of the `Q=5005` near absolute mass lies in
+the odd-source-lcm/odd-source-lcm block.
+
+Raw primitive-frequency support across all 24 prime frames confirms that
+this zero is not aggregation cancellation. The only source denominator pairs
+are
+
+- `Q=5005`, left packet: `(65,77)` and `(77,65)`;
+- `Q=5005`, right packet: `(35,143)` and `(143,35)`;
+- `Q=10010`, left packet: `(77,130)` and `(130,77)`;
+- `Q=10010`, right packet: `(70,143)` and `(143,70)`.
+
+Thus the base partners `65,35` have odd lcm with their conductors, while the
+doubled partners `130=2*65` and `70=2*35` retain the factor `2` in `Q=10010`.
+There are zero `Q=5005` source pairs whose even source lcm loses a factor `2`
+during reduction.
+
+Independent review verified the packet partition, four-term bilinear
+reconstruction, raw support aggregation over the varying prime frames,
+denominator-pair list, fixed `.5/.75` gates, zero candidate, and scope. Its
+minor API caveat was addressed by making the standalone classifier require
+an odd base denominator. Sixteen focused tests pass normally and under
+Python optimization.
+
+Curiosity status: `changed-under-evidence`. Preserve the exact source-lcm
+decomposition and raw support list. Reject a canceled-`2` transfer mechanism
+for this fixture because the proposed base component does not exist. This is
+a support result, not a sign estimate.
+
+The next bounded question is the direct partner-denominator lift
+`d -> 2d`: `65 -> 130` on the left channel and `35 -> 70` on the right.
+For odd `d`, primitive residues modulo `2d` are odd and reduce bijectively
+modulo `d`. Derive the exact relation between the corresponding geometric
+sums and lifted packet coefficients, then test it coefficient by coefficient
+before aggregation. A proposed transfer must reconstruct each doubled packet
+within `1e-12` after its declared permutation and scalar factors; failure
+rejects that transformation while preserving the exact primitive-residue
+bijection and even-`Q` folding.

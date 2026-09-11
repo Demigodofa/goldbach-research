@@ -1,5 +1,7 @@
 import unittest
 
+import numpy as np
+
 from lcm_sawtooth_reduced_denominator_interference import (
     _require_no_mixed_high_q_packet,
     _cross_by_denominator,
@@ -9,6 +11,7 @@ from lcm_sawtooth_reduced_denominator_interference import (
     classify_centered_near_phase_alignment,
     classify_near_lag_parity_opposition,
     classify_even_denominator_fold_alignment,
+    classify_two_adic_source_transfer,
     classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
@@ -21,6 +24,29 @@ from lcm_sawtooth_reduced_denominator_interference import (
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_two_adic_source_transfer_requires_mass_and_alignment(self):
+        candidate = np.asarray((0.0, 2.0, -1.0, -1.0, 2.0))
+        zero = np.zeros(5)
+        components = {
+            ("source_lcm_odd", "source_lcm_odd"): zero,
+            ("source_lcm_odd", "factor_2_canceled"): zero,
+            ("factor_2_canceled", "source_lcm_odd"): zero,
+            ("factor_2_canceled", "factor_2_canceled"): candidate,
+        }
+        doubled = np.zeros(10)
+        doubled[::2] = 2 * candidate
+        receipt = classify_two_adic_source_transfer(
+            candidate, components, doubled, 2)
+        self.assertEqual(
+            receipt["two_adic_lag_reconstruction_maximum_error"], 0.0)
+        self.assertEqual(
+            receipt["canceled_2_both_sides_near_absolute_mass_fraction"], 1.0)
+        self.assertAlmostEqual(
+            receipt["canceled_2_to_folded_near_signed_l2_alignment"],
+            1.0, places=12)
+        self.assertTrue(receipt[
+            "two_adic_canceled_source_transfer_hypothesis_passes"])
+
     def test_even_denominator_fold_alignment_reconstructs(self):
         base = [0.0, 2.0, -1.0, .5, -1.0, 2.0]
         doubled = [0.0] * 12
@@ -250,6 +276,42 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
             fold["minimum_near_lag_signed_l2_alignment"], .75)
         self.assertFalse(fold[
             "even_denominator_fold_alignment_hypothesis_passes"])
+        self.assertEqual(
+            receipt["source_support_prime_frame_count"], 24)
+        self.assertEqual(receipt[
+            "base_q_canceled_2_source_pair_count_across_prime_frames"], 0)
+        source_pairs = {
+            (row["reduced_denominator"], row["packet_category"],
+             row["left_source_denominator"],
+             row["right_source_denominator"])
+            for row in receipt["two_adic_source_support_rows"]}
+        self.assertEqual(source_pairs, {
+            (5005, 1, 65, 77), (5005, 1, 77, 65),
+            (5005, 2, 35, 143), (5005, 2, 143, 35),
+            (10010, 1, 77, 130), (10010, 1, 130, 77),
+            (10010, 2, 70, 143), (10010, 2, 143, 70),
+        })
+        transfer = receipt["two_adic_source_transfer_receipt"]
+        self.assertEqual(receipt[
+            "source_lcm_parity_packet_reconstruction_maximum_error"], 0.0)
+        self.assertEqual(
+            transfer["two_adic_lag_reconstruction_maximum_error"], 0.0)
+        self.assertAlmostEqual(
+            transfer["base_near_lag_absolute_mass"],
+            2.161700482667657, places=10)
+        self.assertEqual(
+            transfer["canceled_2_both_sides_near_absolute_mass"], 0.0)
+        self.assertEqual(
+            transfer["canceled_2_both_sides_near_absolute_mass_fraction"],
+            0.0)
+        self.assertIsNone(
+            transfer["canceled_2_to_folded_near_signed_l2_alignment"])
+        self.assertEqual(
+            transfer["minimum_canceled_2_candidate_mass_fraction"], .5)
+        self.assertEqual(
+            transfer["minimum_canceled_2_signed_l2_alignment"], .75)
+        self.assertFalse(transfer[
+            "two_adic_canceled_source_transfer_hypothesis_passes"])
         self.assertLess(max(
             abs(error) for _, error in receipt["lag_reconstruction_errors"]),
             3e-12)

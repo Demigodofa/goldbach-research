@@ -259,10 +259,14 @@ def _packet_residue_cells(
         modulus, ell_freeze, *divisor_range)
     threshold = modulus * row_count
     packets = {category: {} for category in range(4)}
+    source_lcm_parity_packets = {
+        source_lcm_even: {category: {} for category in range(4)}
+        for source_lcm_even in (0, 1)}
     pair_counts = [0, 0, 0, 0]
     nonshared_single_pair_count = 0
     nonconductor_single_pair_count = 0
     even_q_even_residue_pair_count = 0
+    raw_source_support_counts = {}
     chunk_size = 64
     for first in range(0, len(denominators), chunk_size):
         left_d = denominators[first:first + chunk_size, None]
@@ -291,6 +295,20 @@ def _packet_residue_cells(
         categories = has_left.astype(np.int8) + 2 * has_right.astype(np.int8)
         selected_categories = categories[high_q]
         selected_reduced = reduced[high_q]
+        selected_source_lcm_even = (common[high_q] % 2 == 0).astype(np.int8)
+        selected_left_denominators = np.broadcast_to(
+            left_d, reduced.shape)[high_q]
+        selected_right_denominators = np.broadcast_to(
+            right_d, reduced.shape)[high_q]
+        support_keys = np.column_stack((
+            selected_source_lcm_even, selected_categories, selected_reduced,
+            selected_left_denominators, selected_right_denominators))
+        support_unique, support_counts = np.unique(
+            support_keys, axis=0, return_counts=True)
+        for key, count in zip(support_unique, support_counts):
+            support_key = tuple(int(item) for item in key)
+            raw_source_support_counts[support_key] = (
+                raw_source_support_counts.get(support_key, 0) + int(count))
         for category in range(4):
             pair_counts[category] += int(np.count_nonzero(
                 selected_categories == category))
@@ -323,9 +341,24 @@ def _packet_residue_cells(
             category, denominator, residue = (int(item) for item in key)
             cell = (denominator, residue)
             packets[category][cell] = packets[category].get(cell, 0j) + value
+        parity_keys = np.column_stack((
+            selected_source_lcm_even,
+            selected_categories, selected_reduced, residues[high_q]))
+        parity_unique, parity_inverse = np.unique(
+            parity_keys, axis=0, return_inverse=True)
+        parity_grouped = (
+            np.bincount(parity_inverse, weights=scalars.real)
+            + 1j * np.bincount(parity_inverse, weights=scalars.imag))
+        for key, value in zip(parity_unique, parity_grouped):
+            source_lcm_even, category, denominator, residue = (
+                int(item) for item in key)
+            cell = (denominator, residue)
+            target = source_lcm_parity_packets[source_lcm_even][category]
+            target[cell] = target.get(cell, 0j) + value
     return (packets, tuple(pair_counts), nonshared_single_pair_count,
             nonconductor_single_pair_count,
-            even_q_even_residue_pair_count)
+            even_q_even_residue_pair_count, source_lcm_parity_packets,
+            raw_source_support_counts)
 
 
 def _packet_hermitian_symmetry_error(packet):
@@ -690,6 +723,86 @@ def classify_even_denominator_fold_alignment(
     }
 
 
+def classify_two_adic_source_transfer(
+        base_contributions, component_contributions, doubled_contributions,
+        row_count, minimum_candidate_mass_fraction=.5,
+        minimum_signed_l2_alignment=.75, tolerance=1e-12):
+    """Test transfer from a factor-2-canceled source block after folding."""
+    base = np.asarray(base_contributions, dtype=float)
+    doubled = np.asarray(doubled_contributions, dtype=float)
+    labels = ("source_lcm_odd", "factor_2_canceled")
+    required = {(left, right) for left in labels for right in labels}
+    components = {
+        key: np.asarray(value, dtype=float)
+        for key, value in dict(component_contributions).items()}
+    if set(components) != required:
+        raise ValueError("two-adic decomposition requires four source blocks")
+    if (base.ndim != 1 or doubled.ndim != 1 or len(base) < 3
+            or len(base) % 2 == 0 or len(doubled) != 2 * len(base)
+            or any(value.shape != base.shape for value in components.values())):
+        raise ValueError(
+            "require an odd base Q and compatible Q,2Q lag arrays")
+    if type(row_count) is not int or row_count < 1:
+        raise ValueError("row_count must be a positive integer")
+    if not 0 < minimum_candidate_mass_fraction <= 1:
+        raise ValueError("candidate mass threshold must lie in (0,1]")
+    if not -1 <= minimum_signed_l2_alignment <= 1:
+        raise ValueError("alignment threshold must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    reconstructed = sum(components.values(), np.zeros_like(base))
+    reconstruction_error = float(np.max(np.abs(reconstructed - base)))
+    folded = doubled[::2] / 2
+    q = len(base)
+    lags = np.arange(q)
+    distances = np.minimum(lags, q - lags)
+    near = distances * row_count <= q
+    near[0] = False
+    base_absolute_mass = float(np.sum(np.abs(base[near])))
+    if not base_absolute_mass:
+        raise ArithmeticError("base near-lag signal has zero absolute mass")
+    candidate = components[("factor_2_canceled", "factor_2_canceled")]
+    candidate_mass = float(np.sum(np.abs(candidate[near])))
+    candidate_mass_fraction = candidate_mass / base_absolute_mass
+    norm_product = float(
+        np.linalg.norm(candidate[near]) * np.linalg.norm(folded[near]))
+    alignment = (
+        float(np.dot(candidate[near], folded[near]) / norm_product)
+        if norm_product else None)
+    component_rows = tuple({
+        "left_source_status": left,
+        "right_source_status": right,
+        "near_lag_signed_sum": float(np.sum(components[(left, right)][near])),
+        "near_lag_absolute_mass": float(np.sum(
+            np.abs(components[(left, right)][near]))),
+    } for left in labels for right in labels)
+    passes = bool(
+        reconstruction_error <= tolerance
+        and candidate_mass_fraction >= minimum_candidate_mass_fraction
+        and alignment is not None
+        and alignment >= minimum_signed_l2_alignment)
+    return {
+        "base_reduced_denominator": q,
+        "doubled_reduced_denominator": 2 * q,
+        "source_status_definition": (
+            "at odd Q: source lcm odd, or source lcm even with factor 2 "
+            "canceled in gcd(abs(Delta),L)"),
+        "two_adic_component_rows": component_rows,
+        "two_adic_lag_reconstruction_maximum_error": reconstruction_error,
+        "base_near_lag_absolute_mass": base_absolute_mass,
+        "canceled_2_both_sides_near_absolute_mass": candidate_mass,
+        "canceled_2_both_sides_near_absolute_mass_fraction": (
+            candidate_mass_fraction),
+        "canceled_2_to_folded_near_signed_l2_alignment": alignment,
+        "minimum_canceled_2_candidate_mass_fraction": (
+            minimum_candidate_mass_fraction),
+        "minimum_canceled_2_signed_l2_alignment": (
+            minimum_signed_l2_alignment),
+        "two_adic_canceled_source_transfer_hypothesis_passes": passes,
+        "two_adic_source_transfer_assigns_favorable_sign_proved": False,
+    }
+
+
 def classify_near_lag_mass(
         lag_contributions, row_count, minimum_absolute_mass_fraction=.75,
         minimum_passing_channel_count=2):
@@ -902,12 +1015,19 @@ def project_reduced_denominator_interference_receipt(
     nonshared_single_pair_count = 0
     nonconductor_single_pair_count = 0
     even_q_even_residue_pair_count = 0
+    source_lcm_parity_packet_reconstruction_maximum_error = 0.0
+    two_adic_component_lags = {
+        (left, right): {}
+        for left in ("source_lcm_odd", "factor_2_canceled")
+        for right in ("source_lcm_odd", "factor_2_canceled")}
+    source_support_by_modulus = []
     packet_hermitian_maximum_error = 0.0
     prime_lag_inversion_maximum_error = 0.0
     prime_half_sum_reconstruction_maximum_error = 0.0
     for frame_row in baseline["rows"]:
         (packets, pair_counts, nonshared_count, nonconductor_count,
-         parity_violation_count) = (
+         parity_violation_count, source_lcm_parity_packets,
+         raw_source_support_counts) = (
             _packet_residue_cells(
             frame_row["modulus"], baseline["row_count"],
             baseline["ell_freeze"], baseline["divisor_range"],
@@ -916,6 +1036,33 @@ def project_reduced_denominator_interference_receipt(
         nonshared_single_pair_count += nonshared_count
         nonconductor_single_pair_count += nonconductor_count
         even_q_even_residue_pair_count += parity_violation_count
+        source_support_by_modulus.append((
+            frame_row["modulus"], raw_source_support_counts))
+        for category in range(4):
+            keys = set(packets[category])
+            keys.update(source_lcm_parity_packets[0][category])
+            keys.update(source_lcm_parity_packets[1][category])
+            for key in keys:
+                source_lcm_parity_packet_reconstruction_maximum_error = max(
+                    source_lcm_parity_packet_reconstruction_maximum_error,
+                    abs(packets[category].get(key, 0j)
+                        - source_lcm_parity_packets[0][category].get(key, 0j)
+                        - source_lcm_parity_packets[1][category].get(key, 0j)))
+        status_packets = {
+            "source_lcm_odd": source_lcm_parity_packets[0],
+            "factor_2_canceled": source_lcm_parity_packets[1],
+        }
+        for left_status, right_status in two_adic_component_lags:
+            local_lags = _offdiagonal_lags_by_denominator(
+                status_packets[left_status][1],
+                status_packets[right_status][2],
+                baseline["row_count"], baseline["row_count"])
+            target = two_adic_component_lags[(left_status, right_status)]
+            for denominator, values in local_lags.items():
+                if denominator in target:
+                    target[denominator] += values
+                else:
+                    target[denominator] = values
         packet_hermitian_maximum_error = max(
             packet_hermitian_maximum_error,
             _packet_hermitian_symmetry_error(packets[1]),
@@ -1014,6 +1161,40 @@ def project_reduced_denominator_interference_receipt(
             selected_lags[doubled_odd_cofactor_denominator],
             baseline["row_count"], baseline["row_count"])
         if doubled_odd_cofactor_denominator in selected_lags else None)
+    two_adic_base_components = {
+        statuses: lag_map.get(
+            min(selected_lags), np.zeros(min(selected_lags), dtype=float))
+        for statuses, lag_map in two_adic_component_lags.items()}
+    two_adic_transfer = (
+        classify_two_adic_source_transfer(
+            selected_lags[min(selected_lags)], two_adic_base_components,
+            selected_lags[doubled_odd_cofactor_denominator],
+            baseline["row_count"])
+        if doubled_odd_cofactor_denominator in selected_lags else None)
+    base_denominator = min(selected_lags)
+    aggregate_source_support = {}
+    for _, support_counts in source_support_by_modulus:
+        for key, count in support_counts.items():
+            aggregate_source_support[key] = (
+                aggregate_source_support.get(key, 0) + count)
+    relevant_source_support = tuple({
+        "source_lcm_status": (
+            "factor_2_present" if source_lcm_even else "source_lcm_odd"),
+        "packet_category": category,
+        "reduced_denominator": denominator,
+        "left_source_denominator": left_denominator,
+        "right_source_denominator": right_denominator,
+        "ordered_primitive_frequency_pair_count_across_prime_frames": count,
+    } for (source_lcm_even, category, denominator, left_denominator,
+           right_denominator), count in sorted(aggregate_source_support.items())
+      if denominator in (base_denominator,
+                         doubled_odd_cofactor_denominator)
+      and category in (1, 2))
+    base_canceled_2_source_pair_count = sum(
+        count for (source_lcm_even, category, denominator, _, _), count
+        in aggregate_source_support.items()
+        if source_lcm_even and category in (1, 2)
+        and denominator == base_denominator)
     lag_reconstruction_errors = tuple(
         (row["reduced_denominator"],
          float(np.sum(selected_lags[row["reduced_denominator"]])
@@ -1094,6 +1275,13 @@ def project_reduced_denominator_interference_receipt(
         **centered_phase_classification,
         "doubled_odd_cofactor_parity_receipt": parity_classification,
         "doubled_odd_cofactor_fold_alignment_receipt": fold_alignment,
+        "source_lcm_parity_packet_reconstruction_maximum_error": (
+            source_lcm_parity_packet_reconstruction_maximum_error),
+        "two_adic_source_transfer_receipt": two_adic_transfer,
+        "two_adic_source_support_rows": relevant_source_support,
+        "source_support_prime_frame_count": len(source_support_by_modulus),
+        "base_q_canceled_2_source_pair_count_across_prime_frames": (
+            base_canceled_2_source_pair_count),
         "linked_core_crt_near_lag_separation_hypothesis_passes": bool(
             retention["every_interfering_denominator_has_linked_core_proved"]
             and crt_classification[
