@@ -8862,3 +8862,54 @@ alternative, or the signed prime correlation. The next concrete question is
 whether the unweighted comparison can be proved prime by prime; a growing
 individual generalized quotient is the finite falsifier. Goldbach remains
 OPEN.
+
+## 2026-09-11: the lifted active rows form a finite lower frame
+
+The first attempted larger pointwise endpoint scan used the full `M=503`
+geometry `(A,V,B)=(75,4,29)`. One exact prime, `m=503`, completed in `192.0`
+seconds with `7,824,784` residue cells, endpoint/active lifted ratio `.289096`,
+actual ratio `.232138`, active rank 6, and no bad null direction. A 73-prime
+serial block would exceed the 30-minute hypothesis budget, so the next prime
+was interrupted. This is one-prime evidence only; no complete `M=503` block
+was run.
+
+The question changed to the more structural lower-frame comparison
+
+`D_active,m(y) >= c D_full,m(y)`.
+
+`lcm_sawtooth_lifted_endpoint_frame.py` now computes the full generalized
+spectrum, including the global minimum for singular `D_full`. If `D_full` has
+a nullspace, the minimum first minimizes `D_active` over that nullspace using
+the Schur complement, then whitens the positive range. Rank-zero full forms
+give `+infinity`, correctly recording a vacuous lower inequality.
+
+Complete blocks give:
+
+`M    aggregate active/full interval    minimum nonvacuous individual`
+`95        [.631274,.631274]                  .631274 (m=97)`
+`127       [.876880,1.146289]                 .520814 (m=151)`
+`251      [1.000055,1.024474]                 .736692 (m=269)`
+
+At `M=47,63,79`, every high-`Q` full form is zero, so those cases are vacuous
+rather than counterexamples. The `M=127` individual full-denominator ranks are
+only 2--4, making the Schur correction essential. The `M=251` exact run took
+`327.7` seconds; its largest individual upper endpoint is `1.281751`.
+
+Independent review first found and rejected the incorrect positive-range-only
+minimum, giving the exact counterexample `D=diag(1,0)`, `N=ones(2,2)`. After
+the Schur-complement correction, that case gives 0, `N=I` gives 1, and the
+rank-zero quotient domain gives `+infinity`. Review then independently
+reproduced the complete `M=127` receipt, audited `M=251`, verified the singular
+semantics, and returned PASS.
+
+Status: `changed-under-evidence`. The finite candidate `c=1/2` survives every
+nonvacuous tested prime and improves at the larger block, but it is not proved.
+This diagnostic is distinct from the earlier same-row divisor-progression
+active/rho-full upper-frame theorem: it seeks a lower frame for the `A`-row
+six-coordinate conductor-residue transform against complete `Q` periods.
+The next concrete question is what arithmetic feature prevents a six-vector
+from concentrating outside the row window; inspect the worst `m=151` Schur
+direction and determine whether it lies near the actual rank-one polynomial
+surface. A far-from-rank-one extremizer would justify moving to the sharper
+three-parameter problem. The signed prime correlation and Goldbach remain
+OPEN.

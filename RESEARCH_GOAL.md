@@ -7050,3 +7050,29 @@ unweighted six-coordinate comparison holds uniformly for each prime rather
 than only after block aggregation; growth of the individual generalized
 quotient falsifies that stronger route while preserving the block-average and
 polynomial components. Goldbach remains OPEN.
+
+### 2026-09-11 continuation: finite six-coordinate active/full lower frame
+
+The new exact diagnostic tests
+
+`D_active,m >= c D_full,m`
+
+on the six lifted coordinates. A nullspace-coupling error in the first minimum
+implementation was caught by independent review and corrected with the Schur
+complement before promotion. Rank-zero full forms are vacuous; singular
+nonzero forms minimize globally over their nullspaces.
+
+The aggregate spectra are `[.876880,1.146289]` at `M=127` and
+`[1.000055,1.024474]` at `M=251`. Minimum nonvacuous individual lower values
+are `.520814` at `m=151` and `.736692` at `m=269`; the tiny `M=95` support
+gives `.631274`. Thus the concrete finite candidate `c=1/2` survives all
+tested nonvacuous primes. Independent corrected review returned PASS.
+
+This is finite `changed-under-evidence`, not a uniform theorem. It differs from
+the earlier divisor-progression active/rho-full result and does not prove the
+rank-one polynomial comparison or signed prime correlation. A separate
+`m=503` endpoint/active computation passed at `.289096`, but the complete
+73-prime block was stopped after one row because its serial runtime would
+exceed the 30-minute budget. The next test examines whether the worst
+six-coordinate lower-frame direction is close to a rank-one polynomial lift.
+Goldbach remains OPEN.

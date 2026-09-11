@@ -555,3 +555,11 @@ then positivity transfers this to weights `w_m` with factor
 give uniform distortion constants `1,2,16,25` for the four weights above on
 every project block `M>=17`. The unweighted lifted endpoint/active inequality
 is still open; this lemma transfers it if proved.
+
+A new six-coordinate lower-frame diagnostic compares the active row window
+directly with complete-period residue energy. The aggregate active/full spectra
+are `[.876880,1.146289]` at `M=127` and `[1.000055,1.024474]` at `M=251`.
+The corrected global minimum over singular individual-prime forms is `.520814`
+and `.736692`, respectively. Thus the finite candidate
+`D_active >= D_full/2` survives every nonvacuous tested prime, but no uniform
+lower-frame theorem is proved.

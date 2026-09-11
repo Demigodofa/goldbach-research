@@ -8,6 +8,7 @@ from lcm_sawtooth_global_residue_energy import (
     global_residue_energy_receipt,
 )
 from lcm_sawtooth_lifted_endpoint_frame import (
+    _generalized_psd_receipt,
     _lifted_frequency_data,
     _symmetric_pair_coordinates,
     lifted_endpoint_residue_gram_receipt,
@@ -18,6 +19,23 @@ import numpy as np
 
 
 class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
+    def test_singular_denominator_minimum_uses_nullspace_coupling(self):
+        denominator = np.diag((1.0, 0.0))
+        coupled = np.ones((2, 2))
+        uncoupled = np.eye(2)
+        self.assertAlmostEqual(
+            _generalized_psd_receipt(
+                coupled, denominator)["smallest_generalized_eigenvalue"],
+            0.0)
+        self.assertAlmostEqual(
+            _generalized_psd_receipt(
+                uncoupled, denominator)["smallest_generalized_eigenvalue"],
+            1.0)
+        self.assertTrue(np.isinf(
+            _generalized_psd_receipt(
+                np.zeros((2, 2)), np.zeros((2, 2)))[
+                    "smallest_generalized_eigenvalue"]))
+
     def test_symmetric_coordinates_reconstruct_pair_product(self):
         left = np.array(((2.0, -3.0, 5.0), (7.0, 11.0, -13.0)))
         right = np.array(((-17.0, 19.0, 23.0), (29.0, -31.0, 37.0)))
@@ -127,6 +145,17 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         self.assertAlmostEqual(
             float(lift @ active_gram @ lift), direct_active,
             delta=1e-8 * direct_active)
+        active_over_full = direct_active / direct_denominator
+        self.assertGreaterEqual(
+            active_over_full,
+            receipt[
+                "active_over_full_smallest_generalized_eigenvalue"]
+            * (1 - 1e-10))
+        self.assertLessEqual(
+            active_over_full,
+            receipt[
+                "active_over_full_largest_generalized_eigenvalue"]
+            * (1 + 1e-10))
 
     def test_complete_small_prime_block_is_finite(self):
         receipt = project_prime_block_lifted_endpoint_scan(127)
@@ -154,6 +183,31 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["aggregate_actual_active_window_over_full_residue_energy"],
             0.9507351890844087)
+        self.assertGreater(
+            receipt[
+                "minimum_individual_active_over_full_generalized_eigenvalue"],
+            0)
+        self.assertGreater(
+            receipt[
+                "aggregate_active_over_full_smallest_generalized_eigenvalue"],
+            0)
+        self.assertGreaterEqual(
+            receipt[
+                "aggregate_active_over_full_largest_generalized_eigenvalue"],
+            receipt[
+                "aggregate_active_over_full_smallest_generalized_eigenvalue"])
+        self.assertAlmostEqual(
+            receipt[
+                "minimum_individual_active_over_full_generalized_eigenvalue"],
+            0.5208139494941257)
+        self.assertAlmostEqual(
+            receipt[
+                "aggregate_active_over_full_smallest_generalized_eigenvalue"],
+            0.8768802946823543)
+        self.assertAlmostEqual(
+            receipt[
+                "aggregate_active_over_full_largest_generalized_eigenvalue"],
+            1.1462894236938728)
         weighted = receipt["weighted_active_window_receipts"]
         self.assertEqual(set(weighted), {
             "unweighted", "log_squared_over_m",

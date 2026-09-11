@@ -67,6 +67,7 @@ def _generalized_psd_receipt(numerator, denominator):
     tolerance = scale * np.finfo(float).eps * 1000
     positive = values > tolerance
     null = vectors[:, ~positive]
+    positive_vectors = vectors[:, positive]
     null_numerator = (
         float(np.linalg.eigvalsh(null.T @ numerator @ null)[-1])
         if null.shape[1] else 0.0)
@@ -76,18 +77,45 @@ def _generalized_psd_receipt(numerator, denominator):
         numerator_scale * np.finfo(float).eps * 10000)
     if not np.any(positive):
         ratio = float("inf") if null_positive else 0.0
+        smallest_ratio = float("inf")
         rank = 0
-    elif null_positive:
-        ratio = float("inf")
-        rank = int(np.count_nonzero(positive))
     else:
-        inverse_root = vectors[:, positive] / np.sqrt(values[positive])
+        inverse_root = positive_vectors / np.sqrt(values[positive])
         whitened = inverse_root.T @ numerator @ inverse_root
-        ratio = float(np.linalg.eigvalsh(
-            (whitened + whitened.T) / 2)[-1])
+        generalized_values = np.linalg.eigvalsh(
+            (whitened + whitened.T) / 2)
+        ratio = (float("inf") if null_positive
+                 else float(generalized_values[-1]))
+        if not null.shape[1]:
+            smallest_ratio = float(max(generalized_values[0], 0.0))
+        else:
+            positive_numerator = (
+                positive_vectors.T @ numerator @ positive_vectors)
+            null_block = null.T @ numerator @ null
+            cross_block = positive_vectors.T @ numerator @ null
+            null_values, null_vectors = np.linalg.eigh(
+                (null_block + null_block.T) / 2)
+            null_tolerance = (
+                numerator_scale * np.finfo(float).eps * 10000)
+            null_positive_values = null_values > null_tolerance
+            if np.any(null_positive_values):
+                null_inverse = (
+                    (null_vectors[:, null_positive_values]
+                     / null_values[null_positive_values])
+                    @ null_vectors[:, null_positive_values].T)
+                positive_numerator -= (
+                    cross_block @ null_inverse @ cross_block.T)
+            inverse_positive_root = np.diag(values[positive] ** -.5)
+            minimized_whitened = (
+                inverse_positive_root @ positive_numerator
+                @ inverse_positive_root)
+            minimized_values = np.linalg.eigvalsh(
+                (minimized_whitened + minimized_whitened.T) / 2)
+            smallest_ratio = float(max(minimized_values[0], 0.0))
         rank = int(np.count_nonzero(positive))
     return {
         "largest_generalized_eigenvalue": ratio,
+        "smallest_generalized_eigenvalue": smallest_ratio,
         "denominator_rank": rank,
         "denominator_nullity": int(denominator.shape[0] - rank),
         "largest_nullspace_numerator_eigenvalue": null_numerator,
@@ -242,6 +270,8 @@ def lifted_endpoint_residue_gram_receipt(
         numerator_gram, denominator_gram)
     active_generalized = _generalized_psd_receipt(
         numerator_gram, active_gram)
+    active_over_full_generalized = _generalized_psd_receipt(
+        active_gram, denominator_gram)
     actual_lift = np.ones(6)
     actual_numerator = float(
         actual_lift @ numerator_gram @ actual_lift)
@@ -285,6 +315,17 @@ def lifted_endpoint_residue_gram_receipt(
                 "largest_nullspace_numerator_eigenvalue"]),
         "active_window_numerator_positive_denominator_null_direction": (
             active_generalized[
+                "numerator_positive_denominator_null_direction"]),
+        "active_over_full_smallest_generalized_eigenvalue": (
+            active_over_full_generalized[
+                "smallest_generalized_eigenvalue"]),
+        "active_over_full_largest_generalized_eigenvalue": (
+            active_over_full_generalized[
+                "largest_generalized_eigenvalue"]),
+        "full_denominator_rank_for_active_comparison": (
+            active_over_full_generalized["denominator_rank"]),
+        "active_positive_full_null_direction": (
+            active_over_full_generalized[
                 "numerator_positive_denominator_null_direction"]),
         **generalized,
         "six_coordinate_symmetric_square_identity_proved": True,
@@ -340,12 +381,20 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
                 "active_window_largest_generalized_eigenvalue"],
             "active_window_actual_ratio": receipt[
                 "actual_endpoint_over_active_window_residue_energy"],
+            "active_over_full_smallest_generalized_eigenvalue": receipt[
+                "active_over_full_smallest_generalized_eigenvalue"],
+            "active_over_full_largest_generalized_eigenvalue": receipt[
+                "active_over_full_largest_generalized_eigenvalue"],
+            "full_denominator_rank_for_active_comparison": receipt[
+                "full_denominator_rank_for_active_comparison"],
         })
     if not rows:
         raise ArithmeticError("prime block is empty")
     generalized = _generalized_psd_receipt(numerator, denominator)
     active_generalized = _generalized_psd_receipt(
         numerator, active_denominator)
+    aggregate_active_over_full = _generalized_psd_receipt(
+        active_denominator, denominator)
     actual_lift = np.ones(6)
     actual_numerator = float(actual_lift @ numerator @ actual_lift)
     actual_denominator = float(actual_lift @ denominator @ actual_lift)
@@ -390,6 +439,12 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             row["active_window_lifted_ratio"] for row in rows),
         "maximum_individual_active_window_actual_ratio": max(
             row["active_window_actual_ratio"] for row in rows),
+        "minimum_individual_active_over_full_generalized_eigenvalue": min(
+            row["active_over_full_smallest_generalized_eigenvalue"]
+            for row in rows),
+        "maximum_individual_active_over_full_generalized_eigenvalue": max(
+            row["active_over_full_largest_generalized_eigenvalue"]
+            for row in rows),
         "aggregate_actual_endpoint_over_full_residue_energy": (
             actual_numerator / actual_denominator
             if actual_denominator else float("inf")),
@@ -407,6 +462,12 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             tuple(float(value) for value in row)
             for row in active_denominator),
         "weighted_active_window_receipts": weighted_active_receipts,
+        "aggregate_active_over_full_smallest_generalized_eigenvalue": (
+            aggregate_active_over_full[
+                "smallest_generalized_eigenvalue"]),
+        "aggregate_active_over_full_largest_generalized_eigenvalue": (
+            aggregate_active_over_full[
+                "largest_generalized_eigenvalue"]),
         "active_window_largest_generalized_eigenvalue": active_generalized[
             "largest_generalized_eigenvalue"],
         "active_window_denominator_rank": active_generalized[
