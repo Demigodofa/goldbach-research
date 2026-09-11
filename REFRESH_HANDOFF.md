@@ -13700,3 +13700,56 @@ five percent for the measured prime-orbit covariance.  A failure would reject
 sign-specific resonance as the explanation and redirect attention to orbit
 magnitudes or generic covariance.  Report the exact rank fraction, extrema,
 and maximizing sign pattern; finite rank is not an asymptotic estimate.
+
+## 2026-09-11: the q77 orbit signs align unusually with prime covariance
+
+The exhaustive sign-cube falsifier passes.  Fixing the sign on orbit `(1,71)`
+removes the global-sign duplication and leaves exactly `2^16=65536` binary
+orbit-sign patterns.  Only `565` patterns have ratio at least the actual q77
+ratio, so the inclusive upper-tail fraction is
+
+`565/65536 = .0086212158203125`,
+
+well below the frozen `.05` gate.  Thus the actual orbit signs lie in the most
+reinforcing `0.8622%` of this finite fixed-magnitude sign cube.
+
+The actual ratio is `1.4580525604008545`.  Across all sign patterns the
+minimum, median, and maximum are respectively
+`.3096717528582582`, `.9865146512920753`, and `1.7394395638936393`.  The
+maximizing pattern, in the recorded reflection-orbit order, is
+
+`(1,-1,1,-1,1,-1,1,-1,1,1,1,-1,-1,1,-1,-1,-1)`.
+
+The actual source is therefore unusually reinforcing but not extremal.  This
+supports a specific interaction between the q77 coefficient signs and the
+measured residue-72 prime-orbit covariance.  It does not show that the
+coefficient magnitudes, complex phases, or covariance are independently
+typical, and it does not establish persistence beyond the measured targets.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`.  The connection
+combines the previously isolated q77 source signs with the new cross-orbit
+prime covariance and makes a separate scale-stability prediction.  Preserve
+the orbit machinery, coefficient magnitudes, and sign-cube control even if
+that next prediction fails.
+
+Independent review verified the complex covariance orientation, exact
+`2^16` quotient by global sign, inclusive rank convention, ratio and diagonal
+reconstructions, extrema, and maximizing pattern.  Focused normal and
+optimized tests pass.  This remains a finite conditional rank calculation,
+not an asymptotic covariance estimate, signed prime-correlation theorem, or
+Goldbach result.
+
+The next bounded question tests whether the alignment is stable across scale.
+For each of the seven dyadic target blocks already used on the residue-72
+progression, exhaust the same `2^16` sign patterns using only that block's
+orbit-term rows and compute the actual pattern's inclusive upper-tail
+fraction.  Freeze the falsifier
+
+`#{dyadic blocks with actual upper-tail fraction <= .05} >= 5`.
+
+A pass would show that the sign alignment recurs at most scales rather than
+arising only from a pooled covariance matrix.  A failure would demote the
+full-range alignment to an unstable finite aggregate and redirect the search
+to the blocks where it appears or disappears.  Report all seven exact rank
+fractions and block-specific maximizing patterns; do not infer an asymptotic
+law from either outcome.

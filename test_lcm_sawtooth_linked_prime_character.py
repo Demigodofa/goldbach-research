@@ -11,6 +11,7 @@ from lcm_sawtooth_linked_prime_character import (
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
     residue_orbit_reinforcement_receipt,
+    residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
 )
@@ -96,6 +97,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_reinforcement_receipt(
                 target_minimum=1000, target_maximum=1000)
+        with self.assertRaises(ValueError):
+            residue_orbit_sign_cube_receipt(
+                maximum_actual_upper_tail_fraction=-.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -735,6 +739,44 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertTrue(receipt[
             "finite_residue_orbit_reinforcement_measured"])
         self.assertFalse(receipt["orbit_reinforcement_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_sign_cube(self):
+        receipt = residue_orbit_sign_cube_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(receipt["global_sign_fixed_orbit"], (1, 71))
+        self.assertEqual(receipt["pattern_count"], 65536)
+        self.assertAlmostEqual(
+            receipt["actual_ratio"], 1.4580525604008545, places=12)
+        self.assertEqual(receipt["patterns_at_or_above_actual"], 565)
+        self.assertAlmostEqual(
+            receipt["actual_upper_tail_fraction"],
+            565 / 65536, places=15)
+        self.assertTrue(receipt["actual_signs_are_in_frozen_upper_tail"])
+        self.assertAlmostEqual(
+            receipt["minimum_ratio"], .3096717528582582, places=12)
+        self.assertAlmostEqual(
+            receipt["median_ratio"], .9865146512920753, places=12)
+        self.assertAlmostEqual(
+            receipt["maximum_ratio"], 1.7394395638936393, places=12)
+        self.assertEqual(len(receipt["maximum_sign_pattern"]), 17)
+        self.assertEqual(len(receipt["minimum_sign_pattern"]), 17)
+        self.assertEqual(
+            receipt["maximum_sign_pattern"],
+            (1, -1, 1, -1, 1, -1, 1, -1, 1,
+             1, 1, -1, -1, 1, -1, -1, -1))
+        self.assertLess(
+            receipt["actual_ratio_reconstruction_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["orbit_diagonal_reconstruction_relative_error"], 1e-12)
+        self.assertTrue(receipt["finite_sign_cube_exhausted"])
+        self.assertFalse(receipt["source_sign_alignment_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

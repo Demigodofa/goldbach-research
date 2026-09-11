@@ -1751,6 +1751,7 @@ def residue_orbit_reinforcement_receipt(
         "maximum_aggregate_orbit_ratio_gate": (
             maximum_aggregate_orbit_ratio),
         "rows": rows,
+        "orbit_term_rows": orbit_term_rows,
         "tested_target_count": len(rows),
         "nonempty_target_count": len(nonempty_targets),
         "aggregate_orbit_ratio": aggregate_orbit_ratio,
@@ -1785,6 +1786,91 @@ def residue_orbit_reinforcement_receipt(
             for row in rows.values()),
         "finite_residue_orbit_reinforcement_measured": True,
         "orbit_reinforcement_bound_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def residue_orbit_sign_cube_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_actual_upper_tail_fraction=.05,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_actual_upper_tail_fraction)
+            or not 0 <= maximum_actual_upper_tail_fraction <= 1):
+        raise ValueError("upper-tail fraction gate must lie in [0, 1]")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    targets = tuple(base["orbit_term_rows"])
+    orbit_terms = np.asarray(tuple(
+        base["orbit_term_rows"][target] for target in targets),
+        dtype=np.complex128)
+    orbit_count = orbit_terms.shape[1]
+    if orbit_count < 1:
+        raise AssertionError("sign cube requires at least one orbit")
+    covariance = orbit_terms.conjugate().T @ orbit_terms
+    real_covariance = covariance.real
+    denominator = float(np.trace(real_covariance))
+    if denominator <= 0:
+        raise ValueError("sign cube requires a positive orbit diagonal")
+    pattern_count = 1 << (orbit_count - 1)
+    pattern_indices = np.arange(pattern_count, dtype=np.uint32)
+    signs = np.ones((pattern_count, orbit_count), dtype=np.float64)
+    for column in range(1, orbit_count):
+        signs[:, column] = np.where(
+            (pattern_indices >> (column - 1)) & 1, -1.0, 1.0)
+    ratios = np.einsum(
+        "bi,ij,bj->b", signs, real_covariance, signs,
+        optimize=True) / denominator
+    actual_ratio = float(ratios[0])
+    rank_tolerance = tolerance * max(1.0, abs(actual_ratio))
+    at_or_above_actual = int(np.count_nonzero(
+        ratios >= actual_ratio - rank_tolerance))
+    actual_upper_tail_fraction = at_or_above_actual / pattern_count
+    maximum_index = int(np.argmax(ratios))
+    minimum_index = int(np.argmin(ratios))
+    direct_denominator = math.fsum(
+        base["rows"][target]["orbit_discrepancy_square_function"]
+        for target in targets)
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_count": orbit_count,
+        "global_sign_fixed_orbit": base["reflection_orbits"][0],
+        "pattern_count": pattern_count,
+        "maximum_actual_upper_tail_fraction_gate": (
+            maximum_actual_upper_tail_fraction),
+        "actual_ratio": actual_ratio,
+        "base_actual_ratio": base["aggregate_orbit_ratio"],
+        "actual_ratio_reconstruction_relative_error": abs(
+            actual_ratio - base["aggregate_orbit_ratio"])
+            / max(1.0, abs(base["aggregate_orbit_ratio"])),
+        "patterns_at_or_above_actual": at_or_above_actual,
+        "actual_upper_tail_fraction": actual_upper_tail_fraction,
+        "actual_signs_are_in_frozen_upper_tail": bool(
+            actual_upper_tail_fraction
+            <= maximum_actual_upper_tail_fraction),
+        "minimum_ratio": float(ratios[minimum_index]),
+        "minimum_sign_pattern": tuple(
+            int(value) for value in signs[minimum_index]),
+        "median_ratio": float(np.median(ratios)),
+        "maximum_ratio": float(ratios[maximum_index]),
+        "maximum_sign_pattern": tuple(
+            int(value) for value in signs[maximum_index]),
+        "orbit_diagonal": denominator,
+        "orbit_diagonal_reconstruction_relative_error": abs(
+            denominator - direct_denominator) / max(1.0, direct_denominator),
+        "finite_sign_cube_exhausted": True,
+        "source_sign_alignment_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }
