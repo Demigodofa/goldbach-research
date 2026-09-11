@@ -14241,3 +14241,62 @@ blocks.  Passing would identify a precise linked local-sign mechanism: both
 CRT factors reverse together and therefore reinforce under the full affine
 reflection.  Failure would preserve the exact parity decomposition but show
 that this coupled antisymmetry does not dominate the joint interaction.
+
+## 2026-09-11 CRT affine parity selects two sectors but neither dominates
+
+`residue_orbit_crt_parity_receipt` factors the full affine reflection into
+
+`R_5=(0,2,1)` on `A_5` and
+`R_13=(5,4,3,2,1,0,10,9,8,7,6)` on `A_13`.
+
+The four commuting projectors `(I +/- R_5)(I +/- R_13)/4` reconstruct every
+joint interaction table.  Because `R_5 R_13 J_N=J_N`, the mixed even-odd and
+odd-even sectors vanish exactly; their maximum measured energy fraction is
+below `1.32e-32`.  Reconstruction, orthogonality, and energy errors are below
+`9e-16`.
+
+In ascending dyadic order, the odd-odd interaction energy fractions are
+
+`.53701, .57350, .36068, .46990, .46218, .51751, .50094`.
+
+The complementary even-even fractions are
+
+`.46299, .42650, .63932, .53010, .53782, .48249, .49906`.
+
+No block reaches the frozen `.75` odd-odd gate, so the result is `0/7`.
+
+Curiosity status: `exact-selection-pass/dominance-fail`, novelty
+`new-to-this-task`.  Preserve the exact simultaneous-parity selection law:
+only even-even and odd-odd joint interactions survive.  Reject odd-odd
+dominance in this finite energy experiment.  The two surviving sectors are
+usually comparable, with the third block instead substantially even-even.
+
+Independent review verified both affine index maps, all four projectors,
+mixed-sector annihilation, orthogonal energy decomposition, the fractions,
+and finite scope.  Focused normal and optimized tests pass.  No asymptotic
+sector estimate, signed prime-correlation theorem, or Goldbach result has been
+proved.
+
+The next bounded question pairs the arithmetic split back with the preserved
+source coefficients.  Lift the fixed centered source to the same `33` CRT
+cells and project it onto the four mutually orthogonal discrepancy sectors:
+the mod-5 marginal, mod-13 marginal, even-even interaction, and odd-odd
+interaction.  For each target let
+
+`z_5(N), z_13(N), z_++(N), z_--(N)`
+
+be the four exact component correlations.  Verify
+
+`sum_O D_N(O)C(O)=z_5(N)+z_13(N)+z_++(N)+z_--(N)`
+
+for all `761` targets.  In each dyadic block test the sector square-function
+ratio
+
+`R_B=sum_N |z_5+z_13+z_+++z_--|^2
+     /sum_N (|z_5|^2+|z_13|^2+|z_++|^2+|z_--|^2)`.
+
+Freeze the cancellation gate as `R_B<=1` in at least five of seven blocks,
+and report every pairwise sector cross term.  Passing would demonstrate net
+cancellation between exact arithmetic sectors while retaining the polynomial
+source.  Failure would identify cross-sector reinforcement and preserve the
+component correlations for a more targeted estimate.

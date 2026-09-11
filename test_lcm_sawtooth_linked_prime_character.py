@@ -16,6 +16,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_covariance_subspace_receipt,
     residue_orbit_conservation_covariance_receipt,
     residue_orbit_crt_anova_receipt,
+    residue_orbit_crt_parity_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -136,6 +137,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_crt_anova_receipt(
                 minimum_separable_energy_fraction=-.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_crt_parity_receipt(
+                minimum_odd_odd_energy_fraction=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1211,6 +1215,62 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertTrue(receipt["finite_crt_anova_measured"])
         self.assertFalse(receipt[
             "crt_separable_prime_discrepancy_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_crt_parity(self):
+        receipt = residue_orbit_crt_parity_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["reflection5_indices"], (0, 2, 1))
+        self.assertEqual(
+            receipt["reflection13_indices"],
+            (5, 4, 3, 2, 1, 0, 10, 9, 8, 7, 6))
+        self.assertEqual(len(receipt["dyadic_parity_summaries"]), 7)
+        dyadic = receipt["dyadic_parity_summaries"]
+        expected_even_even_fractions = (
+            .46299275574347654, .4265043178869019,
+            .6393170323440905, .5301020073031454,
+            .5378217143187157, .4824884576765109,
+            .4990568635871136)
+        expected_odd_odd_fractions = (
+            .5370072442565234, .573495682113098,
+            .36068296765590946, .4698979926968545,
+            .46217828568128433, .5175115423234891,
+            .5009431364128865)
+        for row, even_even, odd_odd in zip(
+                dyadic.values(), expected_even_even_fractions,
+                expected_odd_odd_fractions):
+            self.assertAlmostEqual(
+                row["even_even_energy_fraction"], even_even, places=12)
+            self.assertAlmostEqual(
+                row["odd_odd_energy_fraction"], odd_odd, places=12)
+            self.assertLess(row["even_odd_energy_fraction"], 1e-30)
+            self.assertLess(row["odd_even_energy_fraction"], 1e-30)
+        self.assertEqual(
+            tuple(row["passes_odd_odd_energy_gate"]
+                  for row in dyadic.values()),
+            (False, False, False, False, False, False, False))
+        self.assertEqual(receipt["odd_odd_dyadic_block_count"], 0)
+        self.assertFalse(receipt[
+            "odd_odd_interaction_mechanism_gate_passes"])
+        self.assertLess(
+            receipt["maximum_global_reflection_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_reconstruction_relative_error"], 1e-12)
+        self.assertLess(receipt["maximum_energy_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_orthogonality_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_mixed_sector_energy_fraction"], 1e-12)
+        self.assertTrue(receipt[
+            "finite_crt_parity_decomposition_measured"])
+        self.assertFalse(receipt[
+            "odd_odd_prime_discrepancy_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

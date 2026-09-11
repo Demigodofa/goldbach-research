@@ -2642,6 +2642,7 @@ def residue_orbit_crt_anova_receipt(
     maximum_orthogonality_relative_error = 0.0
     maximum_interaction_marginal_relative_error = 0.0
     maximum_reflection_symmetry_relative_error = 0.0
+    interaction_tables = {}
     for target in targets:
         orbit_row = base["orbit_weight_discrepancy_rows"][target]
         table = np.empty(
@@ -2692,6 +2693,8 @@ def residue_orbit_crt_anova_receipt(
             "mod13_marginal_energy": column_energy,
             "interaction_energy": interaction_energy,
         }
+        interaction_tables[target] = tuple(
+            tuple(float(value) for value in row) for row in interaction)
         maximum_mean_relative_error = max(
             maximum_mean_relative_error,
             abs(overall_mean) * table.size / table_scale)
@@ -2771,6 +2774,7 @@ def residue_orbit_crt_anova_receipt(
             maximum_interaction_marginal_relative_error),
         "maximum_reflection_symmetry_relative_error": (
             maximum_reflection_symmetry_relative_error),
+        "interaction_tables": interaction_tables,
         "minimum_separable_energy_fraction_gate": (
             minimum_separable_energy_fraction),
         "minimum_separable_dyadic_block_count_gate": (
@@ -2782,6 +2786,174 @@ def residue_orbit_crt_anova_receipt(
             >= minimum_separable_dyadic_block_count),
         "finite_crt_anova_measured": True,
         "crt_separable_prime_discrepancy_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def residue_orbit_crt_parity_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        minimum_odd_odd_energy_fraction=.75,
+        minimum_odd_odd_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(minimum_odd_odd_energy_fraction)
+            or not 0 <= minimum_odd_odd_energy_fraction <= 1):
+        raise ValueError("odd-odd energy gate must lie in [0, 1]")
+    if (type(minimum_odd_odd_dyadic_block_count) is not int
+            or minimum_odd_odd_dyadic_block_count < 0):
+        raise ValueError("minimum odd-odd dyadic block count must be nonnegative")
+    base = residue_orbit_crt_anova_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        minimum_separable_energy_fraction=0,
+        minimum_separable_dyadic_block_count=0,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    residue5_values = base["residue5_values"]
+    residue13_values = base["residue13_values"]
+    residue5_index = {
+        value: index for index, value in enumerate(residue5_values)}
+    residue13_index = {
+        value: index for index, value in enumerate(residue13_values)}
+    reflection5_indices = np.asarray(tuple(
+        residue5_index[(target_residue - value) % 5]
+        for value in residue5_values), dtype=np.int64)
+    reflection13_indices = np.asarray(tuple(
+        residue13_index[(target_residue - value) % 13]
+        for value in residue13_values), dtype=np.int64)
+
+    target_energies = {}
+    maximum_global_reflection_relative_error = 0.0
+    maximum_reconstruction_relative_error = 0.0
+    maximum_energy_relative_error = 0.0
+    maximum_orthogonality_relative_error = 0.0
+    maximum_mixed_sector_energy_fraction = 0.0
+    for target, values in base["interaction_tables"].items():
+        interaction = np.asarray(values, dtype=np.float64)
+        reflection5 = interaction[reflection5_indices, :]
+        reflection13 = interaction[:, reflection13_indices]
+        reflection_both = reflection5[:, reflection13_indices]
+        even_even = (
+            interaction + reflection5 + reflection13 + reflection_both) / 4
+        even_odd = (
+            interaction + reflection5 - reflection13 - reflection_both) / 4
+        odd_even = (
+            interaction - reflection5 + reflection13 - reflection_both) / 4
+        odd_odd = (
+            interaction - reflection5 - reflection13 + reflection_both) / 4
+        reconstructed = even_even + even_odd + odd_even + odd_odd
+        total_energy = float(np.sum(interaction ** 2))
+        if total_energy <= 0:
+            raise ValueError("CRT interaction has zero energy")
+        even_even_energy = float(np.sum(even_even ** 2))
+        even_odd_energy = float(np.sum(even_odd ** 2))
+        odd_even_energy = float(np.sum(odd_even ** 2))
+        odd_odd_energy = float(np.sum(odd_odd ** 2))
+        energy_scale = max(1.0, total_energy)
+        sectors = (even_even, even_odd, odd_even, odd_odd)
+        orthogonality_error = max(
+            abs(float(np.sum(sectors[left] * sectors[right])))
+            for left in range(len(sectors))
+            for right in range(left + 1, len(sectors)))
+        target_energies[target] = {
+            "total_interaction_energy": total_energy,
+            "even_even_energy": even_even_energy,
+            "even_odd_energy": even_odd_energy,
+            "odd_even_energy": odd_even_energy,
+            "odd_odd_energy": odd_odd_energy,
+        }
+        maximum_global_reflection_relative_error = max(
+            maximum_global_reflection_relative_error,
+            float(np.max(np.abs(interaction - reflection_both)))
+            * interaction.size / max(1.0, float(np.sum(np.abs(interaction)))))
+        maximum_reconstruction_relative_error = max(
+            maximum_reconstruction_relative_error,
+            float(np.max(np.abs(interaction - reconstructed)))
+            * interaction.size / max(1.0, float(np.sum(np.abs(interaction)))))
+        maximum_energy_relative_error = max(
+            maximum_energy_relative_error,
+            abs(even_even_energy + even_odd_energy + odd_even_energy
+                + odd_odd_energy - total_energy) / energy_scale)
+        maximum_orthogonality_relative_error = max(
+            maximum_orthogonality_relative_error,
+            orthogonality_error / energy_scale)
+        maximum_mixed_sector_energy_fraction = max(
+            maximum_mixed_sector_energy_fraction,
+            (even_odd_energy + odd_even_energy) / total_energy)
+
+    dyadic_parity_summaries = {}
+    for block in base["dyadic_crt_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in target_energies
+            if block_lower <= target < block_upper)
+        total_energy = math.fsum(
+            target_energies[target]["total_interaction_energy"]
+            for target in block_targets)
+        even_even_energy = math.fsum(
+            target_energies[target]["even_even_energy"]
+            for target in block_targets)
+        even_odd_energy = math.fsum(
+            target_energies[target]["even_odd_energy"]
+            for target in block_targets)
+        odd_even_energy = math.fsum(
+            target_energies[target]["odd_even_energy"]
+            for target in block_targets)
+        odd_odd_energy = math.fsum(
+            target_energies[target]["odd_odd_energy"]
+            for target in block_targets)
+        odd_odd_fraction = odd_odd_energy / total_energy
+        dyadic_parity_summaries[block] = {
+            "target_count": len(block_targets),
+            "even_even_energy_fraction": even_even_energy / total_energy,
+            "even_odd_energy_fraction": even_odd_energy / total_energy,
+            "odd_even_energy_fraction": odd_even_energy / total_energy,
+            "odd_odd_energy_fraction": odd_odd_fraction,
+            "passes_odd_odd_energy_gate": bool(
+                odd_odd_fraction >= minimum_odd_odd_energy_fraction),
+        }
+    if minimum_odd_odd_dyadic_block_count > len(dyadic_parity_summaries):
+        raise ValueError(
+            "minimum odd-odd dyadic block count exceeds measured blocks")
+    odd_odd_dyadic_block_count = sum(
+        row["passes_odd_odd_energy_gate"]
+        for row in dyadic_parity_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "residue5_values": residue5_values,
+        "residue13_values": residue13_values,
+        "reflection5_indices": tuple(
+            int(value) for value in reflection5_indices),
+        "reflection13_indices": tuple(
+            int(value) for value in reflection13_indices),
+        "tested_target_count": len(target_energies),
+        "maximum_global_reflection_relative_error": (
+            maximum_global_reflection_relative_error),
+        "maximum_reconstruction_relative_error": (
+            maximum_reconstruction_relative_error),
+        "maximum_energy_relative_error": maximum_energy_relative_error,
+        "maximum_orthogonality_relative_error": (
+            maximum_orthogonality_relative_error),
+        "maximum_mixed_sector_energy_fraction": (
+            maximum_mixed_sector_energy_fraction),
+        "minimum_odd_odd_energy_fraction_gate": (
+            minimum_odd_odd_energy_fraction),
+        "minimum_odd_odd_dyadic_block_count_gate": (
+            minimum_odd_odd_dyadic_block_count),
+        "dyadic_parity_summaries": dyadic_parity_summaries,
+        "odd_odd_dyadic_block_count": odd_odd_dyadic_block_count,
+        "odd_odd_interaction_mechanism_gate_passes": bool(
+            odd_odd_dyadic_block_count
+            >= minimum_odd_odd_dyadic_block_count),
+        "finite_crt_parity_decomposition_measured": True,
+        "odd_odd_prime_discrepancy_theorem_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }
