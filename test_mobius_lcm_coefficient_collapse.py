@@ -8,6 +8,7 @@ from mobius_lcm_coefficient_collapse import (
     mobius_lcm_collapse_probe,
     mobius_lcm_signed_count_probe,
     mobius_lcm_trilinear_count_error,
+    signed_count_second_moment_probe,
     signed_count_random_sign_comparison,
 )
 
@@ -77,6 +78,19 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
         self.assertFalse(
             first["mobius_beats_random_signs_asymptotically_proved"])
 
+    def test_second_moment_probe_uses_positive_frame_weights(self):
+        receipt = signed_count_second_moment_probe(
+            (101, 103), 2, 4, 2, 3, 14)
+        self.assertEqual(receipt["cell_count"], 4)
+        self.assertGreaterEqual(
+            receipt["frame_weighted_cyclic_mean_square"],
+            receipt["frame_weighted_cyclic_mean"] ** 2 - 1e-15)
+        self.assertAlmostEqual(
+            receipt["frame_weighted_cyclic_rms"] ** 2,
+            receipt["frame_weighted_cyclic_mean_square"])
+        self.assertFalse(
+            receipt["mobius_prime_row_second_moment_bound_proved"])
+
     def test_trilinear_reparametrization_equals_pair_sum(self):
         pair = mobius_lcm_signed_count_probe(101, 5, 3, 14)
         triple = mobius_lcm_trilinear_count_error(101, 5, 3, 14)
@@ -90,6 +104,11 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
         self.assertAlmostEqual(
             triple["trilinear_cyclic_signed_grouped_count_error"],
             pair["cyclic_signed_grouped_count_error"], places=10)
+        self.assertAlmostEqual(
+            sum(triple["cyclic_signed_by_shape"].values()),
+            pair["cyclic_signed_grouped_count_error"], places=10)
+        self.assertAlmostEqual(
+            sum(triple["cyclic_tuple_l1_fraction_by_shape"].values()), 1)
         self.assertFalse(
             triple["trilinear_reparametrization_estimate_proved"])
 
@@ -105,6 +124,10 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             signed_count_random_sign_comparison(
                 101, 5, 3, 14, random_trials=0)
+        with self.assertRaises(ValueError):
+            signed_count_second_moment_probe((101, 101), 2, 4, 2, 3, 14)
+        with self.assertRaisesRegex(ValueError, "nonempty active band"):
+            signed_count_second_moment_probe((101,), 100, 4, 1, 3, 14)
 
 
 if __name__ == "__main__":

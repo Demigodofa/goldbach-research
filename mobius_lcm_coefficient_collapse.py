@@ -32,6 +32,7 @@ import random
 
 from mobius_covariance_lag_probe import _mobius_values
 from mobius_covariance_endpoint_probe import _prime_flags
+from near_cutoff_geometric_bound import _active_modes
 
 
 def _squarefree_prime_factors(value):
@@ -192,6 +193,7 @@ def mobius_lcm_signed_count_probe(
         "high_lcm_signed_count_error": high_signed,
         "low_lcm_absolute_count_error": low_absolute,
         "high_lcm_absolute_count_error": high_absolute,
+        "totient_frame_base": frame_base,
         "frozen_count_error_over_totient_frame":
             signed / (modulus * frame_base),
         "cyclic_count_error_over_totient_frame":
@@ -199,6 +201,68 @@ def mobius_lcm_signed_count_probe(
         "reciprocal_bias_over_totient_frame":
             reciprocal_bias / (modulus * frame_base),
         "signed_lcm_count_cancellation_proved": False,
+    }
+
+
+def signed_count_second_moment_probe(
+        moduli, shift_length, ell_first, row_count,
+        divisor_lower, divisor_upper):
+    """Measure frame-weighted first and second moments over primes and rows."""
+    if (not isinstance(moduli, (tuple, list)) or not moduli
+            or any(type(value) is not int for value in moduli)
+            or len(set(moduli)) != len(moduli)):
+        raise ValueError("moduli must be distinct integers in a nonempty list")
+    if (type(shift_length) is not int or type(ell_first) is not int
+            or type(row_count) is not int or shift_length < 2
+            or ell_first < 1 or row_count < 1):
+        raise ValueError("invalid row range")
+    cells = []
+    for modulus in moduli:
+        active_mode_count = len(_active_modes(modulus, shift_length))
+        if not active_mode_count:
+            raise ValueError("each modulus must have a nonempty active band")
+        rho = active_mode_count / (modulus - 1)
+        for ell in range(ell_first, ell_first + row_count):
+            receipt = mobius_lcm_signed_count_probe(
+                modulus, ell, divisor_lower, divisor_upper)
+            # This is the exact active-lag prime weight rho*(log m)^2/m
+            # times the row frame m^2 F_(m,ell).
+            weight = (rho * modulus * math.log(modulus) ** 2
+                      * receipt["totient_frame_base"])
+            cells.append((
+                weight,
+                receipt["frozen_count_error_over_totient_frame"],
+                receipt["cyclic_count_error_over_totient_frame"],
+            ))
+    total_weight = sum(cell[0] for cell in cells)
+    if total_weight <= 0:
+        raise ArithmeticError("second-moment vertex weight must be positive")
+
+    def moments(position):
+        value_index = position + 1
+        mean = sum(cell[0] * cell[value_index] for cell in cells) / total_weight
+        mean_square = sum(cell[0] * cell[value_index] ** 2 for cell in cells)
+        mean_square /= total_weight
+        return mean, mean_square, math.sqrt(mean_square), math.sqrt(
+            max(0.0, mean_square - mean ** 2))
+
+    frozen = moments(0)
+    cyclic = moments(1)
+    return {
+        "moduli": tuple(moduli),
+        "shift_length": shift_length,
+        "ell_range": (ell_first, ell_first + row_count - 1),
+        "divisor_range": (divisor_lower, divisor_upper),
+        "cell_count": len(cells),
+        "frame_weighted_frozen_mean": frozen[0],
+        "frame_weighted_frozen_mean_square": frozen[1],
+        "frame_weighted_frozen_rms": frozen[2],
+        "frame_weighted_frozen_standard_deviation": frozen[3],
+        "frame_weighted_cyclic_mean": cyclic[0],
+        "frame_weighted_cyclic_mean_square": cyclic[1],
+        "frame_weighted_cyclic_rms": cyclic[2],
+        "frame_weighted_cyclic_standard_deviation": cyclic[3],
+        "mobius_prime_row_second_moment_bound_proved": False,
     }
 
 
@@ -213,6 +277,10 @@ def mobius_lcm_trilinear_count_error(
     signed = 0.0
     cyclic_signed = 0.0
     triple_count = 0
+    long_factor_threshold = math.ceil(math.sqrt(divisor_upper))
+    cyclic_by_shape = {"axis": 0.0, "short_bilinear": 0.0,
+                       "long_bilinear": 0.0}
+    cyclic_l1_by_shape = {shape: 0.0 for shape in cyclic_by_shape}
     for g in range(1, divisor_upper + 1):
         if not mobius[g]:
             continue
@@ -233,9 +301,20 @@ def mobius_lcm_trilinear_count_error(
                 count = interval_right // q - X // q
                 coefficient = mobius[r] * mobius[s] * left_log * math.log(
                     X / right)
-                signed += coefficient * (count - modulus / q)
-                cyclic_signed += coefficient * (count - (modulus - 1) / q)
+                signed_term = coefficient * (count - modulus / q)
+                cyclic_term = coefficient * (count - (modulus - 1) / q)
+                signed += signed_term
+                cyclic_signed += cyclic_term
+                if r == 1 or s == 1:
+                    shape = "axis"
+                elif min(r, s) < long_factor_threshold:
+                    shape = "short_bilinear"
+                else:
+                    shape = "long_bilinear"
+                cyclic_by_shape[shape] += cyclic_term
+                cyclic_l1_by_shape[shape] += abs(cyclic_term)
                 triple_count += 1
+    cyclic_tuple_l1 = sum(cyclic_l1_by_shape.values())
     return {
         "modulus": modulus,
         "ell": ell,
@@ -247,6 +326,13 @@ def mobius_lcm_trilinear_count_error(
             pair_receipt["signed_grouped_count_error"] - signed,
         "pair_minus_trilinear_cyclic_error":
             pair_receipt["cyclic_signed_grouped_count_error"] - cyclic_signed,
+        "long_factor_threshold": long_factor_threshold,
+        "cyclic_signed_by_shape": cyclic_by_shape,
+        "cyclic_tuple_l1_by_shape": cyclic_l1_by_shape,
+        "cyclic_tuple_l1_fraction_by_shape": {
+            shape: (value / cyclic_tuple_l1 if cyclic_tuple_l1 else 0.0)
+            for shape, value in cyclic_l1_by_shape.items()
+        },
         "trilinear_reparametrization_estimate_proved": False,
     }
 
