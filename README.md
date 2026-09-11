@@ -633,3 +633,10 @@ arithmetic whitening, however, it is within `4.17e-5` and `5.55e-5` of the
 moment curve `(t^2,t,1)` at `M=127,251`, with `t=.27957,.28090`. Such a
 selector evaluates the exact conductor quadratic `K_q(L)` at `tL`, placing
 the effective log scale inside the divisor support exponents `.15--.32`.
+
+The simplest positive source statistic does not explain the fitted `t`:
+the `A_d^2|G|^2`-weighted quadratic-vertex means are `.24027,.24590`, missing
+by `.03930,.03500`. In contrast, the largest-conductor midpoint vertices are
+`.27792,.28585`, within `.00165,.00495` of the fits. This supports only a
+coarse upper-support proximity candidate, not an exact endpoint formula or a
+dominance mechanism.

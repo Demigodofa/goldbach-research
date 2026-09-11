@@ -9245,3 +9245,24 @@ Status: `aha-candidate`, novelty `new-to-this-task`. No analytic formula for
 `t`, uniform alignment, or resulting frame bound is proved. Next test an
 explicit covariance-weighted statistic of `log d/log(m*ell)` against these
 two fitted values. The signed prime correlation and Goldbach remain OPEN.
+
+## 2026-09-11: a positive vertex centroid fails; upper support is only coarse
+
+`lcm_sawtooth_effective_log_statistics.py` compares the already measured
+moment-curve fit with two explicit conductor-polynomial statistics. It does
+not rederive the fitted parameter.
+
+The `A_d^2|G|^2`-weighted mean of
+`t_d=-B_d/(2A_d log(m*ell_freeze))` gives `.2402747204` at `M=127` and
+`.2458970461` at `M=251`. These miss the fitted values by `.03930` and
+`.03500`, so the predeclared `.01` falsifier rejects this exact centroid.
+
+At the dyadic logarithmic midpoint, the largest quadratic conductor is
+`d=143` with vertex `.2779236924` for `M=127`, and `d=323` with vertex
+`.2858488160` for `M=251`. Their fit errors `.001648,.004948` pass the coarse
+`.01` test, though the sign reverses and the values are not equal to the fits.
+
+Pursuit status: `changed-under-evidence`. Suppress the positive centroid
+formula; preserve only the weaker observation that the selected scaled log is
+near the upper conductor-support geometry. Uniform control, the lower frame,
+signed prime correlation, and Goldbach remain OPEN.

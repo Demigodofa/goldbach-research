@@ -7299,3 +7299,27 @@ is whether `t` equals or is controlled by an explicit weighted statistic of
 `log d/log(m*ell)` from the one-frequency conductor covariance. No formula,
 uniform moment-curve alignment, lower frame, signed prime correlation, or
 Goldbach theorem is proved.
+
+### 2026-09-11 continuation: centroid fails; upper-conductor proximity is coarse
+
+The first explicit formula for the fitted scaled-log parameter is falsified.
+Using positive weights `A_d^2|G|^2`, the means of the normalized conductor
+quadratic vertices `-B_d/(2A_d L)` are
+
+`M=127: .2402747204` and `M=251: .2458970461`,
+
+missing the fitted `.2795716513,.2809004167` by `.03930,.03500`. Both exceed
+the predeclared `.01` error threshold. Block only this exact positive centroid;
+the moment-curve observation and polynomial components remain active.
+
+The vertex of the largest conductor with nonzero quadratic coefficient gives
+`.2779236924` for `d=143` and `.2858488160` for `d=323`, with errors
+`.001648,.004948`. Thus the largest-conductor vertex lies within the coarse
+one-percent scale of `t` on both blocks, but does not equal it and drifts
+across it.
+
+Pursuit status `changed-under-evidence`. Preserve the finite upper-support
+proximity as a candidate observation and reject the simple centroid as a
+formula. The fitted parameters were supplied to this comparison, not derived
+by it. A dominance mechanism, uniform effective-log formula, lower frame,
+signed prime correlation, and Goldbach remain OPEN.
