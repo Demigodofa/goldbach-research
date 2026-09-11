@@ -7323,3 +7323,11 @@ proximity as a candidate observation and reject the simple centroid as a
 formula. The fitted parameters were supplied to this comparison, not derived
 by it. A dominance mechanism, uniform effective-log formula, lower frame,
 signed prime correlation, and Goldbach remain OPEN.
+
+The next non-averaged positive statistic also fails. The conductors with the
+largest total `A_d^2|G|^2` weights are `d=91` at `M=127` and `d=30` at
+`M=251`; their midpoint vertices `.2526121254,.2532200077` miss the fitted
+parameters by `.02696,.02768`. The `.01` falsifier therefore rejects the
+largest-positive-weight conductor formula as well. This further narrows the
+surviving observation to finite proximity with the upper conductor boundary,
+without a positive-weight dominance explanation.

@@ -9266,3 +9266,9 @@ Pursuit status: `changed-under-evidence`. Suppress the positive centroid
 formula; preserve only the weaker observation that the selected scaled log is
 near the upper conductor-support geometry. Uniform control, the lower frame,
 signed prime correlation, and Goldbach remain OPEN.
+
+The same receipt now rejects the largest-positive-weight refinement. Grouping
+the `A_d^2|G|^2` weights by conductor, the leaders are `d=91` and `d=30`,
+whose midpoint vertices `.2526121254,.2532200077` miss the fitted parameters
+by `.02696,.02768`. Neither the positive centroid nor its largest conductor
+weight explains the finite upper-boundary proximity.

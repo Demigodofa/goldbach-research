@@ -640,3 +640,8 @@ by `.03930,.03500`. In contrast, the largest-conductor midpoint vertices are
 `.27792,.28585`, within `.00165,.00495` of the fits. This supports only a
 coarse upper-support proximity candidate, not an exact endpoint formula or a
 dominance mechanism.
+
+Choosing the single conductor with largest `A_d^2|G|^2` weight also fails:
+the leaders `d=91,30` have vertices `.25261,.25322`, missing the fitted values
+by about `.027`. Thus neither positive averaging nor largest positive weight
+explains the upper-support proximity.

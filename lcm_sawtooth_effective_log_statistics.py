@@ -17,6 +17,7 @@ moment-curve receipt.  These comparisons do not derive it.
 """
 
 import math
+from collections import defaultdict
 
 import numpy as np
 
@@ -39,11 +40,12 @@ def project_effective_log_statistics(scale_modulus, fitted_parameter):
 
     weighted_vertex_sum = 0.0
     total_weight = 0.0
+    conductor_weights = defaultdict(float)
     prime_count = 0
     for modulus in range(scale_modulus, 2 * scale_modulus + 1):
         if not flags[modulus]:
             continue
-        _, _, geometrics, coordinates = _lifted_frequency_data(
+        conductors, _, geometrics, coordinates = _lifted_frequency_data(
             modulus, ell_freeze, divisor_lower, divisor_upper)
         logarithm = math.log(modulus * ell_freeze)
         leading = coordinates[:, 0] / logarithm ** 2
@@ -55,6 +57,9 @@ def project_effective_log_statistics(scale_modulus, fitted_parameter):
             * np.abs(geometrics[positive_leading]) ** 2)
         weighted_vertex_sum += float(weights @ vertices)
         total_weight += float(np.sum(weights))
+        for conductor, weight in zip(
+                conductors[positive_leading], weights):
+            conductor_weights[int(conductor)] += float(weight)
         prime_count += 1
     if not total_weight:
         raise ArithmeticError("vertex statistic has zero total weight")
@@ -73,9 +78,17 @@ def project_effective_log_statistics(scale_modulus, fitted_parameter):
     if not conductor_vertices:
         raise ArithmeticError("no quadratic conductor polynomial")
     largest_conductor, largest_vertex = max(conductor_vertices)
+    polynomials = dict(_quadratic_support_data(
+        divisor_lower, divisor_upper)[1])
+    maximum_weight_conductor = max(
+        conductor_weights, key=conductor_weights.get)
+    maximum_weight_polynomial = polynomials[maximum_weight_conductor]
+    maximum_weight_vertex = -maximum_weight_polynomial[1] / (
+        2 * maximum_weight_polynomial[0] * midpoint_logarithm)
 
     weighted_error = weighted_mean - fitted_parameter
     endpoint_error = largest_vertex - fitted_parameter
+    maximum_weight_error = maximum_weight_vertex - fitted_parameter
     return {
         "scale_modulus": scale_modulus,
         "prime_count": prime_count,
@@ -92,6 +105,13 @@ def project_effective_log_statistics(scale_modulus, fitted_parameter):
         "largest_conductor_vertex_error": endpoint_error,
         "largest_conductor_vertex_within_one_hundredth": bool(
             abs(endpoint_error) <= .01),
+        "maximum_weight_quadratic_conductor": maximum_weight_conductor,
+        "maximum_weight_conductor_share": (
+            conductor_weights[maximum_weight_conductor] / total_weight),
+        "maximum_weight_conductor_midpoint_vertex": maximum_weight_vertex,
+        "maximum_weight_conductor_vertex_error": maximum_weight_error,
+        "maximum_weight_conductor_vertex_within_one_hundredth": bool(
+            abs(maximum_weight_error) <= .01),
         "fitted_parameter_supplied_not_derived": True,
         "uniform_effective_log_formula_proved": False,
         "uniform_active_full_lower_frame_proved": False,

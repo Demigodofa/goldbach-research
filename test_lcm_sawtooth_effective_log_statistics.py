@@ -22,6 +22,14 @@ class LcmSawtoothEffectiveLogStatisticsTests(unittest.TestCase):
             .27792369242256126)
         self.assertTrue(
             receipt["largest_conductor_vertex_within_one_hundredth"])
+        self.assertEqual(
+            receipt["maximum_weight_quadratic_conductor"], 91)
+        self.assertAlmostEqual(
+            receipt["maximum_weight_conductor_midpoint_vertex"],
+            .2526121253940847)
+        self.assertFalse(
+            receipt[
+                "maximum_weight_conductor_vertex_within_one_hundredth"])
 
     def test_m251_repeats_centroid_failure_and_endpoint_proximity(self):
         receipt = project_effective_log_statistics(
@@ -39,6 +47,14 @@ class LcmSawtoothEffectiveLogStatisticsTests(unittest.TestCase):
             .2858488159506599)
         self.assertTrue(
             receipt["largest_conductor_vertex_within_one_hundredth"])
+        self.assertEqual(
+            receipt["maximum_weight_quadratic_conductor"], 30)
+        self.assertAlmostEqual(
+            receipt["maximum_weight_conductor_midpoint_vertex"],
+            .253220007716337)
+        self.assertFalse(
+            receipt[
+                "maximum_weight_conductor_vertex_within_one_hundredth"])
         self.assertTrue(receipt["fitted_parameter_supplied_not_derived"])
         self.assertFalse(receipt["uniform_effective_log_formula_proved"])
         self.assertFalse(receipt["uniform_active_full_lower_frame_proved"])
