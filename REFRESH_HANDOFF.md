@@ -9574,3 +9574,47 @@ Status: exact window-interference identity plus finite `aha-candidate`, novelty
 the pointwise kernel magnitude bound alone does not give its favorable sign
 across primes. No uniform off-diagonal estimate, lower frame, signed prime
 correlation, or Goldbach claim is proved.
+
+## 2026-09-11: reduced-denominator localization is exact but sign-neutral
+
+`lcm_sawtooth_reduced_denominator_interference.py` resolves the actual
+`(77,143)` fragile-direction packet cross term by reduced denominator `Q`.
+The declared hypothesis required at least `75%` of the absolute off-diagonal
+window interference to lie on `11|Q`. It passes at `100%`: the only nonzero
+channels are
+
+- `Q=5005`: off-diagonal `+.6392452868`, `52.71997%` of absolute mass;
+- `Q=6006`: `+.5258316743`, `43.36650%`;
+- `Q=10010`: `+.04745277590`, `3.91354%`.
+
+Their sum is `+1.2125297369`; the reconstructed active and full cross terms
+are `+.9755090695` and `-.2370206674`. They agree with the earlier independent
+matrix calculation to about `10^-6`, the scale of floating accumulation in
+this cancellation-heavy computation. The mixed high-`Q` packet count remains
+zero. Independent review also caught a scope hazard in the parameterized
+implementation: another conductor pair can have a nonempty mixed packet, in
+which case `2 Re(<b,c>)` is not the whole Boolean difference. The receipt now
+raises instead of applying the `(77,143)` specialization outside its proved
+boundary.
+
+Independent review found that the `100%` result is structurally forced at this
+fixture. For the exact divisor support `(3,13)`, cancellation of the shared
+prime from either single-conductor packet leaves reduced denominator at most
+`910`, below the minimum high-`Q` threshold `127*28=3556`. Equivalently, the
+simultaneously supported nonzero cross channels reduce to
+`{5005,6006,10010}`. Thus this is an exact finite localization lemma, not
+evidence explaining the favorable signs.
+
+Pursuit status: `changed-under-evidence`. Preserve the three-channel reduction,
+the packet identity, the polynomial/lifted direction, and the active-window
+kernel as useful components. Reject only the hope that shared-factor support
+by itself supplies the missing cancellation or reinforcement law. No
+positivity by prime, character rule, uniform-scale localization, signed
+off-diagonal estimate, signed prime correlation, or Goldbach claim is proved.
+
+The next bounded question is whether the positive totals in these three
+channels come from broad primewise reinforcement or from different sparse
+prime resonances. For each `Q`, test its nonzero prime contributions using the
+existing `75%` positive-fraction and `25%` largest-positive-mass thresholds;
+fewer than two passing channels rejects a denominatorwise sign shortcut while
+preserving the exact localization.
