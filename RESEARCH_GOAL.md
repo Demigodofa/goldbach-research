@@ -6402,3 +6402,43 @@ The next target is an analytic comparison using the complement involution and
 the central divisor window, with a project-scaled resonant family as the
 falsifier. The incomplete boundary, signed prime correlation, and Goldbach
 remain open; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: prove a polylog bound for the dominant `c=1` layer
+
+The Boolean Walsh norm cannot be controlled for arbitrary coefficients even
+after paying `2^omega(d)`: the exact resonance `F_1=1,F_d=epsilon` makes the
+normalized ratio tend to infinity. The fixed hard-range coefficients instead
+admit a direct base-pair argument.
+
+For every squarefree `d>B*V`, any occurring no-common pair
+`a=u alpha,b=(d/u)beta` forces both `u` and `d/u` into `(V,B]`. The `r=1`
+base pair is therefore present. A residual `r` has at most `3^omega(r)`
+left/right/both assignments and its logarithmic products are no larger than
+the base product. Hence
+
+`|A_(d,r)|<=3^omega(r)A_(d,1)`.
+
+Together with `r<=B^2/d`, this proves
+
+`|sum_r K_(d,r)|^2
+ <=(1+log(B^2/d))^6 sum_r |K_(d,r)|^2`.
+
+This is a genuine polylogarithmic, hence `N^epsilon`, theorem for every
+reported conductor satisfying `d>B*V`; it closes the dominant `c=1` residual
+collapse analytically. It does not control interference among common layers
+or the other conductor ranges.
+
+The complete residual cube also has the exact value
+`L_uL_(d/u)-sum_(p|r)log(p)^2`, and its residual sum reduces to coprime
+reciprocal Mobius sums plus a two-log correction. These identities remain
+available for sharper constants and boundary analysis, but the polylog proof
+needs only the three-state count and the hard base support.
+
+Independent review verified every range implication, factor, residual limit,
+harmonic exponent, implementation, and focused normal/optimized tests. The
+next target is extending the base-pair domination through the interacting
+`c>1` common layers and comparing their separated diagonal with the actual
+combined residual diagonal. The incomplete boundary, signed prime
+correlation, and Goldbach remain open; complete assembly remains
+`.295-delta`.

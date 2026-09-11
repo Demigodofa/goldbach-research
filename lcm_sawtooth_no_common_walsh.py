@@ -25,6 +25,11 @@ from lcm_sawtooth_exact_gcd_factorization import (
     sawtooth_gcd_mobius_transform,
 )
 from lcm_sawtooth_high_d_assignment import _squarefree_prime_factors
+from lcm_sawtooth_no_common_polylog import three_state_harmonic_receipt
+from lcm_sawtooth_residual_cube import (
+    residual_cube_closed_form,
+    truncated_residual_cube,
+)
 from lcm_sawtooth_structured_divisor_sum import _coefficient_data
 from mobius_covariance_endpoint_probe import _prime_flags
 
@@ -96,6 +101,7 @@ def _target_receipt(
     direct_assignment_convolution = 0.0
     walsh_assignment_convolution = 0.0
     paired_absolute_convolution = 0.0
+    complement_mismatch_half_square = 0.0
     for common_divisor, values in values_by_e.items():
         weight = _totient(common_divisor)
         convolution = sum(
@@ -119,6 +125,10 @@ def _target_receipt(
         paired_majorant_by_common_divisor[common_divisor] = (
             weight * paired_absolute / target_divisor)
         paired_absolute_convolution += weight * paired_absolute
+        complement_mismatch_half_square += weight * 0.5 * sum(
+            (abs(values[mask])
+             - abs(values[(group_size - 1) ^ mask])) ** 2
+            for mask in range(group_size))
         walsh_assignment_convolution += weight * (even - odd)
     expanded = (
         int(mobius[target_divisor]) / target_divisor
@@ -129,6 +139,10 @@ def _target_receipt(
     total_spectral_mass = even_mass + odd_mass
     positive_majorant = total_spectral_mass / target_divisor
     paired_positive_majorant = paired_absolute_convolution / target_divisor
+    complement_magnitude_mismatch = (
+        positive_majorant - paired_positive_majorant)
+    complement_mismatch_half_square /= target_divisor
+    paired_sign_incoherence = paired_positive_majorant - abs(direct)
     majorant_over_absolute_direct = (
         positive_majorant / abs(direct) if direct else float("inf"))
     paired_majorant_over_absolute_direct = (
@@ -149,6 +163,16 @@ def _target_receipt(
         "paired_majorant_by_common_divisor": tuple(sorted(
             paired_majorant_by_common_divisor.items())),
         "paired_support_positive_majorant": paired_positive_majorant,
+        "complement_magnitude_mismatch": complement_magnitude_mismatch,
+        "complement_mismatch_half_square": (
+            complement_mismatch_half_square),
+        "complement_mismatch_identity_error": (
+            complement_magnitude_mismatch
+            - complement_mismatch_half_square),
+        "paired_sign_incoherence": paired_sign_incoherence,
+        "walsh_loss_decomposition_error": (
+            positive_majorant - abs(direct)
+            - complement_magnitude_mismatch - paired_sign_incoherence),
         "walsh_majorant_over_absolute_sum": majorant_over_absolute_direct,
         "walsh_majorant_energy_factor": majorant_over_absolute_direct ** 2,
         "paired_majorant_over_absolute_sum": (
@@ -162,6 +186,7 @@ def _target_receipt(
         "walsh_parity_square_identity_proved": True,
         "walsh_positive_majorant_proved": True,
         "paired_support_majorant_proved": True,
+        "walsh_loss_decomposition_proved": True,
         "walsh_parity_cancellation_bound_proved": False,
     }
 
@@ -262,6 +287,161 @@ def dominant_no_common_walsh_probe(
             term ** 2
             for term in no_common_residual_terms[divisor].values())
         for divisor, _, _ in selected)
+    residual_mobius_aligned_energy = 0.0
+    residual_mobius_signed_energy = 0.0
+    complete_cube_energy = 0.0
+    boundary_cube_energy = 0.0
+    complete_boundary_cross_energy = 0.0
+    complete_cube_pair_count = 0
+    nonpositive_complete_cube_pair_count = 0
+    minimum_complete_cube_relative_margin = 1.0
+    truncated_cube_piece_count = 0
+    nonpositive_truncated_cube_piece_count = 0
+    minimum_truncated_cube_relative_margin = 1.0
+    maximum_truncated_cube_reconstruction_error = 0.0
+    complete_collapsed_by_divisor = {}
+    boundary_collapsed_by_divisor = {}
+    complete_residual_diagonal = 0.0
+    complete_amplitudes_by_divisor = {}
+    maximum_complete_residual = 1
+    X = modulus * ell
+    for divisor, _, _ in selected:
+        weight = sawtooth_gcd_mobius_transform(modulus, divisor)
+        divisor_primes = _squarefree_prime_factors(divisor)
+        divisor_sign = (-1) ** len(divisor_primes)
+        group_size = 1 << len(divisor_primes)
+        for q, term in no_common_residual_terms[divisor].items():
+            residual = q // divisor
+            residual_primes = _squarefree_prime_factors(residual)
+            residual_sign = (-1) ** len(residual_primes)
+            energy = weight * term ** 2
+            aligned_sign = divisor_sign * residual_sign * term
+            if aligned_sign >= 0:
+                residual_mobius_aligned_energy += energy
+                residual_mobius_signed_energy += energy
+            else:
+                residual_mobius_signed_energy -= energy
+            complete_value = 0.0
+            reconstructed_value = 0.0
+            for mask in range(group_size):
+                left_part = _divisor_from_mask(divisor_primes, mask)
+                right_part = divisor // left_part
+                truncated = truncated_residual_cube(
+                    X, left_part, right_part, divisor_lower, divisor_upper,
+                    residual_primes)
+                truncated_value = truncated["truncated_cube_sum"]
+                if truncated["retained_assignment_count"]:
+                    truncated_cube_piece_count += 1
+                    if truncated_value <= 0:
+                        nonpositive_truncated_cube_piece_count += 1
+                    minimum_truncated_cube_relative_margin = min(
+                        minimum_truncated_cube_relative_margin,
+                        truncated_value / truncated["absolute_term_sum"])
+                    reconstructed_value += (
+                        divisor_sign * residual_sign * truncated_value
+                        / (divisor * residual))
+                if (not divisor_lower < left_part
+                        or not divisor_lower < right_part
+                        or left_part * residual > divisor_upper
+                        or right_part * residual > divisor_upper):
+                    continue
+                log_left = math.log(X / left_part)
+                log_right = math.log(X / right_part)
+                closed = residual_cube_closed_form(
+                    log_left, log_right, residual_primes)
+                complete_cube_pair_count += 1
+                if closed <= 0:
+                    nonpositive_complete_cube_pair_count += 1
+                minimum_complete_cube_relative_margin = min(
+                    minimum_complete_cube_relative_margin,
+                    closed / (log_left * log_right))
+                complete_value += (
+                    divisor_sign * residual_sign * closed
+                    / (divisor * residual))
+            maximum_truncated_cube_reconstruction_error = max(
+                maximum_truncated_cube_reconstruction_error,
+                abs(term - reconstructed_value))
+            boundary_value = term - complete_value
+            complete_cube_energy += weight * complete_value ** 2
+            complete_residual_diagonal += weight * complete_value ** 2
+            complete_collapsed_by_divisor[divisor] = (
+                complete_collapsed_by_divisor.get(divisor, 0.0)
+                + complete_value)
+            boundary_collapsed_by_divisor[divisor] = (
+                boundary_collapsed_by_divisor.get(divisor, 0.0)
+                + boundary_value)
+            complete_amplitudes_by_divisor.setdefault(divisor, {})[
+                residual] = (
+                    divisor_sign * residual_sign * divisor * residual
+                    * complete_value)
+            if complete_value:
+                maximum_complete_residual = max(
+                    maximum_complete_residual, residual)
+            boundary_cube_energy += weight * boundary_value ** 2
+            complete_boundary_cross_energy += (
+                2 * weight * complete_value * boundary_value)
+    complete_collapsed_energy = sum(
+        sawtooth_gcd_mobius_transform(modulus, divisor) * value ** 2
+        for divisor, value in complete_collapsed_by_divisor.items())
+    boundary_collapsed_energy = sum(
+        sawtooth_gcd_mobius_transform(modulus, divisor) * value ** 2
+        for divisor, value in boundary_collapsed_by_divisor.items())
+    collapsed_complete_boundary_cross = sum(
+        2 * sawtooth_gcd_mobius_transform(modulus, divisor)
+        * complete_collapsed_by_divisor[divisor]
+        * boundary_collapsed_by_divisor[divisor]
+        for divisor in complete_collapsed_by_divisor)
+    complete_amplitude_monotonicity_violations = 0
+    for amplitudes in complete_amplitudes_by_divisor.values():
+        base = amplitudes.get(1, 0.0)
+        complete_amplitude_monotonicity_violations += sum(
+            amplitude < -1e-12 or amplitude > base + 1e-12
+            for amplitude in amplitudes.values())
+    actual_residual_amplitude_positivity_violations = 0
+    maximum_actual_amplitude_over_base = 0.0
+    maximum_nontrivial_amplitude_over_base = 0.0
+    maximum_nontrivial_amplitude_over_tau_base = 0.0
+    maximum_actual_amplitude_over_tau_squared_base = 0.0
+    for divisor, _, _ in selected:
+        divisor_sign = (-1) ** len(_squarefree_prime_factors(divisor))
+        terms = no_common_residual_terms[divisor]
+        base_term = terms.get(divisor, 0.0)
+        base_amplitude = divisor_sign * divisor * base_term
+        for q, term in terms.items():
+            residual = q // divisor
+            residual_primes = _squarefree_prime_factors(residual)
+            residual_sign = (-1) ** len(residual_primes)
+            amplitude = divisor_sign * residual_sign * q * term
+            if amplitude < -1e-12:
+                actual_residual_amplitude_positivity_violations += 1
+            if base_amplitude > 0:
+                maximum_actual_amplitude_over_base = max(
+                    maximum_actual_amplitude_over_base,
+                    amplitude / base_amplitude)
+                if residual > 1:
+                    maximum_nontrivial_amplitude_over_base = max(
+                        maximum_nontrivial_amplitude_over_base,
+                        amplitude / base_amplitude)
+                    maximum_nontrivial_amplitude_over_tau_base = max(
+                        maximum_nontrivial_amplitude_over_tau_base,
+                        amplitude / ((1 << len(residual_primes))
+                                     * base_amplitude))
+                tau_squared = (1 << len(residual_primes)) ** 2
+                maximum_actual_amplitude_over_tau_squared_base = max(
+                    maximum_actual_amplitude_over_tau_squared_base,
+                    amplitude / (tau_squared * base_amplitude))
+    complete_harmonic_bound = (1 + math.log(maximum_complete_residual)) ** 2
+    complete_range_condition = (
+        X * math.sqrt(min(divisor for divisor, _, _ in selected))
+        > divisor_upper ** 2)
+    maximum_residual_limit = max(
+        divisor_upper ** 2 // divisor for divisor, _, _ in selected)
+    three_state_bound = three_state_harmonic_receipt(
+        max(1, maximum_residual_limit))
+    no_common_polylog_condition = (
+        X > divisor_upper
+        and min(divisor for divisor, _, _ in selected)
+        > divisor_lower * divisor_upper)
     receipts = tuple(_target_receipt(
         modulus, ell, divisor_lower, divisor_upper, divisor, data,
         no_common_sums[divisor])
@@ -361,6 +541,68 @@ def dominant_no_common_walsh_probe(
             selected_majorant_energy / total_selected_energy),
         "selected_no_common_actual_over_diagonal": (
             total_selected_energy / selected_diagonal),
+        "residual_mobius_aligned_diagonal_fraction": (
+            residual_mobius_aligned_energy / selected_diagonal),
+        "residual_mobius_sign_energy_correlation": (
+            residual_mobius_signed_energy / selected_diagonal),
+        "complete_cube_energy_over_diagonal": (
+            complete_cube_energy / selected_diagonal),
+        "boundary_cube_energy_over_diagonal": (
+            boundary_cube_energy / selected_diagonal),
+        "complete_boundary_cross_over_diagonal": (
+            complete_boundary_cross_energy / selected_diagonal),
+        "complete_boundary_diagonal_reconstruction_error": (
+            (complete_cube_energy + boundary_cube_energy
+             + complete_boundary_cross_energy) / selected_diagonal - 1),
+        "complete_collapsed_over_complete_diagonal": (
+            complete_collapsed_energy / complete_residual_diagonal
+            if complete_residual_diagonal else 0.0),
+        "boundary_collapsed_over_boundary_diagonal": (
+            boundary_collapsed_energy / boundary_cube_energy
+            if boundary_cube_energy else 0.0),
+        "complete_collapsed_energy_over_diagonal": (
+            complete_collapsed_energy / selected_diagonal),
+        "boundary_collapsed_energy_over_diagonal": (
+            boundary_collapsed_energy / selected_diagonal),
+        "collapsed_complete_boundary_cross_over_diagonal": (
+            collapsed_complete_boundary_cross / selected_diagonal),
+        "collapsed_complete_boundary_reconstruction_error": (
+            (complete_collapsed_energy + boundary_collapsed_energy
+             + collapsed_complete_boundary_cross) / selected_diagonal
+            - total_selected_energy / selected_diagonal),
+        "complete_log_squared_harmonic_bound": complete_harmonic_bound,
+        "maximum_complete_residual": maximum_complete_residual,
+        "complete_amplitude_monotonicity_violations": (
+            complete_amplitude_monotonicity_violations),
+        "actual_residual_amplitude_positivity_violations": (
+            actual_residual_amplitude_positivity_violations),
+        "maximum_actual_residual_amplitude_over_r1": (
+            maximum_actual_amplitude_over_base),
+        "maximum_nontrivial_residual_amplitude_over_r1": (
+            maximum_nontrivial_amplitude_over_base),
+        "maximum_nontrivial_residual_amplitude_over_tau_r1": (
+            maximum_nontrivial_amplitude_over_tau_base),
+        "maximum_actual_residual_amplitude_over_tau_squared_r1": (
+            maximum_actual_amplitude_over_tau_squared_base),
+        "complete_cube_log_squared_range_condition": (
+            complete_range_condition),
+        "maximum_no_common_residual_limit": maximum_residual_limit,
+        "no_common_three_state_harmonic_squared_bound": (
+            three_state_bound["exact_squared_bound"]),
+        "no_common_log_six_bound": three_state_bound["log_six_bound"],
+        "no_common_polylog_range_condition": no_common_polylog_condition,
+        "complete_cube_pair_count": complete_cube_pair_count,
+        "nonpositive_complete_cube_pair_count": (
+            nonpositive_complete_cube_pair_count),
+        "minimum_complete_cube_relative_margin": (
+            minimum_complete_cube_relative_margin),
+        "truncated_cube_piece_count": truncated_cube_piece_count,
+        "nonpositive_truncated_cube_piece_count": (
+            nonpositive_truncated_cube_piece_count),
+        "minimum_truncated_cube_relative_margin": (
+            minimum_truncated_cube_relative_margin),
+        "maximum_truncated_cube_reconstruction_error": (
+            maximum_truncated_cube_reconstruction_error),
         "selected_walsh_majorant_over_no_common_diagonal": (
             selected_majorant_energy / selected_diagonal),
         "selected_paired_majorant_over_actual_energy": (
@@ -404,6 +646,13 @@ def dominant_no_common_walsh_probe(
         "paired_support_majorant_proved": True,
         "paired_support_subpower_bound_proved": False,
         "omega_stratified_e1_bound_proved": False,
+        "residual_mobius_sign_rule_proved": False,
+        "complete_residual_cube_identity_proved": True,
+        "complete_cube_log_squared_bound_proved_for_reported_range": (
+            complete_range_condition),
+        "no_common_polylog_bound_proved_for_reported_range": (
+            no_common_polylog_condition),
+        "boundary_truncated_cube_control_proved": False,
         "walsh_parity_cancellation_bound_proved": False,
     }
 

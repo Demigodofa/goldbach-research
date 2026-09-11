@@ -7411,3 +7411,81 @@ The next <=30-minute target is to derive the `2^omega(d)` cost from the
 complement involution and the restricted window `d/B<u<B`, or to construct a
 project-scaled resonant coefficient family that makes the normalized class
 ratio grow. The signed prime-correlation estimate and Goldbach remain OPEN.
+
+
+## 2026-09-10: a polylog theorem closes the dominant `c=1` residual collapse
+
+The attempted coefficient-uniform Walsh comparison is now exactly blocked.
+For any Boolean divisor dimension `k`, the resonant vector
+`F_1=1,F_d=epsilon`, with all other entries zero, has Walsh/complement energy
+ratio
+
+`(1+epsilon^2)^2/(4 epsilon^2)`.
+
+Even after division by `2^k` this tends to infinity. Thus complement geometry
+alone cannot prove the proposed `2^omega(d)` Walsh bound; the fixed
+Mobius-polynomial coefficients or the paired-support majorant are essential.
+The Walsh loss itself has the exact identity
+
+`M_d-P_d=(2d)^(-1)sum_e phi(e)sum_(u|d)
+ (|F_(u,e)|-|F_(d/u,e)|)^2`.
+
+The actual hard ranges provide a different, successful argument. Fix a
+squarefree conductor `d>B*V` and write a no-common residual pair as
+`a=u alpha`, `b=(d/u) beta`, `r=lcm(alpha,beta)`. From `a,b<=B` and `d>B*V`,
+every occurring pair has
+
+`V<u<=B` and `V<d/u<=B`.
+
+Therefore the corresponding `r=1` base pair occurs in the same hard interval.
+For fixed `u`, each prime of squarefree `r` has only three states--left,
+right, or both--and every retained logarithmic product is at most the base
+product `L_u L_(d/u)`. If `A_(d,r)` denotes the residual numerator after
+factoring `mu(d)mu(r)`, triangle inequality gives the proved bound
+
+`|A_(d,r)| <= 3^omega(r) A_(d,1)`.
+
+Also `dr=lcm(a,b)<=ab<=B^2`, hence `r<=B^2/d`. Keeping only the `r=1` term in
+the residual diagonal proves pointwise
+
+`|sum_r K_(d,r)|^2 / sum_r |K_(d,r)|^2
+ <= [sum_(r<=B^2/d) mu(r)^2 3^omega(r)/r]^2
+ <= (1+log(B^2/d))^6`.
+
+The last inequality follows from `mu(r)^2 3^omega(r)<=tau_3(r)` and
+`sum_(n<=R)tau_3(n)/n<=H_R^3<=(1+log R)^3`. This is polylogarithmic and hence
+`N^epsilon`. Positive `H_m(d)` weights allow the pointwise estimate to sum
+over every conductor in a block satisfying `d>B*V`. It rigorously closes the
+dominant `c=1` residual collapse isolated by the previous computations. The
+finite exact squared constants are `36.34` for residual limit eight and
+`48.01` for limit ten; these are deliberately crude theorem bounds, compared
+with measured ratios near `.33`.
+
+Two related exact identities are retained as tools. A complete three-state
+residual cube equals
+
+`L_u L_(d/u)-sum_(p|r)log(p)^2`.
+
+Summing complete cubes through residual limit `R` reduces to the coprime
+reciprocal Mobius sum `A_d(R)=sum_(r<=R,(r,d)=1)mu(r)/r` plus the exact
+two-log derivative correction
+
+`L_u L_(d/u) A_d(R)
+ +sum_(p<=R,p not|d) log(p)^2/p A_(pd)(floor(R/p))`.
+
+Across the complete central blocks at `M=16001,32003,64007`, complete cubes
+carry about `.88` of the residual diagonal and boundary cubes about `.11`.
+All `4,226`, `9,362`, and `20,584` individual retained truncated-cube pieces
+at `M=16001,32003,64007` are positive; all `44,364` are positive at
+`M=128021`. Arbitrary small ranges do have sign failures, so positivity is
+not promoted beyond the measured project ranges. The polylog theorem does
+not require this positivity.
+
+Independent review PASSed the base-support implication, three-state count,
+residual range, `tau_3` comparison, pointwise-to-weighted integration,
+complete-cube signs and factors, code, and focused tests in normal and
+optimized modes. The next <=30-minute target is the interacting `c>1`
+layers: determine whether the same base-pair domination survives after common
+ownership, and whether their separated residual diagonals are controlled by
+the actual combined diagonal. The signed prime-correlation estimate and
+Goldbach remain OPEN.

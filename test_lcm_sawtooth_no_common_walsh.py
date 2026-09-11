@@ -23,6 +23,15 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
             self.assertLessEqual(
                 receipt["paired_support_positive_majorant"],
                 receipt["walsh_positive_majorant"])
+            self.assertGreaterEqual(
+                receipt["complement_magnitude_mismatch"], -1e-12)
+            self.assertAlmostEqual(
+                receipt["complement_mismatch_identity_error"], 0.0)
+            self.assertGreaterEqual(
+                receipt["paired_sign_incoherence"], -1e-12)
+            self.assertAlmostEqual(
+                receipt["walsh_loss_decomposition_error"], 0.0)
+            self.assertTrue(receipt["walsh_loss_decomposition_proved"])
             self.assertFalse(
                 receipt["walsh_parity_cancellation_bound_proved"])
 
@@ -66,6 +75,41 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
         self.assertAlmostEqual(sum(
             group["e1_energy_fraction"] for group in receipt[
                 "e1_by_target_prime_factor_count"].values()), 1)
+        aligned = receipt["residual_mobius_aligned_diagonal_fraction"]
+        self.assertGreaterEqual(aligned, 0)
+        self.assertLessEqual(aligned, 1 + 1e-12)
+        self.assertAlmostEqual(
+            receipt["residual_mobius_sign_energy_correlation"],
+            2 * aligned - 1)
+        self.assertFalse(receipt["residual_mobius_sign_rule_proved"])
+        self.assertAlmostEqual(
+            receipt["complete_boundary_diagonal_reconstruction_error"], 0)
+        self.assertAlmostEqual(
+            receipt[
+                "collapsed_complete_boundary_reconstruction_error"], 0)
+        self.assertGreater(receipt["complete_cube_pair_count"], 0)
+        self.assertGreater(receipt["truncated_cube_piece_count"], 0)
+        self.assertLess(
+            receipt["maximum_truncated_cube_reconstruction_error"], 1e-10)
+        if receipt[
+                "complete_cube_log_squared_bound_proved_for_reported_range"]:
+            self.assertEqual(
+                receipt["complete_amplitude_monotonicity_violations"], 0)
+            self.assertLessEqual(
+                receipt["complete_collapsed_over_complete_diagonal"],
+                receipt["complete_log_squared_harmonic_bound"] + 1e-12)
+        if receipt["no_common_polylog_bound_proved_for_reported_range"]:
+            self.assertLessEqual(
+                receipt["selected_no_common_actual_over_diagonal"],
+                receipt["no_common_three_state_harmonic_squared_bound"]
+                + 1e-12)
+            self.assertLessEqual(
+                receipt["no_common_three_state_harmonic_squared_bound"],
+                receipt["no_common_log_six_bound"] + 1e-12)
+        self.assertTrue(receipt["complete_residual_cube_identity_proved"])
+        self.assertGreaterEqual(
+            receipt["maximum_actual_residual_amplitude_over_r1"], 1)
+        self.assertFalse(receipt["boundary_truncated_cube_control_proved"])
         self.assertTrue(receipt["finite_dominant_walsh_measurement"])
 
     def test_nonsquarefree_target_is_rejected(self):
