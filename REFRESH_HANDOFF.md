@@ -7996,3 +7996,33 @@ leaving `G_(m,d,k)` and the interval phases unchanged. If high-`Q` cancellation
 survives, the phase geometry is sufficient in these fixtures; if it collapses,
 the Mobius conductor signs are essential. Prime aggregation remains a later,
 separate test. The signed prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: high-Q cancellation survives conductor-sign removal
+
+The exact signed-bin calculation was repeated after the single substitution
+`S_d -> |S_d|`. This preserves every coefficient magnitude, complete energy,
+frequency, interval kernel, bin membership, and termwise-absolute envelope.
+For `m=251,373,499`, the resulting high-`Q` net/envelope ratios are
+
+`.009979,.009037,.006166`.
+
+Thus the rational phases and interval kernel, with the actual coefficient
+magnitudes held fixed, suffice to produce the observed high-`Q` cancellation
+in all three finite fixtures. Independent review reproduced the values,
+verified that only the conductor signs changed, checked exact envelope
+preservation and boundary reconstruction, and returned PASS.
+
+The signs are still important to the whole boundary. Its normalized value
+changes under sign removal from `-.29977,.07877,.22669` to
+`.17611,-.41501,-.00119`. Therefore this experiment does not say that Mobius
+signs are generally irrelevant. It isolates phase geometry as sufficient for
+the dangerous high-`Q` portion of these examples, while low- and middle-`Q`
+interactions retain substantial arithmetic sign dependence.
+
+The next <=30-minute question is where the high-`Q` phase cancellation occurs.
+For each exact reduced denominator `Q`, first sum all signed pair terms with
+that `Q`; then compare `sum_Q |C_Q|` with the full pairwise absolute envelope
+and compare `|sum_Q C_Q|` with `sum_Q |C_Q|`. This distinguishes cancellation
+within a fixed modulus, which suggests a Ramanujan-sum mechanism, from
+cancellation only across moduli, which points toward a large-sieve mechanism.
+The signed prime-correlation estimate and Goldbach remain OPEN.

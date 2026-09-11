@@ -24,6 +24,20 @@ class LcmSawtoothSignedDifferenceBinTests(unittest.TestCase):
         self.assertGreater(receipt["high_Q_absolute_over_complete"], 4)
         self.assertLess(receipt["high_Q_net_over_absolute"], .01)
 
+    def test_conductor_sign_removal_preserves_energy_but_changes_boundary(self):
+        actual = signed_difference_bin_receipt(101, 24, 24, 36, 3, 12)
+        absolute = signed_difference_bin_receipt(
+            101, 24, 24, 36, 3, 12, True)
+        self.assertEqual(actual["conductor_coefficient_mode"], "actual")
+        self.assertEqual(absolute["conductor_coefficient_mode"], "absolute")
+        for actual_envelope, absolute_envelope in zip(
+                actual["absolute_envelope_bins_over_complete"],
+                absolute["absolute_envelope_bins_over_complete"]):
+            self.assertAlmostEqual(actual_envelope, absolute_envelope)
+        self.assertNotAlmostEqual(
+            actual["total_boundary_over_complete"],
+            absolute["total_boundary_over_complete"])
+
     def test_invalid_first_row_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "ell_first"):
             signed_difference_bin_receipt(101, 0, 24, 36, 3, 12)

@@ -37,7 +37,8 @@ def _stable_geometric_sum(modulus, denominator, numerators):
 
 
 def _signed_frequency_data(
-        modulus, ell_freeze, divisor_lower, divisor_upper):
+        modulus, ell_freeze, divisor_lower, divisor_upper,
+        replace_conductor_signs=False):
     logarithm = math.log(modulus * ell_freeze)
     denominators = []
     numerators = []
@@ -49,6 +50,8 @@ def _signed_frequency_data(
             continue
         structured_sum = ((polynomial[0] * logarithm + polynomial[1])
                           * logarithm + polynomial[2])
+        if replace_conductor_signs:
+            structured_sum = abs(structured_sum)
         candidates = np.arange(1, denominator, dtype=np.int64)
         primitive = candidates[np.gcd(candidates, denominator) == 1]
         local_coefficients = structured_sum * _stable_geometric_sum(
@@ -66,15 +69,18 @@ def _signed_frequency_data(
 
 def signed_difference_bin_receipt(
         modulus, ell_first, row_count, ell_freeze,
-        divisor_lower, divisor_upper):
+        divisor_lower, divisor_upper, replace_conductor_signs=False):
     """Exactly bin the frozen-log signed boundary and absolute envelope."""
     _validate_inputs(
         modulus, ell_freeze, row_count, divisor_lower, divisor_upper)
     if type(ell_first) is not int or ell_first < 1:
         raise ValueError("ell_first must be a positive integer")
+    if type(replace_conductor_signs) is not bool:
+        raise ValueError("replace_conductor_signs must be Boolean")
     denominators, numerators, coefficients, frequencies = (
         _signed_frequency_data(
-            modulus, ell_freeze, divisor_lower, divisor_upper))
+            modulus, ell_freeze, divisor_lower, divisor_upper,
+            replace_conductor_signs))
     complete_energy = float(np.sum(np.abs(coefficients) ** 2))
     thresholds = np.array(
         (modulus * row_count // 4,
@@ -125,6 +131,8 @@ def signed_difference_bin_receipt(
         "ell_range": (ell_first, ell_first + row_count - 1),
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
+        "conductor_coefficient_mode": (
+            "absolute" if replace_conductor_signs else "actual"),
         "positive_frequency_count": len(coefficients),
         "difference_modulus_thresholds": tuple(int(x) for x in thresholds),
         "signed_boundary_bins_over_complete": tuple(
@@ -149,5 +157,6 @@ def signed_difference_bin_receipt(
 
 if __name__ == "__main__":
     for modulus in (251, 373, 499):
-        print(signed_difference_bin_receipt(
-            modulus, 46, 46, 69, 4, 20))
+        for replace_signs in (False, True):
+            print(signed_difference_bin_receipt(
+                modulus, 46, 46, 69, 4, 20, replace_signs))

@@ -406,3 +406,10 @@ at `m=251,373,499`, the `Q>mA` net is below `.0084` of its termwise-absolute
 envelope despite envelopes between `2.92` and `4.58` times complete energy.
 This reviewed result is finite and uses frozen logs. The next sign-removal
 test distinguishes Mobius conductor signs from rational-phase oscillation.
+
+The sign-removal falsifier leaves the high-`Q` net/envelope ratio below one
+percent at all three primes while materially changing the whole boundary.
+Rational phase geometry is therefore sufficient for the measured high-`Q`
+cancellation with the actual magnitudes fixed; conductor signs remain relevant
+elsewhere. The next exact decomposition separates within-`Q` from across-`Q`
+cancellation.

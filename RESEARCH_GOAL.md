@@ -6674,3 +6674,13 @@ Independent review returned PASS. This is finite within-prime cancellation;
 it neither proves a bound nor separates conductor signs from rational-phase
 oscillation. The next bounded test replaces `S_d` by `|S_d|` to distinguish
 those two mechanisms before attempting the outer prime average.
+
+### 2026-09-11 continuation: phase geometry survives sign removal
+
+Replacing `S_d` by `|S_d|` preserves every magnitude and absolute envelope,
+yet the high-`Q` net/envelope ratios remain below `.0100` at all three tested
+primes. Independent review returned PASS. With the actual magnitudes fixed,
+the rational phases and interval kernel are therefore sufficient for this
+finite high-`Q` cancellation. The whole boundary changes materially, so the
+conductor signs still matter elsewhere. The next bounded test separates
+cancellation within each exact `Q` from cancellation across different `Q`.
