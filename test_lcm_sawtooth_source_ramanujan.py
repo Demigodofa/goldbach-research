@@ -49,6 +49,29 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertEqual(receipt["right_source_pair_count"], 5760)
         self.assertLess(receipt["source_to_canonical_relative_error"], 1e-12)
         self.assertTrue(receipt["source_term_ramanujan_reduction_proved"])
+        self.assertEqual(
+            tuple(receipt["prime_frequency_mean_correlations"]), (2, 7, 13))
+        self.assertAlmostEqual(
+            receipt["prime_frequency_signed_real_fractions"][7],
+            receipt["factor_seven_signed_real_fraction"])
+        self.assertAlmostEqual(
+            receipt["factor_seven_frequency_mean_correlation"][0],
+            -23978.413495740802, places=7)
+        self.assertAlmostEqual(
+            receipt["factor_seven_signed_real_fraction"],
+            .9575124092409204, places=12)
+        self.assertEqual(
+            receipt["minimum_factor_seven_signed_fraction"], .75)
+        self.assertTrue(receipt["factor_seven_signed_fraction_passes"])
+        self.assertGreater(
+            receipt["prime_frequency_signed_real_fractions"][13],
+            receipt["factor_seven_signed_real_fraction"])
+        gcd_total = sum(
+            complex(*subtotal) for subtotal in
+            receipt["frequency_gcd_mean_correlations"].values())
+        self.assertLess(abs(
+            gcd_total
+            - complex(*receipt["source_ramanujan_mean_correlation"])), 1e-9)
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_guards(self):
@@ -56,6 +79,9 @@ class SourceRamanujanTests(unittest.TestCase):
             source_ramanujan_mean_receipt(lag=0)
         with self.assertRaises(ValueError):
             _conditioned_unit_exponential_sum(12, 6, 6, 1)
+        with self.assertRaises(ValueError):
+            source_ramanujan_mean_receipt(
+                minimum_factor_seven_signed_fraction=0)
 
 
 if __name__ == "__main__":

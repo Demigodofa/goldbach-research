@@ -10898,3 +10898,32 @@ factor-7 frequency sector passes only if its signed real subtotal is negative
 and carries at least `.75` of the absolute value of the full negative real
 mean. Failure preserves the exact CRT source reduction while rejecting
 frequency-side factor-7 dominance.
+
+## 2026-09-11: the factor-7 frequency union passes, but overlap blocks attribution
+
+The source expansion was partitioned into the eight exact values of
+`gcd(n,182)`. Those disjoint complex subtotals reconstruct the source mean.
+The `7 | n` union has real subtotal `-23978.413495740802`, the same sign as
+the full real mean `-25042.404948829833`, and magnitude fraction
+`.9575124092409204`. It passes the predeclared `.75` signed-fraction gate.
+
+This is not factor-7 dominance or unique attribution. The prime-frequency
+unions overlap, and the `13 | n` union has the still larger signed-real
+fraction `.9668462501515681`; the `2 | n` fraction is
+`.38836993621631566`. Independent review required the result flag to be
+renamed from dominance to a signed-fraction gate and required explicit
+regressions for the subtotal, fraction, threshold, pass flag, and larger
+factor-13 union. After those corrections, normal and optimized tests pass and
+review returned PASS.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+Preserve the exact frequency-gcd partition and the strong same-signed
+concentration in the overlapping factor-7 and factor-13 unions. Reject unique
+factor-7 attribution from the union statistic.
+
+The next bounded question removes this overlap: treat the eight disjoint
+exact-subset subtotals for the prime set `{2,7,13}` as Harsanyi dividends and
+split each nonempty subtotal equally among its prime factors. Test whether
+factor `7` remains the largest absolute allocation after this adjustment.
+Failure preserves the joint `{7,13}` frequency mechanism and rejects factor
+`7` as its leading individual frequency-side marker.

@@ -93,7 +93,7 @@ def _conditioned_unit_exponential_sum(period, lag, difference, frequency):
 def source_ramanujan_mean_receipt(
         families=((77, 65), (143, 35)), lag=182,
         canonical_target=(-25042.404948829146, -1431.9765245642259),
-        tolerance=1e-12):
+        minimum_factor_seven_signed_fraction=.75, tolerance=1e-12):
     """Evaluate a lag mean from source modes and conditioned CRT sums."""
     families = tuple(families)
     if (len(families) != 2 or any(len(family) != 2 for family in families)
@@ -109,6 +109,8 @@ def source_ramanujan_mean_receipt(
         raise ValueError("lag must lie strictly inside the period")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if not 0 < minimum_factor_seven_signed_fraction <= 1:
+        raise ValueError("factor-seven fraction must lie in (0,1]")
     target = complex(*canonical_target)
 
     left_sources, left_pair_count = _family_source_modes(
@@ -122,6 +124,7 @@ def source_ramanujan_mean_receipt(
         if math.gcd(value, quotient) == 1)
     conditioned_cache = {}
     total = 0.0j
+    frequency_gcd_totals = {}
     matched_source_residue_pairs = 0
     expanded_mode_products = 0
     for left_residue, left_modes in left_sources.items():
@@ -141,16 +144,41 @@ def source_ramanujan_mean_receipt(
                         conditioned_sum = _conditioned_unit_exponential_sum(
                             period, lag, difference, frequency)
                         conditioned_cache[cache_key] = conditioned_sum
-                    total += (
+                    contribution = (
                         left_coefficient
                         * np.conjugate(right_coefficient)
                         * conditioned_sum)
+                    total += contribution
+                    frequency_gcd = math.gcd(frequency, common)
+                    frequency_gcd_totals[frequency_gcd] = (
+                        frequency_gcd_totals.get(frequency_gcd, 0.0j)
+                        + contribution)
                     expanded_mode_products += 1
 
     unit_class_count = math.prod(
         prime_power - prime_power // prime
         for prime, prime_power in _prime_power_factors(period))
     source_mean = complex(total / unit_class_count)
+    frequency_gcd_means = {
+        divisor: complex(subtotal / unit_class_count)
+        for divisor, subtotal in sorted(frequency_gcd_totals.items())}
+    common_primes = tuple(prime for prime, _ in _prime_power_factors(common))
+    prime_frequency_means = {
+        prime: sum(
+            subtotal for divisor, subtotal in frequency_gcd_means.items()
+            if divisor % prime == 0)
+        for prime in common_primes}
+    prime_frequency_signed_real_fractions = {
+        prime: abs(subtotal.real) / max(1.0, abs(source_mean.real))
+        for prime, subtotal in prime_frequency_means.items()}
+    factor_seven_mean = prime_frequency_means.get(7, 0.0j)
+    factor_seven_signed_fraction = (
+        abs(factor_seven_mean.real) / max(1.0, abs(source_mean.real)))
+    factor_seven_signed_fraction_passes = bool(
+        source_mean.real < 0
+        and factor_seven_mean.real < 0
+        and factor_seven_signed_fraction
+        >= minimum_factor_seven_signed_fraction)
     relative_error = abs(source_mean - target) / max(1.0, abs(target))
     return {
         "families": families,
@@ -168,6 +196,21 @@ def source_ramanujan_mean_receipt(
         "conditioned_sum_cache_size": len(conditioned_cache),
         "source_ramanujan_mean_correlation": (
             source_mean.real, source_mean.imag),
+        "frequency_gcd_mean_correlations": {
+            divisor: (subtotal.real, subtotal.imag)
+            for divisor, subtotal in frequency_gcd_means.items()},
+        "factor_seven_frequency_mean_correlation": (
+            factor_seven_mean.real, factor_seven_mean.imag),
+        "prime_frequency_mean_correlations": {
+            prime: (subtotal.real, subtotal.imag)
+            for prime, subtotal in prime_frequency_means.items()},
+        "prime_frequency_signed_real_fractions": (
+            prime_frequency_signed_real_fractions),
+        "factor_seven_signed_real_fraction": factor_seven_signed_fraction,
+        "minimum_factor_seven_signed_fraction": (
+            minimum_factor_seven_signed_fraction),
+        "factor_seven_signed_fraction_passes": (
+            factor_seven_signed_fraction_passes),
         "canonical_unit_mean_target": (target.real, target.imag),
         "source_to_canonical_relative_error": relative_error,
         "source_term_ramanujan_reduction_proved": bool(
