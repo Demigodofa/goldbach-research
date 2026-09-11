@@ -7853,3 +7853,43 @@ running, and no larger full-block result is claimed.
 The added scale strengthens the finite prime-rotation evidence but does not
 alter the proof target: the weighted aggregate bilinear phase estimate is
 still open.
+
+## 2026-09-11: maximum difference-modulus extraction stops at beta=1/4
+
+The joint prime-row rotation estimate cannot be applied to every primitive
+frequency pair and then maximized over its reduced phase denominator. Choose
+four distinct retained primes `p1,p2,p3,p4` in `(B/2,B]` and put
+
+`d=p1*p2`, `e=p3*p4`.
+
+Only the two ordered pairs `(p1,p2),(p2,p1)` have lcm `d`, and no larger lcm
+on the retained divisor support is divisible by `d`. Hence the quadratic
+coefficient of the actual structured conductor polynomial `S_d` is exactly
+`2/d`; similarly `S_e^(2)=2/e`. The primitive frequencies `1/d` and `1/e`
+have reduced difference
+
+`1/d-1/e=(e-d)/(d*e)`,
+
+because `(d,e)=1`. Its denominator is a fixed positive proportion of `B^4`.
+At the active `beta=.32` scale, `d,e` exceed `m`, so their geometric packets
+cannot vanish through divisibility of `m-1`.
+
+The existing joint rotation bound contains `sqrt(Q/(M*A))`. With
+`Q asymp B^4`, `M=N^.59`, and `A=N^.41`, this becomes
+
+`N^(2*beta-1/2)`.
+
+It saves a power only for `beta<1/4`; at `beta=.32` it costs `N^.14`.
+`lcm_sawtooth_joint_phase_obstruction.py` constructs the exact finite
+witness. At `(V,B]=(5,50]`, it uses primes `37,41,43,47`, conductors
+`1517,2021`, and reduced difference denominator `3065857=.4905 B^4`.
+Independent review PASSed the support count, `2/d` coefficient, reduced
+denominator, nonvanishing project packet, exponent arithmetic, and tests.
+
+This rejects only a worst-denominator termwise use of the joint estimate. It
+preserves coefficient-weighted difference-modulus averaging, sparse high-Q
+mass bounds, and signed frequency-pair cancellation. The next <=30-minute
+question is whether the actual three polynomial coefficient vectors put
+power-small complete-energy mass on pairs with `Q>N^(1-epsilon)`, or whether
+that positive weighted statement is itself false. The prime-averaged signed
+matrix estimate and Goldbach remain OPEN.

@@ -382,3 +382,9 @@ candidate mechanism; its asymptotic bilinear estimate is still open.
 The complete `M=2003` prime block also passes the same falsifier: its weighted
 aggregate sharp ratios are at most `1.01703`. This 249-prime computation is
 reviewed finite evidence only.
+
+A direct frequency-pair application of the existing joint bound has now been
+ruled out beyond `beta=1/4`: supported frequency differences can have reduced
+denominator of order `B^4`, producing a power loss at `beta=.32`. Any proof of
+the observed aggregate cancellation must retain coefficient-weighted or
+signed difference-modulus structure.

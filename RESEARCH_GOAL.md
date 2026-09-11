@@ -6621,3 +6621,21 @@ weightings keep the sharp ratio below `1.01703`. The cached shared polynomial
 support and these values passed independent review. This remains finite
 evidence; the rational-phase bilinear estimate is still the next theorem
 target.
+
+### 2026-09-11 continuation: reject the maximum-Q joint bound
+
+The actual conductor support contains primitive frequency pairs whose reduced
+difference denominator is of order `B^4`. Four retained primes above `B/2`
+give coprime conductors `d,e asymp B^2`, with nonzero structured quadratic
+coefficients `2/d,2/e`, and the difference `1/d-1/e` has denominator `d*e`.
+
+Therefore inserting the worst difference modulus into the existing joint
+prime-row factor costs
+
+`sqrt(B^4/(M*A))=N^(2*beta-1/2)`.
+
+This route stops strictly at `beta=1/4` and loses `N^.14` at `beta=.32`.
+The exact witness and exponent budget passed independent review. This does
+not reject weighted or signed averaging over difference moduli. That narrower
+arithmetic distribution is now the next falsifiable question; the aggregate
+matrix measurements remain promising finite evidence only.
