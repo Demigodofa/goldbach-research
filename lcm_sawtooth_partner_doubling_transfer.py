@@ -13,7 +13,20 @@ import math
 import numpy as np
 
 from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
+from lcm_sawtooth_arithmetic_covariance_basis import (
+    covariance_inverse_root,
+    project_one_frequency_covariance,
+)
+from lcm_sawtooth_centered_basis_gershgorin import symmetric_square_transform
+from lcm_sawtooth_lifted_endpoint_frame import (
+    _symmetric_pair_coordinates,
+    project_prime_block_lifted_endpoint_scan,
+)
+from lcm_sawtooth_reduced_denominator_interference import (
+    _packet_residue_cells,
+)
 from lcm_sawtooth_signed_difference_bins import _stable_geometric_sum
+from lcm_sawtooth_trace_traceless_block_frame import trace_traceless_transform
 from mobius_covariance_lag_probe import _prime_flags
 
 
@@ -222,6 +235,230 @@ def partner_doubling_transfer_receipt(
         "single_scalar_partner_doubling_transfer_hypothesis_passes": bool(
             exact_half_identity and scalar_geometric and scalar_polynomial),
         "partner_doubling_transfer_assigns_favorable_sign_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def _project_fragile_direction(scale_modulus, conductors):
+    exclusions = ((), (conductors[0],), (conductors[1],), conductors)
+    frames = {
+        excluded: project_prime_block_lifted_endpoint_scan(
+            scale_modulus, excluded)
+        for excluded in exclusions}
+    baseline = frames[()]
+    covariance, _ = project_one_frequency_covariance(scale_modulus, baseline)
+    transform3, _ = covariance_inverse_root(covariance)
+    transform6 = symmetric_square_transform(
+        transform3) @ trace_traceless_transform()
+
+    def transformed(frame, key):
+        raw = np.asarray(frame[key])
+        result = transform6.T @ raw @ transform6
+        return (result + result.T) / 2
+
+    active = {
+        excluded: transformed(
+            frame, "aggregate_active_window_residue_energy_gram")
+        for excluded, frame in frames.items()}
+    full = {
+        excluded: transformed(
+            frame, "aggregate_full_residue_energy_gram")
+        for excluded, frame in frames.items()}
+    differences = {
+        excluded: active[excluded] - .5 * full[excluded]
+        for excluded in exclusions}
+    additive = (
+        differences[(conductors[0],)] + differences[(conductors[1],)]
+        - differences[()])
+    _, vectors = np.linalg.eigh(additive[1:, 1:])
+    return baseline, transform6[:, 1:] @ vectors[:, 0]
+
+
+def _matched_doubled_packet(
+        prime_modulus, ell_freeze, conductor, odd_partner, direction,
+        support):
+    """Build one doubled packet through the base primitive-residue lift."""
+    doubled_partner = 2 * odd_partner
+    doubled_q = math.lcm(conductor, doubled_partner)
+    logarithm = math.log(prime_modulus * ell_freeze)
+    powers = np.asarray((logarithm ** 2, logarithm, 1.0))
+    conductor_coordinate = np.asarray(support[conductor]) * powers
+    doubled_coordinate = np.asarray(support[doubled_partner]) * powers
+    lifted_coordinate = _symmetric_pair_coordinates(
+        conductor_coordinate[None, :], doubled_coordinate[None, :])[0]
+    direction_factor = float(lifted_coordinate @ direction)
+
+    conductor_numerators = np.arange(1, conductor, dtype=np.int64)
+    conductor_numerators = conductor_numerators[
+        np.gcd(conductor_numerators, conductor) == 1]
+    partner_numerators = np.arange(1, odd_partner, dtype=np.int64)
+    partner_numerators = partner_numerators[
+        np.gcd(partner_numerators, odd_partner) == 1]
+    lifted_partner_numerators = np.where(
+        partner_numerators % 2 == 1,
+        partner_numerators,
+        partner_numerators + odd_partner)
+    conductor_geometric = _stable_geometric_sum(
+        prime_modulus, conductor, conductor_numerators)
+    half_length = (prime_modulus - 1) // 2
+    half_sine_residue = (
+        lifted_partner_numerators * half_length) % (2 * odd_partner)
+    half_sum = (
+        np.exp(
+            1j * np.pi * lifted_partner_numerators
+            * (half_length + 1) / odd_partner)
+        * np.sin(np.pi * half_sine_residue / odd_partner)
+        / np.sin(np.pi * lifted_partner_numerators / odd_partner))
+    base_factor = (
+        1 + np.exp(
+            2j * np.pi * partner_numerators * half_length / odd_partner))
+    doubled_factor = (
+        1 + np.exp(
+            -1j * np.pi * lifted_partner_numerators / odd_partner))
+    transfer = doubled_factor / base_factor
+    base_half_prediction = base_factor * half_sum
+    predicted_partner_geometric = transfer * base_half_prediction
+    actual_partner_geometric = _stable_geometric_sum(
+        prime_modulus, doubled_partner, lifted_partner_numerators)
+    geometric_error = float(np.max(
+        np.abs(actual_partner_geometric - predicted_partner_geometric)
+        / np.maximum(1.0, np.abs(actual_partner_geometric))))
+
+    predicted_packet = np.zeros(doubled_q, dtype=complex)
+    unexpected_reduced_denominator_count = 0
+    nonodd_residue_count = 0
+
+    def add_orientation(left_denominator, left_numerators, left_geometric,
+                        right_denominator, right_numerators, right_geometric):
+        nonlocal unexpected_reduced_denominator_count, nonodd_residue_count
+        common = math.lcm(left_denominator, right_denominator)
+        differences = (
+            left_numerators[:, None] * (common // left_denominator)
+            - right_numerators[None, :] * (common // right_denominator))
+        common_factors = np.gcd(np.abs(differences), common)
+        reduced = common // common_factors
+        unexpected_reduced_denominator_count += int(np.count_nonzero(
+            reduced != doubled_q))
+        selected = reduced == doubled_q
+        residues = (
+            prime_modulus * (differences // common_factors) % reduced)
+        nonodd_residue_count += int(np.count_nonzero(
+            selected & (residues % 2 == 0)))
+        coefficients = (
+            left_geometric[:, None] * np.conjugate(right_geometric[None, :])
+            * direction_factor)
+        flat_residues = residues[selected]
+        flat_coefficients = coefficients[selected]
+        predicted_packet.real[:] += np.bincount(
+            flat_residues, weights=flat_coefficients.real,
+            minlength=doubled_q)
+        predicted_packet.imag[:] += np.bincount(
+            flat_residues, weights=flat_coefficients.imag,
+            minlength=doubled_q)
+
+    add_orientation(
+        conductor, conductor_numerators, conductor_geometric,
+        doubled_partner, lifted_partner_numerators,
+        predicted_partner_geometric)
+    add_orientation(
+        doubled_partner, lifted_partner_numerators,
+        predicted_partner_geometric,
+        conductor, conductor_numerators, conductor_geometric)
+    return {
+        "predicted_packet": predicted_packet,
+        "doubled_q": doubled_q,
+        "direction_factor": direction_factor,
+        "diagonal_geometric_transfer_maximum_relative_error": (
+            geometric_error),
+        "unexpected_reduced_denominator_pair_count": (
+            unexpected_reduced_denominator_count),
+        "nonodd_doubled_residue_pair_count": nonodd_residue_count,
+    }
+
+
+def partner_packet_transfer_receipt(
+        scale_modulus=127,
+        families=((77, 65, 1), (143, 35, 2)), tolerance=1e-12):
+    """Transfer matched (c,d) source pairs to their doubled packet."""
+    families = tuple(families)
+    conductors = tuple(sorted(family[0] for family in families))
+    if (type(scale_modulus) is not int or scale_modulus < 3
+            or len(families) != 2 or len(conductors) != 2
+            or any(len(family) != 3 for family in families)
+            or any(type(conductor) is not int or conductor < 3
+                   or conductor % 2 == 0
+                   or type(partner) is not int or partner < 3
+                   or partner % 2 == 0 or category not in (1, 2)
+                   for conductor, partner, category in families)):
+        raise ValueError("require two conductor-partner-category families")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    baseline, direction = _project_fragile_direction(
+        scale_modulus, conductors)
+    support = dict(_quadratic_support_data(*baseline["divisor_range"])[1])
+    rows = []
+    for frame_row in baseline["rows"]:
+        packets, _, _, _, _, _, _ = _packet_residue_cells(
+            frame_row["modulus"], baseline["row_count"],
+            baseline["ell_freeze"], baseline["divisor_range"],
+            direction, conductors, math.gcd(*conductors))
+        for conductor, partner, category in families:
+            transfer = _matched_doubled_packet(
+                frame_row["modulus"], baseline["ell_freeze"], conductor,
+                partner, direction, support)
+            doubled_q = transfer["doubled_q"]
+            actual = np.zeros(doubled_q, dtype=complex)
+            for (denominator, residue), value in packets[category].items():
+                if denominator == doubled_q:
+                    actual[residue] += value
+            prediction = transfer.pop("predicted_packet")
+            absolute_error = float(np.max(np.abs(actual - prediction)))
+            relative_error = float(np.max(
+                np.abs(actual - prediction)
+                / np.maximum(1.0, np.abs(actual))))
+            rows.append({
+                "prime_modulus": frame_row["modulus"],
+                "conductor": conductor,
+                "odd_partner": partner,
+                "doubled_partner": 2 * partner,
+                "packet_category": category,
+                "packet_reconstruction_maximum_absolute_error": (
+                    absolute_error),
+                "packet_reconstruction_maximum_relative_error": (
+                    relative_error),
+                "nonzero_actual_packet_cell_count": int(np.count_nonzero(
+                    np.abs(actual) > tolerance)),
+                **transfer,
+            })
+    reconstruction_passes = all(
+        row["packet_reconstruction_maximum_relative_error"] <= tolerance
+        and row["diagonal_geometric_transfer_maximum_relative_error"]
+        <= tolerance
+        and row["unexpected_reduced_denominator_pair_count"] == 0
+        and row["nonodd_doubled_residue_pair_count"] == 0
+        for row in rows)
+    return {
+        "scale_modulus": scale_modulus,
+        "families": families,
+        "prime_count": len(baseline["rows"]),
+        "tolerance": tolerance,
+        "packet_transfer_rows": tuple(rows),
+        "maximum_packet_reconstruction_absolute_error": max(
+            row["packet_reconstruction_maximum_absolute_error"]
+            for row in rows),
+        "maximum_packet_reconstruction_relative_error": max(
+            row["packet_reconstruction_maximum_relative_error"]
+            for row in rows),
+        "maximum_term_geometric_transfer_relative_error": max(
+            row["diagonal_geometric_transfer_maximum_relative_error"]
+            for row in rows),
+        "unexpected_reduced_denominator_pair_count": sum(
+            row["unexpected_reduced_denominator_pair_count"] for row in rows),
+        "nonodd_doubled_residue_pair_count": sum(
+            row["nonodd_doubled_residue_pair_count"] for row in rows),
+        "exact_doubled_packet_diagonal_transfer_test_passes": bool(
+            reconstruction_passes),
+        "packet_diagonal_transfer_assigns_favorable_sign_proved": False,
         "signed_prime_correlation_proved": False,
     }
 

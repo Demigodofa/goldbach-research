@@ -27,13 +27,17 @@ from lcm_sawtooth_reduced_difference_mass import (
 
 
 def _stable_geometric_sum(modulus, denominator, numerators):
+    """Evaluate the nontrivial-root sum, snapping complete periods to zero."""
     length = modulus - 1
     sine_residue = (numerators * length) % (2 * denominator)
     amplitude = (
         np.sin(np.pi * sine_residue / denominator)
         / np.sin(np.pi * numerators / denominator))
     phase = np.exp(1j * np.pi * numerators * modulus / denominator)
-    return phase * amplitude
+    result = phase * amplitude
+    if length % denominator == 0:
+        result = np.zeros_like(result)
+    return result
 
 
 def _signed_frequency_data(

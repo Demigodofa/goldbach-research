@@ -2,11 +2,36 @@ import unittest
 
 from lcm_sawtooth_partner_doubling_transfer import (
     doubled_partner_geometric_receipt,
+    partner_packet_transfer_receipt,
     partner_doubling_transfer_receipt,
 )
 
 
 class PartnerDoublingTransferTests(unittest.TestCase):
+    def test_project_packets_transfer_under_primitive_lift(self):
+        receipt = partner_packet_transfer_receipt()
+        self.assertEqual(receipt["prime_count"], 24)
+        self.assertEqual(receipt["families"], ((77, 65, 1), (143, 35, 2)))
+        self.assertEqual(
+            receipt["unexpected_reduced_denominator_pair_count"], 0)
+        self.assertEqual(receipt["nonodd_doubled_residue_pair_count"], 0)
+        self.assertLess(
+            receipt["maximum_packet_reconstruction_relative_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["maximum_packet_reconstruction_absolute_error"],
+            1.4830270780705067e-15, places=22)
+        self.assertLess(
+            receipt["maximum_term_geometric_transfer_relative_error"],
+            1e-12)
+        empty_packets = {
+            (row["prime_modulus"], row["conductor"])
+            for row in receipt["packet_transfer_rows"]
+            if row["nonzero_actual_packet_cell_count"] == 0}
+        self.assertEqual(empty_packets, {(131, 77), (211, 143)})
+        self.assertTrue(receipt[
+            "exact_doubled_packet_diagonal_transfer_test_passes"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
     def test_half_interval_identity_and_primitive_lift(self):
         receipt = doubled_partner_geometric_receipt(17, 5)
         self.assertEqual(receipt["primitive_residue_count"], 4)

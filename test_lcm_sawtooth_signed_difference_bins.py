@@ -1,11 +1,19 @@
 import unittest
 
+import numpy as np
+
 from lcm_sawtooth_signed_difference_bins import (
+    _stable_geometric_sum,
     signed_difference_bin_receipt,
 )
 
 
 class LcmSawtoothSignedDifferenceBinTests(unittest.TestCase):
+    def test_complete_period_geometric_sum_is_exact_zero(self):
+        values = _stable_geometric_sum(
+            131, 130, np.asarray((1, 3, 127, 129), dtype=np.int64))
+        self.assertTrue(np.array_equal(values, np.zeros_like(values)))
+
     def test_bins_reconstruct_boundary_and_respect_absolute_envelope(self):
         receipt = signed_difference_bin_receipt(101, 24, 24, 36, 3, 12)
         self.assertLess(

@@ -10088,3 +10088,51 @@ the resulting cross-correlation by the phase of the left/right multiplier
 product and test a predeclared `75%` favorable absolute-mass gate on at least
 two prime channels. Exact reconstruction without the phase gate preserves
 the transport identity while rejecting it as a broad sign mechanism.
+
+## 2026-09-11: the diagonal lift reconstructs every doubled packet
+
+The complete-period correction now lives in the shared geometric-sum helper:
+when a denominator `D` divides `p-1`, every primitive nontrivial-root sum over
+`n=1,...,p-1` is returned as exact zero. This removes the `sin(pi)` artifact
+at its source. The affected signed-bin, partner-transfer, and reduced-packet
+tests retain their reviewed values.
+
+For each source family `(c,d)=(77,65)` and `(143,35)`, the packet transfer
+keeps the conductor numerator, sends the partner numerator to its unique odd
+lift modulo `2d`, applies the exact diagonal geometric multiplier, replaces
+the support vector of `d` by that of `2d`, evaluates the same fixed fragile
+direction, and computes the induced reduced residue. Both ordered
+orientations are retained.
+
+Across all 24 primes and both families (48 packet comparisons):
+
+- every primitive source pair has the expected doubled reduced denominator;
+- every doubled residue is odd;
+- maximum term-level diagonal geometric error is `1.87e-13`;
+- maximum packet-cell reconstruction error is `1.49e-15`;
+- the only empty doubled packets are left at `p=131` and right at `p=211`,
+  exactly the two complete-period zero cases.
+
+Thus the residue-dependent diagonal transport reconstructs every actual
+`Q=10010` packet within the predeclared `1e-12` gate. Independent review
+checked the shared zero correction, primitive lift, both orientations,
+conjugation, residue convention, new support coordinates, fragile direction,
+source completeness, test coverage, and finite scope. Twenty-five selected
+affected tests pass normally and under Python optimization; the reviewer
+independently ran 31 directly affected tests in both modes.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. Preserve the
+exact term and packet transport. It explains how the doubled channel is
+built, but it supplies no sign by itself and proves no signed prime
+correlation.
+
+The predeclared next test removes only the phases of the diagonal
+multipliers while preserving their magnitudes, the doubled support vectors,
+the fragile direction, residues, and interval kernel. For every prime with a
+nonzero cross channel, compare the actual near-lag signed contribution with
+this phase-neutral counterfactual. Let the phase delta be actual minus
+neutral. The multiplier-phase mechanism passes only if positive deltas carry
+at least `75%` of delta absolute mass on at least two prime channels, with
+actual and neutral packets independently reconstructed within `1e-12`.
+Failure rejects a broad favorable dyadic-phase rule while preserving the
+exact diagonal packet transport.
