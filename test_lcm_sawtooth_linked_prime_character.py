@@ -9,6 +9,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_parity_selection_receipt,
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
+    resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
 )
 
@@ -68,6 +69,17 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             resonant_progression_discrepancy_receipt(target_residue=87)
         with self.assertRaises(ValueError):
             resonant_progression_discrepancy_receipt(
+                target_minimum=1000, target_maximum=1000)
+        with self.assertRaises(ValueError):
+            resonant_progression_diagonal_square_receipt(
+                maximum_pointwise_ratio=-1)
+        with self.assertRaises(ValueError):
+            resonant_progression_diagonal_square_receipt(
+                maximum_paired_pointwise_ratio=-1)
+        with self.assertRaises(ValueError):
+            resonant_progression_diagonal_square_receipt(target_residue=87)
+        with self.assertRaises(ValueError):
+            resonant_progression_diagonal_square_receipt(
                 target_minimum=1000, target_maximum=1000)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
@@ -508,6 +520,79 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "finite_progression_discrepancy_measured"])
         self.assertFalse(receipt[
             "square_root_discrepancy_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_resonant_progression_diagonal_square_function(self):
+        receipt = resonant_progression_diagonal_square_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 88)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["admissible_residue_count"], 33)
+        self.assertLess(receipt["centered_source_sum_relative_error"], 1e-12)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["nonempty_target_count"], 761)
+        self.assertEqual(receipt["gate_pass_count"], 761)
+        self.assertEqual(receipt["paired_gate_pass_count"], 761)
+        self.assertEqual(receipt["worst_target"], 84978)
+        worst = receipt["worst_target_row"]
+        self.assertEqual(worst["linked_prime_pair_count"], 644)
+        self.assertEqual(worst["nonunit_prime_terms"], ())
+        self.assertAlmostEqual(
+            worst["pointwise_discrepancy_to_diagonal_ratio"],
+            3.2305494244641015, places=12)
+        self.assertAlmostEqual(
+            worst["centered_discrepancy_correlation"].real,
+            -61494865.434606, places=5)
+        self.assertEqual(receipt["worst_paired_target"], 84978)
+        worst_paired = receipt["worst_paired_target_row"]
+        self.assertEqual(worst_paired["reflection_block_count"], 322)
+        self.assertAlmostEqual(
+            worst_paired["pointwise_discrepancy_to_paired_ratio"],
+            2.9815599715307095, places=12)
+        self.assertLess(
+            worst_paired["ordered_to_paired_discrepancy_relative_error"],
+            1e-12)
+        self.assertEqual(
+            tuple(receipt["dyadic_block_summaries"]),
+            ((1000, 2000), (2000, 4000), (4000, 8000),
+             (8000, 16000), (16000, 32000), (32000, 64000),
+             (64000, 100001)))
+        blocks = receipt["dyadic_block_summaries"]
+        self.assertAlmostEqual(
+            blocks[(1000, 2000)]["summed_squared_to_diagonal_ratio"],
+            1.071018021527012, places=12)
+        self.assertAlmostEqual(
+            blocks[(8000, 16000)]["summed_squared_to_diagonal_ratio"],
+            1.1623299689883424, places=12)
+        self.assertAlmostEqual(
+            blocks[(64000, 100001)]["summed_squared_to_diagonal_ratio"],
+            .6845070553648028, places=12)
+        self.assertAlmostEqual(
+            blocks[(1000, 2000)]["summed_squared_to_paired_ratio"],
+            .8681442249014873, places=12)
+        self.assertAlmostEqual(
+            blocks[(8000, 16000)]["summed_squared_to_paired_ratio"],
+            .8721014786656731, places=12)
+        self.assertAlmostEqual(
+            blocks[(64000, 100001)]["summed_squared_to_paired_ratio"],
+            .5602907847712755, places=12)
+        self.assertTrue(receipt["all_prime_terms_are_units"])
+        self.assertTrue(receipt[
+            "all_progression_targets_pass_pointwise_diagonal_gate"])
+        self.assertTrue(receipt["finite_diagonal_square_function_measured"])
+        self.assertFalse(receipt["pointwise_diagonal_bound_proved"])
+        self.assertTrue(receipt[
+            "all_ordered_and_paired_discrepancies_reconstruct"])
+        self.assertTrue(receipt[
+            "all_progression_targets_pass_paired_pointwise_gate"])
+        self.assertTrue(receipt[
+            "finite_paired_reflection_square_function_measured"])
+        self.assertFalse(receipt[
+            "pointwise_paired_reflection_bound_proved"])
+        self.assertFalse(receipt["averaged_diagonal_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

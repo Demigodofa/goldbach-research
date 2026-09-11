@@ -13510,3 +13510,63 @@ coherent off-diagonal reinforcement.  A pass would isolate a diagonal-sized
 target for an averaged large-sieve or circle-method attack, while remaining
 finite evidence only; generic failures of earlier large-sieve approaches do
 not settle this more structured question.
+
+## 2026-09-11: reflection blocks pass the corrected square-function test
+
+The frozen ordered-term inequality passes on all `761` targets in the
+resonant progression.  Its worst value is
+
+`|D_N| / sqrt(sum_p |log(p)log(N-p)H_88(p)|^2)
+ = 3.2305494244641015`
+
+at `N=84978`.  The seven dyadic ratios of summed `|D_N|^2` to the summed
+ordered-term diagonal are approximately
+`1.07102, 1.12879, .93990, 1.16233, .50351, .65538, .68451`.
+
+Independent review accepted those calculations but rejected the first
+interpretation of that denominator as the relevant variance proxy.  The
+ordered terms at `p` and `N-p` have the same weight and are deterministically
+linked.  Counting their squares separately retains an antisymmetric source
+component that cancels exactly in `D_N`.  Preserve the raw pass as a finite
+diagnostic, but do not use it by itself to motivate a diagonal-sized theorem.
+
+The corrected atomic unit is the unordered reflection orbit.  For
+`p<N/2`, define
+
+`B_{N,{p,N-p}}=log(p)log(N-p)(H_88(p)+H_88(N-p))`,
+
+with the singleton `B=log(p)^2 H_88(p)` when `p=N/2` is prime.  Then exactly
+`D_N=sum_B B`.  With
+
+`S_N^pair=sum_B |B|^2`,
+
+all `761` targets pass the corrected gate
+
+`|D_N| / sqrt(S_N^pair) <= 4`.
+
+The maximum is `2.9815599715307095` at `N=84978`, with `644` ordered pairs
+and `322` reflection blocks.  The seven dyadic aggregate ratios
+`sum_N |D_N|^2 / sum_N S_N^pair` are approximately
+`.86814, .91052, .79921, .87210, .39930, .53619, .56029`.  Thus there is no
+finite evidence of growing coherent off-block reinforcement on this single
+progression.  This remains a computation, not a pointwise or averaged
+square-function theorem, the missing signed prime-correlation estimate, or a
+Goldbach result.
+
+Independent review reproduced the worst case, block count, all dyadic
+aggregate ratios, exact ordered-to-paired reconstruction, unit conditions,
+and midpoint convention.  The focused diagonal test passes in normal and
+optimized Python; the preceding progression test also passes after the new
+assertions were integrated.
+
+The next bounded curiosity question tests whether residue `88` was unusually
+favorable.  For every even `1000<=N<=20000`, let `n=N mod 130`, center `G_0`
+on `A_n`, form the same unordered reflection blocks, and freeze
+
+`|D_N| / sqrt(S_N^pair) <= 4`.
+
+Report the worst target and residue, every residue-class maximum, and dyadic
+aggregate ratios.  A violation would localize a residue-dependent coherent
+mechanism hidden by the `n=88` progression.  A full pass would justify asking
+for an averaged inequality uniform in the local residue class, while still
+providing finite evidence only.
