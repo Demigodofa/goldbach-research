@@ -1,7 +1,9 @@
+import math
 import unittest
 
 from lcm_sawtooth_projected_fourier_cancellation import (
     alternate_geometry_projected_fourier_holdout_receipt,
+    bridge_distortion_confirmation_receipt,
     new_period_analog_projected_fourier_holdout_receipt,
     new_period_projected_fourier_holdout_receipt,
     projected_fourier_cancellation_receipt,
@@ -40,6 +42,9 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
                 minimum_spearman_correlation=2)
         with self.assertRaises(ValueError):
             q2310_bridge_distortion_receipt(minimum_failed_distortion=1)
+        with self.assertRaises(ValueError):
+            bridge_distortion_confirmation_receipt(
+                minimum_unstable_distortion=1.5)
 
     def test_q77_q91_projected_fourier_discriminator(self):
         receipt = projected_fourier_cancellation_receipt()
@@ -244,6 +249,28 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
             self.assertLess(
                 geometry["maximum_bridge_identity_absolute_error"],
                 1e-12)
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_bridge_distortion_classifier_on_fresh_geometry(self):
+        receipt = bridge_distortion_confirmation_receipt()
+        self.assertEqual(receipt["families"], ((21, 55), (55, 21)))
+        self.assertEqual(receipt["exact_zero_quotients"], (21, 55))
+        self.assertTrue(receipt["distortion_classifier_is_conclusive"])
+        self.assertFalse(receipt["predicted_rank_gate_passes"])
+        self.assertFalse(receipt["observed_rank_gate_passes"])
+        self.assertTrue(receipt[
+            "distortion_classifier_prediction_matches"])
+        self.assertEqual(receipt["bridge_distortion_range"], math.inf)
+        self.assertTrue(receipt["all_projected_fourier_identities_pass"])
+        for quotient in receipt["exact_zero_quotients"]:
+            self.assertEqual(
+                receipt["rows"][quotient][
+                    "exact_unscaled_signed_numerator"], 0)
+            self.assertEqual(
+                receipt["rows"][quotient][
+                    "fourier_cancellation_quotient"], 0.0)
+            self.assertIsNone(receipt["rows"][quotient][
+                "bridge_identity_absolute_error"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 

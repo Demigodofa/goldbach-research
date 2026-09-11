@@ -12520,3 +12520,74 @@ distortion at least `2` predicts Spearman below `.8`; a distortion strictly
 between `1.5` and `2` is inconclusive.  Require both exact reconstruction
 gates at `1e-12`.  Failure rejects this bridge-distortion classifier while
 retaining the exact identity and its norm factors.
+
+## 2026-09-11: exact zero totals confirm the distortion classifier
+
+The untouched third geometry `families=((21,55),(55,21))` gives a decisive
+confirmation and a sharper limitation.  The exact integer numerator in the
+projected formula is
+
+`N=sum_(v: gcd(v,g)=1) sum_t c_q(t)
+       [T_21(t+v)-T_21(t)] [T_110(-t-v)-T_110(-t)]
+       [T_55(t+v)-T_55(t)] [T_42(-t-v)-T_42(-t)]`,
+
+with raw signed total `B=g*N/(16*2310^2)`.  Direct integer evaluation gives
+`N=0` exactly at `q=21` and `q=55`; these are not small floating-point
+residuals.  The six count-`4` sector quotients are
+
+`(.2, .75, 5/12, .3, 10/13, .625)`
+
+for `q=(15,21,33,35,55,77)`, while the exact Fourier quotients are
+
+`(.0004491595439389803, 0, .0038321453852070506,
+  .001956139381905124, 0, .016689416057933917)`.
+
+Using average ranks for the two exact zero ties, Spearman correlation is
+`-.4058397249567139`, far below `.8`.  Because `eta=0` at those two
+quotients while their sector quotients are `.75` and `10/13`, the bridge
+multiplier and its distortion are infinite.  The frozen classifier therefore
+predicts rank failure and the observed gate fails, so the fresh-geometry
+confirmation passes.
+
+This confirms the bridge-distortion pattern, but it also falsifies the
+aggregate Fourier quotient as a general proxy for sector recombination.
+Summing every resonant frequency into `B` can cancel exactly even when
+`L=sum_n|b_n|` is large.  The exact two-dimensional factorization remains
+useful; a viable analytic target must retain the output-frequency resolution
+instead of taking `|sum_n b_n|` too early.
+
+The geometry also exposed a receipt edge case: at `q=15` the total even
+recombination loss is exactly zero, so normalized Shapley loss fractions are
+undefined.  The implementation now returns `None` for those fractions instead
+of dividing by zero; the exact masses and reconstruction remain available.
+
+Curiosity status: `confirmatory-pass` followed by `changed-under-evidence`;
+novelty `new-to-this-task`.  Preserve the exact-zero examples, the norm bridge,
+and the Ramanujan-interval factorization.  Retire the global signed Fourier
+quotient as a standalone general proxy.  No uniform source,
+prime-distribution, or signed prime-correlation estimate follows.
+
+Independent review derived the integer numerator, independently obtained
+exact zeros at `q=21,55`, checked the tied-rank statistic and extended-real
+bridge, and verified the zero-loss Shapley handling.  Ten focused tests passed
+normally and under Python optimization.  Displayed coherences within
+`1e-12` of one are clamped to one while their raw values are retained for the
+floating bridge identity.
+
+The next bounded question keeps the frequency information that the failed
+proxy discarded.  Define the source-residue transform
+
+`Ftilde(t,k)=sum_(u mod Q) F(u,k)e_Q(t*u)`.
+
+For every resonant output frequency `n`, test the exact partially diagonalized
+identity
+
+`b_n=1_(q|n)*c_g(n)/Q * sum_(t mod Q)c_q(t)
+       *sum_(k mod Q) Ftilde_L(t,k)
+                         conjugate(Ftilde_R(t,k-n))`.
+
+First reconstruct every `b_n` for the canonical geometry and the exact-zero
+third geometry at `q=21,55`, with natural-scale error at most `1e-12`.
+Passing would retain the Ramanujan source cancellation while replacing the
+destructive global numerator `|sum_n b_n|` by its required frequency-resolved
+quantity `sum_n|b_n|`.  It remains an identity until a uniform bound is found.

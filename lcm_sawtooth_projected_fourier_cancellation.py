@@ -1,6 +1,7 @@
 """Projected count-four correlation in Ramanujan-interval Fourier modes."""
 
 import math
+from fractions import Fraction
 
 import numpy as np
 
@@ -80,6 +81,15 @@ NEW_PERIOD_ANALOG_COUNT_FOUR_RECOMBINATION_TARGETS = {
     55: .2541893677464353,
     77: .3018103161208625,
 }
+BRIDGE_CONFIRMATION_FAMILIES = ((21, 55), (55, 21))
+BRIDGE_CONFIRMATION_COUNT_FOUR_RECOMBINATION_TARGETS = {
+    15: .19999999999999582,
+    21: .7500000000000012,
+    33: .41666666666666624,
+    35: .29999999999999455,
+    55: .7692307692307678,
+    77: .6249999999999973,
+}
 
 
 def _imaginary_transform_table(denominator, period):
@@ -143,6 +153,38 @@ def _projected_fourier_total(
     }
 
 
+def _q2310_exact_projected_signed_total(lag, families):
+    period = 2310
+    common = math.gcd(lag, period)
+    quotient = period // common
+    quotient_weights = np.asarray(tuple(
+        _ramanujan_sum(quotient, frequency)
+        for frequency in range(period)), dtype=np.int64)
+    tables = []
+    for conductor, odd_partner in families:
+        left = _imaginary_transform_table(
+            conductor, period).astype(np.int64)
+        right = _imaginary_transform_table(
+            2 * odd_partner, period).astype(np.int64)
+        tables.append((left, right[(-np.arange(period)) % period]))
+    unscaled_numerator = 0
+    for spatial_frequency in range(period):
+        if math.gcd(spatial_frequency, common) != 1:
+            continue
+        products = quotient_weights.copy()
+        for left, negative_right in tables:
+            products *= np.roll(left, -spatial_frequency) - left
+            products *= (
+                np.roll(negative_right, -spatial_frequency)
+                - negative_right)
+        unscaled_numerator += sum(int(value) for value in products)
+    return (
+        Fraction(
+            common * unscaled_numerator,
+            16 * period * period),
+        unscaled_numerator)
+
+
 def _projected_fourier_identity_row(
         period, lag, families, left_sources, right_sources, tolerance):
     row = _projected_fourier_total(
@@ -152,6 +194,12 @@ def _projected_fourier_identity_row(
     direct_total = complex(np.sum(direct_frequency_totals))
     direct_recombined_absolute_mass = float(np.sum(
         np.abs(direct_frequency_totals)))
+    raw_signed_frequency_coherence = (
+        abs(direct_total) / direct_recombined_absolute_mass
+        if direct_recombined_absolute_mass else None)
+    if (raw_signed_frequency_coherence is not None
+            and raw_signed_frequency_coherence > 1 + tolerance):
+        raise AssertionError("frequency coherence exceeds one beyond tolerance")
     reconstruction_error = abs(row["signed_total"] - direct_total)
     reconstruction_natural_scale_relative_error = (
         reconstruction_error / max(1.0, row["absolute_fourier_mass"]))
@@ -159,9 +207,10 @@ def _projected_fourier_identity_row(
         "direct_conditioned_total": (direct_total.real, direct_total.imag),
         "direct_recombined_absolute_mass": (
             direct_recombined_absolute_mass),
+        "raw_signed_frequency_coherence": raw_signed_frequency_coherence,
         "signed_frequency_coherence": (
-            abs(direct_total) / direct_recombined_absolute_mass
-            if direct_recombined_absolute_mass else None),
+            min(1.0, raw_signed_frequency_coherence)
+            if raw_signed_frequency_coherence is not None else None),
         "reconstruction_absolute_error": reconstruction_error,
         "reconstruction_natural_scale_relative_error": (
             reconstruction_natural_scale_relative_error),
@@ -553,7 +602,8 @@ def q2310_bridge_distortion_receipt(
             sectorwise_mass = recombined_mass / sector_quotient
             basis_inflation = (
                 projected["absolute_fourier_mass"] / sectorwise_mass)
-            frequency_coherence = projected["signed_frequency_coherence"]
+            frequency_coherence = projected[
+                "raw_signed_frequency_coherence"]
             bridge_multiplier = basis_inflation / frequency_coherence
             bridge_identity_error = abs(
                 bridge_multiplier
@@ -596,6 +646,103 @@ def q2310_bridge_distortion_receipt(
         "exploratory_bridge_distortion_pattern_passes": bool(
             failed_distortion >= minimum_failed_distortion
             and passing_distortion <= maximum_passing_distortion),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def bridge_distortion_confirmation_receipt(
+        maximum_stable_distortion=1.5,
+        minimum_unstable_distortion=2.0,
+        minimum_rank_correlation=.8, tolerance=1e-12):
+    if maximum_stable_distortion < 1:
+        raise ValueError("maximum stable distortion must be at least one")
+    if minimum_unstable_distortion <= maximum_stable_distortion:
+        raise ValueError("unstable distortion must exceed stable distortion")
+    if not -1 <= minimum_rank_correlation <= 1:
+        raise ValueError("minimum rank correlation must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = 2310
+    families = BRIDGE_CONFIRMATION_FAMILIES
+    left_sources = _one_orientation_count_source_modes(
+        period, *families[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *families[1])[2]
+    rows = {}
+    for quotient, lag in NEW_PERIOD_QUOTIENT_LAGS.items():
+        projected = _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
+        exact_signed_total, exact_unscaled_numerator = (
+            _q2310_exact_projected_signed_total(lag, families))
+        exact_signed_float = float(exact_signed_total)
+        fourier_quotient = (
+            abs(exact_signed_float) / projected["absolute_fourier_mass"])
+        sector_quotient = (
+            BRIDGE_CONFIRMATION_COUNT_FOUR_RECOMBINATION_TARGETS[quotient])
+        recombined_mass = projected["direct_recombined_absolute_mass"]
+        sectorwise_mass = recombined_mass / sector_quotient
+        raw_frequency_coherence = (
+            abs(exact_signed_float) / recombined_mass)
+        basis_inflation = (
+            projected["absolute_fourier_mass"] / sectorwise_mass)
+        exact_zero = exact_unscaled_numerator == 0
+        bridge_multiplier = (
+            math.inf if exact_zero
+            else basis_inflation / raw_frequency_coherence)
+        bridge_identity_error = (
+            None if exact_zero else abs(
+                bridge_multiplier - sector_quotient / fourier_quotient))
+        rows[quotient] = {
+            "exact_unscaled_signed_numerator": exact_unscaled_numerator,
+            "exact_signed_total": (
+                exact_signed_total.numerator, exact_signed_total.denominator),
+            "exact_zero_signed_total": exact_zero,
+            "fourier_cancellation_quotient": fourier_quotient,
+            "count_four_recombination_quotient": sector_quotient,
+            "raw_frequency_coherence": raw_frequency_coherence,
+            "frequency_coherence": min(1.0, raw_frequency_coherence),
+            "basis_inflation": basis_inflation,
+            "bridge_multiplier": bridge_multiplier,
+            "bridge_identity_absolute_error": bridge_identity_error,
+            "projected_fourier_identity_passes": projected[
+                "projected_fourier_identity_passes"],
+        }
+    quotients = tuple(NEW_PERIOD_QUOTIENT_LAGS)
+    rank_correlation = _spearman_correlation(
+        tuple(rows[q]["fourier_cancellation_quotient"] for q in quotients),
+        tuple(rows[q]["count_four_recombination_quotient"]
+              for q in quotients))
+    multipliers = tuple(rows[q]["bridge_multiplier"] for q in quotients)
+    distortion = max(multipliers) / min(multipliers)
+    predicted_rank_gate = (
+        True if distortion <= maximum_stable_distortion
+        else False if distortion >= minimum_unstable_distortion
+        else None)
+    observed_rank_gate = rank_correlation >= minimum_rank_correlation
+    return {
+        "families": families,
+        "arithmetic_period": period,
+        "quotients": quotients,
+        "rows": rows,
+        "exact_zero_quotients": tuple(
+            q for q in quotients if rows[q]["exact_zero_signed_total"]),
+        "spearman_correlation": rank_correlation,
+        "minimum_rank_correlation": minimum_rank_correlation,
+        "bridge_distortion_range": distortion,
+        "maximum_stable_distortion": maximum_stable_distortion,
+        "minimum_unstable_distortion": minimum_unstable_distortion,
+        "predicted_rank_gate_passes": predicted_rank_gate,
+        "observed_rank_gate_passes": observed_rank_gate,
+        "distortion_classifier_is_conclusive": (
+            predicted_rank_gate is not None),
+        "distortion_classifier_prediction_matches": bool(
+            predicted_rank_gate is not None
+            and predicted_rank_gate == observed_rank_gate),
+        "all_projected_fourier_identities_pass": all(
+            row["projected_fourier_identity_passes"]
+            for row in rows.values()),
         "uniform_source_sum_estimate_proved": False,
         "prime_distribution_estimate_proved": False,
         "signed_prime_correlation_proved": False,

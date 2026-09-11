@@ -211,7 +211,7 @@ def cotangent_count_source_receipt(
     full_sectorwise_mass, full_recombined_mass, full_recombination_loss = (
         masses(tuple(range(5))))
     even_shapley_loss_fractions = {
-        count: value / even_full_loss
+        count: (value / even_full_loss if even_full_loss != 0 else None)
         for count, value in even_shapley_losses.items()}
 
     combined_left = _combine_components(left_components)

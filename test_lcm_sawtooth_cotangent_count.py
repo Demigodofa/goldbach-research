@@ -15,6 +15,15 @@ class CotangentCountTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             cotangent_count_source_receipt(tolerance=-1)
 
+    def test_zero_even_loss_has_undefined_shapley_fractions(self):
+        receipt = cotangent_count_source_receipt(
+            families=((21, 55), (55, 21)), lag=154)
+        self.assertEqual(receipt["even_full_recombination_loss"], 0.0)
+        self.assertEqual(
+            receipt["even_count_shapley_recombination_loss_fractions"],
+            {0: None, 2: None, 4: None})
+        self.assertTrue(receipt["cotangent_count_reconstruction_passes"])
+
     def test_q77_q143_count_discriminator(self):
         receipt = cotangent_count_discriminator_receipt()
         self.assertEqual(receipt["strong_quotient"], 77)
