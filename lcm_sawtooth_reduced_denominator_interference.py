@@ -262,6 +262,7 @@ def _packet_residue_cells(
     pair_counts = [0, 0, 0, 0]
     nonshared_single_pair_count = 0
     nonconductor_single_pair_count = 0
+    even_q_even_residue_pair_count = 0
     chunk_size = 64
     for first in range(0, len(denominators), chunk_size):
         left_d = denominators[first:first + chunk_size, None]
@@ -280,6 +281,8 @@ def _packet_residue_cells(
         residues[high_q] = (
             modulus * (difference[high_q] // common_factor[high_q])
             % reduced[high_q])
+        even_q_even_residue_pair_count += int(np.count_nonzero(
+            high_q & (reduced % 2 == 0) & (residues % 2 == 0)))
 
         has_left = ((left_d == conductors[0])
                     | (right_d == conductors[0]))
@@ -321,7 +324,8 @@ def _packet_residue_cells(
             cell = (denominator, residue)
             packets[category][cell] = packets[category].get(cell, 0j) + value
     return (packets, tuple(pair_counts), nonshared_single_pair_count,
-            nonconductor_single_pair_count)
+            nonconductor_single_pair_count,
+            even_q_even_residue_pair_count)
 
 
 def _packet_hermitian_symmetry_error(packet):
@@ -557,6 +561,73 @@ def classify_centered_near_phase_alignment(
     }
 
 
+def classify_near_lag_parity_opposition(
+        contributions, row_count, minimum_component_mass_fraction=.25,
+        reconstruction_tolerance=1e-12):
+    """Test whether even and odd near lags are substantial antagonists."""
+    contributions = np.asarray(contributions, dtype=float)
+    if contributions.ndim != 1 or len(contributions) < 2:
+        raise ValueError("contributions must be a one-dimensional cyclic array")
+    denominator = len(contributions)
+    if denominator % 2:
+        raise ValueError("parity opposition requires an even denominator")
+    if type(row_count) is not int or row_count < 1:
+        raise ValueError("row_count must be a positive integer")
+    if not 0 < minimum_component_mass_fraction <= 1:
+        raise ValueError("component mass threshold must lie in (0,1]")
+    if (not math.isfinite(reconstruction_tolerance)
+            or reconstruction_tolerance < 0):
+        raise ValueError("reconstruction tolerance must be finite and nonnegative")
+    lags = np.arange(denominator)
+    distances = np.minimum(lags, denominator - lags)
+    near = distances * row_count <= denominator
+    near[0] = False
+    even = near & (lags % 2 == 0)
+    odd = near & (lags % 2 == 1)
+    near_sum = float(np.sum(contributions[near]))
+    even_sum = float(np.sum(contributions[even]))
+    odd_sum = float(np.sum(contributions[odd]))
+    absolute_mass = float(np.sum(np.abs(contributions[near])))
+    even_absolute_mass = float(np.sum(np.abs(contributions[even])))
+    odd_absolute_mass = float(np.sum(np.abs(contributions[odd])))
+    if not absolute_mass:
+        raise ArithmeticError("near-lag channel has zero absolute mass")
+    even_share = abs(even_sum) / absolute_mass
+    odd_share = abs(odd_sum) / absolute_mass
+    reconstruction_error = even_sum + odd_sum - near_sum
+    sign_tolerance = reconstruction_tolerance * max(1.0, absolute_mass)
+    opposite_signs = bool(
+        even_sum * odd_sum < 0
+        and abs(even_sum) > sign_tolerance
+        and abs(odd_sum) > sign_tolerance)
+    passes = bool(
+        opposite_signs
+        and even_share >= minimum_component_mass_fraction
+        and odd_share >= minimum_component_mass_fraction
+        and abs(reconstruction_error) <= reconstruction_tolerance)
+    return {
+        "reduced_denominator": denominator,
+        "near_lag_rule": "min(h,Q-h)*R<=Q",
+        "parity_character": "(-1)^h",
+        "near_lag_signed_sum": near_sum,
+        "even_near_lag_signed_sum": even_sum,
+        "odd_near_lag_signed_sum": odd_sum,
+        "near_lag_absolute_mass": absolute_mass,
+        "even_near_lag_absolute_mass": even_absolute_mass,
+        "odd_near_lag_absolute_mass": odd_absolute_mass,
+        "maximum_odd_near_lag_absolute_contribution": float(
+            np.max(np.abs(contributions[odd]))) if np.any(odd) else 0.0,
+        "even_signed_component_absolute_mass_fraction": even_share,
+        "odd_signed_component_absolute_mass_fraction": odd_share,
+        "parity_components_have_opposite_signs": opposite_signs,
+        "parity_component_sign_tolerance": sign_tolerance,
+        "parity_reconstruction_error": float(reconstruction_error),
+        "minimum_parity_component_mass_fraction": (
+            minimum_component_mass_fraction),
+        "near_lag_parity_opposition_hypothesis_passes": passes,
+    }
+
+
 def classify_near_lag_mass(
         lag_contributions, row_count, minimum_absolute_mass_fraction=.75,
         minimum_passing_channel_count=2):
@@ -768,11 +839,13 @@ def project_reduced_denominator_interference_receipt(
     mixed_pair_count = 0
     nonshared_single_pair_count = 0
     nonconductor_single_pair_count = 0
+    even_q_even_residue_pair_count = 0
     packet_hermitian_maximum_error = 0.0
     prime_lag_inversion_maximum_error = 0.0
     prime_half_sum_reconstruction_maximum_error = 0.0
     for frame_row in baseline["rows"]:
-        packets, pair_counts, nonshared_count, nonconductor_count = (
+        (packets, pair_counts, nonshared_count, nonconductor_count,
+         parity_violation_count) = (
             _packet_residue_cells(
             frame_row["modulus"], baseline["row_count"],
             baseline["ell_freeze"], baseline["divisor_range"],
@@ -780,6 +853,7 @@ def project_reduced_denominator_interference_receipt(
         mixed_pair_count += pair_counts[3]
         nonshared_single_pair_count += nonshared_count
         nonconductor_single_pair_count += nonconductor_count
+        even_q_even_residue_pair_count += parity_violation_count
         packet_hermitian_maximum_error = max(
             packet_hermitian_maximum_error,
             _packet_hermitian_symmetry_error(packets[1]),
@@ -866,6 +940,12 @@ def project_reduced_denominator_interference_receipt(
         for denominator in sorted(selected_lags))
     centered_phase_classification = classify_centered_near_phase_alignment(
         selected_lags, baseline["row_count"])
+    doubled_odd_cofactor_denominator = 2 * min(selected_lags)
+    parity_classification = (
+        classify_near_lag_parity_opposition(
+            selected_lags[doubled_odd_cofactor_denominator],
+            baseline["row_count"])
+        if doubled_odd_cofactor_denominator in selected_lags else None)
     lag_reconstruction_errors = tuple(
         (row["reduced_denominator"],
          float(np.sum(selected_lags[row["reduced_denominator"]])
@@ -887,6 +967,8 @@ def project_reduced_denominator_interference_receipt(
         and aggregate_lag_inversion_maximum_error <= symmetry_tolerance
         and aggregate_half_sum_reconstruction_maximum_error
         <= symmetry_tolerance)
+    all_prime_moduli_odd = all(
+        frame_row["modulus"] % 2 for frame_row in baseline["rows"])
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -924,6 +1006,14 @@ def project_reduced_denominator_interference_receipt(
             nonshared_single_pair_count),
         "nonconductor_single_packet_high_q_pair_count": (
             nonconductor_single_pair_count),
+        "even_q_even_residue_high_q_pair_count": (
+            even_q_even_residue_pair_count),
+        "reduced_numerator_coprime_to_reduced_denominator_proved": True,
+        "all_prime_moduli_odd": bool(all_prime_moduli_odd),
+        "odd_modulus_even_q_packet_residues_are_odd_proved": bool(
+            all_prime_moduli_odd and not even_q_even_residue_pair_count),
+        "even_q_packet_correlations_have_only_even_lags_proved": bool(
+            all_prime_moduli_odd and not even_q_even_residue_pair_count),
         **classification,
         **primewise_classification,
         **lag_classification,
@@ -934,6 +1024,7 @@ def project_reduced_denominator_interference_receipt(
             row["finite_centered_interval_kernel_test_passes"]
             for row in kernel_rows),
         **centered_phase_classification,
+        "doubled_odd_cofactor_parity_receipt": parity_classification,
         "linked_core_crt_near_lag_separation_hypothesis_passes": bool(
             retention["every_interfering_denominator_has_linked_core_proved"]
             and crt_classification[

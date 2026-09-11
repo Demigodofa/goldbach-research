@@ -7,6 +7,7 @@ from lcm_sawtooth_reduced_denominator_interference import (
     _packet_hermitian_symmetry_error,
     classify_near_lag_mass,
     classify_centered_near_phase_alignment,
+    classify_near_lag_parity_opposition,
     classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
@@ -19,6 +20,19 @@ from lcm_sawtooth_reduced_denominator_interference import (
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_near_lag_parity_opposition_uses_fixed_partition(self):
+        contributions = [0.0] * 12
+        contributions[1] = 2.0
+        contributions[2] = -1.0
+        contributions[11] = 2.0
+        contributions[10] = -1.0
+        receipt = classify_near_lag_parity_opposition(contributions, 4)
+        self.assertEqual(receipt["odd_near_lag_signed_sum"], 4.0)
+        self.assertEqual(receipt["even_near_lag_signed_sum"], -2.0)
+        self.assertEqual(receipt["parity_reconstruction_error"], 0.0)
+        self.assertTrue(receipt[
+            "near_lag_parity_opposition_hypothesis_passes"])
+
     def test_centered_interval_kernel_factorization(self):
         receipt = centered_interval_kernel_receipt(17, 3, 4)
         self.assertEqual(receipt["kernel_center"], 4.5)
@@ -185,6 +199,21 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
             receipt["centered_near_phase_passing_denominators"], ())
         self.assertFalse(receipt[
             "centered_near_phase_alignment_hypothesis_passes"])
+        parity = receipt["doubled_odd_cofactor_parity_receipt"]
+        self.assertEqual(parity["reduced_denominator"], 10010)
+        self.assertLess(abs(parity["parity_reconstruction_error"]), 1e-12)
+        self.assertFalse(parity[
+            "parity_components_have_opposite_signs"])
+        self.assertFalse(parity[
+            "near_lag_parity_opposition_hypothesis_passes"])
+        self.assertLess(
+            parity["odd_near_lag_absolute_mass"], 1e-12)
+        self.assertEqual(receipt[
+            "even_q_even_residue_high_q_pair_count"], 0)
+        self.assertTrue(receipt[
+            "odd_modulus_even_q_packet_residues_are_odd_proved"])
+        self.assertTrue(receipt[
+            "even_q_packet_correlations_have_only_even_lags_proved"])
         self.assertLess(max(
             abs(error) for _, error in receipt["lag_reconstruction_errors"]),
             3e-12)

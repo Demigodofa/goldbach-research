@@ -9836,3 +9836,46 @@ another. A valid mechanism must be defined before inspecting its totals,
 reconstruct the full `Q=10010` near-lag sum exactly, and show two substantial
 opposite-signed components; otherwise reject parity as the explanation while
 retaining the channel comparison.
+
+## 2026-09-11: even reduced denominators have an exact parity support law
+
+The predeclared parity-opposition test split the `Q=10010` near-lag signal
+into even and odd lags. It required opposite-signed subtotals, each of
+magnitude at least `25%` of total near absolute mass, plus reconstruction
+within `1e-12`. It fails decisively:
+
+- total near signed sum: `.06574279317531614`;
+- even-lag signed sum: `.0657427931753162`;
+- odd-lag signed sum: `-8.52e-18`;
+- even signed-component share: `.04293165973424488`;
+- odd signed-component share: `5.56e-18`;
+- odd-lag absolute mass: `5.71e-16`;
+- reconstruction error: `4.16e-17`.
+
+The near-zero odd component reflects an exact support law rather than two
+large opposing parity pieces. Let `L=lcm(d1,d2)`,
+`g=gcd(|Delta|,L)`, `Q=L/g`, and `u=Delta/g`. Then `gcd(u,Q)=1`.
+If `Q` is even, `u` is odd. Every active frame modulus is an odd prime, so
+the reduced residue `p*u mod Q` is odd. Both packets at an even `Q` are
+therefore supported on odd residues, and their correlation vanishes at every
+odd lag. Direct enumeration found zero even-residue violations among all
+high-`Q` source pairs.
+
+Independent review verified the coprimality and parity proof, direct counter,
+noise-tolerant sign decision, numerical values, fixed threshold, tests, and
+scope. Fourteen focused tests pass normally and under Python optimization.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. Preserve the
+exact even-denominator support lemma. Reject parity opposition as the reason
+the `Q=10010` signed total is small: the odd component is absent, not an
+antagonist. This still supplies no favorable sign or uniform signed
+prime-correlation estimate and proves no Goldbach statement.
+
+The next bounded question is the exact folding forced by the new lemma. For
+`Q=2q`, write every residue as `r=2x+1` and every surviving lag as `h=2t`.
+Then test the identities `K_(2q)(2t)=K_q(t)` and equality of the original
+correlation with the compressed length-`q` correlation. If they hold, compare
+the compressed `Q=10010` packets with the actual `Q=5005` packets using a
+predeclared normalized alignment gate. This asks whether the small doubled
+channel comes from its arithmetic coefficients rather than from the interval
+kernel or parity cancellation.
