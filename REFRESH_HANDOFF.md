@@ -7619,3 +7619,60 @@ estimate remain OPEN. The next <=30-minute question is whether the fixed-`c`
 condition `d*c>B*V` controls all but a small-common-part core in the
 transition range, and whether that core returns to an existing low-conductor
 or prime-row estimate. Goldbach remains OPEN.
+
+## 2026-09-11: a global harmonic argument closes all complete periods
+
+The transition split was first made exact. In `B<d<=B*V`, the sufficient
+fixed-common criterion `d*c>B*V` separates controlled cells from a residual
+core. A sharper assignment split writes the two conductor bases as
+`x=gcd(d,a)` and `y=gcd(d,b)`, with `x*y=d*c`. When `B>V^2`, `d>B` rules out
+`x<=V` and `y<=V` simultaneously. Thus every uncontrolled assignment has
+exactly one low base. At the central rows `M=251,503,1009,4001,16001`, this
+one-sided component has energy fractions
+`.3911,.3606,.4476,.4063,.3965`; these are finite diagnostics, not a proved
+smallness estimate.
+
+The one-sided core can be bypassed for the complete-period problem. For one
+three-way conductor assignment, put
+
+`T=sum_(alpha,beta) eps_(alpha,beta) W_(alpha,beta)/lcm(alpha,beta)`,
+
+where `W=L_a L_b>=0`. Weighted Cauchy gives
+
+`|T|^2 <= [sum W^2/lcm(alpha,beta)]
+           [sum 1/lcm(alpha,beta)]`.
+
+For every rectangle `alpha<=A`, `beta<=C`, the exact gcd expansion is
+
+`sum 1/lcm(alpha,beta)
+ =sum_e phi(e)/e^2 H_floor(A/e)H_floor(C/e)
+ <=H_A H_C H_min(A,C)<=H_B^3`.
+
+Squarefree/coprime restrictions and the hard lower endpoint only remove
+positive terms. Cauchy over the `3^omega(d)` assignments, followed by
+`H_m(d)<=F_m(d)<=m*d`, yields for a fixed pair with `q=lcm(a,b)` a cost
+`m H_B^3 3^omega(d) L_a^2L_b^2/q`. Finally
+
+`sum_(d|q)3^omega(d)=4^omega(q)`,
+
+so the entire complete-period energy satisfies
+
+`sum_d H_m(d)|S_d|^2
+ <=m H_B^3 max_(q<=B^2)4^omega(q)
+   sum_(a,b)L_a^2L_b^2/lcm(a,b)`.
+
+The harmonic and prime-factor factors are subpower, and the final pair mass
+is the already established reciprocal-lcm/totient frame quantity. This
+controls every complete-period primitive conductor, including the former
+transition core, without retained-base support. The implementation in
+`lcm_sawtooth_global_harmonic_bound.py` matches the independent pair-mass
+implementation and contains the exact complete energy on tested rows.
+Independent review PASSed the harmonic identity, both factors of `d`, the
+assignment/divisor counts, the subpower conclusion, and normal/optimized
+tests.
+
+This is a complete-period theorem only. The actual prime rows are incomplete
+and have cross-period boundary covariance; the signed prime-correlation
+estimate and Goldbach remain OPEN. The next <=30-minute question is: can the
+incomplete row be written as the complete-period positive form plus a
+boundary operator whose norm has a subpower bound from arithmetic spacing?

@@ -6508,3 +6508,34 @@ combined common layer. The transition range `B<d<=B*V`, incomplete-row
 covariance, signed prime correlation, and Goldbach remain open. The next
 question splits the transition range at `d*c>B*V` and isolates the remaining
 small-common-part core.
+
+### 2026-09-11 continuation: close every complete-period conductor
+
+The transition analysis first isolated the only base-support failure: under
+`B>V^2` and `B<d<=B*V`, an assignment can have exactly one conductor base at
+most `V`, but cannot have two. This one-sided component is order one in the
+sampled transition energy, so no asymptotic smallness is claimed.
+
+A global weighted-Cauchy argument makes base support unnecessary. The exact
+rectangle identity
+
+`sum_(alpha<=A,beta<=C)1/lcm(alpha,beta)
+ =sum_e phi(e)/e^2 H_floor(A/e)H_floor(C/e)
+ <=H_A H_C H_min(A,C)`
+
+costs at most `H_B^3` per three-way assignment. Combining this with
+`H_m(d)<=m*d` and `sum_(d|q)3^omega(d)=4^omega(q)` proves
+
+`sum_d H_m(d)|S_d|^2
+ <=m H_B^3 max_(q<=B^2)4^omega(q)
+   sum_(a,b)L_a^2L_b^2/lcm(a,b)`.
+
+Every extra factor is subpower, and the last quantity is the established
+totient-frame pair mass. Independent review returned PASS. Thus all
+complete-period conductors are controlled; the transition split remains a
+useful structural diagnostic but is no longer a gap in that component.
+
+The unresolved target is the incomplete prime-row covariance. The next
+bounded hypothesis is that its boundary correction admits a factorization
+whose operator norm is subpower after the actual arithmetic row spacing is
+used. No signed prime-correlation estimate or Goldbach proof is claimed.

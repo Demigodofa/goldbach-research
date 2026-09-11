@@ -339,5 +339,23 @@ count rewrite or an unsupported independence assumption.
 The confirmed deadline **2026-09-08 13:00 UTC** has passed. The intended
 research direction above is preserved as an unresolved question, not a
 claim that work continued through the deadline or authorization for a new
-indefinite run. No remote publication is authorized or configured; this
-repository is local.
+indefinite run. A later instruction superseded both limits: the goal is now
+open-ended and coherent checkpoints are pushed to the public repository.
+
+## Current analytic frontier (2026-09-11)
+
+The old deadline is superseded; the open-ended research goal remains active.
+The complete-period lcm-sawtooth energy is now rigorously bounded for every
+primitive conductor by
+
+`m H_B^3 max_(q<=B^2)4^omega(q)
+ sum_(a,b)L_a^2L_b^2/lcm(a,b)`.
+
+This follows from a weighted-Cauchy argument and an exact reciprocal-lcm
+harmonic identity. Independent review checked the normalization and returned
+PASS. The transition-conductor decomposition is retained because it isolates
+one-sided base failures, but the global bound bypasses them for complete
+periods.
+
+The remaining analytic gap is the incomplete prime-row boundary covariance,
+followed by the signed prime-correlation estimate. Goldbach remains open.
