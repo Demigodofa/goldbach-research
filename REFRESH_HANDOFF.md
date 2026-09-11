@@ -12947,3 +12947,59 @@ scale required by the existing Goldbach transfer.  If orthogonality yields
 only the unsaved positive residue-class second moment, plain character large
 sieve is insufficient; any viable estimate must retain joint cancellation
 between the coefficient phases and the linked-prime correlations.
+
+## 2026-09-11: plain character Cauchy discards the linked-prime phase
+
+The exact finite linked-prime identity passes on every canonical divisor cell
+for the frozen central targets `N=1000,1002`.  The strict intervals
+`N/3<p<2N/3` contain respectively `18` and `24` ordered linked-prime pairs.
+All sixteen rows reconstruct within `8.257352674521484e-14` relative error:
+
+`sum_p (log p)(log(N-p)) sum_r f_d(r)e_g(rp)
+ =1/phi(g) sum_chi fhat_d(chi)tau_g(chi)P_N(chi)`.
+
+Prime `p` is a unit modulo `g` throughout these central fixtures.  A separate
+`N=24`, `g=110` witness includes the nonunit prime terms `p=5,11`; adding their
+direct correction `2675.3708724265452+O(1e-10)i` restores the same identity.
+The interval convention and excluded endpoints are explicit.  Empty central
+pair targets, such as `N=44`, are rejected before source computation.
+
+Character orthogonality gives exactly
+
+`sum_chi |P_N(chi)|^2
+ =phi(g) sum_(a in U_g)
+    |sum_(p congruent a) (log p)(log(N-p))|^2`.
+
+This is a positive residue-class second moment; it contains no signed saving.
+The resulting character Cauchy envelope is exactly the residue-space Cauchy
+envelope.  On all sixteen rows it is worse than the direct triangle bound by
+a factor between `1.558534062995353` and `2.0184105767602545`.  Meanwhile the
+actual signed correlation is only `.005839107257712018` to
+`.16558610136723617` of that Cauchy envelope.  The observed cancellation lies
+in the joint alignment of the source coefficients and prime-pair character
+phases, precisely what norm separation removes.
+
+Curiosity status: `exact-interface-pass/generic-bound-fail`, novelty
+`new-to-this-task`.  Preserve the Gauss and linked-prime identities, the
+nonunit correction, and the large observed phase cancellation.  Retire only
+plain per-target character Cauchy as a source of signed saving.  Averaging over
+targets or moduli is not ruled out.  No uniform joint-phase estimate, signed
+prime-correlation theorem, or Goldbach result follows.
+
+Independent review checked the linked-prime convention, all character
+orientations, endpoints, nonunit correction, orthogonality, both Cauchy
+representations, ratios, derived flags, empty-target guard, and normal and
+optimized tests.
+
+The next bounded question tests an exact reinforce/cancel mechanism supplied
+by the symmetry of the two linked primes.  In a symmetric interval, when
+`N=0 (mod g)`, pair `p` with `N-p`; then
+
+`conjugate(chi(N-p))=conjugate(chi(-1))*conjugate(chi(p))`.
+
+Test `N=1040` for `g=130` and `N=1100` for `g=110`.  Every odd character
+`chi(-1)=-1` must have `P_N(chi)=0`, while each even character reinforces its
+paired contribution.  Reconstruct every divisor-cell correlation from the
+even characters alone within `1e-12`.  Failure rejects the implementation or
+an omitted endpoint/nonunit term; passing proves a residue-family selection
+mechanism only for targets divisible by `g`, not uniform Goldbach coverage.
