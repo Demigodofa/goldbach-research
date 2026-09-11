@@ -6617,3 +6617,61 @@ sum. A frequency or dyadic block retaining a constant normalized size, or a
 bound whose endpoint loss exceeds the frame, falsifies that formulation.
 Complete assembly remains `.295-delta`; the signed prime correlation and
 Goldbach remain OPEN.
+
+
+## 2026-09-10: fixed-Mobius second moment survives the full row
+
+Commit `b0e5f17` turns the next combination into an exact finite verifier.
+The trilinear shape split first showed that the cyclic tuple-level L1 mass is
+not concentrated on degenerate axes. With `long` defined by
+`min(r,s)>=ceil(sqrt(B))`, its minimum/median/maximum shares over all sampled
+project rows were `.673/.773/.816`, `.833/.876/.894`, `.793/.818/.838`, and
+`.849/.871/.883` for `M=1009,4001,8009,16001`. This is before grouping equal
+`q`, and it proves no cancellation, but it leaves a genuinely two-variable
+bilinear route alive.
+
+The new full-row probe evaluates the exact nonnegative fixed-Mobius ratio
+
+`R_(m,l)=m[sum_n w(n)^2-(sum_n w(n))^2/(m-1)]/(m^2 F_(m,l))`,
+
+where `w(n)=sum_(V<a<=B,a|n)mu(a)log(n/a)`. It decomposes `R` into the frozen
+ideal ratio, frozen signed CRT collision error, and the remaining log/centering
+term, and weights vertices by the exact active-lag frame
+`alpha_(m,l)=rho_m*m*log(m)^2*F_(m,l)`.
+
+Using eight evenly spaced primes in `[M,2M]`, every project row, and
+`B=floor(N^.32)`, the values of `M*Var_alpha(R)` for
+`M=251,503,1009,2003,4001,8009,16001` were
+
+`.06154,.03191,.05334,.03748,.03398,.02714,.02283`.
+
+The frozen collision component supplied most of this variance. The
+log/centering residual values of `M*Var` fell from `.00600` to `.000110`.
+On the long lag block `[floor(A/2),A)`, the deterministic variance lemma gave
+finite lower certificates `.98490,.82294,.64772` at
+`M=1009,4001,16001`; actual fixed-Mobius lag quotients were
+`1.01307,.83486,.65264`, and graph degree factors stayed
+`3.84,4.06,4.10`.
+
+Independent review PASSed the scalar/matrix identity, component split,
+active weights, edge enumeration, graph inequality, receipts, and 11 tests in
+normal and optimized modes after input guards were repaired. These are finite
+samples, not an asymptotic second-moment theorem or a full-prime computation.
+
+A concrete sufficient target is now visible. Let `P` be the primes in
+`[M,2M]`, rows be `[A,2A)`, and let `Rbar` be the `alpha`-weighted mean of the
+exact ratios above. For fixed `delta>0`, `beta<=49/150-delta`, and every
+`epsilon>0`, seek
+
+`Rbar >= N^(-epsilon)` and
+`sum_(m,l) alpha_(m,l)(R_(m,l)-Rbar)^2
+ <= M^(-1+epsilon) sum_(m,l) alpha_(m,l)`.
+
+Together with a bounded lag-graph degree factor, this would give the fixed
+Mobius scalar all-lag frame by the proved variance lemma. It would not prove
+the stronger all-coefficient matrix statement or the separate signed prime
+correlation. The next <=30-minute task is to expand this second moment using
+the exact row rotation and test whether the diagonal/off-diagonal budget can
+retain the `mu(r)mu(s)` trilinear structure. A `B^4` large-sieve cost or any
+positive exponent exceeding the frame falsifies that formulation. Complete
+assembly remains `.295-delta`; Goldbach remains OPEN.

@@ -5917,3 +5917,42 @@ The next <=30-minute question is whether a Fourier expansion of
 if a dyadic/frequency block retains constant normalized size or endpoint loss
 exceeds the frame. The assembled exponent remains `.295`; the signed prime
 correlation and Goldbach remain open.
+
+
+## 2026-09-10 continuation: a fixed-Mobius variance route emerges
+
+The reciprocal trilinear mass is genuinely two-variable in the finite tests:
+with `min(r,s)>=ceil(sqrt(B))`, the long-bilinear region carries between 67%
+and 89% of cyclic tuple-level L1 mass over all sampled project rows. This is
+before equal-lcm grouping and proves no cancellation, but it rules out axis
+concentration as the finite explanation.
+
+More significantly, the complete exact fixed-Mobius row ratio was measured,
+including varying logarithms and the centering term omitted by the frozen CRT
+probe. With the exact active-frame vertex weights, eight evenly spaced primes
+in `[M,2M]`, all project rows, and `beta=.32`, the scaled variances
+`M*Var(R)` were
+
+`.06154,.03191,.05334,.03748,.03398,.02714,.02283`
+
+for `M=251,503,1009,2003,4001,8009,16001`. The signed CRT collision term
+accounts for most of the variance; the log/centering residual is smaller.
+Applying the already-proved weighted graph lemma to the long lag block gives
+finite lower certificates `.98490,.82294,.64772` at
+`M=1009,4001,16001`, compared with actual quotients
+`1.01307,.83486,.65264`. Independent review verified the full scalar formula,
+its matrix match, weights, edge set, receipts, and tests.
+
+This revives the earlier variance tool only for the fixed Mobius coefficients;
+the failed uniform-all-coefficients variance hypothesis remains rejected. A
+sufficient new arithmetic target is a frame-weighted lower mean together with
+
+`sum alpha_(m,l)(R_(m,l)-Rbar)^2
+ <= M^(-1+epsilon) sum alpha_(m,l)`
+
+uniformly through `beta<49/150`. The observed `1/M` scale is finite evidence,
+not a theorem, and only eight sampled primes were used at each scale. The next
+bounded task is an exact Fourier/row-rotation expansion of this second moment,
+retaining the `mu(r)mu(s)` structure. Standard large-sieve `Q^2` loss is the
+first falsifier. The assembled exponent remains `.295`; the signed prime
+correlation and Goldbach remain open.
