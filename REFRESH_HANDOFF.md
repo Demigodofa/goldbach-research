@@ -13055,3 +13055,61 @@ freeze a useful-strength gate: the symmetric energy
 orthogonal projection that removes at least one quarter of source energy;
 failure preserves the exact affine-reflection mechanism but rejects that
 uniform quantitative strength.
+
+## 2026-09-11: affine reflection removes the antisymmetric source
+
+The target-divisibility restriction is unnecessary when the involution is
+applied to the source rather than to individual multiplicative characters.
+For any target `N`, let
+
+`A_N={a in U_g: N-a in U_g}` and `(R_N F)(a)=F(N-a)`.
+
+The map `R_N` is a unitary involution of `A_N`, so
+`P_N^+=(I+R_N)/2` and `P_N^-=(I-R_N)/2` are orthogonal projections.  In an
+exactly symmetric interval the linked-prime residue weight satisfies
+`W_N(a)=W_N(N-a)`.  Consequently
+
+`sum_(a in A_N) W_N(a)F(a)
+ =sum_(a in A_N) W_N(a)(P_N^+F)(a)`,
+
+while the same functional of `P_N^-F` is zero.  This is an exact
+cancel/reinforce mechanism for arbitrary target residues, provided the prime
+terms lie in `A_N`; nonunit prime terms remain an explicit separate
+correction.
+
+All sixteen canonical divisor cells at `N=1000,1002` pass the involution,
+projector-energy, projector-orthogonality, symmetric reconstruction, and
+antisymmetric cancellation checks within `1e-12`.  These targets are not zero
+modulo either `g=130` or `g=110`, so this genuinely extends the preceding
+character-parity selection beyond its divisible-target family.
+
+The frozen strength gate also passes on all sixteen cells.  The symmetric
+component retains only `.27589532711425513` to `.4278088755045186` of the
+source energy on `A_N`; equivalently, the exact projection removes about
+`57.2%` to `72.4%` on these fixtures.  This is a measured canonical-cell
+result, not a uniform energy theorem.
+
+Curiosity status: `exact-arithmetic-pass/strength-gate-pass`, novelty
+`new-to-this-task`.  Preserve both the affine projector and its exact
+linked-prime annihilation law.  The observed energy removal is promising but
+does not bound the surviving symmetric functional, estimate primes in residue
+classes, prove the signed prime correlation, or prove Goldbach.
+
+Independent review checked the admissible set, involution, complex
+orthogonal projections, energy identity, symmetric linked-prime weights,
+nonunit applicability, all sixteen measured energy fractions, scope flags,
+and focused normal and optimized tests.  The complete linked-prime test file
+also passes in normal mode.
+
+The next bounded question tries to falsify the apparent quantitative strength
+before using it.  Since
+
+`||P_N^+F||^2/||F||^2
+ =1/2+(1/2)Re(<F,R_N F>)/||F||^2`,
+
+scan every even target residue `N mod g` for `g=130,110` and every canonical
+divisor cell.  Freeze the same `.75` gate wherever `A_N` has nonzero source
+energy.  Any violating residue rejects uniform quarter-energy removal while
+preserving the exact projection; a full pass would motivate a proof from the
+Chinese-remainder structure of the reflection covariance.  Record the worst
+target residue and cell rather than averaging it away.

@@ -1,6 +1,7 @@
 import unittest
 
 from lcm_sawtooth_linked_prime_character import (
+    affine_reflection_selection_receipt,
     linked_prime_character_receipt,
     linked_prime_parity_selection_receipt,
 )
@@ -20,6 +21,12 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             linked_prime_parity_selection_receipt(tolerance=-1)
         with self.assertRaises(ValueError):
             linked_prime_parity_selection_receipt(batch_size=0)
+        with self.assertRaises(ValueError):
+            affine_reflection_selection_receipt(
+                maximum_symmetric_energy_fraction=-.01)
+        with self.assertRaises(ValueError):
+            affine_reflection_selection_receipt(
+                maximum_symmetric_energy_fraction=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -117,6 +124,55 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "target_divisibility_parity_selection_proved"])
         self.assertFalse(receipt[
             "uniform_target_parity_selection_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_affine_reflection_selects_symmetric_source_for_every_target(self):
+        receipt = affine_reflection_selection_receipt()
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertEqual(len(receipt["rows"]), 16)
+        self.assertEqual(receipt["energy_gate_pass_count"], 16)
+        self.assertEqual(receipt["energy_gate_cell_count"], 16)
+        self.assertAlmostEqual(
+            receipt["symmetric_source_energy_fraction_range"][0],
+            .27589532711425513, places=12)
+        self.assertAlmostEqual(
+            receipt["symmetric_source_energy_fraction_range"][1],
+            .4278088755045186, places=12)
+        admissible_counts = {
+            (77, 1000): 44,
+            (77, 1002): 33,
+            (91, 1000): 36,
+            (91, 1002): 27,
+        }
+        for (quotient, _, target), row in receipt["rows"].items():
+            self.assertEqual(
+                row["admissible_residue_count"],
+                admissible_counts[(quotient, target)])
+            self.assertTrue(row["pair_symmetric_interval"])
+            self.assertTrue(row[
+                "affine_reflection_cancellation_applicable"])
+            self.assertTrue(row["affine_reflection_is_involution"])
+            self.assertLess(
+                row["affine_projector_energy_relative_error"], 1e-12)
+            self.assertLess(
+                row["affine_projector_orthogonality_relative_error"], 1e-12)
+            self.assertTrue(row[
+                "affine_symmetric_source_reconstructs_unit_correlation"])
+            self.assertTrue(row[
+                "affine_antisymmetric_source_cancels"])
+            self.assertLessEqual(
+                row["symmetric_source_energy_fraction"], .75)
+        self.assertTrue(receipt[
+            "all_affine_reflection_selection_identities_pass"])
+        self.assertTrue(receipt[
+            "all_symmetric_source_energy_fractions_pass_gate"])
+        self.assertTrue(receipt[
+            "target_uniform_affine_reflection_selection_identity_proved"])
+        self.assertTrue(receipt[
+            "all_canonical_cells_remove_at_least_quarter_energy"])
+        self.assertFalse(receipt[
+            "uniform_quarter_energy_removal_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

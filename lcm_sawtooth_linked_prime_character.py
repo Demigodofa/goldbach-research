@@ -97,6 +97,45 @@ def _linked_prime_character_row(
     additive_unit_values = np.asarray(tuple(
         np.sum(values * np.exp(2j * np.pi * units * unit / common))
         for unit in units), dtype=np.complex128)
+    admissible_columns = np.asarray(tuple(
+        column for column, unit in enumerate(units)
+        if math.gcd((target - int(unit)) % common, common) == 1),
+        dtype=np.int64)
+    reflected_columns = np.asarray(tuple(
+        unit_column[(target - int(units[column])) % common]
+        for column in admissible_columns), dtype=np.int64)
+    reflected_twice_columns = np.asarray(tuple(
+        unit_column[(target - int(units[column])) % common]
+        for column in reflected_columns), dtype=np.int64)
+    affine_reflection_is_involution = bool(np.array_equal(
+        reflected_twice_columns, admissible_columns))
+    admissible_values = additive_unit_values[admissible_columns]
+    reflected_values = additive_unit_values[reflected_columns]
+    symmetric_values = (admissible_values + reflected_values) / 2
+    antisymmetric_values = (admissible_values - reflected_values) / 2
+    source_energy = float(np.sum(np.abs(admissible_values) ** 2))
+    symmetric_source_energy = float(np.sum(np.abs(symmetric_values) ** 2))
+    antisymmetric_source_energy = float(
+        np.sum(np.abs(antisymmetric_values) ** 2))
+    projector_energy_error = abs(
+        source_energy - symmetric_source_energy
+        - antisymmetric_source_energy)
+    projector_orthogonality_error = abs(
+        np.vdot(symmetric_values, antisymmetric_values))
+    projector_energy_scale = max(1.0, source_energy)
+    admissible_column_by_unit = {
+        int(units[column]): index
+        for index, column in enumerate(admissible_columns)}
+    symmetrized_linked_prime_correlation = 0.0j
+    antisymmetric_linked_prime_correlation = 0.0j
+    for prime, weight in pairs:
+        if (math.gcd(prime, common) == 1
+                and prime % common in admissible_column_by_unit):
+            column = admissible_column_by_unit[prime % common]
+            symmetrized_linked_prime_correlation += (
+                weight * symmetric_values[column])
+            antisymmetric_linked_prime_correlation += (
+                weight * antisymmetric_values[column])
     residue_cauchy_envelope = math.sqrt(
         float(np.sum(np.abs(additive_unit_values) ** 2))
         * math.fsum(weight * weight for weight in unit_residue_weights.values()))
@@ -124,6 +163,12 @@ def _linked_prime_character_row(
     odd_pair_cancellation_applicable = bool(
         target % common == 0 and pair_symmetric_interval
         and not nonunit_primes)
+    affine_reflection_cancellation_applicable = bool(
+        pair_symmetric_interval and not nonunit_primes)
+    symmetrized_reconstruction_error = abs(
+        symmetrized_linked_prime_correlation - direct_unit_correlation)
+    antisymmetric_cancellation_error = abs(
+        antisymmetric_linked_prime_correlation)
 
     endpoint_pairs = tuple(
         endpoint for endpoint in (lower, upper)
@@ -163,6 +208,38 @@ def _linked_prime_character_row(
         "cauchy_to_direct_triangle_ratio": (
             cauchy_envelope / direct_triangle_mass
             if direct_triangle_mass else None),
+        "admissible_residue_count": len(admissible_columns),
+        "affine_reflection_is_involution": affine_reflection_is_involution,
+        "symmetric_source_energy": symmetric_source_energy,
+        "antisymmetric_source_energy": antisymmetric_source_energy,
+        "symmetric_source_energy_fraction": (
+            symmetric_source_energy / source_energy
+            if source_energy else None),
+        "antisymmetric_source_energy_fraction": (
+            antisymmetric_source_energy / source_energy
+            if source_energy else None),
+        "affine_projector_energy_relative_error": (
+            projector_energy_error / projector_energy_scale),
+        "affine_projector_orthogonality_relative_error": (
+            projector_orthogonality_error / projector_energy_scale),
+        "symmetrized_linked_prime_correlation": (
+            symmetrized_linked_prime_correlation),
+        "antisymmetric_linked_prime_correlation": (
+            antisymmetric_linked_prime_correlation),
+        "affine_symmetrized_reconstruction_natural_scale_relative_error": (
+            symmetrized_reconstruction_error / reconstruction_scale),
+        "affine_antisymmetric_cancellation_natural_scale_relative_error": (
+            antisymmetric_cancellation_error / reconstruction_scale),
+        "affine_reflection_cancellation_applicable": (
+            affine_reflection_cancellation_applicable),
+        "affine_symmetric_source_reconstructs_unit_correlation": (
+            bool(symmetrized_reconstruction_error / reconstruction_scale
+                 <= tolerance)
+            if affine_reflection_cancellation_applicable else None),
+        "affine_antisymmetric_source_cancels": (
+            bool(antisymmetric_cancellation_error / reconstruction_scale
+                 <= tolerance)
+            if affine_reflection_cancellation_applicable else None),
         "target_divisible_by_common_modulus": target % common == 0,
         "pair_symmetric_interval": pair_symmetric_interval,
         "even_character_count": int(np.sum(even_mask)),
@@ -183,6 +260,54 @@ def _linked_prime_character_row(
             bool(abs(even_character_correlation - direct_unit_correlation)
                  / reconstruction_scale <= tolerance)
             if odd_pair_cancellation_applicable else None),
+    }
+
+
+def affine_reflection_selection_receipt(
+        maximum_symmetric_energy_fraction=.75,
+        targets=LINKED_PRIME_TARGETS, tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_symmetric_energy_fraction)
+            or not 0 <= maximum_symmetric_energy_fraction <= 1):
+        raise ValueError(
+            "maximum symmetric energy fraction must lie in [0, 1]")
+    base = linked_prime_character_receipt(
+        targets=targets, tolerance=tolerance, batch_size=batch_size)
+    rows = base["rows"]
+    energy_fractions = tuple(
+        row["symmetric_source_energy_fraction"] for row in rows.values())
+    exact_selection_passes = all(
+        row["affine_reflection_cancellation_applicable"]
+        and row["affine_reflection_is_involution"]
+        and row["affine_symmetric_source_reconstructs_unit_correlation"]
+        and row["affine_antisymmetric_source_cancels"]
+        and row["affine_projector_energy_relative_error"] <= tolerance
+        and row["affine_projector_orthogonality_relative_error"] <= tolerance
+        for row in rows.values())
+    gate_pass_count = sum(
+        fraction <= maximum_symmetric_energy_fraction
+        for fraction in energy_fractions)
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "targets": base["targets"],
+        "maximum_symmetric_energy_fraction_gate": (
+            maximum_symmetric_energy_fraction),
+        "rows": rows,
+        "symmetric_source_energy_fraction_range": (
+            min(energy_fractions), max(energy_fractions)),
+        "energy_gate_pass_count": gate_pass_count,
+        "energy_gate_cell_count": len(rows),
+        "all_affine_reflection_selection_identities_pass": bool(
+            exact_selection_passes),
+        "all_symmetric_source_energy_fractions_pass_gate": bool(
+            gate_pass_count == len(rows)),
+        "target_uniform_affine_reflection_selection_identity_proved": bool(
+            exact_selection_passes),
+        "all_canonical_cells_remove_at_least_quarter_energy": bool(
+            exact_selection_passes and gate_pass_count == len(rows)),
+        "uniform_quarter_energy_removal_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
     }
 
 
