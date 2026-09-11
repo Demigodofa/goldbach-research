@@ -13003,3 +13003,55 @@ paired contribution.  Reconstruct every divisor-cell correlation from the
 even characters alone within `1e-12`.  Failure rejects the implementation or
 an omitted endpoint/nonunit term; passing proves a residue-family selection
 mechanism only for targets divisible by `g`, not uniform Goldbach coverage.
+
+## 2026-09-11: target divisibility exactly selects even characters
+
+The linked-prime involution gives an exact cancel/reinforce mechanism when the
+target is zero modulo the character modulus.  Use the exactly symmetric
+integer interval
+
+`floor(N/3)<p<N-floor(N/3)`.
+
+For `N=1040`, `g=130` there are `20` ordered linked-prime pairs; for
+`N=1100`, `g=110` there are `16`.  In both cases all prime variables are
+units.  Pairing `p` with `N-p` and using `N=0 (mod g)` proves
+
+`P_N(chi)=conjugate(chi(-1))*P_N(chi)`.
+
+Hence every odd character cancels exactly, while each even character doubles
+its unordered-pair contribution.  There are `24` even and `24` odd characters
+for `g=130`, and `20` of each for `g=110`.  Across all eight divisor cells,
+the maximum normalized odd-character residue is
+`2.2918614104476642e-15`; the even characters alone reconstruct every source
+correlation.  The parity decomposition residual is below `7.4e-17` relative.
+
+This is the requested kind of mechanism in a precise finite family: the two
+linked prime conditions cancel odd character components and reinforce even
+ones.  It follows from target divisibility and pair symmetry, not from a
+fitted source sign.
+
+Curiosity status: `exact-arithmetic-pass`, novelty `new-to-this-task`.
+Preserve the character-parity selection law and the corrected symmetric
+interval bounds.  Its congruence hypothesis restricts it to targets divisible
+by `g`; it does not cover arbitrary even targets, estimate the surviving even
+characters, or prove the signed prime correlation or Goldbach.
+
+Independent review proved the involution identity, checked parity extraction,
+unit/nonunit applicability, target and pair counts, all eight reconstructions,
+scope flags, and focused normal and optimized tests.
+
+The next bounded question generalizes the same involution without requiring
+`N=0 (mod g)`.  On the admissible residue set
+`A_N={a in U_g: N-a in U_g}`, define
+
+`F_N^+(a)=(F(a)+F(N-a))/2`,
+`F_N^-(a)=(F(a)-F(N-a))/2`.
+
+Symmetric linked-prime weights annihilate `F_N^-` for every target.  Test the
+exact reconstruction at `N=1000,1002` in all canonical divisor cells, and
+freeze a useful-strength gate: the symmetric energy
+`sum_(a in A_N)|F_N^+(a)|^2` must be at most `.75` of
+`sum_(a in A_N)|F(a)|^2` in every cell.  Passing would give a target-uniform
+orthogonal projection that removes at least one quarter of source energy;
+failure preserves the exact affine-reflection mechanism but rejects that
+uniform quantitative strength.

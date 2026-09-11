@@ -2,6 +2,7 @@ import unittest
 
 from lcm_sawtooth_linked_prime_character import (
     linked_prime_character_receipt,
+    linked_prime_parity_selection_receipt,
 )
 
 
@@ -15,6 +16,10 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             linked_prime_character_receipt(tolerance=-1)
         with self.assertRaises(ValueError):
             linked_prime_character_receipt(batch_size=0)
+        with self.assertRaises(ValueError):
+            linked_prime_parity_selection_receipt(tolerance=-1)
+        with self.assertRaises(ValueError):
+            linked_prime_parity_selection_receipt(batch_size=0)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -72,6 +77,46 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "plain_per_target_character_cauchy_supplies_signed_saving"])
         self.assertFalse(receipt[
             "joint_coefficient_prime_phase_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_target_divisibility_selects_even_characters(self):
+        receipt = linked_prime_parity_selection_receipt()
+        self.assertEqual(
+            receipt["target_by_quotient"], {77: 1040, 91: 1100})
+        self.assertEqual(len(receipt["rows"]), 8)
+        self.assertAlmostEqual(
+            receipt[
+                "maximum_odd_prime_correlation_relative_to_pair_weight"],
+            2.2918614104476642e-15, places=20)
+        self.assertLess(receipt[
+            "maximum_parity_decomposition_natural_scale_relative_error"],
+            1e-12)
+        for (quotient, _), row in receipt["rows"].items():
+            expected = (
+                (1040, 20, 24) if quotient == 77 else (1100, 16, 20))
+            target, pair_count, parity_count = expected
+            self.assertEqual(row["target"], target)
+            self.assertEqual(row["linked_prime_pair_count"], pair_count)
+            self.assertEqual(row["nonunit_prime_terms"], ())
+            self.assertTrue(row["target_divisible_by_common_modulus"])
+            self.assertTrue(row["pair_symmetric_interval"])
+            self.assertEqual(row["even_character_count"], parity_count)
+            self.assertEqual(row["odd_character_count"], parity_count)
+            self.assertTrue(row[
+                "odd_character_pair_cancellation_applicable"])
+            self.assertTrue(row[
+                "all_odd_character_prime_correlations_cancel"])
+            self.assertTrue(row[
+                "even_characters_reconstruct_unit_correlation"])
+        self.assertTrue(receipt[
+            "all_odd_character_prime_correlations_cancel"])
+        self.assertTrue(receipt[
+            "all_even_characters_reconstruct_unit_correlations"])
+        self.assertTrue(receipt[
+            "target_divisibility_parity_selection_proved"])
+        self.assertFalse(receipt[
+            "uniform_target_parity_selection_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

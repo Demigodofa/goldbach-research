@@ -102,6 +102,28 @@ def _linked_prime_character_row(
         * math.fsum(weight * weight for weight in unit_residue_weights.values()))
     cauchy_identity_error = abs(cauchy_envelope - residue_cauchy_envelope)
     cauchy_scale = max(1.0, cauchy_envelope, residue_cauchy_envelope)
+    minus_one_column = unit_column[common - 1]
+    character_parities = np.real_if_close(
+        character_table[:, minus_one_column]).real
+    even_mask = character_parities > 0
+    odd_mask = character_parities < 0
+    even_character_correlation = (
+        gauss_coefficients[even_mask]
+        @ character_prime_correlation[even_mask] / group_order)
+    odd_character_correlation = (
+        gauss_coefficients[odd_mask]
+        @ character_prime_correlation[odd_mask] / group_order)
+    parity_reconstruction_error = abs(
+        even_character_correlation + odd_character_correlation
+        - character_reconstruction)
+    total_pair_weight = math.fsum(weight for _, weight in pairs)
+    maximum_odd_prime_correlation_relative_to_pair_weight = (
+        float(np.max(np.abs(character_prime_correlation[odd_mask])))
+        / max(1.0, total_pair_weight))
+    pair_symmetric_interval = upper == target - lower
+    odd_pair_cancellation_applicable = bool(
+        target % common == 0 and pair_symmetric_interval
+        and not nonunit_primes)
 
     endpoint_pairs = tuple(
         endpoint for endpoint in (lower, upper)
@@ -141,6 +163,26 @@ def _linked_prime_character_row(
         "cauchy_to_direct_triangle_ratio": (
             cauchy_envelope / direct_triangle_mass
             if direct_triangle_mass else None),
+        "target_divisible_by_common_modulus": target % common == 0,
+        "pair_symmetric_interval": pair_symmetric_interval,
+        "even_character_count": int(np.sum(even_mask)),
+        "odd_character_count": int(np.sum(odd_mask)),
+        "even_character_unit_correlation": even_character_correlation,
+        "odd_character_unit_correlation": odd_character_correlation,
+        "parity_decomposition_natural_scale_relative_error": (
+            parity_reconstruction_error / reconstruction_scale),
+        "maximum_odd_prime_correlation_relative_to_pair_weight": (
+            maximum_odd_prime_correlation_relative_to_pair_weight),
+        "odd_character_pair_cancellation_applicable": (
+            odd_pair_cancellation_applicable),
+        "all_odd_character_prime_correlations_cancel": (
+            bool(maximum_odd_prime_correlation_relative_to_pair_weight
+                 <= tolerance)
+            if odd_pair_cancellation_applicable else None),
+        "even_characters_reconstruct_unit_correlation": (
+            bool(abs(even_character_correlation - direct_unit_correlation)
+                 / reconstruction_scale <= tolerance)
+            if odd_pair_cancellation_applicable else None),
     }
 
 
@@ -152,7 +194,7 @@ def linked_prime_character_receipt(
                    for target in targets)):
         raise ValueError("targets must be even integers at least 20")
     if any(not _linked_prime_pairs(
-            target, target // 3, 2 * target // 3)
+            target, target // 3, target - target // 3)
            for target in targets):
         raise ValueError(
             "each target must have a linked-prime pair in its strict "
@@ -183,7 +225,7 @@ def linked_prime_character_receipt(
         for divisor in active:
             for target in targets:
                 lower = target // 3
-                upper = 2 * target // 3
+                upper = target - lower
                 rows[(quotient, divisor, target)] = (
                     _linked_prime_character_row(
                         common, quotient, frequencies,
@@ -241,6 +283,59 @@ def linked_prime_character_receipt(
         "plain_per_target_character_cauchy_supplies_signed_saving": bool(
             cauchy_improves_every_triangle),
         "joint_coefficient_prime_phase_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def linked_prime_parity_selection_receipt(tolerance=1e-12, batch_size=32):
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch size must be a positive integer")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    target_by_quotient = {77: 1040, 91: 1100}
+    rows = {}
+    for lag in CANONICAL_LAGS:
+        common = math.gcd(lag, period)
+        quotient = period // common
+        target = target_by_quotient[quotient]
+        lower = target // 3
+        upper = target - lower
+        (frequencies, _, _, divisor_strata, _) = (
+            _partial_fourier_frequency_totals(
+                period, lag, left_sources, right_sources, batch_size))
+        active = _primitive_quadratic_character_fits(
+            frequencies, common, quotient, divisor_strata, tolerance)[
+                "active_divisors"]
+        for divisor in active:
+            rows[(quotient, divisor)] = _linked_prime_character_row(
+                common, quotient, frequencies, divisor_strata[divisor],
+                target, lower, upper, tolerance)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "target_by_quotient": target_by_quotient,
+        "rows": rows,
+        "maximum_odd_prime_correlation_relative_to_pair_weight": max(
+            row["maximum_odd_prime_correlation_relative_to_pair_weight"]
+            for row in rows.values()),
+        "maximum_parity_decomposition_natural_scale_relative_error": max(
+            row["parity_decomposition_natural_scale_relative_error"]
+            for row in rows.values()),
+        "all_odd_character_prime_correlations_cancel": all(
+            row["all_odd_character_prime_correlations_cancel"]
+            for row in rows.values()),
+        "all_even_characters_reconstruct_unit_correlations": all(
+            row["even_characters_reconstruct_unit_correlation"]
+            for row in rows.values()),
+        "target_divisibility_parity_selection_proved": True,
+        "uniform_target_parity_selection_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }
