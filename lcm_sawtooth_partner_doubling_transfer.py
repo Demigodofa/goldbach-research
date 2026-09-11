@@ -315,9 +315,38 @@ def _matched_doubled_packet(
     doubled_factor = (
         1 + np.exp(
             -1j * np.pi * lifted_partner_numerators / odd_partner))
-    transfer = doubled_factor / base_factor
+    quotient_transfer = doubled_factor / base_factor
+    real_cosine_ratio = (
+        np.cos(np.pi * lifted_partner_numerators / (2 * odd_partner))
+        / np.cos(np.pi * partner_numerators * half_length / odd_partner))
+    additive_phase = np.exp(
+        -1j * np.pi * (
+            lifted_partner_numerators / (2 * odd_partner)
+            + partner_numerators * half_length / odd_partner))
+    doubled_factor_prediction = (
+        2 * np.cos(np.pi * lifted_partner_numerators / (2 * odd_partner))
+        * np.exp(
+            -1j * np.pi * lifted_partner_numerators / (2 * odd_partner)))
+    base_factor_prediction = (
+        2 * np.cos(
+            np.pi * partner_numerators * half_length / odd_partner)
+        * np.exp(
+            1j * np.pi * partner_numerators * half_length / odd_partner))
+    primitive_factorization_error = max(
+        float(np.max(
+            np.abs(doubled_factor - doubled_factor_prediction)
+            / np.maximum(1.0, np.abs(doubled_factor)))),
+        float(np.max(
+            np.abs(base_factor - base_factor_prediction)
+            / np.maximum(1.0, np.abs(base_factor)))))
+    transfer = real_cosine_ratio * additive_phase
+    quotient_factorization_error = float(np.max(
+        np.abs(quotient_transfer - transfer)
+        / np.maximum(1.0, np.abs(quotient_transfer))))
     base_half_prediction = base_factor * half_sum
-    predicted_partner_geometric = transfer * base_half_prediction
+    predicted_partner_geometric = doubled_factor * half_sum
+    sign_only_partner_geometric = (
+        real_cosine_ratio * base_half_prediction)
     phase_neutral_partner_geometric = (
         np.abs(transfer) * base_half_prediction)
     actual_partner_geometric = _stable_geometric_sum(
@@ -328,13 +357,15 @@ def _matched_doubled_packet(
 
     predicted_packet = np.zeros(doubled_q, dtype=complex)
     phase_neutral_packet = np.zeros(doubled_q, dtype=complex)
+    sign_only_packet = np.zeros(doubled_q, dtype=complex)
     unexpected_reduced_denominator_count = 0
     nonodd_residue_count = 0
 
     def add_orientation(left_denominator, left_numerators, left_geometric,
-                        neutral_left_geometric, right_denominator,
+                        neutral_left_geometric, sign_left_geometric,
+                        right_denominator,
                         right_numerators, right_geometric,
-                        neutral_right_geometric):
+                        neutral_right_geometric, sign_right_geometric):
         nonlocal unexpected_reduced_denominator_count, nonodd_residue_count
         common = math.lcm(left_denominator, right_denominator)
         differences = (
@@ -356,6 +387,10 @@ def _matched_doubled_packet(
             neutral_left_geometric[:, None]
             * np.conjugate(neutral_right_geometric[None, :])
             * direction_factor)
+        sign_coefficients = (
+            sign_left_geometric[:, None]
+            * np.conjugate(sign_right_geometric[None, :])
+            * direction_factor)
         flat_residues = residues[selected]
         flat_coefficients = coefficients[selected]
         predicted_packet.real[:] += np.bincount(
@@ -371,24 +406,36 @@ def _matched_doubled_packet(
         phase_neutral_packet.imag[:] += np.bincount(
             flat_residues, weights=flat_neutral.imag,
             minlength=doubled_q)
+        flat_sign = sign_coefficients[selected]
+        sign_only_packet.real[:] += np.bincount(
+            flat_residues, weights=flat_sign.real, minlength=doubled_q)
+        sign_only_packet.imag[:] += np.bincount(
+            flat_residues, weights=flat_sign.imag, minlength=doubled_q)
 
     add_orientation(
         conductor, conductor_numerators, conductor_geometric,
-        conductor_geometric,
+        conductor_geometric, conductor_geometric,
         doubled_partner, lifted_partner_numerators,
-        predicted_partner_geometric, phase_neutral_partner_geometric)
+        predicted_partner_geometric, phase_neutral_partner_geometric,
+        sign_only_partner_geometric)
     add_orientation(
         doubled_partner, lifted_partner_numerators,
         predicted_partner_geometric, phase_neutral_partner_geometric,
+        sign_only_partner_geometric,
         conductor, conductor_numerators, conductor_geometric,
-        conductor_geometric)
+        conductor_geometric, conductor_geometric)
     return {
         "predicted_packet": predicted_packet,
         "phase_neutral_packet": phase_neutral_packet,
+        "sign_only_packet": sign_only_packet,
         "doubled_q": doubled_q,
         "direction_factor": direction_factor,
         "diagonal_geometric_transfer_maximum_relative_error": (
             geometric_error),
+        "multiplier_cosine_phase_factorization_maximum_relative_error": (
+            primitive_factorization_error),
+        "direct_quotient_to_factored_multiplier_maximum_relative_error": (
+            quotient_factorization_error),
         "unexpected_reduced_denominator_pair_count": (
             unexpected_reduced_denominator_count),
         "nonodd_doubled_residue_pair_count": nonodd_residue_count,
@@ -512,6 +559,92 @@ def classify_diagonal_multiplier_phase_bias(
     }
 
 
+def classify_multiplier_component_attribution(
+        packet_channels, row_first, row_count,
+        minimum_explained_increment_fraction=.75, tolerance=1e-12):
+    """Apply the ordered |R| -> R -> R E aggregate increment test."""
+    packet_channels = dict(packet_channels)
+    if not packet_channels:
+        raise ValueError("at least one multiplier-component channel is required")
+    if (type(row_first) is not int or type(row_count) is not int
+            or row_first < 0 or row_count < 1):
+        raise ValueError("row range must be integral and nonempty")
+    if not 0 < minimum_explained_increment_fraction <= 1:
+        raise ValueError("explained increment threshold must lie in (0,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    rows = []
+    for channel in sorted(packet_channels):
+        (full_left, full_right, sign_left, sign_right,
+         neutral_left, neutral_right) = (
+            np.asarray(packet, dtype=complex)
+            for packet in packet_channels[channel])
+        if (full_left.ndim != 1 or len(full_left) < 2
+                or any(packet.shape != full_left.shape for packet in (
+                    full_right, sign_left, sign_right,
+                    neutral_left, neutral_right))):
+            raise ValueError("component packets must be matching vectors")
+        if np.linalg.norm(full_left) * np.linalg.norm(full_right) <= tolerance:
+            continue
+        contributions = tuple(
+            _packet_lag_contributions(left, right, row_first, row_count)
+            for left, right in (
+                (full_left, full_right),
+                (sign_left, sign_right),
+                (neutral_left, neutral_right)))
+        denominator = len(full_left)
+        lags = np.arange(denominator)
+        distances = np.minimum(lags, denominator - lags)
+        near = distances * row_count <= denominator
+        near[0] = False
+        full_sum, sign_sum, neutral_sum = (
+            float(np.sum(values[near])) for values in contributions)
+        rows.append({
+            "channel": channel,
+            "full_near_lag_signed_sum": full_sum,
+            "sign_only_near_lag_signed_sum": sign_sum,
+            "phase_neutral_near_lag_signed_sum": neutral_sum,
+            "real_cosine_sign_increment": sign_sum - neutral_sum,
+            "additive_phase_increment": full_sum - sign_sum,
+            "full_multiplier_increment": full_sum - neutral_sum,
+        })
+    neutral_total = sum(
+        row["phase_neutral_near_lag_signed_sum"] for row in rows)
+    sign_total = sum(row["sign_only_near_lag_signed_sum"] for row in rows)
+    full_total = sum(row["full_near_lag_signed_sum"] for row in rows)
+    full_increment = full_total - neutral_total
+    sign_increment = sign_total - neutral_total
+    additive_increment = full_total - sign_total
+
+    def explains(increment):
+        return bool(
+            abs(full_increment) > tolerance
+            and increment * full_increment > 0
+            and abs(increment) >= (
+                minimum_explained_increment_fraction * abs(full_increment)))
+
+    return {
+        "multiplier_factorization": "T=R*E; neutral=abs(R), sign-only=R",
+        "component_attribution_order": "abs(R) -> R -> R*E",
+        "minimum_explained_increment_fraction": (
+            minimum_explained_increment_fraction),
+        "multiplier_component_channel_rows": tuple(rows),
+        "aggregate_phase_neutral_near_lag_signed_sum": neutral_total,
+        "aggregate_sign_only_near_lag_signed_sum": sign_total,
+        "aggregate_full_near_lag_signed_sum": full_total,
+        "aggregate_real_cosine_sign_increment": sign_increment,
+        "aggregate_additive_phase_increment": additive_increment,
+        "aggregate_full_multiplier_increment": full_increment,
+        "real_cosine_sign_meets_ordered_increment_gate": explains(
+            sign_increment),
+        "additive_phase_meets_ordered_increment_gate": explains(
+            additive_increment),
+        "some_multiplier_component_meets_ordered_increment_gate": bool(
+            explains(sign_increment) or explains(additive_increment)),
+        "multiplier_component_attribution_proves_uniform_sign": False,
+    }
+
+
 def partner_packet_transfer_receipt(
         scale_modulus=127,
         families=((77, 65, 1), (143, 35, 2)), tolerance=1e-12):
@@ -550,8 +683,9 @@ def partner_packet_transfer_receipt(
                     actual[residue] += value
             prediction = transfer.pop("predicted_packet")
             phase_neutral = transfer.pop("phase_neutral_packet")
+            sign_only = transfer.pop("sign_only_packet")
             packet_channels.setdefault(frame_row["modulus"], {})[category] = (
-                prediction, phase_neutral)
+                prediction, phase_neutral, sign_only)
             absolute_error = float(np.max(np.abs(actual - prediction)))
             relative_error = float(np.max(
                 np.abs(actual - prediction)
@@ -577,6 +711,14 @@ def partner_packet_transfer_receipt(
         if 1 in categories and 2 in categories}
     phase_bias = classify_diagonal_multiplier_phase_bias(
         classified_channels, baseline["row_count"], baseline["row_count"])
+    component_channels = {
+        prime: (categories[1][0], categories[2][0],
+                categories[1][2], categories[2][2],
+                categories[1][1], categories[2][1])
+        for prime, categories in packet_channels.items()
+        if 1 in categories and 2 in categories}
+    component_attribution = classify_multiplier_component_attribution(
+        component_channels, baseline["row_count"], baseline["row_count"])
     reconstruction_passes = all(
         row["packet_reconstruction_maximum_relative_error"] <= tolerance
         and row["diagonal_geometric_transfer_maximum_relative_error"]
@@ -599,6 +741,22 @@ def partner_packet_transfer_receipt(
         "maximum_term_geometric_transfer_relative_error": max(
             row["diagonal_geometric_transfer_maximum_relative_error"]
             for row in rows),
+        "maximum_endpoint_cosine_phase_factorization_relative_error": max(
+            row[
+                "multiplier_cosine_phase_factorization_maximum_relative_error"]
+            for row in rows),
+        "maximum_direct_quotient_to_factored_multiplier_relative_error": max(
+            row[
+                "direct_quotient_to_factored_multiplier_maximum_relative_error"]
+            for row in rows),
+        "direct_float_multiplier_factorization_test_passes": bool(all(
+            row[
+                "direct_quotient_to_factored_multiplier_maximum_relative_error"]
+            <= tolerance for row in rows)),
+        "exact_multiplier_cosine_phase_factorization_proved": bool(all(
+            row[
+                "multiplier_cosine_phase_factorization_maximum_relative_error"]
+            <= tolerance for row in rows)),
         "unexpected_reduced_denominator_pair_count": sum(
             row["unexpected_reduced_denominator_pair_count"] for row in rows),
         "nonodd_doubled_residue_pair_count": sum(
@@ -606,6 +764,7 @@ def partner_packet_transfer_receipt(
         "exact_doubled_packet_diagonal_transfer_test_passes": bool(
             reconstruction_passes),
         **phase_bias,
+        **component_attribution,
         "packet_diagonal_transfer_assigns_favorable_sign_proved": False,
         "signed_prime_correlation_proved": False,
     }

@@ -10137,6 +10137,65 @@ actual and neutral packets independently reconstructed within `1e-12`.
 Failure rejects a broad favorable dyadic-phase rule while preserving the
 exact diagonal packet transport.
 
+## 2026-09-11: additive phase and real cosine sign oppose each other
+
+The exact diagonal multiplier factors algebraically as
+
+`T_(p,d)(a)=R_(p,d)(a) E_(p,d)(a)`,
+
+where
+
+- `R=cos(pi*k/(2d))/cos(pi*a*s/d)` is real and signed;
+- `E=exp(-pi*i*(k/(2d)+a*s/d))` has unit modulus;
+- `s=(p-1)/2` and `k` is the odd primitive lift of `a`.
+
+The two endpoint identities `1+exp(i theta)=2cos(theta/2)exp(i theta/2)`
+verify with maximum relative error `1.13e-13`, and the denominating cosine
+cannot vanish for odd `d`. The exact algebraic factorization is therefore
+proved. The separately rounded quotient-to-product diagnostic is
+`1.1764050738476914e-12`, just above the predeclared `1e-12` numerical gate;
+it is explicitly recorded as a failed conditioned floating test rather than
+hidden or used to weaken the threshold. Stable packet reconstruction remains
+within `1.49e-15`.
+
+The fixed ordered counterfactual path is
+
+`|R| -> R -> R*E`.
+
+Aggregated over the 22 eligible prime channels:
+
+- phase-neutral `|R|` near signed sum: `.012887840697087712`;
+- sign-only `R` sum: `-.12483226301138946`;
+- full `R*E` sum: `.06574279317545721`;
+- real-cosine-sign increment: `-.13772010370847718`;
+- additive-phase increment: `+.19057505618684667`;
+- full multiplier increment: `+.0528549524783695`.
+
+Under this declared order, the additive phase clears the `.75` net-increment
+gate, but it overshoots the final increment by a factor
+`3.6056234515552372` and is substantially opposed by the real cosine sign.
+This is an ordered ablation result, not unique causal attribution.
+
+Independent review verified the trigonometric algebra, nonvanishing factor,
+stable endpoint checks, failed conditioned quotient check, three packet
+states, aggregate increments, gate logic, revised terminology, tests, and
+scope. Six focused tests pass normally and under Python optimization.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+Preserve the exact `R*E` factorization and evidence that the two components
+oppose. Do not claim the additive phase alone explains a uniform sign: the
+present result depends on the fixed ablation order and finite aggregate.
+
+The next bounded question removes that order dependence. Construct the
+fourth packet state `|R|E` alongside `|R|`, `R`, and `RE`. Compute both
+marginal increments for each factor and their two-factor Shapley averages.
+The additive phase is a robust favorable mechanism only if both of its
+marginal increments are positive and its Shapley contribution has the same
+sign as, and magnitude at least `.75` of, the full neutral-to-actual
+increment. Packet construction and the four-state recombination must hold
+within `1e-12`. Failure preserves the exact factorization while rejecting
+order-robust phase attribution.
+
 ## 2026-09-11: diagonal phases can reinforce selected prime channels
 
 The phase-neutral counterfactual replaces every residue-dependent multiplier

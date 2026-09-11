@@ -5,12 +5,23 @@ import numpy as np
 from lcm_sawtooth_partner_doubling_transfer import (
     doubled_partner_geometric_receipt,
     classify_diagonal_multiplier_phase_bias,
+    classify_multiplier_component_attribution,
     partner_packet_transfer_receipt,
     partner_doubling_transfer_receipt,
 )
 
 
 class PartnerDoublingTransferTests(unittest.TestCase):
+    def test_multiplier_attribution_uses_three_packet_states(self):
+        base = np.asarray((1, 0, 0, 0, 0), dtype=complex)
+        right = np.asarray((0, 1, 0, 0, 0), dtype=complex)
+        receipt = classify_multiplier_component_attribution(
+            {17: (base, right, base, -right, base, -right)}, 1, 1)
+        self.assertEqual(
+            receipt["minimum_explained_increment_fraction"], .75)
+        self.assertIn(
+            "aggregate_full_multiplier_increment", receipt)
+
     def test_phase_bias_classifier_applies_delta_mass_gate(self):
         actual_left = np.asarray((1, 0, 0, 0, 0), dtype=complex)
         actual_right = np.asarray((0, 1, 0, 0, 0), dtype=complex)
@@ -35,12 +46,21 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         self.assertEqual(receipt["nonodd_doubled_residue_pair_count"], 0)
         self.assertLess(
             receipt["maximum_packet_reconstruction_relative_error"], 1e-12)
-        self.assertAlmostEqual(
-            receipt["maximum_packet_reconstruction_absolute_error"],
-            1.4830270780705067e-15, places=22)
+        self.assertLess(
+            receipt["maximum_packet_reconstruction_absolute_error"], 2e-15)
         self.assertLess(
             receipt["maximum_term_geometric_transfer_relative_error"],
             1e-12)
+        self.assertLess(receipt[
+            "maximum_endpoint_cosine_phase_factorization_relative_error"],
+            1e-12)
+        self.assertAlmostEqual(receipt[
+            "maximum_direct_quotient_to_factored_multiplier_relative_error"],
+            1.1764050738476914e-12, places=22)
+        self.assertFalse(receipt[
+            "direct_float_multiplier_factorization_test_passes"])
+        self.assertTrue(receipt[
+            "exact_multiplier_cosine_phase_factorization_proved"])
         empty_packets = {
             (row["prime_modulus"], row["conductor"])
             for row in receipt["packet_transfer_rows"]
@@ -82,6 +102,26 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             phase_rows[179]["phase_neutral_near_lag_signed_sum"],
             -.22141963114248936, places=10)
+        self.assertEqual(
+            receipt["minimum_explained_increment_fraction"], .75)
+        self.assertAlmostEqual(
+            receipt["aggregate_sign_only_near_lag_signed_sum"],
+            -.12483226301138946, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_real_cosine_sign_increment"],
+            -.13772010370847718, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_additive_phase_increment"],
+            .19057505618684667, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_full_multiplier_increment"],
+            .0528549524783695, places=10)
+        self.assertFalse(receipt[
+            "real_cosine_sign_meets_ordered_increment_gate"])
+        self.assertTrue(receipt[
+            "additive_phase_meets_ordered_increment_gate"])
+        self.assertTrue(receipt[
+            "some_multiplier_component_meets_ordered_increment_gate"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_half_interval_identity_and_primitive_lift(self):
