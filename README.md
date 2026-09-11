@@ -570,3 +570,10 @@ relaxed bound is `.5208139495`, while an explicit deterministically found
 rank-one vector gives `.5211763463`, only `.0696%` higher. Thus imposing rank
 one does not materially repair this finite obstruction; the six-coordinate
 lower-frame route remains the relevant sufficient target.
+
+The aggregate lower frame also has a simple finite entrywise certificate.
+After exact whitening by the full-period Gram, Gershgorin gives lower bounds
+`.745431` at `M=127` and `.989534` at `M=251`, both stronger than the candidate
+one-half bound. The corresponding exact minima are `.876880` and `1.000055`.
+Uniform control of the six whitened diagonal errors and off-diagonal row sums
+is now a concrete proof target; the finite certificates do not prove it.

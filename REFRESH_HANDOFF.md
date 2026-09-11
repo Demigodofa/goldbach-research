@@ -8960,3 +8960,52 @@ advantage only for a different prime/scale or after a new structural
 restriction changes the family. The next analytic target remains the uniform
 six-coordinate active/full lower frame. The signed prime correlation and
 Goldbach remain OPEN.
+
+## 2026-09-11: exact whitening makes aggregate Gershgorin succeed finitely
+
+`lcm_sawtooth_active_full_gershgorin.py` applies two exact congruences to the
+aggregate forms. First it diagonally equilibrates `D_full`; then, writing the
+equilibrated denominator as `U diag(lambda) U^T`, it uses
+
+`R=U diag(lambda^(-1/2))`
+
+so the full form becomes the identity and the active form becomes
+
+`W=R^T D_active R`.
+
+Gershgorin proves `W>=L I`, hence `D_active>=L D_full`, for
+
+`L=min_i(W_ii-sum_(j!=i)|W_ij|)`.
+
+For the complete `M=127` aggregate, the six lower edges are
+
+`.745431,.899580,.824397,.901183,.836744,.825982`,
+
+giving `L=.745431302419`, versus exact generalized interval
+`[.876880294682,1.146289423694]`. At `M=251`, the edges are
+
+`1.002040,.996064,1.005403,.989534,.995189,.999267`,
+
+giving `L=.989533649267`, versus exact interval
+`[1.000054641629,1.024474182623]`. The larger run took `315.1` seconds.
+Both finite Gershgorin certificates therefore prove the candidate one-half
+aggregate lower bound for their exact matrices.
+
+Independent review verified both congruences, whitening orientation,
+Gershgorin implication, positive-definite guards, and direct positivity of
+`D_active-L D_full` at `M=127`; it independently reproduced that receipt and
+audited the captured larger loop. Review returned PASS.
+
+Status: `changed-under-evidence`. The simple entrywise route survives in this
+six-coordinate aggregate even though an earlier divisor-progression
+Gershgorin route failed. The distinction is material: the earlier route only
+diagonally normalized its full denominator and bounded a different numerator,
+whereas this route exactly whitens the complete aggregate full Gram before
+testing its active form. No uniform estimate follows. The next analytic target
+is to prove, in a controlled whitening basis, six uniform inequalities
+
+`W_ii-sum_(j!=i)|W_ij| >= 1/2`.
+
+Failure of those entry bounds would reject this proof method without rejecting
+the lower-frame inequality or polynomial components. The signed prime
+correlation and Goldbach remain OPEN.

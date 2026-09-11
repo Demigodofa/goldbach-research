@@ -7096,3 +7096,23 @@ upper-bound witness, not proof of its global minimum.
 The six-coordinate lower-frame theorem therefore remains the cleaner
 sufficient target. Its uniform proof, the signed prime correlation, and
 Goldbach remain OPEN.
+
+### 2026-09-11 continuation: aggregate Gershgorin certifies one half finitely
+
+After diagonal equilibration and exact eigenspace whitening of the aggregate
+`D_full`, the transformed active form `W` has Gershgorin lower bounds
+`.745431302419` at `M=127` and `.989533649267` at `M=251`. The exact generalized
+minima are `.876880294682` and `1.000054641629`, respectively. Thus absolute
+off-diagonal row sums already certify `D_active>=D_full/2` on both finite
+aggregate blocks.
+
+Independent review PASSed the congruences, orientation, Gershgorin implication,
+guards, smaller receipt, and captured larger loop. This is
+`changed-under-evidence`: unlike the earlier failed diagonally normalized
+divisor-progression Gershgorin route, exact whitening of this six-coordinate
+aggregate produces strong finite row margins.
+
+The uniform entrywise estimates are OPEN. The next proof target is
+`W_ii-sum_(j!=i)|W_ij|>=1/2` for all six rows at project scale. This finite
+certificate does not prove the lower-frame theorem, signed prime correlation,
+or Goldbach.
