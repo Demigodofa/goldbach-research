@@ -88,7 +88,10 @@ def _family_arithmetic_core_packet(
 def prime_class_core_receipt(
         scale_modulus=127,
         families=((77, 65, 1), (143, 35, 2)),
-        minimum_reinforcement_fraction=.25, tolerance=1e-12):
+        minimum_reinforcement_fraction=.25,
+        polynomial_cycle_multiples=(1, 10, 100),
+        maximum_final_cycle_relative_difference=.10,
+        tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
     if (type(scale_modulus) is not int or scale_modulus < 3
@@ -101,6 +104,15 @@ def prime_class_core_receipt(
         raise ValueError("require two odd conductor-partner families")
     if not 0 < minimum_reinforcement_fraction <= 1:
         raise ValueError("reinforcement fraction must lie in (0,1]")
+    polynomial_cycle_multiples = tuple(polynomial_cycle_multiples)
+    if (not polynomial_cycle_multiples
+            or any(type(value) is not int or value < 1
+                   for value in polynomial_cycle_multiples)
+            or tuple(sorted(set(polynomial_cycle_multiples)))
+            != polynomial_cycle_multiples):
+        raise ValueError("cycle multiples must be strictly increasing")
+    if not 0 <= maximum_final_cycle_relative_difference <= 1:
+        raise ValueError("final-cycle difference must lie in [0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -132,15 +144,24 @@ def prime_class_core_receipt(
     unit_classes = tuple(
         residue for residue in range(1, period)
         if math.gcd(residue, period) == 1)
+
+    def direction_product(frame_modulus):
+        logarithm = math.log(frame_modulus * baseline["ell_freeze"])
+        powers = np.asarray((logarithm ** 2, logarithm, 1.0))
+        factors = []
+        for conductor, partner, _ in families:
+            conductor_coordinate = np.asarray(support[conductor]) * powers
+            partner_coordinate = np.asarray(support[2 * partner]) * powers
+            lifted_coordinate = _symmetric_pair_coordinates(
+                conductor_coordinate[None, :],
+                partner_coordinate[None, :])[0]
+            factors.append(float(lifted_coordinate @ direction))
+        return factors[0] * factors[1]
+
     signed_cores = []
     representative_errors = []
-    direction_products = []
     for residue in unit_classes:
         packets = []
-        direction_factors = []
-        logarithm = math.log(
-            (residue + period) * baseline["ell_freeze"])
-        powers = np.asarray((logarithm ** 2, logarithm, 1.0))
         for conductor, partner, _ in families:
             first, unexpected_first = _family_arithmetic_core_packet(
                 residue + period, conductor, partner)
@@ -150,13 +171,6 @@ def prime_class_core_receipt(
                 raise ArithmeticError("family has lower-denominator cells")
             representative_errors.append(float(np.max(np.abs(first - second))))
             packets.append(first)
-            conductor_coordinate = np.asarray(support[conductor]) * powers
-            partner_coordinate = np.asarray(support[2 * partner]) * powers
-            lifted_coordinate = _symmetric_pair_coordinates(
-                conductor_coordinate[None, :],
-                partner_coordinate[None, :])[0]
-            direction_factors.append(float(lifted_coordinate @ direction))
-        direction_products.append(direction_factors[0] * direction_factors[1])
         contributions = _packet_lag_contributions(
             packets[0], packets[1], baseline["row_count"],
             baseline["row_count"])
@@ -172,6 +186,39 @@ def prime_class_core_receipt(
     mean_absolute = float(np.mean(np.abs(signed_cores)))
     reinforcement_fraction = (
         complete_mean / mean_absolute if mean_absolute else None)
+    polynomial_cycle_rows = []
+    for multiple in polynomial_cycle_multiples:
+        weights = np.asarray(tuple(
+            direction_product(multiple * period + residue)
+            for residue in unit_classes))
+        weighted_absolute = float(np.dot(weights, np.abs(signed_cores)))
+        weighted_signed = float(np.dot(weights, signed_cores))
+        weighted_ratio = (
+            weighted_signed / weighted_absolute
+            if weighted_absolute else None)
+        polynomial_cycle_rows.append({
+            "cycle_multiple": multiple,
+            "cycle_start": multiple * period,
+            "minimum_direction_polynomial_product": float(np.min(weights)),
+            "maximum_direction_polynomial_product": float(np.max(weights)),
+            "weighted_signed_core_sum": weighted_signed,
+            "weighted_absolute_core_sum": weighted_absolute,
+            "weighted_signed_to_absolute_ratio": weighted_ratio,
+        })
+    final_weighted_ratio = polynomial_cycle_rows[-1][
+        "weighted_signed_to_absolute_ratio"]
+    final_cycle_relative_difference = (
+        abs(final_weighted_ratio - reinforcement_fraction)
+        / abs(reinforcement_fraction)
+        if reinforcement_fraction not in (None, 0) else None)
+    polynomial_stability_passes = bool(
+        all(row["minimum_direction_polynomial_product"] > 0
+            and row["weighted_signed_to_absolute_ratio"] is not None
+            and row["weighted_signed_to_absolute_ratio"] > 0
+            for row in polynomial_cycle_rows)
+        and final_cycle_relative_difference is not None
+        and final_cycle_relative_difference
+        <= maximum_final_cycle_relative_difference)
     periodicity_passes = bool(
         max(source_errors) <= tolerance
         and max(representative_errors) <= tolerance)
@@ -195,12 +242,25 @@ def prime_class_core_receipt(
         "positive_signed_core_class_fraction": float(np.mean(signed_cores > 0)),
         "minimum_class_signed_core": float(np.min(signed_cores)),
         "maximum_class_signed_core": float(np.max(signed_cores)),
-        "minimum_direction_polynomial_product": min(direction_products),
-        "maximum_direction_polynomial_product": max(direction_products),
+        "polynomial_cycle_multiples": polynomial_cycle_multiples,
+        "maximum_final_cycle_relative_difference": (
+            maximum_final_cycle_relative_difference),
+        "polynomial_cycle_rows": tuple(polynomial_cycle_rows),
+        "final_cycle_to_unweighted_relative_difference": (
+            final_cycle_relative_difference),
+        "minimum_direction_polynomial_product": min(
+            row["minimum_direction_polynomial_product"]
+            for row in polynomial_cycle_rows),
+        "maximum_direction_polynomial_product": max(
+            row["maximum_direction_polynomial_product"]
+            for row in polynomial_cycle_rows),
         "direction_polynomial_product_positive_on_representatives": bool(
-            min(direction_products) > 0),
+            all(row["minimum_direction_polynomial_product"] > 0
+                for row in polynomial_cycle_rows)),
         "normalized_arithmetic_core_periodicity_proved": periodicity_passes,
         "prime_class_reinforcement_hypothesis_passes": reinforcement_passes,
+        "polynomial_weight_stability_hypothesis_passes": (
+            polynomial_stability_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }

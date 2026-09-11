@@ -10417,3 +10417,46 @@ positive and `rho_(100*10010)` is within ten percent, relatively, of the
 unweighted `.04768611334520251`.  A negative value or failed convergence
 rejects stable polynomial pairing while preserving both the exact periodic
 core and the polynomial factors separately.
+
+## 2026-09-11: the polynomial weights preserve the small positive class bias
+
+Put the two real direction-polynomial factors back through their product
+`W_X(u)`.  For the three predeclared finite cycle starts, the normalized
+weighted ratios are
+
+- `X=10010`: `rho_X=.05348221487796224`;
+- `X=100100`: `rho_X=.04827637995548549`;
+- `X=1001000`: `rho_X=.047730241043616964`.
+
+Every direction-product weight and every ratio is positive.  At the third
+cycle the ratio differs from the unweighted periodic-core value
+`.04768611334520251` by only `.0009253783820671911` relatively, clearing the
+predeclared `.10` tolerance.  The corresponding weight ranges narrow from
+`[7.612047144830494e-10,3.4188023372203736e-9]` on the first cycle to
+`[7.257755357808451e-7,7.329647870216341e-7]` on the third.
+
+The packet cross term at each representative is exactly `W_X(u)S(u)` because
+each direction scalar is constant across its family packet.  Polynomial
+weights therefore pair cleanly with the new periodic arithmetic component;
+they neither destroy nor reverse its small positive complete-class bias.
+
+Independent review verified the direction-polynomial reconstruction,
+weighted normalization, all three ratios and weight signs, gate, tests, and
+scope.  Three focused tests pass normally and under Python optimization.
+Reviewer feedback also removed `asymptotic` from the finite-comparison field
+names and made custom cycle multiples strictly increasing.
+
+Curiosity status: `interesting-finite-pass`, novelty `new-to-this-task`.
+Preserve the exact polynomial-times-periodic representation and the observed
+stability over these three cycles.  This is still uniform averaging over unit
+classes at one fixed frozen row and direction.  It samples no primes, includes
+no prime-distribution error, and proves no signed prime-correlation estimate.
+
+The next bounded question tests whether the small positive class coefficient
+is merely a feature of the `R=127` interval kernel.  Keep the same exact
+arithmetic packets and compute complete-class signed-to-absolute ratios with
+row windows `[R,2R)` at `R=127,251,337`; all three retain `Q=10010` in the
+same high-denominator regime `Q>28R`.  Kernel-window stability passes only if
+every ratio is positive and at least half the `R=127` value, namely
+`.023843056672601255`.  Failure preserves the periodic packet identity while
+rejecting a stable favorable sign across these admissible row scales.
