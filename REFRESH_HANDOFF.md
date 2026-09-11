@@ -8066,3 +8066,20 @@ write `C_Q` as its explicit reduced-residue convolution and seek a
 Ramanujan/Parseval bound, then test the quotient at the next project scale.
 No such bound is proved yet; varying logs, prime aggregation, the signed
 prime-correlation estimate, and Goldbach remain OPEN.
+
+### Next project-scale falsifier
+
+The exact packet calculation was extended to the next project fixture
+`m=503`, `75<=ell<=149`, frozen at `ell=112`, with `(V,B]=(4,29]` and actual
+signs. The raw `Q>mA` pair envelope is `9.22626` times complete energy. Exact-
+`Q` grouping reduces it to `.595735`; the within-`Q` residual is `.064570`,
+the across-`Q` residual is `.091262`, and the final net/envelope ratio is
+`.005893`. Boundary reconstruction error is below `2.5e-15`.
+
+Independent reproduction returned PASS. The proposed packet falsifier is not
+triggered because `.595735<1`, but this is almost twice the earlier
+`.255--.321` range. It weakens any constant-small heuristic and gives no
+asymptotic trend. The next bounded test should examine whether the growth comes
+from a small set of `Q` packets or a broad shift before attempting a proof.
+The first uncaptured run produced no usable receipt and was not treated as
+evidence; only the captured rerun above is recorded. No process is running.

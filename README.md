@@ -419,3 +419,7 @@ after summing within each denominator, and the resulting packet absolute sum
 is `0.255--0.321` times complete energy. This suggests the concrete packet
 target `sum_(Q>mA)|C_Q| <= N^epsilon E_complete`; it is reviewed finite
 evidence, not yet a uniform Ramanujan/Parseval bound.
+
+At the next project fixture `m=503`, that packet quotient is `.595735`: still
+below one, but nearly twice the earlier range. The exact result passed review
+and keeps the route alive while weakening any constant-small interpretation.

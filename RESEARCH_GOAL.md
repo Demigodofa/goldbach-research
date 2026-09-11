@@ -6697,3 +6697,10 @@ uniformly. The new concrete target is
 `sum_(Q>mA)|C_Q| <= N^epsilon sum_d H_m(d)|S_d|^2`; a power-growing quotient
 falsifies it. Derive the exact reduced-residue convolution for `C_Q` and test
 the next project scale before attempting prime aggregation.
+
+At the next project fixture `m=503`, the reviewed exact packet quotient is
+`.595735`, up from `.255--.321` in the smaller common-`B` fixtures but still
+below the falsification threshold `1`. Within-`Q` cancellation leaves `.06457`
+of the pair envelope and across-`Q` cancellation leaves `.09126` of that
+residual. This is one finite result, not evidence of boundedness. Next locate
+whether the increase is concentrated in a few exact `Q` packets.
