@@ -9297,3 +9297,28 @@ measure pair/group nonadditivity among `55,77,78,143`, comparing the joint
 shift with the sum of individual shifts. This finite ablation proves no
 uniform effective-scale formula, lower frame, signed prime correlation, or
 Goldbach result.
+
+## 2026-09-11: upper-cluster pairs interact nonlinearly
+
+The follow-up in `lcm_sawtooth_signed_conductor_ablation.py` tests the cluster
+`{55,77,78,143}`. For an omitted set `S`, write
+`Delta(S)=t_{omit S}-t_baseline` and
+`I(d,e)=Delta({d,e})-Delta(d)-Delta(e)`. The predeclared test requires both
+`|I|>=.00025` and
+`|I|/(|Delta(d)|+|Delta(e)|)>=.25` for at least one pair.
+
+Four of six pairs pass: `(55,143)`, `(77,78)`, `(77,143)`, and `(78,143)`.
+The strongest absolute interaction is `(77,143)`. Its additive single-effect
+prediction is only `+.0001475097`, while its joint shift is `+.0018503045`,
+so `I=+.0017027948`, or `.9803545` of the summed single-effect magnitudes.
+The `(77,78)` interaction instead opposes their additive negative shift,
+giving finite evidence for both reinforcement and cancellation inside the
+recomputed matrix/whitening/Schur pipeline.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. The single-conductor
+failure hid a real distributed nonlinear effect. This still does not locate
+whether the nonadditivity enters chiefly through the active/full forms, the
+recomputed arithmetic whitening, or the Schur inverse. It is not a uniform
+estimate and proves no lower frame, signed prime correlation, or Goldbach
+claim. A sharper next question is to freeze the baseline whitening and repeat
+the pair test, separating basis feedback from the signed Schur interaction.
