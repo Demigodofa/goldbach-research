@@ -35,37 +35,30 @@ current contract control scope. See `notes/six-hour-renewal-2026-09-08.md`.
 
 ## Current mathematical checkpoint (2026-09-10)
 
-The same-complete-row active/full matrix inequality is proved for the critical
-near-cutoff squarefree divisor band. The proof combines a triangular CRT density,
-an exact endpoint/log discrepancy bound, and a centering bound. The corresponding
-pairwise estimate also holds between any two complete rows, and one dyadic block
-of row lags can be summed without losing a factor equal to its number of pairs.
-Rectangular cross-band bounds, signed prime-row CRT cancellation, and a
-Mobius-inversion lower frame extend this control to the union
-`N^.15<a<=N^(.295-delta)` for every fixed `delta>0`.
+The assembled divisor-frame argument still reaches
+`N^.15<a<=N^(.295-delta)` for every fixed `delta>0`. Later exact
+factorizations isolate the dominant unresolved high-conductor error into
+squarefree conductor, common-part, and residual coordinates.
 
-The exact CRT endpoint error has now been isolated as a signed fractional-part
-difference.  For each divisor pair it has mean zero over a complete
-`lcm(a,b)` block of rows.  Finite generalized-eigenvalue tests show strong
-row-average cancellation even against arbitrary complex coefficients, but a
-proved resonant incomplete-row example shows that full-period cancellation
-alone gives no uniform power saving.  The current concrete question is whether
-the joint prime-modulus and row average supplies a bilinear exponential-sum
-bound strong enough to cross the `N^.245` endpoint.  That bound is now proved:
-the endpoint component is power-small through `B<N^(49/150)`.  The next
-barrier is the exact-full-frame perturbation at `B=N^.295`.
+For every fixed common part `c|d` with `d*c>B*V`, the residual collapse is now
+proved polylogarithmic:
 
-Joint row-prime cancellation also improves the aggregate exact full-frame
-comparison through `B<N^(109/300)`.  This does not yet improve the completely
-assembled range: lags near the row-block edge have fewer base-row pairs, and
-the aggregate frame does not supply the termwise geometric-energy lower bound
-used by the existing lag argument.  The assembled checkpoint remains
-`N^.295-delta` pending a weighted all-lag frame lemma.
+    |sum_r K_(d,c,r)|^2
+      <= (1+log(B^2/(d*c)))^6 sum_r |K_(d,c,r)|^2.
 
-This closes a genuine component of the method. It does not prove the signed
-prime-correlation estimate, control the larger divisor scales, handle `d>1`,
-or prove Goldbach. Read the final sections of `REFRESH_HANDOFF.md` for the
-current theorem, tests, independent-review boundary, and next question.
+The proof uses a retained `r=1` base pair, at most `3^omega(r)` residual
+assignments, and a `tau_3` harmonic bound. Under the stronger condition
+`d>B*V` (and `X>B`), a second theorem gives `2^omega(c)A_c<=A_1` and
+therefore controls the separated base energy by `(5/4)^omega(d)A_1^2`.
+Independent review passed both arguments.
+
+The actual common layers carry Mobius signs. Exact project-scaled witnesses
+show their combined base can nearly vanish, refuting a proposed pointwise
+`4^omega(d)` comparison. The remaining problem is an aggregate or
+pre-diagonal mechanism that controls this signed common-layer interference.
+The signed prime-correlation estimate and Goldbach remain open. Read the final
+sections of `REFRESH_HANDOFF.md` and `RESEARCH_GOAL.md` for exact quantifiers,
+witnesses, validation, and the next question.
 
 ## Starting facts
 

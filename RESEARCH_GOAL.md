@@ -6442,3 +6442,39 @@ next target is extending the base-pair domination through the interacting
 combined residual diagonal. The incomplete boundary, signed prime
 correlation, and Goldbach remain open; complete assembly remains
 `.295-delta`.
+
+### 2026-09-10 continuation: fixed common layers are individually polylogarithmic
+
+For every squarefree conductor `d`, fixed `c|d`, and retained decomposition
+`a=d_L*c*alpha`, `b=d_R*c*beta` with `d=d_L*d_R*c`, `a,b in (V,B]`, `X>B`,
+and `d*c>B*V`, the corresponding base pair is also retained. Therefore
+
+`|A_(d,c,r)|<=3^omega(r)A_(d,c,1)`, `r<=B^2/(d*c)`,
+
+and the collapsed-to-diagonal quotient inside that fixed common layer is at
+most `(1+log(B^2/(d*c)))^6`. Independent review returned PASS. The theorem
+does not control cancellation when distinct `c` layers occupy the same
+residual coordinate.
+
+The tested bridge was the high-conductor pointwise base inequality
+
+`sum_c A_(d,c,1)^2 <= 4^omega(d)
+ |sum_c mu(c)A_(d,c,1)|^2`, `d>B*V`.
+
+It is REFUTED inside its stated range. At `M=16001`, `V=11`, `B=190`, and
+`d=2310>B*V`, the inequality fails by factor `4.53569094`. At `M=128021`,
+`d=15015`, it fails by factor `21.24873`; the raw ratio is `21758.70168`.
+Both witnesses lie below the selected dominant dyadic block, which explains
+why the first narrow sweep missed them.
+
+A weaker theorem survives: splitting every prime of `c` left or right injects
+`2^omega(c)` copies of each fixed-common base assignment into no-common base
+assignments with no smaller log weight. Thus
+
+`2^omega(c)A_(d,c,1)<=A_(d,1,1)` and
+`sum_c A_(d,c,1)^2<=(5/4)^omega(d)A_(d,1,1)^2`.
+
+This controls separated base energy but cannot stop the actual Mobius-signed
+base sum from approaching zero. The next approach must average that
+cancellation over conductors or absorb it before diagonalization. The
+residual lift, signed prime correlation, and Goldbach remain open.

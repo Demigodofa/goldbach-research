@@ -21,6 +21,7 @@ from lcm_sawtooth_exact_gcd_factorization import (
     _squarefree_divisors_with_complement_mobius,
     sawtooth_gcd_mobius_transform,
 )
+from lcm_sawtooth_high_d_assignment import _squarefree_prime_factors
 from lcm_sawtooth_structured_divisor_sum import _coefficient_data
 from mobius_covariance_endpoint_probe import _prime_flags
 
@@ -59,6 +60,41 @@ def common_layer_operator_probe(
                         layers.setdefault(divisor, {}).setdefault(q, {}).get(
                             common_part, 0.0) + sign_aligned_term)
 
+    maximum_all_high_base_ratio = 0.0
+    maximum_all_high_base_witness = None
+    for divisor, q_layers in layers.items():
+        if divisor <= divisor_lower * divisor_upper:
+            continue
+        weight = sawtooth_gcd_mobius_transform(modulus, divisor)
+        if weight <= 0 or divisor not in q_layers:
+            continue
+        common_layers = q_layers[divisor]
+        base_actual = sum(
+            int(mobius[common]) * value
+            for common, value in common_layers.items())
+        base_separated = sum(value ** 2 for value in common_layers.values())
+        base_ratio = (
+            base_separated / base_actual ** 2
+            if base_actual else float("inf"))
+        omega_divisor = len(_squarefree_prime_factors(divisor))
+        normalized_base_ratio = base_ratio / 4 ** omega_divisor
+        if normalized_base_ratio > maximum_all_high_base_ratio:
+            maximum_all_high_base_ratio = normalized_base_ratio
+            maximum_all_high_base_witness = {
+                "modulus": modulus,
+                "divisor": divisor,
+                "omega_divisor": omega_divisor,
+                "base_actual": base_actual,
+                "base_separated": base_separated,
+                "separated_over_actual": base_ratio,
+                "separated_over_4omega_actual": normalized_base_ratio,
+                "positive_sawtooth_weight": weight,
+                "nonzero_common_layers": tuple(sorted(
+                    (common, float(value))
+                    for common, value in common_layers.items()
+                    if value)),
+            }
+
     diagonal_by_block = {}
     for divisor, q_layers in layers.items():
         if divisor <= divisor_upper or len(q_layers) < 2:
@@ -92,8 +128,14 @@ def common_layer_operator_probe(
     size = len(active_common_parts)
     collapsed_gram = np.zeros((size, size), dtype=float)
     diagonal_gram = np.zeros((size, size), dtype=float)
+    base_diagonal_gram = np.zeros((size, size), dtype=float)
     absolute_collapsed_gram = np.zeros((size, size), dtype=float)
     absolute_diagonal_gram = np.zeros((size, size), dtype=float)
+    maximum_base_separated_over_actual = 0.0
+    maximum_base_separated_over_4omega_actual = 0.0
+    maximum_base_witness = None
+    maximum_high_base_separated_over_4omega_actual = 0.0
+    maximum_high_base_witness = None
     coordinate_count = 0
     for divisor, q_layers in layers.items():
         if (divisor <= divisor_upper
@@ -106,13 +148,51 @@ def common_layer_operator_probe(
         coordinate_count += 1
         collapsed_vector = np.zeros(size, dtype=float)
         absolute_collapsed_vector = np.zeros(size, dtype=float)
-        for common_layers in q_layers.values():
+        for q, common_layers in q_layers.items():
             residual_vector = np.zeros(size, dtype=float)
             for common, value in common_layers.items():
                 residual_vector[index[common]] = value
             collapsed_vector += residual_vector
             diagonal_gram += weight * np.outer(
                 residual_vector, residual_vector)
+            if q == divisor:
+                base_diagonal_gram += weight * np.outer(
+                    residual_vector, residual_vector)
+                base_actual = sum(
+                    int(mobius[common]) * residual_vector[position]
+                    for common, position in index.items())
+                base_separated = float(residual_vector @ residual_vector)
+                base_ratio = (
+                    base_separated / base_actual ** 2
+                    if base_actual else float("inf"))
+                maximum_base_separated_over_actual = max(
+                    maximum_base_separated_over_actual, base_ratio)
+                omega_divisor = len(_squarefree_prime_factors(divisor))
+                normalized_base_ratio = base_ratio / 4 ** omega_divisor
+                base_witness = {
+                    "modulus": modulus,
+                    "divisor": divisor,
+                    "omega_divisor": omega_divisor,
+                    "base_actual": base_actual,
+                    "base_separated": base_separated,
+                    "separated_over_actual": base_ratio,
+                    "separated_over_4omega_actual": normalized_base_ratio,
+                    "nonzero_common_layers": tuple(
+                        (common, float(residual_vector[position]))
+                        for common, position in index.items()
+                        if residual_vector[position]),
+                }
+                if (normalized_base_ratio
+                        > maximum_base_separated_over_4omega_actual):
+                    maximum_base_separated_over_4omega_actual = (
+                        normalized_base_ratio)
+                    maximum_base_witness = base_witness
+                if (divisor > divisor_lower * divisor_upper
+                        and normalized_base_ratio
+                        > maximum_high_base_separated_over_4omega_actual):
+                    maximum_high_base_separated_over_4omega_actual = (
+                        normalized_base_ratio)
+                    maximum_high_base_witness = base_witness
             absolute_residual_vector = np.abs(residual_vector)
             absolute_collapsed_vector += absolute_residual_vector
             absolute_diagonal_gram += weight * np.outer(
@@ -206,6 +286,10 @@ def common_layer_operator_probe(
         actual_coefficients @ collapsed_gram @ actual_coefficients)
     actual_diagonal = float(
         actual_coefficients @ diagonal_gram @ actual_coefficients)
+    separated_diagonal = float(np.trace(diagonal_gram))
+    separated_base_diagonal = float(np.trace(base_diagonal_gram))
+    actual_base_diagonal = float(
+        actual_coefficients @ base_diagonal_gram @ actual_coefficients)
     actual_ratio = actual_numerator / actual_diagonal
     whitened_actual = (
         np.diag(eigenvalues ** .5) @ basis.T @ actual_coefficients)
@@ -247,10 +331,41 @@ def common_layer_operator_probe(
         "no_common_layer_separated_diagonal_fraction": no_common_layer[
             "separated_diagonal_fraction"],
         "actual_mobius_common_layer_quotient": actual_ratio,
+        "separated_common_layer_diagonal": separated_diagonal,
+        "actual_combined_common_layer_diagonal": actual_diagonal,
+        "separated_over_actual_common_layer_diagonal": (
+            separated_diagonal / actual_diagonal),
+        "separated_common_layer_base_diagonal": separated_base_diagonal,
+        "actual_combined_common_layer_base_diagonal": actual_base_diagonal,
+        "separated_over_actual_common_layer_base_diagonal": (
+            separated_base_diagonal / actual_base_diagonal),
+        "actual_base_diagonal_fraction": (
+            actual_base_diagonal / actual_diagonal),
+        "maximum_pointwise_base_separated_over_actual": (
+            maximum_base_separated_over_actual),
+        "maximum_pointwise_base_separated_over_4omega_actual": (
+            maximum_base_separated_over_4omega_actual),
+        "maximum_pointwise_base_witness": maximum_base_witness,
+        "pointwise_base_4omega_falsified_in_measurement": (
+            maximum_base_separated_over_4omega_actual > 1),
+        "maximum_high_conductor_pointwise_base_separated_over_4omega_actual": (
+            maximum_high_base_separated_over_4omega_actual),
+        "maximum_high_conductor_pointwise_base_witness": (
+            maximum_high_base_witness),
+        "high_conductor_pointwise_base_4omega_falsified_in_measurement": (
+            maximum_high_base_separated_over_4omega_actual > 1),
+        "maximum_all_high_conductor_pointwise_base_separated_over_4omega_actual": (
+            maximum_all_high_base_ratio),
+        "maximum_all_high_conductor_pointwise_base_witness": (
+            maximum_all_high_base_witness),
+        "all_high_conductor_pointwise_base_4omega_falsified_in_measurement": (
+            maximum_all_high_base_ratio > 1),
+        "pointwise_base_4omega_bound_proved": False,
         "actual_extremizer_squared_overlap": squared_overlap,
         "common_layer_generalized_operator_computed": True,
         "large_common_part_singleton_tail_proved": True,
         "common_layer_subpower_bound_proved": False,
+        "common_layer_diagonal_interference_bound_proved": False,
     }
 
 
@@ -276,6 +391,18 @@ def project_common_layer_operator_probe(
     moduli = tuple(available[index] for index in indices)
     cells = tuple(common_layer_operator_probe(
         modulus, ell, divisor_lower, divisor_upper) for modulus in moduli)
+    maximum_base_cell = max(
+        cells,
+        key=lambda cell: cell[
+            "maximum_pointwise_base_separated_over_4omega_actual"])
+    maximum_high_base_cell = max(
+        cells,
+        key=lambda cell: cell[
+            "maximum_high_conductor_pointwise_base_separated_over_4omega_actual"])
+    maximum_all_high_base_cell = max(
+        cells,
+        key=lambda cell: cell[
+            "maximum_all_high_conductor_pointwise_base_separated_over_4omega_actual"])
 
     def summary(key):
         values = tuple(float(cell[key]) for cell in cells)
@@ -319,7 +446,35 @@ def project_common_layer_operator_probe(
             "active_common_part_count"),
         "retained_condition_min_median_max": summary(
             "diagonal_gram_condition_on_retained_space"),
+        "maximum_pointwise_base_ratio_min_median_max": summary(
+            "maximum_pointwise_base_separated_over_actual"),
+        "maximum_pointwise_base_4omega_normalized_min_median_max": summary(
+            "maximum_pointwise_base_separated_over_4omega_actual"),
+        "maximum_pointwise_base_witness": maximum_base_cell[
+            "maximum_pointwise_base_witness"],
+        "pointwise_base_4omega_falsified_in_measurement": any(
+            cell["pointwise_base_4omega_falsified_in_measurement"]
+            for cell in cells),
+        "maximum_high_conductor_pointwise_base_4omega_normalized_min_median_max": summary(
+            "maximum_high_conductor_pointwise_base_separated_over_4omega_actual"),
+        "maximum_high_conductor_pointwise_base_witness": (
+            maximum_high_base_cell[
+                "maximum_high_conductor_pointwise_base_witness"]),
+        "high_conductor_pointwise_base_4omega_falsified_in_measurement": any(
+            cell[
+                "high_conductor_pointwise_base_4omega_falsified_in_measurement"]
+            for cell in cells),
+        "maximum_all_high_conductor_pointwise_base_4omega_normalized_min_median_max": summary(
+            "maximum_all_high_conductor_pointwise_base_separated_over_4omega_actual"),
+        "maximum_all_high_conductor_pointwise_base_witness": (
+            maximum_all_high_base_cell[
+                "maximum_all_high_conductor_pointwise_base_witness"]),
+        "all_high_conductor_pointwise_base_4omega_falsified_in_measurement": any(
+            cell[
+                "all_high_conductor_pointwise_base_4omega_falsified_in_measurement"]
+            for cell in cells),
         "finite_project_common_layer_operator_measurement": True,
+        "pointwise_base_4omega_bound_proved": False,
         "large_common_part_singleton_tail_proved": True,
         "common_layer_subpower_bound_proved": False,
     }

@@ -7489,3 +7489,76 @@ layers: determine whether the same base-pair domination survives after common
 ownership, and whether their separated residual diagonals are controlled by
 the actual combined diagonal. The signed prime-correlation estimate and
 Goldbach remain OPEN.
+
+## 2026-09-10: the polylog theorem extends to every fixed common layer
+
+Fix a squarefree high conductor `d`, a common part `c|d`, and a three-way
+assignment `d=d_L*d_R*c`. Write a retained pair as
+
+`a=d_L*c*alpha, b=d_R*c*beta, r=lcm(alpha,beta)`.
+
+The base factors have product `d*c`. Under the exact hard-range hypotheses
+`a,b in (V,B]`, `X>B`, and `d*c>B*V`, any occurring residual pair forces
+both base factors `d_L*c` and `d_R*c` into `(V,B]`. Thus its `r=1` base pair
+is retained. Each prime of squarefree `r` again has at most three states,
+and every positive polynomial-log product is bounded by its base product.
+After the fixed common-layer sign is factored, this proves
+
+`|A_(d,c,r)| <= 3^omega(r) A_(d,c,1)`
+
+and `r<=B^2/(d*c)`. Consequently, within every fixed `c` layer,
+
+`|sum_r K_(d,c,r)|^2 / sum_r |K_(d,c,r)|^2
+ <= (1+log(B^2/(d*c)))^6`.
+
+The statement is vacuous when `d*c>B^2`. Independent review checked the
+base-support implication, state count, residual limit, signs, diagonal
+interpretation, implementation, and focused normal/optimized tests and
+returned PASS. This strictly extends the previous `c=1` theorem. It controls
+each separated common layer but does not yet compare their separated
+diagonal with the actual signed combined diagonal.
+
+The exact `r=1` common-layer Gram slice was added to test the missing
+comparison. At the central project rows `M=16001,32003,64007,128021`, the
+separated/actual base-diagonal ratios are respectively
+`1.99108,2.00960,2.10025,2.15902`; the actual base slice carries
+`.78935,.77922,.77892,.77852` of the actual residual diagonal. At larger
+central rows `M=256019,512009`, the separated/actual base ratios are
+`1.43748,1.47862`. These are finite measurements only.
+
+A sharper candidate was given the executable falsifier
+
+`sum_c A_(d,c,1)^2 <= 4^omega(d)
+ |sum_c mu(c) A_(d,c,1)|^2` for every `d>B*V`.
+
+and is now REFUTED even in the high-conductor range. At the exact
+project-scaled row `M=16001`, `ell=1252`, `V=11`, `B=190`, the squarefree
+coordinate `d=2310>B*V=2090` has normalized ratio `4.53569094`. Its six
+nonzero common-layer magnitudes nearly cancel in the Mobius direction. At
+`M=128021`, `d=15015`, the raw separated/actual ratio is `21758.70168`, or
+`21.24873` after division by `4^omega(d)`; any replacement `C^omega(d)` would
+need `C>=7.371` already at this row. The earlier dominant-dyadic-block sweep
+missed both witnesses, so the code now separately reports the whole eligible
+high-conductor range.
+
+The same mapping proves a useful weaker theorem. Split each prime of `c`
+between the left and right factor. The resulting `2^omega(c)` distinct
+`c=1` base assignments stay in `(V,B]` because `d>B*V`, and their log weights
+are no smaller. Therefore
+
+`2^omega(c) A_(d,c,1) <= A_(d,1,1)`,
+
+which sums to
+
+`sum_c A_(d,c,1)^2 <= (5/4)^omega(d) A_(d,1,1)^2`
+
+and `sum_c A_(d,c,1) <= (3/2)^omega(d) A_(d,1,1)`. This rigorously controls
+the separated base energy by the no-common base. It cannot lower-bound the
+signed combined base, which can be arbitrarily close to a polynomial root in
+`log X`; hard-range geometry alone therefore cannot finish the common-layer
+interference comparison.
+
+The next <=30-minute target is an aggregate comparison that does not divide
+by the signed base at each conductor, or a direct residual-level transform
+that absorbs the common-layer alternation before taking a diagonal. The
+signed prime-correlation estimate and Goldbach remain OPEN.
