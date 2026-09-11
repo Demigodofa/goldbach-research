@@ -46,6 +46,30 @@ def _relative_best_scalar_residual(source, target):
     return complex(scalar), residual
 
 
+def _least_absolute_residues(values, modulus):
+    residues = np.asarray(values, dtype=np.int64) % modulus
+    return np.where(2 * residues > modulus, residues - modulus, residues)
+
+
+def _best_cyclic_translation_phase(indices, target, modulus):
+    best_shift = None
+    best_phase = None
+    best_residual = float("inf")
+    for shift in range(modulus):
+        character = np.exp(2j * np.pi * indices * shift / modulus)
+        correlation = np.vdot(character, target)
+        phase = (correlation / abs(correlation)
+                 if abs(correlation) > 0.0 else 1.0 + 0.0j)
+        residual = float(
+            np.linalg.norm(target - phase * character)
+            / np.linalg.norm(target))
+        if residual < best_residual:
+            best_shift = shift
+            best_phase = phase
+            best_residual = residual
+    return best_shift, best_phase, best_residual
+
+
 def doubled_partner_geometric_receipt(
         prime_modulus, odd_partner, tolerance=1e-12):
     """Verify the primitive lift and half-interval geometric identity."""
@@ -105,6 +129,19 @@ def doubled_partner_geometric_receipt(
     diagonal_error = float(np.max(
         np.abs(direct - diagonal_prediction)
         / np.maximum(1.0, np.abs(direct))))
+    unit_multiplier = diagonal_multiplier / np.abs(diagonal_multiplier)
+    numerator_center = _least_absolute_residues(
+        -lifted, 2 * odd_partner)
+    denominator_center = _least_absolute_residues(
+        base * half_length, odd_partner)
+    centered_unit_prediction = np.exp(1j * np.pi * (
+        numerator_center / (2 * odd_partner)
+        - denominator_center / odd_partner))
+    centered_unit_error = float(np.max(np.abs(
+        unit_multiplier - centered_unit_prediction)))
+    (best_translation, best_translation_phase,
+     best_translation_residual) = _best_cyclic_translation_phase(
+         lifted, unit_multiplier, 2 * odd_partner)
     scalar, scalar_residual = _relative_best_scalar_residual(
         base_geometric, direct)
     return {
@@ -124,6 +161,13 @@ def doubled_partner_geometric_receipt(
         "base_half_interval_factorization_maximum_relative_error": (
             base_half_error),
         "diagonal_transfer_maximum_relative_error": diagonal_error,
+        "centered_unit_phase_maximum_absolute_error": centered_unit_error,
+        "best_cyclic_translation_shift": best_translation,
+        "best_cyclic_translation_global_phase": (
+            float(best_translation_phase.real),
+            float(best_translation_phase.imag)),
+        "best_cyclic_translation_relative_residual": (
+            best_translation_residual),
         "half_interval_factorization_maximum_error": identity_error,
         "half_interval_factorization_maximum_relative_error": (
             identity_relative_error),
@@ -135,6 +179,10 @@ def doubled_partner_geometric_receipt(
             lift_is_bijection and identity_relative_error <= tolerance),
         "exact_residue_diagonal_transfer_test_passes": bool(
             base_half_error <= tolerance and diagonal_error <= tolerance),
+        "exact_centered_unit_phase_test_passes": bool(
+            centered_unit_error <= tolerance),
+        "single_cyclic_translation_phase_test_passes": bool(
+            best_translation_residual <= tolerance),
         "single_scalar_full_geometric_transfer_test_passes": bool(
             scalar_residual <= tolerance),
     }
@@ -185,6 +233,9 @@ def partner_doubling_transfer_receipt(
     exact_diagonal_transfer = all(
         row["exact_residue_diagonal_transfer_test_passes"]
         for row in geometric_rows)
+    exact_centered_unit_phase = all(
+        row["exact_centered_unit_phase_test_passes"]
+        for row in geometric_rows)
     scalar_geometric = all(
         row["single_scalar_full_geometric_transfer_test_passes"]
         for row in geometric_rows)
@@ -216,6 +267,15 @@ def partner_doubling_transfer_receipt(
         "minimum_base_half_factor_absolute_value": min(
             row["minimum_base_half_factor_absolute_value"]
             for row in geometric_rows),
+        "maximum_centered_unit_phase_absolute_error": max(
+            row["centered_unit_phase_maximum_absolute_error"]
+            for row in geometric_rows),
+        "minimum_best_cyclic_translation_relative_residual": min(
+            row["best_cyclic_translation_relative_residual"]
+            for row in geometric_rows),
+        "maximum_best_cyclic_translation_relative_residual": max(
+            row["best_cyclic_translation_relative_residual"]
+            for row in geometric_rows),
         "trivial_zero_geometric_channel_count": (
             len(geometric_rows) - len(nontrivial_geometric_rows)),
         "minimum_nontrivial_full_geometric_transfer_relative_residual": min(
@@ -228,6 +288,11 @@ def partner_doubling_transfer_receipt(
             exact_half_identity),
         "exact_residue_dependent_diagonal_transfer_proved": bool(
             exact_diagonal_transfer),
+        "exact_centered_unit_phase_proved": bool(
+            exact_centered_unit_phase),
+        "single_cyclic_translation_phase_all_channels_passes": bool(all(
+            row["single_cyclic_translation_phase_test_passes"]
+            for row in geometric_rows)),
         "single_scalar_geometric_transfer_all_channels_passes": bool(
             scalar_geometric),
         "single_scalar_polynomial_transfer_all_partners_passes": bool(

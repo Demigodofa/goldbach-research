@@ -3,6 +3,7 @@ import unittest
 import numpy as np
 
 from lcm_sawtooth_partner_doubling_transfer import (
+    _best_cyclic_translation_phase,
     doubled_partner_geometric_receipt,
     classify_diagonal_multiplier_phase_bias,
     classify_multiplier_component_attribution,
@@ -12,6 +13,18 @@ from lcm_sawtooth_partner_doubling_transfer import (
 
 
 class PartnerDoublingTransferTests(unittest.TestCase):
+    def test_cyclic_translation_fit_recognizes_exact_character(self):
+        modulus = 10
+        indices = np.asarray((1, 3, 7, 9))
+        global_phase = np.exp(.37j)
+        target = global_phase * np.exp(
+            2j * np.pi * indices * 4 / modulus)
+        shift, phase, residual = _best_cyclic_translation_phase(
+            indices, target, modulus)
+        self.assertEqual(shift, 4)
+        self.assertLess(abs(phase - global_phase), 1e-12)
+        self.assertLess(residual, 1e-12)
+
     def test_multiplier_attribution_uses_three_packet_states(self):
         base = np.asarray((1, 0, 0, 0, 0), dtype=complex)
         right = np.asarray((0, 1, 0, 0, 0), dtype=complex)
@@ -156,6 +169,9 @@ class PartnerDoublingTransferTests(unittest.TestCase):
             receipt["diagonal_transfer_maximum_relative_error"], 1e-12)
         self.assertTrue(receipt[
             "exact_residue_diagonal_transfer_test_passes"])
+        self.assertLess(
+            receipt["centered_unit_phase_maximum_absolute_error"], 1e-12)
+        self.assertTrue(receipt["exact_centered_unit_phase_test_passes"])
 
     def test_project_fixture_applies_predeclared_scalar_gate(self):
         receipt = partner_doubling_transfer_receipt()
@@ -166,6 +182,15 @@ class PartnerDoublingTransferTests(unittest.TestCase):
             "exact_primitive_lift_half_interval_identity_proved"])
         self.assertTrue(receipt[
             "exact_residue_dependent_diagonal_transfer_proved"])
+        self.assertTrue(receipt["exact_centered_unit_phase_proved"])
+        self.assertLess(
+            receipt["maximum_centered_unit_phase_absolute_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["minimum_best_cyclic_translation_relative_residual"],
+            .8106088136969579, places=10)
+        self.assertAlmostEqual(
+            receipt["maximum_best_cyclic_translation_relative_residual"],
+            1.1040286588007144, places=10)
         self.assertLess(
             receipt["maximum_base_half_factorization_relative_error"],
             1e-12)
@@ -204,6 +229,8 @@ class PartnerDoublingTransferTests(unittest.TestCase):
             "single_scalar_polynomial_transfer_all_partners_passes"])
         self.assertFalse(receipt[
             "single_scalar_partner_doubling_transfer_hypothesis_passes"])
+        self.assertFalse(receipt[
+            "single_cyclic_translation_phase_all_channels_passes"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
     def test_guards(self):

@@ -10302,3 +10302,60 @@ increment has the same sign and magnitude at least `.75` of the full
 `.052854952478380006` increment. This distinguishes reinforcement from the
 real cosine sign and from the additive phase without discarding the exact
 diagonal transport.
+
+## 2026-09-11: centered endpoint phases reject a single packet translation
+
+The order-sensitive split `T=R E` can be recombined without choosing an
+activation order.  Let `center_q(x)` be the least-absolute representative of
+`x mod q`.  Because each centered endpoint cosine is positive, the unit
+multiplier `U=T/|T|` is exactly
+
+`U=exp(pi*i*(center_(2d)(-k)/(2d)-center_d(a*s)/d))`,
+
+where `s=(p-1)/2` and `k` is the unique odd lift of primitive `a mod d`.
+The numerator cannot vanish because primitive `k` cannot equal `d mod 2d`,
+and the denominator cannot vanish for odd `d`.
+
+Across all 24 active primes and `d=35,65`, this centered prediction has
+maximum absolute error `7.082857453770448e-14`.  Thus the large Shapley
+interaction between `sign(R)` and `E` came from splitting one centered
+endpoint phase into order-dependent components; it is not evidence for two
+independent arithmetic causes.
+
+The stronger predeclared shortcut asked whether `U` is a single cyclic
+translation character on every lifted primitive vector, allowing one unit
+global phase and exhaustively searching
+
+`exp(2*pi*i*k*t/(2d))`, `t mod 2d`.
+
+It fails on every tested channel.  The best relative residual ranges from
+`.8106088136969579` to `1.1040286588007144`, far above `1e-12`.  The search
+was tightened before interpretation to allow only a unit global phase; its
+positive-control test recovers an exact synthetic translation character.
+
+Independent review verified the centered-phase algebra, nonvanishing
+factors, unique odd lift, exhaustive unit-phase fit, residual normalization,
+values, tests, and scope.  Seven focused tests pass normally and under Python
+optimization, and compilation passes.
+
+Curiosity status: `aha-candidate` for the exact centered unit phase and
+`changed-under-evidence` for a single translation.  Preserve the exact phase
+identity and the possibility of grouped or multi-character packet
+translations.  Reject only a termwise single cyclic-translation description
+on this finite fixture.  No favorable sign or signed prime-correlation
+estimate follows.
+
+The next bounded question pairs the surviving polynomial weights with a new
+arithmetic ingredient.  After dividing each `Q=10010` family packet by its
+explicit direction polynomial, its arithmetic shape should depend only on
+the prime frame `p mod 10010`.  First verify this periodicity and representative
+invariance within `1e-12`.  Then enumerate every reduced residue class
+`u mod 10010` and compute its normalized near-lag signed core `S(u)`.  The
+prime-class reinforcement hypothesis passes only if the complete-class mean
+is positive and
+
+`mean_u S(u) / mean_u |S(u)| >= .25`.
+
+Failure preserves the periodic decomposition and polynomial weights as tools,
+while rejecting the idea that the finite positive block is explained by a
+large positive reduced-prime-class main term.
