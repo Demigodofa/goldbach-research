@@ -38,7 +38,8 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertEqual(receipt["polynomial_cycle_multiples"], (1, 10, 100))
         self.assertEqual(
             receipt["maximum_final_cycle_relative_difference"], .10)
-        self.assertEqual(receipt["kernel_row_scales"], (28, 50, 75))
+        self.assertEqual(
+            receipt["kernel_row_scales"], (28, 34, 39, 50, 75))
         self.assertEqual(receipt["minimum_kernel_ratio_fraction"], .50)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
@@ -60,17 +61,25 @@ class PrimeClassCoreTests(unittest.TestCase):
             "polynomial_weight_stability_hypothesis_passes"])
         self.assertFalse(receipt[
             "fixed_q_kernel_window_stability_hypothesis_passes"])
+        self.assertFalse(receipt[
+            "fully_retained_kernel_window_stability_hypothesis_passes"])
+        self.assertEqual(
+            receipt["fully_retained_kernel_row_scales"], (28, 34, 39))
         self.assertEqual(
             tuple(row["actual_prime_high_denominator_row_count"]
                   for row in receipt["kernel_scale_rows"]),
-            (24, 16, 2))
+            (24, 24, 24, 16, 2))
         kernel_ratios = tuple(
             row["signed_to_absolute_ratio"]
             for row in receipt["kernel_scale_rows"])
         self.assertAlmostEqual(kernel_ratios[0], .04768611334520412, places=10)
-        self.assertAlmostEqual(kernel_ratios[1], -.0024036335849087005,
+        self.assertAlmostEqual(kernel_ratios[1], -.003485151248741352,
                                places=10)
-        self.assertAlmostEqual(kernel_ratios[2], .015101085640400937,
+        self.assertAlmostEqual(kernel_ratios[2], -.021750004993727118,
+                               places=10)
+        self.assertAlmostEqual(kernel_ratios[3], -.0024036335849087005,
+                               places=10)
+        self.assertAlmostEqual(kernel_ratios[4], .015101085640400937,
                                places=10)
         weighted_ratios = tuple(
             row["weighted_signed_to_absolute_ratio"]
@@ -100,7 +109,7 @@ class PrimeClassCoreTests(unittest.TestCase):
             prime_class_core_receipt(
                 maximum_final_cycle_relative_difference=2)
         with self.assertRaises(ValueError):
-            prime_class_core_receipt(kernel_row_scales=(28, 20))
+            prime_class_core_receipt(kernel_row_scales=(28, 39, 34))
 
 
 if __name__ == "__main__":

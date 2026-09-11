@@ -10511,3 +10511,43 @@ hypothesis passes only if every ratio is positive and at least half the
 `A=28` ratio.  A failure would locate the sign instability inside the fully
 retained high-denominator range; a pass would restrict the previous reversal
 to windows where the actual packet selection has already begun to change.
+
+## 2026-09-11: the favorable class sign reverses before packet selection changes
+
+The sharper scan keeps `Q=10010` above the exact cutoff `p*A` for all 24
+actual prime rows.  With the same fixed arithmetic packets, the
+complete-class signed-to-absolute ratios are
+
+- `A=28`: `+.04768611334520412`;
+- `A=34`: `-.003485151248741352`;
+- `A=39`: `-.021750004993727118`.
+
+At the largest actual prime, `251*39=9789<10010`; hence all three row counts
+retain the same high-denominator packet selection.  Nevertheless both new
+windows reverse the sign.  The predeclared half-baseline threshold
+`.02384305667260206` therefore fails inside the fully retained range.
+
+The receipt now computes the packet correlation once per unit class and
+applies the exact interval kernel at `A=28,34,39,50,75`.  The corresponding
+actual-row retention counts are `24,24,24,16,2`.  Independent review checked
+the batched kernel against repeated evaluation, strict cutoff, ratios, gates,
+tests, and scope and returned PASS.  Four focused tests pass normally and
+under Python optimization.
+
+Curiosity status: `changed-under-evidence`.  The exact periodic packet and
+polynomial pairing remain useful.  The positive complete-class coefficient
+at `A=28` is not a window-stable sign mechanism, even before the finite
+packet selection changes.  This remains a fixed-direction, unweighted
+complete-period diagnostic and proves no signed prime-correlation estimate.
+
+The next bounded question asks what causes the first sign reversal.  For the
+change `A=28 -> 34`, write the exact all-class mean difference as
+
+`Delta = common-kernel reweighting + lost near-boundary shell`,
+
+where the common term sums `C_34(h)-C_28(h)` on the `A=34` near mask and the
+shell term is minus the `A=28` contribution on lags retained at `28` but
+dropped at `34`.  Require reconstruction within `1e-12` relative error.  The
+lost-shell mechanism passes only if its component has the sign of `Delta`
+and at least `.75` of `|shell|+|common|`.  Failure preserves the exact
+decomposition and points instead to broad kernel phase/amplitude reweighting.
