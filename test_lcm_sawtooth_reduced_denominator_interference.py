@@ -8,6 +8,7 @@ from lcm_sawtooth_reduced_denominator_interference import (
     classify_near_lag_mass,
     classify_centered_near_phase_alignment,
     classify_near_lag_parity_opposition,
+    classify_even_denominator_fold_alignment,
     classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
@@ -20,6 +21,21 @@ from lcm_sawtooth_reduced_denominator_interference import (
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_even_denominator_fold_alignment_reconstructs(self):
+        base = [0.0, 2.0, -1.0, .5, -1.0, 2.0]
+        doubled = [0.0] * 12
+        doubled[::2] = [2 * value for value in base]
+        receipt = classify_even_denominator_fold_alignment(
+            base, doubled, 2, 2)
+        self.assertLess(
+            receipt["kernel_even_lag_folding_maximum_error"], 1e-12)
+        self.assertEqual(
+            receipt["doubled_lag_reconstruction_maximum_error"], 0.0)
+        self.assertAlmostEqual(
+            receipt["near_lag_signed_l2_alignment"], 1.0, places=12)
+        self.assertTrue(receipt[
+            "even_denominator_fold_alignment_hypothesis_passes"])
+
     def test_near_lag_parity_opposition_uses_fixed_partition(self):
         contributions = [0.0] * 12
         contributions[1] = 2.0
@@ -214,6 +230,26 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
             "odd_modulus_even_q_packet_residues_are_odd_proved"])
         self.assertTrue(receipt[
             "even_q_packet_correlations_have_only_even_lags_proved"])
+        fold = receipt["doubled_odd_cofactor_fold_alignment_receipt"]
+        self.assertEqual(fold["base_reduced_denominator"], 5005)
+        self.assertEqual(fold["doubled_reduced_denominator"], 10010)
+        self.assertLess(
+            fold["kernel_even_lag_folding_maximum_error"], 1e-12)
+        self.assertLess(
+            fold["doubled_lag_reconstruction_maximum_error"], 1e-12)
+        self.assertAlmostEqual(
+            fold["base_near_lag_signed_sum"],
+            .6497109056690719, places=10)
+        self.assertAlmostEqual(
+            fold["folded_near_lag_signed_sum"],
+            .0328713965876581, places=10)
+        self.assertAlmostEqual(
+            fold["near_lag_signed_l2_alignment"],
+            -.06730043329781392, places=10)
+        self.assertEqual(
+            fold["minimum_near_lag_signed_l2_alignment"], .75)
+        self.assertFalse(fold[
+            "even_denominator_fold_alignment_hypothesis_passes"])
         self.assertLess(max(
             abs(error) for _, error in receipt["lag_reconstruction_errors"]),
             3e-12)

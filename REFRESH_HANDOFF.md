@@ -9879,3 +9879,52 @@ the compressed `Q=10010` packets with the actual `Q=5005` packets using a
 predeclared normalized alignment gate. This asks whether the small doubled
 channel comes from its arithmetic coefficients rather than from the interval
 kernel or parity cancellation.
+
+## 2026-09-11: denominator doubling folds exactly, but the coefficients do not align
+
+Odd residue support gives an exact compression for `Q=2q`: write
+`r=2x+1` and the surviving lag as `h=2t`. Then
+
+- `corr_(2q)(2t)=compressed_corr_q(t)`;
+- `K_(2q)(2t)=K_q(t)`;
+- because the lag contribution is normalized by `2Q`,
+  `C_(2q)(2t)=2*compressed_C_q(t)`.
+
+For `10010=2*5005`, the finite folding has zero kernel error, maximum
+odd-lag contribution `9.84e-18`, and reconstruction error `9.84e-18`.
+The predeclared coefficient-transfer test compared
+`C_10010(2t)/2` with the actual `C_5005(t)` on the common near-lag mask. It
+required signed normalized `L2` alignment at least `.75`. It fails strongly:
+
+- actual `Q=5005` near signed sum: `.6497109056690719`;
+- folded `Q=10010` near signed sum: `.0328713965876581`;
+- signed normalized alignment: `-.06730043329781392`.
+
+Thus the denominator-doubling kernel and parity support are not the source of
+the similar-looking channels. After exact folding, their packet-generated
+signals are weakly and slightly negatively aligned. The arithmetic packet
+coefficients carry the difference.
+
+Independent review verified the compression bijection, correlation and
+kernel identities, factor `2` in the contribution normalization, equivalent
+near masks, numerical values, and scope. Its initial test-adequacy hold was
+cleared after the actual sums, alignment, threshold, and failed flag were
+added to the fixture regression. Fifteen focused tests pass normally and
+under Python optimization.
+
+Curiosity status: `changed-under-evidence`. Preserve the exact even-`Q`
+folding identity as a reusable tool. Reject only transfer from the actual
+`Q=5005` aggregate lag signal to the folded `Q=10010` signal at the declared
+alignment gate. No favorable sign, uniform signed correlation, or Goldbach
+claim follows.
+
+The next concrete arithmetic question traces the coefficient mismatch to
+the factor `2` before reduction. Split `Q=5005` source pairs according to
+whether their source lcm was odd or its factor `2` was canceled by
+`gcd(|Delta|,L)`; keep the factor-`2`-retained `Q=10010` source block folded
+to modulus `5005`. Each source split must reconstruct its packet and lag
+signal within `1e-12`. The canceled-`2` mechanism passes only if that
+`Q=5005` subchannel supplies at least `50%` of base near absolute mass and
+has signed normalized alignment at least `.75` with the folded `Q=10010`
+signal. Failure rejects this specific two-adic transfer while preserving the
+source-level decomposition.

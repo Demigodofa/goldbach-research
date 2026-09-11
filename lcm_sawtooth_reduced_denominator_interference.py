@@ -628,6 +628,68 @@ def classify_near_lag_parity_opposition(
     }
 
 
+def classify_even_denominator_fold_alignment(
+        base_contributions, doubled_contributions, row_first, row_count,
+        minimum_signed_l2_alignment=.75, tolerance=1e-12):
+    """Fold an even-Q lag channel and compare it with its half-Q channel."""
+    base = np.asarray(base_contributions, dtype=float)
+    doubled = np.asarray(doubled_contributions, dtype=float)
+    if (base.ndim != 1 or doubled.ndim != 1 or len(base) < 2
+            or len(doubled) != 2 * len(base)):
+        raise ValueError("require cyclic lag arrays of lengths q and 2q")
+    if (type(row_first) is not int or type(row_count) is not int
+            or row_first < 0 or row_count < 1):
+        raise ValueError("row range must be integral and nonempty")
+    if not -1 <= minimum_signed_l2_alignment <= 1:
+        raise ValueError("alignment threshold must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    q = len(base)
+    rows = np.arange(row_first, row_first + row_count)
+    base_lags = np.arange(q)
+    base_kernel = np.mean(np.exp(
+        2j * np.pi * rows[:, None] * base_lags[None, :] / q), axis=0)
+    doubled_kernel = np.mean(np.exp(
+        2j * np.pi * rows[:, None]
+        * (2 * base_lags)[None, :] / (2 * q)), axis=0)
+    kernel_error = float(np.max(np.abs(doubled_kernel - base_kernel)))
+    folded = doubled[::2] / 2
+    reconstructed = np.zeros_like(doubled)
+    reconstructed[::2] = 2 * folded
+    reconstruction_error = float(np.max(np.abs(reconstructed - doubled)))
+    odd_maximum = float(np.max(np.abs(doubled[1::2])))
+    distances = np.minimum(base_lags, q - base_lags)
+    near = distances * row_count <= q
+    near[0] = False
+    base_near = base[near]
+    folded_near = folded[near]
+    norm_product = float(
+        np.linalg.norm(base_near) * np.linalg.norm(folded_near))
+    if not norm_product:
+        raise ArithmeticError("fold comparison has a zero near-lag norm")
+    alignment = float(np.dot(base_near, folded_near) / norm_product)
+    passes = bool(
+        kernel_error <= tolerance
+        and odd_maximum <= tolerance
+        and reconstruction_error <= tolerance
+        and alignment >= minimum_signed_l2_alignment)
+    return {
+        "base_reduced_denominator": q,
+        "doubled_reduced_denominator": 2 * q,
+        "fold_rule": "C_(2q)(2t)/2 -> folded_C_q(t)",
+        "kernel_even_lag_folding_maximum_error": kernel_error,
+        "maximum_odd_doubled_lag_absolute_contribution": odd_maximum,
+        "doubled_lag_reconstruction_maximum_error": reconstruction_error,
+        "base_near_lag_signed_sum": float(np.sum(base_near)),
+        "folded_near_lag_signed_sum": float(np.sum(folded_near)),
+        "near_lag_signed_l2_alignment": alignment,
+        "minimum_near_lag_signed_l2_alignment": (
+            minimum_signed_l2_alignment),
+        "even_denominator_fold_alignment_hypothesis_passes": passes,
+        "fold_alignment_assigns_favorable_sign_proved": False,
+    }
+
+
 def classify_near_lag_mass(
         lag_contributions, row_count, minimum_absolute_mass_fraction=.75,
         minimum_passing_channel_count=2):
@@ -946,6 +1008,12 @@ def project_reduced_denominator_interference_receipt(
             selected_lags[doubled_odd_cofactor_denominator],
             baseline["row_count"])
         if doubled_odd_cofactor_denominator in selected_lags else None)
+    fold_alignment = (
+        classify_even_denominator_fold_alignment(
+            selected_lags[min(selected_lags)],
+            selected_lags[doubled_odd_cofactor_denominator],
+            baseline["row_count"], baseline["row_count"])
+        if doubled_odd_cofactor_denominator in selected_lags else None)
     lag_reconstruction_errors = tuple(
         (row["reduced_denominator"],
          float(np.sum(selected_lags[row["reduced_denominator"]])
@@ -1025,6 +1093,7 @@ def project_reduced_denominator_interference_receipt(
             for row in kernel_rows),
         **centered_phase_classification,
         "doubled_odd_cofactor_parity_receipt": parity_classification,
+        "doubled_odd_cofactor_fold_alignment_receipt": fold_alignment,
         "linked_core_crt_near_lag_separation_hypothesis_passes": bool(
             retention["every_interfering_denominator_has_linked_core_proved"]
             and crt_classification[
