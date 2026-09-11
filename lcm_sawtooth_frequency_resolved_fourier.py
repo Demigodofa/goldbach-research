@@ -68,6 +68,12 @@ def _partial_fourier_frequency_totals(
     right_terms = _source_term_arrays(right_sources)
     weighted_correlations = np.zeros(
         len(resonant_frequencies), dtype=np.complex128)
+    divisor_stratum_correlations = {
+        divisor: np.zeros(len(resonant_frequencies), dtype=np.complex128)
+        for divisor in range(1, quotient + 1)
+        if quotient % divisor == 0}
+    sign_removed_correlations = np.zeros(
+        len(resonant_frequencies), dtype=np.complex128)
     cauchy_natural_scale = 0.0
 
     for start in range(0, period, batch_size):
@@ -82,18 +88,32 @@ def _partial_fourier_frequency_totals(
             * np.conjugate(np.fft.fft(right, axis=1)),
             axis=1)
         weights = quotient_weights[start:stop]
+        selected = correlations[:, resonant_frequencies]
         weighted_correlations += np.sum(
-            weights[:, None] * correlations[:, resonant_frequencies],
-            axis=0)
+            weights[:, None] * selected, axis=0)
+        sign_removed_correlations += np.sum(
+            np.abs(weights)[:, None] * selected, axis=0)
+        divisor_labels = np.gcd(transform_frequencies, quotient)
+        for divisor in np.unique(divisor_labels):
+            mask = divisor_labels == divisor
+            divisor_stratum_correlations[int(divisor)] += np.sum(
+                weights[mask, None] * selected[mask], axis=0)
         cauchy_natural_scale += float(np.sum(
             np.abs(weights)
             * np.linalg.norm(left, axis=1)
             * np.linalg.norm(right, axis=1)))
 
     totals = common_weights * weighted_correlations / period
+    divisor_stratum_totals = {
+        divisor: common_weights * correlations / period
+        for divisor, correlations in divisor_stratum_correlations.items()}
+    sign_removed_totals = (
+        common_weights * sign_removed_correlations / period)
     natural_scales = np.maximum(
         1.0, np.abs(common_weights) * cauchy_natural_scale / period)
-    return resonant_frequencies, totals, natural_scales
+    return (
+        resonant_frequencies, totals, natural_scales,
+        divisor_stratum_totals, sign_removed_totals)
 
 
 def _validate_case(families, lags, tolerance, batch_size):
@@ -139,13 +159,22 @@ def frequency_resolved_fourier_case_receipt(
     for lag in lags:
         common = math.gcd(lag, period)
         quotient = period // common
-        frequencies, formula_totals, natural_scales = (
+        (frequencies, formula_totals, natural_scales,
+         divisor_stratum_totals, sign_removed_totals) = (
             _partial_fourier_frequency_totals(
                 period, lag, left_sources, right_sources, batch_size))
         direct = _direct_fully_resonant_totals(
             period, lag, left_sources, right_sources)[frequencies]
         errors = np.abs(formula_totals - direct)
         relative_errors = errors / natural_scales
+        recombined_absolute_mass = float(np.sum(np.abs(formula_totals)))
+        divisor_stratum_absolute_mass = float(sum(
+            np.sum(np.abs(totals))
+            for totals in divisor_stratum_totals.values()))
+        sign_removed_absolute_mass = float(
+            np.sum(np.abs(sign_removed_totals)))
+        divisor_reconstruction_error = float(np.max(np.abs(
+            sum(divisor_stratum_totals.values()) - formula_totals)))
         rows[quotient] = {
             "lag": lag,
             "gcd_lag_period": common,
@@ -154,8 +183,20 @@ def frequency_resolved_fourier_case_receipt(
             "maximum_cauchy_scale_relative_error": float(
                 np.max(relative_errors)),
             "direct_recombined_absolute_mass": float(np.sum(np.abs(direct))),
-            "formula_recombined_absolute_mass": float(
-                np.sum(np.abs(formula_totals))),
+            "formula_recombined_absolute_mass": recombined_absolute_mass,
+            "divisor_stratum_absolute_mass": divisor_stratum_absolute_mass,
+            "within_frequency_divisor_coherence": (
+                recombined_absolute_mass / divisor_stratum_absolute_mass
+                if divisor_stratum_absolute_mass else None),
+            "sign_removed_absolute_mass": sign_removed_absolute_mass,
+            "sign_removal_mass_ratio": (
+                sign_removed_absolute_mass / recombined_absolute_mass
+                if recombined_absolute_mass else None),
+            "maximum_divisor_stratum_reconstruction_absolute_error": (
+                divisor_reconstruction_error),
+            "divisor_stratum_reconstruction_passes": bool(
+                divisor_reconstruction_error
+                / max(1.0, divisor_stratum_absolute_mass) <= tolerance),
             "direct_signed_total": complex(np.sum(direct)),
             "formula_signed_total": complex(np.sum(formula_totals)),
             "every_frequency_reconstructs": bool(
@@ -180,6 +221,10 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
         CANONICAL_FAMILIES, CANONICAL_LAGS, tolerance, batch_size)
     exact_zero = frequency_resolved_fourier_case_receipt(
         EXACT_ZERO_FAMILIES, EXACT_ZERO_LAGS, tolerance, batch_size)
+    all_rows = tuple(canonical["rows"].values()) + tuple(
+        exact_zero["rows"].values())
+    sign_removal_consistently_increases_mass = all(
+        row["sign_removal_mass_ratio"] > 1 for row in all_rows)
     return {
         "identity": (
             "b_n=1_(q|n)c_g(n)/Q sum_t c_q(t) "
@@ -189,7 +234,15 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
         "all_frequencies_reconstruct": bool(
             canonical["all_frequencies_reconstruct"]
             and exact_zero["all_frequencies_reconstruct"]),
+        "all_divisor_strata_reconstruct": all(
+            row["divisor_stratum_reconstruction_passes"]
+            for row in all_rows),
+        "sign_removal_consistently_increases_mass": (
+            sign_removal_consistently_increases_mass),
+        "simple_ramanujan_sign_stratum_mechanism_supported": bool(
+            sign_removal_consistently_increases_mass),
         "frequency_resolved_identity_proved": True,
+        "divisor_stratum_decomposition_proved": True,
         "uniform_frequency_resolved_bound_proved": False,
         "uniform_source_sum_estimate_proved": False,
         "signed_prime_correlation_proved": False,

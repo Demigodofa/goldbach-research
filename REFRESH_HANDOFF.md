@@ -12658,3 +12658,55 @@ the alternating Ramanujan signs by their absolute values.  Opposite
 reconstruction passes and sign removal consistently weakens the observed
 within-`n` cancellation.  A mixed or negligible response falsifies that
 sign-stratum explanation while preserving the decomposition.
+
+## 2026-09-11: Ramanujan signs alone do not control the divisor strata
+
+The exact divisor-stratum decomposition passes, but the proposed simple sign
+mechanism fails.  For every `d|q`, let
+
+`Z_(n,d)=c_g(n)c_q(d)/Q
+          *sum_(t mod Q: gcd(t,q)=d)
+             sum_k Ftilde_L(t,k)conjugate(Ftilde_R(t,k-n))`.
+
+The `gcd(t,q)` classes partition the transform frequencies, `c_q(t)=c_q(d)`
+on each class, and `b_n=sum_(d|q)Z_(n,d)` reconstructed within the same
+`1e-12` validation gate in all four cases.  Define divisor coherence as
+
+`H_q=sum_n|b_n| / sum_(n,d)|Z_(n,d)|`,
+
+and replace `c_q(t)` by `|c_q(t)|` as the predeclared sign ablation.  The
+results are:
+
+| geometry | `q` | `H_q` | mass after sign removal / original mass |
+|---|---:|---:|---:|
+| canonical | 77 | `.06298100352659718` | `15.859926012513927` |
+| canonical | 91 | `.4960806605079712` | `.7892312818860849` |
+| exact-zero | 21 | `.6603773584905617` | `1.5142857142857225` |
+| exact-zero | 55 | `.7443609022556356` | `1.343434343434349` |
+
+At `q=77`, the divisor strata cancel very strongly and removing the
+alternating Ramanujan signs increases the required mass by nearly a factor of
+sixteen.  The same ablation increases mass more moderately at `q=21,55`.
+But at `q=91` it moves in the opposite direction and reduces the mass.  Thus
+Ramanujan signs can cause the desired cancellation, but they are not a
+general mechanism by themselves.  Their alignment with the phases of the
+source-frequency cross-correlations decides whether they cancel or reinforce.
+
+Curiosity status: `component-pass/composite-fail`, novelty
+`new-to-this-task`.  Preserve the exact `Z_(n,d)` decomposition and the strong
+`q=77` witness.  Retire only the claim that the alternating signs have a
+uniform favorable effect.  No uniform bound or prime-correlation estimate
+follows.
+
+Independent review checked the stratum partition, `c_g(n)/Q` normalization,
+sign-ablation semantics, all four metrics, reconstruction flags, and their
+regression coverage.  The focused suite passed normally and under Python
+optimization.
+
+The next bounded question includes the missing phase information: are the
+stratum values `Z_(n,d)` real by conjugate symmetry, and after grouping output
+frequencies by `gcd(n,g)`, does each `(gcd(n,g),d)` cell have one stable sign?
+A positive result would turn cancellation versus reinforcement into a finite
+arithmetic sign table.  Any cell with substantial contributions of both signs
+falsifies that coarse sign-table mechanism while preserving the stratum
+decomposition for a finer phase analysis.
