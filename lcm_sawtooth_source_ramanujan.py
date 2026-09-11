@@ -10,7 +10,7 @@ import math
 
 import numpy as np
 
-from lcm_sawtooth_ramanujan_class_mean import _ramanujan_sum
+from lcm_sawtooth_ramanujan_class_mean import _mobius, _ramanujan_sum
 
 
 LEADING_LAG_CANONICAL_TARGETS = {
@@ -97,6 +97,44 @@ def _conditioned_unit_exponential_sum(period, lag, difference, frequency):
     phase = np.exp(2j * np.pi * (frequency % quotient)
                    * phase_class / quotient)
     return phase * _ramanujan_sum(common, frequency)
+
+
+def _divisors(value):
+    return tuple(divisor for divisor in range(1, value + 1)
+                 if value % divisor == 0)
+
+
+def _divisor_sample_phase_removed_total(
+        period, lag, left_sources, right_sources):
+    """Evaluate the signed Ramanujan projection by endpoint samples."""
+    common = math.gcd(lag, period)
+    quotient = period // common
+    differences = np.asarray(tuple(
+        common * reduced for reduced in range(quotient)
+        if math.gcd(reduced, quotient) == 1), dtype=np.int64)
+    sample_correlations = np.zeros(common, dtype=complex)
+    for sample in range(common):
+        left_values = np.zeros(period, dtype=complex)
+        right_values = np.zeros(period, dtype=complex)
+        for residue, modes in left_sources.items():
+            left_values[residue] = sum(
+                coefficient * np.exp(
+                    2j * np.pi * (frequency % common) * sample / common)
+                for frequency, coefficient in modes.items())
+        for residue, modes in right_sources.items():
+            right_values[residue] = sum(
+                coefficient * np.exp(
+                    2j * np.pi * (frequency % common) * sample / common)
+                for frequency, coefficient in modes.items())
+        correlation = np.fft.ifft(
+            np.fft.fft(left_values) * np.conjugate(np.fft.fft(right_values)))
+        sample_correlations[sample] = np.sum(correlation[differences])
+    total = 0.0j
+    for divisor in _divisors(common):
+        sample_indices = np.arange(divisor) * (common // divisor)
+        total += _mobius(common // divisor) * np.sum(
+            sample_correlations[sample_indices])
+    return complex(total)
 
 
 def source_ramanujan_mean_receipt(
@@ -189,6 +227,12 @@ def source_ramanujan_mean_receipt(
     source_mean = complex(total / unit_class_count)
     phase_removed_source_mean = complex(
         phase_removed_total / unit_class_count)
+    divisor_sample_phase_removed_mean = complex(
+        _divisor_sample_phase_removed_total(
+            period, lag, left_sources, right_sources) / unit_class_count)
+    divisor_sample_phase_removed_relative_error = (
+        abs(divisor_sample_phase_removed_mean - phase_removed_source_mean)
+        / max(1.0, abs(phase_removed_source_mean)))
     unsigned_ramanujan_source_mean = complex(
         unsigned_ramanujan_total / unit_class_count)
     unweighted_endpoint_source_mean = complex(
@@ -302,6 +346,13 @@ def source_ramanujan_mean_receipt(
             <= maximum_source_mode_cancellation_quotient),
         "phase_removed_source_mean_correlation": (
             phase_removed_source_mean.real, phase_removed_source_mean.imag),
+        "divisor_sample_phase_removed_mean_correlation": (
+            divisor_sample_phase_removed_mean.real,
+            divisor_sample_phase_removed_mean.imag),
+        "divisor_sample_phase_removed_relative_error": (
+            divisor_sample_phase_removed_relative_error),
+        "divisor_sample_phase_removed_identity_passes": bool(
+            divisor_sample_phase_removed_relative_error <= tolerance),
         "phase_removed_cancellation_quotient": (
             phase_removed_cancellation_quotient),
         "phase_removed_cancellation_gate_passes": bool(
@@ -420,6 +471,9 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "phase_removed_source_mean_correlations": {
             lag: result["phase_removed_source_mean_correlation"]
             for lag, result in results.items()},
+        "divisor_sample_phase_removed_relative_errors": {
+            lag: result["divisor_sample_phase_removed_relative_error"]
+            for lag, result in results.items()},
         "unsigned_ramanujan_cancellation_quotients": {
             lag: result["unsigned_ramanujan_cancellation_quotient"]
             for lag, result in results.items()},
@@ -443,6 +497,9 @@ def leading_lag_source_receipt(tolerance=1e-12):
             for result in results.values()),
         "all_phase_removed_cancellation_gates_pass": all(
             result["phase_removed_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_divisor_sample_phase_removed_identities_pass": all(
+            result["divisor_sample_phase_removed_identity_passes"]
             for result in results.values()),
         "all_unsigned_ramanujan_cancellation_gates_pass": all(
             result["unsigned_ramanujan_cancellation_gate_passes"]

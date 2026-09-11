@@ -11180,3 +11180,53 @@ formula reconstructs the phase-removed signed means at all five lags within
 `1e-12`, without applying a frequency-by-frequency Ramanujan weight. Success
 would turn the numerical rational observations into a finite endpoint-sample
 mechanism; it would still require a separate uniform and prime-weighted bound.
+
+## 2026-09-11: signed Ramanujan weights become finite endpoint samples
+
+For `g=gcd(h,Q)`, expand
+
+`c_g(n)=sum_(d|(g,n)) d*mu(g/d)`
+
+and use the root filter
+
+`sum_(j<d)e_d(j*n)=d*1_(d|n)`.
+
+The factors `d` therefore arise from the sample sum itself. If `F(p)` is the
+matched source-residue endpoint correlation, the phase-removed signed
+Ramanujan projection is exactly
+
+`sum_(d|g) mu(g/d) sum_(j<d) F(j*Q/d)`.
+
+The implementation evaluates the family source arrays at the `g` points
+`p=k*Q/g`, forms the cyclic source-residue correlation, restricts differences
+to `g*U(Q/g)`, and applies the displayed divisor combination. It never
+applies a frequency-by-frequency Ramanujan weight on this route.
+
+Relative errors against the independent frequency-weighted calculation are
+
+- lag `140`: `1.0467640495458887e-13`;
+- lag `154`: `3.94189039246808e-14`;
+- lag `156`: `3.439547908999313e-14`;
+- lag `182`: `2.1860583238042584e-14`;
+- lag `240`: `2.164747848857144e-13`.
+
+All pass `1e-12`. Independent review checked the FFT orientation, root-filter
+indices, cancellation of the `d` factor, arbitrary synthetic source maps,
+and the full normal/optimized suites and returned PASS. The six focused tests
+take about `98--102` seconds under the reviewed concurrent load.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. This is an
+exact finite endpoint-sample mechanism for the signed Ramanujan projection.
+It does not yet prove the observed simple rational values symbolically, save
+asymptotic complexity, or control a uniform or prime-weighted sum.
+
+The next bounded question uses the CRT structure of the difference graph.
+On unit source residues, the adjacency condition
+`u-v in g*U(Q/g)` should factor over primes as `I_(r-1)` for `r|g` and
+`J_(r-1)-I_(r-1)` for `r|(Q/g)`. Its tensor eigenvalues are products of
+`r-2` on constant local sectors and `-1` on mean-zero sectors. Verify this
+factorization against every divisor-sample correlation for the five leading
+lags, then record how much of each signed mean comes from the constant sector
+versus sectors nonconstant in one or more quotient-prime coordinates. A
+failed reconstruction rejects the tensor mechanism; a pass supplies the
+first exact spectral decomposition of the source cancellation.

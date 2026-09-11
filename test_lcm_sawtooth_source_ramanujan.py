@@ -106,6 +106,10 @@ class SourceRamanujanTests(unittest.TestCase):
             receipt["phase_removed_cancellation_quotient"],
             .00880666368319958, places=12)
         self.assertTrue(receipt["phase_removed_cancellation_gate_passes"])
+        self.assertLess(
+            receipt["divisor_sample_phase_removed_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "divisor_sample_phase_removed_identity_passes"])
         self.assertIsNotNone(
             receipt["unsigned_ramanujan_cancellation_quotient"])
         self.assertAlmostEqual(
@@ -210,6 +214,11 @@ class SourceRamanujanTests(unittest.TestCase):
                 receipt["phase_removed_cancellation_quotients"][lag],
                 expected_phase_removed_quotients[lag], places=12)
         self.assertTrue(receipt["all_phase_removed_cancellation_gates_pass"])
+        self.assertTrue(receipt[
+            "all_divisor_sample_phase_removed_identities_pass"])
+        for relative_error in receipt[
+                "divisor_sample_phase_removed_relative_errors"].values():
+            self.assertLess(relative_error, 1e-12)
         expected_unsigned_ramanujan_means = {
             140: -79695 / 4,
             154: -78771 / 10,
