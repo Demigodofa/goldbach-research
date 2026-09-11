@@ -10671,3 +10671,42 @@ least `.40`, and the unlinked signed subtotal has the opposite sign.  This
 would demonstrate a finite reinforce/oppose mechanism even though linked
 lags are a minority of absolute mass; failure preserves the gcd strata
 without assigning them causal sign coherence.
+
+## 2026-09-11: conductor-linked lags coherently reinforce the reversal
+
+Absolute-mass dominance was the wrong discriminator for the preserved
+conductor component.  Normalize each side of the exact linked/unlinked gcd
+partition by its own absolute mass.  The results are
+
+- conductor-linked signed/absolute coherence: `-.49347891668877353`;
+- linked signed subtotal: `-1220418588.5215206`;
+- unlinked absolute mass: `4049595127.073967`;
+- unlinked signed subtotal: `+226094947.21559787`;
+- unlinked signed/absolute coherence: `+.0558314942903842`.
+
+The predeclared mechanism required linked coherence to have magnitude at
+least `.40` with the sign of the full negative reweighting, while the
+unlinked subtotal had the opposite sign.  It passes.  Thus, in this finite
+exact partition, conductor-linked lags coherently reinforce and over-account
+for the negative window reversal; the larger unlinked variation weakly
+opposes them.
+
+Independent review verified the complementary signed and absolute masses,
+coherence denominators, values, gate, tests, and scope and returned PASS.
+Four focused tests pass normally and under Python optimization.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`.  This is a
+concrete finite answer to how two components reinforce or cancel: the exact
+conductor-linked lag subset reinforces the negative kernel response and its
+complement partially cancels it.  Preserve that mechanism alongside the
+failed absolute-dominance test.  It is an algebraic finite decomposition,
+not causal attribution, a uniform estimate, or a Goldbach result.
+
+The next bounded question resolves the conductor union into the primes
+`7,11,13`.  Partition linked gcd strata by the exact subset of those primes
+dividing `h`.  The `7`-linked mechanism passes only if the union of subsets
+containing `7` has the linked negative sign and carries at least `.75` of the
+absolute value of the full linked signed subtotal.  Success would locate the
+finite reinforcement mainly on lags coupled to the left conductor `77`;
+failure preserves the subset partition without assigning one conductor
+prime the dominant signed role.

@@ -48,6 +48,8 @@ class PrimeClassCoreTests(unittest.TestCase):
             receipt["minimum_localized_pair_mass_fraction"], .75)
         self.assertEqual(
             receipt["minimum_conductor_linked_mass_fraction"], .75)
+        self.assertEqual(
+            receipt["minimum_conductor_linked_coherence"], .40)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
@@ -98,6 +100,17 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["conductor_linked_signed_common_reweighting"],
             -1220418588.5215206, places=2)
+        self.assertTrue(receipt[
+            "conductor_linked_sign_coherence_hypothesis_passes"])
+        self.assertAlmostEqual(
+            receipt["conductor_linked_signed_to_absolute_coherence"],
+            -.49347891668877353, places=10)
+        self.assertAlmostEqual(
+            receipt["conductor_unlinked_signed_common_reweighting"],
+            226094947.21559787, places=2)
+        self.assertAlmostEqual(
+            receipt["conductor_unlinked_signed_to_absolute_coherence"],
+            .0558314942903842, places=10)
         self.assertTrue(all(
             row["lag_gcd"] % 2 == 0
             for row in receipt["common_reweighting_gcd_strata"]))
@@ -171,6 +184,8 @@ class PrimeClassCoreTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             prime_class_core_receipt(
                 minimum_conductor_linked_mass_fraction=0)
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(minimum_conductor_linked_coherence=0)
 
 
 if __name__ == "__main__":

@@ -141,6 +141,7 @@ def prime_class_core_receipt(
         localized_inversion_pair_count=5,
         minimum_localized_pair_mass_fraction=.75,
         minimum_conductor_linked_mass_fraction=.75,
+        minimum_conductor_linked_coherence=.40,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -180,6 +181,8 @@ def prime_class_core_receipt(
         raise ValueError("localized mass fraction must lie in (0,1]")
     if not 0 < minimum_conductor_linked_mass_fraction <= 1:
         raise ValueError("conductor-linked fraction must lie in (0,1]")
+    if not 0 < minimum_conductor_linked_coherence <= 1:
+        raise ValueError("conductor-linked coherence must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -406,6 +409,22 @@ def prime_class_core_receipt(
         and conductor_linked_mass_fraction
         >= minimum_conductor_linked_mass_fraction
         and conductor_linked_signed * common_reweighting > 0)
+    conductor_linked_coherence = (
+        conductor_linked_signed / conductor_linked_absolute_mass
+        if conductor_linked_absolute_mass else None)
+    conductor_unlinked_absolute_mass = (
+        paired_absolute_mass - conductor_linked_absolute_mass)
+    conductor_unlinked_signed = (
+        common_reweighting - conductor_linked_signed)
+    conductor_unlinked_coherence = (
+        conductor_unlinked_signed / conductor_unlinked_absolute_mass
+        if conductor_unlinked_absolute_mass else None)
+    conductor_coherence_mechanism_passes = bool(
+        conductor_linked_coherence is not None
+        and abs(conductor_linked_coherence)
+        >= minimum_conductor_linked_coherence
+        and conductor_linked_signed * common_reweighting > 0
+        and conductor_unlinked_signed * common_reweighting < 0)
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -462,6 +481,8 @@ def prime_class_core_receipt(
             minimum_localized_pair_mass_fraction),
         "minimum_conductor_linked_mass_fraction": (
             minimum_conductor_linked_mass_fraction),
+        "minimum_conductor_linked_coherence": (
+            minimum_conductor_linked_coherence),
         "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
         "kernel_scale_rows": tuple(kernel_scale_rows),
         "window_decomposition_first_row_scale": first_scale,
@@ -488,6 +509,14 @@ def prime_class_core_receipt(
             conductor_linked_mass_fraction),
         "conductor_linked_signed_common_reweighting": (
             conductor_linked_signed),
+        "conductor_linked_signed_to_absolute_coherence": (
+            conductor_linked_coherence),
+        "conductor_unlinked_absolute_common_reweighting_mass": (
+            conductor_unlinked_absolute_mass),
+        "conductor_unlinked_signed_common_reweighting": (
+            conductor_unlinked_signed),
+        "conductor_unlinked_signed_to_absolute_coherence": (
+            conductor_unlinked_coherence),
         "fully_retained_kernel_row_scales": tuple(
             row["row_scale"] for row in fully_retained_kernel_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
@@ -531,6 +560,8 @@ def prime_class_core_receipt(
             localized_pair_mechanism_passes),
         "conductor_core_reweighting_mechanism_hypothesis_passes": (
             conductor_core_mechanism_passes),
+        "conductor_linked_sign_coherence_hypothesis_passes": (
+            conductor_coherence_mechanism_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }
