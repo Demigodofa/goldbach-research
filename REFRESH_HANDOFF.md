@@ -11434,3 +11434,45 @@ second measures cancellation between frequencies. A cross-frequency quotient
 at most `.25` across all five leading lags is the gate for a vector-valued or
 large-sieve recombination. Failure redirects the proof attempt to the
 within-frequency source geometry without discarding the tensor bounds.
+
+## 2026-09-11: the declared cross-frequency gate fails at lag 182
+
+At lag `182`, first aggregate every exact conditioned contribution by its
+final kernel frequency `n=k-l`. The normalized termwise source-mode absolute
+mass is
+
+`T=392973.25954838906`,
+
+while the absolute mass after frequency grouping is
+
+`G=58432.61213083957`.
+
+Thus `G/T=.14869360881702542`: most of the observed cancellation already
+occurs inside fixed Kloosterman frequencies. The remaining cross-frequency
+quotient is
+
+`|sum_n C_n|/G=.4292690727178869`.
+
+Their product recovers the full source-mode cancellation quotient
+`.06382956757596069`. Because `.429269...` exceeds the predeclared `.25`
+gate, lag `182` already falsifies the proposed all-five-lag conjunction and
+the remaining sweep was stopped.
+
+Independent review verified the grouping index, accumulation before absolute
+values, normalization, quotient product, zero-mass behavior, fixture
+assertions, early stop, and normal/optimized tests and returned PASS.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`. Reject
+only the fixed finite `.25` cross-frequency gate. This does not disprove all
+possible asymptotic or vector-valued large-sieve estimates; cross-frequency
+cancellation remains real but analytically open. The stronger finite lead is
+the `.1487` reduction inside each fixed kernel frequency.
+
+The next bounded question resolves that internal reduction. For each matched
+source-residue pair at lag `182`, combine duplicate endpoint-mode products
+having the same final frequency before taking absolute values. Let `P` be the
+resulting pair-frequency absolute mass. Then compare `P/T` and `G/P`.
+The gate `G/P<=.25` asks whether cancellation across source-residue pairs at
+fixed Kloosterman frequency, rather than only algebra inside a single pair,
+is the main source of the `.1487` factor. Failure preserves both measured
+components and redirects to the within-pair endpoint identity.

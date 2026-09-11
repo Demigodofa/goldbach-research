@@ -96,6 +96,26 @@ class SourceRamanujanTests(unittest.TestCase):
             receipt["source_mode_cancellation_quotient"],
             .06382956757596069, places=12)
         self.assertTrue(receipt["source_mode_cancellation_gate_passes"])
+        self.assertIsNotNone(receipt["within_frequency_absolute_mass_ratio"])
+        self.assertIsNotNone(
+            receipt["cross_frequency_cancellation_quotient"])
+        self.assertAlmostEqual(
+            receipt["within_frequency_absolute_mass_ratio"]
+            * receipt["cross_frequency_cancellation_quotient"],
+            receipt["source_mode_cancellation_quotient"], places=12)
+        self.assertAlmostEqual(
+            receipt["normalized_grouped_frequency_absolute_mass"],
+            58432.61213083957, places=6)
+        self.assertAlmostEqual(
+            receipt["within_frequency_absolute_mass_ratio"],
+            .14869360881702542, places=12)
+        self.assertAlmostEqual(
+            receipt["cross_frequency_cancellation_quotient"],
+            .4292690727178869, places=12)
+        self.assertEqual(
+            receipt["maximum_cross_frequency_cancellation_quotient"], .25)
+        self.assertFalse(receipt[
+            "cross_frequency_cancellation_gate_passes"])
         self.assertIsNotNone(receipt["phase_removed_cancellation_quotient"])
         self.assertAlmostEqual(
             receipt["phase_removed_source_mean_correlation"][0],
@@ -145,6 +165,9 @@ class SourceRamanujanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_ramanujan_mean_receipt(
                 maximum_source_mode_cancellation_quotient=0)
+        with self.assertRaises(ValueError):
+            source_ramanujan_mean_receipt(
+                maximum_cross_frequency_cancellation_quotient=0)
 
     def test_zero_mass_lag_has_no_cancellation_quotient(self):
         receipt = source_ramanujan_mean_receipt(
@@ -152,6 +175,10 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertEqual(receipt["normalized_absolute_mode_contribution_mass"], 0)
         self.assertIsNone(receipt["source_mode_cancellation_quotient"])
         self.assertFalse(receipt["source_mode_cancellation_gate_passes"])
+        self.assertIsNone(receipt["within_frequency_absolute_mass_ratio"])
+        self.assertIsNone(receipt["cross_frequency_cancellation_quotient"])
+        self.assertFalse(receipt[
+            "cross_frequency_cancellation_gate_passes"])
         self.assertIsNone(receipt["phase_removed_cancellation_quotient"])
         self.assertFalse(receipt["phase_removed_cancellation_gate_passes"])
         self.assertIsNone(receipt["unsigned_ramanujan_cancellation_quotient"])

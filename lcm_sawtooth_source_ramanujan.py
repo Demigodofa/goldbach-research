@@ -142,7 +142,8 @@ def source_ramanujan_mean_receipt(
         families=((77, 65), (143, 35)), lag=182,
         canonical_target=(-25042.404948829146, -1431.9765245642259),
         minimum_factor_seven_signed_fraction=.75,
-        maximum_source_mode_cancellation_quotient=.10, tolerance=1e-12):
+        maximum_source_mode_cancellation_quotient=.10,
+        maximum_cross_frequency_cancellation_quotient=.25, tolerance=1e-12):
     """Evaluate a lag mean from source modes and conditioned CRT sums."""
     families = tuple(families)
     if (len(families) != 2 or any(len(family) != 2 for family in families)
@@ -162,6 +163,8 @@ def source_ramanujan_mean_receipt(
         raise ValueError("factor-seven fraction must lie in (0,1]")
     if not 0 < maximum_source_mode_cancellation_quotient <= 1:
         raise ValueError("cancellation quotient must lie in (0,1]")
+    if not 0 < maximum_cross_frequency_cancellation_quotient <= 1:
+        raise ValueError("cross-frequency quotient must lie in (0,1]")
     target = complex(*canonical_target)
 
     left_sources, left_pair_count = _family_source_modes(
@@ -182,6 +185,7 @@ def source_ramanujan_mean_receipt(
     absolute_unweighted_endpoint_mass = 0.0
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
+    kernel_frequency_totals = np.zeros(period, dtype=complex)
     matched_source_residue_pairs = 0
     expanded_mode_products = 0
     for left_residue, left_modes in left_sources.items():
@@ -209,6 +213,7 @@ def source_ramanujan_mean_receipt(
                         left_coefficient * np.conjugate(right_coefficient))
                     contribution = mode_product * conditioned_sum
                     total += contribution
+                    kernel_frequency_totals[frequency] += contribution
                     phase_removed_total += (
                         mode_product * ramanujan_weight)
                     unsigned_ramanujan_total += (
@@ -242,6 +247,15 @@ def source_ramanujan_mean_receipt(
         absolute_unweighted_endpoint_mass / unit_class_count)
     normalized_absolute_mode_contribution_mass = (
         absolute_mode_contribution_mass / unit_class_count)
+    normalized_grouped_frequency_absolute_mass = (
+        float(np.sum(np.abs(kernel_frequency_totals))) / unit_class_count)
+    within_frequency_absolute_mass_ratio = (
+        normalized_grouped_frequency_absolute_mass
+        / normalized_absolute_mode_contribution_mass
+        if normalized_absolute_mode_contribution_mass > 0 else None)
+    cross_frequency_cancellation_quotient = (
+        abs(source_mean) / normalized_grouped_frequency_absolute_mass
+        if normalized_grouped_frequency_absolute_mass > 0 else None)
     source_mode_cancellation_quotient = (
         abs(source_mean) / normalized_absolute_mode_contribution_mass
         if normalized_absolute_mode_contribution_mass > 0 else None)
@@ -337,6 +351,18 @@ def source_ramanujan_mean_receipt(
             source_mean.real, source_mean.imag),
         "normalized_absolute_mode_contribution_mass": (
             normalized_absolute_mode_contribution_mass),
+        "normalized_grouped_frequency_absolute_mass": (
+            normalized_grouped_frequency_absolute_mass),
+        "within_frequency_absolute_mass_ratio": (
+            within_frequency_absolute_mass_ratio),
+        "cross_frequency_cancellation_quotient": (
+            cross_frequency_cancellation_quotient),
+        "maximum_cross_frequency_cancellation_quotient": (
+            maximum_cross_frequency_cancellation_quotient),
+        "cross_frequency_cancellation_gate_passes": bool(
+            cross_frequency_cancellation_quotient is not None
+            and cross_frequency_cancellation_quotient
+            <= maximum_cross_frequency_cancellation_quotient),
         "source_mode_cancellation_quotient": (
             source_mode_cancellation_quotient),
         "maximum_source_mode_cancellation_quotient": (
@@ -466,6 +492,12 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "source_mode_cancellation_quotients": {
             lag: result["source_mode_cancellation_quotient"]
             for lag, result in results.items()},
+        "within_frequency_absolute_mass_ratios": {
+            lag: result["within_frequency_absolute_mass_ratio"]
+            for lag, result in results.items()},
+        "cross_frequency_cancellation_quotients": {
+            lag: result["cross_frequency_cancellation_quotient"]
+            for lag, result in results.items()},
         "phase_removed_cancellation_quotients": {
             lag: result["phase_removed_cancellation_quotient"]
             for lag, result in results.items()},
@@ -495,6 +527,9 @@ def leading_lag_source_receipt(tolerance=1e-12):
             for result in results.values()),
         "all_source_mode_cancellation_gates_pass": all(
             result["source_mode_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_cross_frequency_cancellation_gates_pass": all(
+            result["cross_frequency_cancellation_gate_passes"]
             for result in results.values()),
         "all_phase_removed_cancellation_gates_pass": all(
             result["phase_removed_cancellation_gate_passes"]
