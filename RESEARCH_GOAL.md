@@ -6201,3 +6201,26 @@ blocks at project scales. Fixed-power growth rejects the route; stable
 subpower behavior identifies the precise signed residual sum requiring a
 theorem. The incomplete boundary, signed prime correlation, and Goldbach
 remain open; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: cancellation persists inside conductor blocks
+
+The multi-residual quotient has now been localized exactly to dyadic
+conductor blocks. Across eight project primes per scale, the median global
+high-`d` quotient decreases from `.49399` at `M=251` to `.25668` at
+`M=16001`. The block containing the largest share of the high-`d` diagonal
+has median quotient only `.172`-`.225` across all seven scales and carries
+median diagonal fraction `.31287` at the largest scale.
+
+At the two largest sampled scales, every high-`d` dyadic block has quotient
+below one: maxima `.95327` at `M=8009` and `.87258` at `M=16001`. Smaller
+scales do have blocks above one, so this is finite evidence for strengthening
+local cancellation, not a pointwise sign rule or an asymptotic bound.
+Independent review verified the partitions, measurements, code, and tests.
+
+The next target splits the three-way assignment by common-prime content and
+left/right imbalance to identify which arithmetic feature predicts the
+signed residual cancellation. A feature class with fixed-power quotient
+growth or no signed/absolute separation falsifies that proposed mechanism.
+The incomplete boundary, signed prime correlation, and Goldbach remain open;
+complete assembly remains `.295-delta`.

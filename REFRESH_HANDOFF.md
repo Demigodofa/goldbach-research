@@ -7052,3 +7052,42 @@ residual support size, at most `B^2/d`, which is about `N^.05` near the
 dominant conductor and is too costly. A dyadic block quotient growing like a
 fixed positive power falsifies this route. The incomplete boundary, signed
 prime correlation, and Goldbach remain OPEN.
+
+
+## 2026-09-10: dyadic localization finds no large-scale resonant block
+
+`lcm_sawtooth_residual_block_probe.py` partitions the exact multi-residual
+numerator and diagonal into conductor ranges `D<=d<2D`, both over all
+positive-weight conductors and over the high-conductor subset `d>B`. For each
+block it measures
+
+`Q_D=sum_(d in block)H_m(d)[sum_r K_(dr)/(dr)]^2`
+
+against
+
+`Delta_D=sum_(d in block)H_m(d)sum_r K_(dr)^2/(d^2r^2)`.
+
+Across eight evenly spaced project primes at each scale, the median global
+high-conductor multi-residual quotient fell from `.49399` at `M=251` to
+`.25668` at `M=16001`. The block carrying the most high-conductor diagonal
+mass had median quotient between `.172` and `.225` at every scale. At
+`M=16001` that block carried median diagonal fraction `.31287` and median
+quotient `.17292`.
+
+More sharply, at `M=8009` every sampled high-conductor block had quotient at
+most `.95327`; at `M=16001` every one was at most `.87258`. Earlier-scale
+blocks can exceed one, so this is a measured scale-dependent cancellation
+pattern rather than a sign theorem. Independent review PASSed the exact
+dyadic reconstruction, high-subset partition, residual diagnostics, project
+sampler, numerical summaries, implementation, and 41 combined tests in
+normal and optimized modes.
+
+The favorable global ratio is therefore not hiding a persistent resonant
+block in the tested large scales. The next <=30-minute question is which part
+of the three-way assignment forces cancellation among residual coefficients
+`K_(dr)`: common primes `d_C`, left/right imbalance, or Mobius oscillation in
+`alpha,beta`. The test will split dominant blocks by that arithmetic feature
+and compare signed with absolute residual sums. Loss of the observed gap at
+larger scales, or a feature class with fixed-power quotient growth, rejects
+that mechanism. The incomplete boundary, signed prime correlation, and
+Goldbach remain OPEN.
