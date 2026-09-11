@@ -12358,3 +12358,52 @@ at `1e-12`.  Failure shows that the association does not survive this new
 period and geometry, leaving the positive evidence so far confined to period
 `10010`; passing gives finite evidence that the Ramanujan-interval diagnostic
 survives new primes, period, and endpoint allocation.
+
+## 2026-09-11: the new-period rank gate fails
+
+The first test outside period `10010` does not retain the strong rank
+association.  For `Q=2310` and `families=((15,77),(35,33))`, the complete
+comparison is:
+
+| `q` | Fourier cancellation quotient | count-`4` sector recombination quotient |
+|---:|---:|---:|
+| `15` | `.0033126468776086444` | `.19063100974135774` |
+| `21` | `.010432176963204387` | `.4546991458454955` |
+| `33` | `.04248417187258904` | `.8543139343134691` |
+| `35` | `.017946519708990034` | `.8244946861984153` |
+| `55` | `.04835249627943382` | `.74187635170919` |
+| `77` | `.02069656442173454` | `.47766150264034346` |
+
+The sector quotient order is
+`15<21<77<55<35<33`, while the Fourier order is
+`15<21<35<77<33<55`.  Their Spearman correlation is
+`5/7=.7142857142857143`, below the predeclared `.8` gate.  The failure is not
+numerical: all six count reconstructions passed with maximum source error
+`8.825281233345926e-16` and maximum direct natural-scale error
+`2.857695261777129e-15`; the maximum projected reconstruction error was
+`1.8388639727462315e-16`.
+
+This falsifies stability under this simultaneous change of period, prime set,
+and endpoint allocation.  The positive correlation remains suggestive but is
+insufficient for the declared proxy claim.  Preserve the exact Fourier
+diagonalization and the successful period-`10010` evidence; do not promote
+their rank association to a general law.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`.  No
+uniform source, prime-distribution, or signed prime-correlation estimate
+follows.
+
+Independent review recomputed every count and projected value, reconstruction
+error, rank vector, and the exact Spearman value `5/7`; all six focused tests
+passed normally and under Python optimization.  The reviewer confirmed that
+this is one finite failed geometry, not proof that the period or prime `3`
+alone causes the loss.
+
+The next bounded question separates allocation sensitivity inside the new
+period.  Keep `Q=2310` and the same six quotients, but use the direct
+`13 -> 3` analogue of the original successful allocation:
+`families=((77,15),(33,35))`.  Predeclare Spearman correlation at least `.8`
+and both reconstruction gates at `1e-12`.  Passing shows that endpoint
+allocation materially affects the diagnostic at this period; failure shows
+non-survival in two complementary `Q=2310` allocations, without by itself
+assigning causality to the new prime set or period.
