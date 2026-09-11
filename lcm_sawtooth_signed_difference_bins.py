@@ -140,6 +140,26 @@ def signed_difference_bin_receipt(
     fixed_q_residual = float(sum(
         abs(value) for value in high_q_group_sums.values()))
     fixed_q_residual_over_complete = fixed_q_residual / complete_energy
+    ranked_packets = sorted(
+        high_q_group_sums.items(), key=lambda item: abs(item[1]),
+        reverse=True)
+    packet_magnitudes = np.array(
+        [abs(value) for _, value in ranked_packets], dtype=float)
+    cumulative_packet_mass = np.cumsum(packet_magnitudes)
+
+    def packet_count_for_fraction(fraction):
+        if fixed_q_residual == 0:
+            return 0
+        return int(np.searchsorted(
+            cumulative_packet_mass, fraction * fixed_q_residual) + 1)
+
+    top_packet_shares = tuple(
+        float(np.sum(packet_magnitudes[:count]) / fixed_q_residual)
+        if fixed_q_residual else 0.0
+        for count in (1, 5, 10, 20))
+    effective_packet_count = (
+        fixed_q_residual ** 2 / float(np.sum(packet_magnitudes ** 2))
+        if fixed_q_residual else 0.0)
     return {
         "modulus": modulus,
         "ell_range": (ell_first, ell_first + row_count - 1),
@@ -156,6 +176,16 @@ def signed_difference_bin_receipt(
         "high_Q_signed_over_complete": high_q_signed,
         "high_Q_absolute_over_complete": high_q_absolute,
         "high_Q_distinct_denominator_count": len(high_q_group_sums),
+        "high_Q_top_1_5_10_20_packet_shares": top_packet_shares,
+        "high_Q_half_mass_packet_count": packet_count_for_fraction(.5),
+        "high_Q_ninety_percent_mass_packet_count": (
+            packet_count_for_fraction(.9)),
+        "high_Q_effective_packet_count": effective_packet_count,
+        "top_high_Q_packets": tuple(
+            (int(q_value),
+             float(abs(value) / complete_energy),
+             float(value.real / complete_energy))
+            for q_value, value in ranked_packets[:10]),
         "high_Q_fixed_Q_residual_over_complete": (
             fixed_q_residual_over_complete),
         "high_Q_within_Q_residual_over_pair_envelope": (
@@ -188,6 +218,10 @@ if __name__ == "__main__":
                 "high_Q_signed_over_complete",
                 "high_Q_absolute_over_complete",
                 "high_Q_fixed_Q_residual_over_complete",
+                "high_Q_top_1_5_10_20_packet_shares",
+                "high_Q_half_mass_packet_count",
+                "high_Q_ninety_percent_mass_packet_count",
+                "high_Q_effective_packet_count",
                 "high_Q_within_Q_residual_over_pair_envelope",
                 "high_Q_across_Q_residual",
                 "high_Q_net_over_absolute")})

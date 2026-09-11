@@ -30,6 +30,18 @@ class LcmSawtoothSignedDifferenceBinTests(unittest.TestCase):
         self.assertTrue(0 <= receipt["high_Q_across_Q_residual"] <= 1)
         self.assertTrue(
             0 <= receipt["high_Q_within_Q_residual_over_pair_envelope"] <= 1)
+        shares = receipt["high_Q_top_1_5_10_20_packet_shares"]
+        self.assertTrue(all(
+            shares[index] <= shares[index + 1]
+            for index in range(len(shares) - 1)))
+        self.assertGreaterEqual(receipt["high_Q_half_mass_packet_count"], 1)
+        self.assertGreaterEqual(
+            receipt["high_Q_ninety_percent_mass_packet_count"],
+            receipt["high_Q_half_mass_packet_count"])
+        top_packets = receipt["top_high_Q_packets"]
+        self.assertTrue(all(
+            top_packets[index][1] >= top_packets[index + 1][1]
+            for index in range(len(top_packets) - 1)))
 
     def test_conductor_sign_removal_preserves_energy_but_changes_boundary(self):
         actual = signed_difference_bin_receipt(101, 24, 24, 36, 3, 12)

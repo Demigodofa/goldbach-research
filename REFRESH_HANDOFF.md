@@ -8083,3 +8083,33 @@ asymptotic trend. The next bounded test should examine whether the growth comes
 from a small set of `Q` packets or a broad shift before attempting a proof.
 The first uncaptured run produced no usable receipt and was not treated as
 evidence; only the captured rerun above is recorded. No process is running.
+
+## 2026-09-11: the larger packet quotient is broadly distributed
+
+The exact `Q>mA` packet magnitudes `|C_Q|` were ranked and measured by top
+shares, cumulative mass counts, and the inverse-Herfindahl effective packet
+count. At the `m=503` project fixture there are 181 active packets. The largest
+accounts for only `.04824` of `sum_Q|C_Q|`; the top 5, 10, and 20 account for
+`.18306,.28290,.40915`. It takes 30 packets to carry half the mass and 108 to
+carry 90%, while the effective packet count is `71.04`.
+
+For comparison, the `m=251` fixture has 44 active high-`Q` packets, effective
+count `23.64`, needs 10 packets for half and 29 for 90%, and puts `.77130` in
+its top 20. Independent review verified the ranking, cumulative crossings,
+effective-count formula, tests, and both receipts and returned PASS.
+
+Thus the rise of the packet quotient from `.31479` to `.59574` is not caused
+by one or a few removable resonances. It accompanies a broadening family of
+material exact-`Q` packets under project scaling. This is a finite comparison:
+the row length, threshold, and divisor support all change, so it proves no
+asymptotic trend.
+
+The next <=30-minute hypothesis is that a weighted square-sum can control the
+broad family without a packet count loss. Test the exact Cauchy majorant
+
+`sum_Q |C_Q| <= (sum_Q 1/Q)^(1/2)(sum_Q Q|C_Q|^2)^(1/2)`
+
+relative to complete energy. If its quotient grows rapidly already on these
+fixtures, this weight is rejected; if it stays comparable to the packet sum,
+the proof target becomes the weighted `Q|C_Q|^2` estimate. The signed prime-
+correlation estimate and Goldbach remain OPEN.

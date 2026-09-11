@@ -423,3 +423,8 @@ evidence, not yet a uniform Ramanujan/Parseval bound.
 At the next project fixture `m=503`, that packet quotient is `.595735`: still
 below one, but nearly twice the earlier range. The exact result passed review
 and keeps the route alive while weakening any constant-small interpretation.
+
+The increase is distributed: at `m=503` the largest exact-`Q` packet carries
+under 5% of the packet sum, 108 of 181 packets are needed for 90%, and the
+effective count is 71. The next route tests a `1/Q`-weighted Cauchy square-sum
+rather than trying to discard a short exceptional set.

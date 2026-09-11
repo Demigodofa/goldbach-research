@@ -6704,3 +6704,10 @@ below the falsification threshold `1`. Within-`Q` cancellation leaves `.06457`
 of the pair envelope and across-`Q` cancellation leaves `.09126` of that
 residual. This is one finite result, not evidence of boundedness. Next locate
 whether the increase is concentrated in a few exact `Q` packets.
+
+The increase is broad in the finite data. At `m=503`, 181 high-`Q` packets
+have effective count `71.04`; the largest carries only `.0482`, the top 20
+carry `.4091`, and 108 are needed for 90% of `sum_Q|C_Q|`. Independent review
+returned PASS. Short exceptional-packet removal is therefore not the measured
+mechanism. Next test the exact `Q`-weighted Cauchy majorant and, if it remains
+comparable, target a weighted square-sum bound for the whole packet family.
