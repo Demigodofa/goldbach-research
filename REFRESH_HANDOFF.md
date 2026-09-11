@@ -12407,3 +12407,116 @@ and both reconstruction gates at `1e-12`.  Passing shows that endpoint
 allocation materially affects the diagnostic at this period; failure shows
 non-survival in two complementary `Q=2310` allocations, without by itself
 assigning causality to the new prime set or period.
+
+## 2026-09-11: the original allocation pattern restores the rank gate
+
+Keeping `Q=2310` but switching to the direct `13 -> 3` analogue of the
+original successful endpoint allocation changes the result.  For
+`families=((77,15),(33,35))`:
+
+| `q` | Fourier cancellation quotient | count-`4` sector recombination quotient |
+|---:|---:|---:|
+| `15` | `.06897732535159747` | `.34979821428574304` |
+| `21` | `.04120228305920141` | `.2045342414078927` |
+| `33` | `.05194975718913018` | `.2913249193588369` |
+| `35` | `.03582127107421742` | `.16215960958670428` |
+| `55` | `.054841459620561916` | `.2541893677464353` |
+| `77` | `.06156797992215486` | `.3018103161208625` |
+
+The two orders differ only by the adjacent `33/55` pair, giving Spearman
+`33/35=.9428571428571428` and passing the `.8` gate.  All six count
+reconstructions passed with maximum source error
+`7.378554910021189e-16` and maximum direct natural-scale error
+`2.060972643173465e-15`; the projected maximum was
+`3.094450194356488e-16`.
+
+The same period and prime set now contain one failing and one passing
+allocation.  Endpoint allocation therefore materially affects this finite
+diagnostic.  That does not prove allocation is the sole cause or supply a
+structural classification: it identifies what the next mechanism must
+explain.
+
+Curiosity status: `changed-under-evidence` with `confirmatory-pass`, novelty
+`new-to-this-task`.  Preserve both `Q=2310` geometries and their opposite gate
+outcomes.  No general comparison inequality, uniform source estimate,
+prime-distribution estimate, or signed prime-correlation estimate follows.
+
+Independent review recomputed all twelve measures for this geometry,
+confirmed the one rank swap and exact Spearman value, checked both family
+products and every reconstruction, and ran all seven projected tests normally
+and under Python optimization before returning PASS.  The conclusion is
+limited to allocation sensitivity in these two fixtures.
+
+The next bounded question resolves the gap between the two cancellation
+norms.  For each quotient write
+
+`A=sum_(t,v)|z_(t,v)|`, `B=sum_(t,v)z_(t,v)`,
+`L=sum_n|b_n|`, and `P=sum_(n,S)|b_(n,S)|`.
+
+The Fourier quotient is `rho=|B|/A`, the sector quotient is `R=L/P`, the
+frequency coherence is `eta=|B|/L`, and the basis inflation is `kappa=A/P`.
+Hence the exact bridge is
+
+`R/rho=kappa/eta`.
+
+Compute `eta` and `kappa` for both `Q=2310` allocations.  The exploratory
+explanation selected from the observed ratios is that the failed geometry has
+bridge-distortion range `max_q(kappa/eta)/min_q(kappa/eta) >= 2`, while the
+passing geometry has range at most `1.5`.  Passing this diagnostic would
+locate the rank failure in variation between frequency coherence and basis
+inflation; it would require a fresh geometry for confirmation.
+
+## 2026-09-11: basis inflation explains the two observed rank outcomes
+
+The exact bridge decomposition passes and makes the difference between the
+two `Q=2310` geometries visible.  With
+
+`A=sum|z_(t,v)|`, `B=sum z_(t,v)`, `L=sum|b_n|`, and
+`P=sum|b_(n,S)|`,
+
+define `rho=|B|/A`, `R=L/P`, `eta=|B|/L`, and `kappa=A/P`.  Then
+
+`R/rho=kappa/eta`
+
+holds identically.  The maximum numerical residual in this bridge was
+`4.973799150320701e-13`.
+
+The observed ranges are:
+
+| geometry | `eta` range | `kappa` range | `kappa/eta` range | distortion `max/min` |
+|---|---:|---:|---:|---:|
+| failed rank `((15,77),(35,33))` | `.7724458587 .. 1` | `15.34308275 .. 53.90874353` | `15.34308275 .. 57.54643244` | `3.750643424690319` |
+| passing rank `((77,15),(33,35))` | `.8826358659 .. 1` | `3.995611633 .. 5.586795473` | `4.526908307 .. 5.607820616` | `1.2387749509975687` |
+
+Both exploratory thresholds pass: distortion is at least `2` in the failed
+geometry and at most `1.5` in the passing geometry.  Most of the difference
+comes from `kappa`, the inflation between Fourier atomic mass and sectorwise
+mass, rather than from the final frequency-sign coherence `eta`.  When
+`kappa/eta` is nearly constant across `q`, ranking by `rho` is nearly the same
+as ranking by `R`; when it varies by almost a factor of four, it can reorder
+the cases.
+
+This is an exact decomposition plus a post hoc explanatory pattern, not yet a
+confirmed classifier.  It turns the failure into a narrower analytic target:
+control the basis-inflation factor `A/P` and its quotient dependence.  No
+uniform control of that factor is currently proved.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`.  Preserve the
+bridge identity and the separation of `eta` from `kappa`; do not yet promote
+the selected `1.5/2` thresholds.  No uniform source, prime-distribution, or
+signed prime-correlation estimate follows.
+
+Independent review verified that all four norms refer to the same count-`4`
+vector, derived the bridge algebra, recomputed every range and residual, and
+ran all eight focused tests normally and under Python optimization.  It
+confirmed that the variation is mainly in `kappa` and accepted the result only
+with its exploratory and fresh-geometry qualifications.
+
+The next bounded question gives the distortion pattern one untouched
+confirmatory geometry at the same period: `families=((21,55),(55,21))` at
+`Q=2310`, over the same six two-prime quotients.  Freeze the rule before
+evaluation: distortion at most `1.5` predicts Spearman at least `.8`, while
+distortion at least `2` predicts Spearman below `.8`; a distortion strictly
+between `1.5` and `2` is inconclusive.  Require both exact reconstruction
+gates at `1e-12`.  Failure rejects this bridge-distortion classifier while
+retaining the exact identity and its norm factors.

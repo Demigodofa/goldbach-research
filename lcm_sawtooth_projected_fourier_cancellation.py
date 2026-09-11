@@ -71,6 +71,15 @@ NEW_PERIOD_COUNT_FOUR_RECOMBINATION_TARGETS = {
     55: .74187635170919,
     77: .47766150264034346,
 }
+NEW_PERIOD_ANALOG_FAMILIES = ((77, 15), (33, 35))
+NEW_PERIOD_ANALOG_COUNT_FOUR_RECOMBINATION_TARGETS = {
+    15: .34979821428574304,
+    21: .2045342414078927,
+    33: .2913249193588369,
+    35: .16215960958670428,
+    55: .2541893677464353,
+    77: .3018103161208625,
+}
 
 
 def _imaginary_transform_table(denominator, period):
@@ -141,11 +150,18 @@ def _projected_fourier_identity_row(
     direct_frequency_totals = _direct_fully_resonant_totals(
         period, lag, left_sources, right_sources)
     direct_total = complex(np.sum(direct_frequency_totals))
+    direct_recombined_absolute_mass = float(np.sum(
+        np.abs(direct_frequency_totals)))
     reconstruction_error = abs(row["signed_total"] - direct_total)
     reconstruction_natural_scale_relative_error = (
         reconstruction_error / max(1.0, row["absolute_fourier_mass"]))
     row.update({
         "direct_conditioned_total": (direct_total.real, direct_total.imag),
+        "direct_recombined_absolute_mass": (
+            direct_recombined_absolute_mass),
+        "signed_frequency_coherence": (
+            abs(direct_total) / direct_recombined_absolute_mass
+            if direct_recombined_absolute_mass else None),
         "reconstruction_absolute_error": reconstruction_error,
         "reconstruction_natural_scale_relative_error": (
             reconstruction_natural_scale_relative_error),
@@ -448,6 +464,138 @@ def new_period_projected_fourier_holdout_receipt(
         "all_projected_fourier_identities_pass": all(
             row["projected_fourier_identity_passes"]
             for row in rows.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def new_period_analog_projected_fourier_holdout_receipt(
+        minimum_spearman_correlation=.8, tolerance=1e-12):
+    if not -1 <= minimum_spearman_correlation <= 1:
+        raise ValueError("minimum Spearman correlation must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    families = NEW_PERIOD_ANALOG_FAMILIES
+    period = 2310
+    left_sources = _one_orientation_count_source_modes(
+        period, *families[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *families[1])[2]
+    rows = {
+        quotient: _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
+        for quotient, lag in NEW_PERIOD_QUOTIENT_LAGS.items()}
+    fourier_quotients = {
+        quotient: row["fourier_cancellation_quotient"]
+        for quotient, row in rows.items()}
+    quotients = tuple(NEW_PERIOD_QUOTIENT_LAGS)
+    spearman = _spearman_correlation(
+        tuple(fourier_quotients[q] for q in quotients),
+        tuple(NEW_PERIOD_ANALOG_COUNT_FOUR_RECOMBINATION_TARGETS[q]
+              for q in quotients))
+    return {
+        "families": families,
+        "arithmetic_period": period,
+        "quotients": quotients,
+        "fourier_cancellation_quotients": fourier_quotients,
+        "count_four_recombination_quotients": (
+            NEW_PERIOD_ANALOG_COUNT_FOUR_RECOMBINATION_TARGETS.copy()),
+        "spearman_correlation": spearman,
+        "minimum_spearman_correlation": minimum_spearman_correlation,
+        "rank_gate_passes": bool(
+            spearman is not None
+            and spearman >= minimum_spearman_correlation),
+        "maximum_reconstruction_natural_scale_relative_error": max(
+            row["reconstruction_natural_scale_relative_error"]
+            for row in rows.values()),
+        "all_projected_fourier_identities_pass": all(
+            row["projected_fourier_identity_passes"]
+            for row in rows.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def q2310_bridge_distortion_receipt(
+        minimum_failed_distortion=2.0,
+        maximum_passing_distortion=1.5, tolerance=1e-12):
+    if minimum_failed_distortion <= 1:
+        raise ValueError("minimum failed distortion must exceed one")
+    if maximum_passing_distortion < 1:
+        raise ValueError("maximum passing distortion must be at least one")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = 2310
+    geometries = {
+        "failed_rank_geometry": (
+            NEW_PERIOD_FAMILIES,
+            NEW_PERIOD_COUNT_FOUR_RECOMBINATION_TARGETS),
+        "passing_rank_geometry": (
+            NEW_PERIOD_ANALOG_FAMILIES,
+            NEW_PERIOD_ANALOG_COUNT_FOUR_RECOMBINATION_TARGETS),
+    }
+    geometry_rows = {}
+    for name, (families, count_four_targets) in geometries.items():
+        left_sources = _one_orientation_count_source_modes(
+            period, *families[0])[2]
+        right_sources = _one_orientation_count_source_modes(
+            period, *families[1])[2]
+        quotient_rows = {}
+        for quotient, lag in NEW_PERIOD_QUOTIENT_LAGS.items():
+            projected = _projected_fourier_identity_row(
+                period, lag, families,
+                left_sources, right_sources, tolerance)
+            sector_quotient = count_four_targets[quotient]
+            recombined_mass = projected[
+                "direct_recombined_absolute_mass"]
+            sectorwise_mass = recombined_mass / sector_quotient
+            basis_inflation = (
+                projected["absolute_fourier_mass"] / sectorwise_mass)
+            frequency_coherence = projected["signed_frequency_coherence"]
+            bridge_multiplier = basis_inflation / frequency_coherence
+            bridge_identity_error = abs(
+                bridge_multiplier
+                - sector_quotient
+                / projected["fourier_cancellation_quotient"])
+            quotient_rows[quotient] = {
+                "frequency_coherence": frequency_coherence,
+                "basis_inflation": basis_inflation,
+                "bridge_multiplier": bridge_multiplier,
+                "bridge_identity_absolute_error": bridge_identity_error,
+                "projected_fourier_identity_passes": projected[
+                    "projected_fourier_identity_passes"],
+            }
+        multipliers = tuple(
+            row["bridge_multiplier"] for row in quotient_rows.values())
+        geometry_rows[name] = {
+            "families": families,
+            "quotients": quotient_rows,
+            "bridge_distortion_range": max(multipliers) / min(multipliers),
+            "maximum_bridge_identity_absolute_error": max(
+                row["bridge_identity_absolute_error"]
+                for row in quotient_rows.values()),
+            "all_projected_fourier_identities_pass": all(
+                row["projected_fourier_identity_passes"]
+                for row in quotient_rows.values()),
+        }
+    failed_distortion = geometry_rows[
+        "failed_rank_geometry"]["bridge_distortion_range"]
+    passing_distortion = geometry_rows[
+        "passing_rank_geometry"]["bridge_distortion_range"]
+    return {
+        "arithmetic_period": period,
+        "geometries": geometry_rows,
+        "minimum_failed_distortion": minimum_failed_distortion,
+        "maximum_passing_distortion": maximum_passing_distortion,
+        "failed_distortion_gate_passes": bool(
+            failed_distortion >= minimum_failed_distortion),
+        "passing_distortion_gate_passes": bool(
+            passing_distortion <= maximum_passing_distortion),
+        "exploratory_bridge_distortion_pattern_passes": bool(
+            failed_distortion >= minimum_failed_distortion
+            and passing_distortion <= maximum_passing_distortion),
         "uniform_source_sum_estimate_proved": False,
         "prime_distribution_estimate_proved": False,
         "signed_prime_correlation_proved": False,

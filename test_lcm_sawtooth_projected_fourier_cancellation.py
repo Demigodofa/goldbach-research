@@ -2,8 +2,10 @@ import unittest
 
 from lcm_sawtooth_projected_fourier_cancellation import (
     alternate_geometry_projected_fourier_holdout_receipt,
+    new_period_analog_projected_fourier_holdout_receipt,
     new_period_projected_fourier_holdout_receipt,
     projected_fourier_cancellation_receipt,
+    q2310_bridge_distortion_receipt,
     three_prime_projected_fourier_holdout_receipt,
     two_prime_projected_fourier_holdout_receipt,
 )
@@ -33,6 +35,11 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             new_period_projected_fourier_holdout_receipt(
                 minimum_spearman_correlation=2)
+        with self.assertRaises(ValueError):
+            new_period_analog_projected_fourier_holdout_receipt(
+                minimum_spearman_correlation=2)
+        with self.assertRaises(ValueError):
+            q2310_bridge_distortion_receipt(minimum_failed_distortion=1)
 
     def test_q77_q91_projected_fourier_discriminator(self):
         receipt = projected_fourier_cancellation_receipt()
@@ -183,6 +190,60 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
             receipt[
                 "maximum_reconstruction_natural_scale_relative_error"],
             1e-12)
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_new_period_analog_rank_gate_passes(self):
+        receipt = new_period_analog_projected_fourier_holdout_receipt()
+        self.assertEqual(receipt["families"], ((77, 15), (33, 35)))
+        self.assertEqual(receipt["arithmetic_period"], 2310)
+        expected_fourier_quotients = {
+            15: .06897732535159747,
+            21: .04120228305920141,
+            33: .05194975718913018,
+            35: .03582127107421742,
+            55: .054841459620561916,
+            77: .06156797992215486,
+        }
+        expected_count_four_quotients = {
+            15: .34979821428574304,
+            21: .2045342414078927,
+            33: .2913249193588369,
+            35: .16215960958670428,
+            55: .2541893677464353,
+            77: .3018103161208625,
+        }
+        for quotient, expected in expected_fourier_quotients.items():
+            self.assertAlmostEqual(
+                receipt["fourier_cancellation_quotients"][quotient],
+                expected, places=14)
+        for quotient, expected in expected_count_four_quotients.items():
+            self.assertAlmostEqual(
+                receipt["count_four_recombination_quotients"][quotient],
+                expected, places=14)
+        self.assertAlmostEqual(
+            receipt["spearman_correlation"],
+            .9428571428571428, places=14)
+        self.assertTrue(receipt["rank_gate_passes"])
+        self.assertTrue(receipt["all_projected_fourier_identities_pass"])
+        self.assertLess(
+            receipt[
+                "maximum_reconstruction_natural_scale_relative_error"],
+            1e-12)
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_q2310_exploratory_bridge_distortion_pattern(self):
+        receipt = q2310_bridge_distortion_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 2310)
+        self.assertTrue(receipt["failed_distortion_gate_passes"])
+        self.assertTrue(receipt["passing_distortion_gate_passes"])
+        self.assertTrue(receipt[
+            "exploratory_bridge_distortion_pattern_passes"])
+        for geometry in receipt["geometries"].values():
+            self.assertTrue(geometry[
+                "all_projected_fourier_identities_pass"])
+            self.assertLess(
+                geometry["maximum_bridge_identity_absolute_error"],
+                1e-12)
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 
