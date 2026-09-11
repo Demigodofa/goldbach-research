@@ -547,3 +547,11 @@ three-coordinate scan. At `M=127` the four relaxed quotients lie in
 weighted denominator forms have rank 6 and no numerator-positive null
 direction. This finite weight stability preserves the polynomial-frame route;
 it is not a uniform weighted estimate or a signed prime-correlation bound.
+
+The positive weights themselves no longer require four separate asymptotic
+matrix estimates. If the unweighted PSD forms satisfy `sum N_m <= C sum D_m`,
+then positivity transfers this to weights `w_m` with factor
+`max(w_m)/min(w_m)`. Exact active-mode counting and elementary dyadic bounds
+give uniform distortion constants `1,2,16,25` for the four weights above on
+every project block `M>=17`. The unweighted lifted endpoint/active inequality
+is still open; this lemma transfers it if proved.

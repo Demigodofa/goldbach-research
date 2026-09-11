@@ -7025,3 +7025,28 @@ and active-row Gram remain available together. The next target is a uniform
 matrix-first weighted six-coordinate endpoint/active inequality. Its proof,
 the sharper rank-one alternative, and the signed prime correlation all remain
 OPEN. Goldbach remains OPEN.
+
+### 2026-09-11 continuation: outer weights reduce to one unweighted PSD bound
+
+For arbitrary positive semidefinite pairs `N_m,D_m`, positivity proves
+
+`sum w_m N_m <= C*kappa_w sum w_m D_m`,
+
+whenever `sum N_m<=C sum D_m`, with
+`kappa_w=max_m(w_m)/min_m(w_m)`. For the four project weights, exact counting
+of the strict active-frequency interval gives `kappa_rho<8` on every dyadic
+block `M>=17`; logarithmic monotonicity yields uniform distortion bounds
+`1,2,16,25`.
+
+Independent review PASSed the matrix proof, active-mode formula, uniform
+constants, shared implementation, and exact `M=127,251` receipts. Normal and
+optimized focused tests pass. Status `aha-candidate`, novelty
+`new-to-this-task`: the four outer-weighted lifted estimates are now reduced
+to one unweighted Loewner estimate at fixed cost.
+
+That unweighted endpoint/active inequality remains OPEN. No rank-one or signed
+prime-correlation theorem follows. The next bounded test asks whether the
+unweighted six-coordinate comparison holds uniformly for each prime rather
+than only after block aggregation; growth of the individual generalized
+quotient falsifies that stronger route while preserving the block-average and
+polynomial components. Goldbach remains OPEN.

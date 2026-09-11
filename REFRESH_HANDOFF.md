@@ -8817,3 +8817,48 @@ the matching active-row form. A growing quotient at larger project scales, or
 a proof-level obstruction in one of the six bilinear entries, rejects this
 sufficient relaxation while preserving the actual rank-one polynomial family.
 The signed prime correlation and Goldbach remain OPEN.
+
+## 2026-09-11: one unweighted PSD estimate would cover all four weights
+
+`lcm_sawtooth_outer_weight_transfer.py` proves the deterministic Loewner
+transfer. For PSD matrices `N_m,D_m`, if
+
+`sum_m N_m <= C sum_m D_m`,
+
+then every positive scalar family satisfies
+
+`sum_m w_m N_m
+ <= C*(max_m w_m/min_m w_m)*sum_m w_m D_m`.
+
+For odd prime `m`, the exact active-mode size is `2L_m`, where
+
+`L_m=#{s integer: m/(2*pi*H)<s<m/(pi*H)}`.
+
+Writing `a=m/(2*pi*H)` gives `a-1<=L_m<=a+1`. With the project choice
+`H=floor(M^(10/59))`, `M>=17`, one has `M/(pi H)>=17/pi`, so the dyadic
+distortion of `rho_m=2L_m/(m-1)` is less than 8. Monotonicity of
+`log(m)^2/m` and `m*log(m)^2` then gives the uniform distortion bounds
+
+`1, 2, 16, 25`
+
+for `1`, `log(m)^2/m`, `rho_m log(m)^2/m`, and
+`rho_m*m*log(m)^2`, respectively. These fixed constants are sufficient for
+the intended subpower scale. Exact prime-block distortions are much smaller:
+
+`M=127: 1, 1.519064, 1.507008, 2.591937`,
+
+`M=251: 1, 1.572588, 1.566298, 2.523361`.
+
+Independent review checked the Loewner order, exact strict-interval count,
+rho bounds, logarithmic monotonicity, constants, import structure, and both
+receipts. Review returned PASS. Focused tests pass normally and under `-O`.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The positive
+PSD structure and the preceding empirical weight stability combine into a
+proof-level compression: the outer-weighted estimates are deterministic
+consequences of one unweighted estimate, at fixed cost. This does not prove
+that unweighted six-coordinate endpoint/active inequality, a rank-one
+alternative, or the signed prime correlation. The next concrete question is
+whether the unweighted comparison can be proved prime by prime; a growing
+individual generalized quotient is the finite falsifier. Goldbach remains
+OPEN.

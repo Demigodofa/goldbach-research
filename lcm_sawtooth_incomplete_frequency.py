@@ -38,7 +38,7 @@ from lcm_sawtooth_incomplete_covariance import _lcm_coefficient_polynomials
 from lcm_sawtooth_structured_divisor_sum import _coefficient_data
 from mobius_covariance_endpoint_probe import _prime_flags
 from mobius_covariance_lag_probe import _mobius_values
-from near_cutoff_geometric_bound import _active_modes
+from lcm_sawtooth_outer_weight_transfer import project_outer_weights
 
 
 def _geometric_numerator(modulus, denominator, numerator):
@@ -457,16 +457,7 @@ def project_prime_block_quadratic_scan(scale_modulus):
             receipt["row_varying_incomplete_quadratic_gram"])
         complete_gram = np.array(
             receipt["row_varying_complete_quadratic_gram"])
-        logarithmic_weight = math.log(modulus) ** 2 / modulus
-        rho = len(_active_modes(
-            modulus, shift_length)) / (modulus - 1)
-        weights = {
-            "unweighted": 1.0,
-            "log_squared_over_m": logarithmic_weight,
-            "rho_log_squared_over_m": rho * logarithmic_weight,
-            "rho_m_log_squared": (
-                rho * modulus * math.log(modulus) ** 2),
-        }
+        weights = project_outer_weights(scale_modulus, modulus)
         for mode, weight in weights.items():
             aggregate_grams[mode][0] += weight * incomplete_gram
             aggregate_grams[mode][1] += weight * complete_gram

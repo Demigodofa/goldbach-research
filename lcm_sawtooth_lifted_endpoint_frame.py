@@ -29,10 +29,8 @@ import numpy as np
 from lcm_sawtooth_exact_gcd_factorization import (
     sawtooth_gcd_mobius_transform,
 )
-from lcm_sawtooth_incomplete_frequency import (
-    _active_modes,
-    _quadratic_support_data,
-)
+from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
+from lcm_sawtooth_outer_weight_transfer import project_outer_weights
 from lcm_sawtooth_reduced_difference_mass import _validate_inputs
 from lcm_sawtooth_signed_difference_bins import _stable_geometric_sum
 from mobius_covariance_endpoint_probe import _prime_flags
@@ -303,7 +301,6 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
     row_count = int(inferred_N ** .41)
     divisor_lower = int(inferred_N ** .15)
     divisor_upper = int(inferred_N ** .32)
-    shift_length = int(inferred_N ** .1)
     ell_freeze = row_count + row_count // 2
     flags = _prime_flags(2 * scale_modulus)
     numerator = np.zeros((6, 6), dtype=float)
@@ -330,15 +327,7 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             receipt["endpoint_pair_square_gram"])
         prime_active = np.asarray(
             receipt["active_window_residue_energy_gram"])
-        logarithmic_weight = math.log(modulus) ** 2 / modulus
-        rho = len(_active_modes(modulus, shift_length)) / (modulus - 1)
-        outer_weights = {
-            "unweighted": 1.0,
-            "log_squared_over_m": logarithmic_weight,
-            "rho_log_squared_over_m": rho * logarithmic_weight,
-            "rho_m_log_squared": (
-                rho * modulus * math.log(modulus) ** 2),
-        }
+        outer_weights = project_outer_weights(scale_modulus, modulus)
         for mode, weight in outer_weights.items():
             weighted_active_grams[mode][0] += weight * prime_numerator
             weighted_active_grams[mode][1] += weight * prime_active
