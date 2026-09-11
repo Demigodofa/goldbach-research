@@ -46,10 +46,15 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertEqual(receipt["localized_inversion_pair_count"], 5)
         self.assertEqual(
             receipt["minimum_localized_pair_mass_fraction"], .75)
+        self.assertEqual(
+            receipt["minimum_conductor_linked_mass_fraction"], .75)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
             receipt["maximum_period_representative_absolute_error"], 0.0)
+        self.assertTrue(receipt["exact_even_lag_support_applied"])
+        self.assertLess(
+            receipt["maximum_odd_lag_fft_numerical_residue"], 1e-4)
         self.assertTrue(receipt[
             "normalized_arithmetic_core_periodicity_proved"])
         self.assertAlmostEqual(
@@ -84,6 +89,18 @@ class PrimeClassCoreTests(unittest.TestCase):
             tuple(row["lag"] for row in
                   receipt["leading_common_reweighting_inversion_pairs"]),
             (182, 140, 240, 154, 156))
+        self.assertEqual(receipt["conductor_core"], 1001)
+        self.assertFalse(receipt[
+            "conductor_core_reweighting_mechanism_hypothesis_passes"])
+        self.assertAlmostEqual(
+            receipt["conductor_linked_absolute_mass_fraction"],
+            .3791522933392227, places=10)
+        self.assertAlmostEqual(
+            receipt["conductor_linked_signed_common_reweighting"],
+            -1220418588.5215206, places=2)
+        self.assertTrue(all(
+            row["lag_gcd"] % 2 == 0
+            for row in receipt["common_reweighting_gcd_strata"]))
         self.assertLess(
             receipt["window_difference_decomposition_relative_error"],
             1e-12)
@@ -151,6 +168,9 @@ class PrimeClassCoreTests(unittest.TestCase):
                 minimum_lost_shell_component_fraction=0)
         with self.assertRaises(ValueError):
             prime_class_core_receipt(localized_inversion_pair_count=0)
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(
+                minimum_conductor_linked_mass_fraction=0)
 
 
 if __name__ == "__main__":

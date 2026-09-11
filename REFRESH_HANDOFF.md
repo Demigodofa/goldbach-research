@@ -10630,3 +10630,44 @@ carry at least `.75` of total paired absolute mass and their signed subtotal
 has the sign of the full common-support reweighting.  Failure preserves the
 exact gcd-stratum decomposition while rejecting the conductor core as the
 dominant source of this window response.
+
+## 2026-09-11: conductor-linked lags drive the sign but not most variation
+
+The packet arrays have exact support on odd residues, so their correlation
+vanishes on odd lags.  The implementation verifies the packet support
+exactly, records a maximum kernel-scaled odd-lag numerical residue of
+`9.997901046457923e-6`, and snaps those analytically zero lag contributions
+before the class mean and gcd decomposition.
+
+Group the 294 inversion-pair contributions by `gcd(h,10010)`.  Mark a stratum
+conductor-linked when its gcd shares `7`, `11`, or `13` with
+`1001=lcm(77,143)`.  The linked strata have
+
+- absolute-mass fraction `.3791522933392227`;
+- signed subtotal `-1220418588.5215206`;
+- full common-support subtotal `-994323641.3059227`.
+
+The predeclared `.75` absolute-dominance gate fails.  Yet the linked subtotal
+has the full negative sign and is larger in magnitude than the total, so the
+unlinked strata partly oppose it.  The conductor core drives the signed
+reversal in this decomposition without carrying most absolute variation.
+
+Independent review verified exact parity support, safe post-FFT snapping,
+gcd partitioning, inversion invariance, zero-stratum removal, values, gate,
+tests, and scope and returned PASS.  Four focused tests pass normally and
+under Python optimization.
+
+Curiosity status: `interesting-finite-failure`, novelty `new-to-this-task`.
+Preserve the conductor-linked signed subtotal and the opposing unlinked
+component.  Reject only absolute-mass dominance at `.75`; do not discard the
+conductor core as a sign mechanism.  The result remains finite and proves no
+uniform signed prime-correlation estimate.
+
+The next bounded question tests sign coherence rather than mass dominance.
+Let linked and unlinked coherence be signed subtotal divided by the
+corresponding absolute mass.  The conductor-coherence mechanism passes only
+if linked coherence has the sign of the full reweighting, has magnitude at
+least `.40`, and the unlinked signed subtotal has the opposite sign.  This
+would demonstrate a finite reinforce/oppose mechanism even though linked
+lags are a minority of absolute mass; failure preserves the gcd strata
+without assigning them causal sign coherence.

@@ -140,6 +140,7 @@ def prime_class_core_receipt(
         minimum_lost_shell_component_fraction=.75,
         localized_inversion_pair_count=5,
         minimum_localized_pair_mass_fraction=.75,
+        minimum_conductor_linked_mass_fraction=.75,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -177,6 +178,8 @@ def prime_class_core_receipt(
         raise ValueError("localized pair count must be positive")
     if not 0 < minimum_localized_pair_mass_fraction <= 1:
         raise ValueError("localized mass fraction must lie in (0,1]")
+    if not 0 < minimum_conductor_linked_mass_fraction <= 1:
+        raise ValueError("conductor-linked fraction must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -230,6 +233,7 @@ def prime_class_core_receipt(
         row_scale: np.zeros(period)
         for row_scale in kernel_row_scales[:2]}
     representative_errors = []
+    maximum_odd_lag_numerical_residue = 0.0
     for residue in unit_classes:
         packets = []
         for conductor, partner, _ in families:
@@ -243,6 +247,18 @@ def prime_class_core_receipt(
             packets.append(first)
         window_values, lag_vectors = _window_lag_data(
             packets[0], packets[1], kernel_row_scales)
+        if (np.count_nonzero(packets[0][0::2])
+                or np.count_nonzero(packets[1][0::2])):
+            raise ArithmeticError("even-denominator packet lost odd support")
+        maximum_odd_lag_numerical_residue = max(
+            maximum_odd_lag_numerical_residue,
+            *(float(np.max(np.abs(values[1::2])))
+              for values in lag_vectors.values()))
+        for values in lag_vectors.values():
+            values[1::2] = 0.0
+        window_values = tuple(
+            float(np.sum(lag_vectors[row_scale]))
+            for row_scale in kernel_row_scales)
         for row_scale, value in zip(kernel_row_scales, window_values):
             signed_cores_by_scale[row_scale].append(value)
         for row_scale in mean_lag_sums:
@@ -353,6 +369,43 @@ def prime_class_core_receipt(
         paired_reconstruction_relative_error <= tolerance
         and leading_pair_mass_fraction is not None
         and leading_pair_mass_fraction >= minimum_localized_pair_mass_fraction)
+    conductor_core = math.lcm(*(conductor for conductor, _, _ in families))
+    gcd_strata = {}
+    for row in paired_reweighting_rows:
+        gcd_value = math.gcd(row["lag"], period)
+        stratum = gcd_strata.setdefault(gcd_value, {
+            "lag_gcd": gcd_value,
+            "inversion_pair_count": 0,
+            "signed_common_reweighting": 0.0,
+            "absolute_common_reweighting_mass": 0.0,
+        })
+        value = row["paired_common_reweighting"]
+        stratum["inversion_pair_count"] += 1
+        stratum["signed_common_reweighting"] += value
+        stratum["absolute_common_reweighting_mass"] += abs(value)
+    gcd_strata = tuple(
+        row for row in sorted(
+            gcd_strata.values(),
+            key=lambda item: item["absolute_common_reweighting_mass"],
+            reverse=True)
+        if row["absolute_common_reweighting_mass"] > 0)
+    conductor_linked_strata = tuple(
+        row for row in gcd_strata
+        if math.gcd(row["lag_gcd"], conductor_core) > 1)
+    conductor_linked_absolute_mass = sum(
+        row["absolute_common_reweighting_mass"]
+        for row in conductor_linked_strata)
+    conductor_linked_signed = sum(
+        row["signed_common_reweighting"]
+        for row in conductor_linked_strata)
+    conductor_linked_mass_fraction = (
+        conductor_linked_absolute_mass / paired_absolute_mass
+        if paired_absolute_mass else None)
+    conductor_core_mechanism_passes = bool(
+        conductor_linked_mass_fraction is not None
+        and conductor_linked_mass_fraction
+        >= minimum_conductor_linked_mass_fraction
+        and conductor_linked_signed * common_reweighting > 0)
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -407,6 +460,8 @@ def prime_class_core_receipt(
         "localized_inversion_pair_count": localized_inversion_pair_count,
         "minimum_localized_pair_mass_fraction": (
             minimum_localized_pair_mass_fraction),
+        "minimum_conductor_linked_mass_fraction": (
+            minimum_conductor_linked_mass_fraction),
         "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
         "kernel_scale_rows": tuple(kernel_scale_rows),
         "window_decomposition_first_row_scale": first_scale,
@@ -425,11 +480,22 @@ def prime_class_core_receipt(
             paired_reconstruction_relative_error),
         "leading_inversion_pair_absolute_mass_fraction": (
             leading_pair_mass_fraction),
+        "conductor_core": conductor_core,
+        "common_reweighting_gcd_strata": gcd_strata,
+        "conductor_linked_gcd_strata": tuple(
+            row["lag_gcd"] for row in conductor_linked_strata),
+        "conductor_linked_absolute_mass_fraction": (
+            conductor_linked_mass_fraction),
+        "conductor_linked_signed_common_reweighting": (
+            conductor_linked_signed),
         "fully_retained_kernel_row_scales": tuple(
             row["row_scale"] for row in fully_retained_kernel_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
         "maximum_period_representative_absolute_error": max(
             representative_errors),
+        "maximum_odd_lag_fft_numerical_residue": (
+            maximum_odd_lag_numerical_residue),
+        "exact_even_lag_support_applied": True,
         "complete_class_signed_core_mean": complete_mean,
         "complete_class_absolute_core_mean": mean_absolute,
         "complete_class_reinforcement_fraction": reinforcement_fraction,
@@ -463,6 +529,8 @@ def prime_class_core_receipt(
             lost_shell_mechanism_passes),
         "localized_inversion_pair_reweighting_hypothesis_passes": (
             localized_pair_mechanism_passes),
+        "conductor_core_reweighting_mechanism_hypothesis_passes": (
+            conductor_core_mechanism_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }
