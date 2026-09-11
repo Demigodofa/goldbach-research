@@ -9748,3 +9748,45 @@ accidental numerical degeneracy. Prove the packet conjugation identity and
 test maximum inversion error against `10^-12`; failure rejects the even-lag
 reduction, while success converts the signed lag sum to an exact cosine-side
 half-sum without assigning it a favorable sign.
+
+## 2026-09-11: ordered-pair reversal makes the lag signal exactly even
+
+Swapping an ordered primitive-frequency pair preserves its conductor packet,
+high-`Q` condition, reduced denominator, and real symmetric lifted coordinate.
+It negates the reduced residue and conjugates the geometric product. Because
+the actual fragile direction is real, every scalar packet therefore satisfies
+
+`a_Q(-r)=conjugate(a_Q(r))`.
+
+For `corr_Q(h)=sum_s b_(s+h) conjugate(c_s)`, this gives
+`corr_Q(-h)=conjugate(corr_Q(h))`. The interval kernel also satisfies
+`K_Q(-h)=conjugate(K_Q(h))`, so the real lag contribution obeys the exact law
+
+`C_(Q,-h)=C_(Q,h)`.
+
+The full `M=127` computation gives maximum packet Hermitian error
+`4.34e-19`, maximum per-prime lag inversion error `2.39e-15`, and aggregate
+inversion error `2.68e-15`. The even half-sum reconstructs every aggregate
+channel within `3.46e-15`. For even `Q`, the implementation retains the
+self-inverse `h=Q/2` term separately rather than doubling it.
+
+Independent review verified the ordered-pair swap, real-direction condition,
+correlation orientation, kernel conjugation, zero-lag removal, even-period
+case, and numerical errors. Eleven focused tests pass normally and under
+Python optimization.
+
+Status: exact identity and finite `aha-candidate`, novelty `new-to-this-task`.
+The signed lag problem can be written as a half-range cosine-side sum, but
+evenness supplies no favorable sign. The identity is asserted for the actual
+real lifted direction, not arbitrary complex directions. No uniform signed
+lag estimate, signed prime correlation, or Goldbach claim is proved.
+
+The next bounded question factors the interval kernel on the half range:
+
+`K_Q(h)=e((3R-1)h/(2Q))*sin(pi R h/Q)/(R sin(pi h/Q))`.
+
+On `1<=h<=Q/R` the real amplitude is nonnegative, so the sign comes entirely
+from the centered packet correlation. Test whether at least two channels put
+at least `75%` of their near-lag absolute mass where
+`Re(e((3R-1)h/(2Q))*corr_Q(h))>0`. Failure rejects a broad phase-alignment
+shortcut while preserving the exact centered cosine representation.

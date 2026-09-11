@@ -11,6 +11,13 @@ The project test asks whether at least 75 percent of the absolute
 off-diagonal-window interference for ``M=127`` and ``(77,143)`` lies on
 denominators divisible by their shared prime 11.  A finite pass localizes the
 observed reinforcement; it does not supply a signed prime-correlation bound.
+
+There is also an exact inversion symmetry.  Swapping an ordered source pair
+preserves its conductor packet and symmetric lifted coordinate, negates its
+reduced residue, and conjugates its coefficient.  Hence each packet satisfies
+``a_Q(-r)=conjugate(a_Q(r))``.  Consequently its cross-correlation satisfies
+``corr_Q(-h)=conjugate(corr_Q(h))``; the interval kernel has the same
+conjugation law, so the real lag contribution obeys ``C_Q(-h)=C_Q(h)``.
 """
 
 import math
@@ -317,6 +324,17 @@ def _packet_residue_cells(
             nonconductor_single_pair_count)
 
 
+def _packet_hermitian_symmetry_error(packet):
+    """Measure ``a(Q,-r)=conjugate(a(Q,r))`` for one residue packet."""
+    packet = dict(packet)
+    if not packet:
+        return 0.0
+    return max(abs(
+        packet.get((denominator, (-residue) % denominator), 0j)
+        - np.conjugate(value))
+        for (denominator, residue), value in packet.items())
+
+
 def _cross_by_denominator(left, right, row_count):
     """Return active, full, and off-diagonal cross terms for each Q."""
     result = {}
@@ -378,6 +396,45 @@ def _offdiagonal_lags_by_denominator(left, right, row_first, row_count):
         contributions[0] = 0.0
         result[denominator] = contributions
     return result
+
+
+def lag_inversion_symmetry_receipt(contributions, tolerance=1e-12):
+    """Test evenness and reconstruct an even cyclic sum from half its lags."""
+    contributions = np.asarray(contributions, dtype=float)
+    if contributions.ndim != 1 or len(contributions) < 2:
+        raise ValueError("contributions must be a one-dimensional cyclic array")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    denominator = len(contributions)
+    lags = np.arange(denominator)
+    inversion_error = float(np.max(np.abs(
+        contributions - contributions[(-lags) % denominator])))
+    if denominator % 2:
+        half_sum = (
+            contributions[0]
+            + 2 * float(np.sum(contributions[1:(denominator + 1) // 2])))
+        self_inverse_term = None
+    else:
+        half_sum = (
+            contributions[0]
+            + 2 * float(np.sum(contributions[1:denominator // 2]))
+            + contributions[denominator // 2])
+        self_inverse_term = float(contributions[denominator // 2])
+    full_sum = float(np.sum(contributions))
+    half_sum_error = full_sum - half_sum
+    return {
+        "denominator": denominator,
+        "inversion_maximum_error": inversion_error,
+        "full_lag_sum": full_sum,
+        "even_half_lag_reconstruction": float(half_sum),
+        "half_lag_reconstruction_error": float(half_sum_error),
+        "self_inverse_half_period_term": self_inverse_term,
+        "symmetry_tolerance": tolerance,
+        "finite_even_lag_symmetry_test_passes": bool(
+            inversion_error <= tolerance
+            and abs(half_sum_error) <= tolerance),
+        "even_lag_identity_assigns_favorable_sign_proved": False,
+    }
 
 
 def classify_near_lag_mass(
@@ -591,6 +648,9 @@ def project_reduced_denominator_interference_receipt(
     mixed_pair_count = 0
     nonshared_single_pair_count = 0
     nonconductor_single_pair_count = 0
+    packet_hermitian_maximum_error = 0.0
+    prime_lag_inversion_maximum_error = 0.0
+    prime_half_sum_reconstruction_maximum_error = 0.0
     for frame_row in baseline["rows"]:
         packets, pair_counts, nonshared_count, nonconductor_count = (
             _packet_residue_cells(
@@ -600,11 +660,23 @@ def project_reduced_denominator_interference_receipt(
         mixed_pair_count += pair_counts[3]
         nonshared_single_pair_count += nonshared_count
         nonconductor_single_pair_count += nonconductor_count
+        packet_hermitian_maximum_error = max(
+            packet_hermitian_maximum_error,
+            _packet_hermitian_symmetry_error(packets[1]),
+            _packet_hermitian_symmetry_error(packets[2]))
         contributions = _cross_by_denominator(
             packets[1], packets[2], baseline["row_count"])
         lag_contributions = _offdiagonal_lags_by_denominator(
             packets[1], packets[2], baseline["row_count"],
             baseline["row_count"])
+        for values in lag_contributions.values():
+            symmetry = lag_inversion_symmetry_receipt(values)
+            prime_lag_inversion_maximum_error = max(
+                prime_lag_inversion_maximum_error,
+                symmetry["inversion_maximum_error"])
+            prime_half_sum_reconstruction_maximum_error = max(
+                prime_half_sum_reconstruction_maximum_error,
+                abs(symmetry["half_lag_reconstruction_error"]))
         for denominator, values in contributions.items():
             prime_contribution_rows.append({
                 "modulus": frame_row["modulus"],
@@ -674,6 +746,22 @@ def project_reduced_denominator_interference_receipt(
          float(np.sum(selected_lags[row["reduced_denominator"]])
                - row["off_diagonal_window_interference"]))
         for row in nonzero_rows)
+    aggregate_symmetry_rows = tuple(
+        lag_inversion_symmetry_receipt(selected_lags[denominator])
+        for denominator in sorted(selected_lags))
+    aggregate_lag_inversion_maximum_error = max(
+        row["inversion_maximum_error"] for row in aggregate_symmetry_rows)
+    aggregate_half_sum_reconstruction_maximum_error = max(
+        abs(row["half_lag_reconstruction_error"])
+        for row in aggregate_symmetry_rows)
+    symmetry_tolerance = 1e-12
+    finite_symmetry_passes = bool(
+        packet_hermitian_maximum_error <= symmetry_tolerance
+        and prime_lag_inversion_maximum_error <= symmetry_tolerance
+        and prime_half_sum_reconstruction_maximum_error <= symmetry_tolerance
+        and aggregate_lag_inversion_maximum_error <= symmetry_tolerance
+        and aggregate_half_sum_reconstruction_maximum_error
+        <= symmetry_tolerance)
     return {
         "scale_modulus": scale_modulus,
         "conductors": conductors,
@@ -688,6 +776,19 @@ def project_reduced_denominator_interference_receipt(
         "nonzero_denominator_count": len(nonzero_rows),
         "prime_contribution_rows": tuple(prime_contribution_rows),
         "lag_reconstruction_errors": lag_reconstruction_errors,
+        "packet_hermitian_maximum_error": packet_hermitian_maximum_error,
+        "prime_lag_inversion_maximum_error": (
+            prime_lag_inversion_maximum_error),
+        "prime_half_sum_reconstruction_maximum_error": (
+            prime_half_sum_reconstruction_maximum_error),
+        "aggregate_lag_inversion_maximum_error": (
+            aggregate_lag_inversion_maximum_error),
+        "aggregate_half_sum_reconstruction_maximum_error": (
+            aggregate_half_sum_reconstruction_maximum_error),
+        "aggregate_lag_symmetry_rows": aggregate_symmetry_rows,
+        "hermitian_even_lag_symmetry_tolerance": symmetry_tolerance,
+        "finite_hermitian_even_lag_symmetry_test_passes": (
+            finite_symmetry_passes),
         "active_window_boolean_cross_rayleigh": active_total,
         "full_residue_boolean_cross_rayleigh": full_total,
         "off_diagonal_window_boolean_cross_rayleigh": off_diagonal_total,
@@ -707,6 +808,9 @@ def project_reduced_denominator_interference_receipt(
             retention["every_interfering_denominator_has_linked_core_proved"]
             and crt_classification[
                 "crt_rank_one_near_lag_separation_hypothesis_passes"]),
+        "ordered_pair_reversal_hermitian_packet_identity_proved": True,
+        "hermitian_packets_imply_even_lag_interference_proved": True,
+        "even_lag_identity_assigns_favorable_sign_proved": False,
         **obstruction,
         "finite_reduced_denominator_interference_measured": True,
         "uniform_signed_denominator_interference_proved": False,

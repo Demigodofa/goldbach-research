@@ -4,17 +4,37 @@ from lcm_sawtooth_reduced_denominator_interference import (
     _require_no_mixed_high_q_packet,
     _cross_by_denominator,
     _offdiagonal_lags_by_denominator,
+    _packet_hermitian_symmetry_error,
     classify_near_lag_mass,
     classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
     project_reduced_denominator_interference_receipt,
     conductor_high_q_retention_obstruction,
+    lag_inversion_symmetry_receipt,
     shared_prime_high_q_support_obstruction,
 )
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_packet_hermitian_error_detects_missing_reverse_cell(self):
+        packet = {
+            (5, 0): 2.0,
+            (5, 1): 1 + 3j,
+            (5, 4): 1 - 3j,
+        }
+        self.assertEqual(_packet_hermitian_symmetry_error(packet), 0.0)
+        del packet[(5, 4)]
+        self.assertGreater(_packet_hermitian_symmetry_error(packet), 0.0)
+
+    def test_even_lag_half_sum_keeps_self_inverse_term(self):
+        receipt = lag_inversion_symmetry_receipt(
+            (0.0, 2.0, -1.0, .5, -1.0, 2.0))
+        self.assertEqual(receipt["self_inverse_half_period_term"], .5)
+        self.assertEqual(receipt["inversion_maximum_error"], 0.0)
+        self.assertEqual(receipt["half_lag_reconstruction_error"], 0.0)
+        self.assertTrue(receipt["finite_even_lag_symmetry_test_passes"])
+
     def test_crt_rank_one_classifier_reindexes_exactly(self):
         matrix = [[0.0, 0.0], [2.0, -4.0], [3.0, -6.0],
                   [4.0, -8.0], [5.0, -10.0]]
@@ -161,6 +181,23 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         self.assertEqual(max(
             row["crt_reconstruction_maximum_error"]
             for row in crt_rows.values()), 0.0)
+        self.assertLessEqual(
+            receipt["packet_hermitian_maximum_error"], 1e-12)
+        self.assertLessEqual(
+            receipt["prime_lag_inversion_maximum_error"], 1e-12)
+        self.assertLessEqual(
+            receipt["aggregate_lag_inversion_maximum_error"], 1e-12)
+        self.assertLessEqual(
+            receipt["aggregate_half_sum_reconstruction_maximum_error"],
+            1e-12)
+        self.assertTrue(receipt[
+            "finite_hermitian_even_lag_symmetry_test_passes"])
+        self.assertTrue(receipt[
+            "ordered_pair_reversal_hermitian_packet_identity_proved"])
+        self.assertTrue(receipt[
+            "hermitian_packets_imply_even_lag_interference_proved"])
+        self.assertFalse(receipt[
+            "even_lag_identity_assigns_favorable_sign_proved"])
         self.assertAlmostEqual(
             lag_rows[5005]["near_lag_absolute_mass_fraction"],
             .5084107132570644, places=10)
