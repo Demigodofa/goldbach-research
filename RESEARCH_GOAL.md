@@ -6684,3 +6684,16 @@ the rational phases and interval kernel are therefore sufficient for this
 finite high-`Q` cancellation. The whole boundary changes materially, so the
 conductor signs still matter elsewhere. The next bounded test separates
 cancellation within each exact `Q` from cancellation across different `Q`.
+
+### 2026-09-11 continuation: exact-Q packet target
+
+That separation finds substantial cancellation at both layers. For the actual
+weights at `m=251,373,499`, summing within each exact `Q>mA` leaves
+`.0687,.0716,.1100` of the pairwise envelope; summing the resulting `Q`
+packets leaves another `.0839,.0158,.0757`. Independent review returned PASS.
+The intermediate sums `sum_Q|C_Q|` are only `.315,.255,.321` times complete
+energy, so cross-`Q` cancellation would not be needed if this persists
+uniformly. The new concrete target is
+`sum_(Q>mA)|C_Q| <= N^epsilon sum_d H_m(d)|S_d|^2`; a power-growing quotient
+falsifies it. Derive the exact reduced-residue convolution for `C_Q` and test
+the next project scale before attempting prime aggregation.

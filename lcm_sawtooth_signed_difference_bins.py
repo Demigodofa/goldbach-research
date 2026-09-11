@@ -88,6 +88,7 @@ def signed_difference_bin_receipt(
          4 * modulus * row_count), dtype=np.int64)
     signed_bins = np.zeros(4, dtype=complex)
     absolute_bins = np.zeros(4, dtype=float)
+    high_q_group_sums = {}
     chunk_size = 64
     for first in range(0, len(coefficients), chunk_size):
         left_d = denominators[first:first + chunk_size, None]
@@ -116,6 +117,16 @@ def signed_difference_bin_receipt(
             signed_bins[index] += np.sum(contributions[selected])
             absolute_bins[index] += float(np.sum(
                 np.abs(contributions[selected])))
+        high_q = reduced > thresholds[1]
+        q_values, inverse = np.unique(reduced[high_q], return_inverse=True)
+        q_contributions = contributions[high_q]
+        grouped = (
+            np.bincount(inverse, weights=q_contributions.real)
+            + 1j * np.bincount(inverse, weights=q_contributions.imag))
+        for q_value, contribution in zip(q_values, grouped):
+            key = int(q_value)
+            high_q_group_sums[key] = (
+                high_q_group_sums.get(key, 0j) + contribution)
 
     row_values = np.array([
         np.sum(coefficients * np.exp(2j * np.pi * frequencies * ell))
@@ -126,6 +137,9 @@ def signed_difference_bin_receipt(
     absolute = absolute_bins / complete_energy
     high_q_signed = float(np.sum(signed_real[2:]))
     high_q_absolute = float(np.sum(absolute[2:]))
+    fixed_q_residual = float(sum(
+        abs(value) for value in high_q_group_sums.values()))
+    fixed_q_residual_over_complete = fixed_q_residual / complete_energy
     return {
         "modulus": modulus,
         "ell_range": (ell_first, ell_first + row_count - 1),
@@ -141,6 +155,15 @@ def signed_difference_bin_receipt(
             float(x) for x in absolute),
         "high_Q_signed_over_complete": high_q_signed,
         "high_Q_absolute_over_complete": high_q_absolute,
+        "high_Q_distinct_denominator_count": len(high_q_group_sums),
+        "high_Q_fixed_Q_residual_over_complete": (
+            fixed_q_residual_over_complete),
+        "high_Q_within_Q_residual_over_pair_envelope": (
+            fixed_q_residual_over_complete / high_q_absolute
+            if high_q_absolute else 0.0),
+        "high_Q_across_Q_residual": (
+            abs(high_q_signed) / fixed_q_residual_over_complete
+            if fixed_q_residual_over_complete else 0.0),
         "high_Q_net_over_absolute": (
             abs(high_q_signed) / high_q_absolute
             if high_q_absolute else 0.0),
@@ -158,5 +181,13 @@ def signed_difference_bin_receipt(
 if __name__ == "__main__":
     for modulus in (251, 373, 499):
         for replace_signs in (False, True):
-            print(signed_difference_bin_receipt(
-                modulus, 46, 46, 69, 4, 20, replace_signs))
+            receipt = signed_difference_bin_receipt(
+                modulus, 46, 46, 69, 4, 20, replace_signs)
+            print({key: receipt[key] for key in (
+                "modulus", "conductor_coefficient_mode",
+                "high_Q_signed_over_complete",
+                "high_Q_absolute_over_complete",
+                "high_Q_fixed_Q_residual_over_complete",
+                "high_Q_within_Q_residual_over_pair_envelope",
+                "high_Q_across_Q_residual",
+                "high_Q_net_over_absolute")})

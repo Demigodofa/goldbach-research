@@ -8026,3 +8026,43 @@ and compare `|sum_Q C_Q|` with `sum_Q |C_Q|`. This distinguishes cancellation
 within a fixed modulus, which suggests a Ramanujan-sum mechanism, from
 cancellation only across moduli, which points toward a large-sieve mechanism.
 The signed prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: exact-Q packets supply the first cancellation layer
+
+For every `Q>mA`, let `C_Q` be the sum of all ordered boundary-pair terms whose
+reduced difference denominator is exactly `Q`. Two exact ratios separate the
+mechanisms:
+
+`R_within=sum_Q |C_Q| / sum_pairs |term|`,
+
+`R_across=|sum_Q C_Q| / sum_Q |C_Q|`.
+
+Their product is the previously measured net/envelope ratio. For the actual
+weights at `m=251,373,499`, `R_within` is
+
+`.06867,.07164,.11003`,
+
+and `R_across` is
+
+`.08393,.01580,.07571`.
+
+The sign-removed values are similarly small: `R_within` is
+`.06934,.07164,.11003`, and `R_across` is
+`.14392,.12615,.05604`. Independent review verified exact-Q grouping, both
+ratio identities, their product identity, and every reported value, and
+returned PASS.
+
+Both within-`Q` and across-`Q` cancellation occur in these finite fixtures.
+More usefully, the intermediate quantities `sum_Q |C_Q|/E_complete` are only
+`.31479,.25521,.32135` for the actual weights. Thus a fixed-`Q` packet theorem
+would already control this high-`Q` portion without needing cross-`Q`
+cancellation. The concrete next inequality is
+
+`sum_(Q>mA) |C_Q| <= N^epsilon sum_d H_m(d)|S_d|^2`.
+
+Here `C_Q` retains the exact geometric coefficients and interval kernel. A
+power-growing quotient falsifies the route. The next <=30-minute task is to
+write `C_Q` as its explicit reduced-residue convolution and seek a
+Ramanujan/Parseval bound, then test the quotient at the next project scale.
+No such bound is proved yet; varying logs, prime aggregation, the signed
+prime-correlation estimate, and Goldbach remain OPEN.

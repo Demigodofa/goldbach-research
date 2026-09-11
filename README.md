@@ -413,3 +413,9 @@ Rational phase geometry is therefore sufficient for the measured high-`Q`
 cancellation with the actual magnitudes fixed; conductor signs remain relevant
 elsewhere. The next exact decomposition separates within-`Q` from across-`Q`
 cancellation.
+
+The exact-`Q` split leaves only `6.9%--11.0%` of the high-`Q` pair envelope
+after summing within each denominator, and the resulting packet absolute sum
+is `0.255--0.321` times complete energy. This suggests the concrete packet
+target `sum_(Q>mA)|C_Q| <= N^epsilon E_complete`; it is reviewed finite
+evidence, not yet a uniform Ramanujan/Parseval bound.
