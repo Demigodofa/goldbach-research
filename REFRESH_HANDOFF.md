@@ -8670,9 +8670,8 @@ prime-block generalized eigenvalue. A power-growing eigenvalue, or a positive
 endpoint direction in the nullspace of the residue-energy form, falsifies this
 six-dimensional lifted sufficient route, not necessarily the rank-one actual
 polynomial family. An order-one finite result would identify the exact
-six-entry bilinear prime-row estimate still needing proof. The signed prime
+six-coordinate bilinear prime-row estimate still needing proof. The signed prime
 correlation and Goldbach remain OPEN.
-
 ## 2026-09-11: the six-coordinate full-period relaxation passes two blocks
 
 The proposed lift is now exact and executable. Embed the logarithmic powers in
@@ -8716,7 +8715,7 @@ logic. Review returned PASS.
 
 Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The exact lift
 connects the retained three-coordinate polynomial family with the endpoint
-residue decomposition and gives a six-entry sufficient theorem target. The
+residue decomposition and gives a six-coordinate sufficient theorem target. The
 finite prediction passed: the relaxed aggregate quotient is order one and
 close to the actual selector on both blocks. This is not a prior-art claim.
 
@@ -8727,5 +8726,51 @@ unweighted. The next concrete test constructs the active-window residue-energy
 Gram in the same six coordinates. A numerator-positive active denominator
 null direction, or a power-growing endpoint/active generalized eigenvalue,
 falsifies that sufficient route. If it remains order one, the remaining
-analytic target is a six-entry weighted prime-row estimate. The signed prime
+analytic target is a six-coordinate weighted prime-row estimate. The signed prime
 correlation and Goldbach remain OPEN.
+## 2026-09-11: the lifted active-window transfer passes two blocks
+
+The same exact residue cells now construct
+
+`D_active=sum_(Q>mA) Q*A^(-1)
+ sum_(A<=ell<2A)|T_Q(ell;y)|^2`.
+
+For each exact `Q`, the six-vector residue coefficients are transformed with
+the positive exponential convention used by the existing inverse-FFT receipt.
+Summing `Q/A` times their row outer products gives a PSD `6 x 6` active Gram.
+The actual selector reconstructs both
+`active_window_Q_weighted_l2_over_complete_squared` and the earlier endpoint-
+envelope/active-window ratio.
+
+Complete unweighted blocks give:
+
+`M  primes  active lifted  active actual  actual active/full  max indiv lifted`
+`127  24      .331216196     .287159908       .950735189         .480153406`
+`251  42      .259768557     .252996960      1.013903159         .361872545`
+
+Both active denominator Grams have rank 6 and nullity 0, with no numerator-
+positive null direction. The maximum individual actual ratios are `.423245423`
+and `.288517486`. The exact `M=251` active run took `399.3` seconds; only its
+captured terminal receipt is evidence.
+
+The focused tests independently group a nontrivial
+`lambda=(2,-1,3)` scalar coefficient family and reconstruct its active form,
+as well as the established actual scalar receipt. Normal and `-O` focused
+tests pass. Independent review reproduced the full `M=127` active block and
+the `m=251` one-prime result; it also verified that the captured full-block
+loop sums numerator and active denominator matrices before whitening.
+
+Status: `changed-under-evidence`. The active-window null/growth falsifier did
+not fire at either scale. The active result is slightly worse than full-period
+at `M=127` and slightly better at `M=251`, so constant-one equidistribution is
+not asserted. The six-dimensional space remains a sufficient relaxation, and
+these are finite unweighted blocks. No uniform, rank-one, outer-weighted, or
+signed prime-correlation theorem follows.
+
+The next concrete hypothesis applies the same positive outer weights already
+used in the three-coordinate prime-row scan: `1`, `log(m)^2/m`,
+`rho_m log(m)^2/m`, and `rho_m*m*log(m)^2`. Aggregate numerator and active
+denominator before taking the six-coordinate quotient. A growing or strongly
+weight-sensitive ratio falsifies this weighted lifted route. Stable finite
+values would isolate a fixed-dimensional weighted prime-row inequality for
+proof. Goldbach remains OPEN.

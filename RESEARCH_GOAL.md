@@ -5226,7 +5226,6 @@ directly contradicted for this tested family.  The preserved route is to keep
 the complete Dirichlet kernel and use summation by parts against the CRT pair-
 count function.  The unequal-kernel theorem, shifted rows, d>1, and signed
 Goldbach remain OPEN.
-
 ### 2026-09-10: triangular CRT main isolates the true residual
 
 The frozen signed-difference density has an exact sampled Fejer formula after
@@ -6938,7 +6937,7 @@ exact-Q residue energy become two explicit positive semidefinite quadratic
 forms. Test their complete-prime-block generalized eigenvalue and nullspace.
 Growth or a numerator-positive denominator-null direction rejects this lifted
 sufficient route, not necessarily the rank-one actual polynomial family.
-Passing finite blocks would leave a concrete six-entry
+Passing finite blocks would leave a concrete six-coordinate
 bilinear prime-row theorem, not a proof of it. The signed prime-correlation
 estimate and Goldbach remain OPEN.
 
@@ -6972,3 +6971,29 @@ direction or power-growing generalized ratio rejects the lifted sufficient
 route. A finite pass would isolate the six bilinear entries requiring a
 weighted prime-row estimate. The signed prime-correlation estimate and
 Goldbach remain OPEN.
+### 2026-09-11 continuation: active-window lifted frame passes finitely
+
+For the actual rows `A<=ell<2A`, the exact six-vector residue coefficients now
+give the PSD form
+
+`D_active(y)=sum_(Q>mA)Q*A^(-1)sum_ell|T_Q(ell;y)|^2`.
+
+The complete unweighted `M=127` block has lifted/actual endpoint-to-active
+ratios `.331216/.287160` and actual active/full energy `.950735`. At `M=251`
+the corresponding values are `.259769/.252997` and `1.013903`. Both active
+denominator forms have rank 6 with no numerator-positive null direction; the
+maximum individual lifted ratios are `.480153` and `.361873`.
+
+Independent review reproduced the full smaller block and the `m=251`
+one-prime active values, checked the inverse-FFT sign and `Q/A` normalization,
+and verified the aggregate matrix order. A separate scalar test at
+`lambda=(2,-1,3)` reconstructs the active quadratic form. The captured exact
+larger block took `399.3` seconds.
+
+This supports only a finite unweighted sufficient relaxation. It proves no
+constant-one window law, uniform bound, outer-weighted block estimate,
+rank-one polynomial theorem, or signed prime correlation. The next bounded
+test repeats matrix-first aggregation with the four existing positive outer
+weights. Strong weight sensitivity or growth rejects that route; stable finite
+ratios would leave a six-coordinate weighted prime-row estimate as the next
+analytic obligation. Goldbach remains OPEN.

@@ -10,11 +10,13 @@ monomials
     y=(lambda_0^2,lambda_0 lambda_1,lambda_0 lambda_2,
        lambda_1^2,lambda_1 lambda_2,lambda_2^2).
 
-This module constructs exact positive semidefinite 6 by 6 matrices ``N`` and
-``D`` such that ``y^T N y`` is the Q-weighted high-Q endpoint pair-square
-envelope and ``y^T D y`` is the full-period exact-residue energy
+This module constructs exact positive semidefinite 6 by 6 matrices ``N``,
+``D_full``, and ``D_active``.  The first is the Q-weighted high-Q endpoint
+pair-square envelope, while the others are the full-period and active-window
+exact-residue energies
 
-    sum_(Q>mA) Q sum_((r,Q)=1) |D_Q(r)|^2.
+    D_full   = sum_(Q>mA) Q sum_((r,Q)=1) |D_Q(r)|^2,
+    D_active = sum_(Q>mA) Q A^-1 sum_(A<=ell<2A)|T_Q(ell)|^2.
 
 The generalized eigenvalue is a sufficient relaxation: arbitrary vectors in
 R^6 need not be rank-one symmetric squares of a vector in R^3.
@@ -204,19 +206,47 @@ def lifted_endpoint_residue_gram_receipt(
                 residue_cells[integer_key] = value
 
     denominator_gram = np.zeros((6, 6), dtype=float)
+    cells_by_denominator = {}
     for key, value in residue_cells.items():
         reduced_denominator = key[0]
         denominator_gram += (
             reduced_denominator
             * np.outer(value, np.conjugate(value)).real)
+        cells_by_denominator.setdefault(
+            reduced_denominator, []).append((key[1], value))
+
+    active_gram = np.zeros((6, 6), dtype=float)
+    rows = np.arange(row_count, 2 * row_count, dtype=np.int64)
+    residue_chunk_size = 8192
+    for reduced_denominator, cells in cells_by_denominator.items():
+        residues = np.asarray(
+            [cell[0] for cell in cells], dtype=np.int64)
+        values = np.asarray([cell[1] for cell in cells], dtype=complex)
+        transforms = np.zeros((row_count, 6), dtype=complex)
+        for first in range(0, len(residues), residue_chunk_size):
+            selected_residues = residues[
+                first:first + residue_chunk_size]
+            phases = np.exp(
+                2j * np.pi
+                * ((rows[:, None] * selected_residues[None, :])
+                   % reduced_denominator)
+                / reduced_denominator)
+            transforms += phases @ values[
+                first:first + residue_chunk_size]
+        active_gram += (
+            reduced_denominator / row_count
+            * (transforms.T @ np.conjugate(transforms)).real)
 
     generalized = _generalized_psd_receipt(
         numerator_gram, denominator_gram)
+    active_generalized = _generalized_psd_receipt(
+        numerator_gram, active_gram)
     actual_lift = np.ones(6)
     actual_numerator = float(
         actual_lift @ numerator_gram @ actual_lift)
     actual_denominator = float(
         actual_lift @ denominator_gram @ actual_lift)
+    actual_active = float(actual_lift @ active_gram @ actual_lift)
     return {
         "modulus": modulus,
         "row_count": row_count,
@@ -229,11 +259,32 @@ def lifted_endpoint_residue_gram_receipt(
             tuple(float(value) for value in row) for row in numerator_gram),
         "full_residue_energy_gram": tuple(
             tuple(float(value) for value in row) for row in denominator_gram),
+        "active_window_residue_energy_gram": tuple(
+            tuple(float(value) for value in row) for row in active_gram),
         "actual_endpoint_pair_square_envelope": actual_numerator,
         "actual_full_residue_energy": actual_denominator,
+        "actual_active_window_residue_energy": actual_active,
         "actual_endpoint_over_full_residue_energy": (
             actual_numerator / actual_denominator
             if actual_denominator else float("inf")),
+        "actual_endpoint_over_active_window_residue_energy": (
+            actual_numerator / actual_active
+            if actual_active else float("inf")),
+        "actual_active_window_over_full_residue_energy": (
+            actual_active / actual_denominator
+            if actual_denominator else float("inf")),
+        "active_window_largest_generalized_eigenvalue": active_generalized[
+            "largest_generalized_eigenvalue"],
+        "active_window_denominator_rank": active_generalized[
+            "denominator_rank"],
+        "active_window_denominator_nullity": active_generalized[
+            "denominator_nullity"],
+        "active_window_largest_nullspace_numerator_eigenvalue": (
+            active_generalized[
+                "largest_nullspace_numerator_eigenvalue"]),
+        "active_window_numerator_positive_denominator_null_direction": (
+            active_generalized[
+                "numerator_positive_denominator_null_direction"]),
         **generalized,
         "six_coordinate_symmetric_square_identity_proved": True,
         "lifted_space_equals_rank_one_polynomial_family_proved": False,
@@ -253,6 +304,7 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
     flags = _prime_flags(2 * scale_modulus)
     numerator = np.zeros((6, 6), dtype=float)
     denominator = np.zeros((6, 6), dtype=float)
+    active_denominator = np.zeros((6, 6), dtype=float)
     rows = []
     for modulus in range(scale_modulus, 2 * scale_modulus + 1):
         if not flags[modulus]:
@@ -262,18 +314,28 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             divisor_lower, divisor_upper)
         numerator += np.asarray(receipt["endpoint_pair_square_gram"])
         denominator += np.asarray(receipt["full_residue_energy_gram"])
+        active_denominator += np.asarray(
+            receipt["active_window_residue_energy_gram"])
         rows.append({
             "modulus": modulus,
             "lifted_ratio": receipt["largest_generalized_eigenvalue"],
             "actual_ratio": receipt[
                 "actual_endpoint_over_full_residue_energy"],
+            "active_window_lifted_ratio": receipt[
+                "active_window_largest_generalized_eigenvalue"],
+            "active_window_actual_ratio": receipt[
+                "actual_endpoint_over_active_window_residue_energy"],
         })
     if not rows:
         raise ArithmeticError("prime block is empty")
     generalized = _generalized_psd_receipt(numerator, denominator)
+    active_generalized = _generalized_psd_receipt(
+        numerator, active_denominator)
     actual_lift = np.ones(6)
     actual_numerator = float(actual_lift @ numerator @ actual_lift)
     actual_denominator = float(actual_lift @ denominator @ actual_lift)
+    actual_active = float(
+        actual_lift @ active_denominator @ actual_lift)
     return {
         "scale_modulus": scale_modulus,
         "prime_count": len(rows),
@@ -285,13 +347,38 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
             row["lifted_ratio"] for row in rows),
         "maximum_individual_actual_ratio": max(
             row["actual_ratio"] for row in rows),
+        "maximum_individual_active_window_lifted_ratio": max(
+            row["active_window_lifted_ratio"] for row in rows),
+        "maximum_individual_active_window_actual_ratio": max(
+            row["active_window_actual_ratio"] for row in rows),
         "aggregate_actual_endpoint_over_full_residue_energy": (
             actual_numerator / actual_denominator
+            if actual_denominator else float("inf")),
+        "aggregate_actual_endpoint_over_active_window_residue_energy": (
+            actual_numerator / actual_active
+            if actual_active else float("inf")),
+        "aggregate_actual_active_window_over_full_residue_energy": (
+            actual_active / actual_denominator
             if actual_denominator else float("inf")),
         "aggregate_endpoint_pair_square_gram": tuple(
             tuple(float(value) for value in row) for row in numerator),
         "aggregate_full_residue_energy_gram": tuple(
             tuple(float(value) for value in row) for row in denominator),
+        "aggregate_active_window_residue_energy_gram": tuple(
+            tuple(float(value) for value in row)
+            for row in active_denominator),
+        "active_window_largest_generalized_eigenvalue": active_generalized[
+            "largest_generalized_eigenvalue"],
+        "active_window_denominator_rank": active_generalized[
+            "denominator_rank"],
+        "active_window_denominator_nullity": active_generalized[
+            "denominator_nullity"],
+        "active_window_largest_nullspace_numerator_eigenvalue": (
+            active_generalized[
+                "largest_nullspace_numerator_eigenvalue"]),
+        "active_window_numerator_positive_denominator_null_direction": (
+            active_generalized[
+                "numerator_positive_denominator_null_direction"]),
         **generalized,
         "finite_complete_prime_block_lifted_measurement": True,
         "uniform_lifted_endpoint_bound_proved": False,

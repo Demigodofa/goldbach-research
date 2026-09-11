@@ -53,6 +53,18 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
             global_energy[
                 "global_Q_weighted_residue_l2_over_complete_squared"],
             places=8)
+        self.assertAlmostEqual(
+            receipt["actual_active_window_residue_energy"]
+            / complete_squared,
+            global_energy[
+                "active_window_Q_weighted_l2_over_complete_squared"],
+            places=8)
+        self.assertAlmostEqual(
+            receipt[
+                "actual_endpoint_over_active_window_residue_energy"],
+            global_energy[
+                "endpoint_pair_square_envelope_over_active_window_l2"],
+            places=8)
         self.assertFalse(
             receipt["numerator_positive_denominator_null_direction"])
         self.assertTrue(
@@ -93,14 +105,28 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         direct_denominator = sum(
             reduced * abs(value) ** 2
             for (reduced, _), value in cells.items())
+        direct_active = 0.0
+        for ell in range(row_count, 2 * row_count):
+            transforms = {}
+            for (reduced, residue), value in cells.items():
+                transforms[reduced] = transforms.get(reduced, 0j) + (
+                    value * np.exp(2j * np.pi * residue * ell / reduced))
+            direct_active += sum(
+                reduced * abs(value) ** 2
+                for reduced, value in transforms.items()) / row_count
         numerator_gram = np.asarray(receipt["endpoint_pair_square_gram"])
         denominator_gram = np.asarray(receipt["full_residue_energy_gram"])
+        active_gram = np.asarray(
+            receipt["active_window_residue_energy_gram"])
         self.assertAlmostEqual(
             float(lift @ numerator_gram @ lift), direct_numerator,
             delta=1e-8 * direct_numerator)
         self.assertAlmostEqual(
             float(lift @ denominator_gram @ lift), direct_denominator,
             delta=1e-8 * direct_denominator)
+        self.assertAlmostEqual(
+            float(lift @ active_gram @ lift), direct_active,
+            delta=1e-8 * direct_active)
 
     def test_complete_small_prime_block_is_finite(self):
         receipt = project_prime_block_lifted_endpoint_scan(127)
@@ -108,9 +134,26 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         self.assertEqual(receipt["denominator_rank"], 6)
         self.assertFalse(
             receipt["numerator_positive_denominator_null_direction"])
+        self.assertEqual(receipt["active_window_denominator_rank"], 6)
+        self.assertFalse(receipt[
+            "active_window_numerator_positive_denominator_null_direction"])
         self.assertGreaterEqual(
             receipt["largest_generalized_eigenvalue"],
             receipt["aggregate_actual_endpoint_over_full_residue_energy"])
+        self.assertGreaterEqual(
+            receipt["active_window_largest_generalized_eigenvalue"],
+            receipt[
+                "aggregate_actual_endpoint_over_active_window_residue_energy"])
+        self.assertAlmostEqual(
+            receipt["active_window_largest_generalized_eigenvalue"],
+            0.33121619640978345)
+        self.assertAlmostEqual(
+            receipt[
+                "aggregate_actual_endpoint_over_active_window_residue_energy"],
+            0.28715990792912854)
+        self.assertAlmostEqual(
+            receipt["aggregate_actual_active_window_over_full_residue_energy"],
+            0.9507351890844087)
         self.assertTrue(
             receipt["finite_complete_prime_block_lifted_measurement"])
         self.assertFalse(receipt["uniform_lifted_endpoint_bound_proved"])

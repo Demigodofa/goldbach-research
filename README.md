@@ -531,3 +531,11 @@ numerator-positive null direction. This supports the lifted comparison only
 for the measured unweighted full-period blocks. Active-window transfer,
 outer-prime weights, a uniform theorem, and the signed prime correlation are
 still open.
+
+The same six-coordinate test now includes the actual active row window. Its
+aggregate lifted/actual endpoint-to-active ratios are `.331216/.287160` at
+`M=127` and `.259769/.252997` at `M=251`; active/full energy for the actual
+selector is `.950735` and `1.013903`. Both active Grams have full rank and no
+bad null direction. This closes the finite active-window falsifier for these
+two unweighted blocks while leaving uniformity and the required outer-prime
+weights open.
