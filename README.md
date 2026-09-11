@@ -359,3 +359,10 @@ periods.
 
 The remaining analytic gap is the incomplete prime-row boundary covariance,
 followed by the signed prime-correlation estimate. Goldbach remains open.
+
+The incomplete boundary now has an exact primitive-frequency operator. Its
+worst arbitrary conductor vectors are strongly resonant, but the actual
+Mobius vector and the full three-dimensional quadratic-log coefficient span
+remain near the complete-period scale in tests through `M=16001`. This is a
+reviewed finite reduction and a concrete next hypothesis, not an asymptotic
+boundary estimate.

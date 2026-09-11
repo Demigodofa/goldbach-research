@@ -6539,3 +6539,35 @@ The unresolved target is the incomplete prime-row covariance. The next
 bounded hypothesis is that its boundary correction admits a factorization
 whose operator norm is subpower after the actual arithmetic row spacing is
 used. No signed prime-correlation estimate or Goldbach proof is claimed.
+
+### 2026-09-11 continuation: isolate the exact incomplete-frequency operator
+
+For frozen coefficients, the incomplete row has the exact reduced-frequency
+form
+
+`sum_q K_q d_(m,q)(l)=sum_(d>1)S_d Z_d(l)`,
+
+with `S_d=sum_(d|q)K_q/q` and
+`Z_d=sum_((k,d)=1)G_(m,d,k)e(k*m*l/d)`. Complete Parseval gives the already
+controlled energy `sum_d H_m(d)S_d^2`; every incomplete boundary term is an
+interaction between distinct reduced Farey frequencies.
+
+The sharp incomplete/complete ratios for arbitrary conductor vectors reach
+`9.777` by `M=16001`, while the actual Mobius vectors stay between `.660`
+and `1.032` on the seven central tests and have tiny overlap with the worst
+resonance. A near-Farey-pair explanation failed on the first exact test: pairs
+within `1/A` contributed only `.0805` of complete energy, versus `.2302` from
+the remaining boundary pairs.
+
+The surviving mechanism uses the polynomial weights rather than discarding
+them. Since every `S_d(log X)` is quadratic, frozen coefficient vectors lie
+in one rank-three arithmetic span. Its sharp ratios remain between `1.064`
+and `1.419` on the same scale range. Independent review returned PASS on the
+identity, operator normalization, resonant-vector test, and structured-span
+calculation.
+
+The next bounded target is a subpower bound for this explicit rank-three
+family over every project row, followed by prime averaging and Abel transfer
+for the varying logarithms. The arbitrary-vector contraction route is
+rejected; an arbitrary-vector subpower theorem is neither proved nor
+falsified. The signed prime-correlation estimate and Goldbach remain open.

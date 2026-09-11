@@ -7676,3 +7676,66 @@ and have cross-period boundary covariance; the signed prime-correlation
 estimate and Goldbach remain OPEN. The next <=30-minute question is: can the
 incomplete row be written as the complete-period positive form plus a
 boundary operator whose norm has a subpower bound from arithmetic spacing?
+
+## 2026-09-11: the incomplete boundary is a primitive Farey operator
+
+Finite Fourier inversion now exposes the missing boundary exactly. For
+frozen lcm coefficients `K_q`, put
+
+`S_d=sum_(d|q)K_q/q` and
+`Z_d(l)=sum_((k,d)=1) G_(m,d,k)e(k*m*l/d)`,
+
+where `G_(m,d,k)=sum_(1<=t<m)e(k*t/d)`. Then
+
+`sum_q K_q d_(m,q)(l)=sum_(d>1)S_d Z_d(l)`.
+
+The fractions `k/d` are reduced and distinct. Complete-period Parseval is
+exactly `sum_d H_m(d)S_d^2`. The primitive packet also has the real
+divisor-inversion formula
+
+`Z_d(l)=sum_(e|d,e>1)mu(d/e)e*d_(m,e)(l)`.
+
+Thus the incomplete problem is the normalized Gram operator with columns
+`Z_d/sqrt(H_m(d))` on `A<=l<2A`. This gives a concrete resonant-coefficient
+falsifier. Its sharp arbitrary-conductor ratios at central rows
+`M=251,503,1009,2003,4001,8009,16001` are
+
+`3.856,5.034,6.224,5.267,8.818,7.846,9.777`.
+
+The actual Mobius conductor ratios are instead
+
+`.660,.950,1.010,.853,.927,.966,1.032`,
+
+and their squared overlaps with the top resonant directions are at most
+`.0131` in these tests. This rejects contraction or a near-unit theorem for
+all conductor vectors, but it does not falsify a general subpower operator
+bound.
+
+The polynomial weights supply meaningful extra structure. For fixed
+`(V,B]`, every `S_d(log X)` is quadratic in `log X`, so all frozen
+coefficient vectors lie in the span of three arithmetic vectors. The sharp
+operator ratios restricted to that full rank-three span are
+
+`1.419,1.155,1.212,1.064,1.087,1.188,1.134`.
+
+These finite values identify the next proof target but prove no asymptotic
+bound. At `m=101`, `A=47`, `(V,B]=(4,14]`, frequency pairs within Farey
+distance `1/A` contribute `.0805` of complete energy to the boundary, while
+far pairs contribute `.2302`; near-resonance isolation alone therefore does
+not explain the boundary.
+
+Independent review PASSed Fourier signs and normalizations, primitive Mobius
+inversion, Parseval, the SVD and trace/rank diagnostics, the quadratic span,
+and normal/optimized tests. The exact next hypothesis is: uniformly for the
+project ranges `m in [M,2M]`, `A<=l<2A`, `V<a<=B`, and every real
+`lambda=(lambda_2,lambda_1,lambda_0)`,
+
+`A^(-1)sum_l |sum_d Z_d(l)
+ (lambda_2 S_d^(2)+lambda_1 S_d^(1)+lambda_0 S_d^(0))|^2
+ <=N^epsilon sum_d H_m(d)
+ |lambda_2 S_d^(2)+lambda_1 S_d^(1)+lambda_0 S_d^(0)|^2`.
+
+The measured top rank-three vector is the falsifier. A power-growing ratio
+rejects this frozen-family route. If it survives, prime-`m` averaging and
+Abel transfer must still handle the actual row-varying logarithms. The signed
+prime-correlation estimate and Goldbach remain OPEN.
