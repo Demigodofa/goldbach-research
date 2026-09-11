@@ -11230,3 +11230,54 @@ lags, then record how much of each signed mean comes from the constant sector
 versus sectors nonconstant in one or more quotient-prime coordinates. A
 failed reconstruction rejects the tensor mechanism; a pass supplies the
 first exact spectral decomposition of the source cancellation.
+
+## 2026-09-11: the source difference graph has an exact CRT tensor spectrum
+
+For squarefree `Q`, put `g=gcd(h,Q)` and `q=Q/g`. On the unit source
+residues, the adjacency condition `u-v in g*U(q)` factors under CRT as
+
+`tensor_(r|g) I_(r-1) tensor tensor_(r|q) (J_(r-1)-I_(r-1))`.
+
+On each quotient-prime coordinate, the constant sector has eigenvalue `r-2`
+and its orthogonal complement has eigenvalue `-1`. Successive orthogonal
+constant/mean-zero projections therefore split every endpoint-sample
+correlation into exact sectors, with eigenvalue equal to the product of those
+local choices.
+
+The implementation reconstructs every direct divisor-sample correlation and
+then the signed phase-removed mean. Across lags
+`{140,154,156,182,240}`, the maximum error relative to the natural operator
+scale `degree*||L||_2*||R||_2` is `5.070873481837532e-16`; the maximum target
+error is `1.7820990896943942e-14`. Independent review verified the CRT graph,
+orthogonal projections, eigenvalues, correlation orientation, natural scale,
+Möbius recombination, and normal/optimized tests and returned PASS.
+
+The stronger proposed support pattern fails. Finite sector observations are:
+
+- lags `140` and `240` lie in the constant quotient sector up to numerical
+  roundoff;
+- lag `156` lies in the sector nonconstant at `5` up to roundoff;
+- lag `182` splits as `(5): 12375/4` and `(11): 11011/30` up to roundoff;
+- lag `154` has large `(13)`, `(5)`, and joint `(5,13)` contributions.
+
+Thus no universal "exactly one nonconstant quotient coordinate" rule
+survives. Near-zero sector values remain numerical observations rather than
+symbolic zero theorems.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Preserve the exact tensor graph and sector eigenvalues; reject the universal
+one-coordinate support hypothesis. This decomposition proves no complexity
+saving, uniform estimate, prime-distribution estimate, or signed correlation.
+
+The next bounded question restores the CRT inverse-difference phase locally.
+For a quotient prime `r` and nonzero local frequency `a`, form the operator on
+`F_r^*`
+
+`K_a(x,y)=1_(x!=y)*e_r(a/(x-y))`.
+
+It is a compression of additive convolution on `F_r`, whose Fourier
+eigenvalues are Kloosterman sums. Test the exact local factorization and the
+Weil-scale norm gate `||K_a|| <= 2*sqrt(r)` for `r in {5,7,11,13}`. The zero
+frequency retains the reinforcing `J-I` eigenvalue `r-2`; a nonzero-frequency
+pass would identify a precise square-root cancellation mechanism and the
+remaining resonant zero modes.
