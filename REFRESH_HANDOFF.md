@@ -9447,6 +9447,41 @@ inclusion-exclusion identity, which separates direct and mixed-packet
 interference without assuming either component has a uniform sign. No uniform
 frame, signed prime correlation, or Goldbach claim is proved.
 
+## 2026-09-11: exact Boolean packet-interference identity
+
+`lcm_sawtooth_boolean_energy_interaction.py` replaces the informal phrase
+"cross terms" with an exact Hilbert-space identity. Partition a scalar source
+signal into `a` (neither selected conductor), `b` (left only), `c` (right
+only), and `d` (both). Direct expansion gives
+
+`||a+b+c+d||^2-||a+b||^2-||a+c||^2+||a||^2`
+
+`=||d||^2+2 Re(<b,c>+<a+b+c,d>)`.
+
+The identity holds separately in the full-residue and active-window Hilbert
+spaces. In general it exposes three mechanisms: a positive mixed-packet
+square, direct left/right interference, and interference between the mixed
+packet and the remaining signal. Complex-vector regression fixtures verify
+the conjugation and signs, and examples with `d=0,c=b` or `c=-b` prove that
+the Boolean energy difference can have either sign.
+
+Independent review found an important specialization for the actual
+`(77,143)` experiment. Although source signals are built from ordered
+primitive-frequency pairs, the reduced phase denominator of a direct
+`77 x 143` pair divides `lcm(77,143)=1001`. The high-`Q` cutoff is
+`q>m*row_count`, at least `127*28=3556` on this block. Therefore every direct
+mixed-conductor pair is discarded before residue-cell grouping, so `d=0`
+exactly and the Boolean contribution reduces to `2 Re(<b,c>)`.
+
+Status: exact elementary identity plus exact high-`Q` specialization, novelty
+`new-to-this-task`. For `(77,143)`, the active Boolean value `+.97550925` is
+constructive direct interference between the left-only and right-only packet
+signals. The full Boolean value `-.23702124` is destructive interference in
+the full-residue inner product, so subtracting half of it also reinforces the
+candidate. The next analytic target is the sign and size of this same direct
+interference under the two different Hilbert kernels. No uniform bound, lower
+frame, signed prime correlation, or Goldbach claim is yet proved.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`
