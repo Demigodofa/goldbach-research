@@ -15,9 +15,20 @@ The actual lower union ``V<a,b<=B`` truncates the divisor cube, especially
 when ``q>B``.  The finite probe below groups that exact coefficient and
 measures whether its L1 mass behaves more like the lcm count or the raw pair
 count.  It is a falsifier, not an asymptotic Mobius estimate.
+
+There is also an exact parametrization of every squarefree pair.  Put
+``g=gcd(a,b)``, ``r=a/g``, and ``s=b/g``.  Then ``g,r,s`` are pairwise
+coprime and squarefree,
+
+    lcm(a,b) = g*r*s,       mu(a)mu(b) = mu(r)mu(s).       (2)
+
+Thus the signed count error is a constrained trilinear reciprocal-sawtooth
+sum.  Formula (2) removes the Mobius sign on the shared factor ``g`` but does
+not by itself estimate the remaining bilinear ``mu(r)mu(s)`` sum.
 """
 
 import math
+import random
 
 from mobius_covariance_lag_probe import _mobius_values
 from mobius_covariance_endpoint_probe import _prime_flags
@@ -182,6 +193,129 @@ def mobius_lcm_signed_count_probe(
         "frozen_count_error_over_totient_frame":
             signed / (modulus * frame_base),
         "signed_lcm_count_cancellation_proved": False,
+    }
+
+
+def mobius_lcm_trilinear_count_error(
+        modulus, ell, divisor_lower, divisor_upper):
+    """Recompute the two signed errors through the exact parametrization (2)."""
+    pair_receipt = mobius_lcm_signed_count_probe(
+        modulus, ell, divisor_lower, divisor_upper)
+    X = modulus * ell
+    interval_right = modulus * (ell + 1) - 1
+    mobius = _mobius_values(divisor_upper)
+    signed = 0.0
+    cyclic_signed = 0.0
+    triple_count = 0
+    for g in range(1, divisor_upper + 1):
+        if not mobius[g]:
+            continue
+        quotient_upper = divisor_upper // g
+        for r in range(1, quotient_upper + 1):
+            left = g * r
+            if (not mobius[r] or math.gcd(g, r) != 1
+                    or left <= divisor_lower):
+                continue
+            left_log = math.log(X / left)
+            for s in range(1, quotient_upper + 1):
+                right = g * s
+                if (not mobius[s] or math.gcd(g, s) != 1
+                        or math.gcd(r, s) != 1
+                        or right <= divisor_lower):
+                    continue
+                q = g * r * s
+                count = interval_right // q - X // q
+                coefficient = mobius[r] * mobius[s] * left_log * math.log(
+                    X / right)
+                signed += coefficient * (count - modulus / q)
+                cyclic_signed += coefficient * (count - (modulus - 1) / q)
+                triple_count += 1
+    return {
+        "modulus": modulus,
+        "ell": ell,
+        "divisor_range": (divisor_lower, divisor_upper),
+        "trilinear_tuple_count": triple_count,
+        "trilinear_signed_grouped_count_error": signed,
+        "trilinear_cyclic_signed_grouped_count_error": cyclic_signed,
+        "pair_minus_trilinear_signed_error":
+            pair_receipt["signed_grouped_count_error"] - signed,
+        "pair_minus_trilinear_cyclic_error":
+            pair_receipt["cyclic_signed_grouped_count_error"] - cyclic_signed,
+        "trilinear_reparametrization_estimate_proved": False,
+    }
+
+
+def signed_count_random_sign_comparison(
+        modulus, ell, divisor_lower, divisor_upper,
+        random_trials=128, random_seed=20260910):
+    """Compare Mobius signs with all-positive and random Rademacher signs."""
+    if (type(random_trials) is not int or random_trials < 1
+            or type(random_seed) is not int):
+        raise ValueError("random controls must be integers with trials positive")
+    base = mobius_lcm_signed_count_probe(
+        modulus, ell, divisor_lower, divisor_upper)
+    X = modulus * ell
+    mobius = _mobius_values(divisor_upper)
+    divisors = tuple(
+        value for value in range(divisor_lower + 1, divisor_upper + 1)
+        if mobius[value])
+    logarithms = tuple(math.log(X / value) for value in divisors)
+    interval_right = modulus * (ell + 1) - 1
+    pair_data = tuple(
+        (left_index, right_index, q,
+         (interval_right // q - X // q) - modulus / q)
+        for left_index, left in enumerate(divisors)
+        for right_index, right in enumerate(divisors)
+        for q in (math.lcm(left, right),))
+
+    # Store one discrepancy per lcm so each trial does not search pair_data.
+    discrepancies = {}
+    for _, _, q, discrepancy in pair_data:
+        discrepancies[q] = discrepancy
+
+    def fast_absolute_ratio(signs):
+        groups = {}
+        for left, right, q, _ in pair_data:
+            coefficient = (signs[left] * signs[right]
+                           * logarithms[left] * logarithms[right])
+            groups[q] = groups.get(q, 0.0) + coefficient
+        terms = tuple(coefficient * discrepancies[q]
+                      for q, coefficient in groups.items())
+        absolute = sum(abs(term) for term in terms)
+        return abs(sum(terms)) / absolute if absolute else 0.0
+
+    mobius_signs = tuple(int(mobius[value]) for value in divisors)
+    mobius_ratio = fast_absolute_ratio(mobius_signs)
+    # Keep the direct signed-count path tied to the generic comparison.
+    if abs(mobius_ratio - abs(
+            base["signed_to_absolute_count_error_ratio"])) > 1e-11:
+        raise ArithmeticError("generic and Mobius grouped ratios disagree")
+    all_positive_ratio = fast_absolute_ratio((1,) * len(divisors))
+    generator = random.Random(random_seed)
+    random_ratios = sorted(
+        fast_absolute_ratio(tuple(
+            1 if generator.getrandbits(1) else -1 for _ in divisors))
+        for _ in range(random_trials))
+    middle = random_trials // 2
+    random_median = (random_ratios[middle] if random_trials % 2
+                     else (random_ratios[middle - 1]
+                           + random_ratios[middle]) / 2)
+    return {
+        "modulus": modulus,
+        "ell": ell,
+        "divisor_range": (divisor_lower, divisor_upper),
+        "divisor_count": len(divisors),
+        "mobius_absolute_signed_to_grouped_l1_ratio": mobius_ratio,
+        "all_positive_absolute_signed_to_grouped_l1_ratio":
+            all_positive_ratio,
+        "random_trial_count": random_trials,
+        "random_ratio_minimum": random_ratios[0],
+        "random_ratio_median": random_median,
+        "random_ratio_maximum": random_ratios[-1],
+        "fraction_random_ratios_at_most_mobius":
+            sum(value <= mobius_ratio for value in random_ratios)
+            / random_trials,
+        "mobius_beats_random_signs_asymptotically_proved": False,
     }
 
 

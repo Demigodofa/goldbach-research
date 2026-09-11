@@ -7,6 +7,8 @@ from mobius_lcm_coefficient_collapse import (
     complete_lcm_log_coefficient,
     mobius_lcm_collapse_probe,
     mobius_lcm_signed_count_probe,
+    mobius_lcm_trilinear_count_error,
+    signed_count_random_sign_comparison,
 )
 
 
@@ -54,6 +56,35 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
             abs(receipt["cyclic_signed_to_absolute_ratio"]), 1)
         self.assertFalse(receipt["signed_lcm_count_cancellation_proved"])
 
+    def test_random_sign_comparison_is_reproducible(self):
+        first = signed_count_random_sign_comparison(
+            101, 5, 3, 14, random_trials=9, random_seed=17)
+        second = signed_count_random_sign_comparison(
+            101, 5, 3, 14, random_trials=9, random_seed=17)
+        self.assertEqual(first, second)
+        self.assertGreaterEqual(
+            first["fraction_random_ratios_at_most_mobius"], 0)
+        self.assertLessEqual(
+            first["fraction_random_ratios_at_most_mobius"], 1)
+        self.assertFalse(
+            first["mobius_beats_random_signs_asymptotically_proved"])
+
+    def test_trilinear_reparametrization_equals_pair_sum(self):
+        pair = mobius_lcm_signed_count_probe(101, 5, 3, 14)
+        triple = mobius_lcm_trilinear_count_error(101, 5, 3, 14)
+        squarefree_count = sum(
+            bool(value) for value in _mobius_values(14)[4:15])
+        self.assertEqual(
+            triple["trilinear_tuple_count"], squarefree_count ** 2)
+        self.assertAlmostEqual(
+            triple["trilinear_signed_grouped_count_error"],
+            pair["signed_grouped_count_error"], places=10)
+        self.assertAlmostEqual(
+            triple["trilinear_cyclic_signed_grouped_count_error"],
+            pair["cyclic_signed_grouped_count_error"], places=10)
+        self.assertFalse(
+            triple["trilinear_reparametrization_estimate_proved"])
+
     def test_invalid_inputs_are_rejected(self):
         with self.assertRaisesRegex(ValueError, "squarefree"):
             complete_lcm_log_coefficient(12, 100)
@@ -63,6 +94,9 @@ class MobiusLcmCoefficientCollapseTests(unittest.TestCase):
             mobius_lcm_signed_count_probe(105, 5, 3, 14)
         with self.assertRaisesRegex(ValueError, "squarefree"):
             mobius_lcm_signed_count_probe(101, 5, 3, 4)
+        with self.assertRaises(ValueError):
+            signed_count_random_sign_comparison(
+                101, 5, 3, 14, random_trials=0)
 
 
 if __name__ == "__main__":
