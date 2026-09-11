@@ -563,3 +563,10 @@ The corrected global minimum over singular individual-prime forms is `.520814`
 and `.736692`, respectively. Thus the finite candidate
 `D_active >= D_full/2` survives every nonvacuous tested prime, but no uniform
 lower-frame theorem is proved.
+
+At the worst measured prime `m=151`, the relaxed lower-frame direction is
+already essentially attainable by the rank-one polynomial surface. The
+relaxed bound is `.5208139495`, while an explicit deterministically found
+rank-one vector gives `.5211763463`, only `.0696%` higher. Thus imposing rank
+one does not materially repair this finite obstruction; the six-coordinate
+lower-frame route remains the relevant sufficient target.

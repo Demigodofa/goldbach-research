@@ -7076,3 +7076,23 @@ rank-one polynomial comparison or signed prime correlation. A separate
 exceed the 30-minute budget. The next test examines whether the worst
 six-coordinate lower-frame direction is close to a rank-one polynomial lift.
 Goldbach remains OPEN.
+
+### 2026-09-11 continuation: rank-one sharpening fails at the worst prime
+
+For `m=151`, the corrected relaxed active/full minimum is `.5208139494943`.
+The associated symmetric matrix has relative projective signed-rank-one
+Frobenius distance `.145708107581`. Direct deterministic optimization on
+`y=lambda lambda^T` finds an explicit quotient `.521176346342`, only `.0696%`
+above the rigorous relaxed lower bound. The actual selector `(1,1,1)` gives
+`.859110744`.
+
+Independent review verified the Schur minimizer, coordinate map, analytic
+gradient, explicit candidate quotient, and numerical scope. Review PASSed.
+Status `abandoned` applies only to the hypothesis that imposing rank one gives
+material extra lower-frame margin at this fixture. It does not reject the
+rank-one polynomial family or polynomial weights. The numerical search is an
+upper-bound witness, not proof of its global minimum.
+
+The six-coordinate lower-frame theorem therefore remains the cleaner
+sufficient target. Its uniform proof, the signed prime correlation, and
+Goldbach remain OPEN.

@@ -8913,3 +8913,50 @@ direction and determine whether it lies near the actual rank-one polynomial
 surface. A far-from-rank-one extremizer would justify moving to the sharper
 three-parameter problem. The signed prime correlation and Goldbach remain
 OPEN.
+
+## 2026-09-11: rank one does not repair the worst lifted lower-frame direction
+
+`lcm_sawtooth_rank_one_lower_frame.py` reconstructs the corrected global
+Schur-complement minimizer for `m=151`, maps its six coordinates to the
+symmetric matrix
+
+`[[y0,y1,y2],[y1,y3,y4],[y2,y4,y5]]`,
+
+and compares it with the projective rank-one surface `+/-lambda lambda^T`.
+The relaxed receipt is
+
+`minimum=.5208139494943`,
+
+`matrix eigenvalues=(-1.029131515252,.049155715830,.143378200764)`,
+
+`relative signed-rank-one Frobenius distance=.145708107581`.
+
+Frobenius proximity alone is not the energy metric: the dominant matrix
+factor has quotient about `.854`. A deterministic 100,000-point Fibonacci
+sphere followed by analytic projected-gradient refinement finds the different
+explicit parameter
+
+`lambda approximately (.0861,.2889,.9535)`
+
+with quotient `.521176346342`. Therefore the true rank-one minimum is
+rigorously bounded below by the relaxed `.520813949494` and numerically bounded
+above by the explicit `.521176346342`; the bracket width is only `.0696%` of
+the lower endpoint. The fixed actual selector `lambda=(1,1,1)` has active/full
+ratio `.859110744`.
+
+Independent review checked the diagonal-congruence vector reconstruction,
+singular Schur minimizer, matrix mapping, projective distance, Jacobian, and
+tangent gradient. Its central-difference gradient discrepancy was about
+`1.6e-10`, and the relaxed stationarity residual about `1.3e-13`. Review
+reproduced the receipt and returned PASS.
+
+Status: `abandoned` for the specific hypothesis that rank-one restriction
+materially lifts the `m=151` weakness. The six-coordinate relaxation, actual
+polynomial selector, and all polynomial weights remain useful; only this
+proposed source of extra margin is rejected on the named fixture. The
+100,000-point search is not a proof of the global rank-one minimum, but its
+explicit candidate is enough for the falsification. Reactivate a rank-one
+advantage only for a different prime/scale or after a new structural
+restriction changes the family. The next analytic target remains the uniform
+six-coordinate active/full lower frame. The signed prime correlation and
+Goldbach remain OPEN.

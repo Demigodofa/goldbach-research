@@ -78,16 +78,18 @@ def _generalized_psd_receipt(numerator, denominator):
     if not np.any(positive):
         ratio = float("inf") if null_positive else 0.0
         smallest_ratio = float("inf")
+        smallest_vector = None
         rank = 0
     else:
         inverse_root = positive_vectors / np.sqrt(values[positive])
         whitened = inverse_root.T @ numerator @ inverse_root
-        generalized_values = np.linalg.eigvalsh(
+        generalized_values, generalized_vectors = np.linalg.eigh(
             (whitened + whitened.T) / 2)
         ratio = (float("inf") if null_positive
                  else float(generalized_values[-1]))
         if not null.shape[1]:
             smallest_ratio = float(max(generalized_values[0], 0.0))
+            smallest_scaled = inverse_root @ generalized_vectors[:, 0]
         else:
             positive_numerator = (
                 positive_vectors.T @ numerator @ positive_vectors)
@@ -98,6 +100,7 @@ def _generalized_psd_receipt(numerator, denominator):
             null_tolerance = (
                 numerator_scale * np.finfo(float).eps * 10000)
             null_positive_values = null_values > null_tolerance
+            null_inverse = np.zeros_like(null_block)
             if np.any(null_positive_values):
                 null_inverse = (
                     (null_vectors[:, null_positive_values]
@@ -109,13 +112,25 @@ def _generalized_psd_receipt(numerator, denominator):
             minimized_whitened = (
                 inverse_positive_root @ positive_numerator
                 @ inverse_positive_root)
-            minimized_values = np.linalg.eigvalsh(
+            minimized_values, minimized_vectors = np.linalg.eigh(
                 (minimized_whitened + minimized_whitened.T) / 2)
             smallest_ratio = float(max(minimized_values[0], 0.0))
+            positive_coefficients = (
+                inverse_positive_root @ minimized_vectors[:, 0])
+            null_coefficients = -(
+                null_inverse @ cross_block.T @ positive_coefficients)
+            smallest_scaled = (
+                positive_vectors @ positive_coefficients
+                + null @ null_coefficients)
+        smallest_vector = coordinate_scale * smallest_scaled
+        smallest_vector /= np.linalg.norm(smallest_vector)
         rank = int(np.count_nonzero(positive))
     return {
         "largest_generalized_eigenvalue": ratio,
         "smallest_generalized_eigenvalue": smallest_ratio,
+        "smallest_generalized_eigenvector": (
+            None if smallest_vector is None else tuple(
+                float(value) for value in smallest_vector)),
         "denominator_rank": rank,
         "denominator_nullity": int(denominator.shape[0] - rank),
         "largest_nullspace_numerator_eigenvalue": null_numerator,
