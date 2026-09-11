@@ -522,3 +522,12 @@ six-dimensional symmetric square so
 the endpoint envelope and full residue energy can be compared without allowing
 arbitrary conductor coefficients; failure of that relaxation would not by
 itself reject the actual rank-one polynomial lifts.
+
+The exact six-coordinate construction now passes its first two complete prime
+blocks. At `M=127` the aggregate lifted endpoint/full-residue ratio is
+`.296974`, versus `.273013` for the actual selector; at `M=251` they are
+`.263441` and `.256514`. Both denominator Grams have full rank and no
+numerator-positive null direction. This supports the lifted comparison only
+for the measured unweighted full-period blocks. Active-window transfer,
+outer-prime weights, a uniform theorem, and the signed prime correlation are
+still open.

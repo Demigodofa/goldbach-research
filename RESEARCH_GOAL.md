@@ -6941,3 +6941,34 @@ sufficient route, not necessarily the rank-one actual polynomial family.
 Passing finite blocks would leave a concrete six-entry
 bilinear prime-row theorem, not a proof of it. The signed prime-correlation
 estimate and Goldbach remain OPEN.
+
+### 2026-09-11 continuation: lifted full-period endpoint frame passes finitely
+
+The three polynomial coordinates were lifted exactly to the six symmetric
+monomials. Exact grouping by `(Q,r)` produces PSD forms `N_m,D_m` with
+
+`y^T N_m y = sum_(endpoint pairs,Q>mA) Q|c_i c_j|^2`,
+
+`y^T D_m y = sum_(Q>mA) Q sum_(r,Q)=1 |D_Q(r;y)|^2`.
+
+The actual polynomial selector is `y=(1,...,1)` after embedding the log powers
+in the conductor basis. Independent scalar grouping reconstructs both forms.
+After summing matrices over every prime before taking one generalized
+direction, the complete unweighted blocks give lifted/actual ratios
+`.296974/.273013` at `M=127` and `.263441/.256514` at `M=251`. Both
+denominator matrices have rank 6, with no numerator-positive null direction.
+The maximum individual lifted ratios are `.393341` and `.336431`.
+
+Independent review PASSed the algebra, exact residue grouping, PSD and
+generalized-eigenvalue logic, diagonal equilibration, reconstruction, and
+aggregation. It reproduced the full `M=127` block and one `M=251` prime. The
+captured full `M=251` run took `257.4` seconds. These are finite full-period,
+unweighted measurements, not a uniform or prime-weighted theorem.
+
+The six-dimensional space is only a sufficient relaxation of the rank-one
+polynomial lifts. The next bounded hypothesis compares the same endpoint form
+with the active-window residue-energy Gram. An active-denominator null
+direction or power-growing generalized ratio rejects the lifted sufficient
+route. A finite pass would isolate the six bilinear entries requiring a
+weighted prime-row estimate. The signed prime-correlation estimate and
+Goldbach remain OPEN.

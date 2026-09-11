@@ -8672,3 +8672,60 @@ six-dimensional lifted sufficient route, not necessarily the rank-one actual
 polynomial family. An order-one finite result would identify the exact
 six-entry bilinear prime-row estimate still needing proof. The signed prime
 correlation and Goldbach remain OPEN.
+
+## 2026-09-11: the six-coordinate full-period relaxation passes two blocks
+
+The proposed lift is now exact and executable. Embed the logarithmic powers in
+the three conductor basis columns and put
+
+`y=(lambda_2^2,lambda_2 lambda_1,lambda_2 lambda_0,
+     lambda_1^2,lambda_1 lambda_0,lambda_0^2)`.
+
+For each frequency pair, `(b_d.lambda)(b_e.lambda)` is linear in `y`. Grouping
+those six coefficients by exact `(Q,r)` gives two positive semidefinite
+`6 x 6` forms:
+
+- `y^T N y` is the full `Q>mA` endpoint pair-square envelope;
+- `y^T D y=sum_(Q>mA)Q sum_(r,Q)=1|D_Q(r;y)|^2` is the full-period
+  exact-residue energy.
+
+The calculation uses exact integer `(Q,r)` tuple keys. An earlier temporary
+32-bit packed key was removed before evidence was accepted because it could
+alias outside the current small fixtures. Diagonal equilibration is an
+invertible congruence used only to keep the generalized eigenanalysis stable;
+the scalar quotient is unchanged. The actual selector is `y=(1,...,1)` because
+the powers of `log(m*ell_freeze)` are already embedded in `b_d`.
+
+Complete unweighted project-geometry prime blocks give:
+
+`M       primes  lifted aggregate  actual aggregate  max individual lifted`
+`127       24       .296973665       .273013029          .393341412`
+`251       42       .263440971       .256514417          .336430921`
+
+Both aggregate denominator forms have rank 6 and nullity 0. No
+numerator-positive denominator-null direction appears. The `M=251` exact run
+took `257.4` seconds. Its largest individual lifted ratio occurs at `m=499`.
+
+Four focused tests pass normally and under `-O`. They reconstruct the
+symmetric product for arbitrary three-vectors, reproduce the earlier actual
+endpoint and full-residue receipts, compare a nontrivial parameter with a
+separate scalar `(Q,r)` grouping, and guard the complete `M=127` block.
+Independent review reproduced the `M=127` block and the `m=251` one-prime
+receipt, including `493248` exact residue cells, and verified the block-sum
+logic. Review returned PASS.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The exact lift
+connects the retained three-coordinate polynomial family with the endpoint
+residue decomposition and gives a six-entry sufficient theorem target. The
+finite prediction passed: the relaxed aggregate quotient is order one and
+close to the actual selector on both blocks. This is not a prior-art claim.
+
+The lift is a relaxation: arbitrary `y in R^6` need not be a rank-one
+symmetric square of any `lambda in R^3`. These measurements prove neither the
+rank-one family bound nor a uniform lifted bound. They are also full-period and
+unweighted. The next concrete test constructs the active-window residue-energy
+Gram in the same six coordinates. A numerator-positive active denominator
+null direction, or a power-growing endpoint/active generalized eigenvalue,
+falsifies that sufficient route. If it remains order one, the remaining
+analytic target is a six-entry weighted prime-row estimate. The signed prime
+correlation and Goldbach remain OPEN.
