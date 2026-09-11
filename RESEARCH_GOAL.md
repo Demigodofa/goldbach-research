@@ -6110,3 +6110,36 @@ remains a possible subpower object. The next task seeks a shared-factor
 frequency factorization of the exact normalized kernel and tests its Schur or
 spectral growth. The incomplete boundary, signed prime correlation, and
 Goldbach remain open; complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: complete-period covariance becomes positive squares
+
+The cross-modulus mechanism now has a one-variable exact form. For
+`g=gcd(q,r)` and `s_g=(m-1) mod g`,
+
+`Cov_m(q,r)=s_g(g-s_g)/(qr)=g^2v_(m,g)/(qr)`.
+
+The covariance kernel is nonnegative; coefficient signs alone decide whether
+cross terms cancel or reinforce. Its divisor Mobius transform is the positive
+primitive Fourier energy
+
+`H_m(d)=sum_((k,d)=1)|sum_(0<=x<m-1)e_d(kx)|^2`.
+
+Hence
+
+`sum_(q,r)x_qx_rCov_m(q,r)
+ =sum_d H_m(d)[sum_(d|q)x_q/q]^2`
+
+is an exact positive sum-of-squares factorization. Independent review verified
+the residue identity, Parseval/conductor grouping, inversion, code, and tests.
+
+For the actual Mobius coefficients, median signed energy/diagonal decreased
+from `.734` to `.472` over seven scales through `M=16001`; the corresponding
+termwise-absolute ratio only rose from `1.867` to `2.339`. The ratio between
+them rose from `2.54` to `4.97`, exposing increasing cancellation inside the
+structured sums `S_d=sum_(d|q)K_q/q`.
+
+The next target is an exact original-divisor expansion and dyadic energy test
+for `S_d`. A fixed-power dyadic concentration falsifies the factorized route.
+The incomplete boundary, signed prime correlation, and Goldbach remain open;
+complete assembly remains `.295-delta`.

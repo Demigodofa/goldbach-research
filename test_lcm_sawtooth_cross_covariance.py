@@ -24,6 +24,10 @@ class LcmSawtoothCrossCovarianceTests(unittest.TestCase):
                 for ell in range(period)) / period
             receipt = cyclic_sawtooth_covariance(modulus, left, right)
             self.assertAlmostEqual(direct, receipt["covariance"], places=12)
+            self.assertAlmostEqual(
+                receipt["covariance"], receipt["gcd_kernel_covariance"],
+                places=12)
+            self.assertGreaterEqual(receipt["covariance"], -1e-12)
             self.assertLessEqual(
                 abs(receipt["covariance"]),
                 receipt["gcd_covariance_bound"] + 1e-12)

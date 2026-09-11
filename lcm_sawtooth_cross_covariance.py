@@ -6,15 +6,21 @@ For ``gcd(m,q)=1`` put ``s_q=(m-1) mod q`` and
       = floor((m*ell+m-1)/q)-floor(m*ell/q)-(m-1)/q.
 
 This is the centered indicator that ``m*ell mod q`` lies in the final
-``s_q`` residue classes.  For ``g=gcd(q,r)``, let ``n_t`` and ``p_t`` count
-those final intervals modulo ``g``.  Averaging over a complete common period
+``s_q`` residue classes. For ``g=gcd(q,r)``, let ``n_t`` and ``p_t`` count
+those final intervals modulo ``g``. Averaging over a complete common period
 ``lcm(q,r)`` gives the exact CRT formula
 
     Cov(q,r) = [g*sum_t n_t*p_t-s_q*s_r]/(q*r).          (1)
 
+Both intervals end at residue ``-1`` and ``s_q == s_r == s_g (mod g)``.
+Their centered residue-count vectors modulo ``g`` are therefore identical.
+If ``s_g=(m-1) mod g``, (1) simplifies exactly to
+
+    Cov(q,r) = s_g*(g-s_g)/(q*r) = g^2*v_(m,g)/(q*r).   (2)
+
 Writing ``n_t=s_q/g+e_t`` and ``p_t=s_r/g+f_t`` proves
 
-    |Cov(q,r)| <= g^2/(4*q*r).                           (2)
+    0 <= Cov(q,r) <= g^2/(4*q*r).                        (3)
 
 In particular coprime moduli have zero covariance.  Thus complete-period
 cross terms are supported only on shared prime factors.  This does not bound
@@ -60,6 +66,10 @@ def cyclic_sawtooth_covariance(modulus, left_period, right_period):
     covariance = (
         common * compatible_pairs - left_length * right_length
     ) / (left_period * right_period)
+    common_terminal_length = (modulus - 1) % common
+    gcd_kernel_covariance = (
+        common_terminal_length * (common - common_terminal_length)
+        / (left_period * right_period))
     left_variance = (left_length / left_period) * (
         1 - left_length / left_period)
     right_variance = (right_length / right_period) * (
@@ -75,10 +85,13 @@ def cyclic_sawtooth_covariance(modulus, left_period, right_period):
         "terminal_lengths": (left_length, right_length),
         "compatible_pair_count": compatible_pairs,
         "covariance": covariance,
+        "gcd_kernel_covariance": gcd_kernel_covariance,
+        "gcd_kernel_identity_error": covariance - gcd_kernel_covariance,
         "gcd_covariance_bound": gcd_bound,
         "cauchy_covariance_bound": cauchy_bound,
         "coprime_covariance_zero": common != 1 or covariance == 0,
         "complete_period_covariance_proved": True,
+        "one_variable_gcd_kernel_proved": True,
         "incomplete_row_boundary_bound_proved": False,
     }
 

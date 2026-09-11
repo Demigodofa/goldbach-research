@@ -6892,3 +6892,60 @@ Mobius direction admits such a bound. A power-growing eigenvalue rejects the
 uniform exact-operator route; a bounded eigenvalue still leaves the incomplete
 prime-row boundary to prove. The signed prime correlation and Goldbach remain
 OPEN.
+
+
+## 2026-09-10: exact positive primitive-frequency factorization
+
+The provisional two-variable covariance formula simplifies completely. If
+`g=gcd(q,r)` and `s_g=(m-1) mod g`, then both terminal intervals have the same
+centered residue-count vector modulo `g`. Therefore
+
+`Cov_m(q,r)=s_g(g-s_g)/(qr)=g^2 v_(m,g)/(qr) >= 0`.
+
+This is stronger than the earlier upper bound and proves that the sign of an
+off-diagonal contribution comes entirely from the lcm coefficients, not from
+the covariance kernel.
+
+Put `F_m(g)=s_g(g-s_g)` and `H_m=mu*F_m` under divisor convolution. Parseval,
+with nonzero frequencies grouped by their reduced denominator, gives
+
+`H_m(d)=sum_(1<=k<d,(k,d)=1)
+ |sum_(0<=x<m-1)e_d(kx)|^2 >= 0`.
+
+Consequently every real lcm coefficient vector has the exact positive
+factorization
+
+`sum_(q,r)x_q x_r Cov_m(q,r)
+ = sum_d H_m(d)[sum_(d|q)x_q/q]^2`.
+
+Replacing `x_q` by `|x_q|` gives the exact termwise-absolute form. This is the
+sparse shared-factor frequency factorization sought in the previous
+checkpoint. Independent review PASSed the residue alignment, endpoint,
+Parseval normalization, primitive-conductor partition, Mobius inversion,
+dense/sparse equality, implementation, and 28 combined tests in normal and
+optimized modes.
+
+For the actual frozen Mobius lcm coefficients over eight primes at each scale
+`M=251,...,16001`, signed complete-energy/diagonal medians decreased
+
+`.734,.631,.579,.555,.538,.481,.472`,
+
+while termwise-absolute medians were
+
+`1.867,2.161,2.182,2.158,2.231,2.325,2.339`.
+
+Thus the absolute primitive-frequency form stays constant-scale in the finite
+range, while cancellation from the signs of `K_q` inside each divisor sum
+strengthens: the median absolute/signed ratio rose from `2.54` to `4.97`.
+These are measurements, not an asymptotic estimate.
+
+The remaining complete-period question is now the structured divisor sum
+
+`S_d=sum_(d|q)K_q/q`.
+
+The next <=30-minute task is to substitute
+`K_q=sum_(lcm(a,b)=q)mu(a)mu(b)L_aL_b` and seek an exact factorization or
+large-sieve bound for `sum_d H_m(d)S_d^2`. A dyadic `d` block whose normalized
+energy grows by a fixed power rejects this route. The incomplete boundary,
+fixed-Mobius second moment, signed prime correlation, and Goldbach remain
+OPEN.
