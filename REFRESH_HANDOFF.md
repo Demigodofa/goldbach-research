@@ -10851,3 +10851,50 @@ mean correlation within `1e-12` relative error without enumerating the unit
 classes. Success would supply a first exact source-level arithmetic mechanism
 for this one lag; failure preserves the generic projection and rejects the
 proposed conditioned reduction.
+
+## 2026-09-11: source-level CRT reduction succeeds for lag 182
+
+The stronger conditioned calculation now expands each primitive-root endpoint
+term before the unit-class average. For each family it aggregates `5760`
+oriented primitive source pairs into `2880` unit source residues. A left/right
+source pair contributes at lag `182` exactly when
+
+`p*(u-v) = 182 (mod 10010)`.
+
+Because `p` is a unit, this forces `gcd(u-v,10010)=182`. Writing
+`u-v=182*w'` fixes `p=(w')^(-1) (mod 55)`, and CRT evaluates every remaining
+endpoint mode by the reviewed identity
+
+`sum_((p,Q)=1, p*(u-v)=182) e_Q(n*p)
+ = e_55(n*p0*inverse_55(182))*c_182(n)`.
+
+The source calculation uses `77760` matched source-residue pairs and
+`1244160` expanded mode products. It does not enumerate the `2880` unit frame
+classes. Its mean correlation is
+
+`-25042.404948829833 - 1431.9765245642313 i`.
+
+The independently reviewed canonical unit-class target is
+
+`-25042.404948829146 - 1431.9765245642259 i`,
+
+giving relative error `2.741263255945892e-14`. Independent review checked the
+correlation orientation, endpoint expansion, source residues, conjugated mode
+frequencies, CRT phase, Ramanujan factor, normalization, live direct
+comparison, and normal/optimized tests, and returned PASS. Twelve related
+tests pass together.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. This is a first
+exact source-level arithmetic selection mechanism for the single finite lag
+`182`: it explains why the conductor-gcd condition appears and replaces the
+generic full-period Fourier projection by conditioned source sums. It does
+not yet explain the negative sign of the resulting sum, give an asymptotic
+complexity bound, estimate primes, or prove the missing signed correlation.
+
+The next bounded question asks whether the sign is localized in the
+Ramanujan weights introduced by this mechanism. Partition the expanded
+source contribution by `gcd(n,182)` for its endpoint frequency `n`. The
+factor-7 frequency sector passes only if its signed real subtotal is negative
+and carries at least `.75` of the absolute value of the full negative real
+mean. Failure preserves the exact CRT source reduction while rejecting
+frequency-side factor-7 dominance.
