@@ -2959,6 +2959,220 @@ def residue_orbit_crt_parity_receipt(
     }
 
 
+def residue_orbit_crt_sector_correlation_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_sector_square_function_ratio=1.0,
+        minimum_cancelling_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_sector_square_function_ratio)
+            or maximum_sector_square_function_ratio < 0):
+        raise ValueError(
+            "sector square-function ratio gate must be nonnegative")
+    if (type(minimum_cancelling_dyadic_block_count) is not int
+            or minimum_cancelling_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum cancelling dyadic block count must be nonnegative")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    residue5_values = tuple(
+        value for value in range(5)
+        if value and (target_residue - value) % 5)
+    residue13_values = tuple(
+        value for value in range(13)
+        if value and (target_residue - value) % 13)
+    residue5_index = {
+        value: index for index, value in enumerate(residue5_values)}
+    residue13_index = {
+        value: index for index, value in enumerate(residue13_values)}
+    reflection5_indices = np.asarray(tuple(
+        residue5_index[(target_residue - value) % 5]
+        for value in residue5_values), dtype=np.int64)
+    reflection13_indices = np.asarray(tuple(
+        residue13_index[(target_residue - value) % 13]
+        for value in residue13_values), dtype=np.int64)
+    orbit_by_residue = {
+        residue: orbit_index
+        for orbit_index, orbit in enumerate(base["reflection_orbits"])
+        for residue in orbit}
+    crt_residues = {
+        (residue % 5, residue % 13): residue
+        for residue in base["admissible_residues"]}
+    if len(crt_residues) != len(residue5_values) * len(residue13_values):
+        raise AssertionError("admissible CRT cells are incomplete")
+
+    def lift_orbit_row(orbit_row, divide_by_orbit_size=False):
+        table = np.empty(
+            (len(residue5_values), len(residue13_values)),
+            dtype=np.complex128 if divide_by_orbit_size else np.float64)
+        for (residue5, residue13), residue in crt_residues.items():
+            orbit_index = orbit_by_residue[residue]
+            value = orbit_row[orbit_index]
+            if divide_by_orbit_size:
+                value /= len(base["reflection_orbits"][orbit_index])
+            table[
+                residue5_index[residue5],
+                residue13_index[residue13]] = value
+        return table
+
+    def sector_components(table):
+        overall_mean = np.mean(table)
+        mod5_component = np.broadcast_to(
+            np.mean(table, axis=1, keepdims=True) - overall_mean,
+            table.shape)
+        mod13_component = np.broadcast_to(
+            np.mean(table, axis=0, keepdims=True) - overall_mean,
+            table.shape)
+        interaction = (
+            table - overall_mean - mod5_component - mod13_component)
+        reflection5 = interaction[reflection5_indices, :]
+        reflection13 = interaction[:, reflection13_indices]
+        reflection_both = reflection5[:, reflection13_indices]
+        even_even = (
+            interaction + reflection5 + reflection13 + reflection_both) / 4
+        odd_odd = (
+            interaction - reflection5 - reflection13 + reflection_both) / 4
+        return {
+            "mod5": mod5_component,
+            "mod13": mod13_component,
+            "even_even": even_even,
+            "odd_odd": odd_odd,
+        }
+
+    source_table = lift_orbit_row(
+        base["orbit_coefficients"], divide_by_orbit_size=True)
+    source_components = sector_components(source_table)
+    source_scale = max(1.0, float(np.sum(np.abs(source_table))))
+    source_reconstructed = sum(
+        source_components.values(), np.zeros_like(source_table))
+    source_reconstruction_relative_error = float(
+        np.max(np.abs(source_table - source_reconstructed))
+        * source_table.size / source_scale)
+    source_component_energy = {
+        name: float(np.sum(np.abs(component) ** 2))
+        for name, component in source_components.items()}
+    source_energy = float(np.sum(np.abs(source_table) ** 2))
+    source_energy_relative_error = abs(
+        math.fsum(source_component_energy.values()) - source_energy
+    ) / max(1.0, source_energy)
+
+    component_names = ("mod5", "mod13", "even_even", "odd_odd")
+    target_component_correlations = {}
+    maximum_correlation_reconstruction_relative_error = 0.0
+    for target, orbit_row in base["orbit_weight_discrepancy_rows"].items():
+        discrepancy_table = lift_orbit_row(orbit_row)
+        discrepancy_components = sector_components(discrepancy_table)
+        correlations = {
+            name: np.sum(
+                discrepancy_components[name] * source_components[name])
+            for name in component_names}
+        reconstructed = sum(correlations.values(), 0.0j)
+        measured = _complex_fsum(base["orbit_term_rows"][target])
+        correlation_scale = max(
+            1.0, abs(measured),
+            math.fsum(abs(value) for value in correlations.values()))
+        maximum_correlation_reconstruction_relative_error = max(
+            maximum_correlation_reconstruction_relative_error,
+            abs(reconstructed - measured) / correlation_scale)
+        target_component_correlations[target] = {
+            **correlations,
+            "measured_total": measured,
+            "reconstructed_total": reconstructed,
+        }
+
+    dyadic_sector_summaries = {}
+    sector_pairs = tuple(
+        (component_names[left], component_names[right])
+        for left in range(len(component_names))
+        for right in range(left + 1, len(component_names)))
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in target_component_correlations
+            if block_lower <= target < block_upper)
+        total_squared_correlation = math.fsum(
+            abs(target_component_correlations[target]["measured_total"]) ** 2
+            for target in block_targets)
+        component_squared_correlations = {
+            name: math.fsum(
+                abs(target_component_correlations[target][name]) ** 2
+                for target in block_targets)
+            for name in component_names}
+        sector_square_function = math.fsum(
+            component_squared_correlations.values())
+        if sector_square_function <= 0:
+            raise ValueError("CRT sector square function is zero")
+        pairwise_cross_terms = {
+            pair: 2 * math.fsum(
+                (target_component_correlations[target][pair[0]]
+                 * target_component_correlations[target][
+                     pair[1]].conjugate()).real
+                for target in block_targets)
+            for pair in sector_pairs}
+        net_cross_term = math.fsum(pairwise_cross_terms.values())
+        reconstruction_scale = max(
+            1.0, total_squared_correlation, sector_square_function,
+            abs(net_cross_term))
+        ratio = total_squared_correlation / sector_square_function
+        dyadic_sector_summaries[block] = {
+            "target_count": len(block_targets),
+            "summed_squared_correlation": total_squared_correlation,
+            "sector_square_function": sector_square_function,
+            "sector_square_function_ratio": ratio,
+            "component_squared_correlations": (
+                component_squared_correlations),
+            "pairwise_sector_cross_terms": pairwise_cross_terms,
+            "net_sector_cross_term": net_cross_term,
+            "cross_term_reconstruction_relative_error": abs(
+                sector_square_function + net_cross_term
+                - total_squared_correlation) / reconstruction_scale,
+            "passes_sector_cancellation_gate": bool(
+                ratio <= maximum_sector_square_function_ratio),
+        }
+    if minimum_cancelling_dyadic_block_count > len(dyadic_sector_summaries):
+        raise ValueError(
+            "minimum cancelling dyadic block count exceeds measured blocks")
+    cancelling_dyadic_block_count = sum(
+        row["passes_sector_cancellation_gate"]
+        for row in dyadic_sector_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "component_names": component_names,
+        "tested_target_count": len(target_component_correlations),
+        "source_reconstruction_relative_error": (
+            source_reconstruction_relative_error),
+        "source_energy_relative_error": source_energy_relative_error,
+        "source_component_energy_fractions": {
+            name: energy / source_energy
+            for name, energy in source_component_energy.items()},
+        "maximum_correlation_reconstruction_relative_error": (
+            maximum_correlation_reconstruction_relative_error),
+        "maximum_sector_square_function_ratio_gate": (
+            maximum_sector_square_function_ratio),
+        "minimum_cancelling_dyadic_block_count_gate": (
+            minimum_cancelling_dyadic_block_count),
+        "dyadic_sector_summaries": dyadic_sector_summaries,
+        "cancelling_dyadic_block_count": cancelling_dyadic_block_count,
+        "crt_sector_cancellation_gate_passes": bool(
+            cancelling_dyadic_block_count
+            >= minimum_cancelling_dyadic_block_count),
+        "finite_crt_sector_correlations_measured": True,
+        "crt_sector_cancellation_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

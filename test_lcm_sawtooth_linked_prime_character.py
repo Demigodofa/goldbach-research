@@ -17,6 +17,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_conservation_covariance_receipt,
     residue_orbit_crt_anova_receipt,
     residue_orbit_crt_parity_receipt,
+    residue_orbit_crt_sector_correlation_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -140,6 +141,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_crt_parity_receipt(
                 minimum_odd_odd_energy_fraction=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_crt_sector_correlation_receipt(
+                maximum_sector_square_function_ratio=-.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1271,6 +1275,86 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "finite_crt_parity_decomposition_measured"])
         self.assertFalse(receipt[
             "odd_odd_prime_discrepancy_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_crt_sector_correlation(self):
+        receipt = residue_orbit_crt_sector_correlation_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(
+            receipt["component_names"],
+            ("mod5", "mod13", "even_even", "odd_odd"))
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(len(receipt["dyadic_sector_summaries"]), 7)
+        expected_source_fractions = {
+            "mod5": .002003601576020134,
+            "mod13": .04816585587169374,
+            "even_even": .8141862180918824,
+            "odd_odd": .13564432446040373,
+        }
+        for name, expected in expected_source_fractions.items():
+            self.assertAlmostEqual(
+                receipt["source_component_energy_fractions"][name],
+                expected, places=12)
+        dyadic = receipt["dyadic_sector_summaries"]
+        expected_ratios = (
+            1.1769821070227042, .6369351246220343,
+            .814910436281813, 1.2926229417747201,
+            1.1539493996904104, 1.1352567651074867,
+            1.1727627992503518)
+        expected_even_even_diagonal_fractions = (
+            .7920533938349883, .4829790879808363,
+            .8235446943491458, .8537443325991265,
+            .8851055474323836, .8423635767358733,
+            .8048763656038245)
+        expected_even_even_odd_odd_cross_fractions = (
+            .11712565569715702, -.20912495303057482,
+            -.02519782221905951, .23183089739657625,
+            .1422680636848441, .0785442564758231,
+            .22091471089383566)
+        expected_pairs = {
+            ("mod5", "mod13"), ("mod5", "even_even"),
+            ("mod5", "odd_odd"), ("mod13", "even_even"),
+            ("mod13", "odd_odd"), ("even_even", "odd_odd")}
+        for row, ratio, diagonal_fraction, cross_fraction in zip(
+                dyadic.values(), expected_ratios,
+                expected_even_even_diagonal_fractions,
+                expected_even_even_odd_odd_cross_fractions):
+            self.assertAlmostEqual(
+                row["sector_square_function_ratio"], ratio, places=12)
+            self.assertAlmostEqual(
+                row["component_squared_correlations"]["even_even"]
+                / row["sector_square_function"],
+                diagonal_fraction, places=12)
+            self.assertEqual(
+                set(row["pairwise_sector_cross_terms"]), expected_pairs)
+            self.assertAlmostEqual(
+                row["pairwise_sector_cross_terms"][
+                    ("even_even", "odd_odd")]
+                / row["sector_square_function"],
+                cross_fraction, places=12)
+            self.assertLess(
+                row["cross_term_reconstruction_relative_error"], 1e-12)
+        self.assertEqual(
+            tuple(row["passes_sector_cancellation_gate"]
+                  for row in dyadic.values()),
+            (False, True, True, False, False, False, False))
+        self.assertEqual(receipt["cancelling_dyadic_block_count"], 2)
+        self.assertFalse(receipt["crt_sector_cancellation_gate_passes"])
+        self.assertLess(
+            receipt["source_reconstruction_relative_error"], 1e-12)
+        self.assertLess(receipt["source_energy_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_correlation_reconstruction_relative_error"],
+            1e-12)
+        self.assertTrue(receipt[
+            "finite_crt_sector_correlations_measured"])
+        self.assertFalse(receipt[
+            "crt_sector_cancellation_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

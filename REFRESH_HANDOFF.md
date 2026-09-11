@@ -14300,3 +14300,76 @@ and report every pairwise sector cross term.  Passing would demonstrate net
 cancellation between exact arithmetic sectors while retaining the polynomial
 source.  Failure would identify cross-sector reinforcement and preserve the
 component correlations for a more targeted estimate.
+
+## 2026-09-11 exact CRT sectors cancel in only two dyadic blocks
+
+`residue_orbit_crt_sector_correlation_receipt` lifts the fixed source
+coefficient on orbit `O` as `C(O)/|O|` on every residue in `O`.  Therefore
+
+`sum_(r in A_72) D_N(r) C(O_r)/|O_r|
+ =sum_O D_N(O)C(O)`
+
+exactly, including the singleton.  Projecting both the real discrepancy and
+complex source onto the mod-5 marginal, mod-13 marginal, even-even
+interaction, and odd-odd interaction gives four complex bilinear correlations
+whose sum reconstructs all `761` measured orbit correlations within
+`1.50e-15` relative error.
+
+The fixed source energy fractions in those four sectors are respectively
+
+`.00200, .04817, .81419, .13564`.
+
+Thus the even-even interaction is the main source sector.  In ascending
+dyadic order, the full correlation divided by the four-sector square function
+is
+
+`1.17698, .63694, .81491, 1.29262, 1.15395, 1.13526, 1.17276`.
+
+Only the second and third blocks have ratio at most `1`, so the frozen
+cancellation count is `2/7` rather than `5/7`.  The other five blocks show net
+cross-sector reinforcement.  The even-even component is the largest diagonal
+square-function contribution in every block, ranging from `.48298` to
+`.88511`, and is a strict majority in six blocks.
+
+The normalized even-even/odd-odd cross terms are
+
+`.11713, -.20912, -.02520, .23183, .14227, .07854, .22091`.
+
+They are negative in exactly the two cancelling blocks and positive in the
+five reinforcing blocks.  All six pairwise cross terms are retained by the
+receipt; their reconstruction error is below `2.5e-16`.
+
+Curiosity status: `exact-interface-pass/uniform-cancellation-fail`, novelty
+`new-to-this-task`.  Preserve the four exact source-prime component
+correlations, the two cancelling blocks, and the sign-changing even-even/
+odd-odd cross term.  Reject uniform dyadic cancellation at this sector
+resolution.  The even-even interaction is now the largest finite component
+to target, not a proved asymptotic obstruction or estimate.
+
+Independent review verified the source lift, singleton, real/complex bilinear
+orientation, all projectors, numerator, square function, cross terms, ratios,
+and scope.  Focused normal and optimized tests pass.  No uniform sector bound,
+signed prime-correlation theorem, or Goldbach result has been proved.
+
+The next bounded question uses the exact dimension of the dominant sector.
+In the ordering `A_5=(1,3,4)`, the affine-even mean-zero mod-5 space is spanned
+by
+
+`u_5=(-2,1,1)/sqrt(6)`.
+
+Consequently every even-even interaction has the forced factorization
+
+`J_N^(++)(a,b)=u_5(a) h_N(b)`,
+
+where `h_N` is affine-even and mean-zero on `A_13`, hence five-dimensional.
+Verify this factorization for every prime-discrepancy table and for the fixed
+effective source.  Let `h_C` be the source profile and measure
+
+`alpha_N=|sum_b h_N(b)h_C(b)|/(||h_N||_2 ||h_C||_2)`.
+
+Freeze the nonresonance gate as `alpha_N<=.75` for all `761` targets and
+report dyadic maxima and the worst target.  Passing would give a uniform
+finite angular saving inside the largest exact arithmetic sector.  Failure
+would isolate a concrete mod-13 profile resonance for the next arithmetic
+test.  Either outcome retains the full four-sector identity and does not by
+itself prove the required asymptotic signed estimate.
