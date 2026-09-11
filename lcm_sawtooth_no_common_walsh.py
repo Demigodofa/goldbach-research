@@ -1,0 +1,283 @@
+"""Walsh factorization of the dominant no-common assignment layer.
+
+For the exact common part ``d_C=1``, write ``d=u*v``, ``a=u*alpha`` and
+``b=v*beta``.  After factoring the fixed sign ``mu(d)``, the collapsed layer
+has the exact divisor convolution
+
+    T_(d,1) = mu(d)/d sum_e phi(e) sum_(u|d) F_(u,e) F_(d/u,e),
+
+where
+
+    F_(u,e) = sum_(alpha: e|alpha, (alpha,d)=1,
+                         V<u*alpha<=B) mu(alpha)L_(u*alpha)/alpha.
+
+On the Boolean divisor group of squarefree ``d``, Walsh inversion writes the
+inner convolution as the difference between even- and odd-character spectral
+squares.  This preserves the polynomial weights and gives an exact candidate
+mechanism for left/right assignment cancellation.
+"""
+
+import math
+
+from divisor_full_frame_probe import _totient
+from lcm_sawtooth_exact_gcd_factorization import (
+    _squarefree_divisors_with_complement_mobius,
+    sawtooth_gcd_mobius_transform,
+)
+from lcm_sawtooth_high_d_assignment import _squarefree_prime_factors
+from lcm_sawtooth_structured_divisor_sum import _coefficient_data
+from mobius_covariance_endpoint_probe import _prime_flags
+
+
+def _walsh_transform(values):
+    transformed = list(values)
+    width = 1
+    while width < len(transformed):
+        for start in range(0, len(transformed), 2 * width):
+            for offset in range(width):
+                left = transformed[start + offset]
+                right = transformed[start + width + offset]
+                transformed[start + offset] = left + right
+                transformed[start + width + offset] = left - right
+        width *= 2
+    return tuple(transformed)
+
+
+def _divisor_from_mask(primes, mask):
+    value = 1
+    for index, prime in enumerate(primes):
+        if mask & (1 << index):
+            value *= prime
+    return value
+
+
+def _target_receipt(
+        modulus, ell, divisor_lower, divisor_upper, target_divisor, data=None,
+        direct_value=None):
+    if data is None:
+        data = _coefficient_data(
+            modulus, ell, divisor_lower, divisor_upper)
+    mobius, divisors, coefficients, _ = data
+    primes = _squarefree_prime_factors(target_divisor)
+    group_size = 1 << len(primes)
+    divisor_by_mask = tuple(
+        _divisor_from_mask(primes, mask) for mask in range(group_size))
+    mask_by_divisor = {
+        divisor: mask for mask, divisor in enumerate(divisor_by_mask)}
+
+    direct = direct_value
+    if direct is None:
+        direct = 0.0
+        for left in divisors:
+            for right in divisors:
+                q = math.lcm(left, right)
+                if (q % target_divisor == 0 and math.gcd(
+                        target_divisor, math.gcd(left, right)) == 1):
+                    direct += coefficients[left] * coefficients[right] / q
+
+    values_by_e = {}
+    X = modulus * ell
+    for value in divisors:
+        assigned_part = math.gcd(value, target_divisor)
+        if assigned_part not in mask_by_divisor:
+            continue
+        alpha = value // assigned_part
+        if math.gcd(alpha, target_divisor) != 1:
+            continue
+        base_term = int(mobius[alpha]) * math.log(X / value) / alpha
+        for common_divisor, _ in (
+                _squarefree_divisors_with_complement_mobius(alpha)):
+            values_by_e.setdefault(common_divisor, [0.0] * group_size)[
+                mask_by_divisor[assigned_part]] += base_term
+
+    even_mass = odd_mass = 0.0
+    direct_assignment_convolution = 0.0
+    walsh_assignment_convolution = 0.0
+    for common_divisor, values in values_by_e.items():
+        weight = _totient(common_divisor)
+        convolution = sum(
+            values[mask] * values[(group_size - 1) ^ mask]
+            for mask in range(group_size))
+        direct_assignment_convolution += weight * convolution
+        transformed = _walsh_transform(values)
+        even = sum(
+            value ** 2 for mask, value in enumerate(transformed)
+            if mask.bit_count() % 2 == 0) / group_size
+        odd = sum(
+            value ** 2 for mask, value in enumerate(transformed)
+            if mask.bit_count() % 2 == 1) / group_size
+        even_mass += weight * even
+        odd_mass += weight * odd
+        walsh_assignment_convolution += weight * (even - odd)
+    expanded = (
+        int(mobius[target_divisor]) / target_divisor
+        * direct_assignment_convolution)
+    walsh_expanded = (
+        int(mobius[target_divisor]) / target_divisor
+        * walsh_assignment_convolution)
+    total_spectral_mass = even_mass + odd_mass
+    positive_majorant = total_spectral_mass / target_divisor
+    majorant_over_absolute_direct = (
+        positive_majorant / abs(direct) if direct else float("inf"))
+    return {
+        "target_divisor": target_divisor,
+        "target_prime_factor_count": len(primes),
+        "direct_no_common_collapsed_sum": direct,
+        "assignment_convolution_sum": expanded,
+        "walsh_expanded_sum": walsh_expanded,
+        "assignment_identity_error": direct - expanded,
+        "walsh_identity_error": direct - walsh_expanded,
+        "even_walsh_mass": even_mass,
+        "odd_walsh_mass": odd_mass,
+        "walsh_positive_majorant": positive_majorant,
+        "walsh_majorant_over_absolute_sum": majorant_over_absolute_direct,
+        "walsh_majorant_energy_factor": majorant_over_absolute_direct ** 2,
+        "walsh_parity_relative_imbalance": (
+            abs(even_mass - odd_mass) / total_spectral_mass
+            if total_spectral_mass else 0.0),
+        "no_common_assignment_convolution_proved": True,
+        "walsh_parity_square_identity_proved": True,
+        "walsh_positive_majorant_proved": True,
+        "walsh_parity_cancellation_bound_proved": False,
+    }
+
+
+def no_common_walsh_probe(
+        modulus, ell, divisor_lower, divisor_upper, target_divisor):
+    """Verify the assignment convolution and Walsh-square identity at ``d``."""
+    if any(type(value) is not int for value in (
+            modulus, ell, divisor_lower, divisor_upper, target_divisor)):
+        raise ValueError("all inputs must be integers")
+    if (ell < 1 or divisor_lower < 1
+            or divisor_upper <= divisor_lower or divisor_upper >= modulus
+            or target_divisor < 1 or target_divisor > divisor_upper ** 2):
+        raise ValueError("invalid no-common Walsh ranges")
+    if not _prime_flags(modulus)[modulus]:
+        raise ValueError("modulus must be prime")
+    data = _coefficient_data(
+        modulus, ell, divisor_lower, divisor_upper)
+    if not data[1]:
+        raise ValueError("the divisor interval has no squarefree values")
+    _squarefree_prime_factors(target_divisor)
+    return _target_receipt(
+        modulus, ell, divisor_lower, divisor_upper, target_divisor, data)
+
+
+def dominant_no_common_walsh_probe(
+        modulus, ell, divisor_lower, divisor_upper, sample_count=8):
+    """Test Walsh parity balance on the top no-common dominant conductors."""
+    if (sample_count is not None
+            and (type(sample_count) is not int or sample_count < 1)):
+        raise ValueError("sample_count must be positive or None")
+    if not _prime_flags(modulus)[modulus]:
+        raise ValueError("modulus must be prime")
+    data = _coefficient_data(
+        modulus, ell, divisor_lower, divisor_upper)
+    mobius, divisors, coefficients, lcm_coefficients = data
+    if not divisors:
+        raise ValueError("the divisor interval has no squarefree values")
+
+    diagonal_by_divisor = {}
+    residual_count_by_divisor = {}
+    for q, coefficient in lcm_coefficients.items():
+        for divisor, _ in _squarefree_divisors_with_complement_mobius(q):
+            if divisor <= divisor_upper:
+                continue
+            weight = sawtooth_gcd_mobius_transform(modulus, divisor)
+            if weight <= 0:
+                continue
+            diagonal_by_divisor[divisor] = (
+                diagonal_by_divisor.get(divisor, 0.0) +
+                weight * (coefficient / q) ** 2)
+            residual_count_by_divisor[divisor] = (
+                residual_count_by_divisor.get(divisor, 0) + 1)
+    diagonal_by_block = {}
+    for divisor, diagonal in diagonal_by_divisor.items():
+        if residual_count_by_divisor[divisor] < 2:
+            continue
+        block = 1 << (divisor.bit_length() - 1)
+        diagonal_by_block[block] = diagonal_by_block.get(block, 0.0) + diagonal
+    no_common_sums = {}
+    no_common_residual_terms = {}
+    for left in divisors:
+        for right in divisors:
+            q = math.lcm(left, right)
+            pair_term = coefficients[left] * coefficients[right] / q
+            pair_common = math.gcd(left, right)
+            for divisor, _ in _squarefree_divisors_with_complement_mobius(q):
+                if (divisor <= divisor_upper
+                        or math.gcd(divisor, pair_common) != 1):
+                    continue
+                no_common_sums[divisor] = (
+                    no_common_sums.get(divisor, 0.0) + pair_term)
+                residuals = no_common_residual_terms.setdefault(divisor, {})
+                residuals[q] = residuals.get(q, 0.0) + pair_term
+    entries = []
+    for divisor, value in no_common_sums.items():
+        if residual_count_by_divisor.get(divisor, 0) < 2:
+            continue
+        weight = sawtooth_gcd_mobius_transform(modulus, divisor)
+        if weight <= 0:
+            continue
+        energy = weight * value ** 2
+        block = 1 << (divisor.bit_length() - 1)
+        entries.append((divisor, block, energy))
+    if not diagonal_by_block or not entries:
+        raise ArithmeticError("no positive no-common dominant support")
+    dominant_lower = max(diagonal_by_block, key=diagonal_by_block.get)
+    dominant_entries = sorted(
+        (entry for entry in entries if entry[1] == dominant_lower),
+        key=lambda entry: entry[2], reverse=True)
+    selected = (
+        dominant_entries if sample_count is None
+        else dominant_entries[:sample_count])
+    total_selected_energy = sum(entry[2] for entry in selected)
+    total_block_energy = sum(entry[2] for entry in dominant_entries)
+    selected_diagonal = sum(
+        sawtooth_gcd_mobius_transform(modulus, divisor) * sum(
+            term ** 2
+            for term in no_common_residual_terms[divisor].values())
+        for divisor, _, _ in selected)
+    receipts = tuple(_target_receipt(
+        modulus, ell, divisor_lower, divisor_upper, divisor, data,
+        no_common_sums[divisor])
+        for divisor, _, _ in selected)
+    selected_majorant_energy = sum(
+        energy * receipt["walsh_majorant_energy_factor"]
+        for (_, _, energy), receipt in zip(selected, receipts))
+    return {
+        "modulus": modulus,
+        "ell": ell,
+        "divisor_range": (divisor_lower, divisor_upper),
+        "dominant_block_range": (dominant_lower, 2 * dominant_lower),
+        "selected_coordinate_count": len(receipts),
+        "selected_no_common_energy_fraction": (
+            total_selected_energy / total_block_energy),
+        "selected_walsh_majorant_over_actual_energy": (
+            selected_majorant_energy / total_selected_energy),
+        "selected_no_common_actual_over_diagonal": (
+            total_selected_energy / selected_diagonal),
+        "selected_walsh_majorant_over_no_common_diagonal": (
+            selected_majorant_energy / selected_diagonal),
+        "selected_receipts": receipts,
+        "maximum_assignment_identity_error": max(
+            abs(receipt["assignment_identity_error"]) for receipt in receipts),
+        "maximum_walsh_identity_error": max(
+            abs(receipt["walsh_identity_error"]) for receipt in receipts),
+        "minimum_walsh_parity_relative_imbalance": min(
+            receipt["walsh_parity_relative_imbalance"]
+            for receipt in receipts),
+        "maximum_walsh_parity_relative_imbalance": max(
+            receipt["walsh_parity_relative_imbalance"]
+            for receipt in receipts),
+        "finite_dominant_walsh_measurement": True,
+        "walsh_parity_cancellation_bound_proved": False,
+    }
+
+
+if __name__ == "__main__":
+    for modulus, ell, lower, upper in (
+            (16001, 1252, 11, 190),
+            (64007, 3281, 16, 404)):
+        print(dominant_no_common_walsh_probe(
+            modulus, ell, lower, upper))

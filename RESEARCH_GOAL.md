@@ -6318,3 +6318,28 @@ layer over assignments `d_Ld_R=d`, with the established polynomial and
 gcd/totient tools retained. The incomplete boundary, signed prime
 correlation, and Goldbach remain open; complete assembly remains
 `.295-delta`.
+
+
+## 2026-09-10 continuation: Walsh-factor the dominant no-common layer
+
+The `c=1` layer now has the exact assignment convolution
+
+`T_(d,1)=mu(d)d^(-1)sum_e phi(e)sum_(u|d)F_(u,e)F_(d/u,e)`.
+
+Walsh inversion on the Boolean divisor group writes the inner convolution as
+even-character spectral squares minus odd-character squares. Discarding that
+parity sign gives the proved positive majorant
+
+`|T_(d,1)|<=d^(-1)sum_e phi(e)sum_(u|d)F_(u,e)^2`.
+
+On the complete dominant blocks at `M=16001,32003,64007`, this majorant's
+energy is `2.30319,2.73485,2.91017` times the exact `c=1` diagonal. The
+actual signed ratios are `.35677,.32652,.33426`. Thus a tool built entirely
+from the retained polynomial and divisibility sums has replaced the signed
+left/right convolution at a finite constant-looking cost.
+
+Independent review verified the assignment formula, Walsh identity,
+majorant, full-block measurements, code, and tests. The next target is a
+subpower bound for the square of this positive `e,u` sum against the `c=1`
+residual diagonal. The incomplete boundary, signed prime correlation, and
+Goldbach remain open; complete assembly remains `.295-delta`.

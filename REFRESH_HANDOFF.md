@@ -7257,3 +7257,55 @@ over `d_Ld_R=d`, retaining the hard divisor ranges and gcd/totient expansion.
 A failed reconstruction or a residual operator growing by a fixed power
 rejects that reduction. The incomplete boundary, signed prime correlation,
 and Goldbach remain OPEN.
+
+
+## 2026-09-10: the dominant no-common layer has a Walsh-square majorant
+
+`lcm_sawtooth_no_common_walsh.py` retains the polynomial weights and exactly
+expands the dominant `c=d_C=1` layer. Write `d=uv`, `a=u alpha`, and
+`b=v beta`. For
+
+`F_(u,e)=sum_(alpha: e|alpha,(alpha,d)=1,V<u alpha<=B)
+ mu(alpha)L_(u alpha)/alpha`,
+
+the collapsed coordinate is
+
+`T_(d,1)=mu(d)/d sum_e phi(e)sum_(u|d)F_(u,e)F_(d/u,e)`.
+
+This follows from the hard ranges and
+`1/lcm(alpha,beta)=sum_(e|alpha,e|beta)phi(e)/(alpha beta)`.
+
+On the Boolean divisor group of squarefree `d`, let `Fhat_(chi,e)` be the
+unnormalized Walsh transform. Then
+
+`sum_(u|d)F_(u,e)F_(d/u,e)
+ =2^(-omega(d))sum_chi chi(d)Fhat_(chi,e)^2`,
+
+where `chi(d)=+1` for even Walsh parity and `-1` for odd parity. Therefore
+the exact positive majorant is
+
+`|T_(d,1)| <= d^(-1)sum_e phi(e)sum_(u|d)F_(u,e)^2`.
+
+The top-coordinate idea that even and odd masses become nearly equal was too
+strong: their relative imbalance remains a substantial constant on the
+highest-energy coordinates. The positive majorant is nevertheless effective
+against the correct diagonal benchmark. Over every multi-residual `c=1`
+coordinate in the central dominant block, its energy/diagonal ratios are
+`2.30319,2.73485,2.91017` at `M=16001,32003,64007`. The corresponding actual
+`c=1` numerator/diagonal ratios are `.35677,.32652,.33426`. The largest run
+covers 2858 coordinates; reconstruction errors stay below `6e-17`.
+
+Independent review PASSed the hard-range assignment bijection, gcd/totient
+expansion, Walsh normalization and parity sign, positive majorant, full-block
+and diagonal accounting, implementation, and 49 combined tests in normal and
+optimized modes.
+
+This converts the dominant signed residual problem into a positive weighted
+polynomial/divisibility problem. The next <=30-minute target is
+
+`sum_(d~D) H_m(d)/d^2 [sum_e phi(e)sum_(u|d)F_(u,e)^2]^2
+ <= N^epsilon Delta_(c=1,D)`.
+
+A fixed-power increase in the measured majorant/diagonal ratio, or an
+unavoidable Cauchy loss in `e` or `u`, rejects this positive route. The
+incomplete boundary, signed prime correlation, and Goldbach remain OPEN.
