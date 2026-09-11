@@ -62,6 +62,38 @@ def _primitive_discrepancy_packet(modulus, ell, denominator):
         if divisor > 1)
 
 
+def _quadratic_curve_maximum(numerator, denominator, lower, upper):
+    """Maximize ``v(t)^T N v(t)/v(t)^T D v(t)`` for v=(t^2,t,1)."""
+    order = (2, 1, 0)
+    numerator_ascending = np.zeros(5)
+    denominator_ascending = np.zeros(5)
+    for left in range(3):
+        for right in range(3):
+            degree = order[left] + order[right]
+            numerator_ascending[degree] += numerator[left, right]
+            denominator_ascending[degree] += denominator[left, right]
+    derivative_numerator = np.polynomial.polynomial.polysub(
+        np.polynomial.polynomial.polymul(
+            np.polynomial.polynomial.polyder(numerator_ascending),
+            denominator_ascending),
+        np.polynomial.polynomial.polymul(
+            numerator_ascending,
+            np.polynomial.polynomial.polyder(denominator_ascending)))
+    candidates = [lower, upper]
+    for root in np.polynomial.polynomial.polyroots(derivative_numerator):
+        if abs(root.imag) <= 1e-8 and lower <= root.real <= upper:
+            candidates.append(float(root.real))
+
+    def quotient(value):
+        return (np.polynomial.polynomial.polyval(
+            value, numerator_ascending)
+                / np.polynomial.polynomial.polyval(
+                    value, denominator_ascending))
+
+    maximizing = max(candidates, key=quotient)
+    return float(quotient(maximizing)), float(maximizing)
+
+
 def primitive_frequency_receipt(
         modulus, ell_first, row_count, ell_freeze,
         divisor_lower, divisor_upper, decompose_pairs=True):
@@ -278,6 +310,52 @@ def primitive_conductor_operator_receipt(
         normalized_rows @ polynomial_basis,
         compute_uv=False, full_matrices=False)
     structured_span_ratio = float(projected_singular[0] ** 2)
+    polynomial_component_ratios = tuple(
+        float(np.dot(normalized_rows @ polynomial_columns[:, index],
+                     normalized_rows @ polynomial_columns[:, index])
+              / np.dot(polynomial_columns[:, index],
+                       polynomial_columns[:, index]))
+        for index in range(3))
+    complete_polynomial_gram = polynomial_columns.T @ polynomial_columns
+    incomplete_polynomial_gram = (
+        normalized_rows @ polynomial_columns).T @ (
+            normalized_rows @ polynomial_columns)
+    curve_ratio, curve_logarithm = _quadratic_curve_maximum(
+        incomplete_polynomial_gram, complete_polynomial_gram,
+        math.log(modulus * ell_first),
+        math.log(modulus * (ell_first + row_count - 1)))
+
+    degrees = np.array((2, 1, 0), dtype=int)
+    row_logarithms = np.log(modulus * np.arange(
+        ell_first, ell_first + row_count, dtype=float))
+    base_polynomial_signals = normalized_rows @ polynomial_columns
+    varying_signals = base_polynomial_signals * (
+        row_logarithms[:, None] ** degrees[None, :])
+    varying_incomplete_gram = varying_signals.T @ varying_signals
+    varying_complete_gram = np.empty((3, 3), dtype=float)
+    for left in range(3):
+        for right in range(3):
+            varying_complete_gram[left, right] = (
+                complete_polynomial_gram[left, right]
+                * float(np.mean(row_logarithms ** (
+                    degrees[left] + degrees[right]))))
+    denominator_values, denominator_vectors = np.linalg.eigh(
+        varying_complete_gram)
+    positive = denominator_values > (
+        max(denominator_values) * np.finfo(float).eps * 100)
+    inverse_square_root = (
+        denominator_vectors[:, positive]
+        / np.sqrt(denominator_values[positive]))
+    varying_normalized_gram = (
+        inverse_square_root.T @ varying_incomplete_gram
+        @ inverse_square_root)
+    varying_span_ratio = float(np.linalg.eigvalsh(
+        (varying_normalized_gram + varying_normalized_gram.T) / 2)[-1])
+    actual_selector = np.ones(3)
+    actual_varying_incomplete = float(
+        actual_selector @ varying_incomplete_gram @ actual_selector)
+    actual_varying_complete = float(
+        actual_selector @ varying_complete_gram @ actual_selector)
 
     return {
         "modulus": modulus,
@@ -294,11 +372,68 @@ def primitive_conductor_operator_receipt(
         "actual_top_resonance_squared_overlap": overlap,
         "quadratic_log_conductor_span_rank": polynomial_rank,
         "sharp_quadratic_log_span_ratio": structured_span_ratio,
+        "quadratic_linear_constant_component_ratios": (
+            polynomial_component_ratios),
+        "sharp_project_log_curve_ratio": curve_ratio,
+        "maximizing_project_logarithm": curve_logarithm,
+        "sharp_row_varying_quadratic_span_ratio": varying_span_ratio,
+        "actual_row_varying_incomplete_energy": actual_varying_incomplete,
+        "actual_row_varying_complete_energy": actual_varying_complete,
+        "actual_row_varying_energy_ratio": (
+            actual_varying_incomplete / actual_varying_complete),
         "largest_eigenvalue_dominates_trace_rank_bound_verified": (
             sharp_ratio + 1e-10 >= trace_rank_lower_bound),
         "exact_conductor_packet_identity_proved": True,
         "uniform_conductor_operator_subpower_bound_proved": False,
         "actual_mobius_boundary_bound_proved": False,
+    }
+
+
+def project_prime_block_quadratic_scan(scale_modulus):
+    """Scan every prime in ``[M,2M]`` on the project quadratic-log family."""
+    if type(scale_modulus) is not int or scale_modulus < 17:
+        raise ValueError("scale_modulus must be an integer at least 17")
+    inferred_N = scale_modulus ** (1 / .59)
+    row_count = int(inferred_N ** .41)
+    divisor_lower = int(inferred_N ** .15)
+    divisor_upper = int(inferred_N ** .32)
+    flags = _prime_flags(2 * scale_modulus)
+    rows = []
+    for modulus in range(scale_modulus, 2 * scale_modulus + 1):
+        if not flags[modulus]:
+            continue
+        receipt = primitive_conductor_operator_receipt(
+            modulus, row_count, row_count,
+            row_count + row_count // 2,
+            divisor_lower, divisor_upper)
+        rows.append({
+            "modulus": modulus,
+            "sharp_varying_span_ratio": receipt[
+                "sharp_row_varying_quadratic_span_ratio"],
+            "actual_varying_ratio": receipt[
+                "actual_row_varying_energy_ratio"],
+            "sharp_frozen_curve_ratio": receipt[
+                "sharp_project_log_curve_ratio"],
+        })
+    if not rows:
+        raise ArithmeticError("prime block is empty")
+    return {
+        "scale_modulus": scale_modulus,
+        "inferred_N": inferred_N,
+        "row_range": (row_count, 2 * row_count - 1),
+        "divisor_range": (divisor_lower, divisor_upper),
+        "prime_count": len(rows),
+        "maximum_sharp_varying_span_ratio": max(
+            row["sharp_varying_span_ratio"] for row in rows),
+        "maximum_actual_varying_ratio": max(
+            row["actual_varying_ratio"] for row in rows),
+        "maximum_sharp_frozen_curve_ratio": max(
+            row["sharp_frozen_curve_ratio"] for row in rows),
+        "top_varying_span_rows": tuple(sorted(
+            rows, key=lambda row: row["sharp_varying_span_ratio"],
+            reverse=True)[:8]),
+        "finite_whole_prime_block_scan": True,
+        "row_varying_quadratic_span_bound_proved": False,
     }
 
 

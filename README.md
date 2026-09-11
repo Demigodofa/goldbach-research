@@ -366,3 +366,9 @@ Mobius vector and the full three-dimensional quadratic-log coefficient span
 remain near the complete-period scale in tests through `M=16001`. This is a
 reviewed finite reduction and a concrete next hypothesis, not an asymptotic
 boundary estimate.
+
+Row-varying logarithms are now included exactly in the same reduction. The
+resulting `3 x 3` generalized eigenvalue remains below `1.74` in whole-prime
+block scans through `M=1009` and is `1.139` at the central `M=16001` row.
+Proving a uniform subpower bound for this explicit matrix is the current
+complete-period transfer problem.

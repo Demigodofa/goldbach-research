@@ -6571,3 +6571,25 @@ family over every project row, followed by prime averaging and Abel transfer
 for the varying logarithms. The arbitrary-vector contraction route is
 rejected; an arbitrary-vector subpower theorem is neither proved nor
 falsified. The signed prime-correlation estimate and Goldbach remain open.
+
+### 2026-09-11 continuation: absorb the varying logs exactly
+
+The actual curve `(t^2,t,1)` is much less resonant than arbitrary vectors in
+the quadratic span. More significantly, allowing `t=log(m*l)` to vary with
+the row still gives one explicit `3 x 3` generalized eigenvalue problem. For
+
+`P_(d,l)(lambda)=sum_(j=0)^2 lambda_j
+ (log(m*l))^(2-j)S_d^(j)`, seek
+
+`A^(-1)sum_l |sum_d P_(d,l)(lambda)Z_d(l)|^2
+ <=N^epsilon A^(-1)sum_l sum_d H_m(d)|P_(d,l)(lambda)|^2`
+
+uniformly over `lambda in R^3` and the project ranges. The actual weights are
+`lambda=(1,1,1)`. Independent review returned PASS on this exact reduction.
+
+The sharp varying-family maxima over every prime in `[M,2M]` are
+`1.660,1.733,1.602` at `M=251,503,1009`; actual-weight maxima are
+`1.569,1.594,1.339`. The central `M=16001` values are `1.139` and `1.036`.
+No asymptotic inference is made. A power-growing full-block generalized
+eigenvalue is the concrete falsifier. The signed prime-correlation estimate
+and Goldbach remain open.

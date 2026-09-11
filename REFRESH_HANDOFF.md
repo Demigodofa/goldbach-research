@@ -7739,3 +7739,46 @@ The measured top rank-three vector is the falsifier. A power-growing ratio
 rejects this frozen-family route. If it survives, prime-`m` averaging and
 Abel transfer must still handle the actual row-varying logarithms. The signed
 prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: row-varying logs stay inside a three-coordinate problem
+
+The stronger frozen rank-three span contains artificial sign-changing
+polynomial combinations. Restricting it to the actual positive curve
+`(lambda_2,lambda_1,lambda_0)=(t^2,t,1)` for
+`t in [log(mA),log(m(2A-1))]` is substantially sharper. The exact maximum is
+found from the real roots of the derivative of the resulting rational
+quartic. At the central rows `M=251,503,1009,4001,16001`, these curve maxima
+are `.661,.951,1.010,.928,1.033`, within `.0013` of the corresponding frozen
+actual ratios.
+
+The row variation can be included exactly, without an Abel approximation.
+Let `S_d^(2),S_d^(1),S_d^(0)` be the quadratic, linear, and constant
+coefficient vectors. For one common `lambda in R^3`, define
+
+`P_(d,l)(lambda)=sum_(j=0)^2 lambda_j
+ (log(m*l))^(2-j) S_d^(j)`.
+
+The remaining proposed inequality is
+
+`A^(-1)sum_(A<=l<2A)|sum_d P_(d,l)(lambda)Z_d(l)|^2
+ <=N^epsilon A^(-1)sum_l sum_d H_m(d)|P_(d,l)(lambda)|^2`.   (R)
+
+Both sides of (R) are explicit `3 x 3` quadratic forms. The largest
+generalized eigenvalue is therefore the sharp constant for the whole
+row-varying polynomial family, and `lambda=(1,1,1)` is the actual logarithmic
+weight. Independent review PASSed the powers of `log(m*l)`, the averaging,
+whitening, eigenvalue direction, and reconstruction of the prior varying-log
+energy.
+
+On the central rows through `M=16001`, the sharp varying-family ratios are
+`1.392,1.159,1.199,1.091,1.139`, while the actual ratios are
+`.648,.928,1.007,.926,1.036`. Whole-prime-block scans give maxima
+`1.660,1.733,1.602` for the sharp family and `1.569,1.594,1.339` for the
+actual weight at `M=251,503,1009`. These are finite results only.
+`project_prime_block_quadratic_scan` makes the scans reproducible.
+
+This replaces the broader Abel-transfer question with the exact inequality
+(R). A power-growing generalized eigenvalue on a complete prime block is its
+falsifier. If (R) can be proved at subpower cost, the incomplete-period
+boundary component will return to the already controlled complete energy.
+The separate signed prime-correlation estimate and Goldbach remain OPEN.
