@@ -400,3 +400,9 @@ reviewed `Q>MA` mass rises from `.0973` at `M=251` to `.3411` at `M=4001`;
 the first two scales were enumerated exactly and the larger two were sampled
 with recorded errors. The next test asks where the actual signed pair
 contributions cancel, both by `Q` range and after prime aggregation.
+
+An exact signed-bin calculation now finds strong within-prime cancellation:
+at `m=251,373,499`, the `Q>mA` net is below `.0084` of its termwise-absolute
+envelope despite envelopes between `2.92` and `4.58` times complete energy.
+This reviewed result is finite and uses frozen logs. The next sign-removal
+test distinguishes Mobius conductor signs from rational-phase oscillation.

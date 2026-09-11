@@ -7960,3 +7960,39 @@ cancel within each bin, across bins, or only after prime aggregation? A useful
 test must compare each signed bin with its absolute envelope; small net values
 without a large envelope would merely restate small coefficients. The signed
 prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: high-Q pairs cancel strongly within each tested prime
+
+The frozen-log boundary was exactly decomposed into ordered primitive-
+frequency pairs and binned at `Q<=mA/4`, `mA/4<Q<=mA`,
+`mA<Q<=4mA`, and `Q>4mA`. For `m=251,373,499`, with common rows
+`46<=ell<=91` and `(V,B]=(4,20]`, the combined `Q>mA` signed contributions,
+normalized by complete energy, are
+
+`-.0264208,.00403128,.0243302`.
+
+Their termwise-absolute Dirichlet-kernel envelopes are instead
+
+`4.58438,3.56264,2.92068`.
+
+Thus the ratios `|signed|/absolute` are only
+
+`.005763,.001132,.008330`.
+
+The computation reconstructs the direct incomplete-minus-complete boundary
+to relative error below `5e-15`; the ordered-pair imaginary residual is below
+`2e-17`. Independent review checked the stable geometric sum, row phase,
+reduced-`Q` invariance, bins, diagonal exclusion, kernel, ordered-pair sums,
+and reconstruction and returned PASS.
+
+This is exact finite evidence that the large high-`Q` envelope cancels inside
+each of three individual prime moduli. It is for frozen logarithmic weights,
+not the varying-log outer problem, and proves no uniform estimate. It also
+does not yet distinguish cancellation caused by the signs of `S_d` from
+cancellation caused by the rational phases and interval kernel.
+
+The next <=30-minute mechanism test replaces every `S_d` by `|S_d|` while
+leaving `G_(m,d,k)` and the interval phases unchanged. If high-`Q` cancellation
+survives, the phase geometry is sufficient in these fixtures; if it collapses,
+the Mobius conductor signs are essential. Prime aggregation remains a later,
+separate test. The signed prime-correlation estimate and Goldbach remain OPEN.

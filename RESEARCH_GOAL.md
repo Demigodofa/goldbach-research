@@ -6662,3 +6662,15 @@ lowers the corresponding conductor-lcm fractions but leaves an increasing,
 order-one finite mass. This rejects only positive denominator sparsity on the
 tested scales. The next bounded experiment bins the actual signed incomplete-
 row pair sum by `Q` and compares every bin with its absolute envelope.
+
+### 2026-09-11 continuation: locate strong within-prime signed cancellation
+
+The exact frozen-log decomposition answers that experiment at three primes.
+For `m=251,373,499`, the `Q>mA` signed contributions are only
+`-.02642,.00403,.02433` times complete energy, although their termwise-
+absolute envelopes are `4.584,3.563,2.921`. The resulting net/envelope ratios
+are all below `.0084`, and direct row averaging reconstructs every bin.
+Independent review returned PASS. This is finite within-prime cancellation;
+it neither proves a bound nor separates conductor signs from rational-phase
+oscillation. The next bounded test replaces `S_d` by `|S_d|` to distinguish
+those two mechanisms before attempting the outer prime average.
