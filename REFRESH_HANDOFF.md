@@ -13871,3 +13871,62 @@ subspace rotation from an unstable cutoff.  Passing would isolate a fixed
 three-dimensional family of weighted orbit combinations for analysis.
 Failure would reject this particular low-dimensional stabilization while
 preserving the spectra and allowing scale-dependent decompositions.
+
+## 2026-09-11 stable top-three covariance-subspace test
+
+The frozen top-three test is implemented by
+`residue_orbit_covariance_subspace_receipt`.  It forms
+
+`A_B = Re(T_B^* T_B) - diag(Re(T_B^* T_B))`
+
+from the same measured 17-orbit term matrix, selects the three largest
+eigenvectors, and compares the resulting projectors by the basis-invariant
+quantity
+
+`trace(P_B P_*) / 3 = ||V_B^T V_*||_F^2 / 3`.
+
+The full-range top-three eigenvalues contain approximately
+`.8945505855925273` of the positive off-diagonal spectral mass, so the frozen
+`.75` concentration gate passes.  The full relative third-to-fourth
+eigengap is approximately `.4805275945375321`.
+
+In ascending dyadic order, the normalized projector overlaps are
+
+`.18794, .25616, .40802, .38492, .65801, .53973, .75227`.
+
+Only the final block reaches the `.75` overlap gate.  Thus the stability
+count is `1/7`, well below the required `5/7`, and the conjunction fails.
+The dyadic relative third-to-fourth eigengaps are approximately
+
+`.74837, .66238, .73860, .72334, .51652, .19114, .91154`.
+
+These gaps do not support explaining the poor overlap as a nearly ambiguous
+three-dimensional cutoff.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Reject a fixed top-three covariance subspace across these seven scales.
+Preserve the top-three concentration, all block spectra and projectors, and
+the final block's overlap.  The measured concentration still says that a
+small number of directions account for most aggregate positive covariance;
+the failed conjunction says those directions are not fixed across scale.
+
+Independent review reproduced the covariance orientation, diagonal removal,
+eigenvalue indexing, concentration, basis-invariant overlaps, gaps, and gate
+outcome.  Focused normal and optimized tests pass.  No stable covariance
+subspace, asymptotic signed prime-correlation estimate, or Goldbach result
+has been proved.
+
+The next bounded question asks whether the smallest common positive envelope
+larger than three is stable.  Every measured dyadic covariance has at least
+four positive eigenvalues, so let `P_*^(4)` and `P_B^(4)` project onto the
+top four eigenvectors.  Preserve the concentration gate `.75` and freeze the
+stability falsifier as
+
+`#{B: trace(P_B^(4) P_*^(4))/4 >= .75} >= 5`.
+
+Report the full top-four positive spectral concentration and all fourth-to-
+fifth eigengaps.  Passing would isolate a fixed four-dimensional envelope
+whose internal leading directions may rotate.  Failure would reject every
+fixed all-block-positive envelope of dimensions one through four under the
+same overlap criterion, while preserving scale-dependent and arithmetic-
+basis explanations.

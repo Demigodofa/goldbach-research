@@ -2064,6 +2064,161 @@ def residue_orbit_covariance_mode_receipt(
     }
 
 
+def residue_orbit_covariance_subspace_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        subspace_dimension=3,
+        minimum_positive_spectral_concentration=.75,
+        minimum_normalized_projector_overlap=.75,
+        minimum_stable_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if type(subspace_dimension) is not int or subspace_dimension < 1:
+        raise ValueError("subspace dimension must be a positive integer")
+    if (not math.isfinite(minimum_positive_spectral_concentration)
+            or not 0 <= minimum_positive_spectral_concentration <= 1):
+        raise ValueError("spectral concentration gate must lie in [0, 1]")
+    if (not math.isfinite(minimum_normalized_projector_overlap)
+            or not 0 <= minimum_normalized_projector_overlap <= 1):
+        raise ValueError("projector overlap gate must lie in [0, 1]")
+    if (type(minimum_stable_dyadic_block_count) is not int
+            or minimum_stable_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum stable dyadic block count must be a nonnegative integer")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    targets = tuple(base["orbit_term_rows"])
+    orbit_terms = np.asarray(tuple(
+        base["orbit_term_rows"][target] for target in targets),
+        dtype=np.complex128)
+    orbit_count = orbit_terms.shape[1]
+    if subspace_dimension >= orbit_count:
+        raise ValueError(
+            "subspace dimension must be smaller than the orbit count")
+
+    def subspace_summary(term_matrix):
+        covariance = (term_matrix.conjugate().T @ term_matrix).real
+        off_diagonal_covariance = covariance.copy()
+        np.fill_diagonal(off_diagonal_covariance, 0.0)
+        eigenvalues, eigenvectors = np.linalg.eigh(off_diagonal_covariance)
+        positive_threshold = tolerance * max(
+            1.0, float(np.max(np.abs(eigenvalues))))
+        positive_eigenvalues = eigenvalues[eigenvalues > positive_threshold]
+        positive_spectral_mass = float(np.sum(positive_eigenvalues))
+        if len(positive_eigenvalues) < subspace_dimension:
+            raise ValueError(
+                "off-diagonal covariance has fewer positive eigenvalues "
+                "than the requested subspace dimension")
+        top_eigenvalues = eigenvalues[-subspace_dimension:]
+        cutoff_eigenvalue = float(eigenvalues[-subspace_dimension - 1])
+        lowest_selected_eigenvalue = float(top_eigenvalues[0])
+        absolute_cutoff_eigengap = (
+            lowest_selected_eigenvalue - cutoff_eigenvalue)
+        return {
+            "eigenvalues": tuple(float(value) for value in eigenvalues),
+            "basis": eigenvectors[:, -subspace_dimension:],
+            "positive_eigenvalue_count": len(positive_eigenvalues),
+            "positive_spectral_mass": positive_spectral_mass,
+            "top_subspace_positive_spectral_concentration": float(
+                np.sum(top_eigenvalues) / positive_spectral_mass),
+            "lowest_selected_eigenvalue": lowest_selected_eigenvalue,
+            "cutoff_eigenvalue": cutoff_eigenvalue,
+            "absolute_cutoff_eigengap": absolute_cutoff_eigengap,
+            "relative_cutoff_eigengap": (
+                absolute_cutoff_eigengap
+                / max(1.0, abs(lowest_selected_eigenvalue))),
+            "off_diagonal_trace_error": abs(
+                float(np.trace(off_diagonal_covariance))),
+        }
+
+    full = subspace_summary(orbit_terms)
+    full_basis = full.pop("basis")
+    dyadic_subspace_summaries = {}
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_indices = tuple(
+            index for index, target in enumerate(targets)
+            if block_lower <= target < block_upper)
+        block_summary = subspace_summary(
+            orbit_terms[np.asarray(block_indices, dtype=np.int64)])
+        block_basis = block_summary.pop("basis")
+        normalized_projector_overlap = float(
+            np.linalg.norm(block_basis.T @ full_basis, ord="fro") ** 2
+            / subspace_dimension)
+        block_summary.update({
+            "target_count": len(block_indices),
+            "normalized_projector_overlap_with_full_subspace": (
+                normalized_projector_overlap),
+            "passes_projector_overlap_gate": bool(
+                normalized_projector_overlap
+                >= minimum_normalized_projector_overlap),
+            "subspace_basis": tuple(
+                tuple(float(value) for value in column)
+                for column in block_basis.T),
+        })
+        dyadic_subspace_summaries[block] = block_summary
+    if minimum_stable_dyadic_block_count > len(dyadic_subspace_summaries):
+        raise ValueError(
+            "minimum stable dyadic block count exceeds measured blocks")
+    stable_dyadic_block_count = sum(
+        row["passes_projector_overlap_gate"]
+        for row in dyadic_subspace_summaries.values())
+    full_concentration_passes = bool(
+        full["top_subspace_positive_spectral_concentration"]
+        >= minimum_positive_spectral_concentration)
+    overlap_count_passes = bool(
+        stable_dyadic_block_count >= minimum_stable_dyadic_block_count)
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_count": orbit_count,
+        "subspace_dimension": subspace_dimension,
+        "minimum_positive_spectral_concentration_gate": (
+            minimum_positive_spectral_concentration),
+        "minimum_normalized_projector_overlap_gate": (
+            minimum_normalized_projector_overlap),
+        "minimum_stable_dyadic_block_count_gate": (
+            minimum_stable_dyadic_block_count),
+        "full_eigenvalues": full["eigenvalues"],
+        "full_subspace_basis": tuple(
+            tuple(float(value) for value in column)
+            for column in full_basis.T),
+        "full_positive_eigenvalue_count": full[
+            "positive_eigenvalue_count"],
+        "full_positive_spectral_mass": full["positive_spectral_mass"],
+        "full_top_subspace_positive_spectral_concentration": full[
+            "top_subspace_positive_spectral_concentration"],
+        "full_lowest_selected_eigenvalue": full[
+            "lowest_selected_eigenvalue"],
+        "full_cutoff_eigenvalue": full["cutoff_eigenvalue"],
+        "full_absolute_cutoff_eigengap": full[
+            "absolute_cutoff_eigengap"],
+        "full_relative_cutoff_eigengap": full[
+            "relative_cutoff_eigengap"],
+        "full_off_diagonal_trace_error": full[
+            "off_diagonal_trace_error"],
+        "full_positive_spectral_concentration_passes_gate": (
+            full_concentration_passes),
+        "dyadic_subspace_summaries": dyadic_subspace_summaries,
+        "stable_dyadic_block_count": stable_dyadic_block_count,
+        "dyadic_projector_overlap_count_passes_gate": overlap_count_passes,
+        "stable_covariance_subspace_gate_passes": bool(
+            full_concentration_passes and overlap_count_passes),
+        "finite_covariance_subspaces_measured": True,
+        "stable_covariance_subspace_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

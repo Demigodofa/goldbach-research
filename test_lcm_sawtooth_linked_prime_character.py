@@ -12,6 +12,7 @@ from lcm_sawtooth_linked_prime_character import (
     recombined_centered_prime_phase_scan_receipt,
     residue_orbit_reinforcement_receipt,
     residue_orbit_covariance_mode_receipt,
+    residue_orbit_covariance_subspace_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
@@ -110,6 +111,12 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_covariance_mode_receipt(
                 minimum_squared_mode_overlap=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_covariance_subspace_receipt(
+                subspace_dimension=0)
+        with self.assertRaises(ValueError):
+            residue_orbit_covariance_subspace_receipt(
+                minimum_normalized_projector_overlap=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -847,6 +854,63 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["stable_rank_one_covariance_gate_passes"])
         self.assertTrue(receipt["finite_covariance_modes_measured"])
         self.assertFalse(receipt["stable_rank_one_covariance_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_covariance_subspace(self):
+        receipt = residue_orbit_covariance_subspace_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(receipt["subspace_dimension"], 3)
+        self.assertEqual(len(receipt["full_eigenvalues"]), 17)
+        self.assertEqual(len(receipt["full_subspace_basis"]), 3)
+        self.assertTrue(all(
+            len(vector) == 17
+            for vector in receipt["full_subspace_basis"]))
+        self.assertEqual(len(receipt["dyadic_subspace_summaries"]), 7)
+        self.assertEqual(receipt["full_positive_eigenvalue_count"], 7)
+        self.assertAlmostEqual(
+            receipt["full_top_subspace_positive_spectral_concentration"],
+            .8945505855925273, places=12)
+        self.assertAlmostEqual(
+            receipt["full_relative_cutoff_eigengap"],
+            .4805275945375321, places=12)
+        self.assertEqual(receipt["full_off_diagonal_trace_error"], 0.0)
+        self.assertTrue(receipt[
+            "full_positive_spectral_concentration_passes_gate"])
+        dyadic = receipt["dyadic_subspace_summaries"]
+        expected_overlaps = (
+            .1879434888659889, .2561637684302012,
+            .4080170904823448, .3849204740591266,
+            .6580131883013968, .5397321991446508,
+            .7522725959586852)
+        expected_relative_cutoff_gaps = (
+            .7483747254590275, .6623820975819218,
+            .7385967423935842, .7233425627896766,
+            .5165175759925135, .1911422166991302,
+            .9115407294211605)
+        for row, overlap, gap in zip(
+                dyadic.values(), expected_overlaps,
+                expected_relative_cutoff_gaps):
+            self.assertAlmostEqual(
+                row["normalized_projector_overlap_with_full_subspace"],
+                overlap, places=12)
+            self.assertAlmostEqual(
+                row["relative_cutoff_eigengap"], gap, places=12)
+        self.assertEqual(
+            tuple(row["passes_projector_overlap_gate"]
+                  for row in dyadic.values()),
+            (False, False, False, False, False, False, True))
+        self.assertEqual(receipt["stable_dyadic_block_count"], 1)
+        self.assertFalse(receipt[
+            "dyadic_projector_overlap_count_passes_gate"])
+        self.assertFalse(receipt["stable_covariance_subspace_gate_passes"])
+        self.assertTrue(receipt["finite_covariance_subspaces_measured"])
+        self.assertFalse(receipt["stable_covariance_subspace_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
