@@ -66,6 +66,28 @@ class FrequencyResolvedFourierTests(unittest.TestCase):
             "sign_removal_consistently_increases_mass"])
         self.assertFalse(receipt[
             "simple_ramanujan_sign_stratum_mechanism_supported"])
+        expected_sign_cells = {
+            ("canonical", 77): (8, 4, .13082025554378435),
+            ("canonical", 91): (8, 4, .305691950547537),
+            ("exact_zero", 21): (16, 16, 0.0),
+            ("exact_zero", 55): (16, 16, 0.0),
+        }
+        for (case, quotient), (active, stable, maximum_mixed) in (
+                expected_sign_cells.items()):
+            cells = receipt[case]["rows"][quotient][
+                "divisor_stratum_sign_cells"]
+            self.assertEqual(cells["active_cell_count"], active)
+            self.assertEqual(cells["real_cell_count"], active)
+            self.assertEqual(cells["stable_sign_cell_count"], stable)
+            self.assertAlmostEqual(
+                cells["maximum_opposite_sign_mass_fraction"],
+                maximum_mixed, places=12)
+        self.assertTrue(receipt[
+            "all_active_sign_cells_are_numerically_real"])
+        self.assertFalse(receipt[
+            "all_active_sign_cells_have_stable_sign"])
+        self.assertFalse(receipt[
+            "coarse_gcd_divisor_sign_table_supported"])
         self.assertFalse(receipt["uniform_frequency_resolved_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 

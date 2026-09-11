@@ -12710,3 +12710,51 @@ A positive result would turn cancellation versus reinforcement into a finite
 arithmetic sign table.  Any cell with substantial contributions of both signs
 falsifies that coarse sign-table mechanism while preserving the stratum
 decomposition for a finer phase analysis.
+
+## 2026-09-11: real strata need finer labels than `gcd(n,g)`
+
+The divisor strata are real, but the proposed coarse sign table fails.  For
+the present real count-`2` source, conjugating the partial transforms pairs
+`t` with `-t`; every `gcd(t,q)=d` stratum is closed under this involution, and
+the self-paired transform frequencies are real separately.  Accordingly all
+active `Z_(n,d)` cells were real within the numerical gate.  The largest
+imaginary-mass ratio was `3.1718914812304295e-14` in the smaller cases and
+`5.815084646517049e-16` in the canonical cases.
+
+Grouping output frequencies by `(gcd(n,g),d)` gives:
+
+| geometry | `q` | active cells | single-sign cells | largest minority-sign mass fraction |
+|---|---:|---:|---:|---:|
+| canonical | 77 | 8 | 4 | `.13082025554378435` |
+| canonical | 91 | 8 | 4 | `.305691950547537` |
+| exact-zero | 21 | 16 | 16 | `0` |
+| exact-zero | 55 | 16 | 16 | `0` |
+
+The symmetric exact-zero geometries therefore collapse to a real constant-sign
+table at this resolution.  In both canonical geometries, however, every cell
+with `gcd(n,g)=g` is single-signed while every cell with `gcd(n,g)=1` contains
+both signs.  The primitive output modes are exactly where the coarse gcd label
+loses the information governing cancellation versus reinforcement.
+
+Curiosity status: `structural-component-pass/composite-fail`, novelty
+`new-to-this-task`.  Preserve the real-stratum reduction and the separation
+between primitive and nonprimitive output modes.  Retire only the constant-sign
+claim at the coarse `(gcd(n,g),d)` resolution.  No uniform bound or signed
+prime-correlation estimate follows.
+
+Independent review proved the conjugate-symmetry realness for this source,
+checked the active-cell and minority-mass definitions, reproduced all four
+cell counts and extrema, and ran the focused tests normally and under Python
+optimization.
+
+The next bounded question tests a finer arithmetic mechanism only on the
+mixed primitive cells.  For every product `chi` of the quadratic characters
+modulo the odd primes dividing `g`, measure
+
+`A_(d,chi)=|sum_(n: gcd(n,g)=1) chi(n/q) Z_(n,d)|
+             / sum_(n: gcd(n,g)=1)|Z_(n,d)|`.
+
+If some `chi` gives `A_(d,chi)=1` for every divisor cell, then its sign exactly
+organizes the primitive modes and earns a fresh-geometry test.  If any cell
+has a nonzero minority-sign mass after every quadratic twist, the quadratic
+sign mechanism is falsified while the real-stratum decomposition remains.

@@ -147,6 +147,70 @@ def _validate_case(families, lags, tolerance, batch_size):
     return families, lags, period
 
 
+def _divisor_stratum_sign_cells(
+        frequencies, common, divisor_stratum_totals, tolerance):
+    cells = {}
+    total_stratum_mass = float(sum(
+        np.sum(np.abs(totals))
+        for totals in divisor_stratum_totals.values()))
+    for divisor, totals in divisor_stratum_totals.items():
+        for frequency, value in zip(frequencies, totals):
+            key = (math.gcd(int(frequency), common), divisor)
+            cells.setdefault(key, []).append(value)
+
+    rows = {}
+    for key, values in cells.items():
+        values = np.asarray(values, dtype=np.complex128)
+        absolute_mass = float(np.sum(np.abs(values)))
+        real_mass = float(np.sum(np.abs(values.real)))
+        imaginary_mass = float(np.sum(np.abs(values.imag)))
+        positive_mass = float(np.sum(np.maximum(values.real, 0.0)))
+        negative_mass = float(np.sum(np.maximum(-values.real, 0.0)))
+        signed_mass = positive_mass + negative_mass
+        opposite_sign_mass_fraction = (
+            min(positive_mass, negative_mass) / signed_mass
+            if signed_mass else 0.0)
+        active = bool(
+            absolute_mass > tolerance * max(1.0, total_stratum_mass))
+        real_by_symmetry = bool(
+            imaginary_mass / max(1.0, absolute_mass) <= tolerance)
+        stable_sign = bool(
+            active and real_by_symmetry
+            and opposite_sign_mass_fraction <= tolerance)
+        rows[key] = {
+            "frequency_count": len(values),
+            "absolute_mass": absolute_mass,
+            "real_absolute_mass": real_mass,
+            "imaginary_absolute_mass": imaginary_mass,
+            "positive_real_mass": positive_mass,
+            "negative_real_mass": negative_mass,
+            "opposite_sign_mass_fraction": opposite_sign_mass_fraction,
+            "active": active,
+            "real_by_conjugate_symmetry": real_by_symmetry,
+            "stable_real_sign": stable_sign,
+        }
+    active_rows = tuple(row for row in rows.values() if row["active"])
+    return {
+        "cells": rows,
+        "active_cell_count": len(active_rows),
+        "real_cell_count": sum(
+            row["real_by_conjugate_symmetry"] for row in active_rows),
+        "stable_sign_cell_count": sum(
+            row["stable_real_sign"] for row in active_rows),
+        "maximum_imaginary_mass_relative_to_cell_mass": max(
+            (row["imaginary_absolute_mass"]
+             / max(1.0, row["absolute_mass"])
+             for row in active_rows), default=0.0),
+        "maximum_opposite_sign_mass_fraction": max(
+            (row["opposite_sign_mass_fraction"] for row in active_rows),
+            default=0.0),
+        "all_active_cells_are_real": all(
+            row["real_by_conjugate_symmetry"] for row in active_rows),
+        "all_active_cells_have_stable_sign": all(
+            row["stable_real_sign"] for row in active_rows),
+    }
+
+
 def frequency_resolved_fourier_case_receipt(
         families, lags, tolerance=1e-12, batch_size=32):
     families, lags, period = _validate_case(
@@ -175,6 +239,8 @@ def frequency_resolved_fourier_case_receipt(
             np.sum(np.abs(sign_removed_totals)))
         divisor_reconstruction_error = float(np.max(np.abs(
             sum(divisor_stratum_totals.values()) - formula_totals)))
+        sign_cells = _divisor_stratum_sign_cells(
+            frequencies, common, divisor_stratum_totals, tolerance)
         rows[quotient] = {
             "lag": lag,
             "gcd_lag_period": common,
@@ -197,6 +263,7 @@ def frequency_resolved_fourier_case_receipt(
             "divisor_stratum_reconstruction_passes": bool(
                 divisor_reconstruction_error
                 / max(1.0, divisor_stratum_absolute_mass) <= tolerance),
+            "divisor_stratum_sign_cells": sign_cells,
             "direct_signed_total": complex(np.sum(direct)),
             "formula_signed_total": complex(np.sum(formula_totals)),
             "every_frequency_reconstructs": bool(
@@ -225,6 +292,13 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
         exact_zero["rows"].values())
     sign_removal_consistently_increases_mass = all(
         row["sign_removal_mass_ratio"] > 1 for row in all_rows)
+    all_active_sign_cells_are_real = all(
+        row["divisor_stratum_sign_cells"]["all_active_cells_are_real"]
+        for row in all_rows)
+    all_active_sign_cells_have_stable_sign = all(
+        row["divisor_stratum_sign_cells"][
+            "all_active_cells_have_stable_sign"]
+        for row in all_rows)
     return {
         "identity": (
             "b_n=1_(q|n)c_g(n)/Q sum_t c_q(t) "
@@ -241,6 +315,13 @@ def frequency_resolved_fourier_receipt(tolerance=1e-12, batch_size=32):
             sign_removal_consistently_increases_mass),
         "simple_ramanujan_sign_stratum_mechanism_supported": bool(
             sign_removal_consistently_increases_mass),
+        "all_active_sign_cells_are_numerically_real": (
+            all_active_sign_cells_are_real),
+        "all_active_sign_cells_have_stable_sign": (
+            all_active_sign_cells_have_stable_sign),
+        "coarse_gcd_divisor_sign_table_supported": bool(
+            all_active_sign_cells_are_real
+            and all_active_sign_cells_have_stable_sign),
         "frequency_resolved_identity_proved": True,
         "divisor_stratum_decomposition_proved": True,
         "uniform_frequency_resolved_bound_proved": False,
