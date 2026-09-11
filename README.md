@@ -619,3 +619,10 @@ Schur margin equals the best-axial trial value minus the nonaxial
 `.5737` of the positive Schur margin, or `.4836` and `.3645` of the axial
 trial value. This finite decomposition passes the stated error-below-margin
 test, but uniform bounds for its two terms are still missing.
+
+For any nonzero traceless symmetric `3 by 3` tensor, the axial distance has
+the exact scalar form
+`sin(acos(3*sqrt(6)*|det K|/||K||_F^3)/3)`. The two measured Schur responses
+therefore have normalized determinant invariants `.999260` and `.996461`.
+The earlier 10-percent axial threshold is equivalently the single inequality
+`J(K)>=.955188`, giving a concrete invariant target for uniform estimation.

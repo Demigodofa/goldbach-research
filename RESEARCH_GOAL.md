@@ -7250,3 +7250,26 @@ the axial pattern now supplies two explicit analytic obligations—lower-bound
 `q(v_ax)` and upper-bound the nonaxial `C_0`-energy. Neither uniform bound is
 proved. The active/full lower frame, signed prime correlation, and Goldbach
 remain OPEN.
+
+### 2026-09-11 continuation: axiality is one determinant inequality
+
+For every nonzero real symmetric traceless `3 by 3` tensor `K`, define
+
+`J(K)=3*sqrt(6)*|det K|/||K||_F^3`.
+
+Diagonalization and the traceless eigenvalue-circle parametrization prove
+
+`distance_projective(K, axial orbit)=sin(acos(J(K))/3)`.
+
+The proof uses
+`lambda_j=sqrt(2/3)r cos(theta+2*pi*j/3)`, so
+`3*sqrt(6)det(K)/r^3=cos(3 theta)`; projective axial rays occur every
+`pi/3`. This is an exact elementary identity, not a finite fit.
+
+For the stable Schur responses, `J=.9992599265` at `M=127` and
+`J=.9964609101` at `M=251`. The earlier distance threshold `.1` is exactly
+equivalent to `J>=cos(3 asin(.1))=.9551879396`. Status `aha-candidate`,
+novelty `new-to-this-task`: a five-coordinate spectral-looking condition is
+now one scalar determinant/norm inequality. A uniform lower bound for this
+specific arithmetic response invariant, the axial/nonaxial energy estimates,
+the lower frame, signed prime correlation, and Goldbach remain OPEN.

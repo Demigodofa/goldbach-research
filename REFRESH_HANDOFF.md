@@ -6816,6 +6816,8 @@ actual coefficient support rejects this route. The signed prime correlation
 and Goldbach remain OPEN.
 
 
+
+
 ## 2026-09-10: the absolute gcd majorant remains constant-scale in tests
 
 `lcm_sawtooth_gcd_majorant.py` converts the complete-period pairwise bound
@@ -9191,3 +9193,27 @@ whether arithmetic estimates can lower-bound the axial trial value while
 upper-bounding the nonaxial `C_0`-energy by a strictly smaller amount. These
 uniform estimates, the active/full lower frame, the signed prime correlation,
 and Goldbach remain OPEN.
+
+## 2026-09-11: axial distance reduces exactly to determinant over norm
+
+`lcm_sawtooth_axial_invariant.py` proves the following elementary identity.
+For a nonzero real symmetric traceless `3 by 3` tensor `K`, set
+
+`J(K)=3*sqrt(6)*|det K|/||K||_F^3`.
+
+Then `0<=J<=1` and its projective Frobenius distance to
+`alpha*(u*u^T-I/3)` is exactly `sin(acos(J)/3)`. The proof parametrizes the
+normalized traceless eigenvalue circle by three cosine phases separated by
+`2*pi/3`; their product is `cos(3 theta)/(3*sqrt(6))`, while projective axial
+rays are spaced by `pi/3`.
+
+The stable finite responses give `J=.9992599265` at `M=127` and
+`J=.9964609101` at `M=251`. The `.1` distance falsifier used above is
+equivalent to `J>=.9551879396`. Focused guards compare the determinant formula
+with direct spectral distance on exact axial, maximally nonaxial, rotated, and
+project-response fixtures.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. The identity converts the
+observed response axiality into one scalar arithmetic target. It supplies no
+uniform lower bound for `J` and does not close the axial energy, lower-frame,
+signed prime-correlation, or Goldbach gaps.
