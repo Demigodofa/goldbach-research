@@ -12254,3 +12254,54 @@ least `.8` across all four cases, with both exact constructions passing their
 `1e-12` reconstruction gates.  Failure confines the perfect ordering to the
 two-prime geometry; passing preserves the Fourier quotient as a
 dimension-stable finite target without implying a uniform estimate.
+
+## 2026-09-11: perfect rank tracking survives three-prime quotients
+
+The predeclared dimensional holdout passes.  The existing count decomposition
+was first extended to expose the independently computed count-`4` sector
+recombination quotient for each three-prime case.  The comparison is:
+
+| `q` | Fourier cancellation quotient | count-`4` sector recombination quotient |
+|---:|---:|---:|
+| `385` | `.008277163423608182` | `.11745372514454311` |
+| `455` | `.037707562483578885` | `.4861020851341751` |
+| `715` | `.014421299900784999` | `.21612322122320057` |
+| `1001` | `.0324706638039624` | `.4110607307856016` |
+
+Both quantities have the strict ascending order
+
+`385 < 715 < 1001 < 455`.
+
+Their Spearman correlation is exactly `1.0`, passing the frozen `.8` gate.
+All four cases were untouched by the discovery step, and the maximum
+projected-identity natural-scale reconstruction error was
+`1.7645771969196404e-15`.
+
+Together with the two-prime holdout, the Fourier quotient now perfectly ranks
+the count-`4` recombination quotient in ten finite cases spanning quotient
+dimensions two and three.  This makes the Ramanujan-interval Fourier
+decomposition a substantially stronger analytic target: its aggregate signed
+cancellation is tracking a separately constructed eigensector cancellation
+measure even when the number of quotient primes changes.  The evidence still
+uses one period and one pair of endpoint families, so it does not establish a
+general comparison inequality.
+
+Curiosity status: `confirmatory-pass`, novelty `new-to-this-task`.  Preserve
+the Fourier quotient, its exact Parseval formula, and the matching rank data.
+No uniform source, prime-distribution, or signed prime-correlation estimate
+follows.
+
+Independent review recomputed the count-`4` quotients, projected Fourier
+quotients, strict rank vector, and Spearman statistic; audited the refactor and
+guards; and ran the affected projected and cotangent-count tests normally and
+under Python optimization before returning PASS.  The reviewer confirmed the
+scope as four predeclared higher-dimensional cases in the same fixed geometry.
+
+The next bounded question changes the endpoint geometry.  Use the untouched
+families `((35,143),(65,77))`, which retain period `10010` but repartition its
+prime factors.  On the six two-prime quotients `35,55,65,77,91,143`, compute
+the projected Fourier quotient and count-`4` sector recombination quotient
+from scratch.  Predeclare Spearman correlation at least `.8`, with both exact
+constructions passing their `1e-12` gates.  Failure confines the observed
+ordering to the original endpoint geometry; passing supplies finite evidence
+that the comparison survives an independent CRT factor allocation.

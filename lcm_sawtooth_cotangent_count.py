@@ -376,6 +376,11 @@ def three_prime_cotangent_count_receipt(tolerance=1e-12):
         quotient: result[
             "even_count_shapley_recombination_loss_fractions"][4]
         for quotient, result in results.items()}
+    count_four_recombination_quotients = {
+        quotient: (
+            result["exact_count_recombined_masses"][4]
+            / result["exact_count_sectorwise_masses"][4])
+        for quotient, result in results.items()}
     full_quotients = {
         quotient: result["full_recombination_quotient"]
         for quotient, result in results.items()}
@@ -386,6 +391,8 @@ def three_prime_cotangent_count_receipt(tolerance=1e-12):
     return {
         "quotients": tuple(quotient_lags),
         "count_four_shapley_loss_fractions": count_four_shares,
+        "count_four_recombination_quotients": (
+            count_four_recombination_quotients),
         "full_recombination_quotients": full_quotients,
         "minimum_count_four_shapley_loss_fraction": .75,
         "leading_dimension_stability_gate_passes": bool(

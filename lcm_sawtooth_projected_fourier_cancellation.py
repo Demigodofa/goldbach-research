@@ -33,6 +33,18 @@ COUNT_FOUR_RECOMBINATION_TARGETS = {
     91: .5047491987897079,
     143: .09820822341044044,
 }
+THREE_PRIME_QUOTIENT_LAGS = {
+    385: 156,
+    455: 22,
+    715: 14,
+    1001: 240,
+}
+THREE_PRIME_COUNT_FOUR_RECOMBINATION_TARGETS = {
+    385: .11745372514454311,
+    455: .4861020851341751,
+    715: .21612322122320057,
+    1001: .4110607307856016,
+}
 
 
 def _imaginary_transform_table(denominator, period):
@@ -263,6 +275,54 @@ def two_prime_projected_fourier_holdout_receipt(
         "holdout_rank_gate_passes": bool(
             holdout_spearman is not None
             and holdout_spearman >= minimum_holdout_spearman_correlation),
+        "all_projected_fourier_identities_pass": all(
+            row["projected_fourier_identity_passes"]
+            for row in rows.values()),
+        "uniform_source_sum_estimate_proved": False,
+        "prime_distribution_estimate_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def three_prime_projected_fourier_holdout_receipt(
+        minimum_spearman_correlation=.8, tolerance=1e-12):
+    if not -1 <= minimum_spearman_correlation <= 1:
+        raise ValueError("minimum Spearman correlation must lie in [-1,1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    families = ((77, 65), (143, 35))
+    period = 10010
+    left_sources = _one_orientation_count_source_modes(
+        period, *families[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *families[1])[2]
+    rows = {
+        quotient: _projected_fourier_identity_row(
+            period, lag, families, left_sources, right_sources, tolerance)
+        for quotient, lag in THREE_PRIME_QUOTIENT_LAGS.items()}
+    fourier_quotients = {
+        quotient: row["fourier_cancellation_quotient"]
+        for quotient, row in rows.items()}
+    quotients = tuple(THREE_PRIME_QUOTIENT_LAGS)
+    spearman = _spearman_correlation(
+        tuple(fourier_quotients[q] for q in quotients),
+        tuple(THREE_PRIME_COUNT_FOUR_RECOMBINATION_TARGETS[q]
+              for q in quotients))
+    return {
+        "families": families,
+        "arithmetic_period": period,
+        "quotients": quotients,
+        "fourier_cancellation_quotients": fourier_quotients,
+        "count_four_recombination_quotients": (
+            THREE_PRIME_COUNT_FOUR_RECOMBINATION_TARGETS.copy()),
+        "spearman_correlation": spearman,
+        "minimum_spearman_correlation": minimum_spearman_correlation,
+        "rank_gate_passes": bool(
+            spearman is not None
+            and spearman >= minimum_spearman_correlation),
+        "maximum_reconstruction_natural_scale_relative_error": max(
+            row["reconstruction_natural_scale_relative_error"]
+            for row in rows.values()),
         "all_projected_fourier_identities_pass": all(
             row["projected_fourier_identity_passes"]
             for row in rows.values()),

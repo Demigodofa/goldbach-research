@@ -106,6 +106,12 @@ class CotangentCountTests(unittest.TestCase):
             715: .022976628574723844,
             1001: .6393288305288424,
         }
+        expected_count_four_quotients = {
+            385: .11745372514454311,
+            455: .4861020851341751,
+            715: .21612322122320057,
+            1001: .4110607307856016,
+        }
         for quotient, expected in expected_shares.items():
             self.assertAlmostEqual(
                 receipt["count_four_shapley_loss_fractions"][quotient],
@@ -113,6 +119,10 @@ class CotangentCountTests(unittest.TestCase):
         for quotient, expected in expected_full_quotients.items():
             self.assertAlmostEqual(
                 receipt["full_recombination_quotients"][quotient],
+                expected, places=12)
+        for quotient, expected in expected_count_four_quotients.items():
+            self.assertAlmostEqual(
+                receipt["count_four_recombination_quotients"][quotient],
                 expected, places=12)
         self.assertFalse(receipt[
             "leading_dimension_stability_gate_passes"])

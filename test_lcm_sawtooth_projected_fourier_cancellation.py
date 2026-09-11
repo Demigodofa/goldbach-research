@@ -2,6 +2,7 @@ import unittest
 
 from lcm_sawtooth_projected_fourier_cancellation import (
     projected_fourier_cancellation_receipt,
+    three_prime_projected_fourier_holdout_receipt,
     two_prime_projected_fourier_holdout_receipt,
 )
 
@@ -21,6 +22,9 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             two_prime_projected_fourier_holdout_receipt(
                 minimum_holdout_spearman_correlation=2)
+        with self.assertRaises(ValueError):
+            three_prime_projected_fourier_holdout_receipt(
+                minimum_spearman_correlation=2)
 
     def test_q77_q91_projected_fourier_discriminator(self):
         receipt = projected_fourier_cancellation_receipt()
@@ -70,6 +74,28 @@ class ProjectedFourierCancellationTests(unittest.TestCase):
         self.assertEqual(
             receipt["holdout_rank_gate_passes"],
             receipt["holdout_spearman_correlation"] >= .8)
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_three_prime_holdout_rank_gate(self):
+        receipt = three_prime_projected_fourier_holdout_receipt()
+        self.assertEqual(receipt["quotients"], (385, 455, 715, 1001))
+        expected_fourier_quotients = {
+            385: .008277163423608182,
+            455: .037707562483578885,
+            715: .014421299900784999,
+            1001: .0324706638039624,
+        }
+        for quotient, expected in expected_fourier_quotients.items():
+            self.assertAlmostEqual(
+                receipt["fourier_cancellation_quotients"][quotient],
+                expected, places=14)
+        self.assertEqual(receipt["spearman_correlation"], 1.0)
+        self.assertTrue(receipt["rank_gate_passes"])
+        self.assertTrue(receipt["all_projected_fourier_identities_pass"])
+        self.assertLess(
+            receipt[
+                "maximum_reconstruction_natural_scale_relative_error"],
+            1e-12)
         self.assertFalse(receipt["signed_prime_correlation_proved"])
 
 
