@@ -857,6 +857,179 @@ def recombined_centered_prime_phase_scan_receipt(
     }
 
 
+def resonant_progression_discrepancy_receipt(
+        target_minimum=1000, target_maximum=100000,
+        target_residue=88, maximum_sqrt_pair_scaled_discrepancy=4.0,
+        tolerance=1e-12, batch_size=32):
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 20 or target_minimum % 2
+            or target_maximum < target_minimum or target_maximum % 2):
+        raise ValueError(
+            "target bounds must be even integers with 20 <= minimum <= maximum")
+    if type(target_residue) is not int:
+        raise ValueError("target residue must be an integer")
+    if (not math.isfinite(maximum_sqrt_pair_scaled_discrepancy)
+            or maximum_sqrt_pair_scaled_discrepancy < 0):
+        raise ValueError(
+            "scaled discrepancy gate must be finite and nonnegative")
+    common = 130
+    target_residue %= common
+    if target_residue % 2:
+        raise ValueError("target residue must be even modulo the common modulus")
+    first_target = (
+        target_minimum
+        + (target_residue - target_minimum) % common)
+    targets = tuple(range(first_target, target_maximum + 1, common))
+    if not targets:
+        raise ValueError(
+            "target range must contain the selected residue progression")
+    character = recombined_centered_character_receipt(
+        targets=LINKED_PRIME_TARGETS, tolerance=tolerance,
+        batch_size=batch_size)
+    if character["common_modulus"] != common:
+        raise AssertionError("unexpected recombined centered source modulus")
+    source_by_residue = {
+        int(unit): value for unit, value in zip(
+            character["unit_residues"],
+            character["centered_source_values"])}
+    admissible_residues = tuple(
+        residue for residue in source_by_residue
+        if math.gcd((target_residue - residue) % common, common) == 1)
+    admissible_source_sum = sum((
+        source_by_residue[residue] for residue in admissible_residues),
+        0.0j)
+    primes = _prime_table(target_maximum)
+    rows = {}
+    residue_weight_rows = {}
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        residue_weights = {residue: 0.0 for residue in admissible_residues}
+        direct = 0.0j
+        triangle = 0.0
+        pair_count = 0
+        nonunit_primes = []
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if not primes[prime] or not primes[partner]:
+                continue
+            if (math.gcd(prime, common) != 1
+                    or math.gcd(partner, common) != 1):
+                nonunit_primes.append(prime)
+                continue
+            weight = math.log(prime) * math.log(partner)
+            residue = prime % common
+            source_value = source_by_residue[residue]
+            residue_weights[residue] += weight
+            direct += weight * source_value
+            triangle += weight * abs(source_value)
+            pair_count += 1
+        total_weight = math.fsum(residue_weights.values())
+        uniform_weight = total_weight / len(admissible_residues)
+        local_main = uniform_weight * admissible_source_sum
+        discrepancy = sum((
+            (weight - uniform_weight) * source_by_residue[residue]
+            for residue, weight in residue_weights.items()), 0.0j)
+        discrepancy_ratio = abs(discrepancy) / triangle if triangle else None
+        scaled_discrepancy = (
+            math.sqrt(pair_count) * discrepancy_ratio
+            if discrepancy_ratio is not None else None)
+        scale = max(1.0, triangle, abs(local_main), abs(discrepancy))
+        rows[target] = {
+            "linked_prime_pair_count": pair_count,
+            "nonunit_prime_terms": tuple(nonunit_primes),
+            "direct_centered_correlation": direct,
+            "direct_triangle_mass": triangle,
+            "local_uniform_main_correlation": local_main,
+            "prime_residue_discrepancy_correlation": discrepancy,
+            "discrepancy_to_triangle_ratio": discrepancy_ratio,
+            "sqrt_pair_scaled_discrepancy": scaled_discrepancy,
+            "local_uniform_plus_discrepancy_relative_error": (
+                abs(local_main + discrepancy - direct) / scale),
+            "passes_sqrt_pair_scaled_discrepancy_gate": (
+                bool(scaled_discrepancy
+                     <= maximum_sqrt_pair_scaled_discrepancy)
+                if scaled_discrepancy is not None else None),
+        }
+        residue_weight_rows[target] = residue_weights
+
+    nonempty_targets = tuple(
+        target for target, row in rows.items()
+        if row["sqrt_pair_scaled_discrepancy"] is not None)
+    if not nonempty_targets:
+        raise ValueError(
+            "selected progression has no unit-supported linked-prime target")
+    worst_target = max(
+        nonempty_targets,
+        key=lambda target: rows[target]["sqrt_pair_scaled_discrepancy"])
+    worst_row = rows[worst_target]
+    worst_total_weight = math.fsum(
+        residue_weight_rows[worst_target].values())
+    worst_uniform_weight = worst_total_weight / len(admissible_residues)
+    worst_residue_contributions = tuple(sorted((
+        (residue, weight, weight - worst_uniform_weight,
+         source_by_residue[residue],
+         (weight - worst_uniform_weight) * source_by_residue[residue])
+        for residue, weight in residue_weight_rows[worst_target].items()),
+        key=lambda item: (-abs(item[-1]), item[0])))
+    dyadic_block_summaries = {}
+    block_lower = target_minimum
+    while block_lower <= target_maximum:
+        block_upper = min(target_maximum + 1, 2 * block_lower)
+        block_targets = tuple(
+            target for target in nonempty_targets
+            if block_lower <= target < block_upper)
+        if block_targets:
+            values = tuple(
+                rows[target]["sqrt_pair_scaled_discrepancy"]
+                for target in block_targets)
+            maximum_target = max(
+                block_targets,
+                key=lambda target: rows[target][
+                    "sqrt_pair_scaled_discrepancy"])
+            dyadic_block_summaries[(block_lower, block_upper)] = {
+                "target_count": len(block_targets),
+                "maximum_scaled_discrepancy": max(values),
+                "median_scaled_discrepancy": float(np.median(values)),
+                "maximum_target": maximum_target,
+            }
+        block_lower *= 2
+    gate_pass_count = sum(
+        rows[target]["passes_sqrt_pair_scaled_discrepancy_gate"]
+        for target in nonempty_targets)
+    return {
+        "families": character["families"],
+        "arithmetic_period": character["arithmetic_period"],
+        "quotient": character["quotient"],
+        "common_modulus": common,
+        "target_range": (target_minimum, target_maximum),
+        "target_residue": target_residue,
+        "progression_step": common,
+        "maximum_sqrt_pair_scaled_discrepancy_gate": (
+            maximum_sqrt_pair_scaled_discrepancy),
+        "rows": rows,
+        "tested_target_count": len(rows),
+        "nonempty_target_count": len(nonempty_targets),
+        "gate_pass_count": gate_pass_count,
+        "worst_target": worst_target,
+        "worst_target_row": worst_row,
+        "worst_residue_discrepancy_contributions": (
+            worst_residue_contributions),
+        "dyadic_block_summaries": dyadic_block_summaries,
+        "maximum_decomposition_relative_error": max(
+            row["local_uniform_plus_discrepancy_relative_error"]
+            for row in rows.values()),
+        "all_prime_terms_are_units": all(
+            not row["nonunit_prime_terms"] for row in rows.values()),
+        "all_progression_targets_pass_scaled_discrepancy_gate": bool(
+            gate_pass_count == len(nonempty_targets)),
+        "finite_progression_discrepancy_measured": True,
+        "square_root_discrepancy_bound_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

@@ -13470,3 +13470,43 @@ square-root-dispersion heuristic even on the single resonant progression.  A
 full pass would motivate an averaged binary-prime dispersion inequality; it
 would remain finite evidence rather than a proof of the required pointwise
 estimate.
+
+## 2026-09-11: the resonant progression is consistent with square-root scale
+
+The frozen finite inequality passes on all `761` targets
+`N congruent 88 (mod 130)` in `1000<=N<=100000`.  Every target has a central
+linked-prime pair and all terms are units.  With ordered pair count `k_N` and
+
+`d_N=|sum_a delta_N(a)G_0(a)|
+     /sum_p log(p)log(N-p)|G_0(p)|`,
+
+all rows satisfy `sqrt(k_N)d_N <= 4`.  The maximum is
+`3.70746517966384` at `N=84978`, where `k_N=644` and the unscaled ratio is
+`0.14609459444310946`.  The earlier `N=1258` resonance is the first dyadic
+block's maximum, `3.5555391211297445`.
+
+The seven dyadic maxima are approximately
+`3.55554, 2.31972, 2.10798, 3.41217, 1.75563, 2.85254, 3.70747`; their medians
+range from about `0.572` to `1.027`.  Thus the current curiosity status is
+`finite-sqrt-scale-gate-pass`: this is finite evidence consistent with
+square-root-sized discrepancy, not a theorem or the missing signed
+prime-correlation estimate.  Independent review reproduced the targets,
+weights, statistic, and numerical extrema.  The focused test passes under
+both normal Python and `python -O`.
+
+The next bounded question replaces triangle normalization by a diagonal
+square function.  On `A_88`, let `mu_88` be the mean of `G_0`, set
+`H_88(a)=G_0(a)-mu_88`, and define
+
+`D_N=sum_(p,N-p prime) log(p)log(N-p) H_88(p)`.
+
+Test the concrete pointwise inequality
+
+`|D_N| <= 4 sqrt(sum_p (log(p)log(N-p))^2 |H_88(p)|^2)`
+
+on every target in the same progression, and compare the sums of `|D_N|^2`
+and the diagonal expression in each dyadic block.  Failure would exhibit
+coherent off-diagonal reinforcement.  A pass would isolate a diagonal-sized
+target for an averaged large-sieve or circle-method attack, while remaining
+finite evidence only; generic failures of earlier large-sieve approaches do
+not settle this more structured question.

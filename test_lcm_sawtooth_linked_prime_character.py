@@ -9,6 +9,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_parity_selection_receipt,
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
+    resonant_progression_discrepancy_receipt,
 )
 
 
@@ -60,6 +61,14 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             recombined_centered_prime_phase_scan_receipt(
                 maximum_local_bias_ratio=1.01)
+        with self.assertRaises(ValueError):
+            resonant_progression_discrepancy_receipt(
+                maximum_sqrt_pair_scaled_discrepancy=-1)
+        with self.assertRaises(ValueError):
+            resonant_progression_discrepancy_receipt(target_residue=87)
+        with self.assertRaises(ValueError):
+            resonant_progression_discrepancy_receipt(
+                target_minimum=1000, target_maximum=1000)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -446,6 +455,59 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "prime_residue_discrepancy_estimate_proved"])
         self.assertFalse(receipt[
             "centered_target_dispersion_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_resonant_progression_supports_sqrt_pair_scaling(self):
+        receipt = resonant_progression_discrepancy_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 88)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["nonempty_target_count"], 761)
+        self.assertEqual(receipt["gate_pass_count"], 761)
+        self.assertEqual(receipt["worst_target"], 84978)
+        worst = receipt["worst_target_row"]
+        self.assertEqual(worst["linked_prime_pair_count"], 644)
+        self.assertEqual(worst["nonunit_prime_terms"], ())
+        self.assertAlmostEqual(
+            worst["discrepancy_to_triangle_ratio"],
+            .14609459444310946, places=12)
+        self.assertAlmostEqual(
+            worst["sqrt_pair_scaled_discrepancy"],
+            3.70746517966384, places=12)
+        self.assertLess(
+            worst["local_uniform_plus_discrepancy_relative_error"], 1e-12)
+        blocks = receipt["dyadic_block_summaries"]
+        self.assertEqual(
+            tuple(blocks),
+            ((1000, 2000), (2000, 4000), (4000, 8000),
+             (8000, 16000), (16000, 32000), (32000, 64000),
+             (64000, 100001)))
+        self.assertEqual(
+            tuple(row["target_count"] for row in blocks.values()),
+            (7, 16, 30, 62, 123, 246, 277))
+        self.assertAlmostEqual(
+            blocks[(1000, 2000)]["maximum_scaled_discrepancy"],
+            3.5555391211297445, places=12)
+        self.assertAlmostEqual(
+            blocks[(64000, 100001)]["maximum_scaled_discrepancy"],
+            3.70746517966384, places=12)
+        contributions = receipt[
+            "worst_residue_discrepancy_contributions"]
+        self.assertEqual(len(contributions), 33)
+        self.assertEqual(contributions[0][0], 107)
+        self.assertLess(receipt[
+            "maximum_decomposition_relative_error"], 1e-12)
+        self.assertTrue(receipt["all_prime_terms_are_units"])
+        self.assertTrue(receipt[
+            "all_progression_targets_pass_scaled_discrepancy_gate"])
+        self.assertTrue(receipt[
+            "finite_progression_discrepancy_measured"])
+        self.assertFalse(receipt[
+            "square_root_discrepancy_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
