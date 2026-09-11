@@ -8138,3 +8138,65 @@ The next proof question for this route is whether conductor support and
 primitive-residue orthogonality bound that square-sum by
 `N^epsilon E^2/(sum_Q 1/Q)`. A power-growing weighted-Cauchy quotient is the
 falsifier. The signed prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11 curiosity pursuit: the residue mean is not the mechanism
+
+Question: is the stable within-`Q` cancellation a disguised Ramanujan-sum
+identity? This connected the older primitive-frequency Parseval factorization,
+the new survival under `S_d -> |S_d|`, and the broad `m=503` packet family.
+The independent older factorization reduced recent-capture risk. The pursuit
+used a 25-minute local algebra/Python budget and returned
+`changed-under-evidence` within that budget.
+
+For each exact denominator define
+
+`D_Q(r)=sum_(f_i-f_j=r/Q)c_i conjugate(c_j)`, `(r,Q)=1`.
+
+Then the packet has the exact residue form
+
+`C_Q=sum_((r,Q)=1) D_Q(r)K_A(r/Q)`.
+
+Replacing `D_Q(r)` by its unit-residue mean gives a constant projection whose
+kernel is exactly
+
+`sum_((r,Q)=1)K_A(r/Q)=A^(-1)sum_(ell=L)^(L+A-1)c_Q(ell)`.
+
+For the five largest `m=251` packets
+`Q=15470,43890,14586,21945,15015`, every primitive residue is represented,
+but this constant Ramanujan projection contributes only
+`.000191,.000986,.000188,.001338,.003438` of the packet magnitude. The
+centered residue arrays retain `.999999,.999806,.999997,.999952,.999965` of
+the original L2 norm. Packet reconstruction and the Ramanujan kernel identity
+hold to floating-point errors below `5e-13`.
+
+The centered arrays were also reshaped under every nontrivial prime CRT split.
+They are not uniformly rank one: leading singular-energy shares fall as low as
+`.14927` and effective ranks reach `10.26`. Some splits remain anisotropic;
+for `Q=14586`, the `p=17` split has leading share `.40472` and effective rank
+`3.18`. Independent review found and then verified the fix for a valid prime-
+`Q` edge case: prime `Q` has no nontrivial CRT split and now returns an empty
+metric tuple. All residue, Ramanujan, CRT, and scoped-inference checks PASS.
+
+Preserved hypothesis states:
+
+- The exact residue identity is `supported`, attention `active`, with
+  reproducible observation evidence in `lcm_sawtooth_fixed_q_residue.py`.
+- The conjunction “constant `D_Q` plus its Ramanujan mean explains these five
+  leading packets” is `directly-contradicted`, attention `blocked` for an
+  unchanged retry. It does not reject Ramanujan or character methods applied
+  to the centered component.
+- Uniform rank-one CRT factorization on those five packets is
+  `directly-contradicted`. The observed split-specific anisotropy is
+  `supported` finite evidence in the `reservoir`; reactivate it only if a new
+  conductor classification predicts which prime split should concentrate.
+
+The question changed to the centered residue spectrum. The next concrete test
+uses the exact additive transform
+
+`T_Q(n)=sum_((r,Q)=1)D_Q(r)e(rn/Q)`,
+
+for which `C_Q=A^(-1)sum_(ell=L)^(L+A-1)T_Q(ell)` and the full-period mean of
+`T_Q` is zero. Test whether the active row-window L2 average of `T_Q` is at
+most `N^epsilon` times its full-period L2 average. A power-growing window
+concentration ratio falsifies this spectral-equidistribution route. The signed
+prime-correlation estimate and Goldbach remain OPEN.

@@ -6717,3 +6717,15 @@ packet sum, but reaches `1.06524` times complete energy at `m=503`. It therefore
 provides no constant-below-one closure. The route survives only as the explicit
 square-sum obligation `sum Q|C_Q|^2`, whose required `N^epsilon` estimate is
 open.
+
+### 2026-09-11 curiosity continuation: centered residue spectrum
+
+The exact identity `C_Q=sum_(r,Q)=1 D_Q(r)K_A(r/Q)` was verified on the five
+largest `m=251` packets. The constant-residue projection reduces to a short
+Ramanujan-sum average but contributes below `.0035` of every packet; centered
+residue L2 fractions exceed `.9998`. Uniform rank-one CRT factorization also
+fails on this family, though a few prime splits are anisotropic. Independent
+review PASSed the corrected verifier. Curiosity status `changed-under-evidence`:
+block unchanged constant-mean and uniform-rank-one retries, preserve the exact
+residue identity and split anisotropy. Next test active-window L2 concentration
+of the additive transform `T_Q(n)` against its full-period Parseval average.

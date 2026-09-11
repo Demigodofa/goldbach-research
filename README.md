@@ -433,3 +433,10 @@ That exact Cauchy majorant is within factor `1.79` of the packet sum but equals
 `1.06524` complete energies at `m=503`. It isolates
 `sum_(Q>mA)Q|C_Q|^2` as a plausible square-sum target without proving the
 needed `N^epsilon` bound.
+
+A bounded curiosity probe rewrites each packet as
+`C_Q=sum_(r,Q)=1D_Q(r)K_A(r/Q)`. On the five leading `m=251` packets, the
+constant-residue Ramanujan projection contributes under `.35%`, and no uniform
+rank-one CRT factorization appears. The centered residue spectrum is the live
+component; its active-window versus full-period L2 concentration is the next
+falsifier.
