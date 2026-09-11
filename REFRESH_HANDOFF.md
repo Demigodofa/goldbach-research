@@ -11386,3 +11386,51 @@ triangle inequality over `k,l`. Compare that rigorous bound with the existing
 canonical termwise absolute source-mode mass. A ratio at most `.10` is the
 usefulness gate. Failure preserves the local/tensor mechanism but proves that
 cross-frequency cancellation must be retained.
+
+## 2026-09-11: frequencywise triangle destroys the Kloosterman gain
+
+For each family, collect the aggregated source coefficients into vectors
+`L_k(u)` and `R_l(v)`. The kernel frequency is exactly `n=k-l (mod Q)`.
+Applying the proved tensor operator bound `B_h(n)` to each pair and then
+taking triangle inequality gives the rigorous normalized bound
+
+`phi(Q)^(-1) sum_(k,l) B_h(k-l)||L_k||_2||R_l||_2`.
+
+Compared with the already-trivial canonical termwise absolute source-mode
+mass, its ratios are
+
+- lag `140`: `67.54998119812704`;
+- lag `154`: `60.9939339483342`;
+- lag `156`: `133.15224722372224`;
+- lag `182`: `60.37858189924492`;
+- lag `240`: `154.4261253278829`.
+
+Every value fails the predeclared `.10` usefulness gate by orders of
+magnitude. Independent review verified the frequency indexing, vector norms,
+tensor bound, normalization, comparator, values, and tests. It first placed
+the result on HOLD because the public function accepted custom families while
+using masses frozen for the canonical fixture. The receipt now rejects every
+noncanonical period/family pair; the corrected review returned PASS.
+
+Curiosity status: `useful-falsification`, novelty `new-to-this-task`. Preserve
+the exact local Kloosterman and global CRT tensor mechanisms. Reject only the
+frequency-pair triangle aggregation. The failure is stronger than merely not
+closing the desired gap: this bound is substantially worse than direct
+termwise absolute values. Cross-frequency or within-frequency coefficient
+cancellation must be retained before applying operator norms.
+
+The next bounded question locates that lost cancellation. In the exact source
+sum, first combine every term with the same kernel frequency `n=k-l`, giving
+`C_n`. Measure separately
+
+`sum_n |C_n| / (termwise absolute mode mass)`
+
+and
+
+`|sum_n C_n| / sum_n |C_n|`.
+
+The first ratio measures cancellation inside each Kloosterman frequency; the
+second measures cancellation between frequencies. A cross-frequency quotient
+at most `.25` across all five leading lags is the gate for a vector-valued or
+large-sieve recombination. Failure redirects the proof attempt to the
+within-frequency source geometry without discarding the tensor bounds.
