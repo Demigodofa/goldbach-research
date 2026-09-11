@@ -157,6 +157,7 @@ def prime_class_core_receipt(
         minimum_conductor_linked_mass_fraction=.75,
         minimum_conductor_linked_coherence=.40,
         minimum_seven_linked_signed_fraction=.75,
+        minimum_seven_equal_share_signed_fraction=.50,
         tolerance=1e-12):
     """Average the normalized signed core over all units modulo its period."""
     families = tuple(families)
@@ -200,6 +201,8 @@ def prime_class_core_receipt(
         raise ValueError("conductor-linked coherence must lie in (0,1]")
     if not 0 < minimum_seven_linked_signed_fraction <= 1:
         raise ValueError("seven-linked signed fraction must lie in (0,1]")
+    if not 0 < minimum_seven_equal_share_signed_fraction <= 1:
+        raise ValueError("seven equal-share fraction must lie in (0,1]")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     conductors = tuple(sorted(c for c, _, _ in families))
@@ -487,6 +490,35 @@ def prime_class_core_receipt(
         and seven_linked_signed * conductor_linked_signed > 0
         and seven_linked_signed_fraction
         >= minimum_seven_linked_signed_fraction)
+    conductor_prime_attributions = {prime: 0.0 for prime in conductor_primes}
+    for row in conductor_subset_rows:
+        share = (
+            row["signed_common_reweighting"]
+            / len(row["conductor_prime_subset"]))
+        for prime in row["conductor_prime_subset"]:
+            conductor_prime_attributions[prime] += share
+    conductor_prime_attribution_rows = tuple({
+        "conductor_prime": prime,
+        "equal_share_signed_attribution": conductor_prime_attributions[prime],
+    } for prime in conductor_primes)
+    attribution_reconstruction_error = (
+        abs(sum(conductor_prime_attributions.values())
+            - conductor_linked_signed)
+        / max(1.0, abs(conductor_linked_signed)))
+    seven_shapley_fraction = (
+        abs(conductor_prime_attributions[7]) / abs(conductor_linked_signed)
+        if 7 in conductor_prime_attributions and conductor_linked_signed
+        else None)
+    largest_attribution_prime = max(
+        conductor_primes,
+        key=lambda prime: abs(conductor_prime_attributions[prime]))
+    seven_shapley_mechanism_passes = bool(
+        attribution_reconstruction_error <= tolerance
+        and seven_shapley_fraction is not None
+        and conductor_prime_attributions[7] * conductor_linked_signed > 0
+        and largest_attribution_prime == 7
+        and seven_shapley_fraction
+        >= minimum_seven_equal_share_signed_fraction)
     polynomial_cycle_rows = []
     for multiple in polynomial_cycle_multiples:
         weights = np.asarray(tuple(
@@ -547,6 +579,8 @@ def prime_class_core_receipt(
             minimum_conductor_linked_coherence),
         "minimum_seven_linked_signed_fraction": (
             minimum_seven_linked_signed_fraction),
+        "minimum_seven_equal_share_signed_fraction": (
+            minimum_seven_equal_share_signed_fraction),
         "minimum_kernel_signed_to_absolute_ratio": minimum_kernel_ratio,
         "kernel_scale_rows": tuple(kernel_scale_rows),
         "window_decomposition_first_row_scale": first_scale,
@@ -592,6 +626,13 @@ def prime_class_core_receipt(
             seven_linked_absolute_mass),
         "seven_linked_absolute_signed_subtotal_fraction": (
             seven_linked_signed_fraction),
+        "conductor_prime_equal_share_attribution_rows": (
+            conductor_prime_attribution_rows),
+        "conductor_prime_attribution_reconstruction_relative_error": (
+            attribution_reconstruction_error),
+        "largest_absolute_conductor_prime_attribution": (
+            largest_attribution_prime),
+        "seven_equal_share_absolute_signed_fraction": seven_shapley_fraction,
         "fully_retained_kernel_row_scales": tuple(
             row["row_scale"] for row in fully_retained_kernel_rows),
         "maximum_source_packet_core_relative_error": max(source_errors),
@@ -639,6 +680,8 @@ def prime_class_core_receipt(
             conductor_coherence_mechanism_passes),
         "seven_linked_signed_mechanism_hypothesis_passes": (
             seven_linked_mechanism_passes),
+        "seven_equal_share_attribution_hypothesis_passes": (
+            seven_shapley_mechanism_passes),
         "prime_class_reinforcement_proves_prime_distribution": False,
         "signed_prime_correlation_proved": False,
     }

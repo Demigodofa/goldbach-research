@@ -52,6 +52,8 @@ class PrimeClassCoreTests(unittest.TestCase):
             receipt["minimum_conductor_linked_coherence"], .40)
         self.assertEqual(
             receipt["minimum_seven_linked_signed_fraction"], .75)
+        self.assertEqual(
+            receipt["minimum_seven_equal_share_signed_fraction"], .50)
         self.assertLess(
             receipt["maximum_source_packet_core_relative_error"], 1e-12)
         self.assertEqual(
@@ -134,6 +136,23 @@ class PrimeClassCoreTests(unittest.TestCase):
         self.assertLess(receipt[
             "conductor_subset_absolute_reconstruction_relative_error"],
             1e-12)
+        self.assertTrue(receipt[
+            "seven_equal_share_attribution_hypothesis_passes"])
+        self.assertLess(receipt[
+            "conductor_prime_attribution_reconstruction_relative_error"],
+            1e-12)
+        attributions = {
+            row["conductor_prime"]: row["equal_share_signed_attribution"]
+            for row in receipt[
+                "conductor_prime_equal_share_attribution_rows"]}
+        self.assertAlmostEqual(attributions[7], -682147893.2560215, places=2)
+        self.assertAlmostEqual(attributions[11], -238391864.6743337, places=2)
+        self.assertAlmostEqual(attributions[13], -299878830.5911654, places=2)
+        self.assertEqual(
+            receipt["largest_absolute_conductor_prime_attribution"], 7)
+        self.assertAlmostEqual(
+            receipt["seven_equal_share_absolute_signed_fraction"],
+            .5589458401173744, places=10)
         self.assertLess(
             receipt["window_difference_decomposition_relative_error"],
             1e-12)
@@ -208,6 +227,9 @@ class PrimeClassCoreTests(unittest.TestCase):
             prime_class_core_receipt(minimum_conductor_linked_coherence=0)
         with self.assertRaises(ValueError):
             prime_class_core_receipt(minimum_seven_linked_signed_fraction=0)
+        with self.assertRaises(ValueError):
+            prime_class_core_receipt(
+                minimum_seven_equal_share_signed_fraction=0)
 
 
 if __name__ == "__main__":

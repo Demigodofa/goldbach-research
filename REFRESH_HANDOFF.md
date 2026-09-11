@@ -10742,10 +10742,56 @@ linked negative subtotal and preserve the unanimity of subset signs as a
 finite observation.  Do not call this a factor-7 cause or a uniform law.
 
 The next bounded question removes overlap ambiguity with an order-independent
-equal-share attribution: allocate each exact subset subtotal equally among
-the conductor primes in that subset.  This is the Shapley allocation of the
-additive subset game and must reconstruct the full linked subtotal within
-`1e-12`.  The factor-7 attribution passes only if it has the linked negative
-sign, is largest in absolute value, and carries at least `.50` of the full
-linked signed magnitude.  Failure preserves the subset table without
-promoting factor `7` to the leading order-independent contributor.
+equal-share attribution.  Treat each exact-subset signed subtotal as a
+Harsanyi dividend `w_T` and define the cooperative game
+`v(S)=sum_(T subseteq S) w_T`.  Its Shapley value allocates each `w_T` equally
+among the conductor primes in `T` and must reconstruct the full linked
+subtotal within `1e-12`.  The factor-7 attribution passes only if it has the
+linked negative sign, is largest in absolute value, and carries at least
+`.50` of the full linked signed magnitude.  Failure preserves the subset
+table without promoting factor `7` to the leading order-independent
+contributor.
+
+## 2026-09-11: overlap-adjusted attribution still makes factor 7 largest
+
+Treat the six exact-subset subtotals as Harsanyi dividends `w_T` of the game
+`v(S)=sum_(T subseteq S)w_T`.  Its Shapley value splits each overlap dividend
+equally among the primes in that subset.  The resulting order-independent
+allocations are
+
+- prime `7`: `-682147893.2560215`;
+- prime `11`: `-238391864.6743337`;
+- prime `13`: `-299878830.5911654`.
+
+They reconstruct the linked subtotal exactly.  Prime `7` remains the largest
+absolute attribution, has the linked negative sign, and carries
+`.5589458401173744` of the linked signed magnitude.  It clears the
+predeclared `.50` gate, while the drop from the raw union fraction `.79377`
+quantifies how much of that earlier number came from overlap.
+
+Independent review required the cooperative game and its Harsanyi dividends
+to be defined before using Shapley terminology.  After that correction it
+verified the allocation, reconstruction, values, gate, tests, and scope and
+returned PASS.  Four focused tests pass normally and under Python
+optimization.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`.  Factor `7` is
+the leading order-independent marker of the finite conductor-linked negative
+response, but this remains overlap accounting rather than causal isolation.
+It proves no stability in other packets, windows, or growing moduli.
+
+The finite partition has now yielded its useful structure, so the next
+bounded question seeks an analytic explanation instead of another empirical
+split.  Use the endpoint identity
+
+`G_(p,D)(a)=(e_D(a*p)-e_D(a))/(e_D(a)-1)`
+
+for every primitive root sum in the two packet families.  Expand the source
+terms for the leading lag orbit `{182,9828}` and impose the residue-difference
+condition with additive-character orthogonality.  Averaging `p` over all
+units modulo `10010` should then replace each exponential in `p` by an
+explicit Ramanujan sum.  The proposed formula must reconstruct the directly
+enumerated all-class mean correlation for that orbit within `1e-12` relative
+error.  Success would convert the observed gcd/conductor pattern into an
+exact arithmetic mechanism; failure preserves the endpoint and packet
+identities while rejecting this particular Ramanujan reduction.
