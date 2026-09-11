@@ -6949,3 +6949,48 @@ large-sieve bound for `sum_d H_m(d)S_d^2`. A dyadic `d` block whose normalized
 energy grows by a fixed power rejects this route. The incomplete boundary,
 fixed-Mobius second moment, signed prime correlation, and Goldbach remain
 OPEN.
+
+
+## 2026-09-10: primitive sums return to one-variable Mobius divisor sums
+
+`lcm_sawtooth_structured_divisor_sum.py` expands the positive-factorization
+coordinate
+
+`S_d=sum_(d|q)K_q/q`
+
+back into the original squarefree interval. With
+`c_a=mu(a)log(X/a)`, inclusion-exclusion for `d|lcm(a,b)` and the identity
+`gcd(a,b)=sum_(e|a,e|b)phi(e)` give
+
+`S_d=sum_(k|d)mu(k) sum_e phi(e)
+ [sum_(a in D,e|a,(a,k)=1)c_a/a]^2`.
+
+This is exact for every squarefree `d`. It explicitly pairs the new primitive
+frequency weight `H_m(d)` with the previously developed polynomial and
+divisibility sums; those tools were limited in isolation but remain active
+inside the new mechanism. Independent review PASSed the lcm indicator
+inclusion-exclusion, gcd expansion, direct/expanded equality above and below
+`B`, dyadic energy partition, zero-energy guard, and 32 combined tests in
+normal and optimized modes.
+
+The finite energy location is decisive. For central project rows at
+`M=251,503,1009,2003,4001,8009,16001`, the fractions of
+`sum_d H_m(d)S_d^2` from `d<=B` were
+
+`.0991,.1370,.0897,.0465,.0411,.0228,.0218`.
+
+Thus about 98% lies at `d>B` in the largest tests. The largest dyadic blocks
+were `[128,256),[256,512),[512,1024),[1024,2048),[2048,4096),
+[4096,8192),[16384,32768)`, carrying `.364,.314,.285,.382,.331,.331,.323`
+of the total. The energy is spread over logarithmically many high-conductor
+blocks, with the largest block tracking the prime scale; it is not explained
+by small conductors.
+
+The next <=30-minute question uses the fact that for `d|lcm(a,b)` every prime
+of squarefree `d` is assigned to `a only`, `b only`, or both. Writing
+`d=d_L d_R d_C` should leave a residual lcm of size at most `B^2/d`, only
+`N^.05` at the dominant project scale. The next verifier will test this exact
+three-way expansion and whether the short residual modulus produces a usable
+bound. A missing coprimality or a residual larger than `B^2/d` rejects the
+formulation. The incomplete boundary, signed prime correlation, and Goldbach
+remain OPEN.

@@ -6143,3 +6143,27 @@ The next target is an exact original-divisor expansion and dyadic energy test
 for `S_d`. A fixed-power dyadic concentration falsifies the factorized route.
 The incomplete boundary, signed prime correlation, and Goldbach remain open;
 complete assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: dominant primitive energy has a short residual lcm
+
+The structured coordinate in the positive factorization now has the exact
+original-divisor expansion
+
+`S_d=sum_(k|d)mu(k) sum_e phi(e)
+ [sum_(a in D,e|a,(a,k)=1)mu(a)log(X/a)/a]^2`.
+
+This follows from inclusion-exclusion for `d|lcm(a,b)` and the gcd/totient
+identity. Independent review verified the formula, implementation, dyadic
+partition, edge guards, and tests.
+
+At seven central scales through `M=16001`, the energy fraction from `d<=B`
+fell to `.0218`; roughly 98% is on `d>B`. The largest block tracks `d` near
+the prime scale and consistently carries about 28%-38% of the energy. This
+rules out a small-conductor proof but creates a complementary opportunity:
+for `d=d_Ld_Rd_C` assigned across the two divisors, the remaining modulus is
+at most `B^2/d`, which is only `N^.05` near the dominant `d=N^.59` scale.
+
+The next target is to verify and bound that three-way assignment expansion.
+The incomplete boundary, signed prime correlation, and Goldbach remain open;
+complete assembly remains `.295-delta`.
