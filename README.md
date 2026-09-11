@@ -591,3 +591,11 @@ log interval to unit size, and taking the exact symmetric square gives
 minimum scaled-difference Gershgorin edge `-1.866444` at `M=127`, slightly
 worse than the raw basis. This rejects that fixed transform, while preserving
 other polynomial-basis uses and the successful exact-whitening certificate.
+
+A more arithmetic three-coordinate basis captures a substantial part of the
+missing cancellation. Whitening the unsummed one-frequency covariance
+`sum |G|^2 b b^T` and lifting its symmetric square improves the `M=127`
+minimum edge to `-.676462`. It still does not certify one half, but the gain
+from `-1.846212` identifies conductor covariance as useful structure for a
+block or sign-sensitive certificate. It also reduces the condition number of
+the diagonally equilibrated full Gram from about `5.5e11` to `5.7e3`.

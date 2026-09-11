@@ -6619,6 +6619,8 @@ Complete assembly remains `.295-delta`; the signed prime correlation and
 Goldbach remain OPEN.
 
 
+
+
 ## 2026-09-10: fixed-Mobius second moment survives the full row
 
 Commit `b0e5f17` turns the next combination into an exact finite verifier.
@@ -9064,3 +9066,37 @@ raw-coordinate Gershgorin. Polynomial identities and bounds, other explicit
 bases, exact whitening, the finite half-frame candidate, and new arithmetic
 ingredients remain available. The signed prime-correlation estimate and
 Goldbach remain OPEN.
+
+## 2026-09-11: one-frequency arithmetic covariance captures part of the frame
+
+`lcm_sawtooth_arithmetic_covariance_basis.py` forms the positive
+three-dimensional unsummed-frequency energy
+
+`C=sum |G|^2 b b^T`,
+
+where `b` is the conductor polynomial coordinate vector and `G` its geometric
+coefficient. Whitening `C` and taking the exact symmetric square supplies a
+structured arithmetic basis for the six-coordinate active/full forms. This
+uses only one-frequency data; it does not fit the final six-dimensional full
+Gram.
+
+On the complete `M=127` block, the covariance eigenvalues are approximately
+`3.48869,3598.63876,1381803.33`, and the numerical whitening error is below
+`1e-12`. The minimum diagonal-scaled scalar Gershgorin edge for
+`D_active-D_full/2` improves from `-1.846212097816` in the raw basis to
+`-.676462318151`, but every scalar row edge is still negative. The declared
+falsifier therefore fires; `M=251` was not run.
+
+The condition number of the diagonally equilibrated full Gram falls from
+about `5.51e11` in the raw coordinates to `5.71e3` in this arithmetic basis,
+an improvement by more than seven orders of magnitude. This makes the basis a
+useful preconditioner even though it does not supply the scalar certificate.
+
+Pursuit status: `changed-under-evidence`. Block the unchanged conjunction of
+this one-frequency covariance basis, symmetric-square lift, and scalar
+Gershgorin at the named fixture. Preserve the covariance mechanism because it
+recovers about 63 percent of the missing raw row-edge margin. Reactivate it
+with a block/sign-sensitive certificate or a new uniform comparison, not by
+repeating the same scalar test. The polynomial framework, exact whitening,
+half-frame candidate, signed prime-correlation problem, and Goldbach remain
+OPEN.

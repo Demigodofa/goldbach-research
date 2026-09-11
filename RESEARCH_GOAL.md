@@ -5226,6 +5226,8 @@ directly contradicted for this tested family.  The preserved route is to keep
 the complete Dirichlet kernel and use summation by parts against the CRT pair-
 count function.  The unequal-kernel theorem, shifted rows, d>1, and signed
 Goldbach remain OPEN.
+
+
 ### 2026-09-10: triangular CRT main isolates the true residual
 
 The frozen signed-difference density has an exact sampled Fejer formula after
@@ -7150,3 +7152,31 @@ combined with raw-coordinate Gershgorin. The polynomial identities, other
 basis changes, full-Gram whitening, half-frame candidate, and possible new
 arithmetic ingredients remain active. The signed prime correlation and
 Goldbach remain OPEN.
+
+### 2026-09-11 continuation: arithmetic covariance recovers part of the cancellation
+
+For every supported primitive frequency, let `b` be its three degree-labelled
+coordinate vector and `G` its geometric coefficient. The unsummed positive
+matrix
+
+`C=sum |G|^2 b b^T`
+
+is a natural one-frequency conductor-energy covariance. At `M=127`, whiten
+this three-dimensional `C`, take the exact symmetric square of that transform,
+and apply diagonal-scaled scalar Gershgorin to `D_active-D_full/2`. The minimum
+edge improves from the raw basis value `-1.846212097816` to
+`-.676462318151`, but remains negative. The six individual edges are all
+negative, so the declared scalar-certificate falsifier fires.
+
+The same transform reduces the condition number of the diagonally
+equilibrated full Gram from about `5.51e11` to `5.71e3`, an improvement by
+more than seven orders of magnitude. It is therefore a useful preconditioner
+even though its scalar absolute row sums remain too large.
+
+Pursuit status `changed-under-evidence`: the exact conjunction of
+one-frequency covariance whitening, symmetric-square lift, and scalar
+Gershgorin is blocked at this fixture, while the large improvement supports
+the conductor covariance as a useful component for a block or sign-sensitive
+argument. No uniform comparison between this covariance and the full Gram is
+proved. Polynomial identities and bounds remain active. The signed prime
+correlation and Goldbach remain OPEN.
