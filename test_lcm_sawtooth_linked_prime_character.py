@@ -57,6 +57,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             recombined_centered_prime_phase_scan_receipt(
                 maximum_phase_ratio=1.01)
+        with self.assertRaises(ValueError):
+            recombined_centered_prime_phase_scan_receipt(
+                maximum_local_bias_ratio=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -387,6 +390,33 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertAlmostEqual(
             worst["direct_triangle_mass"],
             2480104.1974018877, places=6)
+        self.assertAlmostEqual(
+            worst["local_uniform_main_correlation"].real,
+            169051.35380234398, places=6)
+        self.assertAlmostEqual(
+            worst["prime_residue_discrepancy_correlation"].real,
+            -2545568.3689549724, places=6)
+        self.assertAlmostEqual(
+            worst["local_main_to_triangle_ratio"],
+            .06816300459450014, places=12)
+        self.assertAlmostEqual(
+            worst["discrepancy_to_triangle_ratio"],
+            1.0263957343492518, places=12)
+        self.assertLess(
+            worst["local_uniform_plus_discrepancy_relative_error"], 1e-12)
+        self.assertEqual(receipt["worst_local_bias_residue"], 94)
+        self.assertAlmostEqual(
+            receipt["worst_local_bias_row"]["local_bias_ratio"],
+            .1296901334499486, places=12)
+        self.assertAlmostEqual(
+            receipt["local_bias_rows"][88]["local_bias_ratio"],
+            .058630719657540006, places=12)
+        self.assertTrue(receipt[
+            "all_even_residues_pass_local_bias_gate"])
+        self.assertLess(receipt[
+            "maximum_local_decomposition_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "all_applicable_local_residue_decompositions_reconstruct"])
         contributions = receipt["worst_target_contributions"]
         self.assertEqual(len(contributions), 12)
         self.assertEqual(contributions[0][:3], (599, 659, 79))
@@ -402,12 +432,18 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "all_tested_nonempty_targets_pass_phase_gate"])
         self.assertFalse(empty[
             "finite_range_phase_cancellation_measured"])
+        self.assertFalse(empty["rows"][26][
+            "local_residue_decomposition_applicable"])
+        self.assertIsNone(empty["rows"][26][
+            "local_uniform_plus_discrepancy_relative_error"])
         self.assertTrue(receipt["all_prime_terms_are_units"])
         self.assertFalse(receipt[
             "all_tested_nonempty_targets_pass_phase_gate"])
         self.assertTrue(receipt[
             "finite_range_phase_cancellation_measured"])
         self.assertFalse(receipt["uniform_phase_cancellation_proved"])
+        self.assertFalse(receipt[
+            "prime_residue_discrepancy_estimate_proved"])
         self.assertFalse(receipt[
             "centered_target_dispersion_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])

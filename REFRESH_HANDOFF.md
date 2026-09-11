@@ -13406,3 +13406,67 @@ about `.12969013345` over all residues.  If verified, the `.958...` resonance
 cannot be attributed to the uniform admissible-residue main alone; the new
 arithmetic target becomes a dispersion bound for `delta_N`.  Failure would
 identify the deterministic local main as the dominant obstruction instead.
+
+## 2026-09-11: the resonant target is dominated by prime-residue discrepancy
+
+The local-uniform decomposition passes on every applicable target.  For even
+`n mod 130`, put
+
+`A_n={a in U_130:n-a in U_130}`,
+
+and decompose the measured unit linked-prime residue weight as
+
+`W_N(a)=W_N/|A_n|+delta_N(a)`.
+
+Then exactly
+
+`L_N(G_0)=(W_N/|A_n|)sum_(a in A_n)G_0(a)
+           +sum_(a in A_n)delta_N(a)G_0(a)`.
+
+All `65` even residue classes pass the frozen source-only bias gate
+
+`beta_n=|sum_(a in A_n)G_0(a)|/sum_(a in A_n)|G_0(a)| <= .15`.
+
+The maximum is `.1296901334499486` at residue `94`; residue `88`, containing
+the worst finite prime-phase target, has only
+`.058630719657540006`.  All `2001` default target decompositions reconstruct
+within `3.54e-16` relative error.
+
+At `N=1258`, the local-uniform term is
+`+169051.35380234398+O(1e-8)i`, only `.06816300459450014` of the direct
+triangle mass.  The actual prime-residue discrepancy contributes
+`-2545568.3689549724+O(1e-9)i`, or `1.0263957343492518` times that triangle
+mass.  Their sum is the measured `-2376517.0151526285+O(1e-8)i`.  Thus the
+discrepancy reverses the local main's sign and creates the near-total finite
+resonance.
+
+Curiosity status: `local-bias-small/discrepancy-dominant`, novelty
+`new-to-this-task`.  Preserve the exact local-uniform/discrepancy split.  The
+missing arithmetic input is now narrower: control the actual linked-prime
+residue discrepancy `delta_N` against this signed source.  The finite
+calculation supplies no asymptotic discrepancy bound, signed
+prime-correlation theorem, or Goldbach result.
+
+Independent review checked the admissible set, ordered residue weights,
+uniform normalization, zero-sum discrepancy, nonunit applicability guard,
+all residue-bias values, the worst-target arithmetic, shared triangle
+normalization, and scope.  Focused normal and optimized tests pass.
+
+The next bounded question asks whether the worst residue's discrepancy decays
+at the square-root scale as the number of central prime pairs grows.  For
+every `N congruent 88 (mod 130)` with `1000<=N<=100000`, let `k_N` be the
+ordered linked-prime pair count and
+
+`d_N=|sum_a delta_N(a)G_0(a)|
+     /sum_p log(p)log(N-p)|G_0(p)|`.
+
+Freeze the finite falsifier
+
+`sqrt(k_N) d_N <= 4`
+
+for every nonempty target, and report maxima by dyadic target block together
+with the worst target and residue weights.  A violation rejects the
+square-root-dispersion heuristic even on the single resonant progression.  A
+full pass would motivate an averaged binary-prime dispersion inequality; it
+would remain finite evidence rather than a proof of the required pointwise
+estimate.

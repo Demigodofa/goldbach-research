@@ -657,7 +657,8 @@ def recombined_centered_character_receipt(
 
 def recombined_centered_prime_phase_scan_receipt(
         target_minimum=1000, target_maximum=5000,
-        maximum_phase_ratio=.25, tolerance=1e-12, batch_size=32):
+        maximum_phase_ratio=.25, maximum_local_bias_ratio=.15,
+        tolerance=1e-12, batch_size=32):
     if (type(target_minimum) is not int or type(target_maximum) is not int
             or target_minimum < 20 or target_minimum % 2
             or target_maximum < target_minimum or target_maximum % 2):
@@ -666,6 +667,9 @@ def recombined_centered_prime_phase_scan_receipt(
     if (not math.isfinite(maximum_phase_ratio)
             or not 0 <= maximum_phase_ratio <= 1):
         raise ValueError("maximum phase ratio must lie in [0, 1]")
+    if (not math.isfinite(maximum_local_bias_ratio)
+            or not 0 <= maximum_local_bias_ratio <= 1):
+        raise ValueError("maximum local bias ratio must lie in [0, 1]")
     character = recombined_centered_character_receipt(
         targets=LINKED_PRIME_TARGETS, tolerance=tolerance,
         batch_size=batch_size)
@@ -675,6 +679,30 @@ def recombined_centered_prime_phase_scan_receipt(
             character["unit_residues"],
             character["centered_source_values"])}
     primes = _prime_table(target_maximum)
+    local_bias_rows = {}
+    for target_residue in range(0, common, 2):
+        admissible_residues = tuple(
+            residue for residue in source_by_residue
+            if math.gcd(
+                (target_residue - residue) % common, common) == 1)
+        source_sum = sum((
+            source_by_residue[residue]
+            for residue in admissible_residues), 0.0j)
+        source_absolute_mass = math.fsum(
+            abs(source_by_residue[residue])
+            for residue in admissible_residues)
+        bias_ratio = (
+            abs(source_sum) / source_absolute_mass
+            if source_absolute_mass else None)
+        local_bias_rows[target_residue] = {
+            "admissible_residue_count": len(admissible_residues),
+            "admissible_source_sum": source_sum,
+            "admissible_source_absolute_mass": source_absolute_mass,
+            "local_bias_ratio": bias_ratio,
+            "passes_local_bias_gate": (
+                bool(bias_ratio <= maximum_local_bias_ratio)
+                if bias_ratio is not None else None),
+        }
     rows = {}
     contribution_rows = {}
     for target in range(target_minimum, target_maximum + 1, 2):
@@ -683,6 +711,9 @@ def recombined_centered_prime_phase_scan_receipt(
         contributions = []
         direct = 0.0j
         triangle = 0.0
+        unit_residue_weights = {
+            residue: 0.0 for residue in source_by_residue
+            if math.gcd((target - residue) % common, common) == 1}
         nonunit_primes = []
         for prime in range(max(2, lower + 1), min(target, upper)):
             partner = target - prime
@@ -696,10 +727,35 @@ def recombined_centered_prime_phase_scan_receipt(
             contribution = weight * source_value
             direct += contribution
             triangle += weight * abs(source_value)
+            if prime % common in unit_residue_weights:
+                unit_residue_weights[prime % common] += weight
             contributions.append((
                 prime, partner, prime % common, weight,
                 source_value, contribution))
         ratio = abs(direct) / triangle if triangle else None
+        local_decomposition_applicable = not nonunit_primes
+        total_unit_weight = math.fsum(unit_residue_weights.values())
+        uniform_residue_weight = (
+            total_unit_weight / len(unit_residue_weights)
+            if unit_residue_weights else 0.0)
+        local_main_correlation = (
+            uniform_residue_weight * local_bias_rows[target % common][
+                "admissible_source_sum"]
+            if local_decomposition_applicable else None)
+        discrepancy_correlation = (
+            sum((
+                (weight - uniform_residue_weight)
+                * source_by_residue[residue]
+                for residue, weight in unit_residue_weights.items()), 0.0j)
+            if local_decomposition_applicable else None)
+        decomposition_scale = max(
+            1.0, triangle,
+            abs(local_main_correlation or 0.0j),
+            abs(discrepancy_correlation or 0.0j))
+        decomposition_error = (
+            abs(local_main_correlation + discrepancy_correlation - direct)
+            / decomposition_scale
+            if local_decomposition_applicable else None)
         rows[target] = {
             "target_residue": target % common,
             "linked_prime_pair_count": len(contributions),
@@ -707,6 +763,21 @@ def recombined_centered_prime_phase_scan_receipt(
             "direct_centered_correlation": direct,
             "direct_triangle_mass": triangle,
             "phase_cancellation_ratio": ratio,
+            "total_unit_linked_prime_weight": total_unit_weight,
+            "uniform_admissible_residue_weight": uniform_residue_weight,
+            "local_uniform_main_correlation": local_main_correlation,
+            "prime_residue_discrepancy_correlation": (
+                discrepancy_correlation),
+            "local_main_to_triangle_ratio": (
+                abs(local_main_correlation) / triangle
+                if local_main_correlation is not None and triangle else None),
+            "discrepancy_to_triangle_ratio": (
+                abs(discrepancy_correlation) / triangle
+                if discrepancy_correlation is not None and triangle else None),
+            "local_uniform_plus_discrepancy_relative_error": (
+                decomposition_error),
+            "local_residue_decomposition_applicable": (
+                local_decomposition_applicable),
             "passes_phase_ratio_gate": (
                 bool(ratio <= maximum_phase_ratio)
                 if ratio is not None else None),
@@ -728,6 +799,18 @@ def recombined_centered_prime_phase_scan_receipt(
     gate_pass_count = sum(
         rows[target]["passes_phase_ratio_gate"]
         for target in nonempty_targets)
+    applicable_decomposition_rows = tuple(
+        row for row in rows.values()
+        if row["local_residue_decomposition_applicable"])
+    nonzero_local_bias_rows = tuple(
+        row for row in local_bias_rows.values()
+        if row["local_bias_ratio"] is not None)
+    worst_local_bias_residue = max(
+        local_bias_rows,
+        key=lambda residue: (
+            local_bias_rows[residue]["local_bias_ratio"]
+            if local_bias_rows[residue]["local_bias_ratio"] is not None
+            else -1))
     return {
         "families": character["families"],
         "arithmetic_period": character["arithmetic_period"],
@@ -736,7 +819,9 @@ def recombined_centered_prime_phase_scan_receipt(
         "target_range": (target_minimum, target_maximum),
         "interval_convention": "floor(N/3) < p < N-floor(N/3)",
         "maximum_phase_ratio_gate": maximum_phase_ratio,
+        "maximum_local_bias_ratio_gate": maximum_local_bias_ratio,
         "rows": rows,
+        "local_bias_rows": local_bias_rows,
         "tested_target_count": len(rows),
         "nonempty_target_count": len(nonempty_targets),
         "empty_target_count": len(rows) - len(nonempty_targets),
@@ -745,6 +830,18 @@ def recombined_centered_prime_phase_scan_receipt(
         "worst_target_row": (
             rows[worst_target] if worst_target is not None else None),
         "worst_target_contributions": worst_contributions,
+        "worst_local_bias_residue": worst_local_bias_residue,
+        "worst_local_bias_row": local_bias_rows[
+            worst_local_bias_residue],
+        "all_even_residues_pass_local_bias_gate": all(
+            row["passes_local_bias_gate"]
+            for row in nonzero_local_bias_rows),
+        "maximum_local_decomposition_relative_error": max(
+            (row["local_uniform_plus_discrepancy_relative_error"]
+             for row in applicable_decomposition_rows), default=0.0),
+        "all_applicable_local_residue_decompositions_reconstruct": all(
+            row["local_uniform_plus_discrepancy_relative_error"]
+            <= tolerance for row in applicable_decomposition_rows),
         "all_prime_terms_are_units": all(
             not row["nonunit_prime_terms"] for row in rows.values()),
         "all_tested_nonempty_targets_pass_phase_gate": (
@@ -753,6 +850,7 @@ def recombined_centered_prime_phase_scan_receipt(
         "finite_range_phase_cancellation_measured": bool(
             nonempty_targets),
         "uniform_phase_cancellation_proved": False,
+        "prime_residue_discrepancy_estimate_proved": False,
         "centered_target_dispersion_estimate_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
