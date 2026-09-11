@@ -440,3 +440,9 @@ constant-residue Ramanujan projection contributes under `.35%`, and no uniform
 rank-one CRT factorization appears. The centered residue spectrum is the live
 component; its active-window versus full-period L2 concentration is the next
 falsifier.
+
+That additive-spectrum falsifier now passes on the five leading `m=251` and
+ten leading `m=503` packets: every active/full L2 ratio lies between `.880`
+and `1.467`. The exact packet/Parseval compression is a reviewed
+`new-to-this-task` aha candidate, while the uniform window and global residue-
+energy bounds remain open.

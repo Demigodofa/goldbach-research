@@ -17,6 +17,12 @@ class LcmSawtoothFixedQResidueTests(unittest.TestCase):
         self.assertLess(packet["ramanujan_kernel_identity_error"], 1e-10)
         self.assertLess(
             packet["packet_imaginary_error_over_complete"], 1e-12)
+        self.assertLess(
+            packet["additive_transform_packet_error_over_complete"], 1e-12)
+        self.assertLess(
+            packet["additive_transform_parseval_relative_error"], 1e-12)
+        self.assertGreaterEqual(
+            packet["active_window_transform_l2_over_full_period"], 0)
         for split in packet["crt_prime_split_metrics"]:
             self.assertTrue(
                 0 <= split["leading_singular_energy_fraction"] <= 1)

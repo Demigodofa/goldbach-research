@@ -8145,8 +8145,10 @@ Question: is the stable within-`Q` cancellation a disguised Ramanujan-sum
 identity? This connected the older primitive-frequency Parseval factorization,
 the new survival under `S_d -> |S_d|`, and the broad `m=503` packet family.
 The independent older factorization reduced recent-capture risk. The pursuit
-used a 25-minute local algebra/Python budget and returned
-`changed-under-evidence` within that budget.
+used a 25-minute local algebra/Python budget and returned the
+`new-to-this-task` status `aha-candidate` within that budget. This is a standard
+Fourier identity newly connected to this task, not a worldwide originality
+claim.
 
 For each exact denominator define
 
@@ -8200,3 +8202,48 @@ for which `C_Q=A^(-1)sum_(ell=L)^(L+A-1)T_Q(ell)` and the full-period mean of
 most `N^epsilon` times its full-period L2 average. A power-growing window
 concentration ratio falsifies this spectral-equidistribution route. The signed
 prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: additive exact-Q spectrum passes its first falsifiers
+
+Extend each residue array by zero off the units and define
+
+`T_Q(n)=sum_(r mod Q)D_Q(r)e(rn/Q)`.
+
+The exact packet compression and Parseval identity are
+
+`C_Q=A^(-1)sum_(ell=L)^(L+A-1)T_Q(ell)`,
+
+`Q^(-1)sum_(n mod Q)|T_Q(n)|^2=sum_r|D_Q(r)|^2`.
+
+For the five largest `m=251` packets, the active-row-window L2 average divided
+by the full-period L2 average is
+
+`1.0146,1.4668,.9210,1.4587,.9341`.
+
+The ten largest `m=503` packets give
+
+`1.0827,1.2604,1.1100,1.1477,1.0977,1.0127,1.1207,.8897,.9055,.8798`.
+
+Packet recovery errors are below `2e-15` of complete energy and transform
+Parseval errors are at floating-point roundoff. Independent review reproduced
+the identities and values and returned PASS.
+
+Observation: none of these selected active windows has large L2 concentration;
+all fifteen ratios lie in `[.8798,1.4669]`. Inference: an active-window/full-
+period equidistribution estimate may supply the within-`Q` cancellation layer.
+This is finite selected-packet evidence only, not a uniform estimate, and it
+does not bound the full residue energy summed over `Q`.
+
+This earns `aha-candidate` because the compression connects the older
+primitive Parseval identity with the newer exact-`Q` cancellation, predicted a
+next-scale measurement, survived that falsifier, and changes the next action.
+The proof route now has two explicit obligations:
+
+1. bound the active-window L2 average of `T_Q` by `N^epsilon` times its full-
+   period average for material packets;
+2. bound `sum_Q Q sum_r|D_Q(r)|^2` strongly enough for the weighted packet
+   square-sum.
+
+A power-growing window ratio or coefficient-energy quotient falsifies the
+corresponding component. Varying logs, prime aggregation, the signed prime-
+correlation estimate, and Goldbach remain OPEN.

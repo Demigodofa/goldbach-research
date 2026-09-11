@@ -6725,7 +6725,14 @@ largest `m=251` packets. The constant-residue projection reduces to a short
 Ramanujan-sum average but contributes below `.0035` of every packet; centered
 residue L2 fractions exceed `.9998`. Uniform rank-one CRT factorization also
 fails on this family, though a few prime splits are anisotropic. Independent
-review PASSed the corrected verifier. Curiosity status `changed-under-evidence`:
-block unchanged constant-mean and uniform-rank-one retries, preserve the exact
-residue identity and split anisotropy. Next test active-window L2 concentration
-of the additive transform `T_Q(n)` against its full-period Parseval average.
+review PASSed the corrected verifier. Block unchanged constant-mean and
+uniform-rank-one retries; preserve the exact residue identity and split
+anisotropy.
+
+The final curiosity status is `new-to-this-task` `aha-candidate`. The transform
+test gives the exact compression `C_Q=A^-1 sum_(active ell)T_Q(ell)` and full-
+period Parseval. Active/full L2 ratios lie in `[.8798,1.4669]` for the five
+leading `m=251` and ten leading `m=503` packets, with independent review PASS.
+This finite prediction survived its next-scale falsifier. The candidate route
+is a window-equidistribution bound for `T_Q`, followed by a global bound for
+`sum_Q Q sum_r|D_Q(r)|^2`. Neither estimate is proved.

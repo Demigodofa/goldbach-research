@@ -166,6 +166,14 @@ def fixed_q_residue_receipt(
         kernel_sum = np.sum(kernels)
         constant_projection = mean_value * kernel_sum
         centered = values - mean_value
+        residue_array = np.zeros(target, dtype=complex)
+        residue_array[units] = values
+        additive_transform = np.fft.ifft(residue_array) * target
+        active_transform = additive_transform[
+            np.arange(ell_first, ell_first + row_count) % target]
+        full_transform_l2 = float(np.mean(np.abs(additive_transform) ** 2))
+        active_transform_l2 = float(np.mean(np.abs(active_transform) ** 2))
+        transform_packet = np.mean(active_transform)
         ramanujan_mean = sum(
             _ramanujan_sum(target, ell)
             for ell in range(ell_first, ell_first + row_count)) / row_count
@@ -184,6 +192,14 @@ def fixed_q_residue_receipt(
             "centered_residue_l2_fraction": float(
                 np.linalg.norm(centered) / np.linalg.norm(values)
                 if np.linalg.norm(values) else 0.0),
+            "additive_transform_packet_error_over_complete": float(
+                abs(transform_packet - packet) / complete_energy),
+            "additive_transform_parseval_relative_error": float(
+                abs(full_transform_l2 - np.sum(np.abs(values) ** 2))
+                / full_transform_l2 if full_transform_l2 else 0.0),
+            "active_window_transform_l2_over_full_period": (
+                active_transform_l2 / full_transform_l2
+                if full_transform_l2 else 0.0),
             "crt_prime_split_metrics": _crt_tensor_metrics(
                 target, units, centered),
             "ramanujan_kernel_sum": float(ramanujan_mean),
