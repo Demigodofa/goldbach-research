@@ -584,3 +584,10 @@ Diagonal coordinate scaling cannot replace the full-Gram whitening. At
 positive semidefinite. The six monomial coordinates are too correlated for
 this simpler certificate; an analytic basis change or basis-free argument is
 required.
+
+The first explicit analytic basis change also fails. Centering the three
+degree-labelled parameters at the dyadic logarithmic midpoint, scaling the
+log interval to unit size, and taking the exact symmetric square gives
+minimum scaled-difference Gershgorin edge `-1.866444` at `M=127`, slightly
+worse than the raw basis. This rejects that fixed transform, while preserving
+other polynomial-basis uses and the successful exact-whitening certificate.

@@ -9042,3 +9042,25 @@ is to prove, in a controlled whitening basis, six uniform inequalities
 Failure of those entry bounds would reject this proof method without rejecting
 the lower-frame inequality or polynomial components. The signed prime
 correlation and Goldbach remain OPEN.
+
+## 2026-09-11: fixed dyadic-centered basis does not reveal the half frame
+
+`lcm_sawtooth_centered_basis_gershgorin.py` tests the coefficient change
+induced by `z=(L-mu)/s`, with
+
+`mu=log(sqrt(2)*M*ell_freeze)` and `s=log(2)/2`.
+
+Its exact symmetric square is a fixed congruence on the six lifted forms. It
+is an analytic logarithmic-midpoint basis rather than fitted full-Gram
+whitening. At the first complete block `M=127`, diagonal-scaled Gershgorin for
+the transformed difference `D_active-D_full/2` has minimum row edge
+`-1.866444004344`. The raw-basis edge is `-1.846212097816`, while the invariant
+generalized minimum remains `.876880294682`. Thus the positive difference
+still depends on cancellation hidden from this certificate. The negative-edge
+falsifier fired, and the `M=251` run was intentionally skipped.
+
+Status: `abandoned` only for this exact midpoint/half-log-two transform plus
+raw-coordinate Gershgorin. Polynomial identities and bounds, other explicit
+bases, exact whitening, the finite half-frame candidate, and new arithmetic
+ingredients remain available. The signed prime-correlation estimate and
+Goldbach remain OPEN.

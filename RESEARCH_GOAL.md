@@ -7132,3 +7132,21 @@ Exact whitening, the half-frame candidate, rank-one/polynomial components, and
 the signed problem remain active. The next test seeks an explicit centered
 polynomial basis whose symmetric square approximates full-Gram whitening.
 Goldbach remains OPEN.
+
+### 2026-09-11 continuation: fixed dyadic-centered basis is falsified
+
+Use `z=(L-mu)/s`, where
+`mu=log(sqrt(2)*M*ell_freeze)` and `s=log(2)/2`, to map coefficients of
+`a2*z^2+a1*z+a0` into the original `(L^2,L,1)` degree basis. Applying the
+exact symmetric square of this fixed three-coordinate transform to the
+aggregate active/full forms at `M=127` gives minimum diagonal-scaled
+Gershgorin edge `-1.866444004344` for `D_active-D_full/2`. The raw-basis edge
+was `-1.846212097816`, and the invariant generalized minimum is still
+`.876880294682`.
+
+The declared negative-edge falsifier fired, so the larger block was not run.
+Status `abandoned` applies only to this exact midpoint/half-log-two transform
+combined with raw-coordinate Gershgorin. The polynomial identities, other
+basis changes, full-Gram whitening, half-frame candidate, and possible new
+arithmetic ingredients remain active. The signed prime correlation and
+Goldbach remain OPEN.
