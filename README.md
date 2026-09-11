@@ -490,3 +490,13 @@ explicit linear inequality
 |m(sigma e-tau d)-n d e|<=d e/A, with the actual geometric and structured
 weights retained. Controlling that weighted count over conductors and primes
 is now a named proof obligation.
+
+That counting route passes its first complete-block tests. Across
+M=251,503,1009,2003, the unweighted A-scaled incidence density stays
+1.96--2.17; the coefficient-product version stays 2.42--2.82; and the sharper
+Q|c_i c_j|^2 version stays 2.82--3.62. The measured exact-Q endpoint maximum
+changes from 12 to 24, which rejects a cap of 12 but not a uniform O(1) bound.
+The live endpoint target requires a weighted incidence bound, a representation
+bound, and a comparison of the total endpoint pair-square envelope with the
+active-window denominator. The non-endpoint and final signed correlation
+estimates remain open.

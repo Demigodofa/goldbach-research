@@ -11,10 +11,27 @@ forms ``A sum_Q Q |C_Q(endpoint,near)|^2 / E^2``. It is a finite predictor for
 exceptional row alignment, not an upper bound for the omitted modes.
 """
 
+import math
+
 import numpy as np
 
 from lcm_sawtooth_reduced_difference_mass import _validate_inputs
 from lcm_sawtooth_signed_difference_bins import _signed_frequency_data
+
+
+def endpoint_reduced_denominator(left, right, left_sign, right_sign):
+    """Return the reduced denominator of sign/difference endpoints."""
+    if (any(type(value) is not int for value in (
+            left, right, left_sign, right_sign))
+            or left <= 1 or right <= 1
+            or left_sign not in (-1, 1) or right_sign not in (-1, 1)):
+        raise ValueError("invalid endpoint denominator inputs")
+    common_factor = math.gcd(left, right)
+    primitive_numerator = (
+        left_sign * (right // common_factor)
+        - right_sign * (left // common_factor))
+    return math.lcm(left, right) // math.gcd(
+        common_factor, abs(primitive_numerator))
 
 
 def endpoint_resonance_score_receipt(
@@ -49,8 +66,9 @@ def endpoint_resonance_score_receipt(
         * (difference_numerator[nonzero] // common_factor[nonzero])
         % reduced[nonzero])
     circular = np.minimum(reduced_numerator, reduced - reduced_numerator)
+    high_q = reduced > modulus * row_count
     selected = (
-        (reduced > modulus * row_count)
+        high_q
         & (circular * row_count <= reduced))
 
     selected_q = reduced[selected]
@@ -61,8 +79,10 @@ def endpoint_resonance_score_receipt(
         * (1 - roots ** row_count)
         / (row_count * (1 - roots)))
     products = coefficients[:, None] * np.conjugate(coefficients[None, :])
+    product_magnitudes = np.abs(products)
     contributions = products[selected] * kernels
-    q_values, inverse = np.unique(selected_q, return_inverse=True)
+    q_values, inverse, q_multiplicities = np.unique(
+        selected_q, return_inverse=True, return_counts=True)
     grouped = (
         np.bincount(inverse, weights=contributions.real)
         + 1j * np.bincount(inverse, weights=contributions.imag))
@@ -74,14 +94,46 @@ def endpoint_resonance_score_receipt(
     direct_sum = np.sum(contributions)
     grouped_sum = np.sum(grouped)
     absolute_envelope = float(np.sum(np.abs(contributions)))
+    high_q_product_weight = float(np.sum(product_magnitudes[high_q]))
+    near_product_weight = float(np.sum(product_magnitudes[selected]))
+    squared_product_weights = reduced * product_magnitudes ** 2
+    high_q_Q_squared_product_weight = float(np.sum(
+        squared_product_weights[high_q]))
+    near_Q_squared_product_weight = float(np.sum(
+        squared_product_weights[selected]))
     return {
         "modulus": modulus,
         "ell_range": (ell_first, ell_first + row_count - 1),
         "ell_freeze": ell_freeze,
         "divisor_range": (divisor_lower, divisor_upper),
         "endpoint_frequency_count": len(coefficients),
+        "high_Q_endpoint_ordered_pair_count": int(np.sum(high_q)),
         "near_high_Q_ordered_pair_count": int(np.sum(selected)),
+        "near_high_Q_ordered_pair_fraction": float(
+            np.sum(selected) / np.sum(high_q) if np.sum(high_q) else 0.0),
+        "row_count_scaled_near_high_Q_pair_fraction": float(
+            row_count * np.sum(selected) / np.sum(high_q)
+            if np.sum(high_q) else 0.0),
+        "high_Q_endpoint_coefficient_product_weight": high_q_product_weight,
+        "near_high_Q_endpoint_coefficient_product_weight": (
+            near_product_weight),
+        "near_high_Q_coefficient_weight_fraction": float(
+            near_product_weight / high_q_product_weight
+            if high_q_product_weight else 0.0),
+        "row_count_scaled_near_coefficient_weight_fraction": float(
+            row_count * near_product_weight / high_q_product_weight
+            if high_q_product_weight else 0.0),
+        "high_Q_Q_weighted_squared_coefficient_product": (
+            high_q_Q_squared_product_weight),
+        "near_high_Q_Q_weighted_squared_coefficient_product": (
+            near_Q_squared_product_weight),
+        "row_count_scaled_near_Q_squared_product_weight_fraction": float(
+            row_count * near_Q_squared_product_weight
+            / high_q_Q_squared_product_weight
+            if high_q_Q_squared_product_weight else 0.0),
         "near_high_Q_exact_denominator_count": len(q_values),
+        "maximum_near_exact_Q_ordered_pair_multiplicity": int(
+            np.max(q_multiplicities) if len(q_multiplicities) else 0),
         "endpoint_near_Q_weighted_square_score": float(score),
         "endpoint_near_signed_sum_over_complete": float(
             grouped_sum.real / complete_energy),

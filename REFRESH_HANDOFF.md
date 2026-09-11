@@ -8501,3 +8501,63 @@ obey an energy-normalized large-sieve/counting bound. A power-growing endpoint
 score or a dense family of residuals with endpoint score comparable to the
 full obstruction falsifies that route. The non-endpoint baseline, full
 aggregate inequality, signed prime correlation, and Goldbach remain OPEN.
+
+## 2026-09-11: endpoint incidences have 1/A density on four prime blocks
+
+The new test counts every eligible ordered endpoint pair over every prime in
+the complete project blocks [M,2M], retaining the moving cutoff Q>mA. The
+predeclared aggregate falsifier was A times the near-pair fraction exceeding
+4. At M=251,503,1009,2003, with project row counts 46,75,122,196, the
+measured values are
+
+1.96011, 2.17108, 2.05762, 2.02055.
+
+The corresponding worst individual-prime values are
+
+3.06667, 2.99613, 2.43840, 2.19662.
+
+Thus the complete-block density is close to the uniform-residue value 2/A,
+and its maximum prime-normalized deviation decreases on these scales. This is
+finite evidence, not an equidistribution theorem.
+
+Two weight falsifiers were then applied because raw counts do not control the
+large endpoint geometric coefficients. Weighting by |c_i c_j| gives aggregate
+A-scaled near fractions
+
+2.43539, 2.82140, 2.48488, 2.42314.
+
+The Cauchy-relevant weight Q|c_i c_j|^2 gives
+
+2.89246, 3.61695, 2.81935, 2.88377.
+
+Both remain below the predeclared threshold 4 in aggregate, although individual
+small-scale primes exceed 4. Only the prime-block-averaged weighted counting
+route remains supported.
+
+For d=g d', e=g e' and endpoint signs sigma,tau, the exact reduced denominator
+is
+
+Q = lcm(d,e) / gcd(g, sigma*e' - tau*d').
+
+The numerator before this last reduction is coprime to d'e'. This elementary
+identity is proved directly and guarded by coprime and noncoprime tests.
+Measured maximum near-packet ordered multiplicities are 12,12,24,24. This
+rejects literal invariance across the fixtures and a universal cap of 12; it
+does not reject an unspecified uniform O(1) bound. A divisor-type or uniform
+bound remains unproved.
+
+The new proof target has three parts:
+
+1. prove the complete-prime-block weighted endpoint incidence estimate with
+   O(N^epsilon/A) density for Q|c_i c_j|^2;
+2. prove an N^epsilon representation bound for the exact-Q endpoint
+   multiplicity using the displayed gcd/lcm formula.
+3. compare the resulting total Q-weighted endpoint pair-square envelope, with
+   the correct outer-prime weights, to the active-window denominator.
+
+The first two inputs plus Cauchy control the near endpoint packet sum only
+relative to that pair-square envelope; the third input is required to control
+the normalized endpoint score. Even all three would leave the measured
+non-endpoint baseline and the full signed prime-row estimate. The earlier
+prime-aggregation theorem target is preserved; no completed prime scan was
+repeated. Goldbach remains OPEN.

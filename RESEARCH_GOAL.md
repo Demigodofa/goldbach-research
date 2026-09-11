@@ -6853,3 +6853,32 @@ Together with
 proof component: an energy-normalized weighted count or large-sieve estimate
 for these short linear residuals over conductors and outer primes. No such
 uniform estimate is yet proved; the signed Goldbach correlation remains OPEN.
+
+### 2026-09-11 continuation: weighted endpoint incidences stay near 1/A
+
+Complete project prime-block counts at M=251,503,1009,2003 give
+A-scaled endpoint near-pair densities
+
+1.96011,2.17108,2.05762,2.02055.
+
+After weighting by |c_i c_j|, the values are
+2.43539,2.82140,2.48488,2.42314. With the proof-relevant
+Q|c_i c_j|^2 weight they are
+2.89246,3.61695,2.81935,2.88377. All pass the predeclared aggregate
+threshold 4. Individual primes can exceed 4, so only prime-block averaging is
+supported. This strengthens the earlier joint-prime rotation evidence with a
+specific count for the newly isolated endpoint spikes; it does not repeat or
+replace the existing full operator scans.
+
+Writing d=g d', e=g e', endpoint reduction gives exactly
+
+Q=lcm(d,e)/gcd(g,sigma e'-tau d').
+
+Maximum measured near-packet ordered multiplicities 12,12,24,24 reject only
+literal invariance or a cap of 12, not an unspecified uniform O(1) bound. The
+endpoint proof obligation is now a weighted O(N^epsilon/A) prime-block
+incidence estimate, a representation bound from this formula, and a comparison
+of the resulting total endpoint pair-square envelope with the active-window
+denominator under the correct prime weights. Incidence plus multiplicity alone
+controls the near packet sum only relative to that envelope. Non-endpoint
+modes, the full signed prime-row estimate, and Goldbach remain OPEN.
