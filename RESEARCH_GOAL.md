@@ -6613,3 +6613,11 @@ common. The next proof target is a subpower weighted prime-row bilinear bound
 for the resulting three aggregate matrix entries. A power-growing aggregate
 generalized eigenvalue falsifies it. The signed prime-correlation estimate and
 Goldbach remain open.
+
+The complete prime-block falsifier now also passes at `M=2003`: among 249
+primes the per-prime sharp maximum is `1.480723`, while prime aggregation
+gives sharp ratio `1.016111` and actual ratio `.980678`. All four positive
+weightings keep the sharp ratio below `1.01703`. The cached shared polynomial
+support and these values passed independent review. This remains finite
+evidence; the rational-phase bilinear estimate is still the next theorem
+target.

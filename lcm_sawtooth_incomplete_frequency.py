@@ -25,6 +25,7 @@ not assert an asymptotic boundary estimate.
 
 import cmath
 import math
+from functools import lru_cache
 
 import numpy as np
 
@@ -36,6 +37,7 @@ from lcm_sawtooth_incomplete_covariance import _cyclic_discrepancy
 from lcm_sawtooth_incomplete_covariance import _lcm_coefficient_polynomials
 from lcm_sawtooth_structured_divisor_sum import _coefficient_data
 from mobius_covariance_endpoint_probe import _prime_flags
+from mobius_covariance_lag_probe import _mobius_values
 from near_cutoff_geometric_bound import _active_modes
 
 
@@ -93,6 +95,28 @@ def _quadratic_curve_maximum(numerator, denominator, lower, upper):
 
     maximizing = max(candidates, key=quotient)
     return float(quotient(maximizing)), float(maximizing)
+
+
+@lru_cache(maxsize=None)
+def _quadratic_support_data(divisor_lower, divisor_upper):
+    """Precompute the three conductor vectors shared by a prime block."""
+    mobius = _mobius_values(divisor_upper)
+    divisors = tuple(
+        value for value in range(divisor_lower + 1, divisor_upper + 1)
+        if mobius[value])
+    lcm_polynomials = _lcm_coefficient_polynomials(divisors, mobius)
+    structured_polynomials = {}
+    for q, polynomial in lcm_polynomials.items():
+        for divisor, _ in _squarefree_divisors_with_complement_mobius(q):
+            if divisor <= 1:
+                continue
+            target = structured_polynomials.setdefault(
+                divisor, [0.0, 0.0, 0.0])
+            for index, coefficient in enumerate(polynomial):
+                target[index] += coefficient / q
+    return divisors, tuple(
+        (divisor, tuple(polynomial))
+        for divisor, polynomial in sorted(structured_polynomials.items()))
 
 
 def primitive_frequency_receipt(
@@ -216,7 +240,7 @@ def primitive_frequency_receipt(
 
 def primitive_conductor_operator_receipt(
         modulus, ell_first, row_count, ell_freeze,
-        divisor_lower, divisor_upper):
+        divisor_lower, divisor_upper, include_arbitrary_operator=True):
     """Test the sharp incomplete-row operator on the conductor coordinates.
 
     The full nonzero Fourier packet for period ``d`` is
@@ -236,6 +260,8 @@ def primitive_conductor_operator_receipt(
             modulus, ell_first, row_count, ell_freeze,
             divisor_lower, divisor_upper)):
         raise ValueError("all inputs must be integers")
+    if type(include_arbitrary_operator) is not bool:
+        raise ValueError("include_arbitrary_operator must be Boolean")
     if (ell_first < 1 or row_count < 1 or ell_freeze < 1
             or divisor_lower < 1 or divisor_upper <= divisor_lower
             or divisor_upper >= modulus):
@@ -243,60 +269,56 @@ def primitive_conductor_operator_receipt(
     if not _prime_flags(modulus)[modulus]:
         raise ValueError("modulus must be prime")
 
-    mobius, divisors, _, lcm_coefficients = _coefficient_data(
-        modulus, ell_freeze, divisor_lower, divisor_upper)
+    divisors, structured_polynomials = _quadratic_support_data(
+        divisor_lower, divisor_upper)
     if not divisors:
         raise ValueError("the divisor interval has no squarefree values")
-    structured_sums = {}
-    for q, coefficient in lcm_coefficients.items():
-        for divisor, _ in _squarefree_divisors_with_complement_mobius(q):
-            if divisor > 1:
-                structured_sums[divisor] = (
-                    structured_sums.get(divisor, 0.0) + coefficient / q)
 
     active = []
-    for divisor, structured_sum in sorted(structured_sums.items()):
+    freeze_logarithm = math.log(modulus * ell_freeze)
+    for divisor, polynomial in structured_polynomials:
         weight = sawtooth_gcd_mobius_transform(modulus, divisor)
         if weight > 0:
-            active.append((divisor, structured_sum, weight))
+            structured_sum = (
+                (polynomial[0] * freeze_logarithm + polynomial[1])
+                * freeze_logarithm + polynomial[2])
+            active.append((divisor, structured_sum, weight, polynomial))
     if not active:
         raise ArithmeticError("no positive primitive conductor weights")
 
     normalized_rows = np.array([
         [_primitive_discrepancy_packet(modulus, ell, divisor)
          / math.sqrt(weight)
-         for divisor, _, weight in active]
+         for divisor, _, weight, _ in active]
         for ell in range(ell_first, ell_first + row_count)
     ], dtype=float) / math.sqrt(row_count)
-    _, singular_values, right_singular = np.linalg.svd(
-        normalized_rows, full_matrices=False)
-    sharp_ratio = float(singular_values[0] ** 2)
     trace = float(np.sum(normalized_rows ** 2))
     rank_bound = min(row_count, len(active))
     trace_rank_lower_bound = trace / rank_bound
+    sharp_ratio = None
+    top_direction = None
+    if include_arbitrary_operator:
+        _, singular_values, right_singular = np.linalg.svd(
+            normalized_rows, full_matrices=False)
+        sharp_ratio = float(singular_values[0] ** 2)
+        top_direction = right_singular[0]
 
     actual_normalized = np.array([
         math.sqrt(weight) * structured_sum
-        for _, structured_sum, weight in active], dtype=float)
+        for _, structured_sum, weight, _ in active], dtype=float)
     actual_complete = float(np.dot(actual_normalized, actual_normalized))
     actual_incomplete = float(np.dot(
         normalized_rows @ actual_normalized,
         normalized_rows @ actual_normalized))
-    top_direction = right_singular[0]
     actual_unit = actual_normalized / math.sqrt(actual_complete)
-    overlap = float(abs(np.dot(top_direction, actual_unit)) ** 2)
+    overlap = (float(abs(np.dot(top_direction, actual_unit)) ** 2)
+               if top_direction is not None else None)
 
     # For fixed divisor support, every logarithmic coefficient vector is a
     # quadratic polynomial in log(X).  Measure the sharp operator only on
     # that three-dimensional structured span.
-    lcm_polynomials = _lcm_coefficient_polynomials(divisors, mobius)
     polynomial_columns = []
-    for divisor, _, weight in active:
-        structured_polynomial = [0.0, 0.0, 0.0]
-        for q, polynomial in lcm_polynomials.items():
-            if q % divisor == 0:
-                for index, coefficient in enumerate(polynomial):
-                    structured_polynomial[index] += coefficient / q
+    for _, _, weight, structured_polynomial in active:
         polynomial_columns.append([
             math.sqrt(weight) * value
             for value in structured_polynomial])
@@ -389,7 +411,8 @@ def primitive_conductor_operator_receipt(
             tuple(float(value) for value in row)
             for row in varying_complete_gram),
         "largest_eigenvalue_dominates_trace_rank_bound_verified": (
-            sharp_ratio + 1e-10 >= trace_rank_lower_bound),
+            sharp_ratio + 1e-10 >= trace_rank_lower_bound
+            if sharp_ratio is not None else None),
         "exact_conductor_packet_identity_proved": True,
         "uniform_conductor_operator_subpower_bound_proved": False,
         "actual_mobius_boundary_bound_proved": False,
@@ -419,7 +442,8 @@ def project_prime_block_quadratic_scan(scale_modulus):
         receipt = primitive_conductor_operator_receipt(
             modulus, row_count, row_count,
             row_count + row_count // 2,
-            divisor_lower, divisor_upper)
+            divisor_lower, divisor_upper,
+            include_arbitrary_operator=False)
         rows.append({
             "modulus": modulus,
             "sharp_varying_span_ratio": receipt[

@@ -75,6 +75,10 @@ class LcmSawtoothIncompleteFrequencyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Boolean"):
             primitive_frequency_receipt(
                 101, 10, 10, 10, 3, 9, decompose_pairs=1)
+        with self.assertRaisesRegex(ValueError, "Boolean"):
+            primitive_conductor_operator_receipt(
+                101, 10, 10, 10, 3, 9,
+                include_arbitrary_operator=1)
 
     def test_whole_prime_block_scan_reports_real_maxima(self):
         receipt = project_prime_block_quadratic_scan(101)

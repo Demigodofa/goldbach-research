@@ -7831,3 +7831,25 @@ aggregate generalized eigenvalue is the concrete falsifier. Proving this
 requires a bilinear prime-row estimate for the rational phase differences;
 the finite matrices do not supply it. The final signed prime-correlation
 estimate and Goldbach remain OPEN.
+
+### Larger full-block falsifier
+
+The exact scan was extended through every one of the 249 primes in
+`[2003,4006]`, using project rows `196<=l<=391` and `(V,B]=(6,61]`. The
+largest individual sharp varying-family ratio is `1.480723`; the largest
+actual ratio is `1.321736`. After prime aggregation the sharp and actual
+ratios are `1.016111` and `.980678`. Across the same four positive weight
+families, the sharp ratio lies in `[1.014960,1.017028]` and the normalized
+boundary-operator norm lies in `[.023988,.026090]`.
+
+`_quadratic_support_data` now caches the three modulus-independent conductor
+polynomials for a fixed `(V,B]`; the scan reconstructs each `S_d(log X)` by
+Horner evaluation. Independent review checked this against the former lcm
+reconstruction to floating-point roundoff and returned PASS. The complete
+`M=2003` scan took 46.7 seconds; primitive-packet construction, rather than
+polynomial rebuilding, is now the practical scaling cost. No process remains
+running, and no larger full-block result is claimed.
+
+The added scale strengthens the finite prime-rotation evidence but does not
+alter the proof target: the weighted aggregate bilinear phase estimate is
+still open.

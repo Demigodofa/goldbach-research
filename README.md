@@ -378,3 +378,7 @@ choosing the worst quadratic-log direction reduces the sharp ratios to
 `1.042,1.019,1.032`. Four natural positive outer weights give the same finite
 picture. This identifies joint prime-row phase rotation as the current
 candidate mechanism; its asymptotic bilinear estimate is still open.
+
+The complete `M=2003` prime block also passes the same falsifier: its weighted
+aggregate sharp ratios are at most `1.01703`. This 249-prime computation is
+reviewed finite evidence only.
