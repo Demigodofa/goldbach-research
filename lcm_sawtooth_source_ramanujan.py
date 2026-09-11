@@ -143,7 +143,10 @@ def source_ramanujan_mean_receipt(
         canonical_target=(-25042.404948829146, -1431.9765245642259),
         minimum_factor_seven_signed_fraction=.75,
         maximum_source_mode_cancellation_quotient=.10,
-        maximum_cross_frequency_cancellation_quotient=.25, tolerance=1e-12):
+        maximum_cross_frequency_cancellation_quotient=.25,
+        maximum_fully_resonant_frequency_mass_fraction=.25,
+        maximum_fully_resonant_across_source_pairs_quotient=.25,
+        tolerance=1e-12):
     """Evaluate a lag mean from source modes and conditioned CRT sums."""
     families = tuple(families)
     if (len(families) != 2 or any(len(family) != 2 for family in families)
@@ -165,6 +168,10 @@ def source_ramanujan_mean_receipt(
         raise ValueError("cancellation quotient must lie in (0,1]")
     if not 0 < maximum_cross_frequency_cancellation_quotient <= 1:
         raise ValueError("cross-frequency quotient must lie in (0,1]")
+    if not 0 < maximum_fully_resonant_frequency_mass_fraction <= 1:
+        raise ValueError("resonant mass fraction must lie in (0,1]")
+    if not 0 < maximum_fully_resonant_across_source_pairs_quotient <= 1:
+        raise ValueError("resonant source-pair quotient must lie in (0,1]")
     target = complex(*canonical_target)
 
     left_sources, left_pair_count = _family_source_modes(
@@ -184,6 +191,7 @@ def source_ramanujan_mean_receipt(
     unweighted_endpoint_total = 0.0j
     absolute_unweighted_endpoint_mass = 0.0
     pair_frequency_absolute_mass = 0.0
+    resonance_pair_frequency_absolute_masses = {}
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     kernel_frequency_totals = np.zeros(period, dtype=complex)
@@ -233,6 +241,11 @@ def source_ramanujan_mean_receipt(
                     expanded_mode_products += 1
             pair_frequency_absolute_mass += sum(
                 abs(value) for value in pair_frequency_totals.values())
+            for frequency, subtotal in pair_frequency_totals.items():
+                resonance_divisor = math.gcd(frequency, quotient)
+                resonance_pair_frequency_absolute_masses[resonance_divisor] = (
+                    resonance_pair_frequency_absolute_masses.get(
+                        resonance_divisor, 0.0) + abs(subtotal))
 
     unit_class_count = math.prod(
         prime_power - prime_power // prime
@@ -256,6 +269,32 @@ def source_ramanujan_mean_receipt(
         absolute_mode_contribution_mass / unit_class_count)
     normalized_grouped_frequency_absolute_mass = (
         float(np.sum(np.abs(kernel_frequency_totals))) / unit_class_count)
+    resonance_signed_means = {}
+    resonance_absolute_masses = {}
+    for frequency, subtotal in enumerate(kernel_frequency_totals):
+        resonance_divisor = math.gcd(frequency, quotient)
+        resonance_signed_means[resonance_divisor] = (
+            resonance_signed_means.get(resonance_divisor, 0.0j)
+            + subtotal / unit_class_count)
+        resonance_absolute_masses[resonance_divisor] = (
+            resonance_absolute_masses.get(resonance_divisor, 0.0)
+            + abs(subtotal) / unit_class_count)
+    resonance_signed_means = dict(sorted(resonance_signed_means.items()))
+    resonance_absolute_masses = dict(sorted(resonance_absolute_masses.items()))
+    resonance_pair_frequency_absolute_masses = {
+        divisor: mass / unit_class_count
+        for divisor, mass in sorted(
+            resonance_pair_frequency_absolute_masses.items())}
+    resonance_across_source_pairs_quotients = {
+        divisor: resonance_absolute_masses.get(divisor, 0.0) / mass
+        for divisor, mass in resonance_pair_frequency_absolute_masses.items()
+        if mass > 0}
+    fully_resonant_across_source_pairs_quotient = (
+        resonance_across_source_pairs_quotients.get(quotient))
+    fully_resonant_frequency_mass_fraction = (
+        resonance_absolute_masses.get(quotient, 0.0)
+        / normalized_grouped_frequency_absolute_mass
+        if normalized_grouped_frequency_absolute_mass > 0 else None)
     normalized_pair_frequency_absolute_mass = (
         pair_frequency_absolute_mass / unit_class_count)
     within_pair_frequency_mass_ratio = (
@@ -370,6 +409,30 @@ def source_ramanujan_mean_receipt(
             normalized_absolute_mode_contribution_mass),
         "normalized_grouped_frequency_absolute_mass": (
             normalized_grouped_frequency_absolute_mass),
+        "resonance_signed_mean_correlations": {
+            divisor: (subtotal.real, subtotal.imag)
+            for divisor, subtotal in resonance_signed_means.items()},
+        "resonance_absolute_masses": resonance_absolute_masses,
+        "resonance_pair_frequency_absolute_masses": (
+            resonance_pair_frequency_absolute_masses),
+        "resonance_across_source_pairs_quotients": (
+            resonance_across_source_pairs_quotients),
+        "fully_resonant_across_source_pairs_quotient": (
+            fully_resonant_across_source_pairs_quotient),
+        "maximum_fully_resonant_across_source_pairs_quotient": (
+            maximum_fully_resonant_across_source_pairs_quotient),
+        "fully_resonant_across_source_pairs_gate_passes": bool(
+            fully_resonant_across_source_pairs_quotient is not None
+            and fully_resonant_across_source_pairs_quotient
+            <= maximum_fully_resonant_across_source_pairs_quotient),
+        "fully_resonant_frequency_mass_fraction": (
+            fully_resonant_frequency_mass_fraction),
+        "maximum_fully_resonant_frequency_mass_fraction": (
+            maximum_fully_resonant_frequency_mass_fraction),
+        "fully_resonant_frequency_mass_gate_passes": bool(
+            fully_resonant_frequency_mass_fraction is not None
+            and fully_resonant_frequency_mass_fraction
+            <= maximum_fully_resonant_frequency_mass_fraction),
         "normalized_pair_frequency_absolute_mass": (
             normalized_pair_frequency_absolute_mass),
         "within_pair_frequency_mass_ratio": (
@@ -525,6 +588,12 @@ def leading_lag_source_receipt(tolerance=1e-12):
         "cross_frequency_cancellation_quotients": {
             lag: result["cross_frequency_cancellation_quotient"]
             for lag, result in results.items()},
+        "fully_resonant_frequency_mass_fractions": {
+            lag: result["fully_resonant_frequency_mass_fraction"]
+            for lag, result in results.items()},
+        "fully_resonant_across_source_pairs_quotients": {
+            lag: result["fully_resonant_across_source_pairs_quotient"]
+            for lag, result in results.items()},
         "phase_removed_cancellation_quotients": {
             lag: result["phase_removed_cancellation_quotient"]
             for lag, result in results.items()},
@@ -557,6 +626,12 @@ def leading_lag_source_receipt(tolerance=1e-12):
             for result in results.values()),
         "all_cross_frequency_cancellation_gates_pass": all(
             result["cross_frequency_cancellation_gate_passes"]
+            for result in results.values()),
+        "all_fully_resonant_frequency_mass_gates_pass": all(
+            result["fully_resonant_frequency_mass_gate_passes"]
+            for result in results.values()),
+        "all_fully_resonant_across_source_pairs_gates_pass": all(
+            result["fully_resonant_across_source_pairs_gate_passes"]
             for result in results.values()),
         "all_phase_removed_cancellation_gates_pass": all(
             result["phase_removed_cancellation_gate_passes"]

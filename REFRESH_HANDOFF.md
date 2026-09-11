@@ -11520,3 +11520,71 @@ absolute masses. The fully resonant sector `55|n`, where both local blocks
 lose Kloosterman twisting, must carry at most `.25` of `G` for the local
 square-root mechanism to remain a plausible dominant explanation. Failure
 identifies the zero-frequency quotient sector as the next obstruction.
+
+## 2026-09-11: fully resonant frequencies are small but still cancel spatially
+
+For the squarefree quotient `q=55` at lag `182`, grouping the already combined
+kernel-frequency totals by `gcd(n,q)` gives the following normalized signed
+subtotals, absolute masses, pre-source-pair masses, and cross-source quotients
+`G_d/P_d`:
+
+| `d=gcd(n,55)` | signed subtotal | `G_d` | `P_d` | `G_d/P_d` |
+|---:|---:|---:|---:|---:|
+| `1` | `-19602.426794547635-1597.0171847477748i` | `48330.78182467243` | `274217.6041903594` | `.17624974139560212` |
+| `5` | `-433.6743684192727+589.6121137210715i` | `3378.088380303601` | `20512.34047093103` | `.16468566252061012` |
+| `11` | `-527.5037858622168-424.5714535376243i` | `2244.9419258634794` | `20512.34047093103` | `.10944348008677451` |
+| `55` | `-4478.799999999995+9.2e-13i` | `4478.799999999994` | `77730.97441616062` | `.057619244241312775` |
+
+The sector absolute masses reconstruct `G=58432.61213083957`; their signed
+subtotals reconstruct the complex source mean.  The fully resonant sector
+carries only `.0766489779709193` of `G`, so the declared `.25` obstruction
+gate passes.  It is coherent after frequency grouping, since its signed
+magnitude equals its absolute mass, but it already lost more than `94%` of its
+pair-frequency mass when distinct source residues were combined.
+
+That last observation falsifies the sharper idea that nonzero inverse phases
+are necessary for the fixed-frequency cancellation.  The all-five follow-up
+confirms this is not special to lag `182`:
+
+| lag | fully resonant fraction of `G` | fully resonant `G_q/P_q` |
+|---:|---:|---:|
+| `140` | `.06857150688512995` | `.04960373378968238` |
+| `154` | `.03099409457500437` | `.01912118022264151` |
+| `156` | `.07841965468593158` | `.05243731324686996` |
+| `182` | `.0766489779709193` | `.057619244241312775` |
+| `240` | `.03579889904979085` | `.03168911345636422` |
+
+Both all-five `.25` gates pass.  This does not make the local Kloosterman
+blocks irrelevant: at zero twist their factor is `J-I`, which can itself
+cancel mean-zero spatial components.  It shows only that inverse-phase
+twisting is not the necessary finite mechanism.  The signed prime-correlation
+estimate and every uniform source bound remain open.
+
+Normal and optimized runs of the six affected tests pass in about `108`
+seconds each.  They cover complex signed reconstruction, both mass
+reconstructions, the four lag-`182` sector quotients, all-five fixtures and
+gates, parameter guards, and zero-mass behavior.
+
+Independent review initially held the checkpoint for missing central fixture
+assertions.  After those were added, the reviewer independently reproduced
+the sector classification and all-five values, ran both test modes (`6/6` in
+about `110` seconds each), checked compilation and the diff, and returned
+PASS.  The reviewer also confirmed the stated finite scope and the continuing
+role of `K_0=J-I` spatial cancellation.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Preserve the exact resonance partition and the local Kloosterman transfer, but
+redirect the dominant-mechanism hypothesis to the endpoint/source vectors.
+
+The next bounded question diagonalizes the untwisted spatial operator rather
+than discarding it.  At lag `182` and every fully resonant frequency `55|n`,
+decompose the left and right source coefficient tensors into constant and
+mean-zero components in the quotient-prime coordinates `5` and `11`.  If
+`B_(n,S)` is the exact contribution from tensor sector `S`, require exact
+reconstruction of every `C_n` to relative error at most `1e-12`, and require
+sectors containing at least one mean-zero quotient coordinate to carry at
+least `.75` of `sum_(55|n) sum_S |B_(n,S)|`.  Passing would demonstrate that
+the endpoint modes mainly avoid the reinforcing constant eigenspace of
+`(J-I) tensor (J-I)`.  Failure would redirect the search to cancellation
+between endpoint frequencies or tensor sectors while preserving the
+resonance measurements.

@@ -106,6 +106,52 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["normalized_grouped_frequency_absolute_mass"],
             58432.61213083957, places=6)
+        self.assertEqual(
+            tuple(receipt["resonance_signed_mean_correlations"]),
+            (1, 5, 11, 55))
+        self.assertEqual(
+            tuple(receipt["resonance_absolute_masses"]),
+            (1, 5, 11, 55))
+        self.assertAlmostEqual(
+            sum(receipt["resonance_absolute_masses"].values()),
+            receipt["normalized_grouped_frequency_absolute_mass"], places=8)
+        self.assertLess(abs(
+            sum(complex(*value) for value in
+                receipt["resonance_signed_mean_correlations"].values())
+            - complex(*receipt["source_ramanujan_mean_correlation"])), 1e-9)
+        self.assertEqual(
+            receipt["maximum_fully_resonant_frequency_mass_fraction"], .25)
+        self.assertAlmostEqual(
+            receipt["fully_resonant_frequency_mass_fraction"],
+            .0766489779709193, places=12)
+        self.assertTrue(receipt[
+            "fully_resonant_frequency_mass_gate_passes"])
+        self.assertAlmostEqual(
+            receipt["resonance_pair_frequency_absolute_masses"][55],
+            77730.97441616062, places=6)
+        self.assertAlmostEqual(
+            sum(receipt[
+                "resonance_pair_frequency_absolute_masses"].values()),
+            receipt["normalized_pair_frequency_absolute_mass"], places=6)
+        expected_resonance_quotients = {
+            1: .17624974139560212,
+            5: .16468566252061012,
+            11: .10944348008677451,
+            55: .057619244241312775,
+        }
+        for divisor, expected in expected_resonance_quotients.items():
+            self.assertAlmostEqual(
+                receipt["resonance_across_source_pairs_quotients"][divisor],
+                expected, places=12)
+        self.assertAlmostEqual(
+            receipt["fully_resonant_across_source_pairs_quotient"],
+            .057619244241312775, places=12)
+        self.assertEqual(
+            receipt[
+                "maximum_fully_resonant_across_source_pairs_quotient"],
+            .25)
+        self.assertTrue(receipt[
+            "fully_resonant_across_source_pairs_gate_passes"])
         self.assertAlmostEqual(
             receipt["within_frequency_absolute_mass_ratio"],
             .14869360881702542, places=12)
@@ -189,6 +235,12 @@ class SourceRamanujanTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             source_ramanujan_mean_receipt(
                 maximum_cross_frequency_cancellation_quotient=0)
+        with self.assertRaises(ValueError):
+            source_ramanujan_mean_receipt(
+                maximum_fully_resonant_frequency_mass_fraction=0)
+        with self.assertRaises(ValueError):
+            source_ramanujan_mean_receipt(
+                maximum_fully_resonant_across_source_pairs_quotient=0)
 
     def test_zero_mass_lag_has_no_cancellation_quotient(self):
         receipt = source_ramanujan_mean_receipt(
@@ -200,6 +252,18 @@ class SourceRamanujanTests(unittest.TestCase):
         self.assertIsNone(receipt["cross_frequency_cancellation_quotient"])
         self.assertFalse(receipt[
             "cross_frequency_cancellation_gate_passes"])
+        self.assertIsNone(receipt[
+            "fully_resonant_frequency_mass_fraction"])
+        self.assertFalse(receipt[
+            "fully_resonant_frequency_mass_gate_passes"])
+        self.assertIsNone(receipt[
+            "fully_resonant_across_source_pairs_quotient"])
+        self.assertFalse(receipt[
+            "fully_resonant_across_source_pairs_gate_passes"])
+        self.assertEqual(
+            receipt["resonance_pair_frequency_absolute_masses"], {})
+        self.assertEqual(
+            receipt["resonance_across_source_pairs_quotients"], {})
         self.assertIsNone(receipt["within_pair_frequency_mass_ratio"])
         self.assertIsNone(receipt[
             "across_source_pairs_fixed_frequency_quotient"])
@@ -234,6 +298,33 @@ class SourceRamanujanTests(unittest.TestCase):
             182: .06382956757596069,
             240: .020494909233862327,
         }
+        expected_resonant_mass_fractions = {
+            140: .06857150688512995,
+            154: .03099409457500437,
+            156: .07841965468593158,
+            182: .0766489779709193,
+            240: .03579889904979085,
+        }
+        expected_resonant_source_pair_quotients = {
+            140: .04960373378968238,
+            154: .01912118022264151,
+            156: .05243731324686996,
+            182: .057619244241312775,
+            240: .03168911345636422,
+        }
+        for lag, expected in expected_resonant_mass_fractions.items():
+            self.assertAlmostEqual(
+                receipt["fully_resonant_frequency_mass_fractions"][lag],
+                expected, places=12)
+        for lag, expected in expected_resonant_source_pair_quotients.items():
+            self.assertAlmostEqual(
+                receipt[
+                    "fully_resonant_across_source_pairs_quotients"][lag],
+                expected, places=12)
+        self.assertTrue(receipt[
+            "all_fully_resonant_frequency_mass_gates_pass"])
+        self.assertTrue(receipt[
+            "all_fully_resonant_across_source_pairs_gates_pass"])
         for lag, expected in expected_quotients.items():
             self.assertAlmostEqual(
                 receipt["source_mode_cancellation_quotients"][lag],
