@@ -13815,3 +13815,59 @@ misread as rotating arithmetic structure.  Passing would isolate one stable
 weighted orbit combination as a possible analytic target.  Failure would
 reject the stable rank-one explanation while preserving the measured
 covariances and sign-cube controls.
+
+## 2026-09-11: the leading covariance mode rotates across scale
+
+The frozen stable rank-one conjunction fails both of its gates.  For the full
+residue-72 off-diagonal covariance, the largest positive eigenvalue carries
+only
+
+`.3757928583773525`
+
+of the positive spectral mass, below the required `.5`.  There are seven
+positive eigenvalues.  The full relative leading eigengap is
+`.14118653693630265`.
+
+In ascending dyadic order, the squared overlaps between each block's leading
+eigenvector and the full-range leading eigenvector are approximately
+
+`.22904, .13051, .39577, .01882, .45449, .19224, .86710`.
+
+Only the final block exceeds the `.5` overlap gate, so the stability count is
+`1/7`, far below the required `5/7`.  The dyadic relative leading eigengaps
+range from about `.4012` to `.7815`; the weak overlaps therefore cannot be
+explained by nearly degenerate dyadic leading eigenvalues.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Reject the stable rank-one covariance explanation.  Preserve the exact orbit
+term matrix, full and dyadic covariances, spectra, eigengaps, sign cubes, and
+the final block's strong overlap.  These components may still support a
+higher-dimensional or scale-dependent arithmetic decomposition.
+
+Independent review verified the complex covariance orientation, diagonal
+removal, symmetric eigendecomposition, positive-spectrum threshold, all seven
+overlaps, and eigengap interpretation.  Focused normal and optimized tests
+pass.  No stable covariance mode, asymptotic dispersion estimate, signed
+prime-correlation theorem, or Goldbach result has been proved.
+
+The next bounded question asks whether the rotating leading vectors remain
+inside a stable three-dimensional positive subspace.  Let `P_*` project onto
+the top three eigenvectors of the full off-diagonal covariance, and `P_B`
+onto the top three for dyadic block `B`.  Record the full top-three positive
+spectral concentration and the normalized projector overlaps
+
+`trace(P_B P_*) / 3`.
+
+Freeze the subspace-stability falsifier as the conjunction
+
+`sum_(j=1)^3 lambda_j(A_*) / sum_(lambda_j>0) lambda_j(A_*) >= .75`
+
+and
+
+`#{B: trace(P_B P_*)/3 >= .75} >= 5`.
+
+Report the full and dyadic third-to-fourth eigengaps to distinguish true
+subspace rotation from an unstable cutoff.  Passing would isolate a fixed
+three-dimensional family of weighted orbit combinations for analysis.
+Failure would reject this particular low-dimensional stabilization while
+preserving the spectra and allowing scale-dependent decompositions.

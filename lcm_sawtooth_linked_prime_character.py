@@ -1933,6 +1933,137 @@ def residue_orbit_sign_cube_receipt(
     }
 
 
+def residue_orbit_covariance_mode_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        minimum_positive_spectral_concentration=.5,
+        minimum_squared_mode_overlap=.5,
+        minimum_stable_dyadic_block_count=5,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(minimum_positive_spectral_concentration)
+            or not 0 <= minimum_positive_spectral_concentration <= 1):
+        raise ValueError("spectral concentration gate must lie in [0, 1]")
+    if (not math.isfinite(minimum_squared_mode_overlap)
+            or not 0 <= minimum_squared_mode_overlap <= 1):
+        raise ValueError("squared mode overlap gate must lie in [0, 1]")
+    if (type(minimum_stable_dyadic_block_count) is not int
+            or minimum_stable_dyadic_block_count < 0):
+        raise ValueError(
+            "minimum stable dyadic block count must be a nonnegative integer")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    targets = tuple(base["orbit_term_rows"])
+    orbit_terms = np.asarray(tuple(
+        base["orbit_term_rows"][target] for target in targets),
+        dtype=np.complex128)
+
+    def mode_summary(term_matrix):
+        covariance = (term_matrix.conjugate().T @ term_matrix).real
+        off_diagonal_covariance = covariance.copy()
+        np.fill_diagonal(off_diagonal_covariance, 0.0)
+        eigenvalues, eigenvectors = np.linalg.eigh(off_diagonal_covariance)
+        leading_eigenvalue = float(eigenvalues[-1])
+        second_eigenvalue = float(eigenvalues[-2])
+        positive_threshold = tolerance * max(
+            1.0, float(np.max(np.abs(eigenvalues))))
+        positive_eigenvalues = eigenvalues[eigenvalues > positive_threshold]
+        positive_spectral_mass = float(np.sum(positive_eigenvalues))
+        if positive_spectral_mass <= 0:
+            raise ValueError("off-diagonal covariance has no positive spectrum")
+        return {
+            "eigenvalues": tuple(float(value) for value in eigenvalues),
+            "leading_eigenvector": eigenvectors[:, -1],
+            "leading_eigenvalue": leading_eigenvalue,
+            "second_eigenvalue": second_eigenvalue,
+            "positive_eigenvalue_count": len(positive_eigenvalues),
+            "positive_spectral_mass": positive_spectral_mass,
+            "positive_spectral_concentration": (
+                leading_eigenvalue / positive_spectral_mass),
+            "relative_leading_eigengap": (
+                (leading_eigenvalue - second_eigenvalue)
+                / max(1.0, abs(leading_eigenvalue))),
+            "off_diagonal_trace_error": abs(
+                float(np.trace(off_diagonal_covariance))),
+        }
+
+    full = mode_summary(orbit_terms)
+    full_vector = full["leading_eigenvector"]
+    dyadic_mode_summaries = {}
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_indices = tuple(
+            index for index, target in enumerate(targets)
+            if block_lower <= target < block_upper)
+        block_summary = mode_summary(
+            orbit_terms[np.asarray(block_indices, dtype=np.int64)])
+        block_vector = block_summary.pop("leading_eigenvector")
+        squared_overlap = float(abs(np.dot(block_vector, full_vector)) ** 2)
+        block_summary.update({
+            "target_count": len(block_indices),
+            "squared_overlap_with_full_mode": squared_overlap,
+            "passes_mode_overlap_gate": bool(
+                squared_overlap >= minimum_squared_mode_overlap),
+            "leading_eigenvector": tuple(
+                float(value) for value in block_vector),
+        })
+        dyadic_mode_summaries[block] = block_summary
+    if minimum_stable_dyadic_block_count > len(dyadic_mode_summaries):
+        raise ValueError(
+            "minimum stable dyadic block count exceeds measured blocks")
+    stable_dyadic_block_count = sum(
+        row["passes_mode_overlap_gate"]
+        for row in dyadic_mode_summaries.values())
+    full_concentration_passes = bool(
+        full["positive_spectral_concentration"]
+        >= minimum_positive_spectral_concentration)
+    overlap_count_passes = bool(
+        stable_dyadic_block_count >= minimum_stable_dyadic_block_count)
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "reflection_orbits": base["reflection_orbits"],
+        "orbit_count": len(base["reflection_orbits"]),
+        "minimum_positive_spectral_concentration_gate": (
+            minimum_positive_spectral_concentration),
+        "minimum_squared_mode_overlap_gate": minimum_squared_mode_overlap,
+        "minimum_stable_dyadic_block_count_gate": (
+            minimum_stable_dyadic_block_count),
+        "full_eigenvalues": full["eigenvalues"],
+        "full_leading_eigenvector": tuple(
+            float(value) for value in full_vector),
+        "full_leading_eigenvalue": full["leading_eigenvalue"],
+        "full_second_eigenvalue": full["second_eigenvalue"],
+        "full_positive_eigenvalue_count": full[
+            "positive_eigenvalue_count"],
+        "full_positive_spectral_mass": full["positive_spectral_mass"],
+        "full_positive_spectral_concentration": full[
+            "positive_spectral_concentration"],
+        "full_relative_leading_eigengap": full[
+            "relative_leading_eigengap"],
+        "full_off_diagonal_trace_error": full[
+            "off_diagonal_trace_error"],
+        "full_positive_spectral_concentration_passes_gate": (
+            full_concentration_passes),
+        "dyadic_mode_summaries": dyadic_mode_summaries,
+        "stable_dyadic_block_count": stable_dyadic_block_count,
+        "dyadic_mode_overlap_count_passes_gate": overlap_count_passes,
+        "stable_rank_one_covariance_gate_passes": bool(
+            full_concentration_passes and overlap_count_passes),
+        "finite_covariance_modes_measured": True,
+        "stable_rank_one_covariance_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

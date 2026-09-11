@@ -11,6 +11,7 @@ from lcm_sawtooth_linked_prime_character import (
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
     residue_orbit_reinforcement_receipt,
+    residue_orbit_covariance_mode_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
@@ -103,6 +104,12 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_sign_cube_receipt(
                 minimum_stable_dyadic_block_count=-1)
+        with self.assertRaises(ValueError):
+            residue_orbit_covariance_mode_receipt(
+                minimum_positive_spectral_concentration=-.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_covariance_mode_receipt(
+                minimum_squared_mode_overlap=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -799,6 +806,47 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["source_sign_alignment_proved"])
         self.assertFalse(receipt[
             "scale_stable_source_sign_alignment_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_covariance_mode(self):
+        receipt = residue_orbit_covariance_mode_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["orbit_count"], 17)
+        self.assertEqual(len(receipt["full_eigenvalues"]), 17)
+        self.assertEqual(len(receipt["full_leading_eigenvector"]), 17)
+        self.assertEqual(len(receipt["dyadic_mode_summaries"]), 7)
+        self.assertEqual(receipt["full_positive_eigenvalue_count"], 7)
+        self.assertAlmostEqual(
+            receipt["full_positive_spectral_concentration"],
+            .3757928583773525, places=12)
+        self.assertAlmostEqual(
+            receipt["full_relative_leading_eigengap"],
+            .14118653693630265, places=12)
+        self.assertEqual(receipt["full_off_diagonal_trace_error"], 0.0)
+        self.assertFalse(receipt[
+            "full_positive_spectral_concentration_passes_gate"])
+        dyadic = receipt["dyadic_mode_summaries"]
+        self.assertEqual(
+            tuple(row["passes_mode_overlap_gate"] for row in dyadic.values()),
+            (False, False, False, False, False, False, True))
+        expected_overlaps = (
+            .22904292219683592, .1305104031855723,
+            .3957656136171927, .01882114007769195,
+            .4544936611600416, .19223985525247766,
+            .86709680167003)
+        for row, expected in zip(dyadic.values(), expected_overlaps):
+            self.assertAlmostEqual(
+                row["squared_overlap_with_full_mode"], expected, places=12)
+        self.assertEqual(receipt["stable_dyadic_block_count"], 1)
+        self.assertFalse(receipt["dyadic_mode_overlap_count_passes_gate"])
+        self.assertFalse(receipt["stable_rank_one_covariance_gate_passes"])
+        self.assertTrue(receipt["finite_covariance_modes_measured"])
+        self.assertFalse(receipt["stable_rank_one_covariance_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
