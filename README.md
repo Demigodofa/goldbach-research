@@ -605,3 +605,10 @@ does not finish the certificate. At `M=127`, its trace diagonal is `.471398`,
 the traceless block minimum is `.013920`, and the cross-block norm is
 `.572959`, giving two-block lower bound `-.559039`. The exact trace Schur
 complement remains positive, so the obstruction is the coarse block norm.
+
+The unscaled trace Schur response reveals a simpler finite pattern. Mapping
+`-C_0^(-1)b_0` back to a traceless `3 by 3` tensor gives projective distances
+only `.0128` and `.0280` from the axial orbit `alpha*(u*u^T-I/3)` at
+`M=127,251`. This suggests that the Schur interaction may be organized around
+one quadratic axis. Uniform axiality and preservation of the lower-frame
+margin under axial approximation remain open.

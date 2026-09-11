@@ -7202,3 +7202,29 @@ canonical `1+5` split, and coarse two-block norm certificate. Preserve the
 trace/traceless decomposition and Schur interaction for an arithmetic estimate
 that retains their alignment. No uniform frame or signed prime-correlation
 estimate follows, and Goldbach remains OPEN.
+
+### 2026-09-11 continuation: the Schur response is nearly axial
+
+In the arithmetic-whitened trace/traceless split, write the unscaled candidate
+difference as `H=[[a,b],[b^T,C_0]]`. Map the eliminating response
+`v=-C_0^(-1)b^T` back to a traceless symmetric `3 by 3` tensor. The orbit
+`alpha*(u*u^T-I/3)` is characterized projectively by eigenvalue pattern
+`2:-1:-1`; its Frobenius distance is rotation invariant.
+
+At `M=127`, the response eigenvalues are
+`(-.565862,-.541268,1.107130)` and the axial distance is `.0128247`. The
+independently larger complete block `M=251` gives
+`(-.578949,-.525283,1.104231)` and distance `.0280486`. The latter scan took
+`326.0` seconds. Both pass the declared 10-percent falsifier by a wide margin.
+
+The cross row `b` itself is a covector; directly treating its monomial
+coefficients as a primal symmetric tensor misses the Frobenius-dual
+off-diagonal factors. That comparison was removed. The stated invariant
+applies only after `C_0^(-1)` produces the primal Schur response.
+
+Status `aha-candidate`, novelty `new-to-this-task`: the Schur response is an
+almost single-axis quadrupole on two finite blocks. The next concrete question
+is whether the non-axial residual
+can be bounded uniformly relative to the positive trace Schur margin. No
+uniform axial theorem, margin-preserving replacement, active/full lower frame,
+signed prime correlation, or Goldbach theorem follows yet.

@@ -9101,6 +9101,8 @@ repeating the same scalar test. The polynomial framework, exact whitening,
 half-frame candidate, signed prime-correlation problem, and Goldbach remain
 OPEN.
 
+
+
 ## 2026-09-11: trace/traceless block Gershgorin loses the residual alignment
 
 `lcm_sawtooth_trace_traceless_block_frame.py` follows the arithmetic
@@ -9127,3 +9129,36 @@ two-block Gershgorin. Preserve the decomposition and exact Schur interaction
 for a sign-sensitive arithmetic bound. The polynomial framework, exact
 whitening, uniform lower frame, signed prime correlation, and Goldbach remain
 OPEN.
+
+## 2026-09-11: the trace Schur response is nearly one-axis on two blocks
+
+`lcm_sawtooth_axial_schur_response.py` works before the final diagonal
+scaling. For
+
+`H=[[a,b],[b^T,C_0]]`
+
+in the arithmetic-whitened trace/traceless coordinates, it solves
+`v=-C_0^(-1)b^T`, maps `v` back to a traceless symmetric tensor, and measures
+rotation-invariant projective Frobenius distance to
+`alpha*(u*u^T-I/3)`. This axial orbit has eigenvalue pattern `2:-1:-1`.
+
+The complete `M=127` response has eigenvalues
+`(-.56586236,-.54126770,1.10713006)` and axial distance
+`.0128246614`. At `M=251`, the response eigenvalues are
+`(-.57894893,-.52528253,1.10423146)` and its axial distance is
+`.0280485781`. The larger scan used 42 primes and took `326.0` seconds. Both
+response distances are well below the predeclared `.1` falsifier.
+
+Coordinate warning: `b` is a covector. It cannot be mapped to a primal
+symmetric tensor by the response mapper; its Frobenius-dual matrix would halve
+the three off-diagonal monomial coefficients. An initial raw-cross comparison
+used the wrong identification and was removed before promotion. The response
+`C_0^(-1)b^T` is primal and is the only axiality claim retained here.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. The evidence suggests
+that the Schur response lies near one dominant quadratic axis.
+It does not prove uniform axiality or that replacing the exact response by an
+axial tensor preserves the small positive Schur margin. The next test must
+measure and bound that replacement error relative to the margin rather than
+repeat closeness alone. The uniform lower frame, signed prime correlation, and
+Goldbach remain OPEN.
