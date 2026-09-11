@@ -183,6 +183,7 @@ def source_ramanujan_mean_receipt(
     unsigned_ramanujan_total = 0.0j
     unweighted_endpoint_total = 0.0j
     absolute_unweighted_endpoint_mass = 0.0
+    pair_frequency_absolute_mass = 0.0
     absolute_mode_contribution_mass = 0.0
     frequency_gcd_totals = {}
     kernel_frequency_totals = np.zeros(period, dtype=complex)
@@ -196,6 +197,7 @@ def source_ramanujan_mean_receipt(
             if right_modes is None:
                 continue
             matched_source_residue_pairs += 1
+            pair_frequency_totals = {}
             for left_frequency, left_coefficient in left_modes.items():
                 for right_frequency, right_coefficient in right_modes.items():
                     frequency = (left_frequency - right_frequency) % period
@@ -214,6 +216,9 @@ def source_ramanujan_mean_receipt(
                     contribution = mode_product * conditioned_sum
                     total += contribution
                     kernel_frequency_totals[frequency] += contribution
+                    pair_frequency_totals[frequency] = (
+                        pair_frequency_totals.get(frequency, 0.0j)
+                        + contribution)
                     phase_removed_total += (
                         mode_product * ramanujan_weight)
                     unsigned_ramanujan_total += (
@@ -226,6 +231,8 @@ def source_ramanujan_mean_receipt(
                         frequency_gcd_totals.get(frequency_gcd, 0.0j)
                         + contribution)
                     expanded_mode_products += 1
+            pair_frequency_absolute_mass += sum(
+                abs(value) for value in pair_frequency_totals.values())
 
     unit_class_count = math.prod(
         prime_power - prime_power // prime
@@ -249,6 +256,16 @@ def source_ramanujan_mean_receipt(
         absolute_mode_contribution_mass / unit_class_count)
     normalized_grouped_frequency_absolute_mass = (
         float(np.sum(np.abs(kernel_frequency_totals))) / unit_class_count)
+    normalized_pair_frequency_absolute_mass = (
+        pair_frequency_absolute_mass / unit_class_count)
+    within_pair_frequency_mass_ratio = (
+        normalized_pair_frequency_absolute_mass
+        / normalized_absolute_mode_contribution_mass
+        if normalized_absolute_mode_contribution_mass > 0 else None)
+    across_source_pairs_fixed_frequency_quotient = (
+        normalized_grouped_frequency_absolute_mass
+        / normalized_pair_frequency_absolute_mass
+        if normalized_pair_frequency_absolute_mass > 0 else None)
     within_frequency_absolute_mass_ratio = (
         normalized_grouped_frequency_absolute_mass
         / normalized_absolute_mode_contribution_mass
@@ -353,6 +370,16 @@ def source_ramanujan_mean_receipt(
             normalized_absolute_mode_contribution_mass),
         "normalized_grouped_frequency_absolute_mass": (
             normalized_grouped_frequency_absolute_mass),
+        "normalized_pair_frequency_absolute_mass": (
+            normalized_pair_frequency_absolute_mass),
+        "within_pair_frequency_mass_ratio": (
+            within_pair_frequency_mass_ratio),
+        "across_source_pairs_fixed_frequency_quotient": (
+            across_source_pairs_fixed_frequency_quotient),
+        "maximum_across_source_pairs_fixed_frequency_quotient": .25,
+        "across_source_pairs_fixed_frequency_gate_passes": bool(
+            across_source_pairs_fixed_frequency_quotient is not None
+            and across_source_pairs_fixed_frequency_quotient <= .25),
         "within_frequency_absolute_mass_ratio": (
             within_frequency_absolute_mass_ratio),
         "cross_frequency_cancellation_quotient": (

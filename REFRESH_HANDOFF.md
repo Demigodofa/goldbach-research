@@ -11476,3 +11476,47 @@ The gate `G/P<=.25` asks whether cancellation across source-residue pairs at
 fixed Kloosterman frequency, rather than only algebra inside a single pair,
 is the main source of the `.1487` factor. Failure preserves both measured
 components and redirects to the within-pair endpoint identity.
+
+## 2026-09-11: fixed-frequency cancellation occurs across source residues
+
+At lag `182`, let `P` be the absolute mass obtained by combining duplicate
+final frequencies only inside each matched ordered source-residue pair. The
+three mass levels are
+
+`T=392973.25954838906`,
+
+`P=392973.25954837503`,
+
+`G=58432.61213083957`.
+
+Thus
+
+`P/T=.9999999999999643`,
+
+while
+
+`G/P=.14869360881703073`.
+
+The first ratio shows no material cancellation among duplicate final
+frequencies within one already-aggregated source pair. The second clears the
+predeclared `.25` gate: the observed fixed-frequency reduction occurs when
+distinct source-residue pairs are combined. Their product recovers the prior
+`G/T` ratio exactly up to floating roundoff.
+
+Independent review verified accumulator placement, ordered-pair scope,
+frequency indexing, all mass levels, quotient identities, zero-mass behavior,
+fixture assertions, and normal/optimized tests and returned PASS.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. This localizes
+the finite cancellation in the spatial/source-residue operator geometry at
+fixed Kloosterman frequency. It does not isolate the Kloosterman operator norm
+from phases in the source coefficients, repair the failed separate-`(k,l)`
+triangle bound, or prove a uniform signed estimate.
+
+The next bounded question tests whether the surviving fixed-frequency mass is
+itself resonant. At lag `182`, partition the grouped `C_n` by the exact subset
+of quotient primes `{5,11}` dividing `n`. Measure both signed subtotals and
+absolute masses. The fully resonant sector `55|n`, where both local blocks
+lose Kloosterman twisting, must carry at most `.25` of `G` for the local
+square-root mechanism to remain a plausible dominant explanation. Failure
+identifies the zero-frequency quotient sector as the next obstruction.
