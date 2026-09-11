@@ -539,3 +539,11 @@ selector is `.950735` and `1.013903`. Both active Grams have full rank and no
 bad null direction. This closes the finite active-window falsifier for these
 two unweighted blocks while leaving uniformity and the required outer-prime
 weights open.
+
+The lifted active-window scan now aggregates the endpoint and denominator
+matrices with the same four positive outer-prime weights as the earlier
+three-coordinate scan. At `M=127` the four relaxed quotients lie in
+`[.330626,.334205]`; at `M=251` they lie in `[.258553,.263471]`. All eight
+weighted denominator forms have rank 6 and no numerator-positive null
+direction. This finite weight stability preserves the polynomial-frame route;
+it is not a uniform weighted estimate or a signed prime-correlation bound.

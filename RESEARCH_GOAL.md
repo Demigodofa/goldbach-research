@@ -6997,3 +6997,31 @@ test repeats matrix-first aggregation with the four existing positive outer
 weights. Strong weight sensitivity or growth rejects that route; stable finite
 ratios would leave a six-coordinate weighted prime-row estimate as the next
 analytic obligation. Goldbach remains OPEN.
+
+### 2026-09-11 continuation: four outer weights are stable on two blocks
+
+The lifted endpoint and active-window matrices were aggregated before the
+generalized quotient with the existing weights `1`, `log(m)^2/m`,
+`rho_m log(m)^2/m`, and `rho_m*m*log(m)^2`. The relaxed ratios are respectively
+
+`M=127: .331216, .330626, .330721, .334205`,
+
+`M=251: .259769, .258553, .258602, .263471`.
+
+All weighted denominators have rank 6 and no numerator-positive null
+direction. Actual-selector ratios vary only from `.284545` to `.292816` at the
+smaller block and `.251971` to `.254539` at the larger. Thus neither strong
+weight sensitivity nor scale growth appears in this finite test.
+
+Independent review reproduced the complete `M=127` weighted block, checked the
+`rho_m` and matrix-first conventions, and audited the captured larger-block
+loop. Review PASSed; numerical conclusions are limited to the displayed
+precision.
+
+This is `changed-under-evidence`, not a theorem: the arbitrary-vector
+conductor-energy route remains directly contradicted, but the structured
+polynomial coordinates, rank-one subfamily, positive weights, prime averaging,
+and active-row Gram remain available together. The next target is a uniform
+matrix-first weighted six-coordinate endpoint/active inequality. Its proof,
+the sharper rank-one alternative, and the signed prime correlation all remain
+OPEN. Goldbach remains OPEN.

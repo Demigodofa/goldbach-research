@@ -8774,3 +8774,46 @@ denominator before taking the six-coordinate quotient. A growing or strongly
 weight-sensitive ratio falsifies this weighted lifted route. Stable finite
 values would isolate a fixed-dimensional weighted prime-row inequality for
 proof. Goldbach remains OPEN.
+
+## 2026-09-11: positive outer weights preserve the lifted active frame finitely
+
+The exact tested family is the complete prime block `M<=m<=2M`, the saved
+project geometry, the six-coordinate endpoint numerator, and the active-row
+denominator, with matrices summed before whitening. The four weights are
+
+`1, log(m)^2/m, rho_m*log(m)^2/m, rho_m*m*log(m)^2`,
+
+where `rho_m=|_active_modes(m,H)|/(m-1)` and `H=floor(N^.1)`, exactly as in
+the earlier three-coordinate scan.
+
+`M    unweighted   log^2/m   rho log^2/m   rho*m*log^2`
+`127   .331216      .330626      .330721         .334205`
+`251   .259769      .258553      .258602         .263471`
+
+The corresponding actual-selector ranges are `[.284545,.292816]` and
+`[.251971,.254539]`. Every weighted active denominator has rank 6, nullity 0,
+and no numerator-positive null direction. The larger exact run took `340.4`
+seconds. Weight sensitivity is at most `.00358` at `M=127` and `.00492` at
+`M=251`; the scale change is downward, so the stated finite falsifier did not
+fire.
+
+Independent review reproduced all four `M=127` generalized and actual-selector
+ratios, verified the exact `rho_m` convention and matrix-first weighting, and
+audited the captured `M=251` loop and scope. Review returned PASS. The printed
+tail digits are numerical receipts; conclusions use the displayed six-place
+values.
+
+Status: `changed-under-evidence`. The tested conjunction is supported on two
+finite blocks. It proves no uniform weighted inequality, no rank-one theorem,
+and no signed prime-correlation estimate. The arbitrary-conductor-vector
+counterexample remains blocked unchanged, while the polynomial basis, its
+rank-one subfamily, positive outer weights, prime averaging, and active residue
+Gram remain active components. Reactivate the rejected arbitrary-vector route
+only after a new restriction or arithmetic mechanism changes that family.
+
+The next analytic obligation is now exact: bound the matrix-first weighted
+six-coordinate endpoint form by a uniform constant (or subpower factor) times
+the matching active-row form. A growing quotient at larger project scales, or
+a proof-level obstruction in one of the six bilinear entries, rejects this
+sufficient relaxation while preserving the actual rank-one polynomial family.
+The signed prime correlation and Goldbach remain OPEN.

@@ -29,7 +29,10 @@ import numpy as np
 from lcm_sawtooth_exact_gcd_factorization import (
     sawtooth_gcd_mobius_transform,
 )
-from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
+from lcm_sawtooth_incomplete_frequency import (
+    _active_modes,
+    _quadratic_support_data,
+)
 from lcm_sawtooth_reduced_difference_mass import _validate_inputs
 from lcm_sawtooth_signed_difference_bins import _stable_geometric_sum
 from mobius_covariance_endpoint_probe import _prime_flags
@@ -300,11 +303,18 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
     row_count = int(inferred_N ** .41)
     divisor_lower = int(inferred_N ** .15)
     divisor_upper = int(inferred_N ** .32)
+    shift_length = int(inferred_N ** .1)
     ell_freeze = row_count + row_count // 2
     flags = _prime_flags(2 * scale_modulus)
     numerator = np.zeros((6, 6), dtype=float)
     denominator = np.zeros((6, 6), dtype=float)
     active_denominator = np.zeros((6, 6), dtype=float)
+    weighted_active_grams = {
+        mode: [np.zeros((6, 6), dtype=float),
+               np.zeros((6, 6), dtype=float)]
+        for mode in (
+            "unweighted", "log_squared_over_m",
+            "rho_log_squared_over_m", "rho_m_log_squared")}
     rows = []
     for modulus in range(scale_modulus, 2 * scale_modulus + 1):
         if not flags[modulus]:
@@ -316,6 +326,22 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
         denominator += np.asarray(receipt["full_residue_energy_gram"])
         active_denominator += np.asarray(
             receipt["active_window_residue_energy_gram"])
+        prime_numerator = np.asarray(
+            receipt["endpoint_pair_square_gram"])
+        prime_active = np.asarray(
+            receipt["active_window_residue_energy_gram"])
+        logarithmic_weight = math.log(modulus) ** 2 / modulus
+        rho = len(_active_modes(modulus, shift_length)) / (modulus - 1)
+        outer_weights = {
+            "unweighted": 1.0,
+            "log_squared_over_m": logarithmic_weight,
+            "rho_log_squared_over_m": rho * logarithmic_weight,
+            "rho_m_log_squared": (
+                rho * modulus * math.log(modulus) ** 2),
+        }
+        for mode, weight in outer_weights.items():
+            weighted_active_grams[mode][0] += weight * prime_numerator
+            weighted_active_grams[mode][1] += weight * prime_active
         rows.append({
             "modulus": modulus,
             "lifted_ratio": receipt["largest_generalized_eigenvalue"],
@@ -336,6 +362,30 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
     actual_denominator = float(actual_lift @ denominator @ actual_lift)
     actual_active = float(
         actual_lift @ active_denominator @ actual_lift)
+    weighted_active_receipts = {}
+    for mode, (weighted_numerator, weighted_active) in (
+            weighted_active_grams.items()):
+        weighted_generalized = _generalized_psd_receipt(
+            weighted_numerator, weighted_active)
+        weighted_actual_numerator = float(
+            actual_lift @ weighted_numerator @ actual_lift)
+        weighted_actual_active = float(
+            actual_lift @ weighted_active @ actual_lift)
+        weighted_active_receipts[mode] = {
+            "largest_generalized_eigenvalue": weighted_generalized[
+                "largest_generalized_eigenvalue"],
+            "actual_endpoint_over_active_window_residue_energy": (
+                weighted_actual_numerator / weighted_actual_active
+                if weighted_actual_active else float("inf")),
+            "denominator_rank": weighted_generalized["denominator_rank"],
+            "denominator_nullity": weighted_generalized[
+                "denominator_nullity"],
+            "largest_nullspace_numerator_eigenvalue": weighted_generalized[
+                "largest_nullspace_numerator_eigenvalue"],
+            "numerator_positive_denominator_null_direction": (
+                weighted_generalized[
+                    "numerator_positive_denominator_null_direction"]),
+        }
     return {
         "scale_modulus": scale_modulus,
         "prime_count": len(rows),
@@ -367,6 +417,7 @@ def project_prime_block_lifted_endpoint_scan(scale_modulus):
         "aggregate_active_window_residue_energy_gram": tuple(
             tuple(float(value) for value in row)
             for row in active_denominator),
+        "weighted_active_window_receipts": weighted_active_receipts,
         "active_window_largest_generalized_eigenvalue": active_generalized[
             "largest_generalized_eigenvalue"],
         "active_window_denominator_rank": active_generalized[

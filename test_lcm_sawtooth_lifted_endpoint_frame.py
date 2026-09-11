@@ -154,6 +154,38 @@ class LcmSawtoothLiftedEndpointFrameTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["aggregate_actual_active_window_over_full_residue_energy"],
             0.9507351890844087)
+        weighted = receipt["weighted_active_window_receipts"]
+        self.assertEqual(set(weighted), {
+            "unweighted", "log_squared_over_m",
+            "rho_log_squared_over_m", "rho_m_log_squared"})
+        self.assertAlmostEqual(
+            weighted["unweighted"]["largest_generalized_eigenvalue"],
+            receipt["active_window_largest_generalized_eigenvalue"])
+        self.assertAlmostEqual(
+            weighted["unweighted"][
+                "actual_endpoint_over_active_window_residue_energy"],
+            receipt[
+                "aggregate_actual_endpoint_over_active_window_residue_energy"])
+        for mode in weighted.values():
+            self.assertEqual(mode["denominator_rank"], 6)
+            self.assertFalse(
+                mode["numerator_positive_denominator_null_direction"])
+            self.assertGreaterEqual(
+                mode["largest_generalized_eigenvalue"],
+                mode[
+                    "actual_endpoint_over_active_window_residue_energy"])
+        self.assertAlmostEqual(
+            weighted["log_squared_over_m"][
+                "largest_generalized_eigenvalue"],
+            0.3306259203720875)
+        self.assertAlmostEqual(
+            weighted["rho_log_squared_over_m"][
+                "largest_generalized_eigenvalue"],
+            0.3307205508118922)
+        self.assertAlmostEqual(
+            weighted["rho_m_log_squared"][
+                "largest_generalized_eigenvalue"],
+            0.3342054806044802)
         self.assertTrue(
             receipt["finite_complete_prime_block_lifted_measurement"])
         self.assertFalse(receipt["uniform_lifted_endpoint_bound_proved"])
