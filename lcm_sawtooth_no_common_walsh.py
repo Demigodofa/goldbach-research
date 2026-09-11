@@ -92,12 +92,17 @@ def _target_receipt(
 
     even_mass = odd_mass = 0.0
     positive_majorant_by_common_divisor = {}
+    paired_majorant_by_common_divisor = {}
     direct_assignment_convolution = 0.0
     walsh_assignment_convolution = 0.0
+    paired_absolute_convolution = 0.0
     for common_divisor, values in values_by_e.items():
         weight = _totient(common_divisor)
         convolution = sum(
             values[mask] * values[(group_size - 1) ^ mask]
+            for mask in range(group_size))
+        paired_absolute = sum(
+            abs(values[mask] * values[(group_size - 1) ^ mask])
             for mask in range(group_size))
         direct_assignment_convolution += weight * convolution
         transformed = _walsh_transform(values)
@@ -111,6 +116,9 @@ def _target_receipt(
         odd_mass += weight * odd
         positive_majorant_by_common_divisor[common_divisor] = (
             weight * (even + odd) / target_divisor)
+        paired_majorant_by_common_divisor[common_divisor] = (
+            weight * paired_absolute / target_divisor)
+        paired_absolute_convolution += weight * paired_absolute
         walsh_assignment_convolution += weight * (even - odd)
     expanded = (
         int(mobius[target_divisor]) / target_divisor
@@ -120,8 +128,11 @@ def _target_receipt(
         * walsh_assignment_convolution)
     total_spectral_mass = even_mass + odd_mass
     positive_majorant = total_spectral_mass / target_divisor
+    paired_positive_majorant = paired_absolute_convolution / target_divisor
     majorant_over_absolute_direct = (
         positive_majorant / abs(direct) if direct else float("inf"))
+    paired_majorant_over_absolute_direct = (
+        paired_positive_majorant / abs(direct) if direct else float("inf"))
     return {
         "target_divisor": target_divisor,
         "target_prime_factor_count": len(primes),
@@ -135,14 +146,22 @@ def _target_receipt(
         "walsh_positive_majorant": positive_majorant,
         "positive_majorant_by_common_divisor": tuple(sorted(
             positive_majorant_by_common_divisor.items())),
+        "paired_majorant_by_common_divisor": tuple(sorted(
+            paired_majorant_by_common_divisor.items())),
+        "paired_support_positive_majorant": paired_positive_majorant,
         "walsh_majorant_over_absolute_sum": majorant_over_absolute_direct,
         "walsh_majorant_energy_factor": majorant_over_absolute_direct ** 2,
+        "paired_majorant_over_absolute_sum": (
+            paired_majorant_over_absolute_direct),
+        "paired_majorant_energy_factor": (
+            paired_majorant_over_absolute_direct ** 2),
         "walsh_parity_relative_imbalance": (
             abs(even_mass - odd_mass) / total_spectral_mass
             if total_spectral_mass else 0.0),
         "no_common_assignment_convolution_proved": True,
         "walsh_parity_square_identity_proved": True,
         "walsh_positive_majorant_proved": True,
+        "paired_support_majorant_proved": True,
         "walsh_parity_cancellation_bound_proved": False,
     }
 
@@ -250,8 +269,12 @@ def dominant_no_common_walsh_probe(
     selected_majorant_energy = sum(
         energy * receipt["walsh_majorant_energy_factor"]
         for (_, _, energy), receipt in zip(selected, receipts))
+    selected_paired_majorant_energy = sum(
+        energy * receipt["paired_majorant_energy_factor"]
+        for (_, _, energy), receipt in zip(selected, receipts))
     common_divisor_attribution = {}
     dyadic_square_energy = {}
+    e1_coordinate_data = []
     for (divisor, _, _), receipt in zip(selected, receipts):
         weight = sawtooth_gcd_mobius_transform(modulus, divisor)
         majorant = receipt["walsh_positive_majorant"]
@@ -268,6 +291,15 @@ def dominant_no_common_walsh_probe(
             dyadic_square_energy[block] = (
                 dyadic_square_energy.get(block, 0.0)
                 + weight * component ** 2)
+        coordinate_diagonal = weight * sum(
+            term ** 2
+            for term in no_common_residual_terms[divisor].values())
+        e1_component = dict(receipt[
+            "positive_majorant_by_common_divisor"]).get(1, 0.0)
+        e1_energy = weight * e1_component ** 2
+        e1_coordinate_data.append((
+            divisor, coordinate_diagonal, e1_energy,
+            e1_energy / coordinate_diagonal))
     attribution_total = sum(common_divisor_attribution.values())
     if abs(attribution_total - selected_majorant_energy) > max(
             1e-9, 1e-9 * selected_majorant_energy):
@@ -296,6 +328,27 @@ def dominant_no_common_walsh_probe(
     dyadic_block_count = len(dyadic_square_energy)
     dyadic_cauchy_bound_over_diagonal = dyadic_block_count * sum(
         dyadic_square_energy_over_diagonal.values())
+    e1_bad_coordinates = tuple(
+        row for row in e1_coordinate_data if row[3] > 1)
+    e1_total_energy = dyadic_square_energy.get(1, 0.0)
+    e1_by_prime_factor_count = {}
+    for divisor, coordinate_diagonal, e1_energy, _ in e1_coordinate_data:
+        prime_factor_count = len(_squarefree_prime_factors(divisor))
+        group = e1_by_prime_factor_count.setdefault(
+            prime_factor_count, [0, 0.0, 0.0])
+        group[0] += 1
+        group[1] += coordinate_diagonal
+        group[2] += e1_energy
+    e1_prime_factor_receipt = {
+        prime_factor_count: {
+            "coordinate_count": group[0],
+            "diagonal_fraction": group[1] / selected_diagonal,
+            "e1_energy_fraction": (
+                group[2] / e1_total_energy if e1_total_energy else 0.0),
+            "e1_energy_over_diagonal": group[2] / group[1],
+        }
+        for prime_factor_count, group in sorted(
+            e1_by_prime_factor_count.items())}
     return {
         "modulus": modulus,
         "ell": ell,
@@ -310,6 +363,10 @@ def dominant_no_common_walsh_probe(
             total_selected_energy / selected_diagonal),
         "selected_walsh_majorant_over_no_common_diagonal": (
             selected_majorant_energy / selected_diagonal),
+        "selected_paired_majorant_over_actual_energy": (
+            selected_paired_majorant_energy / total_selected_energy),
+        "selected_paired_majorant_over_no_common_diagonal": (
+            selected_paired_majorant_energy / selected_diagonal),
         "common_divisor_cumulative_majorant_attribution": (
             cumulative_attribution),
         "dyadic_common_divisor_majorant_attribution": (
@@ -321,6 +378,15 @@ def dominant_no_common_walsh_probe(
         "dyadic_common_divisor_block_count": dyadic_block_count,
         "dyadic_cauchy_bound_over_no_common_diagonal": (
             dyadic_cauchy_bound_over_diagonal),
+        "e1_maximum_coordinate_energy_over_diagonal": max(
+            row[3] for row in e1_coordinate_data),
+        "e1_bad_coordinate_count": len(e1_bad_coordinates),
+        "e1_bad_coordinate_diagonal_fraction": sum(
+            row[1] for row in e1_bad_coordinates) / selected_diagonal,
+        "e1_bad_coordinate_energy_fraction": (
+            sum(row[2] for row in e1_bad_coordinates) / e1_total_energy
+            if e1_total_energy else 0.0),
+        "e1_by_target_prime_factor_count": e1_prime_factor_receipt,
         "selected_receipts": receipts,
         "maximum_assignment_identity_error": max(
             abs(receipt["assignment_identity_error"]) for receipt in receipts),
@@ -335,6 +401,9 @@ def dominant_no_common_walsh_probe(
         "finite_dominant_walsh_measurement": True,
         "common_divisor_majorant_attribution_identity_proved": True,
         "dyadic_common_divisor_cauchy_reduction_proved": True,
+        "paired_support_majorant_proved": True,
+        "paired_support_subpower_bound_proved": False,
+        "omega_stratified_e1_bound_proved": False,
         "walsh_parity_cancellation_bound_proved": False,
     }
 

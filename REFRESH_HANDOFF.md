@@ -7356,3 +7356,58 @@ for each dyadic `e` block. A project-scaled block ratio growing like a fixed
 power, or a comparable sparse resonance persisting along the scaling family,
 falsifies that route. The signed prime-correlation estimate and Goldbach
 remain OPEN.
+
+
+## 2026-09-10: complementary assignment support removes the Walsh loss
+
+The Boolean assignment formula has a strictly sharper positive majorant. For
+each `e`, complementation links `u` to `d/u`, so
+
+`|sum_(u|d)F_(u,e)F_(d/u,e)|
+ <=sum_(u|d)|F_(u,e)F_(d/u,e)|
+ <=sum_(u|d)F_(u,e)^2`.
+
+Consequently
+
+`P_d=d^(-1)sum_e phi(e)sum_(u|d)|F_(u,e)F_(d/u,e)|`
+
+is a proved positive majorant between the exact coordinate and the previous
+Walsh-square majorant. It charges only divisor assignments for which the
+linked complementary assignment is also present.
+
+On the complete central dominant blocks at `M=16001,32003,64007,128021`, the
+energy of `P_d` equals the actual signed `c=1` energy to floating-point
+precision. Its ratios to the residual diagonal are
+`.35677,.32652,.33426,.33174`, while the Walsh-square ratios are
+`2.30319,2.73485,2.91017,3.35289`. Thus all observed Walsh loss in those
+4,900 earlier coordinates plus 5,798 new coordinates comes from the
+relaxation of complementary products to separate squares. This relaxation
+charges absent complements and magnitude mismatch between present
+complements; the measurement does not assign the loss between those causes.
+
+This equality is not universal. An 8,412-case small-range scan found mixed
+paired signs, with a largest coordinatewise `P_d/|T_d|` of `4.05033` at
+`(m,ell,V,B)=(257,23,5,15)`. One eight-prime project sample at `M=503` also
+has aggregate paired/actual energy ratio `1.31417`; the other sampled project
+scales through `M=8009` have ratio one to numerical precision. Therefore the
+positive paired-support inequality is proved, while eventual project-range
+sign coherence is only a finite observation.
+
+The enlarged `M=128021` check also falsifies the constant-one project-scaled
+`e=1` conjecture: its block-square/diagonal ratio is `1.01024`. Stratifying by
+`k=omega(d)` exposes a stable Boolean-complexity scale. Across all eight rows
+at `M=16001,32003,64007`, every measured class ratio divided by `2^k` is at
+most `.08171`; at `M=128021` the `k=4,5` normalized ratios are `.07831` and
+`.05921`. The candidate estimate is
+
+`E_(1,k) <= C 2^k Delta_(1,k)`,
+
+in the hard project range. Since `2^omega(d)=tau(d)=d^o(1)`, this would supply
+the needed subpower cost after summing the conductor classes. It is not yet
+proved, and the arbitrary-range counterexamples prevent removing the hard
+scaling hypotheses.
+
+The next <=30-minute target is to derive the `2^omega(d)` cost from the
+complement involution and the restricted window `d/B<u<B`, or to construct a
+project-scaled resonant coefficient family that makes the normalized class
+ratio grow. The signed prime-correlation estimate and Goldbach remain OPEN.

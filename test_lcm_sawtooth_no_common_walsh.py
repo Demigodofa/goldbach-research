@@ -16,6 +16,13 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
                 receipt["no_common_assignment_convolution_proved"])
             self.assertTrue(receipt["walsh_parity_square_identity_proved"])
             self.assertTrue(receipt["walsh_positive_majorant_proved"])
+            self.assertTrue(receipt["paired_support_majorant_proved"])
+            self.assertGreaterEqual(
+                receipt["paired_support_positive_majorant"],
+                abs(receipt["direct_no_common_collapsed_sum"]))
+            self.assertLessEqual(
+                receipt["paired_support_positive_majorant"],
+                receipt["walsh_positive_majorant"])
             self.assertFalse(
                 receipt["walsh_parity_cancellation_bound_proved"])
 
@@ -26,6 +33,11 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
         self.assertLess(receipt["maximum_walsh_identity_error"], 1e-8)
         self.assertGreater(
             receipt["selected_walsh_majorant_over_actual_energy"], 1)
+        self.assertGreaterEqual(
+            receipt["selected_paired_majorant_over_actual_energy"], 1)
+        self.assertLessEqual(
+            receipt["selected_paired_majorant_over_no_common_diagonal"],
+            receipt["selected_walsh_majorant_over_no_common_diagonal"])
         self.assertAlmostEqual(
             receipt["selected_walsh_majorant_over_no_common_diagonal"],
             receipt["selected_walsh_majorant_over_actual_energy"]
@@ -41,6 +53,19 @@ class LcmSawtoothNoCommonWalshTests(unittest.TestCase):
             receipt["selected_walsh_majorant_over_no_common_diagonal"])
         self.assertTrue(
             receipt["dyadic_common_divisor_cauchy_reduction_proved"])
+        self.assertGreaterEqual(
+            receipt["e1_maximum_coordinate_energy_over_diagonal"],
+            receipt[
+                "dyadic_common_divisor_square_energy_over_diagonal"][1])
+        self.assertGreaterEqual(
+            receipt["e1_bad_coordinate_energy_fraction"],
+            receipt["e1_bad_coordinate_diagonal_fraction"])
+        self.assertAlmostEqual(sum(
+            group["diagonal_fraction"] for group in receipt[
+                "e1_by_target_prime_factor_count"].values()), 1)
+        self.assertAlmostEqual(sum(
+            group["e1_energy_fraction"] for group in receipt[
+                "e1_by_target_prime_factor_count"].values()), 1)
         self.assertTrue(receipt["finite_dominant_walsh_measurement"])
 
     def test_nonsquarefree_target_is_rejected(self):

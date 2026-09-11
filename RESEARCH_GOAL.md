@@ -6370,3 +6370,35 @@ among `m,ell,V,B,D`, allowing a subpower factor. A fixed-power increase or a
 sparse resonance persisting along that family rejects it. The incomplete
 boundary, signed prime correlation, and Goldbach remain open; complete
 assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: retain only complementary assignments
+
+The exact `u<->d/u` link gives the proved refinement
+
+`|T_(d,1)|<=P_d<=M_d`,
+
+where
+
+`P_d=d^(-1)sum_e phi(e)sum_(u|d)|F_(u,e)F_(d/u,e)|`
+
+and `M_d` is the Walsh-square majorant. `P_d` removes all assignment mass whose
+complement cannot meet the second linked condition.
+
+At `M=16001,32003,64007,128021`, the full central dominant-block energy of
+`P_d` numerically equals the actual signed `c=1` energy, with ratios to the
+residual diagonal `.35677,.32652,.33426,.33174`; the Walsh ratios rise through
+`3.35289`. Universal paired-sign coherence is false in small ranges, so this
+equality remains project-scale evidence rather than a theorem.
+
+The `M=128021` run also raises the `e=1` ratio to `1.01024`, falsifying its
+constant-one project conjecture. The surviving candidate is the stratified
+estimate `E_(1,k)<=C 2^k Delta_(1,k)` for `k=omega(d)`. Every measured class
+ratio divided by `2^k` is below `.082` in the eight-prime samples through
+`M=64007`, and the new `k=4,5` values are `.0783,.0592`. Because
+`2^omega(d)=d^o(1)`, proving this would give the needed subpower loss.
+
+The next target is an analytic comparison using the complement involution and
+the central divisor window, with a project-scaled resonant family as the
+falsifier. The incomplete boundary, signed prime correlation, and Goldbach
+remain open; complete assembly remains `.295-delta`.
