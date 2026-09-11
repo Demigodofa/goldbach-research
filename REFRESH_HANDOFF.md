@@ -6810,3 +6810,46 @@ bounded by `N^epsilon D_m` through a divisor/GCD-sum factorization without a
 dense `q,r` expansion. Failure of that normalized GCD operator bound for the
 actual coefficient support rejects this route. The signed prime correlation
 and Goldbach remain OPEN.
+
+
+## 2026-09-10: the absolute gcd majorant remains constant-scale in tests
+
+`lcm_sawtooth_gcd_majorant.py` converts the complete-period pairwise bound
+into the exact sparse Jordan-totient factorization
+
+`(1/4)sum_(q,r)|K_qK_r|gcd(q,r)^2/(qr)
+ = (1/4)sum_d J_2(d)[sum_(d|q)|K_q|/q]^2`.
+
+Because `|Cov_m(q,r)|<=gcd(q,r)^2/(4qr)`, this bounds the absolute value of
+the entire frozen complete-period covariance form, including its diagonal.
+It can be evaluated through divisors of the lcm support rather than a dense
+`q,r` loop. The exact coefficient construction remains quadratic in the
+number of original divisors.
+
+For eight evenly spaced project primes at each scale `M=251,503,1009,2003,
+4001,8009,16001`, the median absolute-majorant/actual-diagonal ratios were
+
+`2.897,3.210,3.305,3.319,3.380,3.560,3.549`,
+
+and the corresponding maxima were
+
+`3.388,3.385,3.425,3.396,3.473,3.632,3.578`.
+
+Thus the deliberately adversarial sign-free envelope shows no power growth
+in this finite range. Independent review PASSed the Jordan identity, sparse
+factorization, covariance domination, cached implementation, scale receipts,
+and tests in normal and optimized modes.
+
+This is not an asymptotic operator theorem. The exact remaining question is
+whether
+
+`sum_d J_2(d)[sum_(d|q)|x_q|/q]^2
+ <= N^epsilon sum_q |x_q|^2 v_(m,q)`
+
+holds on the actual lcm coefficient support after the prime-`m` average, or
+whether the small values of `v_(m,q)` create a resonant obstruction. The next
+bounded task is to test the normalized generalized eigenvalue and compare its
+worst vector with the actual Mobius `K_q`; polynomial growth of that eigenvalue
+rejects the absolute-majorant route while preserving the signed gcd kernel.
+The incomplete boundary estimate, fixed-Mobius second moment, signed prime
+correlation, and Goldbach remain OPEN.

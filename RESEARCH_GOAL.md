@@ -6055,3 +6055,31 @@ absolute prime-averaged boundary are at most `N^epsilon` times the diagonal.
 A normalized operator norm growing as `N^c` for fixed `c>0` falsifies the
 route. The signed prime correlation and Goldbach remain open; complete
 assembly remains `.295-delta`.
+
+
+## 2026-09-10 continuation: sparse absolute covariance has no finite power loss
+
+The absolute complete-period covariance now has the exact sparse factorization
+
+`(1/4)sum_(q,r)|K_qK_r|gcd(q,r)^2/(qr)
+ = (1/4)sum_d J_2(d)[sum_(d|q)|K_q|/q]^2`.
+
+It follows from the proved pair covariance bound and dominates the full signed
+complete-period quadratic form. The divisor form removes the dense `q,r`
+runtime bottleneck; original lcm coefficient construction is still quadratic
+in the divisor count.
+
+Across eight project primes at each of seven scales from `M=251` through
+`16001`, the median majorant/actual-diagonal ratio stayed between `2.897` and
+`3.560`, and every maximum stayed between `3.385` and `3.632`. The sign-free
+majorant therefore shows no finite positive-power growth. Independent review
+verified the identity, domination, scale sweep, implementation, and tests.
+
+The missing proof is a weighted GCD-operator estimate relative to
+`sum_q |K_q|^2v_(m,q)`, not merely an unweighted GCD-sum theorem. Very small
+`v_(m,q)` may permit resonant vectors. The next falsifier computes that
+generalized eigenvalue and compares its extremizer with the actual Mobius
+coefficient direction. Polynomial eigenvalue growth closes the absolute route
+but leaves signed cancellation available. The incomplete boundary, signed
+prime correlation, and Goldbach remain open; complete assembly remains
+`.295-delta`.
