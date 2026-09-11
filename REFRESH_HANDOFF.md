@@ -10196,6 +10196,60 @@ increment. Packet construction and the four-state recombination must hold
 within `1e-12`. Failure preserves the exact factorization while rejecting
 order-robust phase attribution.
 
+## 2026-09-11: four-state attribution rejects phase as an independent cause
+
+The fourth packet state `|R|E` completes the two-factor table
+
+- `v00=|R|`: `.012887840697087712`;
+- `v10=R`: `-.12483226301138946`;
+- `v01=|R|E`: `-.25886661193381677`;
+- `v11=RE`: `.06574279317545721`.
+
+The two activation orders give
+
+- real-sign marginal without/with `E`: `-.13772010370847718` and
+  `+.324609405109274`;
+- additive-phase marginal without/with the real sign:
+  `-.2717544526309045` and `+.19057505618684667`.
+
+The two-factor Shapley contributions are `+.09344465070039841` for the real
+sign and `-.0405896982220289` for the additive phase. They reconstruct the
+full `+.0528549524783695` increment within `6.94e-18`. The interaction
+
+`v11-v10-v01+v00=.46232950881775114`
+
+is positive and `8.747136968989919` times the small net increment.
+
+The predeclared robust-phase hypothesis required both phase marginals to be
+positive and the phase Shapley contribution to carry at least `.75` of the
+net with its sign. It fails: the phase marginal without the real sign and the
+phase Shapley contribution are both negative. The earlier phase-last pass was
+entirely order-dependent.
+
+Independent review verified all four termwise packet states, conjugate
+orientations, marginal and Shapley formulas, interaction, numerical values,
+gate, tests, and scope. Six focused tests pass normally and under Python
+optimization.
+
+Curiosity status: `changed-under-evidence`. Preserve the exact four-state
+table and large interaction, but do not yet interpret the interaction as two
+independent arithmetic causes. It proves neither an order-independent phase
+mechanism nor a uniform sign estimate.
+
+The next bounded question tests whether the interaction is mainly a phase
+branch correction. Let `U=T/|T|`. For an odd modulus, the unit phase of
+`1+exp(2*pi*i*x/q)` is the exponential of half the least-absolute centered
+representative of `x mod q`. This predicts
+
+`U=exp(pi*i*(center_(2d)(-k)/(2d)-center_d(a*s)/d))`.
+
+Verify this coefficientwise within `1e-12`. Success collapses the artificial
+`sign(R),E` split into one exact centered additive phase and prevents the
+large Shapley interaction from being oversold. Then test whether this
+centered phase acts as a consistent residue translation in the folded packet;
+failure preserves the exact multiplier while rejecting the translation
+shortcut.
+
 ## 2026-09-11: diagonal phases can reinforce selected prime channels
 
 The phase-neutral counterfactual replaces every residue-dependent multiplier

@@ -16,7 +16,8 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         base = np.asarray((1, 0, 0, 0, 0), dtype=complex)
         right = np.asarray((0, 1, 0, 0, 0), dtype=complex)
         receipt = classify_multiplier_component_attribution(
-            {17: (base, right, base, -right, base, -right)}, 1, 1)
+            {17: (base, right, base, -right,
+                  base, right, base, -right)}, 1, 1)
         self.assertEqual(
             receipt["minimum_explained_increment_fraction"], .75)
         self.assertIn(
@@ -116,6 +117,24 @@ class PartnerDoublingTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["aggregate_full_multiplier_increment"],
             .0528549524783695, places=10)
+        self.assertLess(abs(receipt["shapley_reconstruction_error"]), 1e-12)
+        self.assertAlmostEqual(
+            receipt["aggregate_phase_only_near_lag_signed_sum"],
+            -.25886661193381677, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_phase_marginal_without_sign"],
+            -.2717544526309045, places=10)
+        self.assertAlmostEqual(
+            receipt["aggregate_phase_marginal_with_sign"],
+            .19057505618684667, places=10)
+        self.assertAlmostEqual(
+            receipt["real_sign_shapley_contribution"],
+            .09344465070039841, places=10)
+        self.assertAlmostEqual(
+            receipt["additive_phase_shapley_contribution"],
+            -.0405896982220289, places=10)
+        self.assertFalse(receipt[
+            "additive_phase_order_robust_shapley_hypothesis_passes"])
         self.assertFalse(receipt[
             "real_cosine_sign_meets_ordered_increment_gate"])
         self.assertTrue(receipt[
