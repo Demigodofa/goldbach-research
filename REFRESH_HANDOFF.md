@@ -9367,6 +9367,27 @@ analytic target is the sign of this Rayleigh contribution in source residue
 coordinates. No uniform sign or magnitude bound, lower frame, signed prime
 correlation, or Goldbach claim is proved.
 
+## 2026-09-11: the stabilizing Rayleigh sign is not primewise broad
+
+`project_primewise_pair_rayleigh_receipt` fixes the aggregate additive
+surrogate's weakest traceless vector for `(77,143)` and decomposes its Boolean
+joint-dependence Rayleigh contribution over the 24 primes in `[127,254]`.
+The predeclared broad-sign test required at least `75%` nonnegative prime
+contributions and no single prime above `25%` of total positive mass.
+
+Both conditions fail. Only `13/24=.541667` primes are nonnegative. Positive
+mass `1.60413948` is offset by negative mass `.51011981`, giving primewise
+sum `1.09401966`; it agrees with aggregate `1.09401987` up to a `2.11e-7`
+floating accumulation residual. The largest positive contributor is `m=167`,
+supplying `.3415054` of positive mass.
+
+Pursuit status: `changed-under-evidence`. Preserve the aggregate Boolean
+matrix reinforcement, but reject a primewise-positive or broadly distributed
+sign shortcut at this scale. The surviving mechanism is signed prime-block
+phase aggregation, which brings the investigation back toward the actual
+prime-correlation difficulty rather than bypassing it. No uniform estimate,
+lower frame, signed prime correlation, or Goldbach claim is proved.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`

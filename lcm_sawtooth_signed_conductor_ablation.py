@@ -29,6 +29,7 @@ from lcm_sawtooth_arithmetic_covariance_basis import (
 )
 from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
 from lcm_sawtooth_lifted_endpoint_frame import (
+    lifted_endpoint_residue_gram_receipt,
     project_prime_block_lifted_endpoint_scan,
 )
 
@@ -397,6 +398,120 @@ def project_cluster_matrix_stabilization_receipt(
         "cluster_fragile_mode_stabilization_hypothesis_passes": passes,
         "finite_cluster_matrix_stabilization_measured": True,
         "uniform_pair_matrix_stabilization_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def project_primewise_pair_rayleigh_receipt(
+        scale_modulus, conductors, nonnegative_fraction_threshold=.75,
+        maximum_positive_mass_share=.25):
+    """Decompose a fixed aggregate fragile-direction contribution by prime."""
+    conductors = tuple(sorted(set(conductors)))
+    if (len(conductors) != 2
+            or any(type(value) is not int or value < 2
+                   for value in conductors)):
+        raise ValueError("require exactly two distinct integer conductors")
+    if not 0 < nonnegative_fraction_threshold <= 1:
+        raise ValueError("nonnegative fraction threshold must lie in (0,1]")
+    if not 0 < maximum_positive_mass_share <= 1:
+        raise ValueError("positive mass share cap must lie in (0,1]")
+
+    exclusions = ((), (conductors[0],), (conductors[1],), conductors)
+    frames = {
+        excluded: project_prime_block_lifted_endpoint_scan(
+            scale_modulus, excluded)
+        for excluded in exclusions
+    }
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, frames[()])
+    baseline_transform, _ = covariance_inverse_root(covariance)
+    differences = {
+        excluded: trace_traceless_difference_from_frame(
+            frame, baseline_transform)
+        for excluded, frame in frames.items()
+    }
+    left = (conductors[0],)
+    right = (conductors[1],)
+    additive = differences[left] + differences[right] - differences[()]
+    _, additive_vectors = np.linalg.eigh(additive[1:, 1:])
+    fragile = additive_vectors[:, 0]
+    aggregate_cross = (
+        differences[conductors] - differences[left]
+        - differences[right] + differences[()])
+    aggregate_rayleigh = float(
+        fragile @ aggregate_cross[1:, 1:] @ fragile)
+
+    row_count = frames[()]["row_count"]
+    ell_freeze = frames[()]["ell_freeze"]
+    divisor_lower, divisor_upper = frames[()]["divisor_range"]
+    rows = []
+    for frame_row in frames[()]["rows"]:
+        modulus = frame_row["modulus"]
+        prime_differences = {}
+        for excluded in exclusions:
+            receipt = lifted_endpoint_residue_gram_receipt(
+                modulus, row_count, ell_freeze,
+                divisor_lower, divisor_upper, excluded)
+            prime_frame = {
+                "aggregate_active_window_residue_energy_gram": receipt[
+                    "active_window_residue_energy_gram"],
+                "aggregate_full_residue_energy_gram": receipt[
+                    "full_residue_energy_gram"],
+            }
+            prime_differences[excluded] = (
+                trace_traceless_difference_from_frame(
+                    prime_frame, baseline_transform))
+        prime_cross = (
+            prime_differences[conductors] - prime_differences[left]
+            - prime_differences[right] + prime_differences[()])
+        rows.append({
+            "modulus": modulus,
+            "fragile_direction_cross_rayleigh": float(
+                fragile @ prime_cross[1:, 1:] @ fragile),
+        })
+
+    contribution_sum = sum(
+        row["fragile_direction_cross_rayleigh"] for row in rows)
+    nonnegative_count = sum(
+        row["fragile_direction_cross_rayleigh"] >= 0 for row in rows)
+    nonnegative_fraction = nonnegative_count / len(rows)
+    positive_mass = sum(
+        max(0.0, row["fragile_direction_cross_rayleigh"])
+        for row in rows)
+    negative_mass = -sum(
+        min(0.0, row["fragile_direction_cross_rayleigh"])
+        for row in rows)
+    if not positive_mass:
+        raise ArithmeticError("primewise decomposition has no positive mass")
+    largest_positive = max(
+        rows, key=lambda row: row["fragile_direction_cross_rayleigh"])
+    largest_share = (
+        largest_positive["fragile_direction_cross_rayleigh"] / positive_mass)
+    fraction_passes = (
+        nonnegative_fraction >= nonnegative_fraction_threshold)
+    concentration_passes = largest_share <= maximum_positive_mass_share
+    return {
+        "scale_modulus": scale_modulus,
+        "conductors": conductors,
+        "prime_count": len(rows),
+        "nonnegative_fraction_threshold": nonnegative_fraction_threshold,
+        "maximum_positive_mass_share": maximum_positive_mass_share,
+        "rows": tuple(rows),
+        "nonnegative_prime_count": nonnegative_count,
+        "nonnegative_prime_fraction": nonnegative_fraction,
+        "positive_rayleigh_mass": positive_mass,
+        "negative_rayleigh_mass": negative_mass,
+        "primewise_rayleigh_sum": contribution_sum,
+        "aggregate_cross_rayleigh": aggregate_rayleigh,
+        "primewise_aggregate_residual": contribution_sum - aggregate_rayleigh,
+        "largest_positive_contributor": largest_positive["modulus"],
+        "largest_positive_mass_share": largest_share,
+        "nonnegative_fraction_falsifier_passes": fraction_passes,
+        "positive_mass_concentration_falsifier_passes": concentration_passes,
+        "broad_primewise_sign_hypothesis_passes": bool(
+            fraction_passes and concentration_passes),
+        "uniform_primewise_cross_rayleigh_sign_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,
     }

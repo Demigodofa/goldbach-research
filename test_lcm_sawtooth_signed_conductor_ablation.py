@@ -7,6 +7,7 @@ from lcm_sawtooth_signed_conductor_ablation import (
     project_cluster_pair_interaction_receipt,
     project_frozen_whitening_interaction_receipt,
     project_pair_matrix_interaction_receipt,
+    project_primewise_pair_rayleigh_receipt,
     project_signed_conductor_ablation_receipt,
 )
 
@@ -182,6 +183,35 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_cluster_matrix_stabilization_receipt(
                 127, ((55, 143),), 0)
+
+    def test_m127_strongest_pair_has_no_broad_primewise_sign(self):
+        receipt = project_primewise_pair_rayleigh_receipt(127, (77, 143))
+        self.assertEqual(receipt["prime_count"], 24)
+        self.assertEqual(receipt["nonnegative_prime_count"], 13)
+        self.assertAlmostEqual(receipt["nonnegative_prime_fraction"], 13 / 24)
+        self.assertAlmostEqual(
+            receipt["positive_rayleigh_mass"], 1.6041394773378064)
+        self.assertAlmostEqual(
+            receipt["negative_rayleigh_mass"], .5101198145771794)
+        self.assertEqual(receipt["largest_positive_contributor"], 167)
+        self.assertAlmostEqual(
+            receipt["largest_positive_mass_share"], .34150542466322575)
+        self.assertLess(abs(receipt["primewise_aggregate_residual"]), 3e-7)
+        self.assertFalse(receipt["nonnegative_fraction_falsifier_passes"])
+        self.assertFalse(receipt[
+            "positive_mass_concentration_falsifier_passes"])
+        self.assertFalse(receipt["broad_primewise_sign_hypothesis_passes"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_primewise_receipt_guards_pair_and_thresholds(self):
+        with self.assertRaises(ValueError):
+            project_primewise_pair_rayleigh_receipt(127, (77,))
+        with self.assertRaises(ValueError):
+            project_primewise_pair_rayleigh_receipt(
+                127, (77, 143), nonnegative_fraction_threshold=0)
+        with self.assertRaises(ValueError):
+            project_primewise_pair_rayleigh_receipt(
+                127, (77, 143), maximum_positive_mass_share=1.1)
 
 
 if __name__ == "__main__":
