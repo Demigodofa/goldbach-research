@@ -1,6 +1,7 @@
 import unittest
 
 from lcm_sawtooth_linked_prime_character import (
+    affine_reflection_residue_scan_receipt,
     affine_reflection_selection_receipt,
     linked_prime_character_receipt,
     linked_prime_parity_selection_receipt,
@@ -27,6 +28,13 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             affine_reflection_selection_receipt(
                 maximum_symmetric_energy_fraction=1.01)
+        with self.assertRaises(ValueError):
+            affine_reflection_residue_scan_receipt(
+                maximum_symmetric_energy_fraction=-.01)
+        with self.assertRaises(ValueError):
+            affine_reflection_residue_scan_receipt(tolerance=-1)
+        with self.assertRaises(ValueError):
+            affine_reflection_residue_scan_receipt(batch_size=0)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -173,6 +181,54 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "all_canonical_cells_remove_at_least_quarter_energy"])
         self.assertFalse(receipt[
             "uniform_quarter_energy_removal_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_uniform_quarter_energy_removal_is_falsified(self):
+        receipt = affine_reflection_residue_scan_receipt()
+        self.assertEqual(receipt["common_moduli"], (110, 130))
+        self.assertEqual(receipt["energy_gate_pass_count"], 328)
+        self.assertEqual(receipt["energy_gate_cell_count"], 480)
+        summaries = receipt["source_cell_summaries"]
+        self.assertEqual(len(summaries), 8)
+        for (quotient, _), summary in summaries.items():
+            expected = (65, 44) if quotient == 77 else (55, 38)
+            self.assertEqual(
+                (summary["target_residue_count"],
+                 summary["energy_gate_pass_count"]), expected)
+        summary_means = tuple(
+            summary["mean_symmetric_source_energy_fraction"]
+            for summary in summaries.values())
+        self.assertAlmostEqual(
+            min(summary_means), .49940295588019973, places=12)
+        self.assertAlmostEqual(
+            max(summary_means), .5002588502303549, places=12)
+        minimum_key, minimum_row = receipt[
+            "minimum_symmetric_energy_cell"]
+        maximum_key, maximum_row = receipt[
+            "maximum_symmetric_energy_cell"]
+        self.assertEqual(minimum_key, (77, 77, 64))
+        self.assertAlmostEqual(
+            minimum_row["symmetric_source_energy_fraction"],
+            .0010931000569213186, places=15)
+        self.assertEqual(maximum_key, (77, 1, 0))
+        self.assertAlmostEqual(
+            maximum_row["symmetric_source_energy_fraction"], 1, places=15)
+        self.assertAlmostEqual(
+            maximum_row["normalized_affine_reflection_covariance"],
+            1, places=15)
+        for row in receipt["rows"].values():
+            self.assertTrue(row["affine_reflection_is_involution"])
+            self.assertLess(
+                row["affine_projector_energy_relative_error"], 1e-12)
+            self.assertLess(
+                row["affine_projector_orthogonality_relative_error"], 1e-12)
+        self.assertTrue(receipt[
+            "all_affine_projection_identities_pass"])
+        self.assertFalse(receipt[
+            "all_even_target_residues_in_canonical_cells_pass_gate"])
+        self.assertFalse(receipt[
+            "uniform_all_source_energy_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

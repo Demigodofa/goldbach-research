@@ -13113,3 +13113,62 @@ energy.  Any violating residue rejects uniform quarter-energy removal while
 preserving the exact projection; a full pass would motivate a proof from the
 Chinese-remainder structure of the reflection covariance.  Record the worst
 target residue and cell rather than averaging it away.
+
+## 2026-09-11: uniform affine energy strength is falsified
+
+The exhaustive even-residue scan rejects the proposed pointwise `.75` energy
+gate.  It covers all `65` even residues modulo `130` and all `55` even
+residues modulo `110`, in each of four active divisor cells: `480` cells in
+total.  Every affine involution, projector-energy identity, and projector
+orthogonality check passes, but only `328/480` cells retain at most `.75` of
+the source energy.
+
+The worst cell is `(q,d,N mod g)=(77,1,0)`, where the symmetric energy
+fraction is exactly `1`: the source is already wholly symmetric and this
+projection removes nothing.  The minimum is
+`.0010931000569213186` at `(77,77,64)`.  Thus target reflection can range from
+almost total removal to no removal, depending on the residue and source cell.
+
+The failed conjunction was "exact affine selection plus uniform quarter
+energy removal."  Preserve the exact selection mechanism.  Retire only the
+pointwise `.75` conclusion for all even target residues in these canonical
+cells.  In particular, the earlier `N=1000,1002` strength measurements were
+favorable target residues rather than evidence of a uniform theorem.
+
+A new pattern remains: every source cell has mean retained fraction very near
+one half over its even target residues.  The eight means range from
+`.49940295588019973` to `.5002588502303549`.  All four `g=130` cells pass the
+pointwise gate on `44/65` residues; all four `g=110` cells pass on `38/55`.
+This is an observed average pattern, not yet an identity or useful prime
+estimate.
+
+Curiosity status: `pointwise-strength-falsified/average-pattern-open`, novelty
+`new-to-this-task`.  No source-energy scan estimates the surviving
+linked-prime functional, proves a signed prime-correlation bound, or proves
+Goldbach.
+
+Independent review verified the helper refactor, exhaustive denominator,
+absence of hidden zero-energy omissions, extrema, pass count, exact projector
+checks, scope, and focused normal and optimized tests.
+
+The next bounded question asks whether the near-half average has an exact
+convolution explanation.  Write
+
+`E_n=||P_n^+F||^2`, `S_n=||F||^2_(A_n)`, and
+`C_n=<F,R_n F>_(A_n)`.
+
+Summing over every even `n mod g` should turn `(a,n-a)` into all ordered unit
+pairs and give
+
+`sum_n C_n=|sum_(a in U_g)F(a)|^2`, and
+`sum_n S_n=phi(g)||F||^2`.
+
+Verify these identities in every canonical divisor cell within `1e-12`, and
+measure the resulting energy-weighted aggregate symmetric fraction
+
+`1/2+|sum_a F(a)|^2/(2 phi(g)||F||^2)`.
+
+Failure rejects the convolution bookkeeping.  Passing would explain the
+average phenomenon and isolate the source mean as the exact correction, but
+would supply only a target-averaged source identity; exceptional targets and
+the linked-prime estimate would remain open.

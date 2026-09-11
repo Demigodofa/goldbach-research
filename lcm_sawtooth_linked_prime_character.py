@@ -36,6 +36,44 @@ def _linked_prime_pairs(target, lower, upper):
         if primes[prime] and primes[target - prime])
 
 
+def _affine_reflection_projection(
+        common, units, additive_unit_values, target_residue):
+    unit_column = {int(unit): index for index, unit in enumerate(units)}
+    admissible_columns = np.asarray(tuple(
+        column for column, unit in enumerate(units)
+        if math.gcd((target_residue - int(unit)) % common, common) == 1),
+        dtype=np.int64)
+    reflected_columns = np.asarray(tuple(
+        unit_column[(target_residue - int(units[column])) % common]
+        for column in admissible_columns), dtype=np.int64)
+    reflected_twice_columns = np.asarray(tuple(
+        unit_column[(target_residue - int(units[column])) % common]
+        for column in reflected_columns), dtype=np.int64)
+    admissible_values = additive_unit_values[admissible_columns]
+    reflected_values = additive_unit_values[reflected_columns]
+    symmetric_values = (admissible_values + reflected_values) / 2
+    antisymmetric_values = (admissible_values - reflected_values) / 2
+    source_energy = float(np.sum(np.abs(admissible_values) ** 2))
+    symmetric_source_energy = float(np.sum(np.abs(symmetric_values) ** 2))
+    antisymmetric_source_energy = float(
+        np.sum(np.abs(antisymmetric_values) ** 2))
+    return {
+        "admissible_columns": admissible_columns,
+        "symmetric_values": symmetric_values,
+        "antisymmetric_values": antisymmetric_values,
+        "source_energy": source_energy,
+        "symmetric_source_energy": symmetric_source_energy,
+        "antisymmetric_source_energy": antisymmetric_source_energy,
+        "is_involution": bool(np.array_equal(
+            reflected_twice_columns, admissible_columns)),
+        "energy_error": abs(
+            source_energy - symmetric_source_energy
+            - antisymmetric_source_energy),
+        "orthogonality_error": abs(
+            np.vdot(symmetric_values, antisymmetric_values)),
+    }
+
+
 def _linked_prime_character_row(
         common, quotient, frequencies, stratum_totals,
         target, lower, upper, tolerance):
@@ -97,31 +135,17 @@ def _linked_prime_character_row(
     additive_unit_values = np.asarray(tuple(
         np.sum(values * np.exp(2j * np.pi * units * unit / common))
         for unit in units), dtype=np.complex128)
-    admissible_columns = np.asarray(tuple(
-        column for column, unit in enumerate(units)
-        if math.gcd((target - int(unit)) % common, common) == 1),
-        dtype=np.int64)
-    reflected_columns = np.asarray(tuple(
-        unit_column[(target - int(units[column])) % common]
-        for column in admissible_columns), dtype=np.int64)
-    reflected_twice_columns = np.asarray(tuple(
-        unit_column[(target - int(units[column])) % common]
-        for column in reflected_columns), dtype=np.int64)
-    affine_reflection_is_involution = bool(np.array_equal(
-        reflected_twice_columns, admissible_columns))
-    admissible_values = additive_unit_values[admissible_columns]
-    reflected_values = additive_unit_values[reflected_columns]
-    symmetric_values = (admissible_values + reflected_values) / 2
-    antisymmetric_values = (admissible_values - reflected_values) / 2
-    source_energy = float(np.sum(np.abs(admissible_values) ** 2))
-    symmetric_source_energy = float(np.sum(np.abs(symmetric_values) ** 2))
-    antisymmetric_source_energy = float(
-        np.sum(np.abs(antisymmetric_values) ** 2))
-    projector_energy_error = abs(
-        source_energy - symmetric_source_energy
-        - antisymmetric_source_energy)
-    projector_orthogonality_error = abs(
-        np.vdot(symmetric_values, antisymmetric_values))
+    projection = _affine_reflection_projection(
+        common, units, additive_unit_values, target % common)
+    admissible_columns = projection["admissible_columns"]
+    symmetric_values = projection["symmetric_values"]
+    antisymmetric_values = projection["antisymmetric_values"]
+    source_energy = projection["source_energy"]
+    symmetric_source_energy = projection["symmetric_source_energy"]
+    antisymmetric_source_energy = projection["antisymmetric_source_energy"]
+    affine_reflection_is_involution = projection["is_involution"]
+    projector_energy_error = projection["energy_error"]
+    projector_orthogonality_error = projection["orthogonality_error"]
     projector_energy_scale = max(1.0, source_energy)
     admissible_column_by_unit = {
         int(units[column]): index
@@ -306,6 +330,125 @@ def affine_reflection_selection_receipt(
         "all_canonical_cells_remove_at_least_quarter_energy": bool(
             exact_selection_passes and gate_pass_count == len(rows)),
         "uniform_quarter_energy_removal_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def affine_reflection_residue_scan_receipt(
+        maximum_symmetric_energy_fraction=.75,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_symmetric_energy_fraction)
+            or not 0 <= maximum_symmetric_energy_fraction <= 1):
+        raise ValueError(
+            "maximum symmetric energy fraction must lie in [0, 1]")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch size must be a positive integer")
+
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    rows = {}
+    for lag in CANONICAL_LAGS:
+        common = math.gcd(lag, period)
+        quotient = period // common
+        (frequencies, _, _, divisor_strata, _) = (
+            _partial_fourier_frequency_totals(
+                period, lag, left_sources, right_sources, batch_size))
+        active = _primitive_quadratic_character_fits(
+            frequencies, common, quotient, divisor_strata, tolerance)[
+                "active_divisors"]
+        primitive_mask = np.asarray(tuple(
+            math.gcd(int(frequency), common) == 1
+            for frequency in frequencies), dtype=bool)
+        units = frequencies[primitive_mask] // quotient
+        for divisor in active:
+            values = divisor_strata[divisor][primitive_mask]
+            additive_unit_values = np.asarray(tuple(
+                np.sum(values * np.exp(
+                    2j * np.pi * units * unit / common))
+                for unit in units), dtype=np.complex128)
+            for target_residue in range(0, common, 2):
+                projection = _affine_reflection_projection(
+                    common, units, additive_unit_values, target_residue)
+                source_energy = projection["source_energy"]
+                if source_energy == 0:
+                    continue
+                symmetric_fraction = (
+                    projection["symmetric_source_energy"] / source_energy)
+                scale = max(1.0, source_energy)
+                rows[(quotient, divisor, target_residue)] = {
+                    "common_modulus": common,
+                    "target_residue": target_residue,
+                    "admissible_residue_count": len(
+                        projection["admissible_columns"]),
+                    "symmetric_source_energy_fraction": symmetric_fraction,
+                    "normalized_affine_reflection_covariance": (
+                        2 * symmetric_fraction - 1),
+                    "affine_reflection_is_involution": projection[
+                        "is_involution"],
+                    "affine_projector_energy_relative_error": (
+                        projection["energy_error"] / scale),
+                    "affine_projector_orthogonality_relative_error": (
+                        projection["orthogonality_error"] / scale),
+                    "passes_symmetric_energy_gate": bool(
+                        symmetric_fraction
+                        <= maximum_symmetric_energy_fraction),
+                }
+
+    minimum_key = min(
+        rows, key=lambda key: rows[key][
+            "symmetric_source_energy_fraction"])
+    maximum_key = max(
+        rows, key=lambda key: rows[key][
+            "symmetric_source_energy_fraction"])
+    gate_pass_count = sum(
+        row["passes_symmetric_energy_gate"] for row in rows.values())
+    exact_projection_passes = all(
+        row["affine_reflection_is_involution"]
+        and row["affine_projector_energy_relative_error"] <= tolerance
+        and row["affine_projector_orthogonality_relative_error"] <= tolerance
+        for row in rows.values())
+    source_cell_summaries = {}
+    for source_cell in sorted({key[:2] for key in rows}):
+        fractions = tuple(
+            row["symmetric_source_energy_fraction"]
+            for key, row in rows.items() if key[:2] == source_cell)
+        source_cell_summaries[source_cell] = {
+            "target_residue_count": len(fractions),
+            "energy_gate_pass_count": sum(
+                fraction <= maximum_symmetric_energy_fraction
+                for fraction in fractions),
+            "mean_symmetric_source_energy_fraction": (
+                math.fsum(fractions) / len(fractions)),
+            "symmetric_source_energy_fraction_range": (
+                min(fractions), max(fractions)),
+        }
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "common_moduli": tuple(sorted({
+            row["common_modulus"] for row in rows.values()})),
+        "maximum_symmetric_energy_fraction_gate": (
+            maximum_symmetric_energy_fraction),
+        "rows": rows,
+        "source_cell_summaries": source_cell_summaries,
+        "minimum_symmetric_energy_cell": (
+            minimum_key, rows[minimum_key]),
+        "maximum_symmetric_energy_cell": (
+            maximum_key, rows[maximum_key]),
+        "energy_gate_pass_count": gate_pass_count,
+        "energy_gate_cell_count": len(rows),
+        "all_affine_projection_identities_pass": bool(
+            exact_projection_passes),
+        "all_even_target_residues_in_canonical_cells_pass_gate": bool(
+            exact_projection_passes and gate_pass_count == len(rows)),
+        "uniform_all_source_energy_theorem_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }
