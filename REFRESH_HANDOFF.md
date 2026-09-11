@@ -6675,3 +6675,50 @@ the exact row rotation and test whether the diagonal/off-diagonal budget can
 retain the `mu(r)mu(s)` trilinear structure. A `B^4` large-sieve cost or any
 positive exponent exceeding the frame falsifies that formulation. Complete
 assembly remains `.295-delta`; Goldbach remains OPEN.
+
+
+## 2026-09-10: the diagonal lcm-sawtooth energy is bounded
+
+Commit `331fc5d` proves the diagonal part of the frozen cyclic-sawtooth
+second moment. For squarefree `D={a: V<a<=B}`, `L_a=log(X/a)`, `X=m*l`, and
+
+`K_q=sum_(a,b in D, lcm(a,b)=q) mu(a)mu(b)L_aL_b`,
+
+the complete row-period variance is
+`v_(m,q)=theta(1-theta)`, where `theta=((m-1) mod q)/q`, provided
+`gcd(m,q)=1`. Consequently
+
+`E_diag=sum_q K_q^2 v_(m,q)
+ <= m R_max sum_(a,b in D) L_a^2 L_b^2/lcm(a,b)`,
+
+where `R_max=max_q #{(a,b) in D^2: lcm(a,b)=q}` and
+`R_max<=max_q 3^omega(q)`. The pair mass has the exact identity
+
+`sum_(a,b in D) L_a^2 L_b^2/lcm(a,b)
+ = sum_(d<=B) phi(d)[sum_(a in D,d|a)L_a^2/a]^2`.
+
+This supplies the required subpower multiplicity bound for the diagonal when
+combined with the existing frame lower estimate. Independent review PASSed
+the variance formula, Cauchy and multiplicity bounds, gcd-totient identity,
+range guards, and tests.
+
+Finite measurements support the scale but are not used as proof. Across
+`M=251,...,16001`, the normalized diagonal `M*E_diag/frame^2` stayed between
+`.0434` and `.0815`; the measured collision mean square was between 48% and
+82% of that diagonal. Most diagonal mass at `M=16001` lay in
+`sqrt(N)<q<=m`, so a standard additive large sieve with its `Q^2` cost does
+not close the estimate.
+
+A tempting unweighted pattern
+`sum_q K_q^2 << B^2/sqrt(V) * frame^2` was rejected: isolated prime-pair lcms
+give an asymptotic obstruction. The row-period variance weight is essential;
+the polynomial/lcm identities remain useful components rather than a complete
+method.
+
+The next <=30-minute question is now exact: can the cross-`q` covariance on
+the incomplete prime-row sample be bounded by `N^epsilon` times this diagonal
+for the actual Mobius lcm coefficients? A resonant dyadic pair of modulus
+blocks whose covariance/diagonal ratio grows like a positive power falsifies
+that proposal. No uniform arbitrary-coefficient estimate is claimed. The
+fixed-Mobius all-row second moment, the signed prime correlation, and Goldbach
+remain OPEN; complete assembly remains `.295-delta`.

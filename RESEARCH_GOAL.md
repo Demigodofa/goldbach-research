@@ -5956,3 +5956,39 @@ bounded task is an exact Fourier/row-rotation expansion of this second moment,
 retaining the `mu(r)mu(s)` structure. Standard large-sieve `Q^2` loss is the
 first falsifier. The assembled exponent remains `.295`; the signed prime
 correlation and Goldbach remain open.
+
+
+## 2026-09-10 continuation: diagonal energy closed, cross-modulus covariance open
+
+The cyclic-sawtooth diagonal now has a rigorous bound. With
+`K_q=sum_(lcm(a,b)=q)mu(a)mu(b)L_aL_b` and complete row-period variance
+`v_(m,q)=theta(1-theta)`, `theta=((m-1) mod q)/q`, commit `331fc5d` proves
+
+`sum_q K_q^2 v_(m,q)
+ <= m R_max sum_(a,b) L_a^2L_b^2/lcm(a,b)`,
+
+`R_max<=max_q 3^omega(q)`, together with the exact conversion
+
+`sum_(a,b) L_a^2L_b^2/lcm(a,b)
+ = sum_(d<=B) phi(d)[sum_(d|a)L_a^2/a]^2`.
+
+Independent review verified every step and the executable checks. This gives
+the correct subpower diagonal scale after the existing frame lower estimate.
+It does not bound cross-`q` covariance over an incomplete row interval or the
+prime sample.
+
+Finite data show the actual collision mean square at 48%-82% of the diagonal,
+while most diagonal mass in the largest sampled row lies between `sqrt(N)`
+and `m`. Thus the cross terms reduce the answer in the samples, but the usual
+additive large-sieve `Q^2` loss is too costly in the dominant range. An
+unweighted `B^2/sqrt(V)` conjecture was also discarded because isolated
+prime-pair lcms obstruct it asymptotically; the sawtooth variance factor is
+the ingredient that makes the proved diagonal bound possible.
+
+The next concrete target is a specialized cross-modulus Bessel estimate for
+the actual Mobius lcm coefficients: cross covariance at most `N^epsilon`
+times diagonal through `B<=N^(49/150-delta)`. It is falsified if a resonant
+dyadic pair of `q` blocks has a covariance/diagonal ratio growing by any fixed
+positive power. The fixed-Mobius all-row second moment, signed prime
+correlation, and Goldbach remain open; the assembled exponent is still
+`.295-delta`.
