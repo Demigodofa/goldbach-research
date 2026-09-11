@@ -13172,3 +13172,55 @@ Failure rejects the convolution bookkeeping.  Passing would explain the
 average phenomenon and isolate the source mean as the exact correction, but
 would supply only a target-averaged source identity; exceptional targets and
 the linked-prime estimate would remain open.
+
+## 2026-09-11: the target-average source energy has an exact formula
+
+The near-half average comes from an exact convolution identity.  For even
+squarefree `g`, every unit is odd.  As even `n` runs modulo `g`, the map
+`(n,a) -> (a,b=n-a)` bijects the admissible pairs with all ordered pairs
+`(a,b) in U_g^2`.  Therefore
+
+`sum_(n even mod g) C_n
+ =sum_(a,b in U_g) conjugate(F(a))F(b)
+ =|sum_(a in U_g)F(a)|^2`,
+
+and
+
+`sum_(n even mod g) S_n=phi(g)||F||^2`.
+
+Since `E_n=(S_n+Re C_n)/2`, the source-energy-weighted target average is
+
+`sum_n E_n/sum_n S_n
+ =1/2+|sum_a F(a)|^2/(2 phi(g)||F||^2)`.
+
+All eight canonical divisor cells pass the two summed identities and the
+closed-form weighted mean within `1e-12`.  Their weighted retained fractions
+range from `.500248707154767` to `.5007047176902384`.  Thus the slight excess
+above one half is exactly the nonnegative source-mean correction; it is not a
+numerical trend requiring a fitted explanation.
+
+Curiosity status: `target-average-identity-pass`, novelty `new-to-this-task`.
+Preserve the exact convolution formula and the exhaustive pointwise
+counterexamples together: target averaging halves the mean-zero source energy
+in aggregate, while individual residues may retain all of it.  This is a
+source identity.  It does not weight targets by their actual linked-prime
+counts, control exceptional targets, estimate the signed prime correlation,
+or prove Goldbach.
+
+Independent review proved the ordered-unit-pair bijection, checked the complex
+inner-product orientation and normalization, verified the eight computed
+weighted means, and confirmed the scope.  Focused normal and optimized tests
+pass.
+
+The next bounded question connects this identity to the existing main-term
+cancellation without treating that formal cancellation as a prime estimate.
+For each source cell, write `F=mean(F)+F_0`.  The exact formula gives zero
+aggregate reflection covariance for `F_0`, hence exactly one-half retained
+energy on the target average.  Determine whether the constant component's
+linked-prime contribution is precisely a previously isolated main-term piece
+when the divisor cells are recombined.  The test must cross-reference the
+existing coefficient identity and compare every coefficient, range, and
+endpoint; exact agreement preserves the centering as a useful reduction but
+adds no prime estimate.  Any mismatch rejects the proposed identification.
+After that bookkeeping, the genuinely new arithmetic question would be a
+target-dispersion bound for the mean-zero symmetric component.

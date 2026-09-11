@@ -203,6 +203,20 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             min(summary_means), .49940295588019973, places=12)
         self.assertAlmostEqual(
             max(summary_means), .5002588502303549, places=12)
+        weighted_means = tuple(
+            summary["energy_weighted_mean_symmetric_fraction"]
+            for summary in summaries.values())
+        self.assertAlmostEqual(
+            min(weighted_means), .500248707154767, places=12)
+        self.assertAlmostEqual(
+            max(weighted_means), .5007047176902384, places=12)
+        for summary in summaries.values():
+            self.assertLess(summary[
+                "summed_reflection_covariance_relative_error"], 1e-12)
+            self.assertLess(summary[
+                "summed_admissible_source_energy_relative_error"], 1e-12)
+            self.assertLess(summary[
+                "closed_form_weighted_mean_relative_error"], 1e-12)
         minimum_key, minimum_row = receipt[
             "minimum_symmetric_energy_cell"]
         maximum_key, maximum_row = receipt[
@@ -225,6 +239,10 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
                 row["affine_projector_orthogonality_relative_error"], 1e-12)
         self.assertTrue(receipt[
             "all_affine_projection_identities_pass"])
+        self.assertTrue(receipt[
+            "all_target_average_convolution_identities_pass"])
+        self.assertTrue(receipt[
+            "target_average_source_identity_proved_in_canonical_cells"])
         self.assertFalse(receipt[
             "all_even_target_residues_in_canonical_cells_pass_gate"])
         self.assertFalse(receipt[

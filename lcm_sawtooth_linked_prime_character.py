@@ -64,6 +64,8 @@ def _affine_reflection_projection(
         "source_energy": source_energy,
         "symmetric_source_energy": symmetric_source_energy,
         "antisymmetric_source_energy": antisymmetric_source_energy,
+        "reflection_covariance": np.vdot(
+            admissible_values, reflected_values),
         "is_involution": bool(np.array_equal(
             reflected_twice_columns, admissible_columns)),
         "energy_error": abs(
@@ -354,6 +356,7 @@ def affine_reflection_residue_scan_receipt(
     right_sources = _one_orientation_count_source_modes(
         period, *CANONICAL_FAMILIES[1])[2]
     rows = {}
+    source_cell_expected_totals = {}
     for lag in CANONICAL_LAGS:
         common = math.gcd(lag, period)
         quotient = period // common
@@ -373,6 +376,13 @@ def affine_reflection_residue_scan_receipt(
                 np.sum(values * np.exp(
                     2j * np.pi * units * unit / common))
                 for unit in units), dtype=np.complex128)
+            source_cell_expected_totals[(quotient, divisor)] = {
+                "summed_reflection_covariance": abs(
+                    np.sum(additive_unit_values)) ** 2,
+                "summed_admissible_source_energy": (
+                    len(units)
+                    * float(np.sum(np.abs(additive_unit_values) ** 2))),
+            }
             for target_residue in range(0, common, 2):
                 projection = _affine_reflection_projection(
                     common, units, additive_unit_values, target_residue)
@@ -390,6 +400,11 @@ def affine_reflection_residue_scan_receipt(
                     "symmetric_source_energy_fraction": symmetric_fraction,
                     "normalized_affine_reflection_covariance": (
                         2 * symmetric_fraction - 1),
+                    "source_energy": source_energy,
+                    "symmetric_source_energy": projection[
+                        "symmetric_source_energy"],
+                    "reflection_covariance": projection[
+                        "reflection_covariance"],
                     "affine_reflection_is_involution": projection[
                         "is_involution"],
                     "affine_projector_energy_relative_error": (
@@ -419,6 +434,25 @@ def affine_reflection_residue_scan_receipt(
         fractions = tuple(
             row["symmetric_source_energy_fraction"]
             for key, row in rows.items() if key[:2] == source_cell)
+        cell_rows = tuple(
+            row for key, row in rows.items() if key[:2] == source_cell)
+        summed_covariance = sum(
+            (row["reflection_covariance"] for row in cell_rows), 0.0j)
+        summed_source_energy = math.fsum(
+            row["source_energy"] for row in cell_rows)
+        summed_symmetric_energy = math.fsum(
+            row["symmetric_source_energy"] for row in cell_rows)
+        expected_totals = source_cell_expected_totals[source_cell]
+        expected_covariance = expected_totals[
+            "summed_reflection_covariance"]
+        expected_source_energy = expected_totals[
+            "summed_admissible_source_energy"]
+        covariance_scale = max(1.0, expected_covariance)
+        source_energy_scale = max(1.0, expected_source_energy)
+        weighted_fraction = (
+            summed_symmetric_energy / summed_source_energy)
+        closed_form_weighted_fraction = (
+            .5 + expected_covariance / (2 * expected_source_energy))
         source_cell_summaries[source_cell] = {
             "target_residue_count": len(fractions),
             "energy_gate_pass_count": sum(
@@ -428,7 +462,25 @@ def affine_reflection_residue_scan_receipt(
                 math.fsum(fractions) / len(fractions)),
             "symmetric_source_energy_fraction_range": (
                 min(fractions), max(fractions)),
+            "summed_reflection_covariance_relative_error": (
+                abs(summed_covariance - expected_covariance)
+                / covariance_scale),
+            "summed_admissible_source_energy_relative_error": (
+                abs(summed_source_energy - expected_source_energy)
+                / source_energy_scale),
+            "energy_weighted_mean_symmetric_fraction": weighted_fraction,
+            "closed_form_energy_weighted_mean_symmetric_fraction": (
+                closed_form_weighted_fraction),
+            "closed_form_weighted_mean_relative_error": (
+                abs(weighted_fraction - closed_form_weighted_fraction)
+                / max(1.0, abs(closed_form_weighted_fraction))),
         }
+    all_convolution_identities_pass = all(
+        summary["summed_reflection_covariance_relative_error"] <= tolerance
+        and summary[
+            "summed_admissible_source_energy_relative_error"] <= tolerance
+        and summary["closed_form_weighted_mean_relative_error"] <= tolerance
+        for summary in source_cell_summaries.values())
     return {
         "families": CANONICAL_FAMILIES,
         "arithmetic_period": period,
@@ -446,6 +498,10 @@ def affine_reflection_residue_scan_receipt(
         "energy_gate_cell_count": len(rows),
         "all_affine_projection_identities_pass": bool(
             exact_projection_passes),
+        "all_target_average_convolution_identities_pass": bool(
+            all_convolution_identities_pass),
+        "target_average_source_identity_proved_in_canonical_cells": bool(
+            exact_projection_passes and all_convolution_identities_pass),
         "all_even_target_residues_in_canonical_cells_pass_gate": bool(
             exact_projection_passes and gate_pass_count == len(rows)),
         "uniform_all_source_energy_theorem_proved": False,
