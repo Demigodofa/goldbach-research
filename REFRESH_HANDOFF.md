@@ -9388,6 +9388,25 @@ phase aggregation, which brings the investigation back toward the actual
 prime-correlation difficulty rather than bypassing it. No uniform estimate,
 lower frame, signed prime correlation, or Goldbach claim is proved.
 
+## 2026-09-11: active-window coherence leads the finite reinforcement
+
+`project_active_full_pair_rayleigh_split_receipt` separates the strongest
+pair's fixed-fragile-direction Boolean contribution as
+`u^T J_H u = u^T J_active u - .5*u^T J_full u`. The predeclared hypothesis
+required a positive active term carrying at least `75%` of the positive net.
+
+It passes. For `(77,143)`, the active-window term is `+.97550925`, or
+`.8916742` of the net. The full-residue Boolean term is `-.23702124`, so its
+negative half contributes another `+.11851062`. Thus both pieces reinforce:
+`+.97550925 - .5*(-.23702124) = +1.09401987`.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. Active-window phase
+coherence is the leading finite component, while the full-energy subtraction
+helps rather than creates the sign. This still concerns one aggregate fragile
+direction at `M=127`; the preceding primewise test already rules out a simple
+termwise-positive proof. No uniform active contribution, lower frame, signed
+prime correlation, or Goldbach claim is proved.
+
 ## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
 
 With baseline whitening fixed, `project_pair_matrix_interaction_receipt`

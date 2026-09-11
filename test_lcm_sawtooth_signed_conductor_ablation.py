@@ -3,6 +3,7 @@ import unittest
 from lcm_sawtooth_signed_conductor_ablation import (
     classify_conductor_ablation,
     classify_pair_interactions,
+    project_active_full_pair_rayleigh_split_receipt,
     project_cluster_matrix_stabilization_receipt,
     project_cluster_pair_interaction_receipt,
     project_frozen_whitening_interaction_receipt,
@@ -212,6 +213,33 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_primewise_pair_rayleigh_receipt(
                 127, (77, 143), maximum_positive_mass_share=1.1)
+
+    def test_m127_active_window_leads_the_fragile_reinforcement(self):
+        receipt = project_active_full_pair_rayleigh_split_receipt(
+            127, (77, 143))
+        self.assertAlmostEqual(
+            receipt["active_window_boolean_cross_rayleigh"],
+            .9755092481272897)
+        self.assertAlmostEqual(
+            receipt["full_residue_boolean_cross_rayleigh"],
+            -.23702123573859438)
+        self.assertAlmostEqual(
+            receipt["net_boolean_cross_rayleigh"], 1.094019865996587)
+        self.assertAlmostEqual(
+            receipt["active_window_fraction_of_net_reinforcement"],
+            .89167416282579)
+        self.assertTrue(receipt[
+            "full_subtraction_reinforces_fragile_direction"])
+        self.assertTrue(receipt[
+            "active_window_leading_hypothesis_passes"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_active_full_split_guards_pair_and_threshold(self):
+        with self.assertRaises(ValueError):
+            project_active_full_pair_rayleigh_split_receipt(127, (77,))
+        with self.assertRaises(ValueError):
+            project_active_full_pair_rayleigh_split_receipt(
+                127, (77, 143), active_fraction_threshold=0)
 
 
 if __name__ == "__main__":

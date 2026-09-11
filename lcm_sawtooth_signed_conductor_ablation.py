@@ -27,10 +27,16 @@ from lcm_sawtooth_arithmetic_covariance_basis import (
     covariance_inverse_root,
     project_one_frequency_covariance,
 )
+from lcm_sawtooth_centered_basis_gershgorin import (
+    symmetric_square_transform,
+)
 from lcm_sawtooth_incomplete_frequency import _quadratic_support_data
 from lcm_sawtooth_lifted_endpoint_frame import (
     lifted_endpoint_residue_gram_receipt,
     project_prime_block_lifted_endpoint_scan,
+)
+from lcm_sawtooth_trace_traceless_block_frame import (
+    trace_traceless_transform,
 )
 
 
@@ -512,6 +518,91 @@ def project_primewise_pair_rayleigh_receipt(
         "broad_primewise_sign_hypothesis_passes": bool(
             fraction_passes and concentration_passes),
         "uniform_primewise_cross_rayleigh_sign_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def project_active_full_pair_rayleigh_split_receipt(
+        scale_modulus, conductors, active_fraction_threshold=.75):
+    """Split a fragile-direction Boolean contribution into active and full."""
+    conductors = tuple(sorted(set(conductors)))
+    if (len(conductors) != 2
+            or any(type(value) is not int or value < 2
+                   for value in conductors)):
+        raise ValueError("require exactly two distinct integer conductors")
+    if not 0 < active_fraction_threshold <= 1:
+        raise ValueError("active fraction threshold must lie in (0,1]")
+
+    exclusions = ((), (conductors[0],), (conductors[1],), conductors)
+    frames = {
+        excluded: project_prime_block_lifted_endpoint_scan(
+            scale_modulus, excluded)
+        for excluded in exclusions
+    }
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, frames[()])
+    baseline_transform, _ = covariance_inverse_root(covariance)
+    transform = symmetric_square_transform(
+        baseline_transform) @ trace_traceless_transform()
+
+    def transformed(frame, key):
+        gram = np.asarray(frame[key])
+        result = transform.T @ gram @ transform
+        return (result + result.T) / 2
+
+    active = {
+        excluded: transformed(
+            frame, "aggregate_active_window_residue_energy_gram")
+        for excluded, frame in frames.items()
+    }
+    full = {
+        excluded: transformed(
+            frame, "aggregate_full_residue_energy_gram")
+        for excluded, frame in frames.items()
+    }
+    difference = {
+        excluded: active[excluded] - .5 * full[excluded]
+        for excluded in exclusions
+    }
+    left = (conductors[0],)
+    right = (conductors[1],)
+    additive = difference[left] + difference[right] - difference[()]
+    _, vectors = np.linalg.eigh(additive[1:, 1:])
+    fragile = vectors[:, 0]
+
+    def boolean_cross(parts):
+        return (
+            parts[conductors] - parts[left] - parts[right] + parts[()])
+
+    active_rayleigh = float(
+        fragile @ boolean_cross(active)[1:, 1:] @ fragile)
+    full_rayleigh = float(
+        fragile @ boolean_cross(full)[1:, 1:] @ fragile)
+    full_subtraction_rayleigh = -.5 * full_rayleigh
+    net_rayleigh = active_rayleigh + full_subtraction_rayleigh
+    if net_rayleigh <= 0:
+        raise ArithmeticError("net Boolean cross Rayleigh must be positive")
+    active_fraction = active_rayleigh / net_rayleigh
+    active_passes = bool(
+        active_rayleigh > 0
+        and active_fraction >= active_fraction_threshold)
+    return {
+        "scale_modulus": scale_modulus,
+        "conductors": conductors,
+        "active_fraction_threshold": active_fraction_threshold,
+        "active_window_boolean_cross_rayleigh": active_rayleigh,
+        "full_residue_boolean_cross_rayleigh": full_rayleigh,
+        "minus_half_full_boolean_cross_rayleigh": full_subtraction_rayleigh,
+        "net_boolean_cross_rayleigh": net_rayleigh,
+        "active_window_fraction_of_net_reinforcement": active_fraction,
+        "full_subtraction_fraction_of_net_reinforcement": (
+            full_subtraction_rayleigh / net_rayleigh),
+        "full_subtraction_reinforces_fragile_direction": bool(
+            full_subtraction_rayleigh > 0),
+        "active_window_leading_hypothesis_passes": active_passes,
+        "finite_active_full_boolean_rayleigh_split_measured": True,
+        "uniform_active_window_cross_rayleigh_sign_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,
     }
