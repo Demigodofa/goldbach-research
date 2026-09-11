@@ -9342,3 +9342,33 @@ does not yet separate cross-conductor terms already present in the active/full
 residue forms from nonlinearity in the Schur inverse, axial approximation, or
 moment-curve fit. It proves no uniform estimate, lower frame, signed prime
 correlation, or Goldbach claim.
+
+## 2026-09-11: the pair joint-dependence matrix targets the fragile mode
+
+With baseline whitening fixed, `project_pair_matrix_interaction_receipt`
+forms the exact inclusion-exclusion cross matrix
+`J=H_{77,143}-H_77-H_143+H_0` and the additive surrogate
+`H_add=H_77+H_143-H_0`, so `H_{77,143}=H_add+J`. It also decomposes the fitted
+parameter interaction exactly into the output change from `J` and the
+remaining nonlinearity of Schur/axial/moment extraction.
+
+For `(77,143)`, the cross-matrix output change is `+.00127806239`, which has
+the same sign as the total frozen interaction `+.00166344745` and supplies
+`.7683215` of its magnitude, passing the predeclared `75%` dominance test.
+The downstream nonlinear remainder is `+.00038538506`.
+
+The matrix evidence is stronger. The additive surrogate's traceless block
+has smallest eigenvalue `-.74450504`, whereas the exact joint-exclusion block
+has smallest eigenvalue `+.05251709`. On the surrogate's weakest unit vector,
+`J` contributes `+1.09401987`, lifting that same Rayleigh quotient to
+`+.34951483`. On the exact weakest vector, the additive and cross pieces are
+`-.42725688` and `+.47977397`, summing to `+.05251709`; the two weakest
+directions have absolute overlap `.9406753`.
+
+Status: `aha-candidate`, novelty `new-to-this-task`. The isolated Boolean
+inclusion-exclusion contribution jointly dependent on both conductor families
+is small in total Frobenius norm relative to the two single-removal changes
+(`.0690130`) but is strongly positive on the fragile traceless mode. This is
+a concrete finite reinforcement mechanism. It is not yet a uniform lower
+bound for such contributions and proves no lower frame, signed prime
+correlation, or Goldbach claim.

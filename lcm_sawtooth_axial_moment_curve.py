@@ -79,8 +79,8 @@ def moment_curve_projective_fit(vector):
     }
 
 
-def axial_moment_curve_fit_from_frame(frame, arithmetic_transform):
-    """Fit the axial response using a supplied arithmetic transform."""
+def trace_traceless_difference_from_frame(frame, arithmetic_transform):
+    """Return the fixed-transform active-minus-half-full matrix."""
     arithmetic_transform = np.asarray(arithmetic_transform, dtype=float)
     if arithmetic_transform.shape != (3, 3):
         raise ValueError("arithmetic transform must be 3 by 3")
@@ -92,6 +92,20 @@ def axial_moment_curve_fit_from_frame(frame, arithmetic_transform):
     full = np.asarray(frame["aggregate_full_residue_energy_gram"])
     difference = transform.T @ (active - .5 * full) @ transform
     difference = (difference + difference.T) / 2
+    return difference
+
+
+def axial_moment_curve_fit_from_difference(
+        difference, arithmetic_transform):
+    """Fit the axial response of a supplied trace/traceless matrix."""
+    difference = np.asarray(difference, dtype=float)
+    arithmetic_transform = np.asarray(arithmetic_transform, dtype=float)
+    if difference.shape != (6, 6):
+        raise ValueError("difference must be 6 by 6")
+    if arithmetic_transform.shape != (3, 3):
+        raise ValueError("arithmetic transform must be 3 by 3")
+    difference = (difference + difference.T) / 2
+    trace_traceless = trace_traceless_transform()
     response = -np.linalg.solve(
         difference[1:, 1:], difference[0, 1:])
     response_tensor = lifted_symmetric_matrix(
@@ -116,6 +130,14 @@ def axial_moment_curve_fit_from_frame(frame, arithmetic_transform):
             math.asin(actual_distance)),
         **fit,
     }
+
+
+def axial_moment_curve_fit_from_frame(frame, arithmetic_transform):
+    """Fit the axial response using a supplied arithmetic transform."""
+    difference = trace_traceless_difference_from_frame(
+        frame, arithmetic_transform)
+    return axial_moment_curve_fit_from_difference(
+        difference, arithmetic_transform)
 
 
 def project_axial_moment_curve_receipt(

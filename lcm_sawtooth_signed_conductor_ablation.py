@@ -15,9 +15,13 @@ candidate mechanism, not prove uniform control or prime correlation.
 
 from itertools import combinations
 
+import numpy as np
+
 from lcm_sawtooth_axial_moment_curve import (
+    axial_moment_curve_fit_from_difference,
     axial_moment_curve_fit_from_frame,
     project_axial_moment_curve_receipt,
+    trace_traceless_difference_from_frame,
 )
 from lcm_sawtooth_arithmetic_covariance_basis import (
     covariance_inverse_root,
@@ -247,6 +251,109 @@ def project_frozen_whitening_interaction_receipt(
         "interaction_retained_fraction": retained_fraction,
         "interaction_sign_preserved": same_sign,
         "frozen_whitening_retention_hypothesis_passes": bool(passes),
+        "uniform_effective_log_mechanism_proved": False,
+        "uniform_active_full_lower_frame_proved": False,
+        "signed_prime_correlation_proved": False,
+    }
+
+
+def project_pair_matrix_interaction_receipt(
+        scale_modulus, conductors, dominance_threshold=.75):
+    """Split fixed-whitening interaction at Boolean inclusion-exclusion."""
+    conductors = tuple(sorted(set(conductors)))
+    if (len(conductors) != 2
+            or any(type(value) is not int or value < 2
+                   for value in conductors)):
+        raise ValueError("require exactly two distinct integer conductors")
+    if not 0 < dominance_threshold <= 1:
+        raise ValueError("dominance threshold must lie in (0,1]")
+
+    exclusions = ((), (conductors[0],), (conductors[1],), conductors)
+    frames = {
+        excluded: project_prime_block_lifted_endpoint_scan(
+            scale_modulus, excluded)
+        for excluded in exclusions
+    }
+    covariance, _ = project_one_frequency_covariance(
+        scale_modulus, frames[()])
+    baseline_transform, _ = covariance_inverse_root(covariance)
+    differences = {
+        excluded: trace_traceless_difference_from_frame(
+            frame, baseline_transform)
+        for excluded, frame in frames.items()
+    }
+    left = (conductors[0],)
+    right = (conductors[1],)
+    additive = differences[left] + differences[right] - differences[()]
+    cross = differences[conductors] - additive
+    fits = {
+        excluded: axial_moment_curve_fit_from_difference(
+            difference, baseline_transform)["best_parameter"]
+        for excluded, difference in differences.items()
+    }
+    additive_parameter = axial_moment_curve_fit_from_difference(
+        additive, baseline_transform)["best_parameter"]
+    if additive_parameter is None or any(
+            parameter is None for parameter in fits.values()):
+        raise ArithmeticError("matrix decomposition selected infinity")
+
+    total_interaction = (
+        fits[conductors] - fits[left] - fits[right] + fits[()])
+    matrix_cross_output = fits[conductors] - additive_parameter
+    downstream_output = (
+        additive_parameter - fits[left] - fits[right] + fits[()])
+    if not total_interaction:
+        raise ArithmeticError("total fixed-whitening interaction is zero")
+    cross_fraction = abs(matrix_cross_output / total_interaction)
+    cross_same_sign = matrix_cross_output * total_interaction > 0
+
+    additive_traceless = additive[1:, 1:]
+    exact_traceless = differences[conductors][1:, 1:]
+    cross_traceless = cross[1:, 1:]
+    additive_values, additive_vectors = np.linalg.eigh(additive_traceless)
+    exact_values, exact_vectors = np.linalg.eigh(exact_traceless)
+    additive_weakest = additive_vectors[:, 0]
+    exact_weakest = exact_vectors[:, 0]
+    cross_norm = float(np.linalg.norm(cross, "fro"))
+    single_change_norm = float(
+        np.linalg.norm(differences[left] - differences[()], "fro")
+        + np.linalg.norm(differences[right] - differences[()], "fro"))
+    if not single_change_norm:
+        raise ArithmeticError("both single-removal matrix changes are zero")
+    positivity_restored = bool(
+        additive_values[0] < 0 < exact_values[0])
+    dominance_passes = bool(
+        cross_same_sign and cross_fraction >= dominance_threshold)
+    return {
+        "scale_modulus": scale_modulus,
+        "conductors": conductors,
+        "dominance_threshold": dominance_threshold,
+        "total_frozen_whitening_interaction_shift": total_interaction,
+        "matrix_cross_output_shift": matrix_cross_output,
+        "downstream_nonlinear_output_shift": downstream_output,
+        "decomposition_residual": (
+            total_interaction - matrix_cross_output - downstream_output),
+        "matrix_cross_output_fraction": cross_fraction,
+        "matrix_cross_output_sign_preserved": cross_same_sign,
+        "matrix_cross_output_dominance_hypothesis_passes": dominance_passes,
+        "matrix_cross_frobenius_norm": cross_norm,
+        "matrix_cross_relative_to_single_change_norms": (
+            cross_norm / single_change_norm),
+        "additive_surrogate_traceless_smallest_eigenvalue": float(
+            additive_values[0]),
+        "exact_joint_traceless_smallest_eigenvalue": float(exact_values[0]),
+        "cross_restores_traceless_positive_definiteness": positivity_restored,
+        "cross_rayleigh_on_additive_weakest_direction": float(
+            additive_weakest @ cross_traceless @ additive_weakest),
+        "exact_rayleigh_on_additive_weakest_direction": float(
+            additive_weakest @ exact_traceless @ additive_weakest),
+        "additive_rayleigh_on_exact_weakest_direction": float(
+            exact_weakest @ additive_traceless @ exact_weakest),
+        "cross_rayleigh_on_exact_weakest_direction": float(
+            exact_weakest @ cross_traceless @ exact_weakest),
+        "weakest_direction_absolute_overlap": abs(float(
+            additive_weakest @ exact_weakest)),
+        "finite_pair_matrix_interaction_decomposed": True,
         "uniform_effective_log_mechanism_proved": False,
         "uniform_active_full_lower_frame_proved": False,
         "signed_prime_correlation_proved": False,

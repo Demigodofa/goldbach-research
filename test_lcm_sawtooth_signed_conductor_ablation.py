@@ -5,6 +5,7 @@ from lcm_sawtooth_signed_conductor_ablation import (
     classify_pair_interactions,
     project_cluster_pair_interaction_receipt,
     project_frozen_whitening_interaction_receipt,
+    project_pair_matrix_interaction_receipt,
     project_signed_conductor_ablation_receipt,
 )
 
@@ -112,6 +113,33 @@ class LcmSawtoothSignedConductorAblationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             project_frozen_whitening_interaction_receipt(
                 127, (77, 143), retention_threshold=0)
+
+    def test_m127_cross_matrix_stabilizes_the_fragile_direction(self):
+        receipt = project_pair_matrix_interaction_receipt(127, (77, 143))
+        self.assertAlmostEqual(
+            receipt["matrix_cross_output_fraction"], .7683214684040077)
+        self.assertAlmostEqual(
+            receipt["additive_surrogate_traceless_smallest_eigenvalue"],
+            -.7445050404108796)
+        self.assertAlmostEqual(
+            receipt["exact_joint_traceless_smallest_eigenvalue"],
+            .052517093474779286)
+        self.assertAlmostEqual(
+            receipt["cross_rayleigh_on_additive_weakest_direction"],
+            1.0940198731962434)
+        self.assertLess(abs(receipt["decomposition_residual"]), 1e-15)
+        self.assertTrue(receipt[
+            "matrix_cross_output_dominance_hypothesis_passes"])
+        self.assertTrue(receipt[
+            "cross_restores_traceless_positive_definiteness"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+
+    def test_pair_matrix_receipt_guards_pair_and_threshold(self):
+        with self.assertRaises(ValueError):
+            project_pair_matrix_interaction_receipt(127, (77,))
+        with self.assertRaises(ValueError):
+            project_pair_matrix_interaction_receipt(
+                127, (77, 143), dominance_threshold=1.1)
 
 
 if __name__ == "__main__":
