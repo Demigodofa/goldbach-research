@@ -7562,3 +7562,60 @@ The next <=30-minute target is an aggregate comparison that does not divide
 by the signed base at each conductor, or a direct residual-level transform
 that absorbs the common-layer alternation before taking a diagonal. The
 signed prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: the complete-period `d>B*V` component returns to the diagonal envelope
+
+The failed pointwise common-layer comparison is unnecessary after summing the
+primitive conductor weights in the correct order. For each lcm `q`, each
+squarefree `d|q`, and `r=q/d`, group its ordered pairs by common conductor
+part `c`. Let `A_(d,c,r)` be the signed cell coefficient after the fixed
+conductor/common signs are removed, and let `P_(d,c,r)` be the sum of the
+positive log products over the same cell, so `|A|<=P`. Define
+
+`T_high^+=sum_(d>B*V) H_m(d)
+ sum_(r,c) P_(d,c,r)^2/(d*r)^2`.
+
+At fixed `(d,q)` the `c` cells partition the `R_q` ordered pairs with
+`lcm(a,b)=q`. Cellwise Cauchy gives
+
+`sum_c P_(d,c,r)^2
+ <=R_q sum_(lcm(a,b)=q)L_a^2 L_b^2`.
+
+The primitive weights are nonnegative and satisfy the exact inversion
+`sum_(d|q)H_m(d)=F_m(q)=q^2 v_(m,q)`. Therefore
+
+`T_high^+
+ <=sum_q R_q v_(m,q)
+       sum_(lcm(a,b)=q)L_a^2 L_b^2`.
+
+The right side is exactly the previously proved diagonal Cauchy envelope.
+For every `d>B*V`, the fixed-common theorem applies to every `c|d`; Cauchy
+over at most `2^omega(d)` common parts and the uniform residual limit
+`r<B/V` give
+
+`sum_(d>B*V)H_m(d)|S_d|^2
+ <=max_(d<=B^2)2^omega(d)
+   (1+log ceil(B/V))^6 T_high^+`.
+
+Both extra factors are subpower. The prior reciprocal-lcm/totient identity
+already bounds the diagonal Cauchy envelope against the project frame. Thus
+the complete-period `d>B*V` component is now rigorously controlled at the
+needed subpower scale. This proof uses the polynomial weights as positive
+cell majorants paired with the arithmetic identity for `H_m`; it does not
+discard them or assume independent prime conditions.
+
+`lcm_sawtooth_high_d_global_bound.py` checks the cell partition, reconstructs
+the actual high-conductor energy, matches the independent diagonal-envelope
+implementation, and verifies every inequality. At central rows
+`M=251,503,1009,4001,16001`, the positive-cell majorant divided by the
+diagonal Cauchy envelope is `.2677,.3206,.3064,.3671,.3589`; these values are
+finite diagnostics only. Independent review PASSed ordered-pair
+multiplicity, signs, `q=dr` normalization, positivity and inversion of `H_m`,
+the residual limit, subpower factors, code, and normal/optimized tests.
+
+This closes the complete-period `d>B*V` component only. The transition range
+`B<d<=B*V`, incomplete-row covariance, and final signed prime-correlation
+estimate remain OPEN. The next <=30-minute question is whether the fixed-`c`
+condition `d*c>B*V` controls all but a small-common-part core in the
+transition range, and whether that core returns to an existing low-conductor
+or prime-row estimate. Goldbach remains OPEN.

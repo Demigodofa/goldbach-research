@@ -6478,3 +6478,33 @@ This controls separated base energy but cannot stop the actual Mobius-signed
 base sum from approaching zero. The next approach must average that
 cancellation over conductors or absorb it before diagonalization. The
 residual lift, signed prime correlation, and Goldbach remain open.
+
+### 2026-09-11 continuation: close the complete-period `d>B*V` component
+
+The common-layer coercivity gap can be bypassed. Let `P_(d,c,r)` be the
+termwise-positive majorant of the signed fixed-cell coefficient. The common
+cells partition the `R_q` ordered pairs of lcm `q=d*r`, so cellwise Cauchy and
+the exact positive-weight identity
+
+`sum_(d|q)H_m(d)=F_m(q)=q^2v_(m,q)`
+
+prove
+
+`sum_(d>B*V)H_m(d)sum_(r,c)P_(d,c,r)^2/(d*r)^2
+ <=sum_q R_qv_(m,q)
+       sum_(lcm(a,b)=q)L_a^2L_b^2`.
+
+The right side is the established diagonal Cauchy envelope. For `d>B*V`,
+the fixed-common log-six theorem applies to every `c|d`; Cauchy over common
+parts costs at most `2^omega(d)`, and `r<B/V`. Hence the actual
+complete-period high-conductor energy is bounded by the same diagonal
+envelope times
+
+`max_(d<=B^2)2^omega(d)(1+log ceil(B/V))^6=N^o(1)`.
+
+Independent review returned PASS. This closes the complete-period `d>B*V`
+component through the existing frame bound without lower-bounding the signed
+combined common layer. The transition range `B<d<=B*V`, incomplete-row
+covariance, signed prime correlation, and Goldbach remain open. The next
+question splits the transition range at `d*c>B*V` and isolates the remaining
+small-common-part core.

@@ -80,6 +80,14 @@ class LcmSawtoothCommonLayerOperatorTests(unittest.TestCase):
             receipt[
                 "maximum_all_high_conductor_pointwise_base_4omega_normalized_min_median_max"][2],
             0)
+        self.assertGreater(
+            receipt[
+                "maximum_all_high_conductor_block_ratio_min_median_max"][0],
+            0)
+        self.assertIn(
+            "block_range",
+            receipt["maximum_all_high_conductor_block_witness"])
+        self.assertFalse(receipt["all_high_conductor_block_bound_proved"])
         self.assertFalse(receipt["pointwise_base_4omega_bound_proved"])
         self.assertFalse(receipt["common_layer_subpower_bound_proved"])
 
@@ -94,6 +102,14 @@ class LcmSawtoothCommonLayerOperatorTests(unittest.TestCase):
         self.assertGreater(witness["divisor"], 11 * 190)
         self.assertAlmostEqual(
             witness["separated_over_4omega_actual"], 4.5356909415)
+        self.assertGreater(
+            len(receipt["all_high_conductor_base_blocks"]), 0)
+        self.assertTrue(all(
+            block["coordinate_count"] > 0
+            and block["separated_over_actual"] > 0
+            and block["separated_over_actual_full_diagonal"] > 0
+            for block in receipt["all_high_conductor_base_blocks"]))
+        self.assertFalse(receipt["all_high_conductor_block_bound_proved"])
 
 
 if __name__ == "__main__":

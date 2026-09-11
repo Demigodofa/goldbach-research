@@ -52,11 +52,20 @@ assignments, and a `tau_3` harmonic bound. Under the stronger condition
 therefore controls the separated base energy by `(5/4)^omega(d)A_1^2`.
 Independent review passed both arguments.
 
+The fixed-layer theorem now combines with a global pair-mass argument. The
+positive common cells partition the ordered pairs of each lcm `q`; cellwise
+Cauchy followed by `sum_(d|q)H_m(d)=q^2v_(m,q)` returns their entire
+`d>B*V` contribution to the already-proved diagonal Cauchy envelope. Hence
+the complete-period high-conductor component is controlled, up to a subpower
+factor, by the existing frame estimate without lower-bounding a signed common
+layer.
+
 The actual common layers carry Mobius signs. Exact project-scaled witnesses
 show their combined base can nearly vanish, refuting a proposed pointwise
-`4^omega(d)` comparison. The remaining problem is an aggregate or
-pre-diagonal mechanism that controls this signed common-layer interference.
-The signed prime-correlation estimate and Goldbach remain open. Read the final
+`4^omega(d)` comparison. For `d>B*V`, the new pair-mass argument bypasses
+that pointwise obstruction. The transition conductors and incomplete-row
+covariance still require control. The signed prime-correlation estimate and
+Goldbach remain open. Read the final
 sections of `REFRESH_HANDOFF.md` and `RESEARCH_GOAL.md` for exact quantifiers,
 witnesses, validation, and the next question.
 

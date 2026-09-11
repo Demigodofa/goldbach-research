@@ -62,6 +62,7 @@ def common_layer_operator_probe(
 
     maximum_all_high_base_ratio = 0.0
     maximum_all_high_base_witness = None
+    all_high_base_blocks = {}
     for divisor, q_layers in layers.items():
         if divisor <= divisor_lower * divisor_upper:
             continue
@@ -69,6 +70,15 @@ def common_layer_operator_probe(
         if weight <= 0 or divisor not in q_layers:
             continue
         common_layers = q_layers[divisor]
+        full_separated = 0.0
+        full_actual = 0.0
+        for residual_common_layers in q_layers.values():
+            full_separated += sum(
+                value ** 2 for value in residual_common_layers.values())
+            residual_actual = sum(
+                int(mobius[common]) * value
+                for common, value in residual_common_layers.items())
+            full_actual += residual_actual ** 2
         base_actual = sum(
             int(mobius[common]) * value
             for common, value in common_layers.items())
@@ -78,6 +88,25 @@ def common_layer_operator_probe(
             if base_actual else float("inf"))
         omega_divisor = len(_squarefree_prime_factors(divisor))
         normalized_base_ratio = base_ratio / 4 ** omega_divisor
+        block_lower = 1 << (divisor.bit_length() - 1)
+        block_data = all_high_base_blocks.setdefault(block_lower, {
+            "coordinate_count": 0,
+            "separated_base_diagonal": 0.0,
+            "actual_base_diagonal": 0.0,
+            "no_common_base_diagonal": 0.0,
+            "separated_full_diagonal": 0.0,
+            "actual_full_diagonal": 0.0,
+            "maximum_pointwise_separated_over_actual": 0.0,
+        })
+        block_data["coordinate_count"] += 1
+        block_data["separated_base_diagonal"] += weight * base_separated
+        block_data["actual_base_diagonal"] += weight * base_actual ** 2
+        block_data["no_common_base_diagonal"] += (
+            weight * common_layers.get(1, 0.0) ** 2)
+        block_data["separated_full_diagonal"] += weight * full_separated
+        block_data["actual_full_diagonal"] += weight * full_actual
+        block_data["maximum_pointwise_separated_over_actual"] = max(
+            block_data["maximum_pointwise_separated_over_actual"], base_ratio)
         if normalized_base_ratio > maximum_all_high_base_ratio:
             maximum_all_high_base_ratio = normalized_base_ratio
             maximum_all_high_base_witness = {
@@ -94,6 +123,38 @@ def common_layer_operator_probe(
                     for common, value in common_layers.items()
                     if value)),
             }
+
+    all_high_base_block_receipts = []
+    log_b_squared = (1 + math.log(divisor_upper)) ** 2
+    for block_lower, block_data in sorted(all_high_base_blocks.items()):
+        separated = block_data["separated_base_diagonal"]
+        actual = block_data["actual_base_diagonal"]
+        ratio = separated / actual if actual else float("inf")
+        full_separated = block_data["separated_full_diagonal"]
+        full_actual = block_data["actual_full_diagonal"]
+        full_ratio = (
+            full_separated / full_actual if full_actual else float("inf"))
+        all_high_base_block_receipts.append({
+            "block_range": (block_lower, 2 * block_lower),
+            "coordinate_count": block_data["coordinate_count"],
+            "separated_base_diagonal": separated,
+            "actual_base_diagonal": actual,
+            "no_common_base_diagonal": block_data[
+                "no_common_base_diagonal"],
+            "separated_over_actual": ratio,
+            "no_common_over_actual": (
+                block_data["no_common_base_diagonal"] / actual
+                if actual else float("inf")),
+            "separated_over_actual_divided_by_log_b_squared": (
+                ratio / log_b_squared),
+            "maximum_pointwise_separated_over_actual": block_data[
+                "maximum_pointwise_separated_over_actual"],
+            "separated_full_diagonal": full_separated,
+            "actual_full_diagonal": full_actual,
+            "separated_over_actual_full_diagonal": full_ratio,
+            "full_separated_over_actual_divided_by_log_b_squared": (
+                full_ratio / log_b_squared),
+        })
 
     diagonal_by_block = {}
     for divisor, q_layers in layers.items():
@@ -360,6 +421,13 @@ def common_layer_operator_probe(
             maximum_all_high_base_witness),
         "all_high_conductor_pointwise_base_4omega_falsified_in_measurement": (
             maximum_all_high_base_ratio > 1),
+        "all_high_conductor_base_blocks": tuple(
+            all_high_base_block_receipts),
+        "all_high_conductor_block_log_b_squared_bound_falsified_in_measurement": any(
+            block[
+                "separated_over_actual_divided_by_log_b_squared"] > 1
+            for block in all_high_base_block_receipts),
+        "all_high_conductor_block_bound_proved": False,
         "pointwise_base_4omega_bound_proved": False,
         "actual_extremizer_squared_overlap": squared_overlap,
         "common_layer_generalized_operator_computed": True,
@@ -403,6 +471,15 @@ def project_common_layer_operator_probe(
         cells,
         key=lambda cell: cell[
             "maximum_all_high_conductor_pointwise_base_separated_over_4omega_actual"])
+    maximum_block_by_cell = tuple(
+        max(cell["all_high_conductor_base_blocks"],
+            key=lambda block: block[
+                "separated_over_actual_divided_by_log_b_squared"])
+        for cell in cells)
+    maximum_block_index = max(
+        range(len(cells)),
+        key=lambda position: maximum_block_by_cell[position][
+            "separated_over_actual_divided_by_log_b_squared"])
 
     def summary(key):
         values = tuple(float(cell[key]) for cell in cells)
@@ -473,6 +550,30 @@ def project_common_layer_operator_probe(
             cell[
                 "all_high_conductor_pointwise_base_4omega_falsified_in_measurement"]
             for cell in cells),
+        "maximum_all_high_conductor_block_ratio_min_median_max": (
+            min(block["separated_over_actual"]
+                for block in maximum_block_by_cell),
+            statistics.median(block["separated_over_actual"]
+                              for block in maximum_block_by_cell),
+            max(block["separated_over_actual"]
+                for block in maximum_block_by_cell)),
+        "maximum_all_high_conductor_block_log_b_squared_normalized_min_median_max": (
+            min(block["separated_over_actual_divided_by_log_b_squared"]
+                for block in maximum_block_by_cell),
+            statistics.median(
+                block["separated_over_actual_divided_by_log_b_squared"]
+                for block in maximum_block_by_cell),
+            max(block["separated_over_actual_divided_by_log_b_squared"]
+                for block in maximum_block_by_cell)),
+        "maximum_all_high_conductor_block_witness": {
+            "modulus": cells[maximum_block_index]["modulus"],
+            **maximum_block_by_cell[maximum_block_index],
+        },
+        "all_high_conductor_block_log_b_squared_bound_falsified_in_measurement": any(
+            cell[
+                "all_high_conductor_block_log_b_squared_bound_falsified_in_measurement"]
+            for cell in cells),
+        "all_high_conductor_block_bound_proved": False,
         "finite_project_common_layer_operator_measurement": True,
         "pointwise_base_4omega_bound_proved": False,
         "large_common_part_singleton_tail_proved": True,
