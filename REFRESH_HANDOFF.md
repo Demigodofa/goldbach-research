@@ -11804,3 +11804,75 @@ count `2` receives at least `.75` of the loss for `q=77` and at most `.25` for
 `q=143`, with source and conditioned reconstructions at natural-scale error
 at most `1e-12`.  Failure rejects cotangent-count attribution while retaining
 the endpoint formula as a possible analytic tool.
+
+## 2026-09-11: four-cotangent terms expose two different obstructions
+
+The exact endpoint expansion was refined by total cotangent count
+`0,1,2,3,4` across the four endpoint factors.  Summing all five count classes
+reconstructs the original one-orientation source coefficients with relative
+error `1.6054317928195755e-15` and the direct fully resonant conditioned sums
+with natural-scale error below `5.9e-15` in the `q=77,143` comparison.
+
+For the even classes `{0,2,4}`, the three-player Shapley game again uses
+sectorwise absolute mass minus recombined absolute mass as its value.  At
+`q=77`, the count-`2` loss share is `.19841380650018023`; at `q=143` it is
+`.06763065573289252`.  The declared `.75/.25` conjunction fails because the
+strong case is far below `.75`.  Count `2` is directionally larger in the
+strong case but is not its dominant cancellation carrier.
+
+The exact comparison data are:
+
+| quantity | `q=77` | `q=143` |
+|---|---:|---:|
+| count-`0` sector/recombined mass | `147.0 / 137.8125` | `159.8437499999886 / 154.68749999998835` |
+| count-`2` sector/recombined mass | `808.0776607169521 / 449.342103559269` | `1710.7275344844468 / 1637.8728311678` |
+| count-`4` sector/recombined mass | `2543.065822912252 / 165.4472357831142` | `1246.9531395929994 / 122.46105251549942` |
+| count-`4` Shapley loss share | `.81729424215736` | `.9437989120860197` |
+
+Thus the four-cotangent component carries most of the recombination loss in
+both cases.  It also recombines strongly by itself in both: quotient
+`.06505818067801658` for `q=77` and `.09820822341044044` for `q=143`.  The weak
+full behavior at `q=143` comes from its large, poorly cancelling count-`2`
+component, whose sector mass is `1.3719260813945435` times the count-`4` mass;
+the corresponding ratio at `q=77` is only `.3177572729091074`.
+
+Two all-six predictions were then falsified:
+
+| `q` | count-`4` recombination | count-`2`/count-`4` mass | full recombination | count-`4` Shapley share |
+|---:|---:|---:|---:|---:|
+| `35` | `.16118908808873234` | `.09315224653361054` | `.24470719651873438` | `1.0171872565269635` |
+| `55` | `.3024507788824479` | `.15579973512438464` | `.23767392653624825` | `.8434390124898529` |
+| `65` | `.014327564985042195` | `.3859820853423725` | `.10828557400915777` | `.8141118340901425` |
+| `77` | `.06505818067801658` | `.3177572729091074` | `.05717700197074396` | `.81729424215736` |
+| `91` | `.5047491987897079` | `.44136064908417894` | `.26932831859740486` | `.8723514969826882` |
+| `143` | `.09820822341044044` | `1.3719260813945435` | `.5885702865074277` | `.9437989120860197` |
+
+The count-`4` component does not always clear `.25`: it fails at `q=55` and
+`q=91`.  The mass-ratio classifier also fails because it predicts a pass for
+`q=91`.  This separates two finite obstruction modes.  At `q=143`, a strongly
+cancelling four-cotangent core is diluted by a larger count-`2` component.  At
+`q=91`, the four-cotangent core itself is weak.  Preserve this distinction;
+do not replace it with a fitted one-number rule.
+
+Curiosity status: `changed-under-evidence` with an `aha-candidate` for the
+four-cotangent core; novelty `new-to-this-task`.  The fact that count `4`
+receives more than `.81` of the Shapley recombination loss in all six cases is
+an observation selected after the two declared classifiers failed, not yet a
+confirmatory gate.  No uniform source or signed prime-correlation estimate
+follows.
+
+Independent review verified the exact count construction, left-conjugate-right
+orientation, sector/Ramanujan factors, three-player Shapley weights,
+reconstruction, both declared failures, and the six-case fixtures.  The
+reviewer independently reproduced the two obstruction modes and ran all three
+tests normally and under Python optimization before returning PASS.  Treat
+the Shapley values as allocations in the stated nonlinear loss game; they are
+not probabilities or raw-mass fractions and may be negative or exceed one.
+
+The next bounded confirmatory question tests that surviving observation on
+the leading three-prime quotients `q=385` and `q=1001`.  Predeclare that the
+count-`4` Shapley share of the even recombination loss is at least `.75` in
+both, with full source and conditioned reconstruction error at most `1e-12`.
+Failure rejects count `4` as a dimension-stable carrier; passing preserves it
+as an analytic component without claiming that it controls the final signed
+sum.
