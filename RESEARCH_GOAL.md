@@ -6826,3 +6826,30 @@ is the arithmetic statement needed for Goldbach: that all such resonances,
 with their actual coefficients and outer prime signs, have a sufficiently
 small aggregate. Next test a coefficient-weighted endpoint score on the fixed
 prime scan; score/rank failure falsifies endpoint sufficiency.
+
+### 2026-09-11 continuation: endpoint score isolates spikes, not baseline
+
+Define the normalized coefficient-weighted endpoint score by exact-Q grouping:
+
+R_end =
+A sum_Q Q|C_Q(k,h in {+1,-1}, min(r,Q-r)<=Q/A)|^2
+/ sum_Q Q mean_I|T_Q|^2.
+
+On the ten-prime fixed-geometry scan, its two leaders are (509,499), exactly
+the set of the two full-quotient leaders (499,509). Their endpoint scores are
+2.04118 and 1.73924. This supports endpoint resonance as an exceptional-spike
+detector. It does not reconstruct all ordinary values: Pearson correlation is
+.8210, Spearman rank correlation is .6000, and m=457 has score .15717
+against full quotient 1.49983. Strong endpoint sufficiency or rank equivalence
+is directly contradicted; preserve the score for the exceptional lane and
+retain non-endpoint modes for the baseline.
+
+For coprime d,e the near endpoint condition is exactly
+
+|m(sigma*e-tau*d)-n*d*e| <= d*e/A.
+
+Together with
+|G_(m,d,+/-1)|=|sin(pi*(m-1)/d)|/sin(pi/d), this identifies the next
+proof component: an energy-normalized weighted count or large-sieve estimate
+for these short linear residuals over conductors and outer primes. No such
+uniform estimate is yet proved; the signed Goldbach correlation remains OPEN.

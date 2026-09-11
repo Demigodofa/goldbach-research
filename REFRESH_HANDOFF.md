@@ -8453,3 +8453,51 @@ Test whether m=499 and 509 are the two largest scores among the scanned primes
 and whether score rank tracks row-quotient rank. Failure would show that
 non-endpoint near modes are essential. Even success would leave the required
 uniform near-resonance count and signed outer-prime estimate OPEN.
+
+## 2026-09-11: endpoint score detects spikes but not the whole row quotient
+
+The coefficient-weighted score was made exact and reproducible:
+
+R_end(m) =
+A sum_(Q>mA) Q|C_Q(endpoint, near)|^2
+/ sum_(Q>mA) Q mean_(ell in I)|T_Q(ell)|^2.
+
+Here endpoint means k,h in {+1,-1}; near means min(r,Q-r)<=Q/A; the actual
+structured coefficients, phases, interval kernels, and exact-Q grouping are
+retained. On the fixed-geometry prime scan
+
+439,457,461,463,479,487,491,499,503,509,
+
+the two largest full row quotients occur at (499,509), while the two largest
+endpoint scores occur at (509,499). Thus the exceptional sets agree exactly.
+The scores are 1.73924 and 2.04118 against full quotients 3.07581 and
+2.62084. The next score is 1.30751 at m=503, close to its full quotient
+1.32111.
+
+Across all ten primes the raw Pearson correlation is .8210, but Spearman rank
+correlation is only .6000. In particular, m=457 has full quotient 1.49983
+but endpoint score .15717. The hypothesis therefore separates:
+
+- endpoint resonance as a detector of the two measured spikes is supported;
+- endpoint score as a rank-equivalent or complete model of every row quotient
+  is directly contradicted;
+- non-endpoint modes remain necessary for the ordinary baseline and some
+  medium quotients.
+
+For coprime conductors d,e, an endpoint pair has exact residue condition
+
+|m(sigma*e-tau*d)-n*d*e| <= d*e/A
+
+for signs sigma,tau in {+1,-1} and some integer n. Its geometric magnitudes
+are
+
+|G_(m,d,+/-1)| =
+|sin(pi*(m-1)/d)| / sin(pi/d).
+
+This converts the surviving spike problem into a weighted count of short
+linear Diophantine residuals. The next proof-oriented question is whether
+those residuals, summed over the actual conductor support and outer primes,
+obey an energy-normalized large-sieve/counting bound. A power-growing endpoint
+score or a dense family of residuals with endpoint score comparable to the
+full obstruction falsifies that route. The non-endpoint baseline, full
+aggregate inequality, signed prime correlation, and Goldbach remain OPEN.

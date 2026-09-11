@@ -480,3 +480,13 @@ analogous main-lobe endpoint residuals 554 and 887. This explains the measured
 exceptional packets through endpoint-amplified near frequencies, while the
 uniform count, coefficient-weighted aggregate, outer prime correlation, and
 Goldbach remain open.
+
+The normalized endpoint score was then checked on ten fixed-geometry primes.
+It identifies m=499 and 509 as the two exceptional cases, with raw Pearson
+correlation .821 to the full row quotient, but only .600 rank correlation.
+Endpoint resonance therefore detects the measured spikes without explaining
+the full baseline. For coprime conductors its surviving condition is the
+explicit linear inequality
+|m(sigma e-tau d)-n d e|<=d e/A, with the actual geometric and structured
+weights retained. Controlling that weighted count over conductors and primes
+is now a named proof obligation.

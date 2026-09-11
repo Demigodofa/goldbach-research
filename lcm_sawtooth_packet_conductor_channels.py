@@ -128,6 +128,8 @@ def packet_conductor_channel_receipt(
             "endpoint_mode_signed_channel_fraction": float(
                 channel_endpoint_sums.get(pair, 0j).real / value.real
                 if value.real else 0.0),
+            "endpoint_mode_contribution_over_complete": complex(
+                channel_endpoint_sums.get(pair, 0j) / complete_energy),
             "near_resonant_absolute_envelope_fraction": float(
                 channel_near_absolute_sums.get(pair, 0.0)
                 / term_absolute_sum if term_absolute_sum else 0.0),

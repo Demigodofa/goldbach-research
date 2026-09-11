@@ -16,6 +16,9 @@ to the measured Gram matrix; they are finite diagnostics, not proof.
 
 import numpy as np
 
+from lcm_sawtooth_endpoint_resonance_score import (
+    endpoint_resonance_score_receipt,
+)
 from lcm_sawtooth_fixed_q_residue import fixed_q_residue_receipt
 from lcm_sawtooth_signed_difference_bins import signed_difference_bin_receipt
 
@@ -98,6 +101,9 @@ def global_residue_energy_receipt(
         / row_gram_trace)
     sign_probe_interval = tuple(float(value) for value in np.quantile(
         sign_probe_ratios, (0.025, 0.5, 0.975)))
+    endpoint_score = endpoint_resonance_score_receipt(
+        modulus, ell_first, row_count, ell_freeze,
+        divisor_lower, divisor_upper)
     ratios = tuple(
         packet["active_window_transform_l2_over_full_period"]
         for packet in packets)
@@ -139,6 +145,11 @@ def global_residue_energy_receipt(
         "constant_direction_inside_sign_probe_central_95": bool(
             sign_probe_interval[0] <= row_mean_ratio
             <= sign_probe_interval[2]),
+        "endpoint_near_score_over_active_window_l2": (
+            endpoint_score["endpoint_near_Q_weighted_square_score"]
+            / active_weighted),
+        "endpoint_near_Q_weighted_square_score": endpoint_score[
+            "endpoint_near_Q_weighted_square_score"],
         "positive_packet_excess_sum_over_complete_squared": (
             positive_packet_excess_sum),
         "top_five_positive_packet_excess_fraction": (
