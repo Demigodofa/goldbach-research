@@ -9790,3 +9790,49 @@ from the centered packet correlation. Test whether at least two channels put
 at least `75%` of their near-lag absolute mass where
 `Re(e((3R-1)h/(2Q))*corr_Q(h))>0`. Failure rejects a broad phase-alignment
 shortcut while preserving the exact centered cosine representation.
+
+## 2026-09-11: the centered kernel is exact, but broad phase alignment fails
+
+For the active rows `n=R,...,2R-1`, the interval kernel has the exact
+geometric-sum factorization
+
+`K_Q(h)=e((3R-1)h/(2Q))*sin(pi R h/Q)/(R sin(pi h/Q))`.
+
+For the least-absolute signed representative with
+`1<=|h|<=Q/R`, the sine quotient is nonnegative. Consequently the sign of
+the real lag contribution is exactly the sign of
+
+`Re(e((3R-1)h/(2Q))*corr_Q(h))`.
+
+The predeclared finite hypothesis required at least `75%` of near-lag
+absolute mass to have this favorable phase-rotated real sign on at least two
+of the three channels. It fails on all three:
+
+- `Q=5005`: positive mass `1.4057056941683643`, negative mass
+  `.7559947884992926`, favorable fraction `.650277735254815`;
+- `Q=6006`: positive mass `1.3303283981597605`, negative mass
+  `.7040905466050538`, favorable fraction `.653910740254904`;
+- `Q=10010`: positive mass `.7985393626327231`, negative mass
+  `.732796569457407`, favorable fraction `.5214658298671224`.
+
+The kernel factorization errors are respectively `2.53e-13`, `3.03e-13`,
+and `2.53e-13`; the minimum positive-half near-lag sine quotients are all
+positive. Independent review checked the formula, FFT convention, signed
+representatives, mass weighting, threshold, reproduced values, tests, and
+scope. Thirteen focused tests pass normally and under Python optimization.
+
+Curiosity status: `changed-under-evidence`. Reject only a broad `75%`
+centered-phase alignment rule for this finite `(3,13)` fragile direction.
+Preserve the exact centered sine-quotient representation, the positive
+near-lag signed sums, the `1001` conductor core and CRT coordinates, and the
+polynomial identities and bounds as tools. The result gives no uniform
+signed prime-correlation estimate and proves no Goldbach statement.
+
+The cofactor channels now suggest a narrower arithmetic question. The
+`k=5,6` channels retain a visible favorable bias, while `k=10` is nearly
+balanced. Test whether the doubling `10010=2*5005` exposes an exact parity
+split of the packet correlation whose even and odd lag pieces oppose one
+another. A valid mechanism must be defined before inspecting its totals,
+reconstruct the full `Q=10010` near-lag sum exactly, and show two substantial
+opposite-signed components; otherwise reject parity as the explanation while
+retaining the channel comparison.

@@ -6,17 +6,41 @@ from lcm_sawtooth_reduced_denominator_interference import (
     _offdiagonal_lags_by_denominator,
     _packet_hermitian_symmetry_error,
     classify_near_lag_mass,
+    classify_centered_near_phase_alignment,
     classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
     project_reduced_denominator_interference_receipt,
     conductor_high_q_retention_obstruction,
+    centered_interval_kernel_receipt,
     lag_inversion_symmetry_receipt,
     shared_prime_high_q_support_obstruction,
 )
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_centered_interval_kernel_factorization(self):
+        receipt = centered_interval_kernel_receipt(17, 3, 4)
+        self.assertEqual(receipt["kernel_center"], 4.5)
+        self.assertLess(receipt["factorization_maximum_error"], 1e-12)
+        self.assertGreaterEqual(
+            receipt["minimum_positive_near_sine_quotient"], 0.0)
+        self.assertTrue(receipt[
+            "finite_centered_interval_kernel_test_passes"])
+
+    def test_centered_phase_classifier_uses_signed_near_mass(self):
+        contributions = [0.0] * 12
+        contributions[1] = 3.0
+        contributions[2] = -1.0
+        contributions[5] = 20.0
+        receipt = classify_centered_near_phase_alignment(
+            {12: contributions}, 4, minimum_passing_channel_count=1)
+        row = receipt["centered_near_phase_channel_rows"][0]
+        self.assertEqual(
+            row["positive_centered_correlation_absolute_mass_fraction"], .75)
+        self.assertTrue(receipt[
+            "centered_near_phase_alignment_hypothesis_passes"])
+
     def test_packet_hermitian_error_detects_missing_reverse_cell(self):
         packet = {
             (5, 0): 2.0,
@@ -153,6 +177,14 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
             receipt["crt_rank_one_near_lag_passing_denominators"], ())
         self.assertFalse(receipt[
             "linked_core_crt_near_lag_separation_hypothesis_passes"])
+        self.assertTrue(receipt[
+            "finite_centered_interval_kernel_factorization_test_passes"])
+        self.assertEqual(
+            receipt["centered_near_phase_passing_channel_count"], 0)
+        self.assertEqual(
+            receipt["centered_near_phase_passing_denominators"], ())
+        self.assertFalse(receipt[
+            "centered_near_phase_alignment_hypothesis_passes"])
         self.assertLess(max(
             abs(error) for _, error in receipt["lag_reconstruction_errors"]),
             3e-12)
@@ -165,6 +197,21 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         crt_rows = {
             row["reduced_denominator"]: row
             for row in receipt["crt_rank_one_near_lag_channel_rows"]}
+        centered_rows = {
+            row["reduced_denominator"]: row
+            for row in receipt["centered_near_phase_channel_rows"]}
+        self.assertAlmostEqual(
+            centered_rows[5005][
+                "positive_centered_correlation_absolute_mass_fraction"],
+            .650277735254815, places=10)
+        self.assertAlmostEqual(
+            centered_rows[6006][
+                "positive_centered_correlation_absolute_mass_fraction"],
+            .653910740254904, places=10)
+        self.assertAlmostEqual(
+            centered_rows[10010][
+                "positive_centered_correlation_absolute_mass_fraction"],
+            .5214658298671224, places=10)
         self.assertEqual(
             {denominator: row["crt_cofactor"]
              for denominator, row in crt_rows.items()},

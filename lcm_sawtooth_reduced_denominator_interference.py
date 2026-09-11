@@ -437,6 +437,126 @@ def lag_inversion_symmetry_receipt(contributions, tolerance=1e-12):
     }
 
 
+def centered_interval_kernel_receipt(
+        denominator, row_first, row_count, tolerance=1e-12):
+    """Verify the centered sine-quotient form of an interval kernel."""
+    if (type(denominator) is not int or type(row_first) is not int
+            or type(row_count) is not int or denominator < 2
+            or row_first < 0 or row_count < 1):
+        raise ValueError("kernel parameters must be integers in valid ranges")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    lags = np.arange(denominator, dtype=np.int64)
+    rows = np.arange(row_first, row_first + row_count, dtype=np.int64)
+    direct = np.mean(np.exp(
+        2j * np.pi * rows[:, None] * lags[None, :] / denominator),
+        axis=0)
+    center = row_first + (row_count - 1) / 2
+    amplitude = np.ones(denominator, dtype=float)
+    nonzero = lags != 0
+    amplitude[nonzero] = (
+        np.sin(np.pi * row_count * lags[nonzero] / denominator)
+        / (row_count * np.sin(np.pi * lags[nonzero] / denominator)))
+    factored = (
+        np.exp(2j * np.pi * center * lags / denominator) * amplitude)
+    maximum_error = float(np.max(np.abs(direct - factored)))
+    # At negative cyclic representatives the raw sine quotient changes with
+    # the compensating center phase.  Test nonnegativity on +h only, exactly
+    # where the declared half-range formula applies.
+    positive_near = (
+        (lags >= 1) & (lags <= denominator // row_count))
+    minimum_positive_near_amplitude = float(
+        np.min(amplitude[positive_near])) if np.any(positive_near) else None
+    return {
+        "denominator": denominator,
+        "row_first": row_first,
+        "row_count": row_count,
+        "kernel_center": center,
+        "center_phase_numerator_for_row_first_equal_row_count": (
+            3 * row_count - 1),
+        "factorization_maximum_error": maximum_error,
+        "positive_near_lag_maximum": denominator // row_count,
+        "minimum_positive_near_sine_quotient": (
+            minimum_positive_near_amplitude),
+        "finite_centered_interval_kernel_test_passes": bool(
+            maximum_error <= tolerance
+            and (minimum_positive_near_amplitude is None
+                 or minimum_positive_near_amplitude >= -tolerance)),
+        "centered_interval_kernel_assigns_favorable_sign_proved": False,
+    }
+
+
+def classify_centered_near_phase_alignment(
+        lag_contributions, row_count,
+        minimum_positive_absolute_mass_fraction=.75,
+        minimum_passing_channel_count=2):
+    """Test favorable centered-correlation sign mass in the main lobe.
+
+    For the least-absolute signed representative ``h`` with
+    ``1 <= |h| <= Q/R``, the centered interval-kernel sine quotient is
+    nonnegative.  Thus the sign of each real lag contribution is the sign of
+    the phase-rotated real correlation at that signed lag.  The classifier
+    measures what fraction of near-lag absolute mass has that favorable sign.
+    """
+    lag_contributions = dict(lag_contributions)
+    if not lag_contributions:
+        raise ValueError("at least one lag channel is required")
+    if type(row_count) is not int or row_count < 1:
+        raise ValueError("row_count must be a positive integer")
+    if not 0 < minimum_positive_absolute_mass_fraction <= 1:
+        raise ValueError("mass fraction threshold must lie in (0,1]")
+    if (type(minimum_passing_channel_count) is not int
+            or not 1 <= minimum_passing_channel_count <= len(lag_contributions)):
+        raise ValueError("passing channel count must fit the channel set")
+
+    channel_rows = []
+    for denominator in sorted(lag_contributions):
+        contributions = np.asarray(
+            lag_contributions[denominator], dtype=float)
+        if contributions.shape != (denominator,):
+            raise ValueError("each lag array must have length Q")
+        distances = np.minimum(
+            np.arange(denominator),
+            denominator - np.arange(denominator))
+        near = distances * row_count <= denominator
+        near[0] = False
+        selected = contributions[near]
+        positive_mass = float(np.sum(selected[selected > 0]))
+        negative_mass = float(-np.sum(selected[selected < 0]))
+        absolute_mass = positive_mass + negative_mass
+        if not absolute_mass:
+            raise ArithmeticError("near-lag channel has zero absolute mass")
+        fraction = positive_mass / absolute_mass
+        channel_rows.append({
+            "reduced_denominator": denominator,
+            "near_lag_rule": "min(h,Q-h)*R<=Q",
+            "near_lag_positive_centered_correlation_mass": positive_mass,
+            "near_lag_negative_centered_correlation_mass": negative_mass,
+            "near_lag_absolute_mass": absolute_mass,
+            "near_lag_signed_sum": positive_mass - negative_mass,
+            "positive_centered_correlation_absolute_mass_fraction": fraction,
+            "centered_near_phase_alignment_hypothesis_passes": bool(
+                fraction >= minimum_positive_absolute_mass_fraction),
+        })
+    passing = tuple(
+        row["reduced_denominator"] for row in channel_rows
+        if row["centered_near_phase_alignment_hypothesis_passes"])
+    return {
+        "centered_correlation_quantity": (
+            "Re(exp(2*pi*i*(R+(R-1)/2)*h/Q)*corr_Q(h)), "
+            "h the least-absolute signed representative"),
+        "minimum_positive_centered_correlation_absolute_mass_fraction": (
+            minimum_positive_absolute_mass_fraction),
+        "minimum_passing_centered_phase_channel_count": (
+            minimum_passing_channel_count),
+        "centered_near_phase_channel_rows": tuple(channel_rows),
+        "centered_near_phase_passing_denominators": passing,
+        "centered_near_phase_passing_channel_count": len(passing),
+        "centered_near_phase_alignment_hypothesis_passes": bool(
+            len(passing) >= minimum_passing_channel_count),
+    }
+
+
 def classify_near_lag_mass(
         lag_contributions, row_count, minimum_absolute_mass_fraction=.75,
         minimum_passing_channel_count=2):
@@ -741,6 +861,11 @@ def project_reduced_denominator_interference_receipt(
     crt_classification = classify_crt_rank_one_near_lag_separation(
         selected_lags, retention["linked_conductor_core"],
         baseline["row_count"])
+    kernel_rows = tuple(centered_interval_kernel_receipt(
+        denominator, baseline["row_count"], baseline["row_count"])
+        for denominator in sorted(selected_lags))
+    centered_phase_classification = classify_centered_near_phase_alignment(
+        selected_lags, baseline["row_count"])
     lag_reconstruction_errors = tuple(
         (row["reduced_denominator"],
          float(np.sum(selected_lags[row["reduced_denominator"]])
@@ -804,6 +929,11 @@ def project_reduced_denominator_interference_receipt(
         **lag_classification,
         **retention,
         **crt_classification,
+        "centered_interval_kernel_rows": kernel_rows,
+        "finite_centered_interval_kernel_factorization_test_passes": all(
+            row["finite_centered_interval_kernel_test_passes"]
+            for row in kernel_rows),
+        **centered_phase_classification,
         "linked_core_crt_near_lag_separation_hypothesis_passes": bool(
             retention["every_interfering_denominator_has_linked_core_proved"]
             and crt_classification[
