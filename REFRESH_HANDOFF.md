@@ -8306,3 +8306,51 @@ uniform bound for each packet. A power-growing aggregate quotient falsifies
 it. The full `m=503` computation needs a more efficient all-residue grouping;
 no result is claimed until that route is implemented and captured. The signed
 prime-correlation estimate and Goldbach remain OPEN.
+
+## 2026-09-11: all-packet row cancellation survives; short-lag mechanism fails
+
+The full-family computation has now been completed and independently
+reproduced. At the project fixture `(m,A,L,B)=(503,75,75,29)`, all 181
+`Q>mA` packets give
+
+`sum_Q Q sum_r|D_Q(r)|^2/E^2 = 30007.8783`,
+
+`sum_Q Q mean_(ell in I)|T_Q(ell)|^2/E^2 = 31465.1419`,
+
+`sum_Q Q|C_Q|^2/E^2 = 504.7575`.
+
+Thus active/full weighted L2 is `1.04856`, packet/active is `.0160418`,
+and the row-count-scaled aggregate quotient is `1.203135`. The deliberately
+biased top-ten value `6.33188` was a selection effect. The corresponding
+full-family quotients at `m=251,373,499` are `.929586,.872182,3.075815`.
+These four finite values support order-one square-root-scale cancellation
+after aggregation over all exact `Q`; they neither prove a constant-one bound
+nor any uniform `O(1)` or `N^epsilon` estimate. Only two divisor/row regimes
+have been sampled.
+
+The exact live target is
+
+`sum_(Q>mA) Q|A^(-1)sum_(ell in I)T_Q(ell)|^2`
+
+` <= N^epsilon A^(-1) sum_(Q>mA) Q[A^(-1)sum_(ell in I)|T_Q(ell)|^2]`.
+
+To test a concrete mechanism, put
+`v_ell=(sqrt(Q)T_Q(ell))_(Q>mA)`. Then exactly
+
+`||sum_ell v_ell||^2/sum_ell||v_ell||^2 = 1+sum_(h=1)^(A-1)rho_h`,
+
+where `rho_h` is twice the real normalized inner product of rows separated by
+`h`. The predeclared sparse/short-lag hypothesis required either the five
+largest or first five lags to carry at least 60% of absolute lag mass. It is
+`directly-contradicted`: across `m=251,373,499,503`, the five-largest shares
+are `.378,.415,.428,.337`, while first-five shares are
+`.159,.293,.292,.250`. The `m=499` excess is therefore broad rather than a
+finite short-lag defect. The exact lag decomposition remains a useful tool;
+only the sparse/short-lag explanation is retired. Reactivate a local-lag route
+only if a new arithmetic grouping predicts a distinguished lag class.
+
+The next question is what arithmetic structure controls the full signed Gram
+sum across both rows and exact denominators. Test a coefficient-sensitive
+large-sieve/operator bound against the `m=499` broad-correlation fixture; a
+power-growing all-packet quotient falsifies the proposed route. The signed
+prime-correlation estimate and Goldbach remain OPEN.

@@ -20,6 +20,16 @@ class LcmSawtoothGlobalResidueEnergyTests(unittest.TestCase):
             receipt[
                 "row_count_scaled_packet_square_over_active_window_l2"],
             10 * receipt["packet_square_over_active_window_l2"])
+        self.assertLess(receipt["lag_expansion_reconstruction_error"], 1e-12)
+        self.assertAlmostEqual(
+            sum(value for _, value in receipt[
+                "normalized_aggregate_lag_contributions"]),
+            receipt[
+                "row_count_scaled_packet_square_over_active_window_l2"] - 1)
+        self.assertTrue(
+            0 <= receipt["top_five_absolute_lag_mass_fraction"] <= 1)
+        self.assertTrue(
+            0 <= receipt["first_five_absolute_lag_mass_fraction"] <= 1)
         self.assertTrue(
             receipt["finite_global_residue_energy_measurement"])
         self.assertFalse(receipt["window_l2_equidistribution_bound_proved"])

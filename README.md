@@ -453,3 +453,12 @@ across rows supplies a further `.0202`, approximately `1/A`. The `A`-scaled
 aggregate is `.930`; selected `m=503` packets are much less uniform, with a
 biased top-ten aggregate `6.33`. The next target is an aggregate row-by-`Q`
 large-sieve bound, not constant-one cancellation for every packet.
+
+That selection issue is now resolved. All 181 `m=503` packets give an
+`A`-scaled aggregate quotient `1.203`, while the other complete saved families
+give `.872,.930,3.076`. These are finite order-one measurements, not a uniform
+bound. An exact row-lag expansion then falsifies the idea that a few short
+lags explain the result: the five largest lags carry only 34%--43% of absolute
+lag mass, and the first five only 16%--29%. The surviving target is a broad,
+coefficient-sensitive row-by-exact-`Q` large-sieve/operator estimate. The
+signed prime correlation and Goldbach remain open.

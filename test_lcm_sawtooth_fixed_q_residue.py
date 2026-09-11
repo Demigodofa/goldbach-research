@@ -26,6 +26,14 @@ class LcmSawtoothFixedQResidueTests(unittest.TestCase):
         self.assertAlmostEqual(
             packet["row_count_scaled_mean_square_over_l2"],
             10 * packet["active_window_mean_square_over_l2"])
+        lag_sum = sum(
+            value.real for value in packet[
+                "active_window_lag_inner_products_over_complete_squared"])
+        active_energy = packet[
+            "active_window_transform_energy_over_complete_squared"]
+        self.assertAlmostEqual(
+            packet["row_count_scaled_mean_square_over_l2"],
+            1 + 2 * lag_sum / active_energy)
         self.assertAlmostEqual(
             packet["Q_weighted_residue_l2_over_complete_squared"],
             target * packet["residue_l2_over_complete_squared"])

@@ -174,6 +174,14 @@ def fixed_q_residue_receipt(
         full_transform_l2 = float(np.mean(np.abs(additive_transform) ** 2))
         active_transform_l2 = float(np.mean(np.abs(active_transform) ** 2))
         transform_packet = np.mean(active_transform)
+        active_transform_energy = float(
+            np.sum(np.abs(active_transform) ** 2))
+        lag_inner_products = tuple(
+            complex(np.sum(
+                active_transform[lag:]
+                * np.conjugate(active_transform[:-lag])))
+            / complete_energy ** 2
+            for lag in range(1, row_count))
         ramanujan_mean = sum(
             _ramanujan_sum(target, ell)
             for ell in range(ell_first, ell_first + row_count)) / row_count
@@ -211,6 +219,10 @@ def fixed_q_residue_receipt(
             "row_count_scaled_mean_square_over_l2": float(
                 row_count * abs(transform_packet) ** 2 / active_transform_l2
                 if active_transform_l2 else 0.0),
+            "active_window_transform_energy_over_complete_squared": float(
+                active_transform_energy / complete_energy ** 2),
+            "active_window_lag_inner_products_over_complete_squared": (
+                lag_inner_products),
             "crt_prime_split_metrics": _crt_tensor_metrics(
                 target, units, centered),
             "ramanujan_kernel_sum": float(ramanujan_mean),

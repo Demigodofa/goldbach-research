@@ -6749,3 +6749,34 @@ these finite values reject constant-one/small-constant per-packet cancellation,
 not an unspecified `O(1)` or `N^epsilon` bound. The live target is now an
 aggregate large-sieve inequality over rows and exact `Q`; all-packet `m=503`
 remains unmeasured.
+
+### 2026-09-11 curiosity continuation: broad row-lag cancellation
+
+The all-packet selection test changes the evidence materially. For
+`m=251,373,499` in the common `(A,L,B)=(46,46,20)` regime and the project
+fixture `(m,A,L,B)=(503,75,75,29)`, the exact quotients
+
+`A sum_Q Q|C_Q|^2 / sum_Q Q mean_(ell in I)|T_Q(ell)|^2`
+
+are `.929586,.872182,3.075815,1.203135`. In particular, the full 181-packet
+`m=503` value is far below the biased top-ten value `6.33188`. Independent
+review reproduced the full residue-energy receipts and returned PASS. This is
+finite support for aggregate square-root-scale row cancellation, not a
+constant-one, uniform `O(1)`, or `N^epsilon` theorem.
+
+A concrete curiosity hypothesis asked whether the `m=499` excess came from a
+few short row lags. With `v_ell=(sqrt(Q)T_Q(ell))_Q`, the exact identity
+
+`||sum_ell v_ell||^2/sum_ell||v_ell||^2=1+sum_(h=1)^(A-1)rho_h`
+
+was implemented and checked to errors below `1.4e-14`. Before measurement,
+"few" meant at least 60% of absolute lag mass in the five largest lags and
+"short" meant at least 60% in the first five. Both predictions fail at every
+saved full fixture: largest-five shares `.378,.415,.428,.337`; first-five
+shares `.159,.293,.292,.250`. The sparse/short-lag explanation is
+`directly-contradicted`, while the exact lag decomposition is preserved as a
+component. The live mechanism must control a broad signed row Gram sum across
+exact denominators, plausibly through a coefficient-sensitive large sieve or
+operator estimate. Its concrete target is the aggregate inequality displayed
+in `REFRESH_HANDOFF.md`; a power-growing all-packet quotient falsifies it.
+The signed prime-correlation estimate and Goldbach remain OPEN.
