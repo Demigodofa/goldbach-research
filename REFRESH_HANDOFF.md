@@ -11281,3 +11281,56 @@ Weil-scale norm gate `||K_a|| <= 2*sqrt(r)` for `r in {5,7,11,13}`. The zero
 frequency retains the reinforcing `J-I` eigenvalue `r-2`; a nonzero-frequency
 pass would identify a precise square-root cancellation mechanism and the
 remaining resonant zero modes.
+
+## 2026-09-11: inverse-difference phases give local Kloosterman cancellation
+
+For an odd prime `r`, define on `F_r^*`
+
+`K_a(x,y)=1_(x!=y)*e_r(a/(x-y))`.
+
+When `a=0`, this is `J-I`: its constant eigendirection has reinforcing
+eigenvalue and operator norm `r-2`. When `a!=0`, it is the principal
+compression obtained by deleting residue `0` from additive convolution on
+`F_r` by
+
+`f(z)=1_(z!=0)*e_r(a/z)`.
+
+The full convolution is normal. Its Fourier eigenvalues are `-1` at dual
+frequency zero and ordinary Kloosterman sums at nonzero frequencies. The
+ordinary Weil bound therefore gives
+
+`||K_a|| <= 2*sqrt(r)`.
+
+The cited input is Topacogullari, arXiv:1506.02608v1, section 2, p. 4; its
+composite bound specializes to `2*sqrt(r)` for prime `r` and nonzero
+arguments. Scaling `x,y` by `a` shows all nonzero `a` matrices are
+permutation-similar.
+
+For `r={5,7,11,13}`, the measured nonzero-frequency norms are respectively
+
+`2.5450088976, 3.8731144527, 5.3493015801, 5.9962517900`.
+
+All lie below `2*sqrt(r)`, while the zero-frequency norms are exactly
+`3,5,9,11`. Independent review verified the convolution convention,
+compression, bound source, permutation equivalence, values, tests, and scope
+and returned PASS. Three tests pass normally and optimized.
+
+Curiosity status: `aha-candidate`, novelty `apparently-uncommon-synthesis`.
+This supplies a precise local answer to the mechanism question: a quotient-
+prime frequency equal to zero can reinforce through the constant direction;
+a nonzero frequency produces square-root Kloosterman cancellation in operator
+norm. This is local to the finite source kernel. The exact global CRT transfer,
+uniform source estimate, prime correlation, and Goldbach remain open.
+
+The next bounded question proves the global transfer. For endpoint frequency
+`n`, `g=gcd(h,Q)`, `q=Q/g`, and `h'=h/g`, the conditioned source kernel should
+factor over primes as
+
+- `c_r(n) I_(r-1)` for `r|g`;
+- `K_(a_r)` for `r|q`, where
+  `a_r=n*h'*(q/r)^(-1) (mod r)`.
+
+Test this tensor product directly against the exact constrained unit sum for
+all five leading lag gcd patterns and representative endpoint frequencies.
+Success would make the local cancel/reinforce rule an exact global kernel
+identity; failure would identify the missing CRT phase factor.
