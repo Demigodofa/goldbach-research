@@ -10,6 +10,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_parity_selection_receipt,
     recombined_centered_character_receipt,
     recombined_centered_prime_phase_scan_receipt,
+    residue_orbit_reinforcement_receipt,
     resonant_progression_diagonal_square_receipt,
     resonant_progression_discrepancy_receipt,
 )
@@ -87,6 +88,14 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             all_residue_reflection_block_receipt(
                 maximum_pointwise_ratio=-1)
+        with self.assertRaises(ValueError):
+            residue_orbit_reinforcement_receipt(target_residue=71)
+        with self.assertRaises(ValueError):
+            residue_orbit_reinforcement_receipt(
+                maximum_aggregate_orbit_ratio=-1)
+        with self.assertRaises(ValueError):
+            residue_orbit_reinforcement_receipt(
+                target_minimum=1000, target_maximum=1000)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -656,6 +665,76 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertTrue(receipt["finite_all_residue_reflection_scan_measured"])
         self.assertFalse(receipt["uniform_residue_pointwise_bound_proved"])
         self.assertFalse(receipt["uniform_residue_averaged_bound_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_reinforcement(self):
+        receipt = residue_orbit_reinforcement_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(len(receipt["admissible_residues"]), 33)
+        self.assertEqual(len(receipt["reflection_orbits"]), 17)
+        self.assertEqual(
+            sum(len(orbit) for orbit in receipt["reflection_orbits"]), 33)
+        self.assertLess(receipt["centered_source_sum_relative_error"], 1e-12)
+        self.assertLess(receipt["orbit_coefficient_sum_relative_error"], 1e-12)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["nonempty_target_count"], 761)
+        self.assertAlmostEqual(
+            receipt["aggregate_orbit_ratio"],
+            1.4580525604008545, places=12)
+        self.assertAlmostEqual(
+            receipt["aggregate_paired_ratio"],
+            .7523745606834696, places=12)
+        self.assertAlmostEqual(
+            receipt["net_cross_orbit_to_orbit_diagonal_ratio"],
+            .4580525604008545, places=12)
+        self.assertLess(
+            receipt["cross_term_reconstruction_relative_error"], 1e-12)
+        self.assertFalse(receipt["passes_full_aggregate_orbit_gate"])
+        self.assertFalse(receipt[
+            "all_dyadic_blocks_pass_aggregate_orbit_gate"])
+        self.assertEqual(receipt["worst_target"], 36472)
+        worst = receipt["worst_target_row"]
+        self.assertEqual(worst["ordered_linked_prime_pair_count"], 176)
+        self.assertEqual(worst["reflection_block_count"], 88)
+        self.assertAlmostEqual(
+            worst["pointwise_discrepancy_to_orbit_ratio"],
+            2.9678135069711833, places=12)
+        blocks = receipt["dyadic_block_summaries"]
+        self.assertEqual(
+            tuple(blocks),
+            ((1000, 2000), (2000, 4000), (4000, 8000),
+             (8000, 16000), (16000, 32000), (32000, 64000),
+             (64000, 100001)))
+        self.assertEqual(
+            tuple(row["target_count"] for row in blocks.values()),
+            (7, 16, 30, 62, 123, 246, 277))
+        self.assertAlmostEqual(
+            blocks[(1000, 2000)]["aggregate_orbit_ratio"],
+            2.3059497788961596, places=12)
+        self.assertAlmostEqual(
+            blocks[(2000, 4000)]["aggregate_orbit_ratio"],
+            .6902980747308691, places=12)
+        self.assertAlmostEqual(
+            blocks[(64000, 100001)]["aggregate_orbit_ratio"],
+            1.5486409507787244, places=12)
+        self.assertEqual(
+            receipt["orbit_pair_cross_terms"][0][:2],
+            ((21, 51), (29, 43)))
+        self.assertLess(receipt["maximum_reconstruction_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_orbit_residue_weight_symmetry_error"], 1e-12)
+        self.assertTrue(receipt["all_prime_terms_are_units"])
+        self.assertTrue(receipt["all_orbit_discrepancies_reconstruct"])
+        self.assertTrue(receipt[
+            "all_two_element_orbit_residue_weights_match"])
+        self.assertTrue(receipt[
+            "finite_residue_orbit_reinforcement_measured"])
+        self.assertFalse(receipt["orbit_reinforcement_bound_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

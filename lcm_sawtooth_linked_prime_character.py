@@ -19,6 +19,13 @@ from lcm_sawtooth_frequency_resolved_fourier import (
 LINKED_PRIME_TARGETS = (1000, 1002)
 
 
+def _complex_fsum(values):
+    values = tuple(values)
+    return complex(
+        math.fsum(value.real for value in values),
+        math.fsum(value.imag for value in values))
+
+
 def _prime_table(limit):
     table = np.ones(limit + 1, dtype=bool)
     table[:2] = False
@@ -1483,6 +1490,301 @@ def all_residue_reflection_block_receipt(
         "finite_all_residue_reflection_scan_measured": True,
         "uniform_residue_pointwise_bound_proved": False,
         "uniform_residue_averaged_bound_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def residue_orbit_reinforcement_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_aggregate_orbit_ratio=1.0,
+        tolerance=1e-12, batch_size=32):
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 20 or target_minimum % 2
+            or target_maximum < target_minimum or target_maximum % 2):
+        raise ValueError(
+            "target bounds must be even integers with 20 <= minimum <= maximum")
+    if type(target_residue) is not int:
+        raise ValueError("target residue must be an integer")
+    if (not math.isfinite(maximum_aggregate_orbit_ratio)
+            or maximum_aggregate_orbit_ratio < 0):
+        raise ValueError("aggregate orbit gate must be finite and nonnegative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(batch_size) is not int or batch_size < 1:
+        raise ValueError("batch size must be a positive integer")
+    common = 130
+    target_residue %= common
+    if target_residue % 2:
+        raise ValueError("target residue must be even modulo the common modulus")
+    first_target = (
+        target_minimum
+        + (target_residue - target_minimum) % common)
+    targets = tuple(range(first_target, target_maximum + 1, common))
+    if not targets:
+        raise ValueError(
+            "target range must contain the selected residue progression")
+    character = recombined_centered_character_receipt(
+        targets=LINKED_PRIME_TARGETS, tolerance=tolerance,
+        batch_size=batch_size)
+    if character["common_modulus"] != common:
+        raise AssertionError("unexpected recombined centered source modulus")
+    source_by_residue = {
+        int(unit): value for unit, value in zip(
+            character["unit_residues"],
+            character["centered_source_values"])}
+    admissible_residues = tuple(
+        residue for residue in source_by_residue
+        if math.gcd((target_residue - residue) % common, common) == 1)
+    source_mean = sum((
+        source_by_residue[residue] for residue in admissible_residues),
+        0.0j) / len(admissible_residues)
+    centered_source = {
+        residue: source_by_residue[residue] - source_mean
+        for residue in admissible_residues}
+    centered_sum = sum(centered_source.values(), 0.0j)
+    centered_scale = max(
+        1.0, math.fsum(abs(value) for value in centered_source.values()))
+    unseen = set(admissible_residues)
+    reflection_orbits = []
+    while unseen:
+        residue = min(unseen)
+        partner_residue = (target_residue - residue) % common
+        if partner_residue not in unseen and partner_residue != residue:
+            raise AssertionError("affine reflection did not preserve admissibility")
+        orbit = tuple(sorted({residue, partner_residue}))
+        reflection_orbits.append(orbit)
+        unseen.difference_update(orbit)
+    reflection_orbits = tuple(reflection_orbits)
+    orbit_by_residue = {
+        residue: orbit_index
+        for orbit_index, orbit in enumerate(reflection_orbits)
+        for residue in orbit}
+    orbit_coefficients = tuple(
+        sum((centered_source[residue] for residue in orbit), 0.0j)
+        for orbit in reflection_orbits)
+    orbit_coefficient_sum = sum(orbit_coefficients, 0.0j)
+
+    primes = _prime_table(target_maximum)
+    rows = {}
+    orbit_term_rows = {}
+    for target in targets:
+        lower = target // 3
+        residue_weights = {
+            residue: 0.0 for residue in admissible_residues}
+        paired_terms = []
+        paired_square_function = 0.0
+        ordered_total_weight = 0.0
+        ordered_pair_count = 0
+        reflection_block_count = 0
+        nonunit_prime_pairs = []
+        for prime in range(max(2, lower + 1), target // 2 + 1):
+            partner = target - prime
+            if not primes[prime] or not primes[partner]:
+                continue
+            if (math.gcd(prime, common) != 1
+                    or math.gcd(partner, common) != 1):
+                nonunit_prime_pairs.append((prime, partner))
+                continue
+            weight = math.log(prime) * math.log(partner)
+            prime_residue = prime % common
+            partner_residue = partner % common
+            orbit_index = orbit_by_residue[prime_residue]
+            if orbit_index != orbit_by_residue[partner_residue]:
+                raise AssertionError("linked residues occupy different orbits")
+            if prime < partner:
+                residue_weights[prime_residue] += weight
+                residue_weights[partner_residue] += weight
+                block_term = weight * (
+                    centered_source[prime_residue]
+                    + centered_source[partner_residue])
+            else:
+                residue_weights[prime_residue] += weight
+                block_term = weight * centered_source[prime_residue]
+            paired_terms.append(block_term)
+            paired_square_function += abs(block_term) ** 2
+            reflection_block_count += 1
+            if prime < partner:
+                ordered_total_weight += 2 * weight
+                ordered_pair_count += 2
+            else:
+                ordered_total_weight += weight
+                ordered_pair_count += 1
+        orbit_weights = tuple(
+            residue_weights[orbit[0]] for orbit in reflection_orbits)
+        orbit_weight_symmetry_errors = tuple(
+            abs(residue_weights[orbit[0]] - residue_weights[orbit[1]])
+            if len(orbit) == 2 else 0.0
+            for orbit in reflection_orbits)
+        uniform_ordered_residue_weight = (
+            ordered_total_weight / len(admissible_residues))
+        paired_discrepancy = _complex_fsum(paired_terms)
+        orbit_terms = tuple(
+            (weight - uniform_ordered_residue_weight) * coefficient
+            for weight, coefficient in zip(
+                orbit_weights, orbit_coefficients))
+        orbit_discrepancy = _complex_fsum(orbit_terms)
+        orbit_square_function = math.fsum(
+            abs(term) ** 2 for term in orbit_terms)
+        orbit_scale = math.sqrt(orbit_square_function)
+        scale = max(
+            1.0, abs(paired_discrepancy), abs(orbit_discrepancy))
+        rows[target] = {
+            "ordered_linked_prime_pair_count": ordered_pair_count,
+            "reflection_block_count": reflection_block_count,
+            "nonunit_prime_pairs": tuple(nonunit_prime_pairs),
+            "ordered_total_weight": ordered_total_weight,
+            "uniform_ordered_residue_weight": uniform_ordered_residue_weight,
+            "maximum_orbit_residue_weight_symmetry_error": max(
+                orbit_weight_symmetry_errors),
+            "paired_centered_discrepancy_correlation": paired_discrepancy,
+            "paired_reflection_square_function": paired_square_function,
+            "orbit_centered_discrepancy_correlation": orbit_discrepancy,
+            "orbit_discrepancy_square_function": orbit_square_function,
+            "orbit_discrepancy_scale": orbit_scale,
+            "pointwise_discrepancy_to_orbit_ratio": (
+                abs(orbit_discrepancy) / orbit_scale
+                if orbit_scale else None),
+            "paired_to_orbit_reconstruction_relative_error": (
+                abs(paired_discrepancy - orbit_discrepancy) / scale),
+        }
+        orbit_term_rows[target] = orbit_terms
+
+    nonempty_targets = tuple(
+        target for target, row in rows.items()
+        if row["pointwise_discrepancy_to_orbit_ratio"] is not None)
+    if not nonempty_targets:
+        raise ValueError(
+            "selected progression has no nonzero orbit-discrepancy target")
+    summed_squared_discrepancy = math.fsum(
+        abs(rows[target]["orbit_centered_discrepancy_correlation"]) ** 2
+        for target in nonempty_targets)
+    summed_orbit_square_function = math.fsum(
+        rows[target]["orbit_discrepancy_square_function"]
+        for target in nonempty_targets)
+    aggregate_orbit_ratio = (
+        summed_squared_discrepancy / summed_orbit_square_function)
+    summed_paired_square_function = math.fsum(
+        rows[target]["paired_reflection_square_function"]
+        for target in nonempty_targets)
+    aggregate_paired_ratio = (
+        summed_squared_discrepancy / summed_paired_square_function)
+    worst_target = max(
+        nonempty_targets,
+        key=lambda target: rows[target][
+            "pointwise_discrepancy_to_orbit_ratio"])
+    orbit_pair_cross_terms = tuple(sorted((
+        (
+            reflection_orbits[left],
+            reflection_orbits[right],
+            2 * math.fsum(
+                (orbit_term_rows[target][left]
+                 * orbit_term_rows[target][right].conjugate()).real
+                for target in nonempty_targets),
+        )
+        for left in range(len(reflection_orbits))
+        for right in range(left + 1, len(reflection_orbits))),
+        key=lambda item: (-item[2], item[0], item[1])))
+    summed_cross_orbit_terms = math.fsum(
+        item[2] for item in orbit_pair_cross_terms)
+    cross_term_scale = max(
+        1.0, summed_squared_discrepancy,
+        summed_orbit_square_function, abs(summed_cross_orbit_terms))
+    dyadic_block_summaries = {}
+    block_lower = target_minimum
+    while block_lower <= target_maximum:
+        block_upper = min(target_maximum + 1, 2 * block_lower)
+        block_targets = tuple(
+            target for target in nonempty_targets
+            if block_lower <= target < block_upper)
+        if block_targets:
+            block_squared_discrepancy = math.fsum(
+                abs(rows[target][
+                    "orbit_centered_discrepancy_correlation"]) ** 2
+                for target in block_targets)
+            block_orbit_square_function = math.fsum(
+                rows[target]["orbit_discrepancy_square_function"]
+                for target in block_targets)
+            block_paired_square_function = math.fsum(
+                rows[target]["paired_reflection_square_function"]
+                for target in block_targets)
+            maximum_target = max(
+                block_targets,
+                key=lambda target: rows[target][
+                    "pointwise_discrepancy_to_orbit_ratio"])
+            dyadic_block_summaries[(block_lower, block_upper)] = {
+                "target_count": len(block_targets),
+                "maximum_pointwise_orbit_ratio": rows[maximum_target][
+                    "pointwise_discrepancy_to_orbit_ratio"],
+                "maximum_target": maximum_target,
+                "summed_squared_discrepancy": block_squared_discrepancy,
+                "summed_orbit_square_function": (
+                    block_orbit_square_function),
+                "summed_paired_square_function": (
+                    block_paired_square_function),
+                "aggregate_orbit_ratio": (
+                    block_squared_discrepancy
+                    / block_orbit_square_function),
+                "aggregate_paired_ratio": (
+                    block_squared_discrepancy
+                    / block_paired_square_function),
+                "passes_aggregate_orbit_gate": bool(
+                    block_squared_discrepancy / block_orbit_square_function
+                    <= maximum_aggregate_orbit_ratio),
+            }
+        block_lower *= 2
+    return {
+        "families": character["families"],
+        "arithmetic_period": character["arithmetic_period"],
+        "quotient": character["quotient"],
+        "common_modulus": common,
+        "target_range": (target_minimum, target_maximum),
+        "target_residue": target_residue,
+        "progression_step": common,
+        "admissible_residues": admissible_residues,
+        "reflection_orbits": reflection_orbits,
+        "orbit_coefficients": orbit_coefficients,
+        "centered_source_sum_relative_error": (
+            abs(centered_sum) / centered_scale),
+        "orbit_coefficient_sum_relative_error": (
+            abs(orbit_coefficient_sum) / centered_scale),
+        "maximum_aggregate_orbit_ratio_gate": (
+            maximum_aggregate_orbit_ratio),
+        "rows": rows,
+        "tested_target_count": len(rows),
+        "nonempty_target_count": len(nonempty_targets),
+        "aggregate_orbit_ratio": aggregate_orbit_ratio,
+        "aggregate_paired_ratio": aggregate_paired_ratio,
+        "net_cross_orbit_to_orbit_diagonal_ratio": (
+            summed_cross_orbit_terms / summed_orbit_square_function),
+        "cross_term_reconstruction_relative_error": abs(
+            summed_orbit_square_function + summed_cross_orbit_terms
+            - summed_squared_discrepancy) / cross_term_scale,
+        "passes_full_aggregate_orbit_gate": bool(
+            aggregate_orbit_ratio <= maximum_aggregate_orbit_ratio),
+        "all_dyadic_blocks_pass_aggregate_orbit_gate": all(
+            row["passes_aggregate_orbit_gate"]
+            for row in dyadic_block_summaries.values()),
+        "worst_target": worst_target,
+        "worst_target_row": rows[worst_target],
+        "orbit_pair_cross_terms": orbit_pair_cross_terms,
+        "dyadic_block_summaries": dyadic_block_summaries,
+        "maximum_reconstruction_relative_error": max(
+            row["paired_to_orbit_reconstruction_relative_error"]
+            for row in rows.values()),
+        "maximum_orbit_residue_weight_symmetry_error": max(
+            row["maximum_orbit_residue_weight_symmetry_error"]
+            for row in rows.values()),
+        "all_prime_terms_are_units": all(
+            not row["nonunit_prime_pairs"] for row in rows.values()),
+        "all_orbit_discrepancies_reconstruct": all(
+            row["paired_to_orbit_reconstruction_relative_error"] <= tolerance
+            for row in rows.values()),
+        "all_two_element_orbit_residue_weights_match": all(
+            row["maximum_orbit_residue_weight_symmetry_error"] <= tolerance
+            for row in rows.values()),
+        "finite_residue_orbit_reinforcement_measured": True,
+        "orbit_reinforcement_bound_proved": False,
         "signed_prime_correlation_proved": False,
         "goldbach_proved": False,
     }

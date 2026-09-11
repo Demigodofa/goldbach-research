@@ -13615,9 +13615,12 @@ over the affine-reflection orbits.  Put
 
 `C_O=H_72(a)+H_72(72-a)`
 
-for a two-element orbit, with `C_O=H_72(a)` for a fixed point, and let
-`W_N(O)` be the total `log(p)log(N-p)` weight of unordered central prime pairs
-in orbit `O`.  If `u_N` is the uniform ordered-residue weight, define
+for a two-element orbit, with `C_O=H_72(a)` for a fixed point.  Let `W_N(O)`
+be the actual ordered-prime residue weight at either member of a two-element
+orbit; reflection makes those two weights equal.  At a fixed residue orbit,
+use its actual ordered residue weight, counting both orientations of a
+nonmidpoint pair and one copy of an integer midpoint.  If `u_N` is the uniform
+ordered-residue weight, define
 
 `T_N(O)=(W_N(O)-u_N)C_O`,
 `S_N^orbit=sum_O |T_N(O)|^2`.
@@ -13634,3 +13637,66 @@ inside the same residue orbit.  A violation would isolate genuine cross-orbit
 reinforcement and identify the orbit pairs carrying it.  Either outcome keeps
 the residue and polynomial tools available; it rejects or supports only this
 specific explanation.
+
+## 2026-09-11: residue 72 has genuine cross-orbit reinforcement
+
+The frozen orbit-level explanation fails.  On all `761` targets
+`N congruent 72 (mod 130)` in `1000<=N<=100000`, the exact full-progression
+ratio is
+
+`sum_N |D_N|^2 / sum_N S_N^orbit = 1.4580525604008545`,
+
+above the gate `1`.  Equivalently, the net cross-orbit contribution is
+`.4580525604008545` times the orbit diagonal.  Six of seven dyadic blocks
+also fail; their orbit ratios are approximately
+`2.30595, .69030, 1.40984, 2.02208, 2.07594, 1.08676, 1.54864`.
+
+The worst pointwise orbit ratio is `2.9678135069711833` at `N=36472`, with
+`176` ordered linked-prime pairs and `88` reflection blocks.  The largest
+positive full-range orbit-pair cross term joins `(21,51)` with `(29,43)`.
+Thus repeated contributions inside one residue orbit do not absorb the
+residue-72 excess; correlations between different orbits remain.
+
+One implementation correction is important to preserve.  The affine residue
+orbit `(101,)` is fixed modulo `130`, but that does not imply the actual primes
+are equal.  A nonmidpoint pair with both primes congruent to `101` contributes
+two ordered residue weights and block coefficient `2H_72(101)`; only the
+integer midpoint `p=N/2` contributes once.  The accepted computation first
+builds exact ordered residue weights, verifies equal weights on every
+two-element affine orbit, and only then forms orbit discrepancies.  The
+discarded preliminary calculation conflated a fixed residue orbit with an
+integer midpoint.
+
+For comparison, the full pair-block ratio on the enlarged range is
+`.7523745606834696`.  This does not negate the cross-orbit result: the pair
+and orbit denominators test different conjunctions.  Preserve both square
+functions and the affine residue machinery.  Reject only the claim that
+within-orbit repetition explains all of residue 72's reinforcement.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`.
+Independent review reproduced the fixed-orbit convention, full and dyadic
+ratios, worst target, leading positive orbit pair, exact cross-term identity,
+and scope.  Focused normal and optimized tests pass.  No orbit bound, signed
+prime-correlation estimate, or Goldbach statement has been proved.
+
+The next bounded question separates arithmetic covariance from the q77
+source's coefficient signs.  Retain the measured orbit terms
+
+`T_N(O)=(W_N(O)-u_N)C_O`
+
+for residue `72`, and for every sign vector `s in {+1,-1}^17`, modulo a global
+sign, compute
+
+`R(s)=sum_N |sum_O s_O T_N(O)|^2
+      /sum_(N,O) |T_N(O)|^2`.
+
+The denominator is invariant under these sign flips.  Exhaust all `2^16`
+patterns and freeze the source-alignment falsifier
+
+`#{s:R(s)>=R(all +)} / 2^16 <= .05`.
+
+A pass would show that the actual q77 orbit signs lie in the most reinforcing
+five percent for the measured prime-orbit covariance.  A failure would reject
+sign-specific resonance as the explanation and redirect attention to orbit
+magnitudes or generic covariance.  Report the exact rank fraction, extrema,
+and maximizing sign pattern; finite rank is not an asymptotic estimate.
