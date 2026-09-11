@@ -11947,9 +11947,10 @@ This follows by inserting
 residue cotangent transform
 `sum_(b=1)^(M-1) cot(pi*b/M)e_M(b*n)=i*s_M(n)`.
 Fourier inversion therefore expresses each primitive cotangent coefficient
-as a divisor combination of linear sawtooth weights.  This is an exact bridge
-back to polynomial weights with a new arithmetic ingredient: the divisor
-lattice and its Moebius signs.
+through divisor-indexed linear sawtooth transforms.  This is an exact bridge
+back to polynomial weights in the Fourier representation.  It does not by
+itself show that the divisor levels or their Moebius signs survive as separate
+components after inversion at a primitive endpoint index.
 
 Direct finite transforms and inverses were checked for endpoint denominators
 `77,130,143,70`.  The maximum forward natural-scale relative error was
@@ -11975,8 +11976,9 @@ two-cotangent product formula.  Preserve the generalized cotangent sums too;
 this result supplies a stronger available representation rather than proving
 that other representations are impossible or useless.  It also vindicates
 the qualification that polynomial-weight identities should remain available:
-the cotangent component itself is Fourier-equivalent to explicitly linear
-weights once Moebius restriction to primitive residues is included.
+the cotangent component itself has an exact Fourier representation by linear
+weights.  The role of the Moebius restriction must be kept distinct from that
+polynomial representation.
 
 Curiosity status: `aha`, novelty `new-to-this-task`.  This is an exact finite
 identity and reconstruction, not a bound.  It proves no uniform source-sum,
@@ -12002,3 +12004,69 @@ The mechanism would be demonstrated if the strong `q=77` case loses at least
 `.75` of that signed divisor-level mass while the weak `q=91` case loses at
 most `.25`; failure rejects this sign-only explanation while preserving the
 divisor-sawtooth representation for finer arithmetic tests.
+
+## 2026-09-11: inverse divisor-level signs vanish at primitive indices
+
+The proposed positive/negative divisor-level experiment is structurally
+empty in the stated inverse variable.  For `M|D`, put `k=D/M` and isolate the
+`M`-level inverse component
+
+`C_(D,M)(a)=(1/D) sum_(n mod D) i*mu(k)*s_M(n)*e_D(-a*n)`.
+
+Writing `n=r+tM` separates a geometric sum over `t mod k`.  Consequently,
+
+`C_(D,M)(a)=0` if `k` does not divide `a`, while if `a=k*a'` it is
+`mu(k)*cot(pi*a'/M)` (and is zero when `a'=0 mod M`).
+
+If `a` is primitive modulo `D` and `M<D`, then `k>1` divides `D` and cannot
+divide `a`.  Every proper divisor level therefore vanishes exactly at every
+primitive endpoint index.  Only `M=D`, carrying `mu(1)=+1`, survives.  There
+are no positive and negative inverse-level groups to compare, so the declared
+`.75/.25` sign mechanism is falsified before the count-`4` sector projection.
+
+The support formula was checked at every residue and divisor level for
+`D=77,130,143,70`.  Maximum relative formula errors were respectively
+`1.7197400380281556e-13`, `4.2120199821412807e-13`,
+`4.733561990067528e-13`, and `1.4159988323374082e-13`.  The largest numerical
+proper-level value at a primitive index was `3.667089731754135e-13`, within
+the `1e-12` gate; the exact vanishing follows from the geometric support
+condition, not from that floating-point threshold.
+
+This narrows the preceding interpretation.  The primitive forward-transform
+identity remains exact and may still be useful while the source-residue
+Fourier variable is retained.  Its proper-divisor Moebius terms encode the
+zero extension of the primitive cotangent sequence away from unit indices;
+they do not supply coefficientwise cancellation among the primitive endpoint
+cotangents after inverse transformation.  Preserve the linear-sawtooth bridge
+and retire only the proposed inverse-level sign mechanism.
+
+Curiosity status: `changed-under-evidence` and `useful-falsification`, novelty
+`new-to-this-task`.  No uniform source, prime-distribution, or signed
+prime-correlation estimate follows.
+
+Independent review proved the same geometric support formula, checked the
+implementation, and independently swept `D=3,...,40` with maximum discrepancy
+`5.14e-14`.  All three focused tests passed normally and under Python
+optimization.  The reviewer correctly held the earlier broad wording until
+the distinction between the useful forward representation and the empty
+primitive inverse-level mechanism was made explicit.
+
+The next bounded question keeps the forward variable where the Moebius terms
+do survive.  For one oriented count-`2` family source with coprime endpoint
+denominators `A,B`, source residue `u`, spatial frequency `k`, and sparse
+coefficient array `F(u,k)`, test the exact two-dimensional transform
+
+`Fhat(t,v)=(1/4)*(T_A(t+v)-T_A(t))
+                    *(T_B(-t-v)-T_B(-t))`,
+
+where `T_D(t)` is the primitive cotangent transform above.  Also test at every
+residue the arithmetic finite-difference identity
+
+`T_D(t+1)-T_D(t)=i*(c_D(t)+c_D(t+1))`.
+
+Use both actual endpoint families, all `t mod 10010`, and the declared spatial
+steps `v in {1,70,77,91,110,130,143}`; require natural-scale relative error at
+most `1e-12`.  Passing would identify a concrete cancellation/reinforcement
+mechanism: the linked endpoint conditions multiply finite differences of
+Moebius-sawtooth transforms, whose unit jumps are adjacent Ramanujan sums.
+It would still be an identity rather than the missing uniform estimate.
