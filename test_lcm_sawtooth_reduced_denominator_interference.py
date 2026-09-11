@@ -5,14 +5,44 @@ from lcm_sawtooth_reduced_denominator_interference import (
     _cross_by_denominator,
     _offdiagonal_lags_by_denominator,
     classify_near_lag_mass,
+    classify_crt_rank_one_near_lag_separation,
     classify_primewise_denominator_signs,
     classify_shared_prime_denominator_mass,
     project_reduced_denominator_interference_receipt,
+    conductor_high_q_retention_obstruction,
     shared_prime_high_q_support_obstruction,
 )
 
 
 class ReducedDenominatorInterferenceTests(unittest.TestCase):
+    def test_crt_rank_one_classifier_reindexes_exactly(self):
+        matrix = [[0.0, 0.0], [2.0, -4.0], [3.0, -6.0],
+                  [4.0, -8.0], [5.0, -10.0]]
+        contributions = [matrix[lag % 5][lag % 2] for lag in range(10)]
+        receipt = classify_crt_rank_one_near_lag_separation(
+            {10: contributions}, 5, 1, minimum_passing_channel_count=1)
+        row = receipt["crt_rank_one_near_lag_channel_rows"][0]
+        self.assertLess(row["crt_reconstruction_maximum_error"], 1e-15)
+        self.assertAlmostEqual(
+            row["rank_one_frobenius_energy_fraction"], 1.0, places=12)
+        self.assertTrue(receipt[
+            "crt_rank_one_near_lag_separation_hypothesis_passes"])
+
+    def test_full_conductors_are_forced_by_actual_cutoff(self):
+        receipt = conductor_high_q_retention_obstruction(
+            127, 28, 3, 13, (77, 143))
+        self.assertEqual(receipt["linked_conductor_core"], 1001)
+        bounds = {
+            (row["conductor"], factor["prime_factor"]):
+            factor["nondivisible_reduced_denominator_upper_bound"]
+            for row in receipt["conductor_retention_rows"]
+            for factor in row["factor_rows"]}
+        self.assertEqual(bounds, {
+            (77, 7): 1430, (77, 11): 910,
+            (143, 11): 910, (143, 13): 770})
+        self.assertTrue(receipt[
+            "every_interfering_denominator_has_linked_core_proved"])
+
     def test_fft_lag_decomposition_reconstructs_offdiagonal_cross(self):
         left = {
             (5, 0): 1 + 2j,
@@ -82,6 +112,11 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         self.assertEqual(
             receipt["nonshared_single_packet_high_q_pair_count"], 0)
         self.assertEqual(
+            receipt["nonconductor_single_packet_high_q_pair_count"], 0)
+        self.assertEqual(receipt["linked_conductor_core"], 1001)
+        self.assertTrue(receipt[
+            "every_interfering_denominator_has_linked_core_proved"])
+        self.assertEqual(
             receipt["nonzero_off_diagonal_denominators"],
             (5005, 6006, 10010))
         self.assertEqual(receipt["positive_nonzero_denominator_count"], 3)
@@ -92,6 +127,12 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         self.assertEqual(receipt["near_lag_passing_channel_count"], 0)
         self.assertEqual(receipt["near_lag_passing_denominators"], ())
         self.assertFalse(receipt["near_lag_absolute_mass_hypothesis_passes"])
+        self.assertEqual(
+            receipt["crt_rank_one_near_lag_passing_channel_count"], 0)
+        self.assertEqual(
+            receipt["crt_rank_one_near_lag_passing_denominators"], ())
+        self.assertFalse(receipt[
+            "linked_core_crt_near_lag_separation_hypothesis_passes"])
         self.assertLess(max(
             abs(error) for _, error in receipt["lag_reconstruction_errors"]),
             3e-12)
@@ -101,6 +142,25 @@ class ReducedDenominatorInterferenceTests(unittest.TestCase):
         lag_rows = {
             row["reduced_denominator"]: row
             for row in receipt["near_lag_channel_rows"]}
+        crt_rows = {
+            row["reduced_denominator"]: row
+            for row in receipt["crt_rank_one_near_lag_channel_rows"]}
+        self.assertEqual(
+            {denominator: row["crt_cofactor"]
+             for denominator, row in crt_rows.items()},
+            {5005: 5, 6006: 6, 10010: 10})
+        self.assertAlmostEqual(
+            crt_rows[5005]["rank_one_frobenius_energy_fraction"],
+            .5252071997172114, places=10)
+        self.assertAlmostEqual(
+            crt_rows[6006]["rank_one_frobenius_energy_fraction"],
+            .6738134851177743, places=10)
+        self.assertAlmostEqual(
+            crt_rows[10010]["rank_one_frobenius_energy_fraction"],
+            .3612744181634573, places=10)
+        self.assertEqual(max(
+            row["crt_reconstruction_maximum_error"]
+            for row in crt_rows.values()), 0.0)
         self.assertAlmostEqual(
             lag_rows[5005]["near_lag_absolute_mass_fraction"],
             .5084107132570644, places=10)

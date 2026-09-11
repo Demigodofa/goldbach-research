@@ -181,6 +181,69 @@ def shared_prime_high_q_support_obstruction(
     }
 
 
+def conductor_high_q_retention_obstruction(
+        modulus, row_count, divisor_lower, divisor_upper, conductors):
+    """Prove factor by factor when high-Q packets retain each conductor."""
+    conductors = tuple(sorted(set(conductors)))
+    if (len(conductors) != 2
+            or any(type(value) is not int or value < 2 for value in conductors)):
+        raise ValueError("require two distinct integer conductors")
+    if (type(modulus) is not int or type(row_count) is not int
+            or modulus < 2 or row_count < 1):
+        raise ValueError("modulus and row_count must be positive integers")
+
+    def prime_factors(value):
+        factors = []
+        divisor = 2
+        while divisor * divisor <= value:
+            if value % divisor == 0:
+                factors.append(divisor)
+                value //= divisor
+                if value % divisor == 0:
+                    raise ValueError("conductors must be squarefree")
+            divisor += 1
+        if value > 1:
+            factors.append(value)
+        return tuple(factors)
+
+    support = tuple(
+        denominator for denominator, _
+        in _quadratic_support_data(divisor_lower, divisor_upper)[1])
+    threshold = modulus * row_count
+    conductor_rows = []
+    for conductor, opposite in zip(conductors, reversed(conductors)):
+        factor_rows = []
+        for prime in prime_factors(conductor):
+            upper_bound = max(
+                math.lcm(conductor, denominator) // prime
+                for denominator in support if denominator != opposite)
+            factor_rows.append({
+                "prime_factor": prime,
+                "nondivisible_reduced_denominator_upper_bound": upper_bound,
+                "prime_retained_by_high_q_cutoff": bool(
+                    upper_bound <= threshold),
+            })
+        conductor_rows.append({
+            "conductor": conductor,
+            "factor_rows": tuple(factor_rows),
+            "conductor_retained_by_high_q_cutoff": all(
+                row["prime_retained_by_high_q_cutoff"]
+                for row in factor_rows),
+        })
+    linked_core = math.lcm(*conductors)
+    core_forced = all(
+        row["conductor_retained_by_high_q_cutoff"]
+        for row in conductor_rows)
+    return {
+        "linked_conductor_core": linked_core,
+        "conductor_retention_high_q_threshold": threshold,
+        "conductor_retention_rows": tuple(conductor_rows),
+        "every_single_packet_retains_its_conductor_proved": bool(core_forced),
+        "every_interfering_denominator_has_linked_core_proved": bool(
+            core_forced),
+    }
+
+
 def _packet_residue_cells(
         modulus, row_count, ell_freeze, divisor_range,
         direction, conductors, shared_prime):
@@ -191,6 +254,7 @@ def _packet_residue_cells(
     packets = {category: {} for category in range(4)}
     pair_counts = [0, 0, 0, 0]
     nonshared_single_pair_count = 0
+    nonconductor_single_pair_count = 0
     chunk_size = 64
     for first in range(0, len(denominators), chunk_size):
         left_d = denominators[first:first + chunk_size, None]
@@ -223,6 +287,11 @@ def _packet_residue_cells(
         nonshared_single_pair_count += int(np.count_nonzero(
             ((selected_categories == 1) | (selected_categories == 2))
             & (selected_reduced % shared_prime != 0)))
+        nonconductor_single_pair_count += int(np.count_nonzero(
+            ((selected_categories == 1)
+             & (selected_reduced % conductors[0] != 0))
+            | ((selected_categories == 2)
+               & (selected_reduced % conductors[1] != 0))))
 
         left_coordinates = np.broadcast_to(
             coordinates[first:first + chunk_size, None, :],
@@ -244,7 +313,8 @@ def _packet_residue_cells(
             category, denominator, residue = (int(item) for item in key)
             cell = (denominator, residue)
             packets[category][cell] = packets[category].get(cell, 0j) + value
-    return packets, tuple(pair_counts), nonshared_single_pair_count
+    return (packets, tuple(pair_counts), nonshared_single_pair_count,
+            nonconductor_single_pair_count)
 
 
 def _cross_by_denominator(left, right, row_count):
@@ -379,6 +449,81 @@ def classify_near_lag_mass(
     }
 
 
+def classify_crt_rank_one_near_lag_separation(
+        lag_contributions, linked_core, row_count,
+        minimum_rank_one_energy_fraction=.9,
+        minimum_passing_channel_count=2):
+    """Test rank-one CRT separation of the kernel-main-lobe lag term."""
+    lag_contributions = dict(lag_contributions)
+    if not lag_contributions:
+        raise ValueError("at least one lag channel is required")
+    if type(linked_core) is not int or linked_core < 2:
+        raise ValueError("linked_core must be an integer at least two")
+    if type(row_count) is not int or row_count < 1:
+        raise ValueError("row_count must be a positive integer")
+    if not 0 < minimum_rank_one_energy_fraction <= 1:
+        raise ValueError("rank-one energy threshold must lie in (0,1]")
+    if (type(minimum_passing_channel_count) is not int
+            or not 1 <= minimum_passing_channel_count <= len(lag_contributions)):
+        raise ValueError("passing channel count must fit the channel set")
+
+    channel_rows = []
+    for denominator in sorted(lag_contributions):
+        contributions = np.asarray(
+            lag_contributions[denominator], dtype=float)
+        if contributions.shape != (denominator,):
+            raise ValueError("each lag array must have length Q")
+        if denominator % linked_core:
+            raise ArithmeticError("interfering denominator lacks linked core")
+        cofactor = denominator // linked_core
+        if math.gcd(linked_core, cofactor) != 1:
+            raise ArithmeticError("core and cofactor are not CRT-coprime")
+        distances = np.minimum(
+            np.arange(denominator),
+            denominator - np.arange(denominator))
+        near = distances * row_count <= denominator
+        near[0] = False
+        near_contributions = contributions.copy()
+        near_contributions[~near] = 0.0
+        matrix = np.empty((linked_core, cofactor), dtype=float)
+        for lag, value in enumerate(near_contributions):
+            matrix[lag % linked_core, lag % cofactor] = value
+        reconstructed = np.empty(denominator, dtype=float)
+        for lag in range(denominator):
+            reconstructed[lag] = matrix[
+                lag % linked_core, lag % cofactor]
+        singular_values = np.linalg.svd(matrix, compute_uv=False)
+        energy = float(np.sum(singular_values ** 2))
+        if not energy:
+            raise ArithmeticError("CRT lag matrix has zero energy")
+        rank_one_fraction = float(singular_values[0] ** 2 / energy)
+        channel_rows.append({
+            "reduced_denominator": denominator,
+            "linked_core": linked_core,
+            "crt_cofactor": cofactor,
+            "near_lag_rule": "min(h,Q-h)*R<=Q",
+            "crt_reconstruction_maximum_error": float(np.max(np.abs(
+                reconstructed - near_contributions))),
+            "singular_values": tuple(float(value) for value in singular_values),
+            "rank_one_frobenius_energy_fraction": rank_one_fraction,
+            "crt_rank_one_near_lag_separation_hypothesis_passes": bool(
+                rank_one_fraction >= minimum_rank_one_energy_fraction),
+        })
+    passing = tuple(
+        row["reduced_denominator"] for row in channel_rows
+        if row["crt_rank_one_near_lag_separation_hypothesis_passes"])
+    return {
+        "minimum_crt_rank_one_energy_fraction": (
+            minimum_rank_one_energy_fraction),
+        "minimum_passing_crt_channel_count": minimum_passing_channel_count,
+        "crt_rank_one_near_lag_channel_rows": tuple(channel_rows),
+        "crt_rank_one_near_lag_passing_denominators": passing,
+        "crt_rank_one_near_lag_passing_channel_count": len(passing),
+        "crt_rank_one_near_lag_separation_hypothesis_passes": bool(
+            len(passing) >= minimum_passing_channel_count),
+    }
+
+
 def _require_no_mixed_high_q_packet(mixed_pair_count):
     """Guard the specialization of the Boolean identity to ``2 Re<b,c>``."""
     if type(mixed_pair_count) is not int or mixed_pair_count < 0:
@@ -445,13 +590,16 @@ def project_reduced_denominator_interference_receipt(
     prime_contribution_rows = []
     mixed_pair_count = 0
     nonshared_single_pair_count = 0
+    nonconductor_single_pair_count = 0
     for frame_row in baseline["rows"]:
-        packets, pair_counts, nonshared_count = _packet_residue_cells(
+        packets, pair_counts, nonshared_count, nonconductor_count = (
+            _packet_residue_cells(
             frame_row["modulus"], baseline["row_count"],
             baseline["ell_freeze"], baseline["divisor_range"],
-            original_direction, conductors, shared_prime)
+            original_direction, conductors, shared_prime))
         mixed_pair_count += pair_counts[3]
         nonshared_single_pair_count += nonshared_count
+        nonconductor_single_pair_count += nonconductor_count
         contributions = _cross_by_denominator(
             packets[1], packets[2], baseline["row_count"])
         lag_contributions = _offdiagonal_lags_by_denominator(
@@ -515,6 +663,12 @@ def project_reduced_denominator_interference_receipt(
         for row in nonzero_rows}
     lag_classification = classify_near_lag_mass(
         selected_lags, baseline["row_count"])
+    retention = conductor_high_q_retention_obstruction(
+        scale_modulus, baseline["row_count"], *baseline["divisor_range"],
+        conductors)
+    crt_classification = classify_crt_rank_one_near_lag_separation(
+        selected_lags, retention["linked_conductor_core"],
+        baseline["row_count"])
     lag_reconstruction_errors = tuple(
         (row["reduced_denominator"],
          float(np.sum(selected_lags[row["reduced_denominator"]])
@@ -542,9 +696,17 @@ def project_reduced_denominator_interference_receipt(
         "mixed_packet_high_q_pair_count": mixed_pair_count,
         "nonshared_single_packet_high_q_pair_count": (
             nonshared_single_pair_count),
+        "nonconductor_single_packet_high_q_pair_count": (
+            nonconductor_single_pair_count),
         **classification,
         **primewise_classification,
         **lag_classification,
+        **retention,
+        **crt_classification,
+        "linked_core_crt_near_lag_separation_hypothesis_passes": bool(
+            retention["every_interfering_denominator_has_linked_core_proved"]
+            and crt_classification[
+                "crt_rank_one_near_lag_separation_hypothesis_passes"]),
         **obstruction,
         "finite_reduced_denominator_interference_measured": True,
         "uniform_signed_denominator_interference_proved": False,

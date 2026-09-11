@@ -9697,3 +9697,54 @@ interfere. Prove or falsify this factor by factor on the exact support, then
 seek a CRT split `Q=1001*k` for the signed near-lag term. Any surviving cell
 that loses a conductor prime falsifies the divisibility step; a CRT
 reconstruction residual falsifies the proposed representation.
+
+## 2026-09-11: the full conductor core survives, but rank one does not
+
+The cutoff forces more than the shared factor `11`. For a packet containing
+conductor `c` and partner denominator `d`, if a prime `p|c` disappears from
+the reduced denominator, then
+
+`Q <= lcm(c,d)/p`.
+
+On the exact `(3,13)` support, the maximum such bounds are
+
+- conductor `77`: `1430` after losing `7`, and `910` after losing `11`;
+- conductor `143`: `910` after losing `11`, and `770` after losing `13`.
+
+All are below the minimum strict high-`Q` threshold `127*28=3556`.
+Therefore every left-only high-`Q` packet retains `77`, every right-only
+packet retains `143`, and every denominator on which they interfere contains
+`lcm(77,143)=1001`. The direct enumeration independently has zero
+single-packet pairs that lose their conductor. This is an exact finite support
+lemma, not a sign estimate.
+
+The three channels are consequently `Q=1001*k` with `k=5,6,10`, each coprime
+to `1001`. Restrict the reviewed lag signal to
+`min(h,Q-h)R<=Q`, then use the exact CRT bijection
+`h -> (h mod 1001,h mod k)`. The predeclared separation hypothesis required
+the leading singular mode of this real near-lag matrix to carry at least `.9`
+of Frobenius energy on at least two channels. It fails on all three:
+
+- `Q=5005`: `.5252072`;
+- `Q=6006`: `.6738135`;
+- `Q=10010`: `.3612744`.
+
+CRT reconstruction errors are exactly zero numerically. Independent review
+verified the factor-retention implication and bounds, raw count, CRT
+bijection, near restriction, Frobenius/SVD interpretation, values, and scope.
+Nine focused tests pass normally and under Python optimization.
+
+Pursuit status: `changed-under-evidence`. Preserve the exact `1001` core and
+CRT coordinates as a new arithmetic organization. Reject only a single real
+rank-one mode for these kernel-weighted, prime-aggregated near-lag matrices.
+Underlying complex packet factorization, higher-rank CRT estimates, polynomial
+weights, and signed use of the CRT split remain available. No uniform signed
+lag bound, signed prime correlation, or Goldbach claim is proved.
+
+The near-lag CRT spectra show repeated paired values after the leader. The
+next bounded question is whether this reflects the exact inversion law
+`C_(Q,h)=C_(Q,-h)` forced by Hermitian residue packets, rather than an
+accidental numerical degeneracy. Prove the packet conjugation identity and
+test maximum inversion error against `10^-12`; failure rejects the even-lag
+reduction, while success converts the signed lag sum to an exact cosine-side
+half-sum without assigning it a favorable sign.
