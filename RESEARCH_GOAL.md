@@ -6249,3 +6249,25 @@ common-part divisor transform
 or actual-vector alignment falsifies this route. The incomplete boundary,
 signed prime correlation, and Goldbach remain open; complete assembly remains
 `.295-delta`.
+
+
+## 2026-09-10 continuation: reduce to a six-layer generalized operator
+
+Factoring the common-part sign exactly gives
+`y_(d,r)=sum_(c|d)mu(c)A_c(d,r)`. On each dominant high-conductor block, the
+collapsed and residual-diagonal norms of arbitrary common-layer combinations
+form two positive semidefinite Gram matrices.
+
+At `M=16001`, across eight primes, their largest generalized eigenvalue is
+only `1.01972`-`1.03045`. The actual Mobius layer quotient is
+`.16676`-`.17980`, and its squared diagonal-metric overlap with the worst
+mode is `.000810`-`.004075`. Only six common-part layers are active. The
+largest eigenvalue over all 56 saved project samples is `1.10393`.
+
+Independent review verified the exact layer factorization, generalized
+operator, numerical rank treatment, Rayleigh quotient, overlap, code, and
+tests. These finite matrices do not prove a uniform estimate. The next target
+is the analytic Loewner inequality `G_col<=N^epsilon G_diag`; a growing
+eigenvalue, rank failure, or increasing actual extremizer alignment rejects
+this reduced route. The incomplete boundary, signed prime correlation, and
+Goldbach remain open; complete assembly remains `.295-delta`.

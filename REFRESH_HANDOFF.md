@@ -7139,3 +7139,50 @@ admits an almost-orthogonality bound for its common-part layers `c`. A
 weighted layer Gram eigenvalue growing like a fixed power, or alignment of
 the actual vector with such an eigenmode, falsifies that route. The
 incomplete boundary, signed prime correlation, and Goldbach remain OPEN.
+
+
+## 2026-09-10: exact common-part layer operator stays near one
+
+`lcm_sawtooth_common_layer_operator.py` refines the binary common-part split.
+For every exact `c=d_C`, factor its Mobius sign and write on the dominant
+high-conductor block
+
+`y_(d,r)=sum_(c|d)mu(c)A_c(d,r)`.
+
+The layer-collapsed and residual-diagonal Gram matrices are
+
+`G_col=sum_d H_m(d) outer(sum_r A(d,r),sum_r A(d,r))`,
+
+`G_diag=sum_(d,r)H_m(d) outer(A(d,r),A(d,r))`.
+
+Both are positive semidefinite. The largest generalized eigenvalue of
+`G_col v=lambda G_diag v` is the sharp quotient for an arbitrary linear
+combination of these measured common-part layers; the actual coefficient
+direction is `v_c=mu(c)`.
+
+Across the eight `M=16001` samples, the largest eigenvalue has
+min/median/max `1.01972/1.02474/1.03045`, while the actual Mobius quotient is
+`.16676/.17292/.17980`. The actual direction's squared diagonal-metric
+overlap with the worst eigenmode is only
+`.000810/.001999/.004075`. There are six active layers. Across all 56 project
+rows through `M=16001`, the largest observed generalized eigenvalue is
+`1.10393`, with no finite growth. At the largest scale the retained diagonal
+Gram condition number reaches `2.34e4`; all six modes remain above the stated
+numerical rank tolerance.
+
+Independent review PASSed the exact layer sign factorization, both Gram
+forms, dominant-block selection, whitening orientation, Rayleigh quotient,
+overlap calculation, rank handling, numerical summaries, implementation,
+and 46 combined tests in normal and optimized modes.
+
+This is a smaller and more promising operator than the earlier lcm-coordinate
+operator, but it is built from the actual finite layer vectors and supplies
+no asymptotic theorem. The next <=30-minute target is an analytic Loewner
+bound
+
+`G_col <= N^epsilon G_diag`
+
+from the divisibility geometry of the `c` layers. A power-growing generalized
+eigenvalue at a larger scale, a lost diagonal rank, or a growing actual
+overlap with the extremizer falsifies the route. The incomplete boundary,
+signed prime correlation, and Goldbach remain OPEN.
