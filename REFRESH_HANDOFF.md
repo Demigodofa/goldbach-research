@@ -11683,3 +11683,69 @@ at most `1e-12`.  A concrete first falsifier is whether the four orientation
 pair contributions span more than rank two for either failing quotient
 `q=91` or `q=143`; if they do, abandon the low-rank explanation while keeping
 the eigensector tables.
+
+## 2026-09-11: endpoint orientations are exactly duplicate source functions
+
+Split each family into the two denominator orientations used by
+`_family_source_modes`.  For a fixed quotient, regard the four left/right
+orientation-pair contributions as vectors over every fully resonant
+frequency-sector coordinate `(n,S)`.  The predeclared numerical rank-two gate
+requires the third singular value to be at most `1e-10` of the first.
+
+For the two failing two-prime quotients the results are much stronger:
+
+| quotient | four singular values | third/first |
+|---:|---|---:|
+| `91` | `(2367.6394098050982, 6.58e-12, 1.53e-12, 3.01e-13)` | `6.458795524370455e-16` |
+| `143` | `(3460.347143150646, 3.68e-12, 8.70e-13, 2.70e-13)` | `2.514844824284387e-16` |
+
+The gate passes, but the feature matrix is numerically rank one.  Across all
+six two-odd-prime quotients, every orientation pair has the same absolute
+mass and its entire feature vector equals the `(0,0)` vector with fitted
+scalar `1` to residual at most `4.7e-15`.  Direct coefficient-dictionary
+comparison also gives identical residue and Fourier-frequency supports for
+the two orientations in both families; the maximum coefficient relative
+discrepancy is `1.2020041147333695e-14`, caused by separate floating evaluations of
+roots of unity.
+
+This numerical rank-one observation has a short exact explanation.  Write
+
+`H_(A,p;B,q)(a)=G_(p,A)(a) conjugate(G_(q,B)(a))`
+
+for coprime endpoint denominators `A,B`.  Swapping orientations while keeping
+the same CRT source residue sends `(p,q)` to `(-q,-p)`.  Since
+`G_(-m,D)=conjugate(G_(m,D))` on integer arguments,
+
+`H_(B,-q;A,-p)=G_(-q,B) conjugate(G_(-p,A))
+                 =H_(A,p;B,q)`.
+
+Uniqueness of the Fourier expansion on `Z/QZ` then makes their coefficient
+dictionaries equal.  Each family source function is exactly twice either
+orientation, and every left/right correlation has a formal orientation
+multiplicity of four.
+
+Curiosity status: `aha` followed by `changed-under-evidence`; novelty
+`new-to-this-task`.  The low-rank prediction succeeds as an exact identity,
+but cannot distinguish the six quotient recombination values because the
+orientation split contains no independent profiles.  Preserve the symmetry
+as a simplification and discard endpoint orientation as the missing
+cancellation mechanism.  No uniform source or signed prime-correlation
+estimate follows.
+
+Independent review verified the orientation involution, coprime CRT
+bijection, exact multiplicities, feature-matrix definition, inner-product
+orientation, sector and Ramanujan factors, reference-profile residuals, and
+natural-scale reconstruction.  The reviewer reproduced both failing-quotient
+rank receipts, ran all three tests normally and under Python optimization,
+checked compilation and the diff, and returned PASS.
+
+The next bounded question moves inside one orientation.  Use
+`1/(exp(i theta)-1)=-1/2-(i/2)cot(theta/2)` to split its endpoint coefficients
+into constant and cotangent components.  For the strong `q=77` case and the
+weak `q=143` case, reconstruct every fully resonant `(n,S)` component to
+natural-scale error at most `1e-12`, then compare cancellation after grouping
+by the parity of the number of cotangent factors.  The concrete discriminator
+is that odd-cotangent components must account for at least `.75` of the mass
+lost on sector recombination at `q=77` and at most `.25` at `q=143`.
+Failure rejects that parity mechanism while retaining the exact orientation
+symmetry and eigensector decomposition.
