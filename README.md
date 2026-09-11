@@ -599,3 +599,9 @@ minimum edge to `-.676462`. It still does not certify one half, but the gain
 from `-1.846212` identifies conductor covariance as useful structure for a
 block or sign-sensitive certificate. It also reduces the condition number of
 the diagonally equilibrated full Gram from about `5.5e11` to `5.7e3`.
+
+The canonical trace/traceless split of that arithmetic symmetric-square basis
+does not finish the certificate. At `M=127`, its trace diagonal is `.471398`,
+the traceless block minimum is `.013920`, and the cross-block norm is
+`.572959`, giving two-block lower bound `-.559039`. The exact trace Schur
+complement remains positive, so the obstruction is the coarse block norm.

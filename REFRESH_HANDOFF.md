@@ -9100,3 +9100,30 @@ with a block/sign-sensitive certificate or a new uniform comparison, not by
 repeating the same scalar test. The polynomial framework, exact whitening,
 half-frame candidate, signed prime-correlation problem, and Goldbach remain
 OPEN.
+
+## 2026-09-11: trace/traceless block Gershgorin loses the residual alignment
+
+`lcm_sawtooth_trace_traceless_block_frame.py` follows the arithmetic
+three-coordinate whitening by the canonical split
+
+`Sym^2(R^3)=span(I)+Sym^2_0(R^3)`.
+
+For the diagonally scaled `M=127` difference `D_active-D_full/2`, the trace
+block value is `.471397947622`, the five-dimensional traceless block has
+smallest eigenvalue `.013920013451`, and their cross-block operator norm is
+`.572958667340`. The standard two-block lower edges are therefore
+`-.101560719718` and `-.559038653889`. This exact `1+5` block certificate is
+falsified at the first fixture, so `M=251` was not run.
+
+The actual scaled difference remains positive with smallest eigenvalue
+`.000153909342`. Its exact scalar Schur complement after eliminating the
+traceless block is also positive, `.000385168986`. The coarse block norm has
+lost the alignment responsible for positivity; the underlying half-frame
+candidate has not failed.
+
+Pursuit status: `changed-under-evidence`. Suppress an unchanged retry of the
+arithmetic covariance basis plus canonical trace/traceless split plus coarse
+two-block Gershgorin. Preserve the decomposition and exact Schur interaction
+for a sign-sensitive arithmetic bound. The polynomial framework, exact
+whitening, uniform lower frame, signed prime correlation, and Goldbach remain
+OPEN.

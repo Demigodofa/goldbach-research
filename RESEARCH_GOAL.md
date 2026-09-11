@@ -7180,3 +7180,25 @@ the conductor covariance as a useful component for a block or sign-sensitive
 argument. No uniform comparison between this covariance and the full Gram is
 proved. Polynomial identities and bounds remain active. The signed prime
 correlation and Goldbach remain OPEN.
+
+### 2026-09-11 continuation: trace/traceless block norm is too coarse
+
+After the one-frequency arithmetic whitening, use the canonical decomposition
+`Sym^2(R^3)=span(I)+Sym^2_0(R^3)` and test the diagonally scaled difference
+`D_active-D_full/2` by a `1+5` two-block Gershgorin bound. At `M=127`, the
+trace block value is `.471397947622`, the traceless block minimum is
+`.013920013451`, and the cross-block operator norm is `.572958667340`.
+Consequently the two block edges are `-.101560719718` and
+`-.559038653889`; the declared negative-edge falsifier fires.
+
+The full scaled difference still has smallest eigenvalue `.000153909342`,
+and eliminating the traceless block exactly gives positive trace Schur
+complement `.000385168986`. Thus the lower-frame matrix survives through a
+nearly saturated trace/traceless interaction that the separate block minima
+and one cross norm discard.
+
+Pursuit status `changed-under-evidence`. Block only this arithmetic basis,
+canonical `1+5` split, and coarse two-block norm certificate. Preserve the
+trace/traceless decomposition and Schur interaction for an arithmetic estimate
+that retains their alignment. No uniform frame or signed prime-correlation
+estimate follows, and Goldbach remains OPEN.
