@@ -9168,3 +9168,13 @@ Cycle `37` is the limiting dip.
 Status `aha-candidate`: finite data now suggests four zones: boundary `0..7`,
 delicate transition `8..20`, middle transition/buffer `21..32`, and stronger
 buffer from at least cycle `33`.  No eventual theorem is proved.
+
+### 2026-09-12 continuation: cycle 49 through 56 fresh buffer falsifier
+
+Cycles `49..56` were profiled as a fresh later-band falsifier.  Every `.3`
+tail target is rescued.  Deepest deficit is `0.44255568348284197`, minimum
+tail-set complement is `0.6899144617707726`, and minimum rescue margin is
+`0.3433502408615505`.
+
+Status `aha-candidate`: the fresh band does not break the checked stronger
+buffer pattern from cycle `33` onward; finite evidence only.

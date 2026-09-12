@@ -17398,3 +17398,14 @@ Status `aha-candidate`: checked data now suggests four finite zones:
 non-rescued boundary `0..7`, delicate transition `8..20`, middle
 transition/buffer `21..32`, and stronger buffer from at least cycle `33`.
 This remains finite evidence, not an eventual theorem.
+
+## 2026-09-12 continuation: cycle 49 through 56 fresh buffer falsifier
+
+Cycles `49..56` were profiled as a fresh later-band falsifier.  Every `.3`
+tail target is rescued.  Across the block, deepest deficit is
+`0.44255568348284197`, minimum tail-set complement is `0.6899144617707726`,
+and minimum rescue margin is `0.3433502408615505`.  The limiting cycle is
+`53`.
+
+Status `aha-candidate`: this fresh band does not break the checked stronger
+buffer pattern from cycle `33` onward.  It remains finite evidence only.

@@ -2316,3 +2316,52 @@ a weaker floor than the `41..48` band because of cycle `37`.  A plausible
 finite profile now has boundary `0..7`, delicate transition `8..20`, middle
 transition/buffer `21..32`, and a stronger buffer from at least cycle `33` in
 the checked data.  This is still finite evidence.
+
+## 2026-09-12: cycle 49 through 56 fresh buffer falsifier
+
+To test whether the apparent stronger buffer from cycle `33` onward survives a
+fresh later band, cycles `49..56` were profiled one cycle at a time.
+
+```text
+cycle 49: tail 6, nonrescued 0,
+  deepest deficit 0.44255568348284197 at 509672,
+  min complement 0.8368015445516385 at 508348,
+  min margin 0.46078186902488183 at 510152
+cycle 50: tail 3, nonrescued 0,
+  deepest deficit 0.37035214736551525 at 514562,
+  min complement 0.7538824783148609 at 518162,
+  min margin 0.44122501338695486 at 518162
+cycle 51: tail 3, nonrescued 0,
+  deepest deficit 0.35747665699173076 at 524102,
+  min complement 0.8989632198575439 at 523972,
+  min margin 0.572761029891046 at 523972
+cycle 52: tail 5, nonrescued 0,
+  deepest deficit 0.3888756497982782 at 532628,
+  min complement 0.8480642340892312 at 534052,
+  min margin 0.5433755019084853 at 534052
+cycle 53: tail 8, nonrescued 0,
+  deepest deficit 0.3465642209092222 at 548666,
+  min complement 0.6899144617707726 at 548666,
+  min margin 0.3433502408615505 at 548666
+cycle 54: tail 5, nonrescued 0,
+  deepest deficit 0.3401085703527049 at 553372,
+  min complement 0.8113292463070148 at 560468,
+  min margin 0.49576421351691824 at 560468
+cycle 55: tail 8, nonrescued 0,
+  deepest deficit 0.36650590504909997 at 564082,
+  min complement 0.814965663059211 at 564082,
+  min margin 0.44845975801011106 at 564082
+cycle 56: tail 4, nonrescued 0,
+  deepest deficit 0.35420070413168947 at 573304,
+  min complement 0.8825192218246329 at 576218,
+  min margin 0.5503239726047701 at 576218
+```
+
+Across cycles `49..56`, deepest measured deficit is `0.44255568348284197`,
+minimum complement is `0.6899144617707726`, and minimum rescue margin is
+`0.3433502408615505`.
+
+Status `aha-candidate`: this fresh band does not break the checked stronger
+buffer pattern from cycle `33` onward.  The limiting point is cycle `53`, but
+it remains above the cycle `37` minimum margin and above the `41..48` minimum
+complement.  Still finite evidence only.
