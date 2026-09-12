@@ -8937,3 +8937,15 @@ selected base cleared at lift `1`.
 
 Status `aha-candidate`: recurrence evidence is now reusable and executable;
 no eventual theorem is proved.
+
+### 2026-09-12 continuation: eight-period `.3` low-tail recurrence check
+
+`q286_first_three_removed_low_tail_multi_period_receipt` scanned the first
+eight complete periods (`40040` targets), selected `64` bases below `.3`, and
+found selected counts `{0: 50, 1: 4, 2: 4, 3: 6, 4: 0, 5: 0, 6: 0, 7: 0}`.
+All selected bases cleared `.3` at lift `1`; below-threshold counts by lift
+were `{0: 64, 1: 0}`.
+
+Status `aha-candidate`: the measured `.3` low tail is now confined to the
+first four periods of the checked eight-period window and clears immediately
+under same-residue lift.  No eventual theorem is proved.

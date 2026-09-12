@@ -17094,3 +17094,16 @@ caught a missing `cycle_rows` assumption; corrected regression
 
 Status `aha-candidate`: the low-tail recurrence check is now executable and no
 longer depends on repeated one-period wrappers.  Evidence remains finite only.
+
+## 2026-09-12 continuation: eight-period `.3` low-tail recurrence check
+
+The multi-period low-tail receipt was run over the first eight complete
+periods (`40040` targets) with threshold `.3` and lifts `0,1`.  It selected
+`64` low-tail bases with cycle counts `{0: 50, 1: 4, 2: 4, 3: 6, 4: 0, 5: 0,
+6: 0, 7: 0}`.  Below-threshold counts by lift were `{0: 64, 1: 0}`; every
+selected base cleared `.3` at lift `1`, and all selected lifted targets were
+positive.
+
+Status `aha-candidate`: in the checked eight-period window, the `.3` low tail
+is absent from cycles `4..7` and does not persist under lift `1`.  This remains
+finite evidence only.

@@ -1512,3 +1512,41 @@ Status `aha-candidate`: the four-period same-residue recurrence check is now
 executable and reproduces the low-tail clearance pattern.  All selected `.3`
 low-tail bases clear at lift `1` in the checked window.  This still does not
 prove the eventual lift-clearance theorem or Goldbach.
+
+## 2026-09-12: eight-period `.3` low-tail recurrence check
+
+`q286_first_three_removed_low_tail_multi_period_receipt` was run over the
+first eight complete periods with `targets_per_cycle=5005`, `low_threshold=.3`,
+and lifts `0,1`.
+
+```text
+base-scan tested targets: 40040
+selected low-tail bases: 64
+selected counts by cycle: {0: 50, 1: 4, 2: 4, 3: 6, 4: 0, 5: 0, 6: 0, 7: 0}
+tested lifted targets: 128
+base minimum: 0.018073313793834145 at N=14138
+global lifted minimum: 0.018073313793834145 at N=14138
+below-threshold counts by lift: {0: 64, 1: 0}
+maximum first-clear lift: 1
+all selected bases clear threshold: True
+all selected lift targets positive: True
+```
+
+Cycle minima:
+
+```text
+cycle 0: N=14138, complement 0.018073313793834145, selected 50
+cycle 1: N=22766, complement 0.26287606080608905, selected 4
+cycle 2: N=36254, complement 0.21042425746987792, selected 4
+cycle 3: N=49904, complement 0.2562647035956789, selected 6
+cycle 4: N=51248, complement 0.31137108785748546, selected 0
+cycle 5: N=66284, complement 0.3972701794510025, selected 0
+cycle 6: N=71744, complement 0.4792269914847066, selected 0
+cycle 7: N=89944, complement 0.46216168109415223, selected 0
+```
+
+Status `aha-candidate`: the `.3` post-first-three low tail is confined to the
+first four complete periods in the checked eight-period window, and every
+selected same-residue base clears at lift `1`.  This strengthens the finite
+boundary/onset interpretation.  It does not prove an eventual clearance theorem
+or Goldbach.
