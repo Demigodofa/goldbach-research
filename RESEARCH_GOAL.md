@@ -8961,3 +8961,14 @@ clear in the checked window.  The global minimum remains `14138` at
 
 Status `changed-under-evidence`: use this as the finite onset threshold target
 for any eventual complement-floor theorem; no asymptotic theorem is proved.
+
+### 2026-09-12 continuation: later-block threshold horizon falsifies monotone `.4` clearance
+
+A later threshold-horizon run over global cycles `8..15` found zero full-action
+negatives and zero complement nonpositive cases, with minimum
+`0.37335759682269043` at `154426`.  Threshold `.3` remains clear, but `.4`
+reappears below threshold in global cycles `8,9,14,15`; `.45` and `.5` are
+below in all checked cycles of this block.
+
+Status `changed-under-evidence`: `.3` is the currently robust checked horizon;
+`.4` monotone/permanent clearance is falsified by recurrence.

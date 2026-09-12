@@ -1604,3 +1604,43 @@ Status `changed-under-evidence`: the executable horizon says `.3` is an early
 threshold in the first eight periods, clearing at cycle `4`; `.4` clears at
 cycle `6`; `.5` does not clear in the checked window.  This gives a sharper
 finite onset target for any eventual complement-floor theorem.
+
+## 2026-09-12: later-block threshold horizon falsifies monotone `.4` clearance
+
+The threshold-horizon receipt was run on the later complete-period block
+starting at `90080`, with `cycle_count=8`, `targets_per_cycle=5005`, and
+thresholds `.4,.45,.5`.  These local cycle indices correspond to global cycles
+`8..15`.
+
+```text
+tested targets: 40040
+global minimum in this block: local cycle 6, N=154426, 0.37335759682269043
+total full-action negatives: 0
+total complement nonpositive: 0
+
+threshold .4: local cycles (0,1,6,7), targets (92896,109066,154426,164284),
+  last local cycle below 7, first local cycle at/above 2
+threshold .45: all local cycles (0..7) below
+threshold .5: all local cycles (0..7) below
+```
+
+Cycle minima:
+
+```text
+local 0/global 8:  N=92896,  0.3919391850281447
+local 1/global 9:  N=109066, 0.3892844567915921
+local 2/global 10: N=118726, 0.4200084725782136
+local 3/global 11: N=122996, 0.4091399535574407
+local 4/global 12: N=131524, 0.4210309762268075
+local 5/global 13: N=142052, 0.4244575987164013
+local 6/global 14: N=154426, 0.37335759682269043
+local 7/global 15: N=164284, 0.38413360717946904
+```
+
+Status `changed-under-evidence`: preserve `.3` as the robust checked horizon
+threshold after global cycle `3`, but reject a monotone or permanent `.4`
+clearance inference from the first eight periods.  The later block has no
+full-action negatives and no complement nonpositive cases, yet `.4` low-tail
+cycle minima recur.  Any eventual complement-floor theorem needs a threshold
+small enough to survive recurrence, or a proof that the recurring floor still
+stays above the required margin.

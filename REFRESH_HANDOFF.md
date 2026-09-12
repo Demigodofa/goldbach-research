@@ -17125,3 +17125,19 @@ does not clear in the checked eight-cycle window.
 Status `changed-under-evidence`: the finite onset floor is now thresholded:
 `.3` clears by cycle `4`, `.4` by cycle `6`, while `.5` remains unproved in
 the checked window.
+
+## 2026-09-12 continuation: later-block threshold horizon falsifies monotone `.4` clearance
+
+The threshold-horizon receipt was run on the later block starting at `90080`
+(global cycles `8..15`).  It tested `40040` targets, found zero full-action
+negatives and zero complement nonpositive cases, with block minimum
+`0.37335759682269043` at `154426`.
+
+Threshold `.3` remains clear in this block, but `.4` reappears below threshold
+in local cycles `0,1,6,7` (global cycles `8,9,14,15`).  Thresholds `.45` and
+`.5` are below in every local cycle.  Therefore `.4` did not permanently clear
+after global cycle `6`; that inference is falsified.
+
+Status `changed-under-evidence`: use `.3` as the robust checked threshold for
+post-cycle-3 finite evidence.  Do not extrapolate monotone threshold clearance
+from the first block.
