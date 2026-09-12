@@ -16271,3 +16271,37 @@ Status `aha-candidate`: the hard first-period q286 leading-mode excursions
 look finite-scale amplified, but later lifts still have substantial oscillatory
 mode mass.  A threshold-plus-finite-check route remains plausible only if a
 real analytic decay/envelope theorem replaces this sample.
+
+## 2026-09-12: significant q286 lift-envelope scanner added
+
+`q286_significant_lift_envelope_receipt` identifies significant first-period
+q286 lower-tail base targets and runs the lift-decay scanner across their
+later period lifts.  It reports how many bases improve after lift zero, worst
+lifted first-three/six-mode sizes, worst lifted q286 size, and whether each
+base has some sampled lift below the chosen threshold.
+
+This is the route-level falsifier for a threshold-plus-finite-check strategy:
+if many significant first-period bases keep large lifted mode ratios, finite
+amplification is not enough; if every base has small sampled lifted ratios,
+the next target is an analytic envelope theorem.
+
+Full first-period significant-base scan: all `594` bases below `-0.4`
+principal improve in first-three absolute ratio at some sampled positive lift,
+but the route does not give a uniform small lifted envelope.  The maximum
+zero-lift first-three ratio is `1.1500880008976306`; the maximum of each
+base's best positive-lift first-three ratio is still `0.21127152943557115`.
+Across all sampled positive lifts, the maximum first-three ratio is
+`1.3478240385516096`, the maximum six-mode ratio is
+`1.378316975940504`, and the maximum q286 ratio is `1.3963940029628314`.
+The maximum six-mode residual remains small at `0.024761483446069824`.
+
+Worst lifted mode/q286 base is `11322`: lift `0` is q286 `-0.5338`,
+first-three `-0.5594`, six-mode `-0.5265`, but lift `1` becomes q286
+`1.3964`, first-three `1.3478`, six-mode `1.3783`.  Worst residual base is
+`10506`, where the lift `1` six-mode residual is about `-0.0248` principal.
+
+Status `changed-under-evidence`: reject a simple "all significant bad
+first-period classes become uniformly small on sampled lifts" story.  Preserve
+the useful part: every base has some smaller sampled positive lift and the
+six-mode residual stays small, but the leading-mode envelope must allow large
+nonmonotone positive and negative oscillations.

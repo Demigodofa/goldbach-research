@@ -7758,6 +7758,30 @@ The six-mode residual remains small in the lift sample, at most
 principal-relative envelope for leading q286 modes, or find a source theorem
 that gives decay after excluding a finite initial range.
 
+## 2026-09-12: significant q286 lift-envelope scanner added
+
+`q286_significant_lift_envelope_receipt` now stress-tests the lift-decay route
+across significant first-period q286 lower-tail base targets.  It first
+selects bases below the configured principal-relative threshold, then measures
+their lifted first-three, six-mode, residual, and full q286 ratios.
+
+Use this to falsify or support threshold-plus-finite-check: persistent large
+lifted ratios mean the route needs a stronger analytic input; uniformly small
+lifted ratios would motivate a formal envelope theorem plus finite range.
+
+Measured answer on all `594` significant first-period bases: every base has a
+sampled positive lift with smaller first-three absolute mode ratio than at lift
+zero, but no uniform small lifted envelope follows.  The maximum lifted
+first-three ratio is `1.3478240385516096`, maximum lifted six-mode ratio is
+`1.378316975940504`, and maximum lifted q286 ratio is `1.3963940029628314`.
+The six-mode residual remains small, at most `0.024761483446069824`.
+
+The key falsifier is base `11322`, whose lift `1` turns into a large positive
+excursion: q286 `1.3964`, first-three `1.3478`, six-mode `1.3783`.  Therefore
+threshold-plus-finite-check cannot rely on simple sampled lift smallness.  The
+analytic target is a nonmonotone two-sided principal-relative envelope for the
+leading modes.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

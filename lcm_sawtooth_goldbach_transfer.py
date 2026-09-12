@@ -5408,6 +5408,8 @@ def q286_leading_mode_cycle_profile_receipt(
         "mode_count": mode_count,
         "significant_negative_ratio": significant_negative_ratio,
         "negative_q286_deviation_count": len(negative_targets),
+        "significant_negative_q286_deviation_targets": tuple(
+            significant_negative_targets),
         "significant_negative_q286_deviation_count": len(
             significant_negative_targets),
         "minimum_q286_deviation_target": minimum_q286_target,
@@ -5902,6 +5904,147 @@ def q286_leading_mode_lift_decay_receipt(
         "lifted_six_modes_under_half_principal": bool(
             maximum_lifted_six_mode_abs_ratio < .5),
         "leading_mode_lift_decay_measured": True,
+        "eventual_decay_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_significant_lift_envelope_receipt(
+        start=10000, targets_per_cycle=5005, lifts=(0, 1, 4, 9, 19, 49),
+        mode_count=6, significant_negative_ratio=-.4,
+        max_base_targets=None, tolerance=1e-9):
+    """Stress period-lift behavior for significant q286 lower-tail bases."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not lifts or any(type(lift) is not int or lift < 0 for lift in lifts):
+        raise ValueError("lifts must be nonnegative integers")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if (not math.isfinite(significant_negative_ratio)
+            or significant_negative_ratio >= 0):
+        raise ValueError(
+            "significant_negative_ratio must be finite and negative")
+    if (max_base_targets is not None
+            and (type(max_base_targets) is not int or max_base_targets < 1)):
+        raise ValueError("max_base_targets must be None or positive")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    profile = q286_leading_mode_cycle_profile_receipt(
+        start=start, targets_per_cycle=targets_per_cycle,
+        mode_count=mode_count,
+        significant_negative_ratio=significant_negative_ratio,
+        tolerance=tolerance)
+    base_targets = profile["significant_negative_q286_deviation_targets"]
+    selected_base_targets = (
+        base_targets[:max_base_targets]
+        if max_base_targets is not None else base_targets)
+    if not selected_base_targets:
+        return {
+            "families": profile["families"],
+            "arithmetic_period": profile["arithmetic_period"],
+            "support": profile["support"],
+            "natural_modulus": profile["natural_modulus"],
+            "start": start,
+            "targets_per_cycle": targets_per_cycle,
+            "lifts": tuple(lifts),
+            "mode_count": mode_count,
+            "significant_negative_ratio": significant_negative_ratio,
+            "available_base_target_count": 0,
+            "selected_base_target_count": 0,
+            "rows": {},
+            "significant_lift_envelope_measured": True,
+            "eventual_decay_proved": False,
+            "signed_prime_correlation_estimate_proved": False,
+            "formal_signed_error_identification_proved": False,
+            "goldbach_proved": False,
+        }
+    lift_receipt = q286_leading_mode_lift_decay_receipt(
+        base_targets=selected_base_targets, lifts=tuple(lifts),
+        mode_count=mode_count, tolerance=tolerance)
+
+    worst_lifted_first_three_base = max(
+        selected_base_targets,
+        key=lambda base: max(
+            abs(row["first_three_mode_to_principal_ratio"])
+            for lift, row in lift_receipt["rows"][base][
+                "lift_rows"].items() if lift != 0))
+    worst_lifted_six_base = max(
+        selected_base_targets,
+        key=lambda base: max(
+            abs(row["six_mode_to_principal_ratio"])
+            for lift, row in lift_receipt["rows"][base][
+                "lift_rows"].items() if lift != 0))
+    worst_lifted_q286_base = max(
+        selected_base_targets,
+        key=lambda base: max(
+            abs(row["q286_deviation_to_principal_ratio"])
+            for lift, row in lift_receipt["rows"][base][
+                "lift_rows"].items() if lift != 0))
+    worst_lifted_residual_base = max(
+        selected_base_targets,
+        key=lambda base: max(
+            abs(row["six_mode_residual_to_principal_ratio"])
+            for lift, row in lift_receipt["rows"][base][
+                "lift_rows"].items() if lift != 0))
+    maximum_lifted_q286_abs_ratio = max(
+        abs(row["q286_deviation_to_principal_ratio"])
+        for base in selected_base_targets
+        for lift, row in lift_receipt["rows"][base]["lift_rows"].items()
+        if lift != 0)
+    zero_first_three_ratios = tuple(
+        lift_receipt["rows"][base]["zero_first_three_abs_ratio"]
+        for base in selected_base_targets)
+    minimum_lifted_first_three_ratios = tuple(
+        lift_receipt["rows"][base]["minimum_lifted_first_three_abs_ratio"]
+        for base in selected_base_targets)
+    improved_count = sum(
+        1 for base in selected_base_targets
+        if lift_receipt["rows"][base][
+            "first_three_improves_after_zero_lift"])
+    return {
+        "families": profile["families"],
+        "arithmetic_period": profile["arithmetic_period"],
+        "support": profile["support"],
+        "natural_modulus": profile["natural_modulus"],
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "lifts": tuple(lifts),
+        "mode_count": mode_count,
+        "significant_negative_ratio": significant_negative_ratio,
+        "available_base_target_count": len(base_targets),
+        "selected_base_target_count": len(selected_base_targets),
+        "selected_base_targets": selected_base_targets,
+        "rows": lift_receipt["rows"],
+        "improved_first_three_base_count": improved_count,
+        "improved_first_three_base_fraction": (
+            improved_count / len(selected_base_targets)),
+        "maximum_zero_first_three_abs_ratio": max(zero_first_three_ratios),
+        "maximum_minimum_lifted_first_three_abs_ratio": max(
+            minimum_lifted_first_three_ratios),
+        "worst_lifted_first_three_base": worst_lifted_first_three_base,
+        "maximum_lifted_first_three_abs_ratio": (
+            lift_receipt["maximum_lifted_first_three_abs_ratio"]),
+        "worst_lifted_six_base": worst_lifted_six_base,
+        "maximum_lifted_six_mode_abs_ratio": (
+            lift_receipt["maximum_lifted_six_mode_abs_ratio"]),
+        "worst_lifted_q286_base": worst_lifted_q286_base,
+        "maximum_lifted_q286_abs_ratio": maximum_lifted_q286_abs_ratio,
+        "worst_lifted_residual_base": worst_lifted_residual_base,
+        "maximum_lifted_residual_abs_ratio": (
+            lift_receipt["maximum_lifted_residual_abs_ratio"]),
+        "all_selected_bases_improve_after_zero_lift": bool(
+            improved_count == len(selected_base_targets)),
+        "all_selected_minimum_lifted_first_three_under_point_one": bool(
+            max(minimum_lifted_first_three_ratios) < .1),
+        "all_lifted_six_modes_under_half_principal": (
+            lift_receipt["lifted_six_modes_under_half_principal"]),
+        "significant_lift_envelope_measured": True,
         "eventual_decay_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "formal_signed_error_identification_proved": False,

@@ -38,6 +38,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
+    q286_significant_lift_envelope_receipt,
     q286_singular_mode_approximation_receipt,
     q286_singular_mode_cycle_scan_receipt,
     q286_singular_mode_lower_tail_stress_receipt,
@@ -1145,6 +1146,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertIn(0, receipt["rows"][10424]["lift_rows"])
         self.assertIn(1, receipt["rows"][10424]["lift_rows"])
         self.assertTrue(receipt["leading_mode_lift_decay_measured"])
+        self.assertFalse(receipt["eventual_decay_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_significant_lift_envelope(self):
+        receipt = q286_significant_lift_envelope_receipt(
+            start=10400, targets_per_cycle=21, lifts=(0, 1),
+            max_base_targets=3)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10400)
+        self.assertEqual(receipt["targets_per_cycle"], 21)
+        self.assertEqual(receipt["lifts"], (0, 1))
+        self.assertLessEqual(
+            receipt["selected_base_target_count"],
+            receipt["available_base_target_count"])
+        self.assertTrue(receipt["significant_lift_envelope_measured"])
         self.assertFalse(receipt["eventual_decay_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
