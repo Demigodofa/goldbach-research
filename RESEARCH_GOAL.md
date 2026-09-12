@@ -7638,6 +7638,36 @@ dominant supports.  Top-two singular energy is `0.9760410444893589` for q286,
 still have full row rank (`9`, `5`, and `3` respectively), so this is not an
 exact algebraic collapse.  It is a leading-mode/tail analytic strategy.
 
+## 2026-09-12: dominant support tail scanner added
+
+The next decomposition target is implemented in
+`dominant_support_singular_tail_scan_receipt`: exact lower-modulus local
+predictions plus leading singular modes for the three dominant supports,
+defaulting to six q286 modes, all five q154 modes, and all three q70 modes.  It measures
+the remaining combined tail relative to the principal contribution.
+
+If the combined tail stays small in principal units while the leading modes
+explain the negative excursions, the analytic proof target becomes a finite
+list of separable twisted Goldbach estimates plus an explicit tail inequality.
+
+The first `501` targets show why the default pays q154 and q70 exactly.  The
+`6+4+2` budget has worst tail/principal `0.1013264220803796`, just beyond the
+initial `0.1` diagnostic mark.  The `6+5+3` budget has worst tail/principal
+`0.026483963220719955`, leaving only the q286 singular tail.  This is a
+cleaner proof target: six q286 separable modes plus exact secondary dominant
+supports plus a small q286 tail.
+
+On the full first period, the default `6+5+3` scan tests all `5005` even
+targets from `10000` through `20008`.  The combined dominant supports are
+negative at `2789` targets, but the worst remaining tail after the modeled
+local-plus-singular decomposition is only `0.03388823161024216` of principal.
+The most negative modeled dominant-support ratio is `-1.9465533807058557` at
+`N=14138`.
+
+This means the next proof-shaped work should not spend effort compressing q154
+or q70 further.  Keep them exact and focus on estimating the six q286 leading
+modes and the q286 three-mode tail relative to the principal margin.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

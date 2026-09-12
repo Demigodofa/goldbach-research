@@ -4657,6 +4657,270 @@ def dominant_support_character_matrix_structure_receipt(
     }
 
 
+def dominant_support_singular_tail_scan_receipt(
+        start=10000, targets_per_cycle=501,
+        support_modes=(((11, 13), 6), ((7, 11), 5), ((5, 7), 3)),
+        tolerance=1e-9):
+    """Scan principal-relative tails after dominant support singular modes."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    support_modes = tuple((tuple(support), mode)
+                          for support, mode in support_modes)
+    valid_supports = {(11, 13), (7, 11), (5, 7)}
+    if (not support_modes or any(
+            support not in valid_supports or type(mode) is not int
+            or mode < 1 for support, mode in support_modes)):
+        raise ValueError("support_modes must use positive dominant modes")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = complex(np.mean(values))
+    centered = values - principal_mean
+    _, period_labels, period_character_table = _unit_character_table(
+        period, period_units)
+    period_character_coefficients = (
+        np.conjugate(period_character_table) @ centered / len(period_units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(period_labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+
+    support_data = {}
+    for support, mode_count in support_modes:
+        masked = np.zeros_like(period_character_coefficients)
+        masked[support_indices[support]] = period_character_coefficients[
+            support_indices[support]]
+        component = period_character_table.T @ masked
+        modulus = 2
+        for prime in support:
+            modulus *= prime
+        grouped = {}
+        for unit, value in zip(period_units, component):
+            grouped.setdefault(unit % modulus, []).append(value)
+        lower_values = {
+            residue: _complex_fsum(values) / len(values)
+            for residue, values in grouped.items()}
+        units = tuple(sorted(lower_values))
+        coefficient_values = np.asarray(tuple(
+            lower_values[unit] for unit in units), dtype=np.complex128)
+        _, labels, character_table = _unit_character_table(modulus, units)
+        character_coefficients = (
+            np.conjugate(character_table) @ coefficient_values / len(units))
+        matrix = np.zeros(tuple(prime - 1 for prime in support),
+                          dtype=np.complex128)
+        for label, value in zip(labels, character_coefficients):
+            matrix[label] = value
+        active_matrix = matrix[tuple(
+            slice(1, prime - 1) for prime in support)]
+        left, singular_values, right = np.linalg.svd(
+            active_matrix, full_matrices=False)
+        if mode_count > len(singular_values):
+            raise ValueError("mode count exceeds support singular rank")
+        truncated_matrix = (
+            (left[:, :mode_count] * singular_values[:mode_count])
+            @ right[:mode_count, :])
+        tail_matrix = active_matrix - truncated_matrix
+        support_data[support] = {
+            "natural_modulus": modulus,
+            "mode_count": mode_count,
+            "units": units,
+            "unit_index": {unit: index for index, unit in enumerate(units)},
+            "coefficient_values": coefficient_values,
+            "character_table": character_table,
+            "active_matrix": active_matrix,
+            "truncated_matrix": truncated_matrix,
+            "tail_matrix": tail_matrix,
+            "singular_values": tuple(float(value)
+                                     for value in singular_values),
+            "truncated_energy_fraction": float(
+                np.sum(singular_values[:mode_count] ** 2)
+                / np.sum(singular_values ** 2)
+                if np.sum(singular_values ** 2) else 0.0),
+        }
+
+    targets = tuple(start + 2 * index for index in range(targets_per_cycle))
+    primes = _prime_table(max(targets))
+    rows = {}
+    worst_tail_target = None
+    worst_dominant_tail_target = None
+    worst_modeled_dominant_target = None
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        pairs = []
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                pairs.append((prime, weight))
+                total_weight += weight
+        principal_contribution = principal_mean * total_weight
+        support_rows = {}
+        combined_actual = 0j
+        combined_local_prediction = 0j
+        combined_modeled_deviation = 0j
+        combined_tail = 0j
+        for support, data in support_data.items():
+            modulus = data["natural_modulus"]
+            units = data["units"]
+            unit_index = data["unit_index"]
+            coefficient_values = data["coefficient_values"]
+            weights = np.zeros(len(units), dtype=np.float64)
+            for prime, weight in pairs:
+                weights[unit_index[prime % modulus]] += weight
+            admissible_mask = np.asarray(tuple(
+                math.gcd((target - unit) % modulus, modulus) == 1
+                for unit in units), dtype=bool)
+            admissible_count = int(np.sum(admissible_mask))
+            mean_weight = total_weight / admissible_count
+            weight_delta = np.zeros(len(units), dtype=np.float64)
+            weight_delta[admissible_mask] = (
+                weights[admissible_mask] - mean_weight)
+            actual = complex(np.sum(coefficient_values * weights))
+            local_prediction = complex(np.sum(
+                coefficient_values[admissible_mask]) * mean_weight)
+            imbalance_matrix = (
+                data["character_table"] @ weight_delta).reshape(
+                    tuple(prime - 1 for prime in support))[tuple(
+                        slice(1, prime - 1) for prime in support)]
+            modeled_deviation = complex(np.sum(
+                data["truncated_matrix"] * imbalance_matrix))
+            tail = complex(np.sum(data["tail_matrix"] * imbalance_matrix))
+            deviation = actual - local_prediction
+            combined_actual += actual
+            combined_local_prediction += local_prediction
+            combined_modeled_deviation += modeled_deviation
+            combined_tail += tail
+            support_rows[support] = {
+                "actual_contribution": actual,
+                "local_prediction": local_prediction,
+                "deviation": deviation,
+                "modeled_deviation": modeled_deviation,
+                "tail": tail,
+                "tail_to_principal_ratio": float(
+                    tail.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "absolute_tail_to_principal_ratio": float(
+                    abs(tail.real) / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "tail_reconstruction_error": float(
+                    abs(deviation - modeled_deviation - tail)
+                    / max(1.0, abs(deviation))),
+            }
+        combined_model = combined_local_prediction + combined_modeled_deviation
+        combined_tail_reconstruction_error = abs(
+            combined_actual - combined_model - combined_tail) / max(
+                1.0, abs(combined_actual))
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": len(pairs),
+            "total_prime_pair_weight": total_weight,
+            "principal_contribution": principal_contribution,
+            "support_rows": support_rows,
+            "combined_dominant_actual": combined_actual,
+            "combined_dominant_local_prediction": (
+                combined_local_prediction),
+            "combined_dominant_modeled_deviation": (
+                combined_modeled_deviation),
+            "combined_dominant_model": combined_model,
+            "combined_dominant_tail": combined_tail,
+            "combined_dominant_actual_to_principal_ratio": float(
+                combined_actual.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "combined_model_to_principal_ratio": float(
+                combined_model.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "combined_tail_to_principal_ratio": float(
+                combined_tail.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "combined_abs_tail_to_principal_ratio": float(
+                abs(combined_tail.real) / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "combined_tail_reconstruction_error": (
+                combined_tail_reconstruction_error),
+        }
+        if (worst_tail_target is None
+                or rows[target]["combined_abs_tail_to_principal_ratio"]
+                > rows[worst_tail_target][
+                    "combined_abs_tail_to_principal_ratio"]):
+            worst_tail_target = target
+        if rows[target]["combined_dominant_actual_to_principal_ratio"] < -tolerance:
+            if (worst_dominant_tail_target is None
+                    or rows[target]["combined_abs_tail_to_principal_ratio"]
+                    > rows[worst_dominant_tail_target][
+                        "combined_abs_tail_to_principal_ratio"]):
+                worst_dominant_tail_target = target
+        if (worst_modeled_dominant_target is None
+                or rows[target]["combined_model_to_principal_ratio"]
+                < rows[worst_modeled_dominant_target][
+                    "combined_model_to_principal_ratio"]):
+            worst_modeled_dominant_target = target
+
+    negative_dominant_targets = tuple(
+        target for target, row in rows.items()
+        if row["combined_dominant_actual_to_principal_ratio"] < -tolerance)
+    maximum_tail_reconstruction_error = max(
+        row["combined_tail_reconstruction_error"] for row in rows.values())
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "support_modes": support_modes,
+        "support_rows": {
+            support: {
+                "natural_modulus": data["natural_modulus"],
+                "mode_count": data["mode_count"],
+                "truncated_energy_fraction": (
+                    data["truncated_energy_fraction"]),
+                "singular_values": data["singular_values"],
+            }
+            for support, data in support_data.items()},
+        "rows": rows,
+        "negative_combined_dominant_count": len(negative_dominant_targets),
+        "worst_combined_tail_target": worst_tail_target,
+        "worst_combined_abs_tail_to_principal_ratio": (
+            rows[worst_tail_target][
+                "combined_abs_tail_to_principal_ratio"]),
+        "worst_negative_combined_tail_target": worst_dominant_tail_target,
+        "worst_modeled_dominant_target": worst_modeled_dominant_target,
+        "minimum_combined_model_to_principal_ratio": (
+            rows[worst_modeled_dominant_target][
+                "combined_model_to_principal_ratio"]),
+        "maximum_tail_reconstruction_error": (
+            maximum_tail_reconstruction_error),
+        "combined_tail_under_point_one_principal_on_sample": bool(
+            rows[worst_tail_target][
+                "combined_abs_tail_to_principal_ratio"] < .1),
+        "combined_dominant_singular_tail_scan_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_approximation_receipt(
         targets=(10424, 14138, 88346), modes=(1, 2, 4, 9),
         tolerance=1e-9):

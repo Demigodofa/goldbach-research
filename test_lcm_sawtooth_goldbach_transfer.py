@@ -19,6 +19,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_uniform_residue_margin_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
+    dominant_support_singular_tail_scan_receipt,
     dominant_support_character_matrix_structure_receipt,
     exact_projected_pairwise_gram_receipt,
     holdout_full_projected_prime_coefficient_receipt,
@@ -988,6 +989,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                 "top_two_singular_energy_fraction"],
             .9915109122214548, places=14)
         self.assertFalse(receipt["exact_low_rank_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_dominant_support_singular_tail_scan(self):
+        receipt = dominant_support_singular_tail_scan_receipt(
+            targets_per_cycle=9)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(
+            receipt["support_modes"],
+            (((11, 13), 6), ((7, 11), 5), ((5, 7), 3)))
+        self.assertIn((11, 13), receipt["support_rows"])
+        self.assertIn((7, 11), receipt["support_rows"])
+        self.assertIn((5, 7), receipt["support_rows"])
+        self.assertTrue(
+            receipt["combined_dominant_singular_tail_scan_measured"])
+        self.assertLess(receipt["maximum_tail_reconstruction_error"], 1e-12)
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

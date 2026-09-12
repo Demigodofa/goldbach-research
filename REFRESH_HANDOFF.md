@@ -16072,3 +16072,36 @@ Status `aha-candidate`: all three dominant two-prime supports have strong
 separable character-mode compression.  This supports a finite leading-mode
 strategy for the combined centered error, provided tails are bounded relative
 to the principal margin.
+
+## 2026-09-12: dominant support tail scanner added
+
+`dominant_support_singular_tail_scan_receipt` combines the three dominant
+two-prime supports using exact lower-modulus local predictions plus leading
+singular modes.  The default mode budget is six q286 modes, all five q154
+modes, and all three q70 modes.  It measures the remaining combined tail against the
+positive principal contribution on actual strict-central prime-pair targets.
+
+This is the current proof-shaped diagnostic for the centered error: local
+terms plus a short list of separable modes plus a principal-relative tail.
+The receipt does not prove the signed estimate; it only tests whether this
+decomposition has a numerically plausible margin.
+
+On the first `501` even targets, the more aggressive `6+4+2` budget misses the
+`0.1` principal-tail mark at `N=10552`, with tail/principal
+`0.1013264220803796`.  Paying q154 and q70 exactly gives the default `6+5+3`
+budget, reducing the worst combined tail/principal to
+`0.026483963220719955` at `N=10042`.  The current reduced proof target is
+therefore six q286 modes plus a q286 tail; q154 and q70 can be treated exactly
+at this diagnostic level.
+
+On the full first period `10000..20008`, the default `6+5+3` decomposition
+tests all `5005` even targets.  The combined dominant supports are negative
+at `2789` targets.  The worst combined tail/principal ratio is
+`0.03388823161024216` at `N=13826`, and the modeled dominant-support ratio is
+most negative at `N=14138`, with value `-1.9465533807058557`.  The combined
+tail reconstructs to relative error about `4.449721211403548e-12`.
+
+Status `aha-candidate`: after treating q154 and q70 exactly, the remaining
+dominant-support tail is only the q286 last-three-singular-mode tail in this
+diagnostic.  The leading object to estimate is now six q286 separable modes
+plus exact q154/q70 channels, not a broad three-support tail.
