@@ -16909,3 +16909,25 @@ Status `aha-candidate`: sampled lifts support a finite threshold route where
 high-positive driver residues fill quickly.  But driver-residue hitting is not
 equivalent to positivity, because lift `1` has six positive targets with both
 driver residues still admissible-empty.
+
+## 2026-09-12 continuation: boundary complement support split
+
+`q286_boundary_complement_support_split_receipt` now decomposes the complement
+`full - first_three_q286` at `14138` and `24148`.  At `14138`, the complement
+is only `0.018073313793834367` principal because principal `1.0` is nearly
+cancelled by q70 `-0.6530100068358881`, q154 `-0.43137904901734725`, and
+non-first-three q286 actual support `0.032888374953279564`, with smaller
+supports adding `0.06957399469379079`.  At `24148`, q286 after first three is
+only `0.004108374216339139` actual support, and q286 deviation after first
+three is slightly negative `-0.00043955321337479925`, while q70 turns positive
+at `0.35469923238633455` and the complement rises to `1.3776028000182077`.
+
+Validation: bytecode-disabled `py_compile` passed for the module and test file.
+Focused regression
+`test_q286_boundary_complement_support_split` passed in `153.125s`.
+
+Status `aha-candidate`: the lift-one clearance mechanism lives mostly in
+principal plus lower-modulus support reinforcement, especially q70, not in
+q286 residual positivity.  The proof target is now a joint lower-envelope
+estimate after removing q286 first-three modes, with q70/q154/q286 supports
+kept explicit.

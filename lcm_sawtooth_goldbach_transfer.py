@@ -9427,3 +9427,127 @@ def q286_boundary_component_split_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_boundary_complement_support_split_receipt(
+        targets=(14138, 24148),
+        mode_count=6,
+        tolerance=1e-09):
+    """Split the boundary complement by lower-modulus support.
+
+    The complement measured by ``q286_boundary_component_split_receipt`` is the
+    full assembled strict-central action after removing the first three q286
+    separable modes.  This receipt identifies which lower-modulus support
+    components create that complement.  It is a diagnostic only: it does not
+    prove a lower bound for those components.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if (type(mode_count) is not int or mode_count < 3
+            or mode_count > 9):
+        raise ValueError("mode_count must lie between 3 and 9")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    support_receipt = combined_coefficient_support_contribution_receipt(
+        targets=targets, tolerance=tolerance)
+    deviation_receipt = combined_coefficient_lower_modulus_deviation_receipt(
+        targets=targets, tolerance=tolerance)
+    boundary_receipt = q286_boundary_component_split_receipt(
+        targets=targets, mode_count=mode_count, tolerance=tolerance)
+
+    target_rows = {}
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        support_row = support_receipt["rows"][target]
+        boundary_row = boundary_receipt["target_rows"][target]
+        contributions = support_row["contributions_by_support"]
+        principal = contributions["principal"]
+        if abs(principal.real) <= tolerance:
+            raise ArithmeticError("principal contribution is too small")
+        support_ratios = {
+            support: complex(value).real / principal.real
+            for support, value in contributions.items()
+            if support != "principal"
+        }
+        non_q286_support_sum = math.fsum(
+            ratio for support, ratio in support_ratios.items()
+            if support != (11, 13))
+        first_three = boundary_row[
+            "first_three_modes_to_principal_ratio"]
+        q286_actual = support_ratios[(11, 13)]
+        q286_actual_after_first_three = q286_actual - first_three
+        reconstructed = (
+            1.0 + non_q286_support_sum + q286_actual_after_first_three)
+        complement = boundary_row[
+            "full_without_first_three_to_principal_ratio"]
+        reconstruction_error = abs(reconstructed - complement)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+
+        sorted_support_ratios = tuple(
+            (support, ratio)
+            for support, ratio in sorted(
+                support_ratios.items(),
+                key=lambda item: abs(item[1]),
+                reverse=True))
+        positive_supports = tuple(
+            (support, ratio) for support, ratio in sorted_support_ratios
+            if ratio > 0)
+        negative_supports = tuple(
+            (support, ratio) for support, ratio in sorted_support_ratios
+            if ratio < 0)
+        q286_deviation_row = deviation_receipt[
+            "rows"][target]["support_rows"][(11, 13)]
+        target_rows[target] = {
+            "full_action_to_principal_ratio": boundary_row[
+                "full_action_to_principal_ratio"],
+            "full_without_first_three_to_principal_ratio": complement,
+            "support_reconstructed_without_first_three_to_principal_ratio": (
+                reconstructed),
+            "support_reconstruction_error": reconstruction_error,
+            "principal_to_principal_ratio": 1.0,
+            "support_ratios_to_principal": support_ratios,
+            "support_ratios_sorted_by_absolute_size": sorted_support_ratios,
+            "non_q286_support_sum_to_principal_ratio": non_q286_support_sum,
+            "q286_actual_to_principal_ratio": q286_actual,
+            "q286_local_prediction_to_principal_ratio": q286_deviation_row[
+                "local_prediction_to_principal_ratio"],
+            "q286_deviation_to_principal_ratio": boundary_row[
+                "q286_deviation_to_principal_ratio"],
+            "first_three_modes_to_principal_ratio": first_three,
+            "q286_actual_after_first_three_to_principal_ratio": (
+                q286_actual_after_first_three),
+            "q286_deviation_after_first_three_to_principal_ratio": (
+                boundary_row[
+                    "q286_after_first_three_to_principal_ratio"]),
+            "dominant_positive_centered_support": (
+                positive_supports[0][0] if positive_supports else None),
+            "dominant_negative_centered_support": (
+                negative_supports[0][0] if negative_supports else None),
+        }
+    return {
+        "targets": targets,
+        "mode_count": mode_count,
+        "arithmetic_period": support_receipt["arithmetic_period"],
+        "natural_q286_modulus": 286,
+        "natural_q70_modulus": 70,
+        "natural_q154_modulus": 154,
+        "target_rows": target_rows,
+        "maximum_support_reconstruction_error": (
+            maximum_reconstruction_error),
+        "minimum_complement_target": min(
+            targets,
+            key=lambda target: target_rows[target][
+                "full_without_first_three_to_principal_ratio"]),
+        "maximum_complement_target": max(
+            targets,
+            key=lambda target: target_rows[target][
+                "full_without_first_three_to_principal_ratio"]),
+        "boundary_complement_support_split_measured": True,
+        "component_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

@@ -1038,3 +1038,49 @@ q286-after-first-three becoming positive.  At `24148`, q286 after the first
 three modes is essentially zero/slightly negative, while the complement is
 large.  The compensating lower envelope therefore lives mostly outside the
 first-three q286 tail and its immediate q286 residual.
+
+## 2026-09-12: boundary complement support split
+
+`q286_boundary_complement_support_split_receipt` decomposes the boundary
+complement `full - first_three_q286` into principal plus lower-modulus CRT
+support components.  It compares the hardest measured boundary target
+`14138` with its first arithmetic-period lift `24148`.
+
+Measured principal-relative split:
+
+```text
+N=14138
+  full without first three: 0.018073313793834367
+  q286 actual support: -0.862126212281399
+  q70 support: -0.6530100068358881
+  q154 support: -0.43137904901734725
+  smaller supports together: 0.06957399469379079
+  non-q286 support sum: -1.0148150611594444
+  q286 actual after first three: 0.032888374953279564
+  q286 deviation after first three: 0.028340447523565238
+
+N=24148
+  full without first three: 1.3776028000182077
+  q286 actual support: -0.11671905999372909
+  q70 support: 0.35469923238633455
+  q154 support: -0.06691780878077785
+  smaller supports together: 0.08571300219631225
+  non-q286 support sum: 0.373494425801869
+  q286 actual after first three: 0.004108374216339139
+  q286 deviation after first three: -0.00043955321337479925
+```
+
+Reconstruction errors for `full - first_three_q286` are below `7e-16` in the
+ratio arithmetic.  Focused regression
+`test_q286_boundary_complement_support_split` passed in `153.125s`; bytecode-
+disabled `py_compile` also passed.
+
+Status `aha-candidate`: lift-one clearance is not q286 residual positivity.
+At `24148`, q286 after the first three modes is essentially zero/slightly
+negative, while the complement is large.  The visible driver is the positive
+principal channel reinforced by a positive `(5,7)`/mod-70 support and smaller
+positive supports.  The boundary target `14138` is tiny because principal is
+almost exactly cancelled by negative q70, q154, and non-first-three q286
+support.  The next direct estimate should therefore treat q286 first-three as
+the main negative tail, but the lower envelope after removing it must use joint
+q70/q154/q286 support control, not q286 alone.

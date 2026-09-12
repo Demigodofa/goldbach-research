@@ -41,6 +41,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
+    q286_boundary_complement_support_split_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1505,6 +1506,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["target_rows"][14138][
                 "full_without_first_three_to_principal_ratio"])
         self.assertTrue(receipt["boundary_component_split_measured"])
+        self.assertFalse(receipt["component_lower_bound_proved"])
+
+    def test_q286_boundary_complement_support_split(self):
+        receipt = q286_boundary_complement_support_split_receipt()
+        self.assertEqual(receipt["targets"], (14138, 24148))
+        self.assertEqual(receipt["minimum_complement_target"], 14138)
+        self.assertEqual(receipt["maximum_complement_target"], 24148)
+        self.assertLess(
+            receipt["maximum_support_reconstruction_error"], 1e-12)
+        boundary = receipt["target_rows"][14138]
+        lifted = receipt["target_rows"][24148]
+        self.assertAlmostEqual(
+            boundary["full_without_first_three_to_principal_ratio"],
+            .018073313793834367, places=14)
+        self.assertEqual(
+            lifted["dominant_positive_centered_support"], (5, 7))
+        self.assertGreater(
+            lifted["support_ratios_to_principal"][(5, 7)], .35)
+        self.assertLess(
+            lifted[
+                "q286_deviation_after_first_three_to_principal_ratio"],
+            0)
+        self.assertGreater(
+            lifted["full_without_first_three_to_principal_ratio"], 1.3)
+        self.assertTrue(receipt[
+            "boundary_complement_support_split_measured"])
         self.assertFalse(receipt["component_lower_bound_proved"])
 
     def test_q286_singular_mode_lower_tail_stress(self):

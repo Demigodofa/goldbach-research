@@ -8794,3 +8794,26 @@ Status `aha-candidate`: sampled lifts support a finite threshold route where
 high-positive driver residues fill quickly.  But driver-residue hitting is not
 equivalent to positivity, because lift `1` has six positive targets with both
 driver residues still admissible-empty.
+
+### 2026-09-12 continuation: boundary complement support split
+
+`q286_boundary_complement_support_split_receipt` splits `full -
+first_three_q286` into principal and lower-modulus support components at the
+boundary target `14138` and its lift `24148`.  The split reconstructs the
+complement with error below `7e-16` in principal-relative arithmetic.
+
+At `14138`, the complement is tiny, `0.018073313793834367`, because principal
+`1.0` is almost cancelled by q70 `-0.6530100068358881`, q154
+`-0.43137904901734725`, and non-q286 support sum `-1.0148150611594444`, while
+q286 actual after first three contributes only `0.032888374953279564`.
+At `24148`, q286 after first three is not the rescue mechanism: q286 deviation
+after first three is `-0.00043955321337479925`, but q70 is positive
+`0.35469923238633455` and the full complement is `1.3776028000182077`.
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_boundary_complement_support_split` passed in `153.125s`.
+
+Status `aha-candidate`: the complement lower envelope is a joint lower-modulus
+support problem, not a q286-only residual problem.  The next direct theorem
+attempt should keep q70/q154/q286 support terms explicit after separating the
+first-three q286 tail.
