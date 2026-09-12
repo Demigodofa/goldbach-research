@@ -1337,6 +1337,12 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["tested_target_count"], 4)
         self.assertIn(0, receipt["lift_rows"])
         self.assertIn(10424, receipt["target_rows"])
+        self.assertIn(10424, receipt["first_full_positive_lift_by_base"])
+        self.assertIn("maximum_first_full_positive_lift", receipt)
+        self.assertEqual(receipt["maximum_first_full_positive_lift"], 1)
+        self.assertEqual(
+            receipt["base_targets_without_positive_full_action_lift_count"],
+            0)
         self.assertTrue(receipt["driver_residue_lift_occupancy_measured"])
         self.assertFalse(receipt["driver_residue_hitting_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

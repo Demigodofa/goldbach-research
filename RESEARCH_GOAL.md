@@ -4,6 +4,32 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
+## Latest continuation evidence, 2026-09-12
+
+The q286 first-three twisted-correlation route now has a sharper finite
+residue-occupancy diagnostic.  The driver residues `133` and `153` were tracked
+through consecutive period lifts `0..10` for the `75` first-period targets
+where the full assembled strict-central action is negative.  Across `825`
+lifted targets, full-action negativity occurs only at lift `0`; every base is
+positive by lift `1`.
+
+The first-hit summary is:
+
+- maximum first positive full-action lift: `1`, with no missing bases;
+- maximum first lift with at least one positive driver residue: `2`, with no
+  missing bases;
+- maximum first lift escaping the both-driver-admissible-empty condition: `2`,
+  with no missing bases;
+- maximum first lift with both driver residues positive: `3`, but `12` bases
+  do not have both residues positive in lifts `0..10`.
+
+This changes the next action.  The driver-empty obstruction is real at the
+first-cycle bad targets, but it is not persistent under nearby period lifts and
+is not equivalent to positivity.  The next bounded finite test should ask
+whether a small explicit set of high-positive q286 residues gives a stable
+hitting cover for the lower tail, before attempting to formulate the full
+pointwise fixed-modulus twisted binary-prime correlation estimate.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

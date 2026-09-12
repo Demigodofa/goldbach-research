@@ -7504,6 +7504,10 @@ def q286_driver_residue_lift_occupancy_receipt(
     target_rows = {}
     negative_with_all_empty = []
     positive_with_all_empty = []
+    first_full_positive_lifts = {}
+    first_any_driver_positive_lifts = {}
+    first_all_driver_positive_lifts = {}
+    first_not_all_driver_admissible_empty_lifts = {}
     for base in base_targets:
         per_lift = {}
         for lift in lifts:
@@ -7551,6 +7555,8 @@ def q286_driver_residue_lift_occupancy_receipt(
             lift_rows[lift]["target_count"] += 1
             if action_ratio <= 0:
                 lift_rows[lift]["negative_full_action_count"] += 1
+            elif base not in first_full_positive_lifts:
+                first_full_positive_lifts[base] = lift
             if all_admissible:
                 lift_rows[lift][
                     "all_driver_residues_admissible_count"] += 1
@@ -7561,10 +7567,16 @@ def q286_driver_residue_lift_occupancy_receipt(
                     negative_with_all_empty.append((base, lift, target))
                 else:
                     positive_with_all_empty.append((base, lift, target))
+            elif base not in first_not_all_driver_admissible_empty_lifts:
+                first_not_all_driver_admissible_empty_lifts[base] = lift
             if any_positive:
                 lift_rows[lift]["any_driver_residue_positive_count"] += 1
+                if base not in first_any_driver_positive_lifts:
+                    first_any_driver_positive_lifts[base] = lift
             if all_positive:
                 lift_rows[lift]["all_driver_residues_positive_count"] += 1
+                if base not in first_all_driver_positive_lifts:
+                    first_all_driver_positive_lifts[base] = lift
             per_lift[lift] = {
                 "target": target,
                 "full_action_to_principal_ratio": action_ratio,
@@ -7596,6 +7608,34 @@ def q286_driver_residue_lift_occupancy_receipt(
             negative_with_all_empty),
         "positive_with_all_driver_residues_empty_rows": tuple(
             positive_with_all_empty),
+        "first_full_positive_lift_by_base": first_full_positive_lifts,
+        "first_any_driver_positive_lift_by_base": (
+            first_any_driver_positive_lifts),
+        "first_all_driver_positive_lift_by_base": (
+            first_all_driver_positive_lifts),
+        "first_not_all_driver_admissible_empty_lift_by_base": (
+            first_not_all_driver_admissible_empty_lifts),
+        "base_targets_without_positive_full_action_lift_count": (
+            len(base_targets) - len(first_full_positive_lifts)),
+        "base_targets_without_any_driver_positive_lift_count": (
+            len(base_targets) - len(first_any_driver_positive_lifts)),
+        "base_targets_without_all_driver_positive_lift_count": (
+            len(base_targets) - len(first_all_driver_positive_lifts)),
+        "base_targets_without_not_all_driver_admissible_empty_lift_count": (
+            len(base_targets)
+            - len(first_not_all_driver_admissible_empty_lifts)),
+        "maximum_first_full_positive_lift": (
+            max(first_full_positive_lifts.values())
+            if first_full_positive_lifts else None),
+        "maximum_first_any_driver_positive_lift": (
+            max(first_any_driver_positive_lifts.values())
+            if first_any_driver_positive_lifts else None),
+        "maximum_first_all_driver_positive_lift": (
+            max(first_all_driver_positive_lifts.values())
+            if first_all_driver_positive_lifts else None),
+        "maximum_first_not_all_driver_admissible_empty_lift": (
+            max(first_not_all_driver_admissible_empty_lifts.values())
+            if first_not_all_driver_admissible_empty_lifts else None),
         "driver_residue_lift_occupancy_measured": True,
         "driver_residue_hitting_theorem_proved": False,
         "signed_prime_correlation_estimate_proved": False,

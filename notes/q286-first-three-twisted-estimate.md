@@ -256,3 +256,42 @@ positivity of the full action at those lifts.  However, lift `1` already has
 six positive targets where both driver residues are still admissible-empty, so
 driver-residue hitting is not equivalent to positivity.  It is a finite clue,
 not a substitute for the first-three twisted correlation estimate.
+
+A consecutive-lift check over lifts `0..10` sharpens the same clue.  It uses
+the same `75` first-period negative bases and tests `825` lifted targets.
+The full action is negative only at lift `0`:
+
+```text
+negative full-action counts:
+  0:75, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0
+```
+
+First-hit summary:
+
+- every base has positive full action by lift `1`;
+- every base has at least one positive driver residue by lift `2`;
+- every base is no longer in the "both driver residues admissible-empty"
+  condition by lift `2`;
+- all possible bases with both driver residues positive attain that by lift
+  `3`, but `12` bases do not have both driver residues positive in lifts
+  `0..10`.
+
+Per-lift driver occupancy:
+
+```text
+both admissible-empty:
+  0:44, 1:6, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0
+any driver positive:
+  0:19, 1:66, 2:73, 3:75, 4:74, 5:75, 6:75, 7:75, 8:75, 9:75, 10:75
+both drivers positive:
+  0:0, 1:38, 2:56, 3:61, 4:59, 5:59, 6:60, 7:63, 8:63, 9:61, 10:63
+```
+
+Status `changed-under-evidence`: the first-cycle failures are not stable under
+nearby period lifts, and the driver-empty obstruction disappears by lift `2`.
+This strengthens the residue-occupancy hypothesis, but also shows the theorem
+cannot be "both drivers are always hit" because `12` bases lack simultaneous
+positive occupancy in these lifts.  The next useful finite question is whether
+a small, explicitly chosen set of high-positive q286 residues forms a stable
+hitting cover for the observed lower tail, or whether the missing coefficient
+mass moves too much and forces the full twisted binary-prime estimate.

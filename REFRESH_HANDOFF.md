@@ -4,6 +4,33 @@ Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.
 
+## Latest active checkpoint note, 2026-09-12
+
+The q286 driver-residue lift route has new evidence.  The receipt
+`q286_driver_residue_lift_occupancy_receipt` now records first-hit lifts for
+positive full action, at least one positive driver residue, simultaneous
+positive driver residues, and escape from the both-driver-admissible-empty
+condition.
+
+On the same `75` first-period negative bases, consecutive lifts `0..10` tested
+`825` targets.  Every base has positive full action by lift `1`; every base has
+at least one positive driver residue by lift `2`; and every base exits the
+both-driver-admissible-empty condition by lift `2`.  The maximum first lift
+with both driver residues positive is `3` among bases where it occurs, but
+`12` bases still do not have both driver residues positive in lifts `0..10`.
+
+Per-lift counts: full-action negatives are `75,0,0,0,0,0,0,0,0,0,0`; both
+driver residues admissible-empty are `44,6,0,0,0,0,0,0,0,0,0`; at least one
+driver residue positive is `19,66,73,75,74,75,75,75,75,75,75`; both driver
+residues positive is `0,38,56,61,59,59,60,63,63,61,63`.
+
+Do not overclaim this as Goldbach or as a signed estimate.  It is an
+aha-candidate for a residue-occupancy mechanism.  The next concrete finite
+question is whether a small explicit set of high-positive q286 residues forms
+a stable hitting cover for the observed lower tail, or whether the positive
+mass moves enough that the full pointwise twisted binary-prime correlation
+estimate is still unavoidable.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
