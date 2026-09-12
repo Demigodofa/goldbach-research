@@ -16522,3 +16522,18 @@ minimum first-three capture `28.192546577633923` times the full deficit.
 Status `aha-candidate`: the first-three lower-tail core survives the next
 complete period.  The evidence still remains finite; the next risk is not
 cycle `1`, but later recurrence or a missing endpoint/noncentral term.
+
+Four complete-period falsifier: with `cycle_count=4, targets_per_cycle=5005`,
+the scan tests `20020` targets in `10000..50038`.  The exact full action has
+`87` negative targets.  All `87` have negative first-two and first-three q286
+mode sums.  Removing modes `1` and `2` again leaves only `N=14138`
+nonpositive; removing modes `1..3` leaves zero nonpositive targets.  The
+worst first-three-removed margin is still `0.018073313793834367` principal at
+`14138`.  Negative counts by complete period are `75,3,5,4`; minimum
+first-three capture ratios on negative targets are
+`1.02060949158308, 28.192546577633923, 3.47131599019328,
+3.480217094913758`.
+
+Status update `aha-candidate`: the first-three q286 lower-tail core survives
+the first four complete periods, including later recurrence cycles.  This
+strengthens the direct target but remains finite evidence only.
