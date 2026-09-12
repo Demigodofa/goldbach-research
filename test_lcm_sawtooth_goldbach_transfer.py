@@ -4,6 +4,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    count_four_outer_holdout_sector_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -13,6 +14,49 @@ from lcm_sawtooth_goldbach_transfer import (
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_count_four_outer_holdout_sector_receipt(self):
+        receipt = count_four_outer_holdout_sector_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(
+            receipt["all_count_four_quotients"],
+            (35, 55, 65, 77, 91, 143))
+        self.assertEqual(receipt["linked_prime_slice_quotients"], (77, 91))
+        self.assertEqual(receipt["strict_central_principal_plus_shadow_quotient"], 77)
+        self.assertEqual(receipt["linked_slice_cancelling_quotient"], 91)
+        self.assertEqual(receipt["holdout_quotients"], (35, 55, 65, 143))
+        self.assertEqual(receipt["live_holdout_quotients"], (35, 55, 65, 143))
+        expected_fourier = {
+            35: .010906884721340548,
+            55: .024560020667301303,
+            65: .0005487547365190931,
+            143: .006101857449924944,
+        }
+        expected_count_four = {
+            35: .16118908808873234,
+            55: .3024507788824479,
+            65: .014327564985042195,
+            143: .09820822341044044,
+        }
+        for quotient, expected in expected_fourier.items():
+            self.assertAlmostEqual(
+                receipt["holdout_rows"][quotient][
+                    "fourier_cancellation_quotient"],
+                expected, places=14)
+        for quotient, expected in expected_count_four.items():
+            self.assertAlmostEqual(
+                receipt["holdout_rows"][quotient][
+                    "count_four_recombination_quotient"],
+                expected, places=14)
+        self.assertTrue(receipt["all_projected_fourier_identities_pass"])
+        self.assertTrue(receipt["all_holdout_count_four_sectors_are_live"])
+        self.assertTrue(receipt["endpoint_only_residual_hypothesis_falsified"])
+        self.assertTrue(receipt["full_outer_assembly_needs_holdout_sector_bridge"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_symbolic_principal_plus_centered_channel(self):
         receipt = symbolic_principal_plus_centered_channel_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)

@@ -20,6 +20,10 @@ from lcm_sawtooth_linked_prime_character import (
     recombined_centered_character_receipt,
     residue_orbit_even_even_profile_receipt,
 )
+from lcm_sawtooth_projected_fourier_cancellation import (
+    TWO_PRIME_QUOTIENT_LAGS,
+    two_prime_projected_fourier_holdout_receipt,
+)
 
 
 def _complex_fsum(values):
@@ -898,6 +902,78 @@ def symbolic_centered_outer_fiber_shadow_receipt(
         "endpoint_or_noncentral_terms_analyzed": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+
+def count_four_outer_holdout_sector_receipt(
+        minimum_nonzero_quotient=0.0, tolerance=1e-12):
+    """Classify what the principal-plus-shadow channel does not cover.
+
+    The reviewed strict-central bridge identifies the quotient-77 channel and
+    the symbolic centered receipt explains the quotient-91 cancellation in the
+    linked-prime slice.  The older count-four source table has six quotient
+    sectors.  This receipt tests whether the remaining full-assembly gap can be
+    treated as only endpoint/noncentral bookkeeping inside that slice.  It
+    cannot: four holdout quotient sectors are live in the projected source
+    table, so they need their own bridge or estimate.
+    """
+    if (not math.isfinite(minimum_nonzero_quotient)
+            or minimum_nonzero_quotient < 0):
+        raise ValueError(
+            "minimum_nonzero_quotient must be finite and nonnegative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    projected = two_prime_projected_fourier_holdout_receipt(
+        tolerance=tolerance)
+    discovery_quotients = tuple(projected["discovery_quotients"])
+    holdout_quotients = tuple(projected["holdout_quotients"])
+    if discovery_quotients != (77, 91):
+        raise AssertionError("expected linked-prime discovery quotients 77,91")
+    if set(projected["quotients"]) != set(TWO_PRIME_QUOTIENT_LAGS):
+        raise AssertionError("projected quotient table changed")
+    holdout_rows = {
+        quotient: {
+            "lag": TWO_PRIME_QUOTIENT_LAGS[quotient],
+            "fourier_cancellation_quotient": (
+                projected["fourier_cancellation_quotients"][quotient]),
+            "count_four_recombination_quotient": (
+                projected["count_four_recombination_quotients"][quotient]),
+        }
+        for quotient in holdout_quotients}
+    live_holdouts = tuple(
+        quotient for quotient, row in holdout_rows.items()
+        if (row["fourier_cancellation_quotient"]
+            > minimum_nonzero_quotient)
+        and (row["count_four_recombination_quotient"]
+             > minimum_nonzero_quotient))
+    return {
+        "families": projected["families"],
+        "arithmetic_period": projected["arithmetic_period"],
+        "all_count_four_quotients": projected["quotients"],
+        "linked_prime_slice_quotients": discovery_quotients,
+        "strict_central_principal_plus_shadow_quotient": 77,
+        "linked_slice_cancelling_quotient": 91,
+        "holdout_quotients": holdout_quotients,
+        "holdout_rows": holdout_rows,
+        "live_holdout_quotients": live_holdouts,
+        "minimum_nonzero_quotient": minimum_nonzero_quotient,
+        "all_projected_fourier_identities_pass": projected[
+            "all_projected_fourier_identities_pass"],
+        "holdout_spearman_correlation": projected[
+            "holdout_spearman_correlation"],
+        "all_six_spearman_correlation": projected[
+            "all_six_spearman_correlation"],
+        "all_holdout_count_four_sectors_are_live": bool(
+            len(live_holdouts) == len(holdout_quotients)),
+        "endpoint_only_residual_hypothesis_falsified": bool(
+            len(live_holdouts) == len(holdout_quotients)),
+        "full_outer_assembly_needs_holdout_sector_bridge": bool(
+            len(live_holdouts) == len(holdout_quotients)),
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
 

@@ -15107,3 +15107,44 @@ that is exactly where the signed estimate still lives?  A useful next test is
 to recover the full assembly term-by-term and compare it against the reviewed
 principal-plus-shadow strict-central channel, with any residual classified by
 support, coefficient source, and dependence on `N`.
+
+## 2026-09-12: count-four residual has live holdout sectors
+
+The first post-principal-split residual test falsifies an overly small next
+hypothesis.  The reviewed quotient-77 principal-plus-shadow channel and the
+quotient-91 linked-slice cancellation do not exhaust the count-four source
+model.  `count_four_outer_holdout_sector_receipt` connects the new
+strict-central bridge to the older six-quotient projected-Fourier/count-four
+table and classifies the missing part.
+
+The linked-prime slice uses quotients `(77, 91)`, with lags `(130, 110)`.
+The full two-prime count-four table also has live holdout quotients
+`(35, 55, 65, 143)`, with lags `(286, 182, 154, 70)`.  Their projected
+Fourier cancellation quotients are respectively
+`.010906884721340548`, `.024560020667301303`, `.0005487547365190931`, and
+`.006101857449924944`; their count-four recombination quotients are
+`.16118908808873234`, `.3024507788824479`, `.014327564985042195`, and
+`.09820822341044044`.  All are positive in the frozen source table.
+
+Independent review returned PASS.  Faraday checked the imports, noncircularity,
+period-10010 quotient-to-lag map, reuse of
+`two_prime_projected_fourier_holdout_receipt`, exact fixture values, and the
+scope flags.  Focused normal and optimized tests pass.
+
+Status `changed-under-evidence`: the residual is not just endpoint/noncentral
+bookkeeping inside the already reviewed q77/q91 linked-prime slice.  At the
+count-four source-table level, four additional quotient sectors remain live
+and need their own bridge or estimate.  This does not identify the full outer
+assembly, prove those holdouts' final contribution, estimate the formal signed
+error, prove a pointwise signed prime-correlation bound, or prove Goldbach.
+The q77 principal-plus-shadow channel remains a useful component; only the
+hypothesis that it leaves merely q77/q91 endpoint cleanup is blocked.
+
+Next concrete question: can one holdout sector, starting with quotient `65`
+(lag `154`, the smallest projected cancellation quotient), be converted into a
+strict-central prime-pair channel with fixed coefficients the way q77 was, or
+does its common modulus/support force a moving coefficient or nonunit boundary?
+A useful test is to build the q65 analogue of the direct source/fiber-shadow
+comparison and then check whether its strict-central unit threshold and target
+residue admissibility give a symbolic coefficient identity or a precise
+falsifier.
