@@ -5430,6 +5430,116 @@ def q286_leading_mode_cycle_profile_receipt(
     }
 
 
+def q286_separable_mode_coefficient_receipt(
+        mode_count=6, top_count=6, tolerance=1e-9):
+    """Expose leading q286 singular modes as separable residue weights."""
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    unit11 = tuple(residue for residue in range(11)
+                   if math.gcd(residue, 11) == 1)
+    unit13 = tuple(residue for residue in range(13)
+                   if math.gcd(residue, 13) == 1)
+    _, _, table11 = _unit_character_table(11, unit11)
+    _, _, table13 = _unit_character_table(13, unit13)
+    mode_rows = []
+    maximum_factorization_error = 0.0
+    for index in range(mode_count):
+        left_coefficients = np.zeros(10, dtype=np.complex128)
+        right_coefficients = np.zeros(12, dtype=np.complex128)
+        left_coefficients[1:] = left[:, index]
+        right_coefficients[1:] = right[index, :]
+        left_residue_values = table11.T @ left_coefficients
+        right_residue_values = table13.T @ right_coefficients
+        separated_values = (
+            singular_values[index]
+            * left_residue_values[:, None]
+            * right_residue_values[None, :])
+        mode_matrix = (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+        full_mode_matrix = np.zeros((10, 12), dtype=np.complex128)
+        full_mode_matrix[1:, 1:] = mode_matrix
+        reconstructed_values = (
+            table11.T @ full_mode_matrix @ table13)
+        factorization_error = float(
+            np.linalg.norm(reconstructed_values - separated_values)
+            / max(1.0, np.linalg.norm(separated_values)))
+        maximum_factorization_error = max(
+            maximum_factorization_error, factorization_error)
+        residue_rows = []
+        for left_position, left_residue in enumerate(unit11):
+            for right_position, right_residue in enumerate(unit13):
+                value = separated_values[left_position, right_position]
+                residue_rows.append({
+                    "residue_mod_11": left_residue,
+                    "residue_mod_13": right_residue,
+                    "coefficient": complex(value),
+                    "coefficient_real": float(value.real),
+                    "coefficient_abs": float(abs(value)),
+                })
+        top_abs = tuple(sorted(
+            residue_rows,
+            key=lambda row: row["coefficient_abs"],
+            reverse=True)[:top_count])
+        mode_rows.append({
+            "mode_index": index + 1,
+            "singular_value": float(singular_values[index]),
+            "character_l2_energy": float(singular_values[index] ** 2),
+            "left_residue_l2": float(np.linalg.norm(left_residue_values)),
+            "right_residue_l2": float(np.linalg.norm(right_residue_values)),
+            "left_residue_l1": float(np.sum(np.abs(left_residue_values))),
+            "right_residue_l1": float(np.sum(np.abs(right_residue_values))),
+            "separated_residue_l2": float(np.linalg.norm(separated_values)),
+            "maximum_residue_abs": float(np.max(np.abs(separated_values))),
+            "maximum_residue_real": float(np.max(separated_values.real)),
+            "minimum_residue_real": float(np.min(separated_values.real)),
+            "positive_real_residue_count": sum(
+                1 for row in residue_rows
+                if row["coefficient_real"] > tolerance),
+            "negative_real_residue_count": sum(
+                1 for row in residue_rows
+                if row["coefficient_real"] < -tolerance),
+            "near_zero_real_residue_count": sum(
+                1 for row in residue_rows
+                if abs(row["coefficient_real"]) <= tolerance),
+            "top_abs_residue_rows": top_abs,
+            "factorization_reconstruction_error": factorization_error,
+        })
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": character_receipt["natural_modulus"],
+        "mode_count": mode_count,
+        "top_count": top_count,
+        "mode_rows": tuple(mode_rows),
+        "maximum_factorization_reconstruction_error": (
+            maximum_factorization_error),
+        "all_modes_have_mixed_residue_signs": bool(all(
+            row["positive_real_residue_count"] > 0
+            and row["negative_real_residue_count"] > 0
+            for row in mode_rows)),
+        "separable_mode_coefficients_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

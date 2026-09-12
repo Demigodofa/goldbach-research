@@ -16175,3 +16175,41 @@ Status `changed-under-evidence`: reject fixed-sign mode control.  Preserve a
 weaker but useful structure: modes `1` and `2` dominate many significant
 negative tails, but the proof target must control a target-dependent signed
 mode envelope rather than proving one mode or one fixed set is always negative.
+
+## 2026-09-12: q286 separable mode coefficient scanner added
+
+`q286_separable_mode_coefficient_receipt` converts the leading q286 singular
+modes into explicit separable residue-factor weights.  Each mode has the form
+`s_j*A_j(p mod 11)*B_j(p mod 13)` at the coefficient level, with the
+principal-character entries omitted in both factors.  The receipt reports
+factor L1/L2 sizes, residue sign counts, extrema, and top residue pairs.
+
+This is the analytic bridge from opaque singular vectors to actual twisted
+Goldbach sums.  It does not prove cancellation; it names the separable weights
+that a direct estimate would need to control.
+
+Measured factorization error is `2.8885744504287083e-16`.  All six leading
+modes have mixed residue signs.  Principal residue-sign counts and real
+extrema:
+
+Mode `1`: singular value `158279.09383760378`, sign counts `60/60`,
+min/max `-851577.2681327654`/`851577.2681327842`.
+
+Mode `2`: singular value `124234.1882436279`, sign counts `84/36`,
+min/max `-172835.1666166088`/`552774.7021843983`.
+
+Mode `3`: singular value `21476.920434701242`, sign counts `60/60`,
+min/max `-112972.65799790554`/`112972.65799782195`.
+
+Mode `4`: singular value `20279.016716396538`, sign counts `36/84`,
+min/max `-87193.13933077666`/`28356.032927343473`.
+
+Mode `5`: singular value `7932.896799866379`, sign counts `60/60`,
+min/max `-36657.02718204016`/`36657.02718202564`.
+
+Mode `6`: singular value `6618.331118761813`, sign counts `56/64`,
+min/max `-21497.959299790065`/`17827.503129303997`.
+
+Status `aha-candidate`: mode `1` is the cleanest balanced separable twist, but
+mode `2` is larger and sign-skewed.  The next analytic probe should distinguish
+balanced-mode cancellation from sign-skewed-mode local bias.
