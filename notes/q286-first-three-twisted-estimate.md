@@ -1368,3 +1368,42 @@ alignment of q70 and q154, with q286-after-first-three comparatively small and
 sometimes positive.  A pointwise theorem could try to prove that such aligned
 lower-modulus deficits cannot exceed the principal buffer after the first
 three q286 modes are removed.  The measured data does not supply that theorem.
+
+## 2026-09-12: low-tail period lifts clear by lift one
+
+`q286_first_three_removed_low_tail_lift_receipt` follows the bottom
+post-first-three complement targets through arithmetic-period lifts.  The
+default bases are the first-period bottom five `14138, 14732, 12578, 12944,
+16388`; lifts are `0, 1, 4, 9, 19, 49`; threshold is `.3`.
+
+Default run (`30` lifted targets):
+
+```text
+global minimum: base 14138, lift 0, target 14138, complement 0.018073313793834145
+targets below .3: 5
+all tested lifts positive: True
+every base clears .3 on tested lifts: True
+```
+
+Every base has its minimum at lift `0`, and every base first clears the `.3`
+threshold at lift `1`:
+
+```text
+base 14138: min 0.018073313793834145 at lift 0; lift 1 complement 1.377602800018208
+base 14732: min 0.06913849299419517 at lift 0; lift 1 complement 1.3857462229590352
+base 12578: min 0.07154179749160794 at lift 0; lift 1 complement 1.056148898018834
+base 12944: min 0.08894502770264667 at lift 0; lift 1 complement 0.6470013535948573
+base 16388: min 0.09695316211707872 at lift 0; lift 1 complement 0.7287631368044876
+```
+
+Later sampled lifts stay positive but not monotone; e.g. base `12944` has
+complements `.6470, .9492, .7679, .5835, .6765` at lifts `1,4,9,19,49`.
+Thus the clearing evidence is not monotone decay of component oscillation.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_low_tail_lift` passed in `68.207s`.
+
+Status `aha-candidate`: the worst first-period pointwise alignments are not
+persistent in these same-residue period lifts.  The useful theorem target may
+be a finite/onset boundary treatment plus an eventual alignment-clearance
+estimate, but the sampled lift profile does not prove either one.

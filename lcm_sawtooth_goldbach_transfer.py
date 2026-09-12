@@ -9983,3 +9983,115 @@ def q286_first_three_removed_vector_stress_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_low_tail_lift_receipt(
+        base_targets=(14138, 14732, 12578, 12944, 16388),
+        lifts=(0, 1, 4, 9, 19, 49), threshold=.3,
+        tolerance=1e-9):
+    """Follow low post-first-three complement targets through period lifts.
+
+    This receipt tests whether the pointwise support-vector lower tail is a
+    persistent residue-class obstruction or an early/boundary-scale alignment
+    that clears under arithmetic-period lifts.  It uses the same component
+    vectors as ``q286_first_three_removed_vector_stress_receipt``.
+    """
+    base_targets = tuple(dict.fromkeys(base_targets))
+    lifts = tuple(dict.fromkeys(lifts))
+    if (not base_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in base_targets)):
+        raise ValueError("base_targets must be even integers at least 40")
+    if (not lifts or any(type(lift) is not int or lift < 0
+                         for lift in lifts)):
+        raise ValueError("lifts must be nonnegative integers")
+    if not math.isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    selected_targets = tuple(
+        base + lift * period for base in base_targets for lift in lifts)
+    stress = q286_first_three_removed_vector_stress_receipt(
+        selected_targets=selected_targets, tolerance=tolerance)
+    period = stress["arithmetic_period"]
+    base_rows = {}
+    global_minimum = None
+    targets_below_threshold = []
+    for base in base_targets:
+        lift_rows = {}
+        for lift in lifts:
+            target = base + lift * period
+            row = stress["target_rows"][target]
+            vector = row["component_vector"]
+            lift_row = {
+                "target": target,
+                "complement_to_principal_ratio": row[
+                    "complement_to_principal_ratio"],
+                "support_sum_to_principal_ratio": row[
+                    "support_sum_to_principal_ratio"],
+                "centered_vector_norm": row["centered_vector_norm"],
+                "sum_direction_cosine": row["sum_direction_cosine"],
+                "component_vector": vector,
+                "component_sign_pattern": "".join(
+                    "+" if value > tolerance else "-"
+                    if value < -tolerance else "0" for value in vector),
+                "below_threshold": bool(
+                    row["complement_to_principal_ratio"] < threshold),
+            }
+            lift_rows[lift] = lift_row
+            if lift_row["below_threshold"]:
+                targets_below_threshold.append(target)
+            if (global_minimum is None or lift_row[
+                    "complement_to_principal_ratio"] < global_minimum[2]):
+                global_minimum = (
+                    base, lift, lift_row["complement_to_principal_ratio"],
+                    target)
+        minimum_lift = min(
+            lifts, key=lambda lift: lift_rows[lift][
+                "complement_to_principal_ratio"])
+        first_lift_at_or_above_threshold = next((
+            lift for lift in lifts
+            if lift_rows[lift]["complement_to_principal_ratio"] >= threshold),
+            None)
+        base_rows[base] = {
+            "lift_rows": lift_rows,
+            "minimum_complement_lift": minimum_lift,
+            "minimum_complement_target": lift_rows[minimum_lift]["target"],
+            "minimum_complement_to_principal_ratio": lift_rows[
+                minimum_lift]["complement_to_principal_ratio"],
+            "first_lift_at_or_above_threshold": (
+                first_lift_at_or_above_threshold),
+            "all_lifts_positive": all(
+                row["complement_to_principal_ratio"] > tolerance
+                for row in lift_rows.values()),
+            "below_threshold_lifts": tuple(
+                lift for lift in lifts if lift_rows[lift][
+                    "below_threshold"]),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "base_targets": base_targets,
+        "lifts": lifts,
+        "threshold": threshold,
+        "tested_target_count": len(selected_targets),
+        "base_rows": base_rows,
+        "global_minimum_base": global_minimum[0],
+        "global_minimum_lift": global_minimum[1],
+        "global_minimum_target": global_minimum[3],
+        "global_minimum_complement_to_principal_ratio": global_minimum[2],
+        "targets_below_threshold": tuple(targets_below_threshold),
+        "target_below_threshold_count": len(targets_below_threshold),
+        "all_tested_lifts_positive": all(
+            row["all_lifts_positive"] for row in base_rows.values()),
+        "every_base_clears_threshold_on_tested_lifts": all(
+            row["first_lift_at_or_above_threshold"] is not None
+            for row in base_rows.values()),
+        "first_three_removed_low_tail_lift_measured": True,
+        "persistent_low_tail_obstruction_proved": False,
+        "eventual_lift_clearance_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

@@ -45,6 +45,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_support_envelope_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
+    q286_first_three_removed_low_tail_lift_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1581,6 +1582,23 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_removed_vector_stress_measured"])
         self.assertFalse(receipt["norm_only_lower_bound_proved"])
+
+    def test_q286_first_three_removed_low_tail_lift(self):
+        receipt = q286_first_three_removed_low_tail_lift_receipt(
+            base_targets=(14138,), lifts=(0, 1))
+        self.assertEqual(receipt["base_targets"], (14138,))
+        self.assertEqual(receipt["lifts"], (0, 1))
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(
+            receipt["base_rows"][14138]["minimum_complement_lift"], 0)
+        self.assertGreater(
+            receipt["base_rows"][14138]["lift_rows"][1][
+                "complement_to_principal_ratio"],
+            receipt["base_rows"][14138]["lift_rows"][0][
+                "complement_to_principal_ratio"])
+        self.assertTrue(receipt[
+            "first_three_removed_low_tail_lift_measured"])
+        self.assertFalse(receipt["eventual_lift_clearance_proved"])
 
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(

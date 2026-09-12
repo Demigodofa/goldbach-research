@@ -17027,3 +17027,24 @@ while q286-after-first-three is smaller and sometimes positive.
 Status `aha-candidate`: the next direct theorem attempt should bound joint
 lower-modulus deficit alignment pointwise.  The finite inventory suggests a
 thin lower tail, not a broad norm/covariance certificate.
+
+## 2026-09-12 continuation: low-tail period lifts clear by lift one
+
+`q286_first_three_removed_low_tail_lift_receipt` now follows the first-period
+bottom five post-first-three complement targets through lifts `0,1,4,9,19,49`.
+All `30` tested lifted targets are positive.  Exactly the five lift-0 bases
+are below threshold `.3`; every base has its minimum at lift `0` and first
+clears `.3` at lift `1`.
+
+Lift-1 complements are: `14138 -> 1.377602800018208`, `14732 ->
+1.3857462229590352`, `12578 -> 1.056148898018834`, `12944 ->
+0.6470013535948573`, and `16388 -> 0.7287631368044876`.  Later lifts remain
+positive but are not monotone.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_low_tail_lift` passed in `68.207s`.
+
+Status `aha-candidate`: the low-tail support-vector alignment looks
+first-period/onset-specific in this test, not persistent along same residues.
+Do not overclaim: this is finite lift evidence, not an eventual clearance
+proof.

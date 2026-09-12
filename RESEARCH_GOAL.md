@@ -8892,3 +8892,15 @@ below `0.30`.  The bottom five are `14138`, `14732`, `12578`, `12944`, and
 Status `aha-candidate`: low-tail cases are mostly joint q70/q154 negative
 alignment with smaller q286-after-first-three influence.  Try a pointwise
 joint-deficit estimate rather than a norm-only or one-support sign route.
+
+### 2026-09-12 continuation: low-tail period lifts clear by lift one
+
+`q286_first_three_removed_low_tail_lift_receipt` tests the first-period bottom
+five post-first-three complement bases through lifts `0,1,4,9,19,49`.  All
+`30` lifted targets are positive.  The only values below `.3` are the five
+lift-0 bases, and every base first clears `.3` at lift `1`.
+
+Status `aha-candidate`: the measured low-tail alignment is not persistent
+under these same-residue period lifts.  Next theorem shape: separate finite
+onset/boundary treatment from an eventual pointwise alignment-clearance
+estimate.
