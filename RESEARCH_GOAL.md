@@ -216,6 +216,11 @@ nonpositive cases.  The sampled block complement minimum was
 `0.49906371578900943` at `N=440866`.  This supports, but does not prove, an
 eventual positive complement lower envelope.
 
+The boundary target `N=14138` was inventoried directly.  It has `75` ordered
+strict-central prime pairs and total log-pair weight `5862.85778490767`, so it
+is not a raw pair-count scarcity.  The cover residues `133` and `153` have
+zero weight, making the obstruction residue-specific signed placement.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

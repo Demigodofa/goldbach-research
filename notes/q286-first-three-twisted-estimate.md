@@ -939,3 +939,30 @@ Status `coarse-later-horizon-strengthened`: no collapse appears in this
 sampled later block; the sampled complement floor continues upward.  The word
 sampled matters: this is not a complete-cycle check and cannot replace the
 full-period envelope receipts.
+
+## Boundary target inventory
+
+The hardest complement target in the measured first block, `N=14138`, is not
+scarce in ordinary strict-central Goldbach representations.  Direct inventory
+over `N/3 < p < 2N/3` gives:
+
+```text
+strict-central interval: 4713..9425
+ordered strict-central prime pairs: 75
+total log-pair weight: 5862.85778490767
+mean over 99 admissible q286 residue classes: 59.22078570613808
+weight in residue 133: 0
+weight in residue 153: 0
+largest residue weights:
+  205: 235.39078971716816
+  125: 233.7296237950301
+  285: 233.72962379503008
+  159: 157.03530703722484
+  251: 157.03530703722484
+```
+
+Status `residue-specific-scarcity`: the boundary obstruction is not lack of
+Goldbach pairs in the strict-central interval.  It is signed residue placement:
+the cover pair is empty, while the occupied residues do not give enough
+positive complement to absorb the first-three q286 tail.  This supports a
+residue-distribution proof target rather than a raw pair-count target.

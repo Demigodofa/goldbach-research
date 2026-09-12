@@ -231,6 +231,13 @@ complement nonpositive cases.  The sampled block complement minimum is
 `0.49906371578900943` at `N=440866` (global cycle `43`).  This strengthens the
 trend but is not a full-cycle check.
 
+Boundary target inventory: at the hardest first-block target `N=14138`, the
+strict-central interval is `4713..9425` and contains `75` ordered prime pairs
+with total log-pair weight `5862.85778490767`.  The mean over `99` admissible
+q286 residue classes is `59.22078570613808`, but residues `133` and `153` both
+have weight `0`.  The obstruction is residue-specific signed placement, not
+absence of ordinary strict-central Goldbach pairs.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
