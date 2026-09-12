@@ -839,3 +839,31 @@ cycle `0`; after that, the observed complement floor is more than ten times
 larger.  This suggests a proof strategy with two pieces: a finite/boundary
 argument for the initial cycle and an eventual complement lower-envelope
 estimate for later cycles.  No monotonic theorem is claimed.
+
+The same receipt was run on the next eight-cycle block, starting at `90080`,
+corresponding to global cycles `8..15`.  It tested another `40040` targets:
+
+```text
+total full-action negatives: 0
+total full-without-first-three nonpositive: 0
+block complement minimum: local cycle 6, N=154426, 0.37335759682269043
+```
+
+Per-cycle complement minima in this later block:
+
+```text
+global cycle 8:  0.3919391850281447 at 92896
+global cycle 9:  0.3892844567915921 at 109066
+global cycle 10: 0.4200084725782136 at 118726
+global cycle 11: 0.4091399535574407 at 122996
+global cycle 12: 0.4210309762268075 at 131524
+global cycle 13: 0.4244575987164013 at 142052
+global cycle 14: 0.37335759682269043 at 154426
+global cycle 15: 0.38413360717946904 at 164284
+```
+
+Status `later-cycle-envelope-strengthened`: the measured post-boundary floor
+does not collapse in cycles `8..15`; it rises above the first block's
+after-cycle-0 floor.  This is still finite evidence, but it sharpens the
+possible theorem shape: complement positivity may have a small finite onset
+followed by a stable lower envelope.

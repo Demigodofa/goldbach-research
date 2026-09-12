@@ -208,6 +208,15 @@ After the first cycle, the minimum is cycle `2`, `N=36254`, value
 `0.256264703595679`, `0.31137108785748546`, `0.39727017945100246`,
 `0.4792269914847067`, `0.4621616810941522`.
 
+Later-cycle falsifier: running the same receipt with `start=90080`,
+`cycle_count=8`, `targets_per_cycle=5005` tests global cycles `8..15`.  It
+finds zero full-action negatives and zero complement nonpositive cases.  The
+minimum complement in that block is `0.37335759682269043` at `N=154426`
+(global cycle `14`).  Per-cycle minima are `0.3919391850281447`,
+`0.3892844567915921`, `0.4200084725782136`, `0.4091399535574407`,
+`0.4210309762268075`, `0.4244575987164013`, `0.37335759682269043`,
+`0.38413360717946904`.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

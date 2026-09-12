@@ -197,6 +197,12 @@ minimum is `0.2104242574698779` at `N=36254`.  This supports splitting the
 route into an initial boundary check plus a later-cycle complement lower-bound
 theorem.
 
+A later eight-cycle block, global cycles `8..15`, was tested with
+`start=90080`.  It has zero full-action negatives, zero complement nonpositive
+cases, and minimum complement `0.37335759682269043` at `N=154426`.  This
+strengthens the finite case for a small-onset complement lower envelope, while
+still leaving the asymptotic theorem open.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
