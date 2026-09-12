@@ -17064,3 +17064,17 @@ Validation: bytecode-disabled `py_compile` passed.  Focused regression
 Status `aha-candidate`: the finite evidence for an onset/boundary low-tail
 phenomenon is now much wider than the bottom five.  No eventual theorem is
 proved.
+
+## 2026-09-12 continuation: four-period `.3` low-tail lift recurrence check
+
+A cross-period auto-lift check scanned complete periods starting at `10000`,
+`20010`, `30020`, and `40030`, selecting bases with post-first-three
+complement below `.3` and testing lifts `0,1`.  Selected base counts were
+`50,4,4,6`; every selected base in every period cleared the `.3` threshold at
+lift `1`.  Base-period minima were `0.018073313793834145` at `14138`,
+`0.26287606080608905` at `22766`, `0.21042425746987792` at `36254`, and
+`0.2562647035956789` at `49904`.
+
+Status `aha-candidate`: low-tail same-residue persistence is not appearing in
+the first four complete periods.  This remains finite recurrence evidence, not
+an eventual theorem.

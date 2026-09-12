@@ -1439,3 +1439,32 @@ is not persistent under the first three same-residue period lifts.  Every
 selected low-tail base clears the `.3` threshold at lift `1`.  This strengthens
 the boundary/onset split as a finite phenomenon, but still does not prove an
 eventual alignment-clearance theorem or Goldbach.
+
+## 2026-09-12: four-period `.3` low-tail lift recurrence check
+
+A cross-period run of `q286_first_three_removed_low_tail_auto_lift_receipt`
+checked complete base periods starting at `10000`, `20010`, `30020`, and
+`40030`, selecting all bases with post-first-three complement below `.3` and
+testing lifts `0,1`.
+
+```text
+start 10000: selected 50, base minimum 0.018073313793834145 at 14138,
+  below-threshold counts {0: 50, 1: 0}, max first-clear lift 1
+start 20010: selected 4, base minimum 0.26287606080608905 at 22766,
+  below-threshold counts {0: 4, 1: 0}, max first-clear lift 1
+start 30020: selected 4, base minimum 0.21042425746987792 at 36254,
+  below-threshold counts {0: 4, 1: 0}, max first-clear lift 1
+start 40030: selected 6, base minimum 0.2562647035956789 at 49904,
+  below-threshold counts {0: 6, 1: 0}, max first-clear lift 1
+```
+
+All selected bases in all four periods clear the `.3` threshold at lift `1`.
+The low-tail population is much larger in the first period (`50`) than in the
+next three complete periods (`4,4,6`).  This supports an onset/boundary-layer
+interpretation for the post-first-three complement floor while still leaving
+the required eventual alignment-clearance theorem open.
+
+Status `aha-candidate`: the same-residue low-tail obstruction has not persisted
+in any checked complete period.  The next efficient step should avoid repeated
+one-period wrappers and codify a multi-period low-tail scanner if wider ranges
+are needed.

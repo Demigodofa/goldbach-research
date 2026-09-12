@@ -8915,3 +8915,14 @@ lift `1`.
 
 Status `aha-candidate`: the low-tail alignment looks like a first-period/onset
 phenomenon across the whole `.3` low-tail set, not just the bottom five.
+
+### 2026-09-12 continuation: four-period `.3` low-tail lift recurrence check
+
+Complete periods starting `10000`, `20010`, `30020`, and `40030` were scanned
+for post-first-three complement below `.3`; selected base counts were
+`50,4,4,6`.  In all four periods, all selected bases cleared the `.3`
+threshold at lift `1`.
+
+Status `aha-candidate`: the checked same-residue low-tail obstruction does not
+persist through lift `1`; wider scans should use a dedicated multi-period
+scanner rather than repeated one-period wrappers.
