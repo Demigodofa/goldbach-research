@@ -1499,6 +1499,65 @@ def holdout_q65_dual_prime_target_sum_receipt(
     }
 
 
+def symbolic_q65_dual_prime_coefficient_receipt(tolerance=1e-12):
+    """Name the fixed q65 Fourier-dual coefficient for all central targets.
+
+    Once the projected-spatial q65 source is grouped over ``U_154``, its action
+    on a prime residue is the finite additive Fourier dual of that grouped
+    spatial vector.  This coefficient is independent of the target.  For every
+    even ``N`` above the central-unit threshold, strict-central prime pairs use
+    only unit residues modulo 154, so no nonunit correction is needed in this
+    channel.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
+        tolerance=tolerance)
+    common = source["common_modulus"]
+    residues = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    spatial = np.asarray(source["grouped_centered_spatial_values"],
+                         dtype=np.complex128)
+    phase = np.exp(
+        2j * np.pi * np.outer(residues, residues) / common)
+    dual = phase @ spatial
+    threshold = _even_strict_central_unit_threshold(common)
+    coefficient_by_residue = {
+        residue: complex(value) for residue, value in zip(residues, dual)}
+    max_imaginary_part = max(abs(value.imag) for value in dual)
+    return {
+        "families": source["families"],
+        "arithmetic_period": source["arithmetic_period"],
+        "quotient": source["quotient"],
+        "lag": source["lag"],
+        "common_modulus": common,
+        "unit_group_order": len(residues),
+        "central_unit_threshold": threshold,
+        "central_unit_threshold_reason": (
+            f"if N>={threshold} and N/3<p<2N/3, then p and N-p exceed "
+            f"the largest prime factor {_largest_prime_factor(common)} "
+            f"of modulus {common}"),
+        "spatial_source_l2": float(np.linalg.norm(spatial)),
+        "fourier_dual_prime_coefficient_l2": float(np.linalg.norm(dual)),
+        "maximum_dual_coefficient_imaginary_part": float(max_imaginary_part),
+        "coefficient_by_unit_residue": coefficient_by_residue,
+        "target_correlation_identity": (
+            "for every even N>=34, the q65 projected-spatial target action "
+            "on strict-central prime pairs is sum log(p)log(N-p)C_q65(p mod "
+            "154), where C_q65 is the fixed Fourier-dual coefficient"),
+        "coefficient_depends_on_target_residue": False,
+        "nonunit_central_prime_pair_correction_needed_for_N_ge_34": False,
+        "symbolic_q65_dual_coefficient_transfer_proved": True,
+        "q65_source_layer_bridge_proved": True,
+        "q65_positive_or_signed_estimate_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def symbolic_principal_plus_centered_channel_receipt(
         tolerance=1e-12, rational_tolerance=1e-10, batch_size=32):
     """Split the quotient-77 channel into a constant plus fiber shadow.

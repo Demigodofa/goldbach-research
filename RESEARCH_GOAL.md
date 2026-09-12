@@ -7663,3 +7663,22 @@ Status `changed-under-evidence`: same-index spatial-to-prime transfer is
 blocked; Fourier-dual target transfer is live but only fixture-checked.  A
 symbolic all-target q65 bridge, full outer assembly, formal signed error,
 pointwise signed control, and Goldbach remain open.
+
+### 2026-09-12 continuation: q65 Fourier-dual transfer is symbolic
+
+The q65 dual route now has a symbolic coefficient receipt.  The fixed
+strict-central coefficient is the finite additive Fourier dual of the grouped
+projected-spatial source over `U_154`, not the same-index spatial vector.  It
+is independent of the target residue.  Because strict-central prime pairs for
+even `N>=34` have both primes greater than `11`, no nonunit correction enters
+this q65 unit channel.
+
+Thus the q65 projected-spatial target action has the fixed form
+
+`sum_(N/3<p<2N/3, p,N-p prime)
+   log(p)log(N-p) C_q65(p mod 154)`.
+
+Status `aha-candidate`, novelty `new-to-this-task`: q65 is now a fixed
+strict-central coefficient channel in the Fourier-dual basis.  This still
+does not prove a signed estimate, identify the full outer assembly, control
+the remaining holdout sectors, estimate `T_boundary-Delta`, or prove Goldbach.

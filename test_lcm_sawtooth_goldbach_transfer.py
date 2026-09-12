@@ -13,6 +13,7 @@ from lcm_sawtooth_goldbach_transfer import (
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
+    symbolic_q65_dual_prime_coefficient_receipt,
     symbolic_centered_outer_fiber_shadow_receipt,
     symbolic_principal_plus_centered_channel_receipt,
 )
@@ -223,6 +224,36 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["spatial_to_dual_target_transfer_verified_on_targets"])
         self.assertTrue(receipt["naive_same_index_target_transfer_falsified"])
         self.assertFalse(receipt["target_prime_pair_bridge_proved_symbolically"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_symbolic_q65_dual_prime_coefficient(self):
+        receipt = symbolic_q65_dual_prime_coefficient_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertEqual(receipt["central_unit_threshold"], 34)
+        self.assertAlmostEqual(
+            receipt["spatial_source_l2"], 86071.18524618637,
+            places=8)
+        self.assertAlmostEqual(
+            receipt["fourier_dual_prime_coefficient_l2"],
+            751779.5321027868, places=7)
+        self.assertLess(
+            receipt["maximum_dual_coefficient_imaginary_part"], 1e-8)
+        self.assertEqual(len(receipt["coefficient_by_unit_residue"]), 60)
+        self.assertFalse(receipt["coefficient_depends_on_target_residue"])
+        self.assertFalse(receipt[
+            "nonunit_central_prime_pair_correction_needed_for_N_ge_34"])
+        self.assertTrue(receipt[
+            "symbolic_q65_dual_coefficient_transfer_proved"])
+        self.assertTrue(receipt["q65_source_layer_bridge_proved"])
+        self.assertFalse(receipt["q65_positive_or_signed_estimate_proved"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[

@@ -15301,3 +15301,39 @@ Next concrete question: upgrade the q65 Fourier-dual target transfer from the
 two fixtures to a symbolic residue-class statement for every strict-central
 target `N>=34`, or find the exact target-residue or boundary term where that
 symbolic transfer breaks.
+
+## 2026-09-12: q65 has a symbolic Fourier-dual prime coefficient
+
+The q65 fixture transfer has been upgraded to a fixed coefficient statement.
+`symbolic_q65_dual_prime_coefficient_receipt` names the q65 prime-residue
+coefficient as the finite additive Fourier dual of the grouped
+projected-spatial source over `U_154`.  This coefficient is independent of
+`N mod 154`.
+
+The grouped spatial source has `L^2` norm `86071.18524618637`; the Fourier-dual
+prime coefficient has `L^2` norm `751779.5321027868`; the maximum imaginary
+part from floating computation is below `1e-8`.  Since `154=2*7*11`, every
+even `N>=34` has strict-central prime pairs with both primes greater than `11`,
+so no nonunit correction is needed in this q65 strict-central unit channel.
+
+Consequently, for every even `N>=34`, the q65 projected-spatial target action
+on strict-central prime pairs has the fixed-coefficient form
+
+`sum_(N/3<p<2N/3, p,N-p prime)
+   log(p)log(N-p) C_q65(p mod 154)`,
+
+where `C_q65` is the Fourier-dual coefficient vector over `U_154`.  This is a
+source-to-target coefficient identity, not a positive or signed estimate.
+
+Status `aha-candidate`, novelty `new-to-this-task`: q65 joins q77 as a fixed
+strict-central coefficient channel, but through a different basis.  q77 uses
+the residue fiber shadow directly; q65 uses the Fourier-dual of the
+projected-spatial fiber shadow.  The full outer assembly, the remaining
+holdout sectors `q35`, `q55`, and `q143`, the formal `T_boundary-Delta` error,
+pointwise signed control, and Goldbach remain open.
+
+Next concrete question: repeat the direct/spatial/dual classification for the
+remaining live holdout sectors, starting with the largest count-four
+recombination quotient `q55`, and determine whether all holdouts become fixed
+strict-central coefficient channels or whether one sector introduces the
+moving coefficient/boundary obstruction.
