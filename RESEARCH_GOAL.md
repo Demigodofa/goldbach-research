@@ -8427,3 +8427,17 @@ mode contribution as a finite mixture of fixed-modulus one-sided twisted
 binary-prime correlations and records why this is the signed prime-correlation
 step rather than a solved bookkeeping issue.  The next falsifier is to test
 first-three removal on more complete period cycles and same-residue lifts.
+
+Two complete-period falsifier: `q286_first_two_mode_lower_tail_receipt` with
+`cycle_count=2, targets_per_cycle=5005` tests `10010` targets in
+`10000..30018`.  The exact full action has `78` negative targets.  All `78`
+have negative first-two and first-three q286 mode sums.  Removing modes `1`
+and `2` leaves only one nonpositive target, still `14138`; removing modes
+`1..3` leaves zero nonpositive targets.  The worst first-three-removed margin
+is unchanged from cycle `0`: `0.018073313793834367` principal at `14138`.
+Cycle `1` has only `3` negatives, all captured by first-three modes, with
+minimum first-three capture `28.192546577633923` times the full deficit.
+
+Status `aha-candidate`: the first-three lower-tail core survives the next
+complete period.  The evidence still remains finite; the next risk is not
+cycle `1`, but later recurrence or a missing endpoint/noncentral term.
