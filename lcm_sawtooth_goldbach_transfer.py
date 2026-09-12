@@ -8912,3 +8912,93 @@ def q286_positive_both_empty_compensation_min_cover_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_positive_both_empty_remainder_compensation_receipt(
+        selected_targets=None,
+        start=10000,
+        targets_per_cycle=5005,
+        top_count=24,
+        driver_residues=(133, 153),
+        tolerance=1e-09):
+    """Measure remainder compensation for positive both-empty targets."""
+    if selected_targets is None:
+        cover_receipt = q286_positive_both_empty_compensation_cover_receipt(
+            start=start,
+            targets_per_cycle=targets_per_cycle,
+            selected_targets=None,
+            top_count=top_count,
+            driver_residues=driver_residues,
+            tolerance=tolerance)
+        targets = tuple(cover_receipt["target_rows"])
+        target_source = "positive_both_empty_default_receipt"
+    else:
+        cover_receipt = None
+        targets = tuple(selected_targets)
+        target_source = "selected_targets"
+
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=targets,
+        tolerance=tolerance)
+
+    target_rows = {}
+    first_three_values = []
+    without_first_three_values = []
+    full_values = []
+    for target in targets:
+        row = lower_receipt["rows"][target]
+        first_three = row["first_three_modes_to_principal_ratio"]
+        without_first_three = row[
+            "full_without_first_three_to_principal_ratio"]
+        full_ratio = row["full_action_to_principal_ratio"]
+        first_three_values.append(first_three)
+        without_first_three_values.append(without_first_three)
+        full_values.append(full_ratio)
+        target_rows[target] = {
+            "full_action_to_principal_ratio": full_ratio,
+            "first_three_modes_to_principal_ratio": first_three,
+            "full_without_first_three_to_principal_ratio": (
+                without_first_three),
+            "first_three_negative": first_three < -tolerance,
+            "full_without_first_three_positive": (
+                without_first_three > tolerance),
+        }
+
+    return {
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "driver_residues": tuple(driver_residues),
+        "target_source": target_source,
+        "tested_target_count": len(targets),
+        "target_rows": target_rows,
+        "first_three_negative_count": sum(
+            1 for value in first_three_values if value < -tolerance),
+        "first_three_positive_count": sum(
+            1 for value in first_three_values if value > tolerance),
+        "full_without_first_three_positive_count": sum(
+            1 for value in without_first_three_values
+            if value > tolerance),
+        "minimum_first_three_modes_to_principal_ratio": (
+            min(first_three_values) if first_three_values else None),
+        "maximum_first_three_modes_to_principal_ratio": (
+            max(first_three_values) if first_three_values else None),
+        "minimum_full_without_first_three_to_principal_ratio": (
+            min(without_first_three_values)
+            if without_first_three_values else None),
+        "maximum_full_without_first_three_to_principal_ratio": (
+            max(without_first_three_values)
+            if without_first_three_values else None),
+        "minimum_full_action_to_principal_ratio": (
+            min(full_values) if full_values else None),
+        "maximum_full_action_to_principal_ratio": (
+            max(full_values) if full_values else None),
+        "cover_receipt_used": cover_receipt is not None,
+        "remainder_compensation_measured": True,
+        "remainder_compensation_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

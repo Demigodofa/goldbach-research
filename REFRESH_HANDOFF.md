@@ -141,6 +141,14 @@ pure lower-bound occupancy theorem for favorable residues is not enough for
 the compensation route; it needs upper/avoidance control for negative
 coefficient rows or a global signed-cancellation theorem.
 
+Remainder-compensation split: `q286_positive_both_empty_remainder_compensation_receipt`
+checks the same `204` positive both-empty first-period targets.  All `204`
+still have negative first-three q286 mode sums, none have positive first-three
+sums, and all `204` have positive full-without-first-three remainder.  Ranges:
+first-three/principal `-1.0569183143768839..-0.24090148941651918`;
+full-without-first-three/principal `0.5824447187803936..1.7888048047901408`;
+full action/principal `0.004707257667117509..1.3953476720743383`.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

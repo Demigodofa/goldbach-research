@@ -139,6 +139,14 @@ surplus.  This pivots the theorem target away from simple favorable-residue
 lower bounds and toward either upper/avoidance control for negative
 coefficient channels or a global signed-cancellation estimate.
 
+The remainder split is now measured.  On the `204` positive both-empty targets,
+all `204` have negative first-three q286 mode sums and all `204` have positive
+full-without-first-three remainder.  The first-three range is
+`-1.0569183143768839..-0.24090148941651918`, while
+full-without-first-three ranges `0.5824447187803936..1.7888048047901408`.
+Thus the next proof object is the lower envelope of the compensating remainder,
+not positivity of the first-three subsystem.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

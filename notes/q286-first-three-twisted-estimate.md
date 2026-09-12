@@ -639,3 +639,23 @@ inside the greedy portfolio.  A proof based only on lower bounds for favorable
 residue classes misses this sign direction; the compensation theorem would
 need either pointwise upper control/avoidance for negative coefficient rows or
 a more global signed cancellation argument.
+
+`q286_positive_both_empty_remainder_compensation_receipt` separates the same
+`204` positive both-empty targets into first-three q286 modes and everything
+else in the full assembled action.  The result is uniform across the set:
+
+```text
+tested targets: 204
+first-three negative count: 204
+first-three positive count: 0
+full-without-first-three positive count: 204
+first-three/principal range: -1.0569183143768839 .. -0.24090148941651918
+full-without-first-three/principal range: 0.5824447187803936 .. 1.7888048047901408
+full-action/principal range: 0.004707257667117509 .. 1.3953476720743383
+```
+
+Status `remainder-compensation-is-primary`: the positive both-empty targets are
+not rescued by making the isolated first-three q286 modes positive.  They are
+rescued by the remaining coefficient mixture.  This makes the next serious
+proof object the lower envelope of `full_without_first_three`, especially on
+targets where the `133/153` cover pair is empty.

@@ -1430,6 +1430,18 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["observed_set_cover_measured"])
         self.assertFalse(receipt["compensation_theorem_proved"])
 
+    def test_q286_positive_both_empty_remainder_compensation(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_positive_both_empty_remainder_compensation_receipt)
+        receipt = q286_positive_both_empty_remainder_compensation_receipt(
+            selected_targets=(10012, 10016))
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["first_three_negative_count"], 2)
+        self.assertEqual(
+            receipt["full_without_first_three_positive_count"], 2)
+        self.assertTrue(receipt["remainder_compensation_measured"])
+        self.assertFalse(receipt["remainder_compensation_theorem_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))
