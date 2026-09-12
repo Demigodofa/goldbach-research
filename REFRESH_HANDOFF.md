@@ -16105,3 +16105,45 @@ Status `aha-candidate`: after treating q154 and q70 exactly, the remaining
 dominant-support tail is only the q286 last-three-singular-mode tail in this
 diagnostic.  The leading object to estimate is now six q286 separable modes
 plus exact q154/q70 channels, not a broad three-support tail.
+
+## 2026-09-12: q286 singular mode contribution scanner added
+
+`q286_leading_singular_mode_contribution_receipt` splits the six leading q286
+singular modes into individual rank-one contributions on selected hard
+targets.  This tests whether the obstruction is a single mode or a genuinely
+multi-mode signed estimate.
+
+The receipt reports each mode's contribution relative to the principal and to
+the q286 deviation, the common negative mode indices across targets, and the
+largest negative mode at each target.  It is a diagnostic for the next analytic
+estimate only; singular-mode contribution measurements do not prove signed
+prime-correlation control.
+
+Measured on `N=10424,14138,14680,88346`, modes `1`, `2`, and `3` are negative
+on all four targets.  There is no single common negative mode; every target
+has multiple negative leading modes.  The largest negative mode is mode `1`
+at `10424`, `14138`, and `88346`, but mode `2` at `14680`.
+
+Principal-relative mode contributions:
+
+`N=10424`: q286 deviation `-0.970542065173128`, six-mode sum
+`-0.9618075775131865`, residual `-0.008734487659941528`; mode contributions
+`-0.570461`, `-0.304579`, `-0.066155`, `-0.035986`, `0.031383`, `-0.016011`.
+
+`N=14138`: q286 deviation `-0.8666741397111133`, six-mode sum
+`-0.8667122522823336`, residual `0.000038112571220286116`; mode
+contributions `-0.738353`, `-0.13155`, `-0.025111`, `0.040189`, `-0.013751`,
+`0.001864`.
+
+`N=14680`: q286 deviation `-0.41068089397156365`, six-mode sum
+`-0.4217777925803012`, residual `0.011096898608737565`; mode contributions
+`-0.05728`, `-0.270222`, `-0.100766`, `-0.05287`, `0.052505`, `0.006855`.
+
+`N=88346`: q286 deviation `-0.7731555354500473`, six-mode sum
+`-0.7824263128979735`, residual `0.009270777447926192`; mode contributions
+`-0.382438`, `-0.380776`, `-0.033746`, `0.011299`, `-0.004325`, `0.007559`.
+
+Status `changed-under-evidence`: the leading q286 obstruction is genuinely
+multi-mode.  A proof cannot estimate only the top singular mode; it must at
+least handle the common negative modes `1,2,3`, with modes `4..6` contributing
+target-dependent reinforcement or offset.

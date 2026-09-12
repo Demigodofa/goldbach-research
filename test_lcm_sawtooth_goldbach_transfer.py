@@ -32,6 +32,7 @@ from lcm_sawtooth_goldbach_transfer import (
     holdout_q55_projected_principal_channel_receipt,
     q286_character_imbalance_receipt,
     q286_character_matrix_structure_receipt,
+    q286_leading_singular_mode_contribution_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_singular_mode_approximation_receipt,
     q286_singular_mode_cycle_scan_receipt,
@@ -1041,6 +1042,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["top_four_modes_leave_small_sampled_signed_residual"])
         self.assertFalse(receipt["top_four_tail_paid_by_cauchy"])
         self.assertTrue(receipt["singular_mode_approximation_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_leading_singular_mode_contribution(self):
+        receipt = q286_leading_singular_mode_contribution_receipt(
+            targets=(10424, 14138, 14680, 88346), mode_count=6)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["targets"], (10424, 14138, 14680, 88346))
+        self.assertEqual(receipt["mode_count"], 6)
+        self.assertEqual(len(receipt["singular_values"]), 6)
+        self.assertLess(receipt["maximum_mode_reconstruction_error"], 1e-12)
+        row = receipt["rows"][10424]
+        self.assertEqual(len(row["mode_rows"]), 6)
+        self.assertAlmostEqual(
+            row["q286_deviation_to_principal_ratio"],
+            -.970542065173128, places=14)
+        self.assertAlmostEqual(
+            row["modeled_sum_to_principal_ratio"],
+            -.9618075775131865, places=14)
+        self.assertEqual(receipt["common_negative_mode_indices"], (1, 2, 3))
+        self.assertTrue(receipt["all_targets_have_multiple_negative_modes"])
+        self.assertFalse(receipt["single_mode_obstruction_found"])
+        self.assertTrue(
+            receipt["leading_singular_mode_contribution_measured"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

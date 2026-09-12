@@ -7668,6 +7668,24 @@ This means the next proof-shaped work should not spend effort compressing q154
 or q70 further.  Keep them exact and focus on estimating the six q286 leading
 modes and the q286 three-mode tail relative to the principal margin.
 
+## 2026-09-12: q286 singular mode contribution scanner added
+
+`q286_leading_singular_mode_contribution_receipt` now decomposes the six q286
+leading modes into individual rank-one contributions.  Use it to decide
+whether the analytic problem has one dominant separable twist or a genuinely
+multi-mode signed family.  It keeps the output in principal-relative units so
+future bounds can be compared directly with the positivity margin.
+
+Measured answer: the obstruction is multi-mode.  On
+`N=10424,14138,14680,88346`, modes `1`, `2`, and `3` are negative on every
+target, and there is no single common negative mode.  Mode `1` is largest at
+`10424`, `14138`, and `88346`, while mode `2` is largest at `14680`.
+
+Six-mode sums nearly reproduce q286 on these targets: residual/principal is
+about `-0.00873`, `0.000038`, `0.01110`, and `0.00927`.  Next proof-shaped
+target: estimate a small multi-mode family, especially common negative modes
+`1..3`, rather than betting on one separable character twist.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

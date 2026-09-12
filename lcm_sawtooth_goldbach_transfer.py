@@ -5095,6 +5095,156 @@ def q286_singular_mode_approximation_receipt(
     }
 
 
+def q286_leading_singular_mode_contribution_receipt(
+        targets=(10424, 14138, 14680, 88346), mode_count=6,
+        tolerance=1e-9):
+    """Attribute q286 deviations to individual leading singular modes."""
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=targets, top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    maximum_reconstruction_error = 0.0
+    common_negative_mode_indices = None
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        total_weight = 0.0
+        weights = np.zeros(len(units), dtype=np.float64)
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                total_weight += weight
+                weights[unit_index[prime % modulus]] += weight
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        mean_weight = total_weight / int(np.sum(admissible_mask))
+        weight_delta = np.zeros(len(units), dtype=np.float64)
+        weight_delta[admissible_mask] = (
+            weights[admissible_mask] - mean_weight)
+        imbalance_matrix = (
+            character_table @ weight_delta).reshape(10, 12)[1:, 1:]
+        mode_rows = []
+        modeled_sum = 0j
+        for index in range(mode_count):
+            mode_matrix = (
+                singular_values[index]
+                * np.outer(left[:, index], right[index, :]))
+            contribution = complex(np.sum(mode_matrix * imbalance_matrix))
+            modeled_sum += contribution
+            mode_rows.append({
+                "mode_index": index + 1,
+                "singular_value": float(singular_values[index]),
+                "contribution": contribution,
+                "contribution_to_principal_ratio": float(
+                    contribution.real
+                    / character_receipt["rows"][target][
+                        "principal_contribution"].real),
+                "contribution_to_deviation_ratio": float(
+                    contribution.real
+                    / character_receipt["rows"][target][
+                        "residue_deviation"].real
+                    if abs(character_receipt["rows"][target][
+                        "residue_deviation"].real) > tolerance
+                    else math.nan),
+            })
+        total_deviation = character_receipt["rows"][target][
+            "residue_deviation"]
+        residual = total_deviation - modeled_sum
+        reconstruction = modeled_sum + residual
+        reconstruction_error = abs(reconstruction - total_deviation) / max(
+            1.0, abs(total_deviation))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        negative_modes = tuple(
+            row["mode_index"] for row in mode_rows
+            if row["contribution_to_principal_ratio"] < -tolerance)
+        if common_negative_mode_indices is None:
+            common_negative_mode_indices = set(negative_modes)
+        else:
+            common_negative_mode_indices &= set(negative_modes)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "total_prime_pair_weight": total_weight,
+            "principal_contribution": character_receipt["rows"][target][
+                "principal_contribution"],
+            "q286_deviation": total_deviation,
+            "q286_deviation_to_principal_ratio": character_receipt[
+                "rows"][target]["deviation_to_principal_ratio"],
+            "mode_count": mode_count,
+            "mode_rows": tuple(mode_rows),
+            "modeled_sum": modeled_sum,
+            "modeled_sum_to_principal_ratio": float(
+                modeled_sum.real
+                / character_receipt["rows"][target][
+                    "principal_contribution"].real),
+            "residual": residual,
+            "residual_to_principal_ratio": float(
+                residual.real
+                / character_receipt["rows"][target][
+                    "principal_contribution"].real),
+            "absolute_residual_to_principal_ratio": float(
+                abs(residual.real)
+                / character_receipt["rows"][target][
+                    "principal_contribution"].real),
+            "negative_mode_indices": negative_modes,
+            "largest_negative_mode_index": min(
+                mode_rows,
+                key=lambda row: row["contribution_to_principal_ratio"])[
+                    "mode_index"],
+            "largest_negative_mode_to_principal_ratio": min(
+                row["contribution_to_principal_ratio"]
+                for row in mode_rows),
+            "mode_reconstruction_error": reconstruction_error,
+        }
+
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": modulus,
+        "targets": targets,
+        "mode_count": mode_count,
+        "singular_values": tuple(float(value)
+                                 for value in singular_values[:mode_count]),
+        "rows": rows,
+        "common_negative_mode_indices": tuple(sorted(
+            common_negative_mode_indices or ())),
+        "maximum_mode_reconstruction_error": maximum_reconstruction_error,
+        "all_targets_have_multiple_negative_modes": bool(all(
+            len(row["negative_mode_indices"]) > 1 for row in rows.values())),
+        "single_mode_obstruction_found": bool(
+            len(common_negative_mode_indices or ()) == 1),
+        "leading_singular_mode_contribution_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):
