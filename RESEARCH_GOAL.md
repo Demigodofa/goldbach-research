@@ -7562,3 +7562,42 @@ this q65 fiber shadow, up to centering/sign/constant, on strict-central unit
 prime pairs?  Falsifier: no fixed recombined source vector over `U_154`, a
 sign/scale mismatch that cannot be explained by centering, or a required
 coefficient depending on the target residue `N mod 154`.
+
+## 2026-09-12: q65 active linked-prime row bridge is falsified
+
+The q65 holdout fiber shadow survives as a component, but the first attempted
+q77-style row bridge fails.  For quotient `65` / lag `154` / common modulus
+`154`, the linked-prime character machinery selects active divisors
+`(1, 5, 13, 65)`.  Recombining those active additive source rows over `U_154`
+gives an essentially zero centered source vector, not the q65 fiber shadow.
+
+The reviewed measurements are: recombined active source `L^2` norm
+`2.0414796274281065e-11`, below the separate floating cancellation tolerance
+`1e-10`; q65 fiber-shadow `L^2` norm `86071.18524618556`; same-sign and
+opposite-sign shadow match errors both `1.0`; best scalar projection onto the
+fiber shadow has magnitude about `2.75e-17`; and the active source vector has
+exactly zero spread across targets `1000` and `1002`.  Thus target dependence
+is not the failure mode at the source-vector layer.  The failure mode is that
+these active rows cancel before reaching the nonzero fiber-shadow object.
+
+Independent review returned PASS.  Faraday checked the imports and absence of
+accidental earlier-function changes, the quotient/lag/common map, active
+divisors, `U_154` ordering guard, cancellation tolerance, numerical
+interpretation, target-spread calculation, and open-scope flags.  Focused
+normal and optimized tests pass; compile, diff check, and the broader q65
+component/holdout-sector validation pass.
+
+Status `changed-under-evidence`: block only the exact q65 analogue
+"active linked-prime divisor rows reproduce the q65 fiber shadow up to
+centering/sign/constant."  Preserve the nonzero q65 fiber shadow and the live
+q65 count-four sector as useful components.  A different count-four sector row,
+projection, or arithmetic estimate is not ruled out.  No full outer assembly,
+formal signed-error estimate, pointwise signed prime-correlation bound, or
+Goldbach theorem follows.
+
+Next concrete question: inspect the count-four sector decomposition itself for
+q65, rather than the linked-prime active rows.  Which sector(s) produce the
+lag-154 projected Fourier mass, and does any sector-level additive source over
+`U_154` align with the q65 fiber shadow?  Falsifier: all sector-level source
+vectors either cancel, live on a different quotient/common-modulus object, or
+require target-dependent coefficients.

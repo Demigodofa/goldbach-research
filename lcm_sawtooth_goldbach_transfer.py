@@ -12,10 +12,13 @@ from lcm_sawtooth_cotangent_count import _one_orientation_count_source_modes
 from lcm_sawtooth_frequency_resolved_fourier import (
     CANONICAL_FAMILIES,
     CANONICAL_LAGS,
+    _partial_fourier_frequency_totals,
+    _primitive_quadratic_character_fits,
     _unit_character_table,
 )
 from lcm_sawtooth_linked_prime_character import (
     linked_prime_centering_receipt,
+    _linked_prime_character_row,
     _linked_prime_pairs,
     recombined_centered_character_receipt,
     residue_orbit_even_even_profile_receipt,
@@ -1094,6 +1097,124 @@ def holdout_lag_fiber_shadow_candidate_receipt(
         "nonzero_fiber_shadow_candidate_available": bool(
             centered_l2 > tolerance),
         "linked_prime_or_outer_row_bridge_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+
+def holdout_q65_active_row_bridge_receipt(
+        targets=(1000, 1002), tolerance=1e-12,
+        cancellation_tolerance=1e-10, batch_size=32):
+    """Test and falsify the q77-style active-row bridge for q65.
+
+    The q65 full-period source has a nonzero fiber shadow, but the active
+    primitive-divisor rows selected by the linked-prime character machinery
+    recombine to zero on ``U_154``.  This blocks only this exact bridge family;
+    it does not rule out another count-four sector row or a different
+    arithmetic estimate for q65.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 34
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 34")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if (not math.isfinite(cancellation_tolerance)
+            or cancellation_tolerance < 0):
+        raise ValueError(
+            "cancellation_tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    quotient = 65
+    lag = TWO_PRIME_QUOTIENT_LAGS[quotient]
+    common = math.gcd(lag, period)
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    frequencies, _, _, divisor_strata, _ = _partial_fourier_frequency_totals(
+        period, lag, left_sources, right_sources, batch_size)
+    fits = _primitive_quadratic_character_fits(
+        frequencies, common, quotient, divisor_strata, tolerance)
+    active_divisors = tuple(fits["active_divisors"])
+    row_sets = {}
+    recombined_sources = {}
+    centered_correlations = {}
+    for target in targets:
+        rows = tuple(
+            _linked_prime_character_row(
+                common, quotient, frequencies, divisor_strata[divisor],
+                target, target // 3, target - target // 3, tolerance)
+            for divisor in active_divisors)
+        row_sets[target] = rows
+        recombined_sources[target] = sum(
+            (row["additive_unit_source_values"] for row in rows),
+            np.zeros_like(rows[0]["additive_unit_source_values"]))
+        centered_correlations[target] = _complex_fsum(
+            row["centered_source_linked_prime_correlation"]
+            for row in rows)
+    first_target = targets[0]
+    units = tuple(int(unit) for unit in row_sets[first_target][0][
+        "unit_residues"])
+    common_units = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    if units != common_units:
+        raise AssertionError("q65 row units are not ordered U_154 residues")
+    recombined_source = recombined_sources[first_target]
+    recombined_centered = recombined_source - np.mean(recombined_source)
+    candidate = holdout_lag_fiber_shadow_candidate_receipt(
+        quotient=quotient, tolerance=tolerance)
+    fiber_shadow = np.asarray(candidate["fiber_shadow_values"],
+                              dtype=np.complex128)
+    source_l2 = float(np.linalg.norm(recombined_centered))
+    shadow_l2 = float(np.linalg.norm(fiber_shadow))
+    scale = max(1.0, source_l2, shadow_l2)
+    same_sign_error = float(
+        np.linalg.norm(recombined_centered - fiber_shadow) / scale)
+    opposite_sign_error = float(
+        np.linalg.norm(recombined_centered + fiber_shadow) / scale)
+    denominator = np.vdot(fiber_shadow, fiber_shadow)
+    best_scalar = (
+        np.vdot(fiber_shadow, recombined_centered) / denominator
+        if abs(denominator) else 0.0j)
+    target_source_spread = max(
+        float(np.linalg.norm(recombined_sources[target] - recombined_source))
+        / max(1.0, float(np.linalg.norm(recombined_sources[target])),
+              float(np.linalg.norm(recombined_source)))
+        for target in targets)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "quotient": quotient,
+        "lag": lag,
+        "common_modulus": common,
+        "targets": targets,
+        "active_divisors": active_divisors,
+        "unit_group_order": len(units),
+        "recombined_active_source_l2": source_l2,
+        "fiber_shadow_l2": shadow_l2,
+        "active_source_to_fiber_shadow_l2_ratio": (
+            source_l2 / shadow_l2 if shadow_l2 else math.inf),
+        "active_source_cancellation_tolerance": cancellation_tolerance,
+        "same_sign_shadow_match_relative_error": same_sign_error,
+        "opposite_sign_shadow_match_relative_error": opposite_sign_error,
+        "best_scalar_to_fiber_shadow": complex(best_scalar),
+        "maximum_target_source_vector_spread": target_source_spread,
+        "centered_correlations": centered_correlations,
+        "active_recombined_source_cancels": bool(
+            source_l2 <= cancellation_tolerance),
+        "active_row_bridge_matches_nonzero_fiber_shadow": False,
+        "q65_active_linked_row_bridge_falsified": bool(
+            source_l2 <= cancellation_tolerance and shadow_l2 > 1.0
+            and min(same_sign_error, opposite_sign_error) > .9),
+        "preserved_component": (
+            "q65 nonzero fiber shadow remains available for a different "
+            "count-four sector bridge"),
+        "alternative_count_four_sector_bridge_ruled_out": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "pointwise_signed_prime_correlation_estimate_proved": False,

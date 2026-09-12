@@ -6,6 +6,7 @@ from lcm_sawtooth_goldbach_transfer import (
     canonical_direct_resonant_goldbach_main_receipt,
     count_four_outer_holdout_sector_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
+    holdout_q65_active_row_bridge_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -86,6 +87,42 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["nonzero_fiber_shadow_candidate_available"])
         self.assertEqual(receipt["central_unit_threshold"], 34)
         self.assertFalse(receipt["linked_prime_or_outer_row_bridge_proved"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_q65_active_row_bridge_fails(self):
+        receipt = holdout_q65_active_row_bridge_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertEqual(receipt["active_divisors"], (1, 5, 13, 65))
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertLess(receipt["recombined_active_source_l2"], 1e-10)
+        self.assertEqual(
+            receipt["active_source_cancellation_tolerance"], 1e-10)
+        self.assertAlmostEqual(
+            receipt["fiber_shadow_l2"], 86071.18524618556,
+            places=8)
+        self.assertLess(
+            receipt["active_source_to_fiber_shadow_l2_ratio"], 1e-12)
+        self.assertGreater(
+            receipt["same_sign_shadow_match_relative_error"], .999999)
+        self.assertGreater(
+            receipt["opposite_sign_shadow_match_relative_error"], .999999)
+        self.assertLess(
+            abs(receipt["best_scalar_to_fiber_shadow"]), 1e-12)
+        self.assertEqual(receipt["maximum_target_source_vector_spread"], 0.0)
+        self.assertTrue(receipt["active_recombined_source_cancels"])
+        self.assertFalse(
+            receipt["active_row_bridge_matches_nonzero_fiber_shadow"])
+        self.assertTrue(receipt["q65_active_linked_row_bridge_falsified"])
+        self.assertFalse(
+            receipt["alternative_count_four_sector_bridge_ruled_out"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[
