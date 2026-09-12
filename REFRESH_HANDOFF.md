@@ -14373,3 +14373,69 @@ finite angular saving inside the largest exact arithmetic sector.  Failure
 would isolate a concrete mod-13 profile resonance for the next arithmetic
 test.  Either outcome retains the full four-sector identity and does not by
 itself prove the required asymptotic signed estimate.
+
+## 2026-09-11 dominant even-even sector reduces exactly to five dimensions
+
+`residue_orbit_even_even_profile_receipt` proves the finite-dimensional
+factorization used in the frozen question.  On `A_5=(1,3,4)`, affine
+reflection fixes `1` and swaps `3,4`; its even mean-zero space is exactly
+
+`span{(-2,1,1)/sqrt(6)}`.
+
+The affine-even space on `A_13` has six reflection-orbit values, and the
+mean-zero constraint reduces it to five dimensions.  Every real prime
+even-even interaction and the complex effective source therefore factor as
+
+`J^(++)=u_5 h`.
+
+Factorization, profile reflection, and profile mean errors are below
+`6.8e-16`; the bilinear correlation reduction has maximum relative error
+`4.52e-14`.  The full fixed source profile and all `761` prime-profile norms,
+correlations, and alignments are retained by the receipt.
+
+The frozen pointwise nonresonance gate fails.  There are `83` targets with
+alignment above `.75`.  In ascending dyadic order, the maximum alignments and
+their targets are
+
+`.85774 at 1762`, `.69442 at 3712`, `.81470 at 5922`,
+`.88342 at 13592`, `.97755 at 21002`, `.97740 at 39592`, and
+`.92084 at 85612`.
+
+Only the second dyadic block passes for every target.  The worst target is
+`N=21002`, with
+
+`alpha_N=.9775499011219271`.
+
+The dyadic median alignments are
+
+`.46275, .30666, .26350, .41469, .49540, .33111, .38785`.
+
+Curiosity status: `exact-reduction-pass/pointwise-nonresonance-fail`, novelty
+`new-to-this-task`.  Preserve the exact five-dimensional reduction, the fixed
+source profile, all 83 resonant targets, and especially the near-parallel
+profiles at `21002` and `39592`.  Reject the uniform `.75` angular-saving
+claim.  This does not show that isolated resonances dominate a dyadic mean
+square.
+
+Independent review verified the dimension count, normalized mod-5 contrast,
+source lift, real/complex factorization, bilinear alignment, all extrema and
+medians, and finite scope.  Focused normal and optimized tests pass.  No
+averaged profile bound, asymptotic signed prime-correlation estimate, or
+Goldbach result has been proved.
+
+The next bounded question tests the averaged quantity relevant to the
+dominant sector.  For dyadic block `B`, define the energy-weighted Rayleigh
+quotient
+
+`Q_B=sum_(N in B)|<h_N,h_C>|^2
+     /(||h_C||_2^2 sum_(N in B)||h_N||_2^2)`.
+
+This is the fraction of total five-dimensional prime-profile energy seen in
+the fixed source direction.  An isotropic covariance would give `1/5`.
+Freeze the finite dispersion gate as `Q_B<=1/4` in every one of the seven
+blocks.  Also report the unweighted mean of `alpha_N^2`, the contribution of
+the 83 pointwise violations to numerator and denominator, and the worst
+single-target numerator share.  Passing would show that isolated resonances
+do not destroy an averaged angular saving in this dominant sector.  Failure
+would establish persistent directional bias and identify which scale and
+targets carry it.  Neither outcome alone proves a uniform asymptotic bound.

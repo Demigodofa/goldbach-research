@@ -3173,6 +3173,218 @@ def residue_orbit_crt_sector_correlation_receipt(
     }
 
 
+def residue_orbit_even_even_profile_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_profile_alignment=.75,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_profile_alignment)
+            or not 0 <= maximum_profile_alignment <= 1):
+        raise ValueError("profile alignment gate must lie in [0, 1]")
+    base = residue_orbit_reinforcement_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    residue5_values = tuple(
+        value for value in range(5)
+        if value and (target_residue - value) % 5)
+    residue13_values = tuple(
+        value for value in range(13)
+        if value and (target_residue - value) % 13)
+    if residue5_values != (1, 3, 4):
+        raise ValueError("even-even profile expects A_5=(1,3,4)")
+    residue5_index = {
+        value: index for index, value in enumerate(residue5_values)}
+    residue13_index = {
+        value: index for index, value in enumerate(residue13_values)}
+    reflection5_indices = np.asarray(tuple(
+        residue5_index[(target_residue - value) % 5]
+        for value in residue5_values), dtype=np.int64)
+    reflection13_indices = np.asarray(tuple(
+        residue13_index[(target_residue - value) % 13]
+        for value in residue13_values), dtype=np.int64)
+    orbit_by_residue = {
+        residue: orbit_index
+        for orbit_index, orbit in enumerate(base["reflection_orbits"])
+        for residue in orbit}
+    crt_residues = {
+        (residue % 5, residue % 13): residue
+        for residue in base["admissible_residues"]}
+    if len(crt_residues) != len(residue5_values) * len(residue13_values):
+        raise AssertionError("admissible CRT cells are incomplete")
+    mod5_contrast = np.asarray((-2.0, 1.0, 1.0)) / math.sqrt(6.0)
+
+    def lift_orbit_row(orbit_row, divide_by_orbit_size=False):
+        table = np.empty(
+            (len(residue5_values), len(residue13_values)),
+            dtype=np.complex128 if divide_by_orbit_size else np.float64)
+        for (residue5, residue13), residue in crt_residues.items():
+            orbit_index = orbit_by_residue[residue]
+            value = orbit_row[orbit_index]
+            if divide_by_orbit_size:
+                value /= len(base["reflection_orbits"][orbit_index])
+            table[
+                residue5_index[residue5],
+                residue13_index[residue13]] = value
+        return table
+
+    def even_even_interaction(table):
+        overall_mean = np.mean(table)
+        mod5_component = np.broadcast_to(
+            np.mean(table, axis=1, keepdims=True) - overall_mean,
+            table.shape)
+        mod13_component = np.broadcast_to(
+            np.mean(table, axis=0, keepdims=True) - overall_mean,
+            table.shape)
+        interaction = (
+            table - overall_mean - mod5_component - mod13_component)
+        reflection5 = interaction[reflection5_indices, :]
+        reflection13 = interaction[:, reflection13_indices]
+        reflection_both = reflection5[:, reflection13_indices]
+        return (
+            interaction + reflection5 + reflection13 + reflection_both) / 4
+
+    source_table = lift_orbit_row(
+        base["orbit_coefficients"], divide_by_orbit_size=True)
+    source_even_even = even_even_interaction(source_table)
+    source_profile = mod5_contrast @ source_even_even
+    source_profile_norm = float(np.linalg.norm(source_profile))
+    if source_profile_norm <= 0:
+        raise ValueError("source even-even profile has zero norm")
+    source_reconstruction = np.outer(mod5_contrast, source_profile)
+    source_scale = max(1.0, float(np.linalg.norm(source_even_even)))
+    source_factorization_relative_error = float(
+        np.linalg.norm(source_even_even - source_reconstruction)
+        / source_scale)
+    source_profile_mean_relative_error = abs(
+        complex(np.sum(source_profile))) / max(
+            1.0, float(np.sum(np.abs(source_profile))))
+    source_profile_reflection_relative_error = float(
+        np.max(np.abs(
+            source_profile - source_profile[reflection13_indices]))
+        * len(source_profile) / max(
+            1.0, float(np.sum(np.abs(source_profile)))))
+
+    rows = {}
+    maximum_factorization_relative_error = 0.0
+    maximum_profile_mean_relative_error = 0.0
+    maximum_profile_reflection_relative_error = 0.0
+    maximum_correlation_factorization_relative_error = 0.0
+    for target, orbit_row in base["orbit_weight_discrepancy_rows"].items():
+        discrepancy_table = lift_orbit_row(orbit_row)
+        discrepancy_even_even = even_even_interaction(discrepancy_table)
+        prime_profile = mod5_contrast @ discrepancy_even_even
+        prime_profile_norm = float(np.linalg.norm(prime_profile))
+        if prime_profile_norm <= 0:
+            raise ValueError("prime even-even profile has zero norm")
+        reconstructed = np.outer(mod5_contrast, prime_profile)
+        component_scale = max(
+            1.0, float(np.linalg.norm(discrepancy_even_even)))
+        factorization_error = float(
+            np.linalg.norm(discrepancy_even_even - reconstructed)
+            / component_scale)
+        direct_correlation = np.sum(
+            discrepancy_even_even * source_even_even)
+        profile_correlation = np.dot(prime_profile, source_profile)
+        correlation_scale = max(
+            1.0, abs(direct_correlation), abs(profile_correlation))
+        correlation_error = abs(
+            direct_correlation - profile_correlation) / correlation_scale
+        alignment = float(
+            abs(profile_correlation)
+            / (prime_profile_norm * source_profile_norm))
+        rows[target] = {
+            "profile_alignment": alignment,
+            "prime_profile_norm": prime_profile_norm,
+            "even_even_profile_correlation": profile_correlation,
+            "passes_profile_alignment_gate": bool(
+                alignment <= maximum_profile_alignment),
+        }
+        maximum_factorization_relative_error = max(
+            maximum_factorization_relative_error, factorization_error)
+        maximum_profile_mean_relative_error = max(
+            maximum_profile_mean_relative_error,
+            abs(float(np.sum(prime_profile))) / max(
+                1.0, float(np.sum(np.abs(prime_profile)))))
+        maximum_profile_reflection_relative_error = max(
+            maximum_profile_reflection_relative_error,
+            float(np.max(np.abs(
+                prime_profile - prime_profile[reflection13_indices])))
+            * len(prime_profile) / max(
+                1.0, float(np.sum(np.abs(prime_profile)))))
+        maximum_correlation_factorization_relative_error = max(
+            maximum_correlation_factorization_relative_error,
+            float(correlation_error))
+
+    dyadic_profile_summaries = {}
+    for block in base["dyadic_block_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in rows
+            if block_lower <= target < block_upper)
+        maximum_target = max(
+            block_targets, key=lambda target: rows[target]["profile_alignment"])
+        alignments = tuple(rows[target]["profile_alignment"]
+                           for target in block_targets)
+        dyadic_profile_summaries[block] = {
+            "target_count": len(block_targets),
+            "maximum_profile_alignment": rows[maximum_target][
+                "profile_alignment"],
+            "maximum_target": maximum_target,
+            "median_profile_alignment": float(np.median(alignments)),
+            "all_targets_pass_profile_alignment_gate": all(
+                rows[target]["passes_profile_alignment_gate"]
+                for target in block_targets),
+        }
+    worst_target = max(
+        rows, key=lambda target: rows[target]["profile_alignment"])
+    violating_targets = tuple(
+        target for target, row in rows.items()
+        if not row["passes_profile_alignment_gate"])
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "residue5_values": residue5_values,
+        "residue13_values": residue13_values,
+        "mod5_contrast": tuple(float(value) for value in mod5_contrast),
+        "source_profile": tuple(complex(value) for value in source_profile),
+        "source_profile_norm": source_profile_norm,
+        "source_factorization_relative_error": (
+            source_factorization_relative_error),
+        "source_profile_mean_relative_error": (
+            source_profile_mean_relative_error),
+        "source_profile_reflection_relative_error": (
+            source_profile_reflection_relative_error),
+        "maximum_prime_factorization_relative_error": (
+            maximum_factorization_relative_error),
+        "maximum_prime_profile_mean_relative_error": (
+            maximum_profile_mean_relative_error),
+        "maximum_prime_profile_reflection_relative_error": (
+            maximum_profile_reflection_relative_error),
+        "maximum_correlation_factorization_relative_error": (
+            maximum_correlation_factorization_relative_error),
+        "maximum_profile_alignment_gate": maximum_profile_alignment,
+        "rows": rows,
+        "tested_target_count": len(rows),
+        "violating_targets": violating_targets,
+        "violating_target_count": len(violating_targets),
+        "worst_target": worst_target,
+        "maximum_profile_alignment": rows[worst_target]["profile_alignment"],
+        "dyadic_profile_summaries": dyadic_profile_summaries,
+        "all_targets_pass_profile_alignment_gate": not violating_targets,
+        "finite_even_even_profiles_measured": True,
+        "uniform_even_even_profile_nonresonance_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

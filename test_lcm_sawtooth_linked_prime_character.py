@@ -18,6 +18,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_crt_anova_receipt,
     residue_orbit_crt_parity_receipt,
     residue_orbit_crt_sector_correlation_receipt,
+    residue_orbit_even_even_profile_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -144,6 +145,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_crt_sector_correlation_receipt(
                 maximum_sector_square_function_ratio=-.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_even_even_profile_receipt(
+                maximum_profile_alignment=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1355,6 +1359,75 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "finite_crt_sector_correlations_measured"])
         self.assertFalse(receipt[
             "crt_sector_cancellation_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_even_even_profile(self):
+        receipt = residue_orbit_even_even_profile_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(len(receipt["source_profile"]), 11)
+        self.assertEqual(len(receipt["dyadic_profile_summaries"]), 7)
+        self.assertAlmostEqual(
+            receipt["source_profile_norm"], 26388.926135506787, places=9)
+        dyadic = receipt["dyadic_profile_summaries"]
+        expected_maxima = (
+            .8577379104030494, .6944249970689322,
+            .8146957505332961, .8834200647651863,
+            .9775499011219271, .9774043838832116,
+            .9208404654575673)
+        expected_maximum_targets = (
+            1762, 3712, 5922, 13592, 21002, 39592, 85612)
+        expected_medians = (
+            .46275011800203913, .3066649679230729,
+            .26349620416527864, .41469045656373904,
+            .49539889594749825, .3311077065775393,
+            .3878460962189368)
+        for row, maximum, target, median in zip(
+                dyadic.values(), expected_maxima,
+                expected_maximum_targets, expected_medians):
+            self.assertAlmostEqual(
+                row["maximum_profile_alignment"], maximum, places=12)
+            self.assertEqual(row["maximum_target"], target)
+            self.assertAlmostEqual(
+                row["median_profile_alignment"], median, places=12)
+        self.assertEqual(
+            tuple(row["all_targets_pass_profile_alignment_gate"]
+                  for row in dyadic.values()),
+            (False, True, False, False, False, False, False))
+        self.assertEqual(receipt["violating_target_count"], 83)
+        self.assertEqual(receipt["worst_target"], 21002)
+        self.assertAlmostEqual(
+            receipt["maximum_profile_alignment"],
+            .9775499011219271, places=12)
+        self.assertFalse(receipt[
+            "all_targets_pass_profile_alignment_gate"])
+        self.assertAlmostEqual(
+            sum(value * value for value in receipt["mod5_contrast"]),
+            1.0, places=15)
+        self.assertLess(
+            receipt["source_factorization_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["source_profile_mean_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["source_profile_reflection_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_prime_factorization_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_prime_profile_mean_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_prime_profile_reflection_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["maximum_correlation_factorization_relative_error"],
+            1e-12)
+        self.assertTrue(receipt["finite_even_even_profiles_measured"])
+        self.assertFalse(receipt[
+            "uniform_even_even_profile_nonresonance_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
