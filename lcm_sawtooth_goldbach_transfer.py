@@ -24,6 +24,7 @@ from lcm_sawtooth_linked_prime_character import (
     linked_prime_centering_receipt,
     _linked_prime_character_row,
     _linked_prime_pairs,
+    _prime_table,
     recombined_centered_character_receipt,
     residue_orbit_even_even_profile_receipt,
 )
@@ -2589,6 +2590,143 @@ def combined_coefficient_admissible_main_receipt(tolerance=1e-9):
             not negative_rows and not near_zero_rows),
         "rows": rows,
         "local_main_profile_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def combined_coefficient_prime_correlation_diagnostic_receipt(
+        target_minimum=10000, target_maximum=20008, tolerance=1e-9):
+    """Stress the assembled coefficient against actual central prime pairs.
+
+    This is a finite diagnostic, not an analytic estimate.  It compares the
+    observed ordered strict-central prime-pair sum
+
+        sum log(p)log(N-p) C(p mod 10010)
+
+    with the residue-class local main ``sum_(a in A_N) C(a)`` through the
+    normalization used by the Halupczok transfer.  A positive diagnostic does
+    not prove pointwise control; a negative or tiny value would identify an
+    immediate obstruction for the explicit coefficient.
+    """
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 40 or target_maximum < target_minimum):
+        raise ValueError("require integer target bounds with 40<=min<=max")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    first_target = target_minimum + (target_minimum % 2)
+    targets = tuple(range(first_target, target_maximum + 1, 2))
+    if not targets:
+        raise ValueError("target range contains no even targets")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    coefficient_by_residue = coefficient[
+        "aggregate_coefficient_by_unit_residue"]
+    local_main_by_residue = {}
+    for target_residue in range(0, period, 2):
+        local_main_by_residue[target_residue] = _complex_fsum(
+            coefficient_by_residue[residue]
+            for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+
+    primes = _prime_table(targets[-1])
+    rows = {}
+    real_values = []
+    normalized_values = []
+    negative_targets = []
+    near_zero_targets = []
+    bad_prime_pairs = []
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weighted_terms = []
+        absolute_mass = 0.0
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if not primes[prime] or not primes[partner]:
+                continue
+            pair_count += 1
+            residue = prime % period
+            if math.gcd(residue, period) != 1:
+                bad_prime_pairs.append((target, (prime, partner)))
+                continue
+            term = (
+                coefficient_by_residue[residue]
+                * math.log(prime) * math.log(partner))
+            weighted_terms.append(term)
+            absolute_mass += abs(term)
+        weighted_sum = _complex_fsum(weighted_terms)
+        local_main = local_main_by_residue[target % period]
+        normalized_model_scale = (
+            target * local_main.real / (3 * len(units)))
+        normalized_multiplier = (
+            weighted_sum.real / normalized_model_scale
+            if abs(normalized_model_scale) > tolerance else math.nan)
+        real_values.append(weighted_sum.real)
+        if math.isfinite(normalized_multiplier):
+            normalized_values.append(normalized_multiplier)
+        if weighted_sum.real < -tolerance:
+            negative_targets.append(target)
+        if abs(weighted_sum.real) <= tolerance:
+            near_zero_targets.append(target)
+        rows[target] = {
+            "target_residue": target % period,
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": pair_count,
+            "weighted_prime_correlation": weighted_sum,
+            "absolute_term_mass": absolute_mass,
+            "absolute_cancellation_ratio": (
+                abs(weighted_sum) / absolute_mass if absolute_mass else None),
+            "local_main_coefficient": local_main,
+            "halupczok_normalized_multiplier_without_singular_series": (
+                normalized_multiplier),
+        }
+
+    sorted_by_sum = tuple(sorted(
+        rows.items(), key=lambda item: item[1][
+            "weighted_prime_correlation"].real))
+    sorted_by_normalized = tuple(sorted(
+        rows.items(), key=lambda item: item[1][
+            "halupczok_normalized_multiplier_without_singular_series"]))
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "target_range": (targets[0], targets[-1]),
+        "tested_target_count": len(targets),
+        "covered_even_residue_count": len({target % period
+                                           for target in targets}),
+        "unit_group_order": len(units),
+        "rows": rows,
+        "minimum_weighted_sum_target": sorted_by_sum[0][0],
+        "minimum_weighted_sum_value": sorted_by_sum[0][1][
+            "weighted_prime_correlation"],
+        "maximum_weighted_sum_target": sorted_by_sum[-1][0],
+        "maximum_weighted_sum_value": sorted_by_sum[-1][1][
+            "weighted_prime_correlation"],
+        "minimum_normalized_multiplier_target": sorted_by_normalized[0][0],
+        "minimum_normalized_multiplier": sorted_by_normalized[0][1][
+            "halupczok_normalized_multiplier_without_singular_series"],
+        "maximum_normalized_multiplier_target": sorted_by_normalized[-1][0],
+        "maximum_normalized_multiplier": sorted_by_normalized[-1][1][
+            "halupczok_normalized_multiplier_without_singular_series"],
+        "mean_weighted_sum_real": math.fsum(real_values) / len(real_values),
+        "mean_normalized_multiplier": (
+            math.fsum(normalized_values) / len(normalized_values)
+            if normalized_values else math.nan),
+        "negative_weighted_sum_count": len(negative_targets),
+        "negative_weighted_sum_targets": tuple(negative_targets),
+        "near_zero_weighted_sum_count": len(near_zero_targets),
+        "nonunit_or_inadmissible_prime_pairs": tuple(bad_prime_pairs),
+        "all_sampled_weighted_sums_positive": bool(
+            not negative_targets and not near_zero_targets),
+        "finite_prime_correlation_diagnostic_measured": True,
         "pointwise_error_estimate_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "formal_signed_error_identification_proved": False,

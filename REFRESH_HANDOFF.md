@@ -15560,3 +15560,36 @@ assembled coefficient family.  The direct problem is now cleanly analytic:
 prove a pointwise error estimate smaller than a positive local main times the
 central singular factor, while separately reconciling any endpoint or
 noncentral terms from the original outer assembly.  Goldbach remains open.
+
+## 2026-09-12: direct prime-correlation diagnostic finds finite negatives
+
+`combined_coefficient_prime_correlation_diagnostic_receipt` attacks the
+explicit assembled coefficient directly on actual ordered strict-central
+prime pairs.  It computes
+
+`sum_{N/3<p<2N/3, p and N-p prime} log(p)log(N-p) C(p mod 10010)`
+
+and normalizes it by `N * local_main(N mod 10010) / (3*phi(10010))`, without
+inserting the singular-series factor.  This is a finite diagnostic, not an
+analytic theorem.
+
+On the first full even-residue cycle `10000 <= N <= 20008`, all `5005`
+residue classes are covered, but `75` actual weighted sums are negative.
+There are no near-zero sums.  The worst real sum is at `N=14138`:
+`-226233724.4857778 + 8.264519577794347e-06i`.  The worst normalized
+multiplier is at `N=10424`: `-2.470255524753131`.
+
+The twelve worst normalized residues from the first cycle were then tested at
+period lifts `1,2,5,10,20,50`.  Each of those residues is negative in the
+first cycle but positive at the sampled higher lifts.  For example residue
+`414` has normalized multipliers `-2.470255524753131`, `3.1714244451805325`,
+`5.354801869471039`, `1.6716232130609239`, `1.3950169800241772`,
+`2.486697478897455` at targets `10424`, `20434`, `50464`, `100514`,
+`200614`, and `500914`.
+
+Status `changed-under-evidence`: positive local mains do not by themselves
+force positive finite prime correlations.  The direct estimate must handle a
+real moving error, but the sampled bad residues do not show persistent
+negative behavior after one or more period lifts.  Next target: turn this into
+an explicit threshold-plus-finite-check strategy or prove a pointwise bound for
+the normalized multiplier below the weakest positive local-main margin.

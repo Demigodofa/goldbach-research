@@ -7796,3 +7796,27 @@ to the original strict-central action, and the assembled coefficient has no
 local-main sign obstruction.  The remaining target is a pointwise signed
 prime-correlation estimate against this positive main, plus endpoint and
 noncentral reconciliation.  Goldbach remains open.
+
+### 2026-09-12 continuation: direct assembled prime sums have small-cycle negatives
+
+`combined_coefficient_prime_correlation_diagnostic_receipt` directly computes
+the assembled coefficient on actual ordered strict-central prime pairs and
+normalizes by `N * local_main(N mod 10010)/(3*phi(10010))`, with no
+singular-series factor inserted.  On the first complete even-residue cycle
+`10000 <= N <= 20008`, it covers all `5005` residue classes and finds `75`
+negative weighted sums.  The worst real sum is at `N=14138`, value
+`-226233724.4857778 + 8.264519577794347e-06i`; the worst normalized
+multiplier is at `N=10424`, value `-2.470255524753131`.
+
+The twelve worst normalized residues were checked at period lifts
+`1,2,5,10,20,50`.  Each was negative in the first cycle and positive at the
+sampled higher lifts, so the finite diagnostic does not falsify an eventual
+asymptotic estimate, but it does prove that positive local mains alone are not
+enough.
+
+Status `changed-under-evidence`: the signed prime-correlation estimate is now
+the active bottleneck in a concrete form.  A successful route must either give
+an explicit threshold with finite verification below it, or prove a direct
+uniform pointwise bound for the normalized moving error against the weakest
+positive local-main margin.  Endpoint/noncentral reconciliation and Goldbach
+remain open.
