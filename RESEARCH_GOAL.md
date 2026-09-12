@@ -9043,3 +9043,14 @@ Status `changed-under-evidence`: the current onset-clearance target is now
 specific: explain why non-rescued targets appear in cycles `0..7` but vanish
 in the checked cycle range `8..32`, or find the first recurrence with a
 progress-visible scan.  This is finite evidence only.
+
+### 2026-09-12 continuation: cycles 33 through 40 preserve onset-clearance
+
+Cycles `33..40` were checked one at a time.  Each had zero full-action
+negatives and zero non-rescued `.3` first-three tail targets.  The `.3` tail
+still appears, with counts `6,9,10,9,12,4,2,6`, so the sharper target is
+eventual complement rescue of the remaining `.3` tail rather than eventual
+absence of that tail.
+
+Status `aha-candidate`: onset-clearance survived the first post-32 recurrence
+sweep; finite evidence only.

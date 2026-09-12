@@ -1893,3 +1893,30 @@ cycles `8..32` are clear.  The next proof target is no longer just "later
 samples look good"; it is an eventual cycle-clearance inequality, or a
 bounded scan that keeps pushing the first possible recurrence horizon outward
 with explicit progress and no hidden batch runs.  Goldbach remains open.
+
+## 2026-09-12: cycles 33 through 40 preserve onset-clearance
+
+A bounded curiosity pursuit tested whether the first possible recurrence after
+the continuous `8..32` clearance appears immediately in cycles `33..40`.  The
+scan used one-cycle progress output and threshold `.3`.
+
+```text
+cycle 33: min full 0.42833183582677603 at 348034, .3 tail 6
+cycle 34: min full 0.3251629846307217 at 357344, .3 tail 9
+cycle 35: min full 0.4092351836182406 at 360494, .3 tail 10
+cycle 36: min full 0.4442751912780733 at 371726, .3 tail 9
+cycle 37: min full 0.31158984534443446 at 383486, .3 tail 12
+cycle 38: min full 0.3942721291260182 at 397186, .3 tail 4
+cycle 39: min full 0.4643236210873841 at 409226, .3 tail 2
+cycle 40: min full 0.4194037639449049 at 416996, .3 tail 6
+```
+
+Every listed cycle has full-action negative count `0` and non-rescued `.3`
+count `0`.  The smallest minimum in this sweep is cycle `37`, value
+`0.31158984534443446`.
+
+Status `aha-candidate`: the onset-clearance mechanism survived the first
+post-32 recurrence sweep.  The `.3` first-three tail is small but not gone;
+therefore the likely theorem is not simply "eventually no `.3` tail", but
+"eventually every `.3` tail is complement-rescued" with a separate finite
+initial exception table.  This remains finite evidence, not a proof.

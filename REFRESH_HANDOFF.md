@@ -17248,3 +17248,17 @@ Status `changed-under-evidence`: the non-rescued phenomenon is measured only
 in cycles `0..7`, while cycles `8..32` clear.  The live theorem target is an
 eventual cycle-clearance inequality or a progress-visible horizon scan that
 pushes the possible recurrence boundary outward.  Goldbach remains open.
+
+## 2026-09-12 continuation: cycles 33 through 40 preserve onset-clearance
+
+A bounded curiosity sweep tested global cycles `33..40` one at a time.  Each
+cycle had zero full-action negatives and zero non-rescued `.3` first-three
+tail targets.  The `.3` tail persists but is small, with counts
+`33:6, 34:9, 35:10, 36:9, 37:12, 38:4, 39:2, 40:6`.  The smallest minimum in
+this sweep is cycle `37`, full-action ratio `0.31158984534443446` at
+`N=383486`.
+
+Status `aha-candidate`: the cleaner theorem target is not eventual absence of
+the `.3` first-three tail, but eventual complement rescue of every remaining
+`.3` tail target, plus a finite initial exception table for cycles `0..7`.
+No proof is established.
