@@ -51,6 +51,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_complement_threshold_horizon_receipt,
     q286_first_three_tail_threshold_horizon_receipt,
     q286_first_three_complement_cooccurrence_receipt,
+    q286_nonrescued_first_three_tail_classification_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1647,6 +1648,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_complement_cooccurrence_measured"])
         self.assertFalse(receipt[
             "pointwise_cooccurrence_estimate_proved"])
+
+    def test_q286_nonrescued_first_three_tail_classification(self):
+        receipt = q286_nonrescued_first_three_tail_classification_receipt(
+            start=14138, cycle_count=1, targets_per_cycle=1, threshold=.3,
+            lift_offsets=(0, 1))
+        self.assertEqual(receipt["threshold"], .3)
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["tail_target_count"], 1)
+        self.assertEqual(receipt["nonrescued_target_count"], 1)
+        self.assertEqual(receipt["nonrescued_targets"], (14138,))
+        self.assertEqual(receipt["cycle_counts"], {0: 1})
+        self.assertEqual(receipt["severity_counts"]["below_.75"], 1)
+        self.assertEqual(receipt["lift_negative_counts_by_offset"], {
+            0: 1, 1: 0})
+        self.assertEqual(receipt["maximum_first_positive_lift"], 1)
+        self.assertTrue(receipt[
+            "all_nonrescued_clear_by_first_positive_lift"])
+        self.assertEqual(receipt["lift_rows"][14138][
+            "negative_full_lifts"], (0,))
+        self.assertEqual(receipt["lift_rows"][14138][
+            "tail_below_threshold_lifts"], (0,))
+        self.assertTrue(receipt[
+            "nonrescued_first_three_tail_classification_measured"])
+        self.assertFalse(receipt[
+            "nonrescued_classification_theorem_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

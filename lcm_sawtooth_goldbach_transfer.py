@@ -10708,3 +10708,161 @@ def q286_first_three_complement_cooccurrence_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_nonrescued_first_three_tail_classification_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        threshold=.3, lift_offsets=(0, 1), tolerance=1e-9):
+    """Classify non-rescued targets inside a negative first-three tail.
+
+    A target is non-rescued here when the first three q286 modes are below
+    ``-threshold`` and the full recombined action is still nonpositive.  The
+    receipt records cycle/residue/severity structure and checks selected
+    same-residue period lifts for persistence of the failure.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
+    lift_offsets = tuple(dict.fromkeys(lift_offsets))
+    if (not lift_offsets or any(type(lift) is not int or lift < 0
+                                for lift in lift_offsets)):
+        raise ValueError("lift_offsets must be nonnegative integers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    cooccurrence = q286_first_three_complement_cooccurrence_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=(threshold,), tolerance=tolerance)
+    threshold_row = cooccurrence["threshold_rows"][threshold]
+    nonrescued_targets = tuple(
+        threshold_row["negative_tail_and_negative_full_targets"])
+    period = cooccurrence["arithmetic_period"]
+
+    cycle_counts = {cycle: 0 for cycle in range(cycle_count)}
+    residue_counts = {}
+    severity_counts = {
+        "below_.5": 0,
+        "below_.75": 0,
+        "below_1.0": 0,
+    }
+    target_rows = {}
+    for target in nonrescued_targets:
+        row = cooccurrence["rows"][target]
+        cycle = row["cycle"]
+        residue = target % period
+        cycle_counts[cycle] = cycle_counts.get(cycle, 0) + 1
+        residue_counts[residue] = residue_counts.get(residue, 0) + 1
+        first_three = row["first_three_to_principal_ratio"]
+        if first_three < -.5:
+            severity_counts["below_.5"] += 1
+        if first_three < -.75:
+            severity_counts["below_.75"] += 1
+        if first_three < -1.0:
+            severity_counts["below_1.0"] += 1
+        target_rows[target] = {
+            "cycle": cycle,
+            "residue_mod_period": residue,
+            "first_three_to_principal_ratio": first_three,
+            "complement_to_principal_ratio": row[
+                "complement_to_principal_ratio"],
+            "full_action_to_principal_ratio": row[
+                "full_action_to_principal_ratio"],
+        }
+
+    residues_with_multiple_hits = tuple(sorted(
+        residue for residue, count in residue_counts.items() if count > 1))
+    max_hits_per_residue = max(residue_counts.values()) if residue_counts else 0
+
+    lift_rows = {}
+    lift_negative_counts = {lift: 0 for lift in lift_offsets}
+    if nonrescued_targets:
+        selected_lift_targets = tuple(
+            target + lift * period
+            for target in nonrescued_targets for lift in lift_offsets)
+        lift_receipt = q286_first_two_mode_lower_tail_receipt(
+            selected_targets=selected_lift_targets, tolerance=tolerance)
+        for target in nonrescued_targets:
+            rows_by_lift = {}
+            for lift in lift_offsets:
+                lifted_target = target + lift * period
+                row = lift_receipt["rows"][lifted_target]
+                first_three = row["first_three_modes_to_principal_ratio"]
+                complement = row[
+                    "full_without_first_three_to_principal_ratio"]
+                full = row["full_action_to_principal_ratio"]
+                rows_by_lift[lift] = {
+                    "target": lifted_target,
+                    "first_three_to_principal_ratio": first_three,
+                    "complement_to_principal_ratio": complement,
+                    "full_action_to_principal_ratio": full,
+                    "negative_full_action": bool(full <= tolerance),
+                    "tail_below_threshold": bool(first_three < -threshold),
+                }
+                if full <= tolerance:
+                    lift_negative_counts[lift] += 1
+            first_positive_lift = next((
+                lift for lift in lift_offsets
+                if rows_by_lift[lift]["full_action_to_principal_ratio"]
+                > tolerance), None)
+            lift_rows[target] = {
+                "lift_rows": rows_by_lift,
+                "first_positive_lift": first_positive_lift,
+                "negative_full_lifts": tuple(
+                    lift for lift in lift_offsets
+                    if rows_by_lift[lift]["negative_full_action"]),
+                "tail_below_threshold_lifts": tuple(
+                    lift for lift in lift_offsets
+                    if rows_by_lift[lift]["tail_below_threshold"]),
+            }
+    else:
+        selected_lift_targets = tuple()
+
+    worst_targets = tuple(
+        target for target, _ in sorted(
+            ((target, row["full_action_to_principal_ratio"])
+             for target, row in target_rows.items()),
+            key=lambda item: item[1])[:10])
+    maximum_first_positive_lift = max((
+        row["first_positive_lift"] for row in lift_rows.values()
+        if row["first_positive_lift"] is not None), default=None)
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "threshold": threshold,
+        "lift_offsets": lift_offsets,
+        "tested_target_count": cooccurrence["tested_target_count"],
+        "tail_target_count": threshold_row["tail_target_count"],
+        "nonrescued_target_count": len(nonrescued_targets),
+        "rescued_tail_target_count": threshold_row[
+            "rescued_tail_target_count"],
+        "rescue_fraction": threshold_row["rescued_tail_fraction"],
+        "nonrescued_targets": nonrescued_targets,
+        "target_rows": target_rows,
+        "cycle_counts": cycle_counts,
+        "residue_counts": residue_counts,
+        "residues_with_multiple_hits": residues_with_multiple_hits,
+        "max_hits_per_residue": max_hits_per_residue,
+        "severity_counts": severity_counts,
+        "worst_nonrescued_targets": worst_targets,
+        "selected_lift_targets": selected_lift_targets,
+        "lift_rows": lift_rows,
+        "lift_negative_counts_by_offset": lift_negative_counts,
+        "maximum_first_positive_lift": maximum_first_positive_lift,
+        "all_nonrescued_clear_by_first_positive_lift": bool(
+            all(row["first_positive_lift"] is not None
+                for row in lift_rows.values()) if lift_rows else True),
+        "nonrescued_first_three_tail_classification_measured": True,
+        "nonrescued_classification_theorem_proved": False,
+        "eventual_lift_clearance_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

@@ -8999,3 +8999,22 @@ first_three/complement correlation is `-0.04967965232137842`.
 Status `changed-under-evidence`: the next target is not independent envelopes
 or a linear compensation law.  It is classification/control of the non-rescued
 minority inside large negative first-three tail bins.
+
+### 2026-09-12 continuation: non-rescued first-three tail classification
+
+`q286_nonrescued_first_three_tail_classification_receipt` now separates the
+non-rescued minority where `first_three < -.3` and full action is nonpositive.
+In the first eight complete periods, the `.3` first-three tail has `4406`
+targets, with `4320` rescued and `86` non-rescued.  The non-rescued cycle
+counts are `{0: 72, 1: 3, 2: 5, 3: 4, 4: 0, 5: 0, 6: 0, 7: 2}`; severity
+counts are `72` below `-.5`, `36` below `-.75`, and `2` below `-1.0`.
+
+The `86` non-rescued targets occupy `86` distinct residues modulo the q286
+period, so repeated residue persistence is not the finite explanation.  Same-
+residue lifts at offsets `0,1` give negative counts `{0: 86, 1: 0}`; all
+checked non-rescued targets clear by first positive lift `1`.
+
+Status `aha-candidate`: the promising theorem shape is now boundary/onset
+clearance for the non-rescued minority plus a complement-rescue estimate for
+the broad first-three tail.  This preserves the earlier Goldbach objective but
+does not prove Goldbach, RH, or any prize-level result.

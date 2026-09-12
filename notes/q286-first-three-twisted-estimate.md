@@ -1755,3 +1755,64 @@ inside the negative first-three tail bins: `86/89` full negatives lie below
 `-.3`, `72/89` below `-.5`, and `36/89` below `-.75`.  The remaining proof
 must distinguish the rescued majority from the finite/structured non-rescued
 minority.
+
+## 2026-09-12: non-rescued first-three tail classification
+
+`q286_nonrescued_first_three_tail_classification_receipt` now classifies the
+targets where the first-three q286 mode sum is below `-.3` and the recombined
+full action is still nonpositive.  It builds on the first-three/complement
+co-occurrence receipt, then records cycle counts, residues modulo the q286
+arithmetic period, severity bins, the worst non-rescued targets, and selected
+same-residue period lifts.
+
+Eight-period run (`cycle_count=8`, `targets_per_cycle=5005`, threshold `.3`,
+lift offsets `0,1`):
+
+```text
+tested targets: 40040
+tail targets: 4406
+rescued tail targets: 4320
+non-rescued tail targets: 86
+rescue fraction: 0.9804811620517476
+
+cycle counts: {0: 72, 1: 3, 2: 5, 3: 4, 4: 0, 5: 0, 6: 0, 7: 2}
+severity counts: {'below_.5': 72, 'below_.75': 36, 'below_1.0': 2}
+residue count: 86
+residues with multiple hits: ()
+max hits per residue: 1
+
+worst 10 targets:
+  14138, 10424, 15026, 12424, 18364,
+  10294, 17702, 12118, 12032, 14852
+
+lift negative counts by offset: {0: 86, 1: 0}
+maximum first positive lift: 1
+all non-rescued clear by first positive lift: True
+```
+
+The worst target remains `14138`, with first-three `-0.8950145872346785`,
+complement `0.018073313793834367`, and full action
+`-0.8769412734408442`.  Its lift by one period, `24148`, has first-three
+`-0.12082743421006822`, complement `1.3776028000182077`, and full action
+`1.2567753658081395`.
+
+The other worst targets have the same qualitative pattern: each is negative
+at lift `0`, and the full action is positive at lift `1`.  Some remain below
+the first-three tail threshold after lift `1` (`15026`, `17702`, and `14852`
+among the worst ten), but their complements are then large enough to rescue
+the full action.
+
+Validation: bytecode-disabled `py_compile` passed; `git diff --check` passed;
+the strengthened bytecode-disabled focused regression
+`test_q286_nonrescued_first_three_tail_classification` passed in `153.798s`.
+Before that, the initial schema-focused version had passed in `73.696s`, and
+a direct one-target probe at `14138` confirmed the known-target assertion set.
+
+Status `aha-candidate`: the non-rescued minority is not explained by repeated
+residues in the first eight periods.  The failures are concentrated near the
+early cycles and all checked non-rescued targets clear at same-residue lift
+`1`.  This supports a boundary/onset-channel theorem target: prove a finite
+initial obstruction set plus a period-lift or cycle-threshold clearance
+estimate, rather than trying to bound every first-three negative tail
+independently.  No eventual theorem, signed prime-correlation estimate, or
+Goldbach proof is established.

@@ -17181,3 +17181,33 @@ Validation: bytecode-disabled `py_compile` passed.  Focused regression
 Status `changed-under-evidence`: distinguish rescued large negative tails from
 the structured non-rescued minority; independent envelopes and linear
 correlation are both insufficient.
+
+## 2026-09-12 continuation: non-rescued first-three tail classification
+
+`q286_nonrescued_first_three_tail_classification_receipt` now classifies the
+targets with `first_three < -.3` and nonpositive recombined full action.
+Across the first eight complete periods (`40040` targets), the `.3` first-
+three tail contains `4406` targets: `4320` are rescued by complement and `86`
+remain non-rescued.  Non-rescued cycle counts are `{0: 72, 1: 3, 2: 5, 3: 4,
+4: 0, 5: 0, 6: 0, 7: 2}`.  Severity counts are `72` below `-.5`, `36` below
+`-.75`, and `2` below `-1.0`.
+
+Residue classification found `86` distinct residues modulo the q286 arithmetic
+period, no repeated-residue hits, and max hits per residue `1`.  The worst ten
+targets are `14138, 10424, 15026, 12424, 18364, 10294, 17702, 12118, 12032,
+14852`.  Same-residue lifts at offsets `0,1` give negative full-action counts
+`{0: 86, 1: 0}`; every non-rescued target clears by first positive lift `1`.
+
+Validation: bytecode-disabled `py_compile` passed; `git diff --check` passed;
+the strengthened bytecode-disabled focused regression
+`test_q286_nonrescued_first_three_tail_classification` passed in `153.798s`.
+The initial schema-focused regression had passed in `73.696s`; a direct
+one-target probe at `14138` confirmed the strengthened known-target assertions
+before final validation.
+
+Status `aha-candidate`: repeated residue persistence is not the measured
+explanation.  The next theorem-shaped target is a boundary/onset clearance
+mechanism for the non-rescued minority, plus a complement-rescue estimate for
+the broad first-three tail.  This is finite classifier evidence only; no
+eventual lift theorem, signed prime-correlation estimate, Riemann-hypothesis
+result, prize-level result, or Goldbach proof is established.
