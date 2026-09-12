@@ -8368,3 +8368,25 @@ Status `changed-under-evidence`: do not try to prove a one-mode or fixed-sign
 lemma.  The direct estimate must control a target-dependent signed envelope
 for at least the first two q286 separable modes, with modes `3..6` and the
 small tail paid in the margin.
+
+### 2026-09-12 continuation: first-two q286 modes isolate sampled negatives
+
+`q286_first_two_mode_lower_tail_receipt` measures whether the first two
+separable q286 singular modes alone account for the reduced lower-tail
+obstruction.  Default scan: four `501`-target windows covering the same ranges
+as the reduced-envelope cycle scanner.  All `19` negative full-action targets
+have negative first-two q286 mode sum.  The first-two negative contribution is
+at least `1.36990224676328` times the full negative deficit on those targets.
+Removing modes `1` and `2` leaves a positive lower envelope on the sampled set:
+the worst full action without those modes is `0.09048725420345835` principal at
+`N=10354`; the worst reduced action without those modes is
+`0.08579199551280053` there.  The most negative first-two mode sum is
+`-1.1124437977839818` principal at `N=10664`.
+
+Status `aha-candidate`: in this sample, the actual negative assembled
+strict-central channel is entirely created by the first two q286 separable
+modes; all exact non-q286 supports, q286 local term, modes `3..6`, and tail
+leave a positive margin once modes `1` and `2` are removed.  This strongly
+focuses the next analytic target, but it is still finite sampled evidence.
+It does not prove an eventual lower envelope, endpoint/noncentral terms, the
+signed prime-correlation estimate, or Goldbach.

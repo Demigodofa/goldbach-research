@@ -36,6 +36,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_mode_lift_decay_receipt,
     q286_leading_mode_period_envelope_receipt,
     q286_leading_singular_mode_contribution_receipt,
+    q286_first_two_mode_lower_tail_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1218,6 +1219,28 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["all_reduced_and_full_signs_agree"])
         self.assertTrue(
             receipt["reduced_full_lower_envelope_cycle_scan_measured"])
+        self.assertFalse(receipt["eventual_lower_envelope_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_two_mode_lower_tail(self):
+        receipt = q286_first_two_mode_lower_tail_receipt(
+            cycle_count=1, targets_per_cycle=9)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertIn(10000, receipt["rows"])
+        row = receipt["rows"][10000]
+        self.assertIn("first_two_modes_to_principal_ratio", row)
+        self.assertIn("full_without_first_two_to_principal_ratio", row)
+        self.assertTrue(receipt["first_two_mode_lower_tail_measured"])
+        self.assertFalse(
+            receipt["first_two_modes_alone_prove_lower_envelope"])
         self.assertFalse(receipt["eventual_lower_envelope_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

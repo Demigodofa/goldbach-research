@@ -6646,6 +6646,167 @@ def reduced_full_lower_envelope_cycle_scan_receipt(
     }
 
 
+def q286_first_two_mode_lower_tail_receipt(
+        start=10000, cycle_count=4, targets_per_cycle=501,
+        tolerance=1e-9):
+    """Measure how much of the reduced lower tail is explained by modes 1-2."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    first = reduced_full_lower_envelope_receipt(
+        start=start, targets_per_cycle=targets_per_cycle,
+        q286_mode_count=6, tolerance=tolerance)
+    period = first["arithmetic_period"]
+    full_rows = {0: first}
+    targets = list(sorted(first["rows"]))
+    for cycle in range(1, cycle_count):
+        receipt = reduced_full_lower_envelope_receipt(
+            start=start + cycle * period,
+            targets_per_cycle=targets_per_cycle,
+            q286_mode_count=6, tolerance=tolerance)
+        full_rows[cycle] = receipt
+        targets.extend(sorted(receipt["rows"]))
+    mode_receipt = q286_leading_singular_mode_contribution_receipt(
+        targets=tuple(targets), mode_count=6, tolerance=tolerance)
+
+    cycle_rows = {}
+    global_rows = {}
+    negative_full_count = 0
+    negative_full_with_negative_first_two = 0
+    first_two_capture_ratios = []
+    worst_first_two = None
+    worst_without_first_two = None
+    worst_remaining_after_first_two = None
+    for cycle, receipt in full_rows.items():
+        row_targets = tuple(sorted(receipt["rows"]))
+        full_negative_targets = []
+        cycle_capture_ratios = []
+        for target in row_targets:
+            full_row = receipt["rows"][target]
+            mode_row = mode_receipt["rows"][target]
+            mode_ratios = tuple(
+                row["contribution_to_principal_ratio"]
+                for row in mode_row["mode_rows"])
+            first_two = mode_ratios[0] + mode_ratios[1]
+            first_three = first_two + mode_ratios[2]
+            modes_three_to_six = sum(mode_ratios[2:])
+            without_first_two = (
+                full_row["full_action_to_principal_ratio"] - first_two)
+            remaining_after_first_two = (
+                full_row["reduced_model_to_principal_ratio"] - first_two)
+            reduced_model_tail_gap = (
+                full_row["full_action_to_principal_ratio"]
+                - full_row["reduced_model_to_principal_ratio"])
+            if full_row["full_action_to_principal_ratio"] <= 0:
+                full_negative_targets.append(target)
+                negative_full_count += 1
+                if first_two < 0:
+                    negative_full_with_negative_first_two += 1
+                if abs(full_row["full_action_to_principal_ratio"]) > tolerance:
+                    capture = (
+                        -first_two
+                        / abs(full_row["full_action_to_principal_ratio"]))
+                    first_two_capture_ratios.append(capture)
+                    cycle_capture_ratios.append(capture)
+            summary = {
+                "cycle": cycle,
+                "full_action_to_principal_ratio": full_row[
+                    "full_action_to_principal_ratio"],
+                "reduced_model_to_principal_ratio": full_row[
+                    "reduced_model_to_principal_ratio"],
+                "q286_deviation_to_principal_ratio": mode_row[
+                    "q286_deviation_to_principal_ratio"],
+                "mode_1_to_principal_ratio": mode_ratios[0],
+                "mode_2_to_principal_ratio": mode_ratios[1],
+                "first_two_modes_to_principal_ratio": first_two,
+                "first_three_modes_to_principal_ratio": first_three,
+                "modes_three_to_six_to_principal_ratio": modes_three_to_six,
+                "six_mode_residual_to_principal_ratio": mode_row[
+                    "residual_to_principal_ratio"],
+                "full_without_first_two_to_principal_ratio": (
+                    without_first_two),
+                "reduced_without_first_two_to_principal_ratio": (
+                    remaining_after_first_two),
+                "full_minus_reduced_to_principal_ratio": (
+                    reduced_model_tail_gap),
+            }
+            global_rows[target] = summary
+            if worst_first_two is None or first_two < worst_first_two[1]:
+                worst_first_two = (target, first_two, cycle)
+            if (worst_without_first_two is None
+                    or without_first_two < worst_without_first_two[1]):
+                worst_without_first_two = (target, without_first_two, cycle)
+            if (worst_remaining_after_first_two is None
+                    or remaining_after_first_two
+                    < worst_remaining_after_first_two[1]):
+                worst_remaining_after_first_two = (
+                    target, remaining_after_first_two, cycle)
+        cycle_rows[cycle] = {
+            "start": row_targets[0],
+            "end": row_targets[-1],
+            "tested_target_count": len(row_targets),
+            "negative_full_action_count": len(full_negative_targets),
+            "negative_full_targets": tuple(full_negative_targets),
+            "negative_full_with_negative_first_two_count": sum(
+                1 for target in full_negative_targets
+                if global_rows[target][
+                    "first_two_modes_to_principal_ratio"] < 0),
+            "minimum_first_two_capture_on_negative_full_targets": (
+                min(cycle_capture_ratios) if cycle_capture_ratios
+                else math.nan),
+            "maximum_first_two_capture_on_negative_full_targets": (
+                max(cycle_capture_ratios) if cycle_capture_ratios
+                else math.nan),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": 286,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tested_target_count": len(targets),
+        "cycle_rows": cycle_rows,
+        "rows": global_rows,
+        "negative_full_action_count": negative_full_count,
+        "negative_full_with_negative_first_two_count": (
+            negative_full_with_negative_first_two),
+        "minimum_first_two_capture_on_negative_full_targets": (
+            min(first_two_capture_ratios) if first_two_capture_ratios
+            else math.nan),
+        "maximum_first_two_capture_on_negative_full_targets": (
+            max(first_two_capture_ratios) if first_two_capture_ratios
+            else math.nan),
+        "worst_first_two_mode_target": worst_first_two[0],
+        "worst_first_two_mode_cycle": worst_first_two[2],
+        "minimum_first_two_modes_to_principal_ratio": worst_first_two[1],
+        "worst_full_without_first_two_target": worst_without_first_two[0],
+        "worst_full_without_first_two_cycle": worst_without_first_two[2],
+        "minimum_full_without_first_two_to_principal_ratio": (
+            worst_without_first_two[1]),
+        "worst_reduced_without_first_two_target": (
+            worst_remaining_after_first_two[0]),
+        "worst_reduced_without_first_two_cycle": (
+            worst_remaining_after_first_two[2]),
+        "minimum_reduced_without_first_two_to_principal_ratio": (
+            worst_remaining_after_first_two[1]),
+        "first_two_mode_lower_tail_measured": True,
+        "first_two_modes_alone_prove_lower_envelope": False,
+        "eventual_lower_envelope_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):
