@@ -570,3 +570,24 @@ Status `local-hole-removed-for-portfolio`: the compensating portfolio does not
 need a separate local-exception branch.  The remaining obstacle is entirely
 arithmetic occupancy/correlation: local admissibility holds, but strict-central
 prime-pair weight still has to be forced or compensated quantitatively.
+
+The five-residue observed portfolio is not locally minimal.  Exact set-cover
+over the observed portfolio shows that three residues already suffice to remove
+all local holes; examples include:
+
+```text
+179,29,167
+179,29,241
+179,29,109
+179,167,241
+179,167,109
+29,167,241
+29,167,109
+```
+
+Likewise, among the twelve most frequent first-period positive-row residues,
+there are many three-residue locally complete subportfolios.  This separates
+two notions that should not be conflated: local admissibility can be covered
+with three residues, but the measured top-positive contribution cover over the
+`204` positive both-empty targets needed five residues.  The hard part is not
+local coverage; it is quantitative, signed prime-pair mass in the right rows.

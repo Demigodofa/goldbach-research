@@ -116,6 +116,13 @@ one locally admissible channel in all `143/143` target classes.  This removes
 local admissibility as the obstruction for the compensating portfolio; the
 remaining problem is quantitative prime-pair occupancy/correlation.
 
+Exact local set-cover refinement: the observed five-residue positive portfolio
+is not locally minimal.  Three-residue subportfolios such as `179,29,167`,
+`179,29,241`, `179,29,109`, `179,167,241`, `179,167,109`, `29,167,241`, and
+`29,167,109` already cover all target classes locally.  Therefore the reason
+the measured first-period compensation cover needs five residues is not local
+admissibility; it is contribution size and signed prime-pair mass.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

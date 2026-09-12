@@ -118,6 +118,13 @@ target class modulo `143`.  Thus the compensating-portfolio route is blocked
 by quantitative prime-pair occupancy/correlation, not by local congruence
 holes.
 
+Exact local set-cover over the observed positive portfolio shows three
+residues already suffice for local completeness, for example `179,29,167` or
+`179,29,241`.  Since the measured positive-row cover over the `204` positive
+both-empty targets needed five residues, the missing theorem is not about
+local availability; it is about quantitative signed contribution in the
+occupied rows.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
