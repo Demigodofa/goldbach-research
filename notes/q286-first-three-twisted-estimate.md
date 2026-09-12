@@ -741,3 +741,30 @@ dangerous under nearby period lifts.  This supports an early-cycle scarcity or
 boundary-layer explanation rather than a fixed bad residue class.  Any proof
 route based on monotonic/lift growth must still be made rigorous, but the
 finite evidence says the worst ratios clear immediately after the first lift.
+
+`q286_boundary_layer_clearance_receipt` combines the lift-profile ratio,
+`133/153` occupancy, and ordinary AP pair-weight data for the same five hard
+bases at lifts `0` and `1`.  Its default run tests `10` targets:
+
+```text
+cleared by lift 1: 5/5 bases
+lift-1 complement positive: 5/5 bases
+lift-1 any 133/153 driver positive: 3/5 bases
+lift-1 both 133/153 admissible-empty: 1/5 bases
+```
+
+The complement and mean-weight growth from lift `0` to lift `1` are:
+
+```text
+14138: complement +1.3595294862243734, mean weight +34.922817965063224
+16388: complement +0.631809974687409,  mean weight +31.344820347033945
+10424: complement +0.2295180640871176, mean weight +64.73676062630474
+15026: complement +0.8356570560198036, mean weight +56.82784425993418
+17522: complement +1.0940601855617555, mean weight +59.00260351147824
+```
+
+Status `clearance-mechanism-refined`: lift-one clearance is universal for the
+top five ratio bases, but `133/153` filling is not.  The common observed
+feature is positive complement growth alongside larger strict-central residue
+mean weight.  This moves the plausible proof route toward a boundary-layer
+lower bound for the complement, not a driver-only hitting theorem.

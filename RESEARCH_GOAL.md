@@ -170,6 +170,13 @@ lift `0` for each base and nowhere else.  This falsifies the hypothesis that
 the bad behavior is a persistent residue class; it looks like early-cycle
 scarcity or a boundary layer that clears under lifting.
 
+The lift-one clearance mechanism is now refined.  For those five hard bases,
+`q286_boundary_layer_clearance_receipt` shows all five clear by lift `1` and
+all five have positive complement at lift `1`, but only three have any
+`133/153` driver occupancy and one remains both-driver admissible-empty.
+Therefore the common mechanism is complement growth, not driver-pair filling.
+The next proof target is a boundary-layer lower bound for the complement.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

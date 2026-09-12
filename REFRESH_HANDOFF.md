@@ -175,6 +175,16 @@ exactly five times, once per base, always at lift `0`; each base clears by lift
 `1`.  This falsifies a persistent bad residue-class interpretation and points
 instead to early-cycle scarcity/boundary-layer behavior.
 
+Clearance mechanism refinement:
+`q286_boundary_layer_clearance_receipt()` combines ratio, `133/153` occupancy,
+and AP pair-weight data for the top five hard bases at lifts `0` and `1`.
+All five clear by lift `1`; all five have positive lift-1 complement; only
+three have any `133/153` driver positive at lift `1`; one remains both-driver
+admissible-empty.  Complement growth from lift `0` to `1` is
+`1.3595294862243734`, `0.631809974687409`, `0.2295180640871176`,
+`0.8356570560198036`, `1.0940601855617555`.  Driver filling is not the common
+clearance mechanism; complement growth is.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

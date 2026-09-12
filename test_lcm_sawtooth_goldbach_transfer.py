@@ -1469,6 +1469,19 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["tail_complement_lift_profile_measured"])
         self.assertFalse(receipt["persistent_bad_residue_class_proved"])
 
+    def test_q286_boundary_layer_clearance(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_boundary_layer_clearance_receipt)
+        receipt = q286_boundary_layer_clearance_receipt(
+            bases=(14138,), lifts=(0, 1))
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["cleared_by_lift_one_count"], 1)
+        self.assertEqual(receipt["lift_one_complement_positive_count"], 1)
+        self.assertTrue(
+            receipt["base_rows"][14138]["ratio_clears_by_lift_one"])
+        self.assertFalse(
+            receipt["driver_occupancy_explains_all_clearance"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

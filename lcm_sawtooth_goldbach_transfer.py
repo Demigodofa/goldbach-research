@@ -9137,3 +9137,118 @@ def q286_tail_complement_lift_profile_receipt(
         "relative_tail_bound_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_boundary_layer_clearance_receipt(
+        bases=(14138, 16388, 10424, 15026, 17522),
+        lifts=(0, 1),
+        period=10010,
+        top_count=8,
+        tolerance=1e-09):
+    """Compare hard q286 boundary-layer bases before and after lifting."""
+    bases = tuple(bases)
+    lifts = tuple(lifts)
+    targets = tuple(base + period * lift for base in bases for lift in lifts)
+    profile_receipt = q286_tail_complement_lift_profile_receipt(
+        bases=bases,
+        lifts=lifts,
+        period=period,
+        tolerance=tolerance)
+    occupancy_receipt = q286_driver_residue_lift_occupancy_receipt(
+        base_targets=bases,
+        lifts=lifts,
+        tolerance=tolerance)
+    ap_receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+        selected_targets=targets,
+        top_count=top_count,
+        tolerance=tolerance)
+
+    base_rows = {}
+    cleared_by_lift_one_count = 0
+    lift_one_driver_any_positive_count = 0
+    lift_one_driver_all_empty_count = 0
+    lift_one_complement_positive_count = 0
+    for base in bases:
+        lift_rows = []
+        for lift in lifts:
+            target = base + period * lift
+            profile_row = next(
+                row for row in profile_receipt[
+                    "base_rows"][base]["lift_rows"]
+                if row["lift"] == lift)
+            occupancy_row = occupancy_receipt["target_rows"][base][lift]
+            ap_row = ap_receipt["rows"][target]
+            lift_rows.append({
+                "lift": lift,
+                "target": target,
+                "tail_to_complement_ratio": profile_row[
+                    "tail_to_complement_ratio"],
+                "full_action_to_principal_ratio": profile_row[
+                    "full_action_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": profile_row[
+                    "first_three_modes_to_principal_ratio"],
+                "full_without_first_three_to_principal_ratio": profile_row[
+                    "full_without_first_three_to_principal_ratio"],
+                "driver_any_positive": occupancy_row[
+                    "any_driver_residue_positive"],
+                "driver_all_positive": occupancy_row[
+                    "all_driver_residues_positive"],
+                "driver_all_admissible_empty": occupancy_row[
+                    "all_driver_residues_admissible_empty"],
+                "total_prime_pair_weight": ap_row[
+                    "total_prime_pair_weight"],
+                "mean_admissible_residue_weight": ap_row[
+                    "mean_admissible_residue_weight"],
+                "admissible_residue_count": ap_row[
+                    "admissible_residue_count"],
+            })
+        lift_zero = lift_rows[0]
+        lift_one = lift_rows[1] if len(lift_rows) > 1 else None
+        if (lift_one is not None
+                and lift_zero["tail_to_complement_ratio"] > 1.0
+                and lift_one["tail_to_complement_ratio"] <= 1.0):
+            cleared_by_lift_one_count += 1
+        if lift_one is not None and lift_one["driver_any_positive"]:
+            lift_one_driver_any_positive_count += 1
+        if (lift_one is not None
+                and lift_one["driver_all_admissible_empty"]):
+            lift_one_driver_all_empty_count += 1
+        if (lift_one is not None and lift_one[
+                "full_without_first_three_to_principal_ratio"] > tolerance):
+            lift_one_complement_positive_count += 1
+        base_rows[base] = {
+            "lift_rows": tuple(lift_rows),
+            "ratio_clears_by_lift_one": (
+                lift_one is not None
+                and lift_zero["tail_to_complement_ratio"] > 1.0
+                and lift_one["tail_to_complement_ratio"] <= 1.0),
+            "complement_growth_lift_zero_to_one": (
+                lift_one[
+                    "full_without_first_three_to_principal_ratio"]
+                - lift_zero[
+                    "full_without_first_three_to_principal_ratio"]
+                if lift_one is not None else None),
+            "mean_weight_growth_lift_zero_to_one": (
+                lift_one["mean_admissible_residue_weight"]
+                - lift_zero["mean_admissible_residue_weight"]
+                if lift_one is not None else None),
+        }
+
+    return {
+        "bases": bases,
+        "lifts": lifts,
+        "period": period,
+        "tested_target_count": len(targets),
+        "base_rows": base_rows,
+        "cleared_by_lift_one_count": cleared_by_lift_one_count,
+        "lift_one_driver_any_positive_count": (
+            lift_one_driver_any_positive_count),
+        "lift_one_driver_all_admissible_empty_count": (
+            lift_one_driver_all_empty_count),
+        "lift_one_complement_positive_count": (
+            lift_one_complement_positive_count),
+        "boundary_layer_clearance_measured": True,
+        "driver_occupancy_explains_all_clearance": False,
+        "monotone_lift_growth_theorem_proved": False,
+        "goldbach_proved": False,
+    }
