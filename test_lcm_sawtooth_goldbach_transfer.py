@@ -33,6 +33,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_character_imbalance_receipt,
     q286_character_matrix_structure_receipt,
     q286_leading_mode_cycle_profile_receipt,
+    q286_leading_mode_lift_decay_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
@@ -1127,6 +1128,24 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertIn("local_bias_means_near_zero_on_sample", receipt)
         self.assertTrue(receipt["all_modes_have_prime_deviation_variation"])
         self.assertTrue(receipt["separable_mode_local_bias_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_leading_mode_lift_decay(self):
+        receipt = q286_leading_mode_lift_decay_receipt(
+            base_targets=(10424,), lifts=(0, 1), mode_count=6)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["base_targets"], (10424,))
+        self.assertEqual(receipt["lifts"], (0, 1))
+        self.assertEqual(receipt["mode_count"], 6)
+        self.assertIn(10424, receipt["rows"])
+        self.assertIn(0, receipt["rows"][10424]["lift_rows"])
+        self.assertIn(1, receipt["rows"][10424]["lift_rows"])
+        self.assertTrue(receipt["leading_mode_lift_decay_measured"])
+        self.assertFalse(receipt["eventual_decay_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

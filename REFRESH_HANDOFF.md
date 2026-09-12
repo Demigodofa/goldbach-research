@@ -16242,3 +16242,32 @@ Status `changed-under-evidence`: sign-skewed residue weights do not create a
 persistent local-main obstruction.  The main obstruction remains genuine
 prime-residue deviation in separable twisted sums, with small local oscillatory
 terms that must be included in margins.
+
+## 2026-09-12: q286 leading-mode lift-decay scanner added
+
+`q286_leading_mode_lift_decay_receipt` evaluates the six leading q286 singular
+mode contributions on fixed first-period base targets and their later
+`10010`-period lifts.  It reports first-two, first-three, and six-mode
+principal-relative sums at each lift, plus residual size.
+
+This tests whether the dangerous finite q286 separable-mode deviations decay
+when the same residue class is lifted to larger `N`.  It is sampled evidence,
+not an eventual decay theorem.
+
+Default measurement on bases `10424,12118,14138,14680` and lifts
+`0,1,4,9,19,49`: every base target's first-three leading-mode absolute ratio
+improves after the zero lift.  Minimum lifted first-three ratios are
+`0.023973589319998184`, `0.03760975380589021`,
+`0.01094837569399762`, and `0.07596216291725374`.  Minimum lifted six-mode
+ratios are `0.04288312941085319`, `0.029359224068561812`,
+`0.010694433201398349`, and `0.07299460802120264`.
+
+The sampled lift evidence is not monotone and not small enough to close the
+estimate.  The maximum lifted first-three ratio is `0.6777494578790298`, the
+maximum lifted six-mode ratio is `0.6782174958798006`, and the maximum lifted
+six-mode residual/principal ratio is `0.016680413471741894`.
+
+Status `aha-candidate`: the hard first-period q286 leading-mode excursions
+look finite-scale amplified, but later lifts still have substantial oscillatory
+mode mass.  A threshold-plus-finite-check route remains plausible only if a
+real analytic decay/envelope theorem replaces this sample.

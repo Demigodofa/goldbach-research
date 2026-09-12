@@ -7737,6 +7737,27 @@ terms are negative on `244/594` and `115/594`.
 Next target: estimate separable prime-residue deviations directly, while
 carrying local oscillatory terms as explicit bounded margin costs.
 
+## 2026-09-12: q286 leading-mode lift-decay scanner added
+
+`q286_leading_mode_lift_decay_receipt` now checks fixed bad residue classes
+across later period lifts.  It tracks whether first-two, first-three, and
+six-mode q286 contributions shrink in principal-relative units as `N` grows.
+Use it to decide whether a threshold-plus-finite-check route is plausible for
+the leading separable modes.
+
+Measured answer: the first tested lifts support finite-scale amplification but
+not monotone decay.  For bases `10424,12118,14138,14680`, the zero-lift
+first-three absolute ratios are `0.9411943888163556`,
+`1.0401885969034605`, `0.8950145872346784`, and `0.4282674888747748`; each has
+a later sampled lift below `0.076`.  However, across all sampled lifted values,
+the maximum first-three ratio is still `0.6777494578790298` and the maximum
+six-mode ratio is `0.6782174958798006`.
+
+The six-mode residual remains small in the lift sample, at most
+`0.016680413471741894` of principal.  Next target: prove a nonmonotone
+principal-relative envelope for leading q286 modes, or find a source theorem
+that gives decay after excluding a finite initial range.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

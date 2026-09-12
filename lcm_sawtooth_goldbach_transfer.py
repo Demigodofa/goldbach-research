@@ -5776,6 +5776,139 @@ def q286_separable_mode_local_bias_receipt(
     }
 
 
+def q286_leading_mode_lift_decay_receipt(
+        base_targets=(10424, 12118, 14138, 14680),
+        lifts=(0, 1, 4, 9, 19, 49), mode_count=6, tolerance=1e-9):
+    """Measure leading q286 mode decay across period lifts."""
+    base_targets = tuple(base_targets)
+    lifts = tuple(lifts)
+    if (not base_targets or any(
+            type(target) is not int or target < 40 or target % 2
+            for target in base_targets)):
+        raise ValueError("base_targets must be even integers at least 40")
+    if not lifts or any(type(lift) is not int or lift < 0 for lift in lifts):
+        raise ValueError("lifts must be nonnegative integers")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    targets = tuple(dict.fromkeys(
+        base + period * lift
+        for base in base_targets
+        for lift in lifts))
+    contribution = q286_leading_singular_mode_contribution_receipt(
+        targets=targets, mode_count=mode_count, tolerance=tolerance)
+
+    rows = {}
+    all_base_targets_improve_after_zero_lift = True
+    maximum_lifted_first_three_abs_ratio = 0.0
+    maximum_lifted_six_mode_abs_ratio = 0.0
+    maximum_lifted_residual_abs_ratio = 0.0
+    for base in base_targets:
+        lift_rows = {}
+        zero_first_three_abs = None
+        zero_six_abs = None
+        best_lift = None
+        best_first_three_abs = math.inf
+        for lift in lifts:
+            target = base + period * lift
+            row = contribution["rows"][target]
+            mode_ratios = tuple(
+                mode_row["contribution_to_principal_ratio"]
+                for mode_row in row["mode_rows"])
+            first_two = math.fsum(mode_ratios[:min(2, len(mode_ratios))])
+            first_three = math.fsum(mode_ratios[:min(3, len(mode_ratios))])
+            six_sum = math.fsum(mode_ratios)
+            first_three_abs = abs(first_three)
+            six_abs = abs(six_sum)
+            residual_abs = abs(row["residual_to_principal_ratio"])
+            if lift == 0:
+                zero_first_three_abs = first_three_abs
+                zero_six_abs = six_abs
+            else:
+                maximum_lifted_first_three_abs_ratio = max(
+                    maximum_lifted_first_three_abs_ratio, first_three_abs)
+                maximum_lifted_six_mode_abs_ratio = max(
+                    maximum_lifted_six_mode_abs_ratio, six_abs)
+                maximum_lifted_residual_abs_ratio = max(
+                    maximum_lifted_residual_abs_ratio, residual_abs)
+            if first_three_abs < best_first_three_abs:
+                best_first_three_abs = first_three_abs
+                best_lift = lift
+            lift_rows[lift] = {
+                "target": target,
+                "q286_deviation_to_principal_ratio": (
+                    row["q286_deviation_to_principal_ratio"]),
+                "first_two_mode_to_principal_ratio": first_two,
+                "first_three_mode_to_principal_ratio": first_three,
+                "six_mode_to_principal_ratio": six_sum,
+                "six_mode_residual_to_principal_ratio": (
+                    row["residual_to_principal_ratio"]),
+                "six_mode_abs_residual_to_principal_ratio": residual_abs,
+                "mode_to_principal_ratios": mode_ratios,
+            }
+        lifted_first_three_values = tuple(
+            abs(lift_rows[lift]["first_three_mode_to_principal_ratio"])
+            for lift in lifts if lift != 0)
+        lifted_six_values = tuple(
+            abs(lift_rows[lift]["six_mode_to_principal_ratio"])
+            for lift in lifts if lift != 0)
+        first_three_improves = bool(
+            zero_first_three_abs is not None and lifted_first_three_values
+            and min(lifted_first_three_values) < zero_first_three_abs)
+        six_mode_improves = bool(
+            zero_six_abs is not None and lifted_six_values
+            and min(lifted_six_values) < zero_six_abs)
+        all_base_targets_improve_after_zero_lift = bool(
+            all_base_targets_improve_after_zero_lift
+            and first_three_improves)
+        rows[base] = {
+            "lift_rows": lift_rows,
+            "zero_first_three_abs_ratio": zero_first_three_abs,
+            "minimum_lifted_first_three_abs_ratio": (
+                min(lifted_first_three_values)
+                if lifted_first_three_values else math.nan),
+            "zero_six_mode_abs_ratio": zero_six_abs,
+            "minimum_lifted_six_mode_abs_ratio": (
+                min(lifted_six_values) if lifted_six_values else math.nan),
+            "best_first_three_lift": best_lift,
+            "first_three_improves_after_zero_lift": first_three_improves,
+            "six_mode_improves_after_zero_lift": six_mode_improves,
+        }
+
+    return {
+        "families": contribution["families"],
+        "arithmetic_period": contribution["arithmetic_period"],
+        "support": contribution["support"],
+        "natural_modulus": contribution["natural_modulus"],
+        "base_targets": base_targets,
+        "lifts": lifts,
+        "mode_count": mode_count,
+        "rows": rows,
+        "maximum_mode_reconstruction_error": (
+            contribution["maximum_mode_reconstruction_error"]),
+        "all_base_targets_first_three_improve_after_zero_lift": bool(
+            all_base_targets_improve_after_zero_lift),
+        "maximum_lifted_first_three_abs_ratio": (
+            maximum_lifted_first_three_abs_ratio),
+        "maximum_lifted_six_mode_abs_ratio": (
+            maximum_lifted_six_mode_abs_ratio),
+        "maximum_lifted_residual_abs_ratio": (
+            maximum_lifted_residual_abs_ratio),
+        "lifted_first_three_under_half_principal": bool(
+            maximum_lifted_first_three_abs_ratio < .5),
+        "lifted_six_modes_under_half_principal": bool(
+            maximum_lifted_six_mode_abs_ratio < .5),
+        "leading_mode_lift_decay_measured": True,
+        "eventual_decay_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):
