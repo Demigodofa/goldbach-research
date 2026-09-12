@@ -16552,3 +16552,22 @@ first-three capture `6.157687584867484`.
 Status update `aha-candidate`: the first-three q286 lower-tail core survives
 the known later recurrence cycle.  This strengthens the finite threshold
 route, but it is not an asymptotic theorem.
+
+`reduced_full_lower_envelope_receipt` and
+`q286_first_two_mode_lower_tail_receipt` now also accept explicit
+`selected_targets`, so sparse same-residue lift checks do not require scanning
+the full interval between them.
+
+Selected lift falsifier: bases `10424,14138,85496,88346,10664` were tested at
+lifts `(0,1,4,9,19,49)`, for `30` selected targets.  The exact full action is
+negative at five selected targets: `10424`, `10664`, `14138`, `85496`, and
+`88346`.  All five have negative first-two and first-three q286 mode sums.
+Removing modes `1..3` leaves no nonpositive selected target.  The negative
+rows after removing first-three modes have remaining margins
+`0.30243400797940023`, `0.9340259936979926`, `0.018073313793834367`,
+`0.672340729533022`, and `0.66753392209042` principal respectively.
+
+Status `aha-candidate`: same-residue lifts of the sampled hard bases do not
+falsify the first-three core.  The weak finite margin remains the original
+`N=14138` case, not a later lift.  This still does not prove an eventual
+threshold or the signed estimate.

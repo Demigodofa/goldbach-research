@@ -6319,13 +6319,26 @@ def q286_leading_mode_period_envelope_receipt(
 
 def reduced_full_lower_envelope_receipt(
         start=10000, targets_per_cycle=501, q286_mode_count=6,
-        tolerance=1e-9):
+        tolerance=1e-9, selected_targets=None):
     """Measure the full action with q286 replaced by leading modes plus tail."""
-    if type(start) is not int or start < 40 or start % 2:
-        raise ValueError("start must be an even integer at least 40")
-    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
-            or targets_per_cycle > 5005):
-        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+        targets = tuple(start + 2 * index for index in range(
+            targets_per_cycle))
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
+        targets = selected_targets
+        start = targets[0]
+        targets_per_cycle = len(targets)
     if (type(q286_mode_count) is not int or q286_mode_count < 1
             or q286_mode_count > 9):
         raise ValueError("q286_mode_count must lie between 1 and 9")
@@ -6411,7 +6424,6 @@ def reduced_full_lower_envelope_receipt(
             })
         support_data[support] = data
 
-    targets = tuple(start + 2 * index for index in range(targets_per_cycle))
     primes = _prime_table(max(targets))
     rows = {}
     maximum_reconstruction_error = 0.0
@@ -6554,6 +6566,8 @@ def reduced_full_lower_envelope_receipt(
         "arithmetic_period": period,
         "start": start,
         "targets_per_cycle": targets_per_cycle,
+        "selected_targets": (
+            targets if selected_targets is not None else None),
         "q286_mode_count": q286_mode_count,
         "q286_singular_energy_fraction": support_data[(11, 13)][
             "q286_singular_energy_fraction"],
@@ -6728,31 +6742,50 @@ def reduced_full_lower_envelope_cycle_scan_receipt(
 
 def q286_first_two_mode_lower_tail_receipt(
         start=10000, cycle_count=4, targets_per_cycle=501,
-        tolerance=1e-9):
+        tolerance=1e-9, selected_targets=None):
     """Measure how much of the reduced lower tail is explained by modes 1-2."""
-    if type(start) is not int or start < 40 or start % 2:
-        raise ValueError("start must be an even integer at least 40")
-    if type(cycle_count) is not int or cycle_count < 1:
-        raise ValueError("cycle_count must be a positive integer")
-    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
-            or targets_per_cycle > 5005):
-        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if type(cycle_count) is not int or cycle_count < 1:
+            raise ValueError("cycle_count must be a positive integer")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
-    first = reduced_full_lower_envelope_receipt(
-        start=start, targets_per_cycle=targets_per_cycle,
-        q286_mode_count=6, tolerance=tolerance)
-    period = first["arithmetic_period"]
-    full_rows = {0: first}
-    targets = list(sorted(first["rows"]))
-    for cycle in range(1, cycle_count):
-        receipt = reduced_full_lower_envelope_receipt(
-            start=start + cycle * period,
-            targets_per_cycle=targets_per_cycle,
+    if selected_targets is None:
+        first = reduced_full_lower_envelope_receipt(
+            start=start, targets_per_cycle=targets_per_cycle,
             q286_mode_count=6, tolerance=tolerance)
-        full_rows[cycle] = receipt
-        targets.extend(sorted(receipt["rows"]))
+        period = first["arithmetic_period"]
+        full_rows = {0: first}
+        targets = list(sorted(first["rows"]))
+        for cycle in range(1, cycle_count):
+            receipt = reduced_full_lower_envelope_receipt(
+                start=start + cycle * period,
+                targets_per_cycle=targets_per_cycle,
+                q286_mode_count=6, tolerance=tolerance)
+            full_rows[cycle] = receipt
+            targets.extend(sorted(receipt["rows"]))
+    else:
+        first = reduced_full_lower_envelope_receipt(
+            q286_mode_count=6, tolerance=tolerance,
+            selected_targets=selected_targets)
+        period = first["arithmetic_period"]
+        start = selected_targets[0]
+        cycle_count = 1
+        targets_per_cycle = len(selected_targets)
+        full_rows = {0: first}
+        targets = list(selected_targets)
     mode_receipt = q286_leading_singular_mode_contribution_receipt(
         targets=tuple(targets), mode_count=6, tolerance=tolerance)
 
@@ -6913,6 +6946,8 @@ def q286_first_two_mode_lower_tail_receipt(
         "start": start,
         "cycle_count": cycle_count,
         "targets_per_cycle": targets_per_cycle,
+        "selected_targets": (
+            tuple(targets) if selected_targets is not None else None),
         "tested_target_count": len(targets),
         "cycle_rows": cycle_rows,
         "rows": global_rows,

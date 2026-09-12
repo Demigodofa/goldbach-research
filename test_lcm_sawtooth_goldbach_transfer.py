@@ -1248,14 +1248,15 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
 
     def test_q286_first_two_mode_lower_tail(self):
         receipt = q286_first_two_mode_lower_tail_receipt(
-            cycle_count=1, targets_per_cycle=9)
+            selected_targets=(10000, 10002, 10004))
         self.assertEqual(receipt["arithmetic_period"], 10010)
         self.assertEqual(receipt["support"], (11, 13))
         self.assertEqual(receipt["natural_modulus"], 286)
         self.assertEqual(receipt["start"], 10000)
         self.assertEqual(receipt["cycle_count"], 1)
-        self.assertEqual(receipt["targets_per_cycle"], 9)
-        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertEqual(receipt["targets_per_cycle"], 3)
+        self.assertEqual(receipt["tested_target_count"], 3)
+        self.assertEqual(receipt["selected_targets"], (10000, 10002, 10004))
         self.assertIn(10000, receipt["rows"])
         row = receipt["rows"][10000]
         self.assertIn("first_two_modes_to_principal_ratio", row)
