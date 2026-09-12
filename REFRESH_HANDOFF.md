@@ -15148,3 +15148,39 @@ A useful test is to build the q65 analogue of the direct source/fiber-shadow
 comparison and then check whether its strict-central unit threshold and target
 residue admissibility give a symbolic coefficient identity or a precise
 falsifier.
+
+## 2026-09-12: q65 holdout has a nonzero fiber-shadow candidate
+
+The first holdout-sector probe preserves the q77 lesson without assuming the
+same bridge.  For quotient `65`, lag `154`, the full-period direct source on
+`U_10010` does not descend pointwise to `U_154`, but it has a large nonzero
+centered fiber-shadow candidate after summing the `48` lifts over each of the
+`60` unit residues modulo `154`.
+
+The reviewed measurements are: centered fiber `L^2` norm
+`86071.18524618556`, centered/total fiber `L^2` ratio
+`.9948879642115595`, maximum within-fiber deviation
+`28401.117801547734`, and fiber mean approximately
+`-1127.8833333333703 - 3.04e-13i`.  The nonzero within-fiber deviation is the
+explicit witness that pointwise descent fails.  Since `154=2*7*11`, every even
+`N>=34` has strict-central prime pairs above `11`, hence units modulo `154`.
+
+Independent review returned PASS.  Faraday checked the quotient-lag-common
+map `10010/gcd(154,10010)=65`, `phi(154)=60`, uniform fiber size `phi(65)=48`,
+the numerical fixtures, the pointwise-descent failure, the `N>=34` threshold,
+the sign-convention wording, and the false open-scope flags.  Focused normal
+and optimized tests pass.
+
+Status `changed-under-evidence`: q65 is a real holdout component with a
+q77-like fiber-aggregation object available.  This is not yet a q65
+linked-prime or outer-row bridge, not a full outer assembly identification,
+not a formal signed-error estimate, not a pointwise signed prime-correlation
+bound, and not Goldbach.  The negative centered-fiber sign is only a candidate
+convention inherited from q77 until a q65 row bridge fixes the sign.
+
+Next concrete question: construct the q65 analogue of the q77 coefficient-row
+comparison.  Does any count-four sector row or character-projection row equal
+this q65 fiber shadow, up to centering/sign/constant, on strict-central unit
+prime pairs?  Falsifier: no fixed recombined source vector over `U_154`, a
+sign/scale mismatch that cannot be explained by centering, or a required
+coefficient depending on the target residue `N mod 154`.

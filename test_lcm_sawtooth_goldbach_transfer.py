@@ -5,6 +5,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
     count_four_outer_holdout_sector_receipt,
+    holdout_lag_fiber_shadow_candidate_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -51,6 +52,40 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["all_holdout_count_four_sectors_are_live"])
         self.assertTrue(receipt["endpoint_only_residual_hypothesis_falsified"])
         self.assertTrue(receipt["full_outer_assembly_needs_holdout_sector_bridge"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_lag_fiber_shadow_candidate(self):
+        receipt = holdout_lag_fiber_shadow_candidate_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertEqual(receipt["fiber_size_over_common_modulus"], 48)
+        self.assertAlmostEqual(
+            receipt["fiber_sum_mean"].real, -1127.8833333333703,
+            places=9)
+        self.assertAlmostEqual(
+            receipt["fiber_sum_mean"].imag,
+            -3.036385957481495e-13, places=9)
+        self.assertAlmostEqual(
+            receipt["centered_fiber_sum_l2"], 86071.18524618556,
+            places=8)
+        self.assertAlmostEqual(
+            receipt["centered_to_total_fiber_l2_ratio"],
+            .9948879642115595, places=14)
+        self.assertAlmostEqual(
+            receipt["maximum_internal_fiber_point_spread"],
+            28401.117801547734, places=8)
+        self.assertFalse(
+            receipt["direct_source_pointwise_descends_to_common_modulus"])
+        self.assertTrue(receipt["nonzero_fiber_shadow_candidate_available"])
+        self.assertEqual(receipt["central_unit_threshold"], 34)
+        self.assertFalse(receipt["linked_prime_or_outer_row_bridge_proved"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[

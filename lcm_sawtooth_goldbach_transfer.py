@@ -33,6 +33,30 @@ def _complex_fsum(values):
         math.fsum(value.imag for value in values))
 
 
+
+def _largest_prime_factor(value):
+    if type(value) is not int or value < 2:
+        raise ValueError("value must be an integer at least two")
+    remaining = value
+    largest = None
+    divisor = 2
+    while divisor * divisor <= remaining:
+        if remaining % divisor == 0:
+            largest = divisor
+            while remaining % divisor == 0:
+                remaining //= divisor
+        divisor += 1 if divisor == 2 else 2
+    if remaining > 1:
+        largest = remaining
+    return largest
+
+
+def _even_strict_central_unit_threshold(modulus):
+    largest_factor = _largest_prime_factor(modulus)
+    threshold = 3 * largest_factor + 1
+    return threshold if threshold % 2 == 0 else threshold + 1
+
+
 def even_even_goldbach_transfer_receipt(
         target_minimum=1700, target_maximum=22000, target_residue=72,
         tolerance=1e-12, batch_size=32):
@@ -971,6 +995,105 @@ def count_four_outer_holdout_sector_receipt(
             len(live_holdouts) == len(holdout_quotients)),
         "full_outer_assembly_needs_holdout_sector_bridge": bool(
             len(live_holdouts) == len(holdout_quotients)),
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+
+def holdout_lag_fiber_shadow_candidate_receipt(
+        quotient=65, tolerance=1e-12):
+    """Build the first fiber-shadow data for a live count-four holdout.
+
+    This does not connect the holdout to the original outer assembly.  It only
+    tests whether the direct full-period source has a nontrivial fixed residue
+    shadow over the holdout's common modulus and whether strict-central prime
+    pairs are units above an explicit small threshold.
+    """
+    if quotient not in TWO_PRIME_QUOTIENT_LAGS:
+        raise ValueError("quotient must be one of the two-prime sectors")
+    if quotient in (77, 91):
+        raise ValueError("use a holdout quotient, not the linked-prime slice")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    lag = TWO_PRIME_QUOTIENT_LAGS[quotient]
+    common = math.gcd(lag, period)
+    if period // common != quotient:
+        raise AssertionError("quotient-to-lag map is inconsistent")
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    source_units, source_values_tuple = _direct_resonant_source_on_units(
+        period, lag, left_sources, right_sources)
+    common_units = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    units_by_common_residue = {
+        residue: tuple(unit for unit in source_units if unit % common == residue)
+        for residue in common_units}
+    fiber_counts = tuple(
+        len(fiber) for fiber in units_by_common_residue.values())
+    if len(set(fiber_counts)) != 1:
+        raise AssertionError("unit fibers over the holdout common modulus vary")
+    source_values = {
+        residue: value
+        for residue, value in zip(source_units, source_values_tuple)}
+    fiber_sums = np.asarray(tuple(
+        _complex_fsum(source_values[unit]
+                      for unit in units_by_common_residue[residue])
+        for residue in common_units), dtype=np.complex128)
+    fiber_mean = complex(np.mean(fiber_sums))
+    centered_fiber_sums = fiber_sums - fiber_mean
+    fiber_shadow = -centered_fiber_sums
+    centered_l2 = float(np.linalg.norm(centered_fiber_sums))
+    fiber_l2 = float(np.linalg.norm(fiber_sums))
+    max_centered_abs = float(np.max(np.abs(centered_fiber_sums)))
+    max_internal_spread = 0.0
+    for residue in common_units:
+        fiber_values = np.asarray(tuple(
+            source_values[unit]
+            for unit in units_by_common_residue[residue]),
+            dtype=np.complex128)
+        max_internal_spread = max(
+            max_internal_spread,
+            float(np.max(np.abs(fiber_values - np.mean(fiber_values)))))
+    descent_scale = max(1.0, max_internal_spread)
+    threshold = _even_strict_central_unit_threshold(common)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "quotient": quotient,
+        "lag": lag,
+        "common_modulus": common,
+        "unit_group_order": len(common_units),
+        "fiber_size_over_common_modulus": fiber_counts[0],
+        "fiber_sum_mean": fiber_mean,
+        "centered_fiber_sum_l2": centered_l2,
+        "fiber_sum_l2": fiber_l2,
+        "centered_to_total_fiber_l2_ratio": (
+            centered_l2 / fiber_l2 if fiber_l2 else 0.0),
+        "maximum_centered_fiber_sum_absolute_value": max_centered_abs,
+        "maximum_internal_fiber_point_spread": max_internal_spread,
+        "pointwise_descent_relative_witness": (
+            max_internal_spread / descent_scale),
+        "direct_source_pointwise_descends_to_common_modulus": bool(
+            max_internal_spread <= tolerance),
+        "fiber_shadow_sign_convention": (
+            "negative centered fiber sum, matching the q77 convention"),
+        "fiber_shadow_values": tuple(complex(value) for value in fiber_shadow),
+        "central_unit_threshold": threshold,
+        "central_unit_threshold_reason": (
+            f"if N>={threshold} and N/3<p<2N/3, then p and N-p exceed "
+            f"the largest prime factor {_largest_prime_factor(common)} "
+            f"of modulus {common}"),
+        "nonzero_fiber_shadow_candidate_available": bool(
+            centered_l2 > tolerance),
+        "linked_prime_or_outer_row_bridge_proved": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "pointwise_signed_prime_correlation_estimate_proved": False,
