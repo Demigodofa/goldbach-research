@@ -17262,3 +17262,21 @@ Status `aha-candidate`: the cleaner theorem target is not eventual absence of
 the `.3` first-three tail, but eventual complement rescue of every remaining
 `.3` tail target, plus a finite initial exception table for cycles `0..7`.
 No proof is established.
+
+## 2026-09-12 continuation: non-rescued cycle-horizon receipt
+
+`q286_nonrescued_first_three_tail_cycle_horizon_receipt` now makes the
+onset-clearance horizon reproducible.  It records, cycle by cycle, full-action
+negative counts, `.3` first-three tail counts, non-rescued tail counts,
+minimum full action, minimum tail recombination, and the first checked suffix
+where non-rescued counts are all zero.
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_nonrescued_first_three_tail_cycle_horizon` passed in `202.762s`.
+The regression locks the known transition boundary: global cycle `7` has `2`
+non-rescued `.3` tail targets, global cycle `8` has `0`, and the checked clear
+suffix starts at global cycle `8`.
+
+Status `changed-under-evidence`: future cycle-horizon scans should use this
+receipt instead of ad hoc one-cycle scripts.  It standardizes the falsifier but
+does not prove eventual clearance or Goldbach.

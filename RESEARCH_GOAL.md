@@ -9054,3 +9054,16 @@ absence of that tail.
 
 Status `aha-candidate`: onset-clearance survived the first post-32 recurrence
 sweep; finite evidence only.
+
+### 2026-09-12 continuation: non-rescued cycle-horizon receipt
+
+`q286_nonrescued_first_three_tail_cycle_horizon_receipt` now codifies the
+onset-clearance horizon.  The focused regression checks the transition
+boundary from global cycle `7` (`2` non-rescued `.3` tail targets) to global
+cycle `8` (`0`), with the checked clear suffix starting at global cycle `8`.
+Validation: bytecode-disabled `py_compile` passed and the focused regression
+passed in `202.762s`.
+
+Status `changed-under-evidence`: horizon extension and recurrence falsifiers
+now have a reusable receipt rather than ad hoc scripts.  Eventual clearance and
+Goldbach remain open.

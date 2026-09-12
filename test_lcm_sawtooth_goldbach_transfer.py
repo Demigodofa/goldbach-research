@@ -52,6 +52,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_threshold_horizon_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
+    q286_nonrescued_first_three_tail_cycle_horizon_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1674,6 +1675,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "nonrescued_first_three_tail_classification_measured"])
         self.assertFalse(receipt[
             "nonrescued_classification_theorem_proved"])
+
+    def test_q286_nonrescued_first_three_tail_cycle_horizon(self):
+        receipt = q286_nonrescued_first_three_tail_cycle_horizon_receipt(
+            start=80070, cycle_count=2, targets_per_cycle=5005,
+            threshold=.3)
+        self.assertEqual(receipt["threshold"], .3)
+        self.assertEqual(receipt["cycle_count"], 2)
+        self.assertEqual(receipt["tested_target_count"], 10010)
+        self.assertEqual(receipt["cycle_rows"][0]["global_cycle"], 7)
+        self.assertEqual(receipt["cycle_rows"][1]["global_cycle"], 8)
+        self.assertEqual(receipt["cycle_rows"][0][
+            "nonrescued_tail_target_count"], 2)
+        self.assertEqual(receipt["cycle_rows"][1][
+            "nonrescued_tail_target_count"], 0)
+        self.assertEqual(
+            receipt["cycles_with_nonrescued_tail_targets"], (0,))
+        self.assertEqual(receipt[
+            "last_cycle_with_nonrescued_tail_target"], 0)
+        self.assertEqual(receipt[
+            "first_cycle_after_last_nonrescued_tail_target"], 1)
+        self.assertEqual(receipt["suffix_clear_start_cycle"], 1)
+        self.assertEqual(receipt["suffix_clear_global_cycle"], 8)
+        self.assertFalse(receipt["all_cycles_clear_nonrescued_tail"])
+        self.assertTrue(receipt[
+            "nonrescued_first_three_tail_cycle_horizon_measured"])
+        self.assertFalse(receipt[
+            "eventual_nonrescued_tail_clearance_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

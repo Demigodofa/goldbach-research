@@ -10866,3 +10866,153 @@ def q286_nonrescued_first_three_tail_classification_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_nonrescued_first_three_tail_cycle_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        threshold=.3, tolerance=1e-9):
+    """Scan cycles for non-rescued first-three tail recurrence.
+
+    This receipt isolates the finite horizon question suggested by the
+    non-rescued classifier: after which checked cycle does every target with
+    ``first_three < -threshold`` have positive recombined full action?
+    It is a finite horizon diagnostic, not an eventual theorem.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = None
+    cycle_rows = {}
+    total_negative_full = 0
+    total_tail_targets = 0
+    total_nonrescued = 0
+    global_minimum_full = None
+    global_minimum_tail_recombined = None
+    for cycle in range(cycle_count):
+        cycle_start = start if period is None else start + cycle * period
+        receipt = q286_first_three_complement_cooccurrence_receipt(
+            start=cycle_start, cycle_count=1,
+            targets_per_cycle=targets_per_cycle,
+            negative_tail_thresholds=(threshold,), tolerance=tolerance)
+        if period is None:
+            period = receipt["arithmetic_period"]
+        threshold_row = receipt["threshold_rows"][threshold]
+        tail_targets = threshold_row["tail_target_count"]
+        nonrescued = threshold_row["negative_full_count_inside_tail"]
+        minimum_full_target = receipt["minimum_full_action_target"]
+        minimum_full_value = receipt[
+            "minimum_full_action_to_principal_ratio"]
+        minimum_tail_target = threshold_row[
+            "minimum_recombined_target_inside_tail"]
+        minimum_tail_value = threshold_row[
+            "minimum_recombined_inside_tail"]
+        if ((cycle_start - 10000) % period == 0):
+            global_cycle = (cycle_start - 10000) // period
+        else:
+            global_cycle = None
+
+        total_negative_full += receipt["negative_full_action_count"]
+        total_tail_targets += tail_targets
+        total_nonrescued += nonrescued
+        if (global_minimum_full is None
+                or minimum_full_value < global_minimum_full[2]):
+            global_minimum_full = (
+                cycle, minimum_full_target, minimum_full_value)
+        if (tail_targets and (
+                global_minimum_tail_recombined is None
+                or minimum_tail_value
+                < global_minimum_tail_recombined[2])):
+            global_minimum_tail_recombined = (
+                cycle, minimum_tail_target, minimum_tail_value)
+
+        cycle_rows[cycle] = {
+            "start": cycle_start,
+            "end": cycle_start + 2 * (targets_per_cycle - 1),
+            "global_cycle": global_cycle,
+            "tested_target_count": receipt["tested_target_count"],
+            "full_action_negative_count": receipt[
+                "negative_full_action_count"],
+            "minimum_full_action_target": minimum_full_target,
+            "minimum_full_action_to_principal_ratio": minimum_full_value,
+            "tail_target_count": tail_targets,
+            "nonrescued_tail_target_count": nonrescued,
+            "rescued_tail_target_count": threshold_row[
+                "rescued_tail_target_count"],
+            "minimum_tail_recombined_target": minimum_tail_target,
+            "minimum_tail_recombined_to_principal_ratio": (
+                minimum_tail_value),
+            "tail_targets_all_rescued": bool(nonrescued == 0),
+            "negative_tail_and_negative_full_targets": threshold_row[
+                "negative_tail_and_negative_full_targets"],
+        }
+
+    cycles_with_nonrescued = tuple(
+        cycle for cycle, row in cycle_rows.items()
+        if row["nonrescued_tail_target_count"] > 0)
+    cycles_with_full_negative = tuple(
+        cycle for cycle, row in cycle_rows.items()
+        if row["full_action_negative_count"] > 0)
+    suffix_clear_start_cycle = None
+    for cycle in sorted(cycle_rows):
+        if all(cycle_rows[later]["nonrescued_tail_target_count"] == 0
+               for later in range(cycle, cycle_count)):
+            suffix_clear_start_cycle = cycle
+            break
+    suffix_clear_global_cycle = (
+        cycle_rows[suffix_clear_start_cycle]["global_cycle"]
+        if suffix_clear_start_cycle is not None else None)
+    last_nonrescued_cycle = (
+        max(cycles_with_nonrescued) if cycles_with_nonrescued else None)
+    first_cycle_after_last_nonrescued = (
+        last_nonrescued_cycle + 1
+        if last_nonrescued_cycle is not None
+        and last_nonrescued_cycle + 1 in cycle_rows else None)
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "threshold": threshold,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "cycle_rows": cycle_rows,
+        "total_full_action_negative_count": total_negative_full,
+        "total_tail_target_count": total_tail_targets,
+        "total_nonrescued_tail_target_count": total_nonrescued,
+        "cycles_with_full_action_negatives": cycles_with_full_negative,
+        "cycles_with_nonrescued_tail_targets": cycles_with_nonrescued,
+        "last_cycle_with_nonrescued_tail_target": last_nonrescued_cycle,
+        "first_cycle_after_last_nonrescued_tail_target": (
+            first_cycle_after_last_nonrescued),
+        "suffix_clear_start_cycle": suffix_clear_start_cycle,
+        "suffix_clear_global_cycle": suffix_clear_global_cycle,
+        "all_cycles_clear_nonrescued_tail": bool(
+            not cycles_with_nonrescued),
+        "global_minimum_full_action_cycle": global_minimum_full[0],
+        "global_minimum_full_action_target": global_minimum_full[1],
+        "global_minimum_full_action_to_principal_ratio": (
+            global_minimum_full[2]),
+        "global_minimum_tail_recombined_cycle": (
+            global_minimum_tail_recombined[0]
+            if global_minimum_tail_recombined is not None else None),
+        "global_minimum_tail_recombined_target": (
+            global_minimum_tail_recombined[1]
+            if global_minimum_tail_recombined is not None else None),
+        "global_minimum_tail_recombined_to_principal_ratio": (
+            global_minimum_tail_recombined[2]
+            if global_minimum_tail_recombined is not None else math.nan),
+        "nonrescued_first_three_tail_cycle_horizon_measured": True,
+        "eventual_nonrescued_tail_clearance_proved": False,
+        "eventual_complement_rescue_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

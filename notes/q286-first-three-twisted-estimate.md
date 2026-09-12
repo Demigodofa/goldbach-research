@@ -1920,3 +1920,30 @@ post-32 recurrence sweep.  The `.3` first-three tail is small but not gone;
 therefore the likely theorem is not simply "eventually no `.3` tail", but
 "eventually every `.3` tail is complement-rescued" with a separate finite
 initial exception table.  This remains finite evidence, not a proof.
+
+## 2026-09-12: non-rescued cycle-horizon receipt
+
+`q286_nonrescued_first_three_tail_cycle_horizon_receipt` now codifies the
+cycle-clearance horizon question directly.  For each cycle it records full-
+action negatives, `.3` first-three tail count, non-rescued tail count, minimum
+full action, minimum recombined value inside the tail, and the first suffix of
+the checked horizon where all non-rescued tail counts vanish.
+
+The focused regression locks the known transition boundary:
+
+```text
+start 80070, cycle_count 2, targets_per_cycle 5005, threshold .3
+local cycle 0 / global cycle 7: non-rescued tail count 2
+local cycle 1 / global cycle 8: non-rescued tail count 0
+cycles_with_nonrescued_tail_targets: (0,)
+suffix_clear_start_cycle: 1
+suffix_clear_global_cycle: 8
+```
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_nonrescued_first_three_tail_cycle_horizon` passed in `202.762s`.
+
+Status `changed-under-evidence`: the manually measured onset-clearance lane is
+now reproducible as a task-owned receipt.  This does not prove eventual
+clearance, but it turns future horizon extensions and falsifiers into one
+standard API instead of ad hoc one-cycle scripts.
