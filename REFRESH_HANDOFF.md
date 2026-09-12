@@ -16499,3 +16499,12 @@ Mode `3`: singular value `21476.920434701242`, effective counts
 Status `changed-under-evidence`: reject a sparse single-character shortcut.
 The first-three lower-tail estimate must handle a broad but finite mixture of
 small-conductor twisted Goldbach sums modulo `11` and `13`.
+
+The theorem-shaped target is written in
+`notes/q286-first-three-twisted-estimate.md`.  It formulates the first-three
+mode contribution as a finite mixture of fixed-modulus one-sided twisted
+binary-prime correlations
+`sum Lambda(p)Lambda(N-p)chi_11(p)^alpha chi_13(p)^beta`, and records why
+this is the signed prime-correlation step rather than a solved bookkeeping
+issue.  The next falsifier is to test first-three removal on more complete
+period cycles and same-residue lifts.

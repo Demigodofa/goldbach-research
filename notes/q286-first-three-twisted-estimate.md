@@ -1,0 +1,142 @@
+# q286 first-three twisted estimate target
+
+Status: theorem-shaped target, not proved.
+
+Date: 2026-09-12.
+
+## Context
+
+The strict-central assembled coefficient on `U_10010` has been reduced to a
+positive principal contribution plus exact lower-modulus support channels.  In
+the dominant `q286 = 2*11*13` support, the centered component is split into a
+local lower-modulus prediction, six separable singular modes, and a small
+measured tail.
+
+Finite diagnostics show that the first three q286 singular modes are the
+active lower-tail core on the first complete residue period:
+
+- On `10000..20008`, all `75` negative full-action targets have negative
+  first-three q286 mode sum.
+- Removing modes `1`, `2`, and `3` leaves no nonpositive full-action target
+  in that period.
+- The worst remaining full-action ratio after removing those modes is
+  `0.018073313793834367` principal, at `N=14138`.
+- Removing only modes `1` and `2` leaves one target, `N=14138`, still negative
+  by `0.007038026892741689` principal.
+
+This makes modes `1..3` the present proof target.  The claim is finite
+evidence only.
+
+## Exact finite object
+
+For each leading mode `j`, the q286 coefficient is separable:
+
+```text
+C_j(r) = sigma_j A_j(r mod 11) B_j(r mod 13)
+```
+
+where `A_j` and `B_j` are finite mixtures of nonprincipal multiplicative
+characters.  For a strict-central even target `N`, the mode contribution is
+
+```text
+T_j(N) =
+  sum_{N/3 < p < 2N/3, p and N-p prime}
+    log(p) log(N-p) C_j(p mod 286).
+```
+
+Equivalently, after expanding `A_j` and `B_j`,
+
+```text
+T_j(N) =
+  sigma_j sum_{alpha=1..9} sum_{beta=1..11}
+    u_{j,alpha} v_{j,beta}
+    sum_{N/3 < p < 2N/3}
+      Lambda(p) Lambda(N-p)
+      chi_11(p)^alpha chi_13(p)^beta,
+```
+
+up to the already-explicit endpoint convention replacing prime sums by
+strict-central weighted prime-pair sums.
+
+The mode vectors are broad, not single-character:
+
+- Mode `1`: effective side character counts `4.899124389855417` and
+  `5.8587969819448205`.
+- Mode `2`: effective counts `3.994990282499014` and
+  `4.9888048746106834`.
+- Mode `3`: effective counts `4.787886564984907` and
+  `5.526188486527063`.
+- The largest side character-energy fraction among these six sides is only
+  `.2588529653280147`.
+
+So a proof cannot estimate one exceptional character and call the mode paid.
+It needs a finite but broad small-conductor mixture.
+
+## Sufficient estimate shape
+
+Let
+
+```text
+P(N) = positive principal contribution,
+R_0(N) = exact non-q286 supports + q286 local + modes 4..6 + q286 tail.
+```
+
+The strict-central coefficient action is
+
+```text
+P(N) + R_0(N) + T_1(N) + T_2(N) + T_3(N).
+```
+
+A direct sufficient theorem is therefore:
+
+```text
+T_1(N) + T_2(N) + T_3(N) > -P(N) - R_0(N)
+```
+
+for every sufficiently large even `N`, with a finite check below the onset.
+
+A cleaner but stronger route would prove constants `eta, rho > 0` and an
+onset `N_0` such that
+
+```text
+R_0(N) >= -eta P(N),
+T_1(N) + T_2(N) + T_3(N) >= -(1 - eta - rho) P(N)
+```
+
+for all even `N >= N_0` in the strict-central unit range.  The finite
+diagnostics only motivate this split; they do not prove either inequality.
+
+## Why this is hard
+
+The inner sums are fixed-modulus, one-sided twisted binary-prime correlations:
+
+```text
+sum Lambda(p) Lambda(N-p) chi(p).
+```
+
+The character is nonprincipal and has small fixed conductor, so the expected
+main term is zero after local averaging.  But the required conclusion is a
+pointwise lower-tail bound for every even `N`, not merely an averaged
+equidistribution statement.  This is exactly the kind of signed prime
+correlation estimate that the project has not yet proved.
+
+Chen-type results are a warning sign here.  Replacing one prime by an almost
+prime avoids part of the parity obstruction.  Forcing the remaining almost
+prime factor to be prime is not usually a small refinement of the same sieve;
+it is the missing binary-prime correlation strength.  In this project, the
+analogous "final factor" appears as pointwise control of the first-three
+q286 twisted correlations.
+
+## Next falsifiers
+
+1. Test whether first-three removal leaves a positive margin on more complete
+   period cycles, not just the first period.
+2. Measure whether the first-three lower tail decays with lifts of the same
+   residue class, or whether it has recurring large negative excursions.
+3. Compare first-three mode sums to classical fixed-modulus AP discrepancy
+   proxies; if the bad targets are selected by ordinary residue imbalance,
+   a sourced AP theorem might help.  If not, the proof needs a genuine
+   binary-correlation input.
+4. Preserve the endpoint/noncentral reconciliation separately; this note only
+   concerns the strict-central unit coefficient action.
+
