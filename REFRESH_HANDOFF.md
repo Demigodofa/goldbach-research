@@ -238,6 +238,15 @@ q286 residue classes is `59.22078570613808`, but residues `133` and `153` both
 have weight `0`.  The obstruction is residue-specific signed placement, not
 absence of ordinary strict-central Goldbach pairs.
 
+Boundary signed anatomy at `N=14138`: first-three/principal is
+`-0.8950145872346784`; positive row sum/principal `0.5383359639042713`;
+negative row sum/principal `-1.4333505511389497`; signed/absolute contribution
+ratio `-0.45393351346984234`.  Top negative rows begin `133` and `153`, both
+positive coefficient and zero weight, each contributing about `-0.3224324`.
+Top positive rows begin `211,243,43,257,45,237`, mostly negative coefficient
+and zero weight.  This is a coefficient-sensitive signed residue-placement
+problem.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

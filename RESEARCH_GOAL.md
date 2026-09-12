@@ -221,6 +221,13 @@ strict-central prime pairs and total log-pair weight `5862.85778490767`, so it
 is not a raw pair-count scarcity.  The cover residues `133` and `153` have
 zero weight, making the obstruction residue-specific signed placement.
 
+The signed anatomy of `N=14138` confirms that interpretation.  The leading
+negative rows are empty positive-coefficient residues `133` and `153`, each
+contributing about `-0.3224324` principal.  The leading positive rows are
+mostly empty negative-coefficient residues such as `211,243,43,257`.  The
+missing theorem must therefore control signed residue placement, not only total
+strict-central pair count.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

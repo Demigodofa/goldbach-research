@@ -966,3 +966,44 @@ Goldbach pairs in the strict-central interval.  It is signed residue placement:
 the cover pair is empty, while the occupied residues do not give enough
 positive complement to absorb the first-three q286 tail.  This supports a
 residue-distribution proof target rather than a raw pair-count target.
+
+The first-three residue anatomy at `N=14138` makes the sign direction explicit:
+
+```text
+first-three/principal: -0.8950145872346784
+positive first-three row sum/principal: 0.5383359639042713
+negative first-three row sum/principal: -1.4333505511389497
+signed/absolute contribution ratio: -0.45393351346984234
+top-absolute row fraction: 0.6971100214766663
+maximum relative residue deviation: 2.974800180551649
+rms relative residue deviation: 0.9941766583984686
+```
+
+Largest negative first-three rows:
+
+```text
+133: coeff +1404595.8164, weight 0,      contribution -0.3224324185890418
+153: coeff +1404595.8164, weight 0,      contribution -0.3224324185890399
+23:  coeff -299046.4120,  weight 156.78, contribution -0.1130889762466301
+285: coeff -133083.6238,  weight 233.73, contribution -0.09002335832662271
+159: coeff -226811.5922,  weight 157.04, contribution -0.08599669218564053
+205: coeff -105808.8708,  weight 235.39, contribution -0.07225488414275169
+29:  coeff -162737.3264,  weight 155.85, contribution -0.06095547110471638
+```
+
+Largest positive first-three rows:
+
+```text
+211: coeff -226290.1103, weight 0, contribution 0.051946094893403655
+243: coeff -163375.4802, weight 0, contribution 0.03750370790634848
+43:  coeff -163375.4802, weight 0, contribution 0.03750370790634512
+257: coeff -162737.3264, weight 0, contribution 0.03735721630866466
+45:  coeff -133875.9469, weight 0, contribution 0.030731933587607903
+237: coeff -118858.7410, weight 0, contribution 0.02728465434219034
+```
+
+Status `boundary-anatomy`: the hardest target is a signed residue-placement
+imbalance, not a raw absence of pairs.  The leading damage is empty
+positive-coefficient cover rows, while leading compensation is mostly empty
+negative-coefficient rows.  This reinforces that the missing theorem must be
+signed and coefficient-sensitive.
