@@ -17211,3 +17211,22 @@ mechanism for the non-rescued minority, plus a complement-rescue estimate for
 the broad first-three tail.  This is finite classifier evidence only; no
 eventual lift theorem, signed prime-correlation estimate, Riemann-hypothesis
 result, prize-level result, or Goldbach proof is established.
+
+## 2026-09-12 continuation: sampled later-cycle non-rescue falsifier
+
+A broad two-block scan over global cycles `16..31` was interrupted without
+usable evidence because it produced no progress output.  A narrower visible
+falsifier then tested individual cycles `16`, `24`, and `32` with
+`q286_first_three_complement_cooccurrence_receipt`.  All three sampled cycles
+had zero full-action negatives and zero non-rescued `.3` first-three tail
+targets.
+
+Results: cycle `16` minimum full action `0.24084360363205248` at `171058`,
+with `.3` tail count `98`; cycle `24` minimum `0.2360810314099344` at
+`255704`, tail count `24`; cycle `32` minimum `0.38731649100422866` at
+`331444`, tail count `11`.
+
+Status `aha-candidate`: onset-clearance remains live but unproved.  The next
+bounded test should either scan all intervening cycles with progress output or
+derive a cycle-parameter lower bound explaining the disappearance of
+non-rescued targets after the early boundary window.

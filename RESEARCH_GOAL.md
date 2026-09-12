@@ -9018,3 +9018,15 @@ Status `aha-candidate`: the promising theorem shape is now boundary/onset
 clearance for the non-rescued minority plus a complement-rescue estimate for
 the broad first-three tail.  This preserves the earlier Goldbach objective but
 does not prove Goldbach, RH, or any prize-level result.
+
+### 2026-09-12 continuation: sampled later-cycle non-rescue falsifier
+
+Individual later-cycle falsifiers at global cycles `16`, `24`, and `32` found
+zero full-action negatives and zero non-rescued `.3` first-three tail targets.
+The respective minimum full-action ratios were `0.24084360363205248`,
+`0.2360810314099344`, and `0.38731649100422866`; `.3` tail counts were `98`,
+`24`, and `11`.
+
+Status `aha-candidate`: this supports but does not prove the boundary/onset
+clearance route.  Intervening-cycle scans or an analytic cycle-parameter lower
+bound remain required.

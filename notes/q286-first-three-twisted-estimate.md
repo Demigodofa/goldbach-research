@@ -1816,3 +1816,36 @@ initial obstruction set plus a period-lift or cycle-threshold clearance
 estimate, rather than trying to bound every first-three negative tail
 independently.  No eventual theorem, signed prime-correlation estimate, or
 Goldbach proof is established.
+
+## 2026-09-12: sampled later-cycle non-rescue falsifier
+
+After the non-rescued classifier suggested an onset/boundary mechanism, a
+larger two-block scan over global cycles `16..31` was attempted but interrupted
+without evidence because it gave no progress output.  A narrower falsifier then
+tested individual later cycles with visible progress using
+`q286_first_three_complement_cooccurrence_receipt`.
+
+```text
+global cycle 16, start 170160:
+  full-action negatives 0
+  minimum full action 0.24084360363205248 at N=171058
+  first_three < -.3 tail targets 98, non-rescued inside tail 0
+
+global cycle 24, start 250240:
+  full-action negatives 0
+  minimum full action 0.2360810314099344 at N=255704
+  first_three < -.3 tail targets 24, non-rescued inside tail 0
+
+global cycle 32, start 330320:
+  full-action negatives 0
+  minimum full action 0.38731649100422866 at N=331444
+  first_three < -.3 tail targets 11, non-rescued inside tail 0
+```
+
+Status `aha-candidate`: sampled later cycles preserve the onset-clearance
+hypothesis and show the broad first-three `.3` tail shrinking in these samples.
+This does not prove all later cycles clear, and the interrupted broad scan is
+not evidence.  The next bounded theorem/falsifier should either scan all
+intervening cycles with progress checkpoints or derive a cycle-parameter
+lower bound that explains why non-rescued targets vanish after the early
+boundary window.
