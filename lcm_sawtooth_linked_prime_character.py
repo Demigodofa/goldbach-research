@@ -3385,6 +3385,104 @@ def residue_orbit_even_even_profile_receipt(
     }
 
 
+def residue_orbit_even_even_profile_dispersion_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        maximum_profile_rayleigh_quotient=.25,
+        pointwise_alignment_threshold=.75,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(maximum_profile_rayleigh_quotient)
+            or not 0 <= maximum_profile_rayleigh_quotient <= 1):
+        raise ValueError("profile Rayleigh quotient gate must lie in [0, 1]")
+    if (not math.isfinite(pointwise_alignment_threshold)
+            or not 0 <= pointwise_alignment_threshold <= 1):
+        raise ValueError("pointwise alignment threshold must lie in [0, 1]")
+    base = residue_orbit_even_even_profile_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        maximum_profile_alignment=pointwise_alignment_threshold,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    source_norm_squared = base["source_profile_norm"] ** 2
+    violating_targets = set(base["violating_targets"])
+    dyadic_dispersion_summaries = {}
+    for block in base["dyadic_profile_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in base["rows"]
+            if block_lower <= target < block_upper)
+        squared_correlations = {
+            target: abs(base["rows"][target][
+                "even_even_profile_correlation"]) ** 2
+            for target in block_targets}
+        profile_energies = {
+            target: base["rows"][target]["prime_profile_norm"] ** 2
+            for target in block_targets}
+        numerator = math.fsum(squared_correlations.values())
+        prime_profile_energy = math.fsum(profile_energies.values())
+        denominator = source_norm_squared * prime_profile_energy
+        if denominator <= 0:
+            raise ValueError("profile dispersion block has zero energy")
+        block_violations = tuple(
+            target for target in block_targets if target in violating_targets)
+        violating_numerator = math.fsum(
+            squared_correlations[target] for target in block_violations)
+        violating_profile_energy = math.fsum(
+            profile_energies[target] for target in block_violations)
+        rayleigh_quotient = numerator / denominator
+        if numerator > 0:
+            violating_numerator_fraction = violating_numerator / numerator
+            worst_numerator_target = max(
+                block_targets, key=lambda target: squared_correlations[target])
+            worst_numerator_share = (
+                squared_correlations[worst_numerator_target] / numerator)
+        else:
+            violating_numerator_fraction = None
+            worst_numerator_target = None
+            worst_numerator_share = None
+        dyadic_dispersion_summaries[block] = {
+            "target_count": len(block_targets),
+            "profile_rayleigh_quotient": rayleigh_quotient,
+            "unweighted_mean_squared_alignment": math.fsum(
+                base["rows"][target]["profile_alignment"] ** 2
+                for target in block_targets) / len(block_targets),
+            "violating_target_count": len(block_violations),
+            "violating_target_numerator_fraction": (
+                violating_numerator_fraction),
+            "violating_target_profile_energy_fraction": (
+                violating_profile_energy / prime_profile_energy),
+            "worst_single_target_numerator_share": worst_numerator_share,
+            "worst_single_target_numerator_target": worst_numerator_target,
+            "passes_profile_rayleigh_quotient_gate": bool(
+                rayleigh_quotient <= maximum_profile_rayleigh_quotient),
+        }
+    all_blocks_pass = all(
+        row["passes_profile_rayleigh_quotient_gate"]
+        for row in dyadic_dispersion_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "tested_target_count": base["tested_target_count"],
+        "source_profile_norm": base["source_profile_norm"],
+        "pointwise_alignment_threshold": pointwise_alignment_threshold,
+        "pointwise_violating_target_count": len(violating_targets),
+        "maximum_profile_rayleigh_quotient_gate": (
+            maximum_profile_rayleigh_quotient),
+        "dyadic_dispersion_summaries": dyadic_dispersion_summaries,
+        "all_dyadic_blocks_pass_profile_rayleigh_quotient_gate": (
+            all_blocks_pass),
+        "finite_even_even_profile_dispersion_measured": True,
+        "averaged_even_even_profile_dispersion_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

@@ -14439,3 +14439,66 @@ single-target numerator share.  Passing would show that isolated resonances
 do not destroy an averaged angular saving in this dominant sector.  Failure
 would establish persistent directional bias and identify which scale and
 targets carry it.  Neither outcome alone proves a uniform asymptotic bound.
+
+## 2026-09-11 five-dimensional averaged dispersion passes four blocks
+
+`residue_orbit_even_even_profile_dispersion_receipt` measures the exact
+energy-weighted Rayleigh quotient
+
+`Q_B=sum_(N in B)|<h_N,h_C>|^2
+     /(||h_C||_2^2 sum_(N in B)||h_N||_2^2)`.
+
+It is the prime-profile-energy-weighted mean of `alpha_N^2`; the isotropic
+five-dimensional reference is `1/5`.  In ascending dyadic order the measured
+quotients are
+
+`.34244, .10030, .19028, .26152, .29167, .18014, .22910`.
+
+Blocks two, three, six, and seven pass the frozen `1/4` gate.  Blocks one,
+four, and five fail, so the required all-seven conclusion is false.
+
+The `83` targets with pointwise alignment above `.75` are sparse in profile
+energy but disproportionately important to the numerator.  Their numerator
+fractions by block are
+
+`.71235, 0, .36162, .42140, .42449, .28326, .35670`,
+
+while their profile-energy fractions are only
+
+`.34524, 0, .10712, .15759, .18013, .07192, .12061`.
+
+For example, the last block passes `Q_B<=1/4` despite having `28` pointwise
+violations: they contain about `12.1%` of profile energy but `35.7%` of the
+correlation numerator.  The largest single-target numerator shares decrease
+from `.42421` in the first block to below `.056` in each of the last three.
+
+Curiosity status: `partial-average-pass/sparse-resonance-obstruction`, novelty
+`new-to-this-task`.  Preserve the four passing blocks, all Rayleigh data, and
+the separation between profile energy and correlation numerator.  Reject the
+all-block `1/4` claim.  The finite evidence points to an exceptional-set
+problem rather than uniform directional bias across every target.
+
+Independent review verified the Rayleigh normalization, energy-weighted
+alignment identity, isotropic reference, target sets, all fractions and
+shares, and finite scope.  It initially held an edge case: a positive-energy
+block with zero numerator is valid with `Q_B=0`, not an error.  The corrected
+receipt returns `None` for undefined numerator-share diagnostics in that case;
+normal and optimized tests pass, and review cleared the hold.  No averaged
+asymptotic bound, signed prime-correlation theorem, or Goldbach result has been
+proved.
+
+The next bounded question tests whether the three failing blocks have a sparse
+exceptional-set explanation.  For threshold `q=1/4`, give target `N` the
+Rayleigh excess
+
+`e_N=|<h_N,h_C>|^2-q ||h_C||_2^2||h_N||_2^2`.
+
+Within each block, remove targets in descending order of positive `e_N` until
+the remaining aggregate excess is nonpositive.  This greedy rule uses the
+fewest targets because each removal contributes independently to the excess
+sum.  Freeze the exceptional-set gate as: every block reaches `Q_B<=1/4`
+after removing at most `10%` of its targets and at most `25%` of its total
+prime-profile energy.  Report the removed targets, numerator share, and energy
+share.  Passing would isolate a finite sparse exceptional set for a future
+large-values estimate.  Failure would show that the directional bias is too
+diffuse for this exceptional-set route at the tested scales.

@@ -19,6 +19,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_crt_parity_receipt,
     residue_orbit_crt_sector_correlation_receipt,
     residue_orbit_even_even_profile_receipt,
+    residue_orbit_even_even_profile_dispersion_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -148,6 +149,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_even_even_profile_receipt(
                 maximum_profile_alignment=1.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_even_even_profile_dispersion_receipt(
+                maximum_profile_rayleigh_quotient=-.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1428,6 +1432,78 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertTrue(receipt["finite_even_even_profiles_measured"])
         self.assertFalse(receipt[
             "uniform_even_even_profile_nonresonance_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_even_even_profile_dispersion(self):
+        receipt = residue_orbit_even_even_profile_dispersion_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(receipt["pointwise_violating_target_count"], 83)
+        self.assertEqual(len(receipt["dyadic_dispersion_summaries"]), 7)
+        dyadic = receipt["dyadic_dispersion_summaries"]
+        expected_quotients = (
+            .342435562787477, .1002952684801748,
+            .19027955740626695, .26152121328489525,
+            .29167441789873155, .18013863279153874,
+            .22909561046920018)
+        expected_unweighted_means = (
+            .29896654809182127, .12101073621020503,
+            .15547392380316474, .23007226623802185,
+            .3016590678607943, .19280820250914868,
+            .22316325074841784)
+        expected_violation_counts = (2, 0, 2, 7, 22, 22, 28)
+        expected_violation_numerator_fractions = (
+            .7123544310455384, 0.0, .36161786535290524,
+            .42140373388803903, .42449355987943654,
+            .28325823798115674, .3567043728431946)
+        expected_violation_energy_fractions = (
+            .3452443991247799, 0.0, .10712480087784242,
+            .1575884040790471, .18013440236587716,
+            .0719189832224286, .1206085008593276)
+        expected_worst_shares = (
+            .4242070195313367, .2685655410333938,
+            .27085935900505737, .21280277521584315,
+            .05545151036454364, .03281783690233807,
+            .048344404465412244)
+        expected_worst_targets = (
+            1762, 3712, 5922, 15282, 19572, 35562, 74562)
+        for row, quotient, mean, count, numerator_fraction, energy_fraction, \
+                share, target in zip(
+                    dyadic.values(), expected_quotients,
+                    expected_unweighted_means, expected_violation_counts,
+                    expected_violation_numerator_fractions,
+                    expected_violation_energy_fractions,
+                    expected_worst_shares, expected_worst_targets):
+            self.assertAlmostEqual(
+                row["profile_rayleigh_quotient"], quotient, places=12)
+            self.assertAlmostEqual(
+                row["unweighted_mean_squared_alignment"], mean, places=12)
+            self.assertEqual(row["violating_target_count"], count)
+            self.assertAlmostEqual(
+                row["violating_target_numerator_fraction"],
+                numerator_fraction, places=12)
+            self.assertAlmostEqual(
+                row["violating_target_profile_energy_fraction"],
+                energy_fraction, places=12)
+            self.assertAlmostEqual(
+                row["worst_single_target_numerator_share"], share, places=12)
+            self.assertEqual(
+                row["worst_single_target_numerator_target"], target)
+        self.assertEqual(
+            tuple(row["passes_profile_rayleigh_quotient_gate"]
+                  for row in dyadic.values()),
+            (False, True, True, False, False, True, True))
+        self.assertFalse(receipt[
+            "all_dyadic_blocks_pass_profile_rayleigh_quotient_gate"])
+        self.assertTrue(receipt[
+            "finite_even_even_profile_dispersion_measured"])
+        self.assertFalse(receipt[
+            "averaged_even_even_profile_dispersion_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
