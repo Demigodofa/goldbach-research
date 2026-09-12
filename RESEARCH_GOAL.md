@@ -9099,3 +9099,15 @@ minimum is elsewhere (`440866`, value `0.37175458031519565`).
 Status `aha-candidate`: this supports a two-zone target: finite/boundary
 non-rescued exceptions plus an eventual regime where tail deficits are shallow
 or complement buffers are uniformly large.
+
+### 2026-09-12 continuation: first-three tail rescue-profile receipt
+
+`q286_first_three_tail_rescue_profile_receipt` now records exact tail targets,
+rescued/non-rescued splits, per-tail deficit, complement, recombined margin,
+and rescue-buffer extrema.  The focused regression anchors the cycle `43`
+single-tail case (`448346`) and passed in `254.052s` after bytecode-disabled
+`py_compile`.
+
+Status `changed-under-evidence`: complement rescue can now be profiled across
+later bands to test whether tails are shallow, strongly buffered, or split
+between those regimes.  No theorem is proved.

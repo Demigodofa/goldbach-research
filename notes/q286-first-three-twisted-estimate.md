@@ -2028,3 +2028,31 @@ post-first-three complement buffer.  A plausible proof target is now a
 two-zone statement: finite/boundary non-rescued exceptions, plus an eventual
 tail regime where the first-three deficit is shallow or the complement buffer
 is uniformly large.
+
+## 2026-09-12: first-three tail rescue-profile receipt
+
+`q286_first_three_tail_rescue_profile_receipt` now makes the complement-rescue
+mechanism inspectable.  For a finite cycle window it stores exact tail targets,
+rescued/non-rescued target splits, per-tail deficit, complement, recombined
+margin, complement-over-threshold, complement-over-deficit, and cycle/global
+extrema.
+
+The focused regression uses the cycle `43` microscope:
+
+```text
+start 440430, cycle_count 1, targets_per_cycle 5005, threshold .3
+tail_targets: (448346,)
+rescued_tail_targets: (448346,)
+nonrescued_tail_targets: ()
+first_three: -0.3106946886916736
+complement: 0.9781909468423949
+rescue_margin: 0.6674962581507213
+```
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_first_three_tail_rescue_profile` passed in `254.052s`.
+
+Status `changed-under-evidence`: complement rescue is now a first-class
+measured object in the code.  The next falsifier can profile entire later
+bands and ask whether rescued tails are uniformly shallow, uniformly buffered,
+or split between the two.  No eventual theorem is proved.

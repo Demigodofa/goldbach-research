@@ -17319,3 +17319,19 @@ Status `aha-candidate`: this late tail case is not delicate.  It suggests a
 two-zone theorem target: finite/boundary non-rescued exceptions, then an
 eventual regime where `.3` tail deficits are shallow or complement buffers are
 uniformly large.
+
+## 2026-09-12 continuation: first-three tail rescue-profile receipt
+
+`q286_first_three_tail_rescue_profile_receipt` now records exact tail targets,
+rescued/non-rescued splits, per-tail deficit, complement, recombined margin,
+complement-over-threshold, complement-over-deficit, and cycle/global extrema.
+The focused regression uses the cycle `43` single-tail microscope and confirms
+target `448346` with first_three `-0.3106946886916736`, complement
+`0.9781909468423949`, and rescue margin `0.6674962581507213`.
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_first_three_tail_rescue_profile` passed in `254.052s`.
+
+Status `changed-under-evidence`: rescue-mechanism profiling is now a reusable
+receipt.  Next use it to classify later bands into shallow-deficit versus
+large-buffer rescue regimes.

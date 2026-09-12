@@ -53,6 +53,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
+    q286_first_three_tail_rescue_profile_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1715,6 +1716,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "nonrescued_first_three_tail_cycle_horizon_measured"])
         self.assertFalse(receipt[
             "eventual_nonrescued_tail_clearance_proved"])
+
+    def test_q286_first_three_tail_rescue_profile(self):
+        receipt = q286_first_three_tail_rescue_profile_receipt(
+            start=440430, cycle_count=1, targets_per_cycle=5005,
+            threshold=.3)
+        self.assertEqual(receipt["threshold"], .3)
+        self.assertEqual(receipt["cycle_rows"][0]["global_cycle"], 43)
+        self.assertEqual(receipt["tail_targets"], (448346,))
+        self.assertEqual(receipt["rescued_tail_targets"], (448346,))
+        self.assertEqual(receipt["nonrescued_tail_targets"], ())
+        self.assertTrue(receipt["all_tail_targets_rescued"])
+        self.assertEqual(receipt["deepest_deficit_target"], 448346)
+        self.assertEqual(receipt["minimum_rescue_margin_target"], 448346)
+        row = receipt["tail_rows"][448346]
+        self.assertAlmostEqual(
+            row["first_three_to_principal_ratio"],
+            -0.3106946886916736)
+        self.assertAlmostEqual(
+            row["complement_to_principal_ratio"],
+            0.9781909468423949)
+        self.assertAlmostEqual(
+            row["rescue_margin_to_principal_ratio"],
+            0.6674962581507213)
+        self.assertTrue(receipt[
+            "first_three_tail_rescue_profile_measured"])
+        self.assertFalse(receipt[
+            "eventual_complement_rescue_theorem_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

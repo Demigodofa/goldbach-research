@@ -11021,3 +11021,162 @@ def q286_nonrescued_first_three_tail_cycle_horizon_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_tail_rescue_profile_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        threshold=.3, tolerance=1e-9):
+    """Profile complement rescue on the first-three negative tail.
+
+    This is the mechanism-facing companion to the non-rescued horizon receipt.
+    It keeps the exact tail targets and summarizes deficit depth, complement
+    buffer, and recombined margin on the selected finite cycle window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    cooccurrence = q286_first_three_complement_cooccurrence_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=(threshold,), tolerance=tolerance)
+    period = cooccurrence["arithmetic_period"]
+    cycle_rows = {}
+    tail_rows = {}
+    global_tail_targets = []
+    global_rescued_targets = []
+    global_nonrescued_targets = []
+    for cycle in range(cycle_count):
+        cycle_tail_targets = tuple(
+            target for target, row in cooccurrence["rows"].items()
+            if row["cycle"] == cycle
+            and row["first_three_to_principal_ratio"] < -threshold)
+        cycle_rescued_targets = tuple(
+            target for target in cycle_tail_targets
+            if not cooccurrence["rows"][target]["negative_full_action"])
+        cycle_nonrescued_targets = tuple(
+            target for target in cycle_tail_targets
+            if cooccurrence["rows"][target]["negative_full_action"])
+        global_tail_targets.extend(cycle_tail_targets)
+        global_rescued_targets.extend(cycle_rescued_targets)
+        global_nonrescued_targets.extend(cycle_nonrescued_targets)
+
+        for target in cycle_tail_targets:
+            row = cooccurrence["rows"][target]
+            first_three = row["first_three_to_principal_ratio"]
+            complement = row["complement_to_principal_ratio"]
+            full = row["full_action_to_principal_ratio"]
+            tail_rows[target] = {
+                "cycle": cycle,
+                "deficit_to_principal_ratio": -first_three,
+                "first_three_to_principal_ratio": first_three,
+                "complement_to_principal_ratio": complement,
+                "full_action_to_principal_ratio": full,
+                "rescue_margin_to_principal_ratio": full,
+                "complement_minus_threshold_to_principal_ratio": (
+                    complement - threshold),
+                "complement_minus_deficit_to_principal_ratio": (
+                    complement + first_three),
+                "rescued": bool(full > tolerance),
+                "nonrescued": bool(full <= tolerance),
+            }
+
+        if cycle_tail_targets:
+            deepest_deficit_target = max(
+                cycle_tail_targets,
+                key=lambda target: tail_rows[target][
+                    "deficit_to_principal_ratio"])
+            minimum_complement_target = min(
+                cycle_tail_targets,
+                key=lambda target: tail_rows[target][
+                    "complement_to_principal_ratio"])
+            minimum_margin_target = min(
+                cycle_tail_targets,
+                key=lambda target: tail_rows[target][
+                    "full_action_to_principal_ratio"])
+            maximum_deficit = tail_rows[
+                deepest_deficit_target]["deficit_to_principal_ratio"]
+            minimum_complement = tail_rows[
+                minimum_complement_target]["complement_to_principal_ratio"]
+            minimum_margin = tail_rows[
+                minimum_margin_target]["full_action_to_principal_ratio"]
+        else:
+            deepest_deficit_target = None
+            minimum_complement_target = None
+            minimum_margin_target = None
+            maximum_deficit = math.nan
+            minimum_complement = math.nan
+            minimum_margin = math.nan
+
+        cycle_start = start + cycle * period
+        cycle_rows[cycle] = {
+            "start": cycle_start,
+            "end": cycle_start + 2 * (targets_per_cycle - 1),
+            "global_cycle": (
+                (cycle_start - 10000) // period
+                if (cycle_start - 10000) % period == 0 else None),
+            "tail_target_count": len(cycle_tail_targets),
+            "tail_targets": cycle_tail_targets,
+            "rescued_tail_target_count": len(cycle_rescued_targets),
+            "rescued_tail_targets": cycle_rescued_targets,
+            "nonrescued_tail_target_count": len(cycle_nonrescued_targets),
+            "nonrescued_tail_targets": cycle_nonrescued_targets,
+            "all_tail_targets_rescued": bool(not cycle_nonrescued_targets),
+            "deepest_deficit_target": deepest_deficit_target,
+            "maximum_deficit_to_principal_ratio": maximum_deficit,
+            "minimum_complement_target": minimum_complement_target,
+            "minimum_complement_to_principal_ratio": minimum_complement,
+            "minimum_rescue_margin_target": minimum_margin_target,
+            "minimum_rescue_margin_to_principal_ratio": minimum_margin,
+        }
+
+    if global_tail_targets:
+        global_deepest_deficit_target = max(
+            global_tail_targets,
+            key=lambda target: tail_rows[target][
+                "deficit_to_principal_ratio"])
+        global_minimum_complement_target = min(
+            global_tail_targets,
+            key=lambda target: tail_rows[target][
+                "complement_to_principal_ratio"])
+        global_minimum_margin_target = min(
+            global_tail_targets,
+            key=lambda target: tail_rows[target][
+                "full_action_to_principal_ratio"])
+    else:
+        global_deepest_deficit_target = None
+        global_minimum_complement_target = None
+        global_minimum_margin_target = None
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "threshold": threshold,
+        "tested_target_count": cooccurrence["tested_target_count"],
+        "cycle_rows": cycle_rows,
+        "tail_rows": tail_rows,
+        "tail_targets": tuple(global_tail_targets),
+        "rescued_tail_targets": tuple(global_rescued_targets),
+        "nonrescued_tail_targets": tuple(global_nonrescued_targets),
+        "tail_target_count": len(global_tail_targets),
+        "rescued_tail_target_count": len(global_rescued_targets),
+        "nonrescued_tail_target_count": len(global_nonrescued_targets),
+        "all_tail_targets_rescued": bool(not global_nonrescued_targets),
+        "deepest_deficit_target": global_deepest_deficit_target,
+        "minimum_complement_target": global_minimum_complement_target,
+        "minimum_rescue_margin_target": global_minimum_margin_target,
+        "first_three_tail_rescue_profile_measured": True,
+        "eventual_complement_rescue_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
