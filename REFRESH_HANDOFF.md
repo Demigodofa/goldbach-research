@@ -17375,3 +17375,14 @@ Status `changed-under-evidence`: transition behavior extends at least through
 cycle `20`.  Next falsifier: profile cycles `24..40` to see whether a stable
 complement floor begins around cycle `21` or whether further dips extend the
 transition exception range.
+
+## 2026-09-12 continuation: cycle 24 through 32 rescue-profile block
+
+Cycles `24..32` were profiled.  Every `.3` tail target is rescued, but the
+stable `41..48` complement floor does not begin at cycle `21`: cycles `24`,
+`25`, and `30` dip.  Across the block, deepest deficit is
+`0.4471460665759927`, minimum tail-set complement is `0.5500849164245104`,
+and minimum rescue margin is `0.2360810314099344`.
+
+Status `changed-under-evidence`: transition exceptions may extend at least
+through cycle `30`; all checked tails remain rescued.

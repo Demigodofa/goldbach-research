@@ -9146,3 +9146,14 @@ later large-buffer profile.
 Status `changed-under-evidence`: test cycles `24..40` next to determine
 whether a stable complement floor begins near cycle `21` or if the transition
 exception range extends farther.
+
+### 2026-09-12 continuation: cycle 24 through 32 rescue-profile block
+
+Cycles `24..32` were profiled.  Every `.3` tail target is rescued.  Deepest
+deficit is `0.4471460665759927`, minimum tail-set complement is
+`0.5500849164245104`, and minimum rescue margin is `0.2360810314099344`.
+Cycles `24`, `25`, and `30` dip below the later `41..48` complement floor.
+
+Status `changed-under-evidence`: the stable later-band floor does not begin at
+cycle `21` with the later constants; transition exceptions may extend through
+cycle `30`.

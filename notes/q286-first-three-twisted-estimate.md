@@ -2212,3 +2212,57 @@ Status `changed-under-evidence`: the measured transition zone extends at least
 through cycle `20`.  A plausible next falsifier is to profile cycles `24..40`
 and ask whether all cycles from `21` onward maintain a stable complement floor,
 or whether additional dips force a longer transition exception range.
+
+## 2026-09-12: cycle 24 through 32 rescue-profile block
+
+Cycles `24..32` were profiled to test whether the stable complement floor might
+begin around cycle `21`.  Every `.3` tail target is rescued, but the band still
+contains dips below the later `41..48` floor.
+
+```text
+cycle 24: tail 24, nonrescued 0,
+  deepest deficit 0.44657825143023566 at 253948,
+  min complement 0.5500849164245104 at 255704,
+  min margin 0.2360810314099344 at 255704
+cycle 25: tail 26, nonrescued 0,
+  deepest deficit 0.4471460665759927 at 263818,
+  min complement 0.6007609171755264 at 267406,
+  min margin 0.2838145346629123 at 267406
+cycle 26: tail 35, nonrescued 0,
+  deepest deficit 0.44374046537763967 at 276908,
+  min complement 0.6873831502570427 at 273554,
+  min margin 0.37781577724659793 at 273554
+cycle 27: tail 16, nonrescued 0,
+  deepest deficit 0.42167301271086116 at 283978,
+  min complement 0.7284779611458865 at 283984,
+  min margin 0.3701615804113509 at 281794
+cycle 28: tail 9, nonrescued 0,
+  deepest deficit 0.42049668248053657 at 297698,
+  min complement 0.8633215437422637 at 290614,
+  min margin 0.5214200073841513 at 290614
+cycle 29: tail 11, nonrescued 0,
+  deepest deficit 0.3502973592209339 at 302068,
+  min complement 0.8013120275242169 at 304718,
+  min margin 0.4672757791717939 at 304718
+cycle 30: tail 10, nonrescued 0,
+  deepest deficit 0.38848590069555405 at 313244,
+  min complement 0.60662043049502 at 316604,
+  min margin 0.27087324489275805 at 313244
+cycle 31: tail 8, nonrescued 0,
+  deepest deficit 0.40441112104182764 at 321326,
+  min complement 0.8175201849094438 at 320906,
+  min margin 0.46258734180359734 at 321326
+cycle 32: tail 11, nonrescued 0,
+  deepest deficit 0.38706490670172006 at 337738,
+  min complement 0.7752913928884343 at 339788,
+  min margin 0.4107035662278525 at 339788
+```
+
+Across cycles `24..32`, deepest measured deficit is `0.4471460665759927`,
+minimum complement is `0.5500849164245104`, and minimum rescue margin is
+`0.2360810314099344`.
+
+Status `changed-under-evidence`: a stable later-band floor does not begin at
+cycle `21` with the `41..48` constants; cycles `24`, `25`, and `30` still dip.
+The transition exception range may extend at least through cycle `30`, though
+all checked tails remain rescued.
