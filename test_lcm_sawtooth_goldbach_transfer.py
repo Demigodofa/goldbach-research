@@ -4,6 +4,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    combined_coefficient_character_spectrum_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
     holdout_full_projected_prime_coefficient_receipt,
@@ -418,6 +419,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["all_components_are_fixed_before_target"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_character_spectrum_is_broad(self):
+        receipt = combined_coefficient_character_spectrum_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(
+            receipt["assembled_quotients"], (35, 55, 65, 77, 143))
+        self.assertLess(
+            receipt["character_reconstruction_relative_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["total_character_energy"],
+            59187382055.160706, places=3)
+        self.assertAlmostEqual(
+            receipt["parseval_centered_l2_squared_over_phi"],
+            59187382055.1607, places=3)
+        self.assertEqual(receipt["top_count"], 12)
+        self.assertAlmostEqual(
+            receipt["top_character_cumulative_energy_fraction"],
+            .2525547318628327, places=14)
+        self.assertAlmostEqual(
+            receipt["character_energy_participation_ratio"],
+            66.02126503332039, places=12)
+        self.assertEqual(
+            receipt["nontrivial_character_count_at_tolerance"], 110)
+        self.assertEqual(
+            receipt["top_character_rows"][0]["label"], (1, 3, 0, 0))
+        self.assertAlmostEqual(
+            receipt["top_character_rows"][0]["energy_fraction"],
+            .023772825073655336, places=14)
+        self.assertFalse(receipt["small_character_support_diagnostic_passes"])
+        self.assertTrue(receipt["broad_character_support_observed"])
+        self.assertTrue(receipt["character_spectrum_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

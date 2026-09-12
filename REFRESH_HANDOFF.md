@@ -15451,3 +15451,31 @@ centered norm lives in a small number of characters, low-conductor factors, or
 a genuinely high-complexity residue pattern.  A small spectral support would
 suggest a sourced character-sum estimate; broad high-conductor support keeps
 the signed estimate as the main unsolved analytic problem.
+
+## 2026-09-12: assembled coefficient has broad character support
+
+`combined_coefficient_character_spectrum_receipt` decomposes the assembled
+centered coefficient vector on `U_10010` into the full Dirichlet-character
+basis.  Character reconstruction error is `2.86792335453186e-15`, and Parseval
+matches: total character energy is `59187382055.160706`, while
+`||C_centered||^2/phi(10010)` is `59187382055.1607`.
+
+The top `12` characters carry only `.2525547318628327` of the centered energy.
+The energy participation ratio is `66.02126503332039`, and `110` characters
+clear the tolerance-scaled nontrivial threshold.  The leading character label
+is `(1, 3, 0, 0)` with energy fraction `.023772825073655336`; its conjugate is
+second with the same fraction.  Thus the coefficient is explicit but not
+small-support in the character basis.
+
+Status `changed-under-evidence`: block the small-character-list shortcut.
+Preserve the explicit coefficient family and its character expansion, but the
+signed estimate now appears to require a broad-spectrum character/CRT
+large-sieve or cancellation argument rather than a finite handful of dominant
+characters.  No signed prime-correlation estimate, formal `T_boundary-Delta`
+bound, or Goldbach proof follows.
+
+Next concrete question: group character energy by CRT factor/conductor support
+instead of individual characters.  If most energy lives in characters missing
+one or more prime factors, low-dimensional product estimates may still apply;
+if energy is genuinely full-conductor, the next route should target a
+coefficient-weighted large-sieve estimate for the full `U_10010` family.

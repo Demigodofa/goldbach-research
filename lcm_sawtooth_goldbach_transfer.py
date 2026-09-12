@@ -1954,6 +1954,83 @@ def combined_fixed_strict_central_coefficient_receipt(tolerance=1e-9):
     }
 
 
+def combined_coefficient_character_spectrum_receipt(
+        top_count=12, tolerance=1e-9):
+    """Measure Dirichlet-character concentration of the assembled coefficient.
+
+    This is a finite spectral diagnostic on the explicit ``U_10010``
+    coefficient vector.  It does not supply a prime-sum estimate.
+    """
+    if type(top_count) is not int or top_count <= 0:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    centered = values - np.mean(values)
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    reconstruction = character_table.T @ character_coefficients
+    reconstruction_error = float(
+        np.linalg.norm(reconstruction - centered)
+        / max(1.0, float(np.linalg.norm(centered))))
+    energies = np.abs(character_coefficients) ** 2
+    total_energy = float(np.sum(energies))
+    order = tuple(
+        int(index) for index in np.argsort(energies)[::-1])
+    selected = order[:min(top_count, len(order))]
+    top_rows = tuple({
+        "rank": rank + 1,
+        "label": labels[index],
+        "coefficient": complex(character_coefficients[index]),
+        "energy": float(energies[index]),
+        "energy_fraction": (
+            float(energies[index] / total_energy) if total_energy else 0.0),
+    } for rank, index in enumerate(selected))
+    cumulative_energy_fraction = (
+        math.fsum(row["energy"] for row in top_rows) / total_energy
+        if total_energy else 0.0)
+    participation_ratio = (
+        total_energy * total_energy / float(np.sum(energies ** 2))
+        if total_energy else 0.0)
+    nontrivial_count = int(np.sum(
+        energies > total_energy * tolerance / len(energies)))
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "unit_group_order": len(units),
+        "assembled_quotients": coefficient["assembled_quotients"],
+        "aggregate_centered_l2": coefficient["aggregate_centered_l2"],
+        "character_reconstruction_relative_error": reconstruction_error,
+        "total_character_energy": total_energy,
+        "parseval_centered_l2_squared_over_phi": float(
+            coefficient["aggregate_centered_l2"] ** 2 / len(units)),
+        "top_count": len(top_rows),
+        "top_character_rows": top_rows,
+        "top_character_cumulative_energy_fraction": (
+            cumulative_energy_fraction),
+        "character_energy_participation_ratio": participation_ratio,
+        "nontrivial_character_count_at_tolerance": nontrivial_count,
+        "small_character_support_diagnostic_passes": bool(
+            cumulative_energy_fraction >= .9),
+        "broad_character_support_observed": bool(
+            cumulative_energy_fraction < .9),
+        "character_spectrum_measured": bool(
+            reconstruction_error <= tolerance),
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def symbolic_principal_plus_centered_channel_receipt(
         tolerance=1e-12, rational_tolerance=1e-10, batch_size=32):
     """Split the quotient-77 channel into a constant plus fiber shadow.

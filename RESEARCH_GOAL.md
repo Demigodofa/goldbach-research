@@ -7744,3 +7744,17 @@ bookkeeping is now one explicit finite coefficient vector on `U_10010`.  The
 next analytic problem is to decompose or bound the corresponding signed
 strict-central prime-residue correlation.  Endpoint/noncentral reconciliation
 and Goldbach remain open.
+
+### 2026-09-12 continuation: character spectrum is broad
+
+The assembled centered coefficient was decomposed into the full character
+basis on `U_10010`.  Reconstruction error is `2.86792335453186e-15`, and
+Parseval matches at character energy `59187382055.160706`.  The top `12`
+characters carry only `.2525547318628327` of the energy, the participation
+ratio is `66.02126503332039`, and `110` characters clear the nontrivial
+threshold.  The largest individual character carries only about `2.38%`.
+
+Status `changed-under-evidence`: the small dominant-character shortcut is
+blocked.  The explicit finite coefficient family remains useful, but the
+signed estimate likely needs conductor-support grouping, CRT tensor structure,
+or a broad weighted large-sieve argument.  Goldbach remains open.
