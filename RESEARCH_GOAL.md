@@ -8838,3 +8838,15 @@ targets, including `14138` (`-0.6530100068358884`) and `14732`
 Status `changed-under-evidence`: the lower-envelope theorem must be joint and
 signed.  q70 is required in the support mixture, but no single lower-modulus
 support has a fixed rescue sign.
+
+### 2026-09-12 continuation: support Gram after first-three removal
+
+A first-period normalized Gram/correlation check over all `5005` targets shows
+that, after removing q286 modes `1..3`, q70 and q154 are nearly orthogonal as
+centered moving vectors (`0.045469`).  They are not irrelevant: each strongly
+feeds the non-q286 support sum (`0.707980` and `0.700826`), and that non-q286
+sum almost completely tracks centered complement motion (`0.975731`).
+
+Status `changed-under-evidence`: pursue a vector/norm lower-envelope estimate
+for principal plus combined lower-modulus supports.  Do not collapse the next
+step into a fixed-sign q70, q154, or q286 lemma.

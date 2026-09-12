@@ -1150,3 +1150,47 @@ while hurting `14138` and `14732`.  The theorem target must be a joint signed
 lower-envelope inequality for principal plus q70/q154/q286-after-first-three
 and smaller supports.  A one-support positivity lemma is now falsified as a
 complete explanation.
+
+## 2026-09-12: first-period support Gram after first-three removal
+
+A first-period normalized Gram/correlation check was run on the component
+vectors from `q286_first_three_removed_support_envelope_receipt` over all
+`5005` targets.  Components were measured in principal-relative units.
+
+Basic statistics:
+
+```text
+q286_after_first3 mean  0.010650365091959399 min -0.20627076849182013 max 0.4689649942154356 rms 0.06070748215359575
+q70              mean -0.033461102392216995 min -0.874031394621675   max 0.7114998115797481 rms 0.18650862719915784
+q154             mean -0.024596827574109935 min -0.7887852463184296  max 0.7711813776303265 rms 0.17751405988614322
+small supports   mean -0.002191411746741188 min -0.17485448534823922 max 0.1743775542593439 rms 0.06046506124504247
+non_q286         mean -0.060249341713068116 min -1.0148150611594449  max 0.9893238099904496 rms 0.274285742847285
+complement       mean  0.9504010233788912   min 0.018073313793834256 max 2.055236408924841 rms 0.9887972490595348
+```
+
+Centered correlations, in the order
+`q286_after_first3, q70, q154, small, non_q286, complement`:
+
+```text
+q286_after_first3  1.000000  0.026703 -0.057913 -0.011828 -0.022409  0.197052
+q70                0.026703  1.000000  0.045469 -0.033593  0.707980  0.700122
+q154              -0.057913  0.045469  1.000000  0.056056  0.700826  0.674573
+small             -0.011828 -0.033593  0.056056  1.000000  0.239610  0.232380
+non_q286          -0.022409  0.707980  0.700826  0.239610  1.000000  0.975731
+complement         0.197052  0.700122  0.674573  0.232380  0.975731  1.000000
+```
+
+Raw cosines with the complement are small for q70/q154/non-q286 because the
+complement contains the large constant principal term.  The centered Gram is
+the relevant diagnostic for moving cancellation.  In that centered view, q70
+and q154 are almost orthogonal to each other (`0.045469`), but each strongly
+feeds the moving non-q286 envelope (`0.707980` and `0.700826`), and non-q286
+almost completely tracks complement motion (`0.975731`).
+
+Status `changed-under-evidence`: the lower-envelope problem is not explained
+by pairwise q70/q154 cancellation; those two supports are nearly orthogonal as
+moving centered vectors.  The complement floor comes from a principal constant
+plus a broad non-q286 support vector whose motion is mostly the combined q70
+and q154 directions.  The theorem target should use a vector/norm envelope for
+the combined lower-modulus support action, not scalar sign control of any one
+support.

@@ -16956,3 +16956,22 @@ Status `changed-under-evidence`: q70 is necessary to the measured lower
 envelope, but it is not a fixed-sign rescue.  The next theorem attempt must be
 a joint signed lower-envelope estimate for principal plus q70/q154/q286 after
 first-three removal, not a one-support positivity lemma.
+
+## 2026-09-12 continuation: first-period support Gram after first-three removal
+
+A full first-period Gram/correlation diagnostic was run on the support vectors
+from `q286_first_three_removed_support_envelope_receipt`.  In centered
+principal-relative coordinates, q70 and q154 are almost orthogonal to each
+other (`0.045469`), while each strongly correlates with the moving non-q286
+sum (`0.707980` and `0.700826`).  The non-q286 sum almost completely tracks the
+centered complement motion (`0.975731`).
+
+Raw cosines with the complement are small because the complement includes the
+large constant principal term; centered correlations are the useful diagnostic
+for cancellation.  This answers the near-orthogonality question locally: the
+major lower-modulus supports are nearly orthogonal to each other, not to the
+moving complement they jointly create.
+
+Status `changed-under-evidence`: the next estimate should be a vector/norm
+lower-envelope bound for the combined q70/q154/q286-after-first-three support
+action plus principal, not a scalar one-support sign lemma.
