@@ -8405,3 +8405,18 @@ Status update `aha-candidate`: the first full residue period says modes
 can try to bound the combined first-three q286 separable mode sum from below,
 then pay q286 local, modes `4..6`, exact non-q286 supports, and the q286 tail
 as a residual positive-margin problem.  This remains a finite diagnostic.
+
+### 2026-09-12 continuation: leading q286 modes are broad character mixtures
+
+`q286_leading_mode_character_shape_receipt` checks whether the first three
+q286 singular modes are sparse enough in multiplicative-character space that a
+single-character estimate might suffice.  They are not sparse on either side.
+For modes `1`, `2`, and `3`, the mod-`11` effective character counts are
+`4.899124389855417`, `3.994990282499014`, and `4.787886564984907`; the
+mod-`13` effective counts are `5.8587969819448205`, `4.9888048746106834`, and
+`5.526188486527063`.  The largest side energy fraction across all six sides is
+only `.2588529653280147`.
+
+Status `changed-under-evidence`: reject a sparse single-character shortcut.
+The first-three lower-tail estimate must handle a broad but finite mixture of
+small-conductor twisted Goldbach sums modulo `11` and `13`.

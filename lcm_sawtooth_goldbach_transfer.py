@@ -5542,6 +5542,86 @@ def q286_separable_mode_coefficient_receipt(
     }
 
 
+def q286_leading_mode_character_shape_receipt(
+        mode_count=3, top_count=5, tolerance=1e-9):
+    """Measure whether leading q286 modes are sparse in character space."""
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+
+    mode_rows = []
+    for index in range(mode_count):
+        left_vector = left[:, index]
+        right_vector = right[index, :]
+        left_energy = np.abs(left_vector) ** 2
+        right_energy = np.abs(right_vector) ** 2
+        left_effective_count = float(1.0 / np.sum(left_energy ** 2))
+        right_effective_count = float(1.0 / np.sum(right_energy ** 2))
+        left_top = tuple({
+            "character_exponent_mod_11": int(position + 1),
+            "coefficient": complex(left_vector[position]),
+            "energy_fraction": float(left_energy[position]),
+        } for position in np.argsort(-left_energy)[:top_count])
+        right_top = tuple({
+            "character_exponent_mod_13": int(position + 1),
+            "coefficient": complex(right_vector[position]),
+            "energy_fraction": float(right_energy[position]),
+        } for position in np.argsort(-right_energy)[:top_count])
+        mode_rows.append({
+            "mode_index": index + 1,
+            "singular_value": float(singular_values[index]),
+            "left_effective_character_count": left_effective_count,
+            "right_effective_character_count": right_effective_count,
+            "left_max_character_energy_fraction": float(np.max(left_energy)),
+            "right_max_character_energy_fraction": float(np.max(right_energy)),
+            "left_top_character_rows": left_top,
+            "right_top_character_rows": right_top,
+            "left_single_character_dominates": bool(
+                np.max(left_energy) > 0.5),
+            "right_single_character_dominates": bool(
+                np.max(right_energy) > 0.5),
+        })
+
+    return {
+        "arithmetic_period": 10010,
+        "support": (11, 13),
+        "natural_modulus": 286,
+        "mode_count": mode_count,
+        "top_count": top_count,
+        "mode_rows": tuple(mode_rows),
+        "minimum_left_effective_character_count": min(
+            row["left_effective_character_count"] for row in mode_rows),
+        "minimum_right_effective_character_count": min(
+            row["right_effective_character_count"] for row in mode_rows),
+        "maximum_side_character_energy_fraction": max(
+            max(row["left_max_character_energy_fraction"],
+                row["right_max_character_energy_fraction"])
+            for row in mode_rows),
+        "no_single_character_mode_found": not any(
+            row["left_single_character_dominates"]
+            or row["right_single_character_dominates"]
+            for row in mode_rows),
+        "leading_mode_character_shape_measured": True,
+        "single_character_estimate_suffices": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_separable_mode_local_bias_receipt(
         start=10000, targets_per_cycle=5005, mode_count=6,
         significant_negative_ratio=-.4, tolerance=1e-9):

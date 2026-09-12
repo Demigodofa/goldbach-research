@@ -35,6 +35,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_mode_cycle_profile_receipt,
     q286_leading_mode_lift_decay_receipt,
     q286_leading_mode_period_envelope_receipt,
+    q286_leading_mode_character_shape_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_first_two_mode_lower_tail_receipt,
     q286_residue_discrepancy_profile_receipt,
@@ -1113,6 +1114,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["mode_rows"][0]["singular_value"],
             158279.0938376038, places=7)
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_leading_mode_character_shape(self):
+        receipt = q286_leading_mode_character_shape_receipt(
+            mode_count=3, top_count=3)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["mode_count"], 3)
+        self.assertEqual(len(receipt["mode_rows"]), 3)
+        self.assertGreater(
+            receipt["minimum_left_effective_character_count"], 3.0)
+        self.assertGreater(
+            receipt["minimum_right_effective_character_count"], 3.0)
+        self.assertLess(
+            receipt["maximum_side_character_energy_fraction"], 0.5)
+        self.assertTrue(receipt["no_single_character_mode_found"])
+        self.assertTrue(receipt["leading_mode_character_shape_measured"])
+        self.assertFalse(receipt["single_character_estimate_suffices"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
