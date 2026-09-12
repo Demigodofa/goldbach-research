@@ -11885,6 +11885,56 @@ Shapley allocation is `1.0325006383402588`, but at `q=1001` it is only
 conditioned reconstructions remain below `7e-15` on their stated relative
 scales.
 
+## 2026-09-11 sparse exceptional sets repair six of seven blocks
+
+`residue_orbit_even_even_exceptional_set_receipt` assigns each target the
+exact excess over the `q=1/4` Rayleigh inequality,
+
+`e_N=|<h_N,h_C>|^2-q||h_C||_2^2||h_N||_2^2`,
+
+and removes positive excesses in descending order.  This is cardinality
+optimal: among all removals of `k` targets, the greedy set removes the largest
+possible excess sum.
+
+The four blocks already below `1/4` require no removals.  The three initially
+failing blocks behave as follows:
+
+| block | removed targets | target fraction | profile-energy fraction | remaining `Q_B` |
+|---|---|---:|---:|---:|
+| `[1000,2000)` | `1762` | `.14286` | `.19745` | `.24568` |
+| `[8000,16000)` | `15282` | `.01613` | `.07603` | `.22281` |
+| `[16000,32000)` | `19572,17622,16842,22692,18402,20352` | `.04878` | `.11178` | `.24768` |
+
+All three repaired quotients fall below `1/4`, and all removed energy
+fractions are below `.25`.  The frozen all-block exceptional-set gate still
+fails: the first block contains only seven targets, so its one necessary
+removal is `1/7=.14286`, above `.10`.  The other six blocks pass.
+
+Curiosity status: `large-scale-component-pass/full-range-fail`, novelty
+`new-to-this-task`.  Preserve the cardinality-optimal excess ordering and the
+six passing blocks.  Reject the literal all-seven `10%` target-fraction claim.
+The later finite data are consistent with a sparse large-values route, but the
+small first block is a real frozen-gate failure and has not been reclassified.
+
+Independent review verified the excess identity, greedy optimality,
+denominator and empty-set handling, every removal and fraction, and the `6/7`
+scope.  Focused normal and optimized tests pass.  No exceptional-set theorem,
+asymptotic density estimate, signed prime-correlation theorem, or Goldbach
+result has been proved.
+
+The next bounded question is a scale holdout rather than a post-hoc threshold
+change.  On the untouched progression
+
+`100000<N<=200000`, `N congruent 72 (mod 130)`,
+
+measure the same five-dimensional Rayleigh quotient and apply the already
+frozen `q=1/4`, `10%` target-removal, and `25%` profile-energy-removal gates to
+the single holdout block.  Do not refit the source profile or the excess
+ordering.  Passing would show that the sparse-exception pattern survives one
+new dyadic scale; failure would reject that finite generalization.  Record
+runtime and target count because this extends the prime enumeration boundary,
+and retain the current `<=100000` fixtures unchanged.
+
 Because the passing case contains prime `5` while the failing case does not,
 the two missing three-prime quotients containing `5` were tested under the
 same `.75` gate.  Both falsify that arithmetic discriminator: `q=455` is

@@ -3483,6 +3483,155 @@ def residue_orbit_even_even_profile_dispersion_receipt(
     }
 
 
+def residue_orbit_even_even_exceptional_set_receipt(
+        target_minimum=1000, target_maximum=100000, target_residue=72,
+        profile_rayleigh_threshold=.25,
+        maximum_removed_target_fraction=.10,
+        maximum_removed_profile_energy_fraction=.25,
+        tolerance=1e-12, batch_size=32):
+    if (not math.isfinite(profile_rayleigh_threshold)
+            or not 0 <= profile_rayleigh_threshold <= 1):
+        raise ValueError("profile Rayleigh threshold must lie in [0, 1]")
+    if (not math.isfinite(maximum_removed_target_fraction)
+            or not 0 <= maximum_removed_target_fraction <= 1):
+        raise ValueError("removed target fraction gate must lie in [0, 1]")
+    if (not math.isfinite(maximum_removed_profile_energy_fraction)
+            or not 0 <= maximum_removed_profile_energy_fraction <= 1):
+        raise ValueError(
+            "removed profile energy fraction gate must lie in [0, 1]")
+    base = residue_orbit_even_even_profile_receipt(
+        target_minimum=target_minimum,
+        target_maximum=target_maximum,
+        target_residue=target_residue,
+        maximum_profile_alignment=1,
+        tolerance=tolerance,
+        batch_size=batch_size)
+    source_norm_squared = base["source_profile_norm"] ** 2
+    dyadic_exceptional_summaries = {}
+    for block in base["dyadic_profile_summaries"]:
+        block_lower, block_upper = block
+        block_targets = tuple(
+            target for target in base["rows"]
+            if block_lower <= target < block_upper)
+        numerators = {
+            target: abs(base["rows"][target][
+                "even_even_profile_correlation"]) ** 2
+            for target in block_targets}
+        profile_energies = {
+            target: base["rows"][target]["prime_profile_norm"] ** 2
+            for target in block_targets}
+        denominators = {
+            target: source_norm_squared * profile_energies[target]
+            for target in block_targets}
+        excesses = {
+            target: numerators[target]
+            - profile_rayleigh_threshold * denominators[target]
+            for target in block_targets}
+        total_numerator = math.fsum(numerators.values())
+        total_profile_energy = math.fsum(profile_energies.values())
+        total_denominator = source_norm_squared * total_profile_energy
+        if total_denominator <= 0:
+            raise ValueError("exceptional-set block has zero profile energy")
+        initial_excess = total_numerator - (
+            profile_rayleigh_threshold * total_denominator)
+        excess_scale = max(
+            1.0, total_numerator,
+            profile_rayleigh_threshold * total_denominator,
+            abs(initial_excess))
+        removed_targets = []
+        removed_excess = 0.0
+        if initial_excess > tolerance * excess_scale:
+            positive_excess_targets = sorted(
+                (target for target in block_targets
+                 if excesses[target] > 0),
+                key=lambda target: (-excesses[target], target))
+            for target in positive_excess_targets:
+                removed_targets.append(target)
+                removed_excess += excesses[target]
+                if (initial_excess - removed_excess
+                        <= tolerance * excess_scale):
+                    break
+        removed_targets = tuple(removed_targets)
+        removed_target_set = set(removed_targets)
+        remaining_targets = tuple(
+            target for target in block_targets
+            if target not in removed_target_set)
+        removed_numerator = math.fsum(
+            numerators[target] for target in removed_targets)
+        removed_profile_energy = math.fsum(
+            profile_energies[target] for target in removed_targets)
+        remaining_numerator = total_numerator - removed_numerator
+        remaining_profile_energy = (
+            total_profile_energy - removed_profile_energy)
+        remaining_denominator = source_norm_squared * remaining_profile_energy
+        if remaining_denominator > 0:
+            remaining_rayleigh_quotient = (
+                remaining_numerator / remaining_denominator)
+            reaches_threshold = bool(
+                remaining_rayleigh_quotient
+                <= profile_rayleigh_threshold + tolerance)
+        else:
+            remaining_rayleigh_quotient = None
+            reaches_threshold = False
+        removed_target_fraction = len(removed_targets) / len(block_targets)
+        removed_profile_energy_fraction = (
+            removed_profile_energy / total_profile_energy)
+        removed_numerator_fraction = (
+            removed_numerator / total_numerator
+            if total_numerator > 0 else None)
+        target_fraction_passes = bool(
+            removed_target_fraction <= maximum_removed_target_fraction)
+        energy_fraction_passes = bool(
+            removed_profile_energy_fraction
+            <= maximum_removed_profile_energy_fraction)
+        dyadic_exceptional_summaries[block] = {
+            "target_count": len(block_targets),
+            "initial_profile_rayleigh_quotient": (
+                total_numerator / total_denominator),
+            "initial_rayleigh_excess": initial_excess,
+            "removed_targets": removed_targets,
+            "removed_target_count": len(removed_targets),
+            "removed_target_fraction": removed_target_fraction,
+            "removed_numerator_fraction": removed_numerator_fraction,
+            "removed_profile_energy_fraction": (
+                removed_profile_energy_fraction),
+            "remaining_target_count": len(remaining_targets),
+            "remaining_profile_rayleigh_quotient": (
+                remaining_rayleigh_quotient),
+            "reaches_profile_rayleigh_threshold": reaches_threshold,
+            "passes_removed_target_fraction_gate": target_fraction_passes,
+            "passes_removed_profile_energy_fraction_gate": (
+                energy_fraction_passes),
+            "passes_exceptional_set_gate": bool(
+                reaches_threshold and target_fraction_passes
+                and energy_fraction_passes),
+        }
+    all_blocks_pass = all(
+        row["passes_exceptional_set_gate"]
+        for row in dyadic_exceptional_summaries.values())
+    return {
+        "families": base["families"],
+        "arithmetic_period": base["arithmetic_period"],
+        "quotient": base["quotient"],
+        "common_modulus": base["common_modulus"],
+        "target_range": base["target_range"],
+        "target_residue": base["target_residue"],
+        "progression_step": base["progression_step"],
+        "tested_target_count": base["tested_target_count"],
+        "profile_rayleigh_threshold": profile_rayleigh_threshold,
+        "maximum_removed_target_fraction_gate": (
+            maximum_removed_target_fraction),
+        "maximum_removed_profile_energy_fraction_gate": (
+            maximum_removed_profile_energy_fraction),
+        "dyadic_exceptional_summaries": dyadic_exceptional_summaries,
+        "all_dyadic_blocks_pass_exceptional_set_gate": all_blocks_pass,
+        "finite_even_even_exceptional_sets_measured": True,
+        "sparse_even_even_exceptional_set_theorem_proved": False,
+        "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def affine_reflection_residue_scan_receipt(
         maximum_symmetric_energy_fraction=.75,
         tolerance=1e-12, batch_size=32):

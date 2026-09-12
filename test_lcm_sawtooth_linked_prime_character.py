@@ -20,6 +20,7 @@ from lcm_sawtooth_linked_prime_character import (
     residue_orbit_crt_sector_correlation_receipt,
     residue_orbit_even_even_profile_receipt,
     residue_orbit_even_even_profile_dispersion_receipt,
+    residue_orbit_even_even_exceptional_set_receipt,
     residue_orbit_prime_weight_covariance_receipt,
     residue_orbit_sign_cube_receipt,
     resonant_progression_diagonal_square_receipt,
@@ -152,6 +153,9 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             residue_orbit_even_even_profile_dispersion_receipt(
                 maximum_profile_rayleigh_quotient=-.01)
+        with self.assertRaises(ValueError):
+            residue_orbit_even_even_exceptional_set_receipt(
+                maximum_removed_target_fraction=1.01)
 
     def test_exact_linked_prime_interface_and_cauchy_obstruction(self):
         receipt = linked_prime_character_receipt()
@@ -1504,6 +1508,65 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
             "finite_even_even_profile_dispersion_measured"])
         self.assertFalse(receipt[
             "averaged_even_even_profile_dispersion_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_residue_orbit_even_even_exceptional_set(self):
+        receipt = residue_orbit_even_even_exceptional_set_receipt()
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_range"], (1000, 100000))
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["progression_step"], 130)
+        self.assertEqual(receipt["tested_target_count"], 761)
+        self.assertEqual(len(receipt["dyadic_exceptional_summaries"]), 7)
+        dyadic = receipt["dyadic_exceptional_summaries"]
+        expected_removed_targets = (
+            (1762,), (), (), (15282,),
+            (19572, 17622, 16842, 22692, 18402, 20352), (), ())
+        expected_target_fractions = (
+            1 / 7, 0.0, 0.0, 1 / 62, 6 / 123, 0.0, 0.0)
+        expected_numerator_fractions = (
+            .4242070195313367, 0.0, 0.0,
+            .21280277521584315, .24576002074013958, 0.0, 0.0)
+        expected_energy_fractions = (
+            .19744561841695576, 0.0, 0.0,
+            .07602901681509813, .11177614680053033, 0.0, 0.0)
+        expected_remaining_quotients = (
+            .24568053933858328, .1002952684801748,
+            .19027955740626695, .22280869969577533,
+            .24767687347523543, .18013863279153874,
+            .22909561046920018)
+        for row, targets, target_fraction, numerator_fraction, \
+                energy_fraction, quotient in zip(
+                    dyadic.values(), expected_removed_targets,
+                    expected_target_fractions,
+                    expected_numerator_fractions,
+                    expected_energy_fractions,
+                    expected_remaining_quotients):
+            self.assertEqual(row["removed_targets"], targets)
+            self.assertAlmostEqual(
+                row["removed_target_fraction"], target_fraction, places=15)
+            self.assertAlmostEqual(
+                row["removed_numerator_fraction"],
+                numerator_fraction, places=12)
+            self.assertAlmostEqual(
+                row["removed_profile_energy_fraction"],
+                energy_fraction, places=12)
+            self.assertAlmostEqual(
+                row["remaining_profile_rayleigh_quotient"],
+                quotient, places=12)
+            self.assertTrue(row["reaches_profile_rayleigh_threshold"])
+        self.assertEqual(
+            tuple(row["passes_exceptional_set_gate"]
+                  for row in dyadic.values()),
+            (False, True, True, True, True, True, True))
+        self.assertFalse(receipt[
+            "all_dyadic_blocks_pass_exceptional_set_gate"])
+        self.assertTrue(receipt[
+            "finite_even_even_exceptional_sets_measured"])
+        self.assertFalse(receipt[
+            "sparse_even_even_exceptional_set_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
