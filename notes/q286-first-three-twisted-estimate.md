@@ -2266,3 +2266,53 @@ Status `changed-under-evidence`: a stable later-band floor does not begin at
 cycle `21` with the `41..48` constants; cycles `24`, `25`, and `30` still dip.
 The transition exception range may extend at least through cycle `30`, though
 all checked tails remain rescued.
+
+## 2026-09-12: cycle 33 through 40 rescue-profile gap
+
+Cycles `33..40` were profiled to close the gap before the already-profiled
+`41..48` band.
+
+```text
+cycle 33: tail 6, nonrescued 0,
+  deepest deficit 0.34321738931316387 at 346106,
+  min complement 0.7375394421707127 at 348034,
+  min margin 0.42833183582677603 at 348034
+cycle 34: tail 9, nonrescued 0,
+  deepest deficit 0.4015357008802212 at 357838,
+  min complement 0.9944590534863758 at 359558,
+  min margin 0.6629863461200328 at 359558
+cycle 35: tail 10, nonrescued 0,
+  deepest deficit 0.36500539908474905 at 360638,
+  min complement 0.8178747303615322 at 367298,
+  min margin 0.5093338345489309 at 367298
+cycle 36: tail 9, nonrescued 0,
+  deepest deficit 0.4258451609398066 at 372332,
+  min complement 0.7885951080158726 at 371726,
+  min margin 0.4442751912780733 at 371726
+cycle 37: tail 12, nonrescued 0,
+  deepest deficit 0.37765470838997645 at 380642,
+  min complement 0.6393542776650206 at 383486,
+  min margin 0.31158984534443446 at 383486
+cycle 38: tail 4, nonrescued 0,
+  deepest deficit 0.32710356439231264 at 399898,
+  min complement 0.7963661886207664 at 395102,
+  min margin 0.4794316683488638 at 395102
+cycle 39: tail 2, nonrescued 0,
+  deepest deficit 0.3094987184808311 at 405872,
+  min complement 1.0919527773516675 at 405872,
+  min margin 0.7824540588708364 at 405872
+cycle 40: tail 6, nonrescued 0,
+  deepest deficit 0.3846501792659953 at 414986,
+  min complement 0.7579188931125779 at 416242,
+  min margin 0.43699838873029884 at 416242
+```
+
+Across cycles `33..40`, deepest measured deficit is `0.4258451609398066`,
+minimum complement is `0.6393542776650206`, and minimum rescue margin is
+`0.31158984534443446`.
+
+Status `aha-candidate`: cycles `33..40` look like a large-buffer regime with
+a weaker floor than the `41..48` band because of cycle `37`.  A plausible
+finite profile now has boundary `0..7`, delicate transition `8..20`, middle
+transition/buffer `21..32`, and a stronger buffer from at least cycle `33` in
+the checked data.  This is still finite evidence.

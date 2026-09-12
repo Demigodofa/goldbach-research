@@ -9157,3 +9157,14 @@ Cycles `24`, `25`, and `30` dip below the later `41..48` complement floor.
 Status `changed-under-evidence`: the stable later-band floor does not begin at
 cycle `21` with the later constants; transition exceptions may extend through
 cycle `30`.
+
+### 2026-09-12 continuation: cycle 33 through 40 rescue-profile gap
+
+Cycles `33..40` were profiled.  Every `.3` tail target is rescued.  Deepest
+deficit is `0.4258451609398066`, minimum tail-set complement is
+`0.6393542776650206`, and minimum rescue margin is `0.31158984534443446`.
+Cycle `37` is the limiting dip.
+
+Status `aha-candidate`: finite data now suggests four zones: boundary `0..7`,
+delicate transition `8..20`, middle transition/buffer `21..32`, and stronger
+buffer from at least cycle `33`.  No eventual theorem is proved.

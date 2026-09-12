@@ -17386,3 +17386,15 @@ and minimum rescue margin is `0.2360810314099344`.
 
 Status `changed-under-evidence`: transition exceptions may extend at least
 through cycle `30`; all checked tails remain rescued.
+
+## 2026-09-12 continuation: cycle 33 through 40 rescue-profile gap
+
+Cycles `33..40` were profiled.  Every `.3` tail target is rescued.  Across the
+block, deepest deficit is `0.4258451609398066`, minimum tail-set complement is
+`0.6393542776650206`, and minimum rescue margin is `0.31158984534443446`.
+Cycle `37` is the limiting dip; the other cycles are more strongly buffered.
+
+Status `aha-candidate`: checked data now suggests four finite zones:
+non-rescued boundary `0..7`, delicate transition `8..20`, middle
+transition/buffer `21..32`, and stronger buffer from at least cycle `33`.
+This remains finite evidence, not an eventual theorem.
