@@ -8390,3 +8390,18 @@ leave a positive margin once modes `1` and `2` are removed.  This strongly
 focuses the next analytic target, but it is still finite sampled evidence.
 It does not prove an eventual lower envelope, endpoint/noncentral terms, the
 signed prime-correlation estimate, or Goldbach.
+
+Full first-period scan: on all `5005` targets in `10000..20008`, all `75`
+negative full-action targets have negative first-two and first-three q286 mode
+sums.  Removing modes `1` and `2` leaves only one nonpositive target,
+`N=14138`, with remaining full-action ratio `-0.007038026892741689`.
+Removing modes `1`, `2`, and `3` leaves no nonpositive target; the worst
+remaining full-action ratio is `0.018073313793834367`, again at `N=14138`.
+The minimum first-two capture on negative targets is `0.9919743463947972`;
+the minimum first-three capture is `1.02060949158308`.
+
+Status update `aha-candidate`: the first full residue period says modes
+`1..3`, not just `1..2`, are the finite lower-tail core.  A prospective proof
+can try to bound the combined first-three q286 separable mode sum from below,
+then pay q286 local, modes `4..6`, exact non-q286 supports, and the q286 tail
+as a residual positive-margin problem.  This remains a finite diagnostic.

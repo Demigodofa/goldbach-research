@@ -6680,14 +6680,24 @@ def q286_first_two_mode_lower_tail_receipt(
     global_rows = {}
     negative_full_count = 0
     negative_full_with_negative_first_two = 0
+    negative_full_with_negative_first_three = 0
     first_two_capture_ratios = []
+    first_three_capture_ratios = []
     worst_first_two = None
+    worst_first_three = None
     worst_without_first_two = None
+    worst_without_first_three = None
     worst_remaining_after_first_two = None
+    worst_remaining_after_first_three = None
+    full_nonpositive_without_first_two_count = 0
+    full_nonpositive_without_first_three_count = 0
     for cycle, receipt in full_rows.items():
         row_targets = tuple(sorted(receipt["rows"]))
         full_negative_targets = []
         cycle_capture_ratios = []
+        cycle_first_three_capture_ratios = []
+        cycle_nonpositive_without_first_two = []
+        cycle_nonpositive_without_first_three = []
         for target in row_targets:
             full_row = receipt["rows"][target]
             mode_row = mode_receipt["rows"][target]
@@ -6699,22 +6709,39 @@ def q286_first_two_mode_lower_tail_receipt(
             modes_three_to_six = sum(mode_ratios[2:])
             without_first_two = (
                 full_row["full_action_to_principal_ratio"] - first_two)
+            without_first_three = (
+                full_row["full_action_to_principal_ratio"] - first_three)
             remaining_after_first_two = (
                 full_row["reduced_model_to_principal_ratio"] - first_two)
+            remaining_after_first_three = (
+                full_row["reduced_model_to_principal_ratio"] - first_three)
             reduced_model_tail_gap = (
                 full_row["full_action_to_principal_ratio"]
                 - full_row["reduced_model_to_principal_ratio"])
+            if without_first_two <= 0:
+                full_nonpositive_without_first_two_count += 1
+                cycle_nonpositive_without_first_two.append(target)
+            if without_first_three <= 0:
+                full_nonpositive_without_first_three_count += 1
+                cycle_nonpositive_without_first_three.append(target)
             if full_row["full_action_to_principal_ratio"] <= 0:
                 full_negative_targets.append(target)
                 negative_full_count += 1
                 if first_two < 0:
                     negative_full_with_negative_first_two += 1
+                if first_three < 0:
+                    negative_full_with_negative_first_three += 1
                 if abs(full_row["full_action_to_principal_ratio"]) > tolerance:
                     capture = (
                         -first_two
                         / abs(full_row["full_action_to_principal_ratio"]))
+                    capture_three = (
+                        -first_three
+                        / abs(full_row["full_action_to_principal_ratio"]))
                     first_two_capture_ratios.append(capture)
+                    first_three_capture_ratios.append(capture_three)
                     cycle_capture_ratios.append(capture)
+                    cycle_first_three_capture_ratios.append(capture_three)
             summary = {
                 "cycle": cycle,
                 "full_action_to_principal_ratio": full_row[
@@ -6732,22 +6759,37 @@ def q286_first_two_mode_lower_tail_receipt(
                     "residual_to_principal_ratio"],
                 "full_without_first_two_to_principal_ratio": (
                     without_first_two),
+                "full_without_first_three_to_principal_ratio": (
+                    without_first_three),
                 "reduced_without_first_two_to_principal_ratio": (
                     remaining_after_first_two),
+                "reduced_without_first_three_to_principal_ratio": (
+                    remaining_after_first_three),
                 "full_minus_reduced_to_principal_ratio": (
                     reduced_model_tail_gap),
             }
             global_rows[target] = summary
             if worst_first_two is None or first_two < worst_first_two[1]:
                 worst_first_two = (target, first_two, cycle)
+            if worst_first_three is None or first_three < worst_first_three[1]:
+                worst_first_three = (target, first_three, cycle)
             if (worst_without_first_two is None
                     or without_first_two < worst_without_first_two[1]):
                 worst_without_first_two = (target, without_first_two, cycle)
+            if (worst_without_first_three is None
+                    or without_first_three < worst_without_first_three[1]):
+                worst_without_first_three = (
+                    target, without_first_three, cycle)
             if (worst_remaining_after_first_two is None
                     or remaining_after_first_two
                     < worst_remaining_after_first_two[1]):
                 worst_remaining_after_first_two = (
                     target, remaining_after_first_two, cycle)
+            if (worst_remaining_after_first_three is None
+                    or remaining_after_first_three
+                    < worst_remaining_after_first_three[1]):
+                worst_remaining_after_first_three = (
+                    target, remaining_after_first_three, cycle)
         cycle_rows[cycle] = {
             "start": row_targets[0],
             "end": row_targets[-1],
@@ -6758,12 +6800,30 @@ def q286_first_two_mode_lower_tail_receipt(
                 1 for target in full_negative_targets
                 if global_rows[target][
                     "first_two_modes_to_principal_ratio"] < 0),
+            "negative_full_with_negative_first_three_count": sum(
+                1 for target in full_negative_targets
+                if global_rows[target][
+                    "first_three_modes_to_principal_ratio"] < 0),
+            "full_nonpositive_without_first_two_count": len(
+                cycle_nonpositive_without_first_two),
+            "full_nonpositive_without_first_three_count": len(
+                cycle_nonpositive_without_first_three),
+            "full_nonpositive_without_first_two_targets": tuple(
+                cycle_nonpositive_without_first_two),
+            "full_nonpositive_without_first_three_targets": tuple(
+                cycle_nonpositive_without_first_three),
             "minimum_first_two_capture_on_negative_full_targets": (
                 min(cycle_capture_ratios) if cycle_capture_ratios
                 else math.nan),
             "maximum_first_two_capture_on_negative_full_targets": (
                 max(cycle_capture_ratios) if cycle_capture_ratios
                 else math.nan),
+            "minimum_first_three_capture_on_negative_full_targets": (
+                min(cycle_first_three_capture_ratios)
+                if cycle_first_three_capture_ratios else math.nan),
+            "maximum_first_three_capture_on_negative_full_targets": (
+                max(cycle_first_three_capture_ratios)
+                if cycle_first_three_capture_ratios else math.nan),
         }
 
     return {
@@ -6779,25 +6839,52 @@ def q286_first_two_mode_lower_tail_receipt(
         "negative_full_action_count": negative_full_count,
         "negative_full_with_negative_first_two_count": (
             negative_full_with_negative_first_two),
+        "negative_full_with_negative_first_three_count": (
+            negative_full_with_negative_first_three),
+        "full_nonpositive_without_first_two_count": (
+            full_nonpositive_without_first_two_count),
+        "full_nonpositive_without_first_three_count": (
+            full_nonpositive_without_first_three_count),
         "minimum_first_two_capture_on_negative_full_targets": (
             min(first_two_capture_ratios) if first_two_capture_ratios
             else math.nan),
         "maximum_first_two_capture_on_negative_full_targets": (
             max(first_two_capture_ratios) if first_two_capture_ratios
             else math.nan),
+        "minimum_first_three_capture_on_negative_full_targets": (
+            min(first_three_capture_ratios) if first_three_capture_ratios
+            else math.nan),
+        "maximum_first_three_capture_on_negative_full_targets": (
+            max(first_three_capture_ratios) if first_three_capture_ratios
+            else math.nan),
         "worst_first_two_mode_target": worst_first_two[0],
         "worst_first_two_mode_cycle": worst_first_two[2],
         "minimum_first_two_modes_to_principal_ratio": worst_first_two[1],
+        "worst_first_three_mode_target": worst_first_three[0],
+        "worst_first_three_mode_cycle": worst_first_three[2],
+        "minimum_first_three_modes_to_principal_ratio": worst_first_three[1],
         "worst_full_without_first_two_target": worst_without_first_two[0],
         "worst_full_without_first_two_cycle": worst_without_first_two[2],
         "minimum_full_without_first_two_to_principal_ratio": (
             worst_without_first_two[1]),
+        "worst_full_without_first_three_target": (
+            worst_without_first_three[0]),
+        "worst_full_without_first_three_cycle": (
+            worst_without_first_three[2]),
+        "minimum_full_without_first_three_to_principal_ratio": (
+            worst_without_first_three[1]),
         "worst_reduced_without_first_two_target": (
             worst_remaining_after_first_two[0]),
         "worst_reduced_without_first_two_cycle": (
             worst_remaining_after_first_two[2]),
         "minimum_reduced_without_first_two_to_principal_ratio": (
             worst_remaining_after_first_two[1]),
+        "worst_reduced_without_first_three_target": (
+            worst_remaining_after_first_three[0]),
+        "worst_reduced_without_first_three_cycle": (
+            worst_remaining_after_first_three[2]),
+        "minimum_reduced_without_first_three_to_principal_ratio": (
+            worst_remaining_after_first_three[1]),
         "first_two_mode_lower_tail_measured": True,
         "first_two_modes_alone_prove_lower_envelope": False,
         "eventual_lower_envelope_proved": False,

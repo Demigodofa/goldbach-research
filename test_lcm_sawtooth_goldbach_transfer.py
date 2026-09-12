@@ -1238,6 +1238,8 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         row = receipt["rows"][10000]
         self.assertIn("first_two_modes_to_principal_ratio", row)
         self.assertIn("full_without_first_two_to_principal_ratio", row)
+        self.assertIn("first_three_modes_to_principal_ratio", row)
+        self.assertIn("full_without_first_three_to_principal_ratio", row)
         self.assertTrue(receipt["first_two_mode_lower_tail_measured"])
         self.assertFalse(
             receipt["first_two_modes_alone_prove_lower_envelope"])
