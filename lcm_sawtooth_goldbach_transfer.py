@@ -2031,6 +2031,117 @@ def combined_coefficient_character_spectrum_receipt(
     }
 
 
+def combined_coefficient_pairwise_gram_receipt(tolerance=1e-9):
+    """Measure pairwise cancellation between lifted centered channel vectors."""
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+
+    q77_common = 130
+    q77_units = tuple(
+        residue for residue in range(q77_common)
+        if math.gcd(residue, q77_common) == 1)
+    q77_source_units, q77_source_values_tuple = (
+        _direct_resonant_source_on_units(
+            period, TWO_PRIME_QUOTIENT_LAGS[77],
+            left_sources, right_sources))
+    q77_source_values = {
+        residue: value
+        for residue, value in zip(q77_source_units, q77_source_values_tuple)}
+    q77_fiber_sums = np.asarray(tuple(
+        _complex_fsum(q77_source_values[unit] for unit in q77_source_units
+                      if unit % q77_common == residue)
+        for residue in q77_units), dtype=np.complex128)
+    q77_shadow = -(q77_fiber_sums - np.mean(q77_fiber_sums))
+    component_coefficients = {
+        77: {
+            residue: value for residue, value in zip(q77_units, q77_shadow)}}
+    component_common = {77: q77_common}
+    for quotient in (35, 55, 65, 143):
+        receipt = holdout_full_projected_prime_coefficient_receipt(
+            quotient=quotient, tolerance=tolerance)
+        common = receipt["common_modulus"]
+        component_common[quotient] = common
+        principal = receipt["principal_prime_residue_coefficient"]
+        component_coefficients[quotient] = {
+            residue: complex(value) - principal
+            for residue, value
+            in receipt["coefficient_by_unit_residue"].items()}
+
+    quotients = (77, 35, 55, 65, 143)
+    vectors = {}
+    for quotient in quotients:
+        common = component_common[quotient]
+        coefficients = component_coefficients[quotient]
+        lifted = np.asarray(tuple(
+            coefficients[unit % common] for unit in period_units),
+            dtype=np.complex128)
+        vectors[quotient] = lifted - np.mean(lifted)
+
+    norms = {
+        quotient: float(np.linalg.norm(vector))
+        for quotient, vector in vectors.items()}
+    gram = {}
+    normalized = {}
+    total_self_energy = math.fsum(value * value for value in norms.values())
+    total_cross_term = 0.0
+    minimum_normalized_pair = 1.0
+    maximum_normalized_pair = -1.0
+    for left in quotients:
+        for right in quotients:
+            inner = complex(np.vdot(vectors[left], vectors[right]))
+            gram[(left, right)] = inner
+            denominator = norms[left] * norms[right]
+            normalized_value = (
+                inner.real / denominator if denominator else 0.0)
+            normalized[(left, right)] = normalized_value
+            if left < right:
+                cross = 2 * inner.real
+                total_cross_term += cross
+                minimum_normalized_pair = min(
+                    minimum_normalized_pair, normalized_value)
+                maximum_normalized_pair = max(
+                    maximum_normalized_pair, normalized_value)
+    aggregate = sum(vectors.values())
+    aggregate_energy = float(np.vdot(aggregate, aggregate).real)
+    energy_reconstruction_error = abs(
+        total_self_energy + total_cross_term - aggregate_energy) / max(
+            1.0, aggregate_energy)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "unit_group_order": len(period_units),
+        "quotients": quotients,
+        "component_norms": norms,
+        "component_self_energy_total": total_self_energy,
+        "pairwise_gram": gram,
+        "pairwise_normalized_real_gram": normalized,
+        "total_cross_term": total_cross_term,
+        "cross_term_to_self_energy_ratio": (
+            total_cross_term / total_self_energy
+            if total_self_energy else 0.0),
+        "aggregate_centered_energy": aggregate_energy,
+        "aggregate_centered_l2": math.sqrt(max(0.0, aggregate_energy)),
+        "energy_reconstruction_relative_error": energy_reconstruction_error,
+        "minimum_offdiagonal_normalized_real_gram": minimum_normalized_pair,
+        "maximum_offdiagonal_normalized_real_gram": maximum_normalized_pair,
+        "substantial_negative_pairwise_cancellation_observed": bool(
+            minimum_normalized_pair < -.1),
+        "net_negative_cross_term_observed": bool(total_cross_term < 0),
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def symbolic_principal_plus_centered_channel_receipt(
         tolerance=1e-12, rational_tolerance=1e-10, batch_size=32):
     """Split the quotient-77 channel into a constant plus fiber shadow.

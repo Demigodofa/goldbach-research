@@ -5,6 +5,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
     combined_coefficient_character_spectrum_receipt,
+    combined_coefficient_pairwise_gram_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
     holdout_full_projected_prime_coefficient_receipt,
@@ -453,6 +454,52 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["small_character_support_diagnostic_passes"])
         self.assertTrue(receipt["broad_character_support_observed"])
         self.assertTrue(receipt["character_spectrum_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_pairwise_gram_has_only_tiny_net_cancellation(self):
+        receipt = combined_coefficient_pairwise_gram_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(receipt["quotients"], (77, 35, 55, 65, 143))
+        expected_norms = {
+            77: 339622.7115252295,
+            35: 10937828.421665356,
+            55: 1.8265085210677226e-09,
+            65: 5208481.3827695325,
+            143: 4858166.184415171,
+        }
+        for quotient, expected in expected_norms.items():
+            self.assertAlmostEqual(
+                receipt["component_norms"][quotient], expected,
+                places=5)
+        self.assertAlmostEqual(
+            receipt["component_self_energy_total"],
+            170481491158026.06, places=1)
+        self.assertAlmostEqual(
+            receipt["total_cross_term"], -21830839163.179787,
+            places=3)
+        self.assertAlmostEqual(
+            receipt["cross_term_to_self_energy_ratio"],
+            -.00012805401345852797, places=15)
+        self.assertAlmostEqual(
+            receipt["aggregate_centered_energy"],
+            170459660318862.78, places=1)
+        self.assertAlmostEqual(
+            receipt["aggregate_centered_l2"],
+            13056020.07959787, places=5)
+        self.assertLess(
+            receipt["energy_reconstruction_relative_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["minimum_offdiagonal_normalized_real_gram"],
+            -.0010025610827496898, places=15)
+        self.assertAlmostEqual(
+            receipt["maximum_offdiagonal_normalized_real_gram"],
+            .015594243759942, places=15)
+        self.assertFalse(receipt[
+            "substantial_negative_pairwise_cancellation_observed"])
+        self.assertTrue(receipt["net_negative_cross_term_observed"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

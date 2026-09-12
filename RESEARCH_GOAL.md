@@ -7758,3 +7758,18 @@ Status `changed-under-evidence`: the small dominant-character shortcut is
 blocked.  The explicit finite coefficient family remains useful, but the
 signed estimate likely needs conductor-support grouping, CRT tensor structure,
 or a broad weighted large-sieve argument.  Goldbach remains open.
+
+### 2026-09-12 continuation: pairwise sector cancellation is tiny
+
+Kevin asked whether the `.6116922650553668` aggregate norm ratio represented
+true cancellation.  The pairwise normalized Gram says no.  The centered
+self-energy total is `170481491158026.06`; the total cross term is
+`-21830839163.179787`, only `-.00012805401345852797` of self-energy.  The most
+negative normalized off-diagonal real Gram entry is `-.0010025610827496898`,
+while the largest positive entry is `.015594243759942`.
+
+Status `changed-under-evidence`: net negative cross term exists, but it is too
+small to explain a proof-scale saving.  The `.612` ratio was mostly a
+triangle-norm comparison, not substantial cross-channel cancellation.  The
+next target remains structural decomposition or direct signed
+prime-correlation control.

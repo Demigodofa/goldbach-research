@@ -15479,3 +15479,28 @@ instead of individual characters.  If most energy lives in characters missing
 one or more prime factors, low-dimensional product estimates may still apply;
 if energy is genuinely full-conductor, the next route should target a
 coefficient-weighted large-sieve estimate for the full `U_10010` family.
+
+## 2026-09-12: pairwise Gram shows only tiny net cancellation
+
+Kevin correctly asked whether the earlier `.6116922650553668` ratio really
+shows substantial cancellation.  `combined_coefficient_pairwise_gram_receipt`
+answers no.  That ratio compared `||sum v_q||` with `sum ||v_q||`, so it can
+look smaller without large negative pairwise interference.
+
+The centered component self-energy total is `170481491158026.06`, while the
+total cross term is only `-21830839163.179787`, a ratio of
+`-.00012805401345852797`.  The aggregate centered energy is
+`170459660318862.78`, reconstructing from self plus cross terms with relative
+error `5.499834965330256e-16`.  The most negative normalized off-diagonal
+real Gram entry is only `-.0010025610827496898`; the largest positive one is
+`.015594243759942`.
+
+Status `changed-under-evidence`: there is a net negative cross term, but no
+substantial pairwise cancellation in the normalized Gram.  The prior `.612`
+triangle-norm compression must not be treated as proof-relevant cancellation.
+The signed estimate remains open and likely needs a direct coefficient-weighted
+prime-correlation argument rather than relying on sector cancellation.
+
+Next concrete question: since pairwise cancellation is tiny, inspect conductor
+or CRT-factor support of the broad character spectrum to see whether the
+explicit coefficient family still has exploitable low-dimensional structure.
