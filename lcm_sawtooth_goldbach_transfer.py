@@ -1827,6 +1827,133 @@ def holdout_q65_full_projected_prime_coefficient_receipt(
         quotient=65, targets=targets, tolerance=tolerance)
 
 
+def combined_fixed_strict_central_coefficient_receipt(tolerance=1e-9):
+    """Assemble the fixed strict-central channels on ``U_10010``.
+
+    The assembled family includes the reviewed q77 principal-plus-fiber-shadow
+    channel and the four live holdout channels q35, q55, q65, and q143.  This
+    is a coefficient bookkeeping receipt only.  It does not estimate the
+    resulting signed prime-residue correlations.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+
+    q77_common = 130
+    q77_units = tuple(
+        residue for residue in range(q77_common)
+        if math.gcd(residue, q77_common) == 1)
+    q77_source_units, q77_source_values_tuple = (
+        _direct_resonant_source_on_units(
+            period, TWO_PRIME_QUOTIENT_LAGS[77],
+            left_sources, right_sources))
+    q77_source_values = {
+        residue: value
+        for residue, value in zip(q77_source_units, q77_source_values_tuple)}
+    q77_fiber_sums = np.asarray(tuple(
+        _complex_fsum(q77_source_values[unit] for unit in q77_source_units
+                      if unit % q77_common == residue)
+        for residue in q77_units), dtype=np.complex128)
+    q77_shadow = -(q77_fiber_sums - np.mean(q77_fiber_sums))
+    q77_principal = complex(-3143 / 16)
+    component_coefficients = {
+        77: {
+            "common_modulus": q77_common,
+            "central_unit_threshold": 40,
+            "principal_coefficient": q77_principal,
+            "centered_l2": float(np.linalg.norm(q77_shadow)),
+            "coefficient_by_residue": {
+                residue: q77_principal + value
+                for residue, value in zip(q77_units, q77_shadow)},
+        }}
+    for quotient in (35, 55, 65, 143):
+        receipt = holdout_full_projected_prime_coefficient_receipt(
+            quotient=quotient, tolerance=tolerance)
+        coefficient_values = np.asarray(tuple(
+            receipt["coefficient_by_unit_residue"][residue]
+            for residue in sorted(receipt["coefficient_by_unit_residue"])),
+            dtype=np.complex128)
+        component_coefficients[quotient] = {
+            "common_modulus": receipt["common_modulus"],
+            "central_unit_threshold": receipt["central_unit_threshold"],
+            "principal_coefficient": (
+                receipt["principal_prime_residue_coefficient"]),
+            "centered_l2": receipt["centered_dual_coefficient_l2"],
+            "full_l2": receipt["full_prime_residue_coefficient_l2"],
+            "coefficient_by_residue": (
+                receipt["coefficient_by_unit_residue"]),
+            "maximum_fixture_transfer_error": (
+                receipt["maximum_target_relative_error"]),
+            "lifted_unit_mean": complex(np.mean(coefficient_values)),
+        }
+
+    lifted_components = {}
+    for quotient, component in component_coefficients.items():
+        common = component["common_modulus"]
+        coefficients = component["coefficient_by_residue"]
+        lifted_components[quotient] = np.asarray(tuple(
+            coefficients[unit % common] for unit in period_units),
+            dtype=np.complex128)
+    aggregate = sum(lifted_components.values())
+    aggregate_mean = complex(np.mean(aggregate))
+    aggregate_centered = aggregate - aggregate_mean
+    component_centered_l2 = {
+        quotient: float(np.linalg.norm(values - np.mean(values)))
+        for quotient, values in lifted_components.items()}
+    sum_component_centered_l2 = math.fsum(component_centered_l2.values())
+    aggregate_centered_l2 = float(np.linalg.norm(aggregate_centered))
+    cancellation_ratio = (
+        aggregate_centered_l2 / sum_component_centered_l2
+        if sum_component_centered_l2 else 0.0)
+    expected_principal_mean = _complex_fsum(
+        component["principal_coefficient"]
+        for component in component_coefficients.values())
+    mean_error = abs(aggregate_mean - expected_principal_mean) / max(
+        1.0, abs(expected_principal_mean))
+    maximum_holdout_fixture_error = max(
+        component.get("maximum_fixture_transfer_error", 0.0)
+        for component in component_coefficients.values())
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "unit_group_order": len(period_units),
+        "assembled_quotients": (35, 55, 65, 77, 143),
+        "component_summaries": {
+            quotient: {
+                key: value for key, value in component.items()
+                if key != "coefficient_by_residue"}
+            for quotient, component in component_coefficients.items()},
+        "aggregate_principal_mean": aggregate_mean,
+        "expected_principal_mean": expected_principal_mean,
+        "principal_mean_relative_error": mean_error,
+        "component_centered_l2": component_centered_l2,
+        "sum_component_centered_l2": sum_component_centered_l2,
+        "aggregate_centered_l2": aggregate_centered_l2,
+        "centered_cancellation_ratio": cancellation_ratio,
+        "maximum_holdout_fixture_transfer_error": (
+            maximum_holdout_fixture_error),
+        "aggregate_coefficient_by_unit_residue": {
+            residue: complex(value)
+            for residue, value in zip(period_units, aggregate)},
+        "fixed_coefficient_family_assembled": bool(
+            mean_error <= tolerance
+            and maximum_holdout_fixture_error <= tolerance),
+        "all_components_are_fixed_before_target": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def symbolic_principal_plus_centered_channel_receipt(
         tolerance=1e-12, rational_tolerance=1e-10, batch_size=32):
     """Split the quotient-77 channel into a constant plus fiber shadow.

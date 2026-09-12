@@ -15407,3 +15407,47 @@ Next concrete question: assemble q77, q55, q65, q35, and q143 into one
 finite weighted strict-central coefficient family and inspect whether the
 combined coefficient has cancellation, sign, or a smaller basis expression
 that changes the signed prime-correlation problem.
+
+## 2026-09-12: fixed channels assemble on U_10010
+
+`combined_fixed_strict_central_coefficient_receipt` lifts the reviewed q77
+principal-plus-fiber-shadow channel and the four live holdout channels
+`q35`, `q55`, `q65`, and `q143` to the common unit group `U_10010`.  This
+assembles the source/channel residual into a finite explicit prime-residue
+coefficient family.
+
+The aggregate principal mean is approximately
+`44002.512499999146 + 3.18e-10i`, matching the expected sum
+`44002.5125` with relative error `2.0654118756097018e-14`.  The lifted
+centered component norms over `U_10010` are:
+
+`q77`: `339622.7115252295`
+
+`q35`: `10937828.421665356`
+
+`q55`: `1.835792019507675e-09`
+
+`q65`: `5208481.3827695325`
+
+`q143`: `4858166.184415171`
+
+The sum of component centered norms is `21344098.70037529`; the aggregate
+centered norm is `13056020.079597872`; the centered cancellation ratio is
+`.6116922650553668`.  This is real cross-channel cancellation, but not a
+vanishing or sign control result.  The maximum holdout fixture-transfer error
+inside the assembly is `3.5456100640685895e-14`.
+
+Status `aha-candidate`, novelty `new-to-this-task`: the live holdout
+bookkeeping has compressed to one fixed coefficient family on `U_10010`.
+The next obstruction is now sharper: prove a signed prime-correlation estimate
+for this explicit finite coefficient family, and still account for any
+endpoint/noncentral terms from the original outer assembly.  No full outer
+assembly, formal `T_boundary-Delta`, pointwise signed bound, or Goldbach proof
+follows from this coefficient assembly alone.
+
+Next concrete question: decompose the aggregate `U_10010` coefficient into
+Dirichlet characters or CRT tensor factors and identify whether the large
+centered norm lives in a small number of characters, low-conductor factors, or
+a genuinely high-complexity residue pattern.  A small spectral support would
+suggest a sourced character-sum estimate; broad high-conductor support keeps
+the signed estimate as the main unsolved analytic problem.

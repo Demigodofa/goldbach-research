@@ -7724,3 +7724,23 @@ Status `aha-candidate`, novelty `new-to-this-task`: the residual source
 bookkeeping is now a finite explicit coefficient family.  The missing step is
 signed prime-correlation control for that family, plus any remaining endpoint
 or noncentral terms in the original outer assembly.  Goldbach remains open.
+
+### 2026-09-12 continuation: assembled fixed family on U_10010
+
+The q77 channel and the four live holdout channels have now been lifted to
+`U_10010` and assembled as one fixed strict-central prime-residue coefficient
+family.  The aggregate principal mean is `44002.512499999146 + 3.18e-10i`,
+matching the expected principal sum `44002.5125`.  The lifted centered norms
+are `339622.7115252295` for q77, `10937828.421665356` for q35,
+approximately zero for q55, `5208481.3827695325` for q65, and
+`4858166.184415171` for q143.
+
+The aggregate centered norm is `13056020.079597872`, while the sum of centered
+component norms is `21344098.70037529`, giving cancellation ratio
+`.6116922650553668`.  This is useful compression but not a signed estimate.
+
+Status `aha-candidate`, novelty `new-to-this-task`: the residual channel
+bookkeeping is now one explicit finite coefficient vector on `U_10010`.  The
+next analytic problem is to decompose or bound the corresponding signed
+strict-central prime-residue correlation.  Endpoint/noncentral reconciliation
+and Goldbach remain open.

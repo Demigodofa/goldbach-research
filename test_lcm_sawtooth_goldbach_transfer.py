@@ -4,6 +4,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
     holdout_full_projected_prime_coefficient_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
@@ -373,6 +374,52 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             self.assertFalse(receipt[
                 "pointwise_signed_prime_correlation_estimate_proved"])
             self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_fixed_strict_central_coefficient_family(self):
+        receipt = combined_fixed_strict_central_coefficient_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(
+            receipt["assembled_quotients"], (35, 55, 65, 77, 143))
+        self.assertAlmostEqual(
+            receipt["aggregate_principal_mean"].real,
+            44002.512499999146, places=7)
+        self.assertLess(
+            abs(receipt["aggregate_principal_mean"].imag), 1e-8)
+        self.assertAlmostEqual(
+            receipt["expected_principal_mean"].real, 44002.5125,
+            places=7)
+        self.assertLess(receipt["principal_mean_relative_error"], 1e-12)
+        expected_l2 = {
+            77: 339622.7115252295,
+            35: 10937828.421665356,
+            55: 1.835792019507675e-09,
+            65: 5208481.3827695325,
+            143: 4858166.184415171,
+        }
+        for quotient, expected in expected_l2.items():
+            self.assertAlmostEqual(
+                receipt["component_centered_l2"][quotient],
+                expected, places=5)
+        self.assertAlmostEqual(
+            receipt["sum_component_centered_l2"],
+            21344098.70037529, places=5)
+        self.assertAlmostEqual(
+            receipt["aggregate_centered_l2"],
+            13056020.079597872, places=5)
+        self.assertAlmostEqual(
+            receipt["centered_cancellation_ratio"],
+            .6116922650553668, places=14)
+        self.assertLess(
+            receipt["maximum_holdout_fixture_transfer_error"], 1e-12)
+        self.assertEqual(
+            len(receipt["aggregate_coefficient_by_unit_residue"]), 2880)
+        self.assertTrue(receipt["fixed_coefficient_family_assembled"])
+        self.assertTrue(receipt["all_components_are_fixed_before_target"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_symbolic_principal_plus_centered_channel(self):
         receipt = symbolic_principal_plus_centered_channel_receipt()
