@@ -15696,3 +15696,40 @@ all admissible residue classes modulo `10010` is far too strong for the finite
 range now being probed.  The next direct estimate should exploit the observed
 CRT/conductor support rather than demand pointwise equidistribution in all
 `2880` unit residues.
+
+## 2026-09-12: support components descend to smaller moduli
+
+The support grouping has now been upgraded from energy bookkeeping to an
+actual coefficient-component descent test.
+`combined_coefficient_support_descent_receipt` reconstructs each character
+support component of the assembled centered coefficient and tests whether it
+descends to the natural modulus `2*prod(support primes)`.
+
+The full reconstruction error is `2.8141365849948198e-15`.  Every nonzero
+support component descends to its natural lower modulus; the maximum descent
+relative error is `5.591563085286316e-18`.  The nonzero natural moduli are
+`10, 14, 22, 26, 70, 130, 154, 286`.
+
+Energy by nonzero support:
+
+`(11,13)` -> modulus `286`, energy fraction `.70082890257693`.
+
+`(7,11)` -> modulus `154`, energy fraction `.15893232135172436`.
+
+`(5,7)` -> modulus `70`, energy fraction `.13627165529397434`.
+
+`(7,)` -> modulus `14`, energy fraction `.0021290047024612067`.
+
+`(13,)` -> modulus `26`, energy fraction `.0007791848589789723`.
+
+`(5,13)` -> modulus `130`, energy fraction `.0006602028308089682`.
+
+`(5,)` -> modulus `10`, energy fraction `.0002560228282923629`.
+
+`(11,)` -> modulus `22`, energy fraction `.00014270555682966842`.
+
+Status `aha-candidate`: the explicit coefficient is broad in individual
+characters but low-dimensional in CRT support.  Full `U_10010` residue
+uniformity is not the right sufficient condition.  The next direct estimate
+should bound a sum of lower-modulus components, primarily moduli `286`, `154`,
+and `70`, plus small single-support corrections.

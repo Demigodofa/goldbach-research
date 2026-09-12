@@ -7887,3 +7887,21 @@ finite scales.
 Status `changed-under-evidence`: use CRT/conductor support or lower-dimensional
 structure before asking for full unit-residue uniformity.  The direct
 pointwise estimate remains open.
+
+### 2026-09-12 continuation: support components descend to lower moduli
+
+`combined_coefficient_support_descent_receipt` reconstructs the assembled
+centered coefficient by CRT character-support components and verifies actual
+descent to lower natural moduli.  Reconstruction error is
+`2.8141365849948198e-15`; maximum support-descent relative error is
+`5.591563085286316e-18`.
+
+The nonzero lower moduli are `10, 14, 22, 26, 70, 130, 154, 286`.  Most energy
+lives on three two-prime supports: `(11,13)`/modulus `286` carries
+`.70082890257693`, `(7,11)`/modulus `154` carries `.15893232135172436`, and
+`(5,7)`/modulus `70` carries `.13627165529397434`.
+
+Status `aha-candidate`: the coefficient is broad across individual
+characters, but it is not full-dimensional in CRT support.  Replace the
+unrealistic full mod-`10010` uniformity route with lower-modulus component
+estimates, primarily for moduli `286`, `154`, and `70`.

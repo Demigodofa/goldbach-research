@@ -3290,6 +3290,113 @@ def combined_coefficient_uniform_residue_margin_receipt(
     }
 
 
+def combined_coefficient_support_descent_receipt(tolerance=1e-9):
+    """Reconstruct CRT-support components and test lower-modulus descent.
+
+    The full character spectrum is broad, but its CRT support may be
+    low-dimensional.  For each support group, this receipt reconstructs the
+    corresponding coefficient component on ``U_10010`` and tests whether it
+    descends through the natural modulus ``2*prod(support primes)``.  Passing
+    does not prove a prime-correlation estimate; it identifies the smaller
+    moduli on which such estimates would need to act.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    mean = complex(np.mean(values))
+    centered = values - mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    factor_primes = (5, 7, 11, 13)
+    support_to_indices = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_to_indices.setdefault(support, []).append(index)
+
+    total_energy = float(np.sum(np.abs(character_coefficients) ** 2))
+    support_rows = []
+    reconstructed = np.full(len(units), mean, dtype=np.complex128)
+    for support, indices in sorted(
+            support_to_indices.items(),
+            key=lambda item: sum(
+                abs(character_coefficients[index]) ** 2
+                for index in item[1]),
+            reverse=True):
+        masked = np.zeros_like(character_coefficients)
+        masked[indices] = character_coefficients[indices]
+        component = character_table.T @ masked
+        reconstructed += component
+        energy = float(np.sum(np.abs(masked) ** 2))
+        modulus = 2
+        for prime in support:
+            modulus *= prime
+        grouped = {}
+        for unit, value in zip(units, component):
+            grouped.setdefault(unit % modulus, []).append(value)
+        grouped_means = {
+            residue: _complex_fsum(values) / len(values)
+            for residue, values in grouped.items()}
+        descent_error = max(
+            abs(value - grouped_means[unit % modulus])
+            for unit, value in zip(units, component))
+        component_scale = max(1.0, float(np.linalg.norm(component)))
+        support_rows.append({
+            "support": support,
+            "natural_modulus": modulus,
+            "character_count": len(indices),
+            "unit_residue_count": len(grouped_means),
+            "energy": energy,
+            "energy_fraction": energy / total_energy if total_energy else 0.0,
+            "component_l2": float(np.linalg.norm(component)),
+            "descent_relative_error": descent_error / component_scale,
+            "descends_to_natural_modulus": bool(
+                descent_error / component_scale <= tolerance),
+        })
+    reconstruction_error = float(
+        np.linalg.norm(reconstructed - values)
+        / max(1.0, float(np.linalg.norm(values))))
+    nonzero_rows = tuple(
+        row for row in support_rows
+        if row["energy_fraction"] > tolerance)
+    natural_moduli = tuple(sorted({
+        row["natural_modulus"] for row in nonzero_rows
+        if row["support"]}))
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "unit_group_order": len(units),
+        "principal_mean": mean,
+        "factor_primes": factor_primes,
+        "total_character_energy": total_energy,
+        "support_rows": tuple(support_rows),
+        "nonzero_support_rows": nonzero_rows,
+        "nonzero_natural_moduli": natural_moduli,
+        "maximum_support_descent_relative_error": max(
+            row["descent_relative_error"] for row in support_rows),
+        "component_reconstruction_relative_error": reconstruction_error,
+        "all_nonzero_supports_descend_to_lower_moduli": all(
+            row["descends_to_natural_modulus"] for row in nonzero_rows),
+        "full_modulus_uniformity_not_required_by_coefficient_structure": bool(
+            period not in natural_moduli),
+        "support_descent_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

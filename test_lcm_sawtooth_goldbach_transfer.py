@@ -11,6 +11,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_negative_residue_lift_receipt,
     combined_coefficient_prime_correlation_diagnostic_receipt,
     combined_coefficient_period_cycle_envelope_receipt,
+    combined_coefficient_support_descent_receipt,
     combined_coefficient_uniform_residue_margin_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
@@ -467,6 +468,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_combined_coefficient_character_support_is_low_dimensional(self):
+        receipt = combined_coefficient_character_support_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(receipt["factor_primes"], (5, 7, 11, 13))
+        self.assertAlmostEqual(
+            receipt["full_support_energy_fraction"],
+            2.6819396744968046e-31, places=30)
+        self.assertAlmostEqual(
+            receipt["lower_support_energy_fraction"], 1.0, places=14)
+        self.assertEqual(receipt["leading_support"], (11, 13))
+        self.assertAlmostEqual(
+            receipt["leading_support_energy_fraction"],
+            .70082890257693, places=14)
+        self.assertFalse(receipt["full_support_dominates"])
+        self.assertTrue(receipt["low_dimensional_support_diagnostic_passes"])
+        self.assertTrue(receipt["character_support_grouping_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_combined_coefficient_pairwise_gram_has_only_tiny_net_cancellation(self):
         receipt = combined_coefficient_pairwise_gram_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)
@@ -701,6 +723,28 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertGreater(
             receipt["minimum_sufficient_uniform_relative_error_margin"], 0)
         self.assertTrue(receipt["uniform_residue_margin_computed"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_support_descent(self):
+        receipt = combined_coefficient_support_descent_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(receipt["factor_primes"], (5, 7, 11, 13))
+        self.assertLess(
+            receipt["component_reconstruction_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_support_descent_relative_error"], 1e-12)
+        self.assertEqual(
+            receipt["nonzero_natural_moduli"],
+            (10, 14, 22, 26, 70, 130, 154, 286))
+        self.assertTrue(receipt[
+            "all_nonzero_supports_descend_to_lower_moduli"])
+        self.assertTrue(receipt[
+            "full_modulus_uniformity_not_required_by_coefficient_structure"])
+        self.assertTrue(receipt["support_descent_measured"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
