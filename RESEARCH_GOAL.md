@@ -7838,3 +7838,16 @@ Status `verified-bookkeeping`: all five assembled sectors now have direct
 source/action audits in the strict-central fixture layer.  This strengthens
 the coefficient bridge but does not close endpoint/noncentral terms or the
 pointwise signed prime-correlation estimate.
+
+### 2026-09-12 continuation: first-cycle negatives clear sampled lifts
+
+The default `combined_coefficient_negative_residue_lift_receipt` tested every
+one of the `75` first-cycle negative residue classes at additional period lifts
+`(0, 1, 4, 9, 19, 49)`.  None stayed negative at any tested positive lift.
+The weakest lifted normalized multiplier is `0.3807824713878283` at target
+`20674`.
+
+Status `aha-candidate`: sampled evidence now favors a threshold-plus-finite
+check route over a persistent negative-residue obstruction.  The required
+mathematical step remains a uniform pointwise lower bound, or an explicit
+threshold theorem plus finite verification below it.

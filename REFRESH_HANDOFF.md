@@ -15623,3 +15623,21 @@ projected count-four actions.  Thus the assembled fixed coefficient has
 sector-by-sector source/action support for the strict-central fixture layer.
 The remaining gaps are still endpoint/noncentral reconciliation and the
 pointwise signed prime-correlation estimate.
+
+## 2026-09-12: all first-cycle negative residues clear sampled lifts
+
+The full `combined_coefficient_negative_residue_lift_receipt` was run on the
+first complete even-residue cycle `10000 <= N <= 20008`.  It found the same
+`75` base negative targets and tested all `75` corresponding residue classes
+at additional period lifts `(0, 1, 4, 9, 19, 49)`.
+
+No residue class remained negative at any tested positive lift.  The
+persistent lifted negative residue count is `0`; the weakest lifted normalized
+multiplier is `0.3807824713878283` at target `20674`.
+
+Status `aha-candidate`: the simple threshold-plus-finite-check strategy is
+not falsified by the finite diagnostics.  The next concrete attack is to
+derive an explicit lower threshold after which the assembled coefficient's
+normalized strict-central prime-pair sum is positive, then combine it with a
+finite check below that threshold.  This is still not a pointwise estimate or
+Goldbach proof.
