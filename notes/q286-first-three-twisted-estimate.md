@@ -2399,3 +2399,49 @@ Validation: bytecode-disabled `py_compile` passed; focused regression
 Status `changed-under-evidence`: the post-cycle-33 buffer hypothesis is now an
 executable candidate with named constants and violation lists.  It remains a
 finite falsifier, not an eventual theorem.
+
+## 2026-09-12: cycles 57 through 64 floor-candidate falsifier
+
+The explicit floor candidate was tested on a fresh later band, global cycles
+`57..64`, using complement floor `.63`, rescue margin floor `.3`, and deficit
+ceiling `.47`.
+
+```text
+cycle 57: tail 3, nonrescued 0, passed True,
+  min complement 0.8190553940491911,
+  min margin 0.5060636152562996,
+  max deficit 0.3548674811303196
+cycle 58: tail 1, nonrescued 0, passed True,
+  min complement 0.8358976413272554,
+  min margin 0.4482571418757897,
+  max deficit 0.3876404994514657
+cycle 59: tail 1, nonrescued 0, passed True,
+  min complement 0.9710569609849097,
+  min margin 0.6559217285324122,
+  max deficit 0.3151352324524975
+cycle 60: tail 4, nonrescued 0, passed True,
+  min complement 0.9567430686502207,
+  min margin 0.6258862787672124,
+  max deficit 0.35470238126589504
+cycle 61: tail 0, nonrescued 0, passed True
+cycle 62: tail 2, nonrescued 0, passed True,
+  min complement 0.8108005830373728,
+  min margin 0.510165699170394,
+  max deficit 0.3322965476929664
+cycle 63: tail 2, nonrescued 0, passed True,
+  min complement 1.1103018790146253,
+  min margin 0.779117628373549,
+  max deficit 0.33872363964153773
+cycle 64: tail 1, nonrescued 0, passed True,
+  min complement 1.0477337101487416,
+  min margin 0.6333079595885993,
+  max deficit 0.4144257505601422
+```
+
+No complement-floor, margin-floor, or deficit-ceiling violations occurred.
+The limiting nonempty cycle in this band is cycle `58` for rescue margin and
+cycle `64` for deficit, both still safely inside the finite candidate.
+
+Status `aha-candidate`: the named `.63/.3/.47` floor candidate survived a
+fresh later-band falsifier.  This strengthens the cycle-33-onward buffer
+hypothesis but remains finite evidence.

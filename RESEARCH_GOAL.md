@@ -9190,3 +9190,14 @@ minimum complement `0.6393542776650206`, minimum rescue margin
 
 Status `changed-under-evidence`: the candidate is now executable and
 falsifiable, but remains finite evidence only.
+
+### 2026-09-12 continuation: cycles 57 through 64 floor-candidate falsifier
+
+The explicit `.63/.3/.47` floor candidate was tested on fresh cycles `57..64`.
+Every cycle passed; cycle `61` had no `.3` tail targets.  No complement,
+margin, or deficit violations occurred.  The limiting nonempty values are
+margin `0.4482571418757897` at cycle `58` and deficit `0.4144257505601422` at
+cycle `64`.
+
+Status `aha-candidate`: the named post-cycle-33 floor candidate survived a
+fresh later-band falsifier; finite evidence only.
