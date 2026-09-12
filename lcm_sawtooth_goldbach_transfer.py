@@ -10318,3 +10318,105 @@ def q286_first_three_removed_low_tail_multi_period_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_complement_threshold_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        thresholds=(.3, .4, .5), tolerance=1e-9):
+    """Summarize complement cycle minima against fixed thresholds.
+
+    This receipt uses ``q286_complement_cycle_envelope_receipt`` to scan the
+    post-first-three complement and records where finite cycle minima fall
+    below selected thresholds.  It is a horizon diagnostic only, not an
+    eventual lower-bound theorem.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    thresholds = tuple(thresholds)
+    if (not thresholds or any(not math.isfinite(threshold)
+                              or threshold <= 0
+                              for threshold in thresholds)):
+        raise ValueError("thresholds must be positive finite numbers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    envelope = q286_complement_cycle_envelope_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tolerance=tolerance)
+    period = 10010
+    cycle_rows = {}
+    for row in envelope["cycle_rows"]:
+        cycle_start = start + row["cycle"] * period
+        cycle_rows[row["cycle"]] = {
+            "start": cycle_start,
+            "end": cycle_start + 2 * (row["target_count"] - 1),
+            "target_count": row["target_count"],
+            "minimum_complement_target": row[
+                "minimum_full_without_first_three_target"],
+            "minimum_complement_to_principal_ratio": row[
+                "minimum_full_without_first_three_to_principal_ratio"],
+            "full_action_negative_count": row[
+                "full_action_negative_count"],
+            "complement_nonpositive_count": row[
+                "full_without_first_three_nonpositive_count"],
+        }
+
+    threshold_rows = {}
+    for threshold in thresholds:
+        cycles_below = tuple(
+            cycle for cycle, row in cycle_rows.items()
+            if row["minimum_complement_to_principal_ratio"] < threshold)
+        targets_below = tuple(
+            cycle_rows[cycle]["minimum_complement_target"]
+            for cycle in cycles_below)
+        threshold_rows[threshold] = {
+            "cycle_count_below_threshold": len(cycles_below),
+            "cycles_below_threshold": cycles_below,
+            "cycle_minimum_targets_below_threshold": targets_below,
+            "last_cycle_below_threshold": (
+                max(cycles_below) if cycles_below else None),
+            "first_cycle_at_or_above_threshold_after_start": next((
+                cycle for cycle in sorted(cycle_rows)
+                if cycle_rows[cycle][
+                    "minimum_complement_to_principal_ratio"] >= threshold),
+                None),
+            "all_cycles_at_or_above_threshold": bool(
+                not cycles_below),
+        }
+
+    return {
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "thresholds": thresholds,
+        "arithmetic_period": period,
+        "tested_target_count": envelope["tested_target_count"],
+        "cycle_rows": cycle_rows,
+        "threshold_rows": threshold_rows,
+        "global_minimum_complement_cycle": envelope[
+            "global_minimum_complement_cycle"],
+        "global_minimum_complement_target": envelope[
+            "global_minimum_complement_target"],
+        "global_minimum_complement_to_principal_ratio": envelope[
+            "global_minimum_complement_to_principal_ratio"],
+        "after_first_cycle_minimum_complement_cycle": envelope[
+            "after_first_cycle_minimum_complement_cycle"],
+        "after_first_cycle_minimum_complement_target": envelope[
+            "after_first_cycle_minimum_complement_target"],
+        "after_first_cycle_minimum_complement_to_principal_ratio": envelope[
+            "after_first_cycle_minimum_complement_to_principal_ratio"],
+        "total_full_action_negative_count": envelope[
+            "total_full_action_negative_count"],
+        "total_complement_nonpositive_count": envelope[
+            "total_full_without_first_three_nonpositive_count"],
+        "first_three_removed_complement_threshold_horizon_measured": True,
+        "eventual_threshold_horizon_proved": False,
+        "eventual_complement_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

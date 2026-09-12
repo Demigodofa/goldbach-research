@@ -8949,3 +8949,15 @@ were `{0: 64, 1: 0}`.
 Status `aha-candidate`: the measured `.3` low tail is now confined to the
 first four periods of the checked eight-period window and clears immediately
 under same-residue lift.  No eventual theorem is proved.
+
+### 2026-09-12 continuation: complement threshold-horizon receipt
+
+`q286_first_three_removed_complement_threshold_horizon_receipt` now gives an
+executable threshold horizon for post-first-three complement minima.  On the
+first eight complete periods, `.3` is below threshold only in cycles `0..3`
+and first clears at cycle `4`; `.4` first clears at cycle `6`; `.5` does not
+clear in the checked window.  The global minimum remains `14138` at
+`0.018073313793834367`, with zero complement nonpositive targets.
+
+Status `changed-under-evidence`: use this as the finite onset threshold target
+for any eventual complement-floor theorem; no asymptotic theorem is proved.

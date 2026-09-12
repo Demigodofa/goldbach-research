@@ -17107,3 +17107,21 @@ positive.
 Status `aha-candidate`: in the checked eight-period window, the `.3` low tail
 is absent from cycles `4..7` and does not persist under lift `1`.  This remains
 finite evidence only.
+
+## 2026-09-12 continuation: complement threshold-horizon receipt
+
+`q286_first_three_removed_complement_threshold_horizon_receipt` now summarizes
+post-first-three complement cycle minima against fixed thresholds.  The
+focused regression caught two schema assumptions and the corrected test passed
+in `63.488s`; bytecode-disabled `py_compile` also passed.
+
+Eight-period run over `40040` targets: global minimum cycle `0`, `N=14138`,
+`0.018073313793834367`; after-first-cycle minimum cycle `2`, `N=36254`,
+`0.2104242574698779`; total full-action negatives `89`; complement
+nonpositive count `0`.  Threshold `.3` is below only in cycles `0..3` and first
+clears at cycle `4`; threshold `.4` first clears at cycle `6`; threshold `.5`
+does not clear in the checked eight-cycle window.
+
+Status `changed-under-evidence`: the finite onset floor is now thresholded:
+`.3` clears by cycle `4`, `.4` by cycle `6`, while `.5` remains unproved in
+the checked window.

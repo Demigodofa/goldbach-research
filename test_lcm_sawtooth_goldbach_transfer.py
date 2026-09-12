@@ -48,6 +48,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_low_tail_lift_receipt,
     q286_first_three_removed_low_tail_auto_lift_receipt,
     q286_first_three_removed_low_tail_multi_period_receipt,
+    q286_first_three_removed_complement_threshold_horizon_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1600,6 +1601,21 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_removed_low_tail_multi_period_measured"])
         self.assertFalse(receipt["eventual_lift_clearance_proved"])
+
+    def test_q286_first_three_removed_complement_threshold_horizon(self):
+        receipt = (
+            q286_first_three_removed_complement_threshold_horizon_receipt(
+                cycle_count=1, targets_per_cycle=3, thresholds=(.3,)))
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 3)
+        self.assertEqual(receipt["thresholds"], (.3,))
+        self.assertIn(.3, receipt["threshold_rows"])
+        self.assertEqual(
+            receipt["threshold_rows"][.3]["cycle_count_below_threshold"],
+            0)
+        self.assertTrue(receipt[
+            "first_three_removed_complement_threshold_horizon_measured"])
+        self.assertFalse(receipt["eventual_threshold_horizon_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

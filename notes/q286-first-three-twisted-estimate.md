@@ -1550,3 +1550,57 @@ first four complete periods in the checked eight-period window, and every
 selected same-residue base clears at lift `1`.  This strengthens the finite
 boundary/onset interpretation.  It does not prove an eventual clearance theorem
 or Goldbach.
+
+## 2026-09-12: complement threshold-horizon receipt
+
+`q286_first_three_removed_complement_threshold_horizon_receipt` now summarizes
+cycle minima of the post-first-three complement against fixed thresholds.  It
+uses `q286_complement_cycle_envelope_receipt` and records threshold rows with
+cycles below threshold, last cycle below threshold, and the first cycle at or
+above threshold in the checked window.
+
+The focused regression initially caught two schema assumptions: complement
+cycle rows do not expose `start`/`end`, and the envelope receipt does not expose
+`arithmetic_period`.  The horizon receipt now computes cycle ranges from the
+known period `10010` and actual `target_count`.
+
+Eight-period run (`cycle_count=8`, `targets_per_cycle=5005`, thresholds
+`.3,.4,.5`):
+
+```text
+tested targets: 40040
+global minimum: cycle 0, N=14138, 0.018073313793834367
+after-first-cycle minimum: cycle 2, N=36254, 0.2104242574698779
+total full-action negatives: 89
+total complement nonpositive: 0
+
+threshold .3: cycles (0,1,2,3), targets (14138,22766,36254,49904),
+  last cycle below 3, first cycle at/above 4
+threshold .4: cycles (0,1,2,3,4,5), targets (14138,22766,36254,49904,51248,66284),
+  last cycle below 5, first cycle at/above 6
+threshold .5: cycles (0,1,2,3,4,5,6,7), targets (14138,22766,36254,49904,51248,66284,71744,89944),
+  no checked cycle at/above .5
+```
+
+Cycle minima:
+
+```text
+0: N=14138, 0.018073313793834367
+1: N=22766, 0.26287606080608905
+2: N=36254, 0.2104242574698779
+3: N=49904, 0.256264703595679
+4: N=51248, 0.31137108785748546
+5: N=66284, 0.39727017945100246
+6: N=71744, 0.4792269914847067
+7: N=89944, 0.4621616810941522
+```
+
+Validation: bytecode-disabled `py_compile` passed.  Corrected focused
+regression
+`test_q286_first_three_removed_complement_threshold_horizon` passed in
+`63.488s`.
+
+Status `changed-under-evidence`: the executable horizon says `.3` is an early
+threshold in the first eight periods, clearing at cycle `4`; `.4` clears at
+cycle `6`; `.5` does not clear in the checked window.  This gives a sharper
+finite onset target for any eventual complement-floor theorem.
