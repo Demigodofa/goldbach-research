@@ -185,6 +185,12 @@ admissible-empty.  Complement growth from lift `0` to `1` is
 `0.8356570560198036`, `1.0940601855617555`.  Driver filling is not the common
 clearance mechanism; complement growth is.
 
+Top-twenty lift falsifier: using the top twenty ratio bases from the
+eight-period scan and lifts `0..7` tested `160` targets.  Ratio `>1` occurs
+exactly `20` times, once per base, always at lift `0`; no later lift remains
+dangerous.  This strengthens the boundary-layer scarcity interpretation beyond
+the top five cases.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

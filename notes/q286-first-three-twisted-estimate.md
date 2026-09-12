@@ -768,3 +768,22 @@ top five ratio bases, but `133/153` filling is not.  The common observed
 feature is positive complement growth alongside larger strict-central residue
 mean weight.  This moves the plausible proof route toward a boundary-layer
 lower bound for the complement, not a driver-only hitting theorem.
+
+A broader lift-profile falsifier used the top twenty ratio bases from the
+eight-period scan:
+
+```text
+14138, 16388, 10424, 15026, 17522, 14852, 12424, 10294, 17042, 10814,
+18364, 17702, 12032, 15470, 10564, 17678, 11902, 11614, 10354, 12118
+```
+
+For these bases and lifts `0..7`, `160` lifted targets were tested.  The
+ratio `-first_three/full_without_first_three` exceeds `1` exactly `20` times,
+once for each base, and always at lift `0`.  No tested base has a later
+ratio-over-one lift.
+
+Status `boundary-layer-strengthened`: the first-cycle scarcity pattern is not
+limited to the top five hard cases.  The next proof-shaped question is whether
+one can prove an explicit lift-growth or large-N lower bound for the
+full-without-first-three complement in each residue class after the first
+boundary layer.

@@ -177,6 +177,12 @@ all five have positive complement at lift `1`, but only three have any
 Therefore the common mechanism is complement growth, not driver-pair filling.
 The next proof target is a boundary-layer lower bound for the complement.
 
+The boundary-layer hypothesis now has a top-twenty lift check.  For the top
+twenty ratio bases and lifts `0..7`, ratio `>1` occurs exactly once per base
+and always at lift `0`.  No tested later lift stays dangerous.  The route now
+asks for a proof of complement lower growth after the first boundary layer,
+rather than a persistent residue-class obstruction.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
