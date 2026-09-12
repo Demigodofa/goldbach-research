@@ -57,6 +57,16 @@ target is pointwise strict-central occupancy in the admissible `133/153`
 channels, or an explicit compensation estimate from the remaining q286
 coefficient mixture.
 
+Margin sharpening: `q286_high_positive_cover_margin_receipt` combines the
+cover-residue AP slopes with the full assembled action ratio.  On the same
+`89` eight-cycle negative targets, cover residues `133,153`, and `top_count=24`,
+there are `152` cover-residue margin rows and no missing targets.  The maximum
+extra strict-central log-weight needed in a cover channel to flip the full
+action is `161.06677938455093`, at `N=14138`, residue `153`; the maximum
+target-minimum requirement is `161.06677938455`.  Cancelling the first-three
+mode alone would require as much as `927.3759573295491`, at `N=88346`, so the
+remaining coefficient mixture is already doing important compensating work.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

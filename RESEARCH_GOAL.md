@@ -61,6 +61,15 @@ and `N == 120 mod 143`.  The next proof step is therefore not local
 admissibility but pointwise strict-central prime-pair occupancy or
 coefficient-mixture compensation.
 
+The quantitative margin is now measured.  For the same `89` eight-cycle
+negative targets, `q286_high_positive_cover_margin_receipt` finds no missing
+cover-residue rows among `133,153`.  The worst extra strict-central log-weight
+needed in one cover channel to flip the full assembled action is
+`161.06677938455093`, with the same value as the worst target-wise minimum.
+By contrast, cancelling the first-three mode alone can require
+`927.3759573295491`, so a proof should retain the compensating remainder
+instead of trying to dominate the entire first-three lower tail directly.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

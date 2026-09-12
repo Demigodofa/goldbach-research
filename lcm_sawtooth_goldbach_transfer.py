@@ -8300,3 +8300,138 @@ def q286_high_positive_residue_cover_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_high_positive_cover_margin_receipt(
+        selected_targets,
+        top_count=24,
+        cover_residues=(133, 153),
+        start=10000,
+        targets_per_cycle=5005,
+        tolerance=1e-09):
+    """Measure how much cover-residue weight would flip bad targets.
+
+    For each selected target, this compares the full assembled action ratio
+    with the local slope of adding strict-central prime-pair weight in the
+    selected high-positive q286 residue channels.  The output is a finite
+    diagnostic only; it is not a lower-bound theorem for those channels.
+    """
+    targets = tuple(selected_targets)
+    ap_receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=targets,
+        top_count=top_count,
+        tolerance=tolerance)
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=targets,
+        tolerance=tolerance)
+
+    target_rows = {}
+    margin_rows = []
+    missing_targets = []
+    for target in targets:
+        ap_row = ap_receipt["rows"][target]
+        lower_row = lower_receipt["rows"][target]
+        full_ratio = lower_row["full_action_to_principal_ratio"]
+        residue_rows = []
+        for residue_row in ap_row["largest_negative_residue_rows"]:
+            residue = residue_row["residue_mod_286"]
+            if residue not in cover_residues:
+                continue
+            if residue_row["coefficient_real"] <= tolerance:
+                continue
+            if residue_row["weight_delta"] >= -tolerance:
+                continue
+            slope = (
+                residue_row["contribution_to_principal_ratio"]
+                / residue_row["weight_delta"])
+            required_full_weight = (
+                max(0.0, -full_ratio / slope)
+                if slope > tolerance else None)
+            required_first_three_weight = (
+                max(
+                    0.0,
+                    -ap_row["first_three_mode_to_principal_ratio"] / slope)
+                if slope > tolerance else None)
+            out_row = {
+                "target": target,
+                "residue_mod_286": residue,
+                "prime_pair_weight": residue_row["prime_pair_weight"],
+                "weight_delta": residue_row["weight_delta"],
+                "coefficient_to_principal_weight_slope": slope,
+                "full_action_to_principal_ratio": full_ratio,
+                "first_three_mode_to_principal_ratio": (
+                    ap_row["first_three_mode_to_principal_ratio"]),
+                "required_weight_to_flip_full_action": (
+                    required_full_weight),
+                "required_weight_to_cancel_first_three": (
+                    required_first_three_weight),
+            }
+            residue_rows.append(out_row)
+            margin_rows.append(out_row)
+        if not residue_rows:
+            missing_targets.append(target)
+        target_rows[target] = {
+            "full_action_to_principal_ratio": full_ratio,
+            "cover_residue_rows": tuple(residue_rows),
+            "minimum_required_weight_to_flip_full_action": (
+                min(
+                    row["required_weight_to_flip_full_action"]
+                    for row in residue_rows
+                    if row["required_weight_to_flip_full_action"] is not None)
+                if residue_rows else None),
+        }
+
+    finite_full_rows = tuple(
+        row for row in margin_rows
+        if row["required_weight_to_flip_full_action"] is not None)
+    finite_first_three_rows = tuple(
+        row for row in margin_rows
+        if row["required_weight_to_cancel_first_three"] is not None)
+    worst_full_row = (
+        max(
+            finite_full_rows,
+            key=lambda row: row["required_weight_to_flip_full_action"])
+        if finite_full_rows else None)
+    worst_first_three_row = (
+        max(
+            finite_first_three_rows,
+            key=lambda row: row["required_weight_to_cancel_first_three"])
+        if finite_first_three_rows else None)
+    min_target_requirements = tuple(
+        row["minimum_required_weight_to_flip_full_action"]
+        for row in target_rows.values()
+        if row["minimum_required_weight_to_flip_full_action"] is not None)
+
+    return {
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "top_count": top_count,
+        "cover_residues": tuple(cover_residues),
+        "tested_target_count": len(targets),
+        "margin_row_count": len(margin_rows),
+        "target_rows": target_rows,
+        "margin_rows": tuple(margin_rows),
+        "missing_target_count": len(missing_targets),
+        "missing_targets": tuple(missing_targets),
+        "maximum_required_weight_to_flip_full_action": (
+            worst_full_row["required_weight_to_flip_full_action"]
+            if worst_full_row else None),
+        "worst_required_weight_to_flip_full_action_row": worst_full_row,
+        "maximum_required_weight_to_cancel_first_three": (
+            worst_first_three_row["required_weight_to_cancel_first_three"]
+            if worst_first_three_row else None),
+        "worst_required_weight_to_cancel_first_three_row": (
+            worst_first_three_row),
+        "maximum_target_minimum_required_weight_to_flip_full_action": (
+            max(min_target_requirements) if min_target_requirements else None),
+        "high_positive_cover_margin_measured": True,
+        "cover_residue_occupancy_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

@@ -1355,6 +1355,19 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             cover_receipt["high_positive_residue_cover_measured"])
         self.assertFalse(
             cover_receipt["signed_prime_correlation_estimate_proved"])
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_high_positive_cover_margin_receipt)
+        margin_receipt = q286_high_positive_cover_margin_receipt(
+            selected_targets=(10042,), top_count=12)
+        self.assertEqual(margin_receipt["missing_target_count"], 0)
+        self.assertGreater(
+            margin_receipt[
+                "maximum_required_weight_to_flip_full_action"],
+            0)
+        self.assertTrue(
+            margin_receipt["high_positive_cover_margin_measured"])
+        self.assertFalse(
+            margin_receipt["cover_residue_occupancy_lower_bound_proved"])
         self.assertTrue(receipt["driver_residue_lift_occupancy_measured"])
         self.assertFalse(receipt["driver_residue_hitting_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

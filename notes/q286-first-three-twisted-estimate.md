@@ -383,3 +383,33 @@ coefficient channels when these two channels are empty or deficient.
 This is sharper than a generic fixed-modulus AP estimate because the desired
 bound is pointwise in `N`, weighted by the strict-central interval, and tied to
 the signed coefficient margin needed to overcome the observed lower tail.
+
+## Cover-residue margin
+
+`q286_high_positive_cover_margin_receipt` measures the amount of extra
+strict-central log-weight in the cover residue rows that would flip a bad
+target's signed action.  It combines the AP-residue row slopes with the full
+assembled action ratio.  This asks how strong an occupancy theorem would need
+to be, not whether such a theorem has been proved.
+
+On the `89` full-action negative targets from the first eight complete
+periods, using cover residues `133,153` and `top_count=24`, the receipt gives:
+
+```text
+tested targets: 89
+cover-residue margin rows: 152
+missing targets: 0
+maximum required weight to flip full action: 161.06677938455093
+worst full-action target/residue: N=14138, residue 153
+maximum target-minimum required weight to flip full action: 161.06677938455
+maximum required weight to cancel first-three alone: 927.3759573295491
+worst first-three target: N=88346
+```
+
+Status `theorem-target-sharpened`: nonempty occupation of `133` or `153` is
+not the right sufficient statement by itself.  The proof needs a quantitative
+pointwise lower bound for strict-central log-weight in these channels, or an
+explicit compensation term.  The worst observed full-action gap is much smaller
+than the worst first-three-only gap, which means the remaining coefficient
+mixture is already compensating substantially and should be kept in the proof
+model rather than discarded.
