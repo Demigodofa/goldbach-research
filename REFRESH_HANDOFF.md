@@ -14994,3 +14994,34 @@ not identify the full outer assembly, the formal signed error
 whether the same constant-plus-fiber-shadow decomposition extends to every
 target residue/class needed by the original assembly, including endpoints and
 any nonfixture terms.
+
+## 2026-09-12: centered bridge samples all 65 even residue classes
+
+The fixture bridge extends across all even target residues modulo `130` in a
+finite representative test. `all_residue_centered_outer_fiber_shadow_receipt`
+selects one target with a strict-central prime pair in each even residue class;
+the default range finds `65` targets spanning `10000..10128`. It then applies
+the same quotient-77 centered-channel comparison against the lag-130 fiber
+shadow.
+
+The maximum natural-scale bridge error is `4.941748661419397e-13`. The
+signed/final-scale diagnostic is `1.22718066202769e-10`, below its separate
+`1e-9` tolerance. This looser signed diagnostic is deliberate: the final
+signed correlation can be much smaller than the termwise scale, so the natural
+scale is the meaningful coefficient-identity gate. The quotient-91 channel
+cancels on the sample at relative scale `5.160774356541489e-16`, and no
+nonunit or inadmissible prime terms occur.
+
+Independent review returned PASS. Faraday confirmed the 65-class selection,
+the ordered strict-central pair convention, pair counts from `50` to `190`,
+the lag-to-quotient correspondence, the natural-versus-signed scale split,
+the quotient-91 cancellation, absence of bad prime terms, and the scope flags.
+
+Status `changed-under-evidence`: the centered quotient-77 channel is not just
+a two-fixture coincidence; it survives one representative in every even
+target class modulo `130`. This is still finite sample evidence for the
+centered channel, not a proof for every target, not an endpoint analysis, not
+a full outer-assembly identity, not a formal `T_boundary-Delta` estimate, and
+not Goldbach. The next bounded question is to turn the finite all-residue
+pattern into a symbolic target-residue proof, or find the exact endpoint/
+noncentral term where the full outer assembly diverges from it.

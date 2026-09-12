@@ -7395,3 +7395,26 @@ signed estimate, a pointwise estimate, or Goldbach. The next bounded question
 is whether this constant-plus-fiber-shadow decomposition extends beyond the
 fixture targets to every target class required by the original assembly, or
 whether nonfixture/end boundary terms introduce moving coefficients.
+
+### 2026-09-12 continuation: all 65 even classes pass the centered sample
+
+The centered channel bridge now has a finite representative test in every
+even target class modulo `130`. The default receipt selects `65` targets
+spanning `10000..10128`, each with a strict-central prime pair, and compares
+the quotient-77 recombined centered channel with the lag-130 fiber-shadow
+prime sum.
+
+The maximum natural-scale bridge error is `4.941748661419397e-13`. The
+signed/final-scale diagnostic is `1.22718066202769e-10`, below the separate
+`1e-9` diagnostic tolerance; this scale is retained because signed
+cancellation can make the final value smaller than the termwise identity
+scale. Quotient-91 cancels at relative scale `5.160774356541489e-16`, and no
+nonunit or inadmissible terms occur.
+
+Independent review returned PASS, including the 65 residue selection,
+strict-central ordered-pair convention, lag-to-quotient mapping,
+natural-versus-signed scale distinction, quotient-91 cancellation, and scope
+flags. Status `changed-under-evidence`: the centered quotient-77 bridge is
+not just a fixture accident. It remains finite sample evidence only; a
+symbolic all-target proof, endpoint/noncentral terms, full outer assembly,
+formal `T_boundary-Delta`, pointwise control, and Goldbach remain open.

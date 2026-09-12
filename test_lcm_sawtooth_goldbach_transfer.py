@@ -2,6 +2,7 @@ import unittest
 
 from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
+    all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
@@ -10,6 +11,30 @@ from lcm_sawtooth_goldbach_transfer import (
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_all_residue_centered_outer_channel_samples(self):
+        receipt = all_residue_centered_outer_fiber_shadow_receipt()
+        self.assertEqual(receipt["selected_target_count"], 65)
+        self.assertEqual(receipt["covered_even_residue_count"], 65)
+        self.assertTrue(receipt["all_even_residue_classes_sampled"])
+        self.assertEqual(receipt["maximum_bad_prime_terms_per_target"], 0)
+        self.assertLess(
+            receipt["base_receipt"][
+                "maximum_fiber_shadow_centered_natural_scale_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["base_receipt"][
+                "maximum_fiber_shadow_centered_relative_error"],
+            1e-9)
+        self.assertTrue(receipt[
+            "all_residue_natural_scale_bridge_passes"])
+        self.assertTrue(receipt[
+            "all_residue_signed_scale_diagnostic_passes"])
+        self.assertTrue(receipt[
+            "quotient91_recombined_channel_cancels_on_samples"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_centered_outer_channel_is_lag130_fiber_shadow(self):
         receipt = centered_outer_fiber_shadow_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)

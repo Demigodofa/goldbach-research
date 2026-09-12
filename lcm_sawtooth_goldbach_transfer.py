@@ -22,6 +22,13 @@ from lcm_sawtooth_linked_prime_character import (
 )
 
 
+def _complex_fsum(values):
+    values = tuple(values)
+    return complex(
+        math.fsum(value.real for value in values),
+        math.fsum(value.imag for value in values))
+
+
 def even_even_goldbach_transfer_receipt(
         target_minimum=1700, target_maximum=22000, target_residue=72,
         tolerance=1e-12, batch_size=32):
@@ -525,8 +532,8 @@ def direct_source_fiber_average_receipt(tolerance=1e-12):
             residue: value
             for residue, value in zip(source_units, source_values_tuple)}
         fiber_sums = np.asarray(tuple(
-            sum((source_values[unit] for unit in units_by_common_residue[
-                residue]), 0.0j)
+            _complex_fsum(source_values[unit]
+                          for unit in units_by_common_residue[residue])
             for residue in character["unit_residues"]),
             dtype=np.complex128)
         fiber_averages = fiber_sums / fiber_size
@@ -632,8 +639,8 @@ def centered_outer_fiber_shadow_receipt(
         residue: value
         for residue, value in zip(source_units, source_values_tuple)}
     fiber_sums = np.asarray(tuple(
-        sum((source_values[unit] for unit in source_units
-             if unit % common == residue), 0.0j)
+        _complex_fsum(source_values[unit] for unit in source_units
+                      if unit % common == residue)
         for residue in units130), dtype=np.complex128)
     fiber_shadow = -(fiber_sums - np.mean(fiber_sums))
     fiber_shadow_by_residue = {
@@ -643,10 +650,12 @@ def centered_outer_fiber_shadow_receipt(
     quotient91 = centering["quotient_summaries"][91]
     rows = {}
     maximum_shadow_relative_error = 0.0
+    maximum_shadow_natural_scale_relative_error = 0.0
     for target in centering["targets"]:
         lower = target // 3
         upper = target - lower
-        fiber_shadow_sum = 0.0j
+        fiber_shadow_terms = []
+        fiber_shadow_natural_scale = 0.0
         nonunit_prime_pairs = []
         inadmissible_unit_pairs = []
         for prime, weight in _linked_prime_pairs(target, lower, upper):
@@ -658,7 +667,9 @@ def centered_outer_fiber_shadow_receipt(
             if coefficient is None:
                 inadmissible_unit_pairs.append((prime, partner))
                 continue
-            fiber_shadow_sum += coefficient * weight
+            fiber_shadow_terms.append(coefficient * weight)
+            fiber_shadow_natural_scale += abs(coefficient * weight)
+        fiber_shadow_sum = _complex_fsum(fiber_shadow_terms)
         centered_correlation = quotient77["target_summaries"][target][
             "recombined_centered_source_correlation"]
         scale = max(
@@ -667,6 +678,13 @@ def centered_outer_fiber_shadow_receipt(
             fiber_shadow_sum - centered_correlation) / scale
         maximum_shadow_relative_error = max(
             maximum_shadow_relative_error, relative_error)
+        natural_scale = max(
+            1.0, fiber_shadow_natural_scale, abs(centered_correlation))
+        natural_scale_relative_error = abs(
+            fiber_shadow_sum - centered_correlation) / natural_scale
+        maximum_shadow_natural_scale_relative_error = max(
+            maximum_shadow_natural_scale_relative_error,
+            natural_scale_relative_error)
         constant_correlation = quotient77["target_summaries"][target][
             "recombined_constant_source_correlation"]
         direct_correlation = quotient77["target_summaries"][target][
@@ -677,6 +695,9 @@ def centered_outer_fiber_shadow_receipt(
             "recombined_quotient77_centered_correlation": (
                 centered_correlation),
             "fiber_shadow_centered_relative_error": relative_error,
+            "fiber_shadow_centered_natural_scale": natural_scale,
+            "fiber_shadow_centered_natural_scale_relative_error": (
+                natural_scale_relative_error),
             "recombined_quotient77_constant_correlation": (
                 constant_correlation),
             "recombined_quotient77_direct_correlation": (
@@ -701,6 +722,8 @@ def centered_outer_fiber_shadow_receipt(
         "rows": rows,
         "maximum_fiber_shadow_centered_relative_error": (
             maximum_shadow_relative_error),
+        "maximum_fiber_shadow_centered_natural_scale_relative_error": (
+            maximum_shadow_natural_scale_relative_error),
         "maximum_quotient91_direct_relative_to_natural_scale": (
             maximum_quotient91_direct_ratio),
         "quotient77_centered_channel_is_lag130_fiber_shadow": bool(
@@ -708,6 +731,76 @@ def centered_outer_fiber_shadow_receipt(
         "quotient91_recombined_channel_cancels_on_fixtures": bool(
             maximum_quotient91_direct_ratio <= tolerance),
         "constant_principal_channel_retained_separately": True,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def all_residue_centered_outer_fiber_shadow_receipt(
+        target_minimum=10000, target_maximum=30000,
+        natural_tolerance=1e-12, signed_tolerance=1e-9,
+        exact_tolerance=1e-12, batch_size=32):
+    """Test the centered fiber-shadow bridge on all even classes mod 130.
+
+    One target with a strict-central prime pair is selected in each even
+    residue class.  Natural-scale error tests the coefficient identity without
+    punishing signed cancellation; signed-scale error is retained as a
+    diagnostic.
+    """
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 20 or target_maximum < target_minimum):
+        raise ValueError("require integer target bounds with 20<=min<=max")
+    if (not math.isfinite(natural_tolerance) or natural_tolerance < 0
+            or not math.isfinite(signed_tolerance) or signed_tolerance < 0
+            or not math.isfinite(exact_tolerance) or exact_tolerance < 0):
+        raise ValueError("tolerances must be finite and nonnegative")
+    targets = []
+    missing_residues = []
+    for residue in range(0, 130, 2):
+        first = target_minimum + (residue - target_minimum) % 130
+        selected = None
+        for target in range(first, target_maximum + 1, 130):
+            if _linked_prime_pairs(
+                    target, target // 3, target - target // 3):
+                selected = target
+                break
+        if selected is None:
+            missing_residues.append(residue)
+        else:
+            targets.append(selected)
+    if missing_residues:
+        raise ValueError(
+            "target range misses strict-central pairs for residues "
+            f"{tuple(missing_residues)}")
+    base = centered_outer_fiber_shadow_receipt(
+        targets=tuple(targets), tolerance=exact_tolerance,
+        batch_size=batch_size)
+    maximum_bad_prime_terms = max(
+        len(row["nonunit_prime_pairs"]) + len(row["inadmissible_unit_pairs"])
+        for row in base["rows"].values())
+    return {
+        "target_range": (target_minimum, target_maximum),
+        "selected_targets": tuple(targets),
+        "selected_target_count": len(targets),
+        "covered_even_residue_count": len({target % 130
+                                           for target in targets}),
+        "base_receipt": base,
+        "natural_tolerance": natural_tolerance,
+        "signed_tolerance": signed_tolerance,
+        "maximum_bad_prime_terms_per_target": maximum_bad_prime_terms,
+        "all_even_residue_classes_sampled": bool(
+            len(targets) == 65
+            and len({target % 130 for target in targets}) == 65),
+        "all_residue_natural_scale_bridge_passes": bool(
+            base[
+                "maximum_fiber_shadow_centered_natural_scale_relative_error"]
+            <= natural_tolerance),
+        "all_residue_signed_scale_diagnostic_passes": bool(
+            base["maximum_fiber_shadow_centered_relative_error"]
+            <= signed_tolerance),
+        "quotient91_recombined_channel_cancels_on_samples": bool(
+            base["quotient91_recombined_channel_cancels_on_fixtures"]),
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "goldbach_proved": False,
