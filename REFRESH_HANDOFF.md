@@ -191,6 +191,13 @@ exactly `20` times, once per base, always at lift `0`; no later lift remains
 dangerous.  This strengthens the boundary-layer scarcity interpretation beyond
 the top five cases.
 
+All-negative lift check: treating all `89` eight-period full-action negatives
+as bases and testing lifts `0..3` gives `356` lifted targets.  Ratio `>1`
+occurs exactly `89` times, ratio `>.9` also exactly `89`, and every occurrence
+is at lift `0`.  No observed negative base remains dangerous at lifts `1..3`.
+This is finite evidence for immediate clearance after the first arithmetic
+period lift, not an asymptotic theorem.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

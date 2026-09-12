@@ -787,3 +787,23 @@ limited to the top five hard cases.  The next proof-shaped question is whether
 one can prove an explicit lift-growth or large-N lower bound for the
 full-without-first-three complement in each residue class after the first
 boundary layer.
+
+The same lift-clearance test was then applied to all `89` full-action negative
+targets from the eight-period scan, treating each negative target as a base and
+testing lifts `0..3`.  This covers `356` lifted targets.  The result is exact
+on the measured set:
+
+```text
+base count: 89
+tested lifted targets: 356
+ratio > 1 count: 89
+ratio > .9 count: 89
+bad bases with ratio > 1 outside lift 0: 0
+```
+
+Status `observed-failures-clear-immediately`: every observed eight-period
+failure clears by lift `1` in this test.  This is stronger than the top-twenty
+check, but still finite.  The proof route suggested by the evidence is an
+eventual lower-envelope theorem for the complement after the first arithmetic
+period lift of any residue class, plus a finite/boundary verification below
+that onset.

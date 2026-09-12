@@ -183,6 +183,12 @@ and always at lift `0`.  No tested later lift stays dangerous.  The route now
 asks for a proof of complement lower growth after the first boundary layer,
 rather than a persistent residue-class obstruction.
 
+The lift-clearance check now covers all `89` eight-period negative targets as
+bases.  For lifts `0..3`, ratio `>1` occurs exactly `89` times and always at
+lift `0`; no base remains dangerous at lifts `1`, `2`, or `3`.  This makes the
+next theorem target an eventual complement lower envelope after the first
+arithmetic-period lift, with the initial boundary layer treated separately.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
