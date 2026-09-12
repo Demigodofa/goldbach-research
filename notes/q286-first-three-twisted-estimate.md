@@ -127,6 +127,28 @@ it is the missing binary-prime correlation strength.  In this project, the
 analogous "final factor" appears as pointwise control of the first-three
 q286 twisted correlations.
 
+## Source-boundary check
+
+Current primary/expository source checks support caution rather than direct
+import of a theorem.  Halupczok's 2012 paper, "Goldbach's problem with primes
+in arithmetic progressions and in short intervals", states mean-value
+theorems of Bombieri-Vinogradov type for binary and ternary additive prime
+problems in arithmetic progressions and short intervals.  That is adjacent,
+but it is not the pointwise lower-tail theorem for our fixed target `N`.
+
+Bhowmik, Halupczok, Matsumoto, and Suzuki's "Goldbach Representations in
+Arithmetic Progressions and zeros of Dirichlet L-functions" is also cautionary:
+its abstract obtains average asymptotics under a distinct-zero conjecture for
+Dirichlet L-functions, and relates good error terms back to zero locations and
+possible Siegel zeros.  The Bhowmik-Halupczok survey notes that good average
+orders with strong error terms in the arithmetic-progression setting are tied
+to GRH-type hypotheses.
+
+Working conclusion: do not cite the literature as already proving our
+first-three q286 pointwise lower-tail estimate.  The direct target remains a
+new in-repo proof obligation, or a carefully sourced theorem whose hypotheses
+match this exact fixed-modulus, strict-central, weighted, pointwise form.
+
 ## Next falsifiers
 
 1. Test whether first-three removal leaves a positive margin on more complete
@@ -139,4 +161,3 @@ q286 twisted correlations.
    binary-correlation input.
 4. Preserve the endpoint/noncentral reconciliation separately; this note only
    concerns the strict-central unit coefficient action.
-
