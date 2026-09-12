@@ -8,7 +8,12 @@ import math
 
 import numpy as np
 
-from lcm_sawtooth_frequency_resolved_fourier import _unit_character_table
+from lcm_sawtooth_cotangent_count import _one_orientation_count_source_modes
+from lcm_sawtooth_frequency_resolved_fourier import (
+    CANONICAL_FAMILIES,
+    CANONICAL_LAGS,
+    _unit_character_table,
+)
 from lcm_sawtooth_linked_prime_character import (
     _linked_prime_pairs,
     recombined_centered_character_receipt,
@@ -290,6 +295,178 @@ def all_even_residue_goldbach_main_receipt(tolerance=1e-12, batch_size=32):
         "all_even_target_l1_error_log_saving_proved": True,
         "all_even_target_l2_error_log_saving_proved": True,
         "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def _source_mode_matrices(period, sources):
+    residues = np.asarray(sorted(sources), dtype=np.int64)
+    width = max(map(len, sources.values()))
+    frequencies = np.zeros((len(residues), width), dtype=np.int64)
+    coefficients = np.zeros((len(residues), width), dtype=np.complex128)
+    for row, residue in enumerate(residues):
+        items = tuple(sources[int(residue)].items())
+        frequencies[row, :len(items)] = tuple(item[0] for item in items)
+        coefficients[row, :len(items)] = tuple(item[1] for item in items)
+    if np.any(frequencies < 0) or np.any(frequencies >= period):
+        raise ValueError("source frequency lies outside the arithmetic period")
+    return residues, frequencies, coefficients
+
+
+def _direct_resonant_source_on_units(
+        period, lag, left_sources, right_sources):
+    """Evaluate the unaveraged fully resonant lag source for every unit p."""
+    common = math.gcd(lag, period)
+    quotient = period // common
+    left_residues, left_frequencies, left_coefficients = (
+        _source_mode_matrices(period, left_sources))
+    right_residues, right_frequencies, right_coefficients = (
+        _source_mode_matrices(period, right_sources))
+    right_index = np.full(period, -1, dtype=np.int64)
+    right_index[right_residues] = np.arange(len(right_residues))
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = []
+    for prime_residue in units:
+        difference = lag * pow(prime_residue, -1, period) % period
+        indices = right_index[(left_residues - difference) % period]
+        valid = indices >= 0
+        frequency_differences = (
+            left_frequencies[valid, :, None]
+            - right_frequencies[indices[valid], None, :]) % period
+        terms = (
+            left_coefficients[valid, :, None]
+            * np.conjugate(right_coefficients[indices[valid], None, :]))
+        terms *= np.exp(
+            2j * np.pi
+            * ((prime_residue * frequency_differences) % period) / period)
+        values.append(complex(np.sum(
+            terms[frequency_differences % quotient == 0])))
+    return units, tuple(values)
+
+
+def canonical_direct_resonant_goldbach_main_receipt(tolerance=1e-12):
+    """Identify almost-all mains for the actual fixed sources on U_10010.
+
+    The source is evaluated before the conditioned unit-prime average used by
+    the frequency-total receipts.  It is a fixed function of ``p mod 10010``;
+    it generally does not descend to the smaller common modulus of a lag.
+
+    For either lag source ``F_ell`` and every fixed pair of coefficients
+    ``lambda_ell``, Halupczok's Theorem 6 plus the reviewed moving-window
+    reduction gives
+
+        R_N(lambda) = M_N(lambda) + E_N(lambda),
+        M_N(lambda) = N*S(10010*N)/(3*phi(10010))
+                      * sum_(a in A_N) sum_ell lambda_ell*F_ell(a),
+
+    where ``A_N={a in U_10010:N-a in U_10010}``.  For every fixed ``K``, the
+    even-target L1 and L2 sums of ``E_N`` are respectively
+    ``O_(K,lambda)(X^2/log(X)^K)`` and
+    ``O_(K,lambda)(X^3/log(X)^K)``.  No original outer assembly or pointwise
+    Goldbach estimate is asserted.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    unit_indicator = np.zeros(period, dtype=np.float64)
+    unit_indicator[list(units)] = 1.0
+    admissible_counts = np.rint(np.fft.ifft(
+        np.fft.fft(unit_indicator) ** 2).real).astype(np.int64)
+
+    lag_rows = {}
+    maximum_convolution_reconstruction_error = 0.0
+    for lag in CANONICAL_LAGS:
+        source_units, source_values_tuple = _direct_resonant_source_on_units(
+            period, lag, left_sources, right_sources)
+        if source_units != units:
+            raise AssertionError("direct source unit ordering changed")
+        source_values = np.asarray(source_values_tuple, dtype=np.complex128)
+        source_table = np.zeros(period, dtype=np.complex128)
+        source_table[list(units)] = source_values
+        admissible_sums = np.fft.ifft(
+            np.fft.fft(source_table) * np.fft.fft(unit_indicator))
+        sampled_targets = (0, 2, 72, period - 2)
+        convolution_errors = []
+        for target_residue in sampled_targets:
+            direct_sum = sum((
+                source_values[index]
+                for index, residue in enumerate(units)
+                if math.gcd(
+                    (target_residue - residue) % period, period) == 1),
+                0.0j)
+            convolution_errors.append(
+                abs(direct_sum - admissible_sums[target_residue])
+                / max(1.0, abs(direct_sum)))
+        convolution_reconstruction_error = max(convolution_errors)
+        maximum_convolution_reconstruction_error = max(
+            maximum_convolution_reconstruction_error,
+            convolution_reconstruction_error)
+        common = math.gcd(lag, period)
+        witness_residues = (1, 1 + common)
+        witness_values = tuple(
+            source_values[units.index(residue)]
+            for residue in witness_residues)
+        witness_scale = max(1.0, *(abs(value) for value in witness_values))
+        descent_witness_ratio = abs(
+            witness_values[0] - witness_values[1]) / witness_scale
+        residue_rows = {}
+        for target_residue in range(0, period, 2):
+            source_sum = complex(admissible_sums[target_residue])
+            residue_rows[target_residue] = {
+                "admissible_residue_count": int(
+                    admissible_counts[target_residue]),
+                "source_sum": source_sum,
+                "central_singular_main_multiplier": (
+                    source_sum / (3 * len(units))),
+            }
+        lag_rows[lag] = {
+            "common_modulus": common,
+            "quotient": period // common,
+            "source_unit_count": len(source_values),
+            "source_l2": float(np.linalg.norm(source_values)),
+            "source_mean": complex(np.mean(source_values)),
+            "common_modulus_descent_witness_residues": witness_residues,
+            "common_modulus_descent_witness_values": witness_values,
+            "common_modulus_descent_witness_ratio": descent_witness_ratio,
+            "source_descends_to_common_modulus": bool(
+                descent_witness_ratio <= tolerance),
+            "sampled_convolution_targets": sampled_targets,
+            "sampled_convolution_reconstruction_relative_error": (
+                convolution_reconstruction_error),
+            "even_target_residue_count": len(residue_rows),
+            "residue_rows": residue_rows,
+        }
+
+    return {
+        "families": CANONICAL_FAMILIES,
+        "lags": CANONICAL_LAGS,
+        "arithmetic_period": period,
+        "unit_group_order": len(units),
+        "even_target_residue_count": period // 2,
+        "lag_rows": lag_rows,
+        "maximum_sampled_convolution_reconstruction_relative_error": (
+            maximum_convolution_reconstruction_error),
+        "asymptotic_formula": (
+            "R_N(lambda)=N*S(10010*N)/(3*phi(10010))*"
+            "sum_(a in A_N)sum_lag lambda_lag*F_lag(a)+E_N(lambda)"),
+        "actual_unaveraged_periodic_sources_identified": True,
+        "halupczok_modulus_10010_transfer_proved": True,
+        "all_even_target_l1_error_log_saving_proved": True,
+        "all_even_target_l2_error_log_saving_proved": True,
+        "smaller_common_modulus_descent_proved": False,
+        "original_outer_assembly_identification_proved": False,
+        "pointwise_direct_resonant_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
         "goldbach_proved": False,
     }
 

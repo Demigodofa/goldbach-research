@@ -14834,3 +14834,85 @@ therefore `L_N(G_0)-M_N` are almost-all small. The full `G_0` functional is
 generally main-sized because `M_N` is generally nonzero. The next comparison
 must use that explicit main in the larger Goldbach assembly rather than
 silently set it to zero.
+
+## 2026-09-11: actual resonant sources require modulus 10010
+
+A proposed extension from the primitive quotient-77 source to all resonant
+frequencies was independently rejected before commit. The rejected
+construction Fourier-synthesized `_partial_fourier_frequency_totals`, but
+those totals already include the quotient prime-class average, the common
+Ramanujan factor and division by period. They are not unaveraged coefficients
+of the source at a fixed prime. The exact no-good constraint is: do not apply
+a second Fourier synthesis to these averaged totals and call the result the
+actual source modulo `130` or `110`.
+
+Direct fixed-prime evaluation gives a concrete falsifier. For lag `130`, the
+actual fully resonant source at `p=1,131,261`, all congruent modulo `130`, is
+approximately
+
+`-336.788645-75.467993i, 140.287128+93.065182i,
+ -750.927369+1596.151103i`.
+
+For lag `110`, its values at `p=1,111,331`, all congruent modulo `110`, are
+approximately `24531.634452,625.298144,-3184.16`. Thus the source does not
+descend to either smaller common modulus. Preserve the earlier primitive
+source and Halupczok transfer; reject only the attempted full-source descent.
+
+The correction works at the full fixed period. Let `Q=10010`, let `L` and
+`R` be the canonical one-orientation count source modes, and for a unit
+`p mod Q` put
+
+`delta=ell*p^(-1) mod Q`,
+
+`F_ell(p)=sum_(x,k,j: R has x-delta, q_ell | k-j)
+  L_x(k) conjugate(R_(x-delta)(j)) exp(2*pi*i*p*(k-j)/Q)`.
+
+This is the direct fully resonant construction with the unit multiplier fixed
+instead of averaged. Every input depends only on `p mod 10010`, so `F_ell`
+is an actual fixed function on `U_10010`. For any fixed coefficients
+`lambda_130,lambda_110`, define the ordered central correlation with source
+`F_lambda=lambda_130 F_130+lambda_110 F_110`. Halupczok Theorem 6 with fixed
+modulus `10010`, the previously reviewed `H=X^(3/4)` box tiling and a finite
+union over the `5005` even target classes give, for every fixed `K>0`,
+
+`sum_(X<N<=2X, N even) |R_N(lambda)-M_N(lambda)|
+    <<_(K,lambda) X^2/log(X)^K`,
+
+`sum_(X<N<=2X, N even) |R_N(lambda)-M_N(lambda)|^2
+    <<_(K,lambda) X^3/log(X)^K`,
+
+where, with `A_N={a in U_10010:N-a in U_10010}`,
+
+`M_N(lambda)=N*S(10010N)/(3*phi(10010))
+             *sum_(a in A_N) F_lambda(a)`.
+
+The direct tables have `2880` unit values each. The smaller-modulus descent
+witness ratios are `1.4659797953341394` for lag `130` and
+`.9745105388358972` for lag `110`. Admissible-set sizes range from `1485` to
+`2880`. The respective source means are approximately `160.42395833333234`
+and `1420.5416666666524`; their local-main multiplier magnitudes range from
+`.95509` to `136.51059` and from `141.69849` to `535.69198`. The nonzero
+mains must be retained.
+
+`canonical_direct_resonant_goldbach_main_receipt` implements the direct
+source, all `5005` main coefficients and explicit false flags for smaller-
+modulus descent, original outer assembly, pointwise correlation, formal signed
+error identification and Goldbach. The focused test passes normally and under
+`-O`; the full three-test transfer module passes normally in `101.508s`.
+Compilation and diff checks pass.
+
+Independent review returned PASS. It reconstructed all six fixed-prime
+witnesses by a separate scalar route, checked the difference, frequency sign,
+conjugation and resonant condition, verified the sampled admissible convolution
+to `6.26e-15`, and confirmed the `N/3` main, fixed modulus `10010`, finite
+`5005`-class union, complex fixed coefficients and explicit open boundaries.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The failed
+smaller-modulus conjunction exposed the correct full-period source and a direct
+route around the averaged-frequency error. The next bounded question is
+whether the original count-four outer assembly weights these two fixed sources
+by fixed or finitely periodic coefficients that can be absorbed at modulus
+`10010`. Require an exact coefficient identity before transferring this
+almost-all estimate. A moving scale-dependent coefficient, an omitted source
+family or unmatched endpoint term rejects that assembly while preserving the
+two direct-source theorems.
