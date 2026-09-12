@@ -15823,3 +15823,39 @@ Status `changed-under-evidence`: the lower tail is not a uniform all-support
 problem.  The proof target should prioritize the modulus-`286` support, then
 control the reinforcing q70 and q154 supports; the smaller supports are not
 the main obstruction in the measured range.
+
+## 2026-09-12: q286 obstruction is deviation, not local sign
+
+`combined_coefficient_lower_modulus_deviation_receipt` compares actual
+lower-modulus support contributions with their lower-modulus local predictions
+on selected bad targets `10424`, `14138`, and `88346`.  It tracks the dominant
+supports `(11,13)`/`286`, `(5,7)`/`70`, and `(7,11)`/`154`.
+
+For q286, the local prediction is positive on all three bad targets, but the
+actual contribution is strongly negative.  Thus the dominant q286 obstruction
+is a prime-residue discrepancy, not a bad q286 local main.
+
+q286 ratios to the positive principal contribution:
+
+`N=10424`: actual `-0.9583193935945982`, local prediction
+`0.01222267157852989`, deviation `-0.970542065173128`; q286 residues used
+`57/99`, max residue weight to mean `4.36663181730314`.
+
+`N=14138`: actual `-0.8621262122813993`, local prediction
+`0.004547927429714009`, deviation `-0.8666741397111133`; q286 residues used
+`59/99`, max residue weight to mean `3.974800180551649`.
+
+`N=88346`: actual `-0.7602396939787028`, local prediction
+`0.012915841471344433`, deviation `-0.7731555354500473`; q286 residues used
+`95/99`, max residue weight to mean `2.1264906126189658`.
+
+Secondary nuance: some non-dominant supports do have negative local
+predictions, for example q70 at `N=10424` and `N=88346`, and q154 at
+`N=10424` and `N=14138`.  The receipt therefore distinguishes
+`any_support_local_prediction_has_bad_sign=True` from
+`dominant_support_local_prediction_has_bad_sign=False`.
+
+Status `changed-under-evidence`: the first analytic target is now a q286
+prime-residue discrepancy/lower-tail estimate, not another local-main
+positivity check.  q70 and q154 remain reinforcing secondary terms with mixed
+local-bias and discrepancy behavior.

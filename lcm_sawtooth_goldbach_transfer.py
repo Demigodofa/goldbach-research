@@ -3813,6 +3813,188 @@ def combined_coefficient_support_cycle_envelope_receipt(
     }
 
 
+def combined_coefficient_lower_modulus_deviation_receipt(
+        targets=(10424, 14138, 88346),
+        supports=((11, 13), (5, 7), (7, 11)), tolerance=1e-9):
+    """Compare lower-modulus support actions with local predictions.
+
+    This is the q286-focused diagnostic suggested by the support-cycle
+    envelope.  For each selected CRT support component, it computes:
+
+    * the actual strict-central prime-pair contribution;
+    * the lower-modulus local prediction using the total prime-pair weight;
+    * the deviation between actual and local prediction.
+
+    The result identifies whether bad direct targets are explained by a bad
+    lower-modulus local main or by a genuine prime-residue discrepancy.
+    """
+    targets = tuple(targets)
+    supports = tuple(tuple(support) for support in supports)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    valid_supports = {
+        (13,), (11,), (11, 13), (7,), (7, 11),
+        (5,), (5, 13), (5, 7)}
+    if not supports or any(support not in valid_supports
+                           for support in supports):
+        raise ValueError("supports must be nonempty valid CRT supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    principal_mean = complex(np.mean(values))
+    centered = values - principal_mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+
+    component_by_support = {}
+    lower_modulus_values = {}
+    for support in supports:
+        masked = np.zeros_like(character_coefficients)
+        masked[support_indices[support]] = character_coefficients[
+            support_indices[support]]
+        component = character_table.T @ masked
+        modulus = 2
+        for prime in support:
+            modulus *= prime
+        grouped = {}
+        for unit, value in zip(units, component):
+            grouped.setdefault(unit % modulus, []).append(value)
+        lower_values = {
+            residue: _complex_fsum(values) / len(values)
+            for residue, values in grouped.items()}
+        component_by_support[support] = component
+        lower_modulus_values[support] = (modulus, lower_values)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        pairs = []
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                pairs.append((prime, weight))
+                total_weight += weight
+        principal_contribution = principal_mean * total_weight
+        support_rows = {}
+        for support in supports:
+            modulus, lower_values = lower_modulus_values[support]
+            actual = _complex_fsum(
+                lower_values[prime % modulus] * weight
+                for prime, weight in pairs)
+            admissible = tuple(
+                residue for residue in lower_values
+                if math.gcd((target - residue) % modulus, modulus) == 1)
+            local_sum = _complex_fsum(lower_values[residue]
+                                      for residue in admissible)
+            predicted = local_sum * total_weight / len(admissible)
+            deviation = actual - predicted
+            weights_by_residue = {residue: 0.0 for residue in admissible}
+            for prime, weight in pairs:
+                residue = prime % modulus
+                if residue in weights_by_residue:
+                    weights_by_residue[residue] += weight
+            mean_weight = total_weight / len(admissible)
+            nonzero_residue_count = sum(
+                1 for weight in weights_by_residue.values()
+                if weight > tolerance)
+            maximum_weight_ratio = (
+                max(weights_by_residue.values()) / mean_weight
+                if mean_weight > tolerance else math.inf)
+            support_rows[support] = {
+                "natural_modulus": modulus,
+                "admissible_residue_count": len(admissible),
+                "nonzero_prime_residue_count": nonzero_residue_count,
+                "maximum_residue_weight_to_mean_ratio": (
+                    maximum_weight_ratio),
+                "actual_contribution": actual,
+                "local_prediction": predicted,
+                "deviation_from_local_prediction": deviation,
+                "actual_to_principal_ratio": float(
+                    actual.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "local_prediction_to_principal_ratio": float(
+                    predicted.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "deviation_to_principal_ratio": float(
+                    deviation.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "local_prediction_has_bad_sign": bool(
+                    predicted.real < -tolerance),
+            }
+        dominant_deviation_support = min(
+            supports,
+            key=lambda support: support_rows[support][
+                "deviation_to_principal_ratio"])
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": len(pairs),
+            "total_prime_pair_weight": total_weight,
+            "principal_contribution": principal_contribution,
+            "support_rows": support_rows,
+            "dominant_negative_deviation_support": (
+                dominant_deviation_support),
+            "dominant_negative_deviation_to_principal_ratio": (
+                support_rows[dominant_deviation_support][
+                    "deviation_to_principal_ratio"]),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "targets": targets,
+        "supports": supports,
+        "rows": rows,
+        "lower_modulus_deviation_measured": True,
+        "any_support_local_prediction_has_bad_sign": bool(any(
+            support_row["local_prediction_has_bad_sign"]
+            for row in rows.values()
+            for support_row in row["support_rows"].values())),
+        "dominant_support_local_prediction_has_bad_sign": bool(any(
+            row["support_rows"][
+                row["dominant_negative_deviation_support"]][
+                    "local_prediction_has_bad_sign"]
+            for row in rows.values())),
+        "q286_local_prediction_positive_on_all_targets": bool(
+            (11, 13) in supports
+            and all(not row["support_rows"][(11, 13)][
+                "local_prediction_has_bad_sign"]
+                    for row in rows.values())),
+        "dominant_support_deviation_is_q286_on_all_targets": bool(all(
+            row["dominant_negative_deviation_support"] == (11, 13)
+            for row in rows.values())),
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

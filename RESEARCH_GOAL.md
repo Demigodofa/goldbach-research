@@ -7956,3 +7956,22 @@ single/support terms bottom above `-0.108` in the scan.
 Status `changed-under-evidence`: prioritize the modulus-`286` lower-tail
 estimate and its reinforcement with moduli `70` and `154`; do not spend the
 next analytic attempt on the tiny single-support terms.
+
+### 2026-09-12 continuation: q286 bad targets are discrepancy-driven
+
+`combined_coefficient_lower_modulus_deviation_receipt` compares actual
+support contributions to lower-modulus local predictions on bad targets
+`10424`, `14138`, and `88346`.  For the dominant `(11,13)`/`286` support, the
+local prediction is positive on all three targets, but the actual contribution
+is negative.  The q286 deviation-to-principal ratios are `-0.970542065173128`,
+`-0.8666741397111133`, and `-0.7731555354500473`.
+
+The q286 prime residues are still sparse but improving across those targets:
+`57/99`, `59/99`, and `95/99` admissible residues receive prime-pair weight;
+maximum residue weight to mean drops from `4.36663181730314` to
+`2.1264906126189658`.
+
+Status `changed-under-evidence`: q286 is not failing because its local main
+has the wrong sign.  It is a genuine lower-modulus prime-residue discrepancy
+problem.  q70 and q154 can add secondary local-sign bias, but q286 is the main
+first target.

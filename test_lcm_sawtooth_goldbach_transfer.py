@@ -8,6 +8,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_character_spectrum_receipt,
     combined_coefficient_character_support_receipt,
     combined_coefficient_centered_error_envelope_receipt,
+    combined_coefficient_lower_modulus_deviation_receipt,
     combined_coefficient_pairwise_gram_receipt,
     combined_coefficient_negative_residue_lift_receipt,
     combined_coefficient_prime_correlation_diagnostic_receipt,
@@ -806,6 +807,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(
             receipt["cycle_rows"][0]["tested_target_count"], 21)
         self.assertTrue(receipt["support_cycle_envelope_measured"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_lower_modulus_deviation(self):
+        receipt = combined_coefficient_lower_modulus_deviation_receipt(
+            targets=(10424,))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["targets"], (10424,))
+        self.assertEqual(
+            receipt["supports"], ((11, 13), (5, 7), (7, 11)))
+        self.assertTrue(receipt["lower_modulus_deviation_measured"])
+        row = receipt["rows"][10424]
+        self.assertEqual(row["ordered_central_prime_pair_count"], 68)
+        q286 = row["support_rows"][(11, 13)]
+        self.assertEqual(q286["natural_modulus"], 286)
+        self.assertAlmostEqual(
+            q286["actual_to_principal_ratio"],
+            -.9583193935945982, places=14)
+        self.assertAlmostEqual(
+            q286["local_prediction_to_principal_ratio"],
+            .01222267157852989, places=14)
+        self.assertAlmostEqual(
+            q286["deviation_to_principal_ratio"],
+            -.970542065173128, places=14)
+        self.assertTrue(receipt["any_support_local_prediction_has_bad_sign"])
+        self.assertFalse(receipt[
+            "dominant_support_local_prediction_has_bad_sign"])
+        self.assertTrue(receipt[
+            "q286_local_prediction_positive_on_all_targets"])
+        self.assertTrue(receipt[
+            "dominant_support_deviation_is_q286_on_all_targets"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
