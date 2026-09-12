@@ -50,6 +50,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_low_tail_multi_period_receipt,
     q286_first_three_removed_complement_threshold_horizon_receipt,
     q286_first_three_tail_threshold_horizon_receipt,
+    q286_first_three_complement_cooccurrence_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1630,6 +1631,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_tail_threshold_horizon_measured"])
         self.assertFalse(receipt[
             "uniform_first_three_tail_bound_proved"])
+
+    def test_q286_first_three_complement_cooccurrence(self):
+        receipt = q286_first_three_complement_cooccurrence_receipt(
+            cycle_count=1, targets_per_cycle=3,
+            negative_tail_thresholds=(.3,))
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 3)
+        self.assertEqual(receipt["negative_tail_thresholds"], (.3,))
+        self.assertIn(.3, receipt["threshold_rows"])
+        self.assertEqual(receipt[
+            "minimum_recombined_margin_target"],
+            receipt["minimum_full_action_target"])
+        self.assertTrue(receipt[
+            "first_three_complement_cooccurrence_measured"])
+        self.assertFalse(receipt[
+            "pointwise_cooccurrence_estimate_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

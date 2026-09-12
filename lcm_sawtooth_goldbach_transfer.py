@@ -10525,3 +10525,186 @@ def q286_first_three_tail_threshold_horizon_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_complement_cooccurrence_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3, .5, .75, 1.0), tolerance=1e-9):
+    """Measure co-occurrence of q286 first-three tail and complement.
+
+    Independent lower envelopes are too weak: the first-three q286 tail falls
+    below negative thresholds long after the post-first-three complement is
+    positive.  This receipt measures the pointwise recombination
+    ``first_three + complement`` and records how often large negative tails are
+    rescued by correspondingly large complement values.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    negative_tail_thresholds = tuple(negative_tail_thresholds)
+    if (not negative_tail_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in negative_tail_thresholds)):
+        raise ValueError(
+            "negative_tail_thresholds must be positive finite numbers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    lower = q286_first_two_mode_lower_tail_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tolerance=tolerance)
+    rows = {}
+    first_three_values = []
+    complement_values = []
+    recombined_values = []
+    negative_full_targets = []
+    rescued_negative_tail_targets = []
+    for target in sorted(lower["rows"]):
+        row = lower["rows"][target]
+        first_three = row["first_three_modes_to_principal_ratio"]
+        complement = row["full_without_first_three_to_principal_ratio"]
+        recombined = first_three + complement
+        full = row["full_action_to_principal_ratio"]
+        if abs(recombined - full) > 1e-8:
+            raise ArithmeticError("first-three/complement recombination failed")
+        first_three_values.append(first_three)
+        complement_values.append(complement)
+        recombined_values.append(recombined)
+        if recombined <= tolerance:
+            negative_full_targets.append(target)
+        if first_three < -negative_tail_thresholds[0] and recombined > tolerance:
+            rescued_negative_tail_targets.append(target)
+        rows[target] = {
+            "cycle": row["cycle"],
+            "first_three_to_principal_ratio": first_three,
+            "complement_to_principal_ratio": complement,
+            "recombined_to_principal_ratio": recombined,
+            "full_action_to_principal_ratio": full,
+            "complement_minus_negative_tail_to_principal_ratio": recombined,
+            "negative_full_action": bool(recombined <= tolerance),
+        }
+
+    def dot(left, right):
+        return math.fsum(a * b for a, b in zip(left, right))
+
+    def mean(values):
+        return math.fsum(values) / len(values)
+
+    def centered(values):
+        average = mean(values)
+        return tuple(value - average for value in values)
+
+    def corr(left, right):
+        left_centered = centered(left)
+        right_centered = centered(right)
+        denominator = math.sqrt(
+            dot(left_centered, left_centered)
+            * dot(right_centered, right_centered))
+        return dot(left_centered, right_centered) / denominator if denominator else math.nan
+
+    threshold_rows = {}
+    for threshold in negative_tail_thresholds:
+        tail_targets = tuple(
+            target for target, row in rows.items()
+            if row["first_three_to_principal_ratio"] < -threshold)
+        negative_tail_and_negative_full = tuple(
+            target for target in tail_targets
+            if rows[target]["negative_full_action"])
+        rescued_targets = tuple(
+            target for target in tail_targets
+            if not rows[target]["negative_full_action"])
+        if tail_targets:
+            min_complement_target = min(
+                tail_targets,
+                key=lambda target: rows[target][
+                    "complement_to_principal_ratio"])
+            min_recombined_target = min(
+                tail_targets,
+                key=lambda target: rows[target][
+                    "recombined_to_principal_ratio"])
+            mean_complement = mean(tuple(
+                rows[target]["complement_to_principal_ratio"]
+                for target in tail_targets))
+            mean_recombined = mean(tuple(
+                rows[target]["recombined_to_principal_ratio"]
+                for target in tail_targets))
+        else:
+            min_complement_target = None
+            min_recombined_target = None
+            mean_complement = math.nan
+            mean_recombined = math.nan
+        threshold_rows[threshold] = {
+            "tail_target_count": len(tail_targets),
+            "negative_full_count_inside_tail": len(
+                negative_tail_and_negative_full),
+            "rescued_tail_target_count": len(rescued_targets),
+            "rescued_tail_fraction": (
+                len(rescued_targets) / len(tail_targets)
+                if tail_targets else math.nan),
+            "minimum_complement_target_inside_tail": min_complement_target,
+            "minimum_complement_inside_tail": (
+                rows[min_complement_target]["complement_to_principal_ratio"]
+                if min_complement_target is not None else math.nan),
+            "minimum_recombined_target_inside_tail": min_recombined_target,
+            "minimum_recombined_inside_tail": (
+                rows[min_recombined_target]["recombined_to_principal_ratio"]
+                if min_recombined_target is not None else math.nan),
+            "mean_complement_inside_tail": mean_complement,
+            "mean_recombined_inside_tail": mean_recombined,
+            "negative_tail_and_negative_full_targets": (
+                negative_tail_and_negative_full),
+        }
+
+    minimum_full_target = min(
+        rows, key=lambda target: rows[target][
+            "full_action_to_principal_ratio"])
+    minimum_recombined_target = min(
+        rows, key=lambda target: rows[target][
+            "recombined_to_principal_ratio"])
+    minimum_complement_target = min(
+        rows, key=lambda target: rows[target][
+            "complement_to_principal_ratio"])
+    minimum_first_three_target = min(
+        rows, key=lambda target: rows[target][
+            "first_three_to_principal_ratio"])
+    return {
+        "arithmetic_period": lower["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": negative_tail_thresholds,
+        "tested_target_count": lower["tested_target_count"],
+        "rows": rows,
+        "threshold_rows": threshold_rows,
+        "negative_full_action_count": len(negative_full_targets),
+        "negative_full_action_targets": tuple(negative_full_targets),
+        "rescued_negative_tail_target_count_at_first_threshold": len(
+            rescued_negative_tail_targets),
+        "minimum_full_action_target": minimum_full_target,
+        "minimum_full_action_to_principal_ratio": rows[
+            minimum_full_target]["full_action_to_principal_ratio"],
+        "minimum_recombined_margin_target": minimum_recombined_target,
+        "minimum_recombined_margin_to_principal_ratio": rows[
+            minimum_recombined_target]["recombined_to_principal_ratio"],
+        "minimum_complement_target": minimum_complement_target,
+        "minimum_complement_to_principal_ratio": rows[
+            minimum_complement_target]["complement_to_principal_ratio"],
+        "minimum_first_three_target": minimum_first_three_target,
+        "minimum_first_three_to_principal_ratio": rows[
+            minimum_first_three_target]["first_three_to_principal_ratio"],
+        "first_three_complement_centered_correlation": corr(
+            first_three_values, complement_values),
+        "first_three_full_centered_correlation": corr(
+            first_three_values, recombined_values),
+        "complement_full_centered_correlation": corr(
+            complement_values, recombined_values),
+        "first_three_complement_cooccurrence_measured": True,
+        "pointwise_cooccurrence_estimate_proved": False,
+        "eventual_cooccurrence_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

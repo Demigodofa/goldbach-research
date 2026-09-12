@@ -17158,3 +17158,26 @@ Status `changed-under-evidence`: a `.3` complement floor plus a separate
 uniform `first_three >= -.3` bound cannot close the measured problem.  The
 remaining estimate must control pointwise co-occurrence between first-three
 negative tail and complement size.
+
+## 2026-09-12 continuation: first-three/complement co-occurrence receipt
+
+`q286_first_three_complement_cooccurrence_receipt` now measures pointwise
+recombination of the q286 first-three tail with the post-first-three
+complement.  Over eight complete periods (`40040` targets), full-action
+negatives are `89`; minimum full action is `-0.8769412734408442` at `14138`;
+minimum first-three is `-1.1500880008976306` at `10664`; minimum complement is
+`0.018073313793834367` at `14138`.
+
+Tail rescue fractions: for first_three `< -.3`, `4320/4406` are rescued; for
+`< -.5`, `1071/1143`; for `< -.75`, `137/173`; for `< -1.0`, `3/5`.  The
+centered first_three/complement correlation is only `-0.04967965232137842`, so
+rescue is not a simple linear compensation law.  Exact full negatives are
+concentrated inside the negative tail bins: `86/89` below `-.3`, `72/89` below
+`-.5`, and `36/89` below `-.75`.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_complement_cooccurrence` passed in `65.104s`.
+
+Status `changed-under-evidence`: distinguish rescued large negative tails from
+the structured non-rescued minority; independent envelopes and linear
+correlation are both insufficient.

@@ -1691,3 +1691,67 @@ checked cycle.  Since the post-first-three complement is always positive, the
 remaining theorem must control pointwise co-occurrence: when first-three is
 very negative, the complement must be correspondingly large, except for the
 finite full-action negative boundary cases still needing treatment.
+
+## 2026-09-12: first-three/complement co-occurrence receipt
+
+`q286_first_three_complement_cooccurrence_receipt` now measures the actual
+pointwise recombination
+
+```text
+full action = first_three_q286 + post_first_three_complement
+```
+
+and bins targets by negative first-three tail size.  It records rescue counts,
+negative full-action counts inside each tail, and centered correlations among
+first-three, complement, and recombined full action.
+
+Eight-period run (`cycle_count=8`, `targets_per_cycle=5005`, thresholds
+`.3,.5,.75,1.0`):
+
+```text
+tested targets: 40040
+full-action negatives: 89
+minimum full action: N=14138, -0.8769412734408442
+minimum first-three: N=10664, -1.1500880008976306
+minimum complement: N=14138, 0.018073313793834367
+first_three/complement centered correlation: -0.04967965232137842
+first_three/full centered correlation: 0.7605574171870063
+complement/full centered correlation: 0.6106847343442704
+```
+
+Negative-tail bins:
+
+```text
+first_three < -.3:
+  tail targets 4406, rescued 4320, full negatives 86,
+  rescue fraction 0.9804811620517476,
+  mean complement 1.021029437934667,
+  mean recombined 0.5747406357928522
+
+first_three < -.5:
+  tail targets 1143, rescued 1071, full negatives 72,
+  rescue fraction 0.937007874015748,
+  mean complement 1.0438518320203745,
+  mean recombined 0.41343657154653096
+
+first_three < -.75:
+  tail targets 173, rescued 137, full negatives 36,
+  rescue fraction 0.791907514450867,
+  mean complement 1.0381299356023956,
+  mean recombined 0.2096477602472142
+
+first_three < -1.0:
+  tail targets 5, rescued 3, full negatives 2,
+  rescue fraction 0.6,
+  mean complement 1.0534609578401883,
+  mean recombined -0.004269413900421726
+```
+
+Status `changed-under-evidence`: the co-occurrence theorem target is sharper
+but harder.  Most large negative first-three tails are rescued by complement,
+but the centered first_three/complement correlation is near zero, so there is
+no simple linear compensation law.  The exact full negatives are concentrated
+inside the negative first-three tail bins: `86/89` full negatives lie below
+`-.3`, `72/89` below `-.5`, and `36/89` below `-.75`.  The remaining proof
+must distinguish the rescued majority from the finite/structured non-rescued
+minority.

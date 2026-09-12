@@ -8985,3 +8985,17 @@ Status `changed-under-evidence`: the `.3` complement floor cannot be paired
 with an independent uniform `first_three >= -.3` theorem.  The next target is a
 pointwise co-occurrence estimate: large negative first-three tail must force or
 coincide with large enough complement, apart from finite boundary exceptions.
+
+### 2026-09-12 continuation: first-three/complement co-occurrence receipt
+
+`q286_first_three_complement_cooccurrence_receipt` now bins targets by negative
+first-three q286 tail and measures complement rescue.  Over eight complete
+periods, first_three `< -.3` has `4406` targets with `4320` rescued and `86`
+full negatives; `< -.5` has `1143` with `1071` rescued and `72` full
+negatives; `< -.75` has `173` with `137` rescued and `36` full negatives; `<
+-1.0` has `5` with `3` rescued and `2` full negatives.  Centered
+first_three/complement correlation is `-0.04967965232137842`.
+
+Status `changed-under-evidence`: the next target is not independent envelopes
+or a linear compensation law.  It is classification/control of the non-rescued
+minority inside large negative first-three tail bins.
