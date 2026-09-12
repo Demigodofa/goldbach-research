@@ -7851,3 +7851,21 @@ Status `aha-candidate`: sampled evidence now favors a threshold-plus-finite
 check route over a persistent negative-residue obstruction.  The required
 mathematical step remains a uniform pointwise lower bound, or an explicit
 threshold theorem plus finite verification below it.
+
+### 2026-09-12 continuation: period-cycle envelope has later finite recurrence
+
+`combined_coefficient_period_cycle_envelope_receipt` scanned the first `12`
+complete even-residue cycles from `10000` through `130118`.  Negative direct
+assembled prime-correlation counts by cycle are
+`75, 3, 5, 4, 0, 0, 0, 2, 0, 0, 0, 0`.  The global worst remains
+`N=10424`, normalized multiplier `-2.470255524753131`.  The later recurrence
+is in cycle `7`, where targets `85496` and `88346` are negative and the worst
+normalized multiplier is `-0.42157916666493706`.
+
+Testing the two cycle-7 negative residues at additional period lifts
+`(0, 1, 4, 9, 19, 49)` found no persistent lifted negatives; the weakest
+lifted normalized multiplier is `1.735447134625385` at `278536`.
+
+Status `changed-under-evidence`: there is no monotone threshold at `50040`,
+but sampled negative recurrences still clear at higher residue lifts.  Continue
+with a farther threshold search or a residue-wise lower-envelope argument.

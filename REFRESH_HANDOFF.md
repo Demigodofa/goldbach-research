@@ -15641,3 +15641,29 @@ derive an explicit lower threshold after which the assembled coefficient's
 normalized strict-central prime-pair sum is positive, then combine it with a
 finite check below that threshold.  This is still not a pointwise estimate or
 Goldbach proof.
+
+## 2026-09-12: period-cycle envelope rejects a monotone 50k threshold
+
+`combined_coefficient_period_cycle_envelope_receipt` scans complete
+even-residue cycles for the direct assembled prime-correlation diagnostic.
+Across the first `12` cycles from `10000` through `130118`, negative counts by
+cycle are:
+
+`75, 3, 5, 4, 0, 0, 0, 2, 0, 0, 0, 0`.
+
+The global worst normalized multiplier remains `-2.470255524753131` at
+`N=10424`.  Cycle `7`, range `80070..90078`, has two negative targets:
+`85496` and `88346`; the cycle's worst normalized multiplier is
+`-0.42157916666493706` at `88346`.
+
+The two cycle-7 negative residues were then tested at additional period lifts
+`(0, 1, 4, 9, 19, 49)`.  Neither remained negative at any tested positive
+lift; the weakest lifted normalized multiplier was `1.735447134625385` at
+`278536`.
+
+Status `changed-under-evidence`: the earlier sampled lift result does not
+justify a monotone threshold beginning near `50040`, because later finite
+negatives recur.  However, the recurring negative residue classes also clear
+sampled higher lifts.  The direct attack should now search for either a true
+eventual threshold farther out or a residue-wise explicit lower-envelope
+argument.

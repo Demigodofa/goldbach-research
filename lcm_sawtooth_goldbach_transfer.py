@@ -2991,6 +2991,162 @@ def combined_coefficient_negative_residue_lift_receipt(
     }
 
 
+def combined_coefficient_period_cycle_envelope_receipt(
+        base_target_minimum=10000, cycle_count=3,
+        targets_per_cycle=None, tolerance=1e-9):
+    """Scan period cycles for the assembled prime-correlation lower envelope.
+
+    Each cycle advances by the arithmetic period while preserving the same
+    order of even residue classes.  The receipt measures whether the finite
+    negative first-cycle behavior persists across whole cycles.  It is a finite
+    diagnostic, not a uniform pointwise theorem.
+    """
+    if (type(base_target_minimum) is not int or base_target_minimum < 40
+            or base_target_minimum % 2):
+        raise ValueError("base_target_minimum must be an even integer >=40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (targets_per_cycle is not None
+            and (type(targets_per_cycle) is not int
+                 or targets_per_cycle < 1)):
+        raise ValueError("targets_per_cycle must be None or a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    full_cycle_targets = period // 2
+    per_cycle = (
+        full_cycle_targets if targets_per_cycle is None
+        else min(targets_per_cycle, full_cycle_targets))
+    maximum_target = (
+        base_target_minimum
+        + (cycle_count - 1) * period
+        + 2 * (per_cycle - 1))
+    coefficient_by_residue = coefficient[
+        "aggregate_coefficient_by_unit_residue"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    local_main_by_residue = {
+        target_residue: _complex_fsum(
+            coefficient_by_residue[residue]
+            for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+        for target_residue in range(0, period, 2)}
+    primes = _prime_table(maximum_target)
+
+    def evaluate(target):
+        lower = target // 3
+        upper = target - lower
+        terms = []
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                pair_count += 1
+                terms.append(
+                    coefficient_by_residue[prime % period]
+                    * math.log(prime) * math.log(partner))
+        weighted_sum = _complex_fsum(terms)
+        local_main = local_main_by_residue[target % period]
+        normalized_scale = target * local_main.real / (3 * len(units))
+        normalized = (
+            weighted_sum.real / normalized_scale
+            if abs(normalized_scale) > tolerance else math.nan)
+        return {
+            "target": target,
+            "target_residue": target % period,
+            "ordered_central_prime_pair_count": pair_count,
+            "weighted_prime_correlation": weighted_sum,
+            "halupczok_normalized_multiplier_without_singular_series": (
+                normalized),
+            "is_negative": bool(weighted_sum.real < -tolerance),
+        }
+
+    cycle_rows = {}
+    first_nonnegative_cycle = None
+    global_minimum_row = None
+    global_maximum_row = None
+    for cycle_index in range(cycle_count):
+        start = base_target_minimum + cycle_index * period
+        rows = tuple(evaluate(start + 2 * offset)
+                     for offset in range(per_cycle))
+        negative_rows = tuple(row for row in rows if row["is_negative"])
+        minimum_row = min(
+            rows,
+            key=lambda row: row[
+                "halupczok_normalized_multiplier_without_singular_series"])
+        maximum_row = max(
+            rows,
+            key=lambda row: row[
+                "halupczok_normalized_multiplier_without_singular_series"])
+        if first_nonnegative_cycle is None and not negative_rows:
+            first_nonnegative_cycle = cycle_index
+        if (global_minimum_row is None
+                or minimum_row[
+                    "halupczok_normalized_multiplier_without_singular_series"]
+                < global_minimum_row[
+                    "halupczok_normalized_multiplier_without_singular_series"]):
+            global_minimum_row = minimum_row
+        if (global_maximum_row is None
+                or maximum_row[
+                    "halupczok_normalized_multiplier_without_singular_series"]
+                > global_maximum_row[
+                    "halupczok_normalized_multiplier_without_singular_series"]):
+            global_maximum_row = maximum_row
+        cycle_rows[cycle_index] = {
+            "target_range": (rows[0]["target"], rows[-1]["target"]),
+            "tested_target_count": len(rows),
+            "covered_even_residue_count": len({row["target_residue"]
+                                               for row in rows}),
+            "negative_weighted_sum_count": len(negative_rows),
+            "minimum_normalized_multiplier_target": minimum_row["target"],
+            "minimum_normalized_multiplier": minimum_row[
+                "halupczok_normalized_multiplier_without_singular_series"],
+            "maximum_normalized_multiplier_target": maximum_row["target"],
+            "maximum_normalized_multiplier": maximum_row[
+                "halupczok_normalized_multiplier_without_singular_series"],
+            "mean_normalized_multiplier": math.fsum(
+                row["halupczok_normalized_multiplier_without_singular_series"]
+                for row in rows) / len(rows),
+            "negative_targets": tuple(row["target"]
+                                      for row in negative_rows),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "base_target_minimum": base_target_minimum,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": per_cycle,
+        "full_cycle_targets": full_cycle_targets,
+        "full_cycles_scanned": bool(per_cycle == full_cycle_targets),
+        "cycle_rows": cycle_rows,
+        "first_nonnegative_cycle_index": first_nonnegative_cycle,
+        "first_nonnegative_cycle_target_range": (
+            cycle_rows[first_nonnegative_cycle]["target_range"]
+            if first_nonnegative_cycle is not None else None),
+        "global_minimum_normalized_multiplier_target": (
+            global_minimum_row["target"]),
+        "global_minimum_normalized_multiplier": global_minimum_row[
+            "halupczok_normalized_multiplier_without_singular_series"],
+        "global_maximum_normalized_multiplier_target": (
+            global_maximum_row["target"]),
+        "global_maximum_normalized_multiplier": global_maximum_row[
+            "halupczok_normalized_multiplier_without_singular_series"],
+        "all_scanned_cycles_positive": all(
+            row["negative_weighted_sum_count"] == 0
+            for row in cycle_rows.values()),
+        "period_cycle_envelope_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:
