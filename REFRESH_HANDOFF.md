@@ -169,6 +169,12 @@ the same `40040` targets gives full-action negatives `89`, ratio
 `10424`, `15026`, `17522`.  This identifies the relative-tail obstruction and
 the tiny-complement boundary layer at `14138`.
 
+Lift-profile falsifier: `q286_tail_complement_lift_profile_receipt()` on those
+top five ratio bases and lifts `0..7` tests `40` targets.  Ratio `>1` occurs
+exactly five times, once per base, always at lift `0`; each base clears by lift
+`1`.  This falsifies a persistent bad residue-class interpretation and points
+instead to early-cycle scarcity/boundary-layer behavior.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

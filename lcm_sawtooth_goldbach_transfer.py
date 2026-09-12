@@ -9074,3 +9074,66 @@ def q286_first_three_to_complement_ratio_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_tail_complement_lift_profile_receipt(
+        bases=(14138, 16388, 10424, 15026, 17522),
+        lifts=tuple(range(8)),
+        period=10010,
+        tolerance=1e-09):
+    """Profile tail/complement ratios under arithmetic-period lifts."""
+    bases = tuple(bases)
+    lifts = tuple(lifts)
+    targets = tuple(base + period * lift for base in bases for lift in lifts)
+    ratio_receipt = q286_first_three_to_complement_ratio_receipt(
+        selected_targets=targets,
+        tolerance=tolerance)
+    base_rows = {}
+    gt_one_count = 0
+    gt_point_nine_count = 0
+    for base in bases:
+        lift_rows = []
+        for lift in lifts:
+            target = base + period * lift
+            row = ratio_receipt["target_rows"][target]
+            tail_ratio = row["tail_to_complement_ratio"]
+            if tail_ratio > 1.0 + tolerance:
+                gt_one_count += 1
+            if tail_ratio > 0.9 + tolerance:
+                gt_point_nine_count += 1
+            lift_rows.append({
+                "lift": lift,
+                "target": target,
+                "tail_to_complement_ratio": tail_ratio,
+                "full_action_to_principal_ratio": row[
+                    "full_action_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": row[
+                    "first_three_modes_to_principal_ratio"],
+                "full_without_first_three_to_principal_ratio": row[
+                    "full_without_first_three_to_principal_ratio"],
+            })
+        base_rows[base] = {
+            "lift_rows": tuple(lift_rows),
+            "ratio_greater_than_one_lifts": tuple(
+                row["lift"] for row in lift_rows
+                if row["tail_to_complement_ratio"] > 1.0 + tolerance),
+            "maximum_tail_to_complement_ratio": max(
+                row["tail_to_complement_ratio"] for row in lift_rows),
+        }
+    return {
+        "bases": bases,
+        "lifts": lifts,
+        "period": period,
+        "tested_target_count": len(targets),
+        "base_rows": base_rows,
+        "ratio_greater_than_one_count": gt_one_count,
+        "ratio_greater_than_point_nine_count": gt_point_nine_count,
+        "maximum_tail_to_complement_ratio": ratio_receipt[
+            "maximum_tail_to_complement_ratio"],
+        "worst_tail_to_complement_target": ratio_receipt[
+            "worst_tail_to_complement_target"],
+        "tail_complement_lift_profile_measured": True,
+        "persistent_bad_residue_class_proved": False,
+        "relative_tail_bound_proved": False,
+        "goldbach_proved": False,
+    }

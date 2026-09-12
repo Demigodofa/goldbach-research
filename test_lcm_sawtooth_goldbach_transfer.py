@@ -1455,6 +1455,20 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["first_three_to_complement_ratio_measured"])
         self.assertFalse(receipt["relative_tail_bound_proved"])
 
+    def test_q286_tail_complement_lift_profile(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_tail_complement_lift_profile_receipt)
+        receipt = q286_tail_complement_lift_profile_receipt(
+            bases=(14138,), lifts=(0, 1))
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["ratio_greater_than_one_count"], 1)
+        self.assertEqual(
+            receipt["base_rows"][14138][
+                "ratio_greater_than_one_lifts"],
+            (0,))
+        self.assertTrue(receipt["tail_complement_lift_profile_measured"])
+        self.assertFalse(receipt["persistent_bad_residue_class_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

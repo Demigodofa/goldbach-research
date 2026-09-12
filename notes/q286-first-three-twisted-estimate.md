@@ -721,3 +721,23 @@ relative bound `-first_three <= theta * full_without_first_three` with
 not hard because the first-three tail is uniquely enormous; it is hard because
 the positive complement is tiny.  This points to a local boundary-layer problem
 near `N=14138`, not just a global first-three estimate.
+
+`q286_tail_complement_lift_profile_receipt` tests whether the largest ratio
+targets remain bad under arithmetic-period lifts.  With default bases
+`14138,16388,10424,15026,17522` and lifts `0..7`, it tests `40` lifted
+targets.  The ratio is greater than `1` exactly five times, once for each base,
+and always at lift `0`:
+
+```text
+14138: ratio>1 lifts (0,), max ratio 49.52133280284266
+16388: ratio>1 lifts (0,), max ratio 3.98376882600334
+10424: ratio>1 lifts (0,), max ratio 3.112065323290175
+15026: ratio>1 lifts (0,), max ratio 2.957502749609025
+17522: ratio>1 lifts (0,), max ratio 2.9074726562363096
+```
+
+Status `persistent-residue-class-falsified`: the top hard targets do not stay
+dangerous under nearby period lifts.  This supports an early-cycle scarcity or
+boundary-layer explanation rather than a fixed bad residue class.  Any proof
+route based on monotonic/lift growth must still be made rigorous, but the
+finite evidence says the worst ratios clear immediately after the first lift.

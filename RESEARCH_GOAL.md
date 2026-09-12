@@ -164,6 +164,12 @@ targets, exactly the `89` full-action negatives have
 The next proof attempt should explain the tiny complement margin at `14138`
 and then seek a relative tail bound, not merely an absolute first-three bound.
 
+The hard-ratio bases were tested under period lifts.  For
+`14138,16388,10424,15026,17522` and lifts `0..7`, ratio `>1` occurs exactly at
+lift `0` for each base and nowhere else.  This falsifies the hypothesis that
+the bad behavior is a persistent residue class; it looks like early-cycle
+scarcity or a boundary layer that clears under lifting.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
