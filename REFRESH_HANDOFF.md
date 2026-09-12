@@ -14611,3 +14611,95 @@ or a uniform dyadic Rayleigh saving.  An incompatible interval, weight,
 averaging variable, or uncontrolled conversion is a failure, not a heuristic
 substitute.  Preserve any exact algebraic reduction even if no current theorem
 closes the analytic estimate.
+
+## 2026-09-11 candidate theorem transfer for the central signed correlation
+
+The exact algebraic part of the proposed transfer succeeds. Fix
+
+`A={a (mod 130):(a,130)=(72-a,130)=1}`
+
+and let `c_a` be the fixed even-even source coefficient obtained by lifting
+`u_5=(-2,1,1)/sqrt(6)` against the eleven-coordinate source profile `h_C`.
+The executable coefficient table is returned by
+`even_even_goldbach_transfer_receipt`. It has 33 entries, is invariant under
+`a -> 72-a`, and has zero sum. For every tested `N congruent 72 (mod 130)`,
+
+`<h_N,h_C> = sum c_(p mod 130) log(p)log(N-p)`,
+
+where the sum is over ordered prime pairs with `N/3 < p < 2N/3`. At
+`N=1762` the two independently evaluated sides agree to relative error
+`3.85e-31`. The coefficient function, extended by zero to the other unit
+residues, also reconstructs from the complete 48-element Dirichlet-character
+basis modulo 130 with relative error `2.28e-15`; 33 character coefficients
+are numerically nonzero at threshold `1e-8`. Normal and optimized focused
+tests pass. This is a finite source and prime-sum identity, not an analytic
+cancellation estimate by itself.
+
+A primary-source result appears to supply the missing average. In Karin
+Halupczok, *Goldbach's problem with primes in arithmetic progressions and in
+short intervals*, https://arxiv.org/abs/1212.4406, formula (1), p.5 and
+Theorem 6, p.11 (accessed 2026-09-11), the prime-only logarithmic
+representation error with one prime in a fixed residue class `a (mod q)` and
+an interval of length `Y` has a `Y^2 log(Y)^(-A)` first-moment bound after
+summing over targets in an interval of comparable length and `q<=Q`. For
+`q=130` and `N congruent 72 (mod 130)`, formula (1) gives
+
+`S(N,130,a)=S(130N)/phi(130)`
+
+for every `a in A`, independent of `a`. Thus every fixed prime-interval box's
+singular main terms cancel after multiplication by `c_a` and summation over
+`A`.
+
+The proposed moving-window reduction takes `H=X^(3/4)`. Split `N/2` in
+`[X/2,X]` into intervals of length `H`, and within each target block tile the
+common interior of all windows `(N/3,2N/3)` by prime intervals of length `H`.
+Theorem 6 applies to every retained target/prime box with `Q_1=1` and fixed
+`q=130`: choose any fixed epsilon below `1/12`, so
+`X_1^(2/3+epsilon)<<H`; the interior boxes also satisfy
+`H<=X_2<=2X_1-H`, and fixed 130 lies below
+`H X_2^(-1/2)log(H)^(-B)` eventually. There are `O((X/H)^2)` boxes, hence
+their total absolute error is `O_A(X^2 log(X)^(-A))`.
+
+The two slanted boundary strips have total prime width `O(H)` for each
+target. Charging them trivially costs
+`O(X H log^2 X)=O(X^(7/4)log^2 X)`, which is absorbed by an arbitrary
+logarithmic saving. Edge target and prime boxes have the same smaller total
+cost. Central primes exceed 13 eventually, so there is no nonunit correction.
+If `p=N/3` or `2N/3` is integral and prime, its companion is an even integer
+greater than two, so strict versus half-open endpoints add no prime pair.
+
+Independent review returned PASS, with one precision correction: take
+`Q_2=130` explicitly, rather than leaving it as an arbitrary value at least
+130, and then use the displayed eventual upper bound. The resulting corollary
+is: for every fixed `K>0`,
+
+`sum_(X<N<=2X, N=72 mod 130) |Z_c(N)|
+    <<_(K,c) X^2/log^K X`.
+
+The trivial bound `|Z_c(N)|<<_c X log^2 X` then yields
+
+`sum |Z_c(N)|^2 <<_(K,c) X^3/log^K X`
+
+after requesting two extra logarithmic powers in the first-moment theorem.
+Markov also gives a zero-density exceptional set for
+`|Z_c(N)|>X/log^B X`, for every fixed `B`, by choosing `K>B`.
+
+The same argument applies to any fixed zero-sum coefficient on `A`, in
+particular the full centered source coefficient before the even-even
+projection. This supplies a genuine almost-all signed prime-correlation
+estimate on the residue-72 progression. It does not bound
+the profile alignment quotient when `||h_N||` is small, prove a pointwise
+estimate, remove any individual exceptional target, or prove Goldbach.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`.
+The unexpected connection is between the earlier exact CRT/source projection
+and a published short-interval arithmetic-progression mean-value theorem.
+The falsifier is any failure of Theorem 6's scale hypotheses on the interior
+boxes, residue-dependent admissible main term, or boundary mass of order
+`X^2`. Preserve the exact 33-residue and 48-character reductions even if a
+future source correction narrows the analytic transfer. Independent review
+checked every Theorem 6 scale condition, box count, restriction to one modulus
+and target progression, singular-main cancellation, boundary and endpoint
+correction, complex coefficients, and the first-to-second-moment conversion.
+It also ran the focused tests normally and under optimization plus compile and
+diff checks before returning PASS.

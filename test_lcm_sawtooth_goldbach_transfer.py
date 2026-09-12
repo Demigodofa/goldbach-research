@@ -1,0 +1,47 @@
+import unittest
+
+from lcm_sawtooth_goldbach_transfer import (
+    even_even_goldbach_transfer_receipt,
+)
+
+
+class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_exact_central_residue_and_character_transfers(self):
+        receipt = even_even_goldbach_transfer_receipt(1700, 1800)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["target_residue"], 72)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(tuple(receipt["rows"]), (1762,))
+        self.assertEqual(len(receipt["admissible_residues"]), 33)
+        self.assertEqual(len(receipt["dirichlet_character_labels"]), 48)
+        self.assertFalse(receipt["nonunit_prime_pairs"])
+        self.assertFalse(receipt["inadmissible_unit_prime_pairs"])
+        self.assertLess(receipt["coefficient_sum_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_reflection_coefficient_error"], 1e-12)
+        self.assertLess(
+            receipt["dirichlet_character_reconstruction_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["maximum_goldbach_transfer_identity_relative_error"],
+            1e-12)
+        self.assertTrue(receipt[
+            "fixed_central_goldbach_residue_identity_proved_in_tested_range"])
+        self.assertTrue(receipt[
+            "fixed_dirichlet_character_expansion_verified"])
+        self.assertTrue(receipt[
+            "halupczok_theorem6_prime_only_weight_matches"])
+        self.assertTrue(receipt[
+            "moving_central_window_box_reduction_proved"])
+        self.assertTrue(receipt[
+            "applicable_mean_square_theorem_identified"])
+        self.assertTrue(receipt[
+            "almost_all_centered_correlation_estimate_proved"])
+        self.assertFalse(receipt[
+            "pointwise_centered_correlation_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+
+if __name__ == "__main__":
+    unittest.main()
