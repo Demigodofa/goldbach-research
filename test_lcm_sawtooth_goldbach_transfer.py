@@ -43,6 +43,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_singular_mode_approximation_receipt,
     q286_singular_mode_cycle_scan_receipt,
     q286_singular_mode_lower_tail_stress_receipt,
+    reduced_full_lower_envelope_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -1183,6 +1184,20 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertIn(0, receipt["cycle_rows"])
         self.assertTrue(receipt["leading_mode_period_envelope_measured"])
         self.assertFalse(receipt["eventual_decay_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_reduced_full_lower_envelope(self):
+        receipt = reduced_full_lower_envelope_receipt(targets_per_cycle=9)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["q286_mode_count"], 6)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertIn((11, 13), receipt["support_order"])
+        self.assertTrue(receipt["reduced_full_lower_envelope_measured"])
+        self.assertLess(receipt["maximum_reconstruction_error"], 1e-12)
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

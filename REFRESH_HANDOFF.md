@@ -16348,3 +16348,36 @@ sample, but the leading modes are large two-sided oscillatory objects.  The
 analytic theorem cannot be a small absolute bound for the leading modes; it
 must prove enough signed lower-envelope control after adding principal and
 exact q154/q70 terms.
+
+## 2026-09-12: reduced full lower-envelope scanner added
+
+`reduced_full_lower_envelope_receipt` puts the current decomposition back
+against the full assembled coefficient action.  It keeps every non-q286
+support exact, splits q286 into local prediction plus six leading singular
+modes plus q286 tail, and measures the full action, reduced model, small
+support contribution, and q286 tail in principal-relative units.
+
+This is the current finite model of the remaining proof target.  It does not
+prove the signed estimate; it identifies whether the measured full lower tail
+is already captured by the reduced leading-mode model plus a small q286 tail.
+
+On the first `501` even targets from `10000`, the full action and reduced
+model have the same `16` negative targets.  The worst target is `N=10424`,
+with full-action/principal ratio `-0.6387603808369553` and reduced-model ratio
+`-0.6300258931770139`.  The maximum q286 tail ratio is
+`0.02648396322072016` at `N=10042`; reconstruction error is about
+`1.73e-13`.
+
+On the complete first even-residue period `10000..20008`, the exact full
+action has `75` negative targets while the reduced model has `77`.  The worst
+target agrees: `N=14138`, with full-action/principal ratio
+`-0.8769412734408442` and reduced-model ratio `-0.8769793860120647`.  The
+maximum q286 tail ratio is `0.033888231610242195` at `N=13826`, and the
+maximum reconstruction error is about `8.82e-13`.
+
+Status `aha-candidate`: the proof-shaped finite target has narrowed to
+principal plus exact non-q286 support channels plus q286 local and six
+separable q286 modes, with a measured q286 tail below `0.034` principal on
+the first full residue period.  The reduced model is not sign-identical to the
+full action, and no asymptotic bound, endpoint/noncentral reconciliation, or
+Goldbach proof follows.
