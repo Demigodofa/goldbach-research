@@ -7544,6 +7544,20 @@ single-character obstruction.  The target estimate is a finite family of
 twisted strict-central Goldbach sums modulo `286`, with a 59-character
 coefficient support.
 
+## 2026-09-12: q286 character matrix is effectively low-rank
+
+The q286 character coefficient matrix over nontrivial labels modulo `11` and
+`13` has shape `9 x 11`, with `59` active entries.  It has full numerical row
+rank `9`, so no exact low-rank proof has been found.  But the singular spectrum
+is highly concentrated: the first two singular modes carry
+`0.9760410444893589` of coefficient energy, and the first four carry
+`0.9970750809967631`.
+
+This changes the next estimate experiment.  Instead of treating q286 only as
+59 unrelated twisted sums, test whether the leading separable singular modes
+have a stronger signed prime-pair estimate, while the small singular tail is
+paid by a crude large-sieve or L2 bound.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

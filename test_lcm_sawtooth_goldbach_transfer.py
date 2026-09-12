@@ -29,6 +29,7 @@ from lcm_sawtooth_goldbach_transfer import (
     holdout_q65_projected_spatial_fiber_bridge_receipt,
     holdout_q55_projected_principal_channel_receipt,
     q286_character_imbalance_receipt,
+    q286_character_matrix_structure_receipt,
     q286_residue_discrepancy_profile_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
@@ -928,6 +929,29 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                 "contribution_to_principal_ratio"], 0.0)
         self.assertTrue(receipt["q286_character_imbalance_measured"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_character_matrix_structure(self):
+        receipt = q286_character_matrix_structure_receipt(leading_count=4)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["matrix_shape"], (9, 11))
+        self.assertEqual(receipt["active_character_count"], 59)
+        self.assertEqual(receipt["active_entry_count"], 59)
+        self.assertEqual(receipt["numerical_rank"], 9)
+        self.assertEqual(receipt["relative_numerical_rank"], 9)
+        self.assertAlmostEqual(
+            receipt["top_two_singular_energy_fraction"],
+            .9760410444893589, places=14)
+        self.assertAlmostEqual(
+            receipt["top_four_singular_energy_fraction"],
+            .9970750809967631, places=14)
+        self.assertTrue(
+            receipt["low_rank_compression_diagnostic_passes"])
+        self.assertFalse(receipt["exact_low_rank_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

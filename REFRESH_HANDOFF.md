@@ -15936,3 +15936,21 @@ for `N=14138`, `(9,5)`, `(1,7)`, `(8,2)`, `(2,10)`; and for `N=88346`,
 `(5,9)`, `(5,3)`, `(8,4)`, `(2,8)`.  The top six negative character terms
 account for about `0.66886`, `0.64482`, and `0.39042` of the total negative
 deviation before positive offsets.
+
+## 2026-09-12: q286 character matrix is effectively low-rank
+
+`q286_character_matrix_structure_receipt` arranges the q286 character
+coefficients as a `9 x 11` matrix indexed by the nontrivial character labels
+modulo `11` and `13`.  The matrix has `59` active entries and full numerical
+row rank `9`, so no exact low-rank identity is proved.
+
+However, its singular spectrum is sharply concentrated.  The first two
+singular modes carry `0.9760410444893589` of the coefficient energy, and the
+first four carry `0.9970750809967631`.  The singular values begin
+`158279.0938376038`, `124234.1882436279`, `21476.92043470122`,
+`20279.01671639654`, `7932.896799866374`, `6618.331118761814`.
+
+Status `aha-candidate`: q286 is not a few-character obstruction, but it may be
+well approximated by a few separable character-combination modes.  This is a
+coefficient-compression diagnostic only; truncating singular modes introduces
+a residual that still needs an explicit signed prime-pair bound.

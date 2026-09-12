@@ -4448,6 +4448,74 @@ def q286_character_imbalance_receipt(
     }
 
 
+def q286_character_matrix_structure_receipt(
+        tolerance=1e-9, leading_count=6):
+    """Measure rank structure in the q286 character coefficient matrix.
+
+    The q286 support is naturally a matrix indexed by nontrivial characters
+    modulo 11 and 13.  Low numerical rank would turn the 59 active characters
+    into a small number of separable character-combination estimates.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(leading_count) is not int or leading_count < 1:
+        raise ValueError("leading_count must be a positive integer")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    active_matrix = matrix[1:, 1:]
+    singular_values = np.linalg.svd(active_matrix, compute_uv=False)
+    energies = singular_values ** 2
+    total_energy = float(np.sum(energies))
+    rank = int(np.sum(singular_values > tolerance))
+    relative_rank = int(np.sum(
+        singular_values > tolerance * max(1.0, float(singular_values[0]))))
+    cumulative_energy = []
+    running = 0.0
+    for value in energies:
+        running += float(value)
+        cumulative_energy.append(running / total_energy if total_energy else 0.0)
+    active_entries = int(np.sum(np.abs(active_matrix) > tolerance))
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": character_receipt["natural_modulus"],
+        "matrix_shape": active_matrix.shape,
+        "active_character_count": (
+            character_receipt["active_character_count"]),
+        "active_entry_count": active_entries,
+        "singular_values": tuple(float(value) for value in singular_values),
+        "singular_energy_fractions": tuple(
+            float(value / total_energy) if total_energy else 0.0
+            for value in energies),
+        "cumulative_singular_energy_fractions": tuple(cumulative_energy),
+        "numerical_rank": rank,
+        "relative_numerical_rank": relative_rank,
+        "effective_singular_rank": (
+            float(total_energy * total_energy / np.sum(energies ** 2))
+            if total_energy else 0.0),
+        "leading_singular_count": min(leading_count, len(singular_values)),
+        "leading_singular_energy_fraction": (
+            cumulative_energy[min(leading_count, len(singular_values)) - 1]
+            if cumulative_energy else 0.0),
+        "top_two_singular_energy_fraction": (
+            cumulative_energy[1] if len(cumulative_energy) >= 2 else 0.0),
+        "top_four_singular_energy_fraction": (
+            cumulative_energy[3] if len(cumulative_energy) >= 4 else 0.0),
+        "low_rank_compression_diagnostic_passes": bool(
+            len(cumulative_energy) >= 2 and cumulative_energy[1] > .95),
+        "exact_low_rank_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:
