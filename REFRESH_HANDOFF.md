@@ -16975,3 +16975,20 @@ moving complement they jointly create.
 Status `changed-under-evidence`: the next estimate should be a vector/norm
 lower-envelope bound for the combined q70/q154/q286-after-first-three support
 action plus principal, not a scalar one-support sign lemma.
+
+## 2026-09-12 continuation: support Gram receipt codified
+
+`q286_first_three_removed_support_gram_receipt` now makes the post-first-three
+support Gram diagnostic executable.  The full first-period run over `5005`
+targets records q70/q154 centered correlation
+`0.045468960787398205`, non_q286/complement centered correlation
+`0.9757310575760174`, minimum complement `0.018073313793834256` at `14138`,
+and zero nonpositive complement targets.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_support_gram` passed in `62.264s`.
+
+Status `changed-under-evidence`: the vector/norm lower-envelope target is now
+receipt-backed.  The receipt remains finite evidence only and explicitly does
+not prove the eventual vector envelope, signed prime-correlation estimate, or
+Goldbach.

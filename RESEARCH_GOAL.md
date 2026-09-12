@@ -8850,3 +8850,16 @@ sum almost completely tracks centered complement motion (`0.975731`).
 Status `changed-under-evidence`: pursue a vector/norm lower-envelope estimate
 for principal plus combined lower-modulus supports.  Do not collapse the next
 step into a fixed-sign q70, q154, or q286 lemma.
+
+### 2026-09-12 continuation: support Gram receipt codified
+
+The post-first-three support Gram diagnostic is now executable as
+`q286_first_three_removed_support_gram_receipt`.  Its full first-period run
+confirms q70/q154 centered correlation `0.045468960787398205` and
+non_q286/complement centered correlation `0.9757310575760174`, with zero
+nonpositive complement targets and minimum complement
+`0.018073313793834256` at `14138`.
+
+Status `changed-under-evidence`: the immediate target is a vector/norm lower
+envelope for the explicit support components, not an informal Gram observation
+or a one-support sign claim.

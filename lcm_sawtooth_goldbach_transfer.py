@@ -9743,3 +9743,102 @@ def q286_first_three_removed_support_envelope_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_support_gram_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=501,
+        tolerance=1e-9, selected_targets=None):
+    """Measure Gram matrices for the first-three-removed support vectors.
+
+    The first-three-removed support envelope keeps principal plus q70, q154,
+    q286-after-first-three, and smaller supports explicit.  This receipt
+    measures centered correlations and raw cosines among those moving
+    principal-relative component vectors.  It is finite evidence only, not a
+    vector-envelope theorem.
+    """
+    envelope = q286_first_three_removed_support_envelope_receipt(
+        start=start, cycle_count=cycle_count, targets_per_cycle=targets_per_cycle,
+        tolerance=tolerance, selected_targets=selected_targets)
+    component_labels = (
+        "q286_after_first_three", "q70", "q154",
+        "small_supports", "non_q286", "complement")
+    row_keys = {
+        "q286_after_first_three": (
+            "q286_after_first_three_to_principal_ratio"),
+        "q70": "q70_to_principal_ratio",
+        "q154": "q154_to_principal_ratio",
+        "small_supports": "small_support_to_principal_ratio",
+        "non_q286": "non_q286_support_sum_to_principal_ratio",
+        "complement": "full_without_first_three_to_principal_ratio",
+    }
+    ordered_targets = tuple(sorted(envelope["rows"]))
+    vectors = {
+        label: tuple(envelope["rows"][target][row_keys[label]]
+                     for target in ordered_targets)
+        for label in component_labels}
+
+    def dot(left, right):
+        return math.fsum(a * b for a, b in zip(left, right))
+
+    def mean(values):
+        return math.fsum(values) / len(values)
+
+    def centered(values):
+        average = mean(values)
+        return tuple(value - average for value in values)
+
+    def cosine(left, right):
+        norm = math.sqrt(dot(left, left) * dot(right, right))
+        return dot(left, right) / norm if norm > tolerance else math.nan
+
+    centered_vectors = {
+        label: centered(values) for label, values in vectors.items()}
+    component_stats = {}
+    for label, values in vectors.items():
+        component_stats[label] = {
+            "mean": mean(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "rms": math.sqrt(dot(values, values) / len(values)),
+            "centered_rms": math.sqrt(
+                dot(centered_vectors[label], centered_vectors[label])
+                / len(values)),
+        }
+
+    centered_correlation = {}
+    raw_cosine = {}
+    for left in component_labels:
+        for right in component_labels:
+            centered_correlation[(left, right)] = cosine(
+                centered_vectors[left], centered_vectors[right])
+            raw_cosine[(left, right)] = cosine(vectors[left], vectors[right])
+
+    q70_q154 = centered_correlation[("q70", "q154")]
+    non_q286_complement = centered_correlation[("non_q286", "complement")]
+    return {
+        "arithmetic_period": envelope["arithmetic_period"],
+        "start": envelope["start"],
+        "cycle_count": envelope["cycle_count"],
+        "targets_per_cycle": envelope["targets_per_cycle"],
+        "selected_targets": envelope["selected_targets"],
+        "tested_target_count": envelope["tested_target_count"],
+        "component_labels": component_labels,
+        "component_stats": component_stats,
+        "centered_correlation_matrix": centered_correlation,
+        "raw_cosine_matrix": raw_cosine,
+        "q70_q154_centered_correlation": q70_q154,
+        "non_q286_complement_centered_correlation": non_q286_complement,
+        "q70_and_q154_nearly_orthogonal_on_sample": bool(
+            abs(q70_q154) < .1),
+        "non_q286_tracks_complement_motion_on_sample": bool(
+            non_q286_complement > .9),
+        "minimum_complement_target": envelope["minimum_complement_target"],
+        "minimum_complement_to_principal_ratio": envelope[
+            "minimum_complement_to_principal_ratio"],
+        "nonpositive_complement_count": envelope[
+            "nonpositive_complement_count"],
+        "first_three_removed_support_gram_measured": True,
+        "eventual_vector_envelope_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

@@ -1194,3 +1194,45 @@ plus a broad non-q286 support vector whose motion is mostly the combined q70
 and q154 directions.  The theorem target should use a vector/norm envelope for
 the combined lower-modulus support action, not scalar sign control of any one
 support.
+
+## 2026-09-12: support Gram receipt codified
+
+`q286_first_three_removed_support_gram_receipt` now makes the post-first-three
+support Gram diagnostic executable.  It calls
+`q286_first_three_removed_support_envelope_receipt`, builds component vectors
+for `q286_after_first_three`, `q70`, `q154`, `small_supports`, `non_q286`, and
+`complement`, then records component statistics, centered correlations, and raw
+cosines.  This replaces the prior scratch Gram calculation with a reusable
+receipt and regression.
+
+Full first-period receipt (`cycle_count=1`, `targets_per_cycle=5005`):
+
+```text
+tested targets: 5005
+minimum complement: 0.018073313793834256 at N=14138
+nonpositive complement count: 0
+q70/q154 centered correlation: 0.045468960787398205
+non_q286/complement centered correlation: 0.9757310575760174
+q70 and q154 nearly orthogonal on sample: True
+non_q286 tracks complement motion on sample: True
+```
+
+Component stats, principal-relative:
+
+```text
+q286_after_first_three mean 0.010650365091959399 min -0.20627076849182013 max 0.4689649942154356 rms 0.06070748215359575 centered_rms 0.059765944423535375
+q70 mean -0.033461102392216995 min -0.874031394621675 max 0.7114998115797481 rms 0.18650862719915784 centered_rms 0.18348248593915445
+q154 mean -0.024596827574109935 min -0.7887852463184296 max 0.7711813776303265 rms 0.17751405988614322 centered_rms 0.1758016994529653
+small_supports mean -0.002191411746741188 min -0.17485448534823922 max 0.1743775542593439 rms 0.06046506124504247 centered_rms 0.06042533695332598
+non_q286 mean -0.060249341713068116 min -1.0148150611594449 max 0.9893238099904496 rms 0.274285742847285 centered_rms 0.2675867813484607
+complement mean 0.9504010233788912 min 0.018073313793834256 max 2.055236408924841 rms 0.9887972490595348 centered_rms 0.2728697390845307
+```
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_support_gram` passed in `62.264s`.
+
+Status `changed-under-evidence`: the near-orthogonality and non-q286 tracking
+claims are now executable receipt fields.  The next analytic formulation can
+refer to the exact vector components and their measured Gram data, while still
+keeping the no-overclaim flags: no eventual vector-envelope theorem, no signed
+prime-correlation estimate, and no Goldbach proof.
