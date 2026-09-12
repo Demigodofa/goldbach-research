@@ -38,6 +38,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_mode_character_shape_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_first_three_ap_discrepancy_proxy_receipt,
+    q286_first_three_full_negative_driver_receipt,
     q286_first_two_mode_lower_tail_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
@@ -1274,7 +1275,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
 
     def test_q286_first_three_ap_discrepancy_proxy(self):
         receipt = q286_first_three_ap_discrepancy_proxy_receipt(
-            selected_targets=(10424, 14138))
+            selected_targets=(10424, 14138), top_count=3)
         self.assertEqual(receipt["arithmetic_period"], 10010)
         self.assertEqual(receipt["support"], (11, 13))
         self.assertEqual(receipt["natural_modulus"], 286)
@@ -1289,10 +1290,31 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertIn(
             "largest_required_uniform_relative_error_on_negative_first_three",
             receipt)
+        self.assertEqual(len(row["largest_negative_residue_rows"]), 3)
+        self.assertEqual(len(row["largest_positive_residue_rows"]), 3)
+        self.assertEqual(len(row["largest_abs_residue_rows"]), 3)
+        self.assertIn("signed_to_absolute_real_contribution_ratio", row)
         self.assertLess(receipt["maximum_mode_reconstruction_error"], 1e-12)
         self.assertTrue(
             receipt["first_three_ap_discrepancy_proxy_measured"])
         self.assertFalse(receipt["ordinary_ap_discrepancy_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_full_negative_driver(self):
+        receipt = q286_first_three_full_negative_driver_receipt(
+            targets_per_cycle=9, top_count=3)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["driver_residues"], (133, 153))
+        self.assertIn("full_negative_target_count", receipt)
+        self.assertIn("driver_residue_top_negative_counts", receipt)
+        self.assertTrue(receipt["full_negative_driver_measured"])
+        self.assertFalse(receipt["driver_residues_explain_all_negatives"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

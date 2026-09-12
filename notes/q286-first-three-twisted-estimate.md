@@ -198,3 +198,24 @@ of at least about `1/.269` on the lower tail.  Ordinary AP discrepancy remains
 a useful diagnostic, but a proof still needs coefficient-sensitive binary
 correlation structure rather than just a black-box full-residue equidistribution
 bound.
+
+## Exact-negative residue drivers
+
+`q286_first_three_full_negative_driver_receipt` restricts the AP-proxy
+diagnostic to exact full-action negative targets.  On the first full period
+`10000..20008`, there are `75` exact negatives.  Among their top eight
+negative residue drivers, residue `133` appears in `60` cases and is empty
+relative to the uniform admissible mean in all `60`; residue `153` appears in
+`61` cases and is empty in `59`.  Both residues appear in `46` cases, and
+both are empty in `44`.
+
+The top eight residue terms carry a moderate but not total amount of the
+absolute real contribution: minimum fraction `.44127253691663915`, mean
+`.5145044943315689`, maximum `.639566987107544`.
+
+Status `aha-candidate`: the worst strict-central failures often come from
+missing high-positive first-three q286 coefficient residues, especially `133`
+and `153`, each of which contributes about `-0.3224` principal when empty in
+the main hard cases.  This gives a sharper residue-hitting subproblem, but it
+does not explain all negatives and cannot replace the broader twisted
+correlation estimate.

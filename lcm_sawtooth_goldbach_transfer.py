@@ -7011,7 +7011,7 @@ def q286_first_two_mode_lower_tail_receipt(
 
 def q286_first_three_ap_discrepancy_proxy_receipt(
         start=10000, targets_per_cycle=501, selected_targets=None,
-        tolerance=1e-9):
+        top_count=8, tolerance=1e-9):
     """Compare first-three q286 modes with ordinary AP discrepancy proxies."""
     if selected_targets is None:
         if type(start) is not int or start < 40 or start % 2:
@@ -7033,6 +7033,8 @@ def q286_first_three_ap_discrepancy_proxy_receipt(
         targets_per_cycle = len(targets)
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
 
     coefficient = combined_fixed_strict_central_coefficient_receipt(
         tolerance=tolerance)
@@ -7128,6 +7130,51 @@ def q286_first_three_ap_discrepancy_proxy_receipt(
         first_three_ratio = float(
             first_three.real / principal_contribution.real
             if abs(principal_contribution.real) > tolerance else math.nan)
+        residue_rows = []
+        for position, unit in enumerate(units):
+            if not admissible_mask[position]:
+                continue
+            contribution = mode_values[position] * delta[position]
+            residue_rows.append({
+                "residue_mod_286": unit,
+                "coefficient": complex(mode_values[position]),
+                "coefficient_real": float(mode_values[position].real),
+                "prime_pair_weight": float(weights[position]),
+                "weight_delta": float(delta[position]),
+                "relative_weight_delta": float(
+                    delta[position] / mean_weight
+                    if abs(mean_weight) > tolerance else math.nan),
+                "real_contribution": float(contribution.real),
+                "contribution_to_principal_ratio": float(
+                    contribution.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+            })
+        total_abs_real_contribution = math.fsum(
+            abs(row["real_contribution"]) for row in residue_rows)
+        negative_real_contribution = math.fsum(
+            row["real_contribution"] for row in residue_rows
+            if row["real_contribution"] < 0)
+        positive_real_contribution = math.fsum(
+            row["real_contribution"] for row in residue_rows
+            if row["real_contribution"] > 0)
+        largest_negative_rows = tuple(sorted(
+            residue_rows, key=lambda row: row["real_contribution"])[
+                :top_count])
+        largest_positive_rows = tuple(sorted(
+            residue_rows, key=lambda row: row["real_contribution"],
+            reverse=True)[:top_count])
+        largest_abs_rows = tuple(sorted(
+            residue_rows, key=lambda row: abs(row["real_contribution"]),
+            reverse=True)[:top_count])
+        top_abs_sum = math.fsum(
+            abs(row["real_contribution"]) for row in largest_abs_rows)
+        signed_cancellation_ratio = float(
+            first_three.real / total_abs_real_contribution
+            if total_abs_real_contribution > tolerance else math.nan)
+        top_abs_energy_fraction = float(
+            top_abs_sum / total_abs_real_contribution
+            if total_abs_real_contribution > tolerance else math.nan)
         row = {
             "strict_central_interval": (lower, upper),
             "admissible_residue_count": admissible_count,
@@ -7152,6 +7199,20 @@ def q286_first_three_ap_discrepancy_proxy_receipt(
             "required_uniform_relative_error_for_actual_first_three": (
                 required_uniform_error),
             "first_three_l2_alignment_ratio": l2_alignment,
+            "negative_real_contribution_to_principal_ratio": float(
+                negative_real_contribution / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "positive_real_contribution_to_principal_ratio": float(
+                positive_real_contribution / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "signed_to_absolute_real_contribution_ratio": (
+                signed_cancellation_ratio),
+            "top_abs_real_contribution_fraction": top_abs_energy_fraction,
+            "largest_negative_residue_rows": largest_negative_rows,
+            "largest_positive_residue_rows": largest_positive_rows,
+            "largest_abs_residue_rows": largest_abs_rows,
             "mode_reconstruction_error": reconstruction_error,
         }
         rows[target] = row
@@ -7211,6 +7272,114 @@ def q286_first_three_ap_discrepancy_proxy_receipt(
         "maximum_mode_reconstruction_error": maximum_reconstruction_error,
         "first_three_ap_discrepancy_proxy_measured": True,
         "ordinary_ap_discrepancy_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_full_negative_driver_receipt(
+        start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
+        top_count=8, tolerance=1e-9):
+    """Summarize q286 first-three residue drivers on full-action negatives."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    driver_residues = tuple(driver_residues)
+    if (not driver_residues
+            or any(type(residue) is not int or math.gcd(residue, 286) != 1
+                   for residue in driver_residues)):
+        raise ValueError("driver_residues must be units modulo 286")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    full_receipt = reduced_full_lower_envelope_receipt(
+        start=start, targets_per_cycle=targets_per_cycle,
+        q286_mode_count=6, tolerance=tolerance)
+    full_negative_targets = tuple(
+        target for target, row in full_receipt["rows"].items()
+        if row["full_action_to_principal_ratio"] <= 0)
+    if full_negative_targets:
+        proxy = q286_first_three_ap_discrepancy_proxy_receipt(
+            selected_targets=full_negative_targets, top_count=top_count,
+            tolerance=tolerance)
+    else:
+        proxy = None
+
+    residue_top_negative_counts = {residue: 0 for residue in driver_residues}
+    residue_empty_top_negative_counts = {
+        residue: 0 for residue in driver_residues}
+    all_driver_residues_in_top_negative_count = 0
+    all_driver_residues_empty_top_negative_count = 0
+    top_abs_fractions = []
+    target_rows = {}
+    for target in full_negative_targets:
+        proxy_row = proxy["rows"][target]
+        top_negative_by_residue = {
+            row["residue_mod_286"]: row
+            for row in proxy_row["largest_negative_residue_rows"]}
+        present = tuple(
+            residue for residue in driver_residues
+            if residue in top_negative_by_residue)
+        empty = tuple(
+            residue for residue in present
+            if (top_negative_by_residue[residue][
+                    "relative_weight_delta"] <= -1 + tolerance))
+        for residue in present:
+            residue_top_negative_counts[residue] += 1
+        for residue in empty:
+            residue_empty_top_negative_counts[residue] += 1
+        if len(present) == len(driver_residues):
+            all_driver_residues_in_top_negative_count += 1
+        if len(empty) == len(driver_residues):
+            all_driver_residues_empty_top_negative_count += 1
+        top_abs_fractions.append(proxy_row["top_abs_real_contribution_fraction"])
+        target_rows[target] = {
+            "full_action_to_principal_ratio": full_receipt["rows"][target][
+                "full_action_to_principal_ratio"],
+            "first_three_mode_to_principal_ratio": proxy_row[
+                "first_three_mode_to_principal_ratio"],
+            "top_abs_real_contribution_fraction": proxy_row[
+                "top_abs_real_contribution_fraction"],
+            "driver_residues_in_top_negative": present,
+            "empty_driver_residues_in_top_negative": empty,
+            "driver_residue_rows": tuple(
+                top_negative_by_residue[residue]
+                for residue in present),
+        }
+
+    return {
+        "arithmetic_period": full_receipt["arithmetic_period"],
+        "support": (11, 13),
+        "natural_modulus": 286,
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "top_count": top_count,
+        "driver_residues": driver_residues,
+        "full_negative_target_count": len(full_negative_targets),
+        "full_negative_targets": full_negative_targets,
+        "target_rows": target_rows,
+        "driver_residue_top_negative_counts": (
+            residue_top_negative_counts),
+        "driver_residue_empty_top_negative_counts": (
+            residue_empty_top_negative_counts),
+        "all_driver_residues_in_top_negative_count": (
+            all_driver_residues_in_top_negative_count),
+        "all_driver_residues_empty_top_negative_count": (
+            all_driver_residues_empty_top_negative_count),
+        "minimum_top_abs_real_contribution_fraction": (
+            min(top_abs_fractions) if top_abs_fractions else math.nan),
+        "mean_top_abs_real_contribution_fraction": (
+            math.fsum(top_abs_fractions) / len(top_abs_fractions)
+            if top_abs_fractions else math.nan),
+        "maximum_top_abs_real_contribution_fraction": (
+            max(top_abs_fractions) if top_abs_fractions else math.nan),
+        "full_negative_driver_measured": True,
+        "driver_residues_explain_all_negatives": False,
         "signed_prime_correlation_estimate_proved": False,
         "formal_signed_error_identification_proved": False,
         "goldbach_proved": False,

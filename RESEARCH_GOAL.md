@@ -8522,3 +8522,18 @@ Status `changed-under-evidence`: ordinary AP discrepancy is not a sufficient
 black-box explanation.  The Cauchy L2 envelope is loose on the lower tail, and
 a proof needs coefficient-sensitive binary correlation structure, not just
 full residue-class equidistribution.
+
+`q286_first_three_full_negative_driver_receipt` then restricts the AP-proxy
+diagnostic to exact full-action negative targets.  On the first full period
+there are `75` exact negatives.  Among their top eight negative residue
+drivers, residue `133` appears in `60` cases and is empty in all `60`; residue
+`153` appears in `61` cases and is empty in `59`.  Both residues appear in
+`46` cases, and both are empty in `44`.  The top eight residue terms carry
+absolute real contribution fraction between `.44127253691663915` and
+`.639566987107544`, with mean `.5145044943315689`.
+
+Status `aha-candidate`: missing high-positive first-three q286 coefficient
+residues, especially `133` and `153`, often drive the exact lower-tail
+failures.  This gives a sharper residue-hitting subproblem, but it does not
+explain all negatives and cannot replace the broader twisted-correlation
+estimate.
