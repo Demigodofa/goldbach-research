@@ -161,6 +161,14 @@ reduced-without-first-three/principal `0.018035201222613817`.  This makes the
 positive lower envelope of the complement the next theorem target; it is not
 yet proved beyond the measured domain.
 
+Relative-tail receipt: `q286_first_three_to_complement_ratio_receipt()` over
+the same `40040` targets gives full-action negatives `89`, ratio
+`-first_three/full_without_first_three > 1` at exactly `89` targets, ratio
+`>0.9` at `150`, ratio `>0.5` at `1425`, and maximum ratio
+`49.52133280284266` at `N=14138`.  Top ratio targets begin `14138`, `16388`,
+`10424`, `15026`, `17522`.  This identifies the relative-tail obstruction and
+the tiny-complement boundary layer at `14138`.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

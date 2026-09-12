@@ -156,6 +156,14 @@ values.  The minimum complement margin is at `N=14138`, where
 proof target is therefore a positive lower envelope for the complement plus a
 relative bound for the first-three lower tail.
 
+The relative-tail obstruction is now measured by
+`q286_first_three_to_complement_ratio_receipt`.  Across the same `40040`
+targets, exactly the `89` full-action negatives have
+`-first_three/full_without_first_three > 1`; `150` targets exceed `.9` and
+`1425` exceed `.5`.  The maximum ratio is `49.52133280284266` at `N=14138`.
+The next proof attempt should explain the tiny complement margin at `14138`
+and then seek a relative tail bound, not merely an absolute first-three bound.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

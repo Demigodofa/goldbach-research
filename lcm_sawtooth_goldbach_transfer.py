@@ -9002,3 +9002,75 @@ def q286_positive_both_empty_remainder_compensation_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_to_complement_ratio_receipt(
+        start=10000,
+        cycle_count=8,
+        targets_per_cycle=5005,
+        selected_targets=None,
+        tolerance=1e-09):
+    """Measure the first-three q286 tail against its positive complement."""
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        start=start,
+        cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=selected_targets,
+        tolerance=tolerance)
+    ratio_rows = []
+    target_rows = {}
+    for target, row in lower_receipt["rows"].items():
+        complement = row["full_without_first_three_to_principal_ratio"]
+        first_three = row["first_three_modes_to_principal_ratio"]
+        if complement > tolerance and first_three < -tolerance:
+            ratio = -first_three / complement
+        else:
+            ratio = 0.0
+        out_row = {
+            "target": target,
+            "cycle": row["cycle"],
+            "tail_to_complement_ratio": ratio,
+            "full_action_to_principal_ratio": row[
+                "full_action_to_principal_ratio"],
+            "first_three_modes_to_principal_ratio": first_three,
+            "full_without_first_three_to_principal_ratio": complement,
+            "reduced_without_first_three_to_principal_ratio": row[
+                "reduced_without_first_three_to_principal_ratio"],
+        }
+        ratio_rows.append(out_row)
+        target_rows[target] = out_row
+    sorted_ratio_rows = tuple(sorted(
+        ratio_rows,
+        key=lambda item: item["tail_to_complement_ratio"],
+        reverse=True))
+    return {
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "tested_target_count": len(ratio_rows),
+        "target_rows": target_rows,
+        "top_tail_to_complement_rows": sorted_ratio_rows[:20],
+        "maximum_tail_to_complement_ratio": (
+            sorted_ratio_rows[0]["tail_to_complement_ratio"]
+            if sorted_ratio_rows else None),
+        "worst_tail_to_complement_target": (
+            sorted_ratio_rows[0]["target"] if sorted_ratio_rows else None),
+        "ratio_greater_than_one_count": sum(
+            1 for row in ratio_rows
+            if row["tail_to_complement_ratio"] > 1.0 + tolerance),
+        "ratio_greater_than_point_nine_count": sum(
+            1 for row in ratio_rows
+            if row["tail_to_complement_ratio"] > 0.9 + tolerance),
+        "ratio_greater_than_point_five_count": sum(
+            1 for row in ratio_rows
+            if row["tail_to_complement_ratio"] > 0.5 + tolerance),
+        "full_action_negative_count": sum(
+            1 for row in ratio_rows
+            if row["full_action_to_principal_ratio"] <= tolerance),
+        "first_three_to_complement_ratio_measured": True,
+        "relative_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

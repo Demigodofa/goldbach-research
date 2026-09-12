@@ -693,3 +693,31 @@ minimum margin at `N=14138`.  A proof can therefore try to establish a
 positive lower envelope for the complement and then bound the first-three
 negative tail relative to it; the caveat is that this is still finite evidence,
 not an asymptotic theorem.
+
+`q286_first_three_to_complement_ratio_receipt` turns that into the direct
+relative inequality target.  For the same `40040` eight-period targets:
+
+```text
+full-action negative count: 89
+tail/complement ratio > 1: 89
+tail/complement ratio > 0.9: 150
+tail/complement ratio > 0.5: 1425
+maximum tail/complement ratio: 49.52133280284266 at N=14138
+```
+
+The top five ratio targets are:
+
+```text
+14138: ratio 49.52133280284266, full/principal -0.8769412734408442
+16388: ratio 3.98376882600334, full/principal -0.28928582270738745
+10424: ratio 3.112065323290175, full/principal -0.6387603808369553
+15026: ratio 2.957502749609025, full/principal -0.5504724490146756
+17522: ratio 2.9074726562363096, full/principal -0.22113235970668946
+```
+
+Status `relative-tail-obstruction`: in the measured domain, proving a uniform
+relative bound `-first_three <= theta * full_without_first_three` with
+`theta < 1` would exactly rule out these q286 failures.  The worst target is
+not hard because the first-three tail is uniquely enormous; it is hard because
+the positive complement is tiny.  This points to a local boundary-layer problem
+near `N=14138`, not just a global first-three estimate.

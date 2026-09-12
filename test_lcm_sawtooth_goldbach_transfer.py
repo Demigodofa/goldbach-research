@@ -1442,6 +1442,19 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["remainder_compensation_measured"])
         self.assertFalse(receipt["remainder_compensation_theorem_proved"])
 
+    def test_q286_first_three_to_complement_ratio(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_first_three_to_complement_ratio_receipt)
+        receipt = q286_first_three_to_complement_ratio_receipt(
+            selected_targets=(14138,))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["worst_tail_to_complement_target"], 14138)
+        self.assertGreater(
+            receipt["maximum_tail_to_complement_ratio"], 40)
+        self.assertTrue(
+            receipt["first_three_to_complement_ratio_measured"])
+        self.assertFalse(receipt["relative_tail_bound_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))
