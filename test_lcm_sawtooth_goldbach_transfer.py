@@ -1343,6 +1343,18 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(
             receipt["base_targets_without_positive_full_action_lift_count"],
             0)
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_high_positive_residue_cover_receipt)
+        cover_receipt = q286_high_positive_residue_cover_receipt(
+            selected_targets=(10042,), top_count=12)
+        self.assertEqual(cover_receipt["uncovered_target_count"], 0)
+        self.assertEqual(
+            cover_receipt["greedy_cover_rows"][0]["residue_mod_286"],
+            133)
+        self.assertTrue(
+            cover_receipt["high_positive_residue_cover_measured"])
+        self.assertFalse(
+            cover_receipt["signed_prime_correlation_estimate_proved"])
         self.assertTrue(receipt["driver_residue_lift_occupancy_measured"])
         self.assertFalse(receipt["driver_residue_hitting_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

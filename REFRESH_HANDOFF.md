@@ -31,6 +31,15 @@ a stable hitting cover for the observed lower tail, or whether the positive
 mass moves enough that the full pointwise twisted binary-prime correlation
 estimate is still unavoidable.
 
+Additional same-day evidence: `q286_high_positive_residue_cover_receipt`
+computes a greedy cover from empty positive-coefficient residues inside the
+largest negative first-three q286 contribution rows.  On all `75` exact
+first-period full-action negative targets, using `top_count=24`, residue `133`
+covers `60` targets and residue `153` covers the remaining `15`; uncovered
+targets: `0`.  This is a strong finite aha-candidate for the `133/153`
+mechanism, but still not a theorem and not a replacement for pointwise
+binary-prime correlation or occupancy estimates.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

@@ -30,6 +30,18 @@ whether a small explicit set of high-positive q286 residues gives a stable
 hitting cover for the lower tail, before attempting to formulate the full
 pointwise fixed-modulus twisted binary-prime correlation estimate.
 
+That finite test now has a positive result.  The diagnostic
+`q286_high_positive_residue_cover_receipt` keeps empty positive-coefficient
+residues from the largest negative first-three q286 contribution rows.  For
+all `75` exact first-period full-action negative targets, with `top_count=24`,
+the greedy cover has only two residues: `133` covers `60` targets and `153`
+covers the remaining `15`; uncovered targets: `0`.
+
+This makes the `133/153` mechanism a sharper theorem target, but it remains
+finite evidence.  The next proof obligation is an explicit lower-occupancy or
+compensation estimate for this residue pair inside the strict-central
+binary-prime problem, not a claim that the cover itself proves Goldbach.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

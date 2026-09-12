@@ -8169,3 +8169,134 @@ def symbolic_principal_plus_centered_channel_receipt(
 
 if __name__ == "__main__":
     print(even_even_goldbach_transfer_receipt())
+
+
+def q286_high_positive_residue_cover_receipt(
+        start=10000,
+        targets_per_cycle=5005,
+        selected_targets=None,
+        top_count=24,
+        tolerance=1e-09):
+    """Greedy cover of lower-tail targets by empty positive q286 residues.
+
+    This is a diagnostic receipt, not a theorem.  It asks whether the observed
+    full-action negative targets are covered by a small set of residues whose
+    first-three q286 coefficient is positive but whose strict-central residue
+    weight is zero/deficient among the largest negative contribution rows.
+    """
+    if selected_targets is None:
+        negative_receipt = q286_first_three_full_negative_driver_receipt(
+            start=start,
+            targets_per_cycle=targets_per_cycle,
+            top_count=min(8, top_count),
+            tolerance=tolerance)
+        targets = tuple(negative_receipt["full_negative_targets"])
+        target_source = "full_negative_targets"
+    else:
+        negative_receipt = None
+        targets = tuple(selected_targets)
+        target_source = "selected_targets"
+
+    ap_receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=targets,
+        top_count=top_count,
+        tolerance=tolerance)
+
+    rows = ap_receipt["rows"]
+    target_candidate_residues = {}
+    residue_presence_counts = {}
+    residue_score_sums = {}
+    residue_target_rows = {}
+
+    for target in targets:
+        candidate_residues = []
+        row = rows[target]
+        for residue_row in row["largest_negative_residue_rows"]:
+            if residue_row["coefficient_real"] <= tolerance:
+                continue
+            if residue_row["weight_delta"] >= -tolerance:
+                continue
+            if abs(residue_row["prime_pair_weight"]) > tolerance:
+                continue
+            residue = residue_row["residue_mod_286"]
+            candidate_residues.append(residue)
+            residue_presence_counts[residue] = (
+                residue_presence_counts.get(residue, 0) + 1)
+            residue_score_sums[residue] = residue_score_sums.get(
+                residue, 0.0) + abs(
+                    residue_row["contribution_to_principal_ratio"])
+            residue_target_rows.setdefault(residue, []).append((
+                target,
+                residue_row["contribution_to_principal_ratio"]))
+        target_candidate_residues[target] = tuple(candidate_residues)
+
+    remaining_targets = set(targets)
+    greedy_cover_rows = []
+    while remaining_targets:
+        candidate_pool = set()
+        for target in remaining_targets:
+            candidate_pool.update(target_candidate_residues[target])
+        if not candidate_pool:
+            break
+        best_residue = max(
+            candidate_pool,
+            key=lambda residue: (
+                len({
+                    target for target in remaining_targets
+                    if residue in target_candidate_residues[target]
+                }),
+                residue_score_sums.get(residue, 0.0),
+                -residue))
+        hit_targets = tuple(sorted(
+            target for target in remaining_targets
+            if best_residue in target_candidate_residues[target]))
+        greedy_cover_rows.append({
+            "residue_mod_286": best_residue,
+            "newly_covered_target_count": len(hit_targets),
+            "newly_covered_targets": hit_targets,
+            "top_negative_presence_count": residue_presence_counts[
+                best_residue],
+            "absolute_contribution_to_principal_ratio_sum": (
+                residue_score_sums[best_residue]),
+        })
+        remaining_targets.difference_update(hit_targets)
+
+    top_presence_rows = tuple(
+        {
+            "residue_mod_286": residue,
+            "top_negative_presence_count": count,
+            "absolute_contribution_to_principal_ratio_sum": (
+                residue_score_sums[residue]),
+        }
+        for residue, count in sorted(
+            residue_presence_counts.items(),
+            key=lambda item: (
+                -item[1],
+                -residue_score_sums[item[0]],
+                item[0]))
+    )
+
+    return {
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "top_count": top_count,
+        "target_source": target_source,
+        "tested_target_count": len(targets),
+        "target_candidate_residues": target_candidate_residues,
+        "top_presence_rows": top_presence_rows,
+        "greedy_cover_rows": tuple(greedy_cover_rows),
+        "uncovered_targets": tuple(sorted(remaining_targets)),
+        "uncovered_target_count": len(remaining_targets),
+        "greedy_cover_residue_count": len(greedy_cover_rows),
+        "negative_receipt_used": negative_receipt is not None,
+        "ap_tested_target_count": ap_receipt["tested_target_count"],
+        "high_positive_residue_cover_measured": True,
+        "observed_top_rows_cover_all_targets": len(remaining_targets) == 0,
+        "driver_residue_hitting_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

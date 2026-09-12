@@ -295,3 +295,38 @@ positive occupancy in these lifts.  The next useful finite question is whether
 a small, explicitly chosen set of high-positive q286 residues forms a stable
 hitting cover for the observed lower tail, or whether the missing coefficient
 mass moves too much and forces the full twisted binary-prime estimate.
+
+## High-positive residue cover
+
+`q286_high_positive_residue_cover_receipt` tests that next finite question
+directly on the observed first-period negative targets.  It looks inside the
+largest negative first-three residue contribution rows and keeps only residues
+with positive q286 coefficient, negative weight deficit, and zero literal
+strict-central prime-pair weight.  These are the "empty high-positive
+coefficient" defects.
+
+For the `75` exact full-action negative targets, with `top_count=24`, the
+greedy cover is:
+
+```text
+residue 133 covers 60 targets
+residue 153 covers the remaining 15 targets
+uncovered targets: 0
+```
+
+The most frequent empty high-positive coefficient residues in those top rows
+begin:
+
+```text
+133:60, 153:59, 5:37, 123:36, 163:32, 17:31, 119:31,
+71:27, 269:27, 281:26, 167:25, 239:25
+```
+
+Status `aha-candidate`: the original pair `133,153` is not just visually
+prominent; within the top-24 negative contribution rows it covers every
+first-period full-action failure by empty high-positive coefficient defects.
+The caveat is equally important: this is an observed finite cover using ranked
+local rows, not a proof that those residues must be occupied at large scale.
+The analytic target is now sharper: prove enough lower occupancy in this
+explicit high-positive residue pair, or prove that the compensating positive
+mass must arrive through the broader q286 coefficient mixture.
