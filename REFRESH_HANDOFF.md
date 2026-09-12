@@ -17015,3 +17015,15 @@ Validation: bytecode-disabled `py_compile` passed.  Focused regression
 Status `changed-under-evidence`: the next estimate must be pointwise and
 arithmetic-structured.  A Gram/norm-only theorem is too weak, even though the
 Gram receipt remains useful for identifying the moving support directions.
+
+## 2026-09-12 continuation: low-tail inventory for pointwise alignment
+
+The first-period post-first-three complement floor is thin: only `1` target is
+below `0.05`, `5` targets below `0.10`, `16` below `0.20`, and `50` below
+`0.30`.  The bottom five are `14138`, `14732`, `12578`, `12944`, and `16388`.
+Their component vectors show mostly simultaneous negative q70/q154 alignment,
+while q286-after-first-three is smaller and sometimes positive.
+
+Status `aha-candidate`: the next direct theorem attempt should bound joint
+lower-modulus deficit alignment pointwise.  The finite inventory suggests a
+thin lower tail, not a broad norm/covariance certificate.

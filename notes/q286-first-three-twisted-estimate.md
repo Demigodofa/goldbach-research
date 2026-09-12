@@ -1312,3 +1312,59 @@ post-first-three lower envelope.  The next theorem target must control
 pointwise alignment of the lower-modulus support vector with the summation
 direction, or use arithmetic structure stronger than aggregate Gram/covariance
 cancellation.
+
+## 2026-09-12: low-tail inventory for pointwise alignment
+
+A low-tail inventory was computed from
+`q286_first_three_removed_vector_stress_receipt(cycle_count=1,
+targets_per_cycle=5005)`.  This uses the executable vector-stress receipt and
+sorts the first-period targets by the post-first-three complement.
+
+Threshold counts:
+
+```text
+complement < 0.02: 1
+complement < 0.05: 1
+complement < 0.10: 5
+complement < 0.15: 7
+complement < 0.20: 16
+complement < 0.25: 29
+complement < 0.30: 50
+```
+
+Bottom five component vectors, in the order
+`q286_after_first_three, q70, q154, small_supports`:
+
+```text
+N=14138 complement 0.018073313793834145 signs +--+
+  vector (0.03288837495327912, -0.6530100068358884,
+          -0.4313790490173474, 0.06957399469379084)
+  centered norm 0.7449546451454716, sum-direction cosine -0.6257613907508397
+
+N=14732 complement 0.06913849299419517 signs --++
+  vector (-0.0696142958377479, -0.874031394621675,
+          0.010783876363777105, 0.002000307089840918)
+  centered norm 0.8451450743457142, sum-direction cosine -0.5213676072518928
+
+N=12578 complement 0.07154179749160794 signs +--+
+  vector (0.050498156312654, -0.41458610566581544,
+          -0.5783571695768337, 0.013986916421603032)
+  centered norm 0.6736144069590293, sum-direction cosine -0.652345924321017
+
+N=12944 complement 0.08894502770264667 signs +---
+  vector (0.01618618544956041, -0.2219973488172028,
+          -0.6075006647372669, -0.09774314419244402)
+  centered norm 0.6200673983334086, sum-direction cosine -0.6946470641672423
+
+N=16388 complement 0.09695316211707872 signs ----
+  vector (-0.0074806666605387595, -0.1546306060642018,
+          -0.7113359155341294, -0.029599649624051275)
+  centered norm 0.6981207412534195, sum-direction cosine -0.6112466016476718
+```
+
+Status `aha-candidate`: the post-first-three lower floor is thin but not a
+single residue accident.  The bottom cases are mostly simultaneous negative
+alignment of q70 and q154, with q286-after-first-three comparatively small and
+sometimes positive.  A pointwise theorem could try to prove that such aligned
+lower-modulus deficits cannot exceed the principal buffer after the first
+three q286 modes are removed.  The measured data does not supply that theorem.

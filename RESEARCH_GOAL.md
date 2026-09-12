@@ -8881,3 +8881,14 @@ of q286-after-first-three, q70, q154, and smaller supports.
 
 Status `changed-under-evidence`: reject the norm-only route; attack the
 pointwise signed support-vector alignment directly.
+
+### 2026-09-12 continuation: low-tail inventory for pointwise alignment
+
+Sorting the first-period targets by post-first-three complement gives a thin
+floor: `1` target below `0.05`, `5` below `0.10`, `16` below `0.20`, and `50`
+below `0.30`.  The bottom five are `14138`, `14732`, `12578`, `12944`, and
+`16388`.
+
+Status `aha-candidate`: low-tail cases are mostly joint q70/q154 negative
+alignment with smaller q286-after-first-three influence.  Try a pointwise
+joint-deficit estimate rather than a norm-only or one-support sign route.
