@@ -7682,3 +7682,19 @@ Status `aha-candidate`, novelty `new-to-this-task`: q65 is now a fixed
 strict-central coefficient channel in the Fourier-dual basis.  This still
 does not prove a signed estimate, identify the full outer assembly, control
 the remaining holdout sectors, estimate `T_boundary-Delta`, or prove Goldbach.
+
+### 2026-09-12 continuation: q55 is principal, not centered
+
+The next holdout sector behaves differently.  For q55 / lag `182`, the grouped
+projected-spatial values over `U_182` are constant up to floating noise rather
+than carrying a nonzero centered shadow.  The constant grouped spatial value is
+`-50617.0`; because the unit Ramanujan value for modulus `182` is `-1`, the
+induced strict-central prime-residue coefficient is the constant `50617.0`.
+
+The fixture target reconstruction passes within `1e-9` and no nonunit
+strict-central prime pairs occur for the tested targets.  Since `182=2*7*13`,
+the symbolic unit threshold is `N>=40`.
+
+Status `changed-under-evidence`: q55 is preserved as a fixed principal
+strict-central channel, not a q65-like centered channel.  The remaining live
+holdouts are q35 and q143; signed control and Goldbach remain open.

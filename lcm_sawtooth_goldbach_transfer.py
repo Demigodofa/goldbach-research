@@ -1225,20 +1225,25 @@ def holdout_q65_active_row_bridge_receipt(
 
 
 
-def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
-    """Identify the q65 fiber shadow in the projected-Fourier spatial layer.
+def holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=65, tolerance=1e-12):
+    """Identify a holdout fiber shadow in the projected-Fourier spatial layer.
 
     The active linked-prime rows cancel for q65, but the projected-Fourier
-    q65 source is naturally indexed by spatial frequencies.  Grouping those
-    spatial frequencies by residue modulo 154 and centering gives the opposite
-    of the q65 fiber-shadow vector.  This is a source identity only; it is not
-    yet a target prime-pair bridge or signed estimate.
+    holdout source is naturally indexed by spatial frequencies.  Grouping those
+    spatial frequencies by residue modulo the holdout common modulus and
+    centering tests whether the sector has a centered fiber-shadow vector.
+    This is a source identity only; it is not yet a target prime-pair bridge
+    or signed estimate.
     """
+    if quotient not in TWO_PRIME_QUOTIENT_LAGS:
+        raise ValueError("quotient must be one of the two-prime sectors")
+    if quotient in (77, 91):
+        raise ValueError("use a holdout quotient, not the linked-prime slice")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
     period = math.lcm(
         CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
-    quotient = 65
     lag = TWO_PRIME_QUOTIENT_LAGS[quotient]
     common = math.gcd(lag, period)
     quotient_weights = np.asarray(tuple(
@@ -1277,7 +1282,8 @@ def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
             in zip(signed_by_spatial_frequency, spatial_frequencies)
             if spatial_frequency % common == residue)
         for residue in common_units), dtype=np.float64)
-    grouped_centered = grouped_spatial_values - np.mean(grouped_spatial_values)
+    grouped_spatial_mean = float(np.mean(grouped_spatial_values))
+    grouped_centered = grouped_spatial_values - grouped_spatial_mean
     candidate = holdout_lag_fiber_shadow_candidate_receipt(
         quotient=quotient, tolerance=tolerance)
     fiber_shadow = np.asarray(candidate["fiber_shadow_values"],
@@ -1302,6 +1308,9 @@ def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
         "spatial_frequency_count": len(spatial_frequencies),
         "unit_group_order": len(common_units),
         "grouped_spatial_sum": float(np.sum(grouped_spatial_values)),
+        "grouped_spatial_mean": grouped_spatial_mean,
+        "maximum_grouped_spatial_centered_absolute_value": float(
+            np.max(np.abs(grouped_centered))),
         "projected_signed_total": signed_total,
         "projected_absolute_mass": absolute_mass,
         "projected_cancellation_quotient": (
@@ -1324,8 +1333,118 @@ def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
     }
 
 
-def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
-    """Test whether q65 grouped spatial values are prime-residue coefficients.
+def holdout_q55_projected_principal_channel_receipt(
+        targets=(1000, 1002), tolerance=1e-9):
+    """Identify q55 as a projected-spatial principal channel.
+
+    Unlike q65, q55 has no material centered spatial shadow at this scale.  Its
+    grouped spatial values are constant over ``U_182``.  The induced
+    prime-residue coefficient is therefore that constant times the Ramanujan
+    sum over unit spatial frequencies, which is fixed for unit prime residues.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    quotient = 55
+    source = holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=quotient, tolerance=1e-12)
+    common = source["common_modulus"]
+    residues = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    constant_spatial_value = source["grouped_spatial_mean"]
+    ramanujan_values = tuple(_ramanujan_sum(common, residue)
+                             for residue in residues)
+    if len(set(ramanujan_values)) != 1:
+        raise AssertionError("unit Ramanujan values are not constant")
+    principal_coefficient = constant_spatial_value * ramanujan_values[0]
+    rows = {}
+    maximum_target_relative_error = 0.0
+    all_nonunit_pairs = []
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        unit_weight = 0.0
+        nonunit_pairs = []
+        pair_count = 0
+        exponential_sums = {residue: 0.0j for residue in residues}
+        for prime, weight in _linked_prime_pairs(target, lower, upper):
+            partner = target - prime
+            pair_count += 1
+            prime_residue = prime % common
+            if math.gcd(prime_residue, common) != 1:
+                nonunit_pairs.append((prime, partner))
+                continue
+            unit_weight += weight
+            for residue in residues:
+                exponential_sums[residue] += (
+                    np.exp(2j * np.pi * residue * prime_residue / common)
+                    * weight)
+        principal_sum = principal_coefficient * unit_weight
+        spatial_sum = _complex_fsum(
+            constant_spatial_value * value
+            for value in exponential_sums.values())
+        scale = max(1.0, abs(principal_sum), abs(spatial_sum))
+        relative_error = abs(principal_sum - spatial_sum) / scale
+        maximum_target_relative_error = max(
+            maximum_target_relative_error, relative_error)
+        all_nonunit_pairs.extend((target, pair) for pair in nonunit_pairs)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": pair_count,
+            "nonunit_prime_pairs": tuple(nonunit_pairs),
+            "strict_central_unit_weight": unit_weight,
+            "principal_prime_residue_sum": complex(principal_sum),
+            "spatial_frequency_reconstructed_sum": complex(spatial_sum),
+            "principal_spatial_relative_error": relative_error,
+        }
+    return {
+        "families": source["families"],
+        "arithmetic_period": source["arithmetic_period"],
+        "quotient": quotient,
+        "lag": source["lag"],
+        "common_modulus": common,
+        "unit_group_order": len(residues),
+        "spatial_frequency_count": source["spatial_frequency_count"],
+        "projected_signed_total": source["projected_signed_total"],
+        "projected_absolute_mass": source["projected_absolute_mass"],
+        "projected_cancellation_quotient": (
+            source["projected_cancellation_quotient"]),
+        "constant_grouped_spatial_value": constant_spatial_value,
+        "maximum_centered_grouped_spatial_absolute_value": (
+            source["maximum_grouped_spatial_centered_absolute_value"]),
+        "centered_grouped_spatial_l2": source["grouped_centered_spatial_l2"],
+        "ramanujan_unit_value": ramanujan_values[0],
+        "principal_prime_residue_coefficient": principal_coefficient,
+        "central_unit_threshold": _even_strict_central_unit_threshold(common),
+        "rows": rows,
+        "maximum_target_relative_error": maximum_target_relative_error,
+        "nonunit_prime_pairs": tuple(all_nonunit_pairs),
+        "q55_centered_shadow_cancels": bool(
+            source["grouped_centered_spatial_l2"] <= tolerance),
+        "q55_principal_channel_identified": bool(
+            source["grouped_centered_spatial_l2"] <= tolerance
+            and not all_nonunit_pairs
+            and maximum_target_relative_error <= tolerance),
+        "target_prime_pair_bridge_proved_symbolically": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
+    return holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=65, tolerance=tolerance)
+
+
+def holdout_naive_spatial_prime_coefficient_receipt(
+        quotient=65, tolerance=1e-12):
+    """Test whether holdout spatial values are prime-residue coefficients.
 
     The projected-spatial bridge identifies a fixed source vector indexed by
     spatial frequency residue modulo 154.  A tempting shortcut is to use that
@@ -1336,8 +1455,8 @@ def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
     """
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
-    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
-        tolerance=tolerance)
+    source = holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=quotient, tolerance=tolerance)
     common = source["common_modulus"]
     residues = tuple(
         residue for residue in range(common)
@@ -1390,9 +1509,14 @@ def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
     }
 
 
-def holdout_q65_dual_prime_target_sum_receipt(
-        targets=(1000, 1002), tolerance=1e-12):
-    """Transfer the q65 projected-spatial source to target prime sums.
+def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
+    return holdout_naive_spatial_prime_coefficient_receipt(
+        quotient=65, tolerance=tolerance)
+
+
+def holdout_dual_prime_target_sum_receipt(
+        quotient=65, targets=(1000, 1002), tolerance=1e-12):
+    """Transfer a holdout projected-spatial source to target prime sums.
 
     This is still a finite target check, not an estimate.  It compares the
     tempting same-index coefficient against the Fourier-dual coefficient that
@@ -1404,8 +1528,8 @@ def holdout_q65_dual_prime_target_sum_receipt(
         raise ValueError("targets must be even integers at least 34")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
-    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
-        tolerance=tolerance)
+    source = holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=quotient, tolerance=tolerance)
     common = source["common_modulus"]
     residues = tuple(
         residue for residue in range(common)
@@ -1499,20 +1623,28 @@ def holdout_q65_dual_prime_target_sum_receipt(
     }
 
 
-def symbolic_q65_dual_prime_coefficient_receipt(tolerance=1e-12):
-    """Name the fixed q65 Fourier-dual coefficient for all central targets.
+def holdout_q65_dual_prime_target_sum_receipt(
+        targets=(1000, 1002), tolerance=1e-12):
+    return holdout_dual_prime_target_sum_receipt(
+        quotient=65, targets=targets, tolerance=tolerance)
 
-    Once the projected-spatial q65 source is grouped over ``U_154``, its action
+
+def symbolic_holdout_dual_prime_coefficient_receipt(
+        quotient=65, tolerance=1e-12):
+    """Name the fixed Fourier-dual coefficient for all central targets.
+
+    Once the projected-spatial holdout source is grouped over its common unit
+    group, its action
     on a prime residue is the finite additive Fourier dual of that grouped
     spatial vector.  This coefficient is independent of the target.  For every
     even ``N`` above the central-unit threshold, strict-central prime pairs use
-    only unit residues modulo 154, so no nonunit correction is needed in this
+    only unit residues modulo the common modulus, so no nonunit correction is needed in this
     channel.
     """
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
-    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
-        tolerance=tolerance)
+    source = holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=quotient, tolerance=tolerance)
     common = source["common_modulus"]
     residues = tuple(
         residue for residue in range(common)
@@ -1556,6 +1688,11 @@ def symbolic_q65_dual_prime_coefficient_receipt(tolerance=1e-12):
         "pointwise_signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def symbolic_q65_dual_prime_coefficient_receipt(tolerance=1e-12):
+    return symbolic_holdout_dual_prime_coefficient_receipt(
+        quotient=65, tolerance=tolerance)
 
 
 def symbolic_principal_plus_centered_channel_receipt(

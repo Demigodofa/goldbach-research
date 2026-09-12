@@ -10,6 +10,7 @@ from lcm_sawtooth_goldbach_transfer import (
     holdout_q65_active_row_bridge_receipt,
     holdout_q65_naive_spatial_prime_coefficient_receipt,
     holdout_q65_projected_spatial_fiber_bridge_receipt,
+    holdout_q55_projected_principal_channel_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -254,6 +255,46 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "symbolic_q65_dual_coefficient_transfer_proved"])
         self.assertTrue(receipt["q65_source_layer_bridge_proved"])
         self.assertFalse(receipt["q65_positive_or_signed_estimate_proved"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_q55_projected_principal_channel(self):
+        receipt = holdout_q55_projected_principal_channel_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 55)
+        self.assertEqual(receipt["lag"], 182)
+        self.assertEqual(receipt["common_modulus"], 182)
+        self.assertEqual(receipt["unit_group_order"], 72)
+        self.assertEqual(receipt["spatial_frequency_count"], 3960)
+        self.assertAlmostEqual(
+            receipt["projected_signed_total"], -3644424.0,
+            places=6)
+        self.assertAlmostEqual(
+            receipt["projected_absolute_mass"], 148388474.47926253,
+            places=5)
+        self.assertAlmostEqual(
+            receipt["projected_cancellation_quotient"],
+            .024560020667301303, places=14)
+        self.assertAlmostEqual(
+            receipt["constant_grouped_spatial_value"], -50617.0,
+            places=6)
+        self.assertLess(
+            receipt["maximum_centered_grouped_spatial_absolute_value"],
+            1e-9)
+        self.assertLess(receipt["centered_grouped_spatial_l2"], 1e-9)
+        self.assertEqual(receipt["ramanujan_unit_value"], -1)
+        self.assertAlmostEqual(
+            receipt["principal_prime_residue_coefficient"], 50617.0,
+            places=6)
+        self.assertEqual(receipt["central_unit_threshold"], 40)
+        self.assertLess(receipt["maximum_target_relative_error"], 1e-9)
+        self.assertFalse(receipt["nonunit_prime_pairs"])
+        self.assertTrue(receipt["q55_centered_shadow_cancels"])
+        self.assertTrue(receipt["q55_principal_channel_identified"])
+        self.assertFalse(receipt["target_prime_pair_bridge_proved_symbolically"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[

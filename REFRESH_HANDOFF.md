@@ -15337,3 +15337,30 @@ remaining live holdout sectors, starting with the largest count-four
 recombination quotient `q55`, and determine whether all holdouts become fixed
 strict-central coefficient channels or whether one sector introduces the
 moving coefficient/boundary obstruction.
+
+## 2026-09-12: q55 is a projected-spatial principal channel
+
+The q55 holdout does not follow the q65 centered-shadow pattern.  Instead,
+`holdout_q55_projected_principal_channel_receipt` finds that the grouped
+projected-spatial values are constant over `U_182` up to floating noise.  The
+projected signed total is `-3644424.0`, the absolute mass is
+`148388474.47926253`, the cancellation quotient is `.024560020667301303`, and
+the constant grouped spatial value is `-50617.0`.
+
+Since `182=2*7*13`, every even `N>=40` has strict-central prime pairs above
+`13`, hence unit residues modulo `182`.  The unit Ramanujan value is `-1`, so
+the induced prime-residue coefficient is the constant `50617.0`.  On fixture
+targets `1000` and `1002`, the principal coefficient sum matches the
+spatial-frequency reconstruction within `1e-9`, and no nonunit central pairs
+occur.
+
+Status `changed-under-evidence`: block the hypothesis that q55 has a material
+centered fiber-shadow channel analogous to q65.  Preserve q55 as a fixed
+principal strict-central channel.  This is still a source/channel
+identification, not a signed prime-correlation estimate, not the full outer
+assembly, not the formal `T_boundary-Delta` error, and not Goldbach.
+
+Next concrete question: classify q35 and q143.  If they also reduce to fixed
+principal/centered coefficient channels, the remaining obstruction moves from
+source bookkeeping to proving signed control of a finite list of explicit
+strict-central prime-residue weights.
