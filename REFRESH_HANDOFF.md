@@ -16041,3 +16041,34 @@ absolute residual/principal ratio across the whole first period is
 `0.033888231610242146` at `N=13826`.  Status `aha-candidate`: use six q286
 singular modes as the current leading-mode target; four modes are too
 aggressive for the full first period.
+
+## 2026-09-12: dominant support matrix scanner added
+
+`dominant_support_character_matrix_structure_receipt` generalizes the q286
+character-matrix diagnostic to the three dominant two-prime supports:
+`(11,13)`/`286`, `(7,11)`/`154`, and `(5,7)`/`70`.  It measures active
+character labels, matrix rank, singular energy concentration, and whether
+active labels stay on both prime factors.
+
+This is intended to decide whether q70 and q154 join q286 as separable-mode
+targets or whether they need a different estimate.  It is coefficient-side
+structure only; no prime-correlation estimate follows from singular energy.
+
+Measured dominant support spectra:
+
+`(11,13)`/`286`: matrix `9 x 11`, active labels `59`, rank `9`, effective
+singular rank `1.9863498420393355`, top-two energy
+`0.9760410444893589`, top-four energy `0.9970750809967631`.
+
+`(7,11)`/`154`: matrix `5 x 9`, active labels `23`, rank `5`, effective
+singular rank `1.5596697288373895`, top-two energy
+`0.906627345943789`, top-four energy `0.9893232172697954`.
+
+`(5,7)`/`70`: matrix `3 x 5`, active labels `8`, rank `3`, effective
+singular rank `1.6744384058649682`, top-two energy
+`0.9915109122214548`, top-four energy `1.0`.
+
+Status `aha-candidate`: all three dominant two-prime supports have strong
+separable character-mode compression.  This supports a finite leading-mode
+strategy for the combined centered error, provided tails are bounded relative
+to the principal margin.

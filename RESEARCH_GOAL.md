@@ -7624,6 +7624,20 @@ principal-relative residual is `0.033888231610242146`.  Next target: estimate
 the six leading separable q286 modes directly and prove a principal-margin
 tail bound for the remaining three singular modes.
 
+## 2026-09-12: dominant support matrix scanner added
+
+`dominant_support_character_matrix_structure_receipt` now applies the
+character-matrix/SVD diagnostic to `(11,13)`/`286`, `(7,11)`/`154`, and
+`(5,7)`/`70`.  The next question is whether the secondary q154 and q70
+supports have similarly small separable-mode skeletons, so the full centered
+error can be attacked as a short list of product-character modes plus tails.
+
+Measured answer: yes, coefficient-side compression is present in all three
+dominant supports.  Top-two singular energy is `0.9760410444893589` for q286,
+`0.906627345943789` for q154, and `0.9915109122214548` for q70.  The supports
+still have full row rank (`9`, `5`, and `3` respectively), so this is not an
+exact algebraic collapse.  It is a leading-mode/tail analytic strategy.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

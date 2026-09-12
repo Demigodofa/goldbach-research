@@ -19,6 +19,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_uniform_residue_margin_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
+    dominant_support_character_matrix_structure_receipt,
     exact_projected_pairwise_gram_receipt,
     holdout_full_projected_prime_coefficient_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
@@ -954,6 +955,38 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             .9970750809967631, places=14)
         self.assertTrue(
             receipt["low_rank_compression_diagnostic_passes"])
+        self.assertFalse(receipt["exact_low_rank_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_dominant_support_character_matrix_structure(self):
+        receipt = dominant_support_character_matrix_structure_receipt(
+            leading_count=4)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(
+            receipt["supports"], ((11, 13), (7, 11), (5, 7)))
+        self.assertTrue(
+            receipt[
+                "dominant_support_character_matrix_structure_measured"])
+        self.assertTrue(
+            receipt["all_supports_have_both_prime_character_support"])
+        self.assertIn((11, 13), receipt["support_rows"])
+        self.assertIn((7, 11), receipt["support_rows"])
+        self.assertIn((5, 7), receipt["support_rows"])
+        self.assertTrue(receipt["all_supports_have_low_rank_compression"])
+        self.assertAlmostEqual(
+            receipt["support_rows"][(11, 13)][
+                "top_two_singular_energy_fraction"],
+            .9760410444893589, places=14)
+        self.assertAlmostEqual(
+            receipt["support_rows"][(7, 11)][
+                "top_two_singular_energy_fraction"],
+            .906627345943789, places=14)
+        self.assertAlmostEqual(
+            receipt["support_rows"][(5, 7)][
+                "top_two_singular_energy_fraction"],
+            .9915109122214548, places=14)
         self.assertFalse(receipt["exact_low_rank_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

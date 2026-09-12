@@ -4516,6 +4516,147 @@ def q286_character_matrix_structure_receipt(
     }
 
 
+def dominant_support_character_matrix_structure_receipt(
+        supports=((11, 13), (7, 11), (5, 7)),
+        tolerance=1e-9, leading_count=6):
+    """Measure separable character structure for dominant CRT supports."""
+    supports = tuple(tuple(support) for support in supports)
+    valid_supports = {(11, 13), (7, 11), (5, 7)}
+    if not supports or any(support not in valid_supports
+                           for support in supports):
+        raise ValueError("supports must use dominant two-prime supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(leading_count) is not int or leading_count < 1:
+        raise ValueError("leading_count must be a positive integer")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    centered = values - np.mean(values)
+    _, period_labels, period_character_table = _unit_character_table(
+        period, period_units)
+    period_character_coefficients = (
+        np.conjugate(period_character_table) @ centered / len(period_units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(period_labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+
+    support_rows = {}
+    for support in supports:
+        masked = np.zeros_like(period_character_coefficients)
+        masked[support_indices[support]] = period_character_coefficients[
+            support_indices[support]]
+        component = period_character_table.T @ masked
+        modulus = 2
+        for prime in support:
+            modulus *= prime
+        grouped = {}
+        for unit, value in zip(period_units, component):
+            grouped.setdefault(unit % modulus, []).append(value)
+        lower_values = {
+            residue: _complex_fsum(values) / len(values)
+            for residue, values in grouped.items()}
+        units = tuple(sorted(lower_values))
+        coefficient_values = np.asarray(tuple(
+            lower_values[unit] for unit in units), dtype=np.complex128)
+        odd_primes, labels, character_table = _unit_character_table(
+            modulus, units)
+        character_coefficients = (
+            np.conjugate(character_table) @ coefficient_values / len(units))
+        reconstruction = character_table.T @ character_coefficients
+        reconstruction_error = float(
+            np.linalg.norm(reconstruction - coefficient_values)
+            / max(1.0, np.linalg.norm(coefficient_values)))
+        matrix = np.zeros(tuple(prime - 1 for prime in support),
+                          dtype=np.complex128)
+        for label, value in zip(labels, character_coefficients):
+            matrix[label] = value
+        active_matrix = matrix[tuple(
+            slice(1, prime - 1) for prime in support)]
+        singular_values = np.linalg.svd(active_matrix, compute_uv=False)
+        energies = singular_values ** 2
+        total_energy = float(np.sum(energies))
+        cumulative = []
+        running = 0.0
+        for energy in energies:
+            running += float(energy)
+            cumulative.append(running / total_energy if total_energy else 0.0)
+        active_labels = tuple(
+            label for label, value in zip(labels, character_coefficients)
+            if abs(value) > tolerance)
+        both_support_count = sum(
+            1 for label in active_labels
+            if all(exponent != 0 for exponent in label))
+        support_rows[support] = {
+            "natural_modulus": modulus,
+            "odd_primes": odd_primes,
+            "unit_group_order": len(units),
+            "character_count": len(labels),
+            "active_character_count": len(active_labels),
+            "active_both_prime_support_count": both_support_count,
+            "active_labels_all_have_both_prime_support": bool(
+                both_support_count == len(active_labels)),
+            "matrix_shape": active_matrix.shape,
+            "active_entry_count": int(np.sum(
+                np.abs(active_matrix) > tolerance)),
+            "coefficient_reconstruction_error": reconstruction_error,
+            "singular_values": tuple(float(value)
+                                     for value in singular_values),
+            "singular_energy_fractions": tuple(
+                float(energy / total_energy) if total_energy else 0.0
+                for energy in energies),
+            "cumulative_singular_energy_fractions": tuple(cumulative),
+            "numerical_rank": int(np.sum(singular_values > tolerance)),
+            "relative_numerical_rank": int(np.sum(
+                singular_values
+                > tolerance * max(1.0, float(singular_values[0])))),
+            "effective_singular_rank": (
+                float(total_energy * total_energy / np.sum(energies ** 2))
+                if total_energy else 0.0),
+            "leading_singular_count": min(
+                leading_count, len(singular_values)),
+            "leading_singular_energy_fraction": (
+                cumulative[min(leading_count, len(singular_values)) - 1]
+                if cumulative else 0.0),
+            "top_two_singular_energy_fraction": (
+                cumulative[1] if len(cumulative) >= 2
+                else (cumulative[0] if cumulative else 0.0)),
+            "top_four_singular_energy_fraction": (
+                cumulative[3] if len(cumulative) >= 4
+                else (cumulative[-1] if cumulative else 0.0)),
+            "low_rank_compression_diagnostic_passes": bool(
+                len(cumulative) >= 2 and cumulative[1] > .9),
+        }
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "supports": supports,
+        "support_rows": support_rows,
+        "all_supports_have_both_prime_character_support": bool(all(
+            row["active_labels_all_have_both_prime_support"]
+            for row in support_rows.values())),
+        "all_supports_have_low_rank_compression": bool(all(
+            row["low_rank_compression_diagnostic_passes"]
+            for row in support_rows.values())),
+        "dominant_support_character_matrix_structure_measured": True,
+        "exact_low_rank_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_approximation_receipt(
         targets=(10424, 14138, 88346), modes=(1, 2, 4, 9),
         tolerance=1e-9):
