@@ -1343,49 +1343,48 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(
             receipt["base_targets_without_positive_full_action_lift_count"],
             0)
-        from lcm_sawtooth_goldbach_transfer import (
-            q286_high_positive_residue_cover_receipt)
-        cover_receipt = q286_high_positive_residue_cover_receipt(
-            selected_targets=(10042,), top_count=12)
-        self.assertEqual(cover_receipt["uncovered_target_count"], 0)
-        self.assertEqual(
-            cover_receipt["greedy_cover_rows"][0]["residue_mod_286"],
-            133)
-        self.assertTrue(
-            cover_receipt["high_positive_residue_cover_measured"])
-        self.assertFalse(
-            cover_receipt["signed_prime_correlation_estimate_proved"])
-        from lcm_sawtooth_goldbach_transfer import (
-            q286_high_positive_cover_margin_receipt)
-        margin_receipt = q286_high_positive_cover_margin_receipt(
-            selected_targets=(10042,), top_count=12)
-        self.assertEqual(margin_receipt["missing_target_count"], 0)
-        self.assertGreater(
-            margin_receipt[
-                "maximum_required_weight_to_flip_full_action"],
-            0)
-        self.assertTrue(
-            margin_receipt["high_positive_cover_margin_measured"])
-        self.assertFalse(
-            margin_receipt["cover_residue_occupancy_lower_bound_proved"])
-        from lcm_sawtooth_goldbach_transfer import (
-            q286_cover_pair_compensation_portfolio_receipt)
-        compensation_receipt = (
-            q286_cover_pair_compensation_portfolio_receipt())
-        self.assertEqual(compensation_receipt["uncovered_target_count"], 0)
-        self.assertEqual(
-            compensation_receipt[
-                "greedy_positive_portfolio_rows"][0]["residue_mod_286"],
-            263)
-        self.assertTrue(
-            compensation_receipt["all_first_three_modes_negative"])
-        self.assertFalse(
-            compensation_receipt["compensation_theorem_proved"])
         self.assertTrue(receipt["driver_residue_lift_occupancy_measured"])
         self.assertFalse(receipt["driver_residue_hitting_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_high_positive_residue_cover(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_high_positive_residue_cover_receipt)
+        receipt = q286_high_positive_residue_cover_receipt(
+            selected_targets=(10042,), top_count=12)
+        self.assertEqual(receipt["uncovered_target_count"], 0)
+        self.assertEqual(
+            receipt["greedy_cover_rows"][0]["residue_mod_286"],
+            133)
+        self.assertTrue(receipt["high_positive_residue_cover_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+
+    def test_q286_high_positive_cover_margin(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_high_positive_cover_margin_receipt)
+        receipt = q286_high_positive_cover_margin_receipt(
+            selected_targets=(10042,), top_count=12)
+        self.assertEqual(receipt["missing_target_count"], 0)
+        self.assertGreater(
+            receipt["maximum_required_weight_to_flip_full_action"],
+            0)
+        self.assertTrue(receipt["high_positive_cover_margin_measured"])
+        self.assertFalse(
+            receipt["cover_residue_occupancy_lower_bound_proved"])
+
+    def test_q286_cover_pair_compensation_portfolio(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_cover_pair_compensation_portfolio_receipt)
+        receipt = q286_cover_pair_compensation_portfolio_receipt()
+        self.assertEqual(receipt["uncovered_target_count"], 0)
+        self.assertEqual(
+            receipt[
+                "greedy_positive_portfolio_rows"][0]["residue_mod_286"],
+            263)
+        self.assertTrue(receipt["all_first_three_modes_negative"])
+        self.assertFalse(receipt["compensation_theorem_proved"])
 
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
