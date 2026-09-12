@@ -219,3 +219,15 @@ and `153`, each of which contributes about `-0.3224` principal when empty in
 the main hard cases.  This gives a sharper residue-hitting subproblem, but it
 does not explain all negatives and cannot replace the broader twisted
 correlation estimate.
+
+The same receipt now separates local admissibility from genuine empty
+admissible classes.  Among the `75` exact negatives, residue `133` is locally
+admissible `68` times, empty in `60`, positive in `8`, and inadmissible in
+`7`; residue `153` is admissible `70` times, empty in `59`, positive in `11`,
+and inadmissible in `5`.  Both driver residues are admissible in `63` exact
+negative targets and both are admissible-empty in `44`.
+
+This refines the residue-hitting subproblem: a proof cannot merely say these
+classes are sometimes locally unavailable.  In many exact negative cases they
+are locally available but contain no strict-central prime pair at the tested
+scale.

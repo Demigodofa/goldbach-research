@@ -16627,3 +16627,14 @@ residues, especially `133` and `153`, often drive the exact lower-tail
 failures.  This gives a sharper residue-hitting subproblem, but it does not
 explain all negatives and cannot replace the broader twisted-correlation
 estimate.
+
+The enhanced receipt separates local admissibility from genuine empty
+admissible classes.  Among the `75` exact negatives, residue `133` is
+admissible `68` times, empty in `60`, positive in `8`, and inadmissible in
+`7`; residue `153` is admissible `70` times, empty in `59`, positive in `11`,
+and inadmissible in `5`.  Both residues are admissible in `63` exact negative
+targets and both are admissible-empty in `44`.
+
+Status update `aha-candidate`: the sharper subproblem is not just local
+admissibility; many lower-tail failures have locally available high-positive
+residue classes with no strict-central prime pair at the tested scale.

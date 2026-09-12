@@ -1313,6 +1313,11 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["driver_residues"], (133, 153))
         self.assertIn("full_negative_target_count", receipt)
         self.assertIn("driver_residue_top_negative_counts", receipt)
+        self.assertIn("driver_residue_occupancy_counts", receipt)
+        if receipt["full_negative_target_count"]:
+            target = receipt["full_negative_targets"][0]
+            self.assertIn("driver_residue_occupancy_rows",
+                          receipt["target_rows"][target])
         self.assertTrue(receipt["full_negative_driver_measured"])
         self.assertFalse(receipt["driver_residues_explain_all_negatives"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

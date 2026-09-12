@@ -7313,15 +7313,68 @@ def q286_first_three_full_negative_driver_receipt(
     residue_top_negative_counts = {residue: 0 for residue in driver_residues}
     residue_empty_top_negative_counts = {
         residue: 0 for residue in driver_residues}
+    residue_occupancy_counts = {
+        residue: {
+            "admissible_count": 0,
+            "admissible_empty_count": 0,
+            "admissible_positive_count": 0,
+            "inadmissible_count": 0,
+        } for residue in driver_residues}
     all_driver_residues_in_top_negative_count = 0
     all_driver_residues_empty_top_negative_count = 0
+    all_driver_residues_admissible_count = 0
+    all_driver_residues_admissible_empty_count = 0
     top_abs_fractions = []
     target_rows = {}
+    primes = _prime_table(max(full_negative_targets)) if full_negative_targets else ()
     for target in full_negative_targets:
         proxy_row = proxy["rows"][target]
         top_negative_by_residue = {
             row["residue_mod_286"]: row
             for row in proxy_row["largest_negative_residue_rows"]}
+        lower = target // 3
+        upper = target - lower
+        occupancy_rows = []
+        all_admissible = True
+        all_admissible_empty = True
+        for residue in driver_residues:
+            admissible = math.gcd((target - residue) % 286, 286) == 1
+            pair_count = 0
+            pair_weight = 0.0
+            first_pair = None
+            if admissible:
+                residue_occupancy_counts[residue]["admissible_count"] += 1
+                for prime in range(max(2, lower + 1), min(target, upper)):
+                    partner = target - prime
+                    if (prime % 286 == residue
+                            and primes[prime] and primes[partner]):
+                        weight = math.log(prime) * math.log(partner)
+                        pair_count += 1
+                        pair_weight += weight
+                        if first_pair is None:
+                            first_pair = (prime, partner)
+                if pair_count:
+                    residue_occupancy_counts[residue][
+                        "admissible_positive_count"] += 1
+                    all_admissible_empty = False
+                else:
+                    residue_occupancy_counts[residue][
+                        "admissible_empty_count"] += 1
+            else:
+                residue_occupancy_counts[residue]["inadmissible_count"] += 1
+                all_admissible = False
+                all_admissible_empty = False
+            occupancy_rows.append({
+                "residue_mod_286": residue,
+                "admissible_for_target": admissible,
+                "strict_central_prime_pair_count": pair_count,
+                "strict_central_prime_pair_weight": pair_weight,
+                "first_strict_central_pair": first_pair,
+            })
+        if all_admissible:
+            all_driver_residues_admissible_count += 1
+        if all_admissible and all_admissible_empty:
+            all_driver_residues_admissible_empty_count += 1
         present = tuple(
             residue for residue in driver_residues
             if residue in top_negative_by_residue)
@@ -7347,6 +7400,7 @@ def q286_first_three_full_negative_driver_receipt(
                 "top_abs_real_contribution_fraction"],
             "driver_residues_in_top_negative": present,
             "empty_driver_residues_in_top_negative": empty,
+            "driver_residue_occupancy_rows": tuple(occupancy_rows),
             "driver_residue_rows": tuple(
                 top_negative_by_residue[residue]
                 for residue in present),
@@ -7367,10 +7421,15 @@ def q286_first_three_full_negative_driver_receipt(
             residue_top_negative_counts),
         "driver_residue_empty_top_negative_counts": (
             residue_empty_top_negative_counts),
+        "driver_residue_occupancy_counts": residue_occupancy_counts,
         "all_driver_residues_in_top_negative_count": (
             all_driver_residues_in_top_negative_count),
         "all_driver_residues_empty_top_negative_count": (
             all_driver_residues_empty_top_negative_count),
+        "all_driver_residues_admissible_count": (
+            all_driver_residues_admissible_count),
+        "all_driver_residues_admissible_empty_count": (
+            all_driver_residues_admissible_empty_count),
         "minimum_top_abs_real_contribution_fraction": (
             min(top_abs_fractions) if top_abs_fractions else math.nan),
         "mean_top_abs_real_contribution_fraction": (
