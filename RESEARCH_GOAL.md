@@ -7719,6 +7719,24 @@ extrema `-172835.1666`/`552774.7022`; mode `4` reverses the skew with `36/84`.
 Next target: separate balanced-twist cancellation from sign-skewed local bias
 inside the six q286 modes.
 
+## 2026-09-12: q286 separable mode local-bias scanner added
+
+`q286_separable_mode_local_bias_receipt` now separates each leading q286 mode
+into deterministic local prediction and prime-residue deviation.  This is the
+next needed distinction before an analytic estimate: if local bias dominates,
+the problem is algebraic/admissibility; if deviation dominates, the problem is
+genuine signed prime-pair distribution in the separable twist.
+
+Measured answer: the local means are essentially zero over the first period.
+Local admissibility creates oscillatory terms, not a persistent bad local main.
+For significant q286 lower tails, modes `1` and `2` are mainly dangerous
+through prime-residue deviation, not through local bias: their deviation is
+negative on `562/594` and `493/594` significant targets, while their local
+terms are negative on `244/594` and `115/594`.
+
+Next target: estimate separable prime-residue deviations directly, while
+carrying local oscillatory terms as explicit bounded margin costs.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

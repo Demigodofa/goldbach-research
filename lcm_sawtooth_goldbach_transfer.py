@@ -5540,6 +5540,242 @@ def q286_separable_mode_coefficient_receipt(
     }
 
 
+def q286_separable_mode_local_bias_receipt(
+        start=10000, targets_per_cycle=5005, mode_count=6,
+        significant_negative_ratio=-.4, tolerance=1e-9):
+    """Split each leading q286 mode into local bias and prime deviation."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if (not math.isfinite(significant_negative_ratio)
+            or significant_negative_ratio >= 0):
+        raise ValueError(
+            "significant_negative_ratio must be finite and negative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(start,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    targets = tuple(start + 2 * index for index in range(targets_per_cycle))
+    primes = _prime_table(max(targets))
+
+    mode_value_rows = []
+    for index in range(mode_count):
+        mode_matrix = (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+        full_mode_matrix = np.zeros((10, 12), dtype=np.complex128)
+        full_mode_matrix[1:, 1:] = mode_matrix
+        mode_values = character_table.T @ full_mode_matrix.reshape(-1)
+        mode_value_rows.append(mode_values)
+
+    mode_stats = {
+        mode: {
+            "minimum_local_to_principal_ratio": math.inf,
+            "minimum_local_target": None,
+            "maximum_local_to_principal_ratio": -math.inf,
+            "maximum_local_target": None,
+            "minimum_deviation_to_principal_ratio": math.inf,
+            "minimum_deviation_target": None,
+            "maximum_deviation_to_principal_ratio": -math.inf,
+            "maximum_deviation_target": None,
+            "minimum_actual_to_principal_ratio": math.inf,
+            "minimum_actual_target": None,
+            "maximum_actual_to_principal_ratio": -math.inf,
+            "maximum_actual_target": None,
+            "local_negative_count": 0,
+            "deviation_negative_count": 0,
+            "actual_negative_count": 0,
+            "local_negative_on_significant_count": 0,
+            "deviation_negative_on_significant_count": 0,
+            "actual_negative_on_significant_count": 0,
+            "sum_local_to_principal_ratio": 0.0,
+            "sum_deviation_to_principal_ratio": 0.0,
+            "sum_actual_to_principal_ratio": 0.0,
+        }
+        for mode in range(1, mode_count + 1)}
+    significant_targets = []
+    maximum_mode_reconstruction_error = 0.0
+
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        total_weight = 0.0
+        weights = np.zeros(len(units), dtype=np.float64)
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                total_weight += weight
+                weights[unit_index[prime % modulus]] += weight
+        if total_weight <= tolerance:
+            continue
+        principal_contribution = (
+            character_receipt["rows"][start]["principal_contribution"]
+            * (total_weight / character_receipt["rows"][start][
+                "total_prime_pair_weight"]))
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        mean_weight = total_weight / int(np.sum(admissible_mask))
+        q286_deviation = complex(np.sum(
+            coefficient_matrix
+            * (character_table @ (
+                weights - mean_weight * admissible_mask)).reshape(10, 12)[
+                    1:, 1:]))
+        q286_ratio = float(q286_deviation.real
+                           / principal_contribution.real)
+        is_significant = q286_ratio <= significant_negative_ratio
+        if is_significant:
+            significant_targets.append(target)
+
+        modeled_deviation = 0j
+        for index, mode_values in enumerate(mode_value_rows):
+            mode = index + 1
+            local_prediction = complex(
+                np.sum(mode_values[admissible_mask]) * mean_weight)
+            actual = complex(np.sum(mode_values * weights))
+            deviation = actual - local_prediction
+            modeled_deviation += deviation
+            local_ratio = float(
+                local_prediction.real / principal_contribution.real)
+            deviation_ratio = float(
+                deviation.real / principal_contribution.real)
+            actual_ratio = float(
+                actual.real / principal_contribution.real)
+            stats = mode_stats[mode]
+            stats["sum_local_to_principal_ratio"] += local_ratio
+            stats["sum_deviation_to_principal_ratio"] += deviation_ratio
+            stats["sum_actual_to_principal_ratio"] += actual_ratio
+            if local_ratio < stats["minimum_local_to_principal_ratio"]:
+                stats["minimum_local_to_principal_ratio"] = local_ratio
+                stats["minimum_local_target"] = target
+            if local_ratio > stats["maximum_local_to_principal_ratio"]:
+                stats["maximum_local_to_principal_ratio"] = local_ratio
+                stats["maximum_local_target"] = target
+            if deviation_ratio < stats["minimum_deviation_to_principal_ratio"]:
+                stats["minimum_deviation_to_principal_ratio"] = (
+                    deviation_ratio)
+                stats["minimum_deviation_target"] = target
+            if deviation_ratio > stats["maximum_deviation_to_principal_ratio"]:
+                stats["maximum_deviation_to_principal_ratio"] = (
+                    deviation_ratio)
+                stats["maximum_deviation_target"] = target
+            if actual_ratio < stats["minimum_actual_to_principal_ratio"]:
+                stats["minimum_actual_to_principal_ratio"] = actual_ratio
+                stats["minimum_actual_target"] = target
+            if actual_ratio > stats["maximum_actual_to_principal_ratio"]:
+                stats["maximum_actual_to_principal_ratio"] = actual_ratio
+                stats["maximum_actual_target"] = target
+            if local_ratio < -tolerance:
+                stats["local_negative_count"] += 1
+                if is_significant:
+                    stats["local_negative_on_significant_count"] += 1
+            if deviation_ratio < -tolerance:
+                stats["deviation_negative_count"] += 1
+                if is_significant:
+                    stats["deviation_negative_on_significant_count"] += 1
+            if actual_ratio < -tolerance:
+                stats["actual_negative_count"] += 1
+                if is_significant:
+                    stats["actual_negative_on_significant_count"] += 1
+        maximum_mode_reconstruction_error = max(
+            maximum_mode_reconstruction_error,
+            abs(modeled_deviation - q286_deviation) / max(
+                1.0, abs(q286_deviation)))
+
+    tested_count = len(targets)
+    significant_count = len(significant_targets)
+    for stats in mode_stats.values():
+        stats["mean_local_to_principal_ratio"] = (
+            stats["sum_local_to_principal_ratio"] / tested_count)
+        stats["mean_deviation_to_principal_ratio"] = (
+            stats["sum_deviation_to_principal_ratio"] / tested_count)
+        stats["mean_actual_to_principal_ratio"] = (
+            stats["sum_actual_to_principal_ratio"] / tested_count)
+        stats["local_negative_fraction"] = (
+            stats["local_negative_count"] / tested_count)
+        stats["deviation_negative_fraction"] = (
+            stats["deviation_negative_count"] / tested_count)
+        stats["actual_negative_fraction"] = (
+            stats["actual_negative_count"] / tested_count)
+        stats["local_negative_on_significant_fraction"] = (
+            stats["local_negative_on_significant_count"] / significant_count
+            if significant_count else 0.0)
+        stats["deviation_negative_on_significant_fraction"] = (
+            stats["deviation_negative_on_significant_count"]
+            / significant_count if significant_count else 0.0)
+        stats["actual_negative_on_significant_fraction"] = (
+            stats["actual_negative_on_significant_count"] / significant_count
+            if significant_count else 0.0)
+        del stats["sum_local_to_principal_ratio"]
+        del stats["sum_deviation_to_principal_ratio"]
+        del stats["sum_actual_to_principal_ratio"]
+
+    maximum_abs_mean_local = max(
+        abs(stats["mean_local_to_principal_ratio"])
+        for stats in mode_stats.values())
+    maximum_abs_local = max(
+        max(abs(stats["minimum_local_to_principal_ratio"]),
+            abs(stats["maximum_local_to_principal_ratio"]))
+        for stats in mode_stats.values())
+    maximum_abs_deviation = max(
+        max(abs(stats["minimum_deviation_to_principal_ratio"]),
+            abs(stats["maximum_deviation_to_principal_ratio"]))
+        for stats in mode_stats.values())
+
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": modulus,
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "tested_target_count": tested_count,
+        "mode_count": mode_count,
+        "significant_negative_ratio": significant_negative_ratio,
+        "significant_negative_q286_deviation_count": significant_count,
+        "mode_stats": mode_stats,
+        "maximum_mode_approximation_residual_fraction": (
+            maximum_mode_reconstruction_error),
+        "maximum_abs_mean_local_to_principal_ratio": (
+            maximum_abs_mean_local),
+        "maximum_abs_local_to_principal_ratio": maximum_abs_local,
+        "maximum_abs_deviation_to_principal_ratio": maximum_abs_deviation,
+        "local_bias_means_near_zero_on_sample": bool(
+            maximum_abs_mean_local < 1e-12),
+        "prime_deviation_range_exceeds_local_bias_range": bool(
+            maximum_abs_deviation > maximum_abs_local),
+        "all_modes_have_nonzero_local_bias": bool(all(
+            abs(stats["mean_local_to_principal_ratio"]) > tolerance
+            for stats in mode_stats.values())),
+        "all_modes_have_prime_deviation_variation": bool(all(
+            stats["minimum_deviation_to_principal_ratio"] < -tolerance
+            and stats["maximum_deviation_to_principal_ratio"] > tolerance
+            for stats in mode_stats.values())),
+        "separable_mode_local_bias_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

@@ -16213,3 +16213,32 @@ min/max `-21497.959299790065`/`17827.503129303997`.
 Status `aha-candidate`: mode `1` is the cleanest balanced separable twist, but
 mode `2` is larger and sign-skewed.  The next analytic probe should distinguish
 balanced-mode cancellation from sign-skewed-mode local bias.
+
+## 2026-09-12: q286 separable mode local-bias scanner added
+
+`q286_separable_mode_local_bias_receipt` splits each leading q286 separable
+mode into its lower-modulus local prediction and its prime-residue deviation.
+It profiles local, deviation, and actual principal-relative ratios across
+target ranges, including significant q286 lower-tail targets.
+
+This receipt tests whether sign-skewed singular modes are dangerous because
+of deterministic local admissibility bias or because the actual primes deviate
+from that local model.  It is still diagnostic evidence, not a signed estimate.
+
+Full first-period measurement: the mode-local means are essentially zero, not
+persistent one-sided local bias.  The local principal-relative extrema are
+nonzero but smaller than the prime-deviation range.  Mode `1` has the largest
+local oscillation, about `+/-0.19548407803304` principal, while its deviation
+range is about `-0.9772652698582277` to `1.1211065683002415`.
+
+On the `594` significant q286 lower-tail targets, deviation negativity rather
+than local negativity explains the leading danger: mode `1` deviation is
+negative on `562`, mode `2` on `493`, mode `3` on `345`, mode `4` on `342`,
+mode `5` on `227`, and mode `6` on `277`.  The corresponding local-negative
+counts are closer to balanced or smaller: `244`, `115`, `245`, `341`, `265`,
+and `278`.
+
+Status `changed-under-evidence`: sign-skewed residue weights do not create a
+persistent local-main obstruction.  The main obstruction remains genuine
+prime-residue deviation in separable twisted sums, with small local oscillatory
+terms that must be included in margins.

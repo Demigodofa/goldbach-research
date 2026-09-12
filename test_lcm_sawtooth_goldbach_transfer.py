@@ -36,6 +36,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_singular_mode_contribution_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
+    q286_separable_mode_local_bias_receipt,
     q286_singular_mode_approximation_receipt,
     q286_singular_mode_cycle_scan_receipt,
     q286_singular_mode_lower_tail_stress_receipt,
@@ -1106,6 +1107,26 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["mode_rows"][0]["singular_value"],
             158279.0938376038, places=7)
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_separable_mode_local_bias(self):
+        receipt = q286_separable_mode_local_bias_receipt(
+            targets_per_cycle=9, mode_count=6)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertEqual(receipt["mode_count"], 6)
+        self.assertEqual(len(receipt["mode_stats"]), 6)
+        self.assertGreater(
+            receipt["maximum_mode_approximation_residual_fraction"], 0.0)
+        self.assertIn("local_bias_means_near_zero_on_sample", receipt)
+        self.assertTrue(receipt["all_modes_have_prime_deviation_variation"])
+        self.assertTrue(receipt["separable_mode_local_bias_measured"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
