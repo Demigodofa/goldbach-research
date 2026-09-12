@@ -1570,6 +1570,49 @@ class LinkedPrimeCharacterTests(unittest.TestCase):
         self.assertFalse(receipt["signed_prime_correlation_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_residue_orbit_even_even_exceptional_set_holdout(self):
+        receipt = residue_orbit_even_even_exceptional_set_receipt(
+            target_minimum=100002, target_maximum=200000)
+        self.assertEqual(receipt["target_range"], (100002, 200000))
+        self.assertEqual(receipt["tested_target_count"], 769)
+        self.assertEqual(len(receipt["dyadic_exceptional_summaries"]), 1)
+        row = next(iter(receipt["dyadic_exceptional_summaries"].values()))
+        self.assertEqual(row["target_count"], 769)
+        self.assertAlmostEqual(
+            row["initial_profile_rayleigh_quotient"],
+            .2826064297103391, places=12)
+        self.assertEqual(
+            row["removed_targets"],
+            (181032, 199882, 123312, 175312, 192472, 190522,
+             162832, 197152, 195982, 181942, 179732, 133322,
+             176222, 188572, 160492, 173362, 150092, 152822,
+             164522, 171282, 177652, 166082, 197412, 195852,
+             161662, 184412, 194162, 131372))
+        self.assertEqual(row["removed_target_count"], 28)
+        self.assertAlmostEqual(
+            row["removed_target_fraction"],
+            .036410923276983094, places=15)
+        self.assertAlmostEqual(
+            row["removed_numerator_fraction"],
+            .17721337248788974, places=12)
+        self.assertAlmostEqual(
+            row["removed_profile_energy_fraction"],
+            .06688311240981401, places=12)
+        self.assertAlmostEqual(
+            row["remaining_profile_rayleigh_quotient"],
+            .249191493913601, places=12)
+        self.assertTrue(row["reaches_profile_rayleigh_threshold"])
+        self.assertTrue(row["passes_removed_target_fraction_gate"])
+        self.assertTrue(row[
+            "passes_removed_profile_energy_fraction_gate"])
+        self.assertTrue(row["passes_exceptional_set_gate"])
+        self.assertTrue(receipt[
+            "all_dyadic_blocks_pass_exceptional_set_gate"])
+        self.assertFalse(receipt[
+            "sparse_even_even_exceptional_set_theorem_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
 
 if __name__ == "__main__":
     unittest.main()

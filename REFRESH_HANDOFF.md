@@ -11885,56 +11885,6 @@ Shapley allocation is `1.0325006383402588`, but at `q=1001` it is only
 conditioned reconstructions remain below `7e-15` on their stated relative
 scales.
 
-## 2026-09-11 sparse exceptional sets repair six of seven blocks
-
-`residue_orbit_even_even_exceptional_set_receipt` assigns each target the
-exact excess over the `q=1/4` Rayleigh inequality,
-
-`e_N=|<h_N,h_C>|^2-q||h_C||_2^2||h_N||_2^2`,
-
-and removes positive excesses in descending order.  This is cardinality
-optimal: among all removals of `k` targets, the greedy set removes the largest
-possible excess sum.
-
-The four blocks already below `1/4` require no removals.  The three initially
-failing blocks behave as follows:
-
-| block | removed targets | target fraction | profile-energy fraction | remaining `Q_B` |
-|---|---|---:|---:|---:|
-| `[1000,2000)` | `1762` | `.14286` | `.19745` | `.24568` |
-| `[8000,16000)` | `15282` | `.01613` | `.07603` | `.22281` |
-| `[16000,32000)` | `19572,17622,16842,22692,18402,20352` | `.04878` | `.11178` | `.24768` |
-
-All three repaired quotients fall below `1/4`, and all removed energy
-fractions are below `.25`.  The frozen all-block exceptional-set gate still
-fails: the first block contains only seven targets, so its one necessary
-removal is `1/7=.14286`, above `.10`.  The other six blocks pass.
-
-Curiosity status: `large-scale-component-pass/full-range-fail`, novelty
-`new-to-this-task`.  Preserve the cardinality-optimal excess ordering and the
-six passing blocks.  Reject the literal all-seven `10%` target-fraction claim.
-The later finite data are consistent with a sparse large-values route, but the
-small first block is a real frozen-gate failure and has not been reclassified.
-
-Independent review verified the excess identity, greedy optimality,
-denominator and empty-set handling, every removal and fraction, and the `6/7`
-scope.  Focused normal and optimized tests pass.  No exceptional-set theorem,
-asymptotic density estimate, signed prime-correlation theorem, or Goldbach
-result has been proved.
-
-The next bounded question is a scale holdout rather than a post-hoc threshold
-change.  On the untouched progression
-
-`100000<N<=200000`, `N congruent 72 (mod 130)`,
-
-measure the same five-dimensional Rayleigh quotient and apply the already
-frozen `q=1/4`, `10%` target-removal, and `25%` profile-energy-removal gates to
-the single holdout block.  Do not refit the source profile or the excess
-ordering.  Passing would show that the sparse-exception pattern survives one
-new dyadic scale; failure would reject that finite generalization.  Record
-runtime and target count because this extends the prime enumeration boundary,
-and retain the current `<=100000` fixtures unchanged.
-
 Because the passing case contains prime `5` while the failing case does not,
 the two missing three-prime quotients containing `5` were tested under the
 same `.75` gate.  Both falsify that arithmetic discriminator: `q=455` is
@@ -14552,3 +14502,112 @@ prime-profile energy.  Report the removed targets, numerator share, and energy
 share.  Passing would isolate a finite sparse exceptional set for a future
 large-values estimate.  Failure would show that the directional bias is too
 diffuse for this exceptional-set route at the tested scales.
+
+## 2026-09-11 sparse exceptional sets repair six of seven blocks
+
+`residue_orbit_even_even_exceptional_set_receipt` assigns each target the
+exact excess over the `q=1/4` Rayleigh inequality,
+
+`e_N=|<h_N,h_C>|^2-q||h_C||_2^2||h_N||_2^2`,
+
+and removes positive excesses in descending order.  This is cardinality
+optimal: among all removals of `k` targets, the greedy set removes the largest
+possible excess sum.
+
+The four blocks already below `1/4` require no removals.  The three initially
+failing blocks behave as follows:
+
+| block | removed targets | target fraction | profile-energy fraction | remaining `Q_B` |
+|---|---|---:|---:|---:|
+| `[1000,2000)` | `1762` | `.14286` | `.19745` | `.24568` |
+| `[8000,16000)` | `15282` | `.01613` | `.07603` | `.22281` |
+| `[16000,32000)` | `19572,17622,16842,22692,18402,20352` | `.04878` | `.11178` | `.24768` |
+
+All three repaired quotients fall below `1/4`, and all removed energy
+fractions are below `.25`.  The frozen all-block exceptional-set gate still
+fails: the first block contains only seven targets, so its one necessary
+removal is `1/7=.14286`, above `.10`.  The other six blocks pass.
+
+Curiosity status: `large-scale-component-pass/full-range-fail`, novelty
+`new-to-this-task`.  Preserve the cardinality-optimal excess ordering and the
+six passing blocks.  Reject the literal all-seven `10%` target-fraction claim.
+The later finite data are consistent with a sparse large-values route, but the
+small first block is a real frozen-gate failure and has not been reclassified.
+
+Independent review verified the excess identity, greedy optimality,
+denominator and empty-set handling, every removal and fraction, and the `6/7`
+scope.  Focused normal and optimized tests pass.  No exceptional-set theorem,
+asymptotic density estimate, signed prime-correlation theorem, or Goldbach
+result has been proved.
+
+The next bounded question is a scale holdout rather than a post-hoc threshold
+change.  On the untouched progression
+
+`100000<N<=200000`, `N congruent 72 (mod 130)`,
+
+measure the same five-dimensional Rayleigh quotient and apply the already
+frozen `q=1/4`, `10%` target-removal, and `25%` profile-energy-removal gates to
+the single holdout block.  Do not refit the source profile or the excess
+ordering.  Passing would show that the sparse-exception pattern survives one
+new dyadic scale; failure would reject that finite generalization.  Record
+runtime and target count because this extends the prime enumeration boundary,
+and retain the current `<=100000` fixtures unchanged.
+
+## 2026-09-11 sparse-exception pattern passes the 100000--200000 holdout
+
+The frozen holdout changes only the target interval.  The source profile stays
+fixed from `LINKED_PRIME_TARGETS`, and the Rayleigh and exceptional-set gates
+remain `1/4`, `10%`, and `25%`.
+
+The actual residue-72 progression is
+
+`100042,100172,...,199882`,
+
+with `769` targets.  Its untrimmed five-dimensional Rayleigh quotient is
+
+`.2826064297103391`.
+
+The cardinality-optimal positive-excess ordering removes `28` targets:
+
+`181032,199882,123312,175312,192472,190522,162832,197152,195982,
+181942,179732,133322,176222,188572,160492,173362,150092,152822,
+164522,171282,177652,166082,197412,195852,161662,184412,194162,
+131372`.
+
+They are `.036410923276983094` of the targets, carry
+`.06688311240981401` of profile energy and `.17721337248788974` of
+the correlation numerator, and reduce the remaining quotient to
+
+`.249191493913601`.
+
+All three frozen holdout gates pass.  The initial exploratory run took about
+`40` seconds on this machine; focused review runs varied, so this is an
+observed runtime rather than a general performance claim.
+
+Curiosity status: `finite-holdout-pass`, novelty `new-to-this-task`.  Preserve
+the untouched scale boundary, exact exceptional set, and its energy/numerator
+separation.  This is one finite holdout supporting the sparse-large-values
+route, not an asymptotic density law.
+
+Independent review verified the unchanged source and thresholds, progression,
+single-block construction, exact removal order, every fraction, and remaining
+quotient.  Normal and optimized holdout tests pass.  No exceptional-set
+theorem, signed prime-correlation estimate, or Goldbach result has been proved.
+
+The next bounded question changes from range extension to theorem transfer:
+can the dominant five-dimensional numerator be written as a fixed finite
+linear combination of classical weighted Goldbach representation errors to
+which an existing mean-square theorem genuinely applies?  First derive the
+coefficients expressing `<h_N,h_C>` through the central-interval residue-class
+weights modulo `130`, with endpoints and nonunit corrections explicit.  Then
+inspect primary-source mean-square or exceptional-set theorems for binary
+Goldbach in arithmetic progressions and require an exact match on the averaged
+target variable, fixed modulus, logarithmic weights, and central interval, or
+an explicit proved reduction between conventions.
+
+The transfer passes only if a cited theorem yields a quantitative bound for
+this numerator strong enough to imply a vanishing exceptional-target density
+or a uniform dyadic Rayleigh saving.  An incompatible interval, weight,
+averaging variable, or uncontrolled conversion is a failure, not a heuristic
+substitute.  Preserve any exact algebraic reduction even if no current theorem
+closes the analytic estimate.
