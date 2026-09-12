@@ -16381,3 +16381,30 @@ separable q286 modes, with a measured q286 tail below `0.034` principal on
 the first full residue period.  The reduced model is not sign-identical to the
 full action, and no asymptotic bound, endpoint/noncentral reconciliation, or
 Goldbach proof follows.
+
+## 2026-09-12: reduced lower-envelope cycle scanner added
+
+`reduced_full_lower_envelope_cycle_scan_receipt` repeats the reduced/full
+comparison over consecutive `10010`-period windows.  It records sign
+agreement, full and reduced negative counts, worst full/reduced ratios, and
+the largest q286 tail ratio.
+
+Default scan: four windows of `501` even targets each, covering
+`10000..11000`, `20010..21010`, `30020..31020`, and `40030..41030`.  The
+reduced model and exact full action agree in sign on all `2004` sampled
+targets, and every full negative is captured by the reduced model.  Total
+negative counts are `19` for both.
+
+Cycle summaries: cycle `0` has `16` negatives and minimum full-action ratio
+`-0.6387603808369553` at `N=10424`; cycle `1` has no negatives and minimum
+`0.05648283359949622` at `N=20908`; cycle `2` has `2` negatives and minimum
+`-0.057467693572052184` at `N=30164`; cycle `3` has `1` negative and minimum
+`-0.04529074309387505` at `N=40676`.  The worst q286 tail remains cycle `0`,
+`0.02648396322072016` principal at `N=10042`, with maximum reconstruction
+error about `1.73e-13`.
+
+Status `aha-candidate`: the reduced model is a good finite lower-envelope
+proxy in this four-window sample.  The next direct estimate should target the
+six separable q286 prime-residue mode sums inside this reduced model, allowing
+exact q70/q154 support reinforcement and a small explicit q286-tail allowance.
+This is still finite evidence, not an eventual threshold theorem.

@@ -6502,6 +6502,150 @@ def reduced_full_lower_envelope_receipt(
     }
 
 
+def reduced_full_lower_envelope_cycle_scan_receipt(
+        start=10000, cycle_count=4, targets_per_cycle=501,
+        q286_mode_count=6, tolerance=1e-9):
+    """Scan reduced/full lower-envelope agreement across period windows."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if (type(q286_mode_count) is not int or q286_mode_count < 1
+            or q286_mode_count > 9):
+        raise ValueError("q286_mode_count must lie between 1 and 9")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    first = reduced_full_lower_envelope_receipt(
+        start=start, targets_per_cycle=targets_per_cycle,
+        q286_mode_count=q286_mode_count, tolerance=tolerance)
+    period = first["arithmetic_period"]
+    receipts = [first]
+    for cycle in range(1, cycle_count):
+        receipts.append(reduced_full_lower_envelope_receipt(
+            start=start + cycle * period,
+            targets_per_cycle=targets_per_cycle,
+            q286_mode_count=q286_mode_count,
+            tolerance=tolerance))
+
+    cycle_rows = {}
+    global_worst_full = None
+    global_worst_model = None
+    global_worst_tail = None
+    maximum_reconstruction_error = 0.0
+    all_full_negatives_captured = True
+    all_signs_agree = True
+    all_tails_small = True
+    total_full_negatives = 0
+    total_model_negatives = 0
+    for cycle, receipt in enumerate(receipts):
+        rows = receipt["rows"]
+        targets = tuple(sorted(rows))
+        full_negatives = tuple(
+            target for target in targets
+            if rows[target]["full_action_to_principal_ratio"] <= 0)
+        model_negatives = tuple(
+            target for target in targets
+            if rows[target]["reduced_model_to_principal_ratio"] <= 0)
+        full_set = set(full_negatives)
+        model_set = set(model_negatives)
+        extra_model = tuple(sorted(model_set - full_set))
+        missing_model = tuple(sorted(full_set - model_set))
+        all_full_negatives_captured = (
+            all_full_negatives_captured and not missing_model)
+        all_signs_agree = (
+            all_signs_agree and not extra_model and not missing_model)
+        all_tails_small = (
+            all_tails_small
+            and receipt["q286_tail_under_point_one_principal_on_sample"])
+        total_full_negatives += len(full_negatives)
+        total_model_negatives += len(model_negatives)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error,
+            receipt["maximum_reconstruction_error"])
+        worst_full = receipt["worst_full_action_target"]
+        worst_model = receipt["worst_reduced_model_target"]
+        worst_tail = receipt["worst_q286_tail_target"]
+        if (global_worst_full is None
+                or rows[worst_full]["full_action_to_principal_ratio"]
+                < global_worst_full[1]):
+            global_worst_full = (
+                worst_full,
+                rows[worst_full]["full_action_to_principal_ratio"],
+                cycle)
+        if (global_worst_model is None
+                or rows[worst_model]["reduced_model_to_principal_ratio"]
+                < global_worst_model[1]):
+            global_worst_model = (
+                worst_model,
+                rows[worst_model]["reduced_model_to_principal_ratio"],
+                cycle)
+        if (global_worst_tail is None
+                or rows[worst_tail]["absolute_q286_tail_to_principal_ratio"]
+                > global_worst_tail[1]):
+            global_worst_tail = (
+                worst_tail,
+                rows[worst_tail]["absolute_q286_tail_to_principal_ratio"],
+                cycle)
+        cycle_rows[cycle] = {
+            "start": targets[0],
+            "end": targets[-1],
+            "tested_target_count": len(targets),
+            "negative_full_action_count": len(full_negatives),
+            "negative_reduced_model_count": len(model_negatives),
+            "full_negative_targets": full_negatives,
+            "reduced_model_negative_targets": model_negatives,
+            "extra_model_negative_targets": extra_model,
+            "full_negative_not_model_targets": missing_model,
+            "worst_full_action_target": worst_full,
+            "minimum_full_action_to_principal_ratio": rows[
+                worst_full]["full_action_to_principal_ratio"],
+            "worst_reduced_model_target": worst_model,
+            "minimum_reduced_model_to_principal_ratio": rows[
+                worst_model]["reduced_model_to_principal_ratio"],
+            "worst_q286_tail_target": worst_tail,
+            "maximum_abs_q286_tail_to_principal_ratio": rows[
+                worst_tail]["absolute_q286_tail_to_principal_ratio"],
+            "maximum_reconstruction_error": (
+                receipt["maximum_reconstruction_error"]),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "q286_mode_count": q286_mode_count,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "cycle_rows": cycle_rows,
+        "total_negative_full_action_count": total_full_negatives,
+        "total_negative_reduced_model_count": total_model_negatives,
+        "all_full_negatives_captured_by_reduced_model": bool(
+            all_full_negatives_captured),
+        "all_reduced_and_full_signs_agree": bool(all_signs_agree),
+        "q286_tail_under_point_one_principal_on_sample": bool(
+            all_tails_small),
+        "worst_full_action_target": global_worst_full[0],
+        "worst_full_action_cycle": global_worst_full[2],
+        "minimum_full_action_to_principal_ratio": global_worst_full[1],
+        "worst_reduced_model_target": global_worst_model[0],
+        "worst_reduced_model_cycle": global_worst_model[2],
+        "minimum_reduced_model_to_principal_ratio": global_worst_model[1],
+        "worst_q286_tail_target": global_worst_tail[0],
+        "worst_q286_tail_cycle": global_worst_tail[2],
+        "maximum_abs_q286_tail_to_principal_ratio": global_worst_tail[1],
+        "maximum_reconstruction_error": maximum_reconstruction_error,
+        "reduced_full_lower_envelope_cycle_scan_measured": True,
+        "eventual_lower_envelope_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):
