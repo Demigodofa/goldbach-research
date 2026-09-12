@@ -902,5 +902,94 @@ def symbolic_centered_outer_fiber_shadow_receipt(
     }
 
 
+def symbolic_principal_plus_centered_channel_receipt(
+        tolerance=1e-12, rational_tolerance=1e-10, batch_size=32):
+    """Split the quotient-77 channel into a constant plus fiber shadow.
+
+    The principal component is a scalar multiple of the strict-central unit
+    pair weight.  The centered component is the already identified lag-130
+    fiber shadow.  This still describes only the strict-central quotient-77
+    channel, not endpoints or the full formal signed error.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if not math.isfinite(rational_tolerance) or rational_tolerance < 0:
+        raise ValueError("rational_tolerance must be finite and nonnegative")
+    centered = symbolic_centered_outer_fiber_shadow_receipt(
+        tolerance=tolerance, batch_size=batch_size)
+    centering = linked_prime_centering_receipt(
+        tolerance=tolerance, batch_size=batch_size)
+    first_target = centering["targets"][0]
+    common = centered["common_modulus"]
+    period = centered["arithmetic_period"]
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    source_units, source_values_tuple = _direct_resonant_source_on_units(
+        period, 130, left_sources, right_sources)
+    quotient77_source_rows = tuple(
+        row for (quotient, _, target), row in centering["rows"].items()
+        if quotient == 77 and target == first_target)
+    units130 = tuple(int(unit) for unit in quotient77_source_rows[0][
+        "unit_residues"])
+    quotient77_source = sum((
+        row["additive_unit_source_values"] for row in quotient77_source_rows),
+        np.zeros_like(quotient77_source_rows[0][
+            "additive_unit_source_values"]))
+    principal_constant = complex(np.mean(quotient77_source))
+
+    source_values = {
+        residue: value
+        for residue, value in zip(source_units, source_values_tuple)}
+    fiber_sums = np.asarray(tuple(
+        _complex_fsum(source_values[unit] for unit in source_units
+                      if unit % common == residue)
+        for residue in units130), dtype=np.complex128)
+    fiber_shadow = -(fiber_sums - np.mean(fiber_sums))
+    reconstructed_source = principal_constant + fiber_shadow
+    source_scale = max(
+        1.0, float(np.linalg.norm(quotient77_source)),
+        float(np.linalg.norm(reconstructed_source)))
+    source_decomposition_error = float(
+        np.linalg.norm(quotient77_source - reconstructed_source)
+        / source_scale)
+    constant_rational = (-3143, 16)
+    rational_constant_error = abs(
+        principal_constant - constant_rational[0] / constant_rational[1])
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "common_modulus": common,
+        "unit_group_order": len(units130),
+        "principal_constant": principal_constant,
+        "principal_constant_rational_witness": constant_rational,
+        "principal_constant_rational_error": rational_constant_error,
+        "principal_constant_rational_tolerance": rational_tolerance,
+        "quotient77_source_equals_constant_plus_fiber_shadow_error": (
+            source_decomposition_error),
+        "centered_bridge_receipt": centered,
+        "strict_central_channel_formula": (
+            "direct_q77(N)=c0*W_unit(N)+"
+            "sum_(N/3<p<2N/3)log(p)log(N-p)G_shadow(p mod 130)"
+        ),
+        "central_unit_threshold": centered["central_unit_threshold"],
+        "principal_constant_channel_identified": bool(
+            source_decomposition_error <= tolerance
+            and rational_constant_error <= rational_tolerance),
+        "centered_channel_identified": bool(
+            centered[
+                "quotient77_centered_coefficient_identity_proved"]),
+        "strict_central_quotient77_channel_identified_for_N_ge_40": bool(
+            source_decomposition_error <= tolerance
+            and centered[
+                "quotient77_centered_coefficient_identity_proved"]),
+        "endpoint_or_noncentral_terms_analyzed": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(even_even_goldbach_transfer_receipt())

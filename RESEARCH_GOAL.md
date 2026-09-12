@@ -7440,3 +7440,48 @@ ordered interval convention, and open-scope flags. Status `aha-candidate`,
 novelty `new-to-this-task`. Endpoint/noncentral terms, the principal constant
 channel, full outer assembly, formal `T_boundary-Delta`, pointwise signed
 control, and Goldbach remain open.
+
+## 2026-09-12: principal plus centered quotient-77 channel
+
+The strict-central quotient-77 direct channel has now been split into its
+principal and centered parts as a coefficient-vector identity.  In
+`symbolic_principal_plus_centered_channel_receipt`, the recombined quotient-77
+source on `U_130` equals a constant vector plus the negative lag-130 fiber
+shadow already identified in the symbolic centered bridge.
+
+The measured principal constant is approximately
+`-196.43749999997192 + 1.29e-12i`, with rational witness
+`c0=-3143/16`.  Because this witness is recovered from floating source tables,
+its check uses a separate `1e-10` numerical tolerance; the actual source-vector
+reconstruction remains at relative error `2.520761115387016e-14`, below the
+`1e-12` identity tolerance.
+
+Consequently, for every even `N>=40`, the strict-central quotient-77 direct
+unit channel has the form
+
+`c0*W_unit(N) + sum_(N/3<p<2N/3, p,N-p prime)
+   log(p)log(N-p) G_shadow(p mod 130)`,
+
+using the existing ordered strict-central convention and
+`G_shadow(r)=-(S_130(r)-mean_s S_130(s))`.  The `N>=40` threshold is unchanged:
+strict central prime pairs then have both primes greater than `13`, so no
+nonunit modulo-130 correction enters this channel.
+
+Independent review returned PASS. Faraday checked that all four quotient-77
+rows are recombined, that the row vector is target-independent by construction,
+that the fiber-shadow sign is correct, that the rational witness is within the
+separate numerical tolerance, that the ordered strict-central formula applies,
+and that the open-scope flags remain false.
+
+Focused normal and optimized tests pass.  This is progress on the bookkeeping
+bridge, not on the missing signed prime-correlation estimate.  Endpoint and
+noncentral terms, the full outer assembly, the formal `T_boundary-Delta` error,
+pointwise signed control, and Goldbach remain open.
+
+Next concrete question: in the original outer assembly, are the remaining
+endpoint/noncentral contributions expressible as explicit boundary channels
+with controlled sign or cancellation, or do they introduce a moving coefficient
+that is exactly where the signed estimate still lives?  A useful next test is
+to recover the full assembly term-by-term and compare it against the reviewed
+principal-plus-shadow strict-central channel, with any residual classified by
+support, coefficient source, and dependence on `N`.
