@@ -8972,3 +8972,16 @@ below in all checked cycles of this block.
 
 Status `changed-under-evidence`: `.3` is the currently robust checked horizon;
 `.4` monotone/permanent clearance is falsified by recurrence.
+
+### 2026-09-12 continuation: first-three tail threshold horizon
+
+`q286_first_three_tail_threshold_horizon_receipt` now checks the negative
+first-three q286 tail against thresholds.  Over the first eight complete
+periods, first-three is below `-.3` at `4406` targets and below `-.5` at
+`1143` targets, with hits in every cycle.  The global minimum is
+`-1.1500880008976306` at `10664`.
+
+Status `changed-under-evidence`: the `.3` complement floor cannot be paired
+with an independent uniform `first_three >= -.3` theorem.  The next target is a
+pointwise co-occurrence estimate: large negative first-three tail must force or
+coincide with large enough complement, apart from finite boundary exceptions.

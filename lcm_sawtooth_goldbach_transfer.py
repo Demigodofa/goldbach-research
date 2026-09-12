@@ -10420,3 +10420,108 @@ def q286_first_three_removed_complement_threshold_horizon_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_tail_threshold_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3, .5, .75, 1.0), tolerance=1e-9):
+    """Summarize q286 first-three negative tail against thresholds.
+
+    The post-first-three complement horizon gives possible positive buffers.
+    This receipt measures the matching obstruction: where the first three q286
+    separable modes fall below ``-threshold``.  Passing finite checks here does
+    not prove a signed prime-correlation estimate.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    negative_tail_thresholds = tuple(negative_tail_thresholds)
+    if (not negative_tail_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in negative_tail_thresholds)):
+        raise ValueError(
+            "negative_tail_thresholds must be positive finite numbers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    receipt = q286_first_two_mode_lower_tail_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tolerance=tolerance)
+    cycle_rows = {}
+    global_minimum = None
+    for cycle in sorted(receipt["cycle_rows"]):
+        targets = tuple(
+            target for target, row in receipt["rows"].items()
+            if row["cycle"] == cycle)
+        minimum_target = min(
+            targets, key=lambda target: receipt["rows"][target][
+                "first_three_modes_to_principal_ratio"])
+        minimum_value = receipt["rows"][minimum_target][
+            "first_three_modes_to_principal_ratio"]
+        negative_count = sum(
+            1 for target in targets
+            if receipt["rows"][target][
+                "first_three_modes_to_principal_ratio"] < -tolerance)
+        cycle_threshold_counts = {
+            threshold: sum(
+                1 for target in targets
+                if receipt["rows"][target][
+                    "first_three_modes_to_principal_ratio"] < -threshold)
+            for threshold in negative_tail_thresholds}
+        cycle_rows[cycle] = {
+            "start": receipt["cycle_rows"][cycle]["start"],
+            "end": receipt["cycle_rows"][cycle]["end"],
+            "tested_target_count": len(targets),
+            "minimum_first_three_target": minimum_target,
+            "minimum_first_three_to_principal_ratio": minimum_value,
+            "negative_first_three_count": negative_count,
+            "threshold_counts": cycle_threshold_counts,
+            "full_action_negative_count": receipt[
+                "cycle_rows"][cycle]["negative_full_action_count"],
+        }
+        if global_minimum is None or minimum_value < global_minimum[2]:
+            global_minimum = (cycle, minimum_target, minimum_value)
+
+    threshold_rows = {}
+    for threshold in negative_tail_thresholds:
+        cycles_with_hits = tuple(
+            cycle for cycle, row in cycle_rows.items()
+            if row["threshold_counts"][threshold] > 0)
+        threshold_rows[threshold] = {
+            "target_count_below_negative_threshold": sum(
+                row["threshold_counts"][threshold]
+                for row in cycle_rows.values()),
+            "cycle_count_with_hits": len(cycles_with_hits),
+            "cycles_with_hits": cycles_with_hits,
+            "last_cycle_with_hit": (
+                max(cycles_with_hits) if cycles_with_hits else None),
+            "all_cycles_clear_negative_threshold": bool(
+                not cycles_with_hits),
+        }
+
+    return {
+        "arithmetic_period": receipt["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": negative_tail_thresholds,
+        "tested_target_count": receipt["tested_target_count"],
+        "cycle_rows": cycle_rows,
+        "threshold_rows": threshold_rows,
+        "global_minimum_first_three_cycle": global_minimum[0],
+        "global_minimum_first_three_target": global_minimum[1],
+        "global_minimum_first_three_to_principal_ratio": global_minimum[2],
+        "negative_full_action_count": receipt[
+            "negative_full_action_count"],
+        "full_nonpositive_without_first_three_count": receipt[
+            "full_nonpositive_without_first_three_count"],
+        "first_three_tail_threshold_horizon_measured": True,
+        "uniform_first_three_tail_bound_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

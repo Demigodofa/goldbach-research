@@ -17141,3 +17141,20 @@ after global cycle `6`; that inference is falsified.
 Status `changed-under-evidence`: use `.3` as the robust checked threshold for
 post-cycle-3 finite evidence.  Do not extrapolate monotone threshold clearance
 from the first block.
+
+## 2026-09-12 continuation: first-three tail threshold horizon
+
+`q286_first_three_tail_threshold_horizon_receipt` now measures where the first
+three q286 modes fall below negative thresholds.  On the first eight complete
+periods (`40040` targets), the global minimum is `-1.1500880008976306` at
+`N=10664`.  First-three is below `-.3` at `4406` targets and below `-.5` at
+`1143` targets, with hits in all eight cycles.  It is below `-.75` at `173`
+targets and below `-1.0` at `5` targets.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_tail_threshold_horizon` passed in `68.352s`.
+
+Status `changed-under-evidence`: a `.3` complement floor plus a separate
+uniform `first_three >= -.3` bound cannot close the measured problem.  The
+remaining estimate must control pointwise co-occurrence between first-three
+negative tail and complement size.

@@ -1644,3 +1644,50 @@ full-action negatives and no complement nonpositive cases, yet `.4` low-tail
 cycle minima recur.  Any eventual complement-floor theorem needs a threshold
 small enough to survive recurrence, or a proof that the recurring floor still
 stays above the required margin.
+
+## 2026-09-12: first-three tail threshold horizon
+
+`q286_first_three_tail_threshold_horizon_receipt` now measures where the first
+three q286 separable modes fall below negative thresholds.  This is the direct
+counterpart to the complement threshold horizon: if the complement floor is
+only about `.3`, then a separate uniform bound `first_three >= -.3` would be
+needed to prove positivity by independent envelopes.
+
+Eight-period run (`cycle_count=8`, `targets_per_cycle=5005`, thresholds
+`.3,.5,.75,1.0`):
+
+```text
+tested targets: 40040
+global minimum first-three: cycle 0, N=10664, -1.1500880008976306
+full-action negatives: 89
+post-first-three complement nonpositive: 0
+
+threshold .3: 4406 targets, hits in all 8 cycles
+threshold .5: 1143 targets, hits in all 8 cycles
+threshold .75: 173 targets, hits in 7 cycles (all except cycle 5)
+threshold 1.0: 5 targets, hits in cycles 0 and 1
+```
+
+Cycle minima and threshold counts:
+
+```text
+cycle 0: min N=10664, -1.1500880008976306, counts {.3:972, .5:358, .75:95, 1.0:4}, full negatives 75
+cycle 1: min N=29152, -1.0394802094365456, counts {.3:824, .5:240, .75:26, 1.0:1}, full negatives 3
+cycle 2: min N=30298, -0.9219319460533107, counts {.3:867, .5:285, .75:35, 1.0:0}, full negatives 5
+cycle 3: min N=45184, -0.9252620391138453, counts {.3:426, .5:81, .75:11, 1.0:0}, full negatives 4
+cycle 4: min N=52672, -0.7971692976412812, counts {.3:283, .5:37, .75:3, 1.0:0}, full negatives 0
+cycle 5: min N=69116, -0.7320730201760477, counts {.3:425, .5:63, .75:0, 1.0:0}, full negatives 0
+cycle 6: min N=70526, -0.7650482510196677, counts {.3:330, .5:47, .75:2, 1.0:0}, full negatives 0
+cycle 7: min N=88346, -0.796958962112027, counts {.3:279, .5:32, .75:1, 1.0:0}, full negatives 2
+```
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_tail_threshold_horizon` passed in `68.352s`.
+
+Status `changed-under-evidence`: reject independent-envelope closure using a
+`.3` complement floor plus a separate `first_three >= -.3` theorem.  The
+first-three tail exceeds `.3` in every checked cycle and exceeds `.5` in every
+checked cycle.  Since the post-first-three complement is always positive, the
+remaining theorem must control pointwise co-occurrence: when first-three is
+very negative, the complement must be correspondingly large, except for the
+finite full-action negative boundary cases still needing treatment.
