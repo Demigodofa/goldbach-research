@@ -16931,3 +16931,28 @@ principal plus lower-modulus support reinforcement, especially q70, not in
 q286 residual positivity.  The proof target is now a joint lower-envelope
 estimate after removing q286 first-three modes, with q70/q154/q286 supports
 kept explicit.
+
+## 2026-09-12 continuation: first-three-removed support envelope scan
+
+`q286_first_three_removed_support_envelope_receipt` now scans the action after
+removing only the first three q286 separable modes while keeping q70, q154,
+q286-after-first-three, and smaller support terms explicit.
+
+Four sampled windows (`2004` targets) have no nonpositive complement values;
+the minimum is `0.17754016683566773` at `N=10354`.  The complete first period
+(`5005` targets) also has no nonpositive complement values, with minimum
+`0.018073313793834256` at `N=14138`.
+
+Deleting q70 alone creates a failure: the first-period minimum without q70 is
+`-0.011932443115723584` at `N=10814`.  At `10814`, q70 contributes
+`0.19011513241126482`, rescuing an otherwise negative mix.  At `14138` and
+`14732`, q70 is strongly negative (`-0.6530100068358884` and
+`-0.874031394621675`) while other terms keep the complement positive.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_support_envelope` passed in `63.329s`.
+
+Status `changed-under-evidence`: q70 is necessary to the measured lower
+envelope, but it is not a fixed-sign rescue.  The next theorem attempt must be
+a joint signed lower-envelope estimate for principal plus q70/q154/q286 after
+first-three removal, not a one-support positivity lemma.

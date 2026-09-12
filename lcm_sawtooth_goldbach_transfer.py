@@ -9551,3 +9551,195 @@ def q286_boundary_complement_support_split_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_support_envelope_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=501,
+        tolerance=1e-9, selected_targets=None):
+    """Scan support components after removing q286 modes 1..3.
+
+    This receipt turns the boundary-complement split into a finite lower-tail
+    scanner.  It keeps the principal and every lower-modulus support explicit,
+    removes only the first three q286 separable modes, and records whether the
+    resulting complement remains positive on the tested targets.
+    """
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if type(cycle_count) is not int or cycle_count < 1:
+            raise ValueError("cycle_count must be a positive integer")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    if selected_targets is None:
+        first = reduced_full_lower_envelope_receipt(
+            start=start, targets_per_cycle=targets_per_cycle,
+            q286_mode_count=6, tolerance=tolerance)
+        period = first["arithmetic_period"]
+        full_rows_by_cycle = {0: first}
+        targets = list(sorted(first["rows"]))
+        for cycle in range(1, cycle_count):
+            receipt = reduced_full_lower_envelope_receipt(
+                start=start + cycle * period,
+                targets_per_cycle=targets_per_cycle,
+                q286_mode_count=6, tolerance=tolerance)
+            full_rows_by_cycle[cycle] = receipt
+            targets.extend(sorted(receipt["rows"]))
+    else:
+        first = reduced_full_lower_envelope_receipt(
+            q286_mode_count=6, tolerance=tolerance,
+            selected_targets=selected_targets)
+        period = first["arithmetic_period"]
+        start = selected_targets[0]
+        cycle_count = 1
+        targets_per_cycle = len(selected_targets)
+        full_rows_by_cycle = {0: first}
+        targets = list(selected_targets)
+
+    mode_receipt = q286_leading_singular_mode_contribution_receipt(
+        targets=tuple(targets), mode_count=6, tolerance=tolerance)
+
+    rows = {}
+    cycle_rows = {}
+    global_minimum = None
+    global_minimum_without_q70 = None
+    nonpositive_targets = []
+    nonpositive_without_q70_targets = []
+    dominant_positive_counts = {}
+    dominant_negative_counts = {}
+    for cycle, receipt in full_rows_by_cycle.items():
+        row_targets = tuple(sorted(receipt["rows"]))
+        cycle_minimum = None
+        cycle_nonpositive = []
+        for target in row_targets:
+            full_row = receipt["rows"][target]
+            principal = full_row["principal_contribution"].real
+            if abs(principal) <= tolerance:
+                raise ArithmeticError("principal contribution is too small")
+            support_rows = full_row["support_rows"]
+            mode_ratios = tuple(
+                row["contribution_to_principal_ratio"]
+                for row in mode_receipt["rows"][target]["mode_rows"])
+            first_three = math.fsum(mode_ratios[:3])
+            support_ratios = {
+                support: (
+                    support_rows[support]["actual_contribution"].real
+                    / principal)
+                if support == (11, 13)
+                else support_rows[support]["actual_to_principal_ratio"]
+                for support in receipt["support_order"]}
+            q286_after_first_three = support_ratios[(11, 13)] - first_three
+            q70 = support_ratios[(5, 7)]
+            q154 = support_ratios[(7, 11)]
+            small = full_row["small_support_to_principal_ratio"]
+            non_q286 = math.fsum(
+                ratio for support, ratio in support_ratios.items()
+                if support != (11, 13))
+            complement = (
+                full_row["full_action_to_principal_ratio"] - first_three)
+            reconstructed = 1.0 + non_q286 + q286_after_first_three
+            without_q70 = complement - q70
+            centered_terms = (
+                ((11, 13), q286_after_first_three),
+                ((5, 7), q70),
+                ((7, 11), q154),
+                ("small_supports", small),
+            )
+            positive_terms = tuple(
+                item for item in centered_terms if item[1] > 0)
+            negative_terms = tuple(
+                item for item in centered_terms if item[1] < 0)
+            dominant_positive = (
+                max(positive_terms, key=lambda item: item[1])[0]
+                if positive_terms else None)
+            dominant_negative = (
+                min(negative_terms, key=lambda item: item[1])[0]
+                if negative_terms else None)
+            if dominant_positive is not None:
+                dominant_positive_counts[dominant_positive] = (
+                    dominant_positive_counts.get(dominant_positive, 0) + 1)
+            if dominant_negative is not None:
+                dominant_negative_counts[dominant_negative] = (
+                    dominant_negative_counts.get(dominant_negative, 0) + 1)
+            summary = {
+                "cycle": cycle,
+                "full_action_to_principal_ratio": full_row[
+                    "full_action_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": first_three,
+                "full_without_first_three_to_principal_ratio": complement,
+                "support_reconstructed_without_first_three_to_principal_ratio": (
+                    reconstructed),
+                "support_reconstruction_error": abs(
+                    reconstructed - complement),
+                "without_q70_to_principal_ratio": without_q70,
+                "q286_after_first_three_to_principal_ratio": (
+                    q286_after_first_three),
+                "q70_to_principal_ratio": q70,
+                "q154_to_principal_ratio": q154,
+                "small_support_to_principal_ratio": small,
+                "non_q286_support_sum_to_principal_ratio": non_q286,
+                "dominant_positive_complement_term": dominant_positive,
+                "dominant_negative_complement_term": dominant_negative,
+            }
+            rows[target] = summary
+            if complement <= tolerance:
+                nonpositive_targets.append(target)
+                cycle_nonpositive.append(target)
+            if without_q70 <= tolerance:
+                nonpositive_without_q70_targets.append(target)
+            if global_minimum is None or complement < global_minimum[1]:
+                global_minimum = (target, complement, cycle)
+            if (global_minimum_without_q70 is None
+                    or without_q70 < global_minimum_without_q70[1]):
+                global_minimum_without_q70 = (target, without_q70, cycle)
+            if cycle_minimum is None or complement < cycle_minimum[1]:
+                cycle_minimum = (target, complement)
+        cycle_rows[cycle] = {
+            "start": row_targets[0],
+            "end": row_targets[-1],
+            "tested_target_count": len(row_targets),
+            "minimum_complement_target": cycle_minimum[0],
+            "minimum_complement_to_principal_ratio": cycle_minimum[1],
+            "nonpositive_complement_count": len(cycle_nonpositive),
+            "nonpositive_complement_targets": tuple(cycle_nonpositive),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "selected_targets": (
+            tuple(targets) if selected_targets is not None else None),
+        "tested_target_count": len(targets),
+        "rows": rows,
+        "cycle_rows": cycle_rows,
+        "minimum_complement_target": global_minimum[0],
+        "minimum_complement_cycle": global_minimum[2],
+        "minimum_complement_to_principal_ratio": global_minimum[1],
+        "nonpositive_complement_count": len(nonpositive_targets),
+        "nonpositive_complement_targets": tuple(nonpositive_targets),
+        "minimum_without_q70_target": global_minimum_without_q70[0],
+        "minimum_without_q70_cycle": global_minimum_without_q70[2],
+        "minimum_without_q70_to_principal_ratio": (
+            global_minimum_without_q70[1]),
+        "nonpositive_without_q70_count": len(nonpositive_without_q70_targets),
+        "dominant_positive_term_counts": dominant_positive_counts,
+        "dominant_negative_term_counts": dominant_negative_counts,
+        "maximum_support_reconstruction_error": max(
+            row["support_reconstruction_error"] for row in rows.values()),
+        "first_three_removed_support_envelope_measured": True,
+        "eventual_complement_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

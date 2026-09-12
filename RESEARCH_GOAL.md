@@ -8817,3 +8817,24 @@ Status `aha-candidate`: the complement lower envelope is a joint lower-modulus
 support problem, not a q286-only residual problem.  The next direct theorem
 attempt should keep q70/q154/q286 support terms explicit after separating the
 first-three q286 tail.
+
+### 2026-09-12 continuation: first-three-removed support envelope scan
+
+The post-first-three complement is now scanned by lower-modulus support.
+`q286_first_three_removed_support_envelope_receipt` keeps principal, q70,
+q154, q286-after-first-three, and smaller support terms explicit.
+
+The four-window sample (`2004` targets) and complete first-period scan (`5005`
+targets) both have zero nonpositive complement values after removing the first
+three q286 modes.  The first-period minimum is still the boundary target
+`14138`, with complement `0.018073313793834256`.
+
+A one-support simplification was falsified: removing q70 gives a negative
+value at `10814`, `-0.011932443115723584`, because q70 contributes a positive
+`0.19011513241126482` there.  But q70 is strongly negative at other near-floor
+targets, including `14138` (`-0.6530100068358884`) and `14732`
+(`-0.874031394621675`).
+
+Status `changed-under-evidence`: the lower-envelope theorem must be joint and
+signed.  q70 is required in the support mixture, but no single lower-modulus
+support has a fixed rescue sign.

@@ -42,6 +42,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
     q286_boundary_complement_support_split_receipt,
+    q286_first_three_removed_support_envelope_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1533,6 +1534,20 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "boundary_complement_support_split_measured"])
         self.assertFalse(receipt["component_lower_bound_proved"])
+
+    def test_q286_first_three_removed_support_envelope(self):
+        receipt = q286_first_three_removed_support_envelope_receipt(
+            selected_targets=(14138, 24148, 30164))
+        self.assertEqual(receipt["tested_target_count"], 3)
+        self.assertEqual(receipt["minimum_complement_target"], 14138)
+        self.assertLess(
+            receipt["maximum_support_reconstruction_error"], 1e-12)
+        self.assertEqual(receipt["nonpositive_complement_count"], 0)
+        self.assertGreater(
+            receipt["rows"][24148]["q70_to_principal_ratio"], 0)
+        self.assertTrue(receipt[
+            "first_three_removed_support_envelope_measured"])
+        self.assertFalse(receipt["eventual_complement_lower_bound_proved"])
 
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(

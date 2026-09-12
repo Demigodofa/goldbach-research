@@ -1084,3 +1084,69 @@ almost exactly cancelled by negative q70, q154, and non-first-three q286
 support.  The next direct estimate should therefore treat q286 first-three as
 the main negative tail, but the lower envelope after removing it must use joint
 q70/q154/q286 support control, not q286 alone.
+
+## 2026-09-12: first-three-removed support envelope scan
+
+`q286_first_three_removed_support_envelope_receipt` scans the assembled action
+after removing only the first three q286 separable modes.  It keeps principal,
+q286-after-first-three, q70, q154, and smaller support terms explicit, so the
+post-first-three lower-envelope target can be tested without hiding the
+support mixture inside one error term.
+
+Four-window sample, matching the earlier reduced-envelope scan
+(`cycle_count=4`, `targets_per_cycle=501`, `2004` targets):
+
+```text
+minimum complement: 0.17754016683566773 at N=10354, cycle 0
+nonpositive complement count: 0
+minimum without q70: -0.011932443115723584 at N=10814
+nonpositive without q70 count: 1
+maximum reconstruction error: 4.440892098500626e-16
+cycle minima: 0.17754016683566773, 0.29137600918050843,
+  0.41005118614375335, 0.27718627994335954
+```
+
+Complete first-period scan (`5005` targets):
+
+```text
+minimum complement: 0.018073313793834256 at N=14138
+nonpositive complement count: 0
+minimum without q70: -0.011932443115723584 at N=10814
+nonpositive without q70 count: 1
+maximum reconstruction error: 6.661338147750939e-16
+```
+
+Selected component rows from the full first period:
+
+```text
+N=10814
+  complement: 0.17818268929554124
+  without q70: -0.011932443115723584
+  q70: 0.19011513241126482
+  q154: -0.7887852463184296
+  q286 after first three: -0.096403079307679
+  small supports: -0.1267441174896149
+
+N=14138
+  complement: 0.018073313793834256
+  without q70: 0.6710833206297226
+  q70: -0.6530100068358884
+  q154: -0.4313790490173474
+  q286 after first three: 0.03288837495327912
+  small supports: 0.06957399469379084
+
+N=14732
+  complement: 0.06913849299419508
+  without q70: 0.9431698876158701
+  q70: -0.874031394621675
+  q154: 0.010783876363777105
+  q286 after first three: -0.0696142958377479
+  small supports: 0.002000307089840918
+```
+
+Status `changed-under-evidence`: q70 is structurally necessary in the support
+envelope, but not because it has a fixed favorable sign.  It rescues `10814`
+while hurting `14138` and `14732`.  The theorem target must be a joint signed
+lower-envelope inequality for principal plus q70/q154/q286-after-first-three
+and smaller supports.  A one-support positivity lemma is now falsified as a
+complete explanation.
