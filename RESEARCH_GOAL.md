@@ -189,6 +189,14 @@ lift `0`; no base remains dangerous at lifts `1`, `2`, or `3`.  This makes the
 next theorem target an eventual complement lower envelope after the first
 arithmetic-period lift, with the initial boundary layer treated separately.
 
+The complement cycle envelope is now quantified.  Over eight complete cycles,
+`q286_complement_cycle_envelope_receipt` reports no nonpositive complement
+values.  The global complement minimum is the cycle-0 boundary target
+`N=14138` with value `0.018073313793834367`; after the first cycle, the
+minimum is `0.2104242574698779` at `N=36254`.  This supports splitting the
+route into an initial boundary check plus a later-cycle complement lower-bound
+theorem.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

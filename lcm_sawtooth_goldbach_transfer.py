@@ -9252,3 +9252,110 @@ def q286_boundary_layer_clearance_receipt(
         "monotone_lift_growth_theorem_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_complement_cycle_envelope_receipt(
+        start=10000,
+        cycle_count=8,
+        targets_per_cycle=5005,
+        tolerance=1e-09):
+    """Summarize q286 complement lower envelope by arithmetic-period cycle."""
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        start=start,
+        cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        tolerance=tolerance)
+    by_cycle = {}
+    for target, row in lower_receipt["rows"].items():
+        by_cycle.setdefault(row["cycle"], []).append((target, row))
+
+    cycle_rows = []
+    after_first_cycle_min_rows = []
+    for cycle in sorted(by_cycle):
+        entries = by_cycle[cycle]
+        min_complement_target, min_complement_row = min(
+            entries,
+            key=lambda item: item[1][
+                "full_without_first_three_to_principal_ratio"])
+        min_reduced_target, min_reduced_row = min(
+            entries,
+            key=lambda item: item[1][
+                "reduced_without_first_three_to_principal_ratio"])
+        min_full_target, min_full_row = min(
+            entries,
+            key=lambda item: item[1]["full_action_to_principal_ratio"])
+        out_row = {
+            "cycle": cycle,
+            "target_count": len(entries),
+            "full_action_negative_count": sum(
+                1 for _, row in entries
+                if row["full_action_to_principal_ratio"] <= tolerance),
+            "full_without_first_three_nonpositive_count": sum(
+                1 for _, row in entries
+                if row[
+                    "full_without_first_three_to_principal_ratio"]
+                <= tolerance),
+            "minimum_full_without_first_three_target": (
+                min_complement_target),
+            "minimum_full_without_first_three_to_principal_ratio": (
+                min_complement_row[
+                    "full_without_first_three_to_principal_ratio"]),
+            "minimum_reduced_without_first_three_target": min_reduced_target,
+            "minimum_reduced_without_first_three_to_principal_ratio": (
+                min_reduced_row[
+                    "reduced_without_first_three_to_principal_ratio"]),
+            "minimum_full_action_target": min_full_target,
+            "minimum_full_action_to_principal_ratio": (
+                min_full_row["full_action_to_principal_ratio"]),
+            "first_three_at_minimum_complement_to_principal_ratio": (
+                min_complement_row[
+                    "first_three_modes_to_principal_ratio"]),
+        }
+        cycle_rows.append(out_row)
+        if cycle > 0:
+            after_first_cycle_min_rows.append(out_row)
+
+    global_min_row = min(
+        cycle_rows,
+        key=lambda row: row[
+            "minimum_full_without_first_three_to_principal_ratio"])
+    after_first_min_row = (
+        min(
+            after_first_cycle_min_rows,
+            key=lambda row: row[
+                "minimum_full_without_first_three_to_principal_ratio"])
+        if after_first_cycle_min_rows else None)
+
+    return {
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "tested_target_count": lower_receipt["tested_target_count"],
+        "cycle_rows": tuple(cycle_rows),
+        "global_minimum_complement_cycle": global_min_row["cycle"],
+        "global_minimum_complement_target": global_min_row[
+            "minimum_full_without_first_three_target"],
+        "global_minimum_complement_to_principal_ratio": global_min_row[
+            "minimum_full_without_first_three_to_principal_ratio"],
+        "after_first_cycle_minimum_complement_cycle": (
+            after_first_min_row["cycle"] if after_first_min_row else None),
+        "after_first_cycle_minimum_complement_target": (
+            after_first_min_row[
+                "minimum_full_without_first_three_target"]
+            if after_first_min_row else None),
+        "after_first_cycle_minimum_complement_to_principal_ratio": (
+            after_first_min_row[
+                "minimum_full_without_first_three_to_principal_ratio"]
+            if after_first_min_row else None),
+        "total_full_action_negative_count": sum(
+            row["full_action_negative_count"] for row in cycle_rows),
+        "total_full_without_first_three_nonpositive_count": sum(
+            row["full_without_first_three_nonpositive_count"]
+            for row in cycle_rows),
+        "complement_cycle_envelope_measured": True,
+        "eventual_complement_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

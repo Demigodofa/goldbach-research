@@ -1482,6 +1482,16 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(
             receipt["driver_occupancy_explains_all_clearance"])
 
+    def test_q286_complement_cycle_envelope(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_complement_cycle_envelope_receipt)
+        receipt = q286_complement_cycle_envelope_receipt(
+            cycle_count=1, targets_per_cycle=3)
+        self.assertEqual(receipt["tested_target_count"], 3)
+        self.assertEqual(len(receipt["cycle_rows"]), 1)
+        self.assertTrue(receipt["complement_cycle_envelope_measured"])
+        self.assertFalse(receipt["eventual_complement_lower_bound_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

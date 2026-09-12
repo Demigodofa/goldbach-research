@@ -807,3 +807,35 @@ check, but still finite.  The proof route suggested by the evidence is an
 eventual lower-envelope theorem for the complement after the first arithmetic
 period lift of any residue class, plus a finite/boundary verification below
 that onset.
+
+## Complement cycle envelope
+
+`q286_complement_cycle_envelope_receipt` summarizes the complement lower
+envelope by complete arithmetic-period cycles.  Its default run uses the first
+eight cycles, `40040` targets:
+
+```text
+total full-action negatives: 89
+total full-without-first-three nonpositive: 0
+global complement minimum: cycle 0, N=14138, 0.018073313793834367
+after-first-cycle complement minimum: cycle 2, N=36254, 0.2104242574698779
+```
+
+Per-cycle rows:
+
+```text
+cycle 0: full negatives 75, complement nonpositive 0, min complement 0.018073313793834367 at 14138
+cycle 1: full negatives 3,  complement nonpositive 0, min complement 0.26287606080608905 at 22766
+cycle 2: full negatives 5,  complement nonpositive 0, min complement 0.2104242574698779 at 36254
+cycle 3: full negatives 4,  complement nonpositive 0, min complement 0.256264703595679 at 49904
+cycle 4: full negatives 0,  complement nonpositive 0, min complement 0.31137108785748546 at 51248
+cycle 5: full negatives 0,  complement nonpositive 0, min complement 0.39727017945100246 at 66284
+cycle 6: full negatives 0,  complement nonpositive 0, min complement 0.4792269914847067 at 71744
+cycle 7: full negatives 2,  complement nonpositive 0, min complement 0.4621616810941522 at 89944
+```
+
+Status `cycle-envelope-quantified`: the measured complement boundary layer is
+cycle `0`; after that, the observed complement floor is more than ten times
+larger.  This suggests a proof strategy with two pieces: a finite/boundary
+argument for the initial cycle and an eventual complement lower-envelope
+estimate for later cycles.  No monotonic theorem is claimed.

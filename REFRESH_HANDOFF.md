@@ -198,6 +198,16 @@ is at lift `0`.  No observed negative base remains dangerous at lifts `1..3`.
 This is finite evidence for immediate clearance after the first arithmetic
 period lift, not an asymptotic theorem.
 
+Complement cycle envelope:
+`q286_complement_cycle_envelope_receipt()` over eight cycles confirms total
+full-action negatives `89` and total complement nonpositive `0`.  Global
+complement minimum is cycle `0`, `N=14138`, value `0.018073313793834367`.
+After the first cycle, the minimum is cycle `2`, `N=36254`, value
+`0.2104242574698779`.  Per-cycle complement minima are:
+`0.018073313793834367`, `0.26287606080608905`, `0.2104242574698779`,
+`0.256264703595679`, `0.31137108785748546`, `0.39727017945100246`,
+`0.4792269914847067`, `0.4621616810941522`.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
