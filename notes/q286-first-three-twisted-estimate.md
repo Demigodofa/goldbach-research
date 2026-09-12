@@ -1236,3 +1236,79 @@ claims are now executable receipt fields.  The next analytic formulation can
 refer to the exact vector components and their measured Gram data, while still
 keeping the no-overclaim flags: no eventual vector-envelope theorem, no signed
 prime-correlation estimate, and no Goldbach proof.
+
+## 2026-09-12: vector-stress receipt falsifies norm-only certificate
+
+`q286_first_three_removed_vector_stress_receipt` now stress-tests whether the
+post-first-three support envelope can be certified by component norms alone.
+It writes the complement as
+
+```text
+1 + q286_after_first_three + q70 + q154 + small_supports
+```
+
+in principal-relative units, then records covariance, cross terms, finite box
+and Cauchy-style lower bounds, and the pointwise alignment of the component
+vector with the all-ones summation direction.
+
+Full first-period run (`5005` targets):
+
+```text
+minimum complement: 0.018073313793834145 at N=14138
+nonpositive complement count: 0
+mean complement: 0.9504010233788913
+component box lower bound: -1.043941894780164
+rms-only lower bound: -18.352119644096938
+finite max-norm lower bound: -0.7399426654787107
+maximum centered vector norm: 0.845171844428801 at N=11096
+```
+
+Variance decomposition for the four moving support components:
+
+```text
+diagonal variance sum: 0.07179524963572285
+cross-term total: 0.002662644872337
+normalized cross-term total: 0.0370866441142947
+support-sum variance: 0.07445789450805985
+```
+
+Thus the aggregate cross terms are slightly positive, not substantially
+negative.  The measured positivity is not certified by global pairwise
+cancellation or by a norm-only inequality.
+
+Worst and near-worst rows:
+
+```text
+N=14138
+  complement: 0.018073313793834145
+  centered vector norm: 0.7449546451454716
+  centered support sum: -0.9323277095850572
+  sum-direction cosine: -0.6257613907508397
+  vector: (0.03288837495327912, -0.6530100068358884,
+           -0.4313790490173474, 0.06957399469379084)
+
+N=10814
+  complement: 0.17818268929554137
+  centered vector norm: 0.812984679177623
+  centered support sum: -0.7722183340833499
+  sum-direction cosine: -0.47492797457418856
+  vector: (-0.096403079307679, 0.19011513241126482,
+           -0.7887852463184296, -0.1267441174896149)
+
+N=14732
+  complement: 0.06913849299419517
+  centered vector norm: 0.8451450743457142
+  centered support sum: -0.8812625303846962
+  sum-direction cosine: -0.5213676072518928
+  vector: (-0.0696142958377479, -0.874031394621675,
+           0.010783876363777105, 0.002000307089840918)
+```
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_vector_stress` passed in `64.418s`.
+
+Status `changed-under-evidence`: reject a pure norm-only proof of the measured
+post-first-three lower envelope.  The next theorem target must control
+pointwise alignment of the lower-modulus support vector with the summation
+direction, or use arithmetic structure stronger than aggregate Gram/covariance
+cancellation.

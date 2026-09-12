@@ -9842,3 +9842,144 @@ def q286_first_three_removed_support_gram_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_vector_stress_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=501,
+        tolerance=1e-9, selected_targets=None):
+    """Stress-test norm-only control of the post-first-three support vector.
+
+    The post-first-three complement has the form ``1 + sum(component_j)`` in
+    principal-relative units.  This receipt asks whether the measured finite
+    lower envelope is explained by component norms alone, or by the pointwise
+    alignment of the component vector with the all-ones summation direction.
+    """
+    envelope = q286_first_three_removed_support_envelope_receipt(
+        start=start, cycle_count=cycle_count, targets_per_cycle=targets_per_cycle,
+        tolerance=tolerance, selected_targets=selected_targets)
+    component_labels = (
+        "q286_after_first_three", "q70", "q154", "small_supports")
+    row_keys = {
+        "q286_after_first_three": (
+            "q286_after_first_three_to_principal_ratio"),
+        "q70": "q70_to_principal_ratio",
+        "q154": "q154_to_principal_ratio",
+        "small_supports": "small_support_to_principal_ratio",
+    }
+    ordered_targets = tuple(sorted(envelope["rows"]))
+    vectors = {
+        label: tuple(envelope["rows"][target][row_keys[label]]
+                     for target in ordered_targets)
+        for label in component_labels}
+
+    def dot(left, right):
+        return math.fsum(a * b for a, b in zip(left, right))
+
+    def mean(values):
+        return math.fsum(values) / len(values)
+
+    means = {label: mean(values) for label, values in vectors.items()}
+    centered = {
+        label: tuple(value - means[label] for value in values)
+        for label, values in vectors.items()}
+    variances = {
+        label: dot(values, values) / len(values)
+        for label, values in centered.items()}
+
+    covariance_matrix = {}
+    for left in component_labels:
+        for right in component_labels:
+            covariance_matrix[(left, right)] = dot(
+                centered[left], centered[right]) / len(ordered_targets)
+    support_sum = tuple(
+        math.fsum(vectors[label][index] for label in component_labels)
+        for index in range(len(ordered_targets)))
+    complement = tuple(1.0 + value for value in support_sum)
+    mean_support_sum = mean(support_sum)
+    mean_complement = 1.0 + mean_support_sum
+    centered_support_sum = tuple(value - mean_support_sum
+                                 for value in support_sum)
+    support_sum_variance = dot(centered_support_sum, centered_support_sum) / len(
+        ordered_targets)
+    diagonal_variance_sum = math.fsum(variances.values())
+    cross_term_total = support_sum_variance - diagonal_variance_sum
+    normalized_cross_term_total = (
+        cross_term_total / diagonal_variance_sum
+        if diagonal_variance_sum > tolerance else math.nan)
+    component_box_lower_bound = 1.0 + math.fsum(
+        min(vectors[label]) for label in component_labels)
+    rms_only_lower_bound = mean_complement - math.sqrt(
+        max(0, len(ordered_targets) - 1) * support_sum_variance)
+    max_centered_vector_norm = 0.0
+    worst_norm_target = None
+    target_rows = {}
+    for index, target in enumerate(ordered_targets):
+        centered_vector = tuple(centered[label][index]
+                                for label in component_labels)
+        centered_norm = math.sqrt(math.fsum(
+            value * value for value in centered_vector))
+        max_centered_vector_norm = max(max_centered_vector_norm, centered_norm)
+        if (worst_norm_target is None or centered_norm > target_rows[
+                worst_norm_target]["centered_vector_norm"]):
+            worst_norm_target = target
+        centered_sum = math.fsum(centered_vector)
+        sum_direction_cosine = (
+            centered_sum / (2.0 * centered_norm)
+            if centered_norm > tolerance else math.nan)
+        target_rows[target] = {
+            "component_vector": tuple(vectors[label][index]
+                                      for label in component_labels),
+            "centered_component_vector": centered_vector,
+            "centered_vector_norm": centered_norm,
+            "centered_support_sum": centered_sum,
+            "sum_direction_cosine": sum_direction_cosine,
+            "support_sum_to_principal_ratio": support_sum[index],
+            "complement_to_principal_ratio": complement[index],
+        }
+    finite_max_norm_lower_bound = mean_complement - 2.0 * max_centered_vector_norm
+    minimum_target = min(
+        ordered_targets, key=lambda target: target_rows[target][
+            "complement_to_principal_ratio"])
+    return {
+        "arithmetic_period": envelope["arithmetic_period"],
+        "start": envelope["start"],
+        "cycle_count": envelope["cycle_count"],
+        "targets_per_cycle": envelope["targets_per_cycle"],
+        "selected_targets": envelope["selected_targets"],
+        "tested_target_count": envelope["tested_target_count"],
+        "component_labels": component_labels,
+        "component_means": means,
+        "component_centered_variances": variances,
+        "centered_covariance_matrix": covariance_matrix,
+        "variance_decomposition": {
+            "diagonal_variance_sum": diagonal_variance_sum,
+            "cross_term_total": cross_term_total,
+            "normalized_cross_term_total": normalized_cross_term_total,
+            "support_sum_variance": support_sum_variance,
+        },
+        "mean_support_sum_to_principal_ratio": mean_support_sum,
+        "mean_complement_to_principal_ratio": mean_complement,
+        "component_box_lower_bound": component_box_lower_bound,
+        "rms_only_lower_bound": rms_only_lower_bound,
+        "finite_max_norm_lower_bound": finite_max_norm_lower_bound,
+        "maximum_centered_vector_norm": max_centered_vector_norm,
+        "maximum_centered_vector_norm_target": worst_norm_target,
+        "minimum_complement_target": minimum_target,
+        "minimum_complement_row": target_rows[minimum_target],
+        "minimum_complement_to_principal_ratio": target_rows[
+            minimum_target]["complement_to_principal_ratio"],
+        "nonpositive_complement_count": envelope[
+            "nonpositive_complement_count"],
+        "target_rows": target_rows,
+        "box_bound_certifies_positive_complement_on_sample": bool(
+            component_box_lower_bound > tolerance),
+        "rms_bound_certifies_positive_complement_on_sample": bool(
+            rms_only_lower_bound > tolerance),
+        "max_norm_bound_certifies_positive_complement_on_sample": bool(
+            finite_max_norm_lower_bound > tolerance),
+        "first_three_removed_vector_stress_measured": True,
+        "norm_only_lower_bound_proved": False,
+        "eventual_vector_envelope_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

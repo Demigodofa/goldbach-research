@@ -8863,3 +8863,21 @@ nonpositive complement targets and minimum complement
 Status `changed-under-evidence`: the immediate target is a vector/norm lower
 envelope for the explicit support components, not an informal Gram observation
 or a one-support sign claim.
+
+### 2026-09-12 continuation: vector-stress receipt falsifies norm-only certificate
+
+`q286_first_three_removed_vector_stress_receipt` now measures whether the
+post-first-three complement follows from a norm-only support-vector envelope.
+On the complete first period, the observed minimum complement is positive
+`0.018073313793834145` at `14138`, but all tested norm-only lower bounds are
+negative: box `-1.043941894780164`, rms-only `-18.352119644096938`, and
+finite max-norm `-0.7399426654787107`.
+
+The aggregate cross-term total is slightly positive, not substantially
+negative: normalized cross-term total `0.0370866441142947`.  Thus the support
+Gram helps diagnose geometry, but it does not itself prove cancellation.  The
+remaining lower-envelope estimate must control pointwise arithmetic alignment
+of q286-after-first-three, q70, q154, and smaller supports.
+
+Status `changed-under-evidence`: reject the norm-only route; attack the
+pointwise signed support-vector alignment directly.

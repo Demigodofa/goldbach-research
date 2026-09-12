@@ -16992,3 +16992,26 @@ Status `changed-under-evidence`: the vector/norm lower-envelope target is now
 receipt-backed.  The receipt remains finite evidence only and explicitly does
 not prove the eventual vector envelope, signed prime-correlation estimate, or
 Goldbach.
+
+## 2026-09-12 continuation: vector-stress receipt falsifies norm-only certificate
+
+`q286_first_three_removed_vector_stress_receipt` now asks whether the
+post-first-three complement can be certified from component norms alone.  On
+the complete first period (`5005` targets), every norm-only lower bound remains
+negative: component box lower bound `-1.043941894780164`, rms-only lower bound
+`-18.352119644096938`, and finite max-norm lower bound
+`-0.7399426654787107`.  The observed minimum complement is still positive,
+`0.018073313793834145` at `14138`.
+
+The pairwise cross-term total is not a large negative cancellation:
+`cross_term_total = 0.002662644872337`, normalized by diagonal variance
+`0.0370866441142947`.  Therefore the measured lower envelope is not explained
+by aggregate destructive interference.  It depends on pointwise support-vector
+alignment; at `14138`, the sum-direction cosine is `-0.6257613907508397`.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_vector_stress` passed in `64.418s`.
+
+Status `changed-under-evidence`: the next estimate must be pointwise and
+arithmetic-structured.  A Gram/norm-only theorem is too weak, even though the
+Gram receipt remains useful for identifying the moving support directions.

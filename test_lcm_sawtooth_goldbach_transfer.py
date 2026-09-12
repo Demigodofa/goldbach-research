@@ -44,6 +44,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_boundary_complement_support_split_receipt,
     q286_first_three_removed_support_envelope_receipt,
     q286_first_three_removed_support_gram_receipt,
+    q286_first_three_removed_vector_stress_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1565,6 +1566,21 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_removed_support_gram_measured"])
         self.assertFalse(receipt["eventual_vector_envelope_proved"])
+
+    def test_q286_first_three_removed_vector_stress(self):
+        receipt = q286_first_three_removed_vector_stress_receipt(
+            selected_targets=(14138, 24148, 30164))
+        self.assertEqual(receipt["tested_target_count"], 3)
+        self.assertEqual(receipt["component_labels"], (
+            "q286_after_first_three", "q70", "q154", "small_supports"))
+        self.assertEqual(receipt["minimum_complement_target"], 14138)
+        self.assertIn("normalized_cross_term_total",
+                      receipt["variance_decomposition"])
+        self.assertIn("sum_direction_cosine",
+                      receipt["minimum_complement_row"])
+        self.assertTrue(receipt[
+            "first_three_removed_vector_stress_measured"])
+        self.assertFalse(receipt["norm_only_lower_bound_proved"])
 
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
