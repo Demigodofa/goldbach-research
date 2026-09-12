@@ -16305,3 +16305,46 @@ first-period classes become uniformly small on sampled lifts" story.  Preserve
 the useful part: every base has some smaller sampled positive lift and the
 six-mode residual stays small, but the leading-mode envelope must allow large
 nonmonotone positive and negative oscillations.
+
+## 2026-09-12: q286 leading-mode period-envelope scanner added
+
+`q286_leading_mode_period_envelope_receipt` scans consecutive period cycles
+and records two-sided principal-relative envelopes for the q286 deviation,
+first-three leading modes, six leading modes, and six-mode residual.  This
+tests the replacement hypothesis after lift smallness failed: maybe a bounded
+two-sided envelope persists by period even without monotone decay.
+
+The receipt is sampled evidence only.  It does not prove eventual decay,
+boundedness, or the signed prime-correlation estimate.
+
+Four-cycle sample with `501` consecutive even targets per cycle (`2004`
+targets total): the six-mode residual remains small, with worst residual
+`-0.026483963220719737` principal at `N=10042`.  The leading q286 modes do not
+show simple decay or smallness: worst q286 magnitude is `1.7498864766477102`
+principal at `N=20414`, worst first-three magnitude is
+`1.7073401178953143` there, and worst six-mode magnitude is
+`1.7410021829174136` there.
+
+Cycle summaries:
+
+Cycle `0`, targets `10000..11000`: q286 negatives `311`, significant negatives
+`109`, minimum `-1.064668705586651` at `10664`, max six-mode magnitude
+`1.3605416196827258`.
+
+Cycle `1`, targets `20010..21010`: q286 negatives `166`, significant negatives
+`20`, minimum `-0.7314807797896117` at `20878`, max six-mode magnitude
+`1.7410021829174136`.
+
+Cycle `2`, targets `30020..31020`: q286 negatives `264`, significant negatives
+`71`, minimum `-0.8523197072100003` at `30298`, max six-mode magnitude
+`1.191464069077421`.
+
+Cycle `3`, targets `40030..41030`: q286 negatives `279`, significant negatives
+`24`, minimum `-0.8274282479579498` at `40786`, max six-mode magnitude
+`0.8205148504803638`.
+
+Status `changed-under-evidence`: the small-tail decomposition survives the
+sample, but the leading modes are large two-sided oscillatory objects.  The
+analytic theorem cannot be a small absolute bound for the leading modes; it
+must prove enough signed lower-envelope control after adding principal and
+exact q154/q70 terms.

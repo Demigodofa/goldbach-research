@@ -6052,6 +6052,191 @@ def q286_significant_lift_envelope_receipt(
     }
 
 
+def q286_leading_mode_period_envelope_receipt(
+        start=10000, cycle_count=4, targets_per_cycle=501,
+        mode_count=6, significant_negative_ratio=-.4, tolerance=1e-9):
+    """Scan two-sided q286 leading-mode envelopes by period cycle."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if (not math.isfinite(significant_negative_ratio)
+            or significant_negative_ratio >= 0):
+        raise ValueError(
+            "significant_negative_ratio must be finite and negative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    targets = tuple(
+        start + period * cycle + 2 * index
+        for cycle in range(cycle_count)
+        for index in range(targets_per_cycle))
+    contribution = q286_leading_singular_mode_contribution_receipt(
+        targets=targets, mode_count=mode_count, tolerance=tolerance)
+
+    cycle_rows = {}
+    worst_abs_q286_target = None
+    worst_abs_first_three_target = None
+    worst_abs_six_mode_target = None
+    worst_abs_residual_target = None
+    for cycle in range(cycle_count):
+        cycle_targets = targets[
+            cycle * targets_per_cycle:(cycle + 1) * targets_per_cycle]
+        rows = {target: contribution["rows"][target]
+                for target in cycle_targets}
+        derived = {}
+        for target, row in rows.items():
+            mode_ratios = tuple(
+                mode_row["contribution_to_principal_ratio"]
+                for mode_row in row["mode_rows"])
+            first_three = math.fsum(mode_ratios[:min(3, mode_count)])
+            six_sum = math.fsum(mode_ratios[:mode_count])
+            derived[target] = {
+                "q286_ratio": row["q286_deviation_to_principal_ratio"],
+                "first_three_ratio": first_three,
+                "six_mode_ratio": six_sum,
+                "residual_ratio": row["residual_to_principal_ratio"],
+            }
+        min_q286_target = min(
+            cycle_targets, key=lambda target: derived[target]["q286_ratio"])
+        max_q286_target = max(
+            cycle_targets, key=lambda target: derived[target]["q286_ratio"])
+        max_abs_q286_target = max(
+            cycle_targets, key=lambda target: abs(
+                derived[target]["q286_ratio"]))
+        max_abs_first_three_target = max(
+            cycle_targets, key=lambda target: abs(
+                derived[target]["first_three_ratio"]))
+        max_abs_six_mode_target = max(
+            cycle_targets, key=lambda target: abs(
+                derived[target]["six_mode_ratio"]))
+        max_abs_residual_target = max(
+            cycle_targets, key=lambda target: abs(
+                derived[target]["residual_ratio"]))
+        for candidate_name, candidate in (
+                ("q286", max_abs_q286_target),
+                ("first_three", max_abs_first_three_target),
+                ("six", max_abs_six_mode_target),
+                ("residual", max_abs_residual_target)):
+            if candidate_name == "q286" and (
+                    worst_abs_q286_target is None
+                    or abs(derived[candidate]["q286_ratio"])
+                    > abs(contribution["rows"][
+                        worst_abs_q286_target][
+                            "q286_deviation_to_principal_ratio"])):
+                worst_abs_q286_target = candidate
+            elif candidate_name == "first_three" and (
+                    worst_abs_first_three_target is None
+                    or abs(derived[candidate]["first_three_ratio"])
+                    > abs(cycle_rows[
+                        worst_abs_first_three_target[0]][
+                            "target_rows"][
+                                worst_abs_first_three_target[1]][
+                                    "first_three_ratio"])):
+                worst_abs_first_three_target = (cycle, candidate)
+            elif candidate_name == "six" and (
+                    worst_abs_six_mode_target is None
+                    or abs(derived[candidate]["six_mode_ratio"])
+                    > abs(cycle_rows[
+                        worst_abs_six_mode_target[0]][
+                            "target_rows"][
+                                worst_abs_six_mode_target[1]][
+                                    "six_mode_ratio"])):
+                worst_abs_six_mode_target = (cycle, candidate)
+            elif candidate_name == "residual" and (
+                    worst_abs_residual_target is None
+                    or abs(derived[candidate]["residual_ratio"])
+                    > abs(cycle_rows[
+                        worst_abs_residual_target[0]][
+                            "target_rows"][
+                                worst_abs_residual_target[1]][
+                                    "residual_ratio"])):
+                worst_abs_residual_target = (cycle, candidate)
+        cycle_rows[cycle] = {
+            "target_range": (cycle_targets[0], cycle_targets[-1]),
+            "tested_target_count": len(cycle_targets),
+            "negative_q286_deviation_count": sum(
+                1 for target in cycle_targets
+                if derived[target]["q286_ratio"] < -tolerance),
+            "significant_negative_q286_count": sum(
+                1 for target in cycle_targets
+                if (derived[target]["q286_ratio"]
+                    <= significant_negative_ratio)),
+            "minimum_q286_target": min_q286_target,
+            "minimum_q286_ratio": derived[min_q286_target]["q286_ratio"],
+            "maximum_q286_target": max_q286_target,
+            "maximum_q286_ratio": derived[max_q286_target]["q286_ratio"],
+            "maximum_abs_q286_target": max_abs_q286_target,
+            "maximum_abs_q286_ratio": abs(
+                derived[max_abs_q286_target]["q286_ratio"]),
+            "maximum_abs_first_three_target": max_abs_first_three_target,
+            "maximum_abs_first_three_ratio": abs(
+                derived[max_abs_first_three_target]["first_three_ratio"]),
+            "maximum_abs_six_mode_target": max_abs_six_mode_target,
+            "maximum_abs_six_mode_ratio": abs(
+                derived[max_abs_six_mode_target]["six_mode_ratio"]),
+            "maximum_abs_residual_target": max_abs_residual_target,
+            "maximum_abs_residual_ratio": abs(
+                derived[max_abs_residual_target]["residual_ratio"]),
+            "target_rows": derived,
+        }
+
+    worst_first_three_cycle, worst_first_three_target = (
+        worst_abs_first_three_target)
+    worst_six_cycle, worst_six_target = worst_abs_six_mode_target
+    worst_residual_cycle, worst_residual_target = worst_abs_residual_target
+    return {
+        "families": contribution["families"],
+        "arithmetic_period": contribution["arithmetic_period"],
+        "support": contribution["support"],
+        "natural_modulus": contribution["natural_modulus"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tested_target_count": len(targets),
+        "mode_count": mode_count,
+        "significant_negative_ratio": significant_negative_ratio,
+        "cycle_rows": cycle_rows,
+        "worst_abs_q286_target": worst_abs_q286_target,
+        "worst_abs_q286_ratio": abs(contribution["rows"][
+            worst_abs_q286_target]["q286_deviation_to_principal_ratio"]),
+        "worst_abs_first_three_target": worst_first_three_target,
+        "worst_abs_first_three_cycle": worst_first_three_cycle,
+        "worst_abs_first_three_ratio": cycle_rows[
+            worst_first_three_cycle]["target_rows"][
+                worst_first_three_target]["first_three_ratio"],
+        "worst_abs_six_mode_target": worst_six_target,
+        "worst_abs_six_mode_cycle": worst_six_cycle,
+        "worst_abs_six_mode_ratio": cycle_rows[
+            worst_six_cycle]["target_rows"][
+                worst_six_target]["six_mode_ratio"],
+        "worst_abs_residual_target": worst_residual_target,
+        "worst_abs_residual_cycle": worst_residual_cycle,
+        "worst_abs_residual_ratio": cycle_rows[
+            worst_residual_cycle]["target_rows"][
+                worst_residual_target]["residual_ratio"],
+        "maximum_mode_reconstruction_error": (
+            contribution["maximum_mode_reconstruction_error"]),
+        "six_mode_residual_under_point_one_principal": bool(
+            abs(cycle_rows[worst_residual_cycle]["target_rows"][
+                worst_residual_target]["residual_ratio"]) < .1),
+        "leading_modes_under_two_principal_on_sample": bool(
+            abs(cycle_rows[worst_six_cycle]["target_rows"][
+                worst_six_target]["six_mode_ratio"]) < 2.0),
+        "leading_mode_period_envelope_measured": True,
+        "eventual_decay_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

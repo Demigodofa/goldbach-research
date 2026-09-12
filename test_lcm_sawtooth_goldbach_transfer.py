@@ -34,6 +34,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_character_matrix_structure_receipt,
     q286_leading_mode_cycle_profile_receipt,
     q286_leading_mode_lift_decay_receipt,
+    q286_leading_mode_period_envelope_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
@@ -1165,6 +1166,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["selected_base_target_count"],
             receipt["available_base_target_count"])
         self.assertTrue(receipt["significant_lift_envelope_measured"])
+        self.assertFalse(receipt["eventual_decay_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_leading_mode_period_envelope(self):
+        receipt = q286_leading_mode_period_envelope_receipt(
+            cycle_count=1, targets_per_cycle=9)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertIn(0, receipt["cycle_rows"])
+        self.assertTrue(receipt["leading_mode_period_envelope_measured"])
         self.assertFalse(receipt["eventual_decay_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

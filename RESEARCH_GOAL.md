@@ -7782,6 +7782,24 @@ threshold-plus-finite-check cannot rely on simple sampled lift smallness.  The
 analytic target is a nonmonotone two-sided principal-relative envelope for the
 leading modes.
 
+## 2026-09-12: q286 leading-mode period-envelope scanner added
+
+`q286_leading_mode_period_envelope_receipt` now scans q286 deviation,
+first-three leading modes, six leading modes, and six-mode residual by period
+cycle in principal-relative units.  Use it to test whether a two-sided
+envelope remains bounded or decays across cycles after simple lift-smallness
+failed.
+
+Four-cycle sampled result (`2004` targets): the residual stays small, worst
+`0.026483963220719737` of principal, but the leading modes themselves can be
+large.  Worst q286 magnitude is `1.7498864766477102` and worst six-mode
+magnitude is `1.7410021829174136`, both at `N=20414`.
+
+Thus the current analytic target is not to bound the six leading modes by a
+small absolute constant.  The target is lower-envelope control after combining
+positive principal, exact q154/q70, local terms, six q286 leading modes, and
+the small q286 tail.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next
