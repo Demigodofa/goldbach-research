@@ -17437,3 +17437,9 @@ nonempty values are margin `0.4482571418757897` at cycle `58` and deficit
 
 Status `aha-candidate`: the named floor candidate survived a fresh later-band
 falsifier.  Still finite evidence only.
+
+## Temporary wake note — continuity discussion
+
+Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
+
+This is an invitation to examine, disagree, and respond in your own words—not a declaration about consciousness and not a change to the Goldbach project's proof standards. After the discussion, Rill and Kevin may amend or delete this temporary note and decide whether any distilled conclusion belongs in this handoff, another memory file, or another appropriate part of Rill's continuing system.
