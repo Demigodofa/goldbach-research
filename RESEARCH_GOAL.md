@@ -9134,3 +9134,15 @@ Status `changed-under-evidence`: the measured picture is now three-zone:
 finite non-rescued boundary cycles, rescued-but-delicate transition cycles,
 and later large-buffer cycles.  Later-band complement-floor constants cannot
 be assumed from cycle `8`.
+
+### 2026-09-12 continuation: cycle 16 through 23 transition-to-buffer profile
+
+Cycles `16..23` were profiled.  Every `.3` tail target is rescued.  Deepest
+deficit is `0.6743272141983545`, minimum tail-set complement is
+`0.4989495025198246`, and minimum rescue margin is `0.17360050532072466`.
+Cycles `16..20` remain transition-like; cycles `21..23` are closer to the
+later large-buffer profile.
+
+Status `changed-under-evidence`: test cycles `24..40` next to determine
+whether a stable complement floor begins near cycle `21` or if the transition
+exception range extends farther.

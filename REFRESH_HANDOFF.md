@@ -17362,3 +17362,16 @@ zones: cycles `0..7` finite non-rescued boundary, cycles beginning at `8`
 rescued-but-delicate transition, and later large-buffer behavior such as
 cycles `41..48`.  Do not claim the later complement-floor constants start at
 cycle `8`.
+
+## 2026-09-12 continuation: cycle 16 through 23 transition-to-buffer profile
+
+Cycles `16..23` were profiled one at a time.  All `.3` tail targets are
+rescued.  Across the block, deepest deficit is `0.6743272141983545`, minimum
+tail-set complement is `0.4989495025198246`, and minimum rescue margin is
+`0.17360050532072466`.  Cycles `16..20` still have transition-size margins;
+cycles `21..23` look closer to the later large-buffer pattern.
+
+Status `changed-under-evidence`: transition behavior extends at least through
+cycle `20`.  Next falsifier: profile cycles `24..40` to see whether a stable
+complement floor begins around cycle `21` or whether further dips extend the
+transition exception range.

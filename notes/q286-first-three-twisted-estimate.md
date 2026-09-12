@@ -2162,3 +2162,53 @@ rescued-but-delicate transition cycles beginning at `8`, and later
 large-buffer cycles such as `41..48`.  An eventual complement-floor theorem
 may still be viable, but it cannot honestly start at cycle `8` with the later
 band's comfortable constants.
+
+## 2026-09-12: cycle 16 through 23 transition-to-buffer profile
+
+The next block was profiled to locate where the rescued-but-delicate transition
+begins to resemble the later large-buffer regime.
+
+```text
+cycle 16: tail 98, nonrescued 0,
+  deepest deficit 0.5527135941604301 at 175318,
+  min complement 0.5760177247529142 at 171298,
+  min margin 0.24084360363205248 at 171058
+cycle 17: tail 128, nonrescued 0,
+  deepest deficit 0.6743272141983545 at 189598,
+  min complement 0.5889821568177451 at 186206,
+  min margin 0.21536449275070285 at 186206
+cycle 18: tail 71, nonrescued 0,
+  deepest deficit 0.48287099311618276 at 193888,
+  min complement 0.4989495025198246 at 194384,
+  min margin 0.17360050532072466 at 194384
+cycle 19: tail 71, nonrescued 0,
+  deepest deficit 0.48201659617143827 at 201298,
+  min complement 0.6780178733043838 at 204884,
+  min margin 0.2929123622405331 at 207346
+cycle 20: tail 61, nonrescued 0,
+  deepest deficit 0.43884496135661705 at 210788,
+  min complement 0.5988837526199124 at 218324,
+  min margin 0.2588725511282396 at 218324
+cycle 21: tail 33, nonrescued 0,
+  deepest deficit 0.39066098536104277 at 223738,
+  min complement 0.743572200067494 at 226388,
+  min margin 0.39872529505835763 at 226388
+cycle 22: tail 33, nonrescued 0,
+  deepest deficit 0.4409537634451392 at 230378,
+  min complement 0.6410327223101169 at 237224,
+  min margin 0.3266126414016192 at 237224
+cycle 23: tail 34, nonrescued 0,
+  deepest deficit 0.39781870621255433 at 249178,
+  min complement 0.8442681247456885 at 248294,
+  min margin 0.49510376866205685 at 248294
+```
+
+Across cycles `16..23`, deepest measured deficit is `0.6743272141983545`,
+minimum complement is `0.4989495025198246`, and minimum rescue margin is
+`0.17360050532072466`.  Cycles `16..20` still have transition-size margins;
+cycles `21..23` move closer to the later large-buffer pattern.
+
+Status `changed-under-evidence`: the measured transition zone extends at least
+through cycle `20`.  A plausible next falsifier is to profile cycles `24..40`
+and ask whether all cycles from `21` onward maintain a stable complement floor,
+or whether additional dips force a longer transition exception range.
