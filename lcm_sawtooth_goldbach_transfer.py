@@ -807,5 +807,100 @@ def all_residue_centered_outer_fiber_shadow_receipt(
     }
 
 
+def symbolic_centered_outer_fiber_shadow_receipt(
+        tolerance=1e-12, batch_size=32):
+    """Prove the centered channel bridge as a coefficient identity.
+
+    The finite target checks are consequences of this stronger fixed-vector
+    statement.  The quotient-77 recombined centered source on ``U_130`` equals
+    the lag-130 fiber shadow.  Since every strict central prime in an even
+    target ``N>=40`` is greater than 13, central prime pairs have no nonunit
+    modulo-130 terms, so the coefficient identity transfers to all such
+    centered target correlations.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    centering = linked_prime_centering_receipt(
+        tolerance=tolerance, batch_size=batch_size)
+    first_target = centering["targets"][0]
+    common = 130
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    source_units, source_values_tuple = _direct_resonant_source_on_units(
+        period, 130, left_sources, right_sources)
+    quotient77_source_rows = tuple(
+        row for (quotient, _, target), row in centering["rows"].items()
+        if quotient == 77 and target == first_target)
+    quotient91_source_rows = tuple(
+        row for (quotient, _, target), row in centering["rows"].items()
+        if quotient == 91 and target == first_target)
+    units130 = tuple(int(unit) for unit in quotient77_source_rows[0][
+        "unit_residues"])
+    quotient77_source = sum((
+        row["additive_unit_source_values"] for row in quotient77_source_rows),
+        np.zeros_like(quotient77_source_rows[0][
+            "additive_unit_source_values"]))
+    quotient77_centered = quotient77_source - np.mean(quotient77_source)
+    quotient91_source = sum((
+        row["additive_unit_source_values"] for row in quotient91_source_rows),
+        np.zeros_like(quotient91_source_rows[0][
+            "additive_unit_source_values"]))
+    quotient91_sectorwise_l2 = math.fsum(
+        float(np.linalg.norm(row["additive_unit_source_values"]))
+        for row in quotient91_source_rows)
+
+    source_values = {
+        residue: value
+        for residue, value in zip(source_units, source_values_tuple)}
+    fiber_sums = np.asarray(tuple(
+        _complex_fsum(source_values[unit] for unit in source_units
+                      if unit % common == residue)
+        for residue in units130), dtype=np.complex128)
+    fiber_shadow = -(fiber_sums - np.mean(fiber_sums))
+    vector_scale = max(
+        1.0, float(np.linalg.norm(fiber_shadow)),
+        float(np.linalg.norm(quotient77_centered)))
+    coefficient_error = float(
+        np.linalg.norm(quotient77_centered - fiber_shadow) / vector_scale)
+    quotient91_scale = max(1.0, quotient91_sectorwise_l2)
+    quotient91_relative_l2 = float(
+        np.linalg.norm(quotient91_source) / quotient91_scale)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "common_modulus": common,
+        "unit_group_order": len(units130),
+        "fiber_size_over_U130": len(source_units) // len(units130),
+        "quotient77_divisor_row_count": len(quotient77_source_rows),
+        "quotient91_divisor_row_count": len(quotient91_source_rows),
+        "quotient77_centered_fiber_shadow_relative_error": (
+            coefficient_error),
+        "quotient91_recombined_source_relative_l2": (
+            quotient91_relative_l2),
+        "central_unit_threshold": 40,
+        "central_unit_threshold_reason": (
+            "if N>=40 and N/3<p<2N/3, then p and N-p exceed 13, "
+            "so central prime pairs are units modulo 130"),
+        "target_correlation_identity": (
+            "for every even N>=40, the strict-central quotient-77 centered "
+            "unit correlation equals sum log(p)log(N-p)G_shadow(p mod 130)"
+        ),
+        "quotient77_centered_coefficient_identity_proved": bool(
+            coefficient_error <= tolerance),
+        "quotient91_recombined_source_cancels_symbolically": bool(
+            quotient91_relative_l2 <= tolerance),
+        "all_strict_central_targets_above_threshold_covered_by_identity": bool(
+            coefficient_error <= tolerance),
+        "endpoint_or_noncentral_terms_analyzed": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(even_even_goldbach_transfer_receipt())

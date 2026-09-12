@@ -15025,3 +15025,40 @@ a full outer-assembly identity, not a formal `T_boundary-Delta` estimate, and
 not Goldbach. The next bounded question is to turn the finite all-residue
 pattern into a symbolic target-residue proof, or find the exact endpoint/
 noncentral term where the full outer assembly diverges from it.
+
+## 2026-09-12: symbolic centered bridge for all strict-central targets
+
+The finite all-residue sample has been upgraded to a coefficient identity.
+`symbolic_centered_outer_fiber_shadow_receipt` recombines all four quotient-77
+divisor rows from `linked_prime_centering_receipt`, centers the resulting
+`U_130` vector, and compares it directly with the negative lag-130 fiber
+shadow. The relative coefficient-vector error is
+`2.520761115387016e-14`. The quotient-91 recombined source uses all four
+divisor rows and cancels at relative sectorwise `L^2` scale
+`2.446659437662094e-16`.
+
+Therefore, for every even `N>=40`, the strict central interval
+`N/3<p<2N/3` contains only primes exceeding `13` on both sides of a prime
+pair. Such primes are units modulo `130`; no nonunit modulo-130 correction is
+needed. With the existing ordered strict-central convention, the quotient-77
+centered unit correlation equals
+
+`sum_(N/3<p<2N/3, p,N-p prime)
+   log(p)log(N-p) G_shadow(p mod 130)`,
+
+where `G_shadow(r)=-(S_130(r)-mean_s S_130(s))`.
+
+Independent review returned PASS. Faraday checked the four-row recombination,
+centering, sign and 60-lift factor inherited from the fiber identity,
+quotient-91 cancellation, the `N>=40` central-unit threshold, ordered interval
+convention, and scope flags. Focused normal and optimized tests pass; compile
+and diff checks pass with only line-ending warnings.
+
+Status `aha-candidate`, novelty `new-to-this-task`: the centered part of the
+linked-prime outer channel now has a symbolic bridge to the direct lag-130
+source for all strict-central targets above the small threshold. This is not
+yet an endpoint/noncentral analysis, not a full outer-assembly identity, not a
+formal `T_boundary-Delta` estimate, not a pointwise signed bound, and not
+Goldbach. The next bounded question is whether the principal constant channel
+and endpoint/noncentral leftovers can be matched to already-controlled terms,
+or whether one of them is the remaining moving boundary obstruction.

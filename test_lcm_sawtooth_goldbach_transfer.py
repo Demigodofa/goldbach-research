@@ -7,10 +7,36 @@ from lcm_sawtooth_goldbach_transfer import (
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
+    symbolic_centered_outer_fiber_shadow_receipt,
 )
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_symbolic_centered_outer_fiber_shadow_identity(self):
+        receipt = symbolic_centered_outer_fiber_shadow_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["unit_group_order"], 48)
+        self.assertEqual(receipt["fiber_size_over_U130"], 60)
+        self.assertEqual(receipt["quotient77_divisor_row_count"], 4)
+        self.assertEqual(receipt["quotient91_divisor_row_count"], 4)
+        self.assertLess(
+            receipt["quotient77_centered_fiber_shadow_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["quotient91_recombined_source_relative_l2"], 1e-12)
+        self.assertEqual(receipt["central_unit_threshold"], 40)
+        self.assertTrue(receipt[
+            "quotient77_centered_coefficient_identity_proved"])
+        self.assertTrue(receipt[
+            "quotient91_recombined_source_cancels_symbolically"])
+        self.assertTrue(receipt[
+            "all_strict_central_targets_above_threshold_covered_by_identity"])
+        self.assertFalse(receipt["endpoint_or_noncentral_terms_analyzed"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_all_residue_centered_outer_channel_samples(self):
         receipt = all_residue_centered_outer_fiber_shadow_receipt()
         self.assertEqual(receipt["selected_target_count"], 65)

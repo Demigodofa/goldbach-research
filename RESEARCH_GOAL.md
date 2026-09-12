@@ -7418,3 +7418,25 @@ flags. Status `changed-under-evidence`: the centered quotient-77 bridge is
 not just a fixture accident. It remains finite sample evidence only; a
 symbolic all-target proof, endpoint/noncentral terms, full outer assembly,
 formal `T_boundary-Delta`, pointwise control, and Goldbach remain open.
+
+### 2026-09-12 continuation: symbolic centered bridge for N>=40
+
+The centered bridge is now a coefficient identity rather than a finite target
+sample. Recombining all four quotient-77 divisor rows and centering the
+resulting `U_130` vector gives the negative lag-130 fiber shadow with relative
+error `2.520761115387016e-14`. The quotient-91 recombined source cancels at
+relative sectorwise `L^2` scale `2.446659437662094e-16`.
+
+For every even `N>=40`, strict central prime pairs have both primes greater
+than `13`, so they are units modulo `130`. Thus, with the existing ordered
+strict-central convention, the quotient-77 centered unit correlation equals
+the central Goldbach sum weighted by
+
+`G_shadow(r)=-(S_130(r)-mean_s S_130(s))`.
+
+Independent review returned PASS for the four-row recombination, centering,
+sign and 60-lift factor, quotient-91 cancellation, the `N>=40` threshold,
+ordered interval convention, and open-scope flags. Status `aha-candidate`,
+novelty `new-to-this-task`. Endpoint/noncentral terms, the principal constant
+channel, full outer assembly, formal `T_boundary-Delta`, pointwise signed
+control, and Goldbach remain open.
