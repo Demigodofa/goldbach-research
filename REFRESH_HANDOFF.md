@@ -149,6 +149,18 @@ first-three/principal `-1.0569183143768839..-0.24090148941651918`;
 full-without-first-three/principal `0.5824447187803936..1.7888048047901408`;
 full action/principal `0.004707257667117509..1.3953476720743383`.
 
+Eight-period lower-envelope scan:
+`q286_first_two_mode_lower_tail_receipt(cycle_count=8, targets_per_cycle=5005)`
+tested `40040` targets.  Full-action negatives: `89`; first-three negatives:
+`19970`; full-without-first-three nonpositive: `0`;
+reduced-without-first-three nonpositive: `0`.  The worst complement margin is
+at `N=14138`: full/principal `-0.8769412734408442`,
+first-three/principal `-0.8950145872346785`,
+full-without-first-three/principal `0.018073313793834367`,
+reduced-without-first-three/principal `0.018035201222613817`.  This makes the
+positive lower envelope of the complement the next theorem target; it is not
+yet proved beyond the measured domain.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

@@ -147,6 +147,15 @@ full-without-first-three ranges `0.5824447187803936..1.7888048047901408`.
 Thus the next proof object is the lower envelope of the compensating remainder,
 not positivity of the first-three subsystem.
 
+That lower-envelope target now has an eight-period measurement.  Over `40040`
+targets, `q286_first_two_mode_lower_tail_receipt` reports `89` full-action
+negatives and `19970` negative first-three q286 sums, but zero nonpositive
+full-without-first-three and zero nonpositive reduced-without-first-three
+values.  The minimum complement margin is at `N=14138`, where
+`full_without_first_three/principal = 0.018073313793834367`.  The current
+proof target is therefore a positive lower envelope for the complement plus a
+relative bound for the first-three lower tail.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

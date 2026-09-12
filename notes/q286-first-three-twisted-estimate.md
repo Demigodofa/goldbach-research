@@ -659,3 +659,37 @@ not rescued by making the isolated first-three q286 modes positive.  They are
 rescued by the remaining coefficient mixture.  This makes the next serious
 proof object the lower envelope of `full_without_first_three`, especially on
 targets where the `133/153` cover pair is empty.
+
+## Full-without-first-three lower envelope
+
+The remainder target was then measured directly over the first eight complete
+periods using `q286_first_two_mode_lower_tail_receipt(cycle_count=8,
+targets_per_cycle=5005)`.  Across `40040` tested targets:
+
+```text
+full-action negative count: 89
+first-three negative count: 19970
+full-without-first-three nonpositive count: 0
+reduced-without-first-three nonpositive count: 0
+```
+
+The lower envelope is again the known hard target `N=14138`:
+
+```text
+full/principal: -0.8769412734408442
+first-three/principal: -0.8950145872346785
+full-without-first-three/principal: 0.018073313793834367
+reduced-without-first-three/principal: 0.018035201222613817
+full-minus-reduced/principal: 0.000038112571220549896
+```
+
+The residual `full-minus-reduced` term is small on this scan, ranging from
+`-0.033888231610242237` at `N=13826` to `0.0337333396277375` at `N=12298`.
+
+Status `lower-envelope-target`: on this measured domain, the entire problem is
+concentrated in the first-three q286 lower tail.  The complement
+`full_without_first_three` is positive everywhere tested, but with a very small
+minimum margin at `N=14138`.  A proof can therefore try to establish a
+positive lower envelope for the complement and then bound the first-three
+negative tail relative to it; the caveat is that this is still finite evidence,
+not an asymptotic theorem.
