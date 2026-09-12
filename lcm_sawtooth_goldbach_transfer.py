@@ -7009,6 +7009,214 @@ def q286_first_two_mode_lower_tail_receipt(
     }
 
 
+def q286_first_three_ap_discrepancy_proxy_receipt(
+        start=10000, targets_per_cycle=501, selected_targets=None,
+        tolerance=1e-9):
+    """Compare first-three q286 modes with ordinary AP discrepancy proxies."""
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+        targets = tuple(start + 2 * index for index in range(
+            targets_per_cycle))
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
+        targets = selected_targets
+        start = targets[0]
+        targets_per_cycle = len(targets)
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = complex(np.mean(aggregate_values))
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    truncated_matrix = (
+        (left[:, :3] * singular_values[:3]) @ right[:3, :])
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, labels, character_table = _unit_character_table(modulus, units)
+    mode_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            mode_coefficients[index] = truncated_matrix[
+                first - 1, second - 1]
+    mode_values = character_table.T @ mode_coefficients
+    unit_index = {unit: index for index, unit in enumerate(units)}
+
+    primes = _prime_table(max(targets))
+    rows = {}
+    negative_first_three_targets = []
+    worst_negative_first_three = None
+    worst_required_uniform = None
+    worst_required_uniform_negative = None
+    worst_l2_alignment = None
+    worst_l2_alignment_negative = None
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        lower = target // 3
+        upper = target - lower
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                weights[unit_index[prime % modulus]] += weight
+                total_weight += weight
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - mean_weight
+        coefficients = mode_values[admissible_mask]
+        deltas = delta[admissible_mask]
+        first_three = complex(np.sum(mode_values * delta))
+        imbalance_matrix = (
+            character_table @ delta).reshape(10, 12)[1:, 1:]
+        matrix_first_three = complex(np.sum(
+            truncated_matrix * imbalance_matrix))
+        reconstruction_error = abs(first_three - matrix_first_three) / max(
+            1.0, abs(first_three))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        principal_contribution = principal_mean * total_weight
+        l1_envelope = mean_weight * float(np.sum(np.abs(coefficients)))
+        l2_envelope = float(
+            np.linalg.norm(deltas) * np.linalg.norm(coefficients))
+        maximum_relative_residue_deviation = float(
+            np.max(np.abs(deltas)) / mean_weight
+            if abs(mean_weight) > tolerance else math.nan)
+        rms_relative_residue_deviation = float(
+            np.linalg.norm(deltas) / (mean_weight * math.sqrt(
+                admissible_count))
+            if abs(mean_weight) > tolerance else math.nan)
+        required_uniform_error = float(
+            abs(first_three.real) / l1_envelope
+            if l1_envelope > tolerance else math.nan)
+        l2_alignment = float(
+            abs(first_three.real) / l2_envelope
+            if l2_envelope > tolerance else math.nan)
+        first_three_ratio = float(
+            first_three.real / principal_contribution.real
+            if abs(principal_contribution.real) > tolerance else math.nan)
+        row = {
+            "strict_central_interval": (lower, upper),
+            "admissible_residue_count": admissible_count,
+            "total_prime_pair_weight": total_weight,
+            "mean_admissible_residue_weight": mean_weight,
+            "first_three_mode_contribution": first_three,
+            "first_three_mode_to_principal_ratio": first_three_ratio,
+            "maximum_relative_residue_deviation": (
+                maximum_relative_residue_deviation),
+            "rms_relative_residue_deviation": (
+                rms_relative_residue_deviation),
+            "uniform_l1_ap_envelope": l1_envelope,
+            "l2_ap_envelope": l2_envelope,
+            "uniform_l1_ap_envelope_to_principal_ratio": float(
+                l1_envelope / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "l2_ap_envelope_to_principal_ratio": float(
+                l2_envelope / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "required_uniform_relative_error_for_actual_first_three": (
+                required_uniform_error),
+            "first_three_l2_alignment_ratio": l2_alignment,
+            "mode_reconstruction_error": reconstruction_error,
+        }
+        rows[target] = row
+        if first_three_ratio < 0:
+            negative_first_three_targets.append(target)
+            if (worst_required_uniform_negative is None
+                    or required_uniform_error
+                    > worst_required_uniform_negative[1]):
+                worst_required_uniform_negative = (
+                    target, required_uniform_error)
+            if (worst_l2_alignment_negative is None
+                    or l2_alignment > worst_l2_alignment_negative[1]):
+                worst_l2_alignment_negative = (target, l2_alignment)
+        if (worst_negative_first_three is None
+                or first_three_ratio < worst_negative_first_three[1]):
+            worst_negative_first_three = (target, first_three_ratio)
+        if (worst_required_uniform is None
+                or required_uniform_error > worst_required_uniform[1]):
+            worst_required_uniform = (target, required_uniform_error)
+        if (worst_l2_alignment is None
+                or l2_alignment > worst_l2_alignment[1]):
+            worst_l2_alignment = (target, l2_alignment)
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": modulus,
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "selected_targets": (
+            targets if selected_targets is not None else None),
+        "tested_target_count": len(targets),
+        "rows": rows,
+        "negative_first_three_mode_count": len(negative_first_three_targets),
+        "negative_first_three_mode_targets": tuple(
+            negative_first_three_targets),
+        "worst_negative_first_three_target": worst_negative_first_three[0],
+        "minimum_first_three_mode_to_principal_ratio": (
+            worst_negative_first_three[1]),
+        "largest_required_uniform_error_target": worst_required_uniform[0],
+        "largest_required_uniform_relative_error_for_actual_first_three": (
+            worst_required_uniform[1]),
+        "largest_required_uniform_error_negative_first_three_target": (
+            worst_required_uniform_negative[0]
+            if worst_required_uniform_negative is not None else None),
+        "largest_required_uniform_relative_error_on_negative_first_three": (
+            worst_required_uniform_negative[1]
+            if worst_required_uniform_negative is not None else math.nan),
+        "largest_l2_alignment_target": worst_l2_alignment[0],
+        "largest_first_three_l2_alignment_ratio": worst_l2_alignment[1],
+        "largest_l2_alignment_negative_first_three_target": (
+            worst_l2_alignment_negative[0]
+            if worst_l2_alignment_negative is not None else None),
+        "largest_l2_alignment_ratio_on_negative_first_three": (
+            worst_l2_alignment_negative[1]
+            if worst_l2_alignment_negative is not None else math.nan),
+        "maximum_mode_reconstruction_error": maximum_reconstruction_error,
+        "first_three_ap_discrepancy_proxy_measured": True,
+        "ordinary_ap_discrepancy_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

@@ -161,3 +161,40 @@ match this exact fixed-modulus, strict-central, weighted, pointwise form.
    binary-correlation input.
 4. Preserve the endpoint/noncentral reconciliation separately; this note only
    concerns the strict-central unit coefficient action.
+
+## AP discrepancy proxy result
+
+`q286_first_three_ap_discrepancy_proxy_receipt` compares the first-three q286
+mode sum against two ordinary residue-discrepancy envelopes.  For each target,
+it forms the strict-central prime-pair weight in every admissible residue
+class modulo `286`, subtracts the uniform admissible mean, and compares the
+first-three mode action with:
+
+- a uniform residue-error `L^1` envelope,
+- a Cauchy `L^2` envelope,
+- the actual alignment with that `L^2` envelope.
+
+On selected hard targets
+`10424,10664,14138,30164,40676,85496,88346,11194,15272`, the required
+uniform relative residue error to match the actual first-three mode size lies
+between about `.130487` and `.528174`.  The largest lower-tail selected case
+is `10664`, with first-three ratio `-1.150088`, maximum residue deviation
+`2.315106`, required uniform error `.528174`, and L2 alignment `.220032`.
+
+On the complete first period `10000..20008`, the first-three q286 mode sum is
+negative at `2525` of `5005` targets.  The worst lower tail is again `10664`,
+with first-three/principal ratio `-1.1500880008976306`.  The largest required
+uniform relative error over negative first-three targets is
+`.5281735902332463`, again at `10664`; over all targets the largest two-sided
+value is `.7408970850830631` at `10724`, where the first-three mode is
+positive.  The largest L2 alignment over negative first-three targets is only
+`.26921675478661156`, at `14892`; the largest two-sided alignment is
+`.3784984423382312`, at `17446`.
+
+Status `changed-under-evidence`: a naive AP-discrepancy proof would need a
+pointwise uniform residue error well below the actually observed residue
+fluctuations at small scale, while the Cauchy L2 envelope is loose by a factor
+of at least about `1/.269` on the lower tail.  Ordinary AP discrepancy remains
+a useful diagnostic, but a proof still needs coefficient-sensitive binary
+correlation structure rather than just a black-box full-residue equidistribution
+bound.

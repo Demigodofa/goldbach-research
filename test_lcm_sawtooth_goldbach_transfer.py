@@ -37,6 +37,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_mode_period_envelope_receipt,
     q286_leading_mode_character_shape_receipt,
     q286_leading_singular_mode_contribution_receipt,
+    q286_first_three_ap_discrepancy_proxy_receipt,
     q286_first_two_mode_lower_tail_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
@@ -1267,6 +1268,31 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(
             receipt["first_two_modes_alone_prove_lower_envelope"])
         self.assertFalse(receipt["eventual_lower_envelope_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_ap_discrepancy_proxy(self):
+        receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+            selected_targets=(10424, 14138))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["selected_targets"], (10424, 14138))
+        self.assertIn(10424, receipt["rows"])
+        row = receipt["rows"][10424]
+        self.assertIn("maximum_relative_residue_deviation", row)
+        self.assertIn("required_uniform_relative_error_for_actual_first_three",
+                      row)
+        self.assertIn("negative_first_three_mode_count", receipt)
+        self.assertIn(
+            "largest_required_uniform_relative_error_on_negative_first_three",
+            receipt)
+        self.assertLess(receipt["maximum_mode_reconstruction_error"], 1e-12)
+        self.assertTrue(
+            receipt["first_three_ap_discrepancy_proxy_measured"])
+        self.assertFalse(receipt["ordinary_ap_discrepancy_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

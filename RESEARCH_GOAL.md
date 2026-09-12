@@ -8502,3 +8502,23 @@ Status `changed-under-evidence`: reject monotone decay of the first-three
 modes as a proof route.  Preserve the stronger useful pattern that the
 residual action after removing these modes stays positive on the selected
 lifts.
+
+### 2026-09-12 continuation: q286 first-three AP-discrepancy proxy
+
+`q286_first_three_ap_discrepancy_proxy_receipt` compares the first-three q286
+mode action with ordinary residue-discrepancy envelopes modulo `286`: a
+uniform `L^1` envelope, a Cauchy `L^2` envelope, and actual L2 alignment.
+
+On the complete first period `10000..20008`, the first-three q286 mode sum is
+negative at `2525/5005` targets.  The worst lower tail is `10664`, with
+first-three/principal ratio `-1.1500880008976306`.  The largest required
+uniform relative error over negative first-three targets is
+`.5281735902332463`, again at `10664`; over all targets the largest two-sided
+value is `.7408970850830631` at `10724`, where the first-three mode is
+positive.  The largest L2 alignment over negative first-three targets is only
+`.26921675478661156`, at `14892`.
+
+Status `changed-under-evidence`: ordinary AP discrepancy is not a sufficient
+black-box explanation.  The Cauchy L2 envelope is loose on the lower tail, and
+a proof needs coefficient-sensitive binary correlation structure, not just
+full residue-class equidistribution.
