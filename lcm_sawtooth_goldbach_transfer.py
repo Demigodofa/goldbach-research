@@ -15,6 +15,7 @@ from lcm_sawtooth_frequency_resolved_fourier import (
     _unit_character_table,
 )
 from lcm_sawtooth_linked_prime_character import (
+    linked_prime_centering_receipt,
     _linked_prime_pairs,
     recombined_centered_character_receipt,
     residue_orbit_even_even_profile_receipt,
@@ -594,6 +595,120 @@ def direct_source_fiber_average_receipt(tolerance=1e-12):
             lag_rows[130]["reconstructs_recombined_centered_source"]
             and not lag_rows[110]["reconstructs_recombined_centered_source"]),
         "original_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def centered_outer_fiber_shadow_receipt(
+        targets=(1000, 1002), tolerance=1e-12, batch_size=32):
+    """Identify the surviving centered outer channel on fixture targets.
+
+    This composes two finite identities: the linked-prime centering receipt
+    recombines quotient 77 into ``G_0``, and ``G_0`` is the lag-130 fiber
+    shadow of the direct full-period source.  The result is a target-level
+    equality for the centered part of the tested outer assembly, while the
+    principal constant term and the formal signed error remain separate.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    centering = linked_prime_centering_receipt(
+        targets=targets, tolerance=tolerance, batch_size=batch_size)
+    common = 130
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    source_units, source_values_tuple = _direct_resonant_source_on_units(
+        period, 130, left_sources, right_sources)
+    quotient77_source_row = next(
+        row for (quotient, _, target), row in centering["rows"].items()
+        if quotient == 77 and target == centering["targets"][0])
+    units130 = tuple(int(unit) for unit in quotient77_source_row[
+        "unit_residues"])
+    source_values = {
+        residue: value
+        for residue, value in zip(source_units, source_values_tuple)}
+    fiber_sums = np.asarray(tuple(
+        sum((source_values[unit] for unit in source_units
+             if unit % common == residue), 0.0j)
+        for residue in units130), dtype=np.complex128)
+    fiber_shadow = -(fiber_sums - np.mean(fiber_sums))
+    fiber_shadow_by_residue = {
+        residue: value for residue, value in zip(units130, fiber_shadow)}
+
+    quotient77 = centering["quotient_summaries"][77]
+    quotient91 = centering["quotient_summaries"][91]
+    rows = {}
+    maximum_shadow_relative_error = 0.0
+    for target in centering["targets"]:
+        lower = target // 3
+        upper = target - lower
+        fiber_shadow_sum = 0.0j
+        nonunit_prime_pairs = []
+        inadmissible_unit_pairs = []
+        for prime, weight in _linked_prime_pairs(target, lower, upper):
+            partner = target - prime
+            if math.gcd(prime, common) != 1:
+                nonunit_prime_pairs.append((prime, partner))
+                continue
+            coefficient = fiber_shadow_by_residue.get(prime % common)
+            if coefficient is None:
+                inadmissible_unit_pairs.append((prime, partner))
+                continue
+            fiber_shadow_sum += coefficient * weight
+        centered_correlation = quotient77["target_summaries"][target][
+            "recombined_centered_source_correlation"]
+        scale = max(
+            1.0, abs(fiber_shadow_sum), abs(centered_correlation))
+        relative_error = abs(
+            fiber_shadow_sum - centered_correlation) / scale
+        maximum_shadow_relative_error = max(
+            maximum_shadow_relative_error, relative_error)
+        constant_correlation = quotient77["target_summaries"][target][
+            "recombined_constant_source_correlation"]
+        direct_correlation = quotient77["target_summaries"][target][
+            "recombined_direct_unit_correlation"]
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "fiber_shadow_weighted_goldbach_sum": fiber_shadow_sum,
+            "recombined_quotient77_centered_correlation": (
+                centered_correlation),
+            "fiber_shadow_centered_relative_error": relative_error,
+            "recombined_quotient77_constant_correlation": (
+                constant_correlation),
+            "recombined_quotient77_direct_correlation": (
+                direct_correlation),
+            "constant_plus_shadow_reconstruction_relative_error": (
+                abs(constant_correlation + fiber_shadow_sum
+                    - direct_correlation)
+                / max(
+                    1.0, abs(constant_correlation),
+                    abs(fiber_shadow_sum), abs(direct_correlation))),
+            "nonunit_prime_pairs": tuple(nonunit_prime_pairs),
+            "inadmissible_unit_pairs": tuple(inadmissible_unit_pairs),
+        }
+    maximum_quotient91_direct_ratio = max(
+        row["recombined_direct_relative_to_natural_scale"]
+        for row in quotient91["target_summaries"].values())
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "common_modulus": common,
+        "targets": centering["targets"],
+        "rows": rows,
+        "maximum_fiber_shadow_centered_relative_error": (
+            maximum_shadow_relative_error),
+        "maximum_quotient91_direct_relative_to_natural_scale": (
+            maximum_quotient91_direct_ratio),
+        "quotient77_centered_channel_is_lag130_fiber_shadow": bool(
+            maximum_shadow_relative_error <= tolerance),
+        "quotient91_recombined_channel_cancels_on_fixtures": bool(
+            maximum_quotient91_direct_ratio <= tolerance),
+        "constant_principal_channel_retained_separately": True,
+        "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "goldbach_proved": False,
     }

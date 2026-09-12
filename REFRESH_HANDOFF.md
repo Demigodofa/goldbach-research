@@ -14959,3 +14959,38 @@ formal signed error `T_boundary-Delta`. The next bounded question is sharper:
 does the actual outer assembly use this lag-130 fiber-shadow channel with a
 fixed coefficient, or does it also require moving coefficients, lag 110, other
 source families, endpoint terms, or a scale-dependent boundary remainder?
+
+## 2026-09-12: centered fixture outer channel is the lag-130 fiber shadow
+
+The next bridge test composes the fiber-shadow identity with the existing
+linked-prime centering assembly on its fixture targets `1000` and `1002`.
+`centered_outer_fiber_shadow_receipt` recomputes the strict central prime
+pairs and weights them by
+
+`G_shadow(r)=-(S_130(r)-mean_s S_130(s))`.
+
+For the quotient-77 channel, this weighted prime sum equals the recombined
+centered source correlation from `linked_prime_centering_receipt` on both
+fixture targets. The principal constant channel is retained separately, and
+constant plus centered shadow reconstructs the quotient-77 direct channel.
+The quotient-91 channel, corresponding to lag `110`, cancels on these fixtures.
+
+Independent review returned PASS. Faraday checked the strict intervals
+`(333,667)` and `(334,668)`, the `18` and `24` linked-prime counts, the
+quotient correspondence `lag 130 -> 77` and `lag 110 -> 91`, the inherited
+sign and centering, the two weighted correlations (approximately
+`-224301.665678` and `430678.315436`), quotient-77 reconstruction to
+`5.38e-13`, absence of nonunit or inadmissible prime terms, and quotient-91
+cancellation at relative scale `1.97e-16`.
+
+The focused test passes normally and under `-O`. `py_compile` and
+`git diff --check` pass, with only line-ending warnings.
+
+Status `changed-under-evidence`: this identifies the tested centered
+quotient-77 outer channel with the lag-130 fiber shadow. It is stronger than
+the source-table identity but still fixture-level and channel-level. It does
+not identify the full outer assembly, the formal signed error
+`T_boundary-Delta`, a pointwise estimate, or Goldbach. The next question is
+whether the same constant-plus-fiber-shadow decomposition extends to every
+target residue/class needed by the original assembly, including endpoints and
+any nonfixture terms.

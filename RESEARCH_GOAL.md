@@ -7366,3 +7366,32 @@ the original count-four outer assembly uses this lag-130 fiber-shadow channel
 with fixed coefficients, or whether it also contains moving coefficients,
 lag 110, omitted source families, endpoints, or a scale-dependent boundary
 remainder.
+
+### 2026-09-12 continuation: the centered fixture channel uses that shadow
+
+The source-table bridge now extends to the tested linked-prime outer channel.
+On fixture targets `1000` and `1002`, the quotient-77 recombined centered
+source correlation from `linked_prime_centering_receipt` equals the strict
+central prime sum weighted by the lag-130 fiber shadow
+
+`G_shadow(r)=-(S_130(r)-mean_s S_130(s))`.
+
+The principal constant channel remains separate, and constant plus centered
+shadow reconstructs the quotient-77 direct channel. The quotient-91 channel,
+corresponding to lag `110`, cancels on these fixtures.
+
+Independent review returned PASS. The strict central intervals are
+`(333,667)` and `(334,668)`, with `18` and `24` linked-prime terms and no
+nonunit or inadmissible terms. Faraday independently checked the
+lag-to-quotient correspondence, sign and centering, weighted correlations
+approximately `-224301.665678` and `430678.315436`, quotient-77 reconstruction
+to `5.38e-13`, quotient-91 cancellation at relative scale `1.97e-16`, and the
+open-scope flags.
+
+Status `changed-under-evidence`: the tested centered quotient-77 outer channel
+is the lag-130 fiber shadow. This still does not identify the full outer
+assembly, endpoints, all target residues, the formal `T_boundary-Delta`
+signed estimate, a pointwise estimate, or Goldbach. The next bounded question
+is whether this constant-plus-fiber-shadow decomposition extends beyond the
+fixture targets to every target class required by the original assembly, or
+whether nonfixture/end boundary terms introduce moving coefficients.

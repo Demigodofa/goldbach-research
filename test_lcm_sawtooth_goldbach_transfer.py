@@ -3,12 +3,44 @@ import unittest
 from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
 )
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_centered_outer_channel_is_lag130_fiber_shadow(self):
+        receipt = centered_outer_fiber_shadow_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertLess(
+            receipt["maximum_fiber_shadow_centered_relative_error"],
+            1e-12)
+        self.assertLess(
+            receipt["maximum_quotient91_direct_relative_to_natural_scale"],
+            1e-12)
+        for target, row in receipt["rows"].items():
+            self.assertEqual(row["strict_central_interval"],
+                             (target // 3, target - target // 3))
+            self.assertFalse(row["nonunit_prime_pairs"])
+            self.assertFalse(row["inadmissible_unit_pairs"])
+            self.assertLess(
+                row["fiber_shadow_centered_relative_error"], 1e-12)
+            self.assertLess(
+                row["constant_plus_shadow_reconstruction_relative_error"],
+                1e-12)
+        self.assertTrue(receipt[
+            "quotient77_centered_channel_is_lag130_fiber_shadow"])
+        self.assertTrue(receipt[
+            "quotient91_recombined_channel_cancels_on_fixtures"])
+        self.assertTrue(receipt[
+            "constant_principal_channel_retained_separately"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_direct_lag_130_fiber_average_recovers_mod130_source(self):
         receipt = direct_source_fiber_average_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)
