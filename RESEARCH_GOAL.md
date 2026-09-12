@@ -8487,3 +8487,18 @@ margin remains the original `N=14138` case, not a later lift.
 Status `aha-candidate`: same-residue lifts of the sampled hard bases do not
 falsify the first-three core.  This still does not prove an eventual threshold
 or the signed estimate.
+
+Lift-ratio detail: the first-three q286 mode sum does not monotonically decay
+on the selected lifts; it remains a large two-sided oscillatory term.  For
+base `10424`, first-three ratios over lifts `(0,1,4,9,19,49)` are
+`-0.941194, 0.168907, 0.677749, -0.367466, -0.261887, -0.023974`; for
+`14138`, `-0.895015, -0.120827, -0.015748, 0.010948, -0.057286, 0.178011`;
+for `85496`, `-0.725207, 0.066675, 0.048974, 0.024041, -0.105822,
+-0.062692`; for `88346`, `-0.796959, 0.183091, 0.507478, -0.062886,
+-0.195348, 0.093594`; and for `10664`, `-1.150088, -0.306513, -0.148512,
+-0.140603, -0.295436, 0.06831`.
+
+Status `changed-under-evidence`: reject monotone decay of the first-three
+modes as a proof route.  Preserve the stronger useful pattern that the
+residual action after removing these modes stays positive on the selected
+lifts.
