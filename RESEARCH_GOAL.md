@@ -7558,6 +7558,20 @@ This changes the next estimate experiment.  Instead of treating q286 only as
 have a stronger signed prime-pair estimate, while the small singular tail is
 paid by a crude large-sieve or L2 bound.
 
+## 2026-09-12: leading q286 singular modes explain sampled bad deviations
+
+The singular compression survives the first target-side falsifier.  On the
+three bad targets `10424,14138,88346`, the first two singular modes explain
+about `90.16%`, `100.37%`, and `98.71%` of the signed q286 deviation.  The
+first four modes explain `100.68%`, `98.63%`, and `101.62%`, so their signed
+residual is at most about `1.62%` of the actual q286 deviation in the sample.
+
+But the first-four tail is not proved harmless by Cauchy: the tail Cauchy
+envelope remains up to `0.3016306796889374` of the actual deviation.  Thus a
+valid proof route cannot simply discard the tail from coefficient energy.  It
+must either prove a better tail/imbalance angle bound or keep enough modes that
+the remaining Cauchy envelope is below the positive margin.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

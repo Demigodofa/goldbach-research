@@ -4516,6 +4516,180 @@ def q286_character_matrix_structure_receipt(
     }
 
 
+def q286_singular_mode_approximation_receipt(
+        targets=(10424, 14138, 88346), modes=(1, 2, 4, 9),
+        tolerance=1e-9):
+    """Test whether q286 singular coefficient modes explain bad deviations."""
+    targets = tuple(targets)
+    modes = tuple(modes)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not modes or any(type(mode) is not int or mode < 1 for mode in modes):
+        raise ValueError("modes must be positive integers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    energies = singular_values ** 2
+    total_energy = float(np.sum(energies))
+    maximum_mode = len(singular_values)
+    if any(mode > maximum_mode for mode in modes):
+        raise ValueError("mode count exceeds q286 singular rank")
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, labels, character_table = _unit_character_table(modulus, units)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    maximum_full_reconstruction_error = 0.0
+    top_two_signed_residual_fraction_maximum = 0.0
+    top_four_signed_residual_fraction_maximum = 0.0
+    top_four_cauchy_residual_fraction_maximum = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                total_weight += weight
+                weights[unit_index[prime % modulus]] += weight
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        weight_delta = np.zeros(len(units), dtype=np.float64)
+        weight_delta[admissible_mask] = (
+            weights[admissible_mask] - mean_weight)
+        imbalance_matrix = (
+            character_table @ weight_delta).reshape(10, 12)[1:, 1:]
+        total_deviation = complex(np.sum(
+            coefficient_matrix * imbalance_matrix))
+        principal_contribution = (
+            character_receipt["rows"][10424]["principal_contribution"]
+            * (total_weight / character_receipt["rows"][10424][
+                "total_prime_pair_weight"]))
+        mode_rows = {}
+        for mode in modes:
+            truncated = (
+                (left[:, :mode] * singular_values[:mode])
+                @ right[:mode, :])
+            approximation = complex(np.sum(
+                truncated * imbalance_matrix))
+            residual_matrix = coefficient_matrix - truncated
+            residual = total_deviation - approximation
+            residual_cauchy = (
+                float(np.linalg.norm(residual_matrix))
+                * float(np.linalg.norm(imbalance_matrix)))
+            residual_fraction = (
+                residual.real / total_deviation.real
+                if abs(total_deviation.real) > tolerance else math.nan)
+            mode_rows[mode] = {
+                "coefficient_energy_fraction": float(
+                    np.sum(energies[:mode]) / total_energy
+                    if total_energy else 0.0),
+                "approximation": approximation,
+                "residual": residual,
+                "approximation_to_deviation_ratio": float(
+                    approximation.real / total_deviation.real
+                    if abs(total_deviation.real) > tolerance else math.nan),
+                "signed_residual_to_deviation_ratio": float(
+                    residual_fraction),
+                "absolute_residual_to_abs_deviation_ratio": float(
+                    abs(residual.real) / abs(total_deviation.real)
+                    if abs(total_deviation.real) > tolerance else math.nan),
+                "residual_cauchy_to_abs_deviation_ratio": float(
+                    residual_cauchy / abs(total_deviation.real)
+                    if abs(total_deviation.real) > tolerance else math.nan),
+                "approximation_to_principal_ratio": float(
+                    approximation.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+                "residual_to_principal_ratio": float(
+                    residual.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+            }
+        full_mode = maximum_mode
+        full_matrix = (
+            (left[:, :full_mode] * singular_values[:full_mode])
+            @ right[:full_mode, :])
+        full_deviation = complex(np.sum(full_matrix * imbalance_matrix))
+        full_error = abs(full_deviation - total_deviation) / max(
+            1.0, abs(total_deviation))
+        maximum_full_reconstruction_error = max(
+            maximum_full_reconstruction_error, full_error)
+        if 2 in mode_rows:
+            top_two_signed_residual_fraction_maximum = max(
+                top_two_signed_residual_fraction_maximum,
+                mode_rows[2]["absolute_residual_to_abs_deviation_ratio"])
+        if 4 in mode_rows:
+            top_four_signed_residual_fraction_maximum = max(
+                top_four_signed_residual_fraction_maximum,
+                mode_rows[4]["absolute_residual_to_abs_deviation_ratio"])
+            top_four_cauchy_residual_fraction_maximum = max(
+                top_four_cauchy_residual_fraction_maximum,
+                mode_rows[4]["residual_cauchy_to_abs_deviation_ratio"])
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "total_prime_pair_weight": total_weight,
+            "admissible_residue_count": admissible_count,
+            "total_deviation": total_deviation,
+            "principal_contribution": principal_contribution,
+            "deviation_to_principal_ratio": float(
+                total_deviation.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "mode_rows": mode_rows,
+            "full_singular_reconstruction_error": full_error,
+        }
+
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": modulus,
+        "matrix_shape": coefficient_matrix.shape,
+        "singular_values": tuple(float(value) for value in singular_values),
+        "tested_modes": modes,
+        "targets": targets,
+        "rows": rows,
+        "maximum_full_singular_reconstruction_error": (
+            maximum_full_reconstruction_error),
+        "top_two_signed_residual_fraction_maximum": (
+            top_two_signed_residual_fraction_maximum),
+        "top_four_signed_residual_fraction_maximum": (
+            top_four_signed_residual_fraction_maximum),
+        "top_four_cauchy_residual_fraction_maximum": (
+            top_four_cauchy_residual_fraction_maximum),
+        "top_two_modes_explain_sampled_signed_deviation": bool(
+            2 in modes and top_two_signed_residual_fraction_maximum < .11),
+        "top_four_modes_leave_small_sampled_signed_residual": bool(
+            4 in modes and top_four_signed_residual_fraction_maximum < .02),
+        "top_four_tail_paid_by_cauchy": bool(
+            4 in modes and top_four_cauchy_residual_fraction_maximum < .05),
+        "singular_mode_approximation_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

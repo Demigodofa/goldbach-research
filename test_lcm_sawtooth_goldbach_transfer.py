@@ -31,6 +31,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_character_imbalance_receipt,
     q286_character_matrix_structure_receipt,
     q286_residue_discrepancy_profile_receipt,
+    q286_singular_mode_approximation_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -952,6 +953,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(
             receipt["low_rank_compression_diagnostic_passes"])
         self.assertFalse(receipt["exact_low_rank_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_singular_mode_approximation(self):
+        receipt = q286_singular_mode_approximation_receipt(
+            targets=(10424,), modes=(1, 2, 4, 9))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["matrix_shape"], (9, 11))
+        self.assertEqual(receipt["tested_modes"], (1, 2, 4, 9))
+        self.assertLess(
+            receipt["maximum_full_singular_reconstruction_error"], 1e-12)
+        row = receipt["rows"][10424]
+        self.assertAlmostEqual(
+            row["deviation_to_principal_ratio"],
+            -.970542065173128, places=14)
+        self.assertAlmostEqual(
+            row["mode_rows"][2]["approximation_to_deviation_ratio"],
+            .9015985110298353, places=14)
+        self.assertAlmostEqual(
+            row["mode_rows"][4]["approximation_to_deviation_ratio"],
+            1.0068394435381816, places=14)
+        self.assertLess(
+            row["mode_rows"][4][
+                "absolute_residual_to_abs_deviation_ratio"], .01)
+        self.assertTrue(
+            receipt["top_two_modes_explain_sampled_signed_deviation"])
+        self.assertTrue(
+            receipt["top_four_modes_leave_small_sampled_signed_residual"])
+        self.assertFalse(receipt["top_four_tail_paid_by_cauchy"])
+        self.assertTrue(receipt["singular_mode_approximation_measured"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

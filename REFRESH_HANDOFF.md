@@ -15954,3 +15954,24 @@ Status `aha-candidate`: q286 is not a few-character obstruction, but it may be
 well approximated by a few separable character-combination modes.  This is a
 coefficient-compression diagnostic only; truncating singular modes introduces
 a residual that still needs an explicit signed prime-pair bound.
+
+## 2026-09-12: leading q286 singular modes explain sampled bad deviations
+
+`q286_singular_mode_approximation_receipt` tests the singular-mode
+coefficient compression against the actual q286 bad-target imbalance matrices.
+On `N=10424`, the first two modes explain `0.9015985110298353` of the signed
+q286 deviation, and the first four explain `1.0068394435381816`, leaving a
+signed residual of about `0.00684` of the deviation.  On `N=14138`, the
+corresponding ratios are `1.0037258603770791` and `0.9863285602716653`.  On
+`N=88346`, they are `0.9871408943134399` and `1.0161730953741688`.
+
+The first two modes leave at most `0.09840148897016475` sampled signed
+residual fraction, and the first four leave at most `0.016173095374168937`.
+However, the first-four tail is not paid by a crude Cauchy bound: its Cauchy
+envelope is still as large as `0.3016306796889374` of the actual deviation on
+these targets.
+
+Status `aha-candidate`: the leading obstruction appears to be a few separable
+character modes, but the small singular tail is not automatically harmless.
+The next analytic test should try to estimate the leading separable modes
+directly and pay the tail with a sharper-than-global bound.
