@@ -8581,3 +8581,155 @@ def q286_cover_pair_compensation_portfolio_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_positive_both_empty_compensation_cover_receipt(
+        start=10000,
+        targets_per_cycle=5005,
+        selected_targets=None,
+        top_count=24,
+        driver_residues=(133, 153),
+        tolerance=1e-09):
+    """Cover positive targets where the q286 cover pair remains empty.
+
+    With selected_targets omitted, this scans one full q286 arithmetic period
+    for targets whose full action is positive while all driver residues are
+    locally admissible but empty.  It then greedily covers those targets by top
+    positive first-three q286 residue contribution rows.  This is finite
+    evidence for compensation structure, not a proof of compensation.
+    """
+    if selected_targets is None:
+        period_targets = tuple(
+            range(start, start + 2 * targets_per_cycle, 2))
+        occupancy_receipt = q286_driver_residue_lift_occupancy_receipt(
+            base_targets=period_targets,
+            start=start,
+            targets_per_cycle=targets_per_cycle,
+            lifts=(0,),
+            driver_residues=driver_residues,
+            tolerance=tolerance)
+        targets = tuple(
+            row[2]
+            for row in occupancy_receipt[
+                "positive_with_all_driver_residues_empty_rows"])
+        negative_both_empty_count = occupancy_receipt[
+            "negative_with_all_driver_residues_empty_count"]
+        target_source = "positive_with_all_driver_residues_empty_rows"
+    else:
+        occupancy_receipt = None
+        targets = tuple(selected_targets)
+        negative_both_empty_count = None
+        target_source = "selected_targets"
+
+    ap_receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=targets,
+        top_count=top_count,
+        tolerance=tolerance)
+
+    target_positive_residues = {}
+    positive_presence_counts = {}
+    positive_score_sums = {}
+    target_rows = {}
+    for target in targets:
+        ap_row = ap_receipt["rows"][target]
+        residue_rows = []
+        residues = []
+        for residue_row in ap_row["largest_positive_residue_rows"]:
+            if residue_row["contribution_to_principal_ratio"] <= tolerance:
+                continue
+            residue = residue_row["residue_mod_286"]
+            residues.append(residue)
+            positive_presence_counts[residue] = (
+                positive_presence_counts.get(residue, 0) + 1)
+            positive_score_sums[residue] = positive_score_sums.get(
+                residue, 0.0) + residue_row[
+                    "contribution_to_principal_ratio"]
+            residue_rows.append({
+                "residue_mod_286": residue,
+                "contribution_to_principal_ratio": residue_row[
+                    "contribution_to_principal_ratio"],
+                "prime_pair_weight": residue_row["prime_pair_weight"],
+            })
+        target_positive_residues[target] = tuple(residues)
+        target_rows[target] = {
+            "first_three_mode_to_principal_ratio": ap_row[
+                "first_three_mode_to_principal_ratio"],
+            "positive_real_contribution_to_principal_ratio": ap_row[
+                "positive_real_contribution_to_principal_ratio"],
+            "negative_real_contribution_to_principal_ratio": ap_row[
+                "negative_real_contribution_to_principal_ratio"],
+            "top_positive_residue_rows": tuple(residue_rows),
+        }
+
+    remaining_targets = set(targets)
+    greedy_rows = []
+    while remaining_targets:
+        candidates = set()
+        for target in remaining_targets:
+            candidates.update(target_positive_residues[target])
+        if not candidates:
+            break
+        best_residue = max(
+            candidates,
+            key=lambda residue: (
+                len({
+                    target for target in remaining_targets
+                    if residue in target_positive_residues[target]
+                }),
+                positive_score_sums.get(residue, 0.0),
+                -residue))
+        hit_targets = tuple(sorted(
+            target for target in remaining_targets
+            if best_residue in target_positive_residues[target]))
+        greedy_rows.append({
+            "residue_mod_286": best_residue,
+            "newly_covered_target_count": len(hit_targets),
+            "newly_covered_targets": hit_targets,
+            "top_positive_presence_count": positive_presence_counts[
+                best_residue],
+            "positive_contribution_to_principal_ratio_sum": (
+                positive_score_sums[best_residue]),
+        })
+        remaining_targets.difference_update(hit_targets)
+
+    top_presence_rows = tuple(
+        {
+            "residue_mod_286": residue,
+            "top_positive_presence_count": count,
+            "positive_contribution_to_principal_ratio_sum": (
+                positive_score_sums[residue]),
+        }
+        for residue, count in sorted(
+            positive_presence_counts.items(),
+            key=lambda item: (
+                -item[1],
+                -positive_score_sums[item[0]],
+                item[0]))
+    )
+
+    return {
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "driver_residues": tuple(driver_residues),
+        "top_count": top_count,
+        "target_source": target_source,
+        "tested_target_count": len(targets),
+        "negative_both_empty_count": negative_both_empty_count,
+        "target_rows": target_rows,
+        "top_positive_presence_rows": top_presence_rows,
+        "greedy_positive_portfolio_rows": tuple(greedy_rows),
+        "uncovered_targets": tuple(sorted(remaining_targets)),
+        "uncovered_target_count": len(remaining_targets),
+        "greedy_positive_portfolio_residue_count": len(greedy_rows),
+        "occupancy_receipt_used": occupancy_receipt is not None,
+        "ap_tested_target_count": ap_receipt["tested_target_count"],
+        "positive_both_empty_compensation_cover_measured": True,
+        "single_compensator_proved": False,
+        "compensation_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

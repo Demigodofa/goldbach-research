@@ -104,6 +104,11 @@ for the final `3`, with `0` uncovered.  Top positive recurrence begins
 `179:135, 109:124, 243:121, 29:106, 111:104, 89:102`.  Treat this as a
 single-compensator falsifier and a finite-portfolio clue.
 
+The broad portfolio is now receipt-backed by
+`q286_positive_both_empty_compensation_cover_receipt`; its default run
+recomputes the `204` positive both-empty targets, `44` negative both-empty
+targets, five-residue greedy cover `179,29,167,241,109`, and `0` uncovered.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

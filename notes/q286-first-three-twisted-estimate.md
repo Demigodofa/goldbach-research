@@ -540,3 +540,8 @@ route remains structured, but the observed structure is a finite portfolio
 with several moving residues.  A proof that discards the compensating remainder
 and tries to replace it with one clean positive channel would lose this
 evidence.
+
+This whole-period falsifier is now preserved by
+`q286_positive_both_empty_compensation_cover_receipt`.  Its default run
+recomputes the `204` positive both-empty targets, the `44` negative both-empty
+count, and the five-residue greedy positive portfolio above.

@@ -106,6 +106,11 @@ covered by a five-residue greedy portfolio:
 targets.  The compensation route remains structured, but it is now a finite
 portfolio problem rather than a one-channel theorem.
 
+This broader compensation portfolio is now executable through
+`q286_positive_both_empty_compensation_cover_receipt`, whose default run
+recomputes the same `204` positive both-empty targets, `44` negative both-empty
+targets, and five-residue cover.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
