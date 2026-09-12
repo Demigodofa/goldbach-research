@@ -15265,3 +15265,39 @@ there an additional transform/duality step before spatial coefficients become
 prime-residue coefficients?  Falsifier: a direct target computation disagrees
 with the grouped-spatial coefficient vector beyond numerical tolerance, or the
 coefficient depends on `N mod 154`.
+
+## 2026-09-12: q65 naive prime-residue shortcut is falsified
+
+The direct same-index shortcut from grouped spatial residue to prime-residue
+coefficient is false.  `holdout_q65_naive_spatial_prime_coefficient_receipt`
+compares the grouped centered spatial vector over `U_154` with the actual
+finite Fourier-dual prime-residue coefficient vector.  The naive vector has
+`L^2` norm `86071.18524618639`, while the Fourier-dual vector has `L^2` norm
+`751779.5321027868`.  The same-index relative error is
+`1.0410628405379547`, the opposite-index relative error is
+`.9707749737869603`, and the best scalar fit from the dual vector to the
+naive vector is approximately `-0.03535194705447041` with relative error
+`.9511342058094504`.
+
+The constructive branch survives.  `holdout_q65_dual_prime_target_sum_receipt`
+uses the Fourier-dual coefficient on strict-central prime residues and
+reconstructs the same value from the spatial-frequency side on fixture targets
+`1000` and `1002`.  The maximum spatial-to-dual target relative error is
+`1.5578275920406705e-14`; no nonunit prime pairs occur.  For `N=1000`, the
+naive sum is `2873964.594449477`, while the dual sum is approximately
+`-13885212.705780081 - 7.58e-08i`.  For `N=1002`, the naive sum is
+`18207.229627794048`, while the dual sum is approximately
+`19349494.38914819 - 4.05e-07i`.
+
+Status `changed-under-evidence`: block only the tempting identification
+"grouped spatial residue equals prime-residue coefficient by same index."
+Preserve the q65 projected-spatial source identity and the Fourier-dual
+target-sum transfer as live components.  This is a finite fixture target
+check, not yet a symbolic all-target q65 bridge, not a full outer assembly,
+not a formal signed error estimate, not a pointwise signed prime-correlation
+bound, and not Goldbach.
+
+Next concrete question: upgrade the q65 Fourier-dual target transfer from the
+two fixtures to a symbolic residue-class statement for every strict-central
+target `N>=34`, or find the exact target-residue or boundary term where that
+symbolic transfer breaks.

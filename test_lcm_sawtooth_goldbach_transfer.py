@@ -6,7 +6,9 @@ from lcm_sawtooth_goldbach_transfer import (
     canonical_direct_resonant_goldbach_main_receipt,
     count_four_outer_holdout_sector_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
+    holdout_q65_dual_prime_target_sum_receipt,
     holdout_q65_active_row_bridge_receipt,
+    holdout_q65_naive_spatial_prime_coefficient_receipt,
     holdout_q65_projected_spatial_fiber_bridge_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
@@ -166,6 +168,61 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["active_linked_row_bridge_was_wrong_layer"])
         self.assertFalse(
             receipt["linked_prime_or_target_prime_pair_bridge_proved"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_q65_naive_spatial_prime_coefficient_fails(self):
+        receipt = holdout_q65_naive_spatial_prime_coefficient_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertAlmostEqual(
+            receipt["naive_spatial_prime_coefficient_l2"],
+            86071.18524618637, places=8)
+        self.assertGreater(
+            receipt["fourier_dual_prime_coefficient_l2"],
+            receipt["naive_spatial_prime_coefficient_l2"])
+        self.assertGreater(receipt["same_index_relative_error"], .99)
+        self.assertGreater(receipt["opposite_index_relative_error"], .95)
+        self.assertGreater(
+            receipt["best_scalar_dual_to_naive_relative_error"], .9)
+        self.assertFalse(
+            receipt["naive_spatial_is_fourier_dual_prime_coefficient"])
+        self.assertTrue(
+            receipt["naive_same_index_prime_coefficient_falsified"])
+        self.assertFalse(receipt["target_prime_pair_bridge_proved"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_q65_dual_prime_target_sum(self):
+        receipt = holdout_q65_dual_prime_target_sum_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertLess(
+            receipt["maximum_spatial_dual_relative_error"], 1e-12)
+        self.assertGreater(
+            receipt["minimum_naive_dual_relative_error"], .1)
+        self.assertFalse(receipt["nonunit_prime_pairs"])
+        for row in receipt["rows"].values():
+            self.assertGreater(row["ordered_central_prime_pair_count"], 0)
+            self.assertLess(row["spatial_dual_relative_error"], 1e-12)
+            self.assertGreater(row["naive_dual_relative_error"], .1)
+        self.assertTrue(
+            receipt["spatial_to_dual_target_transfer_verified_on_targets"])
+        self.assertTrue(receipt["naive_same_index_target_transfer_falsified"])
+        self.assertFalse(receipt["target_prime_pair_bridge_proved_symbolically"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[

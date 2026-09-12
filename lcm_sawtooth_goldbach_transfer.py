@@ -1306,6 +1306,8 @@ def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
         "projected_absolute_mass": absolute_mass,
         "projected_cancellation_quotient": (
             abs(signed_total) / absolute_mass if absolute_mass else None),
+        "grouped_centered_spatial_values": tuple(
+            float(value) for value in grouped_centered),
         "grouped_centered_spatial_l2": grouped_l2,
         "fiber_shadow_l2": shadow_l2,
         "same_sign_fiber_shadow_relative_error": same_sign_error,
@@ -1315,6 +1317,181 @@ def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
             opposite_sign_error <= tolerance),
         "active_linked_row_bridge_was_wrong_layer": True,
         "linked_prime_or_target_prime_pair_bridge_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
+    """Test whether q65 grouped spatial values are prime-residue coefficients.
+
+    The projected-spatial bridge identifies a fixed source vector indexed by
+    spatial frequency residue modulo 154.  A tempting shortcut is to use that
+    same vector directly as a coefficient on prime residues.  The actual
+    residue coefficient obtained from a spatial source is its finite Fourier
+    dual, so this receipt compares the naive same-index vector against that
+    dual coefficient vector up to scalar normalization.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
+        tolerance=tolerance)
+    common = source["common_modulus"]
+    residues = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    naive = np.asarray(source["grouped_centered_spatial_values"],
+                       dtype=np.complex128)
+    if len(residues) != len(naive):
+        raise AssertionError("spatial vector and U_154 ordering disagree")
+    phase = np.exp(
+        2j * np.pi * np.outer(residues, residues) / common)
+    dual = phase @ naive
+    naive_l2 = float(np.linalg.norm(naive))
+    dual_l2 = float(np.linalg.norm(dual))
+    comparison_scale = max(1.0, naive_l2, dual_l2)
+    same_index_error = float(np.linalg.norm(naive - dual) / comparison_scale)
+    opposite_index_error = float(
+        np.linalg.norm(naive + dual) / comparison_scale)
+    scalar_denominator = np.vdot(dual, dual)
+    best_scalar = (
+        np.vdot(dual, naive) / scalar_denominator
+        if abs(scalar_denominator) else 0.0j)
+    best_scalar_error = float(
+        np.linalg.norm(naive - best_scalar * dual)
+        / max(1.0, naive_l2))
+    return {
+        "families": source["families"],
+        "arithmetic_period": source["arithmetic_period"],
+        "quotient": source["quotient"],
+        "lag": source["lag"],
+        "common_modulus": common,
+        "unit_group_order": len(residues),
+        "naive_spatial_prime_coefficient_l2": naive_l2,
+        "fourier_dual_prime_coefficient_l2": dual_l2,
+        "same_index_relative_error": same_index_error,
+        "opposite_index_relative_error": opposite_index_error,
+        "best_scalar_dual_to_naive": complex(best_scalar),
+        "best_scalar_dual_to_naive_relative_error": best_scalar_error,
+        "naive_spatial_is_fourier_dual_prime_coefficient": bool(
+            best_scalar_error <= tolerance),
+        "naive_same_index_prime_coefficient_falsified": bool(
+            best_scalar_error > .1),
+        "preserved_component": (
+            "q65 projected-spatial source identity remains available; "
+            "only the direct same-index prime-residue shortcut is blocked"),
+        "target_prime_pair_bridge_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def holdout_q65_dual_prime_target_sum_receipt(
+        targets=(1000, 1002), tolerance=1e-12):
+    """Transfer the q65 projected-spatial source to target prime sums.
+
+    This is still a finite target check, not an estimate.  It compares the
+    tempting same-index coefficient against the Fourier-dual coefficient that
+    a spatial-frequency source actually induces on prime residues.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 34
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 34")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    source = holdout_q65_projected_spatial_fiber_bridge_receipt(
+        tolerance=tolerance)
+    common = source["common_modulus"]
+    residues = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    spatial = np.asarray(source["grouped_centered_spatial_values"],
+                         dtype=np.complex128)
+    phase = np.exp(
+        2j * np.pi * np.outer(residues, residues) / common)
+    dual = phase @ spatial
+    naive_by_residue = {
+        residue: value for residue, value in zip(residues, spatial)}
+    dual_by_residue = {
+        residue: value for residue, value in zip(residues, dual)}
+
+    rows = {}
+    maximum_spatial_dual_relative_error = 0.0
+    minimum_naive_dual_relative_error = math.inf
+    all_nonunit_pairs = []
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        naive_sum = 0.0j
+        dual_sum = 0.0j
+        spatial_sum = 0.0j
+        natural_scale = 0.0
+        nonunit_pairs = []
+        pair_count = 0
+        exponential_sums = {residue: 0.0j for residue in residues}
+        for prime, weight in _linked_prime_pairs(target, lower, upper):
+            partner = target - prime
+            pair_count += 1
+            prime_residue = prime % common
+            if math.gcd(prime_residue, common) != 1:
+                nonunit_pairs.append((prime, partner))
+                continue
+            naive_coefficient = naive_by_residue[prime_residue]
+            dual_coefficient = dual_by_residue[prime_residue]
+            naive_sum += naive_coefficient * weight
+            dual_sum += dual_coefficient * weight
+            natural_scale += abs(dual_coefficient * weight)
+            for residue in residues:
+                exponential_sums[residue] += (
+                    np.exp(2j * np.pi * residue * prime_residue / common)
+                    * weight)
+        for residue, value in zip(residues, spatial):
+            spatial_sum += value * exponential_sums[residue]
+        scale = max(1.0, abs(spatial_sum), abs(dual_sum), natural_scale)
+        spatial_dual_error = abs(spatial_sum - dual_sum) / scale
+        naive_dual_scale = max(1.0, abs(naive_sum), abs(dual_sum))
+        naive_dual_error = abs(naive_sum - dual_sum) / naive_dual_scale
+        maximum_spatial_dual_relative_error = max(
+            maximum_spatial_dual_relative_error, spatial_dual_error)
+        minimum_naive_dual_relative_error = min(
+            minimum_naive_dual_relative_error, naive_dual_error)
+        all_nonunit_pairs.extend((target, pair) for pair in nonunit_pairs)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": pair_count,
+            "nonunit_prime_pairs": tuple(nonunit_pairs),
+            "naive_same_index_prime_residue_sum": complex(naive_sum),
+            "fourier_dual_prime_residue_sum": complex(dual_sum),
+            "spatial_frequency_reconstructed_sum": complex(spatial_sum),
+            "spatial_dual_relative_error": spatial_dual_error,
+            "naive_dual_relative_error": naive_dual_error,
+            "dual_natural_scale": natural_scale,
+        }
+    return {
+        "families": source["families"],
+        "arithmetic_period": source["arithmetic_period"],
+        "quotient": source["quotient"],
+        "lag": source["lag"],
+        "common_modulus": common,
+        "targets": targets,
+        "unit_group_order": len(residues),
+        "central_unit_threshold": _even_strict_central_unit_threshold(common),
+        "rows": rows,
+        "maximum_spatial_dual_relative_error": (
+            maximum_spatial_dual_relative_error),
+        "minimum_naive_dual_relative_error": minimum_naive_dual_relative_error,
+        "nonunit_prime_pairs": tuple(all_nonunit_pairs),
+        "spatial_to_dual_target_transfer_verified_on_targets": bool(
+            not all_nonunit_pairs
+            and maximum_spatial_dual_relative_error <= tolerance),
+        "naive_same_index_target_transfer_falsified": bool(
+            minimum_naive_dual_relative_error > .1),
+        "target_prime_pair_bridge_proved_symbolically": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "pointwise_signed_prime_correlation_estimate_proved": False,

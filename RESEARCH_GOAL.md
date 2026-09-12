@@ -7643,3 +7643,23 @@ there an additional transform/duality step before spatial coefficients become
 prime-residue coefficients?  Falsifier: a direct target computation disagrees
 with the grouped-spatial coefficient vector beyond numerical tolerance, or the
 coefficient depends on `N mod 154`.
+
+### 2026-09-12 continuation: q65 needs the Fourier-dual coefficient
+
+The tempting q65 shortcut is now falsified: the grouped spatial vector cannot
+be used directly as the prime-residue coefficient by matching residue labels.
+The grouped centered spatial vector over `U_154` has `L^2` norm
+`86071.18524618639`, while its finite Fourier-dual prime-residue coefficient
+has `L^2` norm `751779.5321027868`.  The best scalar fit still has relative
+error `.9511342058094504`.
+
+The useful component is the dual route.  On fixture targets `1000` and `1002`,
+the Fourier-dual coefficient's strict-central prime-pair sum matches the
+spatial-frequency reconstruction with maximum relative error
+`1.5578275920406705e-14`, and no nonunit central prime pairs occur.  The
+naive target sums differ materially from the dual sums on both fixtures.
+
+Status `changed-under-evidence`: same-index spatial-to-prime transfer is
+blocked; Fourier-dual target transfer is live but only fixture-checked.  A
+symbolic all-target q65 bridge, full outer assembly, formal signed error,
+pointwise signed control, and Goldbach remain open.
