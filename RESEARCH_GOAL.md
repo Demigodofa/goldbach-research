@@ -9067,3 +9067,13 @@ passed in `202.762s`.
 Status `changed-under-evidence`: horizon extension and recurrence falsifiers
 now have a reusable receipt rather than ad hoc scripts.  Eventual clearance and
 Goldbach remain open.
+
+### 2026-09-12 continuation: receipt-driven clearance through cycle 48
+
+The new cycle-horizon receipt checked global cycles `41..48`; each has zero
+full-action negatives and zero non-rescued `.3` first-three tail targets.  The
+`.3` tail persists with counts `5,7,1,5,5,8,12,8`, and the smallest full-action
+minimum in the band is `0.3415555323766872` at `N=458576`.
+
+Status `aha-candidate`: continuous measured clearance now reaches global
+cycle `48`; finite evidence only.

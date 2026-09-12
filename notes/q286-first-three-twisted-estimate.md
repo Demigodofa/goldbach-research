@@ -1947,3 +1947,30 @@ Status `changed-under-evidence`: the manually measured onset-clearance lane is
 now reproducible as a task-owned receipt.  This does not prove eventual
 clearance, but it turns future horizon extensions and falsifiers into one
 standard API instead of ad hoc one-cycle scripts.
+
+## 2026-09-12: cycles 41 through 48 preserve receipt-driven clearance
+
+The new cycle-horizon receipt was then used for the next recurrence band,
+global cycles `41..48`, one cycle at a time.  Every checked cycle again has
+full-action negative count `0` and non-rescued `.3` first-three tail count
+`0`.
+
+```text
+cycle 41: min full 0.4011370672130772 at 425186, .3 tail 5
+cycle 42: min full 0.3632776359552527 at 438458, .3 tail 7
+cycle 43: min full 0.37175458031519565 at 440866, .3 tail 1
+cycle 44: min full 0.3415555323766872 at 458576, .3 tail 5
+cycle 45: min full 0.41925661871917613 at 461936, .3 tail 5
+cycle 46: min full 0.3722882842435854 at 474886, .3 tail 8
+cycle 47: min full 0.3560917899268151 at 480614, .3 tail 12
+cycle 48: min full 0.3753970321225119 at 492056, .3 tail 8
+```
+
+The smallest minimum in this band is cycle `44`, value
+`0.3415555323766872`.  The `.3` tail still recurs, so the candidate remains
+eventual complement rescue of tail targets, not eventual disappearance of the
+tail.
+
+Status `aha-candidate`: the checked continuous clearance horizon now reaches
+global cycle `48`.  This strengthens the boundary/onset hypothesis but is
+still finite evidence only.

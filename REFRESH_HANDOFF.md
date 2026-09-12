@@ -17280,3 +17280,16 @@ suffix starts at global cycle `8`.
 Status `changed-under-evidence`: future cycle-horizon scans should use this
 receipt instead of ad hoc one-cycle scripts.  It standardizes the falsifier but
 does not prove eventual clearance or Goldbach.
+
+## 2026-09-12 continuation: receipt-driven clearance through cycle 48
+
+Using `q286_nonrescued_first_three_tail_cycle_horizon_receipt`, global cycles
+`41..48` were checked one at a time.  Every cycle has zero full-action
+negatives and zero non-rescued `.3` first-three tail targets.  Tail counts are
+`41:5, 42:7, 43:1, 44:5, 45:5, 46:8, 47:12, 48:8`.  The smallest minimum in
+this band is cycle `44`, full-action ratio `0.3415555323766872` at
+`N=458576`.
+
+Status `aha-candidate`: continuous checked clearance now reaches global cycle
+`48`.  The `.3` tail still recurs, so the live claim remains complement rescue
+of remaining tail targets, not disappearance of the tail.
