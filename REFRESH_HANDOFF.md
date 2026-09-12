@@ -17293,3 +17293,16 @@ this band is cycle `44`, full-action ratio `0.3415555323766872` at
 Status `aha-candidate`: continuous checked clearance now reaches global cycle
 `48`.  The `.3` tail still recurs, so the live claim remains complement rescue
 of remaining tail targets, not disappearance of the tail.
+
+## 2026-09-12 continuation: preserve rescued tail target lists
+
+`q286_first_three_complement_cooccurrence_receipt` now stores actual
+`tail_targets` and `rescued_tail_targets` for each threshold, and
+`q286_nonrescued_first_three_tail_cycle_horizon_receipt` carries those tuples
+inside each cycle row.  Validation: bytecode-disabled `py_compile` passed;
+focused co-occurrence regression passed in `79.293s`; focused cycle-horizon
+regression passed in `223.811s`.
+
+Status `changed-under-evidence`: the next rescue-mechanism search should use
+exact tail target lists from the receipts, not just counts.  This is a
+data-contract improvement, not a theorem.

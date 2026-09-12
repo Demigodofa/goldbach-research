@@ -1642,6 +1642,13 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["targets_per_cycle"], 3)
         self.assertEqual(receipt["negative_tail_thresholds"], (.3,))
         self.assertIn(.3, receipt["threshold_rows"])
+        threshold_row = receipt["threshold_rows"][.3]
+        self.assertEqual(
+            threshold_row["tail_target_count"],
+            len(threshold_row["tail_targets"]))
+        self.assertEqual(
+            threshold_row["rescued_tail_target_count"],
+            len(threshold_row["rescued_tail_targets"]))
         self.assertEqual(receipt[
             "minimum_recombined_margin_target"],
             receipt["minimum_full_action_target"])
@@ -1689,6 +1696,12 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "nonrescued_tail_target_count"], 2)
         self.assertEqual(receipt["cycle_rows"][1][
             "nonrescued_tail_target_count"], 0)
+        self.assertEqual(
+            receipt["cycle_rows"][0]["tail_target_count"],
+            len(receipt["cycle_rows"][0]["tail_targets"]))
+        self.assertEqual(
+            receipt["cycle_rows"][1]["rescued_tail_target_count"],
+            len(receipt["cycle_rows"][1]["rescued_tail_targets"]))
         self.assertEqual(
             receipt["cycles_with_nonrescued_tail_targets"], (0,))
         self.assertEqual(receipt[

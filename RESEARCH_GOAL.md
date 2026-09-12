@@ -9077,3 +9077,14 @@ minimum in the band is `0.3415555323766872` at `N=458576`.
 
 Status `aha-candidate`: continuous measured clearance now reaches global
 cycle `48`; finite evidence only.
+
+### 2026-09-12 continuation: preserve rescued tail target lists
+
+The co-occurrence and cycle-horizon receipts now carry actual `.3` tail target
+lists and rescued target lists, not just counts.  Validation: bytecode-disabled
+`py_compile` passed, co-occurrence focused regression passed in `79.293s`, and
+cycle-horizon focused regression passed in `223.811s`.
+
+Status `changed-under-evidence`: the next mechanism search can inspect exact
+rescued targets from the receipt data shape.  No theorem is proved by this
+change.

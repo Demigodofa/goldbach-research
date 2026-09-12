@@ -1974,3 +1974,22 @@ tail.
 Status `aha-candidate`: the checked continuous clearance horizon now reaches
 global cycle `48`.  This strengthens the boundary/onset hypothesis but is
 still finite evidence only.
+
+## 2026-09-12: preserve rescued tail target lists
+
+`q286_first_three_complement_cooccurrence_receipt` now stores the actual
+`tail_targets` and `rescued_tail_targets` for each negative first-three
+threshold, not just their counts.  The cycle-horizon receipt carries those
+tuples through each cycle row as well.  This is a data-contract improvement
+for the next proof/falsifier step: inspect the rescued targets and their
+components directly, rather than treating complement rescue as an aggregate
+count.
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_first_three_complement_cooccurrence` passed in `79.293s`; focused
+regression `test_q286_nonrescued_first_three_tail_cycle_horizon` passed in
+`223.811s`.
+
+Status `changed-under-evidence`: future mechanism searches can use exact
+tail/rescue target lists from the receipt.  No mathematical theorem is added
+by this data-shape change.

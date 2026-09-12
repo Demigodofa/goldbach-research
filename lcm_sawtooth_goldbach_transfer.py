@@ -10639,9 +10639,11 @@ def q286_first_three_complement_cooccurrence_receipt(
             mean_recombined = math.nan
         threshold_rows[threshold] = {
             "tail_target_count": len(tail_targets),
+            "tail_targets": tail_targets,
             "negative_full_count_inside_tail": len(
                 negative_tail_and_negative_full),
             "rescued_tail_target_count": len(rescued_targets),
+            "rescued_tail_targets": rescued_targets,
             "rescued_tail_fraction": (
                 len(rescued_targets) / len(tail_targets)
                 if tail_targets else math.nan),
@@ -10944,9 +10946,12 @@ def q286_nonrescued_first_three_tail_cycle_horizon_receipt(
             "minimum_full_action_target": minimum_full_target,
             "minimum_full_action_to_principal_ratio": minimum_full_value,
             "tail_target_count": tail_targets,
+            "tail_targets": threshold_row["tail_targets"],
             "nonrescued_tail_target_count": nonrescued,
             "rescued_tail_target_count": threshold_row[
                 "rescued_tail_target_count"],
+            "rescued_tail_targets": threshold_row[
+                "rescued_tail_targets"],
             "minimum_tail_recombined_target": minimum_tail_target,
             "minimum_tail_recombined_to_principal_ratio": (
                 minimum_tail_value),
