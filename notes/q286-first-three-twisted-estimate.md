@@ -1407,3 +1407,35 @@ Status `aha-candidate`: the worst first-period pointwise alignments are not
 persistent in these same-residue period lifts.  The useful theorem target may
 be a finite/onset boundary treatment plus an eventual alignment-clearance
 estimate, but the sampled lift profile does not prove either one.
+
+## 2026-09-12: all first-period `.3` low-tail bases clear by lift one
+
+`q286_first_three_removed_low_tail_auto_lift_receipt` now selects every base
+in a finite window whose post-first-three complement is below a threshold and
+runs the period-lift profile on all selected bases.  It widens the previous
+named-bottom-five falsifier to an automatically selected low-tail set.
+
+Default widened experiment with `low_threshold=.3` and lifts `0,1,2,3`:
+
+```text
+base window: 10000..20008, 5005 even targets
+selected base count below .3: 50
+tested lifted targets: 200
+base minimum: 0.018073313793834145 at N=14138
+global lifted minimum: 0.018073313793834145 at N=14138
+unique first-clear lifts: [1]
+maximum first-clear lift: 1
+below-threshold counts by lift: {0: 50, 1: 0, 2: 0, 3: 0}
+all selected lifts positive: True
+```
+
+The selected bases begin
+`10084, 10112, 10214, 10294, 10354, 10564, 10774, 10814, 11194, 11432`
+and end
+`16388, 16448, 16638, 16946, 17042, 17074, 17102, 17126, 17522, 18684`.
+
+Status `aha-candidate`: the first-period post-first-three low tail below `.3`
+is not persistent under the first three same-residue period lifts.  Every
+selected low-tail base clears the `.3` threshold at lift `1`.  This strengthens
+the boundary/onset split as a finite phenomenon, but still does not prove an
+eventual alignment-clearance theorem or Goldbach.

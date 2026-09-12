@@ -17048,3 +17048,19 @@ Status `aha-candidate`: the low-tail support-vector alignment looks
 first-period/onset-specific in this test, not persistent along same residues.
 Do not overclaim: this is finite lift evidence, not an eventual clearance
 proof.
+
+## 2026-09-12 continuation: all first-period `.3` low-tail bases clear by lift one
+
+`q286_first_three_removed_low_tail_auto_lift_receipt` now automatically selects
+low post-first-three complement bases and traces their same-residue period
+lifts.  On the full first period, the `.3` threshold selects `50` bases.  With
+lifts `0,1,2,3`, all `200` lifted targets are positive, all `50` below-
+threshold cases occur only at lift `0`, and every base first clears `.3` at
+lift `1`.
+
+Validation: bytecode-disabled `py_compile` passed.  Focused regression
+`test_q286_first_three_removed_low_tail_auto_lift` passed in `142.628s`.
+
+Status `aha-candidate`: the finite evidence for an onset/boundary low-tail
+phenomenon is now much wider than the bottom five.  No eventual theorem is
+proved.

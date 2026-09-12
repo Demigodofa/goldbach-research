@@ -8904,3 +8904,14 @@ Status `aha-candidate`: the measured low-tail alignment is not persistent
 under these same-residue period lifts.  Next theorem shape: separate finite
 onset/boundary treatment from an eventual pointwise alignment-clearance
 estimate.
+
+### 2026-09-12 continuation: all first-period `.3` low-tail bases clear by lift one
+
+`q286_first_three_removed_low_tail_auto_lift_receipt` selects every first-
+period base with post-first-three complement below `.3`.  It found `50` bases.
+Across lifts `0,1,2,3`, all `200` lifted targets are positive; all `50` below-
+threshold values are at lift `0`; every selected base first clears `.3` at
+lift `1`.
+
+Status `aha-candidate`: the low-tail alignment looks like a first-period/onset
+phenomenon across the whole `.3` low-tail set, not just the bottom five.

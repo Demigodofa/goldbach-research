@@ -10095,3 +10095,93 @@ def q286_first_three_removed_low_tail_lift_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_removed_low_tail_auto_lift_receipt(
+        base_start=10000, base_targets_per_cycle=5005,
+        low_threshold=.3, lifts=(0, 1, 2, 3), tolerance=1e-9):
+    """Select all low post-first-three bases and test their period lifts.
+
+    This receipt widens the low-tail lift falsifier from named bottom cases to
+    every base target in a finite window whose post-first-three complement lies
+    below ``low_threshold``.  It tests whether the selected low-tail alignments
+    persist under arithmetic-period lifts.
+    """
+    if type(base_start) is not int or base_start < 40 or base_start % 2:
+        raise ValueError("base_start must be an even integer at least 40")
+    if (type(base_targets_per_cycle) is not int
+            or base_targets_per_cycle < 1 or base_targets_per_cycle > 5005):
+        raise ValueError(
+            "base_targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(low_threshold) or low_threshold <= 0:
+        raise ValueError("low_threshold must be finite and positive")
+    lifts = tuple(dict.fromkeys(lifts))
+    if (not lifts or any(type(lift) is not int or lift < 0
+                         for lift in lifts)):
+        raise ValueError("lifts must be nonnegative integers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    base_scan = q286_first_three_removed_vector_stress_receipt(
+        start=base_start, cycle_count=1,
+        targets_per_cycle=base_targets_per_cycle, tolerance=tolerance)
+    selected_bases = tuple(
+        target for target in sorted(base_scan["target_rows"])
+        if base_scan["target_rows"][target][
+            "complement_to_principal_ratio"] < low_threshold)
+    if selected_bases:
+        lift_receipt = q286_first_three_removed_low_tail_lift_receipt(
+            base_targets=selected_bases, lifts=lifts, threshold=low_threshold,
+            tolerance=tolerance)
+        first_clear_lifts = tuple(
+            row["first_lift_at_or_above_threshold"]
+            for row in lift_receipt["base_rows"].values())
+        maximum_first_clear_lift = max(
+            lift for lift in first_clear_lifts if lift is not None)
+        below_counts_by_lift = {
+            lift: sum(
+                1 for row in lift_receipt["base_rows"].values()
+                if lift in row["below_threshold_lifts"])
+            for lift in lifts}
+        all_clear = lift_receipt[
+            "every_base_clears_threshold_on_tested_lifts"]
+        global_minimum_target = lift_receipt["global_minimum_target"]
+        global_minimum_value = lift_receipt[
+            "global_minimum_complement_to_principal_ratio"]
+    else:
+        lift_receipt = None
+        first_clear_lifts = tuple()
+        maximum_first_clear_lift = None
+        below_counts_by_lift = {lift: 0 for lift in lifts}
+        all_clear = True
+        global_minimum_target = base_scan["minimum_complement_target"]
+        global_minimum_value = base_scan[
+            "minimum_complement_to_principal_ratio"]
+
+    return {
+        "arithmetic_period": base_scan["arithmetic_period"],
+        "base_start": base_start,
+        "base_targets_per_cycle": base_targets_per_cycle,
+        "low_threshold": low_threshold,
+        "lifts": lifts,
+        "base_scan_minimum_target": base_scan[
+            "minimum_complement_target"],
+        "base_scan_minimum_complement_to_principal_ratio": base_scan[
+            "minimum_complement_to_principal_ratio"],
+        "selected_base_targets": selected_bases,
+        "selected_base_count": len(selected_bases),
+        "tested_lift_target_count": len(selected_bases) * len(lifts),
+        "lift_receipt": lift_receipt,
+        "first_clear_lifts": first_clear_lifts,
+        "maximum_first_clear_lift": maximum_first_clear_lift,
+        "below_threshold_counts_by_lift": below_counts_by_lift,
+        "all_selected_bases_clear_threshold_on_tested_lifts": all_clear,
+        "global_minimum_lifted_target": global_minimum_target,
+        "global_minimum_lifted_complement_to_principal_ratio": (
+            global_minimum_value),
+        "first_three_removed_low_tail_auto_lift_measured": True,
+        "persistent_low_tail_obstruction_proved": False,
+        "eventual_lift_clearance_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
