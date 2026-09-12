@@ -42,6 +42,17 @@ finite evidence.  The next proof obligation is an explicit lower-occupancy or
 compensation estimate for this residue pair inside the strict-central
 binary-prime problem, not a claim that the cover itself proves Goldbach.
 
+An eight-cycle falsifier check strengthened this rather than breaking it:
+among `40040` tested targets, the lower-tail receipt found `89` full-action
+negatives, and the selected-target high-positive cover again used only residues
+`133` and `153`.  Residue `133` covered `70`; residue `153` covered the
+remaining `19`; uncovered targets: `0`.
+
+The next action should therefore move from broad discovery to theorem-shaping:
+derive the exact congruence/local-admissibility conditions for residues `133`
+and `153`, then identify what known or in-repo binary-prime-in-AP estimate
+would be sufficient to force enough strict-central occupancy or compensation.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

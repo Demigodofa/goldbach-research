@@ -330,3 +330,22 @@ local rows, not a proof that those residues must be occupied at large scale.
 The analytic target is now sharper: prove enough lower occupancy in this
 explicit high-positive residue pair, or prove that the compensating positive
 mass must arrive through the broader q286 coefficient mixture.
+
+The same cover survives the first eight complete periods when the negative
+targets are first extracted from `q286_first_two_mode_lower_tail_receipt` and
+then passed to `q286_high_positive_residue_cover_receipt` as selected targets.
+Across `40040` tested targets, there are `89` full-action negatives.  With
+`top_count=24`, the high-positive empty-residue greedy cover is still:
+
+```text
+residue 133 covers 70 targets
+residue 153 covers the remaining 19 targets
+uncovered targets: 0
+```
+
+Status `strengthened-aha-candidate`: the `133/153` cover is not merely a
+first-period accident among the currently observed lower-tail targets.  The
+proof gap is now quite specific: a pointwise theorem must either force
+occupation of these two high-positive residue channels often enough, or show
+that any failure of these channels is compensated by the remaining q286
+coefficient mixture.

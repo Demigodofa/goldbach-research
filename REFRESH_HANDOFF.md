@@ -40,6 +40,14 @@ targets: `0`.  This is a strong finite aha-candidate for the `133/153`
 mechanism, but still not a theorem and not a replacement for pointwise
 binary-prime correlation or occupancy estimates.
 
+Eight-cycle falsifier check: extracting full-action negatives from
+`q286_first_two_mode_lower_tail_receipt(cycle_count=8, targets_per_cycle=5005)`
+gave `89` negatives among `40040` tested targets.  Passing those selected
+targets into `q286_high_positive_residue_cover_receipt(top_count=24)` again
+gave a two-residue cover: `133` covers `70`, `153` covers the remaining `19`,
+with `0` uncovered.  This strengthens the finite `133/153` hypothesis; it does
+not prove the required pointwise occupancy/correlation theorem.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
