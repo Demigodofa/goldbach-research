@@ -2056,3 +2056,55 @@ Status `changed-under-evidence`: complement rescue is now a first-class
 measured object in the code.  The next falsifier can profile entire later
 bands and ask whether rescued tails are uniformly shallow, uniformly buffered,
 or split between the two.  No eventual theorem is proved.
+
+## 2026-09-12: cycle 41 through 48 rescue-profile band
+
+The rescue-profile receipt was applied one cycle at a time to global cycles
+`41..48` with threshold `.3`.  A first eight-cycle batched profile attempt was
+interrupted without evidence because it produced no progress output; the
+recorded results below come from progress-visible one-cycle receipt calls.
+
+```text
+cycle 41: tail 5, nonrescued 0,
+  deepest deficit 0.39427060083228704 at 425588,
+  min complement 0.781798032050101 at 422558,
+  min margin 0.4707764146934693 at 422558
+cycle 42: tail 7, nonrescued 0,
+  deepest deficit 0.46290305391350506 at 438458,
+  min complement 0.8204259011595246 at 439258,
+  min margin 0.3632776359552527 at 438458
+cycle 43: tail 1, nonrescued 0,
+  deepest deficit 0.3106946886916736 at 448346,
+  min complement 0.9781909468423949 at 448346,
+  min margin 0.6674962581507213 at 448346
+cycle 44: tail 5, nonrescued 0,
+  deepest deficit 0.3692776238508373 at 457886,
+  min complement 0.8724528784004306 at 450716,
+  min margin 0.5405019857795196 at 452126
+cycle 45: tail 5, nonrescued 0,
+  deepest deficit 0.35636261412344544 at 467066,
+  min complement 0.8521273377762162 at 467066,
+  min margin 0.4957647236527708 at 467066
+cycle 46: tail 8, nonrescued 0,
+  deepest deficit 0.37843343883082914 at 475046,
+  min complement 0.6972694262235392 at 474886,
+  min margin 0.3722882842435854 at 474886
+cycle 47: tail 12, nonrescued 0,
+  deepest deficit 0.3944561276678578 at 487304,
+  min complement 0.6963418713847755 at 480614,
+  min margin 0.3560917899268151 at 480614
+cycle 48: tail 8, nonrescued 0,
+  deepest deficit 0.3595148345647118 at 495086,
+  min complement 0.6776643969822953 at 492056,
+  min margin 0.3753970321225119 at 492056
+```
+
+Across this band, deepest measured deficit is `0.46290305391350506`, minimum
+measured complement is `0.6776643969822953`, and minimum measured rescue
+margin is `0.3560917899268151`.
+
+Status `aha-candidate`: in cycles `41..48`, rescue is not merely shallow-tail
+avoidance; there is also a substantial complement floor on the tail set.  The
+next theorem target can be stated more concretely as an eventual tail-set
+complement lower bound, with finite boundary exceptions.  This remains finite
+evidence.

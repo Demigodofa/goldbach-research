@@ -17335,3 +17335,16 @@ Validation: bytecode-disabled `py_compile` passed; focused regression
 Status `changed-under-evidence`: rescue-mechanism profiling is now a reusable
 receipt.  Next use it to classify later bands into shallow-deficit versus
 large-buffer rescue regimes.
+
+## 2026-09-12 continuation: cycle 41 through 48 rescue-profile band
+
+`q286_first_three_tail_rescue_profile_receipt` was applied one cycle at a time
+to global cycles `41..48`.  Every `.3` tail target was rescued.  Across the
+band, the deepest first-three deficit is `0.46290305391350506`, the minimum
+tail-set complement is `0.6776643969822953`, and the minimum rescue margin is
+`0.3560917899268151`.
+
+Status `aha-candidate`: the later-band mechanism is stronger than shallow-tail
+avoidance alone; the tail set also has a substantial complement floor in this
+band.  The next theorem target is an eventual lower bound for complement on
+the first-three tail set, plus finite boundary exceptions.

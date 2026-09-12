@@ -9111,3 +9111,14 @@ single-tail case (`448346`) and passed in `254.052s` after bytecode-disabled
 Status `changed-under-evidence`: complement rescue can now be profiled across
 later bands to test whether tails are shallow, strongly buffered, or split
 between those regimes.  No theorem is proved.
+
+### 2026-09-12 continuation: cycle 41 through 48 rescue-profile band
+
+The rescue-profile receipt was run one cycle at a time over global cycles
+`41..48`.  Every `.3` tail target is rescued.  Across the band, deepest
+first-three deficit is `0.46290305391350506`, minimum tail-set complement is
+`0.6776643969822953`, and minimum rescue margin is `0.3560917899268151`.
+
+Status `aha-candidate`: this supports a sharper eventual target: prove a
+tail-set complement lower bound after the finite boundary regime.  Finite
+evidence only.
