@@ -89,6 +89,15 @@ single clean pair: `1` and `265` appear in `4/6`, while `263`, `211`, and
 `283` appear in `3/6`.  This suggests a finite positive portfolio may be needed
 if the compensation route is to avoid the full signed-correlation estimate.
 
+The portfolio check is now codified as
+`q286_cover_pair_compensation_portfolio_receipt`.  On the same six targets,
+with `top_count=24`, residue `263` alone covers all six in the greedy
+positive-row portfolio.  However, every first-three mode sum remains negative;
+the full-without-first-three component ranges from `1.1168686400774108` to
+`1.5840594595083313` principal.  This points the next proof attempt toward a
+structured lower bound for the compensating remainder, not merely another
+positive first-three residue.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

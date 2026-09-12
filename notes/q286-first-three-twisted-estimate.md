@@ -481,3 +481,33 @@ the `133/153` negative cover.  The positive rows have several repeated
 residues rather than a single obvious second pair.  This keeps the compensation
 route alive, but warns that the next theorem may need a finite positive
 portfolio or the full coefficient mixture, not just one additional channel.
+
+`q286_cover_pair_compensation_portfolio_receipt` preserves the same check as a
+reusable diagnostic.  With the default six compensation targets and
+`top_count=24`, the greedy positive-row portfolio is:
+
+```text
+residue 263 covers all 6 targets
+uncovered targets: 0
+positive contribution ratio sum for residue 263: 0.24395443390945223
+```
+
+The strongest recurrence counts among the top positive rows are:
+
+```text
+263:6, 1:6, 283:6, 211:5, 265:5, 45:5, 285:5, 239:5,
+127:4, 177:4, 179:4, 19:4
+```
+
+For these six targets, every first-three mode sum remains negative; the
+largest is `-0.45659669277283`.  The full action becomes positive because the
+non-first-three part is large: `full_without_first_three/principal` ranges
+from `1.1168686400774108` to `1.5840594595083313`.
+
+Status `refined-compensation`: residue `263` is a clean finite positive-row
+portfolio marker for the first observed compensation cases, but the decisive
+positive mass is still the broader full-without-first-three component.  The
+next falsifier is therefore to test whether `263` persists when searching
+positive full-action targets with empty `133/153` outside these six lifted
+cases, and whether the full-without-first-three lower bound has a structural
+explanation.

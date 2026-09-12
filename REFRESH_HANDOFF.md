@@ -86,6 +86,15 @@ first-three residue rows are recurrent but diffuse: `1` and `265` appear in
 `6/6`.  This is a partial falsifier of an easy one-pair compensator, not a
 failure of the broader compensation route.
 
+Reusable compensation receipt: `q286_cover_pair_compensation_portfolio_receipt`
+on those six default targets gives a one-residue greedy positive-row portfolio:
+residue `263` covers all `6`, uncovered `0`, contribution-ratio sum
+`0.24395443390945223`.  Top positive recurrence begins
+`263:6, 1:6, 283:6, 211:5, 265:5, 45:5, 285:5, 239:5`.  All six first-three
+mode sums remain negative; the full action is rescued by the
+full-without-first-three component, which ranges from
+`1.1168686400774108` to `1.5840594595083313` principal.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

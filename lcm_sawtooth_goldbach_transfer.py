@@ -8435,3 +8435,149 @@ def q286_high_positive_cover_margin_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_cover_pair_compensation_portfolio_receipt(
+        selected_targets=(25036, 25306, 25372, 25582, 26002, 26722),
+        top_count=24,
+        tolerance=1e-09):
+    """Profile compensation when the q286 cover pair remains empty.
+
+    The default targets are the observed positive full-action lift-1 cases from
+    q286_driver_residue_lift_occupancy_receipt(lifts=(0, 1, 2)) where cover
+    residues 133 and 153 remain admissible-empty.  The receipt measures whether
+    top positive first-three q286 residue rows form a small portfolio, and how
+    much positivity is supplied outside the first-three modes.
+    """
+    targets = tuple(selected_targets)
+    ap_receipt = q286_first_three_ap_discrepancy_proxy_receipt(
+        selected_targets=targets,
+        top_count=top_count,
+        tolerance=tolerance)
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets,
+        targets_per_cycle=5005,
+        tolerance=tolerance)
+
+    target_positive_residues = {}
+    positive_presence_counts = {}
+    positive_score_sums = {}
+    target_rows = {}
+    for target in targets:
+        ap_row = ap_receipt["rows"][target]
+        lower_row = lower_receipt["rows"][target]
+        positive_residues = []
+        positive_rows = []
+        for residue_row in ap_row["largest_positive_residue_rows"]:
+            if residue_row["contribution_to_principal_ratio"] <= tolerance:
+                continue
+            residue = residue_row["residue_mod_286"]
+            positive_residues.append(residue)
+            positive_presence_counts[residue] = (
+                positive_presence_counts.get(residue, 0) + 1)
+            positive_score_sums[residue] = positive_score_sums.get(
+                residue, 0.0) + residue_row[
+                    "contribution_to_principal_ratio"]
+            positive_rows.append({
+                "residue_mod_286": residue,
+                "contribution_to_principal_ratio": residue_row[
+                    "contribution_to_principal_ratio"],
+                "prime_pair_weight": residue_row["prime_pair_weight"],
+            })
+        target_positive_residues[target] = tuple(positive_residues)
+        target_rows[target] = {
+            "full_action_to_principal_ratio": lower_row[
+                "full_action_to_principal_ratio"],
+            "first_three_modes_to_principal_ratio": lower_row[
+                "first_three_modes_to_principal_ratio"],
+            "full_without_first_three_to_principal_ratio": lower_row[
+                "full_without_first_three_to_principal_ratio"],
+            "reduced_without_first_three_to_principal_ratio": lower_row[
+                "reduced_without_first_three_to_principal_ratio"],
+            "positive_real_contribution_to_principal_ratio": ap_row[
+                "positive_real_contribution_to_principal_ratio"],
+            "negative_real_contribution_to_principal_ratio": ap_row[
+                "negative_real_contribution_to_principal_ratio"],
+            "top_positive_residue_rows": tuple(positive_rows),
+        }
+
+    remaining_targets = set(targets)
+    greedy_rows = []
+    while remaining_targets:
+        candidates = set()
+        for target in remaining_targets:
+            candidates.update(target_positive_residues[target])
+        if not candidates:
+            break
+        best_residue = max(
+            candidates,
+            key=lambda residue: (
+                len({
+                    target for target in remaining_targets
+                    if residue in target_positive_residues[target]
+                }),
+                positive_score_sums.get(residue, 0.0),
+                -residue))
+        hit_targets = tuple(sorted(
+            target for target in remaining_targets
+            if best_residue in target_positive_residues[target]))
+        greedy_rows.append({
+            "residue_mod_286": best_residue,
+            "newly_covered_target_count": len(hit_targets),
+            "newly_covered_targets": hit_targets,
+            "top_positive_presence_count": positive_presence_counts[
+                best_residue],
+            "positive_contribution_to_principal_ratio_sum": (
+                positive_score_sums[best_residue]),
+        })
+        remaining_targets.difference_update(hit_targets)
+
+    top_presence_rows = tuple(
+        {
+            "residue_mod_286": residue,
+            "top_positive_presence_count": count,
+            "positive_contribution_to_principal_ratio_sum": (
+                positive_score_sums[residue]),
+        }
+        for residue, count in sorted(
+            positive_presence_counts.items(),
+            key=lambda item: (
+                -item[1],
+                -positive_score_sums[item[0]],
+                item[0]))
+    )
+    without_first_three_values = tuple(
+        row["full_without_first_three_to_principal_ratio"]
+        for row in target_rows.values())
+    first_three_values = tuple(
+        row["first_three_modes_to_principal_ratio"]
+        for row in target_rows.values())
+
+    return {
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "tested_target_count": len(targets),
+        "top_count": top_count,
+        "target_rows": target_rows,
+        "top_positive_presence_rows": top_presence_rows,
+        "greedy_positive_portfolio_rows": tuple(greedy_rows),
+        "uncovered_targets": tuple(sorted(remaining_targets)),
+        "uncovered_target_count": len(remaining_targets),
+        "greedy_positive_portfolio_residue_count": len(greedy_rows),
+        "minimum_full_without_first_three_to_principal_ratio": (
+            min(without_first_three_values)
+            if without_first_three_values else None),
+        "maximum_full_without_first_three_to_principal_ratio": (
+            max(without_first_three_values)
+            if without_first_three_values else None),
+        "maximum_first_three_modes_to_principal_ratio": (
+            max(first_three_values) if first_three_values else None),
+        "all_first_three_modes_negative": all(
+            value < -tolerance for value in first_three_values),
+        "compensation_portfolio_measured": True,
+        "single_positive_residue_portfolio_observed": (
+            len(greedy_rows) == 1 and len(remaining_targets) == 0),
+        "compensation_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
