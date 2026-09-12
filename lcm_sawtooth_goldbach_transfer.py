@@ -7445,6 +7445,165 @@ def q286_first_three_full_negative_driver_receipt(
     }
 
 
+def q286_driver_residue_lift_occupancy_receipt(
+        base_targets=None, start=10000, targets_per_cycle=5005,
+        lifts=(0, 1, 4, 9, 19, 49), driver_residues=(133, 153),
+        tolerance=1e-9):
+    """Track q286 driver-residue strict-central occupancy across lifts."""
+    if base_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    else:
+        base_targets = tuple(dict.fromkeys(base_targets))
+        if (not base_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in base_targets)):
+            raise ValueError("base_targets must be even integers at least 40")
+        start = min(base_targets)
+        targets_per_cycle = len(base_targets)
+    lifts = tuple(lifts)
+    if not lifts or any(type(lift) is not int or lift < 0 for lift in lifts):
+        raise ValueError("lifts must be nonnegative integers")
+    driver_residues = tuple(driver_residues)
+    if (not driver_residues
+            or any(type(residue) is not int or math.gcd(residue, 286) != 1
+                   for residue in driver_residues)):
+        raise ValueError("driver_residues must be units modulo 286")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    if base_targets is None:
+        base_receipt = reduced_full_lower_envelope_receipt(
+            start=start, targets_per_cycle=targets_per_cycle,
+            q286_mode_count=6, tolerance=tolerance)
+        period = base_receipt["arithmetic_period"]
+        base_targets = tuple(
+            target for target, row in base_receipt["rows"].items()
+            if row["full_action_to_principal_ratio"] <= 0)
+    else:
+        period = 10010
+    lifted_targets = tuple(dict.fromkeys(
+        base + lift * period for base in base_targets for lift in lifts))
+    action_receipt = reduced_full_lower_envelope_receipt(
+        selected_targets=lifted_targets, q286_mode_count=6,
+        tolerance=tolerance)
+    primes = _prime_table(max(lifted_targets))
+
+    lift_rows = {
+        lift: {
+            "target_count": 0,
+            "negative_full_action_count": 0,
+            "all_driver_residues_admissible_count": 0,
+            "all_driver_residues_admissible_empty_count": 0,
+            "any_driver_residue_positive_count": 0,
+            "all_driver_residues_positive_count": 0,
+        } for lift in lifts}
+    target_rows = {}
+    negative_with_all_empty = []
+    positive_with_all_empty = []
+    for base in base_targets:
+        per_lift = {}
+        for lift in lifts:
+            target = base + lift * period
+            action_ratio = action_receipt["rows"][target][
+                "full_action_to_principal_ratio"]
+            lower = target // 3
+            upper = target - lower
+            occupancy_rows = []
+            all_admissible = True
+            all_admissible_empty = True
+            any_positive = False
+            all_positive = True
+            for residue in driver_residues:
+                admissible = math.gcd((target - residue) % 286, 286) == 1
+                pair_count = 0
+                pair_weight = 0.0
+                first_pair = None
+                if admissible:
+                    for prime in range(max(2, lower + 1), min(target, upper)):
+                        partner = target - prime
+                        if (prime % 286 == residue
+                                and primes[prime] and primes[partner]):
+                            weight = math.log(prime) * math.log(partner)
+                            pair_count += 1
+                            pair_weight += weight
+                            if first_pair is None:
+                                first_pair = (prime, partner)
+                else:
+                    all_admissible = False
+                if pair_count:
+                    any_positive = True
+                    all_admissible_empty = False
+                else:
+                    all_positive = False
+                    if not admissible:
+                        all_admissible_empty = False
+                occupancy_rows.append({
+                    "residue_mod_286": residue,
+                    "admissible_for_target": admissible,
+                    "strict_central_prime_pair_count": pair_count,
+                    "strict_central_prime_pair_weight": pair_weight,
+                    "first_strict_central_pair": first_pair,
+                })
+            lift_rows[lift]["target_count"] += 1
+            if action_ratio <= 0:
+                lift_rows[lift]["negative_full_action_count"] += 1
+            if all_admissible:
+                lift_rows[lift][
+                    "all_driver_residues_admissible_count"] += 1
+            if all_admissible and all_admissible_empty:
+                lift_rows[lift][
+                    "all_driver_residues_admissible_empty_count"] += 1
+                if action_ratio <= 0:
+                    negative_with_all_empty.append((base, lift, target))
+                else:
+                    positive_with_all_empty.append((base, lift, target))
+            if any_positive:
+                lift_rows[lift]["any_driver_residue_positive_count"] += 1
+            if all_positive:
+                lift_rows[lift]["all_driver_residues_positive_count"] += 1
+            per_lift[lift] = {
+                "target": target,
+                "full_action_to_principal_ratio": action_ratio,
+                "all_driver_residues_admissible": all_admissible,
+                "all_driver_residues_admissible_empty": (
+                    all_admissible and all_admissible_empty),
+                "any_driver_residue_positive": any_positive,
+                "all_driver_residues_positive": all_positive,
+                "driver_residue_occupancy_rows": tuple(occupancy_rows),
+            }
+        target_rows[base] = per_lift
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": 286,
+        "base_targets": base_targets,
+        "base_target_count": len(base_targets),
+        "lifts": lifts,
+        "driver_residues": driver_residues,
+        "tested_target_count": len(lifted_targets),
+        "lift_rows": lift_rows,
+        "target_rows": target_rows,
+        "negative_with_all_driver_residues_empty_count": len(
+            negative_with_all_empty),
+        "positive_with_all_driver_residues_empty_count": len(
+            positive_with_all_empty),
+        "negative_with_all_driver_residues_empty_rows": tuple(
+            negative_with_all_empty),
+        "positive_with_all_driver_residues_empty_rows": tuple(
+            positive_with_all_empty),
+        "driver_residue_lift_occupancy_measured": True,
+        "driver_residue_hitting_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

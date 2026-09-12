@@ -8548,3 +8548,17 @@ targets and both are admissible-empty in `44`.
 Status update `aha-candidate`: the sharper subproblem is not just local
 admissibility; many lower-tail failures have locally available high-positive
 residue classes with no strict-central prime pair at the tested scale.
+
+`q286_driver_residue_lift_occupancy_receipt` follows the exact first-period
+negative base targets through period lifts `(0,1,4,9,19,49)`.  Default run:
+`75` bases and `450` lifted targets.  At lift `0`, all `75` bases are
+negative; both driver residues are admissible in `63` cases, both
+admissible-empty in `44`, at least one driver is positive in `19`, and both
+are positive in `0`.  At lift `1`, no lifted target is negative, and both
+driver residues are admissible-empty in only `6`.  At lift `4`, both-empty
+disappears.
+
+Status `aha-candidate`: sampled lifts support a finite threshold route where
+high-positive driver residues fill quickly.  But driver-residue hitting is not
+equivalent to positivity, because lift `1` has six positive targets with both
+driver residues still admissible-empty.

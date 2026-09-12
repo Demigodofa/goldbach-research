@@ -39,6 +39,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_singular_mode_contribution_receipt,
     q286_first_three_ap_discrepancy_proxy_receipt,
     q286_first_three_full_negative_driver_receipt,
+    q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
@@ -1320,6 +1321,24 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                           receipt["target_rows"][target])
         self.assertTrue(receipt["full_negative_driver_measured"])
         self.assertFalse(receipt["driver_residues_explain_all_negatives"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_driver_residue_lift_occupancy(self):
+        receipt = q286_driver_residue_lift_occupancy_receipt(
+            base_targets=(10424, 14138), lifts=(0, 1))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["base_targets"], (10424, 14138))
+        self.assertEqual(receipt["lifts"], (0, 1))
+        self.assertEqual(receipt["driver_residues"], (133, 153))
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertIn(0, receipt["lift_rows"])
+        self.assertIn(10424, receipt["target_rows"])
+        self.assertTrue(receipt["driver_residue_lift_occupancy_measured"])
+        self.assertFalse(receipt["driver_residue_hitting_theorem_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

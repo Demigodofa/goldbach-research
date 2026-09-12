@@ -231,3 +231,28 @@ This refines the residue-hitting subproblem: a proof cannot merely say these
 classes are sometimes locally unavailable.  In many exact negative cases they
 are locally available but contain no strict-central prime pair at the tested
 scale.
+
+## Driver-residue lift occupancy
+
+`q286_driver_residue_lift_occupancy_receipt` follows the exact first-period
+negative base targets through period lifts `(0,1,4,9,19,49)` and tests literal
+strict-central occupancy in residues `133` and `153`.
+
+Default run: `75` first-period negative bases and `450` lifted targets.  At
+lift `0`, all `75` bases are negative; both driver residues are admissible in
+`63` cases, both admissible-empty in `44`, at least one driver residue is
+positive in `19`, and both are positive in `0`.
+
+At lift `1`, no lifted target is negative; both driver residues are still
+admissible in `63` cases, both admissible-empty in only `6`, at least one is
+positive in `66`, and both are positive in `38`.  At lift `4`, both-empty
+disappears, at least one driver is positive in `74`, and both are positive in
+`59`.  At lifts `9,19,49`, at least one driver is positive in all `75`; both
+are positive in `61,63,63` respectively.
+
+Status `aha-candidate`: the high-positive driver residues tend to fill quickly
+under sampled period lifts of first-cycle bad bases, matching the observed
+positivity of the full action at those lifts.  However, lift `1` already has
+six positive targets where both driver residues are still admissible-empty, so
+driver-residue hitting is not equivalent to positivity.  It is a finite clue,
+not a substitute for the first-three twisted correlation estimate.
