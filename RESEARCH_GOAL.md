@@ -98,6 +98,14 @@ the full-without-first-three component ranges from `1.1168686400774108` to
 structured lower bound for the compensating remainder, not merely another
 positive first-three residue.
 
+The `263` single-compensator hypothesis is now falsified at first-period
+scale.  Among all `5005` first-period targets, `204` are positive even though
+both `133/153` are admissible-empty.  Their top-positive first-three rows are
+covered by a five-residue greedy portfolio:
+`179,29,167,241,109`, with cover counts `135,41,17,8,3` and no uncovered
+targets.  The compensation route remains structured, but it is now a finite
+portfolio problem rather than a one-channel theorem.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

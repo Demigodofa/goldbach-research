@@ -511,3 +511,32 @@ next falsifier is therefore to test whether `263` persists when searching
 positive full-action targets with empty `133/153` outside these six lifted
 cases, and whether the full-without-first-three lower bound has a structural
 explanation.
+
+That next falsifier was run over the whole first period.  Among `5005` targets,
+there are `204` positive full-action targets where both `133/153` are
+admissible-empty, compared with `44` negative both-empty cases.  Applying the
+same top-positive first-three portfolio scan with `top_count=24` to those
+`204` positive both-empty targets gives a five-residue greedy cover:
+
+```text
+179 covers 135 targets
+29 covers 41 additional targets
+167 covers 17 additional targets
+241 covers 8 additional targets
+109 covers the remaining 3 targets
+uncovered targets: 0
+```
+
+The most frequent positive-row residues in those `204` targets begin:
+
+```text
+179:135, 109:124, 243:121, 29:106, 111:104, 89:102,
+241:95, 265:93, 127:92, 263:91, 145:86, 3:85
+```
+
+Status `single-compensator-falsified`: residue `263` is not the global
+first-period compensator for positive both-empty targets.  The compensation
+route remains structured, but the observed structure is a finite portfolio
+with several moving residues.  A proof that discards the compensating remainder
+and tries to replace it with one clean positive channel would lose this
+evidence.

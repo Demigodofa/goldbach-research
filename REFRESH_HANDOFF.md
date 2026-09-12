@@ -95,6 +95,15 @@ mode sums remain negative; the full action is rescued by the
 full-without-first-three component, which ranges from
 `1.1168686400774108` to `1.5840594595083313` principal.
 
+Broader compensation falsifier: over the whole first period, there are `204`
+positive full-action targets where both `133/153` are admissible-empty, versus
+`44` negative both-empty cases.  On those `204`, the top-positive first-three
+portfolio with `top_count=24` is not the single residue `263`; the greedy cover
+is `179` for `135`, `29` for `41`, `167` for `17`, `241` for `8`, and `109`
+for the final `3`, with `0` uncovered.  Top positive recurrence begins
+`179:135, 109:124, 243:121, 29:106, 111:104, 89:102`.  Treat this as a
+single-compensator falsifier and a finite-portfolio clue.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
