@@ -4259,6 +4259,195 @@ def q286_residue_discrepancy_profile_receipt(
     }
 
 
+def q286_character_imbalance_receipt(
+        targets=(10424, 14138, 88346), top_count=10, tolerance=1e-9):
+    """Move the q286 residue discrepancy into character coordinates.
+
+    This is the same q286 deviation as
+    ``q286_residue_discrepancy_profile_receipt``, but written as a finite sum
+    of nonprincipal Dirichlet-character imbalance terms modulo 286.  It names
+    the exact character-sum object an analytic signed estimate would need to
+    bound.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = complex(np.mean(values))
+    centered = values - principal_mean
+    _, period_labels, period_character_table = _unit_character_table(
+        period, period_units)
+    period_character_coefficients = (
+        np.conjugate(period_character_table) @ centered / len(period_units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(period_labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+
+    support = (11, 13)
+    masked = np.zeros_like(period_character_coefficients)
+    masked[support_indices[support]] = period_character_coefficients[
+        support_indices[support]]
+    component = period_character_table.T @ masked
+    modulus = 286
+    grouped = {}
+    for unit, value in zip(period_units, component):
+        grouped.setdefault(unit % modulus, []).append(value)
+    lower_values = {
+        residue: _complex_fsum(values) / len(values)
+        for residue, values in grouped.items()}
+
+    units = tuple(sorted(lower_values))
+    coefficient_values = np.asarray(tuple(
+        lower_values[unit] for unit in units), dtype=np.complex128)
+    odd_primes, labels, character_table = _unit_character_table(
+        modulus, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ coefficient_values / len(units))
+    coefficient_reconstruction = character_table.T @ character_coefficients
+    coefficient_reconstruction_error = float(
+        np.linalg.norm(coefficient_reconstruction - coefficient_values)
+        / max(1.0, np.linalg.norm(coefficient_values)))
+    active_labels = tuple(
+        label for label, value in zip(labels, character_coefficients)
+        if abs(value) > tolerance)
+    active_both_prime_support_count = sum(
+        1 for label in active_labels if label[0] != 0 and label[1] != 0)
+    active_character_energy = float(np.sum(
+        np.abs(character_coefficients) ** 2))
+    top_coefficient_rows = tuple({
+        "label": label,
+        "coefficient": complex(value),
+        "energy_fraction": (
+            float(abs(value) ** 2) / active_character_energy
+            if active_character_energy else 0.0),
+    } for value, label in sorted(
+        zip(character_coefficients, labels),
+        key=lambda item: abs(item[0]) ** 2,
+        reverse=True)[:top_count])
+
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+    rows = {}
+    maximum_deviation_reconstruction_error = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        total_weight = 0.0
+        weights = np.zeros(len(units), dtype=np.float64)
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                total_weight += weight
+                weights[unit_index[prime % modulus]] += weight
+        principal_contribution = principal_mean * total_weight
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        weight_delta = np.zeros(len(units), dtype=np.float64)
+        weight_delta[admissible_mask] = (
+            weights[admissible_mask] - mean_weight)
+        residue_deviation = _complex_fsum(
+            coefficient_values[index] * weight_delta[index]
+            for index in range(len(units)))
+        imbalance_sums = character_table @ weight_delta
+        character_contributions = character_coefficients * imbalance_sums
+        character_deviation = _complex_fsum(character_contributions)
+        deviation_reconstruction_error = abs(
+            character_deviation - residue_deviation) / max(
+                1.0, abs(residue_deviation))
+        maximum_deviation_reconstruction_error = max(
+            maximum_deviation_reconstruction_error,
+            deviation_reconstruction_error)
+        contribution_rows = tuple({
+            "label": label,
+            "coefficient": complex(coefficient_value),
+            "imbalance_sum": complex(imbalance_sum),
+            "contribution": complex(contribution),
+            "contribution_to_principal_ratio": float(
+                contribution.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+        } for label, coefficient_value, imbalance_sum, contribution in zip(
+            labels, character_coefficients, imbalance_sums,
+            character_contributions))
+        top_negative = tuple(sorted(
+            contribution_rows,
+            key=lambda row: row["contribution"].real)[:top_count])
+        top_positive = tuple(sorted(
+            contribution_rows,
+            key=lambda row: row["contribution"].real,
+            reverse=True)[:top_count])
+        top_negative_sum = _complex_fsum(
+            row["contribution"] for row in top_negative)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "total_prime_pair_weight": total_weight,
+            "admissible_residue_count": admissible_count,
+            "principal_contribution": principal_contribution,
+            "residue_deviation": residue_deviation,
+            "character_deviation": character_deviation,
+            "deviation_reconstruction_error": (
+                deviation_reconstruction_error),
+            "deviation_to_principal_ratio": float(
+                residue_deviation.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "top_negative_character_rows": top_negative,
+            "top_positive_character_rows": top_positive,
+            "top_negative_character_to_total_deviation_ratio": float(
+                top_negative_sum.real / residue_deviation.real
+                if abs(residue_deviation.real) > tolerance else math.nan),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "support": support,
+        "natural_modulus": modulus,
+        "odd_primes": odd_primes,
+        "unit_group_order": len(units),
+        "character_count": len(labels),
+        "active_character_count": len(active_labels),
+        "active_both_prime_support_count": active_both_prime_support_count,
+        "active_labels_all_have_both_prime_support": bool(
+            active_both_prime_support_count == len(active_labels)),
+        "coefficient_reconstruction_error": (
+            coefficient_reconstruction_error),
+        "maximum_deviation_reconstruction_error": (
+            maximum_deviation_reconstruction_error),
+        "top_coefficient_character_rows": top_coefficient_rows,
+        "targets": targets,
+        "top_count": top_count,
+        "rows": rows,
+        "q286_character_imbalance_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

@@ -7528,6 +7528,22 @@ q286-only Cauchy threshold, but the actual signed deviation uses only about
 stronger residue-weight L2 equidistribution or a signed angle bound between
 the imbalance vector and `C_q286`.
 
+## 2026-09-12: q286 character imbalance is narrower than residue support
+
+The q286 deviation also has an exact character-coordinate form.  The coefficient
+reconstructs from characters modulo `286` with relative error
+`2.3684586932433417e-15`, and the bad-target deviations reconstruct with
+maximum relative error `1.938291320163869e-15`.
+
+The useful surprise is that only `59` character coefficients are active above
+tolerance, not all `99` possible labels that are nontrivial at both primes
+`11` and `13`.  Every active label still has both-prime support.  The leading
+coefficient labels are stable coefficient features, but the leading negative
+target-contribution labels vary with `N`, so the immediate route is not a
+single-character obstruction.  The target estimate is a finite family of
+twisted strict-central Goldbach sums modulo `286`, with a 59-character
+coefficient support.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

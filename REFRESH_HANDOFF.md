@@ -15913,3 +15913,26 @@ of two and a half.  The actual signed deviations use only fractions
 `0.19146520713929577`, `0.1727458822172166`, and `0.30904476926988145` of the
 Cauchy envelope, so a proof could exploit angle/correlation as well as L2
 size.
+
+## 2026-09-12: q286 character imbalance is narrower than residue support
+
+`q286_character_imbalance_receipt` rewrites the same q286 deviation in
+Dirichlet-character coordinates modulo `286`.  This directly names the
+analytic object: weighted strict-central prime-pair imbalance against
+nonprincipal characters on the `11*13` unit group.
+
+The coefficient reconstructs with relative error `2.3684586932433417e-15`,
+and the character-side deviation reconstructs the residue-side deviation with
+maximum relative error `1.938291320163869e-15` on `N=10424,14138,88346`.
+Only `59` character coefficients are active above tolerance, not all `99`
+possible both-prime-support labels; all active labels still have nonzero
+components at both `11` and `13`.
+
+Leading coefficient-energy labels include `(3,7)` and `(7,5)`, each with
+energy fraction about `0.03113`, followed by `(5,5)` and `(5,7)`, each about
+`0.02914`.  Leading negative target contributions vary with `N`: for
+`N=10424`, the top labels include `(9,1)`, `(1,11)`, `(3,11)`, `(7,1)`;
+for `N=14138`, `(9,5)`, `(1,7)`, `(8,2)`, `(2,10)`; and for `N=88346`,
+`(5,9)`, `(5,3)`, `(8,4)`, `(2,8)`.  The top six negative character terms
+account for about `0.66886`, `0.64482`, and `0.39042` of the total negative
+deviation before positive offsets.
