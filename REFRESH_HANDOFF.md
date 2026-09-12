@@ -14916,3 +14916,46 @@ by fixed or finitely periodic coefficients that can be absorbed at modulus
 almost-all estimate. A moving scale-dependent coefficient, an omitted source
 family or unmatched endpoint term rejects that assembly while preserving the
 two direct-source theorems.
+
+## 2026-09-12: the mod-130 source is the lag-130 fiber shadow
+
+The first bridge test found a clean finite identity, without reviving the
+rejected pointwise descent. Let `F_130` be the actual direct full-period source
+on `U_10010`, and for `r in U_130` let
+
+`S_130(r)=sum_(a in U_10010, a=r mod 130) F_130(a)`.
+
+Each fiber has exactly `phi(77)=60` unit lifts. If `G_0` denotes the previously
+used globally centered recombined quotient-77 source on `U_130`, then
+
+`G_0(r)=-(S_130(r)-mean_s S_130(s))`.
+
+Equivalently,
+
+`G_0(r)=-60*(avg_(a=r mod 130)F_130(a)
+             -mean_s avg_(a=s mod 130)F_130(a))`.
+
+`direct_source_fiber_average_receipt` records this identity. The best scalar
+fit from centered lag-130 fiber sums to `G_0` is `-1` up to roundoff, with
+relative reconstruction error about `2.5e-14`. The lag-110 centered fiber sum
+is a negative control: its correlation with `G_0` is about `.03145`, and the
+direct negative reconstruction error is greater than `.9`.
+
+Independent review returned PASS. Faraday reconstructed the `60`-lift fibers,
+the sign, the centering convention, and the factor-60 average form. It also
+confirmed the lag-110 negative control and the explicit scope flags. The
+focused test passes normally and under `-O`; the full
+`test_lcm_sawtooth_goldbach_transfer` module now has four tests and passes in
+`146.863s`. `py_compile` passes, and `git diff --check` reports only line-ending
+warnings.
+
+Curiosity status: `aha-candidate`, novelty `new-to-this-task`. The old
+mod-130 Halupczok transfer is now identified as the fiber-averaged shadow of
+the direct lag-130 source, not as a false pointwise descent. This preserves the
+direct U10010 theorem and the previous mod-130 theorem as compatible tools.
+
+This still does not identify the original count-four outer assembly or the
+formal signed error `T_boundary-Delta`. The next bounded question is sharper:
+does the actual outer assembly use this lag-130 fiber-shadow channel with a
+fixed coefficient, or does it also require moving coefficients, lag 110, other
+source families, endpoint terms, or a scale-dependent boundary remainder?

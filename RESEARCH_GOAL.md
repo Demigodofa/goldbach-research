@@ -7331,3 +7331,38 @@ parameters by `.02696,.02768`. The `.01` falsifier therefore rejects the
 largest-positive-weight conductor formula as well. This further narrows the
 surviving observation to finite proximity with the upper conductor boundary,
 without a positive-weight dominance explanation.
+
+### 2026-09-12 continuation: the old mod-130 source is a fiber average of F_130
+
+The source-assembly bridge now has one exact finite component. The actual
+direct full-period lag-130 source `F_130` on `U_10010` does not descend
+pointwise to `U_130`, but its centered fiber sums do. For every `r in U_130`,
+with
+
+`S_130(r)=sum_(a in U_10010, a=r mod 130)F_130(a)`,
+
+the previously used globally centered recombined quotient-77 source satisfies
+
+`G_0(r)=-(S_130(r)-mean_s S_130(s))`.
+
+Each fiber has `60` lifts, so the equivalent fiber-average form is
+`G_0=-60` times the centered average of `F_130` over the fibers. The reviewed
+finite reconstruction error is about `2.5e-14`; the best coefficient is `-1`
+up to roundoff. The lag-110 fiber source is a negative control, with
+correlation about `.03145` to `G_0` and direct negative reconstruction error
+greater than `.9`.
+
+Independent review returned PASS for the sign, factor `60`, centering,
+source provenance, lag-110 negative control, and scope. The focused test
+passes normally and under `-O`; the full
+`test_lcm_sawtooth_goldbach_transfer` module now has four tests and passes in
+`146.863s`. This is an `aha-candidate`, novelty `new-to-this-task`.
+
+This result connects the older mod-130 Halupczok transfer to the new direct
+U10010 source theorem as a fiber-averaged shadow. It still does not prove
+pointwise descent, original outer assembly identification, the formal
+`T_boundary-Delta` signed estimate, or Goldbach. The next question is whether
+the original count-four outer assembly uses this lag-130 fiber-shadow channel
+with fixed coefficients, or whether it also contains moving coefficients,
+lag 110, omitted source families, endpoints, or a scale-dependent boundary
+remainder.

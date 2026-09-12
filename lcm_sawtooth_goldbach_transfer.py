@@ -471,5 +471,133 @@ def canonical_direct_resonant_goldbach_main_receipt(tolerance=1e-12):
     }
 
 
+def direct_source_fiber_average_receipt(tolerance=1e-12):
+    """Compare the old mod-130 source with full-period direct sources.
+
+    The direct lag-130 source does not descend pointwise to ``U_130``.  Its
+    fiber sum over the 60 lifts in ``U_10010`` nevertheless has the exact
+    centered quotient source previously used in the mod-130 Goldbach transfer:
+
+        G_0(r) = -(sum_{a in U_10010, a=r mod 130} F_130(a)
+                  - mean_s sum_{a=s mod 130} F_130(a)).
+
+    This identifies the earlier quotient-77 source as a fiber-averaged
+    shadow of the actual direct lag-130 source.  It is not an identification
+    of the original outer assembly or the formal signed error.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    character = recombined_centered_character_receipt(tolerance=tolerance)
+    common = character["common_modulus"]
+    if common != 130:
+        raise AssertionError("expected recombined source modulo 130")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    if period % common:
+        raise AssertionError("common modulus must divide the full period")
+    left_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[0])[2]
+    right_sources = _one_orientation_count_source_modes(
+        period, *CANONICAL_FAMILIES[1])[2]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    units_by_common_residue = {
+        residue: tuple(unit for unit in units if unit % common == residue)
+        for residue in character["unit_residues"]}
+    fiber_counts = tuple(
+        len(fiber) for fiber in units_by_common_residue.values())
+    if len(set(fiber_counts)) != 1:
+        raise AssertionError("unit fibers over U_130 are not uniform")
+    fiber_size = fiber_counts[0]
+    source_by_residue = np.asarray(
+        character["centered_source_values"], dtype=np.complex128)
+    source_scale = max(1.0, float(np.linalg.norm(source_by_residue)))
+
+    lag_rows = {}
+    for lag in CANONICAL_LAGS:
+        source_units, source_values_tuple = _direct_resonant_source_on_units(
+            period, lag, left_sources, right_sources)
+        if source_units != units:
+            raise AssertionError("direct source unit ordering changed")
+        source_values = {
+            residue: value
+            for residue, value in zip(source_units, source_values_tuple)}
+        fiber_sums = np.asarray(tuple(
+            sum((source_values[unit] for unit in units_by_common_residue[
+                residue]), 0.0j)
+            for residue in character["unit_residues"]),
+            dtype=np.complex128)
+        fiber_averages = fiber_sums / fiber_size
+        centered_fiber_sums = fiber_sums - np.mean(fiber_sums)
+        centered_fiber_averages = fiber_averages - np.mean(fiber_averages)
+
+        denominator = np.vdot(centered_fiber_sums, centered_fiber_sums)
+        best_sum_coefficient = (
+            np.vdot(centered_fiber_sums, source_by_residue) / denominator
+            if abs(denominator) else 0.0j)
+        best_sum_fit = best_sum_coefficient * centered_fiber_sums
+        best_sum_relative_error = float(
+            np.linalg.norm(best_sum_fit - source_by_residue) / source_scale)
+        sum_correlation = float(
+            abs(np.vdot(centered_fiber_sums, source_by_residue))
+            / max(
+                np.finfo(float).tiny,
+                float(np.linalg.norm(centered_fiber_sums))
+                * float(np.linalg.norm(source_by_residue))))
+        signed_sum_reconstruction = -centered_fiber_sums
+        signed_sum_relative_error = float(
+            np.linalg.norm(
+                signed_sum_reconstruction - source_by_residue)
+            / source_scale)
+        signed_average_reconstruction = -fiber_size * centered_fiber_averages
+        signed_average_relative_error = float(
+            np.linalg.norm(
+                signed_average_reconstruction - source_by_residue)
+            / source_scale)
+        lag_rows[lag] = {
+            "common_modulus": math.gcd(lag, period),
+            "quotient": period // math.gcd(lag, period),
+            "fiber_size_over_U130": fiber_size,
+            "fiber_sum_mean": complex(np.mean(fiber_sums)),
+            "best_centered_fiber_sum_coefficient": complex(
+                best_sum_coefficient),
+            "best_centered_fiber_sum_fit_relative_error": (
+                best_sum_relative_error),
+            "centered_fiber_sum_correlation_with_G0": sum_correlation,
+            "negative_centered_fiber_sum_reconstruction_relative_error": (
+                signed_sum_relative_error),
+            "negative_scaled_centered_fiber_average_relative_error": (
+                signed_average_relative_error),
+            "reconstructs_recombined_centered_source": bool(
+                signed_sum_relative_error <= tolerance
+                and signed_average_relative_error <= tolerance),
+        }
+
+    return {
+        "families": CANONICAL_FAMILIES,
+        "lags": CANONICAL_LAGS,
+        "arithmetic_period": period,
+        "common_modulus": common,
+        "unit_group_order": len(character["unit_residues"]),
+        "fiber_size_over_U130": fiber_size,
+        "identity": (
+            "G_0(r)=-sum_(a in U_10010,a=r mod 130)"
+            "(F_130(a)-mean_over_U_10010/F_130 fibers)"),
+        "lag_rows": lag_rows,
+        "lag_130_fiber_average_identifies_G0": bool(
+            lag_rows[130]["reconstructs_recombined_centered_source"]),
+        "lag_110_fiber_average_identifies_G0": bool(
+            lag_rows[110]["reconstructs_recombined_centered_source"]),
+        "direct_source_pointwise_descent_to_mod130_proved": False,
+        "quotient_source_fiber_shadow_identified": bool(
+            lag_rows[130]["reconstructs_recombined_centered_source"]
+            and not lag_rows[110]["reconstructs_recombined_centered_source"]),
+        "original_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 if __name__ == "__main__":
     print(even_even_goldbach_transfer_receipt())

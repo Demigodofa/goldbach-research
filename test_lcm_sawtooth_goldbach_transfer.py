@@ -3,11 +3,54 @@ import unittest
 from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
 )
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_direct_lag_130_fiber_average_recovers_mod130_source(self):
+        receipt = direct_source_fiber_average_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["unit_group_order"], 48)
+        self.assertEqual(receipt["fiber_size_over_U130"], 60)
+        lag130 = receipt["lag_rows"][130]
+        self.assertAlmostEqual(
+            lag130["best_centered_fiber_sum_coefficient"].real, -1.0,
+            places=12)
+        self.assertAlmostEqual(
+            lag130["best_centered_fiber_sum_coefficient"].imag, 0.0,
+            places=12)
+        self.assertLess(
+            lag130[
+                "negative_centered_fiber_sum_reconstruction_relative_error"],
+            1e-12)
+        self.assertLess(
+            lag130[
+                "negative_scaled_centered_fiber_average_relative_error"],
+            1e-12)
+        self.assertTrue(lag130[
+            "reconstructs_recombined_centered_source"])
+        lag110 = receipt["lag_rows"][110]
+        self.assertGreater(
+            lag110[
+                "negative_centered_fiber_sum_reconstruction_relative_error"],
+            .9)
+        self.assertLess(
+            lag110["centered_fiber_sum_correlation_with_G0"], .05)
+        self.assertFalse(lag110[
+            "reconstructs_recombined_centered_source"])
+        self.assertTrue(receipt["lag_130_fiber_average_identifies_G0"])
+        self.assertFalse(receipt["lag_110_fiber_average_identifies_G0"])
+        self.assertTrue(receipt["quotient_source_fiber_shadow_identified"])
+        self.assertFalse(receipt[
+            "direct_source_pointwise_descent_to_mod130_proved"])
+        self.assertFalse(receipt[
+            "original_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_actual_period_10010_resonant_sources(self):
         receipt = canonical_direct_resonant_goldbach_main_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)
