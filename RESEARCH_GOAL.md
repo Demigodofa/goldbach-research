@@ -132,6 +132,13 @@ both-empty targets and finds no size `1`, `2`, `3`, or `4` cover.  Size `5`
 covers exist.  This strengthens the separation between easy local coverage and
 hard quantitative signed contribution coverage.
 
+The broad compensation portfolio now has sign-direction evidence.  Four of the
+five greedy residues, `179,29,241,109`, help only as negative-coefficient
+deficits, usually zero-weight rows; only `167` helps as positive-coefficient
+surplus.  This pivots the theorem target away from simple favorable-residue
+lower bounds and toward either upper/avoidance control for negative
+coefficient channels or a global signed-cancellation estimate.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

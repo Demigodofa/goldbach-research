@@ -1397,6 +1397,11 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt[
                 "greedy_positive_portfolio_rows"][0]["residue_mod_286"],
             263)
+        first_presence = receipt["top_positive_presence_rows"][0]
+        self.assertEqual(
+            first_presence["negative_coefficient_deficit_count"], 2)
+        self.assertEqual(
+            first_presence["positive_coefficient_surplus_count"], 0)
         self.assertTrue(
             receipt["positive_both_empty_compensation_cover_measured"])
         self.assertFalse(receipt["single_compensator_proved"])

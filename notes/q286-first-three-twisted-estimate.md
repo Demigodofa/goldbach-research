@@ -619,3 +619,23 @@ Status `observed-cover-minimal`: with this top-row universe, the measured
 compensation cover really needs five residues on the first-period positive
 both-empty set.  This strengthens the warning that local coverage and observed
 signed contribution coverage are different problems.
+
+The broad compensation receipt now retains coefficient sign and weight
+direction.  For the five greedy portfolio residues on the `204` positive
+both-empty targets:
+
+```text
+179: seen 135, negative-coefficient deficits 135, zero weight 131
+29:  seen 106, negative-coefficient deficits 106, zero weight 99
+167: seen 83,  positive-coefficient surplus 83,  zero weight 0
+241: seen 95,  negative-coefficient deficits 95,  zero weight 92
+109: seen 124, negative-coefficient deficits 124, zero weight 122
+```
+
+Status `direction-pivot`: most observed compensation is not extra occupation
+in favorable positive-coefficient channels.  It is absence or deficit in
+negative-coefficient channels, with `167` as the one surplus-positive exception
+inside the greedy portfolio.  A proof based only on lower bounds for favorable
+residue classes misses this sign direction; the compensation theorem would
+need either pointwise upper control/avoidance for negative coefficient rows or
+a more global signed cancellation argument.

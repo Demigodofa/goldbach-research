@@ -8461,6 +8461,7 @@ def q286_cover_pair_compensation_portfolio_receipt(
 
     target_positive_residues = {}
     positive_presence_counts = {}
+    positive_direction_counts = {}
     positive_score_sums = {}
     target_rows = {}
     for target in targets:
@@ -8480,6 +8481,10 @@ def q286_cover_pair_compensation_portfolio_receipt(
                     "contribution_to_principal_ratio"]
             positive_rows.append({
                 "residue_mod_286": residue,
+                "coefficient_real": residue_row["coefficient_real"],
+                "weight_delta": residue_row["weight_delta"],
+                "relative_weight_delta": residue_row[
+                    "relative_weight_delta"],
                 "contribution_to_principal_ratio": residue_row[
                     "contribution_to_principal_ratio"],
                 "prime_pair_weight": residue_row["prime_pair_weight"],
@@ -8630,6 +8635,7 @@ def q286_positive_both_empty_compensation_cover_receipt(
 
     target_positive_residues = {}
     positive_presence_counts = {}
+    positive_direction_counts = {}
     positive_score_sums = {}
     target_rows = {}
     for target in targets:
@@ -8643,11 +8649,38 @@ def q286_positive_both_empty_compensation_cover_receipt(
             residues.append(residue)
             positive_presence_counts[residue] = (
                 positive_presence_counts.get(residue, 0) + 1)
+            direction_counts = positive_direction_counts.setdefault(
+                residue,
+                {
+                    "negative_coefficient_deficit_count": 0,
+                    "positive_coefficient_surplus_count": 0,
+                    "other_positive_contribution_count": 0,
+                    "zero_prime_pair_weight_count": 0,
+                    "positive_prime_pair_weight_count": 0,
+                })
+            if (residue_row["coefficient_real"] < -tolerance
+                    and residue_row["weight_delta"] < -tolerance):
+                direction_counts[
+                    "negative_coefficient_deficit_count"] += 1
+            elif (residue_row["coefficient_real"] > tolerance
+                  and residue_row["weight_delta"] > tolerance):
+                direction_counts[
+                    "positive_coefficient_surplus_count"] += 1
+            else:
+                direction_counts["other_positive_contribution_count"] += 1
+            if abs(residue_row["prime_pair_weight"]) <= tolerance:
+                direction_counts["zero_prime_pair_weight_count"] += 1
+            else:
+                direction_counts["positive_prime_pair_weight_count"] += 1
             positive_score_sums[residue] = positive_score_sums.get(
                 residue, 0.0) + residue_row[
                     "contribution_to_principal_ratio"]
             residue_rows.append({
                 "residue_mod_286": residue,
+                "coefficient_real": residue_row["coefficient_real"],
+                "weight_delta": residue_row["weight_delta"],
+                "relative_weight_delta": residue_row[
+                    "relative_weight_delta"],
                 "contribution_to_principal_ratio": residue_row[
                     "contribution_to_principal_ratio"],
                 "prime_pair_weight": residue_row["prime_pair_weight"],
@@ -8698,6 +8731,7 @@ def q286_positive_both_empty_compensation_cover_receipt(
         {
             "residue_mod_286": residue,
             "top_positive_presence_count": count,
+            **positive_direction_counts[residue],
             "positive_contribution_to_principal_ratio_sum": (
                 positive_score_sums[residue]),
         }

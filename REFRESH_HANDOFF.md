@@ -132,6 +132,15 @@ Size `5` covers exist; examples include `179,109,29,241,167` and
 the measured top-row universe, even though local admissibility needs only
 three residues.
 
+Sign-direction pivot: the broad compensation receipt now retains coefficient
+sign and weight direction.  In the five-residue greedy portfolio, `179`,
+`29`, `241`, and `109` contribute positively only as negative-coefficient
+deficits, usually with zero weight (`131/135`, `99/106`, `92/95`, `122/124`).
+Only `167` is a positive-coefficient surplus channel (`83/83`).  Therefore a
+pure lower-bound occupancy theorem for favorable residues is not enough for
+the compensation route; it needs upper/avoidance control for negative
+coefficient rows or a global signed-cancellation theorem.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
