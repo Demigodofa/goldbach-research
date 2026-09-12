@@ -123,6 +123,15 @@ is not locally minimal.  Three-residue subportfolios such as `179,29,167`,
 the measured first-period compensation cover needs five residues is not local
 admissibility; it is contribution size and signed prime-pair mass.
 
+Observed set-cover exactness: `q286_positive_both_empty_compensation_min_cover_receipt`
+checks the `204` first-period positive both-empty targets and `118` candidate
+positive-row residues.  It exhaustively finds no observed cover of size `1`
+through `4` (`118`, `6903`, `266916`, and `7673835` combinations checked).
+Size `5` covers exist; examples include `179,109,29,241,167` and
+`179,109,241,49,167`.  Thus the five-residue compensation cover is minimal in
+the measured top-row universe, even though local admissibility needs only
+three residues.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

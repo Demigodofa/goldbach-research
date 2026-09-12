@@ -125,6 +125,13 @@ both-empty targets needed five residues, the missing theorem is not about
 local availability; it is about quantitative signed contribution in the
 occupied rows.
 
+The observed five-residue compensation cover is now verified minimal in its
+top-row universe.  `q286_positive_both_empty_compensation_min_cover_receipt`
+checks `118` candidate residues across the `204` first-period positive
+both-empty targets and finds no size `1`, `2`, `3`, or `4` cover.  Size `5`
+covers exist.  This strengthens the separation between easy local coverage and
+hard quantitative signed contribution coverage.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

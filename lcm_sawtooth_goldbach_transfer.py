@@ -8789,3 +8789,92 @@ def q286_residue_portfolio_local_admissibility_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_positive_both_empty_compensation_min_cover_receipt(
+        top_count=24,
+        max_cover_size=5,
+        selected_targets=None,
+        start=10000,
+        targets_per_cycle=5005,
+        driver_residues=(133, 153),
+        max_examples=10,
+        tolerance=1e-09):
+    """Exact set-cover search for positive both-empty compensation rows."""
+    from itertools import combinations
+    base_receipt = q286_positive_both_empty_compensation_cover_receipt(
+        start=start,
+        targets_per_cycle=targets_per_cycle,
+        selected_targets=selected_targets,
+        top_count=top_count,
+        driver_residues=driver_residues,
+        tolerance=tolerance)
+    targets = tuple(base_receipt["target_rows"])
+    target_index = {target: index for index, target in enumerate(targets)}
+    residue_bitsets = {}
+    residue_score_sums = {}
+    for target, row in base_receipt["target_rows"].items():
+        bit = 1 << target_index[target]
+        for residue_row in row["top_positive_residue_rows"]:
+            residue = residue_row["residue_mod_286"]
+            residue_bitsets[residue] = residue_bitsets.get(residue, 0) | bit
+            residue_score_sums[residue] = residue_score_sums.get(
+                residue, 0.0) + residue_row[
+                    "contribution_to_principal_ratio"]
+
+    full_cover = (1 << len(targets)) - 1
+    candidate_residues = tuple(sorted(
+        residue_bitsets,
+        key=lambda residue: (
+            -residue_bitsets[residue].bit_count(),
+            -residue_score_sums[residue],
+            residue)))
+    exact_search_rows = []
+    minimum_cover_size = None
+    minimum_cover_examples = ()
+    for cover_size in range(1, max_cover_size + 1):
+        checked_count = 0
+        examples = []
+        for combo in combinations(candidate_residues, cover_size):
+            checked_count += 1
+            covered = 0
+            for residue in combo:
+                covered |= residue_bitsets[residue]
+            if covered == full_cover:
+                examples.append(combo)
+                if len(examples) >= max_examples:
+                    break
+        exact_search_rows.append({
+            "cover_size": cover_size,
+            "checked_combination_count": checked_count,
+            "found_cover_prefix_count": len(examples),
+            "cover_examples": tuple(examples),
+        })
+        if examples:
+            minimum_cover_size = cover_size
+            minimum_cover_examples = tuple(examples)
+            break
+
+    return {
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "driver_residues": tuple(driver_residues),
+        "top_count": top_count,
+        "tested_target_count": len(targets),
+        "candidate_residue_count": len(candidate_residues),
+        "candidate_residues": candidate_residues,
+        "greedy_positive_portfolio_rows": base_receipt[
+            "greedy_positive_portfolio_rows"],
+        "exact_search_rows": tuple(exact_search_rows),
+        "minimum_observed_cover_size": minimum_cover_size,
+        "minimum_observed_cover_examples": minimum_cover_examples,
+        "max_cover_size_searched": max_cover_size,
+        "minimum_cover_proved_up_to_max_size": (
+            minimum_cover_size is not None),
+        "observed_set_cover_measured": True,
+        "compensation_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

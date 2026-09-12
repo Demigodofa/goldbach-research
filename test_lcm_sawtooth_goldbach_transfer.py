@@ -1413,6 +1413,18 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(portfolio["all_inadmissible_class_count"], 0)
         self.assertFalse(receipt["prime_pair_occupancy_proved"])
 
+    def test_q286_positive_both_empty_compensation_min_cover(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_positive_both_empty_compensation_min_cover_receipt)
+        receipt = q286_positive_both_empty_compensation_min_cover_receipt(
+            selected_targets=(10012, 10016),
+            top_count=12,
+            max_cover_size=2)
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["minimum_observed_cover_size"], 1)
+        self.assertTrue(receipt["observed_set_cover_measured"])
+        self.assertFalse(receipt["compensation_theorem_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

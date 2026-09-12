@@ -591,3 +591,31 @@ two notions that should not be conflated: local admissibility can be covered
 with three residues, but the measured top-positive contribution cover over the
 `204` positive both-empty targets needed five residues.  The hard part is not
 local coverage; it is quantitative, signed prime-pair mass in the right rows.
+
+`q286_positive_both_empty_compensation_min_cover_receipt` now verifies that the
+five-residue observed cover is not merely a greedy artifact.  For the `204`
+first-period positive both-empty targets and `top_count=24`, there are `118`
+candidate positive-row residues.  Exact set-cover search gives:
+
+```text
+size 1: checked 118, no cover
+size 2: checked 6903, no cover
+size 3: checked 266916, no cover
+size 4: checked 7673835, no cover
+size 5: first covers found after 1203567 checked combinations
+```
+
+Example size-five covers include:
+
+```text
+179,109,29,241,167
+179,109,241,49,167
+179,109,241,167,219
+179,29,111,89,211
+179,29,111,89,123
+```
+
+Status `observed-cover-minimal`: with this top-row universe, the measured
+compensation cover really needs five residues on the first-period positive
+both-empty set.  This strengthens the warning that local coverage and observed
+signed contribution coverage are different problems.
