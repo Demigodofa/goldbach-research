@@ -7773,3 +7773,26 @@ small to explain a proof-scale saving.  The `.612` ratio was mostly a
 triangle-norm comparison, not substantial cross-channel cancellation.  The
 next target remains structural decomposition or direct signed
 prime-correlation control.
+
+### 2026-09-12 continuation: q77 action and local mains checked directly
+
+`q77_original_strict_central_action_receipt` now compares the original
+quotient-77 linked-prime strict-central row action with the q77 component of
+the assembled coefficient.  The residue map is `p mod 10010 -> p mod 130`,
+with quotient factor `77`, unit-fiber size `60`, and no ordered-pair factor
+`1/2`.  The coefficient-vector error is `2.558560547443785e-14`, the assembled
+action error is `1.0853470557705165e-13`, and the comparison to the original
+direct-unit action is `9.405451349754832e-13`.
+
+The assembled coefficient's local main was then inspected across all `5005`
+even residues modulo `10010`.  Every local main is positive.  The minimum is
+at residue `4124`, value `39463390.92458851 + 1.0388056078764754e-06i`; the
+maximum is at residue `7140`, value `133823614.44192465 + 8.225108938743084e-07i`.
+The mean real local main is `72921965.97002855`, so the minimum-to-mean ratio
+is `.5411728880267469`.
+
+Status `changed-under-evidence`: q77 factor/map bookkeeping is now tied back
+to the original strict-central action, and the assembled coefficient has no
+local-main sign obstruction.  The remaining target is a pointwise signed
+prime-correlation estimate against this positive main, plus endpoint and
+noncentral reconciliation.  Goldbach remains open.

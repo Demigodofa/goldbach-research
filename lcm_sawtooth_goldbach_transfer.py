@@ -5,10 +5,14 @@ estimate for the resulting twisted Goldbach sums.
 """
 
 import math
+from fractions import Fraction
 
 import numpy as np
 
 from lcm_sawtooth_cotangent_count import _one_orientation_count_source_modes
+from lcm_sawtooth_cotangent_transform import (
+    _primitive_cotangent_transform_formula,
+)
 from lcm_sawtooth_frequency_resolved_fourier import (
     CANONICAL_FAMILIES,
     CANONICAL_LAGS,
@@ -1943,6 +1947,12 @@ def combined_fixed_strict_central_coefficient_receipt(tolerance=1e-9):
         "aggregate_coefficient_by_unit_residue": {
             residue: complex(value)
             for residue, value in zip(period_units, aggregate)},
+        "component_coefficient_by_residue": {
+            quotient: {
+                residue: complex(value)
+                for residue, value
+                in component["coefficient_by_residue"].items()}
+            for quotient, component in component_coefficients.items()},
         "fixed_coefficient_family_assembled": bool(
             mean_error <= tolerance
             and maximum_holdout_fixture_error <= tolerance),
@@ -2136,6 +2146,523 @@ def combined_coefficient_pairwise_gram_receipt(tolerance=1e-9):
         "substantial_negative_pairwise_cancellation_observed": bool(
             minimum_normalized_pair < -.1),
         "net_negative_cross_term_observed": bool(total_cross_term < 0),
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def _exact_imaginary_transform_table(denominator, period):
+    base = tuple(
+        int(_primitive_cotangent_transform_formula(
+            denominator, frequency).imag)
+        for frequency in range(denominator))
+    return np.asarray(tuple(
+        base[frequency % denominator] for frequency in range(period)),
+        dtype=np.int64)
+
+
+def _exact_projected_grouped_spatial_values(quotient):
+    if quotient not in TWO_PRIME_QUOTIENT_LAGS:
+        raise ValueError("quotient must be one of the two-prime sectors")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    lag = TWO_PRIME_QUOTIENT_LAGS[quotient]
+    common = math.gcd(lag, period)
+    frequency_indices = np.arange(period)
+    quotient_weights = np.asarray(tuple(
+        _ramanujan_sum(quotient, frequency)
+        for frequency in range(period)), dtype=np.int64)
+    left_table = _exact_imaginary_transform_table(
+        CANONICAL_FAMILIES[0][0], period)
+    left_partner = _exact_imaginary_transform_table(
+        2 * CANONICAL_FAMILIES[0][1], period)
+    left_negative_partner = left_partner[(-frequency_indices) % period]
+    right_table = _exact_imaginary_transform_table(
+        CANONICAL_FAMILIES[1][0], period)
+    right_partner = _exact_imaginary_transform_table(
+        2 * CANONICAL_FAMILIES[1][1], period)
+    right_negative_partner = right_partner[(-frequency_indices) % period]
+    numerator_by_residue = {
+        residue: 0 for residue in range(common)
+        if math.gcd(residue, common) == 1}
+    for spatial_frequency in range(period):
+        if math.gcd(spatial_frequency, common) != 1:
+            continue
+        left_first = np.roll(left_table, -spatial_frequency) - left_table
+        left_second = (
+            np.roll(left_negative_partner, -spatial_frequency)
+            - left_negative_partner)
+        right_first = np.roll(right_table, -spatial_frequency) - right_table
+        right_second = (
+            np.roll(right_negative_partner, -spatial_frequency)
+            - right_negative_partner)
+        products = (
+            quotient_weights * left_first * left_second
+            * right_first * right_second)
+        numerator_by_residue[spatial_frequency % common] += (
+            common * int(np.sum(products, dtype=np.int64)))
+    denominator = 16 * period * period
+    residues = tuple(sorted(numerator_by_residue))
+    values = tuple(
+        Fraction(numerator_by_residue[residue], denominator)
+        for residue in residues)
+    return period, common, residues, values
+
+
+def exact_projected_pairwise_gram_receipt():
+    """Confirm projected channel cross terms with rational arithmetic.
+
+    This exact receipt uses the projected-spatial count-four representation for
+    the five non-q91 sectors and computes dual-coefficient inner products over
+    ``U_10010`` through integer Ramanujan sums.  It is exact for this
+    projected representation; it is not an independent proof that every
+    endpoint/noncentral term of the original outer assembly has been included.
+    """
+    quotients = (77, 35, 55, 65, 143)
+    grouped = {}
+    period = None
+    for quotient in quotients:
+        row_period, common, residues, values = (
+            _exact_projected_grouped_spatial_values(quotient))
+        if period is None:
+            period = row_period
+        elif period != row_period:
+            raise AssertionError("inconsistent arithmetic periods")
+        mean = sum(values, Fraction(0, 1)) / len(values)
+        grouped[quotient] = {
+            "common_modulus": common,
+            "residues": residues,
+            "centered_values": tuple(value - mean for value in values),
+        }
+    gram = {}
+    normalized = {}
+    norms_squared = {}
+    for left in quotients:
+        left_row = grouped[left]
+        for right in quotients:
+            right_row = grouped[right]
+            total = Fraction(0, 1)
+            for left_residue, left_value in zip(
+                    left_row["residues"], left_row["centered_values"]):
+                left_multiplier = period // left_row["common_modulus"]
+                for right_residue, right_value in zip(
+                        right_row["residues"],
+                        right_row["centered_values"]):
+                    right_multiplier = period // right_row["common_modulus"]
+                    frequency = (
+                        right_residue * right_multiplier
+                        - left_residue * left_multiplier) % period
+                    total += (
+                        left_value * right_value
+                        * _ramanujan_sum(period, frequency))
+            gram[(left, right)] = total
+            if left == right:
+                norms_squared[left] = total
+    total_self_energy = sum(
+        norms_squared[quotient] for quotient in quotients)
+    total_cross_term = Fraction(0, 1)
+    minimum_normalized_pair = 1.0
+    maximum_normalized_pair = -1.0
+    for left in quotients:
+        for right in quotients:
+            denominator = math.sqrt(
+                float(norms_squared[left]) * float(norms_squared[right]))
+            normalized_value = (
+                float(gram[(left, right)]) / denominator
+                if denominator else 0.0)
+            normalized[(left, right)] = normalized_value
+            if left < right:
+                total_cross_term += 2 * gram[(left, right)]
+                minimum_normalized_pair = min(
+                    minimum_normalized_pair, normalized_value)
+                maximum_normalized_pair = max(
+                    maximum_normalized_pair, normalized_value)
+    aggregate_energy = total_self_energy + total_cross_term
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "quotients": quotients,
+        "component_norms_squared_exact": norms_squared,
+        "component_norms": {
+            quotient: math.sqrt(float(value))
+            for quotient, value in norms_squared.items()},
+        "pairwise_gram_exact": gram,
+        "pairwise_normalized_real_gram": normalized,
+        "component_self_energy_total_exact": total_self_energy,
+        "component_self_energy_total": float(total_self_energy),
+        "total_cross_term_exact": total_cross_term,
+        "total_cross_term": float(total_cross_term),
+        "cross_term_to_self_energy_ratio_exact": (
+            total_cross_term / total_self_energy
+            if total_self_energy else Fraction(0, 1)),
+        "cross_term_to_self_energy_ratio": (
+            float(total_cross_term / total_self_energy)
+            if total_self_energy else 0.0),
+        "aggregate_centered_energy_exact": aggregate_energy,
+        "aggregate_centered_energy": float(aggregate_energy),
+        "aggregate_centered_l2": math.sqrt(float(aggregate_energy)),
+        "minimum_offdiagonal_normalized_real_gram": minimum_normalized_pair,
+        "maximum_offdiagonal_normalized_real_gram": maximum_normalized_pair,
+        "substantial_negative_pairwise_cancellation_observed": bool(
+            minimum_normalized_pair < -.1),
+        "net_negative_cross_term_observed": bool(total_cross_term < 0),
+        "exact_projected_pairwise_gram_confirmed": True,
+        "original_outer_assembly_fully_verified": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q77_original_strict_central_action_receipt(
+        targets=(1000, 1002), tolerance=1e-12, batch_size=32):
+    """Compare original q77 strict-central action to the assembled coefficient.
+
+    The original linked-prime q77 rows give a coefficient vector on ``U_130``.
+    The assembled family also includes a q77 component on ``U_130``: the
+    principal constant ``-3143/16`` plus the lag-130 fiber shadow.  This receipt
+    compares those coefficient vectors and their ordered strict-central
+    prime-pair actions directly.  It does not include endpoint/noncentral terms
+    or prove the remaining pointwise prime-correlation estimate.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    centering = linked_prime_centering_receipt(
+        targets=targets, tolerance=tolerance, batch_size=batch_size)
+    assembled = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=max(tolerance, 1e-9))
+    period = assembled["arithmetic_period"]
+    common = 130
+    quotient = period // common
+    assembled_q77 = assembled["component_coefficient_by_residue"][77]
+    q77_summary = centering["quotient_summaries"][77]
+
+    rows = {}
+    maximum_vector_relative_error = 0.0
+    maximum_action_relative_error = 0.0
+    maximum_original_receipt_relative_error = 0.0
+    maximum_principal_shadow_relative_error = 0.0
+    all_nonunit_pairs = []
+    unit_fiber_sizes = []
+    for target in centering["targets"]:
+        q77_source_rows = tuple(
+            row for (row_quotient, _, row_target), row
+            in centering["rows"].items()
+            if row_quotient == 77 and row_target == target)
+        if not q77_source_rows:
+            raise AssertionError("missing q77 source rows for target")
+        units130 = tuple(int(unit) for unit in q77_source_rows[0][
+            "unit_residues"])
+        quotient77_source = sum((
+            row["additive_unit_source_values"] for row in q77_source_rows),
+            np.zeros_like(q77_source_rows[0][
+                "additive_unit_source_values"]))
+        original_by_residue = {
+            residue: complex(value)
+            for residue, value in zip(units130, quotient77_source)}
+        assembled_vector = np.asarray(tuple(
+            assembled_q77[residue] for residue in units130),
+            dtype=np.complex128)
+        original_vector = np.asarray(tuple(
+            original_by_residue[residue] for residue in units130),
+            dtype=np.complex128)
+        vector_scale = max(
+            1.0, float(np.linalg.norm(original_vector)),
+            float(np.linalg.norm(assembled_vector)))
+        vector_relative_error = float(
+            np.linalg.norm(original_vector - assembled_vector) / vector_scale)
+        maximum_vector_relative_error = max(
+            maximum_vector_relative_error, vector_relative_error)
+
+        lower = target // 3
+        upper = target - lower
+        original_action_terms = []
+        assembled_action_terms = []
+        centered_action_terms = []
+        principal_weight = 0.0
+        nonunit_pairs = []
+        for prime, weight in _linked_prime_pairs(target, lower, upper):
+            partner = target - prime
+            residue = prime % common
+            if math.gcd(residue, common) != 1:
+                nonunit_pairs.append((prime, partner))
+                continue
+            original_action_terms.append(original_by_residue[residue] * weight)
+            assembled_action_terms.append(assembled_q77[residue] * weight)
+            centered_action_terms.append(
+                (assembled_q77[residue] + 3143 / 16) * weight)
+            principal_weight += weight
+        all_nonunit_pairs.extend((target, pair) for pair in nonunit_pairs)
+        original_action = _complex_fsum(original_action_terms)
+        assembled_action = _complex_fsum(assembled_action_terms)
+        principal_action = complex(-3143 / 16) * principal_weight
+        principal_shadow_action = (
+            principal_action + _complex_fsum(centered_action_terms))
+        original_receipt_action = q77_summary["target_summaries"][target][
+            "recombined_direct_unit_correlation"]
+        action_scale = max(
+            1.0, abs(original_action), abs(assembled_action))
+        action_relative_error = abs(
+            original_action - assembled_action) / action_scale
+        original_receipt_scale = max(
+            1.0, abs(original_action), abs(original_receipt_action))
+        original_receipt_relative_error = abs(
+            original_action - original_receipt_action) / original_receipt_scale
+        principal_shadow_scale = max(
+            1.0, abs(assembled_action), abs(principal_shadow_action))
+        principal_shadow_relative_error = abs(
+            assembled_action - principal_shadow_action) / principal_shadow_scale
+        maximum_action_relative_error = max(
+            maximum_action_relative_error, action_relative_error)
+        maximum_original_receipt_relative_error = max(
+            maximum_original_receipt_relative_error,
+            original_receipt_relative_error)
+        maximum_principal_shadow_relative_error = max(
+            maximum_principal_shadow_relative_error,
+            principal_shadow_relative_error)
+        unit_fiber_sizes.append(period // common)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": len(original_action_terms),
+            "nonunit_prime_pairs": tuple(nonunit_pairs),
+            "original_q77_strict_central_action": original_action,
+            "assembled_q77_coefficient_action": assembled_action,
+            "original_receipt_direct_unit_correlation": (
+                original_receipt_action),
+            "principal_unit_weight": principal_weight,
+            "principal_action": principal_action,
+            "principal_plus_shadow_action": principal_shadow_action,
+            "coefficient_vector_relative_error": vector_relative_error,
+            "assembled_action_relative_error": action_relative_error,
+            "original_receipt_action_relative_error": (
+                original_receipt_relative_error),
+            "principal_plus_shadow_action_relative_error": (
+                principal_shadow_relative_error),
+        }
+
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "common_modulus": common,
+        "quotient": quotient,
+        "lag": TWO_PRIME_QUOTIENT_LAGS[77],
+        "targets": centering["targets"],
+        "unit_group_order": len(assembled_q77),
+        "period_to_common_quotient_factor": quotient,
+        "unit_fiber_size_over_U130": len(tuple(
+            unit for unit in range(period)
+            if math.gcd(unit, period) == 1 and unit % common == 1)),
+        "strict_central_prime_residue_map": "p mod 10010 -> p mod 130",
+        "ordered_pair_convention": "ordered; no factor 1/2 is inserted",
+        "rows": rows,
+        "maximum_coefficient_vector_relative_error": (
+            maximum_vector_relative_error),
+        "maximum_assembled_action_relative_error": (
+            maximum_action_relative_error),
+        "maximum_original_receipt_action_relative_error": (
+            maximum_original_receipt_relative_error),
+        "maximum_principal_plus_shadow_action_relative_error": (
+            maximum_principal_shadow_relative_error),
+        "nonunit_prime_pairs": tuple(all_nonunit_pairs),
+        "q77_original_equals_assembled_coefficient_vector": bool(
+            maximum_vector_relative_error <= tolerance),
+        "q77_original_action_equals_assembled_coefficient_action": bool(
+            not all_nonunit_pairs
+            and maximum_action_relative_error <= tolerance
+            and maximum_original_receipt_relative_error <= tolerance
+            and maximum_principal_shadow_relative_error <= tolerance),
+        "endpoint_or_noncentral_terms_analyzed": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def combined_coefficient_admissible_main_receipt(tolerance=1e-9):
+    """Compute local admissible mains for the assembled fixed coefficient."""
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = coefficient["aggregate_coefficient_by_unit_residue"]
+    rows = {}
+    real_values = []
+    imaginary_values = []
+    for target_residue in range(0, period, 2):
+        admissible = tuple(
+            residue for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+        local_main = _complex_fsum(values[residue] for residue in admissible)
+        rows[target_residue] = {
+            "admissible_unit_count": len(admissible),
+            "local_main_coefficient": local_main,
+        }
+        real_values.append(local_main.real)
+        imaginary_values.append(abs(local_main.imag))
+    minimum_row = min(rows, key=lambda residue: rows[residue][
+        "local_main_coefficient"].real)
+    maximum_row = max(rows, key=lambda residue: rows[residue][
+        "local_main_coefficient"].real)
+    negative_rows = tuple(
+        residue for residue, row in rows.items()
+        if row["local_main_coefficient"].real < -tolerance)
+    near_zero_rows = tuple(
+        residue for residue, row in rows.items()
+        if abs(row["local_main_coefficient"].real) <= tolerance)
+    sorted_by_main = tuple(sorted(
+        rows.items(),
+        key=lambda item: item[1]["local_main_coefficient"].real))
+    quantile_indices = {
+        "0%": 0,
+        "1%": int(.01 * (len(sorted_by_main) - 1)),
+        "5%": int(.05 * (len(sorted_by_main) - 1)),
+        "10%": int(.10 * (len(sorted_by_main) - 1)),
+        "25%": int(.25 * (len(sorted_by_main) - 1)),
+        "50%": int(.50 * (len(sorted_by_main) - 1)),
+        "75%": int(.75 * (len(sorted_by_main) - 1)),
+        "90%": int(.90 * (len(sorted_by_main) - 1)),
+        "95%": int(.95 * (len(sorted_by_main) - 1)),
+        "99%": int(.99 * (len(sorted_by_main) - 1)),
+        "100%": len(sorted_by_main) - 1,
+    }
+    local_main_quantiles = {
+        label: {
+            "residue": sorted_by_main[index][0],
+            "real": sorted_by_main[index][1][
+                "local_main_coefficient"].real,
+            "admissible_unit_count": sorted_by_main[index][1][
+                "admissible_unit_count"],
+        }
+        for label, index in quantile_indices.items()}
+    admissible_count_histogram = {}
+    for row in rows.values():
+        count = row["admissible_unit_count"]
+        admissible_count_histogram[count] = (
+            admissible_count_histogram.get(count, 0) + 1)
+    smallest_rows = tuple(
+        (residue, row["admissible_unit_count"],
+         row["local_main_coefficient"])
+        for residue, row in sorted_by_main[:12])
+    largest_rows = tuple(
+        (residue, row["admissible_unit_count"],
+         row["local_main_coefficient"])
+        for residue, row in reversed(sorted_by_main[-12:]))
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "even_target_residue_count": len(rows),
+        "unit_group_order": len(units),
+        "minimum_admissible_unit_count": min(
+            row["admissible_unit_count"] for row in rows.values()),
+        "maximum_admissible_unit_count": max(
+            row["admissible_unit_count"] for row in rows.values()),
+        "minimum_local_main_residue": minimum_row,
+        "minimum_local_main_value": rows[minimum_row][
+            "local_main_coefficient"],
+        "maximum_local_main_residue": maximum_row,
+        "maximum_local_main_value": rows[maximum_row][
+            "local_main_coefficient"],
+        "negative_local_main_residue_count": len(negative_rows),
+        "negative_local_main_residues": negative_rows,
+        "near_zero_local_main_residue_count": len(near_zero_rows),
+        "maximum_local_main_imaginary_part": max(imaginary_values),
+        "mean_local_main_real": math.fsum(real_values) / len(real_values),
+        "minimum_to_mean_local_main_ratio": (
+            rows[minimum_row]["local_main_coefficient"].real
+            / (math.fsum(real_values) / len(real_values))),
+        "local_main_quantiles": local_main_quantiles,
+        "admissible_unit_count_histogram": dict(sorted(
+            admissible_count_histogram.items())),
+        "smallest_local_main_rows": smallest_rows,
+        "largest_local_main_rows": largest_rows,
+        "all_local_mains_positive": bool(not negative_rows),
+        "fixed_positive_local_main_for_all_even_classes": bool(
+            not negative_rows and not near_zero_rows),
+        "rows": rows,
+        "local_main_profile_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def combined_coefficient_character_support_receipt(tolerance=1e-9):
+    """Group assembled character energy by CRT/conductor support."""
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    centered = values - np.mean(values)
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    energies = np.abs(character_coefficients) ** 2
+    total_energy = float(np.sum(energies))
+    factor_primes = (5, 7, 11, 13)
+    support_energy = {}
+    size_energy = {}
+    for label, energy in zip(labels, energies):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_energy[support] = (
+            support_energy.get(support, 0.0) + float(energy))
+        size_energy[len(support)] = (
+            size_energy.get(len(support), 0.0) + float(energy))
+    support_rows = tuple(
+        {
+            "support": support,
+            "energy": energy,
+            "energy_fraction": energy / total_energy if total_energy else 0.0,
+        }
+        for support, energy in sorted(
+            support_energy.items(), key=lambda item: item[1], reverse=True))
+    size_rows = {
+        size: {
+            "energy": energy,
+            "energy_fraction": energy / total_energy if total_energy else 0.0,
+        }
+        for size, energy in sorted(size_energy.items())}
+    full_support = factor_primes
+    full_support_fraction = (
+        support_energy.get(full_support, 0.0) / total_energy
+        if total_energy else 0.0)
+    lower_support_fraction = 1.0 - full_support_fraction
+    leading_support_fraction = (
+        support_rows[0]["energy_fraction"] if support_rows else 0.0)
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "unit_group_order": len(units),
+        "factor_primes": factor_primes,
+        "total_character_energy": total_energy,
+        "support_energy_rows": support_rows,
+        "support_size_energy_rows": size_rows,
+        "full_support_energy_fraction": full_support_fraction,
+        "lower_support_energy_fraction": lower_support_fraction,
+        "leading_support": support_rows[0]["support"] if support_rows else (),
+        "leading_support_energy_fraction": leading_support_fraction,
+        "full_support_dominates": bool(full_support_fraction > .5),
+        "low_dimensional_support_diagnostic_passes": bool(
+            lower_support_fraction > .75),
+        "character_support_grouping_measured": True,
         "signed_prime_correlation_estimate_proved": False,
         "formal_signed_error_identification_proved": False,
         "goldbach_proved": False,

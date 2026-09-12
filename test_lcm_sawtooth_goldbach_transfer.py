@@ -4,10 +4,13 @@ from lcm_sawtooth_goldbach_transfer import (
     all_even_residue_goldbach_main_receipt,
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
+    combined_coefficient_admissible_main_receipt,
     combined_coefficient_character_spectrum_receipt,
+    combined_coefficient_character_support_receipt,
     combined_coefficient_pairwise_gram_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
+    exact_projected_pairwise_gram_receipt,
     holdout_full_projected_prime_coefficient_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
     holdout_q65_dual_prime_target_sum_receipt,
@@ -18,6 +21,7 @@ from lcm_sawtooth_goldbach_transfer import (
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
+    q77_original_strict_central_action_receipt,
     symbolic_q65_dual_prime_coefficient_receipt,
     symbolic_centered_outer_fiber_shadow_receipt,
     symbolic_principal_plus_centered_channel_receipt,
@@ -502,6 +506,113 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["net_negative_cross_term_observed"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_exact_projected_pairwise_gram_confirms_tiny_cancellation(self):
+        receipt = exact_projected_pairwise_gram_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotients"], (77, 35, 55, 65, 143))
+        self.assertAlmostEqual(
+            receipt["component_norms"][77], 2710319.2141819294,
+            places=5)
+        self.assertAlmostEqual(
+            receipt["component_self_energy_total"],
+            177711977814605.75, places=1)
+        self.assertAlmostEqual(
+            receipt["total_cross_term"], -49001591515.2,
+            places=1)
+        self.assertAlmostEqual(
+            receipt["cross_term_to_self_energy_ratio"],
+            -.00027573600900621266, places=15)
+        self.assertAlmostEqual(
+            receipt["aggregate_centered_energy"],
+            177662976223090.56, places=1)
+        self.assertAlmostEqual(
+            receipt["minimum_offdiagonal_normalized_real_gram"],
+            -.000820360879454023, places=15)
+        self.assertAlmostEqual(
+            receipt["maximum_offdiagonal_normalized_real_gram"],
+            .0004938794511773014, places=15)
+        self.assertFalse(receipt[
+            "substantial_negative_pairwise_cancellation_observed"])
+        self.assertTrue(receipt["net_negative_cross_term_observed"])
+        self.assertTrue(receipt["exact_projected_pairwise_gram_confirmed"])
+        self.assertFalse(receipt["original_outer_assembly_fully_verified"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_admissible_mains_are_positive(self):
+        receipt = combined_coefficient_admissible_main_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["even_target_residue_count"], 5005)
+        self.assertEqual(receipt["unit_group_order"], 2880)
+        self.assertEqual(receipt["minimum_admissible_unit_count"], 1485)
+        self.assertEqual(receipt["maximum_admissible_unit_count"], 2880)
+        self.assertEqual(receipt["minimum_local_main_residue"], 4124)
+        self.assertAlmostEqual(
+            receipt["minimum_local_main_value"].real,
+            39463390.92458851, places=5)
+        self.assertEqual(receipt["maximum_local_main_residue"], 7140)
+        self.assertAlmostEqual(
+            receipt["maximum_local_main_value"].real,
+            133823614.44192465, places=5)
+        self.assertEqual(receipt["negative_local_main_residue_count"], 0)
+        self.assertEqual(receipt["near_zero_local_main_residue_count"], 0)
+        self.assertLess(
+            receipt["maximum_local_main_imaginary_part"], 1e-5)
+        self.assertAlmostEqual(
+            receipt["mean_local_main_real"],
+            72921965.97002855, places=5)
+        self.assertAlmostEqual(
+            receipt["minimum_to_mean_local_main_ratio"],
+            .5411728880267469, places=14)
+        self.assertEqual(
+            receipt["local_main_quantiles"]["0%"]["residue"], 4124)
+        self.assertEqual(
+            receipt["local_main_quantiles"]["100%"]["residue"], 7140)
+        self.assertEqual(len(receipt["smallest_local_main_rows"]), 12)
+        self.assertEqual(len(receipt["largest_local_main_rows"]), 12)
+        self.assertTrue(receipt["all_local_mains_positive"])
+        self.assertTrue(receipt[
+            "fixed_positive_local_main_for_all_even_classes"])
+        self.assertTrue(receipt["local_main_profile_measured"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q77_original_strict_central_action_matches_assembled(self):
+        receipt = q77_original_strict_central_action_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["quotient"], 77)
+        self.assertEqual(receipt["lag"], 130)
+        self.assertEqual(receipt["unit_group_order"], 48)
+        self.assertEqual(receipt["period_to_common_quotient_factor"], 77)
+        self.assertEqual(receipt["unit_fiber_size_over_U130"], 60)
+        self.assertEqual(
+            receipt["ordered_pair_convention"],
+            "ordered; no factor 1/2 is inserted")
+        self.assertFalse(receipt["nonunit_prime_pairs"])
+        self.assertLess(
+            receipt["maximum_coefficient_vector_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_assembled_action_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_original_receipt_action_relative_error"], 1e-12)
+        self.assertLess(
+            receipt[
+                "maximum_principal_plus_shadow_action_relative_error"],
+            1e-12)
+        self.assertTrue(receipt[
+            "q77_original_equals_assembled_coefficient_vector"])
+        self.assertTrue(receipt[
+            "q77_original_action_equals_assembled_coefficient_action"])
+        self.assertFalse(receipt["endpoint_or_noncentral_terms_analyzed"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_symbolic_principal_plus_centered_channel(self):

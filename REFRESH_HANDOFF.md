@@ -15504,3 +15504,59 @@ prime-correlation argument rather than relying on sector cancellation.
 Next concrete question: since pairwise cancellation is tiny, inspect conductor
 or CRT-factor support of the broad character spectrum to see whether the
 explicit coefficient family still has exploitable low-dimensional structure.
+
+## 2026-09-12: q77 original action matches the assembled coefficient
+
+Kevin asked to resolve the quotient-77 factor/map issue and independently
+compute the original strict-central action.  The new
+`q77_original_strict_central_action_receipt` compares the original
+linked-prime quotient-77 row coefficient on `U_130` with the q77 component
+inside the assembled fixed coefficient family.
+
+The map is the strict-central prime-residue map `p mod 10010 -> p mod 130`.
+The quotient factor is `10010/130 = 77`; the unit-fiber size over each
+`U_130` residue is `phi(10010)/phi(130) = 60`.  The ordered strict-central
+convention inserts no factor `1/2`.
+
+On the fixture targets, the coefficient-vector relative error is
+`2.558560547443785e-14`, the assembled-action relative error is
+`1.0853470557705165e-13`, the comparison to the original receipt's
+direct-unit correlation is `9.405451349754832e-13`, and the
+principal-plus-shadow reconstruction error is `1.1656129084777827e-16`.
+
+Status `verified-bookkeeping`: the assembled q77 component is the same
+strict-central action as the original quotient-77 linked-prime row action on
+these fixtures.  This resolves the q77 map/factor bookkeeping for the
+assembled coefficient, but it still does not identify endpoint/noncentral
+terms or prove the pointwise signed prime-correlation estimate.
+
+## 2026-09-12: all 5005 local mains for the assembled coefficient are positive
+
+`combined_coefficient_admissible_main_receipt` now reports the full
+even-residue local-main profile for the assembled coefficient on `U_10010`.
+All `5005` even target residue classes have positive local main and none are
+near zero at tolerance `1e-9`.
+
+The minimum class is residue `4124`, with local main
+`39463390.92458851 + 1.0388056078764754e-06i`.  The maximum class is residue
+`7140`, with local main `133823614.44192465 + 8.225108938743084e-07i`.
+The mean real local main is `72921965.97002855`; the minimum-to-mean ratio is
+`.5411728880267469`.
+
+Selected quantiles by real local main are:
+
+`0%`: residue `4124`, real `39463390.92458851`, admissible units `1485`.
+
+`25%`: residue `2916`, real `62279048.42685095`, admissible units `1485`.
+
+`50%`: residue `2888`, real `72661940.92844144`, admissible units `1485`.
+
+`75%`: residue `6582`, real `82398018.54977481`, admissible units `1485`.
+
+`100%`: residue `7140`, real `133823614.44192465`, admissible units `2376`.
+
+Status `aha-candidate`: the local obstruction appears absent for the explicit
+assembled coefficient family.  The direct problem is now cleanly analytic:
+prove a pointwise error estimate smaller than a positive local main times the
+central singular factor, while separately reconciling any endpoint or
+noncentral terms from the original outer assembly.  Goldbach remains open.
