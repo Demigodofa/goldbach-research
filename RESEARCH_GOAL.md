@@ -70,6 +70,25 @@ By contrast, cancelling the first-three mode alone can require
 `927.3759573295491`, so a proof should retain the compensating remainder
 instead of trying to dominate the entire first-three lower tail directly.
 
+Hardness audit: a pointwise theorem giving positive strict-central occupancy
+in the `133/153` channels for every sufficiently large locally admissible
+target would already prove a restricted binary Goldbach theorem for `141/143`
+target classes.  Therefore the residue route is not automatically easier than
+Goldbach.  Its plausible value is coefficient-specific compensation: when the
+cover channels are empty or deficient, a structured remainder may force enough
+positive mass.  The next finite falsifier is to inspect positive full-action
+targets with admissible-empty `133/153` channels and test whether their
+compensation rows form another stable finite pattern.
+
+That compensation falsifier has an initial answer.  In lifts `0,1,2` of the
+first-period negative bases, exactly six positive full-action targets still
+have both `133/153` admissible-empty:
+`25036,25306,25372,25582,26002,26722`.  Their first-three mode sums remain
+negative.  The top positive compensating residue rows are recurrent but not a
+single clean pair: `1` and `265` appear in `4/6`, while `263`, `211`, and
+`283` appear in `3/6`.  This suggests a finite positive portfolio may be needed
+if the compensation route is to avoid the full signed-correlation estimate.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

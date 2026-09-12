@@ -67,6 +67,25 @@ target-minimum requirement is `161.06677938455`.  Cancelling the first-three
 mode alone would require as much as `927.3759573295491`, at `N=88346`, so the
 remaining coefficient mixture is already doing important compensating work.
 
+Strength audit: a pure theorem that the `133/153` channels have positive
+strict-central occupancy for every sufficiently large locally admissible `N`
+would itself be a restricted binary Goldbach theorem.  The discovery is useful
+only if it leads either to a genuinely new pointwise binary-prime-in-AP
+estimate or to a compensation theorem for targets where these channels are
+empty/deficient.  Next falsifier: find positive full-action targets with
+admissible-empty `133/153` channels and identify whether their compensating
+coefficient rows are structured or chaotic.
+
+First compensation falsifier result: lifts `0,1,2` contain exactly six positive
+full-action targets where both `133/153` remain admissible-empty:
+`25036,25306,25372,25582,26002,26722`.  Their first-three mode sums are still
+negative, so compensation is external to the cover pair.  Top positive
+first-three residue rows are recurrent but diffuse: `1` and `265` appear in
+`4/6`; `263`, `211`, and `283` appear in `3/6`; several others appear in
+`2/6`.  Top negative rows stay structured: `133`, `153`, and `23` appear in
+`6/6`.  This is a partial falsifier of an easy one-pair compensator, not a
+failure of the broader compensation route.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

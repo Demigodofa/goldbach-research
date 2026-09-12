@@ -413,3 +413,71 @@ explicit compensation term.  The worst observed full-action gap is much smaller
 than the worst first-three-only gap, which means the remaining coefficient
 mixture is already compensating substantially and should be kept in the proof
 model rather than discarded.
+
+## Strength audit for the residue-occupancy route
+
+The cleanest possible residue theorem would assert, for every sufficiently
+large even `N` in the `141/143` locally supported classes,
+
+```text
+sum_{N/3 < p < 2N/3, p == 133 or 153 mod 286}
+  log(p) log(N-p) 1_{N-p prime}
+  >= required_margin(N).
+```
+
+Any positive lower bound in this form already gives a strict-central Goldbach
+representation for those classes.  So the pure occupancy route is not a small
+technical refinement; it is a restricted binary Goldbach theorem with one prime
+forced into one of two fixed residue classes.  The two both-inadmissible
+classes would still need compensation or a different residue set.
+
+This reframes the value of the `133/153` discovery.  Its promise is not that
+local admissibility alone will prove occupancy.  Its promise is that the
+coefficient decomposition may reduce the signed lower-tail problem to a
+finite, explicit pair of channels plus a measured compensating remainder.  A
+credible proof should therefore keep one of two shapes:
+
+- a genuinely new pointwise binary-prime-in-AP estimate for the cover channels,
+  strong enough to beat the measured margin;
+- a compensation theorem showing that whenever the cover channels are empty or
+  deficient, the remaining q286 coefficient mixture and lower-modulus channels
+  supply the missing positive mass.
+
+This is the current curiosity-guided fork.  The next falsifier is to search for
+observed targets where the cover residues are admissible-empty but the full
+action is still positive, then measure which remaining coefficient rows provide
+the compensation.  If the compensator moves chaotically, the route collapses
+back to the full signed prime-correlation estimate.  If the compensator is
+structured, it may give a second finite channel cover.
+
+## Compensation when the cover pair remains empty
+
+The first compensation falsifier used `q286_driver_residue_lift_occupancy_receipt`
+on lifts `0,1,2`.  Among the lifted targets, there are exactly six positive
+full-action cases where both cover residues remain admissible-empty:
+
+```text
+25036, 25306, 25372, 25582, 26002, 26722
+```
+
+Their first-three q286 mode sums are still negative, so the positive full
+action comes from compensation outside the cover pair and outside the isolated
+first-three deficit.  Looking at the top eight positive first-three residue
+contribution rows for these six targets gives the leading recurrence counts:
+
+```text
+1:4, 265:4, 263:3, 211:3, 283:3,
+177:2, 285:2, 45:2, 239:2, 109:2, 119:2, 199:2, 127:2
+```
+
+The top negative rows remain highly structured:
+
+```text
+133:6, 153:6, 23:6, 75:4, 159:3, 243:3
+```
+
+Status `partial-falsifier`: compensation exists, but it is not yet as clean as
+the `133/153` negative cover.  The positive rows have several repeated
+residues rather than a single obvious second pair.  This keeps the compensation
+route alive, but warns that the next theorem may need a finite positive
+portfolio or the full coefficient mixture, not just one additional channel.
