@@ -8456,3 +8456,18 @@ first-three capture ratios on negative targets are
 Status update `aha-candidate`: the first-three q286 lower-tail core survives
 the first four complete periods, including later recurrence cycles.  This
 strengthens the direct target but remains finite evidence only.
+
+Eight complete-period recurrence falsifier: with
+`cycle_count=8, targets_per_cycle=5005`, the scan tests `40040` targets in
+`10000..90148`, including the previously observed cycle-7 recurrence.  The
+exact full action has `89` negative targets.  All `89` have negative
+first-two and first-three q286 mode sums.  Removing modes `1` and `2` again
+leaves only `N=14138` nonpositive; removing modes `1..3` leaves zero
+nonpositive targets.  The worst first-three-removed margin is still
+`0.018073313793834367` principal at `14138`.  Negative counts by complete
+period are `75,3,5,4,0,0,0,2`; cycle `7` has two negatives and minimum
+first-three capture `6.157687584867484`.
+
+Status update `aha-candidate`: the first-three q286 lower-tail core survives
+the known later recurrence cycle.  This strengthens the finite threshold
+route, but it is not an asymptotic theorem.
