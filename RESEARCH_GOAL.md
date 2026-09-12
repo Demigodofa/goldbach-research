@@ -7591,7 +7591,7 @@ shortcut.
 `q286_singular_mode_cycle_scan_receipt` is now the bounded scanner for the
 singular-mode lower-tail hypothesis.  It tests consecutive even targets across
 period cycles and reports negative q286 lower-tail counts, worst negative
-first-four residuals, significant-negative residuals, worst all-target
+first-four/six residuals, significant-negative residuals, worst all-target
 residuals, and residual size relative to the principal margin separately.
 
 Use it to decide whether the leading-mode estimate should be promoted into a
@@ -7610,6 +7610,19 @@ For significant negative q286 deviations, the first-four singular modes remain
 useful in this sample: the worst residual/deviation fraction is
 `0.09165079440299802` at `N=30202`.  Next proof-shaped target: formulate a
 principal-margin inequality, not a relative-to-q286-deviation approximation.
+
+The complete first even-residue period `10000..20008` changes the compression
+target from four modes to six.  Among `5005` targets, q286 has `2475` negative
+deviations and `594` significant negatives below `-0.4` principal.  First-four
+significant-negative control fails at `N=14680`, with residual/deviation
+`0.17156063983875328`, although the first-four residual stays below
+`0.09572218559054874` of principal.
+
+Using six singular modes improves the first-period sample: worst significant
+six-mode residual/deviation is `0.07205086151962896`, and the worst six-mode
+principal-relative residual is `0.033888231610242146`.  Next target: estimate
+the six leading separable q286 modes directly and prove a principal-margin
+tail bound for the remaining three singular modes.
 
 ## 2026-09-12: count-four residual has live holdout sectors
 

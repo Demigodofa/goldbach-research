@@ -1030,6 +1030,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["cycle_count"], 1)
         self.assertEqual(receipt["targets_per_cycle"], 9)
         self.assertEqual(receipt["significant_negative_ratio"], -.4)
+        self.assertEqual(receipt["tested_modes"], (2, 4, 6, 9))
         self.assertEqual(receipt["tested_target_count"], 9)
         self.assertTrue(receipt["singular_mode_cycle_scan_measured"])
         self.assertIn(0, receipt["cycle_rows"])

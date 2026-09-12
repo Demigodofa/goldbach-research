@@ -15999,7 +15999,7 @@ margin-relative tail estimate.
 ## 2026-09-12: q286 singular-mode cycle scan added
 
 `q286_singular_mode_cycle_scan_receipt` samples consecutive even targets by
-period cycles and tracks whether the first four q286 singular modes continue
+period cycles and tracks whether the first four/six q286 singular modes continue
 to control negative q286 lower-tail deviations.  It separately tracks all
 negative q286 deviations, significant negative deviations below a configurable
 principal-relative threshold, all sampled targets, and the residual measured
@@ -16026,3 +16026,18 @@ Status `changed-under-evidence`: reject the broad claim that first-four modes
 approximate every negative q286 deviation by relative-to-deviation error.
 Preserve the narrower claim that, on this sample, first-four modes control
 significant negative q286 excursions and have small principal-relative tail.
+
+Full first-period scan: `cycle_count=1, targets_per_cycle=5005` covers all
+even targets `10000..20008`.  It finds `2475` negative q286 deviations and
+`594` significant negatives below `-0.4` principal.  The first-four significant
+negative residual claim fails there: worst significant target `14680` has
+residual/deviation `0.17156063983875328`.  The principal-relative first-four
+tail still stays below `0.09572218559054874`, worst at `14554`.
+
+Adding the fifth and sixth singular modes repairs the sampled significant
+negative residual: worst significant six-mode residual/deviation is
+`0.07205086151962896` at `N=12298`, and the worst six-mode
+absolute residual/principal ratio across the whole first period is
+`0.033888231610242146` at `N=13826`.  Status `aha-candidate`: use six q286
+singular modes as the current leading-mode target; four modes are too
+aggressive for the full first period.
