@@ -871,6 +871,12 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             row["deviation_to_principal_ratio"],
             -.970542065173128, places=14)
         self.assertLess(row["weight_coefficient_real_correlation"], 0.0)
+        self.assertGreater(row["cauchy_bound_to_principal_ratio"], 1.0)
+        self.assertLess(row["actual_abs_fraction_of_cauchy_bound"], 1.0)
+        self.assertGreater(
+            row["l2_deviation_to_total_weight"],
+            row["unit_principal_l2_sufficiency_threshold"])
+        self.assertFalse(row["l2_sufficiency_for_unit_principal_satisfied"])
         self.assertGreater(
             row["negative_coefficient_weight_to_uniform_ratio"], 1.0)
         self.assertLess(

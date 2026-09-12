@@ -7519,6 +7519,15 @@ they are underweighted, so the eventual theorem must bound the full signed
 imbalance vector, not merely count prime pairs in negative coefficient
 classes.
 
+As an L2/Cauchy target, the observed q286 residue-weight L2 deviations relative
+to total prime-pair weight are `0.10117134973122574`, `0.0999185136738501`, and
+`0.050092570911679776`.  The corresponding one-principal-unit sufficiency
+thresholds are about `0.02`.  These bad targets therefore violate a crude
+q286-only Cauchy threshold, but the actual signed deviation uses only about
+`17%` to `31%` of the Cauchy envelope.  Next estimate route: prove either
+stronger residue-weight L2 equidistribution or a signed angle bound between
+the imbalance vector and `C_q286`.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

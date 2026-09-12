@@ -15902,3 +15902,14 @@ coefficient fibers `133` and `153` when they are underweighted, together with
 overweighted negative fibers such as `285`, `265`, `23`, `159`, `179`, `237`,
 and `177`.  This makes the next analytic target a signed residue-imbalance
 bound, not just an upper bound for negative coefficient classes.
+
+The same receipt gives a direct L2/Cauchy target for q286 alone.  The relative
+residue-weight L2 deviations are `0.10117134973122574`, `0.0999185136738501`,
+and `0.050092570911679776`, while the one-principal-unit sufficiency
+thresholds are `0.019958736594684178`, `0.019915803418543983`, and
+`0.02002294015850767`.  Thus the earliest bad targets miss the q286-only
+Cauchy threshold by about a factor of five; `N=88346` misses by about a factor
+of two and a half.  The actual signed deviations use only fractions
+`0.19146520713929577`, `0.1727458822172166`, and `0.30904476926988145` of the
+Cauchy envelope, so a proof could exploit angle/correlation as well as L2
+size.

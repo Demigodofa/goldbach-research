@@ -4137,6 +4137,23 @@ def q286_residue_discrepancy_profile_receipt(
         correlation = (
             dot / (delta_norm * coefficient_norm)
             if delta_norm and coefficient_norm else 0.0)
+        cauchy_bound = delta_norm * coefficient_norm
+        cauchy_bound_to_principal_ratio = (
+            cauchy_bound / principal_contribution.real
+            if abs(principal_contribution.real) > tolerance else math.nan)
+        actual_abs_fraction_of_cauchy_bound = (
+            abs(deviation.real) / cauchy_bound
+            if cauchy_bound > tolerance else math.nan)
+        relative_l2_deviation = (
+            delta_norm / total_weight if total_weight > tolerance
+            else math.nan)
+        uniform_l2_weight = mean_weight * math.sqrt(len(admissible))
+        coefficient_of_variation = (
+            delta_norm / uniform_l2_weight
+            if uniform_l2_weight > tolerance else math.nan)
+        unit_principal_l2_threshold = (
+            principal_mean.real / coefficient_norm
+            if coefficient_norm > tolerance else math.inf)
         all_weight_coefficient_correlations_negative = bool(
             all_weight_coefficient_correlations_negative
             and correlation < -tolerance)
@@ -4187,6 +4204,19 @@ def q286_residue_discrepancy_profile_receipt(
                 deviation.real / principal_contribution.real
                 if abs(principal_contribution.real) > tolerance
                 else math.nan),
+            "residue_weight_l2_deviation": delta_norm,
+            "q286_coefficient_real_l2": coefficient_norm,
+            "cauchy_bound_to_principal_ratio": float(
+                cauchy_bound_to_principal_ratio),
+            "actual_abs_fraction_of_cauchy_bound": float(
+                actual_abs_fraction_of_cauchy_bound),
+            "l2_deviation_to_total_weight": float(relative_l2_deviation),
+            "residue_weight_coefficient_of_variation": float(
+                coefficient_of_variation),
+            "unit_principal_l2_sufficiency_threshold": float(
+                unit_principal_l2_threshold),
+            "l2_sufficiency_for_unit_principal_satisfied": bool(
+                relative_l2_deviation < unit_principal_l2_threshold),
             "weight_coefficient_real_correlation": correlation,
             "negative_coefficient_weight_to_uniform_ratio": (
                 negative_weight_ratio),
