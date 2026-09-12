@@ -7686,6 +7686,23 @@ about `-0.00873`, `0.000038`, `0.01110`, and `0.00927`.  Next proof-shaped
 target: estimate a small multi-mode family, especially common negative modes
 `1..3`, rather than betting on one separable character twist.
 
+## 2026-09-12: q286 leading mode period-profile scanner added
+
+`q286_leading_mode_cycle_profile_receipt` now profiles modes `1..6` over
+consecutive target ranges.  It records whether modes `1..3` remain negative on
+significant q286 lower-tail targets across a broader scan, or whether the
+common-negative observation was a small-target artifact.
+
+Measured answer: common-negative mode control is a small-target artifact.  In
+the full first period `10000..20008`, no leading mode is negative on every
+significant q286 lower-tail target.  Modes `1` and `2` are still negative on
+most significant lower tails (`562/594` and `493/594`), while modes `3..6`
+are more target-dependent.
+
+Next target: formulate a target-dependent signed envelope for the six q286
+modes, likely using principal-relative mode-size bounds and cancellation among
+positive/negative modes, rather than a fixed-sign theorem for modes `1..3`.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

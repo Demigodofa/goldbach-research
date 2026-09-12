@@ -16147,3 +16147,31 @@ Status `changed-under-evidence`: the leading q286 obstruction is genuinely
 multi-mode.  A proof cannot estimate only the top singular mode; it must at
 least handle the common negative modes `1,2,3`, with modes `4..6` contributing
 target-dependent reinforcement or offset.
+
+## 2026-09-12: q286 leading mode period-profile scanner added
+
+`q286_leading_mode_cycle_profile_receipt` scans consecutive even targets and
+profiles each leading q286 singular mode separately.  It reports each mode's
+principal-relative minimum, maximum, sign counts, sign behavior on significant
+q286 negative targets, and common negative modes across those targets.
+
+This distinguishes a stable lower-tail mechanism from mode signs that only
+look stable on a few handpicked targets.  It remains sampled evidence, not a
+signed prime-correlation estimate.
+
+Full first-period profile on `10000..20008`: q286 is negative at `2475/5005`
+targets and significantly negative below `-0.4` principal at `594`.  The
+q286 deviation ranges from `-1.0657310963761573` at `N=12118` to
+`1.5778112649116116` at `N=11108`.
+
+No leading mode is negative on every significant q286 lower-tail target.
+Thus the "common negative modes 1..3" observation from the four hard targets
+does not persist over the whole first period.  Mode negative rates on the
+`594` significant targets are: mode `1`, `562/594`; mode `2`, `493/594`;
+mode `3`, `345/594`; mode `4`, `342/594`; mode `5`, `227/594`; mode `6`,
+`277/594`.
+
+Status `changed-under-evidence`: reject fixed-sign mode control.  Preserve a
+weaker but useful structure: modes `1` and `2` dominate many significant
+negative tails, but the proof target must control a target-dependent signed
+mode envelope rather than proving one mode or one fixed set is always negative.

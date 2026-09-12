@@ -5245,6 +5245,191 @@ def q286_leading_singular_mode_contribution_receipt(
     }
 
 
+def q286_leading_mode_cycle_profile_receipt(
+        start=10000, targets_per_cycle=5005, mode_count=6,
+        significant_negative_ratio=-.4, tolerance=1e-9):
+    """Profile individual q286 singular modes across consecutive targets."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if type(mode_count) is not int or mode_count < 1 or mode_count > 9:
+        raise ValueError("mode_count must lie between 1 and 9")
+    if (not math.isfinite(significant_negative_ratio)
+            or significant_negative_ratio >= 0):
+        raise ValueError(
+            "significant_negative_ratio must be finite and negative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(start,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    targets = tuple(start + 2 * index for index in range(targets_per_cycle))
+    primes = _prime_table(max(targets))
+
+    mode_stats = {
+        mode: {
+            "minimum_contribution_to_principal_ratio": math.inf,
+            "minimum_target": None,
+            "maximum_contribution_to_principal_ratio": -math.inf,
+            "maximum_target": None,
+            "negative_count": 0,
+            "positive_count": 0,
+            "near_zero_count": 0,
+            "negative_on_significant_count": 0,
+            "positive_on_significant_count": 0,
+            "sum_contribution_to_principal_ratio": 0.0,
+        }
+        for mode in range(1, mode_count + 1)}
+    negative_targets = []
+    significant_negative_targets = []
+    minimum_q286_target = None
+    minimum_q286_ratio = math.inf
+    maximum_q286_target = None
+    maximum_q286_ratio = -math.inf
+    per_target_common_negative_modes = None
+    significant_common_negative_modes = None
+
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        total_weight = 0.0
+        weights = np.zeros(len(units), dtype=np.float64)
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                total_weight += weight
+                weights[unit_index[prime % modulus]] += weight
+        if total_weight <= tolerance:
+            continue
+        principal_contribution = (
+            character_receipt["rows"][start]["principal_contribution"]
+            * (total_weight / character_receipt["rows"][start][
+                "total_prime_pair_weight"]))
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        mean_weight = total_weight / int(np.sum(admissible_mask))
+        weight_delta = np.zeros(len(units), dtype=np.float64)
+        weight_delta[admissible_mask] = (
+            weights[admissible_mask] - mean_weight)
+        imbalance_matrix = (
+            character_table @ weight_delta).reshape(10, 12)[1:, 1:]
+        q286_deviation = complex(np.sum(
+            coefficient_matrix * imbalance_matrix))
+        q286_ratio = float(q286_deviation.real
+                           / principal_contribution.real)
+        if q286_ratio < minimum_q286_ratio:
+            minimum_q286_ratio = q286_ratio
+            minimum_q286_target = target
+        if q286_ratio > maximum_q286_ratio:
+            maximum_q286_ratio = q286_ratio
+            maximum_q286_target = target
+        is_negative = q286_ratio < -tolerance
+        is_significant = q286_ratio <= significant_negative_ratio
+        if is_negative:
+            negative_targets.append(target)
+        if is_significant:
+            significant_negative_targets.append(target)
+        target_negative_modes = set()
+        for index in range(mode_count):
+            mode = index + 1
+            mode_matrix = (
+                singular_values[index]
+                * np.outer(left[:, index], right[index, :]))
+            contribution = complex(np.sum(mode_matrix * imbalance_matrix))
+            ratio = float(contribution.real / principal_contribution.real)
+            stats = mode_stats[mode]
+            stats["sum_contribution_to_principal_ratio"] += ratio
+            if ratio < stats["minimum_contribution_to_principal_ratio"]:
+                stats["minimum_contribution_to_principal_ratio"] = ratio
+                stats["minimum_target"] = target
+            if ratio > stats["maximum_contribution_to_principal_ratio"]:
+                stats["maximum_contribution_to_principal_ratio"] = ratio
+                stats["maximum_target"] = target
+            if ratio < -tolerance:
+                stats["negative_count"] += 1
+                target_negative_modes.add(mode)
+                if is_significant:
+                    stats["negative_on_significant_count"] += 1
+            elif ratio > tolerance:
+                stats["positive_count"] += 1
+                if is_significant:
+                    stats["positive_on_significant_count"] += 1
+            else:
+                stats["near_zero_count"] += 1
+        if per_target_common_negative_modes is None:
+            per_target_common_negative_modes = set(target_negative_modes)
+        else:
+            per_target_common_negative_modes &= target_negative_modes
+        if is_significant:
+            if significant_common_negative_modes is None:
+                significant_common_negative_modes = set(target_negative_modes)
+            else:
+                significant_common_negative_modes &= target_negative_modes
+
+    tested_count = len(targets)
+    for stats in mode_stats.values():
+        stats["mean_contribution_to_principal_ratio"] = (
+            stats["sum_contribution_to_principal_ratio"] / tested_count
+            if tested_count else math.nan)
+        stats["negative_fraction"] = (
+            stats["negative_count"] / tested_count if tested_count else 0.0)
+        stats["positive_fraction"] = (
+            stats["positive_count"] / tested_count if tested_count else 0.0)
+        stats["negative_on_significant_fraction"] = (
+            stats["negative_on_significant_count"]
+            / len(significant_negative_targets)
+            if significant_negative_targets else 0.0)
+        del stats["sum_contribution_to_principal_ratio"]
+
+    return {
+        "families": character_receipt["families"],
+        "arithmetic_period": character_receipt["arithmetic_period"],
+        "support": character_receipt["support"],
+        "natural_modulus": modulus,
+        "start": start,
+        "targets_per_cycle": targets_per_cycle,
+        "tested_target_count": tested_count,
+        "mode_count": mode_count,
+        "significant_negative_ratio": significant_negative_ratio,
+        "negative_q286_deviation_count": len(negative_targets),
+        "significant_negative_q286_deviation_count": len(
+            significant_negative_targets),
+        "minimum_q286_deviation_target": minimum_q286_target,
+        "minimum_q286_deviation_ratio": minimum_q286_ratio,
+        "maximum_q286_deviation_target": maximum_q286_target,
+        "maximum_q286_deviation_ratio": maximum_q286_ratio,
+        "mode_stats": mode_stats,
+        "common_negative_mode_indices_all_targets": tuple(sorted(
+            per_target_common_negative_modes or ())),
+        "common_negative_mode_indices_significant_targets": tuple(sorted(
+            significant_common_negative_modes or ())),
+        "all_first_three_modes_negative_on_significant_targets": bool(
+            {1, 2, 3}.issubset(significant_common_negative_modes or set())),
+        "single_mode_negative_on_all_significant_targets": bool(
+            len(significant_common_negative_modes or ()) == 1),
+        "leading_mode_cycle_profile_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_singular_mode_lower_tail_stress_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
         tolerance=1e-9):

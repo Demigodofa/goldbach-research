@@ -32,6 +32,7 @@ from lcm_sawtooth_goldbach_transfer import (
     holdout_q55_projected_principal_channel_receipt,
     q286_character_imbalance_receipt,
     q286_character_matrix_structure_receipt,
+    q286_leading_mode_cycle_profile_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_singular_mode_approximation_receipt,
@@ -1069,6 +1070,23 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["single_mode_obstruction_found"])
         self.assertTrue(
             receipt["leading_singular_mode_contribution_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_leading_mode_cycle_profile(self):
+        receipt = q286_leading_mode_cycle_profile_receipt(
+            targets_per_cycle=9, mode_count=6)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertEqual(receipt["mode_count"], 6)
+        self.assertIn(1, receipt["mode_stats"])
+        self.assertEqual(len(receipt["mode_stats"]), 6)
+        self.assertTrue(receipt["leading_mode_cycle_profile_measured"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
