@@ -15593,3 +15593,33 @@ real moving error, but the sampled bad residues do not show persistent
 negative behavior after one or more period lifts.  Next target: turn this into
 an explicit threshold-plus-finite-check strategy or prove a pointwise bound for
 the normalized multiplier below the weakest positive local-main margin.
+
+## 2026-09-12: holdout original projected actions match assembled components
+
+Kevin asked for independent original-action audits of q35, q55, q65, and q143.
+`holdout_original_projected_action_audit_receipt` now recomputes each holdout
+sector's original projected count-four spatial action and compares it to the
+corresponding assembled prime-residue coefficient action on the strict-central
+prime-pair fixtures.
+
+The maximum action relative error across the four sectors is
+`2.3027261888604984e-13`, and the receipt passes.  Sector details:
+
+`q35`: lag/common `286`, coefficient-vector error
+`4.673050255673673e-14`, action error `2.3027261888604984e-13`.
+
+`q55`: lag/common `182`, coefficient-vector error
+`2.3717099635538043e-13`, action error `3.0598780471187056e-14`.
+
+`q65`: lag/common `154`, coefficient-vector error
+`1.8920317816138494e-15`, action error `5.3211501061131093e-14`.
+
+`q143`: lag/common `70`, coefficient-vector error
+`6.710683956519706e-15`, action error `1.5392616872595559e-13`.
+
+Status `verified-bookkeeping`: q77 is separately tied to its original
+linked-prime row action, and q35/q55/q65/q143 are now tied to their original
+projected count-four actions.  Thus the assembled fixed coefficient has
+sector-by-sector source/action support for the strict-central fixture layer.
+The remaining gaps are still endpoint/noncentral reconciliation and the
+pointwise signed prime-correlation estimate.

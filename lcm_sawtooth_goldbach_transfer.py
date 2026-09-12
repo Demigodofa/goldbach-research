@@ -2484,6 +2484,128 @@ def q77_original_strict_central_action_receipt(
     }
 
 
+def holdout_original_projected_action_audit_receipt(
+        targets=(1000, 1002), tolerance=1e-9):
+    """Audit holdout sector actions against assembled component coefficients.
+
+    For q35, q55, q65, and q143, the source-side object is the projected
+    count-four spatial-frequency action.  This receipt recomputes that action
+    from grouped spatial residues, then compares it to the corresponding
+    assembled prime-residue coefficient action.  It is independent of the q77
+    linked-row audit and remains a finite action identity, not an estimate.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    assembled = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    component_maps = assembled["component_coefficient_by_residue"]
+    quotients = (35, 55, 65, 143)
+    quotient_rows = {}
+    maximum_action_relative_error = 0.0
+    all_nonunit_pairs = []
+    for quotient in quotients:
+        source = holdout_projected_spatial_fiber_bridge_receipt(
+            quotient=quotient, tolerance=1e-12)
+        common = source["common_modulus"]
+        residues = tuple(
+            residue for residue in range(common)
+            if math.gcd(residue, common) == 1)
+        spatial = np.asarray(source["grouped_centered_spatial_values"],
+                             dtype=np.complex128)
+        spatial = spatial + source["grouped_spatial_mean"]
+        phase = np.exp(
+            2j * np.pi * np.outer(residues, residues) / common)
+        direct_dual = phase @ spatial
+        assembled_vector = np.asarray(tuple(
+            component_maps[quotient][residue] for residue in residues),
+            dtype=np.complex128)
+        vector_scale = max(
+            1.0, float(np.linalg.norm(direct_dual)),
+            float(np.linalg.norm(assembled_vector)))
+        coefficient_vector_error = float(
+            np.linalg.norm(direct_dual - assembled_vector) / vector_scale)
+
+        target_rows = {}
+        quotient_maximum_action_error = 0.0
+        for target in targets:
+            lower = target // 3
+            upper = target - lower
+            exponential_sums = {residue: 0.0j for residue in residues}
+            assembled_terms = []
+            pair_count = 0
+            nonunit_pairs = []
+            for prime, weight in _linked_prime_pairs(target, lower, upper):
+                partner = target - prime
+                prime_residue = prime % common
+                pair_count += 1
+                if math.gcd(prime_residue, common) != 1:
+                    nonunit_pairs.append((prime, partner))
+                    continue
+                assembled_terms.append(
+                    component_maps[quotient][prime_residue] * weight)
+                for residue in residues:
+                    exponential_sums[residue] += (
+                        np.exp(
+                            2j * np.pi * residue * prime_residue / common)
+                        * weight)
+            original_projected_action = _complex_fsum(
+                value * exponential_sums[residue]
+                for residue, value in zip(residues, spatial))
+            assembled_action = _complex_fsum(assembled_terms)
+            action_scale = max(
+                1.0, abs(original_projected_action), abs(assembled_action))
+            action_relative_error = abs(
+                original_projected_action - assembled_action) / action_scale
+            quotient_maximum_action_error = max(
+                quotient_maximum_action_error, action_relative_error)
+            maximum_action_relative_error = max(
+                maximum_action_relative_error, action_relative_error)
+            all_nonunit_pairs.extend((quotient, target, pair)
+                                     for pair in nonunit_pairs)
+            target_rows[target] = {
+                "strict_central_interval": (lower, upper),
+                "ordered_central_prime_pair_count": pair_count,
+                "nonunit_prime_pairs": tuple(nonunit_pairs),
+                "original_projected_spatial_action": (
+                    original_projected_action),
+                "assembled_component_coefficient_action": assembled_action,
+                "action_relative_error": action_relative_error,
+            }
+        quotient_rows[quotient] = {
+            "lag": source["lag"],
+            "common_modulus": common,
+            "unit_group_order": len(residues),
+            "coefficient_vector_relative_error": coefficient_vector_error,
+            "maximum_action_relative_error": (
+                quotient_maximum_action_error),
+            "rows": target_rows,
+        }
+
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": assembled["arithmetic_period"],
+        "audited_quotients": quotients,
+        "targets": targets,
+        "quotient_rows": quotient_rows,
+        "maximum_action_relative_error": maximum_action_relative_error,
+        "nonunit_prime_pairs": tuple(all_nonunit_pairs),
+        "holdout_original_projected_actions_equal_assembled_components": bool(
+            not all_nonunit_pairs
+            and maximum_action_relative_error <= tolerance
+            and all(row["coefficient_vector_relative_error"] <= tolerance
+                    for row in quotient_rows.values())),
+        "q77_linked_row_audit_separate": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_admissible_main_receipt(tolerance=1e-9):
     """Compute local admissible mains for the assembled fixed coefficient."""
     if not math.isfinite(tolerance) or tolerance < 0:
@@ -2727,6 +2849,141 @@ def combined_coefficient_prime_correlation_diagnostic_receipt(
         "all_sampled_weighted_sums_positive": bool(
             not negative_targets and not near_zero_targets),
         "finite_prime_correlation_diagnostic_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def combined_coefficient_negative_residue_lift_receipt(
+        base_target_minimum=10000, base_target_maximum=20008,
+        additional_period_lifts=(0, 1, 4, 9, 19, 49), tolerance=1e-9):
+    """Test whether first-cycle negative residue classes persist under lifts.
+
+    This receipt is a finite stress test for a threshold-plus-finite-check
+    route.  It first finds negative assembled-coefficient prime correlations in
+    a base range, then recomputes the same target residues after adding full
+    periods.  It is not an analytic prime-correlation estimate.
+    """
+    if (type(base_target_minimum) is not int
+            or type(base_target_maximum) is not int
+            or base_target_minimum < 40
+            or base_target_maximum < base_target_minimum):
+        raise ValueError("require integer base bounds with 40<=min<=max")
+    additional_period_lifts = tuple(additional_period_lifts)
+    if (not additional_period_lifts
+            or any(type(lift) is not int or lift < 0
+                   for lift in additional_period_lifts)):
+        raise ValueError("additional_period_lifts must be nonnegative integers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    coefficient_by_residue = coefficient[
+        "aggregate_coefficient_by_unit_residue"]
+    local_main_by_residue = {
+        target_residue: _complex_fsum(
+            coefficient_by_residue[residue]
+            for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+        for target_residue in range(0, period, 2)}
+
+    first_base = base_target_minimum + (base_target_minimum % 2)
+    base_targets = tuple(range(first_base, base_target_maximum + 1, 2))
+    if not base_targets:
+        raise ValueError("base range contains no even targets")
+    maximum_target = max(
+        target + max(additional_period_lifts) * period
+        for target in base_targets)
+    primes = _prime_table(maximum_target)
+
+    def evaluate(target):
+        lower = target // 3
+        upper = target - lower
+        weighted_terms = []
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                pair_count += 1
+                weighted_terms.append(
+                    coefficient_by_residue[prime % period]
+                    * math.log(prime) * math.log(partner))
+        weighted_sum = _complex_fsum(weighted_terms)
+        local_main = local_main_by_residue[target % period]
+        normalized_scale = target * local_main.real / (3 * len(units))
+        normalized = (
+            weighted_sum.real / normalized_scale
+            if abs(normalized_scale) > tolerance else math.nan)
+        return {
+            "target": target,
+            "target_residue": target % period,
+            "ordered_central_prime_pair_count": pair_count,
+            "weighted_prime_correlation": weighted_sum,
+            "halupczok_normalized_multiplier_without_singular_series": (
+                normalized),
+            "is_negative": bool(weighted_sum.real < -tolerance),
+        }
+
+    base_rows = {target: evaluate(target) for target in base_targets}
+    negative_base_targets = tuple(
+        target for target, row in base_rows.items()
+        if row["is_negative"])
+    lifted_rows = {}
+    persistent_negative_residues = []
+    minimum_lifted_normalized = math.inf
+    minimum_lifted_target = None
+    for base_target in negative_base_targets:
+        residue = base_target % period
+        rows = []
+        has_lifted_negative = False
+        for lift in additional_period_lifts:
+            target = base_target + lift * period
+            row = evaluate(target)
+            row["additional_period_lift"] = lift
+            rows.append(row)
+            if lift and row["is_negative"]:
+                has_lifted_negative = True
+            if lift and row[
+                    "halupczok_normalized_multiplier_without_singular_series"
+                    ] < minimum_lifted_normalized:
+                minimum_lifted_normalized = row[
+                    "halupczok_normalized_multiplier_without_singular_series"]
+                minimum_lifted_target = target
+        if has_lifted_negative:
+            persistent_negative_residues.append(residue)
+        lifted_rows[residue] = tuple(rows)
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "base_target_range": (base_targets[0], base_targets[-1]),
+        "base_tested_target_count": len(base_targets),
+        "base_covered_even_residue_count": len({target % period
+                                                for target in base_targets}),
+        "additional_period_lifts": additional_period_lifts,
+        "base_negative_target_count": len(negative_base_targets),
+        "base_negative_targets": negative_base_targets,
+        "tested_negative_residue_count": len(lifted_rows),
+        "lifted_rows_by_residue": lifted_rows,
+        "persistent_lifted_negative_residue_count": len(
+            persistent_negative_residues),
+        "persistent_lifted_negative_residues": tuple(
+            persistent_negative_residues),
+        "minimum_lifted_normalized_multiplier_target": (
+            minimum_lifted_target),
+        "minimum_lifted_normalized_multiplier": (
+            minimum_lifted_normalized
+            if minimum_lifted_target is not None else math.nan),
+        "negative_residue_lift_diagnostic_measured": True,
+        "asymptotic_threshold_strategy_falsified": bool(
+            persistent_negative_residues),
         "pointwise_error_estimate_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "formal_signed_error_identification_proved": False,

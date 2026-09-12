@@ -7820,3 +7820,21 @@ an explicit threshold with finite verification below it, or prove a direct
 uniform pointwise bound for the normalized moving error against the weakest
 positive local-main margin.  Endpoint/noncentral reconciliation and Goldbach
 remain open.
+
+### 2026-09-12 continuation: holdout original-action audits
+
+`holdout_original_projected_action_audit_receipt` independently recomputes the
+original projected count-four spatial actions for q35, q55, q65, and q143, and
+compares them to the assembled component coefficient actions.  The audit
+passes with maximum action relative error `2.3027261888604984e-13`.
+
+Per sector: q35 has coefficient-vector/action errors
+`4.673050255673673e-14` and `2.3027261888604984e-13`; q55 has
+`2.3717099635538043e-13` and `3.0598780471187056e-14`; q65 has
+`1.8920317816138494e-15` and `5.3211501061131093e-14`; q143 has
+`6.710683956519706e-15` and `1.5392616872595559e-13`.
+
+Status `verified-bookkeeping`: all five assembled sectors now have direct
+source/action audits in the strict-central fixture layer.  This strengthens
+the coefficient bridge but does not close endpoint/noncentral terms or the
+pointwise signed prime-correlation estimate.

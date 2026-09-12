@@ -8,12 +8,14 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_character_spectrum_receipt,
     combined_coefficient_character_support_receipt,
     combined_coefficient_pairwise_gram_receipt,
+    combined_coefficient_negative_residue_lift_receipt,
     combined_coefficient_prime_correlation_diagnostic_receipt,
     combined_fixed_strict_central_coefficient_receipt,
     count_four_outer_holdout_sector_receipt,
     exact_projected_pairwise_gram_receipt,
     holdout_full_projected_prime_coefficient_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
+    holdout_original_projected_action_audit_receipt,
     holdout_q65_dual_prime_target_sum_receipt,
     holdout_q65_active_row_bridge_receipt,
     holdout_q65_naive_spatial_prime_coefficient_receipt,
@@ -616,6 +618,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "pointwise_signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_holdout_original_projected_actions_match_assembled(self):
+        receipt = holdout_original_projected_action_audit_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["audited_quotients"], (35, 55, 65, 143))
+        self.assertEqual(receipt["targets"], (1000, 1002))
+        self.assertFalse(receipt["nonunit_prime_pairs"])
+        for quotient in receipt["audited_quotients"]:
+            row = receipt["quotient_rows"][quotient]
+            self.assertLess(row["coefficient_vector_relative_error"], 1e-9)
+            self.assertLess(row["maximum_action_relative_error"], 1e-9)
+        self.assertLess(receipt["maximum_action_relative_error"], 1e-9)
+        self.assertTrue(receipt[
+            "holdout_original_projected_actions_equal_assembled_components"])
+        self.assertTrue(receipt["q77_linked_row_audit_separate"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_combined_coefficient_prime_correlation_diagnostic(self):
         receipt = combined_coefficient_prime_correlation_diagnostic_receipt(
             target_minimum=10000, target_maximum=10100)
@@ -626,6 +647,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["unit_group_order"], 2880)
         self.assertFalse(receipt["nonunit_or_inadmissible_prime_pairs"])
         self.assertTrue(receipt["finite_prime_correlation_diagnostic_measured"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_negative_residue_lift_diagnostic(self):
+        receipt = combined_coefficient_negative_residue_lift_receipt(
+            base_target_minimum=10000, base_target_maximum=10100,
+            additional_period_lifts=(0, 1))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["base_target_range"], (10000, 10100))
+        self.assertEqual(receipt["base_tested_target_count"], 51)
+        self.assertEqual(receipt["base_covered_even_residue_count"], 51)
+        self.assertEqual(receipt["additional_period_lifts"], (0, 1))
+        self.assertEqual(
+            receipt["tested_negative_residue_count"],
+            receipt["base_negative_target_count"])
+        self.assertTrue(receipt[
+            "negative_residue_lift_diagnostic_measured"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
