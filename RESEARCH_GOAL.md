@@ -7939,3 +7939,20 @@ Status `changed-under-evidence`: the explicit pointwise task is now a lower
 tail bound for the centered lower-modulus support correlations against the
 positive principal contribution.  Local-main positivity and average behavior
 remain insufficient.
+
+### 2026-09-12 continuation: support-cycle lower-tail drivers
+
+`combined_coefficient_support_cycle_envelope_receipt` measures support
+components as ratios to the positive principal contribution across full
+period cycles.  Over the first `12` cycles, the global centered minimum is
+still `N=14138`, centered/principal ratio `-1.8769412734408446`, and the
+dominant negative support at that target is `(11,13)`/modulus `286`.
+
+Global support minima: `(11,13)`/`286` reaches `-1.0602630156038382` at
+`N=10664`; `(5,7)`/`70` reaches `-0.8740313946216749` at `N=14732`;
+`(7,11)`/`154` reaches `-0.7887852463184297` at `N=10814`.  All smaller
+single/support terms bottom above `-0.108` in the scan.
+
+Status `changed-under-evidence`: prioritize the modulus-`286` lower-tail
+estimate and its reinforcement with moduli `70` and `154`; do not spend the
+next analytic attempt on the tiny single-support terms.

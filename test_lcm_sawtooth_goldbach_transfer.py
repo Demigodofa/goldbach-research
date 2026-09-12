@@ -13,6 +13,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_prime_correlation_diagnostic_receipt,
     combined_coefficient_period_cycle_envelope_receipt,
     combined_coefficient_support_contribution_receipt,
+    combined_coefficient_support_cycle_envelope_receipt,
     combined_coefficient_support_descent_receipt,
     combined_coefficient_uniform_residue_margin_receipt,
     combined_fixed_strict_central_coefficient_receipt,
@@ -786,6 +787,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(
             receipt["cycle_rows"][0]["tested_target_count"], 21)
         self.assertTrue(receipt["centered_error_envelope_measured"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_support_cycle_envelope(self):
+        receipt = combined_coefficient_support_cycle_envelope_receipt(
+            cycle_count=1, targets_per_cycle=21)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertAlmostEqual(
+            receipt["principal_mean"].real, 44002.512499999146,
+            places=7)
+        self.assertIn((11, 13), receipt["component_supports"])
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 21)
+        self.assertEqual(receipt["full_cycle_targets"], 5005)
+        self.assertEqual(
+            receipt["cycle_rows"][0]["tested_target_count"], 21)
+        self.assertTrue(receipt["support_cycle_envelope_measured"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

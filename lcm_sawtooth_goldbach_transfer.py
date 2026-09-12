@@ -3637,6 +3637,182 @@ def combined_coefficient_centered_error_envelope_receipt(
     }
 
 
+def combined_coefficient_support_cycle_envelope_receipt(
+        base_target_minimum=10000, cycle_count=3,
+        targets_per_cycle=None, tolerance=1e-9):
+    """Measure lower-modulus support ratios across period cycles."""
+    if (type(base_target_minimum) is not int or base_target_minimum < 40
+            or base_target_minimum % 2):
+        raise ValueError("base_target_minimum must be an even integer >=40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (targets_per_cycle is not None
+            and (type(targets_per_cycle) is not int
+                 or targets_per_cycle < 1)):
+        raise ValueError("targets_per_cycle must be None or a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    full_cycle_targets = period // 2
+    per_cycle = (
+        full_cycle_targets if targets_per_cycle is None
+        else min(targets_per_cycle, full_cycle_targets))
+    maximum_target = (
+        base_target_minimum
+        + (cycle_count - 1) * period
+        + 2 * (per_cycle - 1))
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    principal_mean = complex(np.mean(values))
+    centered = values - principal_mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+    components = {}
+    for support, indices in support_indices.items():
+        if not support:
+            continue
+        masked = np.zeros_like(character_coefficients)
+        masked[indices] = character_coefficients[indices]
+        energy = float(np.sum(np.abs(masked) ** 2))
+        if energy > tolerance:
+            components[support] = character_table.T @ masked
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(maximum_target)
+
+    def evaluate(target):
+        lower = target // 3
+        upper = target - lower
+        unit_weight = 0.0
+        component_sums = {support: 0.0j for support in components}
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                pair_count += 1
+                weight = math.log(prime) * math.log(partner)
+                unit_weight += weight
+                unit = prime % period
+                index = unit_index[unit]
+                for support, component in components.items():
+                    component_sums[support] += component[index] * weight
+        principal = principal_mean * unit_weight
+        ratios = {
+            support: float(
+                value.real / principal.real
+                if abs(principal.real) > tolerance else math.nan)
+            for support, value in component_sums.items()}
+        centered_ratio = float(math.fsum(ratios.values()))
+        return {
+            "target": target,
+            "target_residue": target % period,
+            "ordered_central_prime_pair_count": pair_count,
+            "principal_contribution": principal,
+            "component_contributions": {
+                support: complex(value)
+                for support, value in component_sums.items()},
+            "component_to_principal_ratios": ratios,
+            "centered_to_principal_ratio": centered_ratio,
+            "positive": bool(1 + centered_ratio > tolerance),
+        }
+
+    cycle_rows = {}
+    global_support_minima = {
+        support: None for support in components}
+    global_centered_minimum = None
+    for cycle_index in range(cycle_count):
+        start = base_target_minimum + cycle_index * period
+        rows = tuple(evaluate(start + 2 * offset)
+                     for offset in range(per_cycle))
+        centered_minimum = min(
+            rows, key=lambda row: row["centered_to_principal_ratio"])
+        if (global_centered_minimum is None
+                or centered_minimum["centered_to_principal_ratio"]
+                < global_centered_minimum["centered_to_principal_ratio"]):
+            global_centered_minimum = centered_minimum
+        support_summaries = {}
+        for support in components:
+            support_minimum = min(
+                rows,
+                key=lambda row: row[
+                    "component_to_principal_ratios"][support])
+            support_maximum = max(
+                rows,
+                key=lambda row: row[
+                    "component_to_principal_ratios"][support])
+            if (global_support_minima[support] is None
+                    or support_minimum[
+                        "component_to_principal_ratios"][support]
+                    < global_support_minima[support][
+                        "component_to_principal_ratios"][support]):
+                global_support_minima[support] = support_minimum
+            support_summaries[support] = {
+                "minimum_ratio_target": support_minimum["target"],
+                "minimum_ratio": support_minimum[
+                    "component_to_principal_ratios"][support],
+                "maximum_ratio_target": support_maximum["target"],
+                "maximum_ratio": support_maximum[
+                    "component_to_principal_ratios"][support],
+                "mean_ratio": math.fsum(
+                    row["component_to_principal_ratios"][support]
+                    for row in rows) / len(rows),
+            }
+        cycle_rows[cycle_index] = {
+            "target_range": (rows[0]["target"], rows[-1]["target"]),
+            "tested_target_count": len(rows),
+            "negative_or_zero_count": sum(
+                1 for row in rows if not row["positive"]),
+            "minimum_centered_ratio_target": centered_minimum["target"],
+            "minimum_centered_ratio": centered_minimum[
+                "centered_to_principal_ratio"],
+            "support_summaries": support_summaries,
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "principal_mean": principal_mean,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": per_cycle,
+        "full_cycle_targets": full_cycle_targets,
+        "component_supports": tuple(components),
+        "cycle_rows": cycle_rows,
+        "global_minimum_centered_ratio_target": (
+            global_centered_minimum["target"]),
+        "global_minimum_centered_ratio": global_centered_minimum[
+            "centered_to_principal_ratio"],
+        "global_support_minima": {
+            support: {
+                "target": row["target"],
+                "ratio": row["component_to_principal_ratios"][support],
+            }
+            for support, row in global_support_minima.items()},
+        "dominant_negative_support_at_global_minimum": min(
+            global_centered_minimum["component_to_principal_ratios"],
+            key=lambda support: global_centered_minimum[
+                "component_to_principal_ratios"][support]),
+        "support_cycle_envelope_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

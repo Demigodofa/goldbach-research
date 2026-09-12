@@ -15791,3 +15791,35 @@ single lower-tail inequality for the centered support error, but the margin is
 thin near some finite targets.  Average cancellation or local-main positivity
 is not enough; a proof must bound the lower tail of the lower-modulus support
 correlations below the positive principal contribution.
+
+## 2026-09-12: support-cycle envelope identifies the main lower-tail drivers
+
+`combined_coefficient_support_cycle_envelope_receipt` measures each
+lower-modulus support component as a ratio to the positive principal
+contribution across period cycles.  Over the first `12` complete cycles, the
+global centered lower-tail target remains `N=14138`, with centered/principal
+ratio `-1.8769412734408446`.  The dominant negative support at that global
+minimum is `(11,13)`, i.e. modulus `286`.
+
+Global support minima over the same scan:
+
+`(11,13)`/`286`: minimum ratio `-1.0602630156038382` at `N=10664`.
+
+`(5,7)`/`70`: minimum ratio `-0.8740313946216749` at `N=14732`.
+
+`(7,11)`/`154`: minimum ratio `-0.7887852463184297` at `N=10814`.
+
+Single/support-small terms are much smaller: `(7,)` bottoms at
+`-0.10736856262730846`, `(13,)` at `-0.06419319064830094`, `(5,13)` at
+`-0.05541643716840741`, `(5,)` at `-0.04422767682294797`, and `(11,)` at
+`-0.024511887395612542`.
+
+Later cycle minima show q286 remains the dominant negative component but
+improves in scale: q286 minima by cycles `0..11` are approximately
+`-1.0603, -0.9914, -0.8678, -0.9690, -0.7924, -0.7376, -0.7440, -0.7602,
+-0.6997, -0.5880, -0.6357, -0.5852`.
+
+Status `changed-under-evidence`: the lower tail is not a uniform all-support
+problem.  The proof target should prioritize the modulus-`286` support, then
+control the reinforcing q70 and q154 supports; the smaller supports are not
+the main obstruction in the measured range.
