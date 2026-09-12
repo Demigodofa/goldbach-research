@@ -7601,3 +7601,45 @@ lag-154 projected Fourier mass, and does any sector-level additive source over
 `U_154` align with the q65 fiber shadow?  Falsifier: all sector-level source
 vectors either cancel, live on a different quotient/common-modulus object, or
 require target-dependent coefficients.
+
+## 2026-09-12: q65 projected spatial bridge recovers the fiber shadow
+
+The q65 active linked-prime row bridge failed, but that failure identified the
+wrong layer rather than killing the q65 component.  The projected-Fourier
+spatial source for quotient `65` / lag `154` does recover the q65 fiber shadow.
+Compute the signed projected value for each spatial frequency coprime to
+`154`, using the same transform formula as `_projected_fourier_total`; then
+group the `3900=65*phi(154)` spatial frequencies by residue modulo `154` and
+center over `U_154`.  The grouped centered spatial vector equals the negative
+of the q65 fiber-shadow vector.
+
+The reviewed measurements are: projected signed total `-67673.0`, absolute
+mass about `123321031.2302159`, cancellation quotient
+`.0005487547365190931`, grouped centered spatial `L^2` norm
+`86071.18524618639`, fiber-shadow `L^2` norm `86071.18524618556`, opposite-sign
+relative error about `1.26e-14`, and best scalar approximately
+`-1.0000000000000098 - 1.06e-16i`.
+
+Independent review returned PASS.  Faraday checked that the spatial loop
+matches `_projected_fourier_total` term-for-term, that grouping by spatial
+frequency modulo `154` is correct, that the projected-spatial construction and
+direct-source fiber construction are independent, and that the numerical
+fixtures/tolerances and open-scope flags are correct.  Focused normal and
+optimized tests pass; compile, diff check, and the combined q65/holdout test
+set pass.
+
+Status `aha-candidate`, novelty `new-to-this-task`: the q65 holdout sector has
+a source identity parallel to q77, but in the projected-Fourier spatial layer
+rather than in the active linked-prime row layer.  The active linked-prime row
+bridge remains falsified; the projected spatial bridge is a source identity,
+not yet a target prime-pair bridge.  No full outer assembly, formal signed
+error, pointwise signed prime-correlation estimate, or Goldbach theorem
+follows.
+
+Next concrete question: transfer this projected-spatial q65 source identity to
+a strict-central prime-pair correlation.  Does grouping spatial frequencies by
+`p mod 154` give a fixed weighted Goldbach sum for every even `N>=34`, or is
+there an additional transform/duality step before spatial coefficients become
+prime-residue coefficients?  Falsifier: a direct target computation disagrees
+with the grouped-spatial coefficient vector beyond numerical tolerance, or the
+coefficient depends on `N mod 154`.

@@ -7,6 +7,7 @@ from lcm_sawtooth_goldbach_transfer import (
     count_four_outer_holdout_sector_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
     holdout_q65_active_row_bridge_receipt,
+    holdout_q65_projected_spatial_fiber_bridge_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -123,6 +124,48 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["q65_active_linked_row_bridge_falsified"])
         self.assertFalse(
             receipt["alternative_count_four_sector_bridge_ruled_out"])
+        self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_q65_projected_spatial_fiber_bridge(self):
+        receipt = holdout_q65_projected_spatial_fiber_bridge_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["quotient"], 65)
+        self.assertEqual(receipt["lag"], 154)
+        self.assertEqual(receipt["common_modulus"], 154)
+        self.assertEqual(receipt["spatial_frequency_count"], 3900)
+        self.assertEqual(receipt["unit_group_order"], 60)
+        self.assertAlmostEqual(
+            receipt["projected_signed_total"], -67673.0, places=6)
+        self.assertAlmostEqual(
+            receipt["projected_absolute_mass"], 123321031.23021583,
+            places=5)
+        self.assertAlmostEqual(
+            receipt["projected_cancellation_quotient"],
+            .0005487547365190946, places=14)
+        self.assertAlmostEqual(
+            receipt["grouped_centered_spatial_l2"],
+            86071.18524618637, places=8)
+        self.assertAlmostEqual(
+            receipt["fiber_shadow_l2"], 86071.18524618556,
+            places=8)
+        self.assertGreater(
+            receipt["same_sign_fiber_shadow_relative_error"], 1.999999)
+        self.assertLess(
+            receipt["opposite_sign_fiber_shadow_relative_error"], 1e-12)
+        self.assertAlmostEqual(
+            receipt["best_scalar_to_fiber_shadow"].real, -1.0,
+            places=12)
+        self.assertLess(
+            abs(receipt["best_scalar_to_fiber_shadow"].imag), 1e-12)
+        self.assertTrue(receipt[
+            "projected_spatial_grouping_equals_negative_fiber_shadow"])
+        self.assertTrue(receipt["active_linked_row_bridge_was_wrong_layer"])
+        self.assertFalse(
+            receipt["linked_prime_or_target_prime_pair_bridge_proved"])
         self.assertFalse(receipt["full_outer_assembly_identification_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt[

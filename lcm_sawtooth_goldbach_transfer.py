@@ -25,8 +25,10 @@ from lcm_sawtooth_linked_prime_character import (
 )
 from lcm_sawtooth_projected_fourier_cancellation import (
     TWO_PRIME_QUOTIENT_LAGS,
+    _family_transform_factors,
     two_prime_projected_fourier_holdout_receipt,
 )
+from lcm_sawtooth_ramanujan_class_mean import _ramanujan_sum
 
 
 def _complex_fsum(values):
@@ -1215,6 +1217,104 @@ def holdout_q65_active_row_bridge_receipt(
             "q65 nonzero fiber shadow remains available for a different "
             "count-four sector bridge"),
         "alternative_count_four_sector_bridge_ruled_out": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+
+def holdout_q65_projected_spatial_fiber_bridge_receipt(tolerance=1e-12):
+    """Identify the q65 fiber shadow in the projected-Fourier spatial layer.
+
+    The active linked-prime rows cancel for q65, but the projected-Fourier
+    q65 source is naturally indexed by spatial frequencies.  Grouping those
+    spatial frequencies by residue modulo 154 and centering gives the opposite
+    of the q65 fiber-shadow vector.  This is a source identity only; it is not
+    yet a target prime-pair bridge or signed estimate.
+    """
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    period = math.lcm(
+        CANONICAL_FAMILIES[0][0], 2 * CANONICAL_FAMILIES[0][1])
+    quotient = 65
+    lag = TWO_PRIME_QUOTIENT_LAGS[quotient]
+    common = math.gcd(lag, period)
+    quotient_weights = np.asarray(tuple(
+        _ramanujan_sum(quotient, frequency)
+        for frequency in range(period)), dtype=np.float64)
+    left_table, left_negative_partner = _family_transform_factors(
+        period, *CANONICAL_FAMILIES[0])
+    right_table, right_negative_partner = _family_transform_factors(
+        period, *CANONICAL_FAMILIES[1])
+    spatial_frequencies = tuple(
+        frequency for frequency in range(period)
+        if math.gcd(frequency, common) == 1)
+    scale_factor = common / (period * period)
+    signed_by_spatial_frequency = []
+    absolute_by_spatial_frequency = []
+    for spatial_frequency in spatial_frequencies:
+        left_transform = -.25 * (
+            (np.roll(left_table, -spatial_frequency) - left_table)
+            * (np.roll(left_negative_partner, -spatial_frequency)
+               - left_negative_partner))
+        right_transform = -.25 * (
+            (np.roll(right_table, -spatial_frequency) - right_table)
+            * (np.roll(right_negative_partner, -spatial_frequency)
+               - right_negative_partner))
+        summands = (
+            scale_factor * quotient_weights * left_transform
+            * right_transform)
+        signed_by_spatial_frequency.append(float(np.sum(summands)))
+        absolute_by_spatial_frequency.append(float(np.sum(np.abs(summands))))
+    common_units = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    grouped_spatial_values = np.asarray(tuple(
+        math.fsum(
+            value for value, spatial_frequency
+            in zip(signed_by_spatial_frequency, spatial_frequencies)
+            if spatial_frequency % common == residue)
+        for residue in common_units), dtype=np.float64)
+    grouped_centered = grouped_spatial_values - np.mean(grouped_spatial_values)
+    candidate = holdout_lag_fiber_shadow_candidate_receipt(
+        quotient=quotient, tolerance=tolerance)
+    fiber_shadow = np.asarray(candidate["fiber_shadow_values"],
+                              dtype=np.complex128)
+    grouped_l2 = float(np.linalg.norm(grouped_centered))
+    shadow_l2 = float(np.linalg.norm(fiber_shadow))
+    comparison_scale = max(1.0, grouped_l2, shadow_l2)
+    same_sign_error = float(
+        np.linalg.norm(grouped_centered - fiber_shadow) / comparison_scale)
+    opposite_sign_error = float(
+        np.linalg.norm(grouped_centered + fiber_shadow) / comparison_scale)
+    best_scalar = np.vdot(fiber_shadow, grouped_centered) / np.vdot(
+        fiber_shadow, fiber_shadow)
+    signed_total = math.fsum(signed_by_spatial_frequency)
+    absolute_mass = math.fsum(absolute_by_spatial_frequency)
+    return {
+        "families": CANONICAL_FAMILIES,
+        "arithmetic_period": period,
+        "quotient": quotient,
+        "lag": lag,
+        "common_modulus": common,
+        "spatial_frequency_count": len(spatial_frequencies),
+        "unit_group_order": len(common_units),
+        "grouped_spatial_sum": float(np.sum(grouped_spatial_values)),
+        "projected_signed_total": signed_total,
+        "projected_absolute_mass": absolute_mass,
+        "projected_cancellation_quotient": (
+            abs(signed_total) / absolute_mass if absolute_mass else None),
+        "grouped_centered_spatial_l2": grouped_l2,
+        "fiber_shadow_l2": shadow_l2,
+        "same_sign_fiber_shadow_relative_error": same_sign_error,
+        "opposite_sign_fiber_shadow_relative_error": opposite_sign_error,
+        "best_scalar_to_fiber_shadow": complex(best_scalar),
+        "projected_spatial_grouping_equals_negative_fiber_shadow": bool(
+            opposite_sign_error <= tolerance),
+        "active_linked_row_bridge_was_wrong_layer": True,
+        "linked_prime_or_target_prime_pair_bridge_proved": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
         "pointwise_signed_prime_correlation_estimate_proved": False,
