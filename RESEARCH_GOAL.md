@@ -9178,3 +9178,15 @@ tail-set complement is `0.6899144617707726`, and minimum rescue margin is
 
 Status `aha-candidate`: the fresh band does not break the checked stronger
 buffer pattern from cycle `33` onward; finite evidence only.
+
+### 2026-09-12 continuation: tail rescue floor-candidate receipt
+
+`q286_first_three_tail_rescue_floor_candidate_receipt` now tests the
+post-cycle-33 buffer candidate explicitly: first-three threshold `.3`,
+complement floor `.63`, rescue margin floor `.3`, and optional deficit ceiling
+`.47`.  Focused regression on global cycle `37` passes with no violations;
+minimum complement `0.6393542776650206`, minimum rescue margin
+`0.31158984534443446`, and maximum deficit `0.37765470838997645`.
+
+Status `changed-under-evidence`: the candidate is now executable and
+falsifiable, but remains finite evidence only.

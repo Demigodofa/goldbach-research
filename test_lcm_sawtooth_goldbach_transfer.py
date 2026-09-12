@@ -54,6 +54,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_nonrescued_first_three_tail_classification_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
     q286_first_three_tail_rescue_profile_receipt,
+    q286_first_three_tail_rescue_floor_candidate_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_separable_mode_coefficient_receipt,
     q286_separable_mode_local_bias_receipt,
@@ -1743,6 +1744,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_tail_rescue_profile_measured"])
         self.assertFalse(receipt[
             "eventual_complement_rescue_theorem_proved"])
+
+    def test_q286_first_three_tail_rescue_floor_candidate(self):
+        receipt = q286_first_three_tail_rescue_floor_candidate_receipt(
+            start=380370, cycle_count=1, targets_per_cycle=5005,
+            threshold=.3, complement_floor=.63, rescue_margin_floor=.3,
+            deficit_ceiling=.47)
+        self.assertEqual(receipt["cycle_rows"][0]["global_cycle"], 37)
+        self.assertEqual(receipt["tail_target_count"], 12)
+        self.assertEqual(receipt["nonrescued_tail_target_count"], 0)
+        self.assertTrue(receipt["candidate_floor_passed"])
+        self.assertEqual(receipt["complement_floor_violations"], ())
+        self.assertEqual(receipt["rescue_margin_floor_violations"], ())
+        self.assertEqual(receipt["deficit_ceiling_violations"], ())
+        self.assertGreaterEqual(
+            receipt["cycle_rows"][0][
+                "minimum_complement_to_principal_ratio"], .63)
+        self.assertGreaterEqual(
+            receipt["cycle_rows"][0][
+                "minimum_rescue_margin_to_principal_ratio"], .3)
+        self.assertLessEqual(
+            receipt["cycle_rows"][0][
+                "maximum_deficit_to_principal_ratio"], .47)
+        self.assertTrue(receipt[
+            "first_three_tail_rescue_floor_candidate_measured"])
+        self.assertFalse(receipt[
+            "eventual_rescue_floor_theorem_proved"])
 
     def test_q286_first_three_removed_low_tail_lift(self):
         receipt = q286_first_three_removed_low_tail_lift_receipt(

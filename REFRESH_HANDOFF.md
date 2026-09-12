@@ -17409,3 +17409,20 @@ and minimum rescue margin is `0.3433502408615505`.  The limiting cycle is
 
 Status `aha-candidate`: this fresh band does not break the checked stronger
 buffer pattern from cycle `33` onward.  It remains finite evidence only.
+
+## 2026-09-12 continuation: tail rescue floor-candidate receipt
+
+`q286_first_three_tail_rescue_floor_candidate_receipt` now makes the
+post-cycle-33 buffer hypothesis executable.  Current finite candidate:
+first-three threshold `.3`, complement floor `.63`, rescue margin floor `.3`,
+and optional deficit ceiling `.47`.  The focused regression anchors global
+cycle `37`, with `12` tail targets, zero violations, minimum complement
+`0.6393542776650206`, minimum margin `0.31158984534443446`, and maximum
+deficit `0.37765470838997645`.
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_first_three_tail_rescue_floor_candidate` passed in `195.123s`.
+
+Status `changed-under-evidence`: the cycle-33-onward buffer is now a named
+finite falsifier with violation lists, not just prose.  No eventual theorem is
+proved.

@@ -11180,3 +11180,119 @@ def q286_first_three_tail_rescue_profile_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_tail_rescue_floor_candidate_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        threshold=.3, complement_floor=.63, rescue_margin_floor=.3,
+        deficit_ceiling=None, tolerance=1e-9):
+    """Test finite candidate floors on the first-three tail rescue profile.
+
+    The candidate is a finite falsifier for a possible eventual theorem:
+    every target in the first-three negative tail should have complement above
+    ``complement_floor`` and recombined margin above ``rescue_margin_floor``;
+    optionally, the first-three deficit should stay below ``deficit_ceiling``.
+    Passing this receipt proves only the checked finite window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(threshold) or threshold <= 0:
+        raise ValueError("threshold must be finite and positive")
+    if (not math.isfinite(complement_floor)
+            or complement_floor < 0):
+        raise ValueError("complement_floor must be finite and nonnegative")
+    if (not math.isfinite(rescue_margin_floor)
+            or rescue_margin_floor < 0):
+        raise ValueError(
+            "rescue_margin_floor must be finite and nonnegative")
+    if (deficit_ceiling is not None
+            and (not math.isfinite(deficit_ceiling)
+                 or deficit_ceiling <= 0)):
+        raise ValueError("deficit_ceiling must be positive finite or None")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    profile = q286_first_three_tail_rescue_profile_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, threshold=threshold,
+        tolerance=tolerance)
+    complement_violations = tuple(
+        target for target, row in profile["tail_rows"].items()
+        if row["complement_to_principal_ratio"]
+        < complement_floor - tolerance)
+    margin_violations = tuple(
+        target for target, row in profile["tail_rows"].items()
+        if row["rescue_margin_to_principal_ratio"]
+        < rescue_margin_floor - tolerance)
+    if deficit_ceiling is None:
+        deficit_violations = tuple()
+    else:
+        deficit_violations = tuple(
+            target for target, row in profile["tail_rows"].items()
+            if row["deficit_to_principal_ratio"]
+            > deficit_ceiling + tolerance)
+    violating_targets = tuple(sorted(set(
+        complement_violations + margin_violations + deficit_violations)))
+
+    cycle_rows = {}
+    for cycle, row in profile["cycle_rows"].items():
+        cycle_tail_targets = row["tail_targets"]
+        cycle_complement_violations = tuple(
+            target for target in cycle_tail_targets
+            if target in complement_violations)
+        cycle_margin_violations = tuple(
+            target for target in cycle_tail_targets
+            if target in margin_violations)
+        cycle_deficit_violations = tuple(
+            target for target in cycle_tail_targets
+            if target in deficit_violations)
+        cycle_rows[cycle] = {
+            "global_cycle": row["global_cycle"],
+            "tail_target_count": row["tail_target_count"],
+            "nonrescued_tail_target_count": row[
+                "nonrescued_tail_target_count"],
+            "minimum_complement_to_principal_ratio": row[
+                "minimum_complement_to_principal_ratio"],
+            "minimum_rescue_margin_to_principal_ratio": row[
+                "minimum_rescue_margin_to_principal_ratio"],
+            "maximum_deficit_to_principal_ratio": row[
+                "maximum_deficit_to_principal_ratio"],
+            "complement_floor_violations": cycle_complement_violations,
+            "rescue_margin_floor_violations": cycle_margin_violations,
+            "deficit_ceiling_violations": cycle_deficit_violations,
+            "candidate_floor_passed": bool(
+                not cycle_complement_violations
+                and not cycle_margin_violations
+                and not cycle_deficit_violations),
+        }
+
+    return {
+        "arithmetic_period": profile["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "threshold": threshold,
+        "complement_floor": complement_floor,
+        "rescue_margin_floor": rescue_margin_floor,
+        "deficit_ceiling": deficit_ceiling,
+        "tested_target_count": profile["tested_target_count"],
+        "tail_target_count": profile["tail_target_count"],
+        "nonrescued_tail_target_count": profile[
+            "nonrescued_tail_target_count"],
+        "cycle_rows": cycle_rows,
+        "complement_floor_violations": complement_violations,
+        "rescue_margin_floor_violations": margin_violations,
+        "deficit_ceiling_violations": deficit_violations,
+        "violating_targets": violating_targets,
+        "candidate_floor_passed": bool(not violating_targets),
+        "profile_receipt": profile,
+        "first_three_tail_rescue_floor_candidate_measured": True,
+        "eventual_rescue_floor_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

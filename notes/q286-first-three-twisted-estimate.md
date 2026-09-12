@@ -2365,3 +2365,37 @@ Status `aha-candidate`: this fresh band does not break the checked stronger
 buffer pattern from cycle `33` onward.  The limiting point is cycle `53`, but
 it remains above the cycle `37` minimum margin and above the `41..48` minimum
 complement.  Still finite evidence only.
+
+## 2026-09-12: tail rescue floor-candidate receipt
+
+`q286_first_three_tail_rescue_floor_candidate_receipt` now turns the checked
+large-buffer pattern into an explicit finite falsifier.  The candidate tests:
+
+```text
+first_three tail threshold: .3
+complement floor: .63
+rescue margin floor: .3
+optional first-three deficit ceiling: .47
+```
+
+The focused regression anchors the limiting checked cycle `37`, where the
+candidate still passes:
+
+```text
+global cycle 37, start 380370
+tail targets: 12
+nonrescued tail targets: 0
+minimum complement: 0.6393542776650206
+minimum rescue margin: 0.31158984534443446
+maximum first-three deficit: 0.37765470838997645
+complement violations: ()
+margin violations: ()
+deficit violations: ()
+```
+
+Validation: bytecode-disabled `py_compile` passed; focused regression
+`test_q286_first_three_tail_rescue_floor_candidate` passed in `195.123s`.
+
+Status `changed-under-evidence`: the post-cycle-33 buffer hypothesis is now an
+executable candidate with named constants and violation lists.  It remains a
+finite falsifier, not an eventual theorem.
