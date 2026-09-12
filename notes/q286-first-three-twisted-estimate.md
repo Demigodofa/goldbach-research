@@ -1993,3 +1993,38 @@ regression `test_q286_nonrescued_first_three_tail_cycle_horizon` passed in
 Status `changed-under-evidence`: future mechanism searches can use exact
 tail/rescue target lists from the receipt.  No mathematical theorem is added
 by this data-shape change.
+
+## 2026-09-12: cycle 43 single-tail microscope
+
+The new target-list receipt was applied to global cycle `43`, where the `.3`
+tail count is `1`.  The unique tail target is `448346`, and it is rescued:
+
+```text
+cycle 43 range: 440430..450438
+tail_targets: (448346,)
+rescued_tail_targets: (448346,)
+nonrescued: ()
+cycle minimum full action: 440866, value 0.37175458031519565
+minimum tail recombination: 448346, value 0.6674962581507213
+```
+
+A selected-target component check gives:
+
+```text
+target 448346
+first_three: -0.3106946886916736
+complement: 0.9781909468423949
+full: 0.6674962581507213
+mode1: -0.07325200159068547
+mode2: -0.22838146439652587
+mode3-through-6: -0.015412775568364774
+full_without_first_two: 0.9691297241379326
+full_without_first_three: 0.9781909468423949
+```
+
+Status `aha-candidate`: at least this late single-tail case is not a delicate
+near-zero rescue.  It barely enters the `.3` first-three tail and has a large
+post-first-three complement buffer.  A plausible proof target is now a
+two-zone statement: finite/boundary non-rescued exceptions, plus an eventual
+tail regime where the first-three deficit is shallow or the complement buffer
+is uniformly large.

@@ -17306,3 +17306,16 @@ regression passed in `223.811s`.
 Status `changed-under-evidence`: the next rescue-mechanism search should use
 exact tail target lists from the receipts, not just counts.  This is a
 data-contract improvement, not a theorem.
+
+## 2026-09-12 continuation: cycle 43 single-tail microscope
+
+Using the new target-list receipt, global cycle `43` has a single `.3`
+first-three tail target, `448346`, and it is rescued.  Its component split is
+first_three `-0.3106946886916736`, complement `0.9781909468423949`, and full
+margin `0.6674962581507213`.  The cycle's full-action minimum is a different
+target, `440866`, with value `0.37175458031519565`.
+
+Status `aha-candidate`: this late tail case is not delicate.  It suggests a
+two-zone theorem target: finite/boundary non-rescued exceptions, then an
+eventual regime where `.3` tail deficits are shallow or complement buffers are
+uniformly large.

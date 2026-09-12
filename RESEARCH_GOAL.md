@@ -9088,3 +9088,14 @@ cycle-horizon focused regression passed in `223.811s`.
 Status `changed-under-evidence`: the next mechanism search can inspect exact
 rescued targets from the receipt data shape.  No theorem is proved by this
 change.
+
+### 2026-09-12 continuation: cycle 43 single-tail microscope
+
+Global cycle `43` has one `.3` first-three tail target, `448346`, and it is
+rescued with first_three `-0.3106946886916736`, complement
+`0.9781909468423949`, and full margin `0.6674962581507213`.  The cycle full
+minimum is elsewhere (`440866`, value `0.37175458031519565`).
+
+Status `aha-candidate`: this supports a two-zone target: finite/boundary
+non-rescued exceptions plus an eventual regime where tail deficits are shallow
+or complement buffers are uniformly large.
