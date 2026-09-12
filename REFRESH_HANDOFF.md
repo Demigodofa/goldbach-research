@@ -17078,3 +17078,19 @@ lift `1`.  Base-period minima were `0.018073313793834145` at `14138`,
 Status `aha-candidate`: low-tail same-residue persistence is not appearing in
 the first four complete periods.  This remains finite recurrence evidence, not
 an eventual theorem.
+
+## 2026-09-12 continuation: multi-period low-tail lift receipt
+
+`q286_first_three_removed_low_tail_multi_period_receipt` now performs the
+multi-period `.3` low-tail recurrence check in one reusable API.  The
+four-period run tested `20020` base targets, selected `64` low-tail bases with
+cycle counts `{0: 50, 1: 4, 2: 4, 3: 6}`, tested `128` lifted targets at lifts
+`0,1`, and found below-threshold counts `{0: 64, 1: 0}`.  Every selected base
+cleared `.3` at lift `1`, and all selected lifted targets were positive.
+
+Validation: bytecode-disabled `py_compile` passed.  Initial focused regression
+caught a missing `cycle_rows` assumption; corrected regression
+`test_q286_first_three_removed_low_tail_multi_period` passed in `122.320s`.
+
+Status `aha-candidate`: the low-tail recurrence check is now executable and no
+longer depends on repeated one-period wrappers.  Evidence remains finite only.

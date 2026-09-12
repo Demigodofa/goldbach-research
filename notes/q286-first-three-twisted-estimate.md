@@ -1468,3 +1468,47 @@ Status `aha-candidate`: the same-residue low-tail obstruction has not persisted
 in any checked complete period.  The next efficient step should avoid repeated
 one-period wrappers and codify a multi-period low-tail scanner if wider ranges
 are needed.
+
+## 2026-09-12: multi-period low-tail lift receipt
+
+`q286_first_three_removed_low_tail_multi_period_receipt` now scans multiple
+base periods in one support-vector stress receipt, selects every base below a
+post-first-three complement threshold, and tests all selected bases through
+period lifts in one lift receipt.  This replaces the slow repeated one-period
+wrapper used for the first recurrence check.
+
+Four-period run (`cycle_count=4`, `targets_per_cycle=5005`, `low_threshold=.3`,
+`lifts=(0,1)`):
+
+```text
+base-scan tested targets: 20020
+selected low-tail bases: 64
+selected counts by cycle: {0: 50, 1: 4, 2: 4, 3: 6}
+tested lifted targets: 128
+base minimum: 0.018073313793834145 at N=14138
+global lifted minimum: 0.018073313793834145 at N=14138
+below-threshold counts by lift: {0: 64, 1: 0}
+maximum first-clear lift: 1
+all selected bases clear threshold: True
+all selected lift targets positive: True
+```
+
+Cycle minima:
+
+```text
+cycle 0: N=14138, complement 0.018073313793834145, selected 50
+cycle 1: N=22766, complement 0.26287606080608905, selected 4
+cycle 2: N=36254, complement 0.21042425746987792, selected 4
+cycle 3: N=49904, complement 0.2562647035956789, selected 6
+```
+
+Validation: bytecode-disabled `py_compile` passed.  The first attempt at the
+focused regression caught an integration bug (`vector_stress` has no
+`cycle_rows` field); the receipt now computes cycle minima directly from
+`target_rows`.  Corrected focused regression
+`test_q286_first_three_removed_low_tail_multi_period` passed in `122.320s`.
+
+Status `aha-candidate`: the four-period same-residue recurrence check is now
+executable and reproduces the low-tail clearance pattern.  All selected `.3`
+low-tail bases clear at lift `1` in the checked window.  This still does not
+prove the eventual lift-clearance theorem or Goldbach.

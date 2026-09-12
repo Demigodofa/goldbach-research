@@ -8926,3 +8926,14 @@ threshold at lift `1`.
 Status `aha-candidate`: the checked same-residue low-tail obstruction does not
 persist through lift `1`; wider scans should use a dedicated multi-period
 scanner rather than repeated one-period wrappers.
+
+### 2026-09-12 continuation: multi-period low-tail lift receipt
+
+`q286_first_three_removed_low_tail_multi_period_receipt` now codifies the
+four-period `.3` low-tail recurrence check.  It scanned `20020` base targets,
+selected `64` low-tail bases with per-cycle counts `{0: 50, 1: 4, 2: 4, 3: 6}`,
+and found below-threshold counts `{0: 64, 1: 0}` over lifts `0,1`.  Every
+selected base cleared at lift `1`.
+
+Status `aha-candidate`: recurrence evidence is now reusable and executable;
+no eventual theorem is proved.
