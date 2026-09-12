@@ -32,6 +32,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_character_matrix_structure_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_singular_mode_approximation_receipt,
+    q286_singular_mode_lower_tail_stress_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -986,6 +987,34 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["top_four_modes_leave_small_sampled_signed_residual"])
         self.assertFalse(receipt["top_four_tail_paid_by_cauchy"])
         self.assertTrue(receipt["singular_mode_approximation_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_singular_mode_lower_tail_stress(self):
+        receipt = q286_singular_mode_lower_tail_stress_receipt(
+            targets=(10424, 10664, 14732))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["targets"], (10424, 10664, 14732))
+        self.assertEqual(
+            receipt["negative_q286_deviation_targets"], (10424, 10664))
+        self.assertEqual(
+            receipt["nonnegative_q286_deviation_targets"], (14732,))
+        self.assertAlmostEqual(
+            receipt["maximum_negative_top_four_signed_residual_fraction"],
+            .055453596612858175, places=14)
+        self.assertEqual(
+            receipt["worst_negative_top_four_residual_target"], 10664)
+        self.assertEqual(
+            receipt["worst_all_top_four_residual_target"], 14732)
+        self.assertTrue(
+            receipt["top_four_modes_control_sampled_negative_lower_tail"])
+        self.assertFalse(receipt["top_four_modes_control_all_sampled_targets"])
+        self.assertFalse(receipt["top_four_tail_paid_by_cauchy_on_sample"])
+        self.assertTrue(
+            receipt["singular_mode_lower_tail_stress_measured"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])

@@ -7572,6 +7572,20 @@ valid proof route cannot simply discard the tail from coefficient energy.  It
 must either prove a better tail/imbalance angle bound or keep enough modes that
 the remaining Cauchy envelope is below the positive margin.
 
+## 2026-09-12: singular modes pass lower-tail stress but not all targets
+
+A broader stress set shows the leading q286 singular modes are a lower-tail
+tool, not a uniform approximation theorem.  On negative q286-deviation targets
+in the set `10424,10664,10814,14138,14732,58736,88346,125504`, the first four
+modes leave at most about `0.055453596612858175` signed residual fraction.
+
+The stress falsifier is `N=14732`: q286 is positive and small there, and the
+first-four residual is about `0.21904521472590485` of the small q286 deviation,
+with a crude Cauchy tail envelope about `6.743841172259878` times the actual
+deviation.  Therefore singular compression should be used for negative
+excursion control or margin-relative estimates, not as a pointwise equality
+shortcut.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

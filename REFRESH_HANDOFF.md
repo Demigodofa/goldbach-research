@@ -15975,3 +15975,23 @@ Status `aha-candidate`: the leading obstruction appears to be a few separable
 character modes, but the small singular tail is not automatically harmless.
 The next analytic test should try to estimate the leading separable modes
 directly and pay the tail with a sharper-than-global bound.
+
+## 2026-09-12: singular modes pass lower-tail stress but not all targets
+
+`q286_singular_mode_lower_tail_stress_receipt` checks the singular-mode story
+against a broader target set
+`10424,10664,10814,14138,14732,58736,88346,125504`.  The first four modes
+control the sampled negative q286 lower-tail deviations: the worst signed
+residual fraction among negative q286-deviation targets is about
+`0.055453596612858175`, at `N=10664`.
+
+The universal approximation claim is false.  At `N=14732`, the q286 deviation
+is positive and small relative to the principal contribution
+(`0.04113185090770645`), and the first-four signed residual fraction is about
+`0.21904521472590485`; the first-four Cauchy tail envelope is also worst
+there, about `6.743841172259878` times the small actual deviation.
+
+Status `changed-under-evidence`: use the singular-mode compression as a
+lower-tail diagnostic, not a uniform target approximation theorem.  The next
+proof attempt must control negative excursions specifically or supply a
+margin-relative tail estimate.

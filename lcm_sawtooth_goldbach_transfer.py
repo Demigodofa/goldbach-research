@@ -4690,6 +4690,72 @@ def q286_singular_mode_approximation_receipt(
     }
 
 
+def q286_singular_mode_lower_tail_stress_receipt(
+        targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504),
+        tolerance=1e-9):
+    """Stress-test q286 singular modes beyond the original bad targets."""
+    approximation = q286_singular_mode_approximation_receipt(
+        targets=targets, modes=(2, 4, 9), tolerance=tolerance)
+    negative_targets = tuple(
+        target for target, row in approximation["rows"].items()
+        if row["deviation_to_principal_ratio"] < -tolerance)
+    nonnegative_targets = tuple(
+        target for target, row in approximation["rows"].items()
+        if row["deviation_to_principal_ratio"] >= -tolerance)
+    max_negative_top_four_residual = max(
+        (approximation["rows"][target]["mode_rows"][4][
+            "absolute_residual_to_abs_deviation_ratio"]
+         for target in negative_targets), default=0.0)
+    max_negative_top_two_residual = max(
+        (approximation["rows"][target]["mode_rows"][2][
+            "absolute_residual_to_abs_deviation_ratio"]
+         for target in negative_targets), default=0.0)
+    worst_all_top_four_target = max(
+        approximation["rows"],
+        key=lambda target: approximation["rows"][target]["mode_rows"][4][
+            "absolute_residual_to_abs_deviation_ratio"])
+    worst_negative_top_four_target = (
+        max(
+            negative_targets,
+            key=lambda target: approximation["rows"][target]["mode_rows"][4][
+                "absolute_residual_to_abs_deviation_ratio"])
+        if negative_targets else None)
+    worst_top_four_cauchy_target = max(
+        approximation["rows"],
+        key=lambda target: approximation["rows"][target]["mode_rows"][4][
+            "residual_cauchy_to_abs_deviation_ratio"])
+    return {
+        "families": approximation["families"],
+        "arithmetic_period": approximation["arithmetic_period"],
+        "support": approximation["support"],
+        "natural_modulus": approximation["natural_modulus"],
+        "targets": targets,
+        "negative_q286_deviation_targets": negative_targets,
+        "nonnegative_q286_deviation_targets": nonnegative_targets,
+        "rows": approximation["rows"],
+        "maximum_full_singular_reconstruction_error": (
+            approximation["maximum_full_singular_reconstruction_error"]),
+        "maximum_negative_top_two_signed_residual_fraction": (
+            max_negative_top_two_residual),
+        "maximum_negative_top_four_signed_residual_fraction": (
+            max_negative_top_four_residual),
+        "worst_all_top_four_residual_target": worst_all_top_four_target,
+        "worst_negative_top_four_residual_target": (
+            worst_negative_top_four_target),
+        "worst_top_four_cauchy_target": worst_top_four_cauchy_target,
+        "top_four_modes_control_sampled_negative_lower_tail": bool(
+            negative_targets and max_negative_top_four_residual < .06),
+        "top_four_modes_control_all_sampled_targets": bool(
+            approximation["top_four_signed_residual_fraction_maximum"] < .06),
+        "top_four_tail_paid_by_cauchy_on_sample": bool(
+            approximation["top_four_cauchy_residual_fraction_maximum"] < .05),
+        "singular_mode_lower_tail_stress_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:
