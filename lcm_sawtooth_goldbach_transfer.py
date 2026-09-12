@@ -4756,6 +4756,235 @@ def q286_singular_mode_lower_tail_stress_receipt(
     }
 
 
+def q286_singular_mode_cycle_scan_receipt(
+        start=10000, cycle_count=4, targets_per_cycle=251,
+        significant_negative_ratio=-.4, tolerance=1e-9):
+    """Scan whether q286 singular modes control sampled lower tails."""
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if (not math.isfinite(significant_negative_ratio)
+            or significant_negative_ratio >= 0):
+        raise ValueError(
+            "significant_negative_ratio must be finite and negative")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    targets = tuple(
+        start + cycle * period + 2 * index
+        for cycle in range(cycle_count)
+        for index in range(targets_per_cycle))
+    approximation = q286_singular_mode_approximation_receipt(
+        targets=targets, modes=(2, 4, 9), tolerance=tolerance)
+    cycle_rows = {}
+    global_negative_targets = []
+    global_significant_negative_targets = []
+    global_nonnegative_targets = []
+    worst_negative_top_four = None
+    worst_significant_negative_top_four = None
+    worst_all_top_four = None
+    worst_negative_top_two = None
+    worst_top_four_principal_residual = None
+    for cycle in range(cycle_count):
+        cycle_targets = targets[
+            cycle * targets_per_cycle:(cycle + 1) * targets_per_cycle]
+        negative_targets = tuple(
+            target for target in cycle_targets
+            if approximation["rows"][target][
+                "deviation_to_principal_ratio"] < -tolerance)
+        nonnegative_targets = tuple(
+            target for target in cycle_targets
+            if approximation["rows"][target][
+                "deviation_to_principal_ratio"] >= -tolerance)
+        significant_negative_targets = tuple(
+            target for target in negative_targets
+            if approximation["rows"][target][
+                "deviation_to_principal_ratio"]
+            <= significant_negative_ratio)
+        global_negative_targets.extend(negative_targets)
+        global_significant_negative_targets.extend(
+            significant_negative_targets)
+        global_nonnegative_targets.extend(nonnegative_targets)
+        if negative_targets:
+            cycle_worst_negative_top_four = max(
+                negative_targets,
+                key=lambda target: approximation["rows"][target][
+                    "mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"])
+            cycle_worst_negative_top_two = max(
+                negative_targets,
+                key=lambda target: approximation["rows"][target][
+                    "mode_rows"][2][
+                        "absolute_residual_to_abs_deviation_ratio"])
+            if (worst_negative_top_four is None
+                    or approximation["rows"][cycle_worst_negative_top_four][
+                        "mode_rows"][4][
+                            "absolute_residual_to_abs_deviation_ratio"]
+                    > approximation["rows"][worst_negative_top_four][
+                        "mode_rows"][4][
+                            "absolute_residual_to_abs_deviation_ratio"]):
+                worst_negative_top_four = cycle_worst_negative_top_four
+            if (worst_negative_top_two is None
+                    or approximation["rows"][cycle_worst_negative_top_two][
+                        "mode_rows"][2][
+                            "absolute_residual_to_abs_deviation_ratio"]
+                    > approximation["rows"][worst_negative_top_two][
+                        "mode_rows"][2][
+                            "absolute_residual_to_abs_deviation_ratio"]):
+                worst_negative_top_two = cycle_worst_negative_top_two
+        if significant_negative_targets:
+            cycle_worst_significant_negative_top_four = max(
+                significant_negative_targets,
+                key=lambda target: approximation["rows"][target][
+                    "mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"])
+            if (worst_significant_negative_top_four is None
+                    or approximation["rows"][
+                        cycle_worst_significant_negative_top_four][
+                            "mode_rows"][4][
+                                "absolute_residual_to_abs_deviation_ratio"]
+                    > approximation["rows"][
+                        worst_significant_negative_top_four][
+                            "mode_rows"][4][
+                                "absolute_residual_to_abs_deviation_ratio"]):
+                worst_significant_negative_top_four = (
+                    cycle_worst_significant_negative_top_four)
+        cycle_worst_top_four_principal_residual = max(
+            cycle_targets,
+            key=lambda target: abs(approximation["rows"][target][
+                "mode_rows"][4]["residual_to_principal_ratio"]))
+        if (worst_top_four_principal_residual is None
+                or abs(approximation["rows"][
+                    cycle_worst_top_four_principal_residual]["mode_rows"][4][
+                        "residual_to_principal_ratio"])
+                > abs(approximation["rows"][
+                    worst_top_four_principal_residual]["mode_rows"][4][
+                        "residual_to_principal_ratio"])):
+            worst_top_four_principal_residual = (
+                cycle_worst_top_four_principal_residual)
+        cycle_worst_all_top_four = max(
+            cycle_targets,
+            key=lambda target: approximation["rows"][target][
+                "mode_rows"][4]["absolute_residual_to_abs_deviation_ratio"])
+        if (worst_all_top_four is None
+                or approximation["rows"][cycle_worst_all_top_four][
+                    "mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"]
+                > approximation["rows"][worst_all_top_four]["mode_rows"][4][
+                    "absolute_residual_to_abs_deviation_ratio"]):
+            worst_all_top_four = cycle_worst_all_top_four
+        cycle_rows[cycle] = {
+            "target_range": (cycle_targets[0], cycle_targets[-1]),
+            "tested_target_count": len(cycle_targets),
+            "negative_q286_deviation_count": len(negative_targets),
+            "significant_negative_q286_deviation_count": len(
+                significant_negative_targets),
+            "nonnegative_q286_deviation_count": len(nonnegative_targets),
+            "minimum_q286_deviation_target": min(
+                cycle_targets,
+                key=lambda target: approximation["rows"][target][
+                    "deviation_to_principal_ratio"]),
+            "minimum_q286_deviation_ratio": min(
+                approximation["rows"][target][
+                    "deviation_to_principal_ratio"]
+                for target in cycle_targets),
+            "worst_negative_top_four_residual_target": (
+                cycle_worst_negative_top_four if negative_targets else None),
+            "worst_negative_top_four_residual_fraction": (
+                approximation["rows"][cycle_worst_negative_top_four][
+                    "mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"]
+                if negative_targets else 0.0),
+            "worst_significant_negative_top_four_residual_target": (
+                cycle_worst_significant_negative_top_four
+                if significant_negative_targets else None),
+            "worst_significant_negative_top_four_residual_fraction": (
+                approximation["rows"][
+                    cycle_worst_significant_negative_top_four]["mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"]
+                if significant_negative_targets else 0.0),
+            "worst_top_four_principal_residual_target": (
+                cycle_worst_top_four_principal_residual),
+            "worst_top_four_abs_residual_to_principal_ratio": abs(
+                approximation["rows"][
+                    cycle_worst_top_four_principal_residual]["mode_rows"][4][
+                        "residual_to_principal_ratio"]),
+            "worst_all_top_four_residual_target": (
+                cycle_worst_all_top_four),
+            "worst_all_top_four_residual_fraction": (
+                approximation["rows"][cycle_worst_all_top_four][
+                    "mode_rows"][4][
+                        "absolute_residual_to_abs_deviation_ratio"]),
+        }
+
+    maximum_negative_top_four = (
+        approximation["rows"][worst_negative_top_four]["mode_rows"][4][
+            "absolute_residual_to_abs_deviation_ratio"]
+        if worst_negative_top_four is not None else 0.0)
+    maximum_negative_top_two = (
+        approximation["rows"][worst_negative_top_two]["mode_rows"][2][
+            "absolute_residual_to_abs_deviation_ratio"]
+        if worst_negative_top_two is not None else 0.0)
+    maximum_significant_negative_top_four = (
+        approximation["rows"][worst_significant_negative_top_four][
+            "mode_rows"][4]["absolute_residual_to_abs_deviation_ratio"]
+        if worst_significant_negative_top_four is not None else 0.0)
+    maximum_all_top_four = (
+        approximation["rows"][worst_all_top_four]["mode_rows"][4][
+            "absolute_residual_to_abs_deviation_ratio"])
+    maximum_top_four_abs_principal_residual = abs(
+        approximation["rows"][worst_top_four_principal_residual][
+            "mode_rows"][4]["residual_to_principal_ratio"])
+    return {
+        "families": approximation["families"],
+        "arithmetic_period": approximation["arithmetic_period"],
+        "support": approximation["support"],
+        "natural_modulus": approximation["natural_modulus"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "significant_negative_ratio": significant_negative_ratio,
+        "tested_target_count": len(targets),
+        "cycle_rows": cycle_rows,
+        "negative_q286_deviation_count": len(global_negative_targets),
+        "significant_negative_q286_deviation_count": len(
+            global_significant_negative_targets),
+        "nonnegative_q286_deviation_count": len(global_nonnegative_targets),
+        "worst_negative_top_two_residual_target": worst_negative_top_two,
+        "worst_negative_top_two_residual_fraction": maximum_negative_top_two,
+        "worst_negative_top_four_residual_target": worst_negative_top_four,
+        "worst_negative_top_four_residual_fraction": maximum_negative_top_four,
+        "worst_significant_negative_top_four_residual_target": (
+            worst_significant_negative_top_four),
+        "worst_significant_negative_top_four_residual_fraction": (
+            maximum_significant_negative_top_four),
+        "worst_all_top_four_residual_target": worst_all_top_four,
+        "worst_all_top_four_residual_fraction": maximum_all_top_four,
+        "worst_top_four_principal_residual_target": (
+            worst_top_four_principal_residual),
+        "worst_top_four_abs_residual_to_principal_ratio": (
+            maximum_top_four_abs_principal_residual),
+        "top_four_modes_control_sampled_negative_lower_tail": bool(
+            global_negative_targets and maximum_negative_top_four < .1),
+        "top_four_modes_control_significant_sampled_negative_tail": bool(
+            global_significant_negative_targets
+            and maximum_significant_negative_top_four < .1),
+        "top_four_principal_residual_under_point_one_on_sample": bool(
+            maximum_top_four_abs_principal_residual < .1),
+        "top_four_modes_control_all_sampled_targets": bool(
+            maximum_all_top_four < .1),
+        "singular_mode_cycle_scan_measured": True,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

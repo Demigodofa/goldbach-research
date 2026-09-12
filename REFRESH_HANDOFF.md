@@ -15995,3 +15995,34 @@ Status `changed-under-evidence`: use the singular-mode compression as a
 lower-tail diagnostic, not a uniform target approximation theorem.  The next
 proof attempt must control negative excursions specifically or supply a
 margin-relative tail estimate.
+
+## 2026-09-12: q286 singular-mode cycle scan added
+
+`q286_singular_mode_cycle_scan_receipt` samples consecutive even targets by
+period cycles and tracks whether the first four q286 singular modes continue
+to control negative q286 lower-tail deviations.  It separately tracks all
+negative q286 deviations, significant negative deviations below a configurable
+principal-relative threshold, all sampled targets, and the residual measured
+against the principal margin.
+
+This receipt is a scanner for the next estimate experiment.  It does not prove
+a signed prime-correlation estimate, and a successful sample is not a
+threshold theorem.
+
+On the first `4` period cycles sampled at `251` consecutive even targets each
+(`1004` targets total), q286 has `529` negative deviations but only `120`
+significant negative deviations below `-0.4` of the principal contribution.
+The all-negative four-mode residual ratio is falsified by near-zero q286
+denominators: worst target `20494` has residual/deviation
+`19.725975817977446`.  In principal units this is small; the worst first-four
+absolute residual/principal ratio in the scan is `0.06654914350747668`.
+
+For significant negative q286 deviations, the first four modes continue to
+control the sample: the worst residual/deviation fraction is
+`0.09165079440299802` at `N=30202`.  Cycle significant-negative counts are
+`60, 11, 35, 14`, with cycle minima `10408`, `20308`, `30298`, and `40462`.
+
+Status `changed-under-evidence`: reject the broad claim that first-four modes
+approximate every negative q286 deviation by relative-to-deviation error.
+Preserve the narrower claim that, on this sample, first-four modes control
+significant negative q286 excursions and have small principal-relative tail.

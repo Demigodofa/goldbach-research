@@ -7586,6 +7586,31 @@ deviation.  Therefore singular compression should be used for negative
 excursion control or margin-relative estimates, not as a pointwise equality
 shortcut.
 
+## 2026-09-12: q286 singular-mode cycle scan added
+
+`q286_singular_mode_cycle_scan_receipt` is now the bounded scanner for the
+singular-mode lower-tail hypothesis.  It tests consecutive even targets across
+period cycles and reports negative q286 lower-tail counts, worst negative
+first-four residuals, significant-negative residuals, worst all-target
+residuals, and residual size relative to the principal margin separately.
+
+Use it to decide whether the leading-mode estimate should be promoted into a
+formal proof attempt.  It remains sampled evidence only; it is not a signed
+prime-correlation theorem.
+
+The first `4` cycles sampled at `251` consecutive even targets each give
+`1004` total targets.  q286 is negative at `529`, but only `120` are below
+`-0.4` of the principal.  The all-negative relative approximation claim fails:
+near-zero q286 deviations such as `N=20494` make the first-four residual
+`19.725975817977446` times the tiny q286 deviation.  Measured against the
+principal margin, however, the worst first-four residual is only
+`0.06654914350747668` of principal.
+
+For significant negative q286 deviations, the first-four singular modes remain
+useful in this sample: the worst residual/deviation fraction is
+`0.09165079440299802` at `N=30202`.  Next proof-shaped target: formulate a
+principal-margin inequality, not a relative-to-q286-deviation approximation.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

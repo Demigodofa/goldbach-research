@@ -32,6 +32,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_character_matrix_structure_receipt,
     q286_residue_discrepancy_profile_receipt,
     q286_singular_mode_approximation_receipt,
+    q286_singular_mode_cycle_scan_receipt,
     q286_singular_mode_lower_tail_stress_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
@@ -1015,6 +1016,25 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["top_four_tail_paid_by_cauchy_on_sample"])
         self.assertTrue(
             receipt["singular_mode_lower_tail_stress_measured"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_singular_mode_cycle_scan(self):
+        receipt = q286_singular_mode_cycle_scan_receipt(
+            cycle_count=1, targets_per_cycle=9)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["start"], 10000)
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 9)
+        self.assertEqual(receipt["significant_negative_ratio"], -.4)
+        self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertTrue(receipt["singular_mode_cycle_scan_measured"])
+        self.assertIn(0, receipt["cycle_rows"])
+        self.assertEqual(
+            receipt["cycle_rows"][0]["tested_target_count"], 9)
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])
         self.assertFalse(receipt["goldbach_proved"])
