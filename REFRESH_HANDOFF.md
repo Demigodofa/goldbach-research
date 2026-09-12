@@ -109,6 +109,13 @@ The broad portfolio is now receipt-backed by
 recomputes the `204` positive both-empty targets, `44` negative both-empty
 targets, five-residue greedy cover `179,29,167,241,109`, and `0` uncovered.
 
+Exact local portfolio audit: `q286_residue_portfolio_local_admissibility_receipt`
+confirms the cover pair `133,153` has local holes only at `23` and `120` mod
+`143`, while the broad positive portfolio `179,29,167,241,109` has at least
+one locally admissible channel in all `143/143` target classes.  This removes
+local admissibility as the obstruction for the compensating portfolio; the
+remaining problem is quantitative prime-pair occupancy/correlation.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

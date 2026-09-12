@@ -1401,6 +1401,18 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["positive_both_empty_compensation_cover_measured"])
         self.assertFalse(receipt["single_compensator_proved"])
 
+    def test_q286_residue_portfolio_local_admissibility(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_residue_portfolio_local_admissibility_receipt)
+        receipt = q286_residue_portfolio_local_admissibility_receipt()
+        cover = receipt["portfolio_rows"]["cover_pair"]
+        self.assertEqual(
+            cover["all_inadmissible_classes_mod_143"], (23, 120))
+        portfolio = receipt["portfolio_rows"]["broad_positive_portfolio"]
+        self.assertEqual(portfolio["at_least_one_admissible_class_count"], 143)
+        self.assertEqual(portfolio["all_inadmissible_class_count"], 0)
+        self.assertFalse(receipt["prime_pair_occupancy_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

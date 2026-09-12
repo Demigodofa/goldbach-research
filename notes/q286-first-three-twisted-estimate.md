@@ -545,3 +545,28 @@ This whole-period falsifier is now preserved by
 `q286_positive_both_empty_compensation_cover_receipt`.  Its default run
 recomputes the `204` positive both-empty targets, the `44` negative both-empty
 count, and the five-residue greedy positive portfolio above.
+
+`q286_residue_portfolio_local_admissibility_receipt` checks the finite local
+obstructions for these portfolios exactly.  The cover pair `133,153` has local
+holes at `N == 23 mod 143` and `N == 120 mod 143`, as above.  The broad
+positive portfolio
+
+```text
+179, 29, 167, 241, 109
+```
+
+has at least one locally admissible channel in all `143` target classes modulo
+`143`.  Its residues are:
+
+```text
+179 == 3 mod 11, 10 mod 13
+29  == 7 mod 11, 3 mod 13
+167 == 2 mod 11, 11 mod 13
+241 == 10 mod 11, 7 mod 13
+109 == 10 mod 11, 5 mod 13
+```
+
+Status `local-hole-removed-for-portfolio`: the compensating portfolio does not
+need a separate local-exception branch.  The remaining obstacle is entirely
+arithmetic occupancy/correlation: local admissibility holds, but strict-central
+prime-pair weight still has to be forced or compensated quantitatively.

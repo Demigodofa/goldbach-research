@@ -111,6 +111,13 @@ This broader compensation portfolio is now executable through
 recomputes the same `204` positive both-empty targets, `44` negative both-empty
 targets, and five-residue cover.
 
+The local obstruction for that five-residue positive portfolio is now exactly
+audited.  `q286_residue_portfolio_local_admissibility_receipt` confirms that
+`179,29,167,241,109` has at least one locally admissible channel in every
+target class modulo `143`.  Thus the compensating-portfolio route is blocked
+by quantitative prime-pair occupancy/correlation, not by local congruence
+holes.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

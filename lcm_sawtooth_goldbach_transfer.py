@@ -8733,3 +8733,59 @@ def q286_positive_both_empty_compensation_cover_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_residue_portfolio_local_admissibility_receipt(
+        portfolios=None):
+    """Exact local admissibility audit for q286 residue portfolios."""
+    from math import gcd
+    if portfolios is None:
+        portfolios = {
+            "cover_pair": (133, 153),
+            "six_case_marker": (263,),
+            "broad_positive_portfolio": (179, 29, 167, 241, 109),
+            "combined_cover_and_positive_portfolio": (
+                133, 153, 179, 29, 167, 241, 109),
+        }
+    portfolio_rows = {}
+    for name, residues in portfolios.items():
+        residues = tuple(residues)
+        all_inadmissible_classes = []
+        all_admissible_count = 0
+        at_least_one_admissible_count = 0
+        for target_class in range(143):
+            admissible_flags = tuple(
+                gcd(target_class - residue, 143) == 1
+                for residue in residues)
+            if all(admissible_flags):
+                all_admissible_count += 1
+            if any(admissible_flags):
+                at_least_one_admissible_count += 1
+            else:
+                all_inadmissible_classes.append(target_class)
+        portfolio_rows[name] = {
+            "residues": residues,
+            "residue_mod_11_13_rows": tuple(
+                {
+                    "residue_mod_286": residue,
+                    "mod_11": residue % 11,
+                    "mod_13": residue % 13,
+                }
+                for residue in residues),
+            "all_admissible_class_count": all_admissible_count,
+            "at_least_one_admissible_class_count": (
+                at_least_one_admissible_count),
+            "all_inadmissible_class_count": len(
+                all_inadmissible_classes),
+            "all_inadmissible_classes_mod_143": tuple(
+                all_inadmissible_classes),
+        }
+    return {
+        "natural_modulus": 286,
+        "target_class_modulus": 143,
+        "portfolio_rows": portfolio_rows,
+        "residue_portfolio_local_admissibility_measured": True,
+        "prime_pair_occupancy_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
