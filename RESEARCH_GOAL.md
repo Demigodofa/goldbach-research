@@ -8349,3 +8349,22 @@ proxy in this four-window sample.  The next direct estimate should target the
 six separable q286 prime-residue mode sums inside this reduced model, allowing
 exact q70/q154 support reinforcement and a small explicit q286-tail allowance.
 This is still finite evidence, not an eventual threshold theorem.
+
+### 2026-09-12 continuation: reduced-envelope mode signatures
+
+The q286 six-mode decomposition was inspected on the main bad targets
+`10424`, `14138`, the later reduced/full negatives `30164`, `40676`, and the
+two full-period reduced-model-only negatives `11194`, `15272`.
+
+The first-cycle worst targets remain mode-1 dominated.  The later shallow
+negatives are still mostly a modes-1/2 phenomenon but not a fixed-sign
+theorem.  At `30164`, mode `2` is slightly larger than mode `1`; at `40676`,
+mode `1` leads but modes `1` and `2` together carry almost all negative mass.
+The reduced-model-only boundary target `11194` has positive mode `1` but
+large negative mode `2`, while `15272` is tail-rescued by a positive q286
+residual of `0.018953225776954182` principal.
+
+Status `changed-under-evidence`: do not try to prove a one-mode or fixed-sign
+lemma.  The direct estimate must control a target-dependent signed envelope
+for at least the first two q286 separable modes, with modes `3..6` and the
+small tail paid in the margin.
