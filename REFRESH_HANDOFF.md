@@ -14780,3 +14780,57 @@ Derive and verify every one of the 65 coefficients. Then compare this local
 main, coefficient by coefficient, with the principal/local-bias term already
 isolated in the full Goldbach assembly. Exact agreement would identify the
 remaining main rather than estimate it away; any mismatch rejects the map.
+
+## 2026-09-11 candidate CRT formula for the surviving local main
+
+The proposed inclusion-exclusion identity passes all 65 even residues. Since
+the only primes dividing 130 are 2, 5, and 13, and parity is already fixed,
+the complement `n-a` fails to be a unit precisely when
+`a=n (mod 5)` or `a=n (mod 13)`. Therefore
+
+`sum_(a in A_n)G_0(a)
+ =sum_(a in U_130)G_0(a)
+  -sum_(a=n mod 5)G_0(a)
+  -sum_(a=n mod 13)G_0(a)
+  +sum_(a=n mod 5, a=n mod 13)G_0(a)`.
+
+The first term is zero by global centering. A forbidden marginal is empty
+when `n=0` modulo its prime because unit `a` cannot occupy residue zero.
+`all_even_residue_goldbach_main_receipt` returns the two forbidden marginal
+sets, their intersection, all four source sums, and the reconstructed local
+sum. The maximum natural-scale relative discrepancy is
+`1.2877312015097097e-16`.
+
+The surviving main is not generally small. Only residue `n=0` has a zero
+local source sum within the finite transform tolerance. The maximum absolute
+main multiplier occurs at `n=94`:
+
+`|sum_(a in A_94)G_0(a)/(3*phi(130))|
+ =152.6618923611122`.
+
+This identifies the earlier local-uniform term exactly. With `W_N` the total
+ordered central prime-pair log weight, that term is
+
+`[W_N/|A_n|] sum_(a in A_n)G_0(a)`.
+
+Summing Halupczok's residue-class asymptotics over the fixed finite set `A_n`
+gives
+
+`W_N=|A_n|*(N/3)*S(130N)/phi(130)+error`
+
+in the same almost-all first- and second-moment sense. Multiplying by the
+local mean cancels `|A_n|` and produces exactly the previously derived `M_N`.
+The locally centered coefficient supplies the zero-main error correlation.
+
+Independent review returned PASS. It independently checked the CRT sets and
+counts, reconstruction maximum, unique zeroish class, largest multiplier,
+ordered convention, absence of a factor `1/2`, fixed-residue theorem sum, and
+normal/optimized tests. Compilation and diff checks pass.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`, within
+the 30-minute pursuit block. Only the locally centered discrepancy has zero
+singular main. Its averaged error, the local-uniform residual about `M_N`, and
+therefore `L_N(G_0)-M_N` are almost-all small. The full `G_0` functional is
+generally main-sized because `M_N` is generally nonzero. The next comparison
+must use that explicit main in the larger Goldbach assembly rather than
+silently set it to zero.

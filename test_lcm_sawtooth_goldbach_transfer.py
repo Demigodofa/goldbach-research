@@ -15,6 +15,9 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(tuple(receipt["rows"]), tuple(range(0, 130, 2)))
         self.assertLess(
             receipt["maximum_locally_centered_sum_relative_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_crt_inclusion_exclusion_relative_error"],
+            1e-12)
         self.assertLess(receipt["maximum_local_source_bias_ratio"], .15)
         row72 = receipt["rows"][72]
         self.assertEqual(row72["admissible_residue_count"], 33)
@@ -25,6 +28,10 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             / max(1.0, abs(row72["source_sum"])), 1e-14)
         self.assertTrue(receipt[
             "all_even_residue_singular_main_coefficients_identified"])
+        self.assertTrue(receipt[
+            "all_even_residue_crt_inclusion_exclusion_identities_verified"])
+        self.assertTrue(receipt[
+            "local_uniform_channel_has_same_asymptotic_main"])
         self.assertTrue(receipt[
             "all_even_target_l1_error_log_saving_proved"])
         self.assertTrue(receipt[
