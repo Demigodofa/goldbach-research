@@ -9201,3 +9201,15 @@ cycle `64`.
 
 Status `aha-candidate`: the named post-cycle-33 floor candidate survived a
 fresh later-band falsifier; finite evidence only.
+
+### 2026-09-12 continuation: far-band floor-candidate probe
+
+The `.63/.3/.47` floor candidate was tested on global cycles `97..104`.  Each
+cycle passed, with zero nonrescued targets and zero `.3` first-three tail
+targets in every checked cycle.
+
+Status `changed-under-evidence`: this extends finite far-band evidence for
+tail absence, but it does not prove an eventual theorem and does not provide a
+new nonempty stress test of the floor constants.  The next proof target is an
+analytic explanation for disappearance or rescue of the tail beyond the
+measured windows.

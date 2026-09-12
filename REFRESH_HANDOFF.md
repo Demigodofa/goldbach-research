@@ -17438,6 +17438,17 @@ nonempty values are margin `0.4482571418757897` at cycle `58` and deficit
 Status `aha-candidate`: the named floor candidate survived a fresh later-band
 falsifier.  Still finite evidence only.
 
+## 2026-09-12 continuation: far-band floor-candidate probe
+
+The explicit `.63/.3/.47` floor candidate was then tested on global cycles
+`97..104`.  Every cycle passed, but the result was vacuous with respect to the
+floor inequalities because each cycle had zero `.3` first-three tail targets:
+`97:0, 98:0, 99:0, 100:0, 101:0, 102:0, 103:0, 104:0`.
+
+Status `changed-under-evidence`: the checked far window supports later-band
+tail absence, not a new nonempty floor stress test.  Do not overclaim this as
+eventual disappearance or as a Goldbach/RH result; it is finite evidence.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

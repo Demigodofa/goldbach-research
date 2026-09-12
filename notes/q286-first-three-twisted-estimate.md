@@ -2445,3 +2445,35 @@ cycle `64` for deficit, both still safely inside the finite candidate.
 Status `aha-candidate`: the named `.63/.3/.47` floor candidate survived a
 fresh later-band falsifier.  This strengthens the cycle-33-onward buffer
 hypothesis but remains finite evidence.
+
+## 2026-09-12: cycles 97 through 104 far-band floor-candidate probe
+
+The explicit floor candidate was also tested on a much later band, global
+cycles `97..104`, using the same constants:
+
+```text
+first_three tail threshold: .3
+complement floor: .63
+rescue margin floor: .3
+optional first-three deficit ceiling: .47
+```
+
+Every checked cycle passed, but all passes were vacuous for the floor
+inequalities because no `.3` first-three tail targets appeared:
+
+```text
+cycle 97: tail 0, nonrescued 0, passed True
+cycle 98: tail 0, nonrescued 0, passed True
+cycle 99: tail 0, nonrescued 0, passed True
+cycle 100: tail 0, nonrescued 0, passed True
+cycle 101: tail 0, nonrescued 0, passed True
+cycle 102: tail 0, nonrescued 0, passed True
+cycle 103: tail 0, nonrescued 0, passed True
+cycle 104: tail 0, nonrescued 0, passed True
+```
+
+Status `changed-under-evidence`: this is stronger evidence for later-band
+absence of the `.3` first-three tail in the sampled far window, but it does
+not add a nonempty stress test for the `.63/.3/.47` rescue floors.  The next
+mathematical target remains an analytic reason for tail disappearance or
+tail rescue beyond the finite windows.
