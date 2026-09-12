@@ -15364,3 +15364,46 @@ Next concrete question: classify q35 and q143.  If they also reduce to fixed
 principal/centered coefficient channels, the remaining obstruction moves from
 source bookkeeping to proving signed control of a finite list of explicit
 strict-central prime-residue weights.
+
+## 2026-09-12: all live holdouts reduce to fixed coefficient channels
+
+A correction to the q65 wording is now incorporated: the Fourier-dual q65
+receipt transfers the centered component.  The full projected-spatial holdout
+channel is principal mean plus centered Fourier dual.  The new
+`holdout_full_projected_prime_coefficient_receipt` makes this explicit.
+
+For q35, q65, and q143, the full projected-spatial target action on fixture
+targets `1000` and `1002` matches the fixed prime-residue coefficient sum with
+maximum relative error below `1e-9`, and no nonunit strict-central prime pairs
+occur.  The measured channel data are:
+
+`q35`: lag `286`, common modulus `286`, threshold `40`, grouped mean
+`21442.808333333334`, principal coefficient `-21442.808333333334`, centered
+spatial `L^2` norm `188155.56923352455`, centered dual `L^2` norm
+`2232674.8772659665`, full coefficient `L^2` norm `2244997.1917757513`.
+
+`q65`: lag `154`, common modulus `154`, threshold `34`, grouped mean
+`-1127.8833333333334`, principal coefficient `1127.8833333333334`, centered
+spatial `L^2` norm `86071.18524618639`, centered dual `L^2` norm
+`751779.5321027868`, full coefficient `L^2` norm `751830.2947723654`.
+
+`q143`: lag `70`, common modulus `70`, threshold `22`, grouped mean
+`-13896.875`, principal coefficient `13896.875`, centered spatial `L^2` norm
+`77398.42936794648`, centered dual `L^2` norm `443487.86788549845`, full
+coefficient `L^2` norm `448683.0108172142`.
+
+Together with q55's principal-only channel, the live count-four holdouts now
+have fixed strict-central coefficient descriptions at the source/channel
+level.  Status `aha-candidate`, novelty `new-to-this-task`: the residual
+bookkeeping has compressed from "mysterious endpoint/noncentral holdouts" to a
+finite family of explicit fixed prime-residue weights.
+
+This still does not prove the signed prime-correlation estimate.  It does not
+identify the entire original outer assembly including every endpoint or
+noncentral term, does not estimate the formal `T_boundary-Delta` error, does
+not give pointwise signed control, and does not prove Goldbach.
+
+Next concrete question: assemble q77, q55, q65, q35, and q143 into one
+finite weighted strict-central coefficient family and inspect whether the
+combined coefficient has cancellation, sign, or a smaller basis expression
+that changes the signed prime-correlation problem.

@@ -1516,11 +1516,11 @@ def holdout_q65_naive_spatial_prime_coefficient_receipt(tolerance=1e-12):
 
 def holdout_dual_prime_target_sum_receipt(
         quotient=65, targets=(1000, 1002), tolerance=1e-12):
-    """Transfer a holdout projected-spatial source to target prime sums.
+    """Transfer a centered holdout spatial source to target prime sums.
 
     This is still a finite target check, not an estimate.  It compares the
     tempting same-index coefficient against the Fourier-dual coefficient that
-    a spatial-frequency source actually induces on prime residues.
+    a centered spatial-frequency source actually induces on prime residues.
     """
     targets = tuple(targets)
     if (not targets or any(type(target) is not int or target < 34
@@ -1615,6 +1615,8 @@ def holdout_dual_prime_target_sum_receipt(
             and maximum_spatial_dual_relative_error <= tolerance),
         "naive_same_index_target_transfer_falsified": bool(
             minimum_naive_dual_relative_error > .1),
+        "centered_component_only": True,
+        "full_projected_spatial_action_included": False,
         "target_prime_pair_bridge_proved_symbolically": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
@@ -1631,15 +1633,12 @@ def holdout_q65_dual_prime_target_sum_receipt(
 
 def symbolic_holdout_dual_prime_coefficient_receipt(
         quotient=65, tolerance=1e-12):
-    """Name the fixed Fourier-dual coefficient for all central targets.
+    """Name the fixed centered Fourier-dual coefficient for central targets.
 
     Once the projected-spatial holdout source is grouped over its common unit
-    group, its action
-    on a prime residue is the finite additive Fourier dual of that grouped
-    spatial vector.  This coefficient is independent of the target.  For every
-    even ``N`` above the central-unit threshold, strict-central prime pairs use
-    only unit residues modulo the common modulus, so no nonunit correction is needed in this
-    channel.
+    group and centered, its action on a prime residue is the finite additive
+    Fourier dual of that grouped centered spatial vector.  This coefficient is
+    independent of the target.  The principal mean is handled separately.
     """
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
@@ -1675,13 +1674,16 @@ def symbolic_holdout_dual_prime_coefficient_receipt(
         "maximum_dual_coefficient_imaginary_part": float(max_imaginary_part),
         "coefficient_by_unit_residue": coefficient_by_residue,
         "target_correlation_identity": (
-            "for every even N>=34, the q65 projected-spatial target action "
-            "on strict-central prime pairs is sum log(p)log(N-p)C_q65(p mod "
-            "154), where C_q65 is the fixed Fourier-dual coefficient"),
+            "for every even N above the central-unit threshold, the centered "
+            "holdout projected-spatial target action on strict-central prime "
+            "pairs is sum log(p)log(N-p)C_q(p mod common), where C_q is the "
+            "fixed Fourier-dual coefficient"),
         "coefficient_depends_on_target_residue": False,
         "nonunit_central_prime_pair_correction_needed_for_N_ge_34": False,
         "symbolic_q65_dual_coefficient_transfer_proved": True,
         "q65_source_layer_bridge_proved": True,
+        "centered_component_only": True,
+        "principal_mean_component_included": False,
         "q65_positive_or_signed_estimate_proved": False,
         "full_outer_assembly_identification_proved": False,
         "formal_signed_error_identification_proved": False,
@@ -1693,6 +1695,136 @@ def symbolic_holdout_dual_prime_coefficient_receipt(
 def symbolic_q65_dual_prime_coefficient_receipt(tolerance=1e-12):
     return symbolic_holdout_dual_prime_coefficient_receipt(
         quotient=65, tolerance=tolerance)
+
+
+def holdout_full_projected_prime_coefficient_receipt(
+        quotient=65, targets=(1000, 1002), tolerance=1e-9):
+    """Transfer the full holdout projected-spatial source to prime residues.
+
+    The full coefficient is a principal constant from the grouped spatial mean
+    plus the finite Fourier dual of the grouped centered spatial vector.
+    """
+    targets = tuple(targets)
+    if quotient not in TWO_PRIME_QUOTIENT_LAGS:
+        raise ValueError("quotient must be one of the two-prime sectors")
+    if quotient in (77, 91):
+        raise ValueError("use a holdout quotient, not the linked-prime slice")
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    source = holdout_projected_spatial_fiber_bridge_receipt(
+        quotient=quotient, tolerance=1e-12)
+    common = source["common_modulus"]
+    residues = tuple(
+        residue for residue in range(common)
+        if math.gcd(residue, common) == 1)
+    centered = np.asarray(source["grouped_centered_spatial_values"],
+                          dtype=np.complex128)
+    raw_spatial = centered + source["grouped_spatial_mean"]
+    phase = np.exp(
+        2j * np.pi * np.outer(residues, residues) / common)
+    centered_dual = phase @ centered
+    ramanujan_values = tuple(_ramanujan_sum(common, residue)
+                             for residue in residues)
+    if len(set(ramanujan_values)) != 1:
+        raise AssertionError("unit Ramanujan values are not constant")
+    principal_coefficient = (
+        source["grouped_spatial_mean"] * ramanujan_values[0])
+    full_coefficient = centered_dual + principal_coefficient
+    coefficient_by_residue = {
+        residue: complex(value)
+        for residue, value in zip(residues, full_coefficient)}
+
+    rows = {}
+    maximum_target_relative_error = 0.0
+    all_nonunit_pairs = []
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        coefficient_sum = 0.0j
+        spatial_sum = 0.0j
+        natural_scale = 0.0
+        nonunit_pairs = []
+        pair_count = 0
+        exponential_sums = {residue: 0.0j for residue in residues}
+        for prime, weight in _linked_prime_pairs(target, lower, upper):
+            partner = target - prime
+            pair_count += 1
+            prime_residue = prime % common
+            if math.gcd(prime_residue, common) != 1:
+                nonunit_pairs.append((prime, partner))
+                continue
+            coefficient = coefficient_by_residue[prime_residue]
+            coefficient_sum += coefficient * weight
+            natural_scale += abs(coefficient * weight)
+            for residue in residues:
+                exponential_sums[residue] += (
+                    np.exp(2j * np.pi * residue * prime_residue / common)
+                    * weight)
+        for value, residue in zip(raw_spatial, residues):
+            spatial_sum += value * exponential_sums[residue]
+        scale = max(1.0, abs(coefficient_sum), abs(spatial_sum), natural_scale)
+        relative_error = abs(coefficient_sum - spatial_sum) / scale
+        maximum_target_relative_error = max(
+            maximum_target_relative_error, relative_error)
+        all_nonunit_pairs.extend((target, pair) for pair in nonunit_pairs)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": pair_count,
+            "nonunit_prime_pairs": tuple(nonunit_pairs),
+            "full_prime_residue_sum": complex(coefficient_sum),
+            "spatial_frequency_reconstructed_sum": complex(spatial_sum),
+            "full_target_relative_error": relative_error,
+            "full_target_natural_scale": natural_scale,
+        }
+    threshold = _even_strict_central_unit_threshold(common)
+    return {
+        "families": source["families"],
+        "arithmetic_period": source["arithmetic_period"],
+        "quotient": quotient,
+        "lag": source["lag"],
+        "common_modulus": common,
+        "unit_group_order": len(residues),
+        "spatial_frequency_count": source["spatial_frequency_count"],
+        "projected_signed_total": source["projected_signed_total"],
+        "projected_absolute_mass": source["projected_absolute_mass"],
+        "projected_cancellation_quotient": (
+            source["projected_cancellation_quotient"]),
+        "grouped_spatial_mean": source["grouped_spatial_mean"],
+        "centered_spatial_l2": source["grouped_centered_spatial_l2"],
+        "centered_dual_coefficient_l2": float(np.linalg.norm(centered_dual)),
+        "principal_prime_residue_coefficient": principal_coefficient,
+        "full_prime_residue_coefficient_l2": float(
+            np.linalg.norm(full_coefficient)),
+        "maximum_full_coefficient_imaginary_part": float(
+            max(abs(value.imag) for value in full_coefficient)),
+        "coefficient_by_unit_residue": coefficient_by_residue,
+        "central_unit_threshold": threshold,
+        "central_unit_threshold_reason": (
+            f"if N>={threshold} and N/3<p<2N/3, then p and N-p exceed "
+            f"the largest prime factor {_largest_prime_factor(common)} "
+            f"of modulus {common}"),
+        "rows": rows,
+        "maximum_target_relative_error": maximum_target_relative_error,
+        "nonunit_prime_pairs": tuple(all_nonunit_pairs),
+        "full_projected_spatial_target_transfer_verified_on_targets": bool(
+            not all_nonunit_pairs
+            and maximum_target_relative_error <= tolerance),
+        "coefficient_depends_on_target_residue": False,
+        "positive_or_signed_estimate_proved": False,
+        "full_outer_assembly_identification_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def holdout_q65_full_projected_prime_coefficient_receipt(
+        targets=(1000, 1002), tolerance=1e-9):
+    return holdout_full_projected_prime_coefficient_receipt(
+        quotient=65, targets=targets, tolerance=tolerance)
 
 
 def symbolic_principal_plus_centered_channel_receipt(

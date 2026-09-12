@@ -5,6 +5,7 @@ from lcm_sawtooth_goldbach_transfer import (
     all_residue_centered_outer_fiber_shadow_receipt,
     canonical_direct_resonant_goldbach_main_receipt,
     count_four_outer_holdout_sector_receipt,
+    holdout_full_projected_prime_coefficient_receipt,
     holdout_lag_fiber_shadow_candidate_receipt,
     holdout_q65_dual_prime_target_sum_receipt,
     holdout_q65_active_row_bridge_receipt,
@@ -300,6 +301,78 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "pointwise_signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
+
+    def test_holdout_full_projected_prime_coefficients(self):
+        expected = {
+            35: {
+                "lag": 286,
+                "common": 286,
+                "units": 120,
+                "threshold": 40,
+                "mean": 21442.808333333334,
+                "principal": -21442.808333333334,
+                "centered_l2": 188155.56923352455,
+                "dual_l2": 2232674.8772659665,
+                "full_l2": 2244997.1917757513,
+            },
+            65: {
+                "lag": 154,
+                "common": 154,
+                "units": 60,
+                "threshold": 34,
+                "mean": -1127.8833333333334,
+                "principal": 1127.8833333333334,
+                "centered_l2": 86071.18524618639,
+                "dual_l2": 751779.5321027868,
+                "full_l2": 751830.2947723654,
+            },
+            143: {
+                "lag": 70,
+                "common": 70,
+                "units": 24,
+                "threshold": 22,
+                "mean": -13896.875,
+                "principal": 13896.875,
+                "centered_l2": 77398.42936794648,
+                "dual_l2": 443487.86788549845,
+                "full_l2": 448683.0108172142,
+            },
+        }
+        for quotient, row in expected.items():
+            receipt = holdout_full_projected_prime_coefficient_receipt(
+                quotient=quotient)
+            self.assertEqual(receipt["quotient"], quotient)
+            self.assertEqual(receipt["lag"], row["lag"])
+            self.assertEqual(receipt["common_modulus"], row["common"])
+            self.assertEqual(receipt["unit_group_order"], row["units"])
+            self.assertEqual(receipt["central_unit_threshold"], row["threshold"])
+            self.assertAlmostEqual(
+                receipt["grouped_spatial_mean"], row["mean"], places=9)
+            self.assertAlmostEqual(
+                receipt["principal_prime_residue_coefficient"],
+                row["principal"], places=9)
+            self.assertAlmostEqual(
+                receipt["centered_spatial_l2"], row["centered_l2"], places=7)
+            self.assertAlmostEqual(
+                receipt["centered_dual_coefficient_l2"],
+                row["dual_l2"], places=6)
+            self.assertAlmostEqual(
+                receipt["full_prime_residue_coefficient_l2"],
+                row["full_l2"], places=6)
+            self.assertLess(
+                receipt["maximum_target_relative_error"], 1e-9)
+            self.assertLess(
+                receipt["maximum_full_coefficient_imaginary_part"], 1e-7)
+            self.assertFalse(receipt["nonunit_prime_pairs"])
+            self.assertTrue(receipt[
+                "full_projected_spatial_target_transfer_verified_on_targets"])
+            self.assertFalse(receipt["coefficient_depends_on_target_residue"])
+            self.assertFalse(receipt["positive_or_signed_estimate_proved"])
+            self.assertFalse(receipt["full_outer_assembly_identification_proved"])
+            self.assertFalse(receipt["formal_signed_error_identification_proved"])
+            self.assertFalse(receipt[
+                "pointwise_signed_prime_correlation_estimate_proved"])
+            self.assertFalse(receipt["goldbach_proved"])
 
     def test_symbolic_principal_plus_centered_channel(self):
         receipt = symbolic_principal_plus_centered_channel_receipt()

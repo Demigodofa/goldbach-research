@@ -7698,3 +7698,29 @@ the symbolic unit threshold is `N>=40`.
 Status `changed-under-evidence`: q55 is preserved as a fixed principal
 strict-central channel, not a q65-like centered channel.  The remaining live
 holdouts are q35 and q143; signed control and Goldbach remain open.
+
+### 2026-09-12 continuation: live holdouts are fixed coefficient channels
+
+The q65 target-transfer wording has been corrected: the dual receipt transfers
+the centered component, while the full projected-spatial channel is principal
+mean plus centered Fourier dual.  A new full-channel receipt now checks q35,
+q65, and q143 on fixture targets, with no nonunit central prime pairs and
+target reconstruction error below `1e-9`.
+
+The full channel data are:
+
+`q35`: common modulus `286`, principal coefficient `-21442.808333333334`,
+centered dual `L^2` norm `2232674.8772659665`.
+
+`q65`: common modulus `154`, principal coefficient `1127.8833333333334`,
+centered dual `L^2` norm `751779.5321027868`.
+
+`q143`: common modulus `70`, principal coefficient `13896.875`, centered dual
+`L^2` norm `443487.86788549845`.
+
+Together with q55's principal-only channel, the live count-four holdouts have
+fixed strict-central coefficient descriptions at the source/channel level.
+Status `aha-candidate`, novelty `new-to-this-task`: the residual source
+bookkeeping is now a finite explicit coefficient family.  The missing step is
+signed prime-correlation control for that family, plus any remaining endpoint
+or noncentral terms in the original outer assembly.  Goldbach remains open.
