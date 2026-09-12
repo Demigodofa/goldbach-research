@@ -1,11 +1,38 @@
 import unittest
 
 from lcm_sawtooth_goldbach_transfer import (
+    all_even_residue_goldbach_main_receipt,
     even_even_goldbach_transfer_receipt,
 )
 
 
 class EvenEvenGoldbachTransferTests(unittest.TestCase):
+    def test_all_even_residue_singular_main_coefficients(self):
+        receipt = all_even_residue_goldbach_main_receipt()
+        self.assertEqual(receipt["common_modulus"], 130)
+        self.assertEqual(receipt["unit_group_order"], 48)
+        self.assertEqual(receipt["even_target_residue_count"], 65)
+        self.assertEqual(tuple(receipt["rows"]), tuple(range(0, 130, 2)))
+        self.assertLess(
+            receipt["maximum_locally_centered_sum_relative_error"], 1e-12)
+        self.assertLess(receipt["maximum_local_source_bias_ratio"], .15)
+        row72 = receipt["rows"][72]
+        self.assertEqual(row72["admissible_residue_count"], 33)
+        reconstructed_sum = (
+            row72["central_singular_main_multiplier"] * 144)
+        self.assertLess(
+            abs(reconstructed_sum - row72["source_sum"])
+            / max(1.0, abs(row72["source_sum"])), 1e-14)
+        self.assertTrue(receipt[
+            "all_even_residue_singular_main_coefficients_identified"])
+        self.assertTrue(receipt[
+            "all_even_target_l1_error_log_saving_proved"])
+        self.assertTrue(receipt[
+            "all_even_target_l2_error_log_saving_proved"])
+        self.assertFalse(receipt[
+            "pointwise_signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_exact_central_residue_and_character_transfers(self):
         receipt = even_even_goldbach_transfer_receipt(1700, 1800)
         self.assertEqual(receipt["common_modulus"], 130)

@@ -14703,3 +14703,80 @@ and target progression, singular-main cancellation, boundary and endpoint
 correction, complex coefficients, and the first-to-second-moment conversion.
 It also ran the focused tests normally and under optimization plus compile and
 diff checks before returning PASS.
+
+## 2026-09-11 all-even-residue signed-correlation asymptotic
+
+The residue-72 theorem suggests a finite-class extension that retains the
+nonzero local source mean instead of discarding it. Let `G_0` be the globally
+centered recombined quotient-77 source on `U_130`. For each even
+`n (mod 130)`, put
+
+`A_n={a in U_130:n-a in U_130}`.
+
+The set has `(4 or 3)*(12 or 11)` elements according as `5|n` and `13|n`.
+It is therefore one of `48,44,36,33`. For `N=n (mod 130)`, define
+
+`L_N(G_0)=sum_(N/3<p<2N/3, p and N-p prime)
+              log(p)log(N-p)G_0(p mod 130)`,
+
+with the ordered convention. Halupczok's formula (1) makes the singular main
+for every `a in A_n` equal to `S(130N)/phi(130)`. Since the moving central
+interval has length `N/3`, the proposed main is
+
+`M_N=(N/3)*S(130N)/phi(130)*sum_(a in A_n)G_0(a)`.
+
+Equivalently, subtract the fixed local mean of `G_0` on `A_n`. The remainder
+coefficient has zero sum and is covered by the reviewed residue-class box
+argument; the local mean produces `M_N`.
+
+Applying Theorem 6 separately to the finite 65 even residue classes, using
+the same `H=X^(3/4)`, gives for every fixed `K>0`
+
+`sum_(X<N<=2X, N even) |L_N(G_0)-M_N|
+    <<_K X^2/log^K X`,
+
+and, after two extra logarithmic powers and the trivial pointwise bound,
+
+`sum_(X<N<=2X, N even) |L_N(G_0)-M_N|^2
+    <<_K X^3/log^K X`.
+
+The staircase core length differs from `N/3` by `O(H)`. Its omitted singular
+main costs `O(H*S(N))` per target; the standard
+`S(N)<<log log N` bound places this inside the existing
+`O(X H log^2 X)` boundary budget. The finite union over target classes does
+not introduce an `X`-dependent coefficient family. Central nonunit and exact
+endpoint corrections vanish eventually as in the residue-72 proof.
+
+`all_even_residue_goldbach_main_receipt` records all 65 admissible sets,
+local means, locally centered coefficient tables, and main multipliers
+
+`sum_(a in A_n)G_0(a)/(3*phi(130))`.
+
+The maximum local-centering residual is below `1e-12`, and the existing
+source-only `.15` local-bias gate still passes. The focused all-residue test
+passes after replacing an inappropriate absolute decimal-place assertion by
+a natural-scale relative check; the original discrepancy was
+`9.10e-13`, or about `1.34e-16` of the tested source sum.
+
+Independent review returned PASS. It checked the `N/3` factor, ordered-pair
+convention, fixed `Q_2=130` theorem application, all 65 target classes,
+staircase deficit and singular-series bound, central unit and endpoint cases,
+first-to-second-moment conversion, implementation, and normal/optimized
+tests. Compilation and diff checks pass.
+
+Curiosity status: `changed-under-evidence`, novelty `new-to-this-task`, within
+the 30-minute pursuit block. This is an almost-all asymptotic formula for the
+actual recombined centered-source correlation, not a pointwise estimate. The
+main `M_N` is generally nonzero, so it does not by itself prove the
+cancellation required for every target or Goldbach. Preserve the zero-sum
+local remainder theorem even if a future source correction changes the stated
+main.
+
+The next bounded question is the exact arithmetic shape of `M_N`. Since
+`sum_(a in U_130)G_0(a)=0`, inclusion-exclusion over the two forbidden
+conditions `a=N (mod 5)` and `a=N (mod 13)` should express
+`sum_(a in A_n)G_0(a)` through fixed CRT row sums, column sums, and one cell.
+Derive and verify every one of the 65 coefficients. Then compare this local
+main, coefficient by coefficient, with the principal/local-bias term already
+isolated in the full Goldbach assembly. Exact agreement would identify the
+remaining main rather than estimate it away; any mismatch rejects the map.

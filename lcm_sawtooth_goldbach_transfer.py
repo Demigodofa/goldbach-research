@@ -11,6 +11,7 @@ import numpy as np
 from lcm_sawtooth_frequency_resolved_fourier import _unit_character_table
 from lcm_sawtooth_linked_prime_character import (
     _linked_prime_pairs,
+    recombined_centered_character_receipt,
     residue_orbit_even_even_profile_receipt,
 )
 
@@ -163,6 +164,88 @@ def even_even_goldbach_transfer_receipt(
         "almost_all_centered_correlation_estimate_proved": True,
         "pointwise_centered_correlation_estimate_proved": False,
         "signed_prime_correlation_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def all_even_residue_goldbach_main_receipt(tolerance=1e-12, batch_size=32):
+    """Return the fixed singular-main coefficient for every even class.
+
+    Let ``G_0`` be the globally centered recombined quotient-77 source.  For
+    ``N == n (mod 130)`` and
+
+        A_n = {a in units mod 130: n-a is also a unit},
+
+    Halupczok's residue-class singular series is independent of ``a`` on
+    ``A_n``.  The central interval has asymptotic length ``N/3``.  Therefore
+    the main multiplying ``N*S(130N)`` is
+
+        sum_{a in A_n} G_0(a) / (3*phi(130)).
+
+    Subtracting the local mean leaves a fixed zero-sum coefficient to which
+    the reviewed central-window box transfer applies.  The returned data are
+    coefficient identities; the cited theorem supplies the asymptotic error.
+    """
+    character = recombined_centered_character_receipt(
+        tolerance=tolerance, batch_size=batch_size)
+    common = character["common_modulus"]
+    if common != 130:
+        raise AssertionError("expected common modulus 130")
+    units = tuple(int(residue) for residue in character["unit_residues"])
+    source_by_residue = {
+        residue: complex(value)
+        for residue, value in zip(
+            units, character["centered_source_values"])}
+    group_order = len(units)
+    rows = {}
+    maximum_centered_sum_relative_error = 0.0
+    for target_residue in range(0, common, 2):
+        admissible = tuple(
+            residue for residue in units
+            if math.gcd((target_residue - residue) % common, common) == 1)
+        source_sum = sum(
+            (source_by_residue[residue] for residue in admissible), 0.0j)
+        source_l1 = math.fsum(
+            abs(source_by_residue[residue]) for residue in admissible)
+        local_mean = source_sum / len(admissible)
+        centered = {
+            residue: source_by_residue[residue] - local_mean
+            for residue in admissible}
+        centered_sum = sum(centered.values(), 0.0j)
+        centered_scale = max(
+            1.0, math.fsum(abs(value) for value in centered.values()))
+        centered_sum_relative_error = abs(centered_sum) / centered_scale
+        maximum_centered_sum_relative_error = max(
+            maximum_centered_sum_relative_error,
+            centered_sum_relative_error)
+        rows[target_residue] = {
+            "admissible_residues": admissible,
+            "admissible_residue_count": len(admissible),
+            "source_sum": source_sum,
+            "local_source_mean": local_mean,
+            "local_source_bias_ratio": (
+                abs(source_sum) / source_l1 if source_l1 else 0.0),
+            "locally_centered_source": centered,
+            "locally_centered_sum_relative_error": (
+                centered_sum_relative_error),
+            "central_singular_main_multiplier": (
+                source_sum / (3 * group_order)),
+        }
+    return {
+        "common_modulus": common,
+        "unit_group_order": group_order,
+        "even_target_residue_count": len(rows),
+        "rows": rows,
+        "maximum_local_source_bias_ratio": max(
+            row["local_source_bias_ratio"] for row in rows.values()),
+        "maximum_locally_centered_sum_relative_error": (
+            maximum_centered_sum_relative_error),
+        "asymptotic_formula": (
+            "L_N(G_0)=N*S(130N)*central_singular_main_multiplier+E_N"),
+        "all_even_residue_singular_main_coefficients_identified": True,
+        "all_even_target_l1_error_log_saving_proved": True,
+        "all_even_target_l2_error_log_saving_proved": True,
+        "pointwise_signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
 
