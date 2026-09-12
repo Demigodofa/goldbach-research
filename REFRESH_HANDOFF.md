@@ -224,6 +224,13 @@ complement nonpositive cases.  The block complement minimum is
 `0.42968514453254214` at `N=205514` (global cycle `19`).  Per-cycle minima
 range from `0.42968514453254214` to `0.5427355349523361`.
 
+Coarse later-horizon falsifier: `q286_complement_cycle_envelope_receipt` with
+`start=330320`, `cycle_count=16`, `targets_per_cycle=501` samples global cycles
+`32..47`, `8016` targets.  It finds zero full-action negatives and zero
+complement nonpositive cases.  The sampled block complement minimum is
+`0.49906371578900943` at `N=440866` (global cycle `43`).  This strengthens the
+trend but is not a full-cycle check.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

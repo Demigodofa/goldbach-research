@@ -904,3 +904,38 @@ stays above the cycles `8..15` floor and far above the cycle-0 boundary
 minimum.  The observed post-boundary floor is now monotone by tested block
 minimum across blocks `1..7`, `8..15`, and `16..31`, but no monotonic theorem
 has been proved.
+
+A coarser later-horizon falsifier sampled global cycles `32..47` with
+`targets_per_cycle=501`, starting at `330320`.  It tested `8016` targets:
+
+```text
+total full-action negatives: 0
+total full-without-first-three nonpositive: 0
+sampled block complement minimum: global cycle 43, N=440866, 0.49906371578900943
+```
+
+The sampled per-cycle complement minima were:
+
+```text
+global cycle 32: 0.6042973622004102 at 330966
+global cycle 33: 0.587380111321078 at 340486
+global cycle 34: 0.5938253288828608 at 350624
+global cycle 35: 0.5981462465001088 at 360786
+global cycle 36: 0.5509255816224139 at 370796
+global cycle 37: 0.5886469400329274 at 380444
+global cycle 38: 0.5819616227738739 at 391306
+global cycle 39: 0.6256438335597275 at 401374
+global cycle 40: 0.587309690118216 at 411046
+global cycle 41: 0.5826448055567107 at 421336
+global cycle 42: 0.5751621229298687 at 430576
+global cycle 43: 0.49906371578900943 at 440866
+global cycle 44: 0.5565874811655189 at 450876
+global cycle 45: 0.534662460823786 at 460606
+global cycle 46: 0.5709637618961914 at 471106
+global cycle 47: 0.5708157549176014 at 480906
+```
+
+Status `coarse-later-horizon-strengthened`: no collapse appears in this
+sampled later block; the sampled complement floor continues upward.  The word
+sampled matters: this is not a complete-cycle check and cannot replace the
+full-period envelope receipts.

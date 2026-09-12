@@ -210,6 +210,12 @@ complement nonpositive cases.  The block complement minimum is
 post-boundary complement floor that strengthens across later tested blocks,
 but the required asymptotic lower-envelope theorem remains open.
 
+A coarser sampled later-horizon scan over global cycles `32..47` tested `8016`
+targets and again found zero full-action negatives and zero complement
+nonpositive cases.  The sampled block complement minimum was
+`0.49906371578900943` at `N=440866`.  This supports, but does not prove, an
+eventual positive complement lower envelope.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
