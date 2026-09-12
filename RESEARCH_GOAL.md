@@ -7920,3 +7920,22 @@ by the dominant two-prime supports `(11,13)`/`286`, `(5,7)`/`70`, and
 Status `aha-candidate`: focus the direct estimate on the modulus-`286`
 component and its joint behavior with moduli `70` and `154`.  The small
 single-support corrections are secondary.
+
+### 2026-09-12 continuation: centered-error lower-tail target
+
+`combined_coefficient_centered_error_envelope_receipt` writes the direct
+assembled strict-central prime-pair sum as
+`principal_mean * W_unit(N) + centered_error(N)`, with principal mean
+`44002.512499999146 + 3.18e-10i`.  Positivity is therefore reduced to the
+explicit lower-tail condition
+`centered_error(N).real / principal(N).real > -1`.
+
+Across the first `12` complete even-residue cycles, the global worst ratio is
+`-1.876941273440844` at `N=14138`.  Negative-or-zero counts by cycle remain
+`75, 3, 5, 4, 0, 0, 0, 2, 0, 0, 0, 0`.  Even positive cycles can be close to
+the threshold: cycle `4` has minimum `-0.9975041993462069` at `N=58736`.
+
+Status `changed-under-evidence`: the explicit pointwise task is now a lower
+tail bound for the centered lower-modulus support correlations against the
+positive principal contribution.  Local-main positivity and average behavior
+remain insufficient.

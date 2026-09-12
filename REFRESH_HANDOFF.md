@@ -15765,3 +15765,29 @@ Status `aha-candidate`: the direct pointwise estimate should first target the
 dominant modulus-`286` component and its interaction with the modulus-`70` and
 modulus-`154` components.  Small single-support terms are not the primary
 source of the observed finite negatives.
+
+## 2026-09-12: centered-error envelope names the exact inequality
+
+`combined_coefficient_centered_error_envelope_receipt` rewrites the direct
+assembled strict-central prime-pair sum as
+
+`principal_mean * W_unit(N) + centered_error(N)`.
+
+Since `principal_mean = 44002.512499999146 + 3.18e-10i` is positive in real
+part, positivity follows exactly when the real ratio
+
+`centered_error(N).real / principal(N).real > -1`.
+
+Across the first `12` complete even-residue cycles, the global worst ratio is
+`-1.876941273440844` at `N=14138`.  Negative-or-zero target counts by cycle
+are again `75, 3, 5, 4, 0, 0, 0, 2, 0, 0, 0, 0`.  The minima by selected later
+cycles show how sharp the boundary remains: cycle `4` has minimum
+`-0.9975041993462069` at `N=58736`; cycle `7` has minimum
+`-1.1294250400216068` at `N=88346`; cycle `11` has minimum
+`-0.8394464677042788` at `N=125504`.
+
+Status `changed-under-evidence`: the direct estimate can now be stated as a
+single lower-tail inequality for the centered support error, but the margin is
+thin near some finite targets.  Average cancellation or local-main positivity
+is not enough; a proof must bound the lower tail of the lower-modulus support
+correlations below the positive principal contribution.

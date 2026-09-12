@@ -3502,6 +3502,141 @@ def combined_coefficient_support_contribution_receipt(
     }
 
 
+def combined_coefficient_centered_error_envelope_receipt(
+        base_target_minimum=10000, cycle_count=3,
+        targets_per_cycle=None, tolerance=1e-9):
+    """Measure the direct inequality principal + centered error > 0.
+
+    The assembled coefficient has positive principal mean.  For actual
+    strict-central prime pairs, write the direct weighted sum as
+
+        principal_mean * W_unit(N) + centered_error(N).
+
+    Positivity follows if the real centered-to-principal ratio is greater than
+    ``-1``.  This receipt measures that ratio on finite period cycles; it does
+    not prove the required pointwise bound.
+    """
+    if (type(base_target_minimum) is not int or base_target_minimum < 40
+            or base_target_minimum % 2):
+        raise ValueError("base_target_minimum must be an even integer >=40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (targets_per_cycle is not None
+            and (type(targets_per_cycle) is not int
+                 or targets_per_cycle < 1)):
+        raise ValueError("targets_per_cycle must be None or a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    full_cycle_targets = period // 2
+    per_cycle = (
+        full_cycle_targets if targets_per_cycle is None
+        else min(targets_per_cycle, full_cycle_targets))
+    maximum_target = (
+        base_target_minimum
+        + (cycle_count - 1) * period
+        + 2 * (per_cycle - 1))
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    coefficient_by_residue = coefficient[
+        "aggregate_coefficient_by_unit_residue"]
+    principal_mean = _complex_fsum(
+        coefficient_by_residue[unit] for unit in units) / len(units)
+    centered_by_residue = {
+        unit: coefficient_by_residue[unit] - principal_mean
+        for unit in units}
+    primes = _prime_table(maximum_target)
+
+    def evaluate(target):
+        lower = target // 3
+        upper = target - lower
+        unit_weight = 0.0
+        centered_terms = []
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                pair_count += 1
+                weight = math.log(prime) * math.log(partner)
+                unit_weight += weight
+                centered_terms.append(centered_by_residue[prime % period]
+                                      * weight)
+        principal = principal_mean * unit_weight
+        centered = _complex_fsum(centered_terms)
+        total = principal + centered
+        ratio = (
+            centered.real / principal.real
+            if abs(principal.real) > tolerance else math.nan)
+        return {
+            "target": target,
+            "target_residue": target % period,
+            "ordered_central_prime_pair_count": pair_count,
+            "principal_contribution": principal,
+            "centered_error": centered,
+            "direct_weighted_prime_correlation": total,
+            "centered_to_principal_real_ratio": ratio,
+            "positive": bool(total.real > tolerance),
+        }
+
+    cycle_rows = {}
+    global_minimum_row = None
+    for cycle_index in range(cycle_count):
+        start = base_target_minimum + cycle_index * period
+        rows = tuple(evaluate(start + 2 * offset)
+                     for offset in range(per_cycle))
+        minimum_row = min(
+            rows, key=lambda row: row["centered_to_principal_real_ratio"])
+        negative_rows = tuple(row for row in rows if not row["positive"])
+        if (global_minimum_row is None
+                or minimum_row["centered_to_principal_real_ratio"]
+                < global_minimum_row["centered_to_principal_real_ratio"]):
+            global_minimum_row = minimum_row
+        cycle_rows[cycle_index] = {
+            "target_range": (rows[0]["target"], rows[-1]["target"]),
+            "tested_target_count": len(rows),
+            "negative_or_zero_weighted_sum_count": len(negative_rows),
+            "minimum_centered_to_principal_target": minimum_row["target"],
+            "minimum_centered_to_principal_ratio": minimum_row[
+                "centered_to_principal_real_ratio"],
+            "mean_centered_to_principal_ratio": math.fsum(
+                row["centered_to_principal_real_ratio"] for row in rows)
+            / len(rows),
+            "negative_or_zero_targets": tuple(row["target"]
+                                              for row in negative_rows),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "principal_mean": principal_mean,
+        "base_target_minimum": base_target_minimum,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": per_cycle,
+        "full_cycle_targets": full_cycle_targets,
+        "full_cycles_scanned": bool(per_cycle == full_cycle_targets),
+        "cycle_rows": cycle_rows,
+        "global_minimum_centered_to_principal_target": (
+            global_minimum_row["target"]),
+        "global_minimum_centered_to_principal_ratio": (
+            global_minimum_row["centered_to_principal_real_ratio"]),
+        "all_scanned_targets_positive": all(
+            row["negative_or_zero_weighted_sum_count"] == 0
+            for row in cycle_rows.values()),
+        "sufficient_pointwise_target": (
+            "prove centered_error(N).real / principal(N).real > -1 "
+            "for every remaining strict-central target"),
+        "centered_error_envelope_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:
