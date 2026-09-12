@@ -7869,3 +7869,21 @@ lifted normalized multiplier is `1.735447134625385` at `278536`.
 Status `changed-under-evidence`: there is no monotone threshold at `50040`,
 but sampled negative recurrences still clear at higher residue lifts.  Continue
 with a farther threshold search or a residue-wise lower-envelope argument.
+
+### 2026-09-12 continuation: full residue uniformity margin is unrealistic here
+
+`combined_coefficient_uniform_residue_margin_receipt` computes a sufficient
+condition for positivity from full residue-class uniformity modulo `10010`.
+The minimum sufficient relative-discrepancy margin is
+`0.20799157662677328` at residue `6866`; the maximum is
+`0.5502078345733764`; the mean is `0.30832888056671387`.
+
+On `10000 <= N <= 20008`, zero of `5005` targets satisfy that strong
+condition.  The worst discrepancy-to-margin ratio is `118.38461370559743` at
+`N=10366`.  This does not disprove positivity; it shows that a proof via full
+mod-`10010` residue equidistribution is much too expensive at the current
+finite scales.
+
+Status `changed-under-evidence`: use CRT/conductor support or lower-dimensional
+structure before asking for full unit-residue uniformity.  The direct
+pointwise estimate remains open.

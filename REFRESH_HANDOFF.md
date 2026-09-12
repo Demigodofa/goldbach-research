@@ -15667,3 +15667,32 @@ negatives recur.  However, the recurring negative residue classes also clear
 sampled higher lifts.  The direct attack should now search for either a true
 eventual threshold farther out or a residue-wise explicit lower-envelope
 argument.
+
+## 2026-09-12: full residue uniformity is too strong at small scales
+
+`combined_coefficient_uniform_residue_margin_receipt` converts the assembled
+coefficient positivity problem into a sufficient pointwise distribution
+condition.  For each even residue `n mod 10010`, if strict-central prime-pair
+weights over admissible residues `A_n` satisfy
+
+`|W_a - mean(W)| <= eta * mean(W)` for every `a in A_n`,
+
+then positivity follows whenever
+
+`eta < Re(sum_A C) / sum_A |C - mean_A(C)|`.
+
+Across all `5005` even residue classes, the minimum sufficient margin is
+`0.20799157662677328` at residue `6866`; the maximum is
+`0.5502078345733764`; the mean margin is `0.30832888056671387`.
+
+On the first complete cycle `10000 <= N <= 20008`, zero of `5005` targets
+satisfy this full-residue uniformity condition.  The worst observed
+discrepancy-to-margin ratio is `118.38461370559743` at `N=10366`, and the
+sampled discrepancies are large because the `U_10010` residue classes are
+very sparse at this scale.
+
+Status `changed-under-evidence`: a naive theorem requiring uniformity across
+all admissible residue classes modulo `10010` is far too strong for the finite
+range now being probed.  The next direct estimate should exploit the observed
+CRT/conductor support rather than demand pointwise equidistribution in all
+`2880` unit residues.

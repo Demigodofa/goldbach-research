@@ -3147,6 +3147,149 @@ def combined_coefficient_period_cycle_envelope_receipt(
     }
 
 
+def combined_coefficient_uniform_residue_margin_receipt(
+        target_minimum=10000, target_maximum=10100, tolerance=1e-9):
+    """Compute the uniform-residue discrepancy margin needed for positivity.
+
+    For a fixed even residue ``n`` modulo ``10010``, let ``A_n`` be the unit
+    residues for which ``n-a`` is also a unit and let ``C`` be the assembled
+    coefficient.  If the actual strict-central prime-pair weights ``W_a`` obey
+
+        |W_a - mean(W)| <= eta * mean(W)  for every a in A_n,
+
+    then the real weighted sum is positive whenever
+
+        eta < Re(sum_A C) / sum_A |C - mean_A(C)|.
+
+    This receipt measures that sufficient margin for all `5005` even residue
+    classes and compares it with finite observed prime-pair residue weights.
+    It is not a proof that the required pointwise discrepancy bound holds.
+    """
+    if (type(target_minimum) is not int or type(target_maximum) is not int
+            or target_minimum < 40 or target_maximum < target_minimum):
+        raise ValueError("require integer target bounds with 40<=min<=max")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    first_target = target_minimum + (target_minimum % 2)
+    targets = tuple(range(first_target, target_maximum + 1, 2))
+    if not targets:
+        raise ValueError("target range contains no even targets")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    coefficient_by_residue = coefficient[
+        "aggregate_coefficient_by_unit_residue"]
+
+    margin_rows = {}
+    margins = []
+    for target_residue in range(0, period, 2):
+        admissible = tuple(
+            residue for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+        values = tuple(coefficient_by_residue[residue]
+                       for residue in admissible)
+        local_main = _complex_fsum(values)
+        local_mean = local_main / len(values)
+        centered_l1 = math.fsum(abs(value - local_mean) for value in values)
+        margin = (
+            local_main.real / centered_l1 if centered_l1 > tolerance
+            else math.inf)
+        margins.append(margin)
+        margin_rows[target_residue] = {
+            "admissible_unit_count": len(admissible),
+            "local_main_coefficient": local_main,
+            "admissible_mean_coefficient": local_mean,
+            "centered_l1": centered_l1,
+            "sufficient_uniform_relative_error_margin": margin,
+        }
+
+    primes = _prime_table(targets[-1])
+    observed_rows = {}
+    for target in targets:
+        target_residue = target % period
+        admissible = tuple(
+            residue for residue in units
+            if math.gcd((target_residue - residue) % period, period) == 1)
+        weights_by_residue = {residue: 0.0 for residue in admissible}
+        lower = target // 3
+        upper = target - lower
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                residue = prime % period
+                if residue in weights_by_residue:
+                    weights_by_residue[residue] += (
+                        math.log(prime) * math.log(partner))
+        total_weight = math.fsum(weights_by_residue.values())
+        mean_weight = total_weight / len(admissible)
+        max_relative_discrepancy = (
+            max(abs(value - mean_weight)
+                for value in weights_by_residue.values()) / mean_weight
+            if mean_weight > tolerance else math.inf)
+        weighted_sum = _complex_fsum(
+            coefficient_by_residue[residue] * weight
+            for residue, weight in weights_by_residue.items())
+        margin = margin_rows[target_residue][
+            "sufficient_uniform_relative_error_margin"]
+        observed_rows[target] = {
+            "target_residue": target_residue,
+            "ordered_central_prime_pair_weight": total_weight,
+            "observed_residue_weight_mean": mean_weight,
+            "maximum_observed_relative_residue_discrepancy": (
+                max_relative_discrepancy),
+            "sufficient_uniform_relative_error_margin": margin,
+            "margin_condition_observed": bool(
+                max_relative_discrepancy < margin),
+            "weighted_prime_correlation": weighted_sum,
+            "weighted_prime_correlation_positive": bool(
+                weighted_sum.real > tolerance),
+        }
+
+    minimum_margin_residue = min(
+        margin_rows,
+        key=lambda residue: margin_rows[residue][
+            "sufficient_uniform_relative_error_margin"])
+    observed_margin_successes = tuple(
+        target for target, row in observed_rows.items()
+        if row["margin_condition_observed"])
+    observed_positive_targets = tuple(
+        target for target, row in observed_rows.items()
+        if row["weighted_prime_correlation_positive"])
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "even_target_residue_count": len(margin_rows),
+        "target_range": (targets[0], targets[-1]),
+        "tested_target_count": len(targets),
+        "minimum_margin_residue": minimum_margin_residue,
+        "minimum_sufficient_uniform_relative_error_margin": (
+            margin_rows[minimum_margin_residue][
+                "sufficient_uniform_relative_error_margin"]),
+        "maximum_sufficient_uniform_relative_error_margin": max(margins),
+        "mean_sufficient_uniform_relative_error_margin": (
+            math.fsum(margins) / len(margins)),
+        "margin_rows": margin_rows,
+        "observed_rows": observed_rows,
+        "observed_margin_condition_success_count": len(
+            observed_margin_successes),
+        "observed_positive_weighted_sum_count": len(
+            observed_positive_targets),
+        "uniform_residue_margin_computed": True,
+        "required_pointwise_bound": (
+            "for every even residue n, strict-central prime-pair weights "
+            "over A_n must have max relative residue discrepancy below the "
+            "listed sufficient margin"),
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:
