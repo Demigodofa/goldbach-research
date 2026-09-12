@@ -53,6 +53,14 @@ derive the exact congruence/local-admissibility conditions for residues `133`
 and `153`, then identify what known or in-repo binary-prime-in-AP estimate
 would be sufficient to force enough strict-central occupancy or compensation.
 
+The exact local conditions are now derived.  Residue `133` is `1 mod 11` and
+`3 mod 13`; residue `153` is `-1 mod 11` and `-3 mod 13`.  For even `N`, both
+channels are admissible in `99/143` classes modulo `143`, at least one is
+admissible in `141/143`, and both are inadmissible only at `N == 23 mod 143`
+and `N == 120 mod 143`.  The next proof step is therefore not local
+admissibility but pointwise strict-central prime-pair occupancy or
+coefficient-mixture compensation.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

@@ -349,3 +349,37 @@ proof gap is now quite specific: a pointwise theorem must either force
 occupation of these two high-positive residue channels often enough, or show
 that any failure of these channels is compensated by the remaining q286
 coefficient mixture.
+
+## Exact local target for residues 133 and 153
+
+The two cover residues are units modulo `286`:
+
+```text
+133 == 1 mod 11, 3 mod 13
+153 == -1 mod 11, -3 mod 13
+```
+
+For an even target `N`, the residue channel `p == r mod 286` is locally
+admissible exactly when `N-r` is also a unit modulo `286`.  Since parity is
+automatic for even `N` and odd `r`, only the `11` and `13` factors matter.
+Thus:
+
+- residue `133` is inadmissible only if `N == 1 mod 11` or `N == 3 mod 13`;
+- residue `153` is inadmissible only if `N == -1 mod 11` or `N == -3 mod 13`;
+- both residues are admissible in `99` of the `143` residue classes modulo
+  `143`;
+- at least one residue is admissible in `141` of `143` classes;
+- both are inadmissible only for `N == 23 mod 143` and `N == 120 mod 143`.
+
+The exact analytic subproblem is therefore:
+
+```text
+For all sufficiently large even N outside the two both-inadmissible classes,
+prove enough strict-central prime pairs with p == 133 or 153 mod 286,
+or prove an explicit compensating lower bound from the remaining q286
+coefficient channels when these two channels are empty or deficient.
+```
+
+This is sharper than a generic fixed-modulus AP estimate because the desired
+bound is pointwise in `N`, weighted by the strict-central interval, and tied to
+the signed coefficient margin needed to overcome the observed lower tail.

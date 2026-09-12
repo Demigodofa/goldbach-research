@@ -48,6 +48,15 @@ gave a two-residue cover: `133` covers `70`, `153` covers the remaining `19`,
 with `0` uncovered.  This strengthens the finite `133/153` hypothesis; it does
 not prove the required pointwise occupancy/correlation theorem.
 
+Exact local target: `133 == 1 mod 11, 3 mod 13`; `153 == -1 mod 11, -3 mod
+13`.  For even `N`, channel `p == r mod 286` is locally admissible iff
+`N-r` is a unit modulo `286`.  Both cover residues are admissible in `99/143`
+classes modulo `143`; at least one is admissible in `141/143`; both are
+inadmissible only for `N == 23 mod 143` and `N == 120 mod 143`.  The theorem
+target is pointwise strict-central occupancy in the admissible `133/153`
+channels, or an explicit compensation estimate from the remaining q286
+coefficient mixture.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
