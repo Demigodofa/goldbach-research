@@ -9030,3 +9030,16 @@ The respective minimum full-action ratios were `0.24084360363205248`,
 Status `aha-candidate`: this supports but does not prove the boundary/onset
 clearance route.  Intervening-cycle scans or an analytic cycle-parameter lower
 bound remain required.
+
+### 2026-09-12 continuation: continuous later-cycle clearance through cycle 32
+
+Intervening cycles `17..23` and `25..31` were checked one at a time.  Each had
+zero full-action negatives and zero non-rescued `.3` first-three tail targets.
+Together with prior checks for cycles `8..16`, `24`, and `32`, this gives
+continuous measured clearance for global cycles `8..32`.  The smallest newly
+checked minimum is cycle `18`, value `0.17360050532072466` at `N=194384`.
+
+Status `changed-under-evidence`: the current onset-clearance target is now
+specific: explain why non-rescued targets appear in cycles `0..7` but vanish
+in the checked cycle range `8..32`, or find the first recurrence with a
+progress-visible scan.  This is finite evidence only.

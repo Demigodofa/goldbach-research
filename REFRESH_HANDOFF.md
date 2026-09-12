@@ -17230,3 +17230,21 @@ Status `aha-candidate`: onset-clearance remains live but unproved.  The next
 bounded test should either scan all intervening cycles with progress output or
 derive a cycle-parameter lower bound explaining the disappearance of
 non-rescued targets after the early boundary window.
+
+## 2026-09-12 continuation: continuous later-cycle clearance through cycle 32
+
+The intervening cycles were then checked one at a time.  Global cycles `17..23`
+and `25..31` all have zero full-action negatives and zero non-rescued `.3`
+first-three tail targets.  Combined with earlier cycle samples `16`, `24`,
+`32` and the prior later block `8..15`, the measured clearance is now
+continuous from global cycle `8` through `32`.
+
+Smallest newly checked minimum: cycle `18`, full-action ratio
+`0.17360050532072466` at `N=194384`.  Newly checked `.3` tail counts by cycle:
+`17:128, 18:71, 19:71, 20:61, 21:33, 22:33, 23:34, 25:26, 26:35, 27:16,
+28:9, 29:11, 30:10, 31:8`; every listed non-rescued count is `0`.
+
+Status `changed-under-evidence`: the non-rescued phenomenon is measured only
+in cycles `0..7`, while cycles `8..32` clear.  The live theorem target is an
+eventual cycle-clearance inequality or a progress-visible horizon scan that
+pushes the possible recurrence boundary outward.  Goldbach remains open.

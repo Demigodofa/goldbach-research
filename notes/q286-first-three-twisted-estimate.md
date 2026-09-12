@@ -1849,3 +1849,47 @@ not evidence.  The next bounded theorem/falsifier should either scan all
 intervening cycles with progress checkpoints or derive a cycle-parameter
 lower bound that explains why non-rescued targets vanish after the early
 boundary window.
+
+## 2026-09-12: continuous later-cycle clearance through cycle 32
+
+The intervening-cycle falsifier was then run one cycle at a time for global
+cycles `17..23` and `25..31`, closing the gaps between the prior sampled
+cycles `16`, `24`, and `32`.  Together with the earlier later-block check over
+global cycles `8..15`, this gives checked clearance from global cycle `8`
+through global cycle `32`: zero full-action negatives and zero non-rescued
+`.3` first-three tail targets in every checked cycle after cycle `7`.
+
+Per-cycle results for `17..23`:
+
+```text
+cycle 17: min full 0.21536449275070285 at 186206, .3 tail 128
+cycle 18: min full 0.17360050532072466 at 194384, .3 tail 71
+cycle 19: min full 0.2929123622405331 at 207346, .3 tail 71
+cycle 20: min full 0.2588725511282396 at 218324, .3 tail 61
+cycle 21: min full 0.39872529505835763 at 226388, .3 tail 33
+cycle 22: min full 0.3266126414016192 at 237224, .3 tail 33
+cycle 23: min full 0.4015078565586767 at 247444, .3 tail 34
+```
+
+Per-cycle results for `25..31`:
+
+```text
+cycle 25: min full 0.2838145346629123 at 267406, .3 tail 26
+cycle 26: min full 0.3329714387142352 at 272224, .3 tail 35
+cycle 27: min full 0.2928208837468891 at 285734, .3 tail 16
+cycle 28: min full 0.29640489346594706 at 292664, .3 tail 9
+cycle 29: min full 0.4058022481349303 at 308834, .3 tail 11
+cycle 30: min full 0.27087324489275805 at 313244, .3 tail 10
+cycle 31: min full 0.3328572856429641 at 325156, .3 tail 8
+```
+
+Every listed cycle has non-rescued `.3` count `0`.  The smallest later-cycle
+minimum in the newly checked individual cycles is cycle `18`, value
+`0.17360050532072466`.
+
+Status `changed-under-evidence`: the finite onset-clearance hypothesis has
+become sharper: measured non-rescued targets occur only in cycles `0..7`, and
+cycles `8..32` are clear.  The next proof target is no longer just "later
+samples look good"; it is an eventual cycle-clearance inequality, or a
+bounded scan that keeps pushing the first possible recurrence horizon outward
+with explicit progress and no hidden batch runs.  Goldbach remains open.
