@@ -217,6 +217,13 @@ minimum complement in that block is `0.37335759682269043` at `N=154426`
 `0.4210309762268075`, `0.4244575987164013`, `0.37335759682269043`,
 `0.38413360717946904`.
 
+Pending wider scan completed: `q286_complement_cycle_envelope_receipt` with
+`start=170160`, `cycle_count=16`, `targets_per_cycle=5005` tests global cycles
+`16..31`, `80080` targets.  It finds zero full-action negatives and zero
+complement nonpositive cases.  The block complement minimum is
+`0.42968514453254214` at `N=205514` (global cycle `19`).  Per-cycle minima
+range from `0.42968514453254214` to `0.5427355349523361`.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin

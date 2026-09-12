@@ -867,3 +867,40 @@ does not collapse in cycles `8..15`; it rises above the first block's
 after-cycle-0 floor.  This is still finite evidence, but it sharpens the
 possible theorem shape: complement positivity may have a small finite onset
 followed by a stable lower envelope.
+
+The wider pending scan over global cycles `16..31` completed as a further
+falsifier.  It used `q286_complement_cycle_envelope_receipt(start=170160,
+cycle_count=16, targets_per_cycle=5005)`, testing `80080` targets:
+
+```text
+total full-action negatives: 0
+total full-without-first-three nonpositive: 0
+block complement minimum: global cycle 19, N=205514, 0.42968514453254214
+```
+
+Per-cycle complement minima in this wider block:
+
+```text
+global cycle 16: 0.4649897326875926 at 179404
+global cycle 17: 0.4664904581773077 at 189764
+global cycle 18: 0.4889894819098438 at 199774
+global cycle 19: 0.42968514453254214 at 205514
+global cycle 20: 0.5427355349523361 at 219724
+global cycle 21: 0.5010043408493222 at 225254
+global cycle 22: 0.5108243580654256 at 231344
+global cycle 23: 0.49031061617966964 at 246464
+global cycle 24: 0.4878545916998052 at 254374
+global cycle 25: 0.5061461832940138 at 270124
+global cycle 26: 0.4463683887804602 at 274966
+global cycle 27: 0.504971943945799 at 281674
+global cycle 28: 0.4997990373400434 at 292664
+global cycle 29: 0.4573748899036469 at 307096
+global cycle 30: 0.5343912322442239 at 315624
+global cycle 31: 0.5163376893087155 at 326206
+```
+
+Status `wider-envelope-strengthened`: the complement floor in cycles `16..31`
+stays above the cycles `8..15` floor and far above the cycle-0 boundary
+minimum.  The observed post-boundary floor is now monotone by tested block
+minimum across blocks `1..7`, `8..15`, and `16..31`, but no monotonic theorem
+has been proved.

@@ -203,6 +203,13 @@ cases, and minimum complement `0.37335759682269043` at `N=154426`.  This
 strengthens the finite case for a small-onset complement lower envelope, while
 still leaving the asymptotic theorem open.
 
+The previously pending wider scan over global cycles `16..31` has completed.
+It tested `80080` targets and found zero full-action negatives and zero
+complement nonpositive cases.  The block complement minimum is
+`0.42968514453254214` at `N=205514`.  The finite evidence now suggests a
+post-boundary complement floor that strengthens across later tested blocks,
+but the required asymptotic lower-envelope theorem remains open.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill
