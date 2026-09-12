@@ -9359,3 +9359,71 @@ def q286_complement_cycle_envelope_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_boundary_component_split_receipt(
+        targets=(14138, 24148),
+        mode_count=6,
+        tolerance=1e-09):
+    """Component split for q286 boundary-layer clearance targets."""
+    targets = tuple(targets)
+    lower_receipt = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets,
+        targets_per_cycle=5005,
+        tolerance=tolerance)
+    mode_receipt = q286_leading_singular_mode_contribution_receipt(
+        targets=targets,
+        mode_count=mode_count,
+        tolerance=tolerance)
+    target_rows = {}
+    for target in targets:
+        lower_row = lower_receipt["rows"][target]
+        mode_rows = tuple({
+            "mode_index": row["mode_index"],
+            "contribution_to_principal_ratio": row[
+                "contribution_to_principal_ratio"],
+        } for row in mode_receipt["rows"][target]["mode_rows"])
+        first_three = lower_row[
+            "first_three_modes_to_principal_ratio"]
+        complement = lower_row[
+            "full_without_first_three_to_principal_ratio"]
+        q286_after_first_three = (
+            lower_row["q286_deviation_to_principal_ratio"] - first_three)
+        reduced_after_first_three = lower_row[
+            "reduced_without_first_three_to_principal_ratio"]
+        target_rows[target] = {
+            "full_action_to_principal_ratio": lower_row[
+                "full_action_to_principal_ratio"],
+            "reduced_model_to_principal_ratio": lower_row[
+                "reduced_model_to_principal_ratio"],
+            "q286_deviation_to_principal_ratio": lower_row[
+                "q286_deviation_to_principal_ratio"],
+            "first_three_modes_to_principal_ratio": first_three,
+            "q286_after_first_three_to_principal_ratio": (
+                q286_after_first_three),
+            "full_without_first_three_to_principal_ratio": complement,
+            "reduced_without_first_three_to_principal_ratio": (
+                reduced_after_first_three),
+            "full_minus_reduced_to_principal_ratio": lower_row[
+                "full_minus_reduced_to_principal_ratio"],
+            "mode_rows": mode_rows,
+        }
+    return {
+        "targets": targets,
+        "mode_count": mode_count,
+        "natural_modulus": 286,
+        "support": (11, 13),
+        "target_rows": target_rows,
+        "minimum_full_without_first_three_target": min(
+            targets,
+            key=lambda target: target_rows[target][
+                "full_without_first_three_to_principal_ratio"]),
+        "maximum_full_without_first_three_target": max(
+            targets,
+            key=lambda target: target_rows[target][
+                "full_without_first_three_to_principal_ratio"]),
+        "boundary_component_split_measured": True,
+        "component_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }

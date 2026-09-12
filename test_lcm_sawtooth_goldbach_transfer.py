@@ -1492,6 +1492,21 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["complement_cycle_envelope_measured"])
         self.assertFalse(receipt["eventual_complement_lower_bound_proved"])
 
+    def test_q286_boundary_component_split(self):
+        from lcm_sawtooth_goldbach_transfer import (
+            q286_boundary_component_split_receipt)
+        receipt = q286_boundary_component_split_receipt()
+        self.assertEqual(receipt["targets"], (14138, 24148))
+        self.assertEqual(
+            receipt["minimum_full_without_first_three_target"], 14138)
+        self.assertGreater(
+            receipt["target_rows"][24148][
+                "full_without_first_three_to_principal_ratio"],
+            receipt["target_rows"][14138][
+                "full_without_first_three_to_principal_ratio"])
+        self.assertTrue(receipt["boundary_component_split_measured"])
+        self.assertFalse(receipt["component_lower_bound_proved"])
+
     def test_q286_singular_mode_lower_tail_stress(self):
         receipt = q286_singular_mode_lower_tail_stress_receipt(
             targets=(10424, 10664, 14732))

@@ -228,6 +228,14 @@ mostly empty negative-coefficient residues such as `211,243,43,257`.  The
 missing theorem must therefore control signed residue placement, not only total
 strict-central pair count.
 
+The boundary component split now shows the lift-one clearance is broader than
+q286 residual compensation.  At `14138`, q286 after first three is positive
+`0.028340447523565238` and the full complement is only
+`0.018073313793834367`; at lift-one target `24148`, q286 after first three is
+slightly negative while full-without-first-three is `1.3776028000182077`.
+The next proof target should identify the non-first-three, mostly non-q286
+source of the complement lower envelope.
+
 ## Current authorization and objective
 
 On 2026-09-08 Kevin removed the six-hour limit and asked what goal Rill

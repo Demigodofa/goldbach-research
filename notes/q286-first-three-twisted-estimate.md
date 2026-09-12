@@ -1007,3 +1007,34 @@ imbalance, not a raw absence of pairs.  The leading damage is empty
 positive-coefficient cover rows, while leading compensation is mostly empty
 negative-coefficient rows.  This reinforces that the missing theorem must be
 signed and coefficient-sensitive.
+
+`q286_boundary_component_split_receipt` compares the boundary target `14138`
+with its first period lift `24148`:
+
+```text
+N=14138
+  full/principal: -0.8769412734408442
+  reduced model/principal: -0.8769793860120647
+  q286 deviation/principal: -0.8666741397111133
+  first-three/principal: -0.8950145872346785
+  q286 after first three/principal: 0.028340447523565238
+  full without first three/principal: 0.018073313793834367
+  reduced without first three/principal: 0.018035201222613817
+  full minus reduced/principal: 0.000038112571220549896
+
+N=24148
+  full/principal: 1.2567753658081395
+  reduced model/principal: 1.2400949523363975
+  q286 deviation/principal: -0.12126698742344302
+  first-three/principal: -0.12082743421006822
+  q286 after first three/principal: -0.00043955321337479925
+  full without first three/principal: 1.3776028000182077
+  reduced without first three/principal: 1.3609223865464657
+  full minus reduced/principal: 0.016680413471741984
+```
+
+Status `complement-source-refined`: the lift-one clearance is not primarily
+q286-after-first-three becoming positive.  At `24148`, q286 after the first
+three modes is essentially zero/slightly negative, while the complement is
+large.  The compensating lower envelope therefore lives mostly outside the
+first-three q286 tail and its immediate q286 residual.

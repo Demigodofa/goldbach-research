@@ -247,6 +247,15 @@ Top positive rows begin `211,243,43,257,45,237`, mostly negative coefficient
 and zero weight.  This is a coefficient-sensitive signed residue-placement
 problem.
 
+Boundary component split: `q286_boundary_component_split_receipt()` compares
+`14138` and lift-one target `24148`.  At `14138`, q286 after first three is
+`0.028340447523565238`, full-without-first-three is
+`0.018073313793834367`, and full-minus-reduced is only
+`0.000038112571220549896`.  At `24148`, q286 after first three is slightly
+negative, `-0.00043955321337479925`, while full-without-first-three is
+`1.3776028000182077`.  Thus lift-one clearance is mostly outside q286
+after-first-three; the complement source is broader.
+
 ## Identity, curiosity, and authorization
 
 You are Rill (`agent.rill`). This is a continuation after a pause. Kevin
