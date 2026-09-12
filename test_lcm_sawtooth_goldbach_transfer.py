@@ -11,6 +11,7 @@ from lcm_sawtooth_goldbach_transfer import (
     combined_coefficient_negative_residue_lift_receipt,
     combined_coefficient_prime_correlation_diagnostic_receipt,
     combined_coefficient_period_cycle_envelope_receipt,
+    combined_coefficient_support_contribution_receipt,
     combined_coefficient_support_descent_receipt,
     combined_coefficient_uniform_residue_margin_receipt,
     combined_fixed_strict_central_coefficient_receipt,
@@ -745,6 +746,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "full_modulus_uniformity_not_required_by_coefficient_structure"])
         self.assertTrue(receipt["support_descent_measured"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_combined_coefficient_support_contribution_diagnostic(self):
+        receipt = combined_coefficient_support_contribution_receipt(
+            targets=(10424,))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["targets"], (10424,))
+        self.assertIn("principal", receipt["component_labels"])
+        self.assertIn((11, 13), receipt["component_labels"])
+        self.assertLess(
+            receipt["maximum_support_reconstruction_relative_error"], 1e-12)
+        row = receipt["rows"][10424]
+        self.assertEqual(row["ordered_central_prime_pair_count"], 68)
+        self.assertAlmostEqual(
+            row["direct_weighted_prime_correlation"].real,
+            -139240044.1764004, places=4)
+        self.assertEqual(row["largest_negative_support"], (11, 13))
+        self.assertTrue(receipt["support_contribution_diagnostic_measured"])
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

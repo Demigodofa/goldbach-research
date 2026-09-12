@@ -3397,6 +3397,111 @@ def combined_coefficient_support_descent_receipt(tolerance=1e-9):
     }
 
 
+def combined_coefficient_support_contribution_receipt(
+        targets=(10424, 14138, 88346), tolerance=1e-9):
+    """Decompose selected direct prime correlations by CRT support component."""
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    mean = complex(np.mean(values))
+    centered = values - mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+    components = {"principal": np.full(
+        len(units), mean, dtype=np.complex128)}
+    for support, indices in support_indices.items():
+        if not support:
+            continue
+        masked = np.zeros_like(character_coefficients)
+        masked[indices] = character_coefficients[indices]
+        energy = float(np.sum(np.abs(masked) ** 2))
+        if energy > tolerance:
+            components[support] = character_table.T @ masked
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        contribution_sums = {name: 0.0j for name in components}
+        pair_count = 0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                pair_count += 1
+                index = unit_index[prime % period]
+                weight = math.log(prime) * math.log(partner)
+                for name, component in components.items():
+                    contribution_sums[name] += component[index] * weight
+        reconstructed = _complex_fsum(contribution_sums.values())
+        direct = _complex_fsum(
+            coefficient["aggregate_coefficient_by_unit_residue"][prime % period]
+            * math.log(prime) * math.log(target - prime)
+            for prime in range(max(2, lower + 1), min(target, upper))
+            if primes[prime] and primes[target - prime])
+        reconstruction_error = abs(reconstructed - direct) / max(
+            1.0, abs(reconstructed), abs(direct))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        sorted_contributions = tuple(
+            (name, complex(value))
+            for name, value in sorted(
+                contribution_sums.items(),
+                key=lambda item: abs(item[1].real),
+                reverse=True))
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": pair_count,
+            "direct_weighted_prime_correlation": direct,
+            "reconstructed_from_support_components": reconstructed,
+            "support_reconstruction_relative_error": reconstruction_error,
+            "contributions_by_support": {
+                name: complex(value)
+                for name, value in contribution_sums.items()},
+            "contributions_sorted_by_real_magnitude": sorted_contributions,
+            "largest_negative_support": next((
+                name for name, value in sorted_contributions
+                if value.real < -tolerance), None),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "targets": targets,
+        "component_labels": tuple(components),
+        "rows": rows,
+        "maximum_support_reconstruction_relative_error": (
+            maximum_reconstruction_error),
+        "support_contribution_diagnostic_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

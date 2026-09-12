@@ -7905,3 +7905,18 @@ Status `aha-candidate`: the coefficient is broad across individual
 characters, but it is not full-dimensional in CRT support.  Replace the
 unrealistic full mod-`10010` uniformity route with lower-modulus component
 estimates, primarily for moduli `286`, `154`, and `70`.
+
+### 2026-09-12 continuation: bad targets decompose by support
+
+`combined_coefficient_support_contribution_receipt` decomposes bad direct
+targets by CRT support components.  For targets `10424`, `14138`, and `88346`,
+support reconstruction error is at most `8.53529361294973e-15`.
+
+The largest negative support at all three targets is `(11,13)`/modulus `286`.
+The negative sums come from the positive principal component being overwhelmed
+by the dominant two-prime supports `(11,13)`/`286`, `(5,7)`/`70`, and
+`(7,11)`/`154`.
+
+Status `aha-candidate`: focus the direct estimate on the modulus-`286`
+component and its joint behavior with moduli `70` and `154`.  The small
+single-support corrections are secondary.

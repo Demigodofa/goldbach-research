@@ -15733,3 +15733,35 @@ characters but low-dimensional in CRT support.  Full `U_10010` residue
 uniformity is not the right sufficient condition.  The next direct estimate
 should bound a sum of lower-modulus components, primarily moduli `286`, `154`,
 and `70`, plus small single-support corrections.
+
+## 2026-09-12: bad targets are driven by the two-prime supports
+
+`combined_coefficient_support_contribution_receipt` decomposes selected direct
+assembled prime-correlation sums by the lower-modulus CRT support components.
+For the bad targets `10424`, `14138`, and `88346`, support reconstruction error
+is at most `8.53529361294973e-15`.
+
+At all three bad targets, the largest negative component is support
+`(11,13)`, i.e. modulus `286`.  The principal component is positive but is
+overwhelmed by a joint negative contribution from the main two-prime supports:
+`(11,13)`/`286`, `(5,7)`/`70`, and `(7,11)`/`154`.
+
+Examples:
+
+`N=10424`: principal `217984784.83270472`; `(11,13)` contribution
+`-208899046.81372654`; `(5,7)` contribution `-73335307.19473353`;
+`(7,11)` contribution `-51264934.97254219`; total
+`-139240044.1764004`.
+
+`N=14138`: principal `257980472.96611723`; `(11,13)`
+`-222411728.00084248`; `(5,7)` `-168463830.41512984`; `(7,11)`
+`-111287371.09316911`; total `-226233724.4857778`.
+
+`N=88346`: principal `1634448512.191934`; `(11,13)`
+`-1242572636.7327437`; `(5,7)` `-265850446.8642057`; `(7,11)`
+`-205739810.3433205`; total `-211538564.1036976`.
+
+Status `aha-candidate`: the direct pointwise estimate should first target the
+dominant modulus-`286` component and its interaction with the modulus-`70` and
+modulus-`154` components.  Small single-support terms are not the primary
+source of the observed finite negatives.
