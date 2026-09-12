@@ -17348,3 +17348,17 @@ Status `aha-candidate`: the later-band mechanism is stronger than shallow-tail
 avoidance alone; the tail set also has a substantial complement floor in this
 band.  The next theorem target is an eventual lower bound for complement on
 the first-three tail set, plus finite boundary exceptions.
+
+## 2026-09-12 continuation: cycle 8 through 15 transition rescue profile
+
+The first all-rescued block after the non-rescued boundary was profiled one
+cycle at a time.  Cycles `8..15` all have zero non-rescued `.3` tail targets,
+but their margins are transition-like: deepest deficit `0.7148225634431425`,
+minimum tail-set complement `0.43158471467708337`, and minimum rescue margin
+only `0.012576466293799509` in cycle `8`.
+
+Status `changed-under-evidence`: the route now has at least three measured
+zones: cycles `0..7` finite non-rescued boundary, cycles beginning at `8`
+rescued-but-delicate transition, and later large-buffer behavior such as
+cycles `41..48`.  Do not claim the later complement-floor constants start at
+cycle `8`.

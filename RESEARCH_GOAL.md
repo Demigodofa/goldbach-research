@@ -9122,3 +9122,15 @@ first-three deficit is `0.46290305391350506`, minimum tail-set complement is
 Status `aha-candidate`: this supports a sharper eventual target: prove a
 tail-set complement lower bound after the finite boundary regime.  Finite
 evidence only.
+
+### 2026-09-12 continuation: cycle 8 through 15 transition rescue profile
+
+The first all-rescued block after the boundary was profiled.  Cycles `8..15`
+all have zero non-rescued `.3` tail targets, but cycle `8` has a small rescue
+margin: deepest deficit `0.7148225634431425`, minimum tail-set complement
+`0.43158471467708337`, and minimum rescue margin `0.012576466293799509`.
+
+Status `changed-under-evidence`: the measured picture is now three-zone:
+finite non-rescued boundary cycles, rescued-but-delicate transition cycles,
+and later large-buffer cycles.  Later-band complement-floor constants cannot
+be assumed from cycle `8`.

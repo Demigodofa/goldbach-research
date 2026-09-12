@@ -2108,3 +2108,57 @@ avoidance; there is also a substantial complement floor on the tail set.  The
 next theorem target can be stated more concretely as an eventual tail-set
 complement lower bound, with finite boundary exceptions.  This remains finite
 evidence.
+
+## 2026-09-12: cycle 8 through 15 transition rescue profile
+
+The first all-rescued block after the non-rescued boundary exceptions was then
+profiled one cycle at a time.  Every `.3` first-three tail target in global
+cycles `8..15` is rescued, but the rescue margins show this is still a
+transition zone, not yet the same comfortable lower-buffer regime seen in
+cycles `41..48`.
+
+```text
+cycle 8: tail 241, nonrescued 0,
+  deepest deficit 0.7148225634431425 at 91502,
+  min complement 0.43158471467708337 at 90236,
+  min margin 0.012576466293799509 at 94856
+cycle 9: tail 171, nonrescued 0,
+  deepest deficit 0.5926699645046699 at 109796,
+  min complement 0.5806226642468715 at 109178,
+  min margin 0.07726048593671965 at 109178
+cycle 10: tail 140, nonrescued 0,
+  deepest deficit 0.6411932627360791 at 114992,
+  min complement 0.5727079396588117 at 118376,
+  min margin 0.1550114122052504 at 110522
+cycle 11: tail 127, nonrescued 0,
+  deepest deficit 0.5997410872772851 at 121006,
+  min complement 0.547769243338859 at 125294,
+  min margin 0.1605535322957213 at 125504
+cycle 12: tail 56, nonrescued 0,
+  deepest deficit 0.6723169131273059 at 130436,
+  min complement 0.6592212264718553 at 134252,
+  min margin 0.26395705277117026 at 130436
+cycle 13: tail 50, nonrescued 0,
+  deepest deficit 0.4632755258077992 at 146038,
+  min complement 0.6883035728573399 at 143984,
+  min margin 0.28109028136702996 at 142456
+cycle 14: tail 46, nonrescued 0,
+  deepest deficit 0.5026436484490796 at 153848,
+  min complement 0.5180359445835337 at 156304,
+  min margin 0.1966652332290977 at 151766
+cycle 15: tail 60, nonrescued 0,
+  deepest deficit 0.509781424812556 at 160648,
+  min complement 0.7025730485646823 at 163652,
+  min margin 0.27790002360283217 at 168748
+```
+
+Across this block, deepest measured deficit is `0.7148225634431425`, minimum
+tail-set complement is `0.43158471467708337`, and minimum rescue margin is
+only `0.012576466293799509`.
+
+Status `changed-under-evidence`: cycle `8` through `15` refines the two-zone
+picture into at least three zones: finite non-rescued boundary cycles `0..7`,
+rescued-but-delicate transition cycles beginning at `8`, and later
+large-buffer cycles such as `41..48`.  An eventual complement-floor theorem
+may still be viable, but it cannot honestly start at cycle `8` with the later
+band's comfortable constants.
