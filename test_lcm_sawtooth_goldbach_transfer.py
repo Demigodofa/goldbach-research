@@ -28,6 +28,7 @@ from lcm_sawtooth_goldbach_transfer import (
     holdout_q65_naive_spatial_prime_coefficient_receipt,
     holdout_q65_projected_spatial_fiber_bridge_receipt,
     holdout_q55_projected_principal_channel_receipt,
+    q286_residue_discrepancy_profile_receipt,
     centered_outer_fiber_shadow_receipt,
     direct_source_fiber_average_receipt,
     even_even_goldbach_transfer_receipt,
@@ -840,6 +841,54 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "q286_local_prediction_positive_on_all_targets"])
         self.assertTrue(receipt[
             "dominant_support_deviation_is_q286_on_all_targets"])
+        self.assertFalse(receipt["pointwise_error_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["formal_signed_error_identification_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_residue_discrepancy_profile(self):
+        receipt = q286_residue_discrepancy_profile_receipt(
+            targets=(10424,), top_count=5)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["natural_modulus"], 286)
+        self.assertEqual(receipt["targets"], (10424,))
+        self.assertEqual(receipt["top_count"], 5)
+        self.assertTrue(
+            receipt["q286_residue_discrepancy_profile_measured"])
+        self.assertLess(
+            receipt["maximum_deviation_reconstruction_error"], 1e-12)
+        self.assertTrue(
+            receipt["all_weight_coefficient_correlations_negative"])
+        self.assertTrue(
+            receipt["all_negative_coefficient_weights_overrepresented"])
+        self.assertTrue(
+            receipt["all_top_negative_lists_show_two_sided_imbalance"])
+        row = receipt["rows"][10424]
+        self.assertEqual(row["ordered_central_prime_pair_count"], 68)
+        self.assertEqual(row["admissible_residue_count"], 99)
+        self.assertAlmostEqual(
+            row["deviation_to_principal_ratio"],
+            -.970542065173128, places=14)
+        self.assertLess(row["weight_coefficient_real_correlation"], 0.0)
+        self.assertGreater(
+            row["negative_coefficient_weight_to_uniform_ratio"], 1.0)
+        self.assertLess(
+            row["positive_coefficient_weight_to_uniform_ratio"], 1.0)
+        self.assertEqual(
+            len(row["top_negative_deviation_rows"]), 5)
+        self.assertGreater(
+            row["top_negative_underweighted_positive_count"], 0)
+        self.assertGreater(
+            row["top_negative_overweighted_negative_count"], 0)
+        self.assertGreater(
+            row["top_negative_deviation_rows"][0]["coefficient_real"], 0.0)
+        self.assertLess(
+            row["top_negative_deviation_rows"][0][
+                "weight_to_uniform_ratio"], 1.0)
+        self.assertLess(
+            row["top_negative_deviation_rows"][0][
+                "deviation_to_principal_ratio"], 0.0)
         self.assertFalse(receipt["pointwise_error_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["formal_signed_error_identification_proved"])

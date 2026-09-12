@@ -7486,6 +7486,39 @@ to recover the full assembly term-by-term and compare it against the reviewed
 principal-plus-shadow strict-central channel, with any residual classified by
 support, coefficient source, and dependence on `N`.
 
+## 2026-09-12: q286 discrepancy is a two-sided fiber imbalance
+
+`q286_residue_discrepancy_profile_receipt` expands the q286 lower-modulus
+deviation as
+`sum_r (W_N(r)-mean_s W_N(s))*C_q286(r)` over admissible unit residues modulo
+`286`.  This is the first residue-fiber view of the dominant obstruction:
+the local q286 prediction can be positive while the actual contribution is
+negative because the strict-central prime-pair weights are unevenly
+distributed across signed q286 fibers.  The measured profile is two-sided:
+negative q286 coefficient fibers are overweighted in aggregate, while some
+large positive coefficient fibers are underweighted and can produce the
+largest individual negative deviation terms.
+
+This is not yet a signed estimate.  It identifies the target estimate:
+control the dot product between prime-pair residue imbalance modulo `286` and
+the q286 coefficient vector, then fold in the secondary q70 and q154 supports.
+
+Measured on `N=10424,14138,88346`, the q286 deviation reconstruction error is
+`3.7884157269915995e-30`, and the weight/coefficient real correlation is
+negative on all three targets.  The three correlations are
+`-0.19146520713929577`, `-0.1727458822172166`, and
+`-0.30904476926988145`.  Negative coefficient fibers are overweighted by
+factors `1.2533749052918906`, `1.106127240484188`, and
+`1.0999171345323129`, while positive coefficient fibers are underweighted by
+ratios `0.8552143398332065`, `0.9366660016465346`, and
+`0.9403720326178112`.
+
+The strongest individual negative terms are not exclusively overweighted
+negative fibers.  Large positive fibers `133` and `153` recur at the top when
+they are underweighted, so the eventual theorem must bound the full signed
+imbalance vector, not merely count prime pairs in negative coefficient
+classes.
+
 ## 2026-09-12: count-four residual has live holdout sectors
 
 The first post-principal-split residual test falsifies an overly small next

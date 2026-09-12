@@ -3995,6 +3995,240 @@ def combined_coefficient_lower_modulus_deviation_receipt(
     }
 
 
+def q286_residue_discrepancy_profile_receipt(
+        targets=(10424, 14138, 88346), top_count=10, tolerance=1e-9):
+    """Attribute the q286 deviation to individual residue fibers.
+
+    The lower-modulus local prediction subtracts the uniform q286 residue
+    model from the actual strict-central prime-pair weights.  This receipt
+    expands the difference as
+
+        sum_r (W_N(r)-mean_s W_N(s))*C_q286(r),
+
+    where r ranges over admissible unit residues modulo 286.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be even integers at least 40")
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    principal_mean = complex(np.mean(values))
+    centered = values - principal_mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered / len(units))
+    factor_primes = (5, 7, 11, 13)
+    support_indices = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        support_indices.setdefault(support, []).append(index)
+
+    support = (11, 13)
+    masked = np.zeros_like(character_coefficients)
+    masked[support_indices[support]] = character_coefficients[
+        support_indices[support]]
+    component = character_table.T @ masked
+    modulus = 286
+    grouped = {}
+    for unit, value in zip(units, component):
+        grouped.setdefault(unit % modulus, []).append(value)
+    lower_values = {
+        residue: _complex_fsum(values) / len(values)
+        for residue, values in grouped.items()}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    maximum_deviation_reconstruction_error = 0.0
+    all_weight_coefficient_correlations_negative = True
+    all_negative_coefficient_weights_overrepresented = True
+    all_top_negative_lists_show_two_sided_imbalance = True
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        pairs = []
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                pairs.append((prime, weight))
+                total_weight += weight
+        principal_contribution = principal_mean * total_weight
+        admissible = tuple(
+            residue for residue in lower_values
+            if math.gcd((target - residue) % modulus, modulus) == 1)
+        weights_by_residue = {residue: 0.0 for residue in admissible}
+        for prime, weight in pairs:
+            residue = prime % modulus
+            if residue in weights_by_residue:
+                weights_by_residue[residue] += weight
+        mean_weight = total_weight / len(admissible)
+        actual = _complex_fsum(
+            lower_values[prime % modulus] * weight
+            for prime, weight in pairs)
+        predicted = (
+            _complex_fsum(lower_values[residue]
+                          for residue in admissible)
+            * mean_weight)
+        deviation = actual - predicted
+        residue_rows = []
+        negative_coefficient_weight = 0.0
+        negative_coefficient_uniform_weight = 0.0
+        positive_coefficient_weight = 0.0
+        positive_coefficient_uniform_weight = 0.0
+        for residue in admissible:
+            coefficient_value = lower_values[residue]
+            weight = weights_by_residue[residue]
+            weight_delta = weight - mean_weight
+            contribution = coefficient_value * weight_delta
+            coefficient_real = float(coefficient_value.real)
+            if coefficient_real < -tolerance:
+                negative_coefficient_weight += weight
+                negative_coefficient_uniform_weight += mean_weight
+            elif coefficient_real > tolerance:
+                positive_coefficient_weight += weight
+                positive_coefficient_uniform_weight += mean_weight
+            residue_rows.append({
+                "residue": residue,
+                "coefficient": coefficient_value,
+                "coefficient_real": coefficient_real,
+                "prime_pair_weight": weight,
+                "uniform_weight": mean_weight,
+                "weight_delta": weight_delta,
+                "weight_to_uniform_ratio": (
+                    weight / mean_weight if mean_weight else math.inf),
+                "deviation_contribution": contribution,
+                "deviation_to_principal_ratio": float(
+                    contribution.real / principal_contribution.real
+                    if abs(principal_contribution.real) > tolerance
+                    else math.nan),
+            })
+        reconstructed_deviation = _complex_fsum(
+            row["deviation_contribution"] for row in residue_rows)
+        deviation_reconstruction_error = abs(
+            reconstructed_deviation - deviation) / max(1.0, abs(deviation))
+        maximum_deviation_reconstruction_error = max(
+            maximum_deviation_reconstruction_error,
+            deviation_reconstruction_error)
+        deltas = tuple(row["weight_delta"] for row in residue_rows)
+        coefficient_reals = tuple(row["coefficient_real"]
+                                  for row in residue_rows)
+        dot = math.fsum(
+            delta * coefficient_real
+            for delta, coefficient_real in zip(deltas, coefficient_reals))
+        delta_norm = math.sqrt(math.fsum(delta * delta for delta in deltas))
+        coefficient_norm = math.sqrt(math.fsum(
+            value * value for value in coefficient_reals))
+        correlation = (
+            dot / (delta_norm * coefficient_norm)
+            if delta_norm and coefficient_norm else 0.0)
+        all_weight_coefficient_correlations_negative = bool(
+            all_weight_coefficient_correlations_negative
+            and correlation < -tolerance)
+        negative_weight_ratio = (
+            negative_coefficient_weight / negative_coefficient_uniform_weight
+            if negative_coefficient_uniform_weight else math.nan)
+        positive_weight_ratio = (
+            positive_coefficient_weight / positive_coefficient_uniform_weight
+            if positive_coefficient_uniform_weight else math.nan)
+        all_negative_coefficient_weights_overrepresented = bool(
+            all_negative_coefficient_weights_overrepresented
+            and negative_weight_ratio > 1.0 + tolerance)
+        top_negative = tuple(sorted(
+            residue_rows,
+            key=lambda row: row["deviation_contribution"].real)[:top_count])
+        top_positive = tuple(sorted(
+            residue_rows,
+            key=lambda row: row["deviation_contribution"].real,
+            reverse=True)[:top_count])
+        top_negative_sum = _complex_fsum(
+            row["deviation_contribution"] for row in top_negative)
+        top_negative_underweighted_positive_count = sum(
+            1 for row in top_negative
+            if (row["coefficient_real"] > tolerance
+                and row["weight_delta"] < -tolerance))
+        top_negative_overweighted_negative_count = sum(
+            1 for row in top_negative
+            if (row["coefficient_real"] < -tolerance
+                and row["weight_delta"] > tolerance))
+        all_top_negative_lists_show_two_sided_imbalance = bool(
+            all_top_negative_lists_show_two_sided_imbalance
+            and top_negative_underweighted_positive_count > 0
+            and top_negative_overweighted_negative_count > 0)
+        rows[target] = {
+            "strict_central_interval": (lower, upper),
+            "ordered_central_prime_pair_count": len(pairs),
+            "total_prime_pair_weight": total_weight,
+            "principal_contribution": principal_contribution,
+            "admissible_residue_count": len(admissible),
+            "mean_residue_weight": mean_weight,
+            "actual_contribution": actual,
+            "local_prediction": predicted,
+            "deviation_from_local_prediction": deviation,
+            "reconstructed_deviation": reconstructed_deviation,
+            "deviation_reconstruction_error": (
+                deviation_reconstruction_error),
+            "deviation_to_principal_ratio": float(
+                deviation.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "weight_coefficient_real_correlation": correlation,
+            "negative_coefficient_weight_to_uniform_ratio": (
+                negative_weight_ratio),
+            "positive_coefficient_weight_to_uniform_ratio": (
+                positive_weight_ratio),
+            "negative_minus_positive_weight_ratio": (
+                negative_weight_ratio - positive_weight_ratio),
+            "top_negative_deviation_rows": top_negative,
+            "top_positive_deviation_rows": top_positive,
+            "top_negative_underweighted_positive_count": (
+                top_negative_underweighted_positive_count),
+            "top_negative_overweighted_negative_count": (
+                top_negative_overweighted_negative_count),
+            "top_negative_deviation_to_total_deviation_ratio": float(
+                top_negative_sum.real / deviation.real
+                if abs(deviation.real) > tolerance else math.nan),
+        }
+
+    return {
+        "families": coefficient["families"],
+        "arithmetic_period": period,
+        "support": support,
+        "natural_modulus": modulus,
+        "targets": targets,
+        "top_count": top_count,
+        "rows": rows,
+        "maximum_deviation_reconstruction_error": (
+            maximum_deviation_reconstruction_error),
+        "all_weight_coefficient_correlations_negative": bool(
+            all_weight_coefficient_correlations_negative),
+        "all_negative_coefficient_weights_overrepresented": bool(
+            all_negative_coefficient_weights_overrepresented),
+        "all_top_negative_lists_show_two_sided_imbalance": bool(
+            all_top_negative_lists_show_two_sided_imbalance),
+        "q286_residue_discrepancy_profile_measured": True,
+        "pointwise_error_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "formal_signed_error_identification_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def combined_coefficient_character_support_receipt(tolerance=1e-9):
     """Group assembled character energy by CRT/conductor support."""
     if not math.isfinite(tolerance) or tolerance < 0:

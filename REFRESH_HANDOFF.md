@@ -15859,3 +15859,46 @@ Status `changed-under-evidence`: the first analytic target is now a q286
 prime-residue discrepancy/lower-tail estimate, not another local-main
 positivity check.  q70 and q154 remain reinforcing secondary terms with mixed
 local-bias and discrepancy behavior.
+
+## 2026-09-12: q286 discrepancy is a two-sided fiber imbalance
+
+`q286_residue_discrepancy_profile_receipt` expands the dominant support
+deviation as an explicit residue-fiber sum
+`sum_r (W_N(r)-mean_s W_N(s))*C_q286(r)`, where `r` runs over admissible
+unit residues modulo `286`.
+
+The receipt asks the first direct signed-correlation question at the right
+scale: are strict-central prime-pair weights imbalanced against the signed
+q286 coefficient vector enough to defeat the positive principal term?  The
+first profile is two-sided, not merely "too many bad residues": negative
+q286 coefficient fibers are overweighted in aggregate, but the largest
+individual negative terms can come from underweighted large positive fibers.
+It does not estimate that effect; it only exposes the finite obstruction.
+
+Measured on `N=10424,14138,88346`, the deviation reconstruction error is
+`3.7884157269915995e-30`.  The weight/coefficient real correlations are
+negative on all three targets:
+
+`N=10424`: deviation/principal `-0.970542065173128`, correlation
+`-0.19146520713929577`, negative-coefficient weight ratio
+`1.2533749052918906`, positive-coefficient weight ratio
+`0.8552143398332065`, top-five negative terms account for
+`0.8528385114145297` of the negative deviation.
+
+`N=14138`: deviation/principal `-0.8666741397111133`, correlation
+`-0.1727458822172166`, negative-coefficient weight ratio
+`1.106127240484188`, positive-coefficient weight ratio
+`0.9366660016465346`, top-five negative terms account for
+`1.0792938640050045` of the negative deviation before positive offsets.
+
+`N=88346`: deviation/principal `-0.7731555354500473`, correlation
+`-0.30904476926988145`, negative-coefficient weight ratio
+`1.0999171345323129`, positive-coefficient weight ratio
+`0.9403720326178112`, top-five negative terms account for
+`0.825429246060302` of the negative deviation.
+
+The top q286 negative deviation rows repeatedly include the large positive
+coefficient fibers `133` and `153` when they are underweighted, together with
+overweighted negative fibers such as `285`, `265`, `23`, `159`, `179`, `237`,
+and `177`.  This makes the next analytic target a signed residue-imbalance
+bound, not just an upper bound for negative coefficient classes.
