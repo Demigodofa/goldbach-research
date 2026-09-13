@@ -10328,6 +10328,15 @@ in `121.972s`.  The selected sufficient term conditions are:
 conditions; `14138` satisfies neither.  This is still finite decomposition
 evidence, not an eventual floor-stability theorem.
 
+New receipt `q286_lower_support_component_pair_floor_identity_receipt`
+collapses that bookkeeping into an exact identity.  Focused regression
+`test_q286_lower_support_component_pair_floor_identity` passed in `118.879s`.
+The selected floor-stability half is equivalent to:
+`first_three + q286_after_first_three + non_pair_lower_support_actual +
+component_pair_local_mean >= -0.1017253843274695`.  `14138` has combined
+driver `-0.7243980058138082`, while `1379072` sits on the selected floor.
+This is an exact selected identity, not an eventual lower-bound theorem.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

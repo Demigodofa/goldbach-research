@@ -335,6 +335,14 @@
       "status_boundary": "selected finite decomposition only; eventual term inequalities and Goldbach remain unproved"
     },
     {
+      "id": "receipt.component_pair_floor_identity",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_floor_identity_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_floor_identity passed in 118.879s; selected floor stability is rewritten exactly as a combined-driver lower bound >= -0.1017253843274695",
+      "status_boundary": "selected identity only; eventual combined-driver lower bound and Goldbach remain unproved"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -526,6 +534,16 @@
       "from": "receipt.component_pair_floor_stability_decomposition",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "splits"
+    },
+    {
+      "from": "receipt.component_pair_floor_identity",
+      "to": "receipt.component_pair_floor_stability_decomposition",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_floor_identity",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

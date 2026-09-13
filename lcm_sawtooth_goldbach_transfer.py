@@ -12871,6 +12871,78 @@ def q286_lower_support_component_pair_floor_stability_decomposition_receipt(
     }
 
 
+def q286_lower_support_component_pair_floor_identity_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Rewrite floor stability as one combined lower-bound identity."""
+    decomposition = (
+        q286_lower_support_component_pair_floor_stability_decomposition_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    rescue = decomposition["source_real_channel_rescue_margin_receipt"]
+    uniform_floor = decomposition["uniform_rescued_centered_pair_floor"]
+    combined_driver_floor = -1.0 - uniform_floor
+
+    rows = {}
+    stable_targets = []
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        source_row = rescue["rows"][target]
+        package_row = source_row["source_package_row"]
+        first_three_plus_q286_tail = (
+            package_row["first_three_modes_to_principal_ratio"]
+            + package_row["q286_after_first_three_to_principal_ratio"])
+        floor_offset = (
+            source_row["non_pair_lower_support_actual_to_principal_ratio"]
+            + source_row["component_pair_local_mean_to_principal_ratio"])
+        combined_driver = first_three_plus_q286_tail + floor_offset
+        reconstructed_required = -1.0 - combined_driver
+        required_centered = source_row[
+            "required_centered_pair_sum_to_rescue"]
+        reconstruction_error = abs(reconstructed_required - required_centered)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        stable = combined_driver >= combined_driver_floor - tolerance
+        if stable:
+            stable_targets.append(target)
+        rows[target] = {
+            "target": target,
+            "target_residue": source_row["target_residue"],
+            "first_three_plus_q286_tail_to_principal_ratio": (
+                first_three_plus_q286_tail),
+            "floor_offset_to_principal_ratio": floor_offset,
+            "combined_floor_driver_to_principal_ratio": combined_driver,
+            "required_centered_pair_sum_to_rescue": required_centered,
+            "reconstructed_required_centered_pair_sum_to_rescue": (
+                reconstructed_required),
+            "required_floor_reconstruction_error": reconstruction_error,
+            "combined_driver_margin_to_floor": (
+                combined_driver - combined_driver_floor),
+            "floor_stability_condition_met": bool(stable),
+            "source_floor_stability_decomposition_row": (
+                decomposition["rows"][target]),
+        }
+
+    return {
+        "arithmetic_period": decomposition["arithmetic_period"],
+        "targets": decomposition["targets"],
+        "tested_target_count": decomposition["tested_target_count"],
+        "component_pair": component_pair,
+        "uniform_rescued_centered_pair_floor": uniform_floor,
+        "combined_floor_driver_floor": combined_driver_floor,
+        "floor_stable_targets": tuple(stable_targets),
+        "rows": rows,
+        "maximum_required_floor_reconstruction_error": (
+            maximum_reconstruction_error),
+        "source_floor_stability_decomposition_receipt": decomposition,
+        "floor_identity_measured": True,
+        "combined_floor_driver_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

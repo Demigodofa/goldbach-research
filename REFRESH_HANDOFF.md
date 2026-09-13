@@ -18924,6 +18924,19 @@ selected fixed-offset floor
 conditions; `14138` satisfies neither.  These term inequalities remain
 unproved eventual statements.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_floor_identity_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_floor_identity` passed in `118.879s`.
+It rewrites selected floor stability as the exact combined-driver lower bound
+`first_three + q286_after_first_three + non_pair_lower_support_actual +
+component_pair_local_mean >= -0.1017253843274695`.  The boundary target
+`14138` has combined driver `-0.7243980058138082`; late selected target
+`1379072` sits on the floor.  This is the cleanest current floor-stability
+statement, not a proof that it holds eventually.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

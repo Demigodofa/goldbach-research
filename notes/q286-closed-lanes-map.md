@@ -142,6 +142,11 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   `non_pair_lower_support_actual + component_pair_local_mean >=
   0.2231338491453711`.  The late comparison targets satisfy both term
   conditions; `14138` satisfies neither.
+- The floor-identity receipt removes the remaining bookkeeping slack:
+  floor stability is exactly the combined-driver lower bound
+  `first_three + q286_after_first_three + non_pair_lower_support_actual +
+  component_pair_local_mean >= -0.1017253843274695` on the selected rows.
+  `14138` is far below this at `-0.7243980058138082`.
 
 ## Current boundary examples
 
@@ -231,6 +236,8 @@ current comparison set.
 21. The floor-stability decomposition regression passed in `121.972s` and
    splits the floor half into a required lower-support package ceiling plus a
    non-pair/pair-local offset floor.
+22. The floor-identity regression passed in `118.879s` and rewrites selected
+   floor stability as one combined-driver lower bound.
 
 ## Still open
 

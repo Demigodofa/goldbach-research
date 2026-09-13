@@ -657,6 +657,34 @@ non_pair_lower_support_actual(N) + component_pair_local_mean(N)
 
 which implies the selected centered-pair floor condition above.
 
+`q286_lower_support_component_pair_floor_identity_receipt` then removes the
+remaining bookkeeping slack: the selected centered-pair rescue floor is exactly
+
+```text
+required_centered_pair_sum_to_rescue
+  = -1 - (
+      first_three
+      + q286_after_first_three
+      + non_pair_lower_support_actual
+      + component_pair_local_mean
+    ).
+```
+
+Focused regression `test_q286_lower_support_component_pair_floor_identity`
+passed in `118.879s`, with reconstruction error below `1e-12`.  Therefore the
+floor-stability half is equivalent on these rows to the single combined-driver
+inequality
+
+```text
+first_three + q286_after_first_three
+  + non_pair_lower_support_actual + component_pair_local_mean
+    >= -0.1017253843274695.
+```
+
+For `14138`, the combined driver is `-0.7243980058138082`; for `1379072`, it
+is exactly the selected boundary floor `-0.1017253843274695`.  This is still
+an identity and selected comparison, not an eventual theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

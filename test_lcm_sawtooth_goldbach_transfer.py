@@ -65,6 +65,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_real_channel_bound_budget_receipt,
     q286_lower_support_component_pair_conditional_norm_closure_receipt,
     q286_lower_support_component_pair_floor_stability_decomposition_receipt,
+    q286_lower_support_component_pair_floor_identity_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2185,6 +2186,44 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "floor_stability_decomposition_measured"])
         self.assertFalse(receipt["floor_stability_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_floor_identity(self):
+        receipt = q286_lower_support_component_pair_floor_identity_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertAlmostEqual(
+            receipt["uniform_rescued_centered_pair_floor"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["combined_floor_driver_floor"],
+            -0.1017253843274695)
+        self.assertLess(
+            receipt["maximum_required_floor_reconstruction_error"], 1e-12)
+        self.assertEqual(
+            receipt["floor_stable_targets"],
+            (1222142, 1323632, 1379072))
+        boundary = receipt["rows"][14138]
+        self.assertAlmostEqual(
+            boundary["first_three_plus_q286_tail_to_principal_ratio"],
+            -0.8621262122813993)
+        self.assertAlmostEqual(
+            boundary["floor_offset_to_principal_ratio"],
+            0.1377282064675911)
+        self.assertLess(
+            boundary["combined_floor_driver_to_principal_ratio"],
+            receipt["combined_floor_driver_floor"])
+        self.assertFalse(boundary["floor_stability_condition_met"])
+        late = receipt["rows"][1379072]
+        self.assertAlmostEqual(
+            late["combined_floor_driver_to_principal_ratio"],
+            receipt["combined_floor_driver_floor"])
+        self.assertAlmostEqual(
+            late["required_centered_pair_sum_to_rescue"],
+            late["reconstructed_required_centered_pair_sum_to_rescue"])
+        self.assertTrue(late["floor_stability_condition_met"])
+        self.assertTrue(receipt["floor_identity_measured"])
+        self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):
