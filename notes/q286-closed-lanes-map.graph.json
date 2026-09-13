@@ -415,6 +415,14 @@
       "status_boundary": "selected reflection-orbit profile only; no residual cross-orbit cancellation theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_residual_orbit_cancellation",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt",
+      "status": "validated",
+      "validation": "corrected focused test records two positive reflection-envelope failures, both at 1379072 conductor 77 labels (0,1,5,0) and (0,2,6,0), both rescued by signed cross-orbit cancellation",
+      "status_boundary": "selected residual-orbit cancellation profile only; no uniform residual-orbit theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -706,6 +714,16 @@
       "from": "receipt.component_pair_fixed_conductor_reflection_orbit",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "near_miss"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_residual_orbit_cancellation",
+      "to": "receipt.component_pair_fixed_conductor_reflection_orbit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_residual_orbit_cancellation",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

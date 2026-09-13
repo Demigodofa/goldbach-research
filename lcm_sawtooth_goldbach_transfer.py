@@ -13885,6 +13885,100 @@ def q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Measure signed cross-orbit cancellation after reflection compression."""
+    reflection = (
+        q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    channel_bound = reflection["normalized_real_channel_linf_bound"]
+    positive_targets = reflection["positive_targets"]
+
+    rows = {}
+    all_rows = []
+    positive_rows = []
+    positive_reflection_failure_rows = []
+    for target in reflection["targets"]:
+        channel_rows = []
+        for source_row in reflection["rows"][target]["channel_rows"]:
+            orbit_l1 = source_row["reflection_orbit_l1_to_total_weight"]
+            actual = source_row["actual_normalized_abs_sum"]
+            actual_ratio = actual / orbit_l1 if orbit_l1 else 0.0
+            needed_ratio = (
+                channel_bound / orbit_l1 if orbit_l1 else float("inf"))
+            reflection_fails = not source_row[
+                "reflection_orbit_bound_clears_channel_bound"]
+            actual_clears = actual <= channel_bound + tolerance
+            row = dict(source_row)
+            row.update({
+                "actual_clears_channel_bound": actual_clears,
+                "reflection_orbit_bound_fails_channel_bound": (
+                    reflection_fails),
+                "actual_to_reflection_orbit_l1_ratio": actual_ratio,
+                "needed_actual_to_orbit_l1_ratio_to_clear_bound": (
+                    needed_ratio),
+                "ratio_margin_to_sufficient_cancellation": (
+                    needed_ratio - actual_ratio),
+                "actual_margin_to_channel_bound": channel_bound - actual,
+                "reflection_failure_rescued_by_signed_orbit_cancellation": (
+                    reflection_fails and actual_clears),
+            })
+            channel_rows.append(row)
+            all_rows.append(row)
+            if target in positive_targets:
+                positive_rows.append(row)
+                if reflection_fails:
+                    positive_reflection_failure_rows.append(row)
+
+        rows[target] = {
+            "target": target,
+            "target_residue": reflection["rows"][target]["target_residue"],
+            "channel_rows": tuple(channel_rows),
+            "maximum_actual_to_orbit_l1_ratio_row": max(
+                channel_rows,
+                key=lambda row: row[
+                    "actual_to_reflection_orbit_l1_ratio"]),
+        }
+
+    return {
+        "arithmetic_period": reflection["arithmetic_period"],
+        "targets": reflection["targets"],
+        "tested_target_count": reflection["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": reflection["active_channel_conductors"],
+        "active_union_real_channel_count": (
+            reflection["active_union_real_channel_count"]),
+        "normalized_real_channel_linf_bound": channel_bound,
+        "positive_targets": positive_targets,
+        "rows": rows,
+        "positive_reflection_failure_count": len(
+            positive_reflection_failure_rows),
+        "positive_reflection_failure_rows": tuple(
+            positive_reflection_failure_rows),
+        "worst_positive_actual_to_orbit_l1_ratio_row": max(
+            positive_rows,
+            key=lambda row: row[
+                "actual_to_reflection_orbit_l1_ratio"]),
+        "worst_positive_reflection_failure_ratio_row": (
+            max(
+                positive_reflection_failure_rows,
+                key=lambda row: row[
+                    "actual_to_reflection_orbit_l1_ratio"])
+            if positive_reflection_failure_rows else None),
+        "all_positive_reflection_failures_rescued_by_signed_orbit_cancellation": all(
+            row["reflection_failure_rescued_by_signed_orbit_cancellation"]
+            for row in positive_reflection_failure_rows),
+        "source_fixed_conductor_reflection_orbit_receipt": reflection,
+        "fixed_conductor_residual_orbit_cancellation_measured": True,
+        "residual_orbit_cancellation_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -45,6 +45,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
 
 ## Closed or falsified lanes
 
@@ -289,6 +290,10 @@ current comparison set.
    Reflection pairing clears late positives `1222142` and `1323632`, but
    misses `1379072` by `0.0015406171514715863`, leaving a residual
    cross-orbit cancellation target.
+32. The residual-orbit cancellation regression records that the positive
+   reflection-envelope failures are exactly two `1379072` conductor-`77`
+   labels, `(0,1,5,0)` and `(0,2,6,0)`, and both are rescued by signed
+   cross-orbit cancellation.
 
 ## Still open
 

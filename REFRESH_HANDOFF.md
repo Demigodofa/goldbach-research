@@ -19071,6 +19071,20 @@ Next channel-side work should target residual cross-orbit cancellation or a
 sharper reflection-orbit estimate, especially at the driver-bound row
 `1379072`.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
+
+The first regression attempt correctly failed an over-simple one-failure
+assertion: there are two positive reflection-envelope failures, both at
+`1379072`, conductor `77`.  The corrected receipt records labels `(0,1,5,0)`
+and `(0,2,6,0)`.  The former has actual/orbit-L1 ratio
+`0.09006464316185545` versus needed `0.9902858659252705`; the latter has
+actual/orbit-L1 ratio `0.289119636096235` versus needed
+`0.9744905021347716`.  Both failures are rescued by signed cross-orbit
+cancellation.  This is finite selected evidence only; Goldbach and the
+uniform residual-orbit theorem remain open.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

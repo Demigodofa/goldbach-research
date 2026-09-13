@@ -10449,6 +10449,18 @@ boundary row `14138`, label `(0,1,3,0)`, conductor `77`, with orbit L1
 again: prove residual cross-orbit cancellation, or sharpen the reflection-
 orbit bound, for conductor `77` near the driver-bound row.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
+measures the signed cancellation remaining after reflection-orbit compression.
+The corrected focused regression records two positive reflection-envelope
+failures, both at `1379072` and conductor `77`: label `(0,1,5,0)` has actual
+sum `0.005352592501155273` versus orbit L1 `0.05943056357350034`, while label
+`(0,2,6,0)` has actual sum `0.01746105205795644` versus orbit L1
+`0.0603938642622822`.  Both clear the channel bound by signed cross-orbit
+cancellation.  This is the current narrowest channel-side target: prove or
+replace a residual signed orbit-cancellation estimate for the conductor-`77`
+driver-bound row.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

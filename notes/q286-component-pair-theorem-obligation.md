@@ -937,6 +937,36 @@ driver-bound target `1379072`.  The remaining channel theorem needs either a
 small residual cross-orbit cancellation estimate or a sharper reflection-orbit
 bound; plain pair-swap symmetry alone is still not a proof.
 
+`q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
+then measures the signed cancellation still present after reflection-orbit
+compression.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation`
+passed in the corrected run.
+
+Both positive reflection-envelope failures occur at `1379072`, and both are
+rescued by signed cross-orbit cancellation:
+
+```text
+failure 1:
+  label (0,1,5,0), conductor 77
+  actual normalized sum 0.005352592501155273
+  reflection-orbit L1 0.05943056357350034
+  actual/orbit-L1 ratio 0.09006464316185545
+  needed ratio to clear bound 0.9902858659252705
+
+failure 2:
+  label (0,2,6,0), conductor 77
+  actual normalized sum 0.01746105205795644
+  reflection-orbit L1 0.0603938642622822
+  actual/orbit-L1 ratio 0.289119636096235
+  needed ratio to clear bound 0.9744905021347716
+```
+
+Thus the channel-side theorem target has split once more: reflection-orbit
+envelopes almost suffice, and the remaining `1379072` failures need only
+moderate signed cancellation across those reflection orbits.  This is still
+finite selected evidence, not a uniform residual-orbit theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
