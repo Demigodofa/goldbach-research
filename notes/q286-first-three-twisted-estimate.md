@@ -2698,3 +2698,24 @@ cycles 257..264: no .3 tail hits; block minimum cycle 257,
 Status `finite-tail-absence-evidence`: checked cycles `137..264` are now
 tail-free at threshold `.3`.  This strengthens the post-136 finite horizon but
 still does not prove eventual disappearance or Goldbach.
+
+## 2026-09-13: cycles 265 through 296 remain tail-free
+
+The accelerated scanner was extended through global cycle `296`.  Every cycle
+in `265..296` was tail-free at threshold `.3`; no complement rescue-floor
+check was needed.
+
+```text
+cycles 265..272: no .3 tail hits; block minimum cycle 266,
+  target 2672932, first_three -0.19902872242009065
+cycles 273..280: no .3 tail hits; block minimum cycle 273,
+  target 2751106, first_three -0.1771080171549704
+cycles 281..288: no .3 tail hits; block minimum cycle 288,
+  target 2900782, first_three -0.16965353530921884
+cycles 289..296: no .3 tail hits; block minimum cycle 292,
+  target 2935984, first_three -0.19368388953654794
+```
+
+Status `finite-tail-absence-evidence`: checked cycles `137..296` are now
+tail-free at threshold `.3`.  The deepest value in the last 160 checked cycles
+is still above `-.3`, but this is finite evidence only.
