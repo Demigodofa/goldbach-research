@@ -19189,6 +19189,22 @@ has maximum small/large side ratio `0.0` and high-ratio exception abs sum
 route should be treated as thin opposite-sector mass control, still finite
 selected evidence only.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget`
+passed in `391.565s`.  It rewrites the threshold-envelope split as an explicit
+budget for high-ratio thin exceptions after paying `0.75` times the non-thin
+pair mass.  Label `(0,1,5,0)` has allowed exception abs
+`0.01712827835500897`, actual exception abs `0.0031320675991354753`, and
+margin `0.013996210755873494`.  Label `(0,2,6,0)` has allowed exception abs
+`0.033083936396965614`, actual exception abs `0.024020095646099474`, and
+margin `0.00906384075086614`.  The current theorem target is now a two-part
+inequality: fixed-ratio cancellation for non-thin antipodal pairs plus an
+absolute-mass bound for thin opposite-sector exceptions.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

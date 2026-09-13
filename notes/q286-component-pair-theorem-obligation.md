@@ -1164,6 +1164,33 @@ threshold.  This refines the proof target again: bound the mass of one-sided
 opposite-sector exceptions, and separately prove fixed-ratio cancellation for
 the non-thin antipodal pairs.  This remains finite selected evidence only.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
+states the resulting thin-exception budget after the `0.75` low-ratio-pair
+envelope.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget`
+passed in `391.565s`.
+
+```text
+allowed exception abs = channel_bound - 0.75 * low-ratio pair mass
+
+1379072, label (0,1,5,0):
+  allowed high-ratio exception abs 0.01712827835500897
+  actual high-ratio exception abs 0.0031320675991354753
+  exception budget margin 0.013996210755873494
+  exception budget used 0.18285945231731582
+
+1379072, label (0,2,6,0):
+  allowed high-ratio exception abs 0.033083936396965614
+  actual high-ratio exception abs 0.024020095646099474
+  exception budget margin 0.00906384075086614
+  exception budget used 0.7260349964976521
+```
+
+The selected hard row is not at the edge of the budget, but it uses most of
+the allowed thin-exception mass.  The current proof target is now an explicit
+two-part inequality: a `0.75` cancellation ratio for non-thin antipodal pairs,
+plus a thin-exception absolute-mass bound below the displayed budget.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

@@ -83,6 +83,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2924,6 +2925,71 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
         self.assertTrue(receipt[
             "fixed_conductor_phase_antipodal_thin_exception_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_exception_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_threshold_envelope_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_pair_balance_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["high_ratio_threshold"], 0.75)
+        self.assertEqual(receipt["thin_side_ratio_threshold"], 0.05)
+        self.assertEqual(
+            receipt["passing_polygon_labels_by_exception_budget"],
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["failing_polygon_labels_by_exception_budget"],
+            ())
+        self.assertTrue(
+            receipt["all_residual_polygons_clear_by_exception_budget"])
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "allowed_high_ratio_exception_abs_sum_after_low_mass"],
+            0.01712827835500897)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "high_ratio_exception_budget_margin"],
+            0.013996210755873494)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "high_ratio_exception_fraction_of_budget"],
+            0.18285945231731582)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "allowed_high_ratio_exception_abs_sum_after_low_mass"],
+            0.033083936396965614)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "high_ratio_exception_budget_margin"],
+            0.00906384075086614)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "high_ratio_exception_fraction_of_budget"],
+            0.7260349964976521)
+        worst = receipt["worst_exception_budget_margin_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_antipodal_exception_budget_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_exception_budget_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_exception_theorem_proved"])
         self.assertFalse(receipt[

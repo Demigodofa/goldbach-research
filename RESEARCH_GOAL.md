@@ -10541,6 +10541,20 @@ ratio `0.046829417626061014` and high-ratio exception abs sum
 `0.024020095646099474`.  The high-ratio part of the theorem target is now
 thin opposite-sector mass control.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
+states the explicit thin-exception budget after the non-thin pair envelope.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget`
+passed in `391.565s`.  With
+`allowed exception abs = channel_bound - 0.75 * low-ratio pair mass`, label
+`(0,1,5,0)` may spend `0.01712827835500897` on high-ratio thin exceptions,
+spends `0.0031320675991354753`, and has margin
+`0.013996210755873494`.  The hard label `(0,2,6,0)` may spend
+`0.033083936396965614`, spends `0.024020095646099474`, and has margin
+`0.00906384075086614`.  The current sharpest visual theorem target is now a
+two-part inequality: non-thin antipodal pairs satisfy the fixed-ratio bound,
+and thin opposite-sector exceptions stay below the displayed absolute budget.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

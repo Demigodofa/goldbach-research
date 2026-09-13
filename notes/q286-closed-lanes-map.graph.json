@@ -483,6 +483,14 @@
       "status_boundary": "selected thin-exception profile only; no uniform one-sided sector-mass theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget passed in 391.565s; hard label (0,2,6,0) has allowed thin-exception budget 0.033083936396965614, actual exception abs 0.024020095646099474, and margin 0.00906384075086614",
+      "status_boundary": "selected exception-budget profile only; no uniform two-part antipodal inequality and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -852,6 +860,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

@@ -53,6 +53,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
 
 ## Closed or falsified lanes
 
@@ -339,6 +340,12 @@ current comparison set.
    `0.046829417626061014` and high-ratio exception abs sum
    `0.024020095646099474`.  The high-ratio exception target is now thin
    opposite-sector mass control.
+40. The phase-antipodal exception-budget regression passed in `391.565s`.
+   After paying `0.75` times non-thin pair mass, the hard `(0,2,6,0)` row may
+   spend `0.033083936396965614` on high-ratio thin exceptions, spends
+   `0.024020095646099474`, and has margin `0.00906384075086614`.  The current
+   proof target is an explicit two-part inequality: non-thin pair cancellation
+   plus thin-exception absolute-mass control.
 
 ## Still open
 
