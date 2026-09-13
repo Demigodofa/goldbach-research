@@ -52,6 +52,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
 
 ## Closed or falsified lanes
 
@@ -332,6 +333,12 @@ current comparison set.
    `(0,2,6,0)` row has thresholded envelope `0.049789406359944485`, below the
    channel bound by `0.009063840750866137`.  This is now the sharpest
    proof-shaped split of the residual conductor-`77` visual route.
+39. The phase-antipodal thin-exception regression passed in `210.678s`.
+   All selected high-ratio antipodal exceptions have small/large side ratio at
+   most `0.05`; the hard `(0,2,6,0)` row has maximum ratio
+   `0.046829417626061014` and high-ratio exception abs sum
+   `0.024020095646099474`.  The high-ratio exception target is now thin
+   opposite-sector mass control.
 
 ## Still open
 

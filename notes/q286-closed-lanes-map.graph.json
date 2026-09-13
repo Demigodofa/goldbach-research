@@ -475,6 +475,14 @@
       "status_boundary": "selected threshold-envelope profile only; no uniform high-ratio exception theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception passed in 210.678s; all selected high-ratio exceptions have small/large side ratio at most 0.05, with hard label (0,2,6,0) maximum ratio 0.046829417626061014",
+      "status_boundary": "selected thin-exception profile only; no uniform one-sided sector-mass theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -834,6 +842,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_threshold_envelope",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_threshold_envelope",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

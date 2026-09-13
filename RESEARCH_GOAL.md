@@ -10530,6 +10530,17 @@ thresholded envelope `0.044857036354937124`, margin
 `0.013996210755873498`.  This is the current sharpest proof-shaped
 decomposition of the residual conductor-`77` visual route.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
+checks the high-ratio exceptions in that envelope.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception`
+passed in `210.678s`.  With thin-side ratio threshold `0.05`, all selected
+high-ratio exceptions are one-sided: label `(0,1,5,0)` has maximum
+small/large side ratio `0.0` and high-ratio exception abs sum
+`0.0031320675991354753`; hard label `(0,2,6,0)` has maximum small/large side
+ratio `0.046829417626061014` and high-ratio exception abs sum
+`0.024020095646099474`.  The high-ratio part of the theorem target is now
+thin opposite-sector mass control.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

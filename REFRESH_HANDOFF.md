@@ -19174,6 +19174,21 @@ thresholded envelope `0.049789406359944485`, margin
 control the total contribution of high-ratio opposite-sector exceptions, and
 prove a fixed-ratio cancellation bound for the remaining antipodal pair mass.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception`
+passed in `210.678s`.  With thin-side ratio threshold `0.05`, all selected
+high-ratio exceptions are one-sided opposite-sector pairs.  Label `(0,1,5,0)`
+has maximum small/large side ratio `0.0` and high-ratio exception abs sum
+`0.0031320675991354753`; label `(0,2,6,0)` has maximum small/large side ratio
+`0.046829417626061014` and high-ratio exception abs sum
+`0.024020095646099474`.  The high-ratio exception side of the current visual
+route should be treated as thin opposite-sector mass control, still finite
+selected evidence only.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

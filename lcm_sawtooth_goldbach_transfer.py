@@ -14539,6 +14539,105 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        high_ratio_threshold=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Test whether high-ratio antipodal exceptions are one-sided pairs."""
+    if thin_side_ratio_threshold < 0.0:
+        raise ValueError("thin_side_ratio_threshold must be nonnegative")
+    pair_balance = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count,
+            high_ratio_threshold=high_ratio_threshold,
+            tolerance=tolerance))
+
+    rows = []
+    for source_row in pair_balance["rows"]:
+        exception_rows = []
+        for high_row in source_row["high_ratio_pair_rows"]:
+            source_pair = high_row["source_antipodal_pair_row"]
+            side_a = source_pair["source_bin_abs"]
+            side_b = source_pair["opposite_source_bin_abs"]
+            large_side = max(side_a, side_b)
+            small_side = min(side_a, side_b)
+            small_to_large_ratio = (
+                small_side / large_side if large_side else 0.0)
+            exception_rows.append({
+                "bin_index": high_row["bin_index"],
+                "opposite_bin_index": high_row["opposite_bin_index"],
+                "side_a_abs": side_a,
+                "side_b_abs": side_b,
+                "large_side_abs": large_side,
+                "small_side_abs": small_side,
+                "small_to_large_side_ratio": small_to_large_ratio,
+                "pair_abs": high_row["pair_abs"],
+                "pair_source_mass": high_row["pair_source_mass"],
+                "pair_cancellation_ratio": (
+                    high_row["pair_cancellation_ratio"]),
+                "thin_opposite_side_exception": (
+                    small_to_large_ratio
+                    <= thin_side_ratio_threshold + tolerance),
+                "source_high_ratio_pair_row": high_row,
+            })
+        exception_rows = tuple(exception_rows)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "high_ratio_threshold": high_ratio_threshold,
+            "thin_side_ratio_threshold": thin_side_ratio_threshold,
+            "high_ratio_pair_count": len(exception_rows),
+            "high_ratio_exception_abs_sum": float(math.fsum(
+                row["pair_abs"] for row in exception_rows)),
+            "maximum_small_to_large_side_ratio": (
+                max(row["small_to_large_side_ratio"]
+                    for row in exception_rows)
+                if exception_rows else 0.0),
+            "all_high_ratio_exceptions_have_thin_opposite_side": all(
+                row["thin_opposite_side_exception"]
+                for row in exception_rows),
+            "exception_rows": exception_rows,
+            "source_phase_antipodal_pair_balance_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": pair_balance["arithmetic_period"],
+        "targets": pair_balance["targets"],
+        "tested_target_count": pair_balance["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": pair_balance[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            pair_balance["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "high_ratio_threshold": high_ratio_threshold,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "rows": tuple(rows),
+        "all_high_ratio_exceptions_have_thin_opposite_side": all(
+            row["all_high_ratio_exceptions_have_thin_opposite_side"]
+            for row in rows),
+        "worst_thin_side_ratio_row": max(
+            rows,
+            key=lambda row: row["maximum_small_to_large_side_ratio"]),
+        "source_phase_antipodal_pair_balance_receipt": pair_balance,
+        "fixed_conductor_phase_antipodal_thin_exception_measured": True,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):
