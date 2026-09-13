@@ -10518,6 +10518,18 @@ cancellation ratio `0.9711661073614952`, and `2` high-ratio pairs at threshold
 `0.75`.  The theorem target is therefore the weighted six-pair antipodal L1
 bound, not a claim that every opposite-sector pair individually cancels well.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
+splits that weighted bound into explicit high-ratio exceptions plus a
+thresholded envelope for the remaining pair mass.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope`
+passed in `395.264s`.  With threshold `0.75`, the envelope
+`sum(high-ratio pair abs) + 0.75 * sum(remaining pair source mass)` clears both
+residual rows.  The hard label `(0,2,6,0)` has thresholded envelope
+`0.049789406359944485`, margin `0.009063840750866137`; label `(0,1,5,0)` has
+thresholded envelope `0.044857036354937124`, margin
+`0.013996210755873498`.  This is the current sharpest proof-shaped
+decomposition of the residual conductor-`77` visual route.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

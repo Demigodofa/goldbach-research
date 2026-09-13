@@ -19159,6 +19159,21 @@ This refines the theorem target again: prove a weighted six-pair antipodal L1
 bound for the conductor-`77` residual polygons; do not assume every opposite
 phase pair cancels strongly on its own.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope`
+passed in `395.264s`.  With high-ratio threshold `0.75`, the envelope
+`sum(high-ratio pair abs) + 0.75 * sum(remaining pair source mass)` clears both
+residual conductor-`77` rows.  Label `(0,1,5,0)` has thresholded envelope
+`0.044857036354937124`, margin `0.013996210755873498`; label `(0,2,6,0)` has
+thresholded envelope `0.049789406359944485`, margin
+`0.009063840750866137`.  This is the current sharpest proof-shaped split:
+control the total contribution of high-ratio opposite-sector exceptions, and
+prove a fixed-ratio cancellation bound for the remaining antipodal pair mass.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

@@ -81,6 +81,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2814,6 +2815,65 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
         self.assertTrue(receipt[
             "fixed_conductor_phase_antipodal_pair_balance_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_pair_balance_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["high_ratio_threshold"], 0.75)
+        self.assertEqual(
+            tuple(row["representative_label"] for row in receipt["rows"]),
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["passing_polygon_labels_by_thresholded_envelope"],
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["failing_polygon_labels_by_thresholded_envelope"],
+            ())
+        self.assertTrue(
+            receipt["all_residual_polygons_clear_by_thresholded_envelope"])
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "thresholded_antipodal_l1_envelope"],
+            0.044857036354937124)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "thresholded_envelope_margin_to_channel_bound"],
+            0.013996210755873498)
+        self.assertEqual(
+            by_label[(0, 1, 5, 0)]["high_ratio_pair_count"], 1)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "thresholded_antipodal_l1_envelope"],
+            0.049789406359944485)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "thresholded_envelope_margin_to_channel_bound"],
+            0.009063840750866137)
+        self.assertEqual(
+            by_label[(0, 2, 6, 0)]["high_ratio_pair_count"], 2)
+        worst = receipt["worst_thresholded_envelope_margin_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_antipodal_threshold_envelope_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_threshold_envelope_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_pair_balance_theorem_proved"])
         self.assertFalse(receipt[

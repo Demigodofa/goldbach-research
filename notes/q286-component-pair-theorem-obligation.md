@@ -1110,6 +1110,35 @@ cancels uniformly.  The hard row still clears because the weighted L1 over all
 six antipodal pairs is below the channel bound.  A proof should target that
 weighted antipodal-pair sum, not a per-pair cancellation floor.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
+separates high-ratio antipodal exceptions from the remaining pair mass.  With
+threshold `0.75`, the envelope
+
+```text
+sum(high-ratio pair abs) + 0.75 * sum(remaining pair source mass)
+```
+
+clears both selected residual polygons.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope`
+passed in `395.264s`.
+
+```text
+1379072, label (0,1,5,0):
+  high-ratio pair count 1
+  thresholded envelope 0.044857036354937124
+  margin to channel bound 0.013996210755873498
+
+1379072, label (0,2,6,0):
+  high-ratio pair count 2
+  thresholded envelope 0.049789406359944485
+  margin to channel bound 0.009063840750866137
+```
+
+This gives the cleanest current finite theorem shape: prove that the
+high-ratio opposite-sector pairs have small total contribution, and prove a
+fixed-ratio cancellation bound for the remaining antipodal pair mass.  The
+receipt is still selected finite evidence, not a uniform theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

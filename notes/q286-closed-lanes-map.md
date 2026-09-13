@@ -51,6 +51,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
 
 ## Closed or falsified lanes
 
@@ -325,6 +326,12 @@ current comparison set.
    `0.6079867090121881`, largest pair cancellation ratio
    `0.9711661073614952`, and `2` high-ratio pairs at threshold `0.75`.
    The surviving theorem target is a weighted six-pair antipodal L1 bound.
+38. The phase-antipodal threshold-envelope regression passed in `395.264s`.
+   With threshold `0.75`, explicit high-ratio exceptions plus
+   `0.75` times remaining pair mass clears both residual rows.  The hard
+   `(0,2,6,0)` row has thresholded envelope `0.049789406359944485`, below the
+   channel bound by `0.009063840750866137`.  This is now the sharpest
+   proof-shaped split of the residual conductor-`77` visual route.
 
 ## Still open
 

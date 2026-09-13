@@ -467,6 +467,14 @@
       "status_boundary": "selected antipodal pair-balance profile only; no uniform pairwise cancellation theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_threshold_envelope",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope passed in 395.264s; high-ratio exceptions plus 0.75 times remaining pair mass clears both residual rows, with hard label (0,2,6,0) margin 0.009063840750866137",
+      "status_boundary": "selected threshold-envelope profile only; no uniform high-ratio exception theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -816,6 +824,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_pair_balance",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_threshold_envelope",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_pair_balance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_threshold_envelope",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

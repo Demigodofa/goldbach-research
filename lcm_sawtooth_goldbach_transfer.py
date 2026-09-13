@@ -14447,6 +14447,98 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balan
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        high_ratio_threshold=0.75, tolerance=1e-9):
+    """Bound antipodal L1 by high-ratio exceptions plus thresholded mass."""
+    pair_balance = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count,
+            high_ratio_threshold=high_ratio_threshold,
+            tolerance=tolerance))
+    channel_bound = pair_balance["normalized_real_channel_linf_bound"]
+
+    rows = []
+    for source_row in pair_balance["rows"]:
+        high_ratio_rows = source_row["high_ratio_pair_rows"]
+        high_ratio_pair_abs_sum = float(math.fsum(
+            row["pair_abs"] for row in high_ratio_rows))
+        high_ratio_pair_mass_sum = float(math.fsum(
+            row["pair_source_mass"] for row in high_ratio_rows))
+        low_ratio_pair_mass_sum = (
+            source_row["total_antipodal_source_mass"]
+            - high_ratio_pair_mass_sum)
+        threshold_envelope = (
+            high_ratio_pair_abs_sum
+            + high_ratio_threshold * low_ratio_pair_mass_sum)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "antipodal_pair_count": source_row["antipodal_pair_count"],
+            "high_ratio_threshold": high_ratio_threshold,
+            "high_ratio_pair_count": source_row["high_ratio_pair_count"],
+            "high_ratio_pair_abs_sum": high_ratio_pair_abs_sum,
+            "high_ratio_pair_mass_sum": high_ratio_pair_mass_sum,
+            "low_ratio_pair_mass_sum": low_ratio_pair_mass_sum,
+            "thresholded_antipodal_l1_envelope": threshold_envelope,
+            "thresholded_envelope_margin_to_channel_bound": (
+                channel_bound - threshold_envelope),
+            "actual_antipodal_phase_pair_l1": (
+                source_row["antipodal_phase_pair_l1"]),
+            "actual_antipodal_margin_to_channel_bound": (
+                source_row[
+                    "antipodal_phase_pair_margin_to_channel_bound"]),
+            "thresholded_envelope_clears_channel_bound": (
+                threshold_envelope <= channel_bound + tolerance),
+            "source_phase_antipodal_pair_balance_row": source_row,
+        })
+
+    passing_rows = tuple(
+        row for row in rows
+        if row["thresholded_envelope_clears_channel_bound"])
+    failing_rows = tuple(
+        row for row in rows
+        if not row["thresholded_envelope_clears_channel_bound"])
+
+    return {
+        "arithmetic_period": pair_balance["arithmetic_period"],
+        "targets": pair_balance["targets"],
+        "tested_target_count": pair_balance["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": pair_balance[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": channel_bound,
+        "phase_bin_count": phase_bin_count,
+        "high_ratio_threshold": high_ratio_threshold,
+        "rows": tuple(rows),
+        "passing_polygon_labels_by_thresholded_envelope": tuple(
+            row["representative_label"] for row in passing_rows),
+        "failing_polygon_labels_by_thresholded_envelope": tuple(
+            row["representative_label"] for row in failing_rows),
+        "all_residual_polygons_clear_by_thresholded_envelope": (
+            len(failing_rows) == 0),
+        "worst_thresholded_envelope_margin_row": min(
+            rows,
+            key=lambda row: row[
+                "thresholded_envelope_margin_to_channel_bound"]),
+        "source_phase_antipodal_pair_balance_receipt": pair_balance,
+        "fixed_conductor_phase_antipodal_threshold_envelope_measured": True,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):
