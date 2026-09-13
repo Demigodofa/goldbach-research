@@ -18226,17 +18226,28 @@ values are not an internal cancellation problem in the rank-three truncation.
 The next target is simultaneous negative alignment of the first two singular
 coordinates.
 
+New code `q286_first_two_mode_sign_window_receipt` measures that sign pattern
+over finite windows.  Focused regression `test_q286_first_two_mode_sign_window`
+passed in `51.487s`.  On cycle `0` (`5005` targets), sign counts for modes
+1 and 2 were `++:1283`, `+-:1132`, `-+:1403`, `--:1187`; there were `2525`
+negative first-three targets and `972` targets below `-.3`, of which `698`
+were both-negative.  Worst first-three target `10664` has mode contributions
+`-0.7769507640498653`, `-0.33549303373411643`, `-0.03764420311364884`.
+Thus the both-negative quadrant is a strong tail selector but too common to
+exclude wholesale.  The next target is magnitude/subcone control inside the
+both-negative quadrant, or complement co-occurrence there.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: seek a mechanism or bound for
-   simultaneous negative alignment of q286 singular modes 1 and 2, or identify
-   the minimal external twisted binary-prime theorem that would imply it.  Do
-   not spend large compute on support-only, max-discrepancy, raw 99-character
-   norm, or hoped-for rank-three cancellation routes already ruled out by the
-   diagnostics.
+3. Then attempt the theorem route directly: seek a mechanism or bound for the
+   magnitude of simultaneous negative alignment of q286 singular modes 1 and
+   2, or show that complement co-occurrence rescues the dangerous subcone.
+   Do not spend large compute on support-only, max-discrepancy, raw
+   99-character norm, hoped-for rank-three cancellation, or mere sign-exclusion
+   routes already ruled out by the diagnostics.
 
 ## Temporary wake note — continuity discussion
 

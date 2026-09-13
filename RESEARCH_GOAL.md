@@ -103,6 +103,15 @@ all same-sign negative; signed/absolute mode ratios are `-1` except
 falsifies an internal rank-three cancellation explanation.  The next theorem
 target is simultaneous negative alignment of q286 singular modes 1 and 2.
 
+`q286_first_two_mode_sign_window_receipt` now measures the mode-1/mode-2 sign
+quadrants over finite windows.  Validation passed with focused test
+`test_q286_first_two_mode_sign_window` in `51.487s`.  On cycle `0`, sign counts
+were `++:1283`, `+-:1132`, `-+:1403`, `--:1187`; `972` targets were below the
+`.3` first-three threshold, and `698` of those were both-negative.  Thus the
+both-negative quadrant is a strong tail selector but too common to exclude as
+a theorem.  The next target is magnitude/subcone control inside that quadrant
+or complement co-occurrence there.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

@@ -7649,6 +7649,226 @@ def q286_first_three_character_mode_coordinate_receipt(
     }
 
 
+def q286_first_two_mode_sign_window_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        tail_threshold=.3, tolerance=1e-9, include_rows=False):
+    """Measure finite-window sign patterns of q286 singular modes 1 and 2.
+
+    The selected stress targets showed simultaneous negative alignment of the
+    first two singular coordinates.  This receipt asks whether that sign pair
+    is rare, tail-specific, or common in a finite window.  It proves only the
+    checked finite window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = float(complex(np.mean(aggregate_values)).real)
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    singular_bases = tuple(
+        np.outer(left[:, index], right[index, :])
+        for index in range(3))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    unit_index_by_residue = np.full(modulus, -1, dtype=np.int16)
+    for index, unit in enumerate(units):
+        unit_index_by_residue[unit] = index
+
+    maximum_target = (
+        start + (cycle_count - 1) * period
+        + 2 * (targets_per_cycle - 1))
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    aligned_global_cycle_base = (
+        (start - 10000) // period
+        if (start - 10000) % period == 0 else None)
+    rows = {} if include_rows else None
+    sign_pair_counts = {
+        "++": 0, "+-": 0, "-+": 0, "--": 0,
+        "zero": 0,
+    }
+    first_three_negative_count = 0
+    first_three_tail_count = 0
+    first_two_both_negative_count = 0
+    first_two_both_negative_tail_count = 0
+    tail_targets = []
+    first_two_both_negative_targets = []
+    maximum_first_three_negative_row = None
+    maximum_first_two_negative_sum_row = None
+    maximum_mode_reconstruction_error = 0.0
+
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        for target_offset in range(targets_per_cycle):
+            target = cycle_start + 2 * target_offset
+            lower = target // 3
+            upper = target - lower
+            first = max(2, lower + 1)
+            last = min(target, upper)
+            left_index = int(np.searchsorted(
+                prime_indices, first, side="left"))
+            right_index = int(np.searchsorted(
+                prime_indices, last, side="left"))
+            prime_values = prime_indices[left_index:right_index]
+            partner_values = target - prime_values
+            pair_mask = primes[partner_values]
+            selected_primes = prime_values[pair_mask]
+            selected_partners = partner_values[pair_mask]
+            residue_indices = unit_index_by_residue[
+                selected_primes % modulus]
+            residue_weights = np.bincount(
+                residue_indices,
+                weights=(
+                    log_values[selected_primes]
+                    * log_values[selected_partners]),
+                minlength=len(units))
+            total_weight = float(np.sum(residue_weights))
+            if total_weight <= tolerance:
+                continue
+            admissible_mask = np.asarray(tuple(
+                math.gcd((target - unit) % modulus, modulus) == 1
+                for unit in units), dtype=bool)
+            admissible_count = int(np.sum(admissible_mask))
+            mean_weight = total_weight / admissible_count
+            delta = np.zeros(len(units), dtype=np.float64)
+            delta[admissible_mask] = (
+                residue_weights[admissible_mask] - mean_weight)
+            character_imbalance = (
+                character_table @ delta).reshape(10, 12)[1:, 1:]
+            principal = principal_mean * total_weight
+            mode_contributions = []
+            for index, basis in enumerate(singular_bases):
+                coordinate = complex(np.sum(basis * character_imbalance))
+                contribution = singular_values[index] * coordinate
+                mode_contributions.append(float(contribution.real / principal))
+            first_two_sum = mode_contributions[0] + mode_contributions[1]
+            first_three = first_two_sum + mode_contributions[2]
+            reconstruction_error = abs(
+                first_three - math.fsum(mode_contributions)) / max(
+                    1.0, abs(first_three))
+            maximum_mode_reconstruction_error = max(
+                maximum_mode_reconstruction_error, reconstruction_error)
+            if abs(mode_contributions[0]) <= tolerance or abs(
+                    mode_contributions[1]) <= tolerance:
+                sign_pair = "zero"
+            elif mode_contributions[0] > 0 and mode_contributions[1] > 0:
+                sign_pair = "++"
+            elif mode_contributions[0] > 0 and mode_contributions[1] < 0:
+                sign_pair = "+-"
+            elif mode_contributions[0] < 0 and mode_contributions[1] > 0:
+                sign_pair = "-+"
+            else:
+                sign_pair = "--"
+            sign_pair_counts[sign_pair] += 1
+            row = {
+                "target": target,
+                "local_cycle": cycle,
+                "global_cycle": (
+                    aligned_global_cycle_base + cycle
+                    if aligned_global_cycle_base is not None else None),
+                "target_offset": target_offset,
+                "target_mod_286": target % modulus,
+                "mode_1_to_principal_ratio": mode_contributions[0],
+                "mode_2_to_principal_ratio": mode_contributions[1],
+                "mode_3_to_principal_ratio": mode_contributions[2],
+                "first_two_modes_to_principal_ratio": first_two_sum,
+                "first_three_to_principal_ratio": first_three,
+                "mode_1_2_sign_pair": sign_pair,
+                "mode_reconstruction_error": reconstruction_error,
+            }
+            if include_rows:
+                rows[target] = row
+            if first_three < 0:
+                first_three_negative_count += 1
+                if (maximum_first_three_negative_row is None
+                        or first_three
+                        < maximum_first_three_negative_row[
+                            "first_three_to_principal_ratio"]):
+                    maximum_first_three_negative_row = row
+            if first_three < -tail_threshold:
+                first_three_tail_count += 1
+                tail_targets.append(target)
+            if sign_pair == "--":
+                first_two_both_negative_count += 1
+                first_two_both_negative_targets.append(target)
+                if (maximum_first_two_negative_sum_row is None
+                        or first_two_sum
+                        < maximum_first_two_negative_sum_row[
+                            "first_two_modes_to_principal_ratio"]):
+                    maximum_first_two_negative_sum_row = row
+                if first_three < -tail_threshold:
+                    first_two_both_negative_tail_count += 1
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": modulus,
+        "start": start,
+        "aligned_global_cycle_base": aligned_global_cycle_base,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "target_rows_included": include_rows,
+        "rows": rows if include_rows else {},
+        "first_three_singular_values": tuple(
+            float(value) for value in singular_values[:3]),
+        "mode_1_2_sign_pair_counts": sign_pair_counts,
+        "first_three_negative_count": first_three_negative_count,
+        "first_three_tail_count": first_three_tail_count,
+        "first_three_tail_targets": tuple(tail_targets),
+        "first_two_both_negative_count": first_two_both_negative_count,
+        "first_two_both_negative_targets": tuple(
+            first_two_both_negative_targets),
+        "first_two_both_negative_tail_count": (
+            first_two_both_negative_tail_count),
+        "maximum_first_three_negative_row": (
+            maximum_first_three_negative_row),
+        "maximum_first_two_negative_sum_row": (
+            maximum_first_two_negative_sum_row),
+        "maximum_mode_reconstruction_error": maximum_mode_reconstruction_error,
+        "first_two_mode_sign_window_measured": True,
+        "eventual_mode_sign_pattern_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_full_negative_driver_receipt(
         start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
         top_count=8, tolerance=1e-9):

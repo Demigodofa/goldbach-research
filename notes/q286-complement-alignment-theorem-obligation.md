@@ -424,6 +424,50 @@ The next theorem target should therefore control simultaneous negative
 alignment of the first two q286 singular coordinates, not hope for an internal
 rank-three cancellation principle.
 
+## First-two mode sign-window receipt
+
+Added `q286_first_two_mode_sign_window_receipt`, which measures the quadrant
+sign pattern of q286 singular modes `1` and `2` across a finite target window,
+and records how many first-three lower-tail targets lie in the both-negative
+quadrant.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_two_mode_sign_window ... ok
+Ran 1 test in 51.487s
+```
+
+Cycle `0` sign-window probe, `start=10000`, `targets_per_cycle=5005`,
+tail threshold `.3`:
+
+```text
+tested 5005
+sign counts:
+  ++: 1283
+  +-: 1132
+  -+: 1403
+  --: 1187
+first-three negative count: 2525
+first-three tail count: 972
+both-negative mode-1/mode-2 count: 1187
+both-negative first-three tail count: 698
+worst first-three target: 10664
+  mode1 -0.7769507640498653
+  mode2 -0.33549303373411643
+  mode3 -0.03764420311364884
+  first_three -1.1500880008976306
+maximum reconstruction error: 2.220446049250313e-16
+```
+
+Status `falsifier-plus-refinement`: simultaneous negativity of modes `1` and
+`2` is a strong tail selector in cycle `0` but not a rare obstruction by
+itself: about `23.7%` of all targets are both-negative, and about `71.8%` of
+the `.3` lower-tail targets are both-negative.  The next proof target is not
+merely to exclude the both-negative quadrant; it must control its magnitude,
+its co-occurrence with complement, or a sharper subcone inside it.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

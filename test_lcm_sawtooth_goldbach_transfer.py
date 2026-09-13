@@ -40,6 +40,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_ap_discrepancy_proxy_receipt,
     q286_first_three_character_mixture_norm_receipt,
     q286_first_three_character_mode_coordinate_receipt,
+    q286_first_two_mode_sign_window_receipt,
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
@@ -1810,6 +1811,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_character_mode_coordinate_measured"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_two_mode_sign_window(self):
+        receipt = q286_first_two_mode_sign_window_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3, include_rows=True)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["first_three_negative_count"], 1)
+        self.assertEqual(receipt["first_three_tail_count"], 1)
+        self.assertEqual(receipt["first_three_tail_targets"], (1222142,))
+        self.assertEqual(receipt["first_two_both_negative_count"], 1)
+        self.assertEqual(
+            receipt["mode_1_2_sign_pair_counts"]["--"], 1)
+        row = receipt["rows"][1222142]
+        self.assertEqual(row["mode_1_2_sign_pair"], "--")
+        self.assertLess(row["mode_1_to_principal_ratio"], 0)
+        self.assertLess(row["mode_2_to_principal_ratio"], 0)
+        self.assertLess(row["first_three_to_principal_ratio"], -.3)
+        self.assertLess(row["mode_reconstruction_error"], 1e-9)
+        self.assertTrue(receipt["first_two_mode_sign_window_measured"])
+        self.assertFalse(receipt["eventual_mode_sign_pattern_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_selected_first_three_alignment(self):
