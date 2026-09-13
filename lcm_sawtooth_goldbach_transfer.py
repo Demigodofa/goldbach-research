@@ -6320,7 +6320,8 @@ def q286_leading_mode_period_envelope_receipt(
 
 def reduced_full_lower_envelope_receipt(
         start=10000, targets_per_cycle=501, q286_mode_count=6,
-        tolerance=1e-9, selected_targets=None):
+        tolerance=1e-9, selected_targets=None,
+        include_residue_weights=False):
     """Measure the full action with q286 replaced by leading modes plus tail."""
     if selected_targets is None:
         if type(start) is not int or start < 40 or start % 2:
@@ -6345,6 +6346,8 @@ def reduced_full_lower_envelope_receipt(
         raise ValueError("q286_mode_count must lie between 1 and 9")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_residue_weights) is not bool:
+        raise ValueError("include_residue_weights must be a boolean")
 
     coefficient = combined_fixed_strict_central_coefficient_receipt(
         tolerance=tolerance)
@@ -6445,6 +6448,14 @@ def reduced_full_lower_envelope_receipt(
                 weight = math.log(prime) * math.log(partner)
                 pairs.append((prime, weight))
                 total_weight += weight
+        residue_weight_rows = None
+        if include_residue_weights:
+            residue_weights = {}
+            for prime, weight in pairs:
+                residue = prime % period
+                residue_weights[residue] = (
+                    residue_weights.get(residue, 0.0) + weight)
+            residue_weight_rows = tuple(sorted(residue_weights.items()))
         principal_contribution = principal_mean * total_weight
         exact_non_q286_support = 0j
         q286_actual = 0j
@@ -6537,7 +6548,7 @@ def reduced_full_lower_envelope_receipt(
                 1.0, abs(full_action))
         maximum_reconstruction_error = max(
             maximum_reconstruction_error, reconstruction_error)
-        rows[target] = {
+        row = {
             "strict_central_interval": (lower, upper),
             "ordered_central_prime_pair_count": len(pairs),
             "total_prime_pair_weight": total_weight,
@@ -6585,6 +6596,9 @@ def reduced_full_lower_envelope_receipt(
                 else math.nan),
             "reconstruction_error": reconstruction_error,
         }
+        if include_residue_weights:
+            row["strict_central_residue_weight_rows"] = residue_weight_rows
+        rows[target] = row
 
     worst_full_target = min(
         targets, key=lambda target: rows[target][
@@ -6608,6 +6622,7 @@ def reduced_full_lower_envelope_receipt(
         "targets_per_cycle": targets_per_cycle,
         "selected_targets": (
             targets if selected_targets is not None else None),
+        "residue_weights_included": include_residue_weights,
         "q286_mode_count": q286_mode_count,
         "q286_singular_energy_fraction": support_data[(11, 13)][
             "q286_singular_energy_fraction"],
@@ -6782,7 +6797,8 @@ def reduced_full_lower_envelope_cycle_scan_receipt(
 
 def q286_first_two_mode_lower_tail_receipt(
         start=10000, cycle_count=4, targets_per_cycle=501,
-        tolerance=1e-9, selected_targets=None):
+        tolerance=1e-9, selected_targets=None,
+        include_residue_weights=False):
     """Measure how much of the reduced lower tail is explained by modes 1-2."""
     if selected_targets is None:
         if type(start) is not int or start < 40 or start % 2:
@@ -6801,11 +6817,14 @@ def q286_first_two_mode_lower_tail_receipt(
                 "selected_targets must be even integers at least 40")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_residue_weights) is not bool:
+        raise ValueError("include_residue_weights must be a boolean")
 
     if selected_targets is None:
         first = reduced_full_lower_envelope_receipt(
             start=start, targets_per_cycle=targets_per_cycle,
-            q286_mode_count=6, tolerance=tolerance)
+            q286_mode_count=6, tolerance=tolerance,
+            include_residue_weights=include_residue_weights)
         period = first["arithmetic_period"]
         full_rows = {0: first}
         targets = list(sorted(first["rows"]))
@@ -6813,13 +6832,15 @@ def q286_first_two_mode_lower_tail_receipt(
             receipt = reduced_full_lower_envelope_receipt(
                 start=start + cycle * period,
                 targets_per_cycle=targets_per_cycle,
-                q286_mode_count=6, tolerance=tolerance)
+                q286_mode_count=6, tolerance=tolerance,
+                include_residue_weights=include_residue_weights)
             full_rows[cycle] = receipt
             targets.extend(sorted(receipt["rows"]))
     else:
         first = reduced_full_lower_envelope_receipt(
             q286_mode_count=6, tolerance=tolerance,
-            selected_targets=selected_targets)
+            selected_targets=selected_targets,
+            include_residue_weights=include_residue_weights)
         period = first["arithmetic_period"]
         start = selected_targets[0]
         cycle_count = 1
@@ -6917,6 +6938,9 @@ def q286_first_two_mode_lower_tail_receipt(
                 "full_minus_reduced_to_principal_ratio": (
                     reduced_model_tail_gap),
             }
+            if include_residue_weights:
+                summary["strict_central_residue_weight_rows"] = full_row[
+                    "strict_central_residue_weight_rows"]
             global_rows[target] = summary
             if worst_first_two is None or first_two < worst_first_two[1]:
                 worst_first_two = (target, first_two, cycle)
@@ -6984,6 +7008,7 @@ def q286_first_two_mode_lower_tail_receipt(
         "targets_per_cycle": targets_per_cycle,
         "selected_targets": (
             tuple(targets) if selected_targets is not None else None),
+        "residue_weights_included": include_residue_weights,
         "tested_target_count": len(targets),
         "cycle_rows": cycle_rows,
         "rows": global_rows,
@@ -11084,7 +11109,8 @@ def _q286_lower_support_component_data(tolerance):
     }
 
 
-def _q286_lower_support_component_rows_for_targets(targets, tolerance=1e-9):
+def _q286_lower_support_component_rows_for_targets(
+        targets, tolerance=1e-9, residue_weight_rows_by_target=None):
     """Compute lower-support component rows without package/envelope receipts."""
     targets = tuple(dict.fromkeys(targets))
     if (not targets or any(type(target) is not int or target < 40
@@ -11092,6 +11118,12 @@ def _q286_lower_support_component_rows_for_targets(targets, tolerance=1e-9):
         raise ValueError("targets must be nonempty even integers at least 40")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if residue_weight_rows_by_target is not None:
+        missing = tuple(
+            target for target in targets
+            if target not in residue_weight_rows_by_target)
+        if missing:
+            raise ValueError("missing residue weights for selected targets")
 
     component_data = _q286_lower_support_component_data(tolerance)
     period = component_data["arithmetic_period"]
@@ -11099,20 +11131,27 @@ def _q286_lower_support_component_rows_for_targets(targets, tolerance=1e-9):
     principal_mean = component_data["principal_mean"]
     component_values = component_data["component_values"]
     unit_index = component_data["unit_index"]
-    primes = _prime_table(max(targets))
+    primes = (
+        None if residue_weight_rows_by_target is not None
+        else _prime_table(max(targets)))
 
     rows = {}
     for target in targets:
-        lower = target // 3
-        upper = target - lower
         weights = np.zeros(len(units), dtype=np.float64)
         total_weight = 0.0
-        for prime in range(max(2, lower + 1), min(target, upper)):
-            partner = target - prime
-            if primes[prime] and primes[partner]:
-                weight = math.log(prime) * math.log(partner)
-                weights[unit_index[prime % period]] += weight
+        if residue_weight_rows_by_target is not None:
+            for unit, weight in residue_weight_rows_by_target[target]:
+                weights[unit_index[unit]] += weight
                 total_weight += weight
+        else:
+            lower = target // 3
+            upper = target - lower
+            for prime in range(max(2, lower + 1), min(target, upper)):
+                partner = target - prime
+                if primes[prime] and primes[partner]:
+                    weight = math.log(prime) * math.log(partner)
+                    weights[unit_index[prime % period]] += weight
+                    total_weight += weight
         if total_weight <= tolerance:
             raise ArithmeticError("selected target has no strict-central mass")
         admissible_mask = np.asarray(tuple(
@@ -11326,7 +11365,8 @@ def q286_lower_support_component_pair_tail_window_receipt(
         subcone = None
         lower_tail = q286_first_two_mode_lower_tail_receipt(
             start=start, cycle_count=cycle_count,
-            targets_per_cycle=targets_per_cycle, tolerance=tolerance)
+            targets_per_cycle=targets_per_cycle, tolerance=tolerance,
+            include_residue_weights=True)
     else:
         subcone = None
         start = selected_targets[0]
@@ -11334,7 +11374,8 @@ def q286_lower_support_component_pair_tail_window_receipt(
         targets_per_cycle = len(selected_targets)
         lower_tail = q286_first_two_mode_lower_tail_receipt(
             selected_targets=selected_targets, targets_per_cycle=len(
-                selected_targets), tolerance=tolerance)
+                selected_targets), tolerance=tolerance,
+            include_residue_weights=True)
     tail_targets = tuple(
         target for target in sorted(lower_tail["rows"])
         if lower_tail["rows"][target][
@@ -11345,8 +11386,13 @@ def q286_lower_support_component_pair_tail_window_receipt(
     tested_target_count = lower_tail["tested_target_count"]
 
     if component_targets:
+        residue_weight_rows_by_target = {
+            target: lower_tail["rows"][target][
+                "strict_central_residue_weight_rows"]
+            for target in component_targets}
         component = _q286_lower_support_component_rows_for_targets(
-            component_targets, tolerance=tolerance)
+            component_targets, tolerance=tolerance,
+            residue_weight_rows_by_target=residue_weight_rows_by_target)
     else:
         component = None
 

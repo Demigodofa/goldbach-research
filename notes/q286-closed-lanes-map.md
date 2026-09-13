@@ -108,11 +108,15 @@ current comparison set.
    a second singular-mode target sweep.  The focused component-pair regression
    passed in `67.676s`, and the compact unselected window probe at `1222142`
    passed in `66.231s` with unchanged measured values.
-6. Run a broad finite window test of the component-pair theorem target only
-   after the remaining target-specific strict-central prime-pair and
-   residue-weight work is efficient enough to avoid spending compute on
-   repeated setup.
-7. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
+6. The component-pair receipt now opts into sparse strict-central
+   residue-weight rows from lower-tail, so lower-support component rows do not
+   run a second prime-pair sweep.  The focused component-pair regression passed
+   in `63.162s`; the unselected `1222142` probe passed in `68.886s` with
+   `1337` sparse residue-weight rows.
+7. A modest broader finite window test of the component-pair theorem target is
+   now more reasonable, but it remains a finite diagnostic and should be
+   bounded.
+8. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 
 ## Still open

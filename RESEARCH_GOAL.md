@@ -10045,3 +10045,55 @@ broad-scan cost is the target-specific strict-central prime-pair/residue-weight
 work in the reduced-envelope and lower-support component rows.  No eventual
 q286 theorem, signed prime-correlation estimate, RH statement, or Goldbach
 proof is established.
+
+### 2026-09-13 continuation: sparse residue-weight reuse
+
+The lower-tail route now has an opt-in sparse residue-weight payload.  When
+`include_residue_weights=True`, `reduced_full_lower_envelope_receipt` records
+the strict-central prime-pair log-weight by residue modulo `10010`, and
+`q286_first_two_mode_lower_tail_receipt` carries that row forward.  The
+component-pair receipt opts into this payload and passes it to
+`_q286_lower_support_component_rows_for_targets`, avoiding a second
+strict-central prime-pair sweep for the lower-support component rows.
+
+Default reduced-envelope and lower-tail receipts remain compact; the new
+payload is only included when explicitly requested.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 63.162s
+test_reduced_full_lower_envelope ... ok
+test_q286_first_two_mode_lower_tail ... ok
+Ran 2 tests in 66.328s
+```
+
+The compact unselected component-pair probe at `1222142` passed in
+`68.88616069999989s`; it confirmed `weights_included True`, `1337` sparse
+residue-weight rows, no simultaneous negative pair action, and unchanged
+measured first-two/first-three/full-action values up to floating-point
+roundoff:
+
+```text
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+weights_included True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.0010834080557930044, (7, 11): 0.014826359763802442}
+weight_row_count 1337
+```
+
+Status `engineering-validation`: this removes a duplicate target-specific
+strict-central sweep from the component-pair receipt.  Broad scans are still
+finite diagnostics, and the theorem target remains the signed pointwise
+arithmetic estimate preventing simultaneous strong negative `(5,7)` and
+`(7,11)` lower-support centered action on the active subcone.  Goldbach
+remains open.

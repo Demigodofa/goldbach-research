@@ -1256,6 +1256,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["targets_per_cycle"], 9)
         self.assertEqual(receipt["q286_mode_count"], 6)
         self.assertEqual(receipt["tested_target_count"], 9)
+        self.assertFalse(receipt["residue_weights_included"])
         self.assertIn((11, 13), receipt["support_order"])
         row = receipt["rows"][10000]
         self.assertEqual(len(row["q286_mode_rows"]), 6)
@@ -1302,6 +1303,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["cycle_count"], 1)
         self.assertEqual(receipt["targets_per_cycle"], 3)
         self.assertEqual(receipt["tested_target_count"], 3)
+        self.assertFalse(receipt["residue_weights_included"])
         self.assertEqual(receipt["selected_targets"], (10000, 10002, 10004))
         self.assertIn(10000, receipt["rows"])
         row = receipt["rows"][10000]
@@ -1706,9 +1708,14 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertIsNone(receipt[
             "source_subcone_complement_window_receipt"])
         self.assertIsNotNone(receipt["source_lower_tail_receipt"])
+        self.assertTrue(receipt["source_lower_tail_receipt"][
+            "residue_weights_included"])
         row = receipt["rows"][1222142]
         self.assertIsNone(row["source_subcone_row"])
         self.assertIsNotNone(row["source_lower_tail_row"])
+        self.assertIn(
+            "strict_central_residue_weight_rows",
+            row["source_lower_tail_row"])
         self.assertTrue(row["rescued_by_full_complement"])
         self.assertGreater(
             row["component_centered_actions_to_principal_ratio"][(7, 11)],

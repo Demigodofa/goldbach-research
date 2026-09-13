@@ -18538,6 +18538,53 @@ checked fixture by removing a duplicate q286 singular-mode sweep.  The
 remaining broad-scan cost is target-specific strict-central prime-pair and
 residue-weight work.  The theorem target and Goldbach remain open.
 
+### 2026-09-13 continuation: sparse residue weights reused by components
+
+`reduced_full_lower_envelope_receipt` and
+`q286_first_two_mode_lower_tail_receipt` now accept
+`include_residue_weights`.  The default is `False`, preserving compact receipt
+rows.  `q286_lower_support_component_pair_tail_window_receipt` opts in, so its
+lower-support component rows reuse the strict-central residue weights already
+computed by the lower-tail path instead of running a second prime-pair sweep.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 63.162s
+test_reduced_full_lower_envelope ... ok
+test_q286_first_two_mode_lower_tail ... ok
+Ran 2 tests in 66.328s
+```
+
+Unselected component-pair smoke probe at `1222142`:
+
+```text
+elapsed 68.88616069999989
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+weights_included True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.0010834080557930044, (7, 11): 0.014826359763802442}
+source_subcone False
+source_lower_tail True
+weight_row_count 1337
+```
+
+Status: engineering-plus-validation only.  This removes another duplicate
+target-specific sweep from the component-pair receipt.  It does not prove the
+component-pair theorem, a signed prime-correlation estimate, RH, or Goldbach.
+Next useful step: either run a modest broader component-pair window now that
+one-target checks are around one minute, or attempt the proof/reduction for
+the signed `(5,7)` / `(7,11)` pointwise estimate.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
