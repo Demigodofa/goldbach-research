@@ -55,6 +55,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_weighted_discrepancy_norm_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
+    q286_selected_alignment_complement_certificate_receipt,
     q286_first_three_tail_hit_residue_profile_receipt,
     q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
@@ -1799,6 +1800,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_tail_alignment_window_measured"])
         self.assertFalse(receipt["eventual_alignment_ceiling_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_selected_alignment_complement_certificate(self):
+        receipt = q286_selected_alignment_complement_certificate_receipt(
+            targets=(14138, 3305200), alignment_ceiling=.4)
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertIn(14138, receipt["failed_certificate_targets"])
+        self.assertIn(3305200, receipt["certified_targets"])
+        self.assertIn(14138, receipt["actual_negative_targets"])
+        self.assertGreater(receipt["target_rows"][3305200][
+            "certificate_margin_to_principal"], 0)
+        self.assertLess(receipt["target_rows"][14138][
+            "certificate_margin_to_principal"], 0)
+        self.assertTrue(receipt[
+            "alignment_complement_certificate_measured"])
+        self.assertFalse(receipt["eventual_complement_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_tail_hit_residue_profile(self):

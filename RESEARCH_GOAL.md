@@ -9640,3 +9640,24 @@ The maxima were:
 Status `survived-near-tail-falsifier`: `.4` survives the checked `.2`
 near-tail windows as well as the `.3` tail windows.  This is finite evidence
 only and not an eventual theorem.
+
+### 2026-09-13 continuation: alignment/complement certificate split
+
+The route now has a selected-target complement certificate:
+`q286_selected_alignment_complement_certificate_receipt`.  It checks whether
+the measured complement beats `.4 * l2_bound`, which would certify positivity
+under a future `.4` alignment theorem.
+
+Validation: `py_compile` passed, and
+`test_q286_selected_alignment_complement_certificate` passed in `85.218s`.
+
+On selected targets `14138,70526,1379072,1426262,3305200`, the certificate
+passes all except `14138`.  The failed target is also the actual full-negative
+boundary target:
+
+`complement 0.018073313793834367`, `.4*l2_bound 1.9956301199132718`, margin
+`-1.9775568061194373`.
+
+Status `route-split`: a future proof should treat early boundary/full-negative
+cases separately, then seek an eventual complement-vs-alignment bound for the
+later regime.

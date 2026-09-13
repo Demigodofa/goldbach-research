@@ -3347,3 +3347,66 @@ Status `survived-near-tail-falsifier`: the `.4` alignment ceiling survives
 the checked post-136 `.2` near-tail windows.  This broadens the finite pattern
 from deep `.3` tails to shallower near-tail values, but still proves no
 eventual alignment theorem.
+
+## 2026-09-13: alignment/complement certificate split
+
+Added `q286_selected_alignment_complement_certificate_receipt`, which compares
+the measured complement `full_without_first_three` against the sufficient
+bound `alignment_ceiling * l2_bound`.  If a future theorem proves
+`first_three >= -alignment_ceiling * l2_bound`, then targets with positive
+certificate margin are certified positive by complement plus alignment.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_alignment_complement_certificate ... ok
+Ran 1 test in 85.218s
+```
+
+Default selected set with alignment ceiling `.4`:
+
+```text
+tested: 5
+certified: 70526, 1379072, 1426262, 3305200
+failed certificate: 14138
+actual full-negative: 14138
+
+14138:
+  first_three -0.8950145872346785
+  complement 0.018073313793834367
+  .4 * l2_bound 1.9956301199132718
+  certificate margin -1.9775568061194373
+  full -0.8769412734408442
+
+70526:
+  first_three -0.7650482510196677
+  complement 1.5026821577282998
+  .4 * l2_bound 0.8216743191251766
+  certificate margin 0.6810078386031232
+
+1379072:
+  first_three -0.3394138842129011
+  complement 1.284412751390588
+  .4 * l2_bound 0.35367347212688816
+  certificate margin 0.9307392792636999
+
+1426262:
+  first_three -0.253372013706637
+  complement 1.1735385116259511
+  .4 * l2_bound 0.2643960375051783
+  certificate margin 0.9091424741207728
+
+3305200:
+  first_three -0.14018011556710225
+  complement 1.0529616444361518
+  .4 * l2_bound 0.1497982165760971
+  certificate margin 0.9031634278600547
+```
+
+Status `route-split`: the combined alignment/complement sufficient condition
+works on later alignment-stress targets but fails at the boundary target
+`14138`, which is actually full-negative.  The surviving proof route must
+split boundary/full-negative cases from an eventual complement-vs-alignment
+bound; it cannot be a single global complement floor paired with `.4`
+alignment.

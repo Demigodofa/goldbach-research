@@ -11419,6 +11419,109 @@ def q286_first_three_tail_alignment_window_receipt(
     }
 
 
+def q286_selected_alignment_complement_certificate_receipt(
+        targets=(14138, 70526, 1379072, 1426262, 3305200),
+        theorem_threshold=.2, alignment_ceiling=.4, tolerance=1e-9):
+    """Compare complement margins with the q286 alignment-bound target.
+
+    If an alignment theorem gave
+    ``first_three >= -alignment_ceiling * l2_bound``, then targets with
+    ``complement > alignment_ceiling * l2_bound`` would be positive after
+    recombination.  This finite diagnostic measures that sufficient condition
+    on selected targets and records failures as theorem-shaping obstructions.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(alignment_ceiling) or alignment_ceiling <= 0:
+        raise ValueError("alignment_ceiling must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    alignment = q286_selected_first_three_alignment_receipt(
+        targets=targets, theorem_threshold=theorem_threshold,
+        alignment_ceiling=alignment_ceiling, tolerance=tolerance)
+    lower = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets, targets_per_cycle=len(targets),
+        tolerance=tolerance)
+
+    target_rows = {}
+    certified_targets = []
+    failed_targets = []
+    actual_negative_targets = []
+    worst_certificate_margin_row = None
+    for target in targets:
+        alignment_row = alignment["target_rows"][target]
+        lower_row = lower["rows"][target]
+        first_three = lower_row["first_three_modes_to_principal_ratio"]
+        if abs(first_three - alignment_row[
+                "first_three_to_principal_ratio"]) > 1e-8:
+            raise ArithmeticError("alignment/lower first-three mismatch")
+        complement = lower_row["full_without_first_three_to_principal_ratio"]
+        full = lower_row["full_action_to_principal_ratio"]
+        recombined = first_three + complement
+        if abs(recombined - full) > 1e-8:
+            raise ArithmeticError("first-three/complement recombination failed")
+        alignment_bound = (
+            alignment_ceiling * alignment_row["l2_bound_to_principal"])
+        certificate_margin = complement - alignment_bound
+        row = {
+            "target": target,
+            "first_three_to_principal_ratio": first_three,
+            "complement_to_principal_ratio": complement,
+            "full_action_to_principal_ratio": full,
+            "l2_bound_to_principal": alignment_row[
+                "l2_bound_to_principal"],
+            "alignment_ceiling_bound_to_principal": alignment_bound,
+            "certificate_margin_to_principal": certificate_margin,
+            "certified_positive_by_alignment_complement": bool(
+                certificate_margin > tolerance),
+            "actual_full_action_positive": bool(full > tolerance),
+            "l2_negative_bound_utilization": alignment_row[
+                "l2_negative_bound_utilization"],
+            "l2_to_sufficient_ratio": alignment_row[
+                "l2_to_sufficient_ratio"],
+        }
+        target_rows[target] = row
+        if row["certified_positive_by_alignment_complement"]:
+            certified_targets.append(target)
+        else:
+            failed_targets.append(target)
+        if not row["actual_full_action_positive"]:
+            actual_negative_targets.append(target)
+        if (worst_certificate_margin_row is None
+                or certificate_margin
+                < worst_certificate_margin_row[
+                    "certificate_margin_to_principal"]):
+            worst_certificate_margin_row = row
+
+    return {
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "theorem_threshold": theorem_threshold,
+        "alignment_ceiling": alignment_ceiling,
+        "target_rows": target_rows,
+        "certified_target_count": len(certified_targets),
+        "certified_targets": tuple(certified_targets),
+        "failed_certificate_target_count": len(failed_targets),
+        "failed_certificate_targets": tuple(failed_targets),
+        "actual_negative_target_count": len(actual_negative_targets),
+        "actual_negative_targets": tuple(actual_negative_targets),
+        "worst_certificate_margin_row": worst_certificate_margin_row,
+        "source_alignment_receipt": alignment,
+        "source_lower_tail_receipt": lower,
+        "alignment_complement_certificate_measured": True,
+        "eventual_alignment_ceiling_proved": False,
+        "eventual_complement_bound_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_hit_residue_profile_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3,), tolerance=1e-9):

@@ -18087,6 +18087,39 @@ Interpretation: `.4` now survives the checked `.2` near-tail windows after
 cycle `136`, not just the `.3` tail windows.  This strengthens the finite
 alignment pattern but remains finite evidence only.
 
+## 2026-09-13 continuation: alignment/complement certificate split
+
+New code:
+
+- `q286_selected_alignment_complement_certificate_receipt`
+- focused regression `test_q286_selected_alignment_complement_certificate`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_alignment_complement_certificate ... ok
+Ran 1 test in 85.218s
+```
+
+Default selected set, alignment ceiling `.4`:
+
+```text
+tested 5
+certified by complement > .4*l2_bound: 70526, 1379072, 1426262, 3305200
+failed certificate: 14138
+actual full-negative: 14138
+worst margin at 14138:
+  complement 0.018073313793834367
+  .4*l2_bound 1.9956301199132718
+  margin -1.9775568061194373
+```
+
+Interpretation: alignment plus complement works on later stress targets but
+not on the early boundary target `14138`, which is genuinely full-negative.
+Next instruction: theorem route should split boundary/full-negative cases from
+an eventual complement-vs-alignment bound.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
