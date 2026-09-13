@@ -2632,3 +2632,26 @@ Status `engineering-plus-evidence`: the selected-tail rescue hypothesis is not
 stress-tested by this block because there are no selected tail targets, but the
 absence result is now much cheaper to extend.  This remains finite evidence
 only; it is not a Goldbach proof or an eventual tail theorem.
+
+## 2026-09-13: cycles 169 through 200 remain tail-free
+
+The accelerated mode-only scanner was then applied to the next full 32-cycle
+block, global cycles `169..200`.  Every cycle was tail-free at threshold `.3`;
+there were no selected targets requiring complement rescue-floor checks.
+
+```text
+cycles 169..176: no .3 tail hits; block minimum cycle 170,
+  target 1714286, first_three -0.2244238458552083
+cycles 177..184: no .3 tail hits; block minimum cycle 180,
+  target 1817576, first_three -0.24578791073619177
+cycles 185..192: no .3 tail hits; block minimum cycle 187,
+  target 1890178, first_three -0.23662242439894973
+cycles 193..200: no .3 tail hits; block minimum cycle 197,
+  target 1991786, first_three -0.19098821755917464
+```
+
+Status `finite-tail-absence-evidence`: after sparse recurrences through cycle
+`136`, the checked window `137..200` has no `.3` first-three tail hits.  This
+does not prove eventual disappearance; it does make the next falsifier cheaper:
+continue fast tail scans and apply the expensive rescue-floor receipt only to
+nonempty selected-tail cycles.

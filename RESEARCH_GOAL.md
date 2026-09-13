@@ -9271,3 +9271,15 @@ Status `engineering-plus-evidence`: this improves the scanner and extends
 finite tail-absence evidence, but it does not prove tail disappearance,
 selected-tail rescue, Goldbach, RH, or any pointwise signed-correlation
 estimate.
+
+### 2026-09-13 continuation: cycles 169 through 200 remain tail-free
+
+The accelerated mode-only scanner was applied to global cycles `169..200`.
+All 32 cycles are tail-free at threshold `.3`, so no complement rescue-floor
+check was required.  Block minima were: cycle `170`,
+`-0.2244238458552083`; cycle `180`, `-0.24578791073619177`; cycle `187`,
+`-0.23662242439894973`; and cycle `197`, `-0.19098821755917464`.
+
+Status `finite-tail-absence-evidence`: checked cycles `137..200` are now
+tail-free after the sparse selected-tail recurrences through cycle `136`.
+This remains finite evidence only and does not prove eventual disappearance.

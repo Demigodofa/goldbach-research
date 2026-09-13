@@ -17555,6 +17555,26 @@ Do not overclaim: this is finite scanner/evidence progress only.  Goldbach,
 RH, selected-tail rescue as a theorem, and pointwise signed prime-correlation
 control remain open.
 
+## 2026-09-13 continuation: cycles 169 through 200 remain tail-free
+
+Using the fast mode-only scanner from commit `57fd994`, global cycles
+`169..200` were scanned in four 8-cycle workers.  Every cycle was tail-free at
+threshold `.3`; no rescue-floor check was needed.
+
+Block minima:
+
+```text
+169..176: cycle 170, target 1714286, first_three -0.2244238458552083
+177..184: cycle 180, target 1817576, first_three -0.24578791073619177
+185..192: cycle 187, target 1890178, first_three -0.23662242439894973
+193..200: cycle 197, target 1991786, first_three -0.19098821755917464
+```
+
+Current interpretation: sparse selected-tail recurrences were seen through
+cycle `136`; checked cycles `137..200` are tail-free.  This is finite evidence
+only.  Continue with the fast scanner for tail detection, and run the expensive
+rescue-floor receipt only on nonempty cycles.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
