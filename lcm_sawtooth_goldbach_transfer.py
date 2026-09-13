@@ -10685,9 +10685,10 @@ def _q286_first_three_mode_linear_data(tolerance):
     }
 
 
-def q286_first_three_tail_mode_only_fast_horizon_receipt(
+def _q286_first_three_tail_fast_scan_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
-        negative_tail_thresholds=(.3,), tolerance=1e-9):
+        negative_tail_thresholds=(.3,), tolerance=1e-9,
+        include_rows=True):
     """Accelerated q286 first-three tail scanner.
 
     This receipt measures the same first-three singular-mode ratio as
@@ -10711,6 +10712,8 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
             "negative_tail_thresholds must be positive finite numbers")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
 
     period = 10010
     maximum_target = (
@@ -10731,7 +10734,7 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
     admissible_counts = data["admissible_counts"]
     unit_count = len(data["units"])
 
-    rows = {}
+    rows = {} if include_rows else None
     cycle_rows = {}
     global_minimum = None
     threshold_targets = {
@@ -10777,10 +10780,11 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
                     (linear_coefficients @ weight_delta).real / principal)
             else:
                 first_three = math.nan
-            rows[target] = {
-                "cycle": cycle,
-                "first_three_modes_to_principal_ratio": first_three,
-            }
+            if include_rows:
+                rows[target] = {
+                    "cycle": cycle,
+                    "first_three_modes_to_principal_ratio": first_three,
+                }
             if (cycle_minimum is None
                     or first_three < cycle_minimum[1]):
                 cycle_minimum = (target, first_three)
@@ -10826,7 +10830,8 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
         "tested_target_count": cycle_count * targets_per_cycle,
         "cycle_rows": cycle_rows,
         "threshold_rows": threshold_rows,
-        "rows": rows,
+        "rows": rows if include_rows else {},
+        "target_rows_included": include_rows,
         "global_minimum_first_three_cycle": global_minimum[0],
         "global_minimum_first_three_target": global_minimum[1],
         "global_minimum_first_three_to_principal_ratio": global_minimum[2],
@@ -10838,6 +10843,17 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }
+
+
+def q286_first_three_tail_mode_only_fast_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3,), tolerance=1e-9):
+    """Accelerated q286 first-three tail scanner with per-target rows."""
+    return _q286_first_three_tail_fast_scan_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=negative_tail_thresholds,
+        tolerance=tolerance, include_rows=True)
 
 
 def q286_first_three_tail_hit_residue_profile_receipt(
@@ -10975,11 +10991,11 @@ def q286_first_three_tail_threshold_ladder_receipt(
     """
     if type(block_size) is not int or block_size < 1:
         raise ValueError("block_size must be a positive integer")
-    horizon = q286_first_three_tail_mode_only_fast_horizon_receipt(
+    horizon = _q286_first_three_tail_fast_scan_receipt(
         start=start, cycle_count=cycle_count,
         targets_per_cycle=targets_per_cycle,
         negative_tail_thresholds=negative_tail_thresholds,
-        tolerance=tolerance)
+        tolerance=tolerance, include_rows=False)
     period = horizon["arithmetic_period"]
     aligned_global_cycle_base = (
         (start - 10000) // period

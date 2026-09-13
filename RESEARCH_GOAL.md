@@ -9393,3 +9393,18 @@ confirmation should use narrower blocks or optimize the summary path.
 
 Status `tooling`: the staged damping question is now executable as a receipt,
 not just prose.  Still no eventual theorem.
+
+### 2026-09-13 continuation: threshold-ladder summary path
+
+The threshold-ladder receipt now uses a summary mode of the validated fast
+scanner and does not retain per-target rows.  Public fast-horizon calls remain
+rowful for equivalence checks and downstream residue diagnostics.
+
+Validation: `py_compile` passed, and the focused bundle
+`test_q286_first_three_tail_mode_only_fast_horizon`,
+`test_q286_first_three_tail_hit_residue_profile`, and
+`test_q286_first_three_tail_threshold_ladder` passed in `82.235s`.
+
+Status `engineering`: this makes larger near-tail ladder probes cheaper and
+safer to run, but it is not new theorem evidence and proves no eventual q286
+tail bound.

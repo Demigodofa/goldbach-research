@@ -2851,3 +2851,26 @@ use narrower blocks or an optimized summary-only path.
 Status `tooling`: near-tail threshold ladders are now reproducible, but the
 receipt is still a finite diagnostic.  It proves no eventual envelope and no
 Goldbach theorem.
+
+## 2026-09-13: threshold-ladder summary path
+
+The accelerated first-three tail scanner now has a private summary mode used
+by `q286_first_three_tail_threshold_ladder_receipt`.  Public calls to
+`q286_first_three_tail_mode_only_fast_horizon_receipt` still retain per-target
+rows for equivalence checks and residue profiling; the threshold ladder uses
+the same scan but returns an empty `rows` payload with
+`target_rows_included=False`.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 3 tests in 82.235s
+```
+
+Status `tooling`: this removes avoidable row retention from long ladder
+probes and preserves rowful diagnostics where they are semantically required.
+It is not new finite evidence and proves no eventual q286 tail bound.

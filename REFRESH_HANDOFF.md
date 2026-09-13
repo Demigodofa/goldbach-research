@@ -17751,6 +17751,28 @@ probe.  Existing committed per-cycle minima already imply those cycles stay
 above `-.2`; future ladder confirmation should use narrower blocks or a
 summary-only optimization.
 
+## 2026-09-13 continuation: threshold-ladder summary path
+
+Implemented the summary-only optimization anticipated above.  The shared
+fast scanner now has a private `include_rows` switch.  Public fast-horizon
+calls still include per-target rows, while
+`q286_first_three_tail_threshold_ladder_receipt` uses `include_rows=False` and
+records `target_rows_included=False`.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 3 tests in 82.235s
+```
+
+Next instruction: if extending the near-tail ladder past cycle `264`, prefer
+bounded summary-mode blocks first.  Use rowful public fast-horizon calls only
+when a downstream diagnostic needs individual target rows.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -1757,6 +1757,9 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["strongest_cleared_threshold"], .4)
         self.assertEqual(receipt["block_rows"][0][
             "threshold_counts"], {.2: 1, .3: 1, .4: 0})
+        self.assertFalse(receipt["source_fast_horizon_receipt"][
+            "target_rows_included"])
+        self.assertEqual(receipt["source_fast_horizon_receipt"]["rows"], {})
         self.assertEqual(receipt["global_minimum_first_three_target"], 1222142)
         self.assertLess(
             receipt["global_minimum_first_three_to_principal_ratio"], -.3)
