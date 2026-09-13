@@ -347,6 +347,83 @@ shows the later stress targets are far less extreme than the boundary target.
 The next proof step should seek coefficient-specific anti-alignment or sharper
 structure inside the 99-character vector, not just a norm bound.
 
+## Rank-three mode-coordinate receipt
+
+Added `q286_first_three_character_mode_coordinate_receipt`, which projects the
+same character imbalance matrix onto the three singular directions that define
+the first-three q286 term.  This asks whether the bad first-three values come
+from cancellation among singular modes, concentration in one mode, or
+simultaneous same-sign alignment.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_character_mode_coordinate ... ok
+Ran 1 test in 50.160s
+```
+
+Selected stress targets:
+
+```text
+tested 6
+singular values:
+  158279.09383760378
+  124234.1882436279
+  21476.920434701242
+negative targets: 14138, 70526, 1222142, 1379072, 1426262, 3305200
+maximum reconstruction error: 1.1102230246251565e-16
+
+target 14138:
+  first_three -0.8950145872346784
+  mode contributions -0.7383529526655386, -0.13155029388256384,
+    -0.02511134068657604
+  signed/absolute mode ratio -1.0
+  dominant mode fraction 0.8249619203937485
+
+target 70526:
+  first_three -0.7650482510196676
+  mode contributions -0.4882443383845197, -0.260660187249593,
+    -0.01614372538555499
+  signed/absolute mode ratio -1.0
+  dominant mode fraction 0.6381876407583187
+
+target 1222142:
+  first_three -0.3075877603708801
+  mode contributions -0.22694130852262354, -0.08189187103790489,
+    0.001245419189648385
+  signed/absolute mode ratio -0.9919670741891364
+  dominant mode fraction 0.7318831723225921
+
+target 1379072:
+  first_three -0.3394138842129011
+  mode contributions -0.23221136500828965, -0.10194070347745057,
+    -0.005261815727160882
+  signed/absolute mode ratio -1.0
+  dominant mode fraction 0.6841539954877995
+
+target 1426262:
+  first_three -0.253372013706637
+  mode contributions -0.13179225910057582, -0.11650829500771827,
+    -0.005071459598342889
+  signed/absolute mode ratio -1.0
+  dominant mode fraction 0.5201531817684076
+
+target 3305200:
+  first_three -0.14018011556710222
+  mode contributions -0.07970742851734132, -0.05927349533586453,
+    -0.0011991917138964123
+  signed/absolute mode ratio -1.0
+  dominant mode fraction 0.5686072392998314
+```
+
+Status `falsifier`: the selected bad values are not being rescued by
+cancellation among the three singular modes.  The first two modes are
+simultaneously negative and dominate the first-three term; mode 3 is small.
+The next theorem target should therefore control simultaneous negative
+alignment of the first two q286 singular coordinates, not hope for an internal
+rank-three cancellation principle.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

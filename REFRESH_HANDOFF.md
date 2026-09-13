@@ -18216,17 +18216,27 @@ falsifies the idea that the raw 99-character norm bound alone is already
 strong enough on selected stress targets, while preserving the exact
 character-mixture theorem target.
 
+New code also measures the rank-three singular-mode coordinates directly:
+`q286_first_three_character_mode_coordinate_receipt`, with focused regression
+`test_q286_first_three_character_mode_coordinate` passing in `50.160s`.
+On the same selected stress targets, the three mode contributions are almost
+all same-sign negative.  Signed/absolute mode ratios are `-1` except
+`1222142`, which is `-0.9919670741891364`; mode 3 is small.  Thus the bad
+values are not an internal cancellation problem in the rank-three truncation.
+The next target is simultaneous negative alignment of the first two singular
+coordinates.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: seek coefficient-specific
-   anti-alignment or internal structure inside the 99-character vector, rather
-   than a raw norm bound alone; alternatively identify the minimal external
-   twisted binary-prime theorem that would imply it.  Do not spend large
-   compute on support-only or max-discrepancy routes already ruled out by the
-   obstruction.
+3. Then attempt the theorem route directly: seek a mechanism or bound for
+   simultaneous negative alignment of q286 singular modes 1 and 2, or identify
+   the minimal external twisted binary-prime theorem that would imply it.  Do
+   not spend large compute on support-only, max-discrepancy, raw 99-character
+   norm, or hoped-for rank-three cancellation routes already ruled out by the
+   diagnostics.
 
 ## Temporary wake note — continuity discussion
 

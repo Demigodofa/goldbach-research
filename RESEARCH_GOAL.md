@@ -94,6 +94,15 @@ The next theorem target is therefore coefficient-specific anti-alignment or
 internal structure inside the 99-character vector, not a raw norm estimate
 alone.
 
+`q286_first_three_character_mode_coordinate_receipt` now measures the
+rank-three singular coordinates themselves.  Validation passed with focused
+test `test_q286_first_three_character_mode_coordinate` in `50.160s`.  On the
+same selected stress targets, the three singular-mode contributions are almost
+all same-sign negative; signed/absolute mode ratios are `-1` except
+`1222142`, which is `-0.9919670741891364`, and mode 3 is small.  This
+falsifies an internal rank-three cancellation explanation.  The next theorem
+target is simultaneous negative alignment of q286 singular modes 1 and 2.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

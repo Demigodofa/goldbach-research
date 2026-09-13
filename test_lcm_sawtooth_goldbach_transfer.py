@@ -39,6 +39,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_singular_mode_contribution_receipt,
     q286_first_three_ap_discrepancy_proxy_receipt,
     q286_first_three_character_mixture_norm_receipt,
+    q286_first_three_character_mode_coordinate_receipt,
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
@@ -1786,6 +1787,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["character_coefficient_l2_to_principal_mean"])
         self.assertTrue(receipt[
             "first_three_character_mixture_norm_measured"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_character_mode_coordinate(self):
+        receipt = q286_first_three_character_mode_coordinate_receipt(
+            targets=(1222142,))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["negative_targets"], (1222142,))
+        row = receipt["rows"][1222142]
+        self.assertLess(row["first_three_to_principal_ratio"], -.3)
+        self.assertEqual(len(row["mode_rows"]), 3)
+        self.assertLess(row["mode_reconstruction_error"], 1e-9)
+        self.assertGreater(
+            row["mode_contribution_absolute_sum_to_principal"],
+            abs(row["first_three_to_principal_ratio"]))
+        self.assertLess(
+            row["signed_to_absolute_mode_contribution_ratio"], 0)
+        self.assertGreaterEqual(row["dominant_mode_absolute_fraction"], 1 / 3)
+        self.assertTrue(receipt[
+            "first_three_character_mode_coordinate_measured"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])

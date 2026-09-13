@@ -7472,6 +7472,183 @@ def q286_first_three_character_mixture_norm_receipt(
     }
 
 
+def q286_first_three_character_mode_coordinate_receipt(
+        targets=(14138, 70526, 1222142, 1379072, 1426262, 3305200),
+        tolerance=1e-9):
+    """Decompose the first-three q286 character mixture by singular mode.
+
+    This finite diagnostic measures the three coordinates that actually enter
+    the rank-three first-three character mixture.  It is aimed at detecting
+    coefficient-specific sign structure after the raw 99-character norm bound
+    proved too blunt.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = float(complex(np.mean(aggregate_values)).real)
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    rank_three_matrix = (
+        (left[:, :3] * singular_values[:3]) @ right[:3, :])
+    singular_bases = tuple(
+        np.outer(left[:, index], right[index, :])
+        for index in range(3))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    negative_targets = []
+    maximum_mode_absolute_sum_row = None
+    minimum_signed_to_absolute_row = None
+    maximum_dominant_mode_fraction_row = None
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                weights[unit_index[prime % modulus]] += weight
+                total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - mean_weight
+        character_imbalance = (
+            character_table @ delta).reshape(10, 12)[1:, 1:]
+        first_three = complex(np.sum(rank_three_matrix * character_imbalance))
+        principal = principal_mean * total_weight
+        mode_rows = []
+        contribution_sum = 0.0
+        contribution_abs_sum = 0.0
+        positive_sum = 0.0
+        negative_sum = 0.0
+        for index, basis in enumerate(singular_bases):
+            coordinate = complex(np.sum(basis * character_imbalance))
+            contribution = singular_values[index] * coordinate
+            contribution_ratio = float(contribution.real / principal)
+            abs_ratio = abs(contribution_ratio)
+            contribution_sum += contribution_ratio
+            contribution_abs_sum += abs_ratio
+            if contribution_ratio > 0:
+                positive_sum += contribution_ratio
+            if contribution_ratio < 0:
+                negative_sum += contribution_ratio
+            mode_rows.append({
+                "mode_index": index + 1,
+                "singular_value": float(singular_values[index]),
+                "character_coordinate": complex(coordinate),
+                "character_coordinate_abs_relative": float(
+                    abs(coordinate) / total_weight),
+                "contribution_to_principal_ratio": contribution_ratio,
+                "absolute_contribution_to_principal_ratio": abs_ratio,
+            })
+        reconstruction_error = abs(
+            contribution_sum - first_three.real / principal) / max(
+                1.0, abs(first_three.real / principal))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        first_three_ratio = float(first_three.real / principal)
+        signed_to_absolute = (
+            first_three_ratio / contribution_abs_sum
+            if contribution_abs_sum > tolerance else math.nan)
+        dominant_mode_fraction = (
+            max(row["absolute_contribution_to_principal_ratio"]
+                for row in mode_rows) / contribution_abs_sum
+            if contribution_abs_sum > tolerance else math.nan)
+        row = {
+            "target": target,
+            "strict_central_interval": (lower, upper),
+            "target_mod_286": target % modulus,
+            "admissible_residue_count": admissible_count,
+            "total_prime_pair_weight": total_weight,
+            "first_three_to_principal_ratio": first_three_ratio,
+            "mode_rows": tuple(mode_rows),
+            "mode_contribution_absolute_sum_to_principal": (
+                contribution_abs_sum),
+            "positive_mode_contribution_to_principal": positive_sum,
+            "negative_mode_contribution_to_principal": negative_sum,
+            "signed_to_absolute_mode_contribution_ratio": signed_to_absolute,
+            "dominant_mode_absolute_fraction": dominant_mode_fraction,
+            "mode_reconstruction_error": reconstruction_error,
+        }
+        rows[target] = row
+        if first_three_ratio < 0:
+            negative_targets.append(target)
+        if (maximum_mode_absolute_sum_row is None
+                or contribution_abs_sum
+                > maximum_mode_absolute_sum_row[
+                    "mode_contribution_absolute_sum_to_principal"]):
+            maximum_mode_absolute_sum_row = row
+        if (minimum_signed_to_absolute_row is None
+                or signed_to_absolute
+                < minimum_signed_to_absolute_row[
+                    "signed_to_absolute_mode_contribution_ratio"]):
+            minimum_signed_to_absolute_row = row
+        if (maximum_dominant_mode_fraction_row is None
+                or dominant_mode_fraction
+                > maximum_dominant_mode_fraction_row[
+                    "dominant_mode_absolute_fraction"]):
+            maximum_dominant_mode_fraction_row = row
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": modulus,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "first_three_singular_values": tuple(
+            float(value) for value in singular_values[:3]),
+        "rows": rows,
+        "negative_target_count": len(negative_targets),
+        "negative_targets": tuple(negative_targets),
+        "maximum_mode_absolute_sum_row": maximum_mode_absolute_sum_row,
+        "minimum_signed_to_absolute_mode_contribution_row": (
+            minimum_signed_to_absolute_row),
+        "maximum_dominant_mode_fraction_row": (
+            maximum_dominant_mode_fraction_row),
+        "maximum_mode_reconstruction_error": maximum_reconstruction_error,
+        "first_three_character_mode_coordinate_measured": True,
+        "pointwise_character_sum_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_full_negative_driver_receipt(
         start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
         top_count=8, tolerance=1e-9):
