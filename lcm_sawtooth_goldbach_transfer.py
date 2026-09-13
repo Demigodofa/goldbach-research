@@ -10860,6 +10860,153 @@ def q286_lower_support_package_support_only_obstruction_receipt(
     }
 
 
+def q286_lower_support_package_local_discrepancy_receipt(
+        targets=(10664, 14138, 1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Compare the lower-support package with its local admissible mean.
+
+    This receipt rewrites ``H/P`` as a local admissible mean plus a centered
+    fixed-modulus residue-weight discrepancy.  It measures the L2 discrepancy
+    threshold that would make a raw Cauchy proof sufficient.  It is finite
+    evidence only and proves no pointwise estimate.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    principal_mean = float(complex(np.mean(aggregate_values)).real)
+    centered_values = aggregate_values - principal_mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered_values / len(units))
+    factor_primes = (5, 7, 11, 13)
+    lower_support_coefficients = np.zeros_like(character_coefficients)
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        if support and support != (11, 13):
+            lower_support_coefficients[index] = character_coefficients[index]
+    lower_support_values = character_table.T @ lower_support_coefficients
+
+    package = q286_subcone_lower_support_package_receipt(
+        targets=targets, first_two_threshold=first_two_threshold,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                weights[unit_index[prime % period]] += weight
+                total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        local_mean = float(np.mean(
+            lower_support_values[admissible_mask].real))
+        local_ratio = local_mean / principal_mean
+        centered_coefficient = np.zeros(len(units), dtype=np.float64)
+        centered_coefficient[admissible_mask] = (
+            lower_support_values[admissible_mask].real - local_mean)
+        uniform_weight = total_weight / admissible_count
+        weight_discrepancy = np.zeros(len(units), dtype=np.float64)
+        weight_discrepancy[admissible_mask] = (
+            weights[admissible_mask] - uniform_weight)
+        principal = principal_mean * total_weight
+        actual_lower_support = float(np.dot(
+            lower_support_values.real, weights))
+        centered_action = float(np.dot(
+            centered_coefficient, weight_discrepancy))
+        row = package["rows"][target]
+        required = row["required_lower_support_package_to_rescue"]
+        coefficient_l2_ratio = (
+            float(np.linalg.norm(centered_coefficient)) / principal_mean)
+        actual_l2_relative_discrepancy = (
+            float(np.linalg.norm(weight_discrepancy)) / total_weight)
+        cauchy_bound = (
+            coefficient_l2_ratio * actual_l2_relative_discrepancy)
+        local_margin = local_ratio - required
+        sufficient_l2_relative_discrepancy = (
+            local_margin / coefficient_l2_ratio
+            if local_margin > tolerance and coefficient_l2_ratio > tolerance
+            else None)
+        rows[target] = {
+            "target": target,
+            "subcone_member": row["subcone_member"],
+            "rescued_by_full_complement": row[
+                "rescued_by_full_complement"],
+            "required_lower_support_package_to_rescue": required,
+            "actual_lower_support_package_to_principal_ratio": (
+                actual_lower_support / principal),
+            "local_mean_lower_support_to_principal_ratio": local_ratio,
+            "centered_lower_support_action_to_principal_ratio": (
+                centered_action / principal),
+            "local_mean_margin_to_required_floor": local_margin,
+            "coefficient_l2_to_principal_mean": coefficient_l2_ratio,
+            "actual_l2_relative_discrepancy": (
+                actual_l2_relative_discrepancy),
+            "cauchy_l2_bound_to_principal_ratio": cauchy_bound,
+            "sufficient_l2_relative_discrepancy_for_rescue": (
+                sufficient_l2_relative_discrepancy),
+            "actual_l2_bound_suffices_for_rescue": bool(
+                sufficient_l2_relative_discrepancy is not None
+                and actual_l2_relative_discrepancy
+                < sufficient_l2_relative_discrepancy),
+            "source_package_row": row,
+        }
+
+    subcone_targets = tuple(
+        target for target in targets if rows[target]["subcone_member"])
+    raw_l2_sufficient_targets = tuple(
+        target for target in subcone_targets
+        if rows[target]["actual_l2_bound_suffices_for_rescue"])
+    return {
+        "targets": targets,
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": len(targets),
+        "subcone_targets": subcone_targets,
+        "raw_l2_sufficient_targets": raw_l2_sufficient_targets,
+        "raw_l2_insufficient_targets": tuple(
+            target for target in subcone_targets
+            if target not in raw_l2_sufficient_targets),
+        "rows": rows,
+        "source_lower_support_package_receipt": package,
+        "lower_support_package_local_discrepancy_measured": True,
+        "raw_l2_discrepancy_theorem_proved": False,
+        "coefficient_sensitive_residue_weight_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

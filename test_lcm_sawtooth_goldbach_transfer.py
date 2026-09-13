@@ -50,6 +50,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_support_envelope_receipt,
     q286_subcone_lower_support_package_receipt,
     q286_lower_support_package_support_only_obstruction_receipt,
+    q286_lower_support_package_local_discrepancy_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1623,6 +1624,26 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "lower_support_package_support_only_obstruction_measured"])
         self.assertFalse(receipt["support_only_rescue_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_package_local_discrepancy(self):
+        receipt = q286_lower_support_package_local_discrepancy_receipt(
+            targets=(1222142,))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["subcone_targets"], (1222142,))
+        self.assertEqual(receipt["raw_l2_sufficient_targets"], ())
+        self.assertEqual(receipt["raw_l2_insufficient_targets"], (1222142,))
+        row = receipt["rows"][1222142]
+        self.assertGreater(row["local_mean_margin_to_required_floor"], 0)
+        self.assertGreater(
+            row["centered_lower_support_action_to_principal_ratio"], 0)
+        self.assertGreater(
+            row["actual_l2_relative_discrepancy"],
+            row["sufficient_l2_relative_discrepancy_for_rescue"])
+        self.assertFalse(row["actual_l2_bound_suffices_for_rescue"])
+        self.assertTrue(receipt[
+            "lower_support_package_local_discrepancy_measured"])
+        self.assertFalse(receipt["raw_l2_discrepancy_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

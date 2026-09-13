@@ -18301,23 +18301,46 @@ the deterministic obstruction to a support-only proof.  Focused regression
 `56.578s`.  Witnesses `10664,14138` are actual nonnegative strict-central
 prime-pair weight vectors in the `.2`/`.3` subcone but fail the rescue
 inequality; late comparisons `1222142,1323632,1379072` succeed.  Thus the
-next theorem must use arithmetic pointwise residue-weight information, not
-just finite support geometry.  SciPy/LP may be useful later for cone mapping,
-but it is not needed for this obstruction.
+weak projected implication from finite admissible support, nonnegativity, and
+total mass is insufficient.  This does not refute every possible geometric
+proof; a viable geometric route would need additional constraints such as
+residue moments, symmetry, target-conditioned adjacency, signed coefficient
+cones, or other actual residue-weight structure.  SciPy/LP may be useful later
+for cone mapping with such stronger constraints, but it is not needed for this
+particular obstruction.
+
+New code `q286_lower_support_package_local_discrepancy_receipt` decomposes
+`H/P` into a local admissible mean plus a centered fixed-modulus
+residue-weight discrepancy.  Validation: `py_compile` passed, and focused
+regression `test_q286_lower_support_package_local_discrepancy` passed in
+`90.058s`.  On default selected targets, all five subcone targets are
+raw-L2-insufficient.  For late targets `1222142,1323632,1379072`, the local
+admissible mean already clears the required lower-support floor by about
+`0.899..0.930` principal, but plain Cauchy/L2 would require relative
+discrepancy about `0.0072..0.0075`, while actual measured relative discrepancy
+is about `0.0157..0.0164`.  Boundary target `10664` has negative local margin;
+`14138` has a positive local margin but a large negative centered action.
+
+Current theorem obligation: prove coefficient-sensitive signed residue-weight
+control for the lower-support package on the eventual late `.2`/`.3` subcone,
+or record that this is a pointwise fixed-modulus binary Goldbach-in-
+progressions theorem.  The weak support/nonnegative/mass implication and a
+plain L2 discrepancy theorem are both insufficient at the measured scale.
 
 Next instructions:
 
-1. Validate this checkpoint with `py_compile`, the focused package test, and
-   `git diff --check`.
+1. Validate this checkpoint with `py_compile`, the focused local-discrepancy
+   test, and `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then pivot from threshold receipts to theorem obligation: either prove a
-   pointwise arithmetic estimate for the `.2` first-two subcone, prove a
-   conditioned complement lower bound on that subcone inside the `.3`
-   first-three tail, or record that the needed statement reduces to
-   fixed-modulus binary Goldbach in progressions.  Do not spend large compute
-   on support-only, max-discrepancy, raw 99-character norm, hoped-for
-   rank-three cancellation, mere sign-exclusion, or more threshold ladders
-   already ruled out as circular diagnostics.
+3. Then pivot from diagnostics to theorem obligation: either prove a signed
+   pointwise arithmetic estimate for the lower-support package on the `.2`
+   first-two subcone inside the `.3` first-three tail, prove a conditioned
+   complement lower bound using actual residue-weight arithmetic, or record
+   the needed statement as fixed-modulus binary Goldbach in progressions.  Do
+   not spend large compute on the weak support/nonnegative/mass projection,
+   max-discrepancy, raw L2, raw 99-character norm, hoped-for rank-three
+   cancellation, mere sign-exclusion, or more threshold ladders already ruled
+   out as circular diagnostics.
 
 ## Temporary wake note — continuity discussion
 

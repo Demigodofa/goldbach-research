@@ -934,8 +934,9 @@ H/P > -1 - Q_tail/P - F_3/P.
 
 The finite late examples are much stronger, with `H/P` positive and still
 positive after removing q70.  The boundary failures show why the theorem
-cannot be a support-only lower bound: `14138` has required floor only about
-`-.138`, but the lower-support package falls to about `-1.015`.
+cannot be a lower bound that uses only admissible support, nonnegativity, and
+total mass: `14138` has required floor only about `-.138`, but the
+lower-support package falls to about `-1.015`.
 
 ## Support-only obstruction receipt
 
@@ -987,14 +988,101 @@ comparison 1379072
   lower_margin 0.9449988671776868
 ```
 
-Interpretation: no proof that uses only finite admissible support,
-nonnegativity, and total mass can establish subcone rescue.  It must use
-arithmetic input distinguishing the later prime-pair residue weights from the
-boundary witnesses, or explicitly prove that this arithmetic input is a
-pointwise fixed-modulus binary-prime correlation theorem.  A future LP/cone
-search could map the bad region more broadly, but it is not needed for this
-obstruction because the actual witness weights already refute the support-only
-route.
+Interpretation: these witnesses refute the projected implication whose only
+inputs are finite admissible support, nonnegativity, and total mass.  They do
+not refute every possible geometric proof.  A geometric proof that adds real
+constraints, such as residue moments, symmetry, target-conditioned adjacency,
+signed coefficient cones, or other arithmetic residue-weight structure,
+remains possible.  The next theorem must use such additional structure to
+distinguish the later prime-pair residue weights from the boundary witnesses,
+or explicitly prove that this arithmetic input is a pointwise fixed-modulus
+binary-prime correlation theorem.  A future LP/cone search could map the bad
+region more broadly, but it should include constraints stronger than the weak
+support/nonnegative/total-mass projection.
+
+## Lower-support local discrepancy receipt
+
+Added `q286_lower_support_package_local_discrepancy_receipt`, which decomposes
+the lower-support package `H/P` into a local admissible mean plus a centered
+fixed-modulus residue-weight discrepancy.  It asks whether a raw Cauchy/L2
+discrepancy theorem would already prove the lower-support rescue inequality on
+the selected `.2` first-two / `.3` first-three subcone targets.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_package_local_discrepancy ... ok
+Ran 1 test in 90.058s
+```
+
+Default selected receipt:
+
+```text
+tested 5
+subcone_targets (10664, 14138, 1222142, 1323632, 1379072)
+raw_l2_sufficient ()
+raw_l2_insufficient (10664, 14138, 1222142, 1323632, 1379072)
+
+target 10664
+  required 0.0602630156038384
+  actual_H -0.15579899159580046
+  local -0.00890413687221914
+  centered -0.14689485472358135
+  margin -0.06916715247605754
+  actual_delta 0.12646585043888875
+  sufficient_delta None
+
+target 14138
+  required -0.1378737877186007
+  actual_H -1.014815061159443
+  local 0.15934156138351407
+  centered -1.1741566225429574
+  margin 0.2972153491021148
+  actual_delta 0.11251754817108045
+  sufficient_delta 0.0023762605157589436
+
+target 1222142
+  required -0.7083019405744888
+  actual_H 0.23741432563942383
+  local 0.2218269593126892
+  centered 0.015587366326734091
+  margin 0.930128899887178
+  actual_delta 0.01637664172158521
+  sufficient_delta 0.007458794078144244
+
+target 1323632
+  required -0.6906391656607804
+  actual_H 0.3335801005755929
+  local 0.2380419215303219
+  centered 0.09553817904527061
+  margin 0.9286810871911023
+  actual_delta 0.015722268225494582
+  sufficient_delta 0.007449431200717236
+
+target 1379072
+  required -0.6751407665271594
+  actual_H 0.2698581006505273
+  local 0.22338781055521725
+  centered 0.04647029009531028
+  margin 0.8985285770823767
+  actual_delta 0.015831861533604073
+  sufficient_delta 0.007206236576175594
+```
+
+Interpretation: the late sparse-tail targets are not failing because the
+local admissible mean is too small; their local mean already clears the
+required floor by about `0.899..0.930` principal.  But raw L2 Cauchy is still
+too weak: it would need relative discrepancy about `0.0072..0.0075`, while
+the actual discrepancy is about `0.0157..0.0164`.  Boundary target `10664`
+is worse because even its local mean misses the floor, and `14138` shows a
+large negative centered action despite a positive local margin.
+
+Current theorem obligation: prove a coefficient-sensitive signed
+residue-weight estimate for the lower-support package on the eventual late
+subcone, or identify that estimate as a fixed-modulus pointwise binary
+Goldbach-in-progressions theorem.  A plain L2 discrepancy theorem is not
+enough at the measured scale.
 
 ## Bounded source check
 

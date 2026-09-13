@@ -181,9 +181,33 @@ finite boundary exceptions.
 proof-strategy obstruction: actual witness targets `10664,14138` lie in the
 same `.2`/`.3` subcone but fail the lower-support rescue inequality, while
 late comparison targets `1222142,1323632,1379072` succeed.  Therefore
-support, nonnegativity, and total mass are insufficient; the missing theorem
-must use arithmetic information about the pointwise prime-pair residue weights,
-or be recorded as a fixed-modulus binary-prime correlation input.
+the weak projected implication from support, nonnegativity, and total mass is
+insufficient.  This does not refute every geometric proof; a viable geometric
+route would need additional constraints such as residue moments, symmetry,
+target-conditioned adjacency, signed coefficient cones, or other actual
+residue-weight structure.  The missing theorem must use such arithmetic
+information about the pointwise prime-pair residue weights, or be recorded as
+a fixed-modulus binary-prime correlation input.
+
+`q286_lower_support_package_local_discrepancy_receipt` now measures the next
+narrowed theorem target.  It decomposes `H/P` into a local admissible mean
+plus a centered fixed-modulus residue-weight discrepancy.  Validation:
+`py_compile` passed, and focused regression
+`test_q286_lower_support_package_local_discrepancy` passed in `90.058s`.
+
+On default selected targets, all five subcone targets are raw-L2-insufficient.
+For late targets `1222142,1323632,1379072`, the local admissible mean already
+clears the required lower-support floor by about `0.899..0.930` principal, but
+plain Cauchy/L2 would require relative discrepancy about `0.0072..0.0075`,
+while actual measured relative discrepancy is about `0.0157..0.0164`.
+Boundary target `10664` has negative local margin; `14138` has a positive
+local margin but a large negative centered action.
+
+Current theorem obligation: prove coefficient-sensitive signed residue-weight
+control for the lower-support package on the eventual late `.2`/`.3` subcone,
+or record that this is a pointwise fixed-modulus binary Goldbach-in-
+progressions theorem.  The weak support/nonnegative/mass implication and a
+plain L2 discrepancy theorem are both insufficient at the measured scale.
 
 ## Latest continuation evidence, 2026-09-12
 
