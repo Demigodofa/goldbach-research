@@ -13255,6 +13255,97 @@ def q286_lower_support_component_pair_channel_pressure_profile_receipt(
     }
 
 
+def q286_lower_support_component_pair_channel_conductor_profile_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Record the actual conductors of the active real channels."""
+    pressure = (
+        q286_lower_support_component_pair_channel_pressure_profile_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    real_channel = pressure[
+        "source_closure_margin_profile_receipt"][
+            "source_action_identity_receipt"][
+                "source_combined_driver_channel_closure_receipt"][
+                    "source_floor_identity_receipt"][
+                        "source_floor_stability_decomposition_receipt"][
+                            "source_real_channel_rescue_margin_receipt"][
+                                "source_real_channel_action_receipt"][
+                                    "source_real_channel_receipt"]
+    factor_primes = real_channel["factor_primes"]
+    conductor_rows = []
+    for row in real_channel["union_conjugacy_orbit_rows"]:
+        label = row["representative_label"]
+        conductor = math.prod(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        active_factor_primes = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        conductor_rows.append({
+            "representative_label": label,
+            "labels": row["labels"],
+            "conductor": conductor,
+            "active_factor_primes": active_factor_primes,
+            "self_conjugate": row["self_conjugate"],
+            "real_formula": row["real_formula"],
+            "representative_coefficient_abs": (
+                row["representative_coefficient_abs"]),
+        })
+
+    conductor_rows = tuple(conductor_rows)
+    conductors = tuple(sorted({row["conductor"] for row in conductor_rows}))
+    conductor_counts = {
+        conductor: sum(row["conductor"] == conductor
+                       for row in conductor_rows)
+        for conductor in conductors}
+    conductor_coefficient_l1 = {
+        conductor: float(math.fsum(
+            row["representative_coefficient_abs"]
+            * (1.0 if row["self_conjugate"] else 2.0)
+            for row in conductor_rows
+            if row["conductor"] == conductor))
+        for conductor in conductors}
+
+    def pressure_with_conductor(row):
+        enriched = dict(row)
+        label = row["maximum_channel_representative_label"]
+        enriched["maximum_channel_conductor"] = math.prod(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        return enriched
+
+    return {
+        "arithmetic_period": pressure["arithmetic_period"],
+        "targets": pressure["targets"],
+        "tested_target_count": pressure["tested_target_count"],
+        "component_pair": component_pair,
+        "factor_primes": factor_primes,
+        "active_union_real_channel_count": len(conductor_rows),
+        "active_channel_conductors": conductors,
+        "active_channel_conductor_counts": conductor_counts,
+        "active_channel_conductor_l1_to_principal_mean": {
+            conductor: value / real_channel["principal_mean"]
+            for conductor, value in conductor_coefficient_l1.items()},
+        "maximum_active_channel_conductor": max(conductors),
+        "all_active_channels_on_adjacent_conductors": all(
+            conductor in (35, 77) for conductor in conductors),
+        "uses_factor_13": any(
+            13 in row["active_factor_primes"]
+            for row in conductor_rows),
+        "conductor_rows": conductor_rows,
+        "worst_channel_pressure_row": pressure_with_conductor(
+            pressure["worst_channel_pressure_row"]),
+        "worst_positive_channel_pressure_row": pressure_with_conductor(
+            pressure["worst_positive_channel_pressure_row"]),
+        "source_channel_pressure_profile_receipt": pressure,
+        "channel_conductor_profile_measured": True,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

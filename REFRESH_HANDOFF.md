@@ -18988,6 +18988,21 @@ single-channel pressure at `(0,3,3,0)`, normalized sum
 contribution/principal `0.030290294154962222`.  This is finite profiling of
 the channel theorem target, not a proof of the pointwise norm estimate.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_channel_conductor_profile_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_channel_conductor_profile` passed in
+`118.119s`.  It records the conductor profile of the `16` active real
+channels: conductor `35` has `4` channels, conductor `77` has `12` channels,
+and no active channel uses factor `13`.  The boundary pressure label
+`(1,1,0,0)` has conductor `35`; the worst late-positive pressure label
+`(0,3,3,0)` has conductor `77`.  This narrows the next analytic target to
+fixed-conductor twisted binary-Goldbach estimates on adjacent conductors
+`35` and `77`, with target residues inherited from the lcm-period setup.
+Goldbach and the pointwise channel theorem remain open.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

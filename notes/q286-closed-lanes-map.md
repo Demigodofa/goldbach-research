@@ -1,7 +1,7 @@
 # q286 closed-lanes map
 
 Status: finite research map, not a proof of Goldbach.
-Last updated after the 2026-09-13 q286 real-channel pressure profile.
+Last updated after the 2026-09-13 q286 real-channel conductor profile.
 
 This note indexes which q286 proof lanes have been closed, which components
 survive as reusable structure, and what theorem obligation remains.  It is a
@@ -40,6 +40,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_support_geometry_obstruction_receipt`
 - `q286_lower_support_component_pair_character_mixture_receipt`
 - `q286_lower_support_component_pair_channel_pressure_profile_receipt`
+- `q286_lower_support_component_pair_channel_conductor_profile_receipt`
 
 ## Closed or falsified lanes
 
@@ -262,6 +263,10 @@ current comparison set.
    that boundary target `14138` is dominated by real-channel label
    `(1,1,0,0)`, while the largest late-positive single-channel pressure is
    target `1379072` at label `(0,3,3,0)`.
+27. The channel-conductor profile regression passed in `118.119s` and shows
+   that all `16` active real channels have conductor `35` or `77`; no active
+   channel uses factor `13`.  The missing pointwise theorem can therefore be
+   stated over adjacent fixed conductors, not the whole period `10010`.
 
 ## Still open
 

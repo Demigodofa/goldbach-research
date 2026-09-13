@@ -70,6 +70,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_action_identity_receipt,
     q286_lower_support_component_pair_closure_margin_profile_receipt,
     q286_lower_support_component_pair_channel_pressure_profile_receipt,
+    q286_lower_support_component_pair_channel_conductor_profile_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2373,6 +2374,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["channel_pressure_profile_measured"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_channel_conductor_profile(self):
+        receipt = (
+            q286_lower_support_component_pair_channel_conductor_profile_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_union_real_channel_count"], 16)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["active_channel_conductor_counts"], {
+            35: 4, 77: 12})
+        self.assertFalse(receipt["uses_factor_13"])
+        self.assertTrue(receipt["all_active_channels_on_adjacent_conductors"])
+        self.assertEqual(
+            receipt["worst_channel_pressure_row"]["target"], 14138)
+        self.assertEqual(
+            receipt["worst_channel_pressure_row"][
+                "maximum_channel_conductor"], 35)
+        self.assertEqual(
+            receipt["worst_positive_channel_pressure_row"]["target"],
+            1379072)
+        self.assertEqual(
+            receipt["worst_positive_channel_pressure_row"][
+                "maximum_channel_conductor"], 77)
+        self.assertTrue(receipt["channel_conductor_profile_measured"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

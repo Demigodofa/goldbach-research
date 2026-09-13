@@ -10378,6 +10378,17 @@ largest single-channel pressure at `(0,3,3,0)`, normalized sum
 `0.031697265116795305`.  This is finite pressure profiling only, not a
 pointwise channel theorem.
 
+New receipt
+`q286_lower_support_component_pair_channel_conductor_profile_receipt` then
+records the conductors of the active real channels.  Focused regression
+`test_q286_lower_support_component_pair_channel_conductor_profile` passed in
+`118.119s`.  All `16` channels have conductor `35` or `77` (`4` and `12`
+channels respectively), and none uses the factor `13`.  The boundary pressure
+label `(1,1,0,0)` has conductor `35`; the worst late-positive pressure label
+`(0,3,3,0)` has conductor `77`.  This narrows the pointwise channel estimate
+to fixed-conductor twisted binary-Goldbach control on adjacent conductors,
+not a full modulus-`10010` theorem.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

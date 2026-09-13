@@ -375,6 +375,14 @@
       "status_boundary": "selected channel-pressure profile only; no eventual pointwise channel-norm theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_channel_conductor_profile",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_channel_conductor_profile_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_channel_conductor_profile passed in 118.119s; all 16 active real channels have conductor 35 or 77, with counts 4 and 12, and none uses factor 13",
+      "status_boundary": "selected conductor profile only; no fixed-conductor twisted Goldbach estimate and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -616,6 +624,16 @@
       "from": "receipt.component_pair_channel_pressure_profile",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_channel_conductor_profile",
+      "to": "receipt.component_pair_channel_pressure_profile",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_channel_conductor_profile",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

@@ -783,6 +783,35 @@ those late positives.  The boundary failure is dominated by the `(1,1,0,0)`
 channel.  This is finite pressure profiling only; it does not prove the
 pointwise real-channel norm estimate.
 
+`q286_lower_support_component_pair_channel_conductor_profile_receipt` records
+the actual conductors of those `16` real channels.  Focused regression
+`test_q286_lower_support_component_pair_channel_conductor_profile` passed in
+`118.119s`.
+
+```text
+active real channels: 16
+active conductors: 35, 77
+channel counts: conductor 35 -> 4; conductor 77 -> 12
+uses factor 13: False
+
+worst overall pressure:
+  target 14138
+  representative label (1,1,0,0)
+  conductor 35
+
+worst late-positive pressure:
+  target 1379072
+  representative label (0,3,3,0)
+  conductor 77
+```
+
+Thus the active q286 component-pair channel problem is not a full
+modulus-`10010` pointwise theorem.  The surviving channel estimate can be
+phrased as fixed-conductor twisted binary-Goldbach control on the adjacent
+conductors `35=5*7` and `77=7*11`, with the target residue still inherited
+from the lcm-period setup.  This is a meaningful narrowing of the theorem
+obligation, not a proof of that twisted estimate.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
