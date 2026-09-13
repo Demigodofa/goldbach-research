@@ -135,6 +135,16 @@ mechanism; the next target is the exact theorem behind either `.2` subcone
 alignment control, conditioned complement lower bounds, or a proof that this
 reduces to fixed-modulus binary Goldbach in progressions.
 
+The non-circular theorem package is now explicit in
+`notes/q286-complement-alignment-theorem-obligation.md`.  The remaining
+options are: prove eventual extinction of the `.2` first-two subcone, prove
+conditioned complement rescue on
+`L_12/P < -.2` and `F_3/P < -.3`, or prove that either statement requires a
+pointwise fixed-modulus binary-prime-in-progressions theorem.  Further
+threshold receipts are demoted unless they test a new mechanism with a
+falsifier.  Goldbach and the required pointwise signed prime-correlation
+theorem remain open.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

@@ -18257,10 +18257,18 @@ a severe cycle-0 selector, while `.2` is the late sparse-tail selector seen
 so far.  Treat this as the endpoint of threshold exploration unless a new
 mechanism with a falsifier justifies another threshold.
 
+The note `notes/q286-complement-alignment-theorem-obligation.md` now states
+the non-circular theorem package.  With `L_12` the first-two q286 singular
+sum, `F_3` the first-three q286 contribution, and `C_3=full-F_3`, the active
+conditioned set is `L_12/P < -.2` and `F_3/P < -.3`.  The next route must
+prove eventual extinction of that subcone, prove `C_3/P > -F_3/P` on it after
+a finite boundary, or identify the needed result as a pointwise fixed-modulus
+binary-prime-in-progressions theorem.  More threshold receipts are circular
+unless they test a new mechanism with a stated falsifier.
+
 Next instructions:
 
-1. Validate this checkpoint with `py_compile`, the focused window test, and
-   `git diff --check`.
+1. Validate this checkpoint with `py_compile` and `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
 3. Then pivot from threshold receipts to theorem obligation: either prove a
    pointwise arithmetic estimate for the `.2` first-two subcone, prove a

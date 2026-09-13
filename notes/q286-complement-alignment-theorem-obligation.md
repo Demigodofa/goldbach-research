@@ -595,6 +595,93 @@ one of:
 3. a proved reduction showing that either estimate is essentially a
    fixed-modulus binary Goldbach-in-progressions theorem.
 
+## Non-circular theorem package
+
+The threshold receipts are now evidence locators, not a proof engine.  The
+remaining route must be phrased as a theorem about fixed finite linear forms
+in strict-central binary-prime residue weights.
+
+Let `Q` be any fixed modulus carrying the assembled strict-central
+coefficient data, for instance the implementation period `10010`.  For an
+even target `N`, let
+
+```text
+W_N(r) =
+  sum_{N/3<p<2N/3, p == r mod Q} log(p)log(N-p),
+```
+
+where the sum is over prime pairs with `N-p` prime.  Let `A_Q(N)` be the
+admissible first-prime unit residue classes.  Every strict-central quantity
+used in this q286 lane is a fixed finite linear functional of the vector
+`W_N|A_Q(N)`, with coefficients depending only on `N mod Q`:
+
+```text
+L_12(N) = first q286 singular mode + second q286 singular mode,
+F_3(N)  = first three q286 singular modes,
+C_3(N)  = full strict-central action minus F_3(N),
+G(N)    = full strict-central action = F_3(N)+C_3(N).
+```
+
+All ratios below are normalized by the same implemented principal
+contribution `P(N)`.
+
+The finite evidence now points to the weaker first-two subcone
+
+```text
+S_0.2 = {N : L_12(N)/P(N) < -0.2 and F_3(N)/P(N) < -0.3}.
+```
+
+The non-circular theorem alternatives are:
+
+**Subcone extinction.**  Prove that, after an explicit finite boundary,
+
+```text
+L_12(N)/P(N) >= -0.2
+```
+
+for every even `N` in the strict-central unit range.  This would eliminate the
+observed late-tail selector, but it is stronger than the current data and was
+not proved by the sign or magnitude receipts.
+
+**Conditioned complement rescue.**  Prove that, after an explicit finite
+boundary, every `N in S_0.2` satisfies
+
+```text
+C_3(N)/P(N) > -F_3(N)/P(N),
+```
+
+or the stronger floor
+
+```text
+C_3(N)/P(N) >= gamma
+```
+
+with `gamma` exceeding the possible first-three loss on the same conditioned
+set.  The selected late targets support this shape, but the proof would need
+arithmetic information about actual prime-pair residue weights.
+
+**Hard-theorem reduction.**  Prove that either of the two statements above
+follows from a pointwise fixed-modulus binary-prime-in-progressions estimate,
+such as
+
+```text
+W_N(r) = M_N/|A_Q(N)| + error_N(r),
+max_{r in A_Q(N)} |error_N(r)| = o(M_N),
+```
+
+or from a coefficient-sensitive variant that controls the specific linear
+forms `L_12`, `F_3`, and `C_3`.  This would be a valid conditional theorem,
+but it should be recorded as a hard external/input theorem rather than as an
+in-repo Goldbach proof.  It is stronger than the finite receipts because it
+asserts pointwise control for every target `N`, not only an average, a window,
+or a selected set of thresholds.
+
+The falsifier for the current `.2` subcone-complement route is now precise:
+find an infinite family or a verified large-window pattern in which
+`N in S_0.2` and `G(N)<=0`, or prove that the only available proof of rescue
+requires pointwise lower bounds for binary prime pairs in fixed residue
+classes strong enough to subsume the desired Goldbach case.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
