@@ -18070,6 +18070,23 @@ current theorem-shaping target is a signed q286 alignment estimate together
 with a discrepancy-size estimate, not an independent first-three lower
 envelope.
 
+## 2026-09-13 continuation: post-136 near-tail alignment checks
+
+The `.4` alignment ceiling was tested on the post-136 `.2` near-tail windows:
+
+```text
+cycles 137..168: .2 tail_count 57, violations 0,
+  max utilization 0.3833219530783246 at 1426262
+cycles 169..200: .2 tail_count 17, violations 0,
+  max utilization 0.37640635712461384 at 1762964
+cycles 201..232: .2 tail_count 3, violations 0,
+  max utilization 0.34127687470555046 at 2326222
+```
+
+Interpretation: `.4` now survives the checked `.2` near-tail windows after
+cycle `136`, not just the `.3` tail windows.  This strengthens the finite
+alignment pattern but remains finite evidence only.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

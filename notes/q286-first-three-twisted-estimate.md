@@ -3304,3 +3304,46 @@ tail targets in the original eight-period horizon where independent first-
 three/complement envelopes failed.  This remains finite evidence only.  The
 proof target is now sharper: a signed q286 alignment theorem plus a discrepancy
 size bound strong enough to combine with the positive complement floor.
+
+## 2026-09-13: post-136 near-tail alignment checks
+
+The tail-alignment window receipt was applied to the post-136 `.2` near-tail
+blocks, where `.3` tails had already disappeared but shallower negative
+first-three values remained.  The alignment ceiling was `.4`.
+
+```text
+global cycles 137..168:
+  tested 160160
+  .2 tail_count 57
+  violation_count 0
+  max utilization target 1426262,
+    first_three -0.25337201370663726,
+    l2_negative_bound_utilization 0.3833219530783246
+  max L2 sufficient-ratio target 1427792,
+    ratio 4.136940854091866
+
+global cycles 169..200:
+  tested 160160
+  .2 tail_count 17
+  violation_count 0
+  max utilization target 1762964,
+    first_three -0.21483616578854808,
+    l2_negative_bound_utilization 0.37640635712461384
+  max L2 sufficient-ratio target 1890178,
+    ratio 3.8993247333713246
+
+global cycles 201..232:
+  tested 160160
+  .2 tail_count 3
+  violation_count 0
+  max utilization target 2326222,
+    first_three -0.20693553807121948,
+    l2_negative_bound_utilization 0.34127687470555046
+  max L2 sufficient-ratio target 2180908,
+    ratio 3.353567515467713
+```
+
+Status `survived-near-tail-falsifier`: the `.4` alignment ceiling survives
+the checked post-136 `.2` near-tail windows.  This broadens the finite pattern
+from deep `.3` tails to shallower near-tail values, but still proves no
+eventual alignment theorem.

@@ -9624,3 +9624,19 @@ sufficient-ratio remains the early target `10898`, with ratio
 Status `survived-eight-period-falsifier`: `.4` survives the full checked
 eight-period tail set.  This is still finite evidence and proves no eventual
 estimate or Goldbach theorem.
+
+### 2026-09-13 continuation: post-136 near-tail alignment checks
+
+The `.4` negative-alignment ceiling was tested on the post-136 `.2` near-tail
+windows.  It has zero violations in cycles `137..168`, `169..200`, and
+`201..232`.
+
+The maxima were:
+
+- `137..168`: target `1426262`, utilization `0.3833219530783246`.
+- `169..200`: target `1762964`, utilization `0.37640635712461384`.
+- `201..232`: target `2326222`, utilization `0.34127687470555046`.
+
+Status `survived-near-tail-falsifier`: `.4` survives the checked `.2`
+near-tail windows as well as the `.3` tail windows.  This is finite evidence
+only and not an eventual theorem.
