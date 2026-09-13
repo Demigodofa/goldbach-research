@@ -72,6 +72,16 @@ statement.  Quantitatively, the q286 first-three L2 route has
 L2-relative discrepancies of about `0.021..0.030`, while the boundary target
 `14138` would require about `0.000362`.
 
+The sharper target is the q286 character mixture, not full residue
+equidistribution.  The first-three term uses `99` nonprincipal character
+products `chi_11(p)^alpha chi_13(p)^beta`, with
+`sum |a| / principal_mean = 32.308079615836355` and
+`||a||_2 / principal_mean = 4.5987212546879235`.  Thus a pointwise triangle
+bound with `max |S_{alpha,beta}(N)| <= epsilon M_N` would force a `.2`
+principal first-three bound for `epsilon < 0.006190401979261144`; a pointwise
+L2 bound on the character-error vector would be substantially sharper.  This
+remains an unproved twisted binary-prime correlation theorem.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

@@ -18193,6 +18193,17 @@ targets need only about `0.021..0.030` L2-relative discrepancy, while boundary
 target `14138` needs about `0.000362`, confirming it belongs in the finite
 boundary layer.
 
+The same theorem note also narrows the external estimate from full residue
+equidistribution to the exact q286 character mixture.  The first-three term is
+a fixed combination of `99` nonprincipal products
+`chi_11(p)^alpha chi_13(p)^beta`.  Its coefficient norms are
+`sum |a| / principal_mean = 32.308079615836355` and
+`||a||_2 / principal_mean = 4.5987212546879235`.  A pointwise triangle bound
+`max |S_{alpha,beta}(N)| <= epsilon M_N` would force the first-three term below
+`.2` principal once `epsilon < 0.006190401979261144`; a vector L2 theorem would
+need the corresponding character-error vector norm below about `.04349`.
+This is the sharper next theorem target.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and

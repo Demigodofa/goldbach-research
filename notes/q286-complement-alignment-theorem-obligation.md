@@ -201,6 +201,74 @@ fixed-modulus equidistribution theorem with relative L2 error tending to zero
 would eventually dominate them.  The missing ingredient is proving such a
 pointwise theorem, not another support-only finite-vector inequality.
 
+## Weaker character-mixture target
+
+Full residue-by-residue equidistribution is stronger than necessary.  The
+q286 first-three term is a fixed mixture of only the `9*11 = 99`
+nonprincipal character products
+
+```text
+chi_11(p)^alpha chi_13(p)^beta,
+alpha=1..9, beta=1..11.
+```
+
+Let
+
+```text
+S_{alpha,beta}(N)
+  = sum_{N/3<p<2N/3} Lambda(p)Lambda(N-p)
+      chi_11(p)^alpha chi_13(p)^beta.
+```
+
+The first-three term has the form
+
+```text
+F_3(N) = sum_{alpha,beta} a_{alpha,beta} S_{alpha,beta}(N),
+```
+
+with coefficients obtained by truncating the q286 character matrix to its
+first three singular modes.  The measured coefficient norms are:
+
+```text
+number of character products: 99
+sum |a_{alpha,beta}|: 1421636.6771468068
+Frobenius norm of a: 202355.2894934171
+max |a_{alpha,beta}|: 35926.096497151906
+principal_mean: 44002.512499999146
+sum |a| / principal_mean: 32.308079615836355
+||a||_2 / principal_mean: 4.5987212546879235
+```
+
+Therefore a pointwise bound
+
+```text
+max_{alpha,beta} |S_{alpha,beta}(N)| <= epsilon M_N
+```
+
+would give
+
+```text
+|F_3(N)| / P(N) <= 32.308079615836355 * epsilon.
+```
+
+In particular, the blunt triangle route would force the first-three term below
+`.2` principal once `epsilon < 0.006190401979261144`.  A sharper vector theorem
+
+```text
+(sum_{alpha,beta} |S_{alpha,beta}(N)/M_N|^2)^(1/2) <= epsilon_2
+```
+
+would give
+
+```text
+|F_3(N)| / P(N) <= 4.5987212546879235 * epsilon_2.
+```
+
+This is a better theorem target than full residue-class equidistribution:
+control the finite signed q286 character mixture directly.  It is still a
+pointwise twisted binary-prime correlation theorem, so existing average
+Bombieri-Vinogradov style results do not supply it.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
