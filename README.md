@@ -174,6 +174,9 @@ blocks and calculation-based elimination of certified spans.
 - `notes/q286-complement-alignment-theorem-obligation.md`: the current q286
   complement-vs-alignment sufficient theorem and its finite-vector
   obstruction.
+- `notes/q286-active-lane-conditional-theorem.md`: the current q286 active-lane
+  conditional theorem target, strict closure scalar, and remaining universal
+  obligations.
 - `notes/local-peak-prior-art-check.md`: bounded comparison and the
   unconfirmed external novelty of these deductions.
 - `evidence/block-*.json`: representative complete block certificates.

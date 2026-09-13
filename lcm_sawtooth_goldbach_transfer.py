@@ -13115,6 +13115,7 @@ def q286_lower_support_component_pair_closure_margin_profile_receipt(
     closure = identity["source_combined_driver_channel_closure_receipt"]
     driver_floor = identity["combined_floor_driver_floor"]
     channel_bound = identity["normalized_real_channel_linf_bound"]
+    channel_l1_to_principal = closure["real_channel_l1_to_principal_mean"]
     centered_pair_floor = -1.0 - driver_floor
 
     rows = {}
@@ -13127,6 +13128,9 @@ def q286_lower_support_component_pair_closure_margin_profile_receipt(
         channel_margin = (
             channel_bound
             - closure_row["maximum_normalized_real_channel_sum"])
+        conditional_closure_margin = (
+            driver_margin
+            + channel_l1_to_principal * channel_margin)
         centered_pair_margin = (
             identity_row["centered_pair_sum_to_principal_ratio"]
             - centered_pair_floor)
@@ -13135,10 +13139,16 @@ def q286_lower_support_component_pair_closure_margin_profile_receipt(
             "target_residue": identity_row["target_residue"],
             "driver_margin_to_floor": driver_margin,
             "channel_margin_to_linf_bound": channel_margin,
+            "real_channel_l1_to_principal_mean": (
+                channel_l1_to_principal),
+            "conditional_closure_margin_to_endpoint": (
+                conditional_closure_margin),
             "centered_pair_margin_to_floor": centered_pair_margin,
             "full_action_to_principal_ratio": identity_row[
                 "full_action_to_principal_ratio"],
             "minimum_assumption_margin": min(driver_margin, channel_margin),
+            "strict_conditional_closure_slack_positive": bool(
+                conditional_closure_margin > tolerance),
             "fails_driver_floor": bool(driver_margin < -tolerance),
             "fails_channel_bound": bool(channel_margin < -tolerance),
             "positive_by_identity": identity_row[
@@ -13154,11 +13164,16 @@ def q286_lower_support_component_pair_closure_margin_profile_receipt(
         "combined_floor_driver_floor": driver_floor,
         "centered_pair_sum_floor": centered_pair_floor,
         "normalized_real_channel_linf_bound": channel_bound,
+        "real_channel_l1_to_principal_mean": channel_l1_to_principal,
         "rows": rows,
         "worst_driver_margin_row": min(
             rows.values(), key=lambda row: row["driver_margin_to_floor"]),
         "worst_channel_margin_row": min(
             rows.values(), key=lambda row: row["channel_margin_to_linf_bound"]),
+        "worst_conditional_closure_margin_row": min(
+            rows.values(),
+            key=lambda row: row[
+                "conditional_closure_margin_to_endpoint"]),
         "minimum_positive_full_action_row": min(
             (row for row in rows.values()
              if row["positive_by_identity"]),

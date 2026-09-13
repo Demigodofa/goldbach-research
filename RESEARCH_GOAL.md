@@ -10357,13 +10357,17 @@ exactly `1222142`, `1323632`, and `1379072`; `14138` remains negative.
 
 New receipt
 `q286_lower_support_component_pair_closure_margin_profile_receipt` records
-selected margins against the clean assumptions.  Focused regression
+selected margins against the clean assumptions and now reports the strict
+conditional closure scalar `driver_margin + L * channel_margin`, where
+`L = 15.262957606760978` is the active real-channel L1/principal mean.
+Focused regression
 `test_q286_lower_support_component_pair_closure_margin_profile` passed in
-`118.798s`.  The boundary target `14138` fails the driver floor by
-`-0.6226726214863387` and the channel bound by `-0.20705269440121776`.
-Among late positives, `1379072` is binding on the driver floor and `1323632`
-is closest to the channel bound.  This preserves two separate theorem
-pressure points.
+`139.808s`.  Boundary target `14138` has strict closure margin
+`-3.782909118497761`, while late positives have positive margins:
+`1222142` has `0.5506633762515991`, `1323632` has
+`0.546820393849208`, and `1379072` has `0.48379401372791037`.  This turns
+the two-assumption closure into one executable slack diagnostic; proving it
+positive on the whole active lane remains open.
 
 New receipt
 `q286_lower_support_component_pair_channel_pressure_profile_receipt` identifies

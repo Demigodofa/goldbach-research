@@ -276,8 +276,11 @@ current comparison set.
    packages the q286 component-pair lane as two explicit unproved assumptions.
 24. The action-identity regression passed in `114.284s` and reconstructs full
    action from principal, combined driver, and centered pair sum.
-25. The closure-margin profile regression passed in `118.798s` and identifies
-   the selected driver-bound and channel-bound pressure points.
+25. The closure-margin profile regression passed in `139.808s` and now
+   records the strict conditional closure scalar
+   `driver_margin + L * channel_margin`.  Boundary `14138` is negative
+   (`-3.782909118497761`), while selected late positives have positive
+   margins, with `1379072` still positive at `0.48379401372791037`.
 26. The channel-pressure profile regression passed in `124.495s` and shows
    that boundary target `14138` is dominated by real-channel label
    `(1,1,0,0)`, while the largest late-positive single-channel pressure is

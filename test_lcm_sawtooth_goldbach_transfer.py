@@ -2337,10 +2337,16 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["normalized_real_channel_linf_bound"],
             0.05885324711081062)
+        self.assertAlmostEqual(
+            receipt["real_channel_l1_to_principal_mean"],
+            15.262957606760978)
         self.assertEqual(
             receipt["worst_driver_margin_row"]["target"], 14138)
         self.assertEqual(
             receipt["worst_channel_margin_row"]["target"], 14138)
+        self.assertEqual(
+            receipt["worst_conditional_closure_margin_row"]["target"],
+            14138)
         self.assertEqual(
             receipt["minimum_positive_full_action_row"]["target"], 1379072)
         boundary = receipt["rows"][14138]
@@ -2349,12 +2355,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             boundary["channel_margin_to_linf_bound"],
             -0.20705269440121776)
+        self.assertAlmostEqual(
+            boundary["conditional_closure_margin_to_endpoint"],
+            -3.782909118497761)
+        self.assertFalse(
+            boundary["strict_conditional_closure_slack_positive"])
         self.assertTrue(boundary["fails_driver_floor"])
         self.assertTrue(boundary["fails_channel_bound"])
         self.assertFalse(boundary["positive_by_identity"])
         late = receipt["rows"][1379072]
         self.assertAlmostEqual(
             late["minimum_assumption_margin"], 0.0)
+        self.assertAlmostEqual(
+            late["conditional_closure_margin_to_endpoint"],
+            0.48379401372791037)
+        self.assertTrue(
+            late["strict_conditional_closure_slack_positive"])
         self.assertFalse(late["fails_driver_floor"])
         self.assertFalse(late["fails_channel_bound"])
         self.assertTrue(late["positive_by_identity"])

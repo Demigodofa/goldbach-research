@@ -728,23 +728,39 @@ the actual-positive targets, and the conditional-closure targets are exactly
 `q286_lower_support_component_pair_closure_margin_profile_receipt` records the
 selected margins against the two clean assumptions.  Focused regression
 `test_q286_lower_support_component_pair_closure_margin_profile` passed in
-`118.798s`.
+`139.808s`.
 
 ```text
 driver floor: -0.1017253843274695
 centered-pair floor: -0.8982746156725305
 active-channel Linf bound: 0.05885324711081062
+active real-channel L1/principal mean: 15.262957606760978
 
 target 14138:
   driver margin  -0.6226726214863387
   channel margin -0.20705269440121776
+  strict closure margin -3.782909118497761
   full action    -0.8769412734408442
 
 target 1379072:
   driver margin  0.0 (within roundoff)
   channel margin 0.031697265116795305
+  strict closure margin 0.48379401372791037
   full action    0.944998867177687
 ```
+
+The strict closure margin is
+
+```text
+driver_margin + L * channel_margin.
+```
+
+It is the current executable theorem target.  On the selected late-positive
+fixture, all three margins are positive: `1222142` has
+`0.5506633762515991`, `1323632` has `0.546820393849208`, and `1379072` has
+`0.48379401372791037`.  This does not prove the active lane, but it shows the
+selected late rows have real slack even when one individual assumption is
+near-binding.
 
 Among the selected late positives, `1379072` is binding on the driver floor,
 while `1323632` is closest to the active-channel Linf bound.  Thus the next

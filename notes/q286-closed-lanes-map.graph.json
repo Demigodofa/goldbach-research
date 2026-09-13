@@ -367,7 +367,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_closure_margin_profile_receipt",
       "status": "validated",
-      "validation": "test_q286_lower_support_component_pair_closure_margin_profile passed in 118.798s; 14138 fails both clean assumptions, while 1379072 binds the driver floor and 1323632 is closest to the channel bound among late positives",
+      "validation": "test_q286_lower_support_component_pair_closure_margin_profile passed in 139.808s; strict closure margin driver_margin + L * channel_margin is -3.782909118497761 at 14138 and positive on selected late positives, with 1379072 at 0.48379401372791037",
       "status_boundary": "selected margin profile only; no eventual driver or channel theorem and no Goldbach proof"
     },
     {
