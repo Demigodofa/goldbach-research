@@ -98,7 +98,31 @@ component-pair action:
 
 so any eventual theorem must split away a finite boundary/full-negative layer.
 
-## Coefficient geometry diagnostic
+## Coefficient geometry receipt
+
+`q286_lower_support_component_pair_coefficient_geometry_receipt` now makes the
+fixed coefficient-vector scan executable.  Focused regression
+`test_q286_lower_support_component_pair_coefficient_geometry` passed in
+`32.897s`.
+
+Across all `5005` even target residues modulo `10010`, the two active
+coefficient vectors are structurally near-orthogonal:
+
+```text
+admissible_counts:
+  1485, 1620, 1650, 1782, 1800, 1944, 1980,
+  2160, 2200, 2376, 2400, 2592, 2640, 2880
+cosine range: -0.0381940494499906 .. 0.0419660251672338
+absolute cosine maximum: 0.0419660251672338
+median cosine: about 0
+(5,7) norm/principal_mean range: 46.621944574458 .. 109.5307597246672
+(7,11) norm/principal_mean range: 58.599508082320234 .. 118.2876619523048
+pair-sum norm/principal_mean range: 87.54836438202342 .. 161.21091245944086
+```
+
+This is fixed-coefficient evidence, not a prime-pair theorem.
+
+## Selected-target discrepancy geometry
 
 A direct coefficient/discrepancy geometry probe over
 `14138,1222142,1323632,1379072` measured the two coefficient vectors and their

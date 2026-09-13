@@ -18660,8 +18660,22 @@ where `d_N` is the centered strict-central prime-pair residue-weight
 discrepancy and the two `c` vectors are the centered coefficient vectors for
 supports `(5,7)` and `(7,11)`.
 
-A direct geometry probe over `14138,1222142,1323632,1379072` found the two
-coefficient vectors are almost orthogonal on the checked admissible sets:
+New executable receipt
+`q286_lower_support_component_pair_coefficient_geometry_receipt` scans all
+`5005` even target residues modulo `10010`.  Focused regression
+`test_q286_lower_support_component_pair_coefficient_geometry` passed in
+`32.897s`.
+
+Across all even target residues, the two active coefficient vectors are almost
+orthogonal:
+
+```text
+cosine range -0.0381940494499906 .. 0.0419660251672338
+absolute cosine maximum 0.0419660251672338
+```
+
+A direct selected-target discrepancy probe over
+`14138,1222142,1323632,1379072` found:
 
 ```text
 14138 pair coefficient cosine 0.004826197080648738
@@ -18686,12 +18700,12 @@ both-negative cone:
 1379072 weight_l2_rel 0.015831861533604066
 ```
 
-Status: theorem-obligation, not proof.  The near-orthogonality means a pure
-coefficient-geometry proof cannot exclude simultaneous negative action:
-support, nonnegativity, and total mass still allow small centered perturbations
-with negative projection on both vectors.  The remaining route must use
-actual binary prime-pair arithmetic: cone avoidance for `d_N`, a signed lower
-bound for the component-pair sum, or a fixed-modulus pointwise
+Status: theorem-obligation, not proof.  The all-residue near-orthogonality
+means a pure coefficient-geometry proof cannot exclude simultaneous negative
+action: support, nonnegativity, and total mass still allow small centered
+perturbations with negative projection on both vectors.  The remaining route
+must use actual binary prime-pair arithmetic: cone avoidance for `d_N`, a
+signed lower bound for the component-pair sum, or a fixed-modulus pointwise
 Goldbach-in-progressions estimate.  More threshold receipts are circular
 unless they test one of those mechanisms.
 

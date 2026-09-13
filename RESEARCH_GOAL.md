@@ -10147,13 +10147,19 @@ actions are inner products between the actual strict-central prime-pair
 residue discrepancy vector `d_N` modulo `10010` and two centered fixed
 coefficient vectors `c_57,N` and `c_711,N`.
 
-A direct geometry probe on `14138,1222142,1323632,1379072` found the two
-coefficient vectors are nearly orthogonal on the checked admissible residue
-sets, with pair coefficient cosines around `-.001..+.005`.  Boundary target
-`14138` has much larger relative residue-weight discrepancy
-(`0.11251754817108045`) and simultaneous negative component actions, while
-the late sparse-tail targets have relative discrepancy around `.0157..0164`
-and avoid the both-negative cone.
+New executable receipt
+`q286_lower_support_component_pair_coefficient_geometry_receipt` scans all
+`5005` even target residues modulo `10010`.  Focused regression
+`test_q286_lower_support_component_pair_coefficient_geometry` passed in
+`32.897s`.  Across all even residues, the pair coefficient cosine remains in
+`-0.0381940494499906 .. 0.0419660251672338`, so the two coefficient vectors
+are structurally near-orthogonal rather than oppositely constrained.
+
+A direct selected-target discrepancy probe on
+`14138,1222142,1323632,1379072` found boundary target `14138` has much larger
+relative residue-weight discrepancy (`0.11251754817108045`) and simultaneous
+negative component actions, while the late sparse-tail targets have relative
+discrepancy around `.0157..0164` and avoid the both-negative cone.
 
 Status `theorem-obligation`: this is useful because it rules out a pure
 coefficient-geometry proof of the component-pair exclusion.  Nonnegativity,

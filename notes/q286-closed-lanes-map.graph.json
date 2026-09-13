@@ -236,8 +236,16 @@
       "type": "open_obligation",
       "label": "q286 component-pair cone avoidance theorem",
       "status": "open_sharpened",
-      "reason": "The (5,7) and (7,11) coefficient vectors are nearly orthogonal on checked admissible sets, so pure coefficient geometry does not exclude simultaneous negative action; actual binary prime-pair discrepancy arithmetic is required.",
+      "reason": "The (5,7) and (7,11) coefficient vectors are nearly orthogonal across all 5005 even target residues modulo 10010, so pure coefficient geometry does not exclude simultaneous negative action; actual binary prime-pair discrepancy arithmetic is required.",
       "source_note": "notes/q286-component-pair-theorem-obligation.md"
+    },
+    {
+      "id": "receipt.component_pair_coefficient_geometry",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_coefficient_geometry_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_coefficient_geometry passed in 32.897s; all 5005 even target residues modulo 10010 have pair coefficient cosine in -0.0381940494499906..0.0419660251672338",
+      "status_boundary": "fixed-coefficient finite geometry only; no prime-pair discrepancy theorem or Goldbach proof"
     },
     {
       "id": "target.10664",
@@ -346,6 +354,11 @@
       "from": "obligation.component_pair_cone_avoidance",
       "to": "obligation.fixed_modulus_binary_goldbach_progressions",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_coefficient_geometry",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "supports"
     },
     {
       "from": "structure.active_subcone",

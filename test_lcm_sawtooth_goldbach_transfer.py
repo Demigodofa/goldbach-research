@@ -54,6 +54,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_package_component_local_discrepancy_receipt,
     _q286_lower_support_component_data,
     q286_lower_support_component_pair_tail_window_receipt,
+    q286_lower_support_component_pair_coefficient_geometry_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1733,6 +1734,34 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "lower_support_component_pair_tail_window_measured"])
         self.assertFalse(receipt[
             "eventual_component_pair_exclusion_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_coefficient_geometry(self):
+        receipt = (
+            q286_lower_support_component_pair_coefficient_geometry_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["unit_residue_count"], 2880)
+        self.assertEqual(receipt["even_target_residue_count"], 5005)
+        self.assertIn(1485, receipt["admissible_counts"])
+        self.assertLess(abs(receipt[
+            "maximum_absolute_pair_coefficient_cosine_row"][
+                "pair_coefficient_cosine"]), .05)
+        self.assertLess(receipt[
+            "minimum_pair_coefficient_cosine_row"][
+                "pair_coefficient_cosine"], 0)
+        self.assertGreater(receipt[
+            "maximum_pair_coefficient_cosine_row"][
+                "pair_coefficient_cosine"], 0)
+        sample = receipt["sample_target_rows"][1222142]
+        self.assertEqual(sample["target_residue"], 1222142 % 10010)
+        self.assertEqual(sample["admissible_count"], 1485)
+        self.assertAlmostEqual(
+            sample["pair_coefficient_cosine"],
+            -0.0010921005009287641)
+        self.assertTrue(receipt[
+            "component_pair_coefficient_geometry_measured"])
+        self.assertFalse(receipt[
+            "pure_coefficient_geometry_exclusion_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

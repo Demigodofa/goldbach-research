@@ -35,6 +35,7 @@ Current executable receipts:
 - `q286_lower_support_package_component_local_discrepancy_receipt`
 - `q286_lower_support_component_pair_tail_window_receipt`
 - `_q286_lower_support_component_rows_for_targets`
+- `q286_lower_support_component_pair_coefficient_geometry_receipt`
 
 ## Closed or falsified lanes
 
@@ -81,9 +82,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   in `64.878s`; it found `both_negative ()`, with pair sums
   `0.013743`, `0.087495`, and `0.046724` respectively.
 - The `(5,7)` and `(7,11)` centered coefficient vectors are nearly orthogonal
-  on the checked active residue classes, with pair coefficient cosines near
-  zero.  This rules out a pure coefficient-geometry explanation for the
-  late no-both-negative pattern.
+  across all `5005` even target residues modulo `10010`: the executable
+  coefficient-geometry receipt gives cosine range
+  `-0.0381940494499906 .. 0.0419660251672338`.  This rules out a pure
+  coefficient-geometry explanation for the late no-both-negative pattern.
 
 ## Current boundary examples
 
@@ -134,9 +136,11 @@ current comparison set.
 9. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 10. The direct coefficient geometry probe shows that the two active component
-   vectors are almost orthogonal, not oppositely constrained.  The remaining
-   proof must use actual binary prime-pair discrepancy arithmetic or record
-   that obligation as fixed-modulus pointwise Goldbach-in-progressions input.
+   vectors are almost orthogonal, not oppositely constrained.  This is now
+   executable as `q286_lower_support_component_pair_coefficient_geometry_receipt`;
+   its focused regression passed in `32.897s`.  The remaining proof must use
+   actual binary prime-pair discrepancy arithmetic or record that obligation
+   as fixed-modulus pointwise Goldbach-in-progressions input.
 
 ## Still open
 

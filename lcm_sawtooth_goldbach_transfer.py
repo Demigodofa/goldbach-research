@@ -11506,6 +11506,116 @@ def q286_lower_support_component_pair_tail_window_receipt(
     }
 
 
+def q286_lower_support_component_pair_coefficient_geometry_receipt(
+        component_pair=((5, 7), (7, 11)), sample_targets=(
+            14138, 1222142, 1323632, 1379072), tolerance=1e-9):
+    """Measure fixed coefficient geometry for the active component pair."""
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    sample_targets = tuple(dict.fromkeys(sample_targets))
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError("sample_targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    for support in component_pair:
+        if support not in component_values:
+            raise ValueError("component_pair support is unavailable")
+
+    rows = {}
+    cosine_values = []
+    norm_rows = []
+    for residue in range(0, period, 2):
+        admissible_mask = np.asarray(tuple(
+            math.gcd((residue - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        if not admissible_count:
+            continue
+        centered = []
+        norm_ratios = []
+        for support in component_pair:
+            values = component_values[support]
+            local_mean = float(np.mean(values[admissible_mask].real))
+            coefficient = np.zeros(len(units), dtype=np.float64)
+            coefficient[admissible_mask] = (
+                values[admissible_mask].real - local_mean)
+            centered.append(coefficient)
+            norm_ratios.append(
+                float(np.linalg.norm(coefficient)) / principal_mean)
+        denominator = float(
+            np.linalg.norm(centered[0]) * np.linalg.norm(centered[1]))
+        pair_cosine = (
+            float(np.dot(centered[0], centered[1]) / denominator)
+            if denominator > tolerance else 0.0)
+        pair_sum_norm_ratio = (
+            float(np.linalg.norm(centered[0] + centered[1]))
+            / principal_mean)
+        row = {
+            "target_residue": residue,
+            "admissible_count": admissible_count,
+            "component_norm_to_principal_mean": {
+                component_pair[0]: norm_ratios[0],
+                component_pair[1]: norm_ratios[1],
+            },
+            "pair_coefficient_cosine": pair_cosine,
+            "pair_sum_norm_to_principal_mean": pair_sum_norm_ratio,
+        }
+        rows[residue] = row
+        cosine_values.append(pair_cosine)
+        norm_rows.append((residue, norm_ratios[0], norm_ratios[1],
+                          pair_sum_norm_ratio))
+
+    cosines = np.asarray(cosine_values, dtype=np.float64)
+    quantiles = (0.0, .01, .05, .25, .5, .75, .95, .99, 1.0)
+    return {
+        "arithmetic_period": period,
+        "unit_residue_count": len(units),
+        "even_target_residue_count": len(rows),
+        "component_pair": component_pair,
+        "principal_mean": principal_mean,
+        "admissible_counts": tuple(sorted({
+            row["admissible_count"] for row in rows.values()})),
+        "minimum_pair_coefficient_cosine_row": min(
+            rows.values(), key=lambda row: row["pair_coefficient_cosine"]),
+        "maximum_pair_coefficient_cosine_row": max(
+            rows.values(), key=lambda row: row["pair_coefficient_cosine"]),
+        "maximum_absolute_pair_coefficient_cosine_row": max(
+            rows.values(),
+            key=lambda row: abs(row["pair_coefficient_cosine"])),
+        "component_norm_ranges_to_principal_mean": {
+            component_pair[0]: (
+                min(row[1] for row in norm_rows),
+                max(row[1] for row in norm_rows)),
+            component_pair[1]: (
+                min(row[2] for row in norm_rows),
+                max(row[2] for row in norm_rows)),
+        },
+        "pair_sum_norm_range_to_principal_mean": (
+            min(row[3] for row in norm_rows),
+            max(row[3] for row in norm_rows)),
+        "pair_coefficient_cosine_quantiles": {
+            quantile: float(np.quantile(cosines, quantile))
+            for quantile in quantiles},
+        "sample_target_rows": {
+            target: rows[target % period]
+            for target in sample_targets},
+        "rows": rows,
+        "component_pair_coefficient_geometry_measured": True,
+        "pure_coefficient_geometry_exclusion_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):
