@@ -46,6 +46,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
 
 ## Closed or falsified lanes
 
@@ -294,6 +295,10 @@ current comparison set.
    reflection-envelope failures are exactly two `1379072` conductor-`77`
    labels, `(0,1,5,0)` and `(0,2,6,0)`, and both are rescued by signed
    cross-orbit cancellation.
+33. The orbit-polygon regression passed in `351.969s` and turns those two
+   residual failures into exact `38`-edge complex polygons.  Their perimeters
+   slightly exceed the channel bound, but their resultants are only
+   `0.0053525925011552716` and `0.01746105205795644`.
 
 ## Still open
 

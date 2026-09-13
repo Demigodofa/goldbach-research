@@ -423,6 +423,14 @@
       "status_boundary": "selected residual-orbit cancellation profile only; no uniform residual-orbit theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_orbit_polygon",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_orbit_polygon passed in 351.969s; the two 1379072 conductor-77 residual failures are exact 38-edge complex polygons with closure ratios 0.09006464316185543 and 0.289119636096235",
+      "status_boundary": "selected orbit-polygon profile only; no uniform orbit-alignment theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -722,6 +730,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_residual_orbit_cancellation",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_orbit_polygon",
+      "to": "receipt.component_pair_fixed_conductor_residual_orbit_cancellation",
+      "type": "geometrizes"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_orbit_polygon",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

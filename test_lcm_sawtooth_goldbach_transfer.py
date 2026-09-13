@@ -76,6 +76,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt,
     q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt,
     q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt,
+    q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2609,6 +2610,38 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "fixed_conductor_residual_orbit_cancellation_measured"])
         self.assertFalse(receipt[
             "residual_orbit_cancellation_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_orbit_polygon(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["polygon_row_count"], 2)
+        self.assertEqual(
+            tuple(row["representative_label"]
+                  for row in receipt["polygon_rows"]),
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertTrue(all(row["target"] == 1379072
+                            for row in receipt["polygon_rows"]))
+        self.assertTrue(all(row["conductor"] == 77
+                            for row in receipt["polygon_rows"]))
+        for row in receipt["polygon_rows"]:
+            self.assertLess(row["resultant_reconstruction_error"], 1e-12)
+            self.assertGreater(row["resultant_margin_to_channel_bound"], 0.0)
+            self.assertLess(row["perimeter_margin_to_channel_bound"], 0.0)
+        worst = receipt["worst_closure_ratio_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertAlmostEqual(
+            worst["closure_ratio"], 0.289119636096235)
+        self.assertAlmostEqual(
+            worst["polygon_perimeter"], 0.0603938642622822)
+        self.assertTrue(receipt["fixed_conductor_orbit_polygon_measured"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

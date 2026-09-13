@@ -967,6 +967,39 @@ envelopes almost suffice, and the remaining `1379072` failures need only
 moderate signed cancellation across those reflection orbits.  This is still
 finite selected evidence, not a uniform residual-orbit theorem.
 
+`q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
+turns those two residual failures into exact complex-vector polygons.  Focused
+regression `test_q286_lower_support_component_pair_fixed_conductor_orbit_polygon`
+passed in `351.969s`.
+
+```text
+channel bound: 0.05885324711081062
+
+1379072, label (0,1,5,0), conductor 77:
+  edge count 38
+  polygon perimeter 0.059430563573500336
+  resultant 0.0053525925011552716
+  closure ratio 0.09006464316185543
+  largest edge 0.0063135866309737085
+  largest-edge/perimeter 0.10623467541520827
+  margin to channel bound 0.05350065460965535
+
+1379072, label (0,2,6,0), conductor 77:
+  edge count 38
+  polygon perimeter 0.0603938642622822
+  resultant 0.01746105205795644
+  closure ratio 0.289119636096235
+  largest edge 0.00713099129439525
+  largest-edge/perimeter 0.11807476440696593
+  margin to channel bound 0.041392195052854186
+```
+
+This is the numeric version of the visual idea: each reflection orbit is an
+edge in the complex plane.  The residual theorem target is not merely "make
+the edges small"; it is to prove that the `38` orbit edges cannot align enough
+to make the resultant approach their perimeter on the selected conductor-`77`
+driver-bound rows.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

@@ -19085,6 +19085,21 @@ actual/orbit-L1 ratio `0.289119636096235` versus needed
 cancellation.  This is finite selected evidence only; Goldbach and the
 uniform residual-orbit theorem remain open.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_orbit_polygon` passed
+in `351.969s`.  It treats the two residual `1379072` conductor-`77` failures
+as exact complex polygons whose edges are reflection-orbit contributions.
+Both have `38` edges.  Label `(0,1,5,0)` has perimeter
+`0.059430563573500336`, resultant `0.0053525925011552716`, and closure ratio
+`0.09006464316185543`.  Label `(0,2,6,0)` has perimeter
+`0.0603938642622822`, resultant `0.01746105205795644`, and closure ratio
+`0.289119636096235`.  The next theorem attempt can target orbit-edge
+alignment in this exact polygon geometry.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

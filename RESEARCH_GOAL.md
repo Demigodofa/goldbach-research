@@ -10461,6 +10461,19 @@ cancellation.  This is the current narrowest channel-side target: prove or
 replace a residual signed orbit-cancellation estimate for the conductor-`77`
 driver-bound row.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
+expresses the two residual conductor-`77` failures as exact complex-vector
+polygons.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_orbit_polygon` passed
+in `351.969s`.  Both residual rows at `1379072` have `38` reflection-orbit
+edges.  Label `(0,1,5,0)` has perimeter `0.059430563573500336` but resultant
+only `0.0053525925011552716`, closure ratio `0.09006464316185543`.  Label
+`(0,2,6,0)` has perimeter `0.0603938642622822`, resultant
+`0.01746105205795644`, closure ratio `0.289119636096235`.  This converts the
+visual/geometric hunch into a falsifiable theorem target: bound alignment of
+the conductor-`77` orbit-polygon edges on the active driver-bound rows.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

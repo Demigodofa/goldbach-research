@@ -13830,6 +13830,7 @@ def q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt(
                     key=lambda orbit_row: orbit_row[
                         "normalized_orbit_contribution_abs"],
                     reverse=True)[:5]),
+                "reflection_orbit_rows": tuple(orbit_rows),
             }
             channel_rows.append(row)
             all_channel_rows.append(row)
@@ -13973,6 +13974,108 @@ def q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellatio
         "source_fixed_conductor_reflection_orbit_receipt": reflection,
         "fixed_conductor_residual_orbit_cancellation_measured": True,
         "residual_orbit_cancellation_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Treat residual reflection-orbit failures as exact complex polygons."""
+    residual = (
+        q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    channel_bound = residual["normalized_real_channel_linf_bound"]
+
+    polygon_rows = []
+    for source_row in residual["positive_reflection_failure_rows"]:
+        orbit_rows = source_row["reflection_orbit_rows"]
+        vectors = tuple(
+            complex(row["normalized_orbit_contribution"])
+            for row in orbit_rows)
+        edge_lengths = tuple(abs(vector) for vector in vectors)
+        resultant = complex(math.fsum(vector.real for vector in vectors),
+                            math.fsum(vector.imag for vector in vectors))
+        resultant_abs = abs(resultant)
+        perimeter = float(math.fsum(edge_lengths))
+        axis = resultant / resultant_abs if resultant_abs else 1.0 + 0.0j
+        axis_conjugate = axis.conjugate()
+        projections = tuple((vector * axis_conjugate).real
+                            for vector in vectors)
+        transverse = tuple((vector * axis_conjugate).imag
+                           for vector in vectors)
+        positive_projection = float(math.fsum(
+            value for value in projections if value > 0.0))
+        negative_projection_abs = float(-math.fsum(
+            value for value in projections if value < 0.0))
+        transverse_l1 = float(math.fsum(abs(value) for value in transverse))
+        top_edges = tuple(sorted(
+            ({
+                "orbit": orbit_row["orbit"],
+                "vector": complex(
+                    orbit_row["normalized_orbit_contribution"]),
+                "length": orbit_row[
+                    "normalized_orbit_contribution_abs"],
+                "angle_radians": math.atan2(
+                    complex(orbit_row[
+                        "normalized_orbit_contribution"]).imag,
+                    complex(orbit_row[
+                        "normalized_orbit_contribution"]).real),
+            } for orbit_row in orbit_rows),
+            key=lambda row: row["length"],
+            reverse=True)[:5])
+        polygon_rows.append({
+            "target": source_row["target"],
+            "target_residue": source_row["target_residue"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "edge_count": len(vectors),
+            "polygon_perimeter": perimeter,
+            "resultant": resultant,
+            "resultant_abs": resultant_abs,
+            "source_actual_normalized_abs_sum": (
+                source_row["actual_normalized_abs_sum"]),
+            "resultant_reconstruction_error": abs(
+                resultant_abs
+                - source_row["actual_normalized_abs_sum"]),
+            "closure_ratio": (
+                resultant_abs / perimeter if perimeter else 0.0),
+            "largest_edge_abs": max(edge_lengths),
+            "largest_edge_fraction_of_perimeter": (
+                max(edge_lengths) / perimeter if perimeter else 0.0),
+            "positive_axis_projection_sum": positive_projection,
+            "negative_axis_projection_sum_abs": negative_projection_abs,
+            "axis_projection_cancellation_ratio": (
+                negative_projection_abs / positive_projection
+                if positive_projection else 0.0),
+            "transverse_l1": transverse_l1,
+            "resultant_margin_to_channel_bound": (
+                channel_bound - resultant_abs),
+            "perimeter_margin_to_channel_bound": (
+                channel_bound - perimeter),
+            "top_polygon_edge_rows": top_edges,
+            "source_residual_orbit_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": residual["arithmetic_period"],
+        "targets": residual["targets"],
+        "tested_target_count": residual["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": residual["active_channel_conductors"],
+        "normalized_real_channel_linf_bound": channel_bound,
+        "polygon_rows": tuple(polygon_rows),
+        "polygon_row_count": len(polygon_rows),
+        "worst_closure_ratio_row": max(
+            polygon_rows, key=lambda row: row["closure_ratio"]),
+        "largest_perimeter_row": max(
+            polygon_rows, key=lambda row: row["polygon_perimeter"]),
+        "source_residual_orbit_cancellation_receipt": residual,
+        "fixed_conductor_orbit_polygon_measured": True,
+        "orbit_polygon_theorem_proved": False,
         "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
