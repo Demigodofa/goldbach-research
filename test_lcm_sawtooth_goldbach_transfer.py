@@ -93,6 +93,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt,
     q286_lower_support_component_pair_fixed_inequality_stress_receipt,
     q286_lower_support_component_pair_fixed_inequality_target_census_receipt,
+    q286_lower_support_component_pair_tail_selector_grid_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -3421,6 +3422,28 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_large_side_budget_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_tail_selector_grid(self):
+        receipt = q286_lower_support_component_pair_tail_selector_grid_receipt(
+            starts=(1379072,), targets_per_window=5)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["starts"], (1379072,))
+        self.assertEqual(receipt["targets_per_window"], 5)
+        self.assertEqual(receipt["window_count"], 1)
+        self.assertEqual(receipt["scanned_target_count"], 5)
+        self.assertEqual(receipt["tail_target_count"], 1)
+        self.assertEqual(receipt["tail_targets"], (1379072,))
+        self.assertEqual(receipt["window_rows"][0]["tail_targets"],
+                         (1379072,))
+        self.assertTrue(receipt["target_rows"][1379072][
+            "selected_by_tail_predicate"])
+        self.assertFalse(receipt["fixed_inequality_stress_run"])
+        self.assertTrue(receipt["tail_selector_grid_measured"])
+        self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

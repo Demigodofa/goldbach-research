@@ -1416,6 +1416,21 @@ ambiguity in the local active lane; it does not give broad statistical
 reinforcement, a uniform target theorem, signed prime-correlation control, or
 Goldbach.
 
+`q286_lower_support_component_pair_tail_selector_grid_receipt` adds the
+corresponding selector-only grid.  It scans predeclared windows for the same
+active `first_two < -0.2` and `first_three < -0.3` predicate, without running
+the fixed-conductor stress stack.  Focused regression
+`test_q286_lower_support_component_pair_tail_selector_grid` passed in
+`35.441s`.
+
+Selector-only evidence is recorded in
+`evidence/q286-tail-selector-grid-6x25.json`: starts
+`1000000,1010010,1020020,1030030,1040040,1050050`, `25` even targets per
+window, `150` scanned targets total, and `0` selected active tail targets.
+This is useful denominator evidence for the sampling question, but no
+fixed-inequality row was tested in those windows.  It must not be counted as
+support for the antipodal thin-large-side inequality.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

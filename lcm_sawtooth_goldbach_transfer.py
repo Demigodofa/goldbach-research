@@ -15780,6 +15780,103 @@ def q286_lower_support_component_pair_fixed_inequality_target_census_receipt(
     }
 
 
+def q286_lower_support_component_pair_tail_selector_grid_receipt(
+        starts=(1379072,), targets_per_window=5,
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Scan predeclared windows for the active tail predicate.
+
+    This is a selector-denominator receipt.  It does not run the expensive
+    fixed-conductor stress stack; it records which targets would enter that
+    stack under the unchanged first-two/first-three predicate.
+    """
+    starts = tuple(dict.fromkeys(starts))
+    if (not starts or any(type(start) is not int or start < 40
+                          or start % 2 for start in starts)):
+        raise ValueError("starts must be nonempty even integers at least 40")
+    if (type(targets_per_window) is not int or targets_per_window < 1
+            or targets_per_window > 5005):
+        raise ValueError("targets_per_window must lie between 1 and 5005")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0.0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0.0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0.0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    window_rows = []
+    target_rows = {}
+    tail_target_rows = []
+    arithmetic_period = None
+    for start in starts:
+        receipt = q286_first_two_mode_lower_tail_receipt(
+            start=start, cycle_count=1,
+            targets_per_cycle=targets_per_window,
+            tolerance=tolerance, include_residue_weights=False)
+        if arithmetic_period is None:
+            arithmetic_period = receipt["arithmetic_period"]
+        scanned_targets = tuple(sorted(receipt["rows"]))
+        tail_targets = []
+        for target in scanned_targets:
+            row = receipt["rows"][target]
+            selected = (
+                row["first_two_modes_to_principal_ratio"]
+                < -first_two_threshold
+                and row["first_three_modes_to_principal_ratio"]
+                < -tail_threshold)
+            target_row = {
+                "target": target,
+                "window_start": start,
+                "target_residue": target % receipt["arithmetic_period"],
+                "selected_by_tail_predicate": bool(selected),
+                "first_two_modes_to_principal_ratio": row[
+                    "first_two_modes_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": row[
+                    "first_three_modes_to_principal_ratio"],
+                "full_action_to_principal_ratio": row[
+                    "full_action_to_principal_ratio"],
+            }
+            target_rows[target] = target_row
+            if selected:
+                tail_targets.append(target)
+                tail_target_rows.append(target_row)
+        window_rows.append({
+            "start": start,
+            "end": scanned_targets[-1],
+            "scanned_target_count": len(scanned_targets),
+            "tail_target_count": len(tail_targets),
+            "tail_targets": tuple(tail_targets),
+        })
+
+    scanned_target_count = sum(
+        row["scanned_target_count"] for row in window_rows)
+    tail_targets = tuple(row["target"] for row in tail_target_rows)
+    return {
+        "arithmetic_period": arithmetic_period,
+        "starts": starts,
+        "targets_per_window": targets_per_window,
+        "window_count": len(starts),
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "selector_rule": (
+            "first_two_modes_to_principal_ratio < "
+            f"-{first_two_threshold} and "
+            "first_three_modes_to_principal_ratio < "
+            f"-{tail_threshold}"),
+        "scanned_target_count": scanned_target_count,
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tail_targets,
+        "window_rows": tuple(window_rows),
+        "target_rows": target_rows,
+        "tail_target_rows": tuple(tail_target_rows),
+        "tail_selector_grid_measured": True,
+        "fixed_inequality_stress_run": False,
+        "fixed_inequality_uniform_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

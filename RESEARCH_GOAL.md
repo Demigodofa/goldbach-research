@@ -10649,6 +10649,17 @@ failures, and zero errors.  This reduces target cherry-picking ambiguity only
 inside a tiny local active window; it is not a broad sample, a uniform theorem,
 or evidence that Goldbach is proved.
 
+`q286_lower_support_component_pair_tail_selector_grid_receipt` now separates
+broad target-denominator scanning from the expensive fixed-inequality stress
+stack.  The focused regression
+`test_q286_lower_support_component_pair_tail_selector_grid` passed in
+`35.441s`.  The selector-only grid in
+`evidence/q286-tail-selector-grid-6x25.json` scanned `150` predeclared targets
+across starts `1000000,1010010,1020020,1030030,1040040,1050050` and found
+zero targets satisfying the active `first_two < -0.2` and `first_three < -0.3`
+predicate.  This is denominator evidence only: no fixed-inequality stress rows
+were generated, so it is not support for the inequality.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

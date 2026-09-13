@@ -19339,6 +19339,24 @@ fixed inequality, but it is only a tiny local window.  It does not solve the
 sample-size concern, does not establish a uniform target theorem, and does
 not prove signed prime-correlation control or Goldbach.
 
+New selector-denominator grid:
+
+- `q286_lower_support_component_pair_tail_selector_grid_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_tail_selector_grid` passed in
+`35.441s`.  This receipt scans predeclared windows for the active
+`first_two < -0.2` and `first_three < -0.3` predicate without running the
+expensive fixed-conductor stress stack.
+
+Selector-only evidence is recorded in
+`evidence/q286-tail-selector-grid-6x25.json`.  The predeclared starts
+`1000000,1010010,1020020,1030030,1040040,1050050`, with `25` even targets per
+window, scanned `150` targets total and found `0` active tail targets.  Since
+no target entered the active lane, this is not reinforcement of the fixed
+inequality; it is denominator evidence showing those neutral windows produced
+no stressable rows.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

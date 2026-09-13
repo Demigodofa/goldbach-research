@@ -1,0 +1,65 @@
+{
+  "receipt": "q286-tail-selector-grid-6x25",
+  "generated_on": "2026-09-13",
+  "purpose": "Selector-denominator scan for predeclared neutral q286 windows before running expensive fixed-inequality stress receipts.",
+  "selector": {
+    "first_two_modes_to_principal_ratio": "< -0.2",
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "starts": [
+    1000000,
+    1010010,
+    1020020,
+    1030030,
+    1040040,
+    1050050
+  ],
+  "targets_per_window": 25,
+  "window_count": 6,
+  "scanned_target_count": 150,
+  "tail_target_count": 0,
+  "tail_targets": [],
+  "window_rows": [
+    {
+      "start": 1000000,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1010010,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1020020,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1030030,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1040040,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1050050,
+      "scanned_target_count": 25,
+      "tail_target_count": 0,
+      "tail_targets": []
+    }
+  ],
+  "validation": {
+    "selector_probe": "q286_first_two_mode_lower_tail_receipt over starts 1000000 + 10010*k for k=0..5, targets_per_cycle=25, include_residue_weights=False",
+    "focused_unittest": "test_q286_lower_support_component_pair_tail_selector_grid passed in 35.441s"
+  },
+  "boundary": "Selector-only evidence: no fixed-inequality stress rows were generated, so this is not reinforcement of the fixed inequality. It records that these predeclared neutral windows did not enter the active tail lane."
+}

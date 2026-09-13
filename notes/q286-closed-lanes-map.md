@@ -399,6 +399,13 @@ current comparison set.
    one tail target (`1379072`), and stressed it with zero failures and zero
    errors.  This is a useful anti-cherry-pick audit of the target denominator,
    but only for a tiny local window; it does not provide broad sample support.
+48. The tail-selector grid regression passed in `35.441s` and separates broad
+   denominator scanning from the expensive fixed-inequality stress stack.
+   `evidence/q286-tail-selector-grid-6x25.json` scanned `150` predeclared
+   targets across starts `1000000,1010010,1020020,1030030,1040040,1050050`
+   and found zero active tail targets.  This is not support for the fixed
+   inequality; it shows only that these neutral windows had no stressable
+   active-lane rows.
 
 ## Still open
 

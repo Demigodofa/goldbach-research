@@ -547,6 +547,14 @@
       "status_boundary": "tiny selector-driven target-window audit only; does not solve sample-size concern, prove a uniform target theorem, or prove Goldbach"
     },
     {
+      "id": "receipt.component_pair_tail_selector_grid",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_tail_selector_grid_receipt",
+      "status": "validated_selector_grid",
+      "validation": "test_q286_lower_support_component_pair_tail_selector_grid passed in 35.441s; evidence/q286-tail-selector-grid-6x25.json scanned 150 predeclared targets across six windows and found zero active tail targets",
+      "status_boundary": "selector-denominator evidence only; no fixed-inequality rows were stressed, no uniform theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1003,6 +1011,16 @@
       "from": "receipt.component_pair_fixed_inequality_target_census",
       "to": "theorem.active.component_pair_exclusion",
       "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_tail_selector_grid",
+      "to": "structure.active_subcone",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_tail_selector_grid",
+      "to": "receipt.component_pair_fixed_inequality_target_census",
+      "type": "supports"
     },
     {
       "from": "receipt.component_pair_real_channel_action",
