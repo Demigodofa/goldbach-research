@@ -18023,6 +18023,29 @@ max L2 sufficient-ratio: 10664, ratio 26.134535399601887
 Next instruction: use this shared-sieve selected receipt for larger hand-picked
 falsifier sets instead of one-target loops.
 
+## 2026-09-13 continuation: cycle-0 dense-tail alignment check
+
+The tail-alignment window receipt was applied to global cycle `0`, where the
+`.3` first-three tail is dense.
+
+```text
+tested 5005
+tail_count 972
+alignment ceiling .4
+violation_count 0
+maximum negative alignment:
+  target 14892, utilization 0.2692173284796089,
+  first_three -0.8671841914960792
+maximum L2 sufficient-ratio:
+  target 10898, ratio 35.552799422567006,
+  utilization 0.11954563697711441
+```
+
+Interpretation: `.4` survives the severe cycle-0 tail set too.  The pattern is
+not simply "bad early tails have worse alignment"; the early obstruction is
+mostly large discrepancy size, while the strongest negative alignment so far
+remains in later sparse/near-tail checks.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -9595,3 +9595,16 @@ sufficient-ratio `26.134535399601887` at `10664`.
 
 Status `engineering`: this makes broader selected falsifier checks cheaper;
 it does not change the finite mathematical evidence or prove a theorem.
+
+### 2026-09-13 continuation: cycle-0 dense-tail alignment check
+
+The `.4` negative-alignment ceiling was tested on global cycle `0`, where
+there are `972` targets below the `.3` first-three tail threshold.  There were
+zero `.4` alignment violations.  The maximum negative utilization was
+`0.2692173284796089` at target `14892`, whose first-three ratio is
+`-0.8671841914960792`.
+
+Status `survived-dense-tail-falsifier`: `.4` survives cycle `0` as well as the
+two checked sparse-tail recurrence bands.  This is finite evidence only; a
+proof would still need a signed alignment estimate plus a discrepancy-size
+estimate.

@@ -3222,3 +3222,44 @@ maximum L2 sufficient-ratio: target 10664, ratio 26.134535399601887
 
 Status `engineering`: selected-target alignment falsifiers are cheaper to
 scale, but no new mathematical theorem is proved.
+
+## 2026-09-13: cycle-0 dense-tail alignment check
+
+The tail-alignment window receipt was applied to the dense first-period
+tail band, global cycle `0`, with tail threshold `.3` and alignment ceiling
+`.4`.
+
+```text
+tested targets: 5005
+tail_count: 972
+alignment violations at .4: ()
+maximum negative alignment:
+  target 14892, first_three -0.8671841914960792,
+  l2_negative_bound_utilization 0.2692173284796089,
+  l2_to_sufficient_ratio 16.105653309789854
+maximum L2 sufficient-ratio:
+  target 10898, first_three -0.8500364106580717,
+  l2_to_sufficient_ratio 35.552799422567006,
+  l2_negative_bound_utilization 0.11954563697711441
+```
+
+Top ten negative-alignment utilizations:
+
+```text
+14892: -0.8671841914960792, utilization 0.2692173284796089
+14256: -0.7657105645096702, utilization 0.2618188612654705
+15588: -0.5554439169794696, utilization 0.25707575366750357
+17196: -0.5680605559720755, utilization 0.25693591118988546
+14996: -0.9923694214370512, utilization 0.2358359743639066
+14320: -0.8529953059805205, utilization 0.23080166646056485
+10824: -0.7656275004789149, utilization 0.2270847245238934
+14988: -0.7398165134246611, utilization 0.22688746993494466
+10344: -0.8010855942441321, utilization 0.22595705184942036
+14670: -0.6301463355650603, utilization 0.2253106695847158
+```
+
+Status `survived-dense-tail-falsifier`: the `.4` alignment ceiling survives
+the severe cycle-0 tail set.  This strengthens the finite alignment pattern:
+early severe tails have large discrepancy size, while later sparse tails have
+larger negative alignment.  A theorem would still need to control both size
+and signed angle uniformly.
