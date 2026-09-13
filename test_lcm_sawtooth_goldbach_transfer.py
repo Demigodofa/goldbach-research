@@ -1677,7 +1677,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
 
     def test_q286_lower_support_component_pair_tail_window(self):
         receipt = q286_lower_support_component_pair_tail_window_receipt(
-            start=1222142, cycle_count=1, targets_per_cycle=1,
+            selected_targets=(1222142,),
             first_two_threshold=.2, tail_threshold=.3)
         self.assertEqual(receipt["tested_target_count"], 1)
         self.assertEqual(receipt["tail_subcone_targets"], (1222142,))

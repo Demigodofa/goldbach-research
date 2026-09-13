@@ -240,6 +240,11 @@ current theorem target but remains finite evidence only.  Broad scans should
 wait for coefficient/component caching because the current receipt chains
 several heavy decompositions.
 
+The receipt now has a selected-target path for explicit candidates, reducing
+the focused regression to `81.792s`.  The current q286 closure map is recorded
+both as prose in `notes/q286-closed-lanes-map.md` and as typed graph data in
+`notes/q286-closed-lanes-map.graph.json`.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

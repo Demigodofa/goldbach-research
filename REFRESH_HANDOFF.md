@@ -18358,6 +18358,16 @@ component-local receipt values.  This is finite evidence only.  Broad scans
 should wait for coefficient/component caching because the current receipt
 chains several heavy decompositions.
 
+The same receipt now has a selected-target path for explicit candidates,
+bypassing the extra window selector.  The focused regression now uses
+`selected_targets=(1222142,)` and passed in `81.792s`.
+
+Closed and active q286 lanes are indexed in:
+
+- `notes/q286-closed-lanes-map.md` for the human-readable map.
+- `notes/q286-closed-lanes-map.graph.json` for typed graph data with
+  metadata, node status, evidence, and edges.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused component-pair

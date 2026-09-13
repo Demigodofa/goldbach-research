@@ -11194,7 +11194,8 @@ def q286_lower_support_component_pair_tail_window_receipt(
         start=1222142, cycle_count=1, targets_per_cycle=1,
         first_two_threshold=.2, tail_threshold=.3,
         component_negative_thresholds=(.02, .05, .1),
-        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9,
+        selected_targets=None):
     """Measure the active lower-support component pair on subcone tail hits.
 
     This finite receipt finds targets in the ``first_two < -.2`` and
@@ -11202,13 +11203,21 @@ def q286_lower_support_component_pair_tail_window_receipt(
     component pair now implicated by boundary failures.  It is a falsifier for
     the simultaneous-negative-channel theorem target, not a proof.
     """
-    if type(start) is not int or start < 40 or start % 2:
-        raise ValueError("start must be an even integer at least 40")
-    if type(cycle_count) is not int or cycle_count < 1:
-        raise ValueError("cycle_count must be a positive integer")
-    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
-            or targets_per_cycle > 5005):
-        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if type(cycle_count) is not int or cycle_count < 1:
+            raise ValueError("cycle_count must be a positive integer")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
     if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
         raise ValueError("first_two_threshold must be positive and finite")
     if not math.isfinite(tail_threshold) or tail_threshold <= 0:
@@ -11225,27 +11234,47 @@ def q286_lower_support_component_pair_tail_window_receipt(
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
-    subcone = q286_first_two_mode_subcone_complement_window_receipt(
-        start=start, cycle_count=cycle_count,
-        targets_per_cycle=targets_per_cycle,
-        first_two_negative_thresholds=(first_two_threshold,),
-        tail_threshold=tail_threshold, tolerance=tolerance)
-    tail_targets = subcone["threshold_rows"][first_two_threshold][
-        "tail_targets"]
-    if tail_targets:
+    if selected_targets is None:
+        subcone = q286_first_two_mode_subcone_complement_window_receipt(
+            start=start, cycle_count=cycle_count,
+            targets_per_cycle=targets_per_cycle,
+            first_two_negative_thresholds=(first_two_threshold,),
+            tail_threshold=tail_threshold, tolerance=tolerance)
+        tail_targets = subcone["threshold_rows"][first_two_threshold][
+            "tail_targets"]
+        tested_target_count = subcone["tested_target_count"]
+        if tail_targets:
+            component_targets = tail_targets
+        else:
+            component_targets = ()
+    else:
+        subcone = None
+        start = selected_targets[0]
+        cycle_count = 1
+        targets_per_cycle = len(selected_targets)
+        component_targets = selected_targets
+        tested_target_count = len(selected_targets)
+
+    if component_targets:
         component = (
             q286_lower_support_package_component_local_discrepancy_receipt(
-                targets=tail_targets, first_two_threshold=first_two_threshold,
+                targets=component_targets,
+                first_two_threshold=first_two_threshold,
                 tail_threshold=tail_threshold, tolerance=tolerance))
     else:
         component = None
+    if selected_targets is not None and component is not None:
+        tail_targets = tuple(
+            target for target in selected_targets
+            if component["rows"][target]["source_package_row"][
+                "subcone_member"])
 
     rows = {}
     both_negative_targets = []
     pair_centered_sum_minimum_row = None
     for target in tail_targets:
-        subcone_row = subcone["rows"][target]
         component_row = component["rows"][target]
+        package_row = component_row["source_package_row"]
         pair_rows = {
             support: component_row["component_rows"][support]
             for support in component_pair}
@@ -11256,14 +11285,14 @@ def q286_lower_support_component_pair_tail_window_receipt(
         both_negative = all(value < -tolerance for value in centered_values)
         row = {
             "target": target,
-            "first_two_modes_to_principal_ratio": subcone_row[
+            "first_two_modes_to_principal_ratio": package_row[
                 "first_two_modes_to_principal_ratio"],
-            "first_three_to_principal_ratio": subcone_row[
-                "first_three_to_principal_ratio"],
-            "full_action_to_principal_ratio": subcone_row[
+            "first_three_to_principal_ratio": package_row[
+                "first_three_modes_to_principal_ratio"],
+            "full_action_to_principal_ratio": package_row[
                 "full_action_to_principal_ratio"],
             "rescued_by_full_complement": bool(
-                subcone_row["full_action_to_principal_ratio"] > tolerance),
+                package_row["full_action_to_principal_ratio"] > tolerance),
             "component_pair": component_pair,
             "component_centered_actions_to_principal_ratio": {
                 support: pair_rows[support][
@@ -11279,7 +11308,9 @@ def q286_lower_support_component_pair_tail_window_receipt(
                 pair_centered_sum),
             "both_pair_components_centered_negative": both_negative,
             "source_component_row": component_row,
-            "source_subcone_row": subcone_row,
+            "source_subcone_row": (
+                subcone["rows"][target] if subcone is not None else None),
+            "source_package_row": package_row,
         }
         rows[target] = row
         if both_negative:
@@ -11311,16 +11342,23 @@ def q286_lower_support_component_pair_tail_window_receipt(
         }
 
     return {
-        "arithmetic_period": subcone["arithmetic_period"],
+        "arithmetic_period": (
+            subcone["arithmetic_period"] if subcone is not None
+            else component["source_lower_support_package_receipt"][
+                "source_support_envelope_receipt"]["arithmetic_period"]
+            if component is not None else None),
         "start": start,
-        "aligned_global_cycle_base": subcone["aligned_global_cycle_base"],
+        "aligned_global_cycle_base": (
+            subcone["aligned_global_cycle_base"]
+            if subcone is not None else None),
         "cycle_count": cycle_count,
         "targets_per_cycle": targets_per_cycle,
+        "selected_targets": selected_targets,
         "first_two_threshold": first_two_threshold,
         "tail_threshold": tail_threshold,
         "component_pair": component_pair,
         "component_negative_thresholds": component_negative_thresholds,
-        "tested_target_count": subcone["tested_target_count"],
+        "tested_target_count": tested_target_count,
         "tail_subcone_target_count": len(tail_targets),
         "tail_subcone_targets": tail_targets,
         "rows": rows,
