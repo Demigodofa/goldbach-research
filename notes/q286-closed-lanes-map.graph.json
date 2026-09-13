@@ -391,6 +391,14 @@
       "status_boundary": "selected fixed-conductor reduction only; no pointwise twisted binary-prime discrepancy theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_residue_pressure",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_residue_pressure passed in 208.170s; plain residue Linf/L1 triangle bounds are too crude even on late positives, so character-sum cancellation remains necessary",
+      "status_boundary": "selected residue-pressure profile only; no residue-discrepancy theorem, no twisted prime-correlation theorem, and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -652,6 +660,16 @@
       "from": "receipt.component_pair_fixed_conductor_reduction",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_residue_pressure",
+      "to": "receipt.component_pair_fixed_conductor_reduction",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_residue_pressure",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "falsifies_plain_residue_bound"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

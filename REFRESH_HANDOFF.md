@@ -19020,6 +19020,23 @@ sum `0.2659059415120284`; the worst late-positive pressure channel
 target: fixed-conductor twisted binary-prime discrepancy on `35` and `77`,
 not full residue equidistribution modulo `10010`.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_residue_pressure`
+passed in `208.170s`.  It profiles the residue aggregates modulo `35` and
+`77` behind the fixed-conductor character sums.  The plain residue triangle
+route is too crude: worst residue Linf is boundary `14138` at conductor `35`,
+`0.05327502632021343`, giving triangle bound `1.2786006316851224`; worst
+residue L1 is `14138` at conductor `77`, `0.4624962038193246`.  Late-positive
+`1379072` at conductor `77` still has plain Linf triangle bound
+`0.2187090564566816`, above the needed channel bound
+`0.05885324711081062`, while its actual active channel sum is only
+`0.027155981994015317`.  Next attempts should preserve character-sum
+cancellation or prove a much sharper residue discrepancy theorem.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

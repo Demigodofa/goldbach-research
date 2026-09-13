@@ -13472,6 +13472,132 @@ def q286_lower_support_component_pair_fixed_conductor_reduction_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), top_count=5,
+        tolerance=1e-9):
+    """Profile residue-aggregate pressure behind the fixed conductors."""
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    reduction = (
+        q286_lower_support_component_pair_fixed_conductor_reduction_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    conductor_profile = reduction[
+        "source_channel_conductor_profile_receipt"]
+    channel_bound = conductor_profile[
+        "source_channel_pressure_profile_receipt"][
+            "normalized_real_channel_linf_bound"]
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=reduction["targets"],
+        targets_per_cycle=len(reduction["targets"]),
+        tolerance=tolerance, include_residue_weights=True)
+
+    rows = {}
+    worst_linf_row = None
+    worst_l1_row = None
+    for target in reduction["targets"]:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - uniform_weight
+
+        conductor_rows = {}
+        for conductor in reduction["active_channel_conductors"]:
+            aggregate = {}
+            for unit, delta_value in zip(units, delta):
+                residue = unit % conductor
+                aggregate[residue] = aggregate.get(residue, 0.0) + float(
+                    delta_value)
+            residue_rows = tuple(sorted(
+                ({
+                    "residue": residue,
+                    "aggregate_delta": value,
+                    "normalized_delta": value / total_weight,
+                    "normalized_abs_delta": abs(value) / total_weight,
+                } for residue, value in aggregate.items()),
+                key=lambda row: row["normalized_abs_delta"],
+                reverse=True))
+            residue_count = len(residue_rows)
+            linf = residue_rows[0]["normalized_abs_delta"]
+            l1 = float(math.fsum(
+                row["normalized_abs_delta"] for row in residue_rows))
+            sufficient_linf = channel_bound / residue_count
+            conductor_row = {
+                "target": target,
+                "target_residue": target % period,
+                "conductor": conductor,
+                "conductor_residue_count": residue_count,
+                "residue_linf_to_total_weight": linf,
+                "residue_l1_to_total_weight": l1,
+                "plain_linf_triangle_bound_to_channel_sum": (
+                    residue_count * linf),
+                "plain_l1_triangle_bound_to_channel_sum": l1,
+                "sufficient_residue_linf_for_channel_bound": (
+                    sufficient_linf),
+                "linf_margin_to_sufficient_residue_bound": (
+                    sufficient_linf - linf),
+                "l1_margin_to_channel_bound": channel_bound - l1,
+                "plain_linf_bound_clears_channel_bound": (
+                    residue_count * linf <= channel_bound + tolerance),
+                "plain_l1_bound_clears_channel_bound": (
+                    l1 <= channel_bound + tolerance),
+                "top_residue_pressure_rows": residue_rows[:top_count],
+            }
+            conductor_rows[conductor] = conductor_row
+            if (worst_linf_row is None
+                    or linf > worst_linf_row[
+                        "residue_linf_to_total_weight"]):
+                worst_linf_row = conductor_row
+            if (worst_l1_row is None
+                    or l1 > worst_l1_row[
+                        "residue_l1_to_total_weight"]):
+                worst_l1_row = conductor_row
+
+        rows[target] = {
+            "target": target,
+            "target_residue": target % period,
+            "strict_central_total_weight": total_weight,
+            "conductor_rows": conductor_rows,
+            "source_fixed_conductor_reduction_row": (
+                reduction["rows"][target]),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "targets": reduction["targets"],
+        "tested_target_count": reduction["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": reduction["active_channel_conductors"],
+        "normalized_real_channel_linf_bound": channel_bound,
+        "top_count": top_count,
+        "rows": rows,
+        "worst_residue_linf_row": worst_linf_row,
+        "worst_residue_l1_row": worst_l1_row,
+        "source_fixed_conductor_reduction_receipt": reduction,
+        "fixed_conductor_residue_pressure_measured": True,
+        "plain_residue_linf_proves_channel_bound": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

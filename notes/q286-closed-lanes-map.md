@@ -42,6 +42,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_channel_pressure_profile_receipt`
 - `q286_lower_support_component_pair_channel_conductor_profile_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
 
 ## Closed or falsified lanes
 
@@ -272,6 +273,12 @@ current comparison set.
    reconstructs every selected active period-`10010` channel sum from
    discrepancy aggregated modulo its own conductor (`35` or `77`), with
    character reduction error below `1e-8`.
+29. The fixed-conductor residue-pressure regression passed in `208.170s`.
+   It falsifies a plain residue-Linf proof at the measured scale: even
+   late-positive `1379072` at conductor `77` has triangle bound
+   `0.2187090564566816`, above the needed channel bound
+   `0.05885324711081062`, while its actual active channel sum is only
+   `0.027155981994015317`.
 
 ## Still open
 

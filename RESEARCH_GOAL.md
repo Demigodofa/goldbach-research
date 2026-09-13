@@ -10403,6 +10403,22 @@ with normalized sum `0.027155981994015317`.  The unresolved theorem is now a
 fixed-conductor twisted binary-prime discrepancy estimate on those adjacent
 conductors, not merely a formal lcm-period identity.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
+profiles the residue aggregates behind the fixed-conductor sums.  Focused
+regression
+`test_q286_lower_support_component_pair_fixed_conductor_residue_pressure`
+passed in `208.170s`.  The simple residue triangle route is too crude:
+boundary `14138` has worst residue Linf pressure at conductor `35`,
+`0.05327502632021343`, giving plain Linf triangle bound
+`1.2786006316851224`; the worst residue L1 row is `14138` at conductor `77`,
+`0.4624962038193246`.  Even late-positive `1379072` at conductor `77` has
+plain Linf triangle bound `0.2187090564566816`, above the needed channel
+bound `0.05885324711081062`, although its actual active channel normalized
+sum is only `0.027155981994015317`.  Therefore the fixed-conductor theorem
+must use cancellation inside the character sums, not just max residue
+aggregate control.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

@@ -835,6 +835,43 @@ This makes the next analytic statement sharper: bound the relevant twisted
 binary-prime discrepancy after aggregation modulo `35` and `77`.  It does not
 remove the need for a pointwise prime-correlation theorem.
 
+`q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
+profiles the residue aggregates behind those fixed-conductor character sums.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_residue_pressure`
+passed in `208.170s`.
+
+The simple residue-level triangle bounds are too crude:
+
+```text
+channel bound: 0.05885324711081062
+
+worst residue Linf pressure:
+  target 14138, conductor 35
+  residue Linf/total 0.05327502632021343
+  plain Linf triangle bound 1.2786006316851224
+  margin to sufficient per-residue Linf bound -0.05082280769059632
+  top residues 1,32 negative and 17 positive
+
+worst residue L1 pressure:
+  target 14138, conductor 77
+  residue L1/total 0.4624962038193246
+  margin to channel bound -0.40364295670851397
+
+late positive 1379072, conductor 77:
+  residue Linf/total 0.003645150940944693
+  residue L1/total 0.0861163627414237
+  plain Linf triangle bound 0.2187090564566816
+  actual worst active channel normalized sum 0.027155981994015317
+```
+
+Thus a proof cannot merely show that each residue aggregate modulo `35` or
+`77` is small at the observed late scale: multiplying by `phi(77)=60` loses
+too much.  The surviving theorem must exploit cancellation inside the fixed
+conductor character sums, or prove a much sharper residue-discrepancy bound
+than the measured late-positive aggregates suggest.  This is a useful
+falsifier for a plain residue-Linf proof, not evidence against Goldbach.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
