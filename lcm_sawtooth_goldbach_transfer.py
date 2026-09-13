@@ -12943,6 +12943,82 @@ def q286_lower_support_component_pair_floor_identity_receipt(
     }
 
 
+def q286_lower_support_component_pair_combined_driver_channel_closure_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Combine the driver floor and real-channel bound into one closure."""
+    floor_identity = q286_lower_support_component_pair_floor_identity_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    decomposition = floor_identity[
+        "source_floor_stability_decomposition_receipt"]
+    rescue = decomposition["source_real_channel_rescue_margin_receipt"]
+    action = rescue["source_real_channel_action_receipt"]
+    channel_receipt = action["source_real_channel_receipt"]
+    principal_mean = channel_receipt["principal_mean"]
+    channel_l1_to_principal_mean = (
+        float(math.fsum(
+            row["real_formula_multiplier"]
+            * row["representative_coefficient_abs"]
+            for row in channel_receipt["union_conjugacy_orbit_rows"]))
+        / principal_mean)
+    normalized_linf_bound = (
+        -floor_identity["uniform_rescued_centered_pair_floor"]
+        / channel_l1_to_principal_mean)
+
+    rows = {}
+    closure_targets = []
+    for target in targets:
+        floor_row = floor_identity["rows"][target]
+        action_row = action["rows"][target]
+        maximum_normalized_channel_sum = max(
+            row["representative_character_sum_abs_to_total_weight"]
+            for row in action_row["real_channel_rows"])
+        combined_driver_ok = (
+            floor_row["combined_floor_driver_to_principal_ratio"]
+            >= floor_identity["combined_floor_driver_floor"] - tolerance)
+        channel_ok = (
+            maximum_normalized_channel_sum
+            <= normalized_linf_bound + tolerance)
+        closure_forced = bool(combined_driver_ok and channel_ok)
+        if closure_forced:
+            closure_targets.append(target)
+        rows[target] = {
+            "target": target,
+            "target_residue": floor_row["target_residue"],
+            "combined_floor_driver_to_principal_ratio": floor_row[
+                "combined_floor_driver_to_principal_ratio"],
+            "combined_driver_condition_met": bool(combined_driver_ok),
+            "maximum_normalized_real_channel_sum": (
+                maximum_normalized_channel_sum),
+            "real_channel_linf_condition_met": bool(channel_ok),
+            "conditional_rescue_forced": closure_forced,
+            "actually_rescued_by_centered_real_channel_pair_floor": (
+                rescue["rows"][target][
+                    "rescued_by_centered_real_channel_pair_floor"]),
+            "source_floor_identity_row": floor_row,
+        }
+
+    return {
+        "arithmetic_period": floor_identity["arithmetic_period"],
+        "targets": floor_identity["targets"],
+        "tested_target_count": floor_identity["tested_target_count"],
+        "component_pair": component_pair,
+        "combined_floor_driver_floor": floor_identity[
+            "combined_floor_driver_floor"],
+        "normalized_real_channel_linf_bound": normalized_linf_bound,
+        "real_channel_l1_to_principal_mean": (
+            channel_l1_to_principal_mean),
+        "conditional_closure_targets": tuple(closure_targets),
+        "rows": rows,
+        "source_floor_identity_receipt": floor_identity,
+        "combined_driver_channel_closure_measured": True,
+        "combined_floor_driver_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

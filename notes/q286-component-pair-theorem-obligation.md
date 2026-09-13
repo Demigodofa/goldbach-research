@@ -685,6 +685,25 @@ For `14138`, the combined driver is `-0.7243980058138082`; for `1379072`, it
 is exactly the selected boundary floor `-0.1017253843274695`.  This is still
 an identity and selected comparison, not an eventual theorem.
 
+`q286_lower_support_component_pair_combined_driver_channel_closure_receipt`
+packages the current clean sufficient theorem.  Focused regression
+`test_q286_lower_support_component_pair_combined_driver_channel_closure`
+passed in `121.404s`.
+
+On the selected lower-support component-pair lane, the two assumptions are:
+
+```text
+combined driver >= -0.1017253843274695
+max_active_real_channel |S_chi(N)| / total_weight(N)
+    <= 0.05885324711081062
+```
+
+Together they force centered-pair rescue.  The selected late comparison
+targets `1222142`, `1323632`, and `1379072` satisfy both assumptions and are
+rescued.  The boundary target `14138` satisfies neither.  This is now the
+cleanest current conditional closure of the q286 component-pair lane; proving
+those two assumptions eventually remains open.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

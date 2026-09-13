@@ -343,6 +343,14 @@
       "status_boundary": "selected identity only; eventual combined-driver lower bound and Goldbach remain unproved"
     },
     {
+      "id": "receipt.component_pair_combined_driver_channel_closure",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_combined_driver_channel_closure_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_combined_driver_channel_closure passed in 121.404s; selected centered-pair rescue follows from combined driver >= -0.1017253843274695 and active channel Linf <= 0.05885324711081062",
+      "status_boundary": "selected conditional closure only; eventual combined-driver and channel norm assumptions remain unproved"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -544,6 +552,16 @@
       "from": "receipt.component_pair_floor_identity",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_combined_driver_channel_closure",
+      "to": "receipt.component_pair_floor_identity",
+      "type": "packages"
+    },
+    {
+      "from": "receipt.component_pair_combined_driver_channel_closure",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "packages"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

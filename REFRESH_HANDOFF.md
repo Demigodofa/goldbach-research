@@ -18937,6 +18937,19 @@ component_pair_local_mean >= -0.1017253843274695`.  The boundary target
 `1379072` sits on the floor.  This is the cleanest current floor-stability
 statement, not a proof that it holds eventually.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_combined_driver_channel_closure_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_combined_driver_channel_closure`
+passed in `121.404s`.  It packages the component-pair lane as two assumptions:
+combined driver `>= -0.1017253843274695` and active real-channel normalized
+`Linf <= 0.05885324711081062`.  Together they force selected centered-pair
+rescue.  The late comparison targets satisfy both; `14138` satisfies neither.
+This is the current clean conditional closure, not a proof of the two
+assumptions.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

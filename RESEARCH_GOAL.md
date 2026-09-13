@@ -10337,6 +10337,16 @@ component_pair_local_mean >= -0.1017253843274695`.  `14138` has combined
 driver `-0.7243980058138082`, while `1379072` sits on the selected floor.
 This is an exact selected identity, not an eventual lower-bound theorem.
 
+New receipt
+`q286_lower_support_component_pair_combined_driver_channel_closure_receipt`
+packages the clean conditional closure.  Focused regression
+`test_q286_lower_support_component_pair_combined_driver_channel_closure`
+passed in `121.404s`.  The two assumptions are combined driver
+`>= -0.1017253843274695` and active real-channel normalized
+`Linf <= 0.05885324711081062`.  Together they force selected centered-pair
+rescue.  The three late comparison targets satisfy both; `14138` satisfies
+neither.  Proving these assumptions eventually remains open.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

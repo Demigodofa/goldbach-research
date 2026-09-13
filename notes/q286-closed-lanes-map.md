@@ -147,6 +147,11 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   `first_three + q286_after_first_three + non_pair_lower_support_actual +
   component_pair_local_mean >= -0.1017253843274695` on the selected rows.
   `14138` is far below this at `-0.7243980058138082`.
+- The combined-driver/channel-closure receipt packages the current clean
+  sufficient theorem: combined driver `>= -0.1017253843274695` plus active
+  real-channel normalized `Linf <= 0.05885324711081062` forces selected
+  centered-pair rescue.  The late comparison targets satisfy both; `14138`
+  satisfies neither.
 
 ## Current boundary examples
 
@@ -238,6 +243,8 @@ current comparison set.
    non-pair/pair-local offset floor.
 22. The floor-identity regression passed in `118.879s` and rewrites selected
    floor stability as one combined-driver lower bound.
+23. The combined-driver/channel-closure regression passed in `121.404s` and
+   packages the q286 component-pair lane as two explicit unproved assumptions.
 
 ## Still open
 

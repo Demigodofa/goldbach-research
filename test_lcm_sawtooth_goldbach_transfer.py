@@ -66,6 +66,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_conditional_norm_closure_receipt,
     q286_lower_support_component_pair_floor_stability_decomposition_receipt,
     q286_lower_support_component_pair_floor_identity_receipt,
+    q286_lower_support_component_pair_combined_driver_channel_closure_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2224,6 +2225,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(late["floor_stability_condition_met"])
         self.assertTrue(receipt["floor_identity_measured"])
         self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_combined_driver_channel_closure(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_combined_driver_channel_closure_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertAlmostEqual(
+            receipt["combined_floor_driver_floor"],
+            -0.1017253843274695)
+        self.assertAlmostEqual(
+            receipt["normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        self.assertAlmostEqual(
+            receipt["real_channel_l1_to_principal_mean"],
+            15.262957606760951)
+        self.assertEqual(
+            receipt["conditional_closure_targets"],
+            (1222142, 1323632, 1379072))
+        boundary = receipt["rows"][14138]
+        self.assertFalse(boundary["combined_driver_condition_met"])
+        self.assertFalse(boundary["real_channel_linf_condition_met"])
+        self.assertFalse(boundary["conditional_rescue_forced"])
+        late = receipt["rows"][1222142]
+        self.assertTrue(late["combined_driver_condition_met"])
+        self.assertTrue(late["real_channel_linf_condition_met"])
+        self.assertTrue(late["conditional_rescue_forced"])
+        self.assertTrue(late[
+            "actually_rescued_by_centered_real_channel_pair_floor"])
+        self.assertTrue(receipt[
+            "combined_driver_channel_closure_measured"])
+        self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):
