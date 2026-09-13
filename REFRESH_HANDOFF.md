@@ -19100,6 +19100,19 @@ Both have `38` edges.  Label `(0,1,5,0)` has perimeter
 `0.289119636096235`.  The next theorem attempt can target orbit-edge
 alignment in this exact polygon geometry.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile`
+passed in `283.200s`.  Using `12` phase bins, label `(0,1,5,0)` has `11`
+nonzero bins, largest bin mass `0.007878236700811583`, and largest-bin
+fraction `0.132562039245484`; label `(0,2,6,0)` has `10` nonzero bins,
+largest bin mass `0.016182424368813935`, and largest-bin fraction
+`0.26794815278810286`.  This suggests a bounded next theorem attempt around
+phase-bin mass balance and signed cancellation between phase sectors.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

@@ -1000,6 +1000,35 @@ the edges small"; it is to prove that the `38` orbit edges cannot align enough
 to make the resultant approach their perimeter on the selected conductor-`77`
 driver-bound rows.
 
+`q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
+bins those polygon edges by phase.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile`
+passed in `283.200s`.
+
+```text
+phase bins: 12
+
+1379072, label (0,1,5,0):
+  nonzero bins 11
+  largest bin mass 0.007878236700811583
+  largest bin / perimeter 0.132562039245484
+  signed bin L1 0.058765359273537675
+  resultant 0.0053525925011552716
+
+1379072, label (0,2,6,0):
+  nonzero bins 10
+  largest bin mass 0.016182424368813935
+  largest bin / perimeter 0.26794815278810286
+  signed bin L1 0.06015000330167732
+  resultant 0.01746105205795644
+```
+
+The harder polygon has a dominant phase bin, but even there the largest bin is
+only about `26.8%` of the perimeter.  This suggests a possible proof shape:
+control phase-bin mass balance and then control signed cancellation between
+phase bins.  It is still a finite selected measurement, not a phase-balance
+theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

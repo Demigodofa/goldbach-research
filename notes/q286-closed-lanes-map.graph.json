@@ -431,6 +431,14 @@
       "status_boundary": "selected orbit-polygon profile only; no uniform orbit-alignment theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_orbit_phase_profile",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile passed in 283.200s; residual polygons occupy 11 and 10 of 12 phase bins with largest-bin fractions 0.132562039245484 and 0.26794815278810286",
+      "status_boundary": "selected phase-bin profile only; no uniform phase-balance theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -740,6 +748,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_orbit_polygon",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_orbit_phase_profile",
+      "to": "receipt.component_pair_fixed_conductor_orbit_polygon",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_orbit_phase_profile",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

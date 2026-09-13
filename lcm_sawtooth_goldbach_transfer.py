@@ -14082,6 +14082,89 @@ def q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        tolerance=1e-9):
+    """Profile phase-bin balance for residual conductor-77 polygons."""
+    if type(phase_bin_count) is not int or phase_bin_count < 3:
+        raise ValueError("phase_bin_count must be an integer at least 3")
+    polygon = q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt(
+        targets=targets, component_pair=component_pair,
+        tolerance=tolerance)
+    two_pi = 2.0 * math.pi
+
+    rows = []
+    for source_row in polygon["polygon_rows"]:
+        bin_masses = [0.0 for _ in range(phase_bin_count)]
+        signed_bin_vectors = [0.0 + 0.0j for _ in range(phase_bin_count)]
+        for edge in source_row["source_residual_orbit_row"][
+                "reflection_orbit_rows"]:
+            vector = complex(edge["normalized_orbit_contribution"])
+            angle = math.atan2(vector.imag, vector.real)
+            normalized_angle = angle + two_pi if angle < 0.0 else angle
+            bin_index = min(
+                phase_bin_count - 1,
+                int(phase_bin_count * normalized_angle / two_pi))
+            bin_masses[bin_index] += abs(vector)
+            signed_bin_vectors[bin_index] += vector
+        bin_rows = tuple({
+            "bin_index": index,
+            "angle_start_radians": two_pi * index / phase_bin_count,
+            "angle_end_radians": two_pi * (index + 1) / phase_bin_count,
+            "mass": bin_masses[index],
+            "signed_vector": signed_bin_vectors[index],
+            "signed_vector_abs": abs(signed_bin_vectors[index]),
+        } for index in range(phase_bin_count))
+        nonzero_masses = tuple(mass for mass in bin_masses if mass > tolerance)
+        resultant = source_row["resultant_abs"]
+        perimeter = source_row["polygon_perimeter"]
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "nonzero_phase_bin_count": len(nonzero_masses),
+            "largest_phase_bin_mass": max(bin_masses),
+            "largest_phase_bin_fraction_of_perimeter": (
+                max(bin_masses) / perimeter if perimeter else 0.0),
+            "smallest_nonzero_phase_bin_mass": (
+                min(nonzero_masses) if nonzero_masses else 0.0),
+            "phase_bin_mass_l1": float(math.fsum(bin_masses)),
+            "phase_bin_signed_l1": float(math.fsum(
+                row["signed_vector_abs"] for row in bin_rows)),
+            "phase_bin_l1_reconstruction_error": abs(
+                float(math.fsum(bin_masses)) - perimeter),
+            "resultant_abs": resultant,
+            "closure_ratio": source_row["closure_ratio"],
+            "phase_bin_rows": bin_rows,
+            "source_orbit_polygon_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": polygon["arithmetic_period"],
+        "targets": polygon["targets"],
+        "tested_target_count": polygon["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": polygon["active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            polygon["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "rows": tuple(rows),
+        "worst_largest_phase_bin_fraction_row": max(
+            rows,
+            key=lambda row: row[
+                "largest_phase_bin_fraction_of_perimeter"]),
+        "source_orbit_polygon_receipt": polygon,
+        "fixed_conductor_orbit_phase_profile_measured": True,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

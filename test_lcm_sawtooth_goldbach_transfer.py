@@ -77,6 +77,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt,
     q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt,
     q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt,
+    q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2641,6 +2642,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             worst["polygon_perimeter"], 0.0603938642622822)
         self.assertTrue(receipt["fixed_conductor_orbit_polygon_measured"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(
+            tuple(row["representative_label"] for row in receipt["rows"]),
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        for row in receipt["rows"]:
+            self.assertEqual(row["target"], 1379072)
+            self.assertEqual(row["conductor"], 77)
+            self.assertLess(row["phase_bin_l1_reconstruction_error"], 1e-12)
+            self.assertGreater(row["nonzero_phase_bin_count"], 2)
+            self.assertLess(
+                row["largest_phase_bin_fraction_of_perimeter"], 0.5)
+        self.assertTrue(receipt[
+            "fixed_conductor_orbit_phase_profile_measured"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
         self.assertFalse(receipt["orbit_polygon_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])

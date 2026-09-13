@@ -47,6 +47,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
 
 ## Closed or falsified lanes
 
@@ -299,6 +300,10 @@ current comparison set.
    residual failures into exact `38`-edge complex polygons.  Their perimeters
    slightly exceed the channel bound, but their resultants are only
    `0.0053525925011552716` and `0.01746105205795644`.
+34. The orbit-phase profile regression passed in `283.200s`.  The two
+   residual polygons occupy `11` and `10` of `12` phase bins; the harder
+   `(0,2,6,0)` row has largest-bin fraction `0.26794815278810286`, suggesting
+   phase-bin balance as the next geometric theorem target.
 
 ## Still open
 

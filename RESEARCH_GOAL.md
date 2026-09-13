@@ -10474,6 +10474,16 @@ only `0.0053525925011552716`, closure ratio `0.09006464316185543`.  Label
 visual/geometric hunch into a falsifiable theorem target: bound alignment of
 the conductor-`77` orbit-polygon edges on the active driver-bound rows.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
+measures phase-bin balance for those two polygon rows.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile`
+passed in `283.200s`.  With `12` phase bins, label `(0,1,5,0)` occupies
+`11` bins and has largest-bin fraction `0.132562039245484`; label `(0,2,6,0)`
+occupies `10` bins and has largest-bin fraction `0.26794815278810286`.
+This preserves the visual/geometric route as a concrete theorem target:
+phase-bin mass balance plus signed cancellation between bins.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
