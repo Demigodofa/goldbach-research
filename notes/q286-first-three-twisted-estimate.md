@@ -2719,3 +2719,19 @@ cycles 289..296: no .3 tail hits; block minimum cycle 292,
 Status `finite-tail-absence-evidence`: checked cycles `137..296` are now
 tail-free at threshold `.3`.  The deepest value in the last 160 checked cycles
 is still above `-.3`, but this is finite evidence only.
+
+## 2026-09-13: fast scanner late-tail regression
+
+The fast scanner now has a focused equivalence regression on the known late
+tail target `1222142` from global cycle `121`.  The direct one-target probe
+matched the slow mode-only scanner to within about `6.2e-16`, and the committed
+test passed:
+
+```text
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+Ran 1 test in 60.506s
+```
+
+Status `validation`: the optimized scanner is checked on both an initial
+five-target window and a late nonempty `.3` tail target.  This validates the
+finite scanner implementation, not an eventual theorem.

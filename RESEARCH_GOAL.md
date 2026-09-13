@@ -9319,3 +9319,15 @@ required.  Block minima were: cycle `266`, `-0.19902872242009065`; cycle `273`,
 Status `finite-tail-absence-evidence`: cycles `137..296` are checked
 tail-free after the sparse recurrences through cycle `136`.  This remains a
 finite diagnostic, not an eventual theorem.
+
+### 2026-09-13 continuation: fast scanner late-tail regression
+
+Added and passed
+`test_q286_first_three_tail_mode_only_fast_late_tail_hit`, which compares the
+fast scanner against the slow mode-only scanner on the known late `.3` tail
+target `1222142` from global cycle `121`.  The focused test passed in
+`60.506s`.
+
+Status `validation`: the fast scanner is now checked on a late nonempty tail
+case as well as the initial tiny window.  This supports the finite horizon
+receipts but does not prove an eventual theorem.

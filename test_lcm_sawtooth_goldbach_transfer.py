@@ -1693,6 +1693,29 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["complement_rescue_measured"])
         self.assertFalse(receipt["full_action_negativity_measured"])
 
+    def test_q286_first_three_tail_mode_only_fast_late_tail_hit(self):
+        receipt = q286_first_three_tail_mode_only_fast_horizon_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            negative_tail_thresholds=(.3,))
+        baseline = q286_first_three_tail_mode_only_horizon_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            negative_tail_thresholds=(.3,))
+        self.assertEqual(
+            receipt["global_minimum_first_three_target"], 1222142)
+        self.assertEqual(
+            receipt["cycle_rows"][0]["threshold_counts"][.3], 1)
+        self.assertEqual(
+            receipt["cycle_rows"][0]["threshold_counts"][.3],
+            baseline["cycle_rows"][0]["threshold_counts"][.3])
+        self.assertAlmostEqual(
+            receipt["global_minimum_first_three_to_principal_ratio"],
+            baseline["global_minimum_first_three_to_principal_ratio"],
+            places=12)
+        self.assertLess(
+            receipt["global_minimum_first_three_to_principal_ratio"], -.3)
+        self.assertTrue(receipt[
+            "first_three_tail_mode_only_fast_horizon_measured"])
+
     def test_q286_first_three_complement_cooccurrence(self):
         receipt = q286_first_three_complement_cooccurrence_receipt(
             cycle_count=1, targets_per_cycle=3,

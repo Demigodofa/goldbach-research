@@ -17632,6 +17632,24 @@ Current interpretation: sparse selected-tail recurrences were seen through
 cycle `136`; checked cycles `137..296` are tail-free.  This is still finite
 evidence only and does not prove eventual disappearance.
 
+## 2026-09-13 continuation: fast scanner late-tail regression
+
+Added focused regression
+`test_q286_first_three_tail_mode_only_fast_late_tail_hit`.  It compares the
+fast scanner against the slow mode-only scanner on known late tail target
+`1222142` from global cycle `121`.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+Ran 1 test in 60.506s
+```
+
+Use this as the stronger implementation validation for future fast-scanner
+horizon extensions.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
