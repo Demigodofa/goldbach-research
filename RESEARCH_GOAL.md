@@ -10271,9 +10271,11 @@ New receipt `q286_lower_support_component_pair_real_channel_action_receipt`
 evaluates those `16` formulas on selected actual strict-central prime-pair
 weights.  Focused regression
 `test_q286_lower_support_component_pair_real_channel_action` passed in
-`70.128s`.  It reconstructs the selected pair sums with maximum error
+`73.676s`.  It reconstructs the selected pair sums with maximum error
 `1.1310397063368782e-15`: `14138` has real-channel pair sum
-`-1.152543267627036`, while `1379072` has `0.046724251505156425`.
+`-1.152543267627036`, while the late comparison targets `1222142`,
+`1323632`, and `1379072` have positive sums `0.01374295170801024`,
+`0.08749508122821215`, and `0.046724251505156425`.
 This is exact finite decomposition evidence, not a pointwise theorem.
 
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

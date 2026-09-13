@@ -299,7 +299,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_real_channel_action_receipt",
       "status": "validated",
-      "validation": "test_q286_lower_support_component_pair_real_channel_action passed in 70.128s; selected targets reconstruct pair-sum actions from 16 real channels with maximum error about 1.13e-15",
+      "validation": "test_q286_lower_support_component_pair_real_channel_action passed in 73.676s; four selected boundary/comparison targets reconstruct pair-sum actions from 16 real channels with maximum error about 1.13e-15",
       "status_boundary": "selected finite action decomposition only; no pointwise real-channel estimate or Goldbach proof"
     },
     {

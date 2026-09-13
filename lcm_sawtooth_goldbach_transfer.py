@@ -12343,7 +12343,7 @@ def q286_lower_support_component_pair_real_channel_receipt(
 
 
 def q286_lower_support_component_pair_real_channel_action_receipt(
-        targets=(14138, 1379072),
+        targets=(14138, 1222142, 1323632, 1379072),
         component_pair=((5, 7), (7, 11)), tolerance=1e-9):
     """Decompose selected actual actions into the real character channels."""
     targets = tuple(dict.fromkeys(targets))

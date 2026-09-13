@@ -1970,7 +1970,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
     def test_q286_lower_support_component_pair_real_channel_action(self):
         receipt = q286_lower_support_component_pair_real_channel_action_receipt()
         self.assertEqual(receipt["arithmetic_period"], 10010)
-        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["tested_target_count"], 4)
         self.assertEqual(receipt["active_union_real_channel_count"], 16)
         self.assertAlmostEqual(
             receipt["pair_sum_real_channel_l1_to_principal_mean"],
@@ -1989,6 +1989,14 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertLess(
             boundary["most_negative_real_channel_row"][
                 "contribution_to_principal_ratio"], 0)
+        self.assertAlmostEqual(
+            receipt["rows"][1222142][
+                "real_channel_pair_sum_action_to_principal_ratio"],
+            0.01374295170801024)
+        self.assertAlmostEqual(
+            receipt["rows"][1323632][
+                "real_channel_pair_sum_action_to_principal_ratio"],
+            0.08749508122821215)
         late = receipt["rows"][1379072]
         self.assertFalse(late[
             "both_pair_components_centered_negative"])

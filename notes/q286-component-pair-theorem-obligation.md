@@ -391,7 +391,7 @@ channel has formula `Re(c*S_chi)`.
 those `16` real formulas on selected actual strict-central prime-pair weights.
 Focused regression
 `test_q286_lower_support_component_pair_real_channel_action` passed in
-`70.128s`.
+`73.676s`.
 
 ```text
 active real channels: 16
@@ -403,6 +403,18 @@ target 14138:
   most negative channel representative (1,1,0,0): -0.2557958141902999
   most positive channel representative (0,2,4,0): 0.03572303158301167
 
+target 1222142:
+  real-channel pair sum 0.01374295170801024
+  direct pair sum       0.013742951708009191
+  most negative channel representative (2,2,0,0): -0.01554557757654789
+  most positive channel representative (0,1,9,0): 0.030691736538992695
+
+target 1323632:
+  real-channel pair sum 0.08749508122821215
+  direct pair sum       0.08749508122821231
+  most negative channel representative (0,3,3,0): -0.019336499365645184
+  most positive channel representative (1,3,0,0): 0.03208999267160749
+
 target 1379072:
   real-channel pair sum 0.046724251505156425
   direct pair sum       0.046724251505157556
@@ -411,8 +423,9 @@ target 1379072:
 ```
 
 This converts the selected-target obstruction/rescue comparison into actual
-signed real-channel contributions.  It is still finite evidence and does not
-prove a pointwise real-channel estimate.
+signed real-channel contributions for the current boundary/comparison set.
+It is still finite evidence and does not prove a pointwise real-channel
+estimate.
 
 Selected-target rows:
 

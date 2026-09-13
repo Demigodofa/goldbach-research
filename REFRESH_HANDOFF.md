@@ -18859,11 +18859,13 @@ Follow-up receipt:
 
 Focused regression
 `test_q286_lower_support_component_pair_real_channel_action` passed in
-`70.128s`.  It evaluates the `16` real formulas on selected actual
+`73.676s`.  It evaluates the `16` real formulas on selected actual
 strict-central prime-pair weights and reconstructs pair sums with maximum
 error `1.1310397063368782e-15`: `14138` gives `-1.152543267627036`, and
-`1379072` gives `0.046724251505156425`.  This is finite decomposition
-evidence only, not a pointwise real-channel estimate.
+the late comparison targets `1222142`, `1323632`, and `1379072` give
+`0.01374295170801024`, `0.08749508122821215`, and
+`0.046724251505156425`.  This is finite decomposition evidence only, not a
+pointwise real-channel estimate.
 
 Additional closure:
 

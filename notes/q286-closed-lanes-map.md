@@ -113,8 +113,9 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   self-conjugate channel.
 - The action-decomposition receipt evaluates those formulas on selected
   actual prime-pair weights.  For `14138`, the real-channel pair sum is
-  `-1.152543267627036`; for `1379072`, it is `0.046724251505156425`; maximum
-  reconstruction error is about `1.13e-15`.
+  `-1.152543267627036`; the three late comparison targets have positive sums
+  `0.01374295170801024`, `0.08749508122821215`, and
+  `0.046724251505156425`; maximum reconstruction error is about `1.13e-15`.
 
 ## Current boundary examples
 
@@ -190,7 +191,7 @@ current comparison set.
 16. The reflection-symmetric support obstruction passed in `34.893s`; support,
    nonnegativity, total mass, and pair-swap symmetry still do not exclude
    simultaneous negative `(5,7)` and `(7,11)` component actions.
-17. The real-channel action regression passed in `70.128s` and decomposes
+17. The real-channel action regression passed in `73.676s` and decomposes
    selected actual component-pair sums into the `16` real channel
    contributions with reconstruction error about `1.13e-15`.
 
