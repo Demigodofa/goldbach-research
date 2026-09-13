@@ -17820,6 +17820,26 @@ Current finite damping summary: no `.2` tail from cycles `233..329`; no `.25`
 tail after cycle `149` through `329`; no `.275` or `.3` tail from cycles
 `137..329`.  This is still finite evidence only.
 
+## 2026-09-13 continuation: crude max-discrepancy bound falsifier
+
+The q286 coefficient vector gives an easy sufficient condition: a uniform
+bound on every admissible residue class's deviation from mean log-pair weight.
+For `.2`, the worst target residue needs relative max deviation at most
+`0.0008292399353636012`; for `.3`, at most `0.0012438599030454018`.
+
+Cycle `329` falsifies this as a practical proof route.  The worst observed
+max relative deviation is `0.004732557895915037` at target `3309688`, which is
+`5.120642803312157` times that target's `.2` sufficient epsilon, yet the
+actual first-three/principal value is positive:
+`0.06420907247979844`.  Another target, `3310440`, has actual first-three
+`-0.018485733850377103` while the crude absolute bound is
+`0.12112597827843535`.
+
+Next instruction: do not pursue a pure uniform max-residue-error theorem as
+the main q286 proof route.  It is too strong for the observed distribution.
+The surviving theorem target needs signed/weighted cancellation across the
+q286 coefficient rows, or a sharper norm adapted to the coefficient vector.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

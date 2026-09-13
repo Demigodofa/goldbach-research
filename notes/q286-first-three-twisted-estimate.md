@@ -2933,3 +2933,45 @@ was clear at thresholds `.2`, `.25`, `.275`, and `.3`.  Its minimum was target
 Status `engineering-plus-finite-evidence`: this is an equivalent scanner
 optimization plus one additional checked clear cycle.  It proves no eventual
 tail theorem.
+
+## 2026-09-13: crude max-discrepancy bound falsifier
+
+The q286 first-three linear form gives a clean but too-strong sufficient
+condition.  For each target residue, center the first-three coefficient vector
+over the locally admissible q286 classes.  If every admissible class has
+strict-central log-pair weight within `epsilon * total_weight` of its
+admissible mean, then
+
+```text
+first_three/principal >=
+  -epsilon * centered_coefficient_l1(target mod 286) / principal_mean.
+```
+
+For threshold `.2`, the worst target residue would require
+`epsilon <= 0.0008292399353636012`; for threshold `.3`, it would require
+`epsilon <= 0.0012438599030454018`.  These constants are exact consequences
+of the q286 first-three coefficient vector used by the scanner.
+
+A cycle-329 one-cycle probe shows this max-error route is much too blunt:
+
+```text
+worst max relative class deviation:
+  target 3309688, residue 96
+  max_relative_delta 0.004732557895915037
+  sufficient epsilon for .2 0.0009242116815595694
+  ratio to sufficient epsilon 5.120642803312157
+  actual first_three/principal 0.06420907247979844
+  crude absolute bound 1.0241285606624315
+
+worst crude-bound margin:
+  target 3310440, residue 276
+  actual first_three/principal -0.018485733850377103
+  max_relative_delta 0.0009614480069711092
+  sufficient epsilon for .2 0.0015875174271220405
+  crude absolute bound 0.12112597827843535
+```
+
+Status `falsifier`: a proof that relies only on a uniform maximum residue
+deviation would demand far more equidistribution than the checked harmless
+targets exhibit.  The viable theorem target should retain coefficient signs,
+weighted norms, or cancellation across q286 residue classes.

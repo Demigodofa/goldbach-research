@@ -9459,3 +9459,21 @@ One direct summary-mode probe at global cycle `329` tested `5005` targets in
 Status `engineering-plus-finite-evidence`: the checked `.2` tail-free window
 now reaches cycle `329`, but this is still finite evidence and not an eventual
 first-three tail theorem.
+
+### 2026-09-13 continuation: crude max-discrepancy bound falsifier
+
+A theorem that bounds only the maximum residue-class deviation from the
+admissible mean is now identified as too blunt for the q286 first-three route.
+The centered coefficient L1 bound would require relative max deviation at most
+`0.0008292399353636012` in the worst target residue to force the `.2` lower
+tail away.
+
+At cycle `329`, target `3309688` has max relative deviation
+`0.004732557895915037`, which is `5.120642803312157` times that target's `.2`
+sufficient epsilon, but its actual first-three value is positive
+`0.06420907247979844`.  Thus large pointwise residue deviations can be
+harmless when aligned with favorable q286 coefficients.
+
+Status `falsifier`: the next proof route should not seek a plain
+supremum-norm equidistribution theorem.  It should seek a signed weighted norm
+or cancellation estimate matched to the q286 first-three coefficient vector.
