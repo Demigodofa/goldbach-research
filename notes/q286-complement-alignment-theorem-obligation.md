@@ -128,6 +128,41 @@ specific residue channels strong enough to imply restricted binary Goldbach
 classes, then this lane has reached a hard theorem-equivalence obstruction
 rather than a proof.
 
+## Bounded source check
+
+Searched current public sources on 2026-09-13 for binary Goldbach in
+arithmetic progressions, pointwise estimates, and GRH/RH connections.  The
+closest located primary sources do not supply the needed theorem.
+
+- Bhowmik, Halupczok, Matsumoto, and Suzuki, "Goldbach Representations in
+  Arithmetic Progressions and zeros of Dirichlet L-functions",
+  https://arxiv.org/abs/1704.06103.  The paper states that almost-all
+  congruence-conditioned binary Goldbach results are known, but "the complete
+  solution of these binary Goldbach problems is out of sight"; it studies
+  average orders and relations with zeros of Dirichlet L-functions.  Its
+  introduction also records that good average error terms are tied to RH/GRH
+  style zero information.  This is adjacent but average, not pointwise in the
+  fixed target `N`.
+- Halupczok, "Goldbach's problem with primes in arithmetic progressions and in
+  short intervals", https://arxiv.org/abs/1212.4406.  The abstract describes
+  Bombieri-Vinogradov style mean value theorems for binary and ternary
+  additive prime problems in APs and short intervals.  Mean value estimates do
+  not imply the pointwise q286 anti-alignment ceiling required here.
+- Bhowmik and Halupczok, "Asymptotics of Goldbach Representations",
+  https://arxiv.org/abs/1809.06920.  The abstract frames classical Goldbach
+  asymptotics in relation to RH, and says AP-restricted variants have
+  comparable but weaker relations with zeros of L-functions.  This supports
+  caution: the present route may touch RH/GRH-type territory if strengthened
+  into sharp averaged asymptotics, but the current pointwise coefficient
+  theorem is not obtained from that literature.
+
+Working conclusion: no located source currently gives the exact fixed-modulus,
+strict-central, log-weighted, coefficient-matched pointwise theorem needed for
+the `.4` alignment route.  Future literature checks should search for exactly
+"pointwise binary Goldbach in fixed residue classes with power-saving error"
+or a theorem that bounds finite signed character mixtures
+`sum Lambda(p)Lambda(N-p) chi(p)` uniformly in every even `N`.
+
 ## Current finite evidence
 
 The window receipt
