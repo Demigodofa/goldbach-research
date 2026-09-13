@@ -17940,6 +17940,39 @@ selected known-bad and near-bad targets, but this is still finite evidence.
 Next instruction: run a bounded windowed scan over known sparse-tail cycles,
 starting with the cheaper known-tail windows before broad horizon scans.
 
+## 2026-09-13 continuation: sparse-tail alignment window falsifier
+
+New code:
+
+- `q286_first_three_tail_alignment_window_receipt`
+- focused regression `test_q286_first_three_tail_alignment_window`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_first_three_alignment ... ok
+test_q286_first_three_tail_alignment_window ... ok
+Ran 2 tests in 27.157s
+```
+
+Global cycles `105..136`, tail threshold `.3`, alignment ceiling `.375`:
+
+```text
+tested 160160
+tail_count 3
+tail_cycles (16, 26, 31)  # global cycles 121, 131, 136
+tail_targets (1222142, 1323632, 1379072)
+violation_count 2
+violations (1323632, 1379072)
+maximum utilization 0.38387259544434144 at 1379072
+```
+
+With ceiling `.4`, the same window has zero violations.  Interpretation:
+`.375` is falsified; the surviving candidate is a looser `.4` negative-
+alignment ceiling.  Next instruction: test `.4` against cycles `65..96` before
+using it as a theorem-shaping target.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

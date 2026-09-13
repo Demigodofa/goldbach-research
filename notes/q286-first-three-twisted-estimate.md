@@ -3109,3 +3109,45 @@ survives this selected bad-target set, including the first-period worst
 first-three tail, the boundary full-negative target, the older `448346` tail,
 and the late `1222142` tail.  It remains a finite hypothesis, not a theorem.
 The next test is a windowed scan over earlier sparse-tail cycles.
+
+## 2026-09-13: sparse-tail alignment window falsifier
+
+Added `q286_first_three_tail_alignment_window_receipt`, which first finds
+tail targets with the validated fast scanner and then runs the selected-target
+alignment receipt only on those sparse tail hits.  This keeps the expensive
+alignment check focused on the relevant falsifier set.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_first_three_alignment ... ok
+test_q286_first_three_tail_alignment_window ... ok
+Ran 2 tests in 27.157s
+```
+
+Applying the receipt to global cycles `105..136` at tail threshold `.3` and
+candidate alignment ceiling `.375`:
+
+```text
+tested targets: 160160
+tail_count: 3
+tail_cycles: (16, 26, 31)  # global cycles 121, 131, 136
+tail_targets: (1222142, 1323632, 1379072)
+alignment violations at .375: (1323632, 1379072)
+
+1222142: first_three -0.30758776037087937,
+  l2_negative_bound_utilization 0.34363597536196105
+1323632: first_three -0.3152702911293411,
+  l2_negative_bound_utilization 0.37842834473629144
+1379072: first_three -0.3394138842129012,
+  l2_negative_bound_utilization 0.38387259544434144
+```
+
+The same window has zero violations at ceiling `.4`; its maximum utilization
+is `0.38387259544434144` at `1379072`.
+
+Status `falsifier`: the `.375` alignment ceiling is false in the checked
+late sparse-tail window.  The surviving candidate is a looser ceiling near
+`.4`, but it now needs the same falsifier treatment on cycles `65..96` and
+any later tail recurrence before it should be taken seriously.

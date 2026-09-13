@@ -11213,6 +11213,98 @@ def q286_selected_first_three_alignment_receipt(
     }
 
 
+def q286_first_three_tail_alignment_window_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        tail_threshold=.3, theorem_threshold=.2, alignment_ceiling=.375,
+        tolerance=1e-9):
+    """Find q286 first-three tail targets, then test alignment on them.
+
+    This finite diagnostic focuses the weighted-alignment test on the sparse
+    tail targets found by the validated fast scanner.  It proves only the
+    checked finite window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(alignment_ceiling) or alignment_ceiling <= 0:
+        raise ValueError("alignment_ceiling must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    horizon = _q286_first_three_tail_fast_scan_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=(tail_threshold,),
+        tolerance=tolerance, include_rows=False)
+    tail_targets = horizon["threshold_rows"][tail_threshold][
+        "targets_below_negative_threshold"]
+    if tail_targets:
+        alignment = q286_selected_first_three_alignment_receipt(
+            targets=tail_targets, theorem_threshold=theorem_threshold,
+            alignment_ceiling=alignment_ceiling, tolerance=tolerance)
+    else:
+        alignment = {
+            "targets": (),
+            "tested_target_count": 0,
+            "theorem_threshold": theorem_threshold,
+            "alignment_ceiling": alignment_ceiling,
+            "target_rows": {},
+            "tail_target_count": 0,
+            "tail_targets": (),
+            "negative_target_count": 0,
+            "negative_targets": (),
+            "alignment_ceiling_violation_count": 0,
+            "alignment_ceiling_violation_targets": (),
+            "maximum_negative_alignment_row": None,
+            "maximum_l2_to_sufficient_ratio_row": None,
+            "selected_first_three_alignment_measured": True,
+            "eventual_alignment_ceiling_proved": False,
+            "eventual_first_three_tail_bound_proved": False,
+            "signed_prime_correlation_estimate_proved": False,
+            "goldbach_proved": False,
+        }
+
+    return {
+        "arithmetic_period": horizon["arithmetic_period"],
+        "start": start,
+        "aligned_global_cycle_base": (
+            (start - 10000) // horizon["arithmetic_period"]
+            if (start - 10000) % horizon["arithmetic_period"] == 0
+            else None),
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "theorem_threshold": theorem_threshold,
+        "alignment_ceiling": alignment_ceiling,
+        "tested_target_count": horizon["tested_target_count"],
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tail_targets,
+        "tail_cycles": horizon["threshold_rows"][tail_threshold][
+            "cycles_with_hits"],
+        "source_fast_horizon_receipt": horizon,
+        "alignment_receipt": alignment,
+        "alignment_ceiling_violation_count": (
+            alignment["alignment_ceiling_violation_count"]),
+        "alignment_ceiling_violation_targets": (
+            alignment["alignment_ceiling_violation_targets"]),
+        "maximum_negative_alignment_row": (
+            alignment["maximum_negative_alignment_row"]),
+        "first_three_tail_alignment_window_measured": True,
+        "eventual_alignment_ceiling_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_hit_residue_profile_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3,), tolerance=1e-9):

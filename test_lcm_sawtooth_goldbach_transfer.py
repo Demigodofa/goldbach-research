@@ -54,6 +54,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_mode_only_fast_horizon_receipt,
     q286_first_three_weighted_discrepancy_norm_receipt,
     q286_selected_first_three_alignment_receipt,
+    q286_first_three_tail_alignment_window_receipt,
     q286_first_three_tail_hit_residue_profile_receipt,
     q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
@@ -1776,6 +1777,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["alignment_ceiling"])
         self.assertTrue(receipt[
             "selected_first_three_alignment_measured"])
+        self.assertFalse(receipt["eventual_alignment_ceiling_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_tail_alignment_window(self):
+        receipt = q286_first_three_tail_alignment_window_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3, theorem_threshold=.2,
+            alignment_ceiling=.375)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["tail_targets"], (1222142,))
+        self.assertEqual(receipt["tail_cycles"], (0,))
+        self.assertEqual(receipt["alignment_ceiling_violation_count"], 0)
+        self.assertEqual(
+            receipt["maximum_negative_alignment_row"]["target"],
+            1222142)
+        self.assertLess(
+            receipt["maximum_negative_alignment_row"][
+                "l2_negative_bound_utilization"],
+            receipt["alignment_ceiling"])
+        self.assertTrue(receipt[
+            "first_three_tail_alignment_window_measured"])
         self.assertFalse(receipt["eventual_alignment_ceiling_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

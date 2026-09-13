@@ -9544,3 +9544,24 @@ negative-alignment row is still `3305200` with utilization
 Status `survived-selected-falsifier`: the ceiling survived known bad selected
 targets, but remains finite evidence.  The next obligation is a windowed scan
 over earlier sparse-tail cycles.
+
+### 2026-09-13 continuation: sparse-tail alignment window falsifier
+
+The `.375` alignment ceiling is now falsified by a sparse-tail window scan.
+`q286_first_three_tail_alignment_window_receipt` finds q286 first-three tail
+targets with the fast scanner, then checks weighted alignment only on those
+tail hits.
+
+Validation: `py_compile` passed, and focused tests
+`test_q286_selected_first_three_alignment` and
+`test_q286_first_three_tail_alignment_window` passed in `27.157s`.
+
+On global cycles `105..136`, tail threshold `.3`, the receipt found tail
+targets `1222142`, `1323632`, and `1379072`.  At alignment ceiling `.375`,
+`1323632` and `1379072` violate.  The maximum utilization is
+`0.38387259544434144` at `1379072`.  Rechecking the same window at ceiling
+`.4` gives zero violations.
+
+Status `falsifier`: the proof target cannot be a `.375` ceiling.  The
+surviving measured target is a looser `.4` negative-alignment ceiling, which
+must next be tested on cycles `65..96` and any later recurrence.
