@@ -1351,24 +1351,33 @@ reinforcement.
 
 Focused regression
 `test_q286_lower_support_component_pair_fixed_inequality_stress` passed in
-`460.781s` on the single evaluated fixture `target = 1379072`,
-`component_pair = ((5,7),(7,11))`.  It produced two residual polygon rows, no
-counterexample rows, and worst margin `0.006933239211847554` at label
-`(0,2,6,0)`.
+`282.271s`.  It now checks both an active case and a premise-empty case:
+`target = 1379072`, `component_pair = ((5,7),(7,11))` produces two residual
+polygon rows, no counterexample rows, and worst margin
+`0.006933239211847554` at label `(0,2,6,0)`, while
+`component_pair = ((5,),(7,))` is classified as
+`not_applicable_no_residual_polygons`.
 
-This is not a broad sample and must not be treated as non-cherry-picked
-reinforcement.  The non-cherry-picked denominator for the component-pair side
-is now explicit: all `21` unordered pairs among the seven lower-support
-components
+The non-cherry-picked denominator for the component-pair side is now explicit:
+all `21` unordered pairs among the seven lower-support components
 
 ```text
 (5,), (5,7), (5,13), (7,), (7,11), (11,), (13,)
 ```
 
-on a predeclared target fixture such as `14138,1222142,1323632,1379072`.
-That full census is the next validation needed before interpreting the fixed
-inequality as reinforced rather than merely coherent on the narrowed active
-fixture.
+on the predeclared target fixture `14138,1222142,1323632,1379072`.  The full
+census is recorded in
+`evidence/q286-fixed-inequality-21pair-census.json`: all `21` pairs completed
+with zero errors; `((5,7),(7,11))` was the only applicable row and passed with
+two residual polygon rows, zero failures, and worst margin
+`0.006933239211847554`; the other `20` rows were
+`not_applicable_no_residual_polygons`.
+
+This is a useful anti-cherry-picked census, but it is not broad reinforcement
+of the inequality.  It says that, across all lower-support component pairs on
+the checked target fixture, the fixed inequality found no counterexample
+where its residual-polygon premise fired; the premise fired only in the
+already-identified active component pair.
 
 ## External source context
 

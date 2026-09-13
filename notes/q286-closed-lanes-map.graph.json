@@ -534,9 +534,9 @@
       "id": "receipt.component_pair_fixed_inequality_stress",
       "type": "receipt",
       "label": "q286_lower_support_component_pair_fixed_inequality_stress_receipt",
-      "status": "validated_focused_fixture",
-      "validation": "test_q286_lower_support_component_pair_fixed_inequality_stress passed in 460.781s; focused fixture target 1379072 and component pair ((5,7),(7,11)) evaluated two residual polygon rows, found zero counterexamples, and had worst margin 0.006933239211847554",
-      "status_boundary": "focused narrowed fixture only; full anti-cherry-pick denominator is 21 unordered lower-support component pairs and not-applicable rows must not be counted as reinforcement"
+      "status": "validated_21_pair_census",
+      "validation": "test_q286_lower_support_component_pair_fixed_inequality_stress passed in 282.271s; evidence/q286-fixed-inequality-21pair-census.json completed all 21 unordered lower-support component pairs on targets 14138,1222142,1323632,1379072 with one applicable passing pair, twenty not-applicable pairs, zero failures, and zero errors",
+      "status_boundary": "finite 21-pair census only; not-applicable rows mean the residual-polygon premise did not fire and must not be counted as reinforcement; no uniform theorem and no Goldbach proof"
     },
     {
       "id": "target.10664",

@@ -381,15 +381,15 @@ current comparison set.
    five reflection-orbit edges with largest-edge ratio `0.4406627296301651`.
    This closes a one-edge large-side shortcut and leaves small explicit
    reflection-orbit mass/cancellation control as the sharper support target.
-46. The fixed-inequality stress regression passed in `460.781s` on the
-   narrowed fixture `target = 1379072`,
-   `component_pair = ((5,7),(7,11))`.  It freezes the antipodal thin-large-side
-   inequality with unchanged constants and finds two evaluated residual
-   polygon rows, zero counterexamples, and worst margin
-   `0.006933239211847554`.  This is not broad reinforcement: the anti-
-   cherry-pick denominator is now explicit as all `21` unordered pairs among
-   the seven lower-support components, with `not_applicable_no_residual_polygons`
-   kept separate from passes.
+46. The fixed-inequality stress regression passed in `282.271s` and now
+   checks both a passing active pair and a premise-empty pair.  The full
+   `21`-pair component census is recorded in
+   `evidence/q286-fixed-inequality-21pair-census.json`: exactly one pair,
+   `((5,7),(7,11))`, is applicable; it passes with two residual polygon rows,
+   zero failures, and worst margin `0.006933239211847554`.  The other `20`
+   component pairs are `not_applicable_no_residual_polygons`.  This finds no
+   counterexample to the fixed inequality where the premise fires, but it also
+   shows the inequality is narrow rather than broadly reinforced.
 
 ## Still open
 

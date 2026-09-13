@@ -1,0 +1,506 @@
+{
+  "all_component_pairs_completed": true,
+  "all_evaluated_rows_pass_fixed_inequality": true,
+  "completed_pair_count": 21,
+  "component_pair_count": 21,
+  "component_supports": [
+    [
+      5
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      7
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      11
+    ],
+    [
+      13
+    ]
+  ],
+  "elapsed_seconds": 1797.3261264999965,
+  "error_component_pair_count": 0,
+  "evaluated_component_pair_count": 1,
+  "failing_component_pair_count": 0,
+  "lower_tail_cache_info": "CacheInfo(hits=87, misses=1, maxsize=None, currsize=1)",
+  "not_applicable_component_pair_count": 20,
+  "passing_component_pair_count": 1,
+  "phase_bin_count": 12,
+  "quantified_inequality": "(1 + thin_side_ratio_threshold) * thin_large_side_mass <= channel_bound - ratio_bound * low_ratio_pair_mass",
+  "ratio_bound": 0.75,
+  "receipt": "q286-fixed-inequality-21pair-census",
+  "rows": [
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 1,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 115.74437799999578,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          5,
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 2,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 75.81422480000037,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          7
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 3,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 74.68219089999911,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          7,
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 4,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 75.32835470000282,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 5,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 74.92782500000612,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 6,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 78.48921820000396,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 7,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.73469820000173,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          7
+        ],
+        [
+          7
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 8,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 80.54868540000462,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "active_channel_conductors": [
+        35,
+        77
+      ],
+      "component_pair": [
+        [
+          5,
+          7
+        ],
+        [
+          7,
+          11
+        ]
+      ],
+      "evaluated": true,
+      "failed": false,
+      "failing_polygon_labels_by_thin_large_side_budget": [],
+      "failure_count": 0,
+      "index": 9,
+      "passed": true,
+      "polygon_row_count": 2,
+      "seconds": 151.72941040000296,
+      "status": "passed",
+      "worst_margin": 0.006933239211847554,
+      "worst_representative_label": [
+        0,
+        2,
+        6,
+        0
+      ]
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          7
+        ],
+        [
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 10,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 73.86724069999764,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          7
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 11,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 74.58382110000093,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          13
+        ],
+        [
+          7
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 12,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 81.65720309999597,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          13
+        ],
+        [
+          7,
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 13,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.9808630999978,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          13
+        ],
+        [
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 14,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 82.35855909999373,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          5,
+          13
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 15,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 82.57925870000327,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          7
+        ],
+        [
+          7,
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 16,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.1679765000008,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          7
+        ],
+        [
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 17,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.50046490000386,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          7
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 18,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 83.94457510000211,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          7,
+          11
+        ],
+        [
+          11
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 19,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 83.75753320000513,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          7,
+          11
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 20,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.6434464000049,
+      "status": "not_applicable_no_residual_polygons"
+    },
+    {
+      "component_pair": [
+        [
+          11
+        ],
+        [
+          13
+        ]
+      ],
+      "error": "max() arg is an empty sequence",
+      "error_type": "ValueError",
+      "evaluated": false,
+      "failed": false,
+      "failure_count": 0,
+      "index": 21,
+      "passed": false,
+      "polygon_row_count": 0,
+      "seconds": 84.26275229999737,
+      "status": "not_applicable_no_residual_polygons"
+    }
+  ],
+  "schema_version": 1,
+  "source_head_at_start": "f0d9134e6013d708b94302d0a0432b92235694bb",
+  "status": "complete",
+  "targets": [
+    14138,
+    1222142,
+    1323632,
+    1379072
+  ],
+  "thin_side_ratio_threshold": 0.05,
+  "total_failure_row_count": 0,
+  "total_residual_polygon_row_count": 2,
+  "worktree_note": "Generated during working-tree cache/classification optimization before the checkpoint commit."
+}

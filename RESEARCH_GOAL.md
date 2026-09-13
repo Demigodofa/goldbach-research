@@ -10619,19 +10619,20 @@ that route as one finite quantified inequality with unchanged constants:
 ratio_bound * low_ratio_pair_mass`, with `phase_bin_count = 12`,
 `ratio_bound = 0.75`, and `thin_side_ratio_threshold = 0.05`.  The focused
 regression `test_q286_lower_support_component_pair_fixed_inequality_stress`
-passed in `460.781s` on `target = 1379072` and
-`component_pair = ((5,7),(7,11))`, evaluating two residual polygon rows with
-no counterexample and worst margin `0.006933239211847554` at label
-`(0,2,6,0)`.
+now checks both buckets and passed in `282.271s`: the active pair
+`((5,7),(7,11))` evaluates two residual polygon rows with no counterexample
+and worst margin `0.006933239211847554`, while `((5,),(7,))` is correctly
+classified as `not_applicable_no_residual_polygons`.
 
-This is not a large or non-cherry-picked sample.  The receipt now defaults to
-the full anti-cherry-pick component-pair universe: all `21` unordered pairs
-among `(5,), (5,7), (5,13), (7,), (7,11), (11,), (13,)`.  The next validation
-should run that census on a predeclared target fixture such as
-`14138,1222142,1323632,1379072` and keep `passed`, `failed`, and
-`not_applicable_no_residual_polygons` rows separate.  A not-applicable row
-means the residual-polygon premise did not fire and must not be counted as
-reinforcement.
+The full anti-cherry-pick component-pair census is now recorded in
+`evidence/q286-fixed-inequality-21pair-census.json`.  On the predeclared target
+fixture `14138,1222142,1323632,1379072`, all `21` unordered lower-support
+component pairs completed with zero errors.  Only one pair was applicable:
+`((5,7),(7,11))`, and it passed with two residual polygon rows, zero failures,
+and worst margin `0.006933239211847554`; the other `20` pairs were
+`not_applicable_no_residual_polygons`.  Therefore the census gives no
+counterexample to the fixed inequality, but it is not broad reinforcement:
+the inequality is active only on the already-identified residual-polygon lane.
 
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to

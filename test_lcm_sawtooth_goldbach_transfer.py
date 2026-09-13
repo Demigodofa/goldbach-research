@@ -54,6 +54,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_package_local_discrepancy_receipt,
     q286_lower_support_package_component_local_discrepancy_receipt,
     _q286_lower_support_component_data,
+    _q286_first_two_mode_lower_tail_selected_cached,
     q286_lower_support_component_pair_tail_window_receipt,
     q286_lower_support_component_pair_coefficient_geometry_receipt,
     q286_lower_support_component_pair_cone_projection_receipt,
@@ -3328,16 +3329,19 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
 
     def test_q286_lower_support_component_pair_fixed_inequality_stress(
             self):
+        _q286_first_two_mode_lower_tail_selected_cached.cache_clear()
         receipt = (
             q286_lower_support_component_pair_fixed_inequality_stress_receipt(
                 targets=(1379072,),
-                component_pairs=(((5, 7), (7, 11)),)))
+                component_pairs=(((5, 7), (7, 11)), ((5,), (7,)))))
+        cache_info = (
+            _q286_first_two_mode_lower_tail_selected_cached.cache_info())
         self.assertEqual(receipt["arithmetic_period"], 10010)
         self.assertEqual(receipt["targets"], (1379072,))
         self.assertEqual(receipt["tested_target_count"], 1)
         self.assertEqual(receipt["component_pair_selection"],
                          "caller_supplied")
-        self.assertEqual(receipt["tested_component_pair_count"], 1)
+        self.assertEqual(receipt["tested_component_pair_count"], 2)
         self.assertEqual(receipt["phase_bin_count"], 12)
         self.assertEqual(receipt["ratio_bound"], 0.75)
         self.assertEqual(receipt["thin_side_ratio_threshold"], 0.05)
@@ -3347,21 +3351,29 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["evaluated_component_pair_count"], 1)
         self.assertEqual(receipt["passing_component_pair_count"], 1)
         self.assertEqual(receipt["failing_component_pair_count"], 0)
-        self.assertEqual(receipt["not_applicable_component_pair_count"], 0)
+        self.assertEqual(receipt["not_applicable_component_pair_count"], 1)
         self.assertEqual(receipt["error_component_pair_count"], 0)
         self.assertEqual(receipt["total_residual_polygon_row_count"], 2)
         self.assertEqual(receipt["total_failure_row_count"], 0)
         self.assertTrue(receipt["all_evaluated_rows_pass_fixed_inequality"])
-        self.assertTrue(receipt["all_requested_component_pairs_evaluated"])
+        self.assertFalse(receipt["all_requested_component_pairs_evaluated"])
         self.assertEqual(receipt["counterexample_rows"], ())
-        row = receipt["rows"][0]
+        row = next(row for row in receipt["rows"] if row["evaluated"])
         self.assertEqual(row["component_pair"], ((5, 7), (7, 11)))
         self.assertEqual(row["status"], "passed")
         self.assertEqual(row["polygon_row_count"], 2)
         self.assertEqual(row["active_channel_conductors"], (35, 77))
         self.assertEqual(row["worst_representative_label"], (0, 2, 6, 0))
         self.assertAlmostEqual(row["worst_margin"], 0.006933239211847554)
+        not_applicable_row = next(
+            row for row in receipt["rows"] if not row["evaluated"])
+        self.assertEqual(not_applicable_row["component_pair"], ((5,), (7,)))
+        self.assertEqual(
+            not_applicable_row["status"],
+            "not_applicable_no_residual_polygons")
         self.assertTrue(receipt["fixed_inequality_stress_measured"])
+        self.assertEqual(cache_info.misses, 1)
+        self.assertGreaterEqual(cache_info.hits, 1)
         self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_large_side_budget_theorem_proved"])

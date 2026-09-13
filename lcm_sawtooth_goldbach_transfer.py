@@ -7070,6 +7070,17 @@ def q286_first_two_mode_lower_tail_receipt(
     }
 
 
+@lru_cache(maxsize=None)
+def _q286_first_two_mode_lower_tail_selected_cached(
+        selected_targets, tolerance=1e-9, include_residue_weights=True):
+    """Cache selected-target q286 lower-tail rows for nested receipts."""
+    return q286_first_two_mode_lower_tail_receipt(
+        selected_targets=tuple(selected_targets),
+        targets_per_cycle=len(selected_targets),
+        tolerance=tolerance,
+        include_residue_weights=include_residue_weights)
+
+
 def q286_first_three_ap_discrepancy_proxy_receipt(
         start=10000, targets_per_cycle=501, selected_targets=None,
         top_count=8, tolerance=1e-9):
@@ -11372,10 +11383,8 @@ def q286_lower_support_component_pair_tail_window_receipt(
         start = selected_targets[0]
         cycle_count = 1
         targets_per_cycle = len(selected_targets)
-        lower_tail = q286_first_two_mode_lower_tail_receipt(
-            selected_targets=selected_targets, targets_per_cycle=len(
-                selected_targets), tolerance=tolerance,
-            include_residue_weights=True)
+        lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+            selected_targets, tolerance, True)
     tail_targets = tuple(
         target for target in sorted(lower_tail["rows"])
         if lower_tail["rows"][target][
@@ -11630,9 +11639,8 @@ def q286_lower_support_component_pair_cone_projection_receipt(
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=targets, targets_per_cycle=len(targets),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        targets, tolerance, True)
     component_data = _q286_lower_support_component_data(tolerance)
     period = component_data["arithmetic_period"]
     units = component_data["units"]
@@ -12029,9 +12037,8 @@ def q286_lower_support_component_pair_character_mixture_receipt(
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=targets, targets_per_cycle=len(targets),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        targets, tolerance, True)
     component_data = _q286_lower_support_component_data(tolerance)
     period = component_data["arithmetic_period"]
     units = component_data["units"]
@@ -12358,9 +12365,8 @@ def q286_lower_support_component_pair_real_channel_action_receipt(
 
     channel_receipt = q286_lower_support_component_pair_real_channel_receipt(
         component_pair=component_pair, tolerance=tolerance)
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=targets, targets_per_cycle=len(targets),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        targets, tolerance, True)
     component_data = _q286_lower_support_component_data(tolerance)
     period = component_data["arithmetic_period"]
     units = component_data["units"]
@@ -13361,9 +13367,8 @@ def q286_lower_support_component_pair_fixed_conductor_reduction_receipt(
     unit_index = component_data["unit_index"]
     _, labels, character_table = _unit_character_table(period, units)
     label_to_index = {label: index for index, label in enumerate(labels)}
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=targets, targets_per_cycle=len(targets),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        targets, tolerance, True)
 
     conductor_rows = conductor_profile["conductor_rows"]
     maximum_character_reduction_error = 0.0
@@ -13492,10 +13497,8 @@ def q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt(
     period = component_data["arithmetic_period"]
     units = component_data["units"]
     unit_index = component_data["unit_index"]
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=reduction["targets"],
-        targets_per_cycle=len(reduction["targets"]),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        reduction["targets"], tolerance, True)
 
     rows = {}
     worst_linf_row = None
@@ -13729,10 +13732,8 @@ def q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt(
     unit_index = component_data["unit_index"]
     _, labels, character_table = _unit_character_table(period, units)
     label_to_index = {label: index for index, label in enumerate(labels)}
-    lower_tail = q286_first_two_mode_lower_tail_receipt(
-        selected_targets=reduction["targets"],
-        targets_per_cycle=len(reduction["targets"]),
-        tolerance=tolerance, include_residue_weights=True)
+    lower_tail = _q286_first_two_mode_lower_tail_selected_cached(
+        reduction["targets"], tolerance, True)
 
     rows = {}
     all_channel_rows = []
@@ -15413,7 +15414,8 @@ def q286_lower_support_component_pair_fixed_inequality_stress_receipt(
                     thin_side_ratio_threshold=thin_side_ratio_threshold,
                     tolerance=tolerance))
         except ValueError as exc:
-            if "min() arg is an empty sequence" in str(exc):
+            if ("min() arg is an empty sequence" in str(exc)
+                    or "max() arg is an empty sequence" in str(exc)):
                 row = {
                     "component_pair": pair,
                     "targets": targets,
