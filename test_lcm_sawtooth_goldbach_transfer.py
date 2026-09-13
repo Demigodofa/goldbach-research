@@ -73,6 +73,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_channel_conductor_profile_receipt,
     q286_lower_support_component_pair_fixed_conductor_reduction_receipt,
     q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt,
+    q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2482,6 +2483,53 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "fixed_conductor_residue_pressure_measured"])
         self.assertFalse(receipt[
             "plain_residue_linf_proves_channel_bound"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_character_cancellation(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["active_union_real_channel_count"], 16)
+        self.assertAlmostEqual(
+            receipt["normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        worst_positive = receipt["worst_positive_actual_channel_row"]
+        self.assertEqual(worst_positive["target"], 1379072)
+        self.assertEqual(
+            worst_positive["representative_label"], (0, 3, 3, 0))
+        self.assertEqual(worst_positive["conductor"], 77)
+        self.assertAlmostEqual(
+            worst_positive["actual_normalized_abs_sum"],
+            0.02715598199401531)
+        self.assertAlmostEqual(
+            worst_positive["actual_to_linf_triangle_ratio"],
+            0.12416487197179206)
+        self.assertAlmostEqual(
+            worst_positive["actual_to_l1_triangle_ratio"],
+            0.3153405593261632)
+        self.assertLess(
+            worst_positive["actual_to_linf_triangle_ratio"],
+            worst_positive[
+                "needed_linf_triangle_ratio_to_clear_bound"])
+        least_cancelled = receipt[
+            "least_cancelled_linf_triangle_channel_row"]
+        self.assertEqual(least_cancelled["target"], 14138)
+        self.assertEqual(
+            least_cancelled["representative_label"], (1, 1, 0, 0))
+        self.assertAlmostEqual(
+            least_cancelled["actual_to_linf_triangle_ratio"],
+            0.20796637739931306)
+        self.assertTrue(worst_positive["actual_clears_channel_bound"])
+        self.assertFalse(
+            worst_positive["plain_linf_triangle_clears_channel_bound"])
+        self.assertTrue(receipt[
+            "fixed_conductor_character_cancellation_measured"])
+        self.assertFalse(receipt["character_cancellation_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

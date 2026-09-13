@@ -19037,6 +19037,23 @@ residue L1 is `14138` at conductor `77`, `0.4624962038193246`.  Late-positive
 `0.027155981994015317`.  Next attempts should preserve character-sum
 cancellation or prove a much sharper residue discrepancy theorem.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_character_cancellation`
+passed in `180.890s`.  It compares actual active character sums to the crude
+residue triangle envelopes.  The least-cancelled selected channel is boundary
+`14138`, label `(1,1,0,0)`, conductor `35`, actual/linf-triangle ratio
+`0.20796637739931306` and actual/l1-triangle ratio `0.713179126554023`.
+The worst late-positive actual channel is `1379072`, label `(0,3,3,0)`,
+conductor `77`, actual sum `0.02715598199401531`, actual/linf-triangle ratio
+`0.12416487197179206`, actual/l1-triangle ratio `0.3153405593261632`, and
+margin to channel bound `0.03169726511679531`.  This identifies
+fixed-conductor character cancellation as the mechanism that must be proved
+or replaced.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

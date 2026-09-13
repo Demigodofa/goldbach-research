@@ -13598,6 +13598,111 @@ def q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Compare active character sums with residue triangle envelopes."""
+    residue_pressure = (
+        q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    reduction = residue_pressure[
+        "source_fixed_conductor_reduction_receipt"]
+    pressure = reduction[
+        "source_channel_conductor_profile_receipt"][
+            "source_channel_pressure_profile_receipt"]
+    channel_bound = residue_pressure[
+        "normalized_real_channel_linf_bound"]
+    positive_targets = tuple(
+        target for target, row in pressure[
+            "source_closure_margin_profile_receipt"]["rows"].items()
+        if row["positive_by_identity"])
+
+    rows = {}
+    all_channel_rows = []
+    for target in reduction["targets"]:
+        residue_target = residue_pressure["rows"][target]
+        channel_rows = []
+        for channel in reduction["rows"][target]["channel_rows"]:
+            conductor = channel["conductor"]
+            conductor_row = residue_target["conductor_rows"][conductor]
+            actual = channel["normalized_abs_sum"]
+            linf_triangle = conductor_row[
+                "plain_linf_triangle_bound_to_channel_sum"]
+            l1_triangle = conductor_row[
+                "plain_l1_triangle_bound_to_channel_sum"]
+            row = {
+                "target": target,
+                "target_residue": target % reduction["arithmetic_period"],
+                "representative_label": (
+                    channel["representative_label"]),
+                "conductor": conductor,
+                "actual_normalized_abs_sum": actual,
+                "plain_linf_triangle_bound_to_channel_sum": (
+                    linf_triangle),
+                "plain_l1_triangle_bound_to_channel_sum": l1_triangle,
+                "actual_margin_to_channel_bound": channel_bound - actual,
+                "linf_triangle_margin_to_channel_bound": (
+                    channel_bound - linf_triangle),
+                "l1_triangle_margin_to_channel_bound": (
+                    channel_bound - l1_triangle),
+                "actual_to_linf_triangle_ratio": (
+                    actual / linf_triangle if linf_triangle else 0.0),
+                "actual_to_l1_triangle_ratio": (
+                    actual / l1_triangle if l1_triangle else 0.0),
+                "needed_linf_triangle_ratio_to_clear_bound": (
+                    channel_bound / linf_triangle
+                    if linf_triangle else float("inf")),
+                "needed_l1_triangle_ratio_to_clear_bound": (
+                    channel_bound / l1_triangle
+                    if l1_triangle else float("inf")),
+                "actual_clears_channel_bound": (
+                    actual <= channel_bound + tolerance),
+                "plain_linf_triangle_clears_channel_bound": (
+                    linf_triangle <= channel_bound + tolerance),
+                "plain_l1_triangle_clears_channel_bound": (
+                    l1_triangle <= channel_bound + tolerance),
+            }
+            channel_rows.append(row)
+            all_channel_rows.append(row)
+
+        rows[target] = {
+            "target": target,
+            "target_residue": target % reduction["arithmetic_period"],
+            "channel_rows": tuple(channel_rows),
+        }
+
+    positive_channel_rows = tuple(
+        row for row in all_channel_rows if row["target"] in positive_targets)
+    return {
+        "arithmetic_period": reduction["arithmetic_period"],
+        "targets": reduction["targets"],
+        "tested_target_count": reduction["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": (
+            residue_pressure["active_channel_conductors"]),
+        "active_union_real_channel_count": (
+            reduction["active_union_real_channel_count"]),
+        "normalized_real_channel_linf_bound": channel_bound,
+        "rows": rows,
+        "least_cancelled_linf_triangle_channel_row": max(
+            all_channel_rows,
+            key=lambda row: row["actual_to_linf_triangle_ratio"]),
+        "least_cancelled_l1_triangle_channel_row": max(
+            all_channel_rows,
+            key=lambda row: row["actual_to_l1_triangle_ratio"]),
+        "worst_positive_actual_channel_row": max(
+            positive_channel_rows,
+            key=lambda row: row["actual_normalized_abs_sum"]),
+        "source_fixed_conductor_residue_pressure_receipt": residue_pressure,
+        "fixed_conductor_character_cancellation_measured": True,
+        "character_cancellation_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

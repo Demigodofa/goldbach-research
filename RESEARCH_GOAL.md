@@ -10419,6 +10419,21 @@ sum is only `0.027155981994015317`.  Therefore the fixed-conductor theorem
 must use cancellation inside the character sums, not just max residue
 aggregate control.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
+measures the cancellation ratio between actual active character sums and the
+plain residue envelopes.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_character_cancellation`
+passed in `180.890s`.  The least-cancelled selected channel is still boundary
+`14138`, label `(1,1,0,0)`, conductor `35`, with actual/linf-triangle ratio
+`0.20796637739931306` and actual/l1-triangle ratio `0.713179126554023`.
+The worst late-positive actual channel is `1379072`, label `(0,3,3,0)`,
+conductor `77`, with actual normalized sum `0.02715598199401531`,
+actual/linf-triangle ratio `0.12416487197179206`, and actual/l1-triangle
+ratio `0.3153405593261632`.  This clears the channel bound even though the
+plain residue triangle bound fails, so the viable channel theorem must retain
+fixed-conductor character cancellation.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

@@ -43,6 +43,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_channel_conductor_profile_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
 
 ## Closed or falsified lanes
 
@@ -279,6 +280,10 @@ current comparison set.
    `0.2187090564566816`, above the needed channel bound
    `0.05885324711081062`, while its actual active channel sum is only
    `0.027155981994015317`.
+30. The fixed-conductor character-cancellation regression passed in
+   `180.890s` and quantifies the surviving mechanism: late-positive
+   `1379072`'s worst channel is only `0.12416487197179206` of the crude
+   residue-Linf triangle envelope, enough to clear the channel bound.
 
 ## Still open
 

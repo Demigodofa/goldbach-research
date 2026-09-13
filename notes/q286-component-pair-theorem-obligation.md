@@ -872,6 +872,35 @@ conductor character sums, or prove a much sharper residue-discrepancy bound
 than the measured late-positive aggregates suggest.  This is a useful
 falsifier for a plain residue-Linf proof, not evidence against Goldbach.
 
+`q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
+then measures how much cancellation the active character sums actually
+preserve relative to those residue envelopes.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_character_cancellation`
+passed in `180.890s`.
+
+```text
+least-cancelled selected channel:
+  target 14138, label (1,1,0,0), conductor 35
+  actual normalized sum 0.26590594151202823
+  actual / plain Linf triangle 0.20796637739931306
+  actual / plain L1 triangle 0.713179126554023
+  actual margin to channel bound -0.2070526944012176
+
+worst late-positive actual channel:
+  target 1379072, label (0,3,3,0), conductor 77
+  actual normalized sum 0.02715598199401531
+  actual / plain Linf triangle 0.12416487197179206
+  actual / plain L1 triangle 0.3153405593261632
+  needed actual / plain Linf triangle to clear bound 0.26909378177701265
+  margin to channel bound 0.03169726511679531
+```
+
+So the late-positive row is not rescued by tiny residue aggregates; it is
+rescued because the relevant character sum is only about `12.4%` of the crude
+max-residue triangle envelope.  A plausible theorem target is therefore a
+fixed-conductor character-cancellation estimate for the actual binary-prime
+residue discrepancy, not a residue occupancy bound alone.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
