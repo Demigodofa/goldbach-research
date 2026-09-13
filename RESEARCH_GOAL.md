@@ -10591,6 +10591,17 @@ mass `0.0031320675991354753`, envelope `0.0032886709790922493`, and margin
 `0.006933239211847552`.  This reduces the selected thin-exception side to
 large-side mass control; it is not a uniform theorem or a Goldbach proof.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
+then profiles the support of the selected thin large-side mass.  Focused
+regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support`
+passed in `403.837s`.  Across selected high-ratio thin exceptions, large-side
+mass occurs only in phase bins `4,5,7`: label `(0,1,5,0)` has exception pair
+`(1,7)` with large side in bin `7`, while the hard label `(0,2,6,0)` has
+exception pairs `(4,10)` and `(5,11)` with large sides in bins `4,5`.  Thus a
+single-orientation large-side proof is finitely falsified; the remaining
+support-shaped target is explicit thin exception bin-pair mass control.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

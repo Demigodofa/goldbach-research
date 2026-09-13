@@ -14962,13 +14962,6 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large
         ratio_bound=0.75, thin_side_ratio_threshold=0.05,
         tolerance=1e-9):
     """Convert thin-exception control to a large-side mass budget."""
-    thin_exception = (
-        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt(
-            targets=targets, component_pair=component_pair,
-            phase_bin_count=phase_bin_count,
-            high_ratio_threshold=ratio_bound,
-            thin_side_ratio_threshold=thin_side_ratio_threshold,
-            tolerance=tolerance))
     exception_budget = (
         q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt(
             targets=targets, component_pair=component_pair,
@@ -14976,6 +14969,8 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large
             high_ratio_threshold=ratio_bound,
             thin_side_ratio_threshold=thin_side_ratio_threshold,
             tolerance=tolerance))
+    thin_exception = exception_budget[
+        "source_phase_antipodal_thin_exception_receipt"]
     budget_rows = {
         row["representative_label"]: row
         for row in exception_budget["rows"]}
@@ -15047,6 +15042,139 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large
         "source_phase_antipodal_thin_exception_receipt": thin_exception,
         "source_phase_antipodal_exception_budget_receipt": exception_budget,
         "fixed_conductor_phase_antipodal_thin_large_side_budget_measured": True,
+        "phase_antipodal_thin_large_side_budget_theorem_proved": False,
+        "phase_antipodal_sector_geometry_theorem_proved": False,
+        "phase_antipodal_nonthin_ratio_theorem_proved": False,
+        "phase_antipodal_exception_budget_theorem_proved": False,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        ratio_bound=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Profile where the thin-exception large-side mass sits."""
+    if phase_bin_count % 2:
+        raise ValueError("phase_bin_count must be even for antipodal pairing")
+    budget = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, ratio_bound=ratio_bound,
+            thin_side_ratio_threshold=thin_side_ratio_threshold,
+            tolerance=tolerance))
+
+    rows = []
+    all_exception_rows = []
+    for source_row in budget["rows"]:
+        exception_rows = []
+        for exception_row in source_row[
+                "source_phase_antipodal_thin_exception_row"][
+                    "exception_rows"]:
+            bin_index = exception_row["bin_index"]
+            opposite_bin_index = exception_row["opposite_bin_index"]
+            if exception_row["side_a_abs"] >= exception_row["side_b_abs"]:
+                large_side_bin_index = bin_index
+                large_side_orientation = "primary"
+            else:
+                large_side_bin_index = opposite_bin_index
+                large_side_orientation = "opposite"
+            profiled_row = {
+                "target": source_row["target"],
+                "representative_label": source_row["representative_label"],
+                "bin_index": bin_index,
+                "opposite_bin_index": opposite_bin_index,
+                "large_side_bin_index": large_side_bin_index,
+                "large_side_orientation": large_side_orientation,
+                "large_side_abs": exception_row["large_side_abs"],
+                "small_side_abs": exception_row["small_side_abs"],
+                "small_to_large_side_ratio": (
+                    exception_row["small_to_large_side_ratio"]),
+                "pair_abs": exception_row["pair_abs"],
+                "pair_cancellation_ratio": (
+                    exception_row["pair_cancellation_ratio"]),
+                "source_exception_row": exception_row,
+            }
+            exception_rows.append(profiled_row)
+            all_exception_rows.append(profiled_row)
+        exception_rows = tuple(exception_rows)
+        large_side_bins = tuple(
+            row["large_side_bin_index"] for row in exception_rows)
+        orientations = tuple(
+            row["large_side_orientation"] for row in exception_rows)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "high_ratio_exception_pair_count": len(exception_rows),
+            "large_side_bin_indices": large_side_bins,
+            "large_side_orientations": orientations,
+            "all_large_sides_primary": all(
+                orientation == "primary" for orientation in orientations),
+            "all_large_sides_opposite": all(
+                orientation == "opposite" for orientation in orientations),
+            "all_large_sides_single_orientation": (
+                len(set(orientations)) <= 1),
+            "thin_exception_large_side_mass": source_row[
+                "thin_exception_large_side_mass"],
+            "thin_exception_small_side_mass": source_row[
+                "thin_exception_small_side_mass"],
+            "thin_large_side_envelope": source_row[
+                "thin_large_side_envelope"],
+            "thin_large_side_envelope_margin_to_exception_budget": source_row[
+                "thin_large_side_envelope_margin_to_exception_budget"],
+            "exception_rows": exception_rows,
+            "source_thin_large_side_budget_row": source_row,
+        })
+
+    all_large_side_bins = tuple(sorted({
+        row["large_side_bin_index"] for row in all_exception_rows}))
+    all_orientations = tuple(sorted({
+        row["large_side_orientation"] for row in all_exception_rows}))
+    large_side_bin_mass = {}
+    for row in all_exception_rows:
+        large_side_bin_mass[row["large_side_bin_index"]] = (
+            large_side_bin_mass.get(row["large_side_bin_index"], 0.0)
+            + row["large_side_abs"])
+
+    return {
+        "arithmetic_period": budget["arithmetic_period"],
+        "targets": budget["targets"],
+        "tested_target_count": budget["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": budget["active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            budget["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "rows": tuple(rows),
+        "total_high_ratio_exception_pair_count": len(all_exception_rows),
+        "large_side_bin_indices": all_large_side_bins,
+        "large_side_orientations": all_orientations,
+        "large_side_bin_mass": tuple(sorted(large_side_bin_mass.items())),
+        "all_large_side_bins_distinct": (
+            len(all_large_side_bins) == len(all_exception_rows)),
+        "all_large_sides_single_orientation": (
+            len(all_orientations) <= 1),
+        "single_orientation_large_side_theorem_falsified": (
+            len(all_orientations) > 1),
+        "worst_thin_large_side_budget_margin_row": budget[
+            "worst_thin_large_side_budget_margin_row"],
+        "source_phase_antipodal_thin_large_side_budget_receipt": budget,
+        "fixed_conductor_phase_antipodal_thin_large_side_support_measured": True,
+        "phase_antipodal_thin_large_side_support_theorem_proved": False,
         "phase_antipodal_thin_large_side_budget_theorem_proved": False,
         "phase_antipodal_sector_geometry_theorem_proved": False,
         "phase_antipodal_nonthin_ratio_theorem_proved": False,

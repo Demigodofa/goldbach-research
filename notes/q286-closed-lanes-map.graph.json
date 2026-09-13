@@ -515,6 +515,14 @@
       "status_boundary": "selected thin large-side budget profile only; no uniform thin-exception mass theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_support",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support passed in 403.837s; selected thin large-side mass occurs only in bins 4,5,7, but mixed orientations falsify a one-orientation large-side theorem",
+      "status_boundary": "selected support profile only; no uniform thin-exception support theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -929,6 +937,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_support",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_support",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

@@ -57,6 +57,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
 
 ## Closed or falsified lanes
 
@@ -366,6 +367,12 @@ current comparison set.
    envelope `0.026150697185118062`, and margin `0.006933239211847552`.
    The surviving proof target is now uniform large-side mass control for thin
    opposite-sector exceptions, plus the already-stated residual polygon setup.
+44. The phase-antipodal thin-large-side-support regression passed in
+   `403.837s`.  The selected thin large-side mass sits only in bins `4,5,7`,
+   but orientations are mixed: `(0,1,5,0)` uses opposite bin `7`, while hard
+   row `(0,2,6,0)` uses primary bins `4,5`.  This closes a one-orientation
+   large-side proof shortcut and leaves explicit thin exception bin-pair mass
+   control as the sharper support target.
 
 ## Still open
 

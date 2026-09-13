@@ -19253,6 +19253,21 @@ visual theorem pressure is now concentrated on proving thin opposite-sector
 large-side mass control uniformly, with the residual polygon setup and
 pointwise prime-correlation theorem still open.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support`
+passed in `403.837s`.  It profiles where the selected thin large-side mass
+sits.  Across all selected high-ratio thin exceptions, the large-side phase
+bins are exactly `4,5,7`; the orientations are mixed (`primary` and
+`opposite`).  Label `(0,1,5,0)` has exception pair `(1,7)` with large side in
+bin `7`; the hard label `(0,2,6,0)` has exception pairs `(4,10)` and `(5,11)`
+with large sides in bins `4,5`.  This finitely falsifies a one-orientation
+large-side theorem and preserves a smaller support target: explicit mass
+control for the thin exception bin pairs `(1,7)`, `(4,10)`, and `(5,11)`.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

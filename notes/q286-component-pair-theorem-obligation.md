@@ -1273,6 +1273,33 @@ exceptions below the displayed budget.  This is still finite selected evidence:
 the uniform thin large-side mass theorem, the residual polygon setup, and
 Goldbach remain open.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
+then profiles the location of that large-side mass.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support`
+passed in `403.837s`.
+
+```text
+large-side bin indices across selected thin exceptions: 4, 5, 7
+large-side orientations across selected thin exceptions: opposite, primary
+total high-ratio thin exception pairs: 3
+
+1379072, label (0,1,5,0):
+  exception pair (1,7), large side in bin 7
+  large-side mass 0.0031320675991354753
+
+1379072, label (0,2,6,0):
+  exception pairs (4,10), (5,11), large sides in bins 4,5
+  large-side masses 0.016182424368813935 and 0.008723001521774694
+```
+
+This falsifies the simplest one-orientation large-side theorem: selected
+exceptions do not all put their large side in the primary half or all in the
+opposite half.  The surviving non-circular refinement is smaller support, not
+single orientation: prove or replace a bound for the explicit thin exception
+bin pairs `(1,7)`, `(4,10)`, and `(5,11)`, with the hard row concentrated in
+adjacent primary bins `4,5`.  This is still a selected finite profile, not a
+uniform support theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
