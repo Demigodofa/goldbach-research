@@ -17449,6 +17449,37 @@ Status `changed-under-evidence`: the checked far window supports later-band
 tail absence, not a new nonempty floor stress test.  Do not overclaim this as
 eventual disappearance or as a Goldbach/RH result; it is finite evidence.
 
+## 2026-09-13 continuation: cycles 65 through 96 sparse recurrence and rescue
+
+The completed mode-only gap scan shows that the `.3` first-three tail is not
+permanently absent after global cycle `64`.  In cycles `65..96`, it recurs
+sparsely, with one tail target in each of cycles `72`, `73`, `76`, `77`, `79`,
+`80`, `81`, `83`, and `94`.  All other cycles in `65..96` are tail-free at
+threshold `.3`.
+
+Those nine recurrence cycles were then stress-tested against the existing
+`.63/.3/.47` rescue-floor candidate.  Every cycle passed: zero non-rescued
+tail targets and zero complement-floor, rescue-margin-floor, or
+deficit-ceiling violations.
+
+Key limiting values:
+
+```text
+weakest sparse recurrence margin: cycle 83, 0.6336019961687318
+smallest sparse recurrence complement: cycle 83, 0.9592810149486167
+deepest sparse recurrence deficit: cycle 94, 0.3454855905369533
+```
+
+Validation before the scans: `python -B -m py_compile
+lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py`
+passed; focused regression
+`test_q286_first_three_tail_mode_only_horizon` passed in `148.520s`.
+
+Status `changed-under-evidence`: reject the stronger disappearance claim.
+The surviving theorem target is selected-tail complement rescue after the
+finite boundary/transition regimes.  This is finite evidence only and does
+not prove Goldbach, RH, or an eventual pointwise signed-correlation estimate.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

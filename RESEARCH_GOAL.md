@@ -9213,3 +9213,23 @@ tail absence, but it does not prove an eventual theorem and does not provide a
 new nonempty stress test of the floor constants.  The next proof target is an
 analytic explanation for disappearance or rescue of the tail beyond the
 measured windows.
+
+### 2026-09-13 continuation: sparse late recurrences all rescued
+
+The missing mode-only cycles in the `65..96` gap were completed.  The `.3`
+first-three tail does not permanently disappear after cycle `64`; it recurs
+sparsely at global cycles `72`, `73`, `76`, `77`, `79`, `80`, `81`, `83`, and
+`94`, with one tail target in each cycle.  All other cycles in `65..96` are
+tail-free at threshold `.3`.
+
+The recurrence cycles were then checked with the `.63/.3/.47` floor candidate.
+All nine passed, with zero non-rescued tail targets and zero floor violations.
+The weakest rescue margin among these sparse recurrences is
+`0.6336019961687318` at cycle `83`; the deepest first-three deficit is
+`0.3454855905369533` at cycle `94`.
+
+Status `changed-under-evidence`: the live target is no longer tail
+disappearance.  It is a selected-tail rescue theorem: rare late first-three
+tail hits must be paired with enough complement buffer.  This remains finite
+evidence only; Goldbach and the needed pointwise signed correlation theorem
+remain open.

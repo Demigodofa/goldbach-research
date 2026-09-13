@@ -2477,3 +2477,80 @@ absence of the `.3` first-three tail in the sampled far window, but it does
 not add a nonempty stress test for the `.63/.3/.47` rescue floors.  The next
 mathematical target remains an analytic reason for tail disappearance or
 tail rescue beyond the finite windows.
+
+## 2026-09-13: cycles 65 through 96 sparse recurrence and rescue
+
+The mode-only horizon receipt completed the missing cycles in the gap between
+the nonempty `57..64` floor-candidate block and the vacuous `97..104` far
+band.  Across global cycles `65..96`, the `.3` first-three tail is sparse but
+does recur.  Exactly nine checked cycles have one tail hit:
+
+```text
+cycle 72: tail 1, min first_three -0.3215492897967754 at 733126
+cycle 73: tail 1, min first_three -0.3183278779198759 at 741976
+cycle 76: tail 1, min first_three -0.31105367215090923 at 775426
+cycle 77: tail 1, min first_three -0.3351606547038982 at 782336
+cycle 79: tail 1, min first_three -0.32984168711159817 at 805682
+cycle 80: tail 1, min first_three -0.30973201334501105 at 818528
+cycle 81: tail 1, min first_three -0.3267869890169187 at 828418
+cycle 83: tail 1, min first_three -0.32567901877988487 at 846632
+cycle 94: tail 1, min first_three -0.34548559053695327 at 955832
+```
+
+The remaining checked cycles in `65..96` have zero `.3` tail hits.  The
+largest near misses were cycle `65` at `-0.297132521004334`, cycle `82` at
+`-0.297626634216987`, and cycle `86` at `-0.2972215111537993`.
+
+Every sparse recurrence cycle was then stress-tested with the existing
+`.63/.3/.47` floor candidate.  All nine passed; all had zero non-rescued tail
+targets and no complement, rescue-margin, or deficit violations:
+
+```text
+cycle 72: tail 1, nonrescued 0, passed True,
+  min complement 1.0285334831447543,
+  min margin 0.706984193347979,
+  max deficit 0.3215492897967754
+cycle 73: tail 1, nonrescued 0, passed True,
+  min complement 1.1172241778551262,
+  min margin 0.7988962999352504,
+  max deficit 0.3183278779198758
+cycle 76: tail 1, nonrescued 0, passed True,
+  min complement 1.3662358768256575,
+  min margin 1.0551822046747483,
+  max deficit 0.31105367215090923
+cycle 77: tail 1, nonrescued 0, passed True,
+  min complement 0.9955200042901746,
+  min margin 0.6603593495862764,
+  max deficit 0.3351606547038982
+cycle 79: tail 1, nonrescued 0, passed True,
+  min complement 0.9842009544848696,
+  min margin 0.6543592673732714,
+  max deficit 0.32984168711159817
+cycle 80: tail 1, nonrescued 0, passed True,
+  min complement 0.9952438997675463,
+  min margin 0.6855118864225354,
+  max deficit 0.30973201334501105
+cycle 81: tail 1, nonrescued 0, passed True,
+  min complement 1.0101301471453275,
+  min margin 0.6833431581284087,
+  max deficit 0.3267869890169187
+cycle 83: tail 1, nonrescued 0, passed True,
+  min complement 0.9592810149486167,
+  min margin 0.6336019961687318,
+  max deficit 0.3256790187798849
+cycle 94: tail 1, nonrescued 0, passed True,
+  min complement 1.017679414218682,
+  min margin 0.6721938236817288,
+  max deficit 0.3454855905369533
+```
+
+Validation: no-bytecode `py_compile` passed, and focused regression
+`test_q286_first_three_tail_mode_only_horizon` passed in `148.520s` before
+the scans.
+
+Status `changed-under-evidence`: the far-band tail-disappearance reading is
+falsified by sparse recurrences in cycles `65..96`.  The stronger surviving
+hypothesis is tail-set rescue: after the finite boundary and transition
+regimes, rare `.3` first-three tail hits appear, but the checked hits have
+large complement buffers and pass the existing floor candidate.  This is
+finite evidence only, not an eventual theorem or a Goldbach proof.
