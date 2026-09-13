@@ -10304,6 +10304,19 @@ from normalized real-channel representative sums bounded by
 sufficient-bound budget only; it does not prove the required pointwise
 real-channel estimate.
 
+New receipt
+`q286_lower_support_component_pair_conditional_norm_closure_receipt`
+separates the selected conditional theorem into two assumptions.  Focused
+regression
+`test_q286_lower_support_component_pair_conditional_norm_closure` passed in
+`116.123s`.  The two assumptions are:
+`required_centered_pair_sum_to_rescue <= -0.8982746156725305` and active
+real-channel normalized `Linf <= 0.05885324711081062`.  On the selected rows,
+exactly `1222142`, `1323632`, and `1379072` satisfy both assumptions and are
+rescued; `14138` satisfies neither.  This is a conditional implication
+check, not a proof of floor stability, pointwise channel control, or
+Goldbach.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

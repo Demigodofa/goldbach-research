@@ -319,6 +319,14 @@
       "status_boundary": "selected sufficient norm-budget calculation only; no pointwise real-channel norm estimate or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_conditional_norm_closure",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_conditional_norm_closure_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_conditional_norm_closure passed in 116.123s; selected late targets satisfy both floor-stability and active-channel Linf assumptions, while 14138 satisfies neither",
+      "status_boundary": "selected conditional implication only; floor-stability and pointwise real-channel norm theorems remain unproved"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -490,6 +498,16 @@
       "from": "receipt.component_pair_real_channel_bound_budget",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "quantifies"
+    },
+    {
+      "from": "receipt.component_pair_conditional_norm_closure",
+      "to": "receipt.component_pair_real_channel_bound_budget",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_conditional_norm_closure",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "splits"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

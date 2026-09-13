@@ -12693,6 +12693,93 @@ def q286_lower_support_component_pair_real_channel_bound_budget_receipt(
     }
 
 
+def q286_lower_support_component_pair_conditional_norm_closure_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9,
+        floor_ceiling=None, normalized_linf_bound=None):
+    """State the selected conditional closure from floor and channel bounds."""
+    budget = q286_lower_support_component_pair_real_channel_bound_budget_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    default_floor_ceiling = budget["rescued_uniform_floor_budget"]["floor"]
+    if floor_ceiling is None:
+        floor_ceiling = default_floor_ceiling
+    if normalized_linf_bound is None:
+        normalized_linf_bound = budget["rescued_uniform_floor_budget"][
+            "sufficient_normalized_linf_bound"]
+    if (not math.isfinite(floor_ceiling)
+            or not math.isfinite(normalized_linf_bound)
+            or normalized_linf_bound < 0):
+        raise ValueError(
+            "floor_ceiling must be finite and normalized_linf_bound "
+            "must be finite and nonnegative")
+
+    l1_to_principal = budget["real_channel_l1_to_principal_mean"]
+    guaranteed_pair_floor = -l1_to_principal * normalized_linf_bound
+    rows = {}
+    conditional_targets = []
+    verified_targets = []
+    failing_condition_targets = []
+    for target, row in budget["rows"].items():
+        floor_stability = (
+            row["required_centered_pair_sum_to_rescue"]
+            <= floor_ceiling + tolerance)
+        norm_bound = (
+            row["maximum_normalized_real_channel_sum"]
+            <= normalized_linf_bound + tolerance)
+        conditional_hypotheses_met = bool(floor_stability and norm_bound)
+        conditional_rescue_forced = bool(
+            conditional_hypotheses_met
+            and guaranteed_pair_floor
+            >= row["required_centered_pair_sum_to_rescue"] - tolerance)
+        actually_rescued = row[
+            "rescued_by_centered_real_channel_pair_floor"]
+        if conditional_hypotheses_met:
+            conditional_targets.append(target)
+        else:
+            failing_condition_targets.append(target)
+        if conditional_rescue_forced and actually_rescued:
+            verified_targets.append(target)
+        rows[target] = {
+            "target": target,
+            "target_residue": row["target_residue"],
+            "required_centered_pair_sum_to_rescue": row[
+                "required_centered_pair_sum_to_rescue"],
+            "maximum_normalized_real_channel_sum": row[
+                "maximum_normalized_real_channel_sum"],
+            "floor_stability_condition_met": bool(floor_stability),
+            "normalized_linf_condition_met": bool(norm_bound),
+            "conditional_hypotheses_met": conditional_hypotheses_met,
+            "conditional_real_channel_pair_floor": guaranteed_pair_floor,
+            "conditional_rescue_forced": conditional_rescue_forced,
+            "actually_rescued_by_centered_real_channel_pair_floor": (
+                actually_rescued),
+        }
+
+    return {
+        "arithmetic_period": budget["arithmetic_period"],
+        "targets": budget["targets"],
+        "tested_target_count": budget["tested_target_count"],
+        "component_pair": component_pair,
+        "active_union_real_channel_count": (
+            budget["active_union_real_channel_count"]),
+        "assumption_floor_ceiling_to_principal_ratio": floor_ceiling,
+        "assumption_normalized_linf_bound": normalized_linf_bound,
+        "guaranteed_centered_pair_floor_to_principal_ratio": (
+            guaranteed_pair_floor),
+        "conditional_hypotheses_selected_targets": tuple(
+            conditional_targets),
+        "conditional_rescue_verified_targets": tuple(verified_targets),
+        "failing_condition_targets": tuple(failing_condition_targets),
+        "rows": rows,
+        "source_bound_budget_receipt": budget,
+        "conditional_norm_closure_measured": True,
+        "floor_stability_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

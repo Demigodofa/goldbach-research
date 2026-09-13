@@ -18895,6 +18895,20 @@ representative channel sums bounded by `0.05885324711081062` in `Linf`, or
 `0.2155408076755675` in `L2`.  This is not a proof of that bound; it is the
 current precise analytic estimate target.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_conditional_norm_closure_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_conditional_norm_closure` passed in
+`116.123s`.  It splits the selected conditional theorem into two assumptions:
+floor stability
+`required_centered_pair_sum_to_rescue <= -0.8982746156725305` and active
+real-channel normalized `Linf <= 0.05885324711081062`.  The three late
+comparison targets satisfy both selected conditions; `14138` satisfies
+neither.  This is the current clean proof target, not a proof of the two
+assumptions.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

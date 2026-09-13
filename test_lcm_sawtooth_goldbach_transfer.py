@@ -63,6 +63,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_real_channel_action_receipt,
     q286_lower_support_component_pair_real_channel_rescue_margin_receipt,
     q286_lower_support_component_pair_real_channel_bound_budget_receipt,
+    q286_lower_support_component_pair_conditional_norm_closure_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2102,6 +2103,44 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["rows"][14138]["triangle_bound_to_principal_ratio"],
             1)
         self.assertTrue(receipt["real_channel_bound_budget_measured"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_conditional_norm_closure(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_conditional_norm_closure_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertAlmostEqual(
+            receipt["assumption_floor_ceiling_to_principal_ratio"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["assumption_normalized_linf_bound"],
+            0.05885324711081062)
+        self.assertAlmostEqual(
+            receipt["guaranteed_centered_pair_floor_to_principal_ratio"],
+            -0.8982746156725305)
+        self.assertEqual(
+            receipt["conditional_hypotheses_selected_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertEqual(
+            receipt["conditional_rescue_verified_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertEqual(receipt["failing_condition_targets"], (14138,))
+        boundary = receipt["rows"][14138]
+        self.assertFalse(boundary["floor_stability_condition_met"])
+        self.assertFalse(boundary["normalized_linf_condition_met"])
+        self.assertFalse(boundary["conditional_hypotheses_met"])
+        late = receipt["rows"][1222142]
+        self.assertTrue(late["floor_stability_condition_met"])
+        self.assertTrue(late["normalized_linf_condition_met"])
+        self.assertTrue(late["conditional_rescue_forced"])
+        self.assertTrue(late[
+            "actually_rescued_by_centered_real_channel_pair_floor"])
+        self.assertTrue(receipt["conditional_norm_closure_measured"])
+        self.assertFalse(receipt["floor_stability_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])

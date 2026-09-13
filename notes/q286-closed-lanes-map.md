@@ -130,6 +130,12 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   The boundary target `14138` has actual maximum normalized channel sum
   `0.2659059415120284`, while the late comparison targets are about
   `0.0250..0.0272`.
+- The conditional norm-closure receipt splits the remaining theorem into two
+  pieces: eventual floor stability at
+  `required_centered_pair_sum_to_rescue <= -0.8982746156725305`, and eventual
+  active real-channel `Linf` control at `0.05885324711081062`.  The late
+  comparison targets satisfy both selected conditions; `14138` satisfies
+  neither.
 
 ## Current boundary examples
 
@@ -213,6 +219,9 @@ current comparison set.
 19. The real-channel bound-budget regression passed in `121.411s` and turns
    the late selected floor into explicit normalized channel-norm thresholds:
    `0.05885324711081062` in `Linf` and `0.2155408076755675` in `L2`.
+20. The conditional norm-closure regression passed in `116.123s` and splits
+   the surviving proof target into floor stability plus active-channel
+   pointwise norm control.
 
 ## Still open
 

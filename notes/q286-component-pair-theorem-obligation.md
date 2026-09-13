@@ -500,6 +500,27 @@ about `0.0589` on the active real channels would be strong enough for the
 late selected floor, while the boundary target `14138` is far outside that
 budget.
 
+`q286_lower_support_component_pair_conditional_norm_closure_receipt` makes
+the conditional theorem boundary explicit.  Focused regression
+`test_q286_lower_support_component_pair_conditional_norm_closure` passed in
+`116.123s`.
+
+It separates the two assumptions needed to turn the selected norm budget into
+a rescue theorem:
+
+1. floor stability: the required centered pair floor is at most
+   `-0.8982746156725305`;
+2. real-channel norm control: every active representative character sum has
+   normalized absolute value at most `0.05885324711081062`.
+
+Under those two assumptions, the triangle inequality guarantees centered pair
+sum at least `-0.8982746156725305`.  On the selected rows, exactly
+`1222142`, `1323632`, and `1379072` satisfy both assumptions and are rescued.
+The boundary target `14138` satisfies neither assumption.  Thus the non-
+circular proof target has split into two genuine theorems: an eventual
+floor-stability theorem for the active lower-support subcone, and an eventual
+pointwise norm estimate for the `16` real character channels.
+
 Selected-target rows:
 
 ```text
@@ -578,3 +599,17 @@ Current judgment: the component-pair lane has identified a precise theorem
 obligation.  It has not proved Goldbach.  More threshold receipts are circular
 unless they test a new cone-avoidance mechanism, a sharper prime-pair
 discrepancy theorem, or a real boundary split.
+
+After the conditional norm-closure receipt, the most precise current target is
+the conjunction of:
+
+```text
+required_centered_pair_sum_to_rescue(N) <= -0.8982746156725305
+max_active_real_channel |S_chi(N)| / total_weight(N)
+    <= 0.05885324711081062
+```
+
+for all sufficiently late targets in the active `.2`/`.3` lower-support
+subcone, plus a finite boundary check.  This is narrower than full residue
+equidistribution but still demands a pointwise binary-prime character-sum
+estimate not proved in this repository.
