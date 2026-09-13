@@ -18247,16 +18247,29 @@ target is again `10664` with first-two `-1.1124437977839818`.  This gives a
 finite subcone structure: `-.4` is a pure tail selector in cycle `0`, while
 `-.2` is an almost-cover with false positives.
 
+New code `q286_first_two_mode_subcone_complement_window_receipt` attaches
+post-first-three complement rescue to selected first-two subcones.  Focused
+regression `test_q286_first_two_mode_subcone_complement_window` passed in
+`108.791s`.  A compact selected probe on the three known late sparse-tail
+targets `1222142,1323632,1379072` found all three below `-.2` in first-two
+sum, none below `-.4`, and all strongly rescued by complement.  Thus `.4` is
+a severe cycle-0 selector, while `.2` is the late sparse-tail selector seen
+so far.  Treat this as the endpoint of threshold exploration unless a new
+mechanism with a falsifier justifies another threshold.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then test whether this first-two magnitude subcone persists in later
-   sparse-tail windows and whether complement co-occurrence rescues it there.
-   Do not spend large compute on support-only, max-discrepancy, raw
-   99-character norm, hoped-for rank-three cancellation, or mere sign-exclusion
-   routes already ruled out by the diagnostics.
+3. Then pivot from threshold receipts to theorem obligation: either prove a
+   pointwise arithmetic estimate for the `.2` first-two subcone, prove a
+   conditioned complement lower bound on that subcone inside the `.3`
+   first-three tail, or record that the needed statement reduces to
+   fixed-modulus binary Goldbach in progressions.  Do not spend large compute
+   on support-only, max-discrepancy, raw 99-character norm, hoped-for
+   rank-three cancellation, mere sign-exclusion, or more threshold ladders
+   already ruled out as circular diagnostics.
 
 ## Temporary wake note — continuity discussion
 

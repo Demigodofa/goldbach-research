@@ -42,6 +42,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_character_mode_coordinate_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
+    q286_first_two_mode_subcone_complement_window_receipt,
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
@@ -1854,6 +1855,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_two_mode_subcone_magnitude_window_measured"])
         self.assertFalse(receipt["eventual_mode_subcone_bound_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_two_mode_subcone_complement_window(self):
+        receipt = q286_first_two_mode_subcone_complement_window_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            first_two_negative_thresholds=(.2,), tail_threshold=.3)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["selected_subcone_targets"], (1222142,))
+        self.assertEqual(receipt["negative_full_action_count"], 0)
+        self.assertTrue(receipt["all_selected_subcone_targets_rescued"])
+        self.assertIn(.2, receipt["threshold_rows"])
+        threshold_row = receipt["threshold_rows"][.2]
+        self.assertEqual(threshold_row["target_count"], 1)
+        self.assertEqual(threshold_row["tail_target_count"], 1)
+        self.assertEqual(threshold_row["rescued_tail_target_count"], 1)
+        self.assertEqual(
+            threshold_row["negative_tail_and_negative_full_count"], 0)
+        self.assertEqual(threshold_row["tail_rescue_fraction"], 1.0)
+        row = receipt["rows"][1222142]
+        self.assertLess(row["first_two_modes_to_principal_ratio"], -.2)
+        self.assertLess(row["first_three_to_principal_ratio"], -.3)
+        self.assertGreater(row["complement_to_principal_ratio"], 0)
+        self.assertGreater(row["full_action_to_principal_ratio"], 0)
+        self.assertTrue(receipt[
+            "first_two_mode_subcone_complement_window_measured"])
+        self.assertFalse(receipt["eventual_complement_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_selected_first_three_alignment(self):

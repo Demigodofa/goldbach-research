@@ -7965,6 +7965,211 @@ def q286_first_two_mode_subcone_magnitude_window_receipt(
     }
 
 
+def q286_first_two_mode_subcone_complement_window_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        first_two_negative_thresholds=(.2, .4, .6, .8, 1.0),
+        tail_threshold=.3, tolerance=1e-9):
+    """Attach complement rescue data to first-two magnitude subcones.
+
+    The magnitude receipt isolates targets by the sum of singular modes 1 and
+    2.  This finite diagnostic measures whether those selected targets are
+    lower-tail targets and whether the post-first-three complement rescues the
+    recombined full action.  It proves only the checked window.
+    """
+    magnitude = q286_first_two_mode_subcone_magnitude_window_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        first_two_negative_thresholds=first_two_negative_thresholds,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    thresholds = magnitude["first_two_negative_thresholds"]
+    sign_rows = magnitude["source_sign_window_receipt"]["rows"]
+    selected_targets = tuple(sorted(set(
+        target
+        for threshold in thresholds
+        for target in magnitude["threshold_rows"][threshold]["targets"])))
+
+    if selected_targets:
+        lower = q286_first_two_mode_lower_tail_receipt(
+            selected_targets=selected_targets, tolerance=tolerance)
+    else:
+        lower = None
+
+    rows = {}
+    negative_full_targets = []
+    for target in selected_targets:
+        sign_row = sign_rows[target]
+        lower_row = lower["rows"][target]
+        first_three = sign_row["first_three_to_principal_ratio"]
+        if abs(first_three - lower_row[
+                "first_three_modes_to_principal_ratio"]) > 1e-8:
+            raise ArithmeticError(
+                "first-two subcone/lower first-three mismatch")
+        complement = lower_row["full_without_first_three_to_principal_ratio"]
+        full = lower_row["full_action_to_principal_ratio"]
+        recombined = first_three + complement
+        if abs(recombined - full) > 1e-8:
+            raise ArithmeticError("first-three/complement recombination failed")
+        selected_thresholds = tuple(
+            threshold for threshold in thresholds
+            if sign_row["first_two_modes_to_principal_ratio"] < -threshold)
+        row = {
+            "target": target,
+            "local_cycle": sign_row["local_cycle"],
+            "global_cycle": sign_row["global_cycle"],
+            "target_offset": sign_row["target_offset"],
+            "target_mod_286": sign_row["target_mod_286"],
+            "mode_1_to_principal_ratio": sign_row[
+                "mode_1_to_principal_ratio"],
+            "mode_2_to_principal_ratio": sign_row[
+                "mode_2_to_principal_ratio"],
+            "mode_3_to_principal_ratio": sign_row[
+                "mode_3_to_principal_ratio"],
+            "first_two_modes_to_principal_ratio": sign_row[
+                "first_two_modes_to_principal_ratio"],
+            "first_three_to_principal_ratio": first_three,
+            "complement_to_principal_ratio": complement,
+            "full_action_to_principal_ratio": full,
+            "recombined_to_principal_ratio": recombined,
+            "mode_1_2_sign_pair": sign_row["mode_1_2_sign_pair"],
+            "selected_thresholds": selected_thresholds,
+            "tail_below_threshold": bool(first_three < -tail_threshold),
+            "negative_full_action": bool(full <= tolerance),
+        }
+        rows[target] = row
+        if row["negative_full_action"]:
+            negative_full_targets.append(target)
+
+    def mean(values):
+        return math.fsum(values) / len(values) if values else math.nan
+
+    def min_target(targets, key):
+        return min(targets, key=key) if targets else None
+
+    threshold_rows = {}
+    for threshold in thresholds:
+        mag_row = magnitude["threshold_rows"][threshold]
+        threshold_targets = mag_row["targets"]
+        tail_targets = tuple(
+            target for target in threshold_targets
+            if rows[target]["tail_below_threshold"])
+        non_tail_targets = tuple(
+            target for target in threshold_targets
+            if not rows[target]["tail_below_threshold"])
+        negative_targets = tuple(
+            target for target in threshold_targets
+            if rows[target]["negative_full_action"])
+        rescued_targets = tuple(
+            target for target in threshold_targets
+            if not rows[target]["negative_full_action"])
+        rescued_tail_targets = tuple(
+            target for target in tail_targets
+            if not rows[target]["negative_full_action"])
+        negative_tail_targets = tuple(
+            target for target in tail_targets
+            if rows[target]["negative_full_action"])
+        min_complement_target = min_target(
+            threshold_targets,
+            lambda target: rows[target]["complement_to_principal_ratio"])
+        min_full_target = min_target(
+            threshold_targets,
+            lambda target: rows[target]["full_action_to_principal_ratio"])
+        min_first_three_target = min_target(
+            threshold_targets,
+            lambda target: rows[target]["first_three_to_principal_ratio"])
+        cycle_counts = {}
+        tail_cycle_counts = {}
+        negative_full_cycle_counts = {}
+        for target in threshold_targets:
+            cycle = rows[target]["local_cycle"]
+            cycle_counts[cycle] = cycle_counts.get(cycle, 0) + 1
+            if rows[target]["tail_below_threshold"]:
+                tail_cycle_counts[cycle] = tail_cycle_counts.get(cycle, 0) + 1
+            if rows[target]["negative_full_action"]:
+                negative_full_cycle_counts[cycle] = (
+                    negative_full_cycle_counts.get(cycle, 0) + 1)
+        threshold_rows[threshold] = {
+            "target_count": len(threshold_targets),
+            "targets": threshold_targets,
+            "tail_target_count": len(tail_targets),
+            "tail_targets": tail_targets,
+            "non_tail_target_count": len(non_tail_targets),
+            "non_tail_targets": non_tail_targets,
+            "tail_fraction_among_threshold_targets": (
+                len(tail_targets) / len(threshold_targets)
+                if threshold_targets else math.nan),
+            "threshold_targets_all_tail": bool(
+                len(tail_targets) == len(threshold_targets)),
+            "threshold_targets_cover_all_tails": (
+                mag_row["threshold_targets_cover_all_tails"]),
+            "rescued_target_count": len(rescued_targets),
+            "rescued_targets": rescued_targets,
+            "rescued_target_fraction": (
+                len(rescued_targets) / len(threshold_targets)
+                if threshold_targets else math.nan),
+            "negative_full_count_inside_threshold": len(negative_targets),
+            "negative_full_targets_inside_threshold": negative_targets,
+            "rescued_tail_target_count": len(rescued_tail_targets),
+            "rescued_tail_targets": rescued_tail_targets,
+            "negative_tail_and_negative_full_count": len(
+                negative_tail_targets),
+            "negative_tail_and_negative_full_targets": negative_tail_targets,
+            "tail_rescue_fraction": (
+                len(rescued_tail_targets) / len(tail_targets)
+                if tail_targets else math.nan),
+            "minimum_complement_target_inside_threshold": (
+                min_complement_target),
+            "minimum_complement_inside_threshold": (
+                rows[min_complement_target]["complement_to_principal_ratio"]
+                if min_complement_target is not None else math.nan),
+            "minimum_full_action_target_inside_threshold": min_full_target,
+            "minimum_full_action_inside_threshold": (
+                rows[min_full_target]["full_action_to_principal_ratio"]
+                if min_full_target is not None else math.nan),
+            "minimum_first_three_target_inside_threshold": (
+                min_first_three_target),
+            "minimum_first_three_inside_threshold": (
+                rows[min_first_three_target]["first_three_to_principal_ratio"]
+                if min_first_three_target is not None else math.nan),
+            "mean_complement_inside_threshold": mean(tuple(
+                rows[target]["complement_to_principal_ratio"]
+                for target in threshold_targets)),
+            "mean_full_action_inside_threshold": mean(tuple(
+                rows[target]["full_action_to_principal_ratio"]
+                for target in threshold_targets)),
+            "cycle_counts": cycle_counts,
+            "tail_cycle_counts": tail_cycle_counts,
+            "negative_full_cycle_counts": negative_full_cycle_counts,
+        }
+
+    return {
+        "arithmetic_period": magnitude["arithmetic_period"],
+        "support": magnitude["support"],
+        "natural_modulus": magnitude["natural_modulus"],
+        "start": start,
+        "aligned_global_cycle_base": magnitude["aligned_global_cycle_base"],
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "first_two_negative_thresholds": thresholds,
+        "tested_target_count": magnitude["tested_target_count"],
+        "selected_subcone_target_count": len(selected_targets),
+        "selected_subcone_targets": selected_targets,
+        "rows": rows,
+        "threshold_rows": threshold_rows,
+        "negative_full_action_count": len(negative_full_targets),
+        "negative_full_action_targets": tuple(negative_full_targets),
+        "all_selected_subcone_targets_rescued": bool(
+            not negative_full_targets),
+        "source_magnitude_receipt": magnitude,
+        "source_lower_tail_receipt": lower,
+        "first_two_mode_subcone_complement_window_measured": True,
+        "eventual_mode_subcone_bound_proved": False,
+        "eventual_complement_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_full_negative_driver_receipt(
         start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
         top_count=8, tolerance=1e-9):

@@ -122,6 +122,19 @@ did not cover all tails.  This is finite subcone structure, not a theorem.
 The next target is persistence in later sparse-tail windows and complement
 co-occurrence on that subcone.
 
+`q286_first_two_mode_subcone_complement_window_receipt` now attaches
+post-first-three complement rescue to the first-two magnitude subcone.
+Validation passed with focused test
+`test_q286_first_two_mode_subcone_complement_window` in `108.791s`.  A compact
+selected probe on late sparse-tail targets `1222142,1323632,1379072` found all
+three below `-.2` in first-two sum, none below `-.4`, and all strongly
+rescued by complement with full-action ratios about `.946,1.024,.945`.
+This makes `.4` a severe cycle-0 selector rather than a late-tail theorem
+candidate.  More threshold receipts would be circular unless tied to a new
+mechanism; the next target is the exact theorem behind either `.2` subcone
+alignment control, conditioned complement lower bounds, or a proof that this
+reduces to fixed-modulus binary Goldbach in progressions.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

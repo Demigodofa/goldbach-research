@@ -532,6 +532,69 @@ is a perfect lower-tail selector but not a complete cover; first-two below
 next target is to test whether this magnitude subcone remains structured in
 later sparse-tail windows and whether complement rescue is automatic there.
 
+## First-two subcone complement endpoint
+
+Added `q286_first_two_mode_subcone_complement_window_receipt`, which attaches
+post-first-three complement and full-action rescue data to the first-two
+magnitude subcone.  This is a bookkeeping endpoint for the threshold lane,
+not a reason to keep adding threshold receipts: the relevant next question is
+the theorem behind the selected subcone and complement floor.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_two_mode_subcone_complement_window ... ok
+Ran 1 test in 108.791s
+```
+
+The focused regression checks selected target `1222142`, confirms that it is
+inside the `.2` first-two subcone, below the `.3` first-three tail threshold,
+and rescued by complement with positive full action.
+
+Compact selected late-tail probe on the three known sparse-tail targets from
+global cycles `105..136`:
+
+```text
+target 1222142
+  first_two -0.3088331795605284
+  first_three -0.3075877603708801
+  below_.2 True
+  below_.4 False
+  complement 1.2533040265847926
+  full 0.9457162662139126
+
+target 1323632
+  first_two -0.311877980288462
+  first_three -0.31527029112934163
+  below_.2 True
+  below_.4 False
+  complement 1.339489557365715
+  full 1.0242192662363734
+
+target 1379072
+  first_two -0.3341520684857402
+  first_three -0.3394138842129011
+  below_.2 True
+  below_.4 False
+  complement 1.284412751390588
+  full 0.944998867177687
+```
+
+Interpretation: `.4` is not the late-tail selector; it captures a severe
+cycle-0 subcone only.  The three late sparse-tail examples all lie in the
+weaker `.2` first-two subcone and are strongly complement-rescued.  Further
+threshold scanning would be circular unless it is tied to a new theorem with
+a mechanism and falsifier.  The next non-circular target is to state or prove
+one of:
+
+1. a pointwise arithmetic estimate preventing persistent mode-1/mode-2
+   negative alignment below the required level;
+2. a conditioned complement lower bound on the `.2` first-two subcone inside
+   the `.3` first-three tail;
+3. a proved reduction showing that either estimate is essentially a
+   fixed-modulus binary Goldbach-in-progressions theorem.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
