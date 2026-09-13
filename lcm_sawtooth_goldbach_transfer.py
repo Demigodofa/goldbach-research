@@ -11049,23 +11049,12 @@ def _q286_lower_support_component_data(tolerance):
     }
 
 
-def q286_lower_support_package_component_local_discrepancy_receipt(
-        targets=(10664, 14138, 1222142, 1323632, 1379072),
-        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
-    """Decompose lower-support local discrepancy by CRT support channel.
-
-    This refines ``q286_lower_support_package_local_discrepancy_receipt`` by
-    splitting the non-q286 lower-support package into its support components.
-    It is finite theorem-shaping evidence only.
-    """
+def _q286_lower_support_component_rows_for_targets(targets, tolerance=1e-9):
+    """Compute lower-support component rows without package/envelope receipts."""
     targets = tuple(dict.fromkeys(targets))
     if (not targets or any(type(target) is not int or target < 40
                            or target % 2 for target in targets)):
         raise ValueError("targets must be nonempty even integers at least 40")
-    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
-        raise ValueError("first_two_threshold must be positive and finite")
-    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
-        raise ValueError("tail_threshold must be positive and finite")
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
@@ -11074,15 +11063,10 @@ def q286_lower_support_package_component_local_discrepancy_receipt(
     units = component_data["units"]
     principal_mean = component_data["principal_mean"]
     component_values = component_data["component_values"]
-
-    package = q286_subcone_lower_support_package_receipt(
-        targets=targets, first_two_threshold=first_two_threshold,
-        tail_threshold=tail_threshold, tolerance=tolerance)
     unit_index = component_data["unit_index"]
     primes = _prime_table(max(targets))
 
     rows = {}
-    maximum_component_reconstruction_error = 0.0
     for target in targets:
         lower = target // 3
         upper = target - lower
@@ -11140,7 +11124,59 @@ def q286_lower_support_package_component_local_discrepancy_receipt(
                     coefficient_l2_ratio
                     * actual_l2_relative_discrepancy),
             }
+        rows[target] = {
+            "target": target,
+            "actual_lower_support_package_to_principal_ratio": actual_sum,
+            "local_mean_lower_support_to_principal_ratio": local_sum,
+            "centered_lower_support_action_to_principal_ratio": centered_sum,
+            "component_rows": component_rows,
+        }
+    return {
+        "arithmetic_period": period,
+        "targets": targets,
+        "component_supports": tuple(component_values),
+        "rows": rows,
+    }
+
+
+def q286_lower_support_package_component_local_discrepancy_receipt(
+        targets=(10664, 14138, 1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Decompose lower-support local discrepancy by CRT support channel.
+
+    This refines ``q286_lower_support_package_local_discrepancy_receipt`` by
+    splitting the non-q286 lower-support package into its support components.
+    It is finite theorem-shaping evidence only.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    package = q286_subcone_lower_support_package_receipt(
+        targets=targets, first_two_threshold=first_two_threshold,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    direct_component = _q286_lower_support_component_rows_for_targets(
+        targets, tolerance=tolerance)
+
+    rows = {}
+    maximum_component_reconstruction_error = 0.0
+    for target in targets:
         package_row = package["rows"][target]
+        direct_row = direct_component["rows"][target]
+        component_rows = direct_row["component_rows"]
+        actual_sum = direct_row[
+            "actual_lower_support_package_to_principal_ratio"]
+        local_sum = direct_row[
+            "local_mean_lower_support_to_principal_ratio"]
+        centered_sum = direct_row[
+            "centered_lower_support_action_to_principal_ratio"]
         reconstruction_error = abs(
             actual_sum
             - package_row["visible_lower_support_package_to_principal_ratio"])
@@ -11195,7 +11231,7 @@ def q286_lower_support_package_component_local_discrepancy_receipt(
         "first_two_threshold": first_two_threshold,
         "tail_threshold": tail_threshold,
         "tested_target_count": len(targets),
-        "component_supports": tuple(component_values),
+        "component_supports": direct_component["component_supports"],
         "rows": rows,
         "maximum_component_reconstruction_error": (
             maximum_component_reconstruction_error),
@@ -11269,29 +11305,37 @@ def q286_lower_support_component_pair_tail_window_receipt(
         start = selected_targets[0]
         cycle_count = 1
         targets_per_cycle = len(selected_targets)
-        component_targets = selected_targets
+        lower_tail = q286_first_two_mode_lower_tail_receipt(
+            selected_targets=selected_targets, targets_per_cycle=len(
+                selected_targets), tolerance=tolerance)
+        tail_targets = tuple(
+            target for target in selected_targets
+            if lower_tail["rows"][target][
+                "first_two_modes_to_principal_ratio"] < -first_two_threshold
+            and lower_tail["rows"][target][
+                "first_three_modes_to_principal_ratio"] < -tail_threshold)
+        component_targets = tail_targets
         tested_target_count = len(selected_targets)
 
     if component_targets:
-        component = (
-            q286_lower_support_package_component_local_discrepancy_receipt(
-                targets=component_targets,
-                first_two_threshold=first_two_threshold,
-                tail_threshold=tail_threshold, tolerance=tolerance))
+        component = _q286_lower_support_component_rows_for_targets(
+            component_targets, tolerance=tolerance)
     else:
         component = None
-    if selected_targets is not None and component is not None:
-        tail_targets = tuple(
-            target for target in selected_targets
-            if component["rows"][target]["source_package_row"][
-                "subcone_member"])
 
     rows = {}
     both_negative_targets = []
     pair_centered_sum_minimum_row = None
+    source_rows = (
+        lower_tail["rows"] if selected_targets is not None
+        else subcone["rows"])
     for target in tail_targets:
         component_row = component["rows"][target]
-        package_row = component_row["source_package_row"]
+        source_row = source_rows[target]
+        first_three_ratio = (
+            source_row["first_three_modes_to_principal_ratio"]
+            if selected_targets is not None
+            else source_row["first_three_to_principal_ratio"])
         pair_rows = {
             support: component_row["component_rows"][support]
             for support in component_pair}
@@ -11302,14 +11346,13 @@ def q286_lower_support_component_pair_tail_window_receipt(
         both_negative = all(value < -tolerance for value in centered_values)
         row = {
             "target": target,
-            "first_two_modes_to_principal_ratio": package_row[
+            "first_two_modes_to_principal_ratio": source_row[
                 "first_two_modes_to_principal_ratio"],
-            "first_three_to_principal_ratio": package_row[
-                "first_three_modes_to_principal_ratio"],
-            "full_action_to_principal_ratio": package_row[
+            "first_three_to_principal_ratio": first_three_ratio,
+            "full_action_to_principal_ratio": source_row[
                 "full_action_to_principal_ratio"],
             "rescued_by_full_complement": bool(
-                package_row["full_action_to_principal_ratio"] > tolerance),
+                source_row["full_action_to_principal_ratio"] > tolerance),
             "component_pair": component_pair,
             "component_centered_actions_to_principal_ratio": {
                 support: pair_rows[support][
@@ -11327,7 +11370,9 @@ def q286_lower_support_component_pair_tail_window_receipt(
             "source_component_row": component_row,
             "source_subcone_row": (
                 subcone["rows"][target] if subcone is not None else None),
-            "source_package_row": package_row,
+            "source_package_row": None,
+            "source_lower_tail_row": (
+                source_row if selected_targets is not None else None),
         }
         rows[target] = row
         if both_negative:
@@ -11361,8 +11406,7 @@ def q286_lower_support_component_pair_tail_window_receipt(
     return {
         "arithmetic_period": (
             subcone["arithmetic_period"] if subcone is not None
-            else component["source_lower_support_package_receipt"][
-                "source_support_envelope_receipt"]["arithmetic_period"]
+            else component["arithmetic_period"]
             if component is not None else None),
         "start": start,
         "aligned_global_cycle_base": (
@@ -11386,7 +11430,10 @@ def q286_lower_support_component_pair_tail_window_receipt(
         "component_negative_threshold_rows": threshold_rows,
         "pair_centered_sum_minimum_row": pair_centered_sum_minimum_row,
         "source_subcone_complement_window_receipt": subcone,
-        "source_component_local_discrepancy_receipt": component,
+        "source_component_local_discrepancy_receipt": None,
+        "source_direct_component_rows_receipt": component,
+        "source_lower_tail_receipt": (
+            lower_tail if selected_targets is not None else None),
         "lower_support_component_pair_tail_window_measured": True,
         "eventual_component_pair_exclusion_proved": False,
         "signed_prime_correlation_estimate_proved": False,

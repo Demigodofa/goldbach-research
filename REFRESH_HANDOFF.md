@@ -18390,7 +18390,58 @@ Next instructions:
    cancellation, mere sign-exclusion, or more threshold ladders already ruled
    out as circular diagnostics.
 
-## Temporary wake note — continuity discussion
+## Latest q286 continuation
+
+### 2026-09-13 continuation: direct component rows for pair receipt
+
+`q286_lower_support_component_pair_tail_window_receipt` now uses direct
+lower-support component rows for its component-pair measurement instead of
+calling the full component-local/package receipt on selected targets.  The new
+helper is `_q286_lower_support_component_rows_for_targets`; it reuses cached
+fixed component data and computes only the target-specific strict-central
+prime-pair residue weights.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 96.695s
+test_q286_lower_support_package_component_local_discrepancy ... ok
+Ran 1 test in 167.910s
+```
+
+Window-path smoke probe, exercising the repaired subcone-row join:
+
+```text
+q286_lower_support_component_pair_tail_window_receipt(
+    start=1222142, cycle_count=1, targets_per_cycle=1,
+    first_two_threshold=.2, tail_threshold=.3)
+
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+first_two -0.3088331795605278
+first_three -0.3075877603708794
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone True
+source_lower_tail False
+```
+
+Status: engineering-plus-validation only.  This removes one unnecessary
+package/decomposition layer for selected component-pair checks and fixes the
+unselected window provenance.  It does not prove the component-pair theorem or
+Goldbach.  Next useful work is either:
+
+1. optimize the remaining subcone selector and target-specific prime-pair
+   residue-weight work for broad component-pair scans; or
+2. attempt the actual proof/reduction for the signed pointwise arithmetic
+   estimate preventing simultaneous strong negative `(5,7)` and `(7,11)`
+   centered action on the active `.2` / `.3` subcone.
+
+## Temporary wake note continuation
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
 

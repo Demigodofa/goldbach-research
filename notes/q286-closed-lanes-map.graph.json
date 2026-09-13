@@ -2,7 +2,7 @@
   "schema_version": 1,
   "graph_id": "q286-closed-lanes-map",
   "generated_on": "2026-09-13",
-  "source_commit_at_start": "326c0d150c7e673f298543b6e7bb79e86051cc33",
+  "source_commit_at_start": "8b85d45a002bd5eb0e463cbb991d9580480302b6",
   "scope": "q286 first-three, lower-support, and component-pair theorem route",
   "status_boundary": "finite evidence and proof-strategy map only; Goldbach is not proved",
   "node_types": [
@@ -153,16 +153,24 @@
       "id": "receipt.component_pair_tail_window",
       "type": "receipt",
       "label": "q286_lower_support_component_pair_tail_window_receipt",
-      "status": "validated_selected_path",
-      "validation": "selected-target focused regression passed in 81.792s after bypassing the extra window selector",
-      "performance_note": "broad windows should wait for coefficient/component caching"
+      "status": "validated_selected_and_window_paths",
+      "validation": "selected-target focused regression passed in 96.695s; compact unselected window probe at 1222142 returned the expected tail target with subcone provenance",
+      "performance_note": "selected targets now use direct component rows; broad windows still need subcone-selector and target-specific prime-pair optimization"
+    },
+    {
+      "id": "optimization.direct_lower_support_component_rows",
+      "type": "optimization",
+      "label": "_q286_lower_support_component_rows_for_targets",
+      "status": "validated",
+      "validation": "py_compile passed; selected component-pair regression passed in 96.695s; unselected 1222142 smoke probe passed",
+      "scope": "computes target-specific lower-support component rows without invoking the full component-local/package receipt"
     },
     {
       "id": "optimization.lower_support_component_cache",
       "type": "optimization",
       "label": "_q286_lower_support_component_data cache",
       "status": "validated",
-      "validation": "component-local focused regression calls the receipt twice, verifies one cache miss and at least one hit, and passed in 134.987s",
+      "validation": "component-local focused regression calls the receipt twice, verifies one cache miss and at least one hit, and latest rerun passed in 167.910s",
       "scope": "caches fixed character/component setup only; target-specific package and prime-pair work remain uncached"
     },
     {
@@ -287,6 +295,11 @@
       "from": "receipt.component_pair_tail_window",
       "to": "obligation.coefficient_component_cache",
       "type": "requires"
+    },
+    {
+      "from": "optimization.direct_lower_support_component_rows",
+      "to": "receipt.component_pair_tail_window",
+      "type": "supports"
     },
     {
       "from": "optimization.lower_support_component_cache",

@@ -1,7 +1,7 @@
 # q286 closed-lanes map
 
 Status: finite research map, not a proof of Goldbach.
-Last updated at commit work following `326c0d1`.
+Last updated at commit work following `8b85d45`.
 
 This note indexes which q286 proof lanes have been closed, which components
 survive as reusable structure, and what theorem obligation remains.  It is a
@@ -31,6 +31,7 @@ Current executable receipts:
 
 - `q286_lower_support_package_component_local_discrepancy_receipt`
 - `q286_lower_support_component_pair_tail_window_receipt`
+- `_q286_lower_support_component_rows_for_targets`
 
 ## Closed or falsified lanes
 
@@ -87,16 +88,21 @@ current comparison set.
 
 1. Keep the selected-target path in
    `q286_lower_support_component_pair_tail_window_receipt`; it avoids the
-   slow extra window selector when testing explicit candidates.
+   slow extra window selector when testing explicit candidates.  The
+   component-pair measurement now uses direct lower-support component rows
+   rather than the full component-local/package receipt.
 2. The fixed lower-support component decomposition is cached by
    `_q286_lower_support_component_data`.  The focused component-local
-   regression now calls the receipt twice and verifies a cache hit; it passed
-   in `134.987s`.  This caches the fixed character/component setup, not the
-   target-specific prime-pair or package work.
-3. Run a finite window test of the component-pair theorem target only after
-   the remaining package/target-specific work is efficient enough to avoid
-   spending compute on repeated setup.
-4. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
+   regression now calls the receipt twice and verifies a cache hit; the latest
+   rerun passed in `167.910s`.  This caches the fixed character/component
+   setup, not the target-specific prime-pair or package work.
+3. The focused selected component-pair regression passed in `96.695s`, and a
+   compact unselected window probe at `1222142` returned the same tail target,
+   no simultaneous negative pair action, and subcone provenance attached.
+4. Run a broad finite window test of the component-pair theorem target only
+   after the remaining subcone selector and target-specific prime-pair work are
+   efficient enough to avoid spending compute on repeated setup.
+5. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 
 ## Still open

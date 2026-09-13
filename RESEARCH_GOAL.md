@@ -9908,3 +9908,47 @@ boundary target:
 Status `route-split`: a future proof should treat early boundary/full-negative
 cases separately, then seek an eventual complement-vs-alignment bound for the
 later regime.
+
+### 2026-09-13 continuation: direct lower-support component rows
+
+The lower-support component-pair receipt now has a direct component-row helper,
+`_q286_lower_support_component_rows_for_targets`, which reuses the cached fixed
+q286 lower-support component data and computes only the target-specific
+strict-central residue weights.  This lets
+`q286_lower_support_component_pair_tail_window_receipt` measure the active
+`(5,7)` / `(7,11)` component pair without calling the full
+component-local/package receipt for selected targets.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 96.695s
+test_q286_lower_support_package_component_local_discrepancy ... ok
+Ran 1 test in 167.910s
+```
+
+A compact unselected-window smoke probe at `start=1222142`,
+`cycle_count=1`, `targets_per_cycle=1` also exercised the repaired window
+join and returned the same active target:
+
+```text
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+first_two -0.3088331795605278
+first_three -0.3075877603708794
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone True
+source_lower_tail False
+```
+
+Status `engineering-validation`: this preserves the component-pair theorem
+target while removing one unnecessary package/decomposition layer from the
+selected-target path and fixing provenance for the window path.  It is not new
+proof evidence.  Broad scans still require further optimization of the subcone
+selector and target-specific prime-pair/residue-weight work, or a direct proof
+attempt for the signed pointwise arithmetic estimate.
