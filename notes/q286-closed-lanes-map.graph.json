@@ -311,6 +311,14 @@
       "status_boundary": "selected finite floor identity only; no pointwise real-channel floor estimate or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_real_channel_bound_budget",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_real_channel_bound_budget_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_real_channel_bound_budget passed in 121.411s; late selected floor corresponds to sufficient normalized channel bounds Linf <= 0.05885324711081062 or L2 <= 0.2155408076755675",
+      "status_boundary": "selected sufficient norm-budget calculation only; no pointwise real-channel norm estimate or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -472,6 +480,16 @@
       "from": "receipt.component_pair_real_channel_rescue_margin",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_bound_budget",
+      "to": "receipt.component_pair_real_channel_rescue_margin",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_bound_budget",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "quantifies"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

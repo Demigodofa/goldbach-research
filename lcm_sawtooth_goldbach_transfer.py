@@ -12401,6 +12401,9 @@ def q286_lower_support_component_pair_real_channel_action_receipt(
                 channel["real_formula_multiplier"]
                 * (coefficient * imbalance).real)
             contribution = float(numerator / principal)
+            absolute_contribution_bound = float(
+                channel["real_formula_multiplier"] * abs(coefficient)
+                * abs(imbalance) / principal)
             channel_sum += contribution
             channel_rows.append({
                 "labels": channel["labels"],
@@ -12408,7 +12411,11 @@ def q286_lower_support_component_pair_real_channel_action_receipt(
                 "real_formula": channel["real_formula"],
                 "representative_coefficient": coefficient,
                 "representative_character_sum": imbalance,
+                "representative_character_sum_abs_to_total_weight": (
+                    float(abs(imbalance) / total_weight)),
                 "contribution_to_principal_ratio": contribution,
+                "absolute_contribution_bound_to_principal_ratio": (
+                    absolute_contribution_bound),
             })
 
         component_actions = {}
@@ -12423,6 +12430,7 @@ def q286_lower_support_component_pair_real_channel_action_receipt(
             "target": target,
             "target_residue": target % period,
             "admissible_count": admissible_count,
+            "strict_central_total_weight": total_weight,
             "first_two_modes_to_principal_ratio": source_row[
                 "first_two_modes_to_principal_ratio"],
             "first_three_to_principal_ratio": source_row[
@@ -12588,6 +12596,98 @@ def q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
         "source_real_channel_action_receipt": action,
         "real_channel_rescue_margin_measured": True,
         "pointwise_real_channel_floor_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_lower_support_component_pair_real_channel_bound_budget_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Translate selected real-channel floors into sufficient norm budgets."""
+    rescue = q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    action = rescue["source_real_channel_action_receipt"]
+    channel_receipt = action["source_real_channel_receipt"]
+    principal_mean = channel_receipt["principal_mean"]
+    channel_weights = tuple(
+        row["real_formula_multiplier"]
+        * row["representative_coefficient_abs"]
+        for row in channel_receipt["union_conjugacy_orbit_rows"])
+    real_channel_l1_to_principal_mean = (
+        float(math.fsum(channel_weights)) / principal_mean)
+    real_channel_l2_to_principal_mean = (
+        float(math.sqrt(math.fsum(weight * weight
+                                  for weight in channel_weights)))
+        / principal_mean)
+    real_channel_linf_to_principal_mean = (
+        float(max(channel_weights)) / principal_mean)
+
+    def normalized_bound_budget(floor):
+        if floor is None or floor >= 0:
+            return None
+        return {
+            "floor": floor,
+            "sufficient_normalized_linf_bound": (
+                -floor / real_channel_l1_to_principal_mean),
+            "sufficient_normalized_l2_bound": (
+                -floor / real_channel_l2_to_principal_mean),
+        }
+
+    rows = {}
+    for target, action_row in action["rows"].items():
+        normalized_abs_values = tuple(
+            row["representative_character_sum_abs_to_total_weight"]
+            for row in action_row["real_channel_rows"])
+        triangle_bound = float(math.fsum(
+            row["absolute_contribution_bound_to_principal_ratio"]
+            for row in action_row["real_channel_rows"]))
+        rows[target] = {
+            "target": target,
+            "target_residue": action_row["target_residue"],
+            "required_centered_pair_sum_to_rescue": (
+                rescue["rows"][target][
+                    "required_centered_pair_sum_to_rescue"]),
+            "actual_centered_real_channel_pair_sum_to_principal_ratio": (
+                rescue["rows"][target][
+                    "actual_centered_real_channel_pair_sum_to_principal_ratio"]),
+            "maximum_normalized_real_channel_sum": (
+                float(max(normalized_abs_values))),
+            "l2_normalized_real_channel_sum": float(math.sqrt(math.fsum(
+                value * value for value in normalized_abs_values))),
+            "triangle_bound_to_principal_ratio": triangle_bound,
+            "l2_bound_to_principal_ratio": (
+                real_channel_l2_to_principal_mean
+                * float(math.sqrt(math.fsum(
+                    value * value for value in normalized_abs_values)))),
+            "rescued_by_centered_real_channel_pair_floor": rescue["rows"][
+                target]["rescued_by_centered_real_channel_pair_floor"],
+        }
+
+    all_selected_floor = max(
+        row["required_centered_pair_sum_to_rescue"]
+        for row in rescue["rows"].values())
+    return {
+        "arithmetic_period": rescue["arithmetic_period"],
+        "targets": rescue["targets"],
+        "tested_target_count": rescue["tested_target_count"],
+        "component_pair": component_pair,
+        "active_union_real_channel_count": (
+            rescue["active_union_real_channel_count"]),
+        "real_channel_l1_to_principal_mean": (
+            real_channel_l1_to_principal_mean),
+        "real_channel_l2_to_principal_mean": (
+            real_channel_l2_to_principal_mean),
+        "real_channel_linf_to_principal_mean": (
+            real_channel_linf_to_principal_mean),
+        "all_selected_floor_budget": normalized_bound_budget(
+            all_selected_floor),
+        "rescued_uniform_floor_budget": normalized_bound_budget(
+            rescue["uniform_rescued_centered_pair_floor"]),
+        "rows": rows,
+        "source_real_channel_rescue_margin_receipt": rescue,
+        "real_channel_bound_budget_measured": True,
+        "pointwise_real_channel_norm_estimate_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }

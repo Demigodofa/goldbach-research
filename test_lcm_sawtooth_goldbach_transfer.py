@@ -62,6 +62,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_real_channel_receipt,
     q286_lower_support_component_pair_real_channel_action_receipt,
     q286_lower_support_component_pair_real_channel_rescue_margin_receipt,
+    q286_lower_support_component_pair_real_channel_bound_budget_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2064,6 +2065,45 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["real_channel_rescue_margin_measured"])
         self.assertFalse(receipt[
             "pointwise_real_channel_floor_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_real_channel_bound_budget(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_real_channel_bound_budget_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertEqual(receipt["active_union_real_channel_count"], 16)
+        self.assertAlmostEqual(
+            receipt["real_channel_l1_to_principal_mean"],
+            15.262957606760951)
+        self.assertGreater(
+            receipt["real_channel_l2_to_principal_mean"], 0)
+        self.assertAlmostEqual(
+            receipt["rescued_uniform_floor_budget"]["floor"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["rescued_uniform_floor_budget"][
+                "sufficient_normalized_linf_bound"],
+            0.05885324711081062)
+        self.assertAlmostEqual(
+            receipt["rescued_uniform_floor_budget"][
+                "sufficient_normalized_l2_bound"],
+            0.2155408076755675)
+        self.assertLess(
+            receipt["all_selected_floor_budget"][
+                "sufficient_normalized_linf_bound"],
+            receipt["rescued_uniform_floor_budget"][
+                "sufficient_normalized_linf_bound"])
+        self.assertGreater(
+            receipt["rows"][14138]["maximum_normalized_real_channel_sum"],
+            receipt["rows"][1222142]["maximum_normalized_real_channel_sum"])
+        self.assertGreater(
+            receipt["rows"][14138]["triangle_bound_to_principal_ratio"],
+            1)
+        self.assertTrue(receipt["real_channel_bound_budget_measured"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

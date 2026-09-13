@@ -123,6 +123,13 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   Over the late comparison set, the strongest selected uniform sufficient
   floor is `-0.8982746156725305`, still leaving observed margin
   `0.9120175673805407`.
+- The real-channel bound-budget receipt translates that late floor into an
+  analytic target: an eventual normalized `Linf` bound below
+  `0.05885324711081062`, or normalized `L2` bound below
+  `0.2155408076755675`, would be sufficient for the selected late floor.
+  The boundary target `14138` has actual maximum normalized channel sum
+  `0.2659059415120284`, while the late comparison targets are about
+  `0.0250..0.0272`.
 
 ## Current boundary examples
 
@@ -203,6 +210,9 @@ current comparison set.
    contributions with reconstruction error about `1.13e-15`.
 18. The real-channel rescue-margin regression passed in `119.854s` and turns
    the selected rescue condition into an exact centered pair-sum floor.
+19. The real-channel bound-budget regression passed in `121.411s` and turns
+   the late selected floor into explicit normalized channel-norm thresholds:
+   `0.05885324711081062` in `Linf` and `0.2155408076755675` in `L2`.
 
 ## Still open
 

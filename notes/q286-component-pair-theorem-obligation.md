@@ -467,6 +467,39 @@ floor.  Over the three late comparison targets, the strongest selected
 uniform sufficient floor is `-0.8982746156725305`, still leaving observed
 margin `0.9120175673805407`.  The receipt proves no eventual floor estimate.
 
+`q286_lower_support_component_pair_real_channel_bound_budget_receipt` converts
+that selected floor into sufficient norm budgets for the `16` real channel
+representative sums.  Focused regression
+`test_q286_lower_support_component_pair_real_channel_bound_budget` passed in
+`121.411s`.
+
+```text
+real-channel coefficient norms, divided by principal mean:
+  L1   15.262957606760978
+  L2    4.167538506325983
+  Linf  1.7049336541439826
+
+late-comparison uniform floor -0.8982746156725305:
+  sufficient normalized Linf channel bound 0.05885324711081062
+  sufficient normalized L2 channel bound   0.2155408076755675
+
+all-selected floor -0.2756019941861918:
+  sufficient normalized Linf channel bound 0.018056919326311264
+  sufficient normalized L2 channel bound   0.06613064132889246
+
+actual maximum normalized representative channel sums:
+  14138    0.2659059415120284
+  1222142  0.024982703095853185
+  1323632  0.025545756019543613
+  1379072  0.027155981994015317
+```
+
+This does not prove such a pointwise real-channel norm estimate.  It only
+quantifies the theorem needed: an eventual normalized `Linf` bound below
+about `0.0589` on the active real channels would be strong enough for the
+late selected floor, while the boundary target `14138` is far outside that
+budget.
+
 Selected-target rows:
 
 ```text

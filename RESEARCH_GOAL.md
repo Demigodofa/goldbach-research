@@ -10291,6 +10291,19 @@ the uniform selected sufficient floor is centered pair sum
 This is a selected finite floor identity, not an eventual real-channel
 estimate.
 
+New receipt
+`q286_lower_support_component_pair_real_channel_bound_budget_receipt`
+translates that selected late floor into sufficient normalized channel-norm
+thresholds.  Focused regression
+`test_q286_lower_support_component_pair_real_channel_bound_budget` passed in
+`121.411s`.  The active real-channel coefficient norms divided by principal
+mean are `L1=15.262957606760978`, `L2=4.167538506325983`, and
+`Linf=1.7049336541439826`.  Therefore the late selected floor would follow
+from normalized real-channel representative sums bounded by
+`0.05885324711081062` in `Linf`, or `0.2155408076755675` in `L2`.  This is a
+sufficient-bound budget only; it does not prove the required pointwise
+real-channel estimate.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

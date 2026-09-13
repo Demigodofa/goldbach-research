@@ -18881,6 +18881,20 @@ Over the late comparison set, the uniform selected sufficient floor is
 centered pair sum `>= -0.8982746156725305`, leaving observed margin
 `0.9120175673805407`.  This is finite floor-identity evidence only.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_real_channel_bound_budget_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_real_channel_bound_budget` passed in
+`121.411s`.  It converts the selected late floor into sufficient normalized
+real-channel thresholds.  The active coefficient norms divided by principal
+mean are `L1=15.262957606760978`, `L2=4.167538506325983`, and
+`Linf=1.7049336541439826`; the late floor would be forced by normalized
+representative channel sums bounded by `0.05885324711081062` in `Linf`, or
+`0.2155408076755675` in `L2`.  This is not a proof of that bound; it is the
+current precise analytic estimate target.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
