@@ -9378,3 +9378,18 @@ The fast scanner was rerun on cycles `137..264` with thresholds `.2`, `.25`,
 Status `finite-damping-evidence`: checked cycles show no `.275` tail from
 `137..264`, no `.25` tail after cycle `149` through `264`, and no `.2` tail
 after cycle `231` through `264`.  This remains finite evidence only.
+
+### 2026-09-13 continuation: threshold-ladder receipt
+
+Added `q286_first_three_tail_threshold_ladder_receipt`, with focused regression
+`test_q286_first_three_tail_threshold_ladder` passing in `29.667s`.  The
+receipt turns the near-tail threshold profile into a reusable finite diagnostic
+over nested thresholds and configurable cycle blocks.
+
+A redundant ladder probe over cycles `265..328` was interrupted after it stayed
+CPU-bound too long; no result from that probe is recorded.  Existing committed
+per-cycle minima already imply those cycles stay above `-.2`, but a future
+confirmation should use narrower blocks or optimize the summary path.
+
+Status `tooling`: the staged damping question is now executable as a receipt,
+not just prose.  Still no eventual theorem.

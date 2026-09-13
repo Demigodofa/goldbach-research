@@ -10963,6 +10963,131 @@ def q286_first_three_tail_hit_residue_profile_receipt(
     }
 
 
+def q286_first_three_tail_threshold_ladder_receipt(
+        start=10000, cycle_count=32, targets_per_cycle=5005,
+        negative_tail_thresholds=(.2, .25, .275, .3), block_size=32,
+        tolerance=1e-9):
+    """Summarize q286 first-three tail counts across nested thresholds.
+
+    This finite diagnostic asks whether tail disappearance is just a chosen
+    threshold artifact or part of a wider envelope.  It uses the validated fast
+    mode-only scanner and proves only the checked finite window.
+    """
+    if type(block_size) is not int or block_size < 1:
+        raise ValueError("block_size must be a positive integer")
+    horizon = q286_first_three_tail_mode_only_fast_horizon_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=negative_tail_thresholds,
+        tolerance=tolerance)
+    period = horizon["arithmetic_period"]
+    aligned_global_cycle_base = (
+        (start - 10000) // period
+        if (start - 10000) % period == 0 else None)
+
+    threshold_rows = {}
+    cleared_thresholds = []
+    for threshold in horizon["negative_tail_thresholds"]:
+        row = horizon["threshold_rows"][threshold]
+        local_cycles = row["cycles_with_hits"]
+        global_cycles = (
+            tuple(aligned_global_cycle_base + cycle
+                  for cycle in local_cycles)
+            if aligned_global_cycle_base is not None else None)
+        if row["target_count_below_negative_threshold"] == 0:
+            cleared_thresholds.append(threshold)
+        threshold_rows[threshold] = {
+            "tail_target_count": row[
+                "target_count_below_negative_threshold"],
+            "local_cycles_with_hits": local_cycles,
+            "global_cycles_with_hits": global_cycles,
+            "last_local_cycle_with_hit": row["last_cycle_with_hit"],
+            "last_global_cycle_with_hit": (
+                (aligned_global_cycle_base + row["last_cycle_with_hit"])
+                if (aligned_global_cycle_base is not None
+                    and row["last_cycle_with_hit"] is not None)
+                else None),
+            "all_cycles_clear_negative_threshold": row[
+                "all_cycles_clear_negative_threshold"],
+        }
+
+    block_rows = {}
+    for block_start in range(0, cycle_count, block_size):
+        block_end = min(cycle_count, block_start + block_size) - 1
+        cycle_items = tuple(
+            (cycle, horizon["cycle_rows"][cycle])
+            for cycle in range(block_start, block_end + 1))
+        block_minimum_cycle, block_minimum_row = min(
+            cycle_items,
+            key=lambda item: item[1][
+                "minimum_first_three_to_principal_ratio"])
+        threshold_counts = {
+            threshold: sum(
+                row["threshold_counts"][threshold]
+                for _, row in cycle_items)
+            for threshold in horizon["negative_tail_thresholds"]}
+        local_cycles_by_threshold = {
+            threshold: tuple(
+                cycle for cycle, row in cycle_items
+                if row["threshold_counts"][threshold] > 0)
+            for threshold in horizon["negative_tail_thresholds"]}
+        global_cycles_by_threshold = (
+            {
+                threshold: tuple(
+                    aligned_global_cycle_base + cycle
+                    for cycle in local_cycles)
+                for threshold, local_cycles
+                in local_cycles_by_threshold.items()
+            }
+            if aligned_global_cycle_base is not None else None)
+        block_rows[block_start // block_size] = {
+            "local_cycle_range": (block_start, block_end),
+            "global_cycle_range": (
+                (aligned_global_cycle_base + block_start,
+                 aligned_global_cycle_base + block_end)
+                if aligned_global_cycle_base is not None else None),
+            "threshold_counts": threshold_counts,
+            "local_cycles_by_threshold": local_cycles_by_threshold,
+            "global_cycles_by_threshold": global_cycles_by_threshold,
+            "minimum_first_three_local_cycle": block_minimum_cycle,
+            "minimum_first_three_global_cycle": (
+                aligned_global_cycle_base + block_minimum_cycle
+                if aligned_global_cycle_base is not None else None),
+            "minimum_first_three_target": block_minimum_row[
+                "minimum_first_three_target"],
+            "minimum_first_three_to_principal_ratio": block_minimum_row[
+                "minimum_first_three_to_principal_ratio"],
+        }
+
+    strongest_cleared_threshold = (
+        min(cleared_thresholds) if cleared_thresholds else None)
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "aligned_global_cycle_base": aligned_global_cycle_base,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": horizon["negative_tail_thresholds"],
+        "block_size": block_size,
+        "tested_target_count": horizon["tested_target_count"],
+        "threshold_rows": threshold_rows,
+        "cleared_thresholds": tuple(cleared_thresholds),
+        "strongest_cleared_threshold": strongest_cleared_threshold,
+        "block_rows": block_rows,
+        "global_minimum_first_three_cycle": (
+            horizon["global_minimum_first_three_cycle"]),
+        "global_minimum_first_three_target": (
+            horizon["global_minimum_first_three_target"]),
+        "global_minimum_first_three_to_principal_ratio": (
+            horizon["global_minimum_first_three_to_principal_ratio"]),
+        "source_fast_horizon_receipt": horizon,
+        "first_three_tail_threshold_ladder_measured": True,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_complement_cooccurrence_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3, .5, .75, 1.0), tolerance=1e-9):

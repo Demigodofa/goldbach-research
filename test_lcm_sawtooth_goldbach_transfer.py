@@ -53,6 +53,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_mode_only_horizon_receipt,
     q286_first_three_tail_mode_only_fast_horizon_receipt,
     q286_first_three_tail_hit_residue_profile_receipt,
+    q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
@@ -1737,6 +1738,30 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_modes_to_principal_ratio"], -.3)
         self.assertTrue(receipt[
             "first_three_tail_hit_residue_profile_measured"])
+        self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_tail_threshold_ladder(self):
+        receipt = q286_first_three_tail_threshold_ladder_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            negative_tail_thresholds=(.2, .3, .4), block_size=1)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["negative_tail_thresholds"], (.2, .3, .4))
+        self.assertEqual(
+            receipt["threshold_rows"][.2]["tail_target_count"], 1)
+        self.assertEqual(
+            receipt["threshold_rows"][.3]["tail_target_count"], 1)
+        self.assertEqual(
+            receipt["threshold_rows"][.4]["tail_target_count"], 0)
+        self.assertEqual(receipt["cleared_thresholds"], (.4,))
+        self.assertEqual(receipt["strongest_cleared_threshold"], .4)
+        self.assertEqual(receipt["block_rows"][0][
+            "threshold_counts"], {.2: 1, .3: 1, .4: 0})
+        self.assertEqual(receipt["global_minimum_first_three_target"], 1222142)
+        self.assertLess(
+            receipt["global_minimum_first_three_to_principal_ratio"], -.3)
+        self.assertTrue(receipt[
+            "first_three_tail_threshold_ladder_measured"])
         self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

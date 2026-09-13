@@ -17727,6 +17727,30 @@ absence at the `.3` threshold.  No `.275` tail appears in `137..264`; no `.25`
 tail appears after cycle `149` through `264`; no `.2` tail appears after cycle
 `231` through `264`.  This is still finite evidence only.
 
+## 2026-09-13 continuation: threshold-ladder receipt
+
+New code:
+
+- `q286_first_three_tail_threshold_ladder_receipt`
+- focused regression `test_q286_first_three_tail_threshold_ladder`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 1 test in 29.667s
+```
+
+The test uses known late tail target `1222142`: `.2` and `.3` tails are
+present, while `.4` is cleared.  This verifies the nested-threshold semantics.
+
+An attempted redundant ladder probe over cycles `265..328` was stopped after
+remaining CPU-bound too long.  Do not record a result from that interrupted
+probe.  Existing committed per-cycle minima already imply those cycles stay
+above `-.2`; future ladder confirmation should use narrower blocks or a
+summary-only optimization.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -2831,3 +2831,23 @@ finite pattern after cycle `136`: no `.275` tail from `137..264`, no `.25` tail
 after cycle `149` through `264`, and no `.2` tail after cycle `231` through
 `264`.  This suggests a proof-facing envelope target, but it is still finite
 evidence only and does not prove eventual disappearance.
+
+## 2026-09-13: threshold-ladder receipt
+
+Added `q286_first_three_tail_threshold_ladder_receipt`, a reusable finite
+diagnostic for the near-tail damping question.  It wraps the validated fast
+mode-only scanner and summarizes tail counts across nested thresholds by
+whole window and by configurable cycle blocks.  Focused regression
+`test_q286_first_three_tail_threshold_ladder` passed in `29.667s` on known
+late tail target `1222142`, where `.2` and `.3` tails are present but `.4`
+is cleared.
+
+A redundant attempt to rerun the ladder receipt over cycles `265..328` was
+stopped after it remained CPU-bound for too long.  No result from that
+interrupted probe is recorded.  The earlier committed per-cycle minima already
+show that cycles `265..328` stay above `-.2`, but future confirmations should
+use narrower blocks or an optimized summary-only path.
+
+Status `tooling`: near-tail threshold ladders are now reproducible, but the
+receipt is still a finite diagnostic.  It proves no eventual envelope and no
+Goldbach theorem.
