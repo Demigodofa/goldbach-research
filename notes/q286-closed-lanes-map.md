@@ -103,6 +103,9 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   `(7,11)` uses `23`, and their union has `31`.
 - Those `31` characters lie in two adjacent factor-label blocks:
   `(a,b,0,0)` for `(5,7)` and `(0,b,c,0)` for `(7,11)`.
+- Complex conjugation collapses the active target to `16` real conjugacy
+  channels: `4` for `(5,7)`, `12` for `(7,11)`, with one self-conjugate
+  active label `(0,3,5,0)`.
 
 ## Current boundary examples
 
@@ -172,6 +175,8 @@ current comparison set.
 14. The focused regression now freezes the exact active labels, so future
    theorem attempts can target the two explicit adjacent character-label
    blocks instead of rediscovering the support.
+15. The real-channel regression passed in `36.836s` and reduces the signed
+   character target from `31` complex rows to `16` real conjugacy channels.
 
 ## Still open
 

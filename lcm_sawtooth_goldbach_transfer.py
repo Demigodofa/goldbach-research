@@ -12072,6 +12072,123 @@ def q286_lower_support_component_pair_character_mixture_receipt(
     }
 
 
+def q286_lower_support_component_pair_real_channel_receipt(
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Collapse the active component-pair characters by conjugation.
+
+    The coefficient vectors are real on residue space, so complex character
+    labels should occur in conjugate pairs.  This receipt measures the real
+    channel count for the surviving component-pair theorem obligation.
+    """
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    _, labels, character_table = _unit_character_table(period, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    factor_primes = (5, 7, 11, 13)
+    factor_orders = tuple(prime - 1 for prime in factor_primes)
+
+    def conjugate_label(label):
+        return tuple((-exponent) % order
+                     for exponent, order in zip(label, factor_orders))
+
+    component_coefficients = {}
+    active_indices_by_support = {}
+    active_union_indices = set()
+    for support in component_pair:
+        if support not in component_values:
+            raise ValueError("component_pair support is unavailable")
+        values = np.asarray(component_values[support], dtype=np.complex128)
+        coefficients = np.conjugate(character_table) @ values / len(units)
+        indices = {
+            index for index, value in enumerate(coefficients)
+            if abs(value) > tolerance}
+        component_coefficients[support] = coefficients
+        active_indices_by_support[support] = indices
+        active_union_indices.update(indices)
+
+    def conjugacy_orbit_rows(indices):
+        remaining = set(indices)
+        rows = []
+        for index in sorted(indices):
+            if index not in remaining:
+                continue
+            conjugate_index = label_to_index[conjugate_label(labels[index])]
+            orbit = tuple(sorted({index, conjugate_index}))
+            remaining.difference_update(orbit)
+            rows.append({
+                "indices": orbit,
+                "labels": tuple(labels[orbit_index]
+                                for orbit_index in orbit),
+                "size": len(orbit),
+                "self_conjugate": bool(len(orbit) == 1),
+            })
+        return tuple(rows)
+
+    def conjugate_coefficient_error(coefficients):
+        maximum = 0.0
+        for index, label in enumerate(labels):
+            conjugate_index = label_to_index[conjugate_label(label)]
+            maximum = max(
+                maximum,
+                abs(coefficients[conjugate_index]
+                    - np.conjugate(coefficients[index])))
+        return maximum / max(1.0, float(np.linalg.norm(coefficients)))
+
+    component_orbit_rows = {
+        support: conjugacy_orbit_rows(active_indices_by_support[support])
+        for support in component_pair}
+    union_orbit_rows = conjugacy_orbit_rows(active_union_indices)
+    pair_sum_coefficients = (
+        component_coefficients[component_pair[0]]
+        + component_coefficients[component_pair[1]])
+    component_errors = {
+        support: conjugate_coefficient_error(coefficients)
+        for support, coefficients in component_coefficients.items()}
+    pair_sum_error = conjugate_coefficient_error(pair_sum_coefficients)
+    all_errors = tuple(component_errors.values()) + (pair_sum_error,)
+
+    return {
+        "arithmetic_period": period,
+        "factor_primes": factor_primes,
+        "factor_orders": factor_orders,
+        "unit_residue_count": len(units),
+        "component_pair": component_pair,
+        "principal_mean": principal_mean,
+        "component_complex_character_counts": {
+            support: len(active_indices_by_support[support])
+            for support in component_pair},
+        "component_real_channel_counts": {
+            support: len(component_orbit_rows[support])
+            for support in component_pair},
+        "component_self_conjugate_channel_counts": {
+            support: sum(row["self_conjugate"]
+                         for row in component_orbit_rows[support])
+            for support in component_pair},
+        "active_union_complex_character_count": len(active_union_indices),
+        "active_union_real_channel_count": len(union_orbit_rows),
+        "active_union_self_conjugate_channel_count": sum(
+            row["self_conjugate"] for row in union_orbit_rows),
+        "component_conjugacy_orbit_rows": component_orbit_rows,
+        "union_conjugacy_orbit_rows": union_orbit_rows,
+        "component_conjugate_coefficient_errors": component_errors,
+        "pair_sum_conjugate_coefficient_error": pair_sum_error,
+        "maximum_conjugate_coefficient_error": max(all_errors),
+        "complex_to_real_channel_reduction_measured": True,
+        "pointwise_real_channel_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

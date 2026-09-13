@@ -279,6 +279,14 @@
       "status_boundary": "finite character decomposition only; no pointwise twisted binary-prime estimate or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_real_channel",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_real_channel_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_real_channel passed in 36.836s; active union collapses from 31 complex character rows to 16 real conjugacy channels with conjugate coefficient error below 1e-12",
+      "status_boundary": "finite conjugacy reduction only; no pointwise real-channel estimate or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -408,6 +416,16 @@
     },
     {
       "from": "receipt.component_pair_character_mixture",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel",
+      "to": "receipt.component_pair_character_mixture",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },
