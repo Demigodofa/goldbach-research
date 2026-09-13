@@ -10527,6 +10527,113 @@ def q286_first_three_tail_threshold_horizon_receipt(
     }
 
 
+def q286_first_three_tail_mode_only_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3,), tolerance=1e-9):
+    """Measure the q286 first-three tail without full-action recombination.
+
+    This is a cheaper horizon scanner for the question "does the first-three
+    tail appear in this cycle?"  It intentionally does not measure complement
+    rescue or full-action negativity; use the cooccurrence or floor-candidate
+    receipts when those quantities matter.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    negative_tail_thresholds = tuple(negative_tail_thresholds)
+    if (not negative_tail_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in negative_tail_thresholds)):
+        raise ValueError(
+            "negative_tail_thresholds must be positive finite numbers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    rows = {}
+    cycle_rows = {}
+    global_minimum = None
+    threshold_targets = {
+        threshold: []
+        for threshold in negative_tail_thresholds}
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        targets = tuple(
+            cycle_start + 2 * index for index in range(targets_per_cycle))
+        mode_receipt = q286_leading_singular_mode_contribution_receipt(
+            targets=targets, mode_count=3, tolerance=tolerance)
+        cycle_minimum = None
+        cycle_threshold_counts = {
+            threshold: 0
+            for threshold in negative_tail_thresholds}
+        for target in targets:
+            first_three = math.fsum(
+                row["contribution_to_principal_ratio"]
+                for row in mode_receipt["rows"][target]["mode_rows"][:3])
+            rows[target] = {
+                "cycle": cycle,
+                "first_three_modes_to_principal_ratio": first_three,
+            }
+            if cycle_minimum is None or first_three < cycle_minimum[1]:
+                cycle_minimum = (target, first_three)
+            if global_minimum is None or first_three < global_minimum[2]:
+                global_minimum = (cycle, target, first_three)
+            for threshold in negative_tail_thresholds:
+                if first_three < -threshold:
+                    cycle_threshold_counts[threshold] += 1
+                    threshold_targets[threshold].append(target)
+        cycle_rows[cycle] = {
+            "start": targets[0],
+            "end": targets[-1],
+            "tested_target_count": len(targets),
+            "minimum_first_three_target": cycle_minimum[0],
+            "minimum_first_three_to_principal_ratio": cycle_minimum[1],
+            "threshold_counts": cycle_threshold_counts,
+        }
+
+    threshold_rows = {}
+    for threshold in negative_tail_thresholds:
+        targets_below = tuple(threshold_targets[threshold])
+        cycles_with_hits = tuple(
+            cycle for cycle, row in cycle_rows.items()
+            if row["threshold_counts"][threshold] > 0)
+        threshold_rows[threshold] = {
+            "target_count_below_negative_threshold": len(targets_below),
+            "targets_below_negative_threshold": targets_below,
+            "cycle_count_with_hits": len(cycles_with_hits),
+            "cycles_with_hits": cycles_with_hits,
+            "last_cycle_with_hit": (
+                max(cycles_with_hits) if cycles_with_hits else None),
+            "all_cycles_clear_negative_threshold": bool(
+                not cycles_with_hits),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": negative_tail_thresholds,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "cycle_rows": cycle_rows,
+        "threshold_rows": threshold_rows,
+        "rows": rows,
+        "global_minimum_first_three_cycle": global_minimum[0],
+        "global_minimum_first_three_target": global_minimum[1],
+        "global_minimum_first_three_to_principal_ratio": global_minimum[2],
+        "first_three_tail_mode_only_horizon_measured": True,
+        "complement_rescue_measured": False,
+        "full_action_negativity_measured": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_complement_cooccurrence_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3, .5, .75, 1.0), tolerance=1e-9):

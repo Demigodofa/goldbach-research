@@ -50,6 +50,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_removed_low_tail_multi_period_receipt,
     q286_first_three_removed_complement_threshold_horizon_receipt,
     q286_first_three_tail_threshold_horizon_receipt,
+    q286_first_three_tail_mode_only_horizon_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
@@ -1635,6 +1636,30 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_tail_threshold_horizon_measured"])
         self.assertFalse(receipt[
             "uniform_first_three_tail_bound_proved"])
+
+    def test_q286_first_three_tail_mode_only_horizon(self):
+        receipt = q286_first_three_tail_mode_only_horizon_receipt(
+            cycle_count=1, targets_per_cycle=5,
+            negative_tail_thresholds=(.3,))
+        baseline = q286_first_three_tail_threshold_horizon_receipt(
+            cycle_count=1, targets_per_cycle=5,
+            negative_tail_thresholds=(.3,))
+        self.assertEqual(receipt["cycle_count"], 1)
+        self.assertEqual(receipt["targets_per_cycle"], 5)
+        self.assertEqual(receipt["negative_tail_thresholds"], (.3,))
+        self.assertEqual(
+            receipt["cycle_rows"][0]["threshold_counts"][.3],
+            baseline["cycle_rows"][0]["threshold_counts"][.3])
+        self.assertEqual(
+            receipt["global_minimum_first_three_target"],
+            baseline["global_minimum_first_three_target"])
+        self.assertAlmostEqual(
+            receipt["global_minimum_first_three_to_principal_ratio"],
+            baseline["global_minimum_first_three_to_principal_ratio"])
+        self.assertTrue(receipt[
+            "first_three_tail_mode_only_horizon_measured"])
+        self.assertFalse(receipt["complement_rescue_measured"])
+        self.assertFalse(receipt["full_action_negativity_measured"])
 
     def test_q286_first_three_complement_cooccurrence(self):
         receipt = q286_first_three_complement_cooccurrence_receipt(
