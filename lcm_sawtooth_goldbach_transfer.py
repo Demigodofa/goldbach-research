@@ -10860,6 +10860,252 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
         tolerance=tolerance, include_rows=True)
 
 
+def q286_first_three_weighted_discrepancy_norm_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        theorem_threshold=.2, tolerance=1e-9, include_rows=False):
+    """Measure q286 first-three discrepancy norms against coefficient bounds.
+
+    The first-three contribution is a signed dot product between the centered
+    q286 coefficient vector and the centered strict-central residue weights.
+    This finite diagnostic compares the actual signed value with the crude
+    sup-norm and L2 Cauchy sufficient conditions.  It proves only the checked
+    finite window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    period = 10010
+    maximum_target = (
+        start + (cycle_count - 1) * period
+        + 2 * (targets_per_cycle - 1))
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+    unit_count = len(data["units"])
+
+    coefficient_rows = {}
+    for target_residue in range(modulus):
+        admissible_mask = admissible_masks[target_residue]
+        if admissible_counts[target_residue] == 0:
+            coefficient_rows[target_residue] = {
+                "admissible_count": 0,
+                "centered_coefficient_l1": 0.0,
+                "centered_coefficient_l2": 0.0,
+                "linf_sufficient_relative_delta": math.inf,
+                "l2_sufficient_relative_delta": math.inf,
+            }
+            continue
+        centered_coefficients = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        centered_l1 = float(np.sum(np.abs(centered_coefficients)))
+        centered_l2 = float(np.linalg.norm(centered_coefficients))
+        coefficient_rows[target_residue] = {
+            "admissible_count": admissible_counts[target_residue],
+            "centered_coefficient_l1": centered_l1,
+            "centered_coefficient_l2": centered_l2,
+            "linf_sufficient_relative_delta": (
+                theorem_threshold * principal_mean / centered_l1
+                if centered_l1 > tolerance else math.inf),
+            "l2_sufficient_relative_delta": (
+                theorem_threshold * principal_mean / centered_l2
+                if centered_l2 > tolerance else math.inf),
+        }
+
+    aligned_global_cycle_base = (
+        (start - 10000) // period
+        if (start - 10000) % period == 0 else None)
+    rows = {} if include_rows else None
+    tail_targets = []
+    linf_certified_clear_count = 0
+    l2_certified_clear_count = 0
+    minimum_first_three_row = None
+    maximum_linf_ratio_row = None
+    maximum_l2_ratio_row = None
+    maximum_linf_relative_delta_row = None
+    maximum_l2_negative_utilization_row = None
+    maximum_linf_negative_utilization_row = None
+
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        for target_offset in range(targets_per_cycle):
+            target = cycle_start + 2 * target_offset
+            lower = target // 3
+            upper = target - lower
+            first = max(2, lower + 1)
+            last = min(target, upper)
+            left_index = int(np.searchsorted(
+                prime_indices, first, side="left"))
+            right_index = int(np.searchsorted(
+                prime_indices, last, side="left"))
+            prime_values = prime_indices[left_index:right_index]
+            partner_values = target - prime_values
+            pair_mask = primes[partner_values]
+            selected_primes = prime_values[pair_mask]
+            selected_partners = partner_values[pair_mask]
+            residue_indices = unit_index_by_residue[
+                selected_primes % modulus]
+            residue_weights = np.bincount(
+                residue_indices,
+                weights=(
+                    log_values[selected_primes]
+                    * log_values[selected_partners]),
+                minlength=unit_count)
+            total_weight = float(np.sum(residue_weights))
+            if total_weight <= tolerance:
+                continue
+            target_residue = target % modulus
+            admissible_mask = admissible_masks[target_residue]
+            mean_weight = total_weight / admissible_counts[target_residue]
+            weight_delta = np.zeros(unit_count, dtype=np.float64)
+            weight_delta[admissible_mask] = (
+                residue_weights[admissible_mask] - mean_weight)
+            admissible_delta = weight_delta[admissible_mask]
+            coefficient_row = coefficient_rows[target_residue]
+            first_three = float(
+                (linear_coefficients @ weight_delta)
+                / (principal_mean * total_weight))
+            linf_relative_delta = float(
+                np.max(np.abs(admissible_delta)) / total_weight)
+            l2_relative_delta = float(
+                np.linalg.norm(admissible_delta) / total_weight)
+            linf_bound = (
+                coefficient_row["centered_coefficient_l1"]
+                * linf_relative_delta / principal_mean)
+            l2_bound = (
+                coefficient_row["centered_coefficient_l2"]
+                * l2_relative_delta / principal_mean)
+            linf_ratio = (
+                linf_relative_delta
+                / coefficient_row["linf_sufficient_relative_delta"])
+            l2_ratio = (
+                l2_relative_delta
+                / coefficient_row["l2_sufficient_relative_delta"])
+            negative_part = max(0.0, -first_three)
+            linf_negative_utilization = (
+                negative_part / linf_bound if linf_bound > tolerance else 0.0)
+            l2_negative_utilization = (
+                negative_part / l2_bound if l2_bound > tolerance else 0.0)
+            if linf_bound <= theorem_threshold:
+                linf_certified_clear_count += 1
+            if l2_bound <= theorem_threshold:
+                l2_certified_clear_count += 1
+            if first_three < -theorem_threshold:
+                tail_targets.append(target)
+
+            row = {
+                "target": target,
+                "local_cycle": cycle,
+                "global_cycle": (
+                    aligned_global_cycle_base + cycle
+                    if aligned_global_cycle_base is not None else None),
+                "target_offset": target_offset,
+                "target_mod_286": target_residue,
+                "total_prime_pair_weight": total_weight,
+                "first_three_to_principal_ratio": first_three,
+                "linf_relative_delta": linf_relative_delta,
+                "l2_relative_delta": l2_relative_delta,
+                "linf_bound_to_principal": linf_bound,
+                "l2_bound_to_principal": l2_bound,
+                "linf_to_sufficient_ratio": linf_ratio,
+                "l2_to_sufficient_ratio": l2_ratio,
+                "linf_negative_bound_utilization": (
+                    linf_negative_utilization),
+                "l2_negative_bound_utilization": l2_negative_utilization,
+            }
+            if include_rows:
+                rows[target] = row
+            if (minimum_first_three_row is None
+                    or first_three < minimum_first_three_row[
+                        "first_three_to_principal_ratio"]):
+                minimum_first_three_row = row
+            if (maximum_linf_ratio_row is None
+                    or linf_ratio > maximum_linf_ratio_row[
+                        "linf_to_sufficient_ratio"]):
+                maximum_linf_ratio_row = row
+            if (maximum_l2_ratio_row is None
+                    or l2_ratio > maximum_l2_ratio_row[
+                        "l2_to_sufficient_ratio"]):
+                maximum_l2_ratio_row = row
+            if (maximum_linf_relative_delta_row is None
+                    or linf_relative_delta > maximum_linf_relative_delta_row[
+                        "linf_relative_delta"]):
+                maximum_linf_relative_delta_row = row
+            if (maximum_linf_negative_utilization_row is None
+                    or linf_negative_utilization
+                    > maximum_linf_negative_utilization_row[
+                        "linf_negative_bound_utilization"]):
+                maximum_linf_negative_utilization_row = row
+            if (maximum_l2_negative_utilization_row is None
+                    or l2_negative_utilization
+                    > maximum_l2_negative_utilization_row[
+                        "l2_negative_bound_utilization"]):
+                maximum_l2_negative_utilization_row = row
+
+    linf_thresholds = tuple(
+        row["linf_sufficient_relative_delta"]
+        for row in coefficient_rows.values()
+        if math.isfinite(row["linf_sufficient_relative_delta"]))
+    l2_thresholds = tuple(
+        row["l2_sufficient_relative_delta"]
+        for row in coefficient_rows.values()
+        if math.isfinite(row["l2_sufficient_relative_delta"]))
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "aligned_global_cycle_base": aligned_global_cycle_base,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "theorem_threshold": theorem_threshold,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "target_rows_included": include_rows,
+        "rows": rows if include_rows else {},
+        "coefficient_rows": coefficient_rows,
+        "minimum_linf_sufficient_relative_delta": min(linf_thresholds),
+        "maximum_linf_sufficient_relative_delta": max(linf_thresholds),
+        "minimum_l2_sufficient_relative_delta": min(l2_thresholds),
+        "maximum_l2_sufficient_relative_delta": max(l2_thresholds),
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tuple(tail_targets),
+        "linf_certified_clear_count": linf_certified_clear_count,
+        "l2_certified_clear_count": l2_certified_clear_count,
+        "minimum_first_three_row": minimum_first_three_row,
+        "maximum_linf_to_sufficient_ratio_row": maximum_linf_ratio_row,
+        "maximum_l2_to_sufficient_ratio_row": maximum_l2_ratio_row,
+        "maximum_linf_relative_delta_row": maximum_linf_relative_delta_row,
+        "maximum_linf_negative_utilization_row": (
+            maximum_linf_negative_utilization_row),
+        "maximum_l2_negative_utilization_row": (
+            maximum_l2_negative_utilization_row),
+        "first_three_weighted_discrepancy_norm_measured": True,
+        "eventual_weighted_discrepancy_estimate_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_hit_residue_profile_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3,), tolerance=1e-9):

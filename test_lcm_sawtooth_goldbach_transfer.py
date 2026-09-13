@@ -52,6 +52,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_threshold_horizon_receipt,
     q286_first_three_tail_mode_only_horizon_receipt,
     q286_first_three_tail_mode_only_fast_horizon_receipt,
+    q286_first_three_weighted_discrepancy_norm_receipt,
     q286_first_three_tail_hit_residue_profile_receipt,
     q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
@@ -1717,6 +1718,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["global_minimum_first_three_to_principal_ratio"], -.3)
         self.assertTrue(receipt[
             "first_three_tail_mode_only_fast_horizon_measured"])
+
+    def test_q286_first_three_weighted_discrepancy_norm(self):
+        receipt = q286_first_three_weighted_discrepancy_norm_receipt(
+            start=3309688, cycle_count=1, targets_per_cycle=1,
+            theorem_threshold=.2, include_rows=True)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["theorem_threshold"], .2)
+        self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(receipt["linf_certified_clear_count"], 0)
+        self.assertEqual(receipt["l2_certified_clear_count"], 0)
+        self.assertIn(3309688, receipt["rows"])
+        row = receipt["rows"][3309688]
+        self.assertEqual(row["target_mod_286"], 96)
+        self.assertGreater(
+            row["first_three_to_principal_ratio"], 0)
+        self.assertGreater(row["linf_to_sufficient_ratio"], 5.0)
+        self.assertGreater(
+            row["linf_bound_to_principal"],
+            receipt["theorem_threshold"])
+        self.assertEqual(
+            receipt["maximum_linf_to_sufficient_ratio_row"]["target"],
+            3309688)
+        self.assertTrue(receipt[
+            "first_three_weighted_discrepancy_norm_measured"])
+        self.assertFalse(receipt[
+            "eventual_weighted_discrepancy_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_tail_hit_residue_profile(self):
         receipt = q286_first_three_tail_hit_residue_profile_receipt(

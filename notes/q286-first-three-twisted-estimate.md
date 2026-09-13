@@ -2975,3 +2975,57 @@ Status `falsifier`: a proof that relies only on a uniform maximum residue
 deviation would demand far more equidistribution than the checked harmless
 targets exhibit.  The viable theorem target should retain coefficient signs,
 weighted norms, or cancellation across q286 residue classes.
+
+## 2026-09-13: weighted discrepancy norm receipt
+
+Added `q286_first_three_weighted_discrepancy_norm_receipt`, which makes the
+coefficient-side obstruction reusable.  For each target it computes the
+actual first-three signed dot product, the relative `L_infinity` and `L2`
+deviations of admissible residue weights from their mean, the corresponding
+Cauchy bounds against the centered q286 coefficient vector, and how much of
+those bounds is actually used by the negative part.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_weighted_discrepancy_norm ... ok
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 5 tests in 84.240s
+```
+
+Applying the receipt to global cycle `329` with threshold `.2`:
+
+```text
+tested targets: 5005
+tail targets below -.2: 0
+L_infinity Cauchy-certified clear: 88
+L2 Cauchy-certified clear: 182
+L_infinity sufficient epsilon range: 0.0008292399353636012..0.0016342415296322433
+L2 sufficient epsilon range: 0.0039701076826289435..0.011938870754761672
+
+minimum actual first_three:
+  target 3304702, first_three -0.14511928091690746
+  L_infinity bound 0.46491537546015893
+  L2 bound 0.5323076329663895
+  L2 negative utilization 0.27262295696982886
+
+maximum L2 sufficient-ratio:
+  target 3305012, first_three 0.09669909148902203
+  L2 ratio 3.023923187218037
+
+maximum negative-bound utilization:
+  target 3305200, first_three -0.14018011556710205
+  L_infinity negative utilization 0.3122496337068043
+  L2 negative utilization 0.37431718152903626
+```
+
+Status `falsifier-plus-target`: plain `L2` Cauchy is still too weak to explain
+the checked `.2` clearance: it certifies only `182/5005` targets in cycle
+`329`.  However, the worst negative target uses only about `37.5%` of its
+available `L2` bound.  The next theorem target is therefore an alignment or
+signed-cancellation estimate for the q286 coefficient vector, not just an
+unweighted `L2` discrepancy bound.

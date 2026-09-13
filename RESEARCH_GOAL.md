@@ -9477,3 +9477,28 @@ harmless when aligned with favorable q286 coefficients.
 Status `falsifier`: the next proof route should not seek a plain
 supremum-norm equidistribution theorem.  It should seek a signed weighted norm
 or cancellation estimate matched to the q286 first-three coefficient vector.
+
+### 2026-09-13 continuation: weighted discrepancy norm receipt
+
+The route now has an executable weighted-norm diagnostic:
+`q286_first_three_weighted_discrepancy_norm_receipt`.  It computes the actual
+first-three signed dot product, `L_infinity` and `L2` residue-weight deviations
+from the admissible mean, Cauchy bounds from the centered q286 coefficient
+vector, and negative-bound utilization.
+
+Validation: `py_compile` passed, and the focused bundle
+`test_q286_first_three_weighted_discrepancy_norm`,
+`test_q286_first_three_tail_mode_only_fast_horizon`,
+`test_q286_first_three_tail_mode_only_fast_late_tail_hit`,
+`test_q286_first_three_tail_hit_residue_profile`, and
+`test_q286_first_three_tail_threshold_ladder` passed in `84.240s`.
+
+On global cycle `329`, threshold `.2`, all `5005` targets are actually clear,
+but `L_infinity` Cauchy certifies only `88` and plain `L2` Cauchy certifies
+only `182`.  The worst actual negative value is target `3304702`,
+`-0.14511928091690746`; the maximum negative `L2`-bound utilization is only
+`0.37431718152903626` at target `3305200`.
+
+Status `falsifier-plus-target`: the proof target has narrowed from generic
+residue equidistribution to an alignment or signed-cancellation estimate for
+the q286 coefficient vector.

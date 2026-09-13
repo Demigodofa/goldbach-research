@@ -17840,6 +17840,47 @@ the main q286 proof route.  It is too strong for the observed distribution.
 The surviving theorem target needs signed/weighted cancellation across the
 q286 coefficient rows, or a sharper norm adapted to the coefficient vector.
 
+## 2026-09-13 continuation: weighted discrepancy norm receipt
+
+New code:
+
+- `q286_first_three_weighted_discrepancy_norm_receipt`
+- focused regression `test_q286_first_three_weighted_discrepancy_norm`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_weighted_discrepancy_norm ... ok
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 5 tests in 84.240s
+```
+
+Cycle `329` weighted-norm result at threshold `.2`:
+
+```text
+tested 5005; tail_count 0
+L_infinity Cauchy-certified clear: 88
+L2 Cauchy-certified clear: 182
+L_infinity sufficient epsilon range:
+  0.0008292399353636012..0.0016342415296322433
+L2 sufficient epsilon range:
+  0.0039701076826289435..0.011938870754761672
+minimum actual first_three:
+  target 3304702, value -0.14511928091690746
+maximum negative L2-bound utilization:
+  target 3305200, utilization 0.37431718152903626
+```
+
+Interpretation: replacing sup-norm residue control with plain `L2` Cauchy is
+still insufficient as a theorem route; it certifies only `182/5005` checked
+targets.  But actual negative rows use much less than the available bound.
+Next instruction: pursue an alignment/signed-cancellation estimate matched to
+the q286 coefficient vector.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
