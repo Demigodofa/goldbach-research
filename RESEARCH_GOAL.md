@@ -145,6 +145,19 @@ threshold receipts are demoted unless they test a new mechanism with a
 falsifier.  Goldbach and the required pointwise signed prime-correlation
 theorem remain open.
 
+A support-decomposition mechanism probe now compares boundary/full-negative
+targets `10664,14138,24148` with late sparse-tail subcone targets
+`1222142,1323632,1379072` using
+`q286_first_three_removed_support_envelope_receipt`.  The late targets all
+remain complement-rescued after removing q70 (`without_q70` at least
+`1.1759`), with q70, q154, and small-support terms positive.  The boundary
+layer differs: `14138` has tiny complement because q70 and q154 are strongly
+negative, while `10664` has positive complement but a larger first-three
+deficit.  This moves the next proof target from q70-only rescue to positivity
+of the lower-support package on the late `.2` subcone, or a reduction showing
+that package positivity is again a fixed-modulus binary-prime correlation
+theorem.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

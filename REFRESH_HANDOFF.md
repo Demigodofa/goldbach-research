@@ -18266,6 +18266,18 @@ a finite boundary, or identify the needed result as a pointwise fixed-modulus
 binary-prime-in-progressions theorem.  More threshold receipts are circular
 unless they test a new mechanism with a stated falsifier.
 
+A support-decomposition probe now gives the next mechanism candidate.  Running
+`q286_first_three_removed_support_envelope_receipt` on
+`10664,14138,24148,1222142,1323632,1379072` found the late sparse-tail targets
+all remain strongly rescued after removing q70 (`without_q70 >=
+1.1759423171388284`), with q70, q154, and small-support terms positive.  The
+boundary/full-negative layer has a different signature: `14138` has tiny
+complement because q70 and q154 are strongly negative; `10664` has positive
+complement but a deeper first-three deficit.  Next proof target: positivity
+of the lower-support package on the late `.2` subcone, or a reduction showing
+that this package positivity is itself the hard fixed-modulus binary-prime
+correlation theorem.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile` and `git diff --check`.

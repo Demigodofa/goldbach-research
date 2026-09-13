@@ -682,6 +682,109 @@ find an infinite family or a verified large-window pattern in which
 requires pointwise lower bounds for binary prime pairs in fixed residue
 classes strong enough to subsume the desired Goldbach case.
 
+## Complement support mechanism probe
+
+To avoid another threshold-only loop, the next probe used the existing support
+decomposition after removing the first three q286 modes.  It compared the
+cycle-0 bad/boundary targets `10664,14138,24148` with the late sparse-tail
+subcone targets `1222142,1323632,1379072`.
+
+Command shape:
+
+```text
+q286_first_three_removed_support_envelope_receipt(
+    selected_targets=(10664,14138,24148,1222142,1323632,1379072))
+```
+
+Selected output:
+
+```text
+tested 6
+minimum complement: 14138, 0.018073313793834256
+minimum without q70: 14138, 0.6710833206297226
+nonpositive complement targets: ()
+nonpositive without q70 count: 0
+maximum reconstruction error: 2.220446049250313e-16
+```
+
+Rows:
+
+```text
+target 10664
+  first_three -1.1500880008976306
+  complement 0.9340259936979926
+  without_q70 1.031193608600129
+  q286_after_first_three 0.08982498529379224
+  q70 -0.09716761490213632
+  q154 -0.08856264952577178
+  small_supports 0.029931272832108457
+  full -0.21606200719963808
+
+target 14138
+  first_three -0.8950145872346784
+  complement 0.018073313793834256
+  without_q70 0.6710833206297226
+  q286_after_first_three 0.03288837495327912
+  q70 -0.6530100068358884
+  q154 -0.4313790490173474
+  small_supports 0.06957399469379084
+  full -0.8769412734408442
+
+target 24148
+  first_three -0.12082743421006822
+  complement 1.3776028000182077
+  without_q70 1.0229035676318734
+  q286_after_first_three 0.004108374216339236
+  q70 0.3546992323863342
+  q154 -0.06691780878077776
+  small_supports 0.08571300219631216
+  full 1.2567753658081395
+
+target 1222142
+  first_three -0.30758776037088004
+  complement 1.2533040265847926
+  without_q70 1.1759423171388284
+  q286_after_first_three 0.015889700945368956
+  q70 0.07736170944596424
+  q154 0.0788962040290605
+  small_supports 0.08115641216439903
+  full 0.9457162662139126
+
+target 1323632
+  first_three -0.31527029112934163
+  complement 1.339489557365715
+  without_q70 1.1938688832329332
+  q286_after_first_three 0.005909456790122003
+  q70 0.145620674132782
+  q154 0.08611330847079984
+  small_supports 0.10184611797201121
+  full 1.0242192662363734
+
+target 1379072
+  first_three -0.3394138842129011
+  complement 1.284412751390588
+  without_q70 1.2410682464662457
+  q286_after_first_three 0.01455465074006057
+  q70 0.04334450492434235
+  q154 0.14761864795618446
+  small_supports 0.07889494777000067
+  full 0.944998867177687
+```
+
+Interpretation: the late sparse-tail rescues are not a q70-only artifact.  All
+three late targets keep complement above `1.17` after removing q70, and all
+visible lower-support components are positive there.  The boundary/full-
+negative layer has a different signature: `14138` has a tiny complement
+because q70 and q154 are both strongly negative, while `10664` has a positive
+complement but an even larger first-three deficit.
+
+This creates a sharper theorem mechanism.  A complement proof may try to show
+that late `.2` subcone targets force the non-q286 support sum, or at least the
+q70/q154/small-support package, into a positive range.  The falsifier is a
+late or infinite family in the `.2` subcone with negative lower-support
+package resembling `14138`, or a proof that positivity of that package is
+again a pointwise fixed-modulus binary-prime correlation theorem.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
