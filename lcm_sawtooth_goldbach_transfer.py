@@ -15561,6 +15561,225 @@ def q286_lower_support_component_pair_fixed_inequality_stress_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_inequality_target_census_receipt(
+        start=1379072, cycle_count=1, targets_per_cycle=5,
+        first_two_threshold=.2, tail_threshold=.3,
+        component_pair=((5, 7), (7, 11)), max_tail_targets=None,
+        phase_bin_count=12, ratio_bound=0.75,
+        thin_side_ratio_threshold=0.05, tolerance=1e-9,
+        selected_targets=None):
+    """Apply the fixed inequality to a predeclared target selector.
+
+    This receipt is a target-denominator audit for the active component pair.
+    It first declares the target source, then records every target selected by
+    the same first-two/first-three tail predicate before applying the frozen
+    inequality target-by-target.  A target with no residual polygon rows is a
+    premise-empty row, not reinforcement.
+    """
+    if selected_targets is None:
+        if type(start) is not int or start < 40 or start % 2:
+            raise ValueError("start must be an even integer at least 40")
+        if type(cycle_count) is not int or cycle_count < 1:
+            raise ValueError("cycle_count must be a positive integer")
+        if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+                or targets_per_cycle > 5005):
+            raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    else:
+        selected_targets = tuple(dict.fromkeys(selected_targets))
+        if (not selected_targets
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in selected_targets)):
+            raise ValueError(
+                "selected_targets must be even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0.0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0.0:
+        raise ValueError("tail_threshold must be positive and finite")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if (max_tail_targets is not None
+            and (type(max_tail_targets) is not int or max_tail_targets < 1)):
+        raise ValueError("max_tail_targets must be a positive integer")
+    if type(phase_bin_count) is not int or phase_bin_count < 4:
+        raise ValueError("phase_bin_count must be an integer at least 4")
+    if phase_bin_count % 2:
+        raise ValueError("phase_bin_count must be even")
+    if not math.isfinite(ratio_bound) or ratio_bound < 0.0:
+        raise ValueError("ratio_bound must be finite and nonnegative")
+    if (not math.isfinite(thin_side_ratio_threshold)
+            or thin_side_ratio_threshold < 0.0):
+        raise ValueError(
+            "thin_side_ratio_threshold must be finite and nonnegative")
+    if not math.isfinite(tolerance) or tolerance < 0.0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    if selected_targets is None:
+        lower_tail = q286_first_two_mode_lower_tail_receipt(
+            start=start, cycle_count=cycle_count,
+            targets_per_cycle=targets_per_cycle, tolerance=tolerance,
+            include_residue_weights=False)
+        target_source = "window_tail_selector"
+        target_selection_rule = (
+            "all scanned even targets with first_two_modes_to_principal_ratio "
+            f"< -{first_two_threshold} and "
+            "first_three_modes_to_principal_ratio "
+            f"< -{tail_threshold}")
+    else:
+        lower_tail = q286_first_two_mode_lower_tail_receipt(
+            tolerance=tolerance, selected_targets=selected_targets,
+            include_residue_weights=False)
+        start = selected_targets[0]
+        cycle_count = 1
+        targets_per_cycle = len(selected_targets)
+        target_source = "caller_supplied_selected_targets"
+        target_selection_rule = (
+            "caller supplied explicit targets; the same first-two/"
+            "first-three predicate is still reported, but this is not a "
+            "neutral target-window sample")
+
+    scanned_targets = tuple(sorted(lower_tail["rows"]))
+    tail_targets = tuple(
+        target for target in scanned_targets
+        if lower_tail["rows"][target][
+            "first_two_modes_to_principal_ratio"] < -first_two_threshold
+        and lower_tail["rows"][target][
+            "first_three_modes_to_principal_ratio"] < -tail_threshold)
+    if max_tail_targets is None:
+        stress_targets = tail_targets
+    else:
+        stress_targets = tail_targets[:max_tail_targets]
+
+    target_rows = {}
+    passed_targets = []
+    failed_targets = []
+    not_applicable_targets = []
+    error_targets = []
+    evaluated_targets = []
+    total_polygon_rows = 0
+    total_failure_rows = 0
+    for target in stress_targets:
+        lower_row = lower_tail["rows"][target]
+        try:
+            stress = q286_lower_support_component_pair_fixed_inequality_stress_receipt(
+                targets=(target,), component_pairs=(component_pair,),
+                phase_bin_count=phase_bin_count,
+                ratio_bound=ratio_bound,
+                thin_side_ratio_threshold=thin_side_ratio_threshold,
+                tolerance=tolerance)
+            stress_row = stress["rows"][0]
+            status = stress_row["status"]
+            evaluated = bool(stress_row["evaluated"])
+            failure_count = stress_row["failure_count"]
+            polygon_count = stress_row["polygon_row_count"]
+            total_polygon_rows += polygon_count
+            total_failure_rows += failure_count
+            row = {
+                "target": target,
+                "target_residue": target % stress["arithmetic_period"],
+                "status": status,
+                "evaluated": evaluated,
+                "passed": bool(stress_row["passed"]),
+                "failed": bool(stress_row["failed"]),
+                "polygon_row_count": polygon_count,
+                "failure_count": failure_count,
+                "worst_margin": stress_row.get("worst_margin"),
+                "worst_representative_label": stress_row.get(
+                    "worst_representative_label"),
+                "first_two_modes_to_principal_ratio": lower_row[
+                    "first_two_modes_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": lower_row[
+                    "first_three_modes_to_principal_ratio"],
+                "full_action_to_principal_ratio": lower_row[
+                    "full_action_to_principal_ratio"],
+            }
+        except Exception as exc:
+            status = "error"
+            evaluated = False
+            failure_count = 0
+            row = {
+                "target": target,
+                "target_residue": target % 10010,
+                "status": status,
+                "evaluated": False,
+                "passed": False,
+                "failed": False,
+                "polygon_row_count": 0,
+                "failure_count": 0,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+                "first_two_modes_to_principal_ratio": lower_row[
+                    "first_two_modes_to_principal_ratio"],
+                "first_three_modes_to_principal_ratio": lower_row[
+                    "first_three_modes_to_principal_ratio"],
+                "full_action_to_principal_ratio": lower_row[
+                    "full_action_to_principal_ratio"],
+            }
+        target_rows[target] = row
+        if evaluated:
+            evaluated_targets.append(target)
+        if status == "passed":
+            passed_targets.append(target)
+        elif status == "failed":
+            failed_targets.append(target)
+        elif status == "not_applicable_no_residual_polygons":
+            not_applicable_targets.append(target)
+        else:
+            error_targets.append(target)
+
+    return {
+        "arithmetic_period": lower_tail["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "selected_targets": selected_targets,
+        "target_source": target_source,
+        "target_selection_rule": target_selection_rule,
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "component_pair": component_pair,
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "scanned_target_count": len(scanned_targets),
+        "scanned_targets": scanned_targets,
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tail_targets,
+        "max_tail_targets": max_tail_targets,
+        "stress_tested_target_count": len(stress_targets),
+        "stress_tested_targets": stress_targets,
+        "all_tail_targets_stressed": (
+            max_tail_targets is None
+            or len(stress_targets) == len(tail_targets)),
+        "target_rows": target_rows,
+        "evaluated_target_count": len(evaluated_targets),
+        "evaluated_targets": tuple(evaluated_targets),
+        "passing_target_count": len(passed_targets),
+        "passing_targets": tuple(passed_targets),
+        "failing_target_count": len(failed_targets),
+        "failing_targets": tuple(failed_targets),
+        "not_applicable_target_count": len(not_applicable_targets),
+        "not_applicable_targets": tuple(not_applicable_targets),
+        "error_target_count": len(error_targets),
+        "error_targets": tuple(error_targets),
+        "total_residual_polygon_row_count": total_polygon_rows,
+        "total_failure_row_count": total_failure_rows,
+        "no_target_counterexamples_found": (
+            not failed_targets and not error_targets),
+        "all_evaluated_target_rows_pass_fixed_inequality": (
+            bool(evaluated_targets) and not failed_targets
+            and not error_targets),
+        "target_census_is_neutral_window_sample": selected_targets is None,
+        "source_first_two_mode_lower_tail_receipt": lower_tail,
+        "fixed_inequality_target_census_measured": True,
+        "fixed_inequality_uniform_theorem_proved": False,
+        "phase_antipodal_thin_large_side_budget_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -19315,6 +19315,30 @@ must not be counted as reinforcement.  The census finds no counterexample to
 the fixed inequality, but it also shows the inequality is narrow rather than
 broadly active.
 
+New target-denominator audit:
+
+- `q286_lower_support_component_pair_fixed_inequality_target_census_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_inequality_target_census` passed
+in `278.805s`.  The receipt labels caller-supplied target fixtures as
+non-neutral, reports the selector and denominator, and classifies each
+stressed target as `passed`, `failed`, `not_applicable_no_residual_polygons`,
+or `error`.
+
+Compact selector-driven evidence is recorded in
+`evidence/q286-fixed-inequality-target-window-census.json`.  It used the fixed
+window `1379072,1379074,1379076,1379078,1379080`, selected all targets with
+`first_two < -0.2` and `first_three < -0.3`, found exactly one tail target
+(`1379072`), stressed that one target for the active pair
+`((5,7),(7,11))`, and got one evaluated pass with two residual polygon rows,
+zero failures, zero errors, and worst margin `0.006933239211847554`.
+
+Boundary: this is the first target-side anti-cherry-pick audit for the active
+fixed inequality, but it is only a tiny local window.  It does not solve the
+sample-size concern, does not establish a uniform target theorem, and does
+not prove signed prime-correlation control or Goldbach.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

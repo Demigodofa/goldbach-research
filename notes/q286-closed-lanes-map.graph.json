@@ -539,6 +539,14 @@
       "status_boundary": "finite 21-pair census only; not-applicable rows mean the residual-polygon premise did not fire and must not be counted as reinforcement; no uniform theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_inequality_target_census",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_inequality_target_census_receipt",
+      "status": "validated_tiny_target_window",
+      "validation": "test_q286_lower_support_component_pair_fixed_inequality_target_census passed in 278.805s; evidence/q286-fixed-inequality-target-window-census.json scanned 1379072,1379074,1379076,1379078,1379080, selected one tail target, stressed 1379072, and found one evaluated pass with zero failures and zero errors",
+      "status_boundary": "tiny selector-driven target-window audit only; does not solve sample-size concern, prove a uniform target theorem, or prove Goldbach"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -985,6 +993,16 @@
       "from": "receipt.component_pair_fixed_inequality_stress",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "quantifies"
+    },
+    {
+      "from": "receipt.component_pair_fixed_inequality_target_census",
+      "to": "receipt.component_pair_fixed_inequality_stress",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.component_pair_fixed_inequality_target_census",
+      "to": "theorem.active.component_pair_exclusion",
+      "type": "profiles"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

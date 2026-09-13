@@ -10634,6 +10634,21 @@ and worst margin `0.006933239211847554`; the other `20` pairs were
 counterexample to the fixed inequality, but it is not broad reinforcement:
 the inequality is active only on the already-identified residual-polygon lane.
 
+`q286_lower_support_component_pair_fixed_inequality_target_census_receipt`
+now audits the target denominator for that same fixed inequality.  It declares
+the target source, selects all targets satisfying
+`first_two < -0.2` and `first_three < -0.3`, then classifies each stressed
+target as passed, failed, not-applicable, or error.  The focused regression
+`test_q286_lower_support_component_pair_fixed_inequality_target_census` passed
+in `278.805s` on the known active target and marks caller-supplied targets as
+non-neutral.  The compact selector-driven probe in
+`evidence/q286-fixed-inequality-target-window-census.json` scanned
+`1379072,1379074,1379076,1379078,1379080`, selected exactly `1379072`, and
+found one passing evaluated target with two residual polygon rows, zero
+failures, and zero errors.  This reduces target cherry-picking ambiguity only
+inside a tiny local active window; it is not a broad sample, a uniform theorem,
+or evidence that Goldbach is proved.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

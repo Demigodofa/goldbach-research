@@ -390,6 +390,15 @@ current comparison set.
    component pairs are `not_applicable_no_residual_polygons`.  This finds no
    counterexample to the fixed inequality where the premise fires, but it also
    shows the inequality is narrow rather than broadly reinforced.
+47. The fixed-inequality target-census regression passed in `278.805s` and
+   adds a target-denominator receipt for the active pair.  The compact
+   selector-driven evidence in
+   `evidence/q286-fixed-inequality-target-window-census.json` scanned the
+   fixed window `1379072,1379074,1379076,1379078,1379080`, selected all
+   targets with `first_two < -0.2` and `first_three < -0.3`, found exactly
+   one tail target (`1379072`), and stressed it with zero failures and zero
+   errors.  This is a useful anti-cherry-pick audit of the target denominator,
+   but only for a tiny local window; it does not provide broad sample support.
 
 ## Still open
 

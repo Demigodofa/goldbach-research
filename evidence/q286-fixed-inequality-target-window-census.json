@@ -1,0 +1,73 @@
+{
+  "receipt": "q286-fixed-inequality-target-window-census",
+  "generated_on": "2026-09-13",
+  "purpose": "Compact selector-driven target-denominator audit for the active q286 fixed inequality lane; finite evidence only.",
+  "target_source": "window_tail_selector",
+  "target_census_is_neutral_window_sample": true,
+  "start": 1379072,
+  "cycle_count": 1,
+  "targets_per_cycle": 5,
+  "scanned_target_count": 5,
+  "scanned_targets": [
+    1379072,
+    1379074,
+    1379076,
+    1379078,
+    1379080
+  ],
+  "selector": {
+    "first_two_modes_to_principal_ratio": "< -0.2",
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "tail_target_count": 1,
+  "tail_targets": [
+    1379072
+  ],
+  "max_tail_targets": 1,
+  "stress_tested_target_count": 1,
+  "stress_tested_targets": [
+    1379072
+  ],
+  "all_tail_targets_stressed": true,
+  "component_pair": [
+    [
+      5,
+      7
+    ],
+    [
+      7,
+      11
+    ]
+  ],
+  "phase_bin_count": 12,
+  "ratio_bound": 0.75,
+  "thin_side_ratio_threshold": 0.05,
+  "evaluated_target_count": 1,
+  "passing_target_count": 1,
+  "failing_target_count": 0,
+  "not_applicable_target_count": 0,
+  "error_target_count": 0,
+  "total_residual_polygon_row_count": 2,
+  "total_failure_row_count": 0,
+  "all_evaluated_target_rows_pass_fixed_inequality": true,
+  "target_rows": {
+    "1379072": {
+      "status": "passed",
+      "polygon_row_count": 2,
+      "failure_count": 0,
+      "worst_representative_label": [
+        0,
+        2,
+        6,
+        0
+      ],
+      "worst_margin": 0.006933239211847554
+    }
+  },
+  "validation": {
+    "focused_unittest": "test_q286_lower_support_component_pair_fixed_inequality_target_census passed in 278.805s",
+    "direct_probe_command": "q286_lower_support_component_pair_fixed_inequality_target_census_receipt(start=1379072, cycle_count=1, targets_per_cycle=5, max_tail_targets=1)",
+    "direct_probe_result": "scanned 5 targets; 1 tail target; 1 stressed target; 1 pass; 0 failures; 0 errors"
+  },
+  "boundary": "This is a tiny selector-driven audit, not broad statistical reinforcement and not a proof of the fixed inequality, signed prime correlation, or Goldbach."
+}

@@ -1379,6 +1379,43 @@ the checked target fixture, the fixed inequality found no counterexample
 where its residual-polygon premise fired; the premise fired only in the
 already-identified active component pair.
 
+`q286_lower_support_component_pair_fixed_inequality_target_census_receipt`
+adds the target-denominator audit that was missing from the component-pair
+census.  It declares the target source first, selects tail targets by the
+unchanged predicate
+
+```text
+first_two_modes_to_principal_ratio < -0.2
+first_three_modes_to_principal_ratio < -0.3
+```
+
+and then applies the fixed inequality target-by-target for the active pair
+`((5,7),(7,11))`.  The receipt reports scanned, tail-selected, stressed,
+passed, failed, not-applicable, and error buckets so future target expansion
+cannot silently count premise-empty rows as support.
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_inequality_target_census` passed
+in `278.805s` on the caller-supplied active target fixture `1379072`, where
+the receipt correctly labels the source as non-neutral and reproduces the two
+passing residual polygon rows with worst margin `0.006933239211847554`.
+
+A compact selector-driven probe is recorded in
+`evidence/q286-fixed-inequality-target-window-census.json`.  It scanned the
+predeclared window
+
+```text
+1379072, 1379074, 1379076, 1379078, 1379080
+```
+
+selected exactly one tail target, `1379072`, stressed that target, and found
+one passing evaluated target with two residual polygon rows, zero failures,
+and zero errors.  This is the first target-denominator check for the active
+fixed inequality, but it is deliberately tiny.  It reduces the cherry-picking
+ambiguity in the local active lane; it does not give broad statistical
+reinforcement, a uniform target theorem, signed prime-correlation control, or
+Goldbach.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
