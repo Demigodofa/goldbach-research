@@ -18909,6 +18909,14 @@ comparison targets satisfy both selected conditions; `14138` satisfies
 neither.  This is the current clean proof target, not a proof of the two
 assumptions.
 
+External-source context checked on 2026-09-13: public arXiv sources around
+Goldbach representations in arithmetic progressions emphasize average
+asymptotics, short-interval/AP mean-value theorems, and relations with zeros
+of Dirichlet L-functions/RH-type statements.  They support treating the
+missing q286 channel estimate as serious pointwise binary-prime arithmetic,
+not as a sourced theorem already available here.  See
+`notes/q286-component-pair-theorem-obligation.md` for exact links.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

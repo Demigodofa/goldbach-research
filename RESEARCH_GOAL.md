@@ -10317,6 +10317,13 @@ rescued; `14138` satisfies neither.  This is a conditional implication
 check, not a proof of floor stability, pointwise channel control, or
 Goldbach.
 
+Public-source check on 2026-09-13: the closest visible literature remains
+Goldbach representations in arithmetic progressions and their relation to
+zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
+fixed-modulus theorem for this `16`-channel target.  See
+`notes/q286-component-pair-theorem-obligation.md` for the current source
+context and links to arXiv:1704.06103, arXiv:1809.06920, and arXiv:1212.4406.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -613,3 +613,29 @@ for all sufficiently late targets in the active `.2`/`.3` lower-support
 subcone, plus a finite boundary check.  This is narrower than full residue
 equidistribution but still demands a pointwise binary-prime character-sum
 estimate not proved in this repository.
+
+## External source context
+
+Fresh public-source check on 2026-09-13 confirms the route is close to known
+binary Goldbach-in-progressions and zeta/L-function territory, but the checked
+sources do not supply the pointwise fixed-modulus channel estimate above.
+
+- Bhowmik, Halupczok, Matsumoto, and Suzuki,
+  "Goldbach Representations in Arithmetic Progressions and zeros of
+  Dirichlet L-functions", arXiv:1704.06103, states average asymptotic results
+  under a conjecture on distinct zeros and conversely relates good error terms
+  to zero locations:
+  https://arxiv.org/abs/1704.06103
+- Bhowmik and Halupczok, "Asymptotics of Goldbach Representations",
+  arXiv:1809.06920, frames classical Goldbach-representation asymptotics
+  against RH and AP variants against zeros of L-functions:
+  https://arxiv.org/abs/1809.06920
+- Halupczok, "Goldbach's problem with primes in arithmetic progressions and
+  in short intervals", arXiv:1212.4406, proves mean-value style binary/ternary
+  AP and short-interval estimates, with applications in ternary/almost-prime
+  settings:
+  https://arxiv.org/abs/1212.4406
+
+These sources support the caution that the missing channel theorem may brush
+against RH/GRH-type terrain, but they are not an importable proof of the
+selected q286 conditional closure.
