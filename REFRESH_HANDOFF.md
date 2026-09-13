@@ -18171,15 +18171,25 @@ the same sufficient condition.  Goldbach, the eventual alignment theorem, the
 eventual complement theorem, and the final signed prime-correlation estimate
 remain open.
 
+The exact theorem obligation is now written in
+`notes/q286-complement-alignment-theorem-obligation.md`.  Important obstruction:
+the `.4` alignment ceiling cannot be derived from finite-vector support,
+nonnegative weights, total mass, and Cauchy geometry alone.  For any nonzero
+centered coefficient vector, one can choose small nonnegative admissible
+weight perturbations exactly anti-aligned with it, giving alignment cosine
+`-1`.  Any proof must therefore use actual binary-prime arithmetic in the
+residue weights, or record that the required theorem is as hard as a
+pointwise restricted Goldbach-in-progressions statement.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: formulate the exact q286
-   coefficient vector, the centered prime-pair residue discrepancy norm, and
-   the complement lower-envelope term; try to prove the two inequalities above
-   or identify the minimal external theorem that would imply them.
+3. Then attempt the theorem route directly: prove the coefficient-matched
+   binary-prime anti-alignment estimate or identify the minimal external
+   theorem that would imply it; do not spend large compute on support-only or
+   max-discrepancy routes already ruled out by the obstruction.
 
 ## Temporary wake note — continuity discussion
 

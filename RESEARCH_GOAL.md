@@ -50,6 +50,17 @@ remains an explicit failure of the same sufficient condition.  Goldbach, the
 eventual alignment theorem, the eventual complement theorem, and the signed
 prime-correlation estimate remain open.
 
+The precise obligation and an obstruction are now recorded in
+`notes/q286-complement-alignment-theorem-obligation.md`.  The obstruction is
+finite-dimensional but decisive for proof strategy: for any target residue
+with nonzero centered q286 first-three coefficient vector, arbitrary
+nonnegative admissible weights with the same support and total mass can be
+chosen with alignment cosine exactly `-1`.  Therefore a `.4` alignment ceiling
+cannot follow from support, nonnegativity, total mass, or Cauchy geometry
+alone.  It must use arithmetic information about actual binary prime-pair
+residue weights, or else be identified as hard as a pointwise restricted
+Goldbach-in-progressions theorem.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

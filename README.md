@@ -171,6 +171,9 @@ blocks and calculation-based elimination of certified spans.
   and the failure of every fixed dynamic range of block weights.
 - `notes/adaptive-moment-almost-all.md`: a checked almost-all guarantee
   for adaptive target-only weights, with exceptional starts left explicit.
+- `notes/q286-complement-alignment-theorem-obligation.md`: the current q286
+  complement-vs-alignment sufficient theorem and its finite-vector
+  obstruction.
 - `notes/local-peak-prior-art-check.md`: bounded comparison and the
   unconfirmed external novelty of these deductions.
 - `evidence/block-*.json`: representative complete block certificates.
