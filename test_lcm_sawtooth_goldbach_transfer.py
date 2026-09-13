@@ -1726,14 +1726,26 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["tested_target_count"], 1)
         self.assertEqual(receipt["theorem_threshold"], .2)
         self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(receipt["negative_target_count"], 0)
         self.assertEqual(receipt["linf_certified_clear_count"], 0)
         self.assertEqual(receipt["l2_certified_clear_count"], 0)
+        self.assertEqual(receipt["top_negative_alignment_rows"], ())
         self.assertIn(3309688, receipt["rows"])
         row = receipt["rows"][3309688]
         self.assertEqual(row["target_mod_286"], 96)
         self.assertGreater(
             row["first_three_to_principal_ratio"], 0)
+        self.assertGreater(row["l2_alignment_cosine"], 0)
         self.assertGreater(row["linf_to_sufficient_ratio"], 5.0)
+        self.assertGreater(row["l2_to_sufficient_ratio"], 2.0)
+        self.assertEqual(
+            receipt["l2_ratio_exceedance_counts"][1.0], 1)
+        self.assertEqual(
+            receipt["l2_ratio_exceedance_counts"][2.0], 1)
+        self.assertEqual(
+            receipt["l2_ratio_exceedance_counts"][3.0], 0)
+        self.assertEqual(
+            receipt["negative_l2_utilization_counts"][.125], 0)
         self.assertGreater(
             row["linf_bound_to_principal"],
             receipt["theorem_threshold"])

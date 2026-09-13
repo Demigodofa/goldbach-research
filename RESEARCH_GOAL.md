@@ -9502,3 +9502,22 @@ only `182`.  The worst actual negative value is target `3304702`,
 Status `falsifier-plus-target`: the proof target has narrowed from generic
 residue equidistribution to an alignment or signed-cancellation estimate for
 the q286 coefficient vector.
+
+### 2026-09-13 continuation: cycle-329 alignment profile
+
+The weighted discrepancy receipt now records the signed `L2` alignment angle
+between the centered q286 coefficient vector and the centered residue-weight
+discrepancy.  On cycle `329`, threshold `.2`, there are `2346` negative
+first-three targets but none has negative `L2`-bound utilization at or above
+`.375`; only `26` exceed `.25`.
+
+The strongest negative alignment is target `3305200`, with first-three
+`-0.14018011556710205` and `l2_alignment_cosine`
+`-0.37431718152903626`.  The minimum first-three target `3304702` has
+first-three `-0.14511928091690746` but weaker negative alignment
+`-0.27262295696982886`.
+
+Status `hypothesis-target`: a negative-alignment ceiling near `.375` would
+explain cycle `329` where plain `L2` Cauchy does not.  This must now be tested
+against earlier sparse-tail and near-tail windows before becoming a serious
+lemma candidate.

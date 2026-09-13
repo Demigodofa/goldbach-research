@@ -10940,6 +10940,14 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
     tail_targets = []
     linf_certified_clear_count = 0
     l2_certified_clear_count = 0
+    negative_target_count = 0
+    negative_l2_utilization_thresholds = (.125, .25, .375, .5, .75)
+    l2_ratio_thresholds = (1.0, 2.0, 3.0)
+    negative_l2_utilization_counts = {
+        threshold: 0 for threshold in negative_l2_utilization_thresholds}
+    l2_ratio_exceedance_counts = {
+        threshold: 0 for threshold in l2_ratio_thresholds}
+    top_negative_alignment_rows = []
     minimum_first_three_row = None
     maximum_linf_ratio_row = None
     maximum_l2_ratio_row = None
@@ -11007,10 +11015,20 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
                 negative_part / linf_bound if linf_bound > tolerance else 0.0)
             l2_negative_utilization = (
                 negative_part / l2_bound if l2_bound > tolerance else 0.0)
+            l2_alignment_cosine = (
+                first_three / l2_bound if l2_bound > tolerance else math.nan)
             if linf_bound <= theorem_threshold:
                 linf_certified_clear_count += 1
             if l2_bound <= theorem_threshold:
                 l2_certified_clear_count += 1
+            if first_three < 0:
+                negative_target_count += 1
+                for threshold in negative_l2_utilization_thresholds:
+                    if l2_negative_utilization >= threshold:
+                        negative_l2_utilization_counts[threshold] += 1
+            for threshold in l2_ratio_thresholds:
+                if l2_ratio > threshold:
+                    l2_ratio_exceedance_counts[threshold] += 1
             if first_three < -theorem_threshold:
                 tail_targets.append(target)
 
@@ -11030,10 +11048,17 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
                 "l2_bound_to_principal": l2_bound,
                 "linf_to_sufficient_ratio": linf_ratio,
                 "l2_to_sufficient_ratio": l2_ratio,
+                "l2_alignment_cosine": l2_alignment_cosine,
                 "linf_negative_bound_utilization": (
                     linf_negative_utilization),
                 "l2_negative_bound_utilization": l2_negative_utilization,
             }
+            if first_three < 0:
+                top_negative_alignment_rows.append(row)
+                top_negative_alignment_rows.sort(
+                    key=lambda item: item["l2_negative_bound_utilization"],
+                    reverse=True)
+                del top_negative_alignment_rows[10:]
             if include_rows:
                 rows[target] = row
             if (minimum_first_three_row is None
@@ -11088,8 +11113,16 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
         "maximum_l2_sufficient_relative_delta": max(l2_thresholds),
         "tail_target_count": len(tail_targets),
         "tail_targets": tuple(tail_targets),
+        "negative_target_count": negative_target_count,
         "linf_certified_clear_count": linf_certified_clear_count,
         "l2_certified_clear_count": l2_certified_clear_count,
+        "negative_l2_utilization_thresholds": (
+            negative_l2_utilization_thresholds),
+        "negative_l2_utilization_counts": (
+            negative_l2_utilization_counts),
+        "l2_ratio_thresholds": l2_ratio_thresholds,
+        "l2_ratio_exceedance_counts": l2_ratio_exceedance_counts,
+        "top_negative_alignment_rows": tuple(top_negative_alignment_rows),
         "minimum_first_three_row": minimum_first_three_row,
         "maximum_linf_to_sufficient_ratio_row": maximum_linf_ratio_row,
         "maximum_l2_to_sufficient_ratio_row": maximum_l2_ratio_row,

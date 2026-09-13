@@ -3029,3 +3029,39 @@ the checked `.2` clearance: it certifies only `182/5005` targets in cycle
 available `L2` bound.  The next theorem target is therefore an alignment or
 signed-cancellation estimate for the q286 coefficient vector, not just an
 unweighted `L2` discrepancy bound.
+
+## 2026-09-13: cycle-329 alignment profile
+
+The weighted-norm receipt now records `l2_alignment_cosine`, cumulative counts
+for negative `L2`-bound utilization, cumulative counts for `L2` sufficient-
+ratio exceedance, and the ten strongest negative-alignment rows.  Focused
+regression `test_q286_first_three_weighted_discrepancy_norm` passed after
+these fields were added.
+
+Applying it to global cycle `329` at threshold `.2`:
+
+```text
+tested targets: 5005
+tail targets below -.2: 0
+negative first-three targets: 2346
+L_infinity Cauchy-certified clear: 88
+L2 Cauchy-certified clear: 182
+L2 sufficient-ratio exceedance counts: {1.0: 4823, 2.0: 1673, 3.0: 1}
+negative L2-utilization counts:
+  >= .125: 430
+  >= .25: 26
+  >= .375: 0
+  >= .5: 0
+  >= .75: 0
+
+strongest negative alignment:
+  target 3305200, first_three -0.14018011556710205,
+  l2_alignment_cosine -0.37431718152903626,
+  l2_to_sufficient_ratio 1.8724777072012133
+```
+
+Status `hypothesis-target`: in this checked cycle, a universal negative
+alignment ceiling just below `.375` would close the `.2` tail even though
+plain `L2` size fails.  This is still finite evidence only.  The next falsifier
+is to test whether the `.375` alignment ceiling persists across the checked
+post-232 damping window and the earlier sparse-tail window.

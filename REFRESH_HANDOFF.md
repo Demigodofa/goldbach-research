@@ -17881,6 +17881,29 @@ targets.  But actual negative rows use much less than the available bound.
 Next instruction: pursue an alignment/signed-cancellation estimate matched to
 the q286 coefficient vector.
 
+## 2026-09-13 continuation: cycle-329 alignment profile
+
+The weighted-norm receipt now records `l2_alignment_cosine`,
+`negative_l2_utilization_counts`, `l2_ratio_exceedance_counts`, and
+`top_negative_alignment_rows`.
+
+Cycle `329`, threshold `.2`:
+
+```text
+tested 5005; tail_count 0; negative_count 2346
+L_infinity Cauchy-certified clear: 88
+L2 Cauchy-certified clear: 182
+L2 sufficient-ratio exceedance counts: {1.0: 4823, 2.0: 1673, 3.0: 1}
+negative L2-utilization counts: {.125: 430, .25: 26, .375: 0, .5: 0, .75: 0}
+strongest negative alignment:
+  target 3305200, first_three -0.14018011556710205,
+  l2_alignment_cosine -0.37431718152903626
+```
+
+Next instruction: test the proposed `.375` negative-alignment ceiling against
+earlier sparse-tail cycles and the post-232 damping window.  Do not promote it
+without a falsifier pass over known bad and near-bad targets.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
