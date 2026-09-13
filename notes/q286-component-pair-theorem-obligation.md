@@ -521,6 +521,39 @@ circular proof target has split into two genuine theorems: an eventual
 floor-stability theorem for the active lower-support subcone, and an eventual
 pointwise norm estimate for the `16` real character channels.
 
+`q286_lower_support_component_pair_floor_stability_decomposition_receipt`
+decomposes the floor-stability half into the lower-support package floor and
+the fixed non-pair plus pair-local offset.  Focused regression
+`test_q286_lower_support_component_pair_floor_stability_decomposition` passed
+in `121.972s`.
+
+```text
+uniform selected centered-pair floor: -0.8982746156725305
+rescued required lower-support package ceiling: -0.6751407665271594
+rescued floor-offset floor: 0.2231338491453711
+
+target 14138:
+  required lower-support package floor -0.1378737877186007
+  floor offset                         0.1377282064675911
+  required centered pair floor        -0.2756019941861918
+
+target 1379072:
+  required lower-support package floor -0.6751407665271594
+  floor offset                         0.2231338491453711
+  required centered pair floor        -0.8982746156725305
+```
+
+The sufficient term conditions learned from the selected rescued targets are:
+
+```text
+required_lower_support_package_to_rescue <= -0.6751407665271594
+non_pair_lower_support_actual + component_pair_local_mean >= 0.2231338491453711
+```
+
+They hold exactly for the three late selected targets and fail for `14138`.
+This is still finite decomposition evidence only; it does not prove those two
+term inequalities eventually hold on the active subcone.
+
 Selected-target rows:
 
 ```text
@@ -613,6 +646,16 @@ for all sufficiently late targets in the active `.2`/`.3` lower-support
 subcone, plus a finite boundary check.  This is narrower than full residue
 equidistribution but still demands a pointwise binary-prime character-sum
 estimate not proved in this repository.
+
+The floor-stability half can now be sharpened further as:
+
+```text
+required_lower_support_package_to_rescue(N) <= -0.6751407665271594
+non_pair_lower_support_actual(N) + component_pair_local_mean(N)
+    >= 0.2231338491453711
+```
+
+which implies the selected centered-pair floor condition above.
 
 ## External source context
 

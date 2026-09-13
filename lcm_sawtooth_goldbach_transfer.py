@@ -12780,6 +12780,97 @@ def q286_lower_support_component_pair_conditional_norm_closure_receipt(
     }
 
 
+def q286_lower_support_component_pair_floor_stability_decomposition_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Decompose the selected floor-stability condition into its terms."""
+    rescue = q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    rescued_targets = rescue[
+        "rescued_by_centered_real_channel_pair_floor_targets"]
+    if rescued_targets:
+        rescued_required_ceiling = max(
+            rescue["rows"][target][
+                "required_lower_support_package_to_rescue"]
+            for target in rescued_targets)
+        rescued_offset_floor = min(
+            rescue["rows"][target][
+                "non_pair_lower_support_actual_to_principal_ratio"]
+            + rescue["rows"][target][
+                "component_pair_local_mean_to_principal_ratio"]
+            for target in rescued_targets)
+    else:
+        rescued_required_ceiling = None
+        rescued_offset_floor = None
+
+    rows = {}
+    stable_targets = []
+    sufficient_term_targets = []
+    for target in targets:
+        row = rescue["rows"][target]
+        floor_offset = (
+            row["non_pair_lower_support_actual_to_principal_ratio"]
+            + row["component_pair_local_mean_to_principal_ratio"])
+        required_centered = row["required_centered_pair_sum_to_rescue"]
+        floor_stable = (
+            required_centered
+            <= rescue["uniform_rescued_centered_pair_floor"] + tolerance)
+        required_condition = (
+            rescued_required_ceiling is not None
+            and row["required_lower_support_package_to_rescue"]
+            <= rescued_required_ceiling + tolerance)
+        offset_condition = (
+            rescued_offset_floor is not None
+            and floor_offset >= rescued_offset_floor - tolerance)
+        sufficient_terms = bool(required_condition and offset_condition)
+        if floor_stable:
+            stable_targets.append(target)
+        if sufficient_terms:
+            sufficient_term_targets.append(target)
+        rows[target] = {
+            "target": target,
+            "target_residue": row["target_residue"],
+            "required_lower_support_package_to_rescue": row[
+                "required_lower_support_package_to_rescue"],
+            "floor_offset_to_principal_ratio": floor_offset,
+            "non_pair_lower_support_actual_to_principal_ratio": row[
+                "non_pair_lower_support_actual_to_principal_ratio"],
+            "component_pair_local_mean_to_principal_ratio": row[
+                "component_pair_local_mean_to_principal_ratio"],
+            "required_centered_pair_sum_to_rescue": required_centered,
+            "floor_stability_gap_to_uniform_ceiling": (
+                rescue["uniform_rescued_centered_pair_floor"]
+                - required_centered),
+            "rescued_required_lower_support_condition_met": bool(
+                required_condition),
+            "rescued_offset_floor_condition_met": bool(offset_condition),
+            "sufficient_term_conditions_met": sufficient_terms,
+            "floor_stability_condition_met": bool(floor_stable),
+        }
+
+    return {
+        "arithmetic_period": rescue["arithmetic_period"],
+        "targets": rescue["targets"],
+        "tested_target_count": rescue["tested_target_count"],
+        "component_pair": component_pair,
+        "uniform_rescued_centered_pair_floor": (
+            rescue["uniform_rescued_centered_pair_floor"]),
+        "rescued_required_lower_support_package_ceiling": (
+            rescued_required_ceiling),
+        "rescued_floor_offset_floor": rescued_offset_floor,
+        "floor_stable_targets": tuple(stable_targets),
+        "sufficient_term_condition_targets": tuple(
+            sufficient_term_targets),
+        "rows": rows,
+        "source_real_channel_rescue_margin_receipt": rescue,
+        "floor_stability_decomposition_measured": True,
+        "floor_stability_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

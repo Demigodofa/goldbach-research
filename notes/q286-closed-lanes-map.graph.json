@@ -327,6 +327,14 @@
       "status_boundary": "selected conditional implication only; floor-stability and pointwise real-channel norm theorems remain unproved"
     },
     {
+      "id": "receipt.component_pair_floor_stability_decomposition",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_floor_stability_decomposition_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_floor_stability_decomposition passed in 121.972s; selected floor stability splits into lower-support package ceiling <= -0.6751407665271594 and fixed offset floor >= 0.2231338491453711",
+      "status_boundary": "selected finite decomposition only; eventual term inequalities and Goldbach remain unproved"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -506,6 +514,16 @@
     },
     {
       "from": "receipt.component_pair_conditional_norm_closure",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "splits"
+    },
+    {
+      "from": "receipt.component_pair_floor_stability_decomposition",
+      "to": "receipt.component_pair_conditional_norm_closure",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_floor_stability_decomposition",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "splits"
     },

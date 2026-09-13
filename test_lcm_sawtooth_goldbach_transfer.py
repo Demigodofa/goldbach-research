@@ -64,6 +64,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_real_channel_rescue_margin_receipt,
     q286_lower_support_component_pair_real_channel_bound_budget_receipt,
     q286_lower_support_component_pair_conditional_norm_closure_receipt,
+    q286_lower_support_component_pair_floor_stability_decomposition_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2143,6 +2144,47 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["floor_stability_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_floor_stability_decomposition(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_floor_stability_decomposition_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertAlmostEqual(
+            receipt["uniform_rescued_centered_pair_floor"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["rescued_required_lower_support_package_ceiling"],
+            -0.6751407665271594)
+        self.assertAlmostEqual(
+            receipt["rescued_floor_offset_floor"],
+            0.2231338491453711)
+        self.assertEqual(
+            receipt["floor_stable_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertEqual(
+            receipt["sufficient_term_condition_targets"],
+            (1222142, 1323632, 1379072))
+        boundary = receipt["rows"][14138]
+        self.assertFalse(boundary[
+            "rescued_required_lower_support_condition_met"])
+        self.assertFalse(boundary["rescued_offset_floor_condition_met"])
+        self.assertGreater(
+            boundary["required_lower_support_package_to_rescue"], -0.2)
+        self.assertAlmostEqual(
+            boundary["floor_offset_to_principal_ratio"],
+            0.1377282064675911)
+        late = receipt["rows"][1379072]
+        self.assertTrue(late[
+            "rescued_required_lower_support_condition_met"])
+        self.assertTrue(late["rescued_offset_floor_condition_met"])
+        self.assertAlmostEqual(
+            late["floor_stability_gap_to_uniform_ceiling"], 0.0)
+        self.assertTrue(receipt[
+            "floor_stability_decomposition_measured"])
+        self.assertFalse(receipt["floor_stability_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

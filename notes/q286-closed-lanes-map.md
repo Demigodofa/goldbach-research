@@ -136,6 +136,12 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   active real-channel `Linf` control at `0.05885324711081062`.  The late
   comparison targets satisfy both selected conditions; `14138` satisfies
   neither.
+- The floor-stability decomposition receipt splits the floor half again:
+  selected stability follows from lower-support required floor
+  `<= -0.6751407665271594` and fixed offset
+  `non_pair_lower_support_actual + component_pair_local_mean >=
+  0.2231338491453711`.  The late comparison targets satisfy both term
+  conditions; `14138` satisfies neither.
 
 ## Current boundary examples
 
@@ -222,6 +228,9 @@ current comparison set.
 20. The conditional norm-closure regression passed in `116.123s` and splits
    the surviving proof target into floor stability plus active-channel
    pointwise norm control.
+21. The floor-stability decomposition regression passed in `121.972s` and
+   splits the floor half into a required lower-support package ceiling plus a
+   non-pair/pair-local offset floor.
 
 ## Still open
 

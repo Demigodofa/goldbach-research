@@ -10317,6 +10317,17 @@ rescued; `14138` satisfies neither.  This is a conditional implication
 check, not a proof of floor stability, pointwise channel control, or
 Goldbach.
 
+New receipt
+`q286_lower_support_component_pair_floor_stability_decomposition_receipt`
+decomposes the floor-stability half.  Focused regression
+`test_q286_lower_support_component_pair_floor_stability_decomposition` passed
+in `121.972s`.  The selected sufficient term conditions are:
+`required_lower_support_package_to_rescue <= -0.6751407665271594` and
+`non_pair_lower_support_actual + component_pair_local_mean >=
+0.2231338491453711`.  The three late comparison targets satisfy both
+conditions; `14138` satisfies neither.  This is still finite decomposition
+evidence, not an eventual floor-stability theorem.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
