@@ -17706,6 +17706,27 @@ Current interpretation: sparse selected-tail recurrences were seen through
 cycle `136`; checked cycles `137..328` are tail-free.  This is still finite
 evidence only and does not prove eventual disappearance.
 
+## 2026-09-13 continuation: post-136 near-tail threshold profile
+
+The fast scanner was rerun on cycles `137..264` with thresholds `.2`, `.25`,
+`.275`, and `.3` to see whether `.3` disappearance is part of broader damping.
+
+```text
+137..168: .2 count 57, .25 count 4, .275 count 0, .3 count 0,
+  minimum -0.27272709731535705 at cycle 142
+169..200: .2 count 17, .25 count 0, .275 count 0, .3 count 0,
+  minimum -0.24578791073619177 at cycle 180
+201..232: .2 count 3, .25 count 0, .275 count 0, .3 count 0,
+  minimum -0.20736210641526237 at cycle 217
+233..264: .2 count 0, .25 count 0, .275 count 0, .3 count 0,
+  minimum -0.1956485325659766 at cycle 250
+```
+
+Interpretation: checked data supports a staged finite damping pattern, not just
+absence at the `.3` threshold.  No `.275` tail appears in `137..264`; no `.25`
+tail appears after cycle `149` through `264`; no `.2` tail appears after cycle
+`231` through `264`.  This is still finite evidence only.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

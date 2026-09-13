@@ -2789,3 +2789,45 @@ cycles 321..328: no .3 tail hits; block minimum cycle 328,
 Status `finite-tail-absence-evidence`: checked cycles `137..328` are now
 tail-free at threshold `.3`.  This remains finite evidence only, not an
 eventual first-three tail theorem.
+
+## 2026-09-13: post-136 near-tail threshold profile
+
+The fast scanner was rerun on cycles `137..264` with thresholds `.2`, `.25`,
+`.275`, and `.3` to test whether the `.3` disappearance is a sharp threshold
+artifact or part of broader damping.  Results:
+
+```text
+cycles 137..168:
+  .2 tail count 57, last cycle 167
+  .25 tail count 4, last cycle 149
+  .275 tail count 0
+  .3 tail count 0
+  minimum first_three -0.27272709731535705 at cycle 142
+
+cycles 169..200:
+  .2 tail count 17, last cycle 191
+  .25 tail count 0
+  .275 tail count 0
+  .3 tail count 0
+  minimum first_three -0.24578791073619177 at cycle 180
+
+cycles 201..232:
+  .2 tail count 3, last cycle 231
+  .25 tail count 0
+  .275 tail count 0
+  .3 tail count 0
+  minimum first_three -0.20736210641526237 at cycle 217
+
+cycles 233..264:
+  .2 tail count 0
+  .25 tail count 0
+  .275 tail count 0
+  .3 tail count 0
+  minimum first_three -0.1956485325659766 at cycle 250
+```
+
+Status `finite-damping-evidence`: checked data now shows a stronger staged
+finite pattern after cycle `136`: no `.275` tail from `137..264`, no `.25` tail
+after cycle `149` through `264`, and no `.2` tail after cycle `231` through
+`264`.  This suggests a proof-facing envelope target, but it is still finite
+evidence only and does not prove eventual disappearance.

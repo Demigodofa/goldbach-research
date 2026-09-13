@@ -9360,3 +9360,21 @@ required.  Block minima were: cycle `297`, `-0.1868226923569528`; cycle `305`,
 Status `finite-tail-absence-evidence`: cycles `137..328` are checked
 tail-free after the sparse recurrences through cycle `136`.  This remains a
 finite diagnostic, not an eventual theorem.
+
+### 2026-09-13 continuation: post-136 near-tail threshold profile
+
+The fast scanner was rerun on cycles `137..264` with thresholds `.2`, `.25`,
+`.275`, and `.3`.  The `.3` disappearance is not isolated:
+
+- `137..168`: `.2` count `57`, `.25` count `4`, `.275`/`.3` count `0`;
+  minimum `-0.27272709731535705`.
+- `169..200`: `.2` count `17`, `.25`/`.275`/`.3` count `0`; minimum
+  `-0.24578791073619177`.
+- `201..232`: `.2` count `3`, `.25`/`.275`/`.3` count `0`; minimum
+  `-0.20736210641526237`.
+- `233..264`: all four threshold counts `0`; minimum
+  `-0.1956485325659766`.
+
+Status `finite-damping-evidence`: checked cycles show no `.275` tail from
+`137..264`, no `.25` tail after cycle `149` through `264`, and no `.2` tail
+after cycle `231` through `264`.  This remains finite evidence only.
