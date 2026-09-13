@@ -3263,3 +3263,44 @@ the severe cycle-0 tail set.  This strengthens the finite alignment pattern:
 early severe tails have large discrepancy size, while later sparse tails have
 larger negative alignment.  A theorem would still need to control both size
 and signed angle uniformly.
+
+## 2026-09-13: eight-period tail alignment check
+
+The tail-alignment window receipt was applied to the full original eight-period
+q286 horizon with tail threshold `.3` and alignment ceiling `.4`.
+
+```text
+tested targets: 40040
+tail_count: 4406
+tail_cycles: (0, 1, 2, 3, 4, 5, 6, 7)
+alignment violations at .4: ()
+maximum negative alignment:
+  target 70526, first_three -0.7650482510196679,
+  l2_negative_bound_utilization 0.3724338138420597,
+  l2_to_sufficient_ratio 10.270928989064709
+maximum L2 sufficient-ratio:
+  target 10898, first_three -0.8500364106580717,
+  l2_to_sufficient_ratio 35.552799422567006,
+  l2_negative_bound_utilization 0.11954563697711441
+```
+
+Top ten negative-alignment utilizations:
+
+```text
+70526: -0.7650482510196679, utilization 0.3724338138420597
+75674: -0.7115242698770534, utilization 0.3609343270177032
+71660: -0.6086276485726958, utilization 0.34316135048063173
+81542: -0.6166044185307022, utilization 0.3371828400381871
+78650: -0.5360841469598819, utilization 0.33599302020770183
+68138: -0.7315163400509088, utilization 0.3311838031261285
+56712: -0.5065680904771765, utilization 0.32926742698026273
+88346: -0.7969589621120274, utilization 0.3200372246384495
+68354: -0.6922898748085918, utilization 0.31985430972427775
+52962: -0.5246827357524592, utilization 0.31209550305031264
+```
+
+Status `survived-eight-period-falsifier`: `.4` survives all `.3` first-three
+tail targets in the original eight-period horizon where independent first-
+three/complement envelopes failed.  This remains finite evidence only.  The
+proof target is now sharper: a signed q286 alignment theorem plus a discrepancy
+size bound strong enough to combine with the positive complement floor.

@@ -18046,6 +18046,30 @@ not simply "bad early tails have worse alignment"; the early obstruction is
 mostly large discrepancy size, while the strongest negative alignment so far
 remains in later sparse/near-tail checks.
 
+## 2026-09-13 continuation: eight-period tail alignment check
+
+The `.4` alignment ceiling was tested against every `.3` first-three tail
+target in the original eight-period q286 horizon.
+
+```text
+tested 40040
+tail_count 4406
+tail_cycles (0, 1, 2, 3, 4, 5, 6, 7)
+violation_count 0
+maximum negative alignment:
+  target 70526, utilization 0.3724338138420597,
+  first_three -0.7650482510196679
+maximum L2 sufficient-ratio:
+  target 10898, ratio 35.552799422567006,
+  utilization 0.11954563697711441
+```
+
+Interpretation: `.4` survives the eight-period tail set where separate
+first-three/complement envelopes failed.  This is finite evidence only.  The
+current theorem-shaping target is a signed q286 alignment estimate together
+with a discrepancy-size estimate, not an independent first-three lower
+envelope.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -9608,3 +9608,19 @@ Status `survived-dense-tail-falsifier`: `.4` survives cycle `0` as well as the
 two checked sparse-tail recurrence bands.  This is finite evidence only; a
 proof would still need a signed alignment estimate plus a discrepancy-size
 estimate.
+
+### 2026-09-13 continuation: eight-period tail alignment check
+
+The `.4` negative-alignment ceiling was tested against all `.3` first-three
+tail targets in the original eight-period q286 horizon.  Among `40040` tested
+targets there are `4406` tail targets, spread across all eight cycles, and
+zero `.4` alignment violations.
+
+The maximum negative utilization is `0.3724338138420597` at target `70526`,
+whose first-three ratio is `-0.7650482510196679`.  The maximum raw L2
+sufficient-ratio remains the early target `10898`, with ratio
+`35.552799422567006` but utilization only `0.11954563697711441`.
+
+Status `survived-eight-period-falsifier`: `.4` survives the full checked
+eight-period tail set.  This is still finite evidence and proves no eventual
+estimate or Goldbach theorem.
