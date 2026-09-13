@@ -38,6 +38,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_coefficient_geometry_receipt`
 - `q286_lower_support_component_pair_cone_projection_receipt`
 - `q286_lower_support_component_pair_support_geometry_obstruction_receipt`
+- `q286_lower_support_component_pair_character_mixture_receipt`
 
 ## Closed or falsified lanes
 
@@ -97,6 +98,9 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   constructs nonnegative admissible same-mass artificial weights with both
   `(5,7)` and `(7,11)` actions negative for all `5005` even residues modulo
   `10010`.
+- The active component-pair cone is an exact `31`-character twisted
+  binary-prime problem modulo `10010`: `(5,7)` uses `8` character rows,
+  `(7,11)` uses `23`, and their union has `31`.
 
 ## Current boundary examples
 
@@ -160,6 +164,9 @@ current comparison set.
    the pure support/nonnegativity/total-mass/coefficient-geometry proof lane
    for the component-pair exclusion.  A surviving proof must use actual
    prime-pair arithmetic.
+13. The character-mixture receipt passed in `62.503s` and reduces the
+   surviving arithmetic obligation from full residue occupancy to signed
+   control of `31` fixed twisted binary-prime character sums modulo `10010`.
 
 ## Still open
 

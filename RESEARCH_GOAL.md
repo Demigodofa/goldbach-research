@@ -10227,3 +10227,28 @@ component-pair exclusion.  The surviving route must use actual prime-pair
 arithmetic: a signed cone-avoidance theorem for the tiny projection measured
 above, or a precise reduction to fixed-modulus pointwise binary Goldbach in
 progressions.  Goldbach remains open.
+
+### 2026-09-13 continuation: component-pair character-mixture theorem target
+
+New receipt `q286_lower_support_component_pair_character_mixture_receipt`
+expresses the active `(5,7)` and `(7,11)` component actions as exact character
+mixtures modulo `10010`.  Focused regression
+`test_q286_lower_support_component_pair_character_mixture` passed in `62.503s`.
+
+The active arithmetic target is smaller than full residue-class
+equidistribution:
+
+```text
+(5,7) active character count 8
+(7,11) active character count 23
+active union character count 31
+pair-sum L1/principal_mean 15.262957606760951
+pair-sum L2/principal_mean 3.003987991450646
+maximum action reconstruction error 4.961197005087556e-14
+```
+
+Status `theorem-sharpening`: after closing support geometry, the surviving
+non-circular target is signed cone avoidance for `31` fixed twisted
+binary-prime character sums modulo `10010`, not arbitrary residue occupancy.
+This is narrower than full fixed-modulus Goldbach-in-progressions but remains
+a pointwise binary-prime correlation theorem.  Goldbach remains open.

@@ -57,6 +57,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_coefficient_geometry_receipt,
     q286_lower_support_component_pair_cone_projection_receipt,
     q286_lower_support_component_pair_support_geometry_obstruction_receipt,
+    q286_lower_support_component_pair_character_mixture_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1828,6 +1829,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "support_geometry_obstruction_measured"])
         self.assertFalse(receipt[
             "support_geometry_exclusion_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_character_mixture(self):
+        receipt = q286_lower_support_component_pair_character_mixture_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertEqual(
+            receipt["component_character_counts"][(5, 7)], 8)
+        self.assertEqual(
+            receipt["component_character_counts"][(7, 11)], 23)
+        self.assertEqual(receipt["active_union_character_count"], 31)
+        self.assertLess(
+            receipt["maximum_component_character_reconstruction_error"],
+            1e-12)
+        self.assertLess(receipt["maximum_action_reconstruction_error"], 1e-9)
+        boundary = receipt["rows"][14138]
+        self.assertTrue(boundary[
+            "both_pair_components_centered_negative"])
+        self.assertLess(boundary[
+            "component_actions_to_principal_ratio"][(5, 7)], 0)
+        self.assertLess(boundary[
+            "component_actions_to_principal_ratio"][(7, 11)], 0)
+        late = receipt["rows"][1379072]
+        self.assertFalse(late[
+            "both_pair_components_centered_negative"])
+        self.assertLess(late[
+            "component_actions_to_principal_ratio"][(5, 7)], 0)
+        self.assertGreater(late[
+            "component_actions_to_principal_ratio"][(7, 11)], 0)
+        self.assertTrue(receipt[
+            "component_pair_character_mixture_measured"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

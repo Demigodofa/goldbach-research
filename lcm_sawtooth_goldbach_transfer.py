@@ -11886,6 +11886,192 @@ def q286_lower_support_component_pair_support_geometry_obstruction_receipt(
     }
 
 
+def q286_lower_support_component_pair_character_mixture_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Express the component-pair actions as fixed character mixtures."""
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets, targets_per_cycle=len(targets),
+        tolerance=tolerance, include_residue_weights=True)
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    _, labels, character_table = _unit_character_table(period, units)
+
+    component_coefficients = {}
+    component_character_rows = {}
+    active_label_indices = set()
+    maximum_component_reconstruction_error = 0.0
+    for support in component_pair:
+        if support not in component_values:
+            raise ValueError("component_pair support is unavailable")
+        values = np.asarray(component_values[support], dtype=np.complex128)
+        coefficients = np.conjugate(character_table) @ values / len(units)
+        reconstruction = character_table.T @ coefficients
+        reconstruction_error = (
+            float(np.linalg.norm(reconstruction - values))
+            / max(1.0, float(np.linalg.norm(values))))
+        maximum_component_reconstruction_error = max(
+            maximum_component_reconstruction_error, reconstruction_error)
+        nonzero_rows = tuple(
+            {
+                "label": labels[index],
+                "coefficient": complex(coefficients[index]),
+                "coefficient_abs": float(abs(coefficients[index])),
+            }
+            for index in range(len(labels))
+            if abs(coefficients[index]) > tolerance)
+        component_coefficients[support] = coefficients
+        component_character_rows[support] = nonzero_rows
+        active_label_indices.update(
+            index for index, value in enumerate(coefficients)
+            if abs(value) > tolerance)
+
+    union_indices = tuple(sorted(active_label_indices))
+    pair_sum_coefficients = (
+        component_coefficients[component_pair[0]]
+        + component_coefficients[component_pair[1]])
+    pair_sum_active_coefficients = np.asarray(tuple(
+        pair_sum_coefficients[index] for index in union_indices),
+        dtype=np.complex128)
+    pair_sum_l1 = float(np.sum(np.abs(pair_sum_active_coefficients)))
+    pair_sum_l2 = float(np.linalg.norm(pair_sum_active_coefficients))
+    pair_sum_linf = float(np.max(np.abs(pair_sum_active_coefficients)))
+
+    rows = {}
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - uniform_weight
+        character_imbalance = character_table @ delta
+        active_imbalance = np.asarray(tuple(
+            character_imbalance[index] for index in union_indices),
+            dtype=np.complex128)
+
+        component_actions = {}
+        component_reconstruction_errors = {}
+        for support in component_pair:
+            coefficients = component_coefficients[support]
+            character_action = complex(
+                np.sum(coefficients * character_imbalance))
+            direct_action = complex(
+                np.dot(component_values[support], delta))
+            principal = principal_mean * total_weight
+            component_actions[support] = float(character_action.real
+                                               / principal)
+            component_reconstruction_errors[support] = (
+                abs(character_action - direct_action)
+                / max(1.0, abs(direct_action)))
+        pair_sum_character_action = complex(
+            np.sum(pair_sum_coefficients * character_imbalance))
+        pair_sum_direct_action = complex(math.fsum(
+            component_actions[support] * principal_mean * total_weight
+            for support in component_pair))
+        pair_sum_reconstruction_error = (
+            abs(pair_sum_character_action - pair_sum_direct_action)
+            / max(1.0, abs(pair_sum_direct_action)))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error,
+            pair_sum_reconstruction_error,
+            *(component_reconstruction_errors.values()))
+
+        character_linf_relative = (
+            float(np.max(np.abs(active_imbalance))) / total_weight)
+        character_l2_relative = (
+            float(np.linalg.norm(active_imbalance)) / total_weight)
+        rows[target] = {
+            "target": target,
+            "target_residue": target % period,
+            "admissible_count": admissible_count,
+            "first_two_modes_to_principal_ratio": source_row[
+                "first_two_modes_to_principal_ratio"],
+            "first_three_to_principal_ratio": source_row[
+                "first_three_modes_to_principal_ratio"],
+            "full_action_to_principal_ratio": source_row[
+                "full_action_to_principal_ratio"],
+            "active_character_linf_relative": character_linf_relative,
+            "active_character_l2_relative": character_l2_relative,
+            "pair_sum_triangle_bound_to_principal": (
+                pair_sum_l1 * character_linf_relative / principal_mean),
+            "pair_sum_vector_l2_bound_to_principal": (
+                pair_sum_l2 * character_l2_relative / principal_mean),
+            "component_actions_to_principal_ratio": component_actions,
+            "pair_sum_action_to_principal_ratio": float(
+                pair_sum_character_action.real
+                / (principal_mean * total_weight)),
+            "pair_sum_character_reconstruction_error": (
+                pair_sum_reconstruction_error),
+            "component_character_reconstruction_errors": (
+                component_reconstruction_errors),
+            "both_pair_components_centered_negative": all(
+                value < -tolerance for value in component_actions.values()),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "unit_residue_count": len(units),
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pair": component_pair,
+        "component_character_counts": {
+            support: len(component_character_rows[support])
+            for support in component_pair},
+        "component_character_l1_to_principal_mean": {
+            support: (
+                float(np.sum(np.abs(component_coefficients[support])))
+                / principal_mean)
+            for support in component_pair},
+        "component_character_l2_to_principal_mean": {
+            support: (
+                float(np.linalg.norm(component_coefficients[support]))
+                / principal_mean)
+            for support in component_pair},
+        "active_union_character_count": len(union_indices),
+        "pair_sum_character_l1_to_principal_mean": (
+            pair_sum_l1 / principal_mean),
+        "pair_sum_character_l2_to_principal_mean": (
+            pair_sum_l2 / principal_mean),
+        "pair_sum_character_linf_to_principal_mean": (
+            pair_sum_linf / principal_mean),
+        "component_character_rows": component_character_rows,
+        "rows": rows,
+        "maximum_component_character_reconstruction_error": (
+            maximum_component_reconstruction_error),
+        "maximum_action_reconstruction_error": (
+            maximum_reconstruction_error),
+        "component_pair_character_mixture_measured": True,
+        "pointwise_character_sum_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

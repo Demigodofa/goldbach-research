@@ -307,6 +307,57 @@ This closes the pure support/nonnegativity/total-mass/coefficient-geometry
 route for the component-pair theorem.  It does not refute arithmetic
 cone-avoidance by actual prime-pair weights.
 
+## Character-mixture receipt
+
+`q286_lower_support_component_pair_character_mixture_receipt` now expresses the
+two active component actions as exact fixed character mixtures modulo `10010`.
+Focused regression
+`test_q286_lower_support_component_pair_character_mixture` passed in
+`62.503s`.
+
+The active cone is much smaller than full residue-class control:
+
+```text
+(5,7) active character count: 8
+(7,11) active character count: 23
+active union character count: 31
+(5,7) L1/principal_mean: 5.716280579904891
+(7,11) L1/principal_mean: 9.546677026856452
+pair-sum L1/principal_mean: 15.262957606760951
+pair-sum L2/principal_mean: 3.003987991450646
+maximum action reconstruction error: 4.961197005087556e-14
+```
+
+Selected-target rows:
+
+```text
+target 14138:
+  actions (5,7) -0.7331790639459962, (7,11) -0.4193642036810369
+  pair_sum -1.152543267627033
+  active character L2 relative 0.635690384197428
+
+target 1222142:
+  actions (5,7) -0.0010834080557931736, (7,11) 0.014826359763802375
+  pair_sum 0.013742951708009201
+  active character L2 relative 0.07487477355460123
+
+target 1323632:
+  actions (5,7) 0.06545161702266966, (7,11) 0.02204346420554273
+  pair_sum 0.0874950812282124
+  active character L2 relative 0.09041458261739957
+
+target 1379072:
+  actions (5,7) -0.03682455218576963, (7,11) 0.08354880369092721
+  pair_sum 0.046724251505157584
+  active character L2 relative 0.08819254618298306
+```
+
+This sharpens the arithmetic theorem obligation: one need not prove full
+pointwise equidistribution modulo `10010`.  A signed cone-avoidance theorem
+for these `31` fixed twisted binary-prime character sums would target the
+surviving obstruction directly.  Such a theorem is still pointwise
+binary-prime correlation input and is not supplied by the finite receipts.
+
 ## Precise unresolved theorem
 
 A non-circular sufficient theorem is one of the following, after finite

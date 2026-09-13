@@ -271,6 +271,14 @@
       "status_boundary": "finite-vector obstruction only; does not refute arithmetic cone avoidance by actual prime-pair weights"
     },
     {
+      "id": "receipt.component_pair_character_mixture",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_character_mixture_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_character_mixture passed in 62.503s; active union has 31 character rows modulo 10010 with action reconstruction error below 5e-14",
+      "status_boundary": "finite character decomposition only; no pointwise twisted binary-prime estimate or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -397,6 +405,11 @@
       "from": "lane.component_pair_support_geometry",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "requires"
+    },
+    {
+      "from": "receipt.component_pair_character_mixture",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "structure.active_subcone",

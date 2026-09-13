@@ -18802,6 +18802,41 @@ Status: lane-closed, not proof.  Pure component-pair support geometry cannot
 prove the exclusion.  The remaining route must use arithmetic facts about the
 actual strict-central prime-pair weights, not arbitrary admissible weights.
 
+### 2026-09-13 continuation: component-pair character-mixture target
+
+New receipt:
+
+- `q286_lower_support_component_pair_character_mixture_receipt`
+
+It expresses the active `(5,7)` and `(7,11)` component actions as exact
+character mixtures modulo `10010`.  Focused regression
+`test_q286_lower_support_component_pair_character_mixture` passed in
+`62.503s`.
+
+Compact output:
+
+```text
+counts {(5, 7): 8, (7, 11): 23}
+union 31
+l1 {(5, 7): 5.716280579904891, (7, 11): 9.546677026856452}
+l2 {(5, 7): 2.0409852030962643, (7, 11): 2.204160441873909}
+pair_l1 15.262957606760951
+pair_l2 3.003987991450646
+pair_linf 0.8524668270719913
+max_action_recon 4.961197005087556e-14
+
+14138 pair_sum -1.152543267627033, both_negative True
+1222142 pair_sum 0.013742951708009201, both_negative False
+1323632 pair_sum 0.0874950812282124, both_negative False
+1379072 pair_sum 0.046724251505157584, both_negative False
+```
+
+Status: theorem-sharpening, not proof.  The remaining q286 component-pair
+obligation is a signed pointwise theorem about `31` fixed twisted
+binary-prime character sums modulo `10010`.  That is narrower than proving
+full residue-by-residue prime-pair occupancy, but it remains hard arithmetic
+input and no Goldbach theorem is proved.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
