@@ -17594,6 +17594,25 @@ Current interpretation: sparse selected-tail recurrences were seen through
 cycle `136`; checked cycles `137..232` are tail-free.  This is still finite
 evidence only and does not prove eventual disappearance.
 
+## 2026-09-13 continuation: cycles 233 through 264 remain tail-free
+
+Using the fast mode-only scanner, global cycles `233..264` were scanned in
+four 8-cycle workers.  Every cycle was tail-free at threshold `.3`; no
+rescue-floor check was needed.
+
+Block minima:
+
+```text
+233..240: cycle 235, target 2366548, first_three -0.18648556964961702
+241..248: cycle 245, target 2466634, first_three -0.18814240147876807
+249..256: cycle 250, target 2516512, first_three -0.1956485325659766
+257..264: cycle 257, target 2584486, first_three -0.18282739060588282
+```
+
+Current interpretation: sparse selected-tail recurrences were seen through
+cycle `136`; checked cycles `137..264` are tail-free.  This is still finite
+evidence only and does not prove eventual disappearance.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

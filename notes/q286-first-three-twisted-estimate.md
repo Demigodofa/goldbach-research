@@ -2677,3 +2677,24 @@ Status `finite-tail-absence-evidence`: checked cycles `137..232` are now
 tail-free at threshold `.3`, but this still does not prove eventual
 disappearance.  The current falsifier remains any later fast-scan cycle with a
 `.3` first-three tail hit, followed by a rescue-floor failure.
+
+## 2026-09-13: cycles 233 through 264 remain tail-free
+
+The accelerated scanner was extended through global cycle `264`.  Every cycle
+in `233..264` was tail-free at threshold `.3`; no complement rescue-floor
+check was needed.
+
+```text
+cycles 233..240: no .3 tail hits; block minimum cycle 235,
+  target 2366548, first_three -0.18648556964961702
+cycles 241..248: no .3 tail hits; block minimum cycle 245,
+  target 2466634, first_three -0.18814240147876807
+cycles 249..256: no .3 tail hits; block minimum cycle 250,
+  target 2516512, first_three -0.1956485325659766
+cycles 257..264: no .3 tail hits; block minimum cycle 257,
+  target 2584486, first_three -0.18282739060588282
+```
+
+Status `finite-tail-absence-evidence`: checked cycles `137..264` are now
+tail-free at threshold `.3`.  This strengthens the post-136 finite horizon but
+still does not prove eventual disappearance or Goldbach.

@@ -9295,3 +9295,15 @@ required.  Block minima were: cycle `206`, `-0.1941773413191678`; cycle `216`,
 Status `finite-tail-absence-evidence`: cycles `137..232` are checked
 tail-free after the sparse recurrences through cycle `136`.  This remains a
 finite diagnostic, not an eventual theorem.
+
+### 2026-09-13 continuation: cycles 233 through 264 remain tail-free
+
+The fast mode-only scanner was extended through global cycle `264`.  Cycles
+`233..264` are all tail-free at threshold `.3`; no rescue-floor check was
+required.  Block minima were: cycle `235`, `-0.18648556964961702`; cycle `245`,
+`-0.18814240147876807`; cycle `250`, `-0.1956485325659766`; and cycle `257`,
+`-0.18282739060588282`.
+
+Status `finite-tail-absence-evidence`: cycles `137..264` are checked
+tail-free after the sparse recurrences through cycle `136`.  This remains a
+finite diagnostic, not an eventual theorem.
