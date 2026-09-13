@@ -18972,6 +18972,22 @@ fails the driver floor by `-0.6226726214863387` and the channel bound by
 `-0.20705269440121776`.  Among late positives, `1379072` is binding on the
 driver floor and `1323632` is closest to the channel bound.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_channel_pressure_profile_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_channel_pressure_profile` passed in
+`124.495s`.  It identifies the active real channel producing the selected
+Linf pressure.  Boundary target `14138` is worst overall at representative
+label `(1,1,0,0)`, normalized sum `0.2659059415120284`, margin to bound
+`-0.20705269440121776`, and contribution/principal
+`-0.2557958141902999`.  Among late positives, `1379072` has the largest
+single-channel pressure at `(0,3,3,0)`, normalized sum
+`0.027155981994015317`, margin `0.031697265116795305`, and
+contribution/principal `0.030290294154962222`.  This is finite profiling of
+the channel theorem target, not a proof of the pointwise norm estimate.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

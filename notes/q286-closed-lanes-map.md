@@ -1,7 +1,7 @@
 # q286 closed-lanes map
 
 Status: finite research map, not a proof of Goldbach.
-Last updated after the 2026-09-13 three-target component-pair probe.
+Last updated after the 2026-09-13 q286 real-channel pressure profile.
 
 This note indexes which q286 proof lanes have been closed, which components
 survive as reusable structure, and what theorem obligation remains.  It is a
@@ -39,6 +39,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_cone_projection_receipt`
 - `q286_lower_support_component_pair_support_geometry_obstruction_receipt`
 - `q286_lower_support_component_pair_character_mixture_receipt`
+- `q286_lower_support_component_pair_channel_pressure_profile_receipt`
 
 ## Closed or falsified lanes
 
@@ -257,6 +258,10 @@ current comparison set.
    action from principal, combined driver, and centered pair sum.
 25. The closure-margin profile regression passed in `118.798s` and identifies
    the selected driver-bound and channel-bound pressure points.
+26. The channel-pressure profile regression passed in `124.495s` and shows
+   that boundary target `14138` is dominated by real-channel label
+   `(1,1,0,0)`, while the largest late-positive single-channel pressure is
+   target `1379072` at label `(0,3,3,0)`.
 
 ## Still open
 

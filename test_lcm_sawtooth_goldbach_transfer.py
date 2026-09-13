@@ -69,6 +69,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_combined_driver_channel_closure_receipt,
     q286_lower_support_component_pair_action_identity_receipt,
     q286_lower_support_component_pair_closure_margin_profile_receipt,
+    q286_lower_support_component_pair_channel_pressure_profile_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2337,6 +2338,42 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_channel_pressure_profile(self):
+        receipt = (
+            q286_lower_support_component_pair_channel_pressure_profile_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertEqual(receipt["top_count"], 3)
+        self.assertAlmostEqual(
+            receipt["normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        self.assertEqual(
+            receipt["worst_channel_pressure_row"]["target"], 14138)
+        self.assertEqual(
+            receipt["worst_positive_channel_pressure_row"]["target"],
+            1379072)
+        boundary = receipt["rows"][14138]
+        self.assertAlmostEqual(
+            boundary["maximum_channel_normalized_abs_sum"],
+            0.2659059415120284)
+        self.assertAlmostEqual(
+            boundary["maximum_channel_margin_to_linf_bound"],
+            -0.20705269440121776)
+        self.assertLess(
+            boundary["maximum_channel_margin_to_linf_bound"], 0.0)
+        positive = receipt["rows"][1379072]
+        self.assertEqual(
+            positive["maximum_channel_representative_label"],
+            (0, 3, 3, 0))
+        self.assertGreaterEqual(
+            positive["maximum_channel_margin_to_linf_bound"], 0.0)
+        self.assertEqual(len(positive["top_channel_pressure_rows"]), 3)
+        self.assertTrue(receipt["channel_pressure_profile_measured"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

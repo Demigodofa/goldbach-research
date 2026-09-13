@@ -13166,6 +13166,95 @@ def q286_lower_support_component_pair_closure_margin_profile_receipt(
     }
 
 
+def q286_lower_support_component_pair_channel_pressure_profile_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), top_count=3,
+        tolerance=1e-9):
+    """Identify which active real channels pressure the Linf bound."""
+    if type(top_count) is not int or top_count < 1:
+        raise ValueError("top_count must be a positive integer")
+    margin = q286_lower_support_component_pair_closure_margin_profile_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    identity = margin["source_action_identity_receipt"]
+    closure = identity["source_combined_driver_channel_closure_receipt"]
+    floor_identity = closure["source_floor_identity_receipt"]
+    rescue = floor_identity[
+        "source_floor_stability_decomposition_receipt"][
+            "source_real_channel_rescue_margin_receipt"]
+    action = rescue["source_real_channel_action_receipt"]
+    channel_bound = margin["normalized_real_channel_linf_bound"]
+
+    rows = {}
+    for target in targets:
+        action_row = action["rows"][target]
+        channel_rows = tuple(sorted(
+            action_row["real_channel_rows"],
+            key=lambda row: (
+                row["representative_character_sum_abs_to_total_weight"],
+                abs(row["contribution_to_principal_ratio"])),
+            reverse=True))
+        max_channel = channel_rows[0]
+        rows[target] = {
+            "target": target,
+            "target_residue": action_row["target_residue"],
+            "maximum_channel_representative_label": (
+                max_channel["representative_label"]),
+            "maximum_channel_labels": max_channel["labels"],
+            "maximum_channel_formula": max_channel["real_formula"],
+            "maximum_channel_normalized_abs_sum": (
+                max_channel[
+                    "representative_character_sum_abs_to_total_weight"]),
+            "maximum_channel_margin_to_linf_bound": (
+                channel_bound
+                - max_channel[
+                    "representative_character_sum_abs_to_total_weight"]),
+            "maximum_channel_contribution_to_principal_ratio": (
+                max_channel["contribution_to_principal_ratio"]),
+            "top_channel_pressure_rows": tuple({
+                "representative_label": row["representative_label"],
+                "labels": row["labels"],
+                "real_formula": row["real_formula"],
+                "normalized_abs_sum": row[
+                    "representative_character_sum_abs_to_total_weight"],
+                "margin_to_linf_bound": (
+                    channel_bound
+                    - row[
+                        "representative_character_sum_abs_to_total_weight"]),
+                "contribution_to_principal_ratio": row[
+                    "contribution_to_principal_ratio"],
+            } for row in channel_rows[:top_count]),
+            "source_margin_profile_row": margin["rows"][target],
+        }
+
+    positive_targets = tuple(
+        target for target, row in margin["rows"].items()
+        if row["positive_by_identity"])
+    positive_rows = tuple(rows[target] for target in positive_targets)
+    return {
+        "arithmetic_period": margin["arithmetic_period"],
+        "targets": margin["targets"],
+        "tested_target_count": margin["tested_target_count"],
+        "component_pair": component_pair,
+        "top_count": top_count,
+        "normalized_real_channel_linf_bound": channel_bound,
+        "rows": rows,
+        "worst_channel_pressure_row": max(
+            rows.values(),
+            key=lambda row: row["maximum_channel_normalized_abs_sum"]),
+        "worst_positive_channel_pressure_row": (
+            max(
+                positive_rows,
+                key=lambda row: row[
+                    "maximum_channel_normalized_abs_sum"])
+            if positive_rows else None),
+        "source_closure_margin_profile_receipt": margin,
+        "channel_pressure_profile_measured": True,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

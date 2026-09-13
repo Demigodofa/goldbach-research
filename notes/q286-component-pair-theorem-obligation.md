@@ -752,6 +752,37 @@ useful theorem attempts should treat the driver lower bound and the real-
 channel pointwise bound as separate pressure points, not as one generic
 positivity margin.
 
+`q286_lower_support_component_pair_channel_pressure_profile_receipt` then
+identifies which active real channels create the selected Linf pressure.
+Focused regression
+`test_q286_lower_support_component_pair_channel_pressure_profile` passed in
+`124.495s`.
+
+```text
+active-channel Linf bound: 0.05885324711081062
+
+worst overall:
+  target 14138
+  representative label (1,1,0,0)
+  normalized abs sum 0.2659059415120284
+  margin to bound -0.20705269440121776
+  contribution/principal -0.2557958141902999
+
+worst late positive:
+  target 1379072
+  representative label (0,3,3,0)
+  normalized abs sum 0.027155981994015317
+  margin to bound 0.031697265116795305
+  contribution/principal 0.030290294154962222
+```
+
+This separates two finite channel facts that were previously easy to blur:
+`1323632` is closest to the selected channel bound among late positives, but
+`1379072` has the largest single active real-channel normalized sum among
+those late positives.  The boundary failure is dominated by the `(1,1,0,0)`
+channel.  This is finite pressure profiling only; it does not prove the
+pointwise real-channel norm estimate.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

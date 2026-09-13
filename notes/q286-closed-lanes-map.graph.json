@@ -367,6 +367,14 @@
       "status_boundary": "selected margin profile only; no eventual driver or channel theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_channel_pressure_profile",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_channel_pressure_profile_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_channel_pressure_profile passed in 124.495s; 14138 is worst overall at real-channel label (1,1,0,0), while 1379072 is worst among late positives at label (0,3,3,0)",
+      "status_boundary": "selected channel-pressure profile only; no eventual pointwise channel-norm theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -596,6 +604,16 @@
     },
     {
       "from": "receipt.component_pair_closure_margin_profile",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_channel_pressure_profile",
+      "to": "receipt.component_pair_closure_margin_profile",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_channel_pressure_profile",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "profiles"
     },

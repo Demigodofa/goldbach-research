@@ -10365,6 +10365,19 @@ Among late positives, `1379072` is binding on the driver floor and `1323632`
 is closest to the channel bound.  This preserves two separate theorem
 pressure points.
 
+New receipt
+`q286_lower_support_component_pair_channel_pressure_profile_receipt` identifies
+the real-channel labels responsible for selected Linf pressure.  Focused
+regression
+`test_q286_lower_support_component_pair_channel_pressure_profile` passed in
+`124.495s`.  The boundary target `14138` is worst overall at label
+`(1,1,0,0)` with normalized sum `0.2659059415120284`, missing the channel
+bound by `-0.20705269440121776`.  Among late positives, `1379072` has the
+largest single-channel pressure at `(0,3,3,0)`, normalized sum
+`0.027155981994015317`, while still clearing the selected bound by
+`0.031697265116795305`.  This is finite pressure profiling only, not a
+pointwise channel theorem.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
