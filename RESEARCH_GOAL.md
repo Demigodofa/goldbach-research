@@ -10138,3 +10138,29 @@ non-circular path is still to prove, or reduce precisely, the fixed-modulus
 pointwise statement preventing simultaneous strong negative `(5,7)` and
 `(7,11)` centered action on the active subcone after finite boundary
 exceptions.
+
+### 2026-09-13 continuation: component-pair theorem obligation sharpened
+
+The exact component-pair obstruction is now recorded in
+`notes/q286-component-pair-theorem-obligation.md`.  The active centered
+actions are inner products between the actual strict-central prime-pair
+residue discrepancy vector `d_N` modulo `10010` and two centered fixed
+coefficient vectors `c_57,N` and `c_711,N`.
+
+A direct geometry probe on `14138,1222142,1323632,1379072` found the two
+coefficient vectors are nearly orthogonal on the checked admissible residue
+sets, with pair coefficient cosines around `-.001..+.005`.  Boundary target
+`14138` has much larger relative residue-weight discrepancy
+(`0.11251754817108045`) and simultaneous negative component actions, while
+the late sparse-tail targets have relative discrepancy around `.0157..0164`
+and avoid the both-negative cone.
+
+Status `theorem-obligation`: this is useful because it rules out a pure
+coefficient-geometry proof of the component-pair exclusion.  Nonnegativity,
+support, and total mass alone permit small centered perturbations making both
+actions negative.  The remaining theorem must use actual binary prime-pair
+arithmetic: either a cone-avoidance theorem for the prime-pair discrepancy
+vector on the active `.2`/`.3` subcone, a signed lower bound for the pair sum,
+or a fixed-modulus pointwise Goldbach-in-progressions estimate strong enough
+to make all fixed centered component actions `o(P(N))`.  Goldbach remains
+open.

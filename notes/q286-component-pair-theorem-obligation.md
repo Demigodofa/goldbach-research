@@ -1,0 +1,221 @@
+# q286 component-pair theorem obligation
+
+Status: theorem obligation and finite diagnostic; Goldbach not proved.
+
+Date: 2026-09-13.
+
+## Fixed objects
+
+The active lower-support component-pair route works at modulus `10010`.
+Let `U` be the `2880` unit residues modulo `10010`.  For an even target `N`,
+let
+
+```text
+A_N = {r in U : gcd(N-r,10010)=1}.
+```
+
+For the checked component-pair targets in this note, `|A_N| = 1485`.
+Let `W_N(r)` be the strict-central weighted prime-pair mass with first prime
+`p == r mod 10010`:
+
+```text
+W_N(r) = sum log(p)log(N-p)
+```
+
+over strict-central prime pairs `N/3 < p < 2N/3`.  Let
+
+```text
+mu_N = (sum_{r in A_N} W_N(r)) / |A_N|,
+d_N(r) = W_N(r) - mu_N  for r in A_N,
+d_N(r) = 0              otherwise.
+```
+
+The lower-support component receipt decomposes the fixed assembled coefficient
+vector by CRT character support.  For the active pair, write the two centered
+coefficient vectors on `A_N` as
+
+```text
+c_57,N
+c_711,N
+```
+
+for supports `(5,7)` and `(7,11)`.  Their centered actions are exactly
+
+```text
+<c_57,N, d_N> / P(N)
+<c_711,N, d_N> / P(N)
+```
+
+where `P(N)` is the principal normalization used by the receipts.
+
+## Current theorem target
+
+After finite boundary exceptions, prove that targets in the active subcone
+
+```text
+first_two_q286_modes(N)/P(N) < -0.2
+first_three_q286_modes(N)/P(N) < -0.3
+```
+
+do not have simultaneous sufficiently negative centered action in both active
+lower-support channels.  The strongest finite pattern currently checked is
+that the late sparse-tail comparison targets have no simultaneous negative
+action at all:
+
+```text
+<c_57,N,d_N>/P(N) < 0 and <c_711,N,d_N>/P(N) < 0
+```
+
+does not occur for `1222142`, `1323632`, or `1379072`.
+
+## Finite selected-target evidence
+
+The selected-target receipt
+
+```text
+q286_lower_support_component_pair_tail_window_receipt(
+    selected_targets=(1222142,1323632,1379072),
+    first_two_threshold=.2,
+    tail_threshold=.3)
+```
+
+completed in `64.87790719999975s`.  All three selected targets were active
+tail-subcone targets and none had simultaneous negative pair action:
+
+```text
+target   (5,7) action/P          (7,11) action/P         pair sum/P
+1222142 -0.0010834080557930044   0.014826359763802442   0.013742951708009437
+1323632  0.06545161702266966     0.022043464205542592   0.08749508122821226
+1379072 -0.036824552185769695    0.08354880369092735    0.04672425150515765
+```
+
+The boundary comparison target `14138` does have simultaneous negative
+component-pair action:
+
+```text
+14138   -0.7331790639459977     -0.41936420368103794
+```
+
+so any eventual theorem must split away a finite boundary/full-negative layer.
+
+## Coefficient geometry diagnostic
+
+A direct coefficient/discrepancy geometry probe over
+`14138,1222142,1323632,1379072` measured the two coefficient vectors and their
+alignment with the actual strict-central prime-pair discrepancy vector.
+
+Common fixed data:
+
+```text
+period 10010
+unit_count 2880
+principal_mean 44002.512499999146
+admissible_count 1485
+```
+
+Results:
+
+```text
+target 14138
+weight_l2_rel 0.11251754817108045
+(5,7)  coeff_norm/principal_mean 92.9842972930563
+       action/P -0.7331790639459977
+       cosine with d_N -0.07007775521562869
+(7,11) coeff_norm/principal_mean 79.95577232597192
+       action/P -0.41936420368103794
+       cosine with d_N -0.0466145261936264
+pair coefficient cosine 0.004826197080648738
+
+target 1222142
+weight_l2_rel 0.016376641721585147
+(5,7)  action/P -0.0010834080557930044, cosine -0.0007117056633438867
+(7,11) action/P  0.014826359763802442,  cosine  0.011278165563276089
+pair coefficient cosine -0.0010921005009287641
+
+target 1323632
+weight_l2_rel 0.01572226822549456
+(5,7)  action/P 0.06545161702266966,  cosine 0.044770873322439404
+(7,11) action/P 0.022043464205542592, cosine 0.017465998749571405
+pair coefficient cosine -0.0008340640836047953
+
+target 1379072
+weight_l2_rel 0.015831861533604066
+(5,7)  action/P -0.036824552185769695, cosine -0.02501473336272637
+(7,11) action/P  0.08354880369092735,  cosine  0.06574110996645298
+pair coefficient cosine -0.000834064083604795
+```
+
+Interpretation: the active coefficient vectors are nearly orthogonal, not
+oppositely constrained.  The late targets avoid simultaneous negativity
+because the actual prime-pair discrepancy vector has small relative L2 size
+and favorable signed alignment, not because the fixed coefficient geometry
+itself forbids the bad cone.
+
+## Finite-vector obstruction
+
+The simultaneous-negativity exclusion cannot be proved from support,
+nonnegativity, total mass, and these two centered coefficient vectors alone.
+Given any target residue with nonzero centered vectors `c_57` and `c_711`,
+choose a centered perturbation `h` with
+
+```text
+<c_57,h> < 0
+<c_711,h> < 0
+```
+
+for example a small negative combination of the two coefficient vectors unless
+one vector is a nonpositive multiple of the other.  Since the measured pair
+cosines are near zero, such a perturbation is available in the checked
+residue classes.  Then `W(r)=mu+epsilon*h(r)` remains nonnegative for
+sufficiently small `epsilon`, preserves total admissible mass, but makes both
+centered actions negative.
+
+Therefore an eventual proof must use arithmetic information about actual
+binary prime-pair weights.  It cannot be a pure convex-geometry or
+support-only argument.
+
+## Precise unresolved theorem
+
+A non-circular sufficient theorem is one of the following, after finite
+boundary exceptions:
+
+1. A cone-avoidance theorem for actual strict-central prime-pair discrepancy:
+
+```text
+not ( <c_57,N,d_N>/P(N) < -eta_57(N)
+      and <c_711,N,d_N>/P(N) < -eta_711(N) )
+```
+
+on the active `.2`/`.3` subcone, with thresholds strong enough to preserve the
+lower-support rescue inequality.
+
+2. A sharper signed estimate proving that at least one component-pair action
+is nonnegative, or that their sum is bounded below:
+
+```text
+max(<c_57,N,d_N>, <c_711,N,d_N>) >= 0
+```
+
+or
+
+```text
+<c_57,N+c_711,N, d_N>/P(N) >= -epsilon_N
+```
+
+with `epsilon_N` smaller than the available lower-support margin.
+
+3. A fixed-modulus pointwise binary Goldbach-in-progressions estimate strong
+enough to make the whole centered discrepancy small relative to principal:
+
+```text
+||d_N||_2 / sum_r W_N(r) = o(1)
+```
+
+uniformly on the active residue classes.  This would eventually make every
+fixed centered component action `o(P(N))`, but it is a hard pointwise
+prime-pair correlation theorem, not a finite diagnostic.
+
+Current judgment: the component-pair lane has identified a precise theorem
+obligation.  It has not proved Goldbach.  More threshold receipts are circular
+unless they test a new cone-avoidance mechanism, a sharper prime-pair
+discrepancy theorem, or a real boundary split.

@@ -18642,6 +18642,59 @@ prime-correlation estimate, RH, or Goldbach.  Next useful work is the actual
 proof/reduction of that simultaneous-negativity exclusion, with bounded
 additional finite scans only when they test a new mechanism or falsifier.
 
+### 2026-09-13 continuation: component-pair theorem obligation sharpened
+
+New note:
+
+- `notes/q286-component-pair-theorem-obligation.md`
+
+It states the active component-pair problem as fixed-modulus inner products
+modulo `10010`:
+
+```text
+<c_57,N,d_N>/P(N)
+<c_711,N,d_N>/P(N)
+```
+
+where `d_N` is the centered strict-central prime-pair residue-weight
+discrepancy and the two `c` vectors are the centered coefficient vectors for
+supports `(5,7)` and `(7,11)`.
+
+A direct geometry probe over `14138,1222142,1323632,1379072` found the two
+coefficient vectors are almost orthogonal on the checked admissible sets:
+
+```text
+14138 pair coefficient cosine 0.004826197080648738
+1222142 pair coefficient cosine -0.0010921005009287641
+1323632 pair coefficient cosine -0.0008340640836047953
+1379072 pair coefficient cosine -0.000834064083604795
+```
+
+The boundary target `14138` has both active component actions negative:
+
+```text
+(5,7)  -0.7331790639459977
+(7,11) -0.41936420368103794
+```
+
+The late targets have much smaller relative discrepancy and avoid the
+both-negative cone:
+
+```text
+1222142 weight_l2_rel 0.016376641721585147
+1323632 weight_l2_rel 0.01572226822549456
+1379072 weight_l2_rel 0.015831861533604066
+```
+
+Status: theorem-obligation, not proof.  The near-orthogonality means a pure
+coefficient-geometry proof cannot exclude simultaneous negative action:
+support, nonnegativity, and total mass still allow small centered perturbations
+with negative projection on both vectors.  The remaining route must use
+actual binary prime-pair arithmetic: cone avoidance for `d_N`, a signed lower
+bound for the component-pair sum, or a fixed-modulus pointwise
+Goldbach-in-progressions estimate.  More threshold receipts are circular
+unless they test one of those mechanisms.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -13,6 +13,9 @@ Machine-readable graph data with typed nodes, edges, statuses, and evidence
 metadata is stored beside this file:
 `q286-closed-lanes-map.graph.json`.
 
+The component-pair theorem obligation is stated explicitly in
+`q286-component-pair-theorem-obligation.md`.
+
 ## Active theorem target
 
 The current non-circular target is:
@@ -77,6 +80,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
 - A selected-target receipt over all three late sparse-tail targets completed
   in `64.878s`; it found `both_negative ()`, with pair sums
   `0.013743`, `0.087495`, and `0.046724` respectively.
+- The `(5,7)` and `(7,11)` centered coefficient vectors are nearly orthogonal
+  on the checked active residue classes, with pair coefficient cosines near
+  zero.  This rules out a pure coefficient-geometry explanation for the
+  late no-both-negative pattern.
 
 ## Current boundary examples
 
@@ -126,6 +133,10 @@ current comparison set.
    bounded.
 9. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
+10. The direct coefficient geometry probe shows that the two active component
+   vectors are almost orthogonal, not oppositely constrained.  The remaining
+   proof must use actual binary prime-pair discrepancy arithmetic or record
+   that obligation as fixed-modulus pointwise Goldbach-in-progressions input.
 
 ## Still open
 

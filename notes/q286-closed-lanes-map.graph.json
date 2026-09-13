@@ -232,6 +232,14 @@
       "status_boundary": "finite diagnostic evidence only; does not prove the eventual component-pair theorem or Goldbach"
     },
     {
+      "id": "obligation.component_pair_cone_avoidance",
+      "type": "open_obligation",
+      "label": "q286 component-pair cone avoidance theorem",
+      "status": "open_sharpened",
+      "reason": "The (5,7) and (7,11) coefficient vectors are nearly orthogonal on checked admissible sets, so pure coefficient geometry does not exclude simultaneous negative action; actual binary prime-pair discrepancy arithmetic is required.",
+      "source_note": "notes/q286-component-pair-theorem-obligation.md"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -328,6 +336,16 @@
       "from": "test.three_target_component_pair_probe",
       "to": "receipt.component_pair_tail_window",
       "type": "validates"
+    },
+    {
+      "from": "theorem.active.component_pair_exclusion",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "requires"
+    },
+    {
+      "from": "obligation.component_pair_cone_avoidance",
+      "to": "obligation.fixed_modulus_binary_goldbach_progressions",
+      "type": "refines"
     },
     {
       "from": "structure.active_subcone",
