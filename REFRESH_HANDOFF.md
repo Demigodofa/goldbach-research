@@ -17773,6 +17773,27 @@ Next instruction: if extending the near-tail ladder past cycle `264`, prefer
 bounded summary-mode blocks first.  Use rowful public fast-horizon calls only
 when a downstream diagnostic needs individual target rows.
 
+## 2026-09-13 continuation: cycles 265 through 328 threshold ladder
+
+The summary-mode ladder was applied to cycles `265..328` in four 16-cycle
+probes.  All probes returned `target_rows_included=False`; every 8-cycle block
+was clear at `.2`, `.25`, `.275`, and `.3`.
+
+```text
+265..272 minimum cycle 266, target 2672932, first_three -0.19902872242009065
+273..280 minimum cycle 273, target 2751106, first_three -0.1771080171549704
+281..288 minimum cycle 288, target 2900782, first_three -0.16965353530921884
+289..296 minimum cycle 292, target 2935984, first_three -0.19368388953654794
+297..304 minimum cycle 297, target 2986282, first_three -0.1868226923569528
+305..312 minimum cycle 305, target 3069904, first_three -0.15929169145794012
+313..320 minimum cycle 315, target 3170596, first_three -0.1684585498216937
+321..328 minimum cycle 328, target 3299602, first_three -0.19260805167808093
+```
+
+Current finite damping summary: no `.2` tail from cycles `233..328`; no `.25`
+tail after cycle `149` through `328`; no `.275` or `.3` tail from cycles
+`137..328`.  Do not promote this to an eventual theorem.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

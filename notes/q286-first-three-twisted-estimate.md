@@ -2874,3 +2874,35 @@ Ran 3 tests in 82.235s
 Status `tooling`: this removes avoidable row retention from long ladder
 probes and preserves rowful diagnostics where they are semantically required.
 It is not new finite evidence and proves no eventual q286 tail bound.
+
+## 2026-09-13: cycles 265 through 328 threshold ladder
+
+Using the summary-mode threshold-ladder receipt, cycles `265..328` were
+confirmed clear at thresholds `.2`, `.25`, `.275`, and `.3`.  The run was
+split into four 16-cycle probes to avoid repeating the interrupted monolithic
+64-cycle attempt.  Each probe tested `80080` targets and returned
+`target_rows_included=False`.
+
+```text
+265..272: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 266, target 2672932, first_three -0.19902872242009065
+273..280: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 273, target 2751106, first_three -0.1771080171549704
+281..288: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 288, target 2900782, first_three -0.16965353530921884
+289..296: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 292, target 2935984, first_three -0.19368388953654794
+297..304: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 297, target 2986282, first_three -0.1868226923569528
+305..312: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 305, target 3069904, first_three -0.15929169145794012
+313..320: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 315, target 3170596, first_three -0.1684585498216937
+321..328: counts {.2: 0, .25: 0, .275: 0, .3: 0},
+  minimum cycle 328, target 3299602, first_three -0.19260805167808093
+```
+
+Status `finite-damping-evidence`: checked cycles now show no `.2` tail from
+cycle `233` through `328`, no `.25` tail after cycle `149` through `328`, and
+no `.275` or `.3` tail from cycle `137` through `328`.  This is finite
+evidence only, not an eventual q286 tail theorem.

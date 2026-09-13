@@ -9408,3 +9408,32 @@ Validation: `py_compile` passed, and the focused bundle
 Status `engineering`: this makes larger near-tail ladder probes cheaper and
 safer to run, but it is not new theorem evidence and proves no eventual q286
 tail bound.
+
+### 2026-09-13 continuation: cycles 265 through 328 threshold ladder
+
+The summary-mode threshold ladder was run in four 16-cycle probes covering
+cycles `265..328`.  Every 8-cycle block had zero targets below `-.2`, `-.25`,
+`-.275`, and `-.3`; each probe confirmed `target_rows_included=False`.
+
+Block minima:
+
+- `265..272`: cycle `266`, target `2672932`, first-three
+  `-0.19902872242009065`.
+- `273..280`: cycle `273`, target `2751106`, first-three
+  `-0.1771080171549704`.
+- `281..288`: cycle `288`, target `2900782`, first-three
+  `-0.16965353530921884`.
+- `289..296`: cycle `292`, target `2935984`, first-three
+  `-0.19368388953654794`.
+- `297..304`: cycle `297`, target `2986282`, first-three
+  `-0.1868226923569528`.
+- `305..312`: cycle `305`, target `3069904`, first-three
+  `-0.15929169145794012`.
+- `313..320`: cycle `315`, target `3170596`, first-three
+  `-0.1684585498216937`.
+- `321..328`: cycle `328`, target `3299602`, first-three
+  `-0.19260805167808093`.
+
+Status `finite-damping-evidence`: the checked damping window is now extended
+to cycle `328` at the `.2` threshold, but this is still finite evidence and
+not an eventual first-three tail theorem.
