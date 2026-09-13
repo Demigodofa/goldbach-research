@@ -18237,14 +18237,23 @@ Thus the both-negative quadrant is a strong tail selector but too common to
 exclude wholesale.  The next target is magnitude/subcone control inside the
 both-negative quadrant, or complement co-occurrence there.
 
+New code `q286_first_two_mode_subcone_magnitude_window_receipt` refines that
+quadrant by thresholds on `mode1+mode2`.  Focused regression
+`test_q286_first_two_mode_subcone_magnitude_window` passed in `51.269s`.  On
+cycle `0`, first-two below `-.2` finds `1401` targets and `971/972` tails;
+first-two below `-.4` finds `608` targets, all of them tails; below `-.6`,
+`-.8`, and `-1.0` also remains pure tail but increasingly incomplete.  Worst
+target is again `10664` with first-two `-1.1124437977839818`.  This gives a
+finite subcone structure: `-.4` is a pure tail selector in cycle `0`, while
+`-.2` is an almost-cover with false positives.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: seek a mechanism or bound for the
-   magnitude of simultaneous negative alignment of q286 singular modes 1 and
-   2, or show that complement co-occurrence rescues the dangerous subcone.
+3. Then test whether this first-two magnitude subcone persists in later
+   sparse-tail windows and whether complement co-occurrence rescues it there.
    Do not spend large compute on support-only, max-discrepancy, raw
    99-character norm, hoped-for rank-three cancellation, or mere sign-exclusion
    routes already ruled out by the diagnostics.

@@ -41,6 +41,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_character_mixture_norm_receipt,
     q286_first_three_character_mode_coordinate_receipt,
     q286_first_two_mode_sign_window_receipt,
+    q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
@@ -1832,6 +1833,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertLess(row["mode_reconstruction_error"], 1e-9)
         self.assertTrue(receipt["first_two_mode_sign_window_measured"])
         self.assertFalse(receipt["eventual_mode_sign_pattern_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_two_mode_subcone_magnitude_window(self):
+        receipt = q286_first_two_mode_subcone_magnitude_window_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            first_two_negative_thresholds=(.2,), tail_threshold=.3)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["first_three_tail_count"], 1)
+        self.assertEqual(receipt["both_negative_tail_count"], 1)
+        self.assertEqual(receipt["both_negative_tail_fraction"], 1.0)
+        self.assertIn(.2, receipt["threshold_rows"])
+        self.assertEqual(receipt["threshold_rows"][.2]["targets"], (1222142,))
+        self.assertEqual(
+            receipt["threshold_rows"][.2]["tail_targets"], (1222142,))
+        self.assertTrue(receipt["threshold_rows"][.2][
+            "threshold_targets_cover_all_tails"])
+        self.assertEqual(
+            receipt["most_negative_first_two_row"]["target"], 1222142)
+        self.assertTrue(receipt[
+            "first_two_mode_subcone_magnitude_window_measured"])
+        self.assertFalse(receipt["eventual_mode_subcone_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_selected_first_three_alignment(self):

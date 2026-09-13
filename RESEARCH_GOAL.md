@@ -112,6 +112,16 @@ both-negative quadrant is a strong tail selector but too common to exclude as
 a theorem.  The next target is magnitude/subcone control inside that quadrant
 or complement co-occurrence there.
 
+`q286_first_two_mode_subcone_magnitude_window_receipt` now refines that
+quadrant by thresholds on the sum of singular modes `1` and `2`.  Validation
+passed with focused test
+`test_q286_first_two_mode_subcone_magnitude_window` in `51.269s`.  On cycle
+`0`, first-two below `-.2` found `1401` targets and `971/972` lower-tail
+targets; first-two below `-.4` found `608` targets, all lower-tail, but still
+did not cover all tails.  This is finite subcone structure, not a theorem.
+The next target is persistence in later sparse-tail windows and complement
+co-occurrence on that subcone.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

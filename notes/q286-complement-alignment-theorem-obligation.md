@@ -468,6 +468,70 @@ the `.3` lower-tail targets are both-negative.  The next proof target is not
 merely to exclude the both-negative quadrant; it must control its magnitude,
 its co-occurrence with complement, or a sharper subcone inside it.
 
+## First-two magnitude subcone receipt
+
+Added `q286_first_two_mode_subcone_magnitude_window_receipt`, which refines
+the both-negative quadrant by thresholds on the sum of q286 singular modes `1`
+and `2`.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_two_mode_subcone_magnitude_window ... ok
+Ran 1 test in 51.269s
+```
+
+Cycle `0` magnitude probe, `start=10000`, `targets_per_cycle=5005`, tail
+threshold `.3`:
+
+```text
+tested 5005
+tail_count 972
+both-negative count 1187
+both-negative tail count 698
+both-negative tail fraction 0.7181069958847737
+
+first_two < -0.2:
+  target count 1401
+  tail count 971
+  tail fraction 0.6930763740185582
+  covers all tails: false
+
+first_two < -0.4:
+  target count 608
+  tail count 608
+  tail fraction 1.0
+  covers all tails: false
+
+first_two < -0.6:
+  target count 221
+  tail count 221
+  tail fraction 1.0
+  covers all tails: false
+
+first_two < -0.8:
+  target count 54
+  tail count 54
+  tail fraction 1.0
+  covers all tails: false
+
+first_two < -1.0:
+  target count 2
+  tail count 2
+  tail fraction 1.0
+  covers all tails: false
+```
+
+Worst first-two and first-three target is again `10664`, with first-two
+`-1.1124437977839818` and first-three `-1.1500880008976306`.
+
+Status `finite-subcone-structure`: in cycle `0`, first-two sum below `-.4`
+is a perfect lower-tail selector but not a complete cover; first-two below
+`-.2` nearly covers the lower tail but admits many non-tail targets.  The
+next target is to test whether this magnitude subcone remains structured in
+later sparse-tail windows and whether complement rescue is automatic there.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

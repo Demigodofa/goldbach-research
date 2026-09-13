@@ -7869,6 +7869,102 @@ def q286_first_two_mode_sign_window_receipt(
     }
 
 
+def q286_first_two_mode_subcone_magnitude_window_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        first_two_negative_thresholds=(.2, .4, .6, .8, 1.0),
+        tail_threshold=.3, tolerance=1e-9):
+    """Measure magnitude cuts inside the q286 mode-1/mode-2 negative subcone.
+
+    The sign-window receipt showed that the both-negative quadrant is common.
+    This finite diagnostic asks whether increasingly negative sums of modes 1
+    and 2 better isolate the first-three lower tail.
+    """
+    first_two_negative_thresholds = tuple(first_two_negative_thresholds)
+    if (not first_two_negative_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in first_two_negative_thresholds)):
+        raise ValueError(
+            "first_two_negative_thresholds must be positive finite numbers")
+    if len(set(first_two_negative_thresholds)) != len(
+            first_two_negative_thresholds):
+        raise ValueError("first_two_negative_thresholds must be unique")
+
+    sign_receipt = q286_first_two_mode_sign_window_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        include_rows=True)
+    rows = sign_receipt["rows"]
+    threshold_rows = {}
+    for threshold in first_two_negative_thresholds:
+        threshold_targets = tuple(
+            target for target, row in rows.items()
+            if row["first_two_modes_to_principal_ratio"] < -threshold)
+        threshold_tail_targets = tuple(
+            target for target in threshold_targets
+            if rows[target]["first_three_to_principal_ratio"]
+            < -tail_threshold)
+        threshold_rows[threshold] = {
+            "target_count": len(threshold_targets),
+            "targets": threshold_targets,
+            "tail_target_count": len(threshold_tail_targets),
+            "tail_targets": threshold_tail_targets,
+            "tail_fraction_among_threshold_targets": (
+                len(threshold_tail_targets) / len(threshold_targets)
+                if threshold_targets else math.nan),
+            "threshold_targets_cover_all_tails": bool(
+                len(threshold_tail_targets)
+                == sign_receipt["first_three_tail_count"]),
+        }
+
+    both_negative_targets = sign_receipt["first_two_both_negative_targets"]
+    both_negative_tail_targets = tuple(
+        target for target in both_negative_targets
+        if rows[target]["first_three_to_principal_ratio"] < -tail_threshold)
+    most_negative_first_two_row = min(
+        rows.values(),
+        key=lambda row: row["first_two_modes_to_principal_ratio"])
+    most_negative_first_three_row = min(
+        rows.values(),
+        key=lambda row: row["first_three_to_principal_ratio"])
+
+    return {
+        "arithmetic_period": sign_receipt["arithmetic_period"],
+        "support": sign_receipt["support"],
+        "natural_modulus": sign_receipt["natural_modulus"],
+        "start": start,
+        "aligned_global_cycle_base": (
+            sign_receipt["aligned_global_cycle_base"]),
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "first_two_negative_thresholds": first_two_negative_thresholds,
+        "tested_target_count": sign_receipt["tested_target_count"],
+        "mode_1_2_sign_pair_counts": (
+            sign_receipt["mode_1_2_sign_pair_counts"]),
+        "first_three_tail_count": sign_receipt["first_three_tail_count"],
+        "first_three_tail_targets": sign_receipt[
+            "first_three_tail_targets"],
+        "first_two_both_negative_count": (
+            sign_receipt["first_two_both_negative_count"]),
+        "both_negative_tail_count": len(both_negative_tail_targets),
+        "both_negative_tail_targets": both_negative_tail_targets,
+        "both_negative_tail_fraction": (
+            len(both_negative_tail_targets)
+            / sign_receipt["first_three_tail_count"]
+            if sign_receipt["first_three_tail_count"] else math.nan),
+        "threshold_rows": threshold_rows,
+        "most_negative_first_two_row": most_negative_first_two_row,
+        "most_negative_first_three_row": most_negative_first_three_row,
+        "source_sign_window_receipt": sign_receipt,
+        "first_two_mode_subcone_magnitude_window_measured": True,
+        "eventual_mode_subcone_bound_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_full_negative_driver_receipt(
         start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
         top_count=8, tolerance=1e-9):
