@@ -18278,9 +18278,20 @@ of the lower-support package on the late `.2` subcone, or a reduction showing
 that this package positivity is itself the hard fixed-modulus binary-prime
 correlation theorem.
 
+New code `q286_subcone_lower_support_package_receipt` turns that mechanism
+into an executable receipt.  Focused regression
+`test_q286_subcone_lower_support_package` passed in `59.804s`.  On default
+selected targets, subcone targets are `10664,14138,1222142,1323632,1379072`;
+nonrescued subcone targets are exactly `10664,14138`, while
+`1222142,1323632,1379072` are rescued, lower-package-positive, and still
+rescued after removing q70.  This is finite evidence only, but it pins the
+next proof target to lower-support-package positivity on the late `.2`
+subcone or a hard-theorem reduction.
+
 Next instructions:
 
-1. Validate this checkpoint with `py_compile` and `git diff --check`.
+1. Validate this checkpoint with `py_compile`, the focused package test, and
+   `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
 3. Then pivot from threshold receipts to theorem obligation: either prove a
    pointwise arithmetic estimate for the `.2` first-two subcone, prove a

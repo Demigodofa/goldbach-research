@@ -158,6 +158,17 @@ of the lower-support package on the late `.2` subcone, or a reduction showing
 that package positivity is again a fixed-modulus binary-prime correlation
 theorem.
 
+`q286_subcone_lower_support_package_receipt` now makes that mechanism
+executable.  Focused test `test_q286_subcone_lower_support_package` passed in
+`59.804s`.  On default selected targets, subcone targets are
+`10664,14138,1222142,1323632,1379072`; the nonrescued subcone targets are the
+finite boundary examples `10664,14138`, while late targets
+`1222142,1323632,1379072` are all rescued, all lower-package-positive, and all
+remain rescued after removing q70.  The next theorem target is now exact:
+eventual lower-support-package positivity on the late `.2` subcone, or a
+reduction showing that positivity is a hard fixed-modulus binary-prime
+correlation theorem.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

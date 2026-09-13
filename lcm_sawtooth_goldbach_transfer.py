@@ -10567,6 +10567,10 @@ def q286_first_three_removed_support_envelope_receipt(
                 "cycle": cycle,
                 "full_action_to_principal_ratio": full_row[
                     "full_action_to_principal_ratio"],
+                "mode_1_to_principal_ratio": mode_ratios[0],
+                "mode_2_to_principal_ratio": mode_ratios[1],
+                "first_two_modes_to_principal_ratio": (
+                    mode_ratios[0] + mode_ratios[1]),
                 "first_three_modes_to_principal_ratio": first_three,
                 "full_without_first_three_to_principal_ratio": complement,
                 "support_reconstructed_without_first_three_to_principal_ratio": (
@@ -10632,6 +10636,144 @@ def q286_first_three_removed_support_envelope_receipt(
             row["support_reconstruction_error"] for row in rows.values()),
         "first_three_removed_support_envelope_measured": True,
         "eventual_complement_lower_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_subcone_lower_support_package_receipt(
+        targets=(10664, 14138, 24148, 1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Measure lower-support-package rescue on selected q286 subcone targets.
+
+    This finite diagnostic turns the current theorem mechanism into exact
+    rows: first-two subcone membership, post-first-three complement rescue,
+    the non-q286 lower-support package, and whether q70 is actually required
+    for the selected target to clear.  It proves no eventual theorem.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    envelope = q286_first_three_removed_support_envelope_receipt(
+        selected_targets=targets, tolerance=tolerance)
+    rows = {}
+    subcone_targets = []
+    rescued_subcone_targets = []
+    nonrescued_subcone_targets = []
+    lower_package_positive_subcone_targets = []
+    without_q70_rescued_subcone_targets = []
+    without_q70_nonrescued_subcone_targets = []
+    for target in targets:
+        envelope_row = envelope["rows"][target]
+        first_two = envelope_row["first_two_modes_to_principal_ratio"]
+        first_three = envelope_row["first_three_modes_to_principal_ratio"]
+        complement = envelope_row[
+            "full_without_first_three_to_principal_ratio"]
+        full = envelope_row["full_action_to_principal_ratio"]
+        without_q70 = envelope_row["without_q70_to_principal_ratio"]
+        without_q70_margin = first_three + without_q70
+        visible_lower_support_package = math.fsum((
+            envelope_row["q70_to_principal_ratio"],
+            envelope_row["q154_to_principal_ratio"],
+            envelope_row["small_support_to_principal_ratio"],
+        ))
+        q286_after_first_three = envelope_row[
+            "q286_after_first_three_to_principal_ratio"]
+        lower_package_with_q286_tail = (
+            visible_lower_support_package + q286_after_first_three)
+        subcone_member = bool(
+            first_two < -first_two_threshold
+            and first_three < -tail_threshold)
+        row = {
+            "target": target,
+            "first_two_modes_to_principal_ratio": first_two,
+            "first_three_modes_to_principal_ratio": first_three,
+            "full_without_first_three_to_principal_ratio": complement,
+            "full_action_to_principal_ratio": full,
+            "without_q70_to_principal_ratio": without_q70,
+            "without_q70_full_margin_to_principal_ratio": (
+                without_q70_margin),
+            "q286_after_first_three_to_principal_ratio": (
+                q286_after_first_three),
+            "q70_to_principal_ratio": (
+                envelope_row["q70_to_principal_ratio"]),
+            "q154_to_principal_ratio": (
+                envelope_row["q154_to_principal_ratio"]),
+            "small_support_to_principal_ratio": (
+                envelope_row["small_support_to_principal_ratio"]),
+            "visible_lower_support_package_to_principal_ratio": (
+                visible_lower_support_package),
+            "non_q286_support_sum_to_principal_ratio": envelope_row[
+                "non_q286_support_sum_to_principal_ratio"],
+            "lower_package_with_q286_tail_to_principal_ratio": (
+                lower_package_with_q286_tail),
+            "subcone_member": subcone_member,
+            "lower_support_package_positive": bool(
+                visible_lower_support_package > tolerance),
+            "rescued_by_full_complement": bool(full > tolerance),
+            "rescued_without_q70": bool(without_q70_margin > tolerance),
+            "dominant_positive_complement_term": envelope_row[
+                "dominant_positive_complement_term"],
+            "dominant_negative_complement_term": envelope_row[
+                "dominant_negative_complement_term"],
+        }
+        rows[target] = row
+        if subcone_member:
+            subcone_targets.append(target)
+            if row["rescued_by_full_complement"]:
+                rescued_subcone_targets.append(target)
+            else:
+                nonrescued_subcone_targets.append(target)
+            if row["lower_support_package_positive"]:
+                lower_package_positive_subcone_targets.append(target)
+            if row["rescued_without_q70"]:
+                without_q70_rescued_subcone_targets.append(target)
+            else:
+                without_q70_nonrescued_subcone_targets.append(target)
+
+    return {
+        "targets": targets,
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": len(targets),
+        "rows": rows,
+        "subcone_targets": tuple(subcone_targets),
+        "subcone_target_count": len(subcone_targets),
+        "rescued_subcone_targets": tuple(rescued_subcone_targets),
+        "nonrescued_subcone_targets": tuple(nonrescued_subcone_targets),
+        "lower_package_positive_subcone_targets": tuple(
+            lower_package_positive_subcone_targets),
+        "without_q70_rescued_subcone_targets": tuple(
+            without_q70_rescued_subcone_targets),
+        "without_q70_nonrescued_subcone_targets": tuple(
+            without_q70_nonrescued_subcone_targets),
+        "minimum_subcone_full_margin_target": (
+            min(subcone_targets,
+                key=lambda target: rows[target][
+                    "full_action_to_principal_ratio"])
+            if subcone_targets else None),
+        "minimum_subcone_without_q70_margin_target": (
+            min(subcone_targets,
+                key=lambda target: rows[target][
+                    "without_q70_full_margin_to_principal_ratio"])
+            if subcone_targets else None),
+        "minimum_subcone_lower_support_package_target": (
+            min(subcone_targets,
+                key=lambda target: rows[target][
+                    "visible_lower_support_package_to_principal_ratio"])
+            if subcone_targets else None),
+        "source_support_envelope_receipt": envelope,
+        "subcone_lower_support_package_measured": True,
+        "eventual_lower_support_package_positivity_proved": False,
+        "eventual_subcone_rescue_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }

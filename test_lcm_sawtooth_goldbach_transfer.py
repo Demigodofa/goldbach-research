@@ -48,6 +48,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_two_mode_lower_tail_receipt,
     q286_boundary_complement_support_split_receipt,
     q286_first_three_removed_support_envelope_receipt,
+    q286_subcone_lower_support_package_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1574,6 +1575,30 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_removed_support_envelope_measured"])
         self.assertFalse(receipt["eventual_complement_lower_bound_proved"])
+
+    def test_q286_subcone_lower_support_package(self):
+        receipt = q286_subcone_lower_support_package_receipt(
+            targets=(1222142,), first_two_threshold=.2,
+            tail_threshold=.3)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["subcone_targets"], (1222142,))
+        self.assertEqual(receipt["rescued_subcone_targets"], (1222142,))
+        self.assertEqual(
+            receipt["without_q70_rescued_subcone_targets"], (1222142,))
+        self.assertEqual(
+            receipt["lower_package_positive_subcone_targets"], (1222142,))
+        row = receipt["rows"][1222142]
+        self.assertLess(row["first_two_modes_to_principal_ratio"], -.2)
+        self.assertLess(row["first_three_modes_to_principal_ratio"], -.3)
+        self.assertGreater(
+            row["visible_lower_support_package_to_principal_ratio"], 0)
+        self.assertGreater(
+            row["without_q70_full_margin_to_principal_ratio"], 0)
+        self.assertGreater(row["full_action_to_principal_ratio"], 0)
+        self.assertTrue(receipt["subcone_lower_support_package_measured"])
+        self.assertFalse(receipt[
+            "eventual_lower_support_package_positivity_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):
         receipt = q286_first_three_removed_support_gram_receipt(

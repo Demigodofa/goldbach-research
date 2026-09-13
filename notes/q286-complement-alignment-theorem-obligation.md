@@ -785,6 +785,82 @@ late or infinite family in the `.2` subcone with negative lower-support
 package resembling `14138`, or a proof that positivity of that package is
 again a pointwise fixed-modulus binary-prime correlation theorem.
 
+## Lower-support package receipt
+
+Added `q286_subcone_lower_support_package_receipt`, which makes the preceding
+mechanism executable.  It augments
+`q286_first_three_removed_support_envelope_receipt` with first-two subcone
+membership, lower-support package sign, full rescue, and rescue after removing
+q70.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_subcone_lower_support_package ... ok
+Ran 1 test in 59.804s
+```
+
+Default selected receipt over
+`10664,14138,24148,1222142,1323632,1379072`:
+
+```text
+subcone targets: 10664, 14138, 1222142, 1323632, 1379072
+rescued subcone targets: 1222142, 1323632, 1379072
+nonrescued subcone targets: 10664, 14138
+lower-package-positive subcone targets: 1222142, 1323632, 1379072
+without-q70 rescued subcone targets: 1222142, 1323632, 1379072
+without-q70 nonrescued subcone targets: 10664, 14138
+minimum full margin target: 14138
+minimum without-q70 margin target: 14138
+minimum lower-support-package target: 14138
+```
+
+Selected rows:
+
+```text
+target 10664
+  first_two -1.1124437977839818
+  first_three -1.1500880008976306
+  full -0.21606200719963808
+  without_q70_margin -0.11889439229750165
+  lower_package -0.15579899159579966
+
+target 14138
+  first_two -0.8699032465481025
+  first_three -0.8950145872346784
+  full -0.8769412734408442
+  without_q70_margin -0.22393126660495577
+  lower_package -1.0148150611594449
+
+target 1222142
+  first_two -0.30883317956052847
+  first_three -0.30758776037088004
+  full 0.9457162662139126
+  without_q70_margin 0.8683545567679483
+  lower_package 0.23741432563942377
+
+target 1323632
+  first_two -0.31187798028846203
+  first_three -0.31527029112934163
+  full 1.0242192662363734
+  without_q70_margin 0.8785985921035915
+  lower_package 0.33358010057559306
+
+target 1379072
+  first_two -0.3341520684857402
+  first_three -0.3394138842129011
+  full 0.944998867177687
+  without_q70_margin 0.9016543622533446
+  lower_package 0.26985810065052745
+```
+
+Status `finite-mechanism-split`: the receipt cleanly separates boundary
+subcone failures from late rescued subcone examples.  It does not prove that
+the late pattern persists, but it makes the next theorem target exact:
+eventual lower-support-package positivity or a proof that such positivity is
+equivalent to pointwise fixed-modulus binary-prime correlation control.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
