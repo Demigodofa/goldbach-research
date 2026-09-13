@@ -11616,6 +11616,168 @@ def q286_lower_support_component_pair_coefficient_geometry_receipt(
     }
 
 
+def q286_lower_support_component_pair_cone_projection_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Project actual prime-pair discrepancy onto the component-pair span."""
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets, targets_per_cycle=len(targets),
+        tolerance=tolerance, include_residue_weights=True)
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    for support in component_pair:
+        if support not in component_values:
+            raise ValueError("component_pair support is unavailable")
+
+    rows = {}
+    both_negative_targets = []
+    projection_norm_rows = []
+    for target in targets:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        discrepancy = np.zeros(len(units), dtype=np.float64)
+        discrepancy[admissible_mask] = (
+            weights[admissible_mask] - uniform_weight)
+        discrepancy_norm = float(np.linalg.norm(discrepancy))
+
+        coefficient_vectors = []
+        coefficient_norms = []
+        actions = []
+        action_cosines = []
+        for support in component_pair:
+            values = component_values[support]
+            local_mean = float(np.mean(values[admissible_mask].real))
+            coefficient = np.zeros(len(units), dtype=np.float64)
+            coefficient[admissible_mask] = (
+                values[admissible_mask].real - local_mean)
+            coefficient_vectors.append(coefficient)
+            coefficient_norm = float(np.linalg.norm(coefficient))
+            coefficient_norms.append(coefficient_norm)
+            raw_action = float(np.dot(coefficient, discrepancy))
+            actions.append(raw_action / (principal_mean * total_weight))
+            denominator = coefficient_norm * discrepancy_norm
+            action_cosines.append(
+                raw_action / denominator if denominator > tolerance else 0.0)
+
+        gram = np.asarray((
+            (float(np.dot(coefficient_vectors[0], coefficient_vectors[0])),
+             float(np.dot(coefficient_vectors[0], coefficient_vectors[1]))),
+            (float(np.dot(coefficient_vectors[1], coefficient_vectors[0])),
+             float(np.dot(coefficient_vectors[1], coefficient_vectors[1]))),
+        ), dtype=np.float64)
+        raw_actions = np.asarray(tuple(
+            action * principal_mean * total_weight
+            for action in actions), dtype=np.float64)
+        projection_coordinates = np.linalg.solve(gram, raw_actions)
+        projection = (
+            projection_coordinates[0] * coefficient_vectors[0]
+            + projection_coordinates[1] * coefficient_vectors[1])
+        projection_norm = float(np.linalg.norm(projection))
+        orthogonal_residual = discrepancy - projection
+        orthogonal_residual_norm = float(np.linalg.norm(orthogonal_residual))
+        projection_fraction = (
+            projection_norm / discrepancy_norm
+            if discrepancy_norm > tolerance else 0.0)
+        orthogonal_fraction = (
+            orthogonal_residual_norm / discrepancy_norm
+            if discrepancy_norm > tolerance else 0.0)
+        both_negative = all(action < -tolerance for action in actions)
+        if both_negative:
+            both_negative_targets.append(target)
+        row = {
+            "target": target,
+            "target_residue": target % period,
+            "admissible_count": admissible_count,
+            "first_two_modes_to_principal_ratio": source_row[
+                "first_two_modes_to_principal_ratio"],
+            "first_three_to_principal_ratio": source_row[
+                "first_three_modes_to_principal_ratio"],
+            "full_action_to_principal_ratio": source_row[
+                "full_action_to_principal_ratio"],
+            "weight_l2_relative_discrepancy": (
+                discrepancy_norm / total_weight),
+            "component_pair": component_pair,
+            "component_actions_to_principal_ratio": {
+                component_pair[0]: actions[0],
+                component_pair[1]: actions[1],
+            },
+            "component_action_cosines": {
+                component_pair[0]: action_cosines[0],
+                component_pair[1]: action_cosines[1],
+            },
+            "component_norms_to_principal_mean": {
+                component_pair[0]: coefficient_norms[0] / principal_mean,
+                component_pair[1]: coefficient_norms[1] / principal_mean,
+            },
+            "pair_coefficient_cosine": (
+                gram[0, 1] / (coefficient_norms[0] * coefficient_norms[1])),
+            "span_projection_coordinates": {
+                component_pair[0]: float(projection_coordinates[0]),
+                component_pair[1]: float(projection_coordinates[1]),
+            },
+            "span_projection_l2_relative_to_total_weight": (
+                projection_norm / total_weight),
+            "orthogonal_residual_l2_relative_to_total_weight": (
+                orthogonal_residual_norm / total_weight),
+            "span_projection_fraction_of_discrepancy_l2": projection_fraction,
+            "orthogonal_fraction_of_discrepancy_l2": orthogonal_fraction,
+            "both_pair_components_centered_negative": both_negative,
+            "source_lower_tail_row": source_row,
+        }
+        rows[target] = row
+        projection_norm_rows.append(row)
+
+    return {
+        "arithmetic_period": period,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pair": component_pair,
+        "rows": rows,
+        "both_pair_components_centered_negative_count": (
+            len(both_negative_targets)),
+        "both_pair_components_centered_negative_targets": tuple(
+            both_negative_targets),
+        "maximum_span_projection_fraction_row": max(
+            projection_norm_rows,
+            key=lambda row: row[
+                "span_projection_fraction_of_discrepancy_l2"]),
+        "minimum_span_projection_fraction_row": min(
+            projection_norm_rows,
+            key=lambda row: row[
+                "span_projection_fraction_of_discrepancy_l2"]),
+        "source_lower_tail_receipt": lower_tail,
+        "component_pair_cone_projection_measured": True,
+        "component_pair_cone_avoidance_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

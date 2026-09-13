@@ -18709,6 +18709,57 @@ signed lower bound for the component-pair sum, or a fixed-modulus pointwise
 Goldbach-in-progressions estimate.  More threshold receipts are circular
 unless they test one of those mechanisms.
 
+### 2026-09-13 continuation: component-pair cone projection receipt
+
+New receipt:
+
+- `q286_lower_support_component_pair_cone_projection_receipt`
+
+It projects the actual strict-central prime-pair discrepancy vector onto the
+two-dimensional span of the `(5,7)` and `(7,11)` centered coefficient vectors.
+Focused regression
+`test_q286_lower_support_component_pair_cone_projection` passed in `88.970s`.
+
+Compact selected-target output:
+
+```text
+tested 4
+both_negative (14138,)
+max_projection 14138 0.08397880199809928
+min_projection 1222142 0.01129983025146733
+
+14138:
+  weight_l2_rel 0.11251754817108045
+  actions {(5,7): -0.7331790639459977, (7,11): -0.41936420368103794}
+  projection_fraction 0.08397880199809928
+  orthogonal_fraction 0.9964675412751607
+
+1222142:
+  weight_l2_rel 0.016376641721585147
+  actions {(5,7): -0.0010834080557930044, (7,11): 0.014826359763802442}
+  projection_fraction 0.01129983025146733
+  orthogonal_fraction 0.9999361548800446
+
+1323632:
+  weight_l2_rel 0.01572226822549456
+  actions {(5,7): 0.06545161702266966, (7,11): 0.022043464205542592}
+  projection_fraction 0.04807076284797583
+  orthogonal_fraction 0.9988439326337293
+
+1379072:
+  weight_l2_rel 0.015831861533604066
+  actions {(5,7): -0.036824552185769695, (7,11): 0.08354880369092735}
+  projection_fraction 0.0703199163405805
+  orthogonal_fraction 0.997524490609556
+```
+
+Status: theorem-sharpening, not proof.  The dangerous component-pair action
+depends on a small signed projection of the actual discrepancy vector; almost
+all measured discrepancy L2 is orthogonal to that span.  The next proof target
+is signed cone avoidance for this projection after finite boundary exceptions,
+or a precise reduction to fixed-modulus pointwise binary Goldbach in
+progressions.  Goldbach remains open.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

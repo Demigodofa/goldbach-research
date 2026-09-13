@@ -36,6 +36,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_tail_window_receipt`
 - `_q286_lower_support_component_rows_for_targets`
 - `q286_lower_support_component_pair_coefficient_geometry_receipt`
+- `q286_lower_support_component_pair_cone_projection_receipt`
 
 ## Closed or falsified lanes
 
@@ -86,6 +87,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   coefficient-geometry receipt gives cosine range
   `-0.0381940494499906 .. 0.0419660251672338`.  This rules out a pure
   coefficient-geometry explanation for the late no-both-negative pattern.
+- The actual discrepancy-vector projection onto the two dangerous component
+  directions is small in the checked selected targets: the bad boundary target
+  `14138` has only `0.083979` of discrepancy L2 in the span, and the late
+  targets have `0.011300..0.070320`.
 
 ## Current boundary examples
 
@@ -141,6 +146,10 @@ current comparison set.
    its focused regression passed in `32.897s`.  The remaining proof must use
    actual binary prime-pair discrepancy arithmetic or record that obligation
    as fixed-modulus pointwise Goldbach-in-progressions input.
+11. The cone-projection receipt shows the dangerous two-dimensional component
+   span captures only a small fraction of measured discrepancy L2.  The next
+   non-circular theorem target is therefore signed cone avoidance for that
+   small projection, not a global discrepancy-size bound.
 
 ## Still open
 

@@ -175,6 +175,58 @@ because the actual prime-pair discrepancy vector has small relative L2 size
 and favorable signed alignment, not because the fixed coefficient geometry
 itself forbids the bad cone.
 
+## Cone-projection receipt
+
+`q286_lower_support_component_pair_cone_projection_receipt` now projects the
+actual strict-central prime-pair discrepancy vector `d_N` onto the
+two-dimensional span of the `(5,7)` and `(7,11)` centered coefficient vectors.
+Focused regression `test_q286_lower_support_component_pair_cone_projection`
+passed in `88.970s`.
+
+Default selected-target output:
+
+```text
+tested 4
+both_negative (14138,)
+maximum span projection fraction: target 14138, 0.08397880199809928
+minimum span projection fraction: target 1222142, 0.01129983025146733
+```
+
+Rows:
+
+```text
+target 14138
+  weight_l2_rel 0.11251754817108045
+  actions (5,7) -0.7331790639459977, (7,11) -0.41936420368103794
+  projection_fraction 0.08397880199809928
+  orthogonal_fraction 0.9964675412751607
+
+target 1222142
+  weight_l2_rel 0.016376641721585147
+  actions (5,7) -0.0010834080557930044, (7,11) 0.014826359763802442
+  projection_fraction 0.01129983025146733
+  orthogonal_fraction 0.9999361548800446
+
+target 1323632
+  weight_l2_rel 0.01572226822549456
+  actions (5,7) 0.06545161702266966, (7,11) 0.022043464205542592
+  projection_fraction 0.04807076284797583
+  orthogonal_fraction 0.9988439326337293
+
+target 1379072
+  weight_l2_rel 0.015831861533604066
+  actions (5,7) -0.036824552185769695, (7,11) 0.08354880369092735
+  projection_fraction 0.0703199163405805
+  orthogonal_fraction 0.997524490609556
+```
+
+Interpretation: the active obstruction is not the full discrepancy vector.
+Almost all measured discrepancy L2 is orthogonal to the two dangerous
+component directions.  The theorem target is a very small signed projection:
+prevent the actual prime-pair discrepancy vector from entering a narrow
+negative cone in the two-dimensional component-pair span after finite boundary
+exceptions.
+
 ## Finite-vector obstruction
 
 The simultaneous-negativity exclusion cannot be proved from support,
@@ -211,7 +263,9 @@ not ( <c_57,N,d_N>/P(N) < -eta_57(N)
 ```
 
 on the active `.2`/`.3` subcone, with thresholds strong enough to preserve the
-lower-support rescue inequality.
+lower-support rescue inequality.  The projection receipt sharpens this as a
+two-dimensional cone-avoidance statement for a small projection of `d_N`, not
+as a bound for the full residue discrepancy vector.
 
 2. A sharper signed estimate proving that at least one component-pair action
 is nonnegative, or that their sum is bounded below:

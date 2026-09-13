@@ -55,6 +55,7 @@ from lcm_sawtooth_goldbach_transfer import (
     _q286_lower_support_component_data,
     q286_lower_support_component_pair_tail_window_receipt,
     q286_lower_support_component_pair_coefficient_geometry_receipt,
+    q286_lower_support_component_pair_cone_projection_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1762,6 +1763,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "component_pair_coefficient_geometry_measured"])
         self.assertFalse(receipt[
             "pure_coefficient_geometry_exclusion_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_cone_projection(self):
+        receipt = q286_lower_support_component_pair_cone_projection_receipt()
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertEqual(
+            receipt["both_pair_components_centered_negative_targets"],
+            (14138,))
+        boundary = receipt["rows"][14138]
+        self.assertTrue(boundary[
+            "both_pair_components_centered_negative"])
+        self.assertLess(boundary[
+            "component_actions_to_principal_ratio"][(5, 7)], 0)
+        self.assertLess(boundary[
+            "component_actions_to_principal_ratio"][(7, 11)], 0)
+        self.assertGreater(
+            boundary["weight_l2_relative_discrepancy"], .1)
+        late = receipt["rows"][1379072]
+        self.assertFalse(late[
+            "both_pair_components_centered_negative"])
+        self.assertLess(late[
+            "component_actions_to_principal_ratio"][(5, 7)], 0)
+        self.assertGreater(late[
+            "component_actions_to_principal_ratio"][(7, 11)], 0)
+        self.assertLess(
+            late["weight_l2_relative_discrepancy"], .02)
+        self.assertGreaterEqual(
+            receipt["maximum_span_projection_fraction_row"][
+                "span_projection_fraction_of_discrepancy_l2"],
+            receipt["minimum_span_projection_fraction_row"][
+                "span_projection_fraction_of_discrepancy_l2"])
+        self.assertTrue(receipt[
+            "component_pair_cone_projection_measured"])
+        self.assertFalse(receipt[
+            "component_pair_cone_avoidance_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

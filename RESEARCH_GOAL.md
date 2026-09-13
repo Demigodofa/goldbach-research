@@ -10170,3 +10170,31 @@ vector on the active `.2`/`.3` subcone, a signed lower bound for the pair sum,
 or a fixed-modulus pointwise Goldbach-in-progressions estimate strong enough
 to make all fixed centered component actions `o(P(N))`.  Goldbach remains
 open.
+
+### 2026-09-13 continuation: component-pair cone projection
+
+New receipt `q286_lower_support_component_pair_cone_projection_receipt`
+projects the actual strict-central prime-pair discrepancy vector onto the
+two-dimensional span of the `(5,7)` and `(7,11)` centered coefficient vectors.
+Focused regression `test_q286_lower_support_component_pair_cone_projection`
+passed in `88.970s`.
+
+Default selected-target output confirms that the finite boundary target
+`14138` is the only both-negative case among
+`14138,1222142,1323632,1379072`:
+
+```text
+both_negative (14138,)
+14138 projection_fraction 0.08397880199809928
+1222142 projection_fraction 0.01129983025146733
+1323632 projection_fraction 0.04807076284797583
+1379072 projection_fraction 0.0703199163405805
+```
+
+Status `theorem-sharpening`: almost all measured discrepancy L2 is orthogonal
+to the dangerous two-component span, even at the boundary witness.  The
+non-circular theorem target is now narrower than global equidistribution:
+prove signed cone avoidance for the small projection of the actual prime-pair
+discrepancy vector onto the `(5,7)/(7,11)` span after finite boundary
+exceptions.  This is still a pointwise binary-prime correlation problem, not a
+Goldbach proof.

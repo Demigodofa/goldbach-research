@@ -248,6 +248,14 @@
       "status_boundary": "fixed-coefficient finite geometry only; no prime-pair discrepancy theorem or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_cone_projection",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_cone_projection_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_cone_projection passed in 88.970s; selected targets have both_negative (14138,) and span projection fractions 0.011300..0.083979",
+      "status_boundary": "selected finite projection diagnostic only; no cone-avoidance theorem or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -359,6 +367,11 @@
       "from": "receipt.component_pair_coefficient_geometry",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "supports"
+    },
+    {
+      "from": "receipt.component_pair_cone_projection",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "structure.active_subcone",
