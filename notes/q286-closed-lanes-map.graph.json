@@ -295,6 +295,14 @@
       "status_boundary": "finite conjugacy reduction only; no pointwise real-channel estimate or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_real_channel_action",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_real_channel_action_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_real_channel_action passed in 70.128s; selected targets reconstruct pair-sum actions from 16 real channels with maximum error about 1.13e-15",
+      "status_boundary": "selected finite action decomposition only; no pointwise real-channel estimate or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -439,6 +447,16 @@
     },
     {
       "from": "receipt.component_pair_real_channel",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_action",
+      "to": "receipt.component_pair_real_channel",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_action",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

@@ -10267,6 +10267,15 @@ not arbitrary residue occupancy.  This is narrower than full fixed-modulus
 Goldbach-in-progressions but remains a pointwise binary-prime correlation
 theorem.  Goldbach remains open.
 
+New receipt `q286_lower_support_component_pair_real_channel_action_receipt`
+evaluates those `16` formulas on selected actual strict-central prime-pair
+weights.  Focused regression
+`test_q286_lower_support_component_pair_real_channel_action` passed in
+`70.128s`.  It reconstructs the selected pair sums with maximum error
+`1.1310397063368782e-15`: `14138` has real-channel pair sum
+`-1.152543267627036`, while `1379072` has `0.046724251505156425`.
+This is exact finite decomposition evidence, not a pointwise theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

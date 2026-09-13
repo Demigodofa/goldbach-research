@@ -60,6 +60,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt,
     q286_lower_support_component_pair_character_mixture_receipt,
     q286_lower_support_component_pair_real_channel_receipt,
+    q286_lower_support_component_pair_real_channel_action_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1962,6 +1963,43 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             len(receipt["union_conjugacy_orbit_rows"]), 16)
         self.assertTrue(receipt[
             "complex_to_real_channel_reduction_measured"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_real_channel_action(self):
+        receipt = q286_lower_support_component_pair_real_channel_action_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 2)
+        self.assertEqual(receipt["active_union_real_channel_count"], 16)
+        self.assertAlmostEqual(
+            receipt["pair_sum_real_channel_l1_to_principal_mean"],
+            15.262957606760951)
+        self.assertLess(
+            receipt["maximum_real_channel_reconstruction_error"], 1e-12)
+        boundary = receipt["rows"][14138]
+        self.assertTrue(boundary[
+            "both_pair_components_centered_negative"])
+        self.assertAlmostEqual(
+            boundary["real_channel_pair_sum_action_to_principal_ratio"],
+            boundary["direct_pair_sum_action_to_principal_ratio"])
+        self.assertLess(
+            boundary["direct_pair_sum_action_to_principal_ratio"], -1)
+        self.assertEqual(len(boundary["real_channel_rows"]), 16)
+        self.assertLess(
+            boundary["most_negative_real_channel_row"][
+                "contribution_to_principal_ratio"], 0)
+        late = receipt["rows"][1379072]
+        self.assertFalse(late[
+            "both_pair_components_centered_negative"])
+        self.assertAlmostEqual(
+            late["real_channel_pair_sum_action_to_principal_ratio"],
+            0.046724251505157584)
+        self.assertEqual(
+            late["most_positive_real_channel_row"]["real_formula"],
+            "2*Re(c*S_chi)")
+        self.assertTrue(receipt[
+            "real_channel_action_decomposition_measured"])
         self.assertFalse(receipt[
             "pointwise_real_channel_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])

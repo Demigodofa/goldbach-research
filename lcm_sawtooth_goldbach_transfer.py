@@ -12342,6 +12342,131 @@ def q286_lower_support_component_pair_real_channel_receipt(
     }
 
 
+def q286_lower_support_component_pair_real_channel_action_receipt(
+        targets=(14138, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Decompose selected actual actions into the real character channels."""
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    channel_receipt = q286_lower_support_component_pair_real_channel_receipt(
+        component_pair=component_pair, tolerance=tolerance)
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets, targets_per_cycle=len(targets),
+        tolerance=tolerance, include_residue_weights=True)
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    _, _, character_table = _unit_character_table(period, units)
+    union_channels = channel_receipt["union_conjugacy_orbit_rows"]
+
+    rows = {}
+    maximum_real_channel_reconstruction_error = 0.0
+    for target in targets:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - uniform_weight
+        character_imbalance = character_table @ delta
+        principal = principal_mean * total_weight
+
+        channel_rows = []
+        channel_sum = 0.0
+        for channel in union_channels:
+            representative = channel["representative_index"]
+            coefficient = complex(channel["representative_coefficient"])
+            imbalance = complex(character_imbalance[representative])
+            numerator = (
+                channel["real_formula_multiplier"]
+                * (coefficient * imbalance).real)
+            contribution = float(numerator / principal)
+            channel_sum += contribution
+            channel_rows.append({
+                "labels": channel["labels"],
+                "representative_label": channel["representative_label"],
+                "real_formula": channel["real_formula"],
+                "representative_coefficient": coefficient,
+                "representative_character_sum": imbalance,
+                "contribution_to_principal_ratio": contribution,
+            })
+
+        component_actions = {}
+        for support in component_pair:
+            component_actions[support] = float(
+                np.dot(component_values[support].real, delta) / principal)
+        direct_pair_sum = float(math.fsum(component_actions.values()))
+        reconstruction_error = abs(channel_sum - direct_pair_sum)
+        maximum_real_channel_reconstruction_error = max(
+            maximum_real_channel_reconstruction_error, reconstruction_error)
+        rows[target] = {
+            "target": target,
+            "target_residue": target % period,
+            "admissible_count": admissible_count,
+            "first_two_modes_to_principal_ratio": source_row[
+                "first_two_modes_to_principal_ratio"],
+            "first_three_to_principal_ratio": source_row[
+                "first_three_modes_to_principal_ratio"],
+            "full_action_to_principal_ratio": source_row[
+                "full_action_to_principal_ratio"],
+            "component_actions_to_principal_ratio": component_actions,
+            "direct_pair_sum_action_to_principal_ratio": direct_pair_sum,
+            "real_channel_pair_sum_action_to_principal_ratio": channel_sum,
+            "real_channel_reconstruction_error": reconstruction_error,
+            "real_channel_rows": tuple(channel_rows),
+            "most_negative_real_channel_row": min(
+                channel_rows,
+                key=lambda row: row[
+                    "contribution_to_principal_ratio"]),
+            "most_positive_real_channel_row": max(
+                channel_rows,
+                key=lambda row: row[
+                    "contribution_to_principal_ratio"]),
+            "both_pair_components_centered_negative": all(
+                value < -tolerance for value in component_actions.values()),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pair": component_pair,
+        "active_union_real_channel_count": (
+            channel_receipt["active_union_real_channel_count"]),
+        "pair_sum_real_channel_l1_to_principal_mean": (
+            channel_receipt[
+                "pair_sum_real_channel_l1_to_principal_mean"]),
+        "rows": rows,
+        "maximum_real_channel_reconstruction_error": (
+            maximum_real_channel_reconstruction_error),
+        "source_real_channel_receipt": channel_receipt,
+        "real_channel_action_decomposition_measured": True,
+        "pointwise_real_channel_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -18853,6 +18853,18 @@ conjugacy formulas inside these two adjacent character-label blocks modulo
 narrower than proving full residue-by-residue prime-pair occupancy, but it
 remains hard arithmetic input and no Goldbach theorem is proved.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_real_channel_action_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_real_channel_action` passed in
+`70.128s`.  It evaluates the `16` real formulas on selected actual
+strict-central prime-pair weights and reconstructs pair sums with maximum
+error `1.1310397063368782e-15`: `14138` gives `-1.152543267627036`, and
+`1379072` gives `0.046724251505156425`.  This is finite decomposition
+evidence only, not a pointwise real-channel estimate.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
