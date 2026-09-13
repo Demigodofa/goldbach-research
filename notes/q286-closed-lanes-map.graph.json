@@ -451,6 +451,14 @@
       "status_boundary": "selected phase-bin compression profile only; no uniform phase-bin compression theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_compression",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression passed in 218.344s; antipodal phase-bin pairing clears both residual conductor-77 rows, including hard label (0,2,6,0) with L1 0.03657040255445905 below channel bound 0.05885324711081062",
+      "status_boundary": "selected antipodal phase-sector profile only; no uniform antipodal phase-cancellation theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -782,6 +790,16 @@
       "from": "receipt.component_pair_fixed_conductor_phase_bin_compression",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "near_miss"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_compression",
+      "to": "receipt.component_pair_fixed_conductor_phase_bin_compression",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_compression",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

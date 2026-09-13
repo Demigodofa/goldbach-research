@@ -14242,6 +14242,107 @@ def q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_rece
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        tolerance=1e-9):
+    """Pair opposite phase bins to test antipodal sector cancellation."""
+    if phase_bin_count % 2:
+        raise ValueError("phase_bin_count must be even for antipodal pairing")
+    phase_compression = (
+        q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, tolerance=tolerance))
+    channel_bound = phase_compression["normalized_real_channel_linf_bound"]
+    half_bin_count = phase_bin_count // 2
+
+    rows = []
+    for source_row in phase_compression["rows"]:
+        phase_bins = source_row["source_phase_profile_row"][
+            "phase_bin_rows"]
+        antipodal_rows = []
+        for index in range(half_bin_count):
+            vector_a = complex(phase_bins[index]["signed_vector"])
+            vector_b = complex(
+                phase_bins[index + half_bin_count]["signed_vector"])
+            pair_vector = vector_a + vector_b
+            antipodal_rows.append({
+                "bin_index": index,
+                "opposite_bin_index": index + half_bin_count,
+                "signed_vector": pair_vector,
+                "signed_vector_abs": abs(pair_vector),
+                "source_bin_abs": abs(vector_a),
+                "opposite_source_bin_abs": abs(vector_b),
+            })
+        antipodal_l1 = float(math.fsum(
+            row["signed_vector_abs"] for row in antipodal_rows))
+        phase_signed_l1 = source_row["phase_bin_signed_l1"]
+        resultant_abs = source_row["resultant_abs"]
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "antipodal_pair_count": half_bin_count,
+            "phase_bin_signed_l1": phase_signed_l1,
+            "antipodal_phase_pair_l1": antipodal_l1,
+            "antipodal_compression_gain_from_phase_bin_signed_l1": (
+                phase_signed_l1 - antipodal_l1),
+            "antipodal_phase_pair_margin_to_channel_bound": (
+                channel_bound - antipodal_l1),
+            "resultant_abs": resultant_abs,
+            "resultant_margin_to_channel_bound": (
+                channel_bound - resultant_abs),
+            "resultant_to_antipodal_phase_pair_l1_ratio": (
+                resultant_abs / antipodal_l1 if antipodal_l1 else 0.0),
+            "largest_antipodal_pair_abs": max(
+                row["signed_vector_abs"] for row in antipodal_rows),
+            "antipodal_phase_bound_clears_channel_bound": (
+                antipodal_l1 <= channel_bound + tolerance),
+            "antipodal_pair_rows": tuple(antipodal_rows),
+            "source_phase_bin_compression_row": source_row,
+        })
+
+    passing_rows = tuple(
+        row for row in rows
+        if row["antipodal_phase_bound_clears_channel_bound"])
+    failing_rows = tuple(
+        row for row in rows
+        if not row["antipodal_phase_bound_clears_channel_bound"])
+
+    return {
+        "arithmetic_period": phase_compression["arithmetic_period"],
+        "targets": phase_compression["targets"],
+        "tested_target_count": phase_compression["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": (
+            phase_compression["active_channel_conductors"]),
+        "normalized_real_channel_linf_bound": channel_bound,
+        "phase_bin_count": phase_bin_count,
+        "antipodal_pair_count": half_bin_count,
+        "rows": tuple(rows),
+        "passing_polygon_labels_by_antipodal_phase_bound": tuple(
+            row["representative_label"] for row in passing_rows),
+        "failing_polygon_labels_by_antipodal_phase_bound": tuple(
+            row["representative_label"] for row in failing_rows),
+        "all_residual_polygons_clear_by_antipodal_phase_bound": (
+            len(failing_rows) == 0),
+        "worst_antipodal_phase_pair_margin_row": min(
+            rows,
+            key=lambda row: row[
+                "antipodal_phase_pair_margin_to_channel_bound"]),
+        "source_phase_bin_compression_receipt": phase_compression,
+        "fixed_conductor_phase_antipodal_compression_measured": True,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

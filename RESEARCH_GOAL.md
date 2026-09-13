@@ -10497,6 +10497,16 @@ engine by itself; the remaining narrow theorem target is inter-bin signed
 cancellation or a sharper phase-balance estimate for the single hard
 conductor-`77` row.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
+pairs opposite phase bins in the same residual polygons.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression`
+passed in `218.344s`.  Antipodal pairing clears both residual rows:
+label `(0,1,5,0)` has antipodal-pair L1 `0.009229827584054894`, margin
+`0.049623419526755724`; the hard label `(0,2,6,0)` has antipodal-pair L1
+`0.03657040255445905`, margin `0.022282844556351572`.  The live visual
+theorem target is therefore not arbitrary phase-bin compression but antipodal
+phase-sector cancellation for the conductor-`77` residual orbit polygons.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

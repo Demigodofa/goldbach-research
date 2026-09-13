@@ -19129,6 +19129,21 @@ shortcut as a full proof engine while preserving a sharper visual theorem
 target: prove the remaining inter-bin signed cancellation or strengthen the
 phase-balance estimate for that single hard row.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression`
+passed in `218.344s`.  Pairing opposite phase bins clears both residual
+conductor-`77` polygons.  Label `(0,1,5,0)` has antipodal-pair L1
+`0.009229827584054894`, margin `0.049623419526755724`; label `(0,2,6,0)` has
+antipodal-pair L1 `0.03657040255445905`, margin
+`0.022282844556351572`.  This is the current sharpest visual/geometric
+statement: the remaining channel-side theorem should prove antipodal
+phase-sector cancellation for the conductor-`77` residual orbit polygons, or
+replace it with a stronger sourced fixed-conductor binary-prime estimate.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

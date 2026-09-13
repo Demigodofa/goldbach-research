@@ -1057,6 +1057,34 @@ because it clears one of the two residual rows and leaves a single hard row
 where inter-bin signed cancellation, not merely orbit-level reflection pairing,
 must be proved or replaced.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
+pairs opposite phase bins.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression`
+passed in `218.344s`.
+
+```text
+channel bound: 0.05885324711081062
+
+1379072, label (0,1,5,0):
+  antipodal phase-pair L1 0.009229827584054894
+  margin to channel bound 0.049623419526755724
+  resultant 0.0053525925011552716
+  antipodal phase bound clears
+
+1379072, label (0,2,6,0):
+  antipodal phase-pair L1 0.03657040255445905
+  margin to channel bound 0.022282844556351572
+  resultant 0.01746105205795644
+  antipodal phase bound clears
+```
+
+This revives the geometric route in a narrower form.  The hard row is not
+explained by arbitrary phase-bin compression, but it is explained on the
+selected fixture by antipodal phase-sector cancellation.  The surviving theorem
+target is now explicit: prove that the conductor-`77` residual orbit polygons
+have enough opposite-sector pairing, or replace that statement with a sourced
+pointwise fixed-conductor binary-prime estimate.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

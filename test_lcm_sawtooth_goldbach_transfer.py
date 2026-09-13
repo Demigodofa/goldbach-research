@@ -79,6 +79,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt,
     q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2716,6 +2717,55 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             -0.001296756190866699)
         self.assertTrue(receipt[
             "fixed_conductor_phase_bin_compression_measured"])
+        self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["antipodal_pair_count"], 6)
+        self.assertEqual(
+            tuple(row["representative_label"] for row in receipt["rows"]),
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["passing_polygon_labels_by_antipodal_phase_bound"],
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["failing_polygon_labels_by_antipodal_phase_bound"],
+            ())
+        self.assertTrue(
+            receipt["all_residual_polygons_clear_by_antipodal_phase_bound"])
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)]["antipodal_phase_pair_l1"],
+            0.009229827584054894)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "antipodal_phase_pair_margin_to_channel_bound"],
+            0.049623419526755724)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)]["antipodal_phase_pair_l1"],
+            0.03657040255445905)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "antipodal_phase_pair_margin_to_channel_bound"],
+            0.022282844556351572)
+        worst = receipt["worst_antipodal_phase_pair_margin_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_antipodal_compression_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_compression_theorem_proved"])
         self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
         self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
         self.assertFalse(receipt["orbit_polygon_theorem_proved"])

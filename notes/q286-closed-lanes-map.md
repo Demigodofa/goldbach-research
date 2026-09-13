@@ -49,6 +49,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
 
 ## Closed or falsified lanes
 
@@ -311,6 +312,12 @@ current comparison set.
    `0.001296756190866699`.  Thus phase-bin compression alone is not the final
    channel theorem; the remaining hard row needs inter-bin signed cancellation
    or a sharper phase-balance estimate.
+36. The phase-antipodal compression regression passed in `218.344s`.  Pairing
+   opposite phase bins clears both residual conductor-`77` rows: label
+   `(0,1,5,0)` has antipodal-pair L1 `0.009229827584054894`, and the hard
+   label `(0,2,6,0)` has antipodal-pair L1 `0.03657040255445905`, below the
+   channel bound `0.05885324711081062`.  The geometric theorem target is now
+   antipodal phase-sector cancellation, not undirected phase-bin mass balance.
 
 ## Still open
 
