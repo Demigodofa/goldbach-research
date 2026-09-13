@@ -11160,6 +11160,51 @@ def q286_selected_first_three_alignment_receipt(
     if not math.isfinite(tolerance) or tolerance < 0:
         raise ValueError("tolerance must be finite and nonnegative")
 
+    maximum_target = max(targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+    unit_count = len(data["units"])
+
+    coefficient_rows = {}
+    for target_residue in range(modulus):
+        admissible_mask = admissible_masks[target_residue]
+        if admissible_counts[target_residue] == 0:
+            coefficient_rows[target_residue] = {
+                "admissible_count": 0,
+                "centered_coefficient_l1": 0.0,
+                "centered_coefficient_l2": 0.0,
+                "linf_sufficient_relative_delta": math.inf,
+                "l2_sufficient_relative_delta": math.inf,
+            }
+            continue
+        centered_coefficients = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        centered_l1 = float(np.sum(np.abs(centered_coefficients)))
+        centered_l2 = float(np.linalg.norm(centered_coefficients))
+        coefficient_rows[target_residue] = {
+            "admissible_count": admissible_counts[target_residue],
+            "centered_coefficient_l1": centered_l1,
+            "centered_coefficient_l2": centered_l2,
+            "linf_sufficient_relative_delta": (
+                theorem_threshold * principal_mean / centered_l1
+                if centered_l1 > tolerance else math.inf),
+            "l2_sufficient_relative_delta": (
+                theorem_threshold * principal_mean / centered_l2
+                if centered_l2 > tolerance else math.inf),
+        }
+
     target_rows = {}
     tail_targets = []
     negative_targets = []
@@ -11167,11 +11212,80 @@ def q286_selected_first_three_alignment_receipt(
     maximum_negative_alignment_row = None
     maximum_l2_ratio_row = None
     for target in targets:
-        receipt = q286_first_three_weighted_discrepancy_norm_receipt(
-            start=target, cycle_count=1, targets_per_cycle=1,
-            theorem_threshold=theorem_threshold, tolerance=tolerance,
-            include_rows=True)
-        row = dict(receipt["rows"][target])
+        lower = target // 3
+        upper = target - lower
+        first = max(2, lower + 1)
+        last = min(target, upper)
+        left_index = int(np.searchsorted(
+            prime_indices, first, side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, last, side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        residue_indices = unit_index_by_residue[
+            selected_primes % modulus]
+        residue_weights = np.bincount(
+            residue_indices,
+            weights=(
+                log_values[selected_primes]
+                * log_values[selected_partners]),
+            minlength=unit_count)
+        total_weight = float(np.sum(residue_weights))
+        target_residue = target % modulus
+        admissible_mask = admissible_masks[target_residue]
+        mean_weight = total_weight / admissible_counts[target_residue]
+        weight_delta = np.zeros(unit_count, dtype=np.float64)
+        weight_delta[admissible_mask] = (
+            residue_weights[admissible_mask] - mean_weight)
+        admissible_delta = weight_delta[admissible_mask]
+        coefficient_row = coefficient_rows[target_residue]
+        first_three = float(
+            (linear_coefficients @ weight_delta)
+            / (principal_mean * total_weight))
+        linf_relative_delta = float(
+            np.max(np.abs(admissible_delta)) / total_weight)
+        l2_relative_delta = float(
+            np.linalg.norm(admissible_delta) / total_weight)
+        linf_bound = (
+            coefficient_row["centered_coefficient_l1"]
+            * linf_relative_delta / principal_mean)
+        l2_bound = (
+            coefficient_row["centered_coefficient_l2"]
+            * l2_relative_delta / principal_mean)
+        linf_ratio = (
+            linf_relative_delta
+            / coefficient_row["linf_sufficient_relative_delta"])
+        l2_ratio = (
+            l2_relative_delta
+            / coefficient_row["l2_sufficient_relative_delta"])
+        negative_part = max(0.0, -first_three)
+        linf_negative_utilization = (
+            negative_part / linf_bound if linf_bound > tolerance else 0.0)
+        l2_negative_utilization = (
+            negative_part / l2_bound if l2_bound > tolerance else 0.0)
+        row = {
+            "target": target,
+            "local_cycle": 0,
+            "global_cycle": None,
+            "target_offset": 0,
+            "target_mod_286": target_residue,
+            "total_prime_pair_weight": total_weight,
+            "first_three_to_principal_ratio": first_three,
+            "linf_relative_delta": linf_relative_delta,
+            "l2_relative_delta": l2_relative_delta,
+            "linf_bound_to_principal": linf_bound,
+            "l2_bound_to_principal": l2_bound,
+            "linf_to_sufficient_ratio": linf_ratio,
+            "l2_to_sufficient_ratio": l2_ratio,
+            "l2_alignment_cosine": (
+                first_three / l2_bound if l2_bound > tolerance else math.nan),
+            "linf_negative_bound_utilization": (
+                linf_negative_utilization),
+            "l2_negative_bound_utilization": l2_negative_utilization,
+        }
         target_rows[target] = row
         if row["first_three_to_principal_ratio"] < -theorem_threshold:
             tail_targets.append(target)

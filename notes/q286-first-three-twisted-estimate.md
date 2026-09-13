@@ -3191,3 +3191,34 @@ checked sparse recurrence bands, `65..96` and `105..136`.  The `.375` ceiling
 remains false because of cycles `131` and `136`.  This is still finite
 evidence only; a theorem would need a real signed prime-correlation/alignment
 estimate.
+
+## 2026-09-13: selected alignment shared-sieve path
+
+`q286_selected_first_three_alignment_receipt` now evaluates its selected target
+set with one shared prime/log table up to the largest selected target instead
+of rebuilding the weighted-discrepancy receipt target-by-target.  The receipt
+fields and measured values are unchanged; this is an implementation
+optimization for larger selected falsifier sets.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_first_three_alignment ... ok
+test_q286_first_three_tail_alignment_window ... ok
+Ran 2 tests in 28.112s
+```
+
+Default selected set with ceiling `.4` still reports:
+
+```text
+tested: 12
+tail_count: 9
+negative_count: 11
+violation_count: 0
+maximum negative alignment: target 3305200, utilization 0.37431718152903626
+maximum L2 sufficient-ratio: target 10664, ratio 26.134535399601887
+```
+
+Status `engineering`: selected-target alignment falsifiers are cheaper to
+scale, but no new mathematical theorem is proved.

@@ -17995,6 +17995,34 @@ Next instruction: before promoting `.4`, test it on any newly discovered tail
 recurrences and consider whether a proof could control the signed alignment
 angle rather than only the discrepancy magnitude.
 
+## 2026-09-13 continuation: selected alignment shared-sieve path
+
+`q286_selected_first_three_alignment_receipt` now uses a shared prime/log table
+for the whole selected target set instead of calling the weighted-discrepancy
+receipt separately for each target.  This preserves measured fields and makes
+larger selected falsifier sets more practical.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_selected_first_three_alignment ... ok
+test_q286_first_three_tail_alignment_window ... ok
+Ran 2 tests in 28.112s
+```
+
+Default selected set at ceiling `.4` remains unchanged:
+
+```text
+tested 12; tail_count 9; negative_count 11
+violation_count 0
+max negative alignment: 3305200, utilization 0.37431718152903626
+max L2 sufficient-ratio: 10664, ratio 26.134535399601887
+```
+
+Next instruction: use this shared-sieve selected receipt for larger hand-picked
+falsifier sets instead of one-target loops.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

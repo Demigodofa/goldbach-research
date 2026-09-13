@@ -9581,3 +9581,17 @@ There were zero `.4` alignment violations.  The maximum utilization was
 Status `survived-window-falsifier`: `.4` survives the checked sparse-tail
 bands `65..96` and `105..136`; `.375` remains false.  This is finite evidence,
 not a theorem.
+
+### 2026-09-13 continuation: selected alignment shared-sieve path
+
+The selected-target alignment receipt now computes selected rows with one
+shared prime/log table rather than rebuilding target-by-target.  Focused tests
+`test_q286_selected_first_three_alignment` and
+`test_q286_first_three_tail_alignment_window` passed in `28.112s`.
+
+The default selected set at ceiling `.4` still has zero violations, maximum
+negative utilization `0.37431718152903626` at `3305200`, and maximum raw L2
+sufficient-ratio `26.134535399601887` at `10664`.
+
+Status `engineering`: this makes broader selected falsifier checks cheaper;
+it does not change the finite mathematical evidence or prove a theorem.
