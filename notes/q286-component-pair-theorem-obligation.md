@@ -901,6 +901,42 @@ max-residue triangle envelope.  A plausible theorem target is therefore a
 fixed-conductor character-cancellation estimate for the actual binary-prime
 residue discrepancy, not a residue occupancy bound alone.
 
+`q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
+tests whether pair-swap reflection becomes useful after the fixed-conductor
+reduction.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_reflection_orbit`
+passed in `217.106s`.
+
+Reflection-orbit triangle compression is a strong but incomplete explanation:
+
+```text
+channel bound: 0.05885324711081062
+
+passing late positives by reflection-orbit bound:
+  1222142, 1323632
+
+failing late positives by reflection-orbit bound:
+  1379072
+
+worst selected reflection-orbit envelope:
+  target 14138
+  label (0,1,3,0), conductor 77
+  reflection-orbit L1 0.3296060502917276
+
+worst late-positive reflection-orbit envelope:
+  target 1379072
+  label (0,2,6,0), conductor 77
+  reflection-orbit L1 0.06039386426228221
+  margin to channel bound -0.0015406171514715863
+```
+
+This revives pair-swap symmetry only in a narrower form: after aggregation to
+conductors `35` and `77`, pairing residues by `r <-> N-r` explains enough
+cancellation for two of the three selected late positives, but not for the
+driver-bound target `1379072`.  The remaining channel theorem needs either a
+small residual cross-orbit cancellation estimate or a sharper reflection-orbit
+bound; plain pair-swap symmetry alone is still not a proof.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

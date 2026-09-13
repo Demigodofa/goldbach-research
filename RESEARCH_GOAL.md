@@ -10434,6 +10434,21 @@ ratio `0.3153405593261632`.  This clears the channel bound even though the
 plain residue triangle bound fails, so the viable channel theorem must retain
 fixed-conductor character cancellation.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
+tests pair-swap reflection after fixed-conductor aggregation.  Focused
+regression
+`test_q286_lower_support_component_pair_fixed_conductor_reflection_orbit`
+passed in `217.106s`.  Reflection-orbit triangle compression clears selected
+late positives `1222142` and `1323632`, but not `1379072`.  The worst
+late-positive reflection envelope is `1379072`, label `(0,2,6,0)`, conductor
+`77`, with reflection-orbit L1 `0.06039386426228221`, missing the channel
+bound by `-0.0015406171514715863`.  The worst selected envelope remains the
+boundary row `14138`, label `(0,1,3,0)`, conductor `77`, with orbit L1
+`0.3296060502917276`.  This makes the live channel-side theorem smaller
+again: prove residual cross-orbit cancellation, or sharpen the reflection-
+orbit bound, for conductor `77` near the driver-bound row.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

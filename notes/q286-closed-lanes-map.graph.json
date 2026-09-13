@@ -407,6 +407,14 @@
       "status_boundary": "selected cancellation profile only; no fixed-conductor character-cancellation theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_reflection_orbit",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_reflection_orbit passed in 217.106s; reflection-orbit compression clears 1222142 and 1323632 but misses 1379072 by about 0.00154",
+      "status_boundary": "selected reflection-orbit profile only; no residual cross-orbit cancellation theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -688,6 +696,16 @@
       "from": "receipt.component_pair_fixed_conductor_character_cancellation",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_reflection_orbit",
+      "to": "receipt.component_pair_fixed_conductor_character_cancellation",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_reflection_orbit",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "near_miss"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

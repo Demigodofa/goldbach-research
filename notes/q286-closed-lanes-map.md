@@ -44,6 +44,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
 
 ## Closed or falsified lanes
 
@@ -284,6 +285,10 @@ current comparison set.
    `180.890s` and quantifies the surviving mechanism: late-positive
    `1379072`'s worst channel is only `0.12416487197179206` of the crude
    residue-Linf triangle envelope, enough to clear the channel bound.
+31. The fixed-conductor reflection-orbit regression passed in `217.106s`.
+   Reflection pairing clears late positives `1222142` and `1323632`, but
+   misses `1379072` by `0.0015406171514715863`, leaving a residual
+   cross-orbit cancellation target.
 
 ## Still open
 

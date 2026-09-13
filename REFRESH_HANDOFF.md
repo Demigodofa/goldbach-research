@@ -19054,6 +19054,23 @@ margin to channel bound `0.03169726511679531`.  This identifies
 fixed-conductor character cancellation as the mechanism that must be proved
 or replaced.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_reflection_orbit`
+passed in `217.106s`.  It compresses conductor-`35` and conductor-`77`
+residue envelopes by pair-swap reflection orbits `r <-> N-r`.  This clears
+selected late positives `1222142` and `1323632`, but misses `1379072` by
+`0.0015406171514715863`: its worst positive reflection envelope is label
+`(0,2,6,0)`, conductor `77`, orbit L1 `0.06039386426228221` versus channel
+bound `0.05885324711081062`.  Boundary `14138` remains far outside the
+bound, with worst orbit L1 `0.3296060502917276` at label `(0,1,3,0)`.
+Next channel-side work should target residual cross-orbit cancellation or a
+sharper reflection-orbit estimate, especially at the driver-bound row
+`1379072`.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

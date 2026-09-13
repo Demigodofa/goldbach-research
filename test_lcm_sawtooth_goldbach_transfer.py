@@ -74,6 +74,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_reduction_receipt,
     q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt,
     q286_lower_support_component_pair_fixed_conductor_character_cancellation_receipt,
+    q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2530,6 +2531,44 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "fixed_conductor_character_cancellation_measured"])
         self.assertFalse(receipt["character_cancellation_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_reflection_orbit(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertAlmostEqual(
+            receipt["normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        self.assertEqual(
+            receipt["passing_positive_targets_by_reflection_orbit_bound"],
+            (1222142, 1323632))
+        self.assertEqual(
+            receipt["failing_positive_targets_by_reflection_orbit_bound"],
+            (1379072,))
+        worst = receipt["worst_reflection_orbit_l1_row"]
+        self.assertEqual(worst["target"], 14138)
+        self.assertEqual(worst["representative_label"], (0, 1, 3, 0))
+        self.assertAlmostEqual(
+            worst["reflection_orbit_l1_to_total_weight"],
+            0.3296060502917276)
+        positive = receipt["worst_positive_reflection_orbit_l1_row"]
+        self.assertEqual(positive["target"], 1379072)
+        self.assertEqual(positive["representative_label"], (0, 2, 6, 0))
+        self.assertAlmostEqual(
+            positive["reflection_orbit_l1_to_total_weight"],
+            0.06039386426228221)
+        self.assertLess(
+            positive["reflection_orbit_margin_to_channel_bound"], 0.0)
+        self.assertFalse(receipt[
+            "reflection_orbit_bound_proves_all_positive_channel_bounds"])
+        self.assertTrue(receipt[
+            "fixed_conductor_reflection_orbit_profile_measured"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

@@ -13703,6 +13703,188 @@ def q286_lower_support_component_pair_fixed_conductor_character_cancellation_rec
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_reflection_orbit_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Compress fixed-conductor envelopes by pair-swap reflection orbits."""
+    residue_pressure = (
+        q286_lower_support_component_pair_fixed_conductor_residue_pressure_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    reduction = residue_pressure[
+        "source_fixed_conductor_reduction_receipt"]
+    pressure = reduction[
+        "source_channel_conductor_profile_receipt"][
+            "source_channel_pressure_profile_receipt"]
+    closure_rows = pressure[
+        "source_closure_margin_profile_receipt"]["rows"]
+    positive_targets = tuple(
+        target for target, row in closure_rows.items()
+        if row["positive_by_identity"])
+    channel_bound = residue_pressure[
+        "normalized_real_channel_linf_bound"]
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    _, labels, character_table = _unit_character_table(period, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=reduction["targets"],
+        targets_per_cycle=len(reduction["targets"]),
+        tolerance=tolerance, include_residue_weights=True)
+
+    rows = {}
+    all_channel_rows = []
+    for target in reduction["targets"]:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - uniform_weight
+
+        channel_rows = []
+        for channel in reduction["rows"][target]["channel_rows"]:
+            label = channel["representative_label"]
+            label_index = label_to_index[label]
+            conductor = channel["conductor"]
+            aggregate = {}
+            for unit, delta_value in zip(units, delta):
+                residue = unit % conductor
+                aggregate[residue] = aggregate.get(residue, 0.0) + float(
+                    delta_value)
+            character_by_residue = {}
+            for index, unit in enumerate(units):
+                residue = unit % conductor
+                character_by_residue.setdefault(
+                    residue, complex(character_table[label_index, index]))
+
+            seen = set()
+            orbit_rows = []
+            for residue in sorted(aggregate):
+                if residue in seen:
+                    continue
+                reflected = (target - residue) % conductor
+                if reflected in aggregate and reflected != residue:
+                    seen.add(residue)
+                    seen.add(reflected)
+                    contribution = (
+                        aggregate[residue] * character_by_residue[residue]
+                        + aggregate[reflected]
+                        * character_by_residue[reflected])
+                    orbit = (residue, reflected)
+                else:
+                    seen.add(residue)
+                    contribution = (
+                        aggregate[residue] * character_by_residue[residue])
+                    orbit = (residue,)
+                orbit_rows.append({
+                    "orbit": orbit,
+                    "normalized_orbit_contribution_abs": (
+                        abs(contribution) / total_weight),
+                    "normalized_orbit_contribution": (
+                        contribution / total_weight),
+                })
+
+            reflection_orbit_l1 = float(math.fsum(
+                row["normalized_orbit_contribution_abs"]
+                for row in orbit_rows))
+            maximum_orbit = max(
+                row["normalized_orbit_contribution_abs"]
+                for row in orbit_rows)
+            actual = channel["normalized_abs_sum"]
+            row = {
+                "target": target,
+                "target_residue": target % period,
+                "representative_label": label,
+                "conductor": conductor,
+                "actual_normalized_abs_sum": actual,
+                "reflection_orbit_l1_to_total_weight": (
+                    reflection_orbit_l1),
+                "maximum_reflection_orbit_contribution_abs": maximum_orbit,
+                "reflection_orbit_margin_to_channel_bound": (
+                    channel_bound - reflection_orbit_l1),
+                "actual_to_reflection_orbit_l1_ratio": (
+                    actual / reflection_orbit_l1
+                    if reflection_orbit_l1 else 0.0),
+                "reflection_orbit_bound_clears_channel_bound": (
+                    reflection_orbit_l1 <= channel_bound + tolerance),
+                "paired_orbit_count": sum(
+                    len(orbit_row["orbit"]) == 2
+                    for orbit_row in orbit_rows),
+                "singleton_orbit_count": sum(
+                    len(orbit_row["orbit"]) == 1
+                    for orbit_row in orbit_rows),
+                "top_reflection_orbit_rows": tuple(sorted(
+                    orbit_rows,
+                    key=lambda orbit_row: orbit_row[
+                        "normalized_orbit_contribution_abs"],
+                    reverse=True)[:5]),
+            }
+            channel_rows.append(row)
+            all_channel_rows.append(row)
+
+        rows[target] = {
+            "target": target,
+            "target_residue": target % period,
+            "channel_rows": tuple(channel_rows),
+            "maximum_reflection_orbit_l1_row": max(
+                channel_rows,
+                key=lambda row: row[
+                    "reflection_orbit_l1_to_total_weight"]),
+        }
+
+    positive_channel_rows = tuple(
+        row for row in all_channel_rows if row["target"] in positive_targets)
+    passing_positive_targets = tuple(
+        target for target in positive_targets
+        if rows[target]["maximum_reflection_orbit_l1_row"][
+            "reflection_orbit_bound_clears_channel_bound"])
+    failing_positive_targets = tuple(
+        target for target in positive_targets
+        if target not in passing_positive_targets)
+    return {
+        "arithmetic_period": period,
+        "targets": reduction["targets"],
+        "tested_target_count": reduction["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": (
+            residue_pressure["active_channel_conductors"]),
+        "active_union_real_channel_count": (
+            reduction["active_union_real_channel_count"]),
+        "normalized_real_channel_linf_bound": channel_bound,
+        "rows": rows,
+        "positive_targets": positive_targets,
+        "passing_positive_targets_by_reflection_orbit_bound": (
+            passing_positive_targets),
+        "failing_positive_targets_by_reflection_orbit_bound": (
+            failing_positive_targets),
+        "worst_reflection_orbit_l1_row": max(
+            all_channel_rows,
+            key=lambda row: row["reflection_orbit_l1_to_total_weight"]),
+        "worst_positive_reflection_orbit_l1_row": max(
+            positive_channel_rows,
+            key=lambda row: row["reflection_orbit_l1_to_total_weight"]),
+        "source_fixed_conductor_residue_pressure_receipt": residue_pressure,
+        "fixed_conductor_reflection_orbit_profile_measured": True,
+        "reflection_orbit_bound_proves_all_positive_channel_bounds": (
+            len(failing_positive_targets) == 0),
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):
