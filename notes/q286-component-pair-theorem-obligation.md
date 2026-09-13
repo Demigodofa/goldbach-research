@@ -250,6 +250,63 @@ Therefore an eventual proof must use arithmetic information about actual
 binary prime-pair weights.  It cannot be a pure convex-geometry or
 support-only argument.
 
+## Support-geometry obstruction receipt
+
+`q286_lower_support_component_pair_support_geometry_obstruction_receipt` now
+makes the finite-vector obstruction executable.  It scans all `5005` even
+target residues modulo `10010`; for each residue it starts from uniform mass
+on the admissible classes and applies a small centered perturbation in the
+direction `-(c_57+c_711)`.  The perturbation preserves total mass, keeps all
+weights nonnegative, and makes both active component actions negative.
+
+Focused regression
+`test_q286_lower_support_component_pair_support_geometry_obstruction` passed
+in `36.947s`.
+
+Receipt summary:
+
+```text
+even_residue_count 5005
+obstructed_count 5005
+all_obstructed True
+```
+
+The least-negative artificial witness still has both actions negative:
+
+```text
+target_residue 3424
+admissible_count 1485
+minimum_weight 0.000402191677018091
+maximum_weight 0.00101010101010101
+actions:
+  (5,7)  -0.07974971574660267
+  (7,11) -0.354289196314675
+```
+
+Sample active residues:
+
+```text
+target 14138, residue 4128:
+  (5,7) -0.32518448457077637
+  (7,11) -0.24079217206428727
+
+target 1222142, residue 922:
+  (5,7) -0.3206698173170558
+  (7,11) -0.23907114747538058
+
+target 1323632, residue 2312:
+  (5,7) -0.32089141167428276
+  (7,11) -0.23909711917141777
+
+target 1379072, residue 7702:
+  (5,7) -0.3208914116742828
+  (7,11) -0.23909711917141777
+```
+
+This closes the pure support/nonnegativity/total-mass/coefficient-geometry
+route for the component-pair theorem.  It does not refute arithmetic
+cone-avoidance by actual prime-pair weights.
+
 ## Precise unresolved theorem
 
 A non-circular sufficient theorem is one of the following, after finite

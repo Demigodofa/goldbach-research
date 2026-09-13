@@ -10198,3 +10198,32 @@ prove signed cone avoidance for the small projection of the actual prime-pair
 discrepancy vector onto the `(5,7)/(7,11)` span after finite boundary
 exceptions.  This is still a pointwise binary-prime correlation problem, not a
 Goldbach proof.
+
+### 2026-09-13 continuation: component-pair support-geometry obstruction
+
+New receipt
+`q286_lower_support_component_pair_support_geometry_obstruction_receipt`
+makes the finite-vector obstruction explicit.  For every even target residue
+modulo `10010`, it constructs nonnegative admissible weights with the same
+total mass and both `(5,7)` and `(7,11)` centered component actions negative.
+Focused regression
+`test_q286_lower_support_component_pair_support_geometry_obstruction` passed
+in `36.947s`.
+
+Receipt summary:
+
+```text
+even_residue_count 5005
+obstructed_count 5005
+all_obstructed True
+least-negative maximum component action:
+  target_residue 3424
+  max action -0.07974971574660267
+```
+
+Status `lane-closed`: this closes a possible pure
+support/nonnegativity/total-mass/coefficient-geometry proof of the
+component-pair exclusion.  The surviving route must use actual prime-pair
+arithmetic: a signed cone-avoidance theorem for the tiny projection measured
+above, or a precise reduction to fixed-modulus pointwise binary Goldbach in
+progressions.  Goldbach remains open.

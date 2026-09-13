@@ -11778,6 +11778,114 @@ def q286_lower_support_component_pair_cone_projection_receipt(
     }
 
 
+def q286_lower_support_component_pair_support_geometry_obstruction_receipt(
+        component_pair=((5, 7), (7, 11)), sample_targets=(
+            14138, 1222142, 1323632, 1379072), tolerance=1e-9):
+    """Construct nonnegative admissible weights with both pair actions negative.
+
+    This is a finite-vector obstruction: it shows support, nonnegativity, total
+    mass, and the fixed component-pair coefficient geometry do not imply the
+    desired simultaneous-negativity exclusion.
+    """
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    sample_targets = tuple(dict.fromkeys(sample_targets))
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError("sample_targets must be even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
+    for support in component_pair:
+        if support not in component_values:
+            raise ValueError("component_pair support is unavailable")
+
+    rows = {}
+    obstructed_residues = []
+    for residue in range(0, period, 2):
+        admissible_mask = np.asarray(tuple(
+            math.gcd((residue - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        if not admissible_count:
+            continue
+        coefficients = []
+        for support in component_pair:
+            values = component_values[support]
+            local_mean = float(np.mean(values[admissible_mask].real))
+            coefficient = np.zeros(len(units), dtype=np.float64)
+            coefficient[admissible_mask] = (
+                values[admissible_mask].real - local_mean)
+            coefficients.append(coefficient)
+
+        perturbation = -(coefficients[0] + coefficients[1])
+        maximum_abs_perturbation = float(
+            np.max(np.abs(perturbation[admissible_mask])))
+        epsilon = (
+            0.5 / (admissible_count * maximum_abs_perturbation)
+            if maximum_abs_perturbation > tolerance else 0.0)
+        weights = np.zeros(len(units), dtype=np.float64)
+        weights[admissible_mask] = (
+            1.0 / admissible_count
+            + epsilon * perturbation[admissible_mask])
+        total_weight = float(np.sum(weights[admissible_mask]))
+        actions = tuple(
+            float(np.dot(coefficient, weights) / (
+                principal_mean * total_weight))
+            for coefficient in coefficients)
+        row = {
+            "target_residue": residue,
+            "admissible_count": admissible_count,
+            "epsilon": epsilon,
+            "minimum_weight": float(np.min(weights[admissible_mask])),
+            "maximum_weight": float(np.max(weights[admissible_mask])),
+            "total_weight": total_weight,
+            "component_pair": component_pair,
+            "component_actions_to_principal_ratio": {
+                component_pair[0]: actions[0],
+                component_pair[1]: actions[1],
+            },
+            "maximum_component_action_to_principal_ratio": max(actions),
+            "both_pair_components_centered_negative": all(
+                action < -tolerance for action in actions),
+        }
+        rows[residue] = row
+        if row["both_pair_components_centered_negative"]:
+            obstructed_residues.append(residue)
+
+    return {
+        "arithmetic_period": period,
+        "unit_residue_count": len(units),
+        "even_target_residue_count": len(rows),
+        "component_pair": component_pair,
+        "obstructed_even_target_residue_count": len(obstructed_residues),
+        "all_even_target_residues_obstructed": (
+            len(obstructed_residues) == len(rows)),
+        "obstructed_even_target_residues": tuple(obstructed_residues),
+        "least_negative_max_action_row": max(
+            rows.values(),
+            key=lambda row: row[
+                "maximum_component_action_to_principal_ratio"]),
+        "minimum_weight_row": min(
+            rows.values(), key=lambda row: row["minimum_weight"]),
+        "sample_target_rows": {
+            target: rows[target % period]
+            for target in sample_targets},
+        "rows": rows,
+        "support_geometry_obstruction_measured": True,
+        "support_geometry_exclusion_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -37,6 +37,7 @@ Current executable receipts:
 - `_q286_lower_support_component_rows_for_targets`
 - `q286_lower_support_component_pair_coefficient_geometry_receipt`
 - `q286_lower_support_component_pair_cone_projection_receipt`
+- `q286_lower_support_component_pair_support_geometry_obstruction_receipt`
 
 ## Closed or falsified lanes
 
@@ -54,6 +55,7 @@ prediction, and falsifier.
 | Rank-three internal cancellation | Falsified as explanation | The leading q286 mode contributions are mostly same-sign negative on stress targets. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
+| Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`. |
 
 Important nuance: the support/mass witnesses do not refute every possible
 geometric proof.  They refute only the weak projection that forgets additional
@@ -91,6 +93,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   directions is small in the checked selected targets: the bad boundary target
   `14138` has only `0.083979` of discrepancy L2 in the span, and the late
   targets have `0.011300..0.070320`.
+- Pure component-pair support geometry is closed: the obstruction receipt
+  constructs nonnegative admissible same-mass artificial weights with both
+  `(5,7)` and `(7,11)` actions negative for all `5005` even residues modulo
+  `10010`.
 
 ## Current boundary examples
 
@@ -150,6 +156,10 @@ current comparison set.
    span captures only a small fraction of measured discrepancy L2.  The next
    non-circular theorem target is therefore signed cone avoidance for that
    small projection, not a global discrepancy-size bound.
+12. The support-geometry obstruction receipt passed in `36.947s` and closes
+   the pure support/nonnegativity/total-mass/coefficient-geometry proof lane
+   for the component-pair exclusion.  A surviving proof must use actual
+   prime-pair arithmetic.
 
 ## Still open
 

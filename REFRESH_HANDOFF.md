@@ -18760,6 +18760,48 @@ is signed cone avoidance for this projection after finite boundary exceptions,
 or a precise reduction to fixed-modulus pointwise binary Goldbach in
 progressions.  Goldbach remains open.
 
+### 2026-09-13 continuation: component-pair support-geometry obstruction
+
+New receipt:
+
+- `q286_lower_support_component_pair_support_geometry_obstruction_receipt`
+
+It constructs artificial same-mass nonnegative admissible weights, residue by
+residue modulo `10010`, using a small centered perturbation in direction
+`-(c_57+c_711)`.  This tests whether support, nonnegativity, total mass, and
+fixed coefficient geometry alone can exclude simultaneous negative
+component-pair action.
+
+Focused regression
+`test_q286_lower_support_component_pair_support_geometry_obstruction` passed
+in `36.947s`.
+
+Compact output:
+
+```text
+even_residue_count 5005
+obstructed_count 5005
+all_obstructed True
+
+least_negative target_residue 3424:
+  min_weight 0.000402191677018091
+  max_weight 0.00101010101010101
+  (5,7)  -0.07974971574660267
+  (7,11) -0.354289196314675
+
+sample 14138:
+  (5,7)  -0.32518448457077637
+  (7,11) -0.24079217206428727
+
+sample 1222142:
+  (5,7)  -0.3206698173170558
+  (7,11) -0.23907114747538058
+```
+
+Status: lane-closed, not proof.  Pure component-pair support geometry cannot
+prove the exclusion.  The remaining route must use arithmetic facts about the
+actual strict-central prime-pair weights, not arbitrary admissible weights.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

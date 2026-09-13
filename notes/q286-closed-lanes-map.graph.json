@@ -80,6 +80,13 @@
       "reason": "Selected stress targets are not certified by triangle or plain vector-L2 bounds."
     },
     {
+      "id": "lane.component_pair_support_geometry",
+      "type": "closed_lane",
+      "label": "Component-pair support geometry",
+      "status": "falsified_as_sufficient_route",
+      "reason": "For every even target residue modulo 10010, artificial same-mass nonnegative admissible weights can make both (5,7) and (7,11) centered component actions negative."
+    },
+    {
       "id": "lane.rank_three_internal_cancellation",
       "type": "closed_lane",
       "label": "Rank-three internal cancellation",
@@ -256,6 +263,14 @@
       "status_boundary": "selected finite projection diagnostic only; no cone-avoidance theorem or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_support_geometry_obstruction",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_support_geometry_obstruction_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_support_geometry_obstruction passed in 36.947s; all 5005 even target residues modulo 10010 have artificial same-mass nonnegative weights with both active component actions negative",
+      "status_boundary": "finite-vector obstruction only; does not refute arithmetic cone avoidance by actual prime-pair weights"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -372,6 +387,16 @@
       "from": "receipt.component_pair_cone_projection",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_support_geometry_obstruction",
+      "to": "lane.component_pair_support_geometry",
+      "type": "falsifies"
+    },
+    {
+      "from": "lane.component_pair_support_geometry",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "requires"
     },
     {
       "from": "structure.active_subcone",
