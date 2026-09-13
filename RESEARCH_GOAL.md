@@ -9233,3 +9233,16 @@ disappearance.  It is a selected-tail rescue theorem: rare late first-three
 tail hits must be paired with enough complement buffer.  This remains finite
 evidence only; Goldbach and the needed pointwise signed correlation theorem
 remain open.
+
+### 2026-09-13 continuation: cycles 105 through 136 preserve selected-tail rescue
+
+The next 32-cycle block was checked with the mode-only horizon receipt.
+Cycles `105..136` have only three `.3` first-three tail hits: global cycles
+`121`, `131`, and `136`, one hit each.  All three passed the `.63/.3/.47`
+floor candidate with zero non-rescued targets and no violations.  The weakest
+margin among the three is `0.944998867177687` at cycle `136`; the deepest
+deficit is also cycle `136`, `0.3394138842129011`.
+
+Status `aha-candidate`: the selected-tail rescue target survived a fresh later
+block.  The live proof obligation is a complement lower bound conditioned on
+the first-three tail set, not tail disappearance.  Still finite evidence only.

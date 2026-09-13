@@ -17480,6 +17480,31 @@ The surviving theorem target is selected-tail complement rescue after the
 finite boundary/transition regimes.  This is finite evidence only and does
 not prove Goldbach, RH, or an eventual pointwise signed-correlation estimate.
 
+## 2026-09-13 continuation: cycles 105 through 136 preserve selected-tail rescue
+
+The next 32-cycle mode-only scan found only three `.3` first-three tail hits:
+cycles `121`, `131`, and `136`, one hit each.  Every other cycle in `105..136`
+was tail-free at threshold `.3`.
+
+The three recurrence cycles were checked with the `.63/.3/.47` rescue-floor
+candidate.  All passed with zero non-rescued tail targets and no violations.
+
+```text
+cycle 121: min complement 1.2533040265847926,
+  min margin 0.9457162662139126,
+  max deficit 0.3075877603708801
+cycle 131: min complement 1.339489557365715,
+  min margin 1.0242192662363734,
+  max deficit 0.31527029112934163
+cycle 136: min complement 1.284412751390588,
+  min margin 0.944998867177687,
+  max deficit 0.3394138842129011
+```
+
+Status `aha-candidate`: selected-tail rescue survived a fresh later block.
+Do not claim tail disappearance or an eventual theorem; the result is finite
+evidence for a conditional complement-floor target.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

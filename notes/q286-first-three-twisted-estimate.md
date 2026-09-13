@@ -2554,3 +2554,43 @@ hypothesis is tail-set rescue: after the finite boundary and transition
 regimes, rare `.3` first-three tail hits appear, but the checked hits have
 large complement buffers and pass the existing floor candidate.  This is
 finite evidence only, not an eventual theorem or a Goldbach proof.
+
+## 2026-09-13: cycles 105 through 136 sparse recurrence falsifier
+
+The next complete 32-cycle block after the vacuous `97..104` window was
+scanned with the mode-only horizon receipt.  The `.3` first-three tail is even
+sparser in this block: exactly three cycles have one tail hit.
+
+```text
+cycle 121: tail 1, min first_three -0.30758776037088004 at 1222142
+cycle 131: tail 1, min first_three -0.31527029112934163 at 1323632
+cycle 136: tail 1, min first_three -0.3394138842129011 at 1379072
+```
+
+All other global cycles in `105..136` were tail-free at threshold `.3`.
+
+The three recurrence cycles were stress-tested with the same `.63/.3/.47`
+floor candidate.  All three passed with zero non-rescued tail targets and no
+violations:
+
+```text
+cycle 121: tail 1, nonrescued 0, passed True,
+  min complement 1.2533040265847926,
+  min margin 0.9457162662139126,
+  max deficit 0.3075877603708801
+cycle 131: tail 1, nonrescued 0, passed True,
+  min complement 1.339489557365715,
+  min margin 1.0242192662363734,
+  max deficit 0.31527029112934163
+cycle 136: tail 1, nonrescued 0, passed True,
+  min complement 1.284412751390588,
+  min margin 0.944998867177687,
+  max deficit 0.3394138842129011
+```
+
+Status `aha-candidate`: this fresh later block strengthens the selected-tail
+rescue hypothesis.  Sparse tail recurrences persist, so disappearance remains
+false, but all checked late recurrences so far have large complement buffers.
+The theorem target is now explicitly a selected-tail complement lower bound
+or an explanation of why late tail spikes are forced into high-complement
+positions.  Finite evidence only.
