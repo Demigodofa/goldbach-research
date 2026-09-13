@@ -3151,3 +3151,43 @@ Status `falsifier`: the `.375` alignment ceiling is false in the checked
 late sparse-tail window.  The surviving candidate is a looser ceiling near
 `.4`, but it now needs the same falsifier treatment on cycles `65..96` and
 any later tail recurrence before it should be taken seriously.
+
+## 2026-09-13: cycles 65 through 96 alignment window check
+
+The same tail-alignment window receipt was applied to the earlier sparse
+recurrence band, global cycles `65..96`, with tail threshold `.3` and
+alignment ceiling `.4`.
+
+```text
+tested targets: 160160
+tail_count: 9
+tail_cycles: (7, 8, 11, 12, 14, 15, 16, 18, 29)
+global cycles: 72, 73, 76, 77, 79, 80, 81, 83, 94
+tail_targets:
+  733126, 741976, 775426, 782336, 805682,
+  818528, 828418, 846632, 955832
+alignment violations at .4: ()
+maximum utilization:
+  target 782336, first_three -0.33516065470389805,
+  l2_negative_bound_utilization 0.35911925295935604
+```
+
+All nine tail rows:
+
+```text
+733126: -0.3215492897967756, utilization 0.30218444311292564
+741976: -0.3183278779198761, utilization 0.33238865926003974
+775426: -0.31105367215091007, utilization 0.2977137524173724
+782336: -0.33516065470389805, utilization 0.35911925295935604
+805682: -0.32984168711159817, utilization 0.33771679320638526
+818528: -0.3097320133450108, utilization 0.32063540506510774
+828418: -0.3267869890169182, utilization 0.35214114767608157
+846632: -0.3256790187798848, utilization 0.3331357884604
+955832: -0.34548559053695227, utilization 0.35638070225060514
+```
+
+Status `survived-window-falsifier`: the `.4` alignment ceiling survives both
+checked sparse recurrence bands, `65..96` and `105..136`.  The `.375` ceiling
+remains false because of cycles `131` and `136`.  This is still finite
+evidence only; a theorem would need a real signed prime-correlation/alignment
+estimate.

@@ -9565,3 +9565,19 @@ targets `1222142`, `1323632`, and `1379072`.  At alignment ceiling `.375`,
 Status `falsifier`: the proof target cannot be a `.375` ceiling.  The
 surviving measured target is a looser `.4` negative-alignment ceiling, which
 must next be tested on cycles `65..96` and any later recurrence.
+
+### 2026-09-13 continuation: cycles 65 through 96 alignment window
+
+The `.4` negative-alignment ceiling was tested on the earlier sparse-tail
+recurrence band, global cycles `65..96`.  The receipt found nine `.3` tail
+targets:
+
+`733126,741976,775426,782336,805682,818528,828418,846632,955832`.
+
+There were zero `.4` alignment violations.  The maximum utilization was
+`0.35911925295935604` at target `782336`, whose first-three ratio is
+`-0.33516065470389805`.
+
+Status `survived-window-falsifier`: `.4` survives the checked sparse-tail
+bands `65..96` and `105..136`; `.375` remains false.  This is finite evidence,
+not a theorem.

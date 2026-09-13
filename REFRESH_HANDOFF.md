@@ -17973,6 +17973,28 @@ With ceiling `.4`, the same window has zero violations.  Interpretation:
 alignment ceiling.  Next instruction: test `.4` against cycles `65..96` before
 using it as a theorem-shaping target.
 
+## 2026-09-13 continuation: cycles 65 through 96 alignment window
+
+The `.4` alignment ceiling was tested on the earlier sparse-tail recurrence
+band, global cycles `65..96`.
+
+```text
+tested 160160
+tail_count 9
+tail_cycles (7, 8, 11, 12, 14, 15, 16, 18, 29)
+global cycles 72, 73, 76, 77, 79, 80, 81, 83, 94
+tail_targets (733126, 741976, 775426, 782336, 805682,
+              818528, 828418, 846632, 955832)
+violation_count 0
+maximum utilization 0.35911925295935604 at 782336
+```
+
+Interpretation: `.4` survives both checked sparse-tail recurrence bands
+(`65..96` and `105..136`), while `.375` is false because of the later band.
+Next instruction: before promoting `.4`, test it on any newly discovered tail
+recurrences and consider whether a proof could control the signed alignment
+angle rather than only the discrepancy magnitude.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
