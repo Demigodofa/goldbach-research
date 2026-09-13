@@ -10233,7 +10233,7 @@ progressions.  Goldbach remains open.
 New receipt `q286_lower_support_component_pair_character_mixture_receipt`
 expresses the active `(5,7)` and `(7,11)` component actions as exact character
 mixtures modulo `10010`.  Focused regression
-`test_q286_lower_support_component_pair_character_mixture` passed in `62.503s`.
+`test_q286_lower_support_component_pair_character_mixture` passed in `68.299s`.
 
 The active arithmetic target is smaller than full residue-class
 equidistribution:
@@ -10247,8 +10247,12 @@ pair-sum L2/principal_mean 3.003987991450646
 maximum action reconstruction error 4.961197005087556e-14
 ```
 
+The focused regression now freezes the exact active labels.  In factor order
+`(5,7,11,13)`, the `(5,7)` component uses `(a,b,0,0)` labels and the
+`(7,11)` component uses `(0,b,c,0)` labels.
+
 Status `theorem-sharpening`: after closing support geometry, the surviving
-non-circular target is signed cone avoidance for `31` fixed twisted
-binary-prime character sums modulo `10010`, not arbitrary residue occupancy.
-This is narrower than full fixed-modulus Goldbach-in-progressions but remains
-a pointwise binary-prime correlation theorem.  Goldbach remains open.
+non-circular target is signed cone avoidance for these two explicit adjacent
+character-label blocks, not arbitrary residue occupancy.  This is narrower
+than full fixed-modulus Goldbach-in-progressions but remains a pointwise
+binary-prime correlation theorem.  Goldbach remains open.

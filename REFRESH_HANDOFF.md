@@ -18811,7 +18811,7 @@ New receipt:
 It expresses the active `(5,7)` and `(7,11)` component actions as exact
 character mixtures modulo `10010`.  Focused regression
 `test_q286_lower_support_component_pair_character_mixture` passed in
-`62.503s`.
+`68.299s`.
 
 Compact output:
 
@@ -18831,11 +18831,15 @@ max_action_recon 4.961197005087556e-14
 1379072 pair_sum 0.046724251505157584, both_negative False
 ```
 
+The focused regression freezes the exact label profile: `(5,7)` uses eight
+`(a,b,0,0)` labels, and `(7,11)` uses twenty-three `(0,b,c,0)` labels, in
+factor order `(5,7,11,13)`.
+
 Status: theorem-sharpening, not proof.  The remaining q286 component-pair
-obligation is a signed pointwise theorem about `31` fixed twisted
-binary-prime character sums modulo `10010`.  That is narrower than proving
-full residue-by-residue prime-pair occupancy, but it remains hard arithmetic
-input and no Goldbach theorem is proved.
+obligation is a signed pointwise theorem about these two adjacent
+character-label blocks modulo `10010`.  That is narrower than proving full
+residue-by-residue prime-pair occupancy, but it remains hard arithmetic input
+and no Goldbach theorem is proved.
 
 ## Temporary wake note - continuity discussion
 

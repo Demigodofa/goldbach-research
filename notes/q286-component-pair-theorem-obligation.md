@@ -313,7 +313,7 @@ cone-avoidance by actual prime-pair weights.
 two active component actions as exact fixed character mixtures modulo `10010`.
 Focused regression
 `test_q286_lower_support_component_pair_character_mixture` passed in
-`62.503s`.
+`68.299s`.
 
 The active cone is much smaller than full residue-class control:
 
@@ -326,6 +326,23 @@ active union character count: 31
 pair-sum L1/principal_mean: 15.262957606760951
 pair-sum L2/principal_mean: 3.003987991450646
 maximum action reconstruction error: 4.961197005087556e-14
+```
+
+The active character labels use only the expected adjacent factor blocks in
+the factor order `(5,7,11,13)`:
+
+```text
+(5,7) labels:
+  (1,1,0,0), (1,3,0,0), (1,5,0,0),
+  (2,2,0,0), (2,4,0,0),
+  (3,1,0,0), (3,3,0,0), (3,5,0,0)
+
+(7,11) labels:
+  (0,1,1,0), (0,1,3,0), (0,1,5,0), (0,1,7,0), (0,1,9,0),
+  (0,2,2,0), (0,2,4,0), (0,2,6,0), (0,2,8,0),
+  (0,3,1,0), (0,3,3,0), (0,3,5,0), (0,3,7,0), (0,3,9,0),
+  (0,4,2,0), (0,4,4,0), (0,4,6,0), (0,4,8,0),
+  (0,5,1,0), (0,5,3,0), (0,5,5,0), (0,5,7,0), (0,5,9,0)
 ```
 
 Selected-target rows:
@@ -354,7 +371,7 @@ target 1379072:
 
 This sharpens the arithmetic theorem obligation: one need not prove full
 pointwise equidistribution modulo `10010`.  A signed cone-avoidance theorem
-for these `31` fixed twisted binary-prime character sums would target the
+for the two explicit adjacent character-label blocks above would target the
 surviving obstruction directly.  Such a theorem is still pointwise
 binary-prime correlation input and is not supplied by the finite receipts.
 

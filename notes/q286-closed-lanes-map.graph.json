@@ -275,7 +275,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_character_mixture_receipt",
       "status": "validated",
-      "validation": "test_q286_lower_support_component_pair_character_mixture passed in 62.503s; active union has 31 character rows modulo 10010 with action reconstruction error below 5e-14",
+      "validation": "test_q286_lower_support_component_pair_character_mixture passed in 68.299s; active union has 31 character rows modulo 10010 with exact labels frozen in regression and action reconstruction error below 5e-14",
       "status_boundary": "finite character decomposition only; no pointwise twisted binary-prime estimate or Goldbach proof"
     },
     {
