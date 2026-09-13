@@ -9246,3 +9246,28 @@ deficit is also cycle `136`, `0.3394138842129011`.
 Status `aha-candidate`: the selected-tail rescue target survived a fresh later
 block.  The live proof obligation is a complement lower bound conditioned on
 the first-three tail set, not tail disappearance.  Still finite evidence only.
+
+### 2026-09-13 continuation: fast scanner and cycles 137 through 168
+
+The original mode-only horizon scanner was too slow for repeated late-cycle
+extension.  Four brute-force 8-cycle workers for cycles `137..168` were
+stopped after accumulating more than 1300 CPU seconds each without returning
+receipts.  A new accelerated scanner,
+`q286_first_three_tail_mode_only_fast_horizon_receipt`, now precomputes the
+q286 first-three singular-mode linear functional and uses NumPy residue
+accumulation.
+
+Validation: `py_compile` passed, and focused equivalence regression
+`test_q286_first_three_tail_mode_only_fast_horizon` passed against the slow
+mode-only receipt on a five-target window in `86.198s`.
+
+Using the fast receipt, global cycles `137..168` are all tail-free at
+threshold `.3`.  The lowest first-three values by 8-cycle block are:
+cycle `142`, `-0.27272709731535705`; cycle `149`,
+`-0.25332323305534654`; cycle `158`, `-0.22021297112953594`; and cycle `162`,
+`-0.24997112424637502`.
+
+Status `engineering-plus-evidence`: this improves the scanner and extends
+finite tail-absence evidence, but it does not prove tail disappearance,
+selected-tail rescue, Goldbach, RH, or any pointwise signed-correlation
+estimate.

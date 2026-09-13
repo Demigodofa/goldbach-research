@@ -2594,3 +2594,41 @@ false, but all checked late recurrences so far have large complement buffers.
 The theorem target is now explicitly a selected-tail complement lower bound
 or an explanation of why late tail spikes are forced into high-complement
 positions.  Finite evidence only.
+
+## 2026-09-13: accelerated mode-only scanner and cycles 137 through 168
+
+The brute-force mode-only scanner was too slow for repeated far-horizon work:
+four 8-cycle workers for cycles `137..168` were stopped after they had each
+accumulated more than 1300 CPU seconds without returning a receipt.  That was
+productive CPU use, but not a good research loop.
+
+Added `q286_first_three_tail_mode_only_fast_horizon_receipt`, which precomputes
+the q286 first-three singular-mode linear functional and uses NumPy residue
+accumulation for strict-central prime-pair weights.  The new receipt was
+validated against the original slow mode-only horizon receipt on a five-target
+focused regression:
+
+```text
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+Ran 1 test in 86.198s
+```
+
+A one-cycle benchmark for global cycle `137` took about `53.115s`.  Four
+accelerated 8-cycle workers then scanned global cycles `137..168`; every cycle
+was tail-free at threshold `.3`.
+
+```text
+cycles 137..144: no .3 tail hits; block minimum cycle 142,
+  target 1435228, first_three -0.27272709731535705
+cycles 145..152: no .3 tail hits; block minimum cycle 149,
+  target 1505642, first_three -0.25332323305534654
+cycles 153..160: no .3 tail hits; block minimum cycle 158,
+  target 1595576, first_three -0.22021297112953594
+cycles 161..168: no .3 tail hits; block minimum cycle 162,
+  target 1636472, first_three -0.24997112424637502
+```
+
+Status `engineering-plus-evidence`: the selected-tail rescue hypothesis is not
+stress-tested by this block because there are no selected tail targets, but the
+absence result is now much cheaper to extend.  This remains finite evidence
+only; it is not a Goldbach proof or an eventual tail theorem.

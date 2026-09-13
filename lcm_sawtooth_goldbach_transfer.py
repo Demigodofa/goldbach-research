@@ -5,6 +5,7 @@ estimate for the resulting twisted Goldbach sums.
 """
 
 import math
+from functools import lru_cache
 from fractions import Fraction
 
 import numpy as np
@@ -10626,6 +10627,211 @@ def q286_first_three_tail_mode_only_horizon_receipt(
         "global_minimum_first_three_target": global_minimum[1],
         "global_minimum_first_three_to_principal_ratio": global_minimum[2],
         "first_three_tail_mode_only_horizon_measured": True,
+        "complement_rescue_measured": False,
+        "full_action_negativity_measured": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+@lru_cache(maxsize=None)
+def _q286_first_three_mode_linear_data(tolerance):
+    """Precompute the linear q286 first-three mode functional."""
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    first_three_matrix = np.zeros((10, 12), dtype=np.complex128)
+    for index in range(3):
+        first_three_matrix[1:, 1:] += (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, _, character_table = _unit_character_table(modulus, units)
+    linear_coefficients = first_three_matrix.reshape(-1) @ character_table
+    sample_row = character_receipt["rows"][10424]
+    principal_mean = (
+        sample_row["principal_contribution"]
+        / sample_row["total_prime_pair_weight"])
+    unit_index_by_residue = np.full(modulus, -1, dtype=np.int16)
+    for index, unit in enumerate(units):
+        unit_index_by_residue[unit] = index
+    admissible_masks = {}
+    admissible_counts = {}
+    for target_residue in range(modulus):
+        mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_masks[target_residue] = mask
+        admissible_counts[target_residue] = int(np.sum(mask))
+    return {
+        "modulus": modulus,
+        "units": units,
+        "linear_coefficients": linear_coefficients,
+        "principal_mean": principal_mean,
+        "unit_index_by_residue": unit_index_by_residue,
+        "admissible_masks": admissible_masks,
+        "admissible_counts": admissible_counts,
+        "singular_values": tuple(float(value) for value in singular_values[:3]),
+    }
+
+
+def q286_first_three_tail_mode_only_fast_horizon_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3,), tolerance=1e-9):
+    """Accelerated q286 first-three tail scanner.
+
+    This receipt measures the same first-three singular-mode ratio as
+    ``q286_first_three_tail_mode_only_horizon_receipt`` but precomputes the
+    q286 first-three linear functional and uses NumPy residue accumulation for
+    the strict-central prime-pair weights.  It still proves only the checked
+    finite window.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    negative_tail_thresholds = tuple(negative_tail_thresholds)
+    if (not negative_tail_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in negative_tail_thresholds)):
+        raise ValueError(
+            "negative_tail_thresholds must be positive finite numbers")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    period = 10010
+    maximum_target = (
+        start + (cycle_count - 1) * period
+        + 2 * (targets_per_cycle - 1))
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+    integers = np.arange(maximum_target + 1, dtype=np.int64)
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = data["linear_coefficients"]
+    principal_mean = data["principal_mean"]
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+    unit_count = len(data["units"])
+
+    rows = {}
+    cycle_rows = {}
+    global_minimum = None
+    threshold_targets = {
+        threshold: []
+        for threshold in negative_tail_thresholds}
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        targets = tuple(
+            cycle_start + 2 * index for index in range(targets_per_cycle))
+        cycle_minimum = None
+        cycle_threshold_counts = {
+            threshold: 0
+            for threshold in negative_tail_thresholds}
+        for target in targets:
+            lower = target // 3
+            upper = target - lower
+            first = max(2, lower + 1)
+            last = min(target, upper)
+            prime_values = integers[first:last]
+            partner_values = target - prime_values
+            pair_mask = primes[prime_values] & primes[partner_values]
+            selected_primes = prime_values[pair_mask]
+            selected_partners = partner_values[pair_mask]
+            residue_indices = unit_index_by_residue[
+                selected_primes % modulus]
+            residue_weights = np.bincount(
+                residue_indices,
+                weights=(
+                    log_values[selected_primes]
+                    * log_values[selected_partners]),
+                minlength=unit_count)
+            total_weight = float(np.sum(residue_weights))
+            principal = principal_mean.real * total_weight
+            if abs(principal) > tolerance:
+                target_residue = target % modulus
+                admissible_mask = admissible_masks[target_residue]
+                mean_weight = (
+                    total_weight / admissible_counts[target_residue])
+                weight_delta = np.zeros(unit_count, dtype=np.float64)
+                weight_delta[admissible_mask] = (
+                    residue_weights[admissible_mask] - mean_weight)
+                first_three = float(
+                    (linear_coefficients @ weight_delta).real / principal)
+            else:
+                first_three = math.nan
+            rows[target] = {
+                "cycle": cycle,
+                "first_three_modes_to_principal_ratio": first_three,
+            }
+            if (cycle_minimum is None
+                    or first_three < cycle_minimum[1]):
+                cycle_minimum = (target, first_three)
+            if (global_minimum is None
+                    or first_three < global_minimum[2]):
+                global_minimum = (cycle, target, first_three)
+            for threshold in negative_tail_thresholds:
+                if first_three < -threshold:
+                    cycle_threshold_counts[threshold] += 1
+                    threshold_targets[threshold].append(target)
+        cycle_rows[cycle] = {
+            "start": targets[0],
+            "end": targets[-1],
+            "tested_target_count": len(targets),
+            "minimum_first_three_target": cycle_minimum[0],
+            "minimum_first_three_to_principal_ratio": cycle_minimum[1],
+            "threshold_counts": cycle_threshold_counts,
+        }
+
+    threshold_rows = {}
+    for threshold in negative_tail_thresholds:
+        targets_below = tuple(threshold_targets[threshold])
+        cycles_with_hits = tuple(
+            cycle for cycle, row in cycle_rows.items()
+            if row["threshold_counts"][threshold] > 0)
+        threshold_rows[threshold] = {
+            "target_count_below_negative_threshold": len(targets_below),
+            "targets_below_negative_threshold": targets_below,
+            "cycle_count_with_hits": len(cycles_with_hits),
+            "cycles_with_hits": cycles_with_hits,
+            "last_cycle_with_hit": (
+                max(cycles_with_hits) if cycles_with_hits else None),
+            "all_cycles_clear_negative_threshold": bool(
+                not cycles_with_hits),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": negative_tail_thresholds,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "cycle_rows": cycle_rows,
+        "threshold_rows": threshold_rows,
+        "rows": rows,
+        "global_minimum_first_three_cycle": global_minimum[0],
+        "global_minimum_first_three_target": global_minimum[1],
+        "global_minimum_first_three_to_principal_ratio": global_minimum[2],
+        "singular_values": data["singular_values"],
+        "first_three_tail_mode_only_fast_horizon_measured": True,
         "complement_rescue_measured": False,
         "full_action_negativity_measured": False,
         "eventual_first_three_tail_bound_proved": False,

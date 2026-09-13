@@ -17505,6 +17505,56 @@ Status `aha-candidate`: selected-tail rescue survived a fresh later block.
 Do not claim tail disappearance or an eventual theorem; the result is finite
 evidence for a conditional complement-floor target.
 
+## 2026-09-13 continuation: fast scanner and cycles 137 through 168
+
+The first attempt to extend cycles `137..168` used the original brute-force
+mode-only scanner in four 8-cycle workers.  Those workers were stopped after
+each accumulated more than 1300 CPU seconds without producing receipts.  This
+was a compute-efficiency decision, not a mathematical falsifier.
+
+New code:
+
+- `q286_first_three_tail_mode_only_fast_horizon_receipt`
+- `_q286_first_three_mode_linear_data`
+- focused regression
+  `test_q286_first_three_tail_mode_only_fast_horizon`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+Ran 1 test in 86.198s
+```
+
+The fast receipt matched the slow receipt on a five-target focused window.  A
+one-cycle benchmark for global cycle `137` took about `53.115s`.  Four fast
+8-cycle workers then scanned global cycles `137..168`; every cycle was
+tail-free at threshold `.3`.
+
+Block minima:
+
+```text
+137..144: cycle 142, target 1435228, first_three -0.27272709731535705
+145..152: cycle 149, target 1505642, first_three -0.25332323305534654
+153..160: cycle 158, target 1595576, first_three -0.22021297112953594
+161..168: cycle 162, target 1636472, first_three -0.24997112424637502
+```
+
+Next recommended actions:
+
+1. Run `git diff --check`, the focused fast-scanner test, and a compact fast
+   probe if needed.
+2. Commit and push the scanner plus documentation checkpoint.
+3. Use the fast receipt, not the old brute-force mode-only receipt, for further
+   far-horizon tail-absence scans.
+4. Keep rescue-floor checks only for cycles where the fast receipt finds
+   `.3` first-three tail targets.
+
+Do not overclaim: this is finite scanner/evidence progress only.  Goldbach,
+RH, selected-tail rescue as a theorem, and pointwise signed prime-correlation
+control remain open.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
