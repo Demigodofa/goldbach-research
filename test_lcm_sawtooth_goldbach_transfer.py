@@ -49,6 +49,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_boundary_complement_support_split_receipt,
     q286_first_three_removed_support_envelope_receipt,
     q286_subcone_lower_support_package_receipt,
+    q286_lower_support_package_support_only_obstruction_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1606,6 +1607,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["subcone_lower_support_package_measured"])
         self.assertFalse(receipt[
             "eventual_lower_support_package_positivity_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_package_support_only_obstruction(self):
+        receipt = q286_lower_support_package_support_only_obstruction_receipt()
+        self.assertEqual(
+            receipt["witness_subcone_failure_targets"], (10664, 14138))
+        self.assertEqual(
+            receipt["comparison_success_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertTrue(receipt["all_witnesses_are_subcone_failures"])
+        self.assertTrue(receipt["all_comparisons_are_subcone_successes"])
+        self.assertTrue(receipt[
+            "support_nonnegativity_total_mass_only_proof_refuted"])
+        self.assertTrue(receipt[
+            "lower_support_package_support_only_obstruction_measured"])
+        self.assertFalse(receipt["support_only_rescue_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

@@ -10797,6 +10797,69 @@ def q286_subcone_lower_support_package_receipt(
     }
 
 
+def q286_lower_support_package_support_only_obstruction_receipt(
+        witness_targets=(10664, 14138),
+        comparison_targets=(1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Record actual witnesses blocking a support-only package proof.
+
+    The lower-support package route asks for a conditioned lower bound on
+    ``H/P`` inside the first-two subcone.  The witness targets here are actual
+    strict-central prime-pair weight vectors satisfying the subcone conditions
+    but failing the rescue inequality.  Therefore support, nonnegativity, and
+    total mass alone cannot prove the desired rescue statement.
+    """
+    witness_targets = tuple(dict.fromkeys(witness_targets))
+    comparison_targets = tuple(dict.fromkeys(comparison_targets))
+    if (not witness_targets
+            or any(type(target) is not int or target < 40
+                   or target % 2 for target in witness_targets)):
+        raise ValueError(
+            "witness_targets must be nonempty even integers at least 40")
+    if any(type(target) is not int or target < 40 or target % 2
+           for target in comparison_targets):
+        raise ValueError(
+            "comparison_targets must be even integers at least 40")
+
+    targets = tuple(dict.fromkeys(witness_targets + comparison_targets))
+    package = q286_subcone_lower_support_package_receipt(
+        targets=targets, first_two_threshold=first_two_threshold,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    witness_rows = {
+        target: package["rows"][target] for target in witness_targets}
+    comparison_rows = {
+        target: package["rows"][target] for target in comparison_targets}
+    witness_subcone_failures = tuple(
+        target for target, row in witness_rows.items()
+        if row["subcone_member"] and not row["rescued_by_full_complement"])
+    comparison_successes = tuple(
+        target for target, row in comparison_rows.items()
+        if row["subcone_member"] and row["rescued_by_full_complement"])
+    return {
+        "witness_targets": witness_targets,
+        "comparison_targets": comparison_targets,
+        "tested_target_count": package["tested_target_count"],
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "witness_rows": witness_rows,
+        "comparison_rows": comparison_rows,
+        "witness_subcone_failure_targets": witness_subcone_failures,
+        "comparison_success_targets": comparison_successes,
+        "all_witnesses_are_subcone_failures": bool(
+            len(witness_subcone_failures) == len(witness_targets)),
+        "all_comparisons_are_subcone_successes": bool(
+            len(comparison_successes) == len(comparison_targets)),
+        "support_nonnegativity_total_mass_only_proof_refuted": bool(
+            len(witness_subcone_failures) == len(witness_targets)),
+        "source_lower_support_package_receipt": package,
+        "lower_support_package_support_only_obstruction_measured": True,
+        "eventual_lower_support_package_positivity_proved": False,
+        "support_only_rescue_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

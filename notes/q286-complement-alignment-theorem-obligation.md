@@ -937,6 +937,65 @@ positive after removing q70.  The boundary failures show why the theorem
 cannot be a support-only lower bound: `14138` has required floor only about
 `-.138`, but the lower-support package falls to about `-1.015`.
 
+## Support-only obstruction receipt
+
+Added `q286_lower_support_package_support_only_obstruction_receipt`, which
+turns the boundary failures into an executable proof-strategy falsifier.  The
+witness targets are actual strict-central prime-pair weight vectors, so they
+already satisfy nonnegativity, admissible support, and total mass constraints.
+They also lie in the `.2` first-two / `.3` first-three subcone but fail the
+lower-support rescue inequality.
+
+Validation:
+
+```text
+test_q286_lower_support_package_support_only_obstruction ... ok
+Ran 1 test in 56.578s
+```
+
+Compact receipt:
+
+```text
+tested 5
+witness_failures (10664, 14138)
+comparison_successes (1222142, 1323632, 1379072)
+support_only_refuted True
+
+witness 10664
+  subcone True
+  full -0.21606200719963808
+  lower_margin -0.21606200719963806
+
+witness 14138
+  subcone True
+  full -0.8769412734408442
+  lower_margin -0.8769412734408442
+
+comparison 1222142
+  subcone True
+  full 0.9457162662139126
+  lower_margin 0.9457162662139126
+
+comparison 1323632
+  subcone True
+  full 1.0242192662363734
+  lower_margin 1.0242192662363734
+
+comparison 1379072
+  subcone True
+  full 0.944998867177687
+  lower_margin 0.9449988671776868
+```
+
+Interpretation: no proof that uses only finite admissible support,
+nonnegativity, and total mass can establish subcone rescue.  It must use
+arithmetic input distinguishing the later prime-pair residue weights from the
+boundary witnesses, or explicitly prove that this arithmetic input is a
+pointwise fixed-modulus binary-prime correlation theorem.  A future LP/cone
+search could map the bad region more broadly, but it is not needed for this
+obstruction because the actual witness weights already refute the support-only
+route.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

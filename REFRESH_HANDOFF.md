@@ -18295,6 +18295,16 @@ late targets clear this strongly with positive `H/P`, while `10664` and
 `14138` miss the floor.  The next proof target is therefore a conditioned
 lower bound for `H/P` on the late `.2` subcone, not another threshold scan.
 
+New code `q286_lower_support_package_support_only_obstruction_receipt` records
+the deterministic obstruction to a support-only proof.  Focused regression
+`test_q286_lower_support_package_support_only_obstruction` passed in
+`56.578s`.  Witnesses `10664,14138` are actual nonnegative strict-central
+prime-pair weight vectors in the `.2`/`.3` subcone but fail the rescue
+inequality; late comparisons `1222142,1323632,1379072` succeed.  Thus the
+next theorem must use arithmetic pointwise residue-weight information, not
+just finite support geometry.  SciPy/LP may be useful later for cone mapping,
+but it is not needed for this obstruction.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused package test, and

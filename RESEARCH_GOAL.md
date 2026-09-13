@@ -177,6 +177,14 @@ this floor.  Thus the current theorem is no longer a vague complement floor:
 it is a conditioned lower bound for `H/P` on the late `.2` subcone, after
 finite boundary exceptions.
 
+`q286_lower_support_package_support_only_obstruction_receipt` now records the
+proof-strategy obstruction: actual witness targets `10664,14138` lie in the
+same `.2`/`.3` subcone but fail the lower-support rescue inequality, while
+late comparison targets `1222142,1323632,1379072` succeed.  Therefore
+support, nonnegativity, and total mass are insufficient; the missing theorem
+must use arithmetic information about the pointwise prime-pair residue weights,
+or be recorded as a fixed-modulus binary-prime correlation input.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite
