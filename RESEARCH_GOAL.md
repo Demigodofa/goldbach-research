@@ -61,6 +61,17 @@ alone.  It must use arithmetic information about actual binary prime-pair
 residue weights, or else be identified as hard as a pointwise restricted
 Goldbach-in-progressions theorem.
 
+That note also records the exact conditional closure now available.  A
+pointwise fixed-modulus strict-central equidistribution theorem
+`W_N(r)=M_N/|U_q(N)|+o(M_N)` would make all centered coefficient actions
+`o(P(N))` and hence give eventual strict-central positivity after a finite
+remainder.  This is rigorous as a conditional theorem but is not a proof,
+because the hypothesis is already a hard binary Goldbach-in-progressions
+statement.  Quantitatively, the q286 first-three L2 route has
+`K_a <= 50.37646733742071`; later stress targets are compatible with
+L2-relative discrepancies of about `0.021..0.030`, while the boundary target
+`14138` would require about `0.000362`.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

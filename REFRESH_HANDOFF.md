@@ -18181,15 +18181,29 @@ weight perturbations exactly anti-aligned with it, giving alignment cosine
 residue weights, or record that the required theorem is as hard as a
 pointwise restricted Goldbach-in-progressions statement.
 
+The same note now records a rigorous conditional theorem: a pointwise
+fixed-modulus strict-central equidistribution asymptotic
+`W_N(r)=M_N/|U_q(N)|+o(M_N)` for every admissible residue would make every
+centered coefficient action `o(P(N))`, leaving `P(N)+o(P(N))>0` eventually.
+This would close the strict-central coefficient problem after a finite
+remainder, but the hypothesis is already a hard pointwise binary
+Goldbach-in-progressions theorem.  For the q286 first-three subproblem, the
+measured worst coefficient ratio is `K_a <= 50.37646733742071`; later stress
+targets need only about `0.021..0.030` L2-relative discrepancy, while boundary
+target `14138` needs about `0.000362`, confirming it belongs in the finite
+boundary layer.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: prove the coefficient-matched
-   binary-prime anti-alignment estimate or identify the minimal external
-   theorem that would imply it; do not spend large compute on support-only or
-   max-discrepancy routes already ruled out by the obstruction.
+3. Then attempt the theorem route directly: either prove a pointwise
+   fixed-modulus L2 discrepancy estimate weaker than full residue-by-residue
+   equidistribution by exploiting the q286 coefficient vector, or identify the
+   minimal external theorem that would imply it.  Do not spend large compute
+   on support-only or max-discrepancy routes already ruled out by the
+   obstruction.
 
 ## Temporary wake note — continuity discussion
 

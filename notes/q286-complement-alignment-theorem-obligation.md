@@ -128,6 +128,79 @@ specific residue channels strong enough to imply restricted binary Goldbach
 classes, then this lane has reached a hard theorem-equivalence obstruction
 rather than a proof.
 
+## Conditional theorem from pointwise fixed-modulus equidistribution
+
+There is a clean conditional closure, but its hypothesis is essentially the
+kind of pointwise binary-prime-in-progressions theorem that is not presently
+available.
+
+Let `q` be a fixed modulus carrying the complete strict-central assembled
+coefficient, for example `q=10010`, and let `U_q(N)` be the admissible unit
+residue classes for the first prime in `N=p+(N-p)`.  Suppose that for every
+admissible residue `r` one has a pointwise strict-central asymptotic
+
+```text
+W_N(r) = M_N / |U_q(N)| + o(M_N)
+```
+
+uniformly in `r`, where `W_N(r)` is the log-weighted strict-central prime-pair
+mass in that residue and `M_N=sum_r W_N(r)`.  Since every centered coefficient
+vector on the fixed finite residue set has bounded norm, every centered
+coefficient action is then `o(P(N))`, while the principal action is `P(N)`.
+Therefore the full assembled strict-central action is
+
+```text
+P(N) + o(P(N)) > 0
+```
+
+for all sufficiently large even `N` satisfying the local admissibility
+conditions.  A finite check below the onset would then close this strict-
+central coefficient problem.
+
+This is rigorous as a conditional theorem, but it does not solve Goldbach
+because the hypothesis already asserts pointwise positive prime-pair mass in
+every admissible residue class at a fixed modulus.  It is stronger than the
+coefficient-matched anti-alignment estimate and is in the same hardness family
+as binary Goldbach in arithmetic progressions.
+
+For the q286 first-three subproblem, a weaker conditional form is enough.  If
+
+```text
+||d_N||_2 / M_N <= delta_N
+```
+
+and `K_a = ||c_a||_2 / principal_mean`, then
+
+```text
+|F_3(N)| / P(N) <= K_a delta_N.
+```
+
+Thus the complement beats the whole first-three L2 envelope whenever
+
+```text
+delta_N < (full_without_first_three(N) / P(N)) / K_a.
+```
+
+The measured implementation has `K_a <= 50.37646733742071` across target
+residues.  On selected stress targets the required L2-relative discrepancy
+thresholds are:
+
+```text
+target 14138:   0.0003619625968602846
+target 70526:   0.03014917441354616
+target 1222142: 0.025165692383669395
+target 1379072: 0.025798469567275696
+target 1426262: 0.023571470732776444
+target 3305200: 0.021132268379254724
+```
+
+Interpretation: the boundary target `14138` cannot be handled by a realistic
+coarse discrepancy theorem because its complement is tiny.  Later stress
+targets have thresholds around two to three percent, so a true pointwise
+fixed-modulus equidistribution theorem with relative L2 error tending to zero
+would eventually dominate them.  The missing ingredient is proving such a
+pointwise theorem, not another support-only finite-vector inequality.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in
