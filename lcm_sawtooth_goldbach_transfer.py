@@ -12244,7 +12244,7 @@ def q286_lower_support_component_pair_real_channel_receipt(
         active_indices_by_support[support] = indices
         active_union_indices.update(indices)
 
-    def conjugacy_orbit_rows(indices):
+    def conjugacy_orbit_rows(indices, coefficients=None):
         remaining = set(indices)
         rows = []
         for index in sorted(indices):
@@ -12253,13 +12253,28 @@ def q286_lower_support_component_pair_real_channel_receipt(
             conjugate_index = label_to_index[conjugate_label(labels[index])]
             orbit = tuple(sorted({index, conjugate_index}))
             remaining.difference_update(orbit)
-            rows.append({
+            row = {
                 "indices": orbit,
                 "labels": tuple(labels[orbit_index]
                                 for orbit_index in orbit),
                 "size": len(orbit),
                 "self_conjugate": bool(len(orbit) == 1),
-            })
+                "real_formula_multiplier": 1.0 if len(orbit) == 1 else 2.0,
+                "real_formula": (
+                    "Re(c*S_chi)" if len(orbit) == 1
+                    else "2*Re(c*S_chi)"),
+            }
+            if coefficients is not None:
+                representative = orbit[0]
+                row.update({
+                    "representative_index": representative,
+                    "representative_label": labels[representative],
+                    "representative_coefficient": complex(
+                        coefficients[representative]),
+                    "representative_coefficient_abs": float(
+                        abs(coefficients[representative])),
+                })
+            rows.append(row)
         return tuple(rows)
 
     def conjugate_coefficient_error(coefficients):
@@ -12273,17 +12288,24 @@ def q286_lower_support_component_pair_real_channel_receipt(
         return maximum / max(1.0, float(np.linalg.norm(coefficients)))
 
     component_orbit_rows = {
-        support: conjugacy_orbit_rows(active_indices_by_support[support])
+        support: conjugacy_orbit_rows(
+            active_indices_by_support[support],
+            component_coefficients[support])
         for support in component_pair}
-    union_orbit_rows = conjugacy_orbit_rows(active_union_indices)
     pair_sum_coefficients = (
         component_coefficients[component_pair[0]]
         + component_coefficients[component_pair[1]])
+    union_orbit_rows = conjugacy_orbit_rows(
+        active_union_indices, pair_sum_coefficients)
     component_errors = {
         support: conjugate_coefficient_error(coefficients)
         for support, coefficients in component_coefficients.items()}
     pair_sum_error = conjugate_coefficient_error(pair_sum_coefficients)
     all_errors = tuple(component_errors.values()) + (pair_sum_error,)
+    pair_sum_real_channel_l1 = float(math.fsum(
+        row["real_formula_multiplier"]
+        * row["representative_coefficient_abs"]
+        for row in union_orbit_rows))
 
     return {
         "arithmetic_period": period,
@@ -12306,6 +12328,8 @@ def q286_lower_support_component_pair_real_channel_receipt(
         "active_union_real_channel_count": len(union_orbit_rows),
         "active_union_self_conjugate_channel_count": sum(
             row["self_conjugate"] for row in union_orbit_rows),
+        "pair_sum_real_channel_l1_to_principal_mean": (
+            pair_sum_real_channel_l1 / principal_mean),
         "component_conjugacy_orbit_rows": component_orbit_rows,
         "union_conjugacy_orbit_rows": union_orbit_rows,
         "component_conjugate_coefficient_errors": component_errors,

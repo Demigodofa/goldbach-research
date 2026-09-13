@@ -10253,14 +10253,17 @@ The focused regression now freezes the exact active labels.  In factor order
 
 Follow-up receipt `q286_lower_support_component_pair_real_channel_receipt`
 collapses the active complex labels by conjugation.  Focused regression
-`test_q286_lower_support_component_pair_real_channel` passed in `36.836s`:
+`test_q286_lower_support_component_pair_real_channel` passed in `30.401s`:
 `8 -> 4` real channels for `(5,7)`, `23 -> 12` for `(7,11)`, and `31 -> 16`
 for the active union, with the lone self-conjugate active label `(0,3,5,0)`.
+The receipt now exposes coefficient-bearing real formulas: `2*Re(c*S_chi)`
+for conjugate pairs and `Re(c*S_chi)` for the self-conjugate channel; the
+pair-sum real-channel L1/principal_mean remains `15.262957606760951`.
 
 Status `theorem-sharpening`: after closing support geometry, the surviving
-non-circular target is signed cone avoidance for `16` real conjugacy channels
-inside these two explicit adjacent character-label blocks, not arbitrary
-residue occupancy.  This is narrower than full fixed-modulus
+non-circular target is signed cone avoidance for `16` coefficient-bearing real
+conjugacy formulas inside these two explicit adjacent character-label blocks,
+not arbitrary residue occupancy.  This is narrower than full fixed-modulus
 Goldbach-in-progressions but remains a pointwise binary-prime correlation
 theorem.  Goldbach remains open.
 

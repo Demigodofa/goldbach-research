@@ -369,7 +369,7 @@ the factor order `(5,7,11,13)`:
 
 `q286_lower_support_component_pair_real_channel_receipt` then collapses those
 complex characters by conjugation.  Focused regression
-`test_q286_lower_support_component_pair_real_channel` passed in `36.836s`.
+`test_q286_lower_support_component_pair_real_channel` passed in `30.401s`.
 
 ```text
 (5,7) complex rows: 8, real conjugacy channels: 4
@@ -377,12 +377,15 @@ complex characters by conjugation.  Focused regression
 active union complex rows: 31
 active union real conjugacy channels: 16
 self-conjugate active channels: 1
+pair-sum real-channel L1/principal_mean: 15.262957606760951
 maximum conjugate coefficient error: below 1e-12
 ```
 
 The lone self-conjugate active label is `(0,3,5,0)`.  Thus the surviving
 component-pair theorem can be stated over `16` real conjugacy channels rather
-than `31` unrelated complex character sums.
+than `31` unrelated complex character sums.  Each non-self-conjugate channel
+has exact contribution formula `2*Re(c*S_chi)`, while the self-conjugate
+channel has formula `Re(c*S_chi)`.
 
 Selected-target rows:
 
@@ -410,10 +413,10 @@ target 1379072:
 
 This sharpens the arithmetic theorem obligation: one need not prove full
 pointwise equidistribution modulo `10010`.  A signed cone-avoidance theorem
-for the `16` real conjugacy channels inside the two explicit adjacent
-character-label blocks above would target the surviving obstruction directly.
-Such a theorem is still pointwise binary-prime correlation input and is not
-supplied by the finite receipts.
+for the `16` coefficient-bearing real formulas inside the two explicit
+adjacent character-label blocks above would target the surviving obstruction
+directly.  Such a theorem is still pointwise binary-prime correlation input
+and is not supplied by the finite receipts.
 
 ## Precise unresolved theorem
 

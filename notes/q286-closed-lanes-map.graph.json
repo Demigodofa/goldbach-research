@@ -291,7 +291,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_real_channel_receipt",
       "status": "validated",
-      "validation": "test_q286_lower_support_component_pair_real_channel passed in 36.836s; active union collapses from 31 complex character rows to 16 real conjugacy channels with conjugate coefficient error below 1e-12",
+      "validation": "test_q286_lower_support_component_pair_real_channel passed in 30.401s; active union collapses from 31 complex character rows to 16 coefficient-bearing real conjugacy channels with conjugate coefficient error below 1e-12",
       "status_boundary": "finite conjugacy reduction only; no pointwise real-channel estimate or Goldbach proof"
     },
     {

@@ -1936,16 +1936,30 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["active_union_real_channel_count"], 16)
         self.assertEqual(
             receipt["active_union_self_conjugate_channel_count"], 1)
+        self.assertAlmostEqual(
+            receipt["pair_sum_real_channel_l1_to_principal_mean"],
+            15.262957606760951)
         self.assertLess(
             receipt["maximum_conjugate_coefficient_error"], 1e-12)
+        first_pair = receipt[
+            "component_conjugacy_orbit_rows"][(5, 7)][0]
         self.assertEqual(
-            receipt["component_conjugacy_orbit_rows"][(5, 7)][0][
-                "labels"],
-            ((1, 1, 0, 0), (3, 5, 0, 0)))
+            first_pair["labels"], ((1, 1, 0, 0), (3, 5, 0, 0)))
+        self.assertEqual(first_pair["representative_label"], (1, 1, 0, 0))
+        self.assertEqual(first_pair["real_formula_multiplier"], 2.0)
+        self.assertEqual(first_pair["real_formula"], "2*Re(c*S_chi)")
+        self.assertGreater(first_pair["representative_coefficient_abs"], 0)
+        self_conjugate = receipt[
+            "component_conjugacy_orbit_rows"][(7, 11)][-1]
         self.assertEqual(
-            receipt["component_conjugacy_orbit_rows"][(7, 11)][-1][
-                "labels"],
-            ((0, 3, 5, 0),))
+            self_conjugate["labels"], ((0, 3, 5, 0),))
+        self.assertEqual(
+            self_conjugate["representative_label"], (0, 3, 5, 0))
+        self.assertEqual(
+            self_conjugate["real_formula_multiplier"], 1.0)
+        self.assertEqual(self_conjugate["real_formula"], "Re(c*S_chi)")
+        self.assertEqual(
+            len(receipt["union_conjugacy_orbit_rows"]), 16)
         self.assertTrue(receipt[
             "complex_to_real_channel_reduction_measured"])
         self.assertFalse(receipt[

@@ -18840,13 +18840,16 @@ Follow-up receipt:
 - `q286_lower_support_component_pair_real_channel_receipt`
 
 Focused regression `test_q286_lower_support_component_pair_real_channel`
-passed in `36.836s`.  Complex conjugation collapses the active target from
+passed in `30.401s`.  Complex conjugation collapses the active target from
 `31` complex rows to `16` real conjugacy channels: `4` for `(5,7)`, `12` for
-`(7,11)`, and one self-conjugate active label `(0,3,5,0)`.
+`(7,11)`, and one self-conjugate active label `(0,3,5,0)`.  The receipt now
+records coefficient-bearing formulas: `2*Re(c*S_chi)` for conjugate pairs and
+`Re(c*S_chi)` for the self-conjugate channel.
 
 Status: theorem-sharpening, not proof.  The remaining q286 component-pair
-obligation is a signed pointwise theorem about `16` real conjugacy channels
-inside these two adjacent character-label blocks modulo `10010`.  That is
+obligation is a signed pointwise theorem about `16` coefficient-bearing real
+conjugacy formulas inside these two adjacent character-label blocks modulo
+`10010`.  That is
 narrower than proving full residue-by-residue prime-pair occupancy, but it
 remains hard arithmetic input and no Goldbach theorem is proved.
 
