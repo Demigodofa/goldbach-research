@@ -1,0 +1,66 @@
+{
+  "receipt": "q286-tail-selector-active-residue-holdout-6x5",
+  "generated_on": "2026-09-13",
+  "purpose": "Active-residue holdout selector scan after the known 1379072 tail hit; finite denominator evidence only.",
+  "selector": {
+    "first_two_modes_to_principal_ratio": "< -0.2",
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "relationship_to_known_hit": "Starts are 1379072 + 10010*k for k=1..6, with five consecutive even targets per window. This is an active-residue holdout, not a neutral population sample.",
+  "starts": [
+    1389082,
+    1399092,
+    1409102,
+    1419112,
+    1429122,
+    1439132
+  ],
+  "targets_per_window": 5,
+  "window_count": 6,
+  "scanned_target_count": 30,
+  "tail_target_count": 0,
+  "tail_targets": [],
+  "window_rows": [
+    {
+      "start": 1389082,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1399092,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1409102,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1419112,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1429122,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    },
+    {
+      "start": 1439132,
+      "scanned_target_count": 5,
+      "tail_target_count": 0,
+      "tail_targets": []
+    }
+  ],
+  "validation": {
+    "selector_probe": "q286_lower_support_component_pair_tail_selector_grid_receipt(starts=tuple(1379072 + 10010*k for k in range(1, 7)), targets_per_window=5)",
+    "result": "scanned 30 targets; 0 active tail targets"
+  },
+  "boundary": "Selector-only evidence: no fixed-inequality stress rows were generated. This shows the known active local window did not repeat in the next six same-residue q286-period shifts; it is not reinforcement of the fixed inequality and not a Goldbach theorem."
+}

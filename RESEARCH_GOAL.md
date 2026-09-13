@@ -10660,6 +10660,15 @@ zero targets satisfying the active `first_two < -0.2` and `first_three < -0.3`
 predicate.  This is denominator evidence only: no fixed-inequality stress rows
 were generated, so it is not support for the inequality.
 
+The active-residue holdout in
+`evidence/q286-tail-selector-active-residue-holdout-6x5.json` then scanned
+the six same-residue q286-period shifts immediately after the known
+`1379072` hit: starts `1389082,1399092,1409102,1419112,1429122,1439132`, five
+targets each.  It found zero active tail targets across `30` scanned targets.
+This suggests the known active row is not trivially periodic in the next six
+same-residue windows, but no fixed-inequality rows were stressed and no
+theorem is proved.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

@@ -406,6 +406,12 @@ current comparison set.
    and found zero active tail targets.  This is not support for the fixed
    inequality; it shows only that these neutral windows had no stressable
    active-lane rows.
+49. The active-residue selector holdout
+   `evidence/q286-tail-selector-active-residue-holdout-6x5.json` scanned the
+   next six same-residue q286-period shifts after the known `1379072` hit,
+   five targets per window.  It found zero active tail targets across `30`
+   scanned targets.  This falsifies simple immediate same-residue repetition
+   of the known local active row, but no fixed-inequality rows were stressed.
 
 ## Still open
 

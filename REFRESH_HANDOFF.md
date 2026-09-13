@@ -19357,6 +19357,15 @@ no target entered the active lane, this is not reinforcement of the fixed
 inequality; it is denominator evidence showing those neutral windows produced
 no stressable rows.
 
+Additional active-residue holdout evidence is recorded in
+`evidence/q286-tail-selector-active-residue-holdout-6x5.json`.  This used
+starts `1379072 + 10010*k` for `k=1..6`, with five even targets per window,
+to test whether the known local active row simply repeats in the next six
+same-residue q286-period shifts.  It scanned `30` targets and found `0`
+active tail targets.  This is still selector-only evidence: no
+fixed-inequality stress rows were generated, so it is not support for the
+inequality.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

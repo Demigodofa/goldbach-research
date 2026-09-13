@@ -1431,6 +1431,15 @@ This is useful denominator evidence for the sampling question, but no
 fixed-inequality row was tested in those windows.  It must not be counted as
 support for the antipodal thin-large-side inequality.
 
+`evidence/q286-tail-selector-active-residue-holdout-6x5.json` records a
+second selector-only check: the next six same-residue q286-period shifts after
+the known hit `1379072`, with five even targets per window.  It scanned
+starts `1389082,1399092,1409102,1419112,1429122,1439132`, `30` targets total,
+and found `0` active tail targets.  This is useful because it falsifies the
+idea that the known active row simply repeats in the immediate next six
+same-residue windows.  It still generates no fixed-inequality stress row and
+therefore gives no direct support for the inequality.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
