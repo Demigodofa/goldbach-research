@@ -19003,6 +19003,23 @@ fixed-conductor twisted binary-Goldbach estimates on adjacent conductors
 `35` and `77`, with target residues inherited from the lcm-period setup.
 Goldbach and the pointwise channel theorem remain open.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_reduction` passed in
+`162.840s`.  It recomputes every selected active period-`10010` channel sum
+from strict-central discrepancy aggregated modulo the channel's own conductor
+(`35` or `77`).  The test checks maximum character-sum reduction error below
+`1e-8` and residue-character consistency error below `1e-12`.  The boundary
+pressure channel `(1,1,0,0)` reconstructs at conductor `35` with normalized
+sum `0.2659059415120284`; the worst late-positive pressure channel
+`(0,3,3,0)` reconstructs at conductor `77` with normalized sum
+`0.027155981994015317`.  This is the current sharpest channel-side theorem
+target: fixed-conductor twisted binary-prime discrepancy on `35` and `77`,
+not full residue equidistribution modulo `10010`.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

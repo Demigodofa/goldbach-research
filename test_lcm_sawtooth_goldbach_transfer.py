@@ -71,6 +71,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_closure_margin_profile_receipt,
     q286_lower_support_component_pair_channel_pressure_profile_receipt,
     q286_lower_support_component_pair_channel_conductor_profile_receipt,
+    q286_lower_support_component_pair_fixed_conductor_reduction_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2399,6 +2400,37 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["worst_positive_channel_pressure_row"][
                 "maximum_channel_conductor"], 77)
         self.assertTrue(receipt["channel_conductor_profile_measured"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_reduction(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_reduction_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["active_union_real_channel_count"], 16)
+        self.assertLess(
+            receipt["maximum_character_sum_reduction_error"], 1e-8)
+        self.assertLess(
+            receipt["maximum_residue_character_consistency_error"], 1e-12)
+        boundary_rows = {
+            row["representative_label"]: row
+            for row in receipt["rows"][14138]["channel_rows"]}
+        boundary = boundary_rows[(1, 1, 0, 0)]
+        self.assertEqual(boundary["conductor"], 35)
+        self.assertAlmostEqual(
+            boundary["normalized_abs_sum"], 0.2659059415120284)
+        positive_rows = {
+            row["representative_label"]: row
+            for row in receipt["rows"][1379072]["channel_rows"]}
+        positive = positive_rows[(0, 3, 3, 0)]
+        self.assertEqual(positive["conductor"], 77)
+        self.assertAlmostEqual(
+            positive["normalized_abs_sum"], 0.027155981994015317)
+        self.assertTrue(receipt["fixed_conductor_reduction_measured"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

@@ -383,6 +383,14 @@
       "status_boundary": "selected conductor profile only; no fixed-conductor twisted Goldbach estimate and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_reduction",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_reduction_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_reduction passed in 162.840s; selected active period-10010 channel sums reconstruct from discrepancy aggregated modulo conductor 35 or 77 with error below 1e-8",
+      "status_boundary": "selected fixed-conductor reduction only; no pointwise twisted binary-prime discrepancy theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -632,6 +640,16 @@
     },
     {
       "from": "receipt.component_pair_channel_conductor_profile",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_reduction",
+      "to": "receipt.component_pair_channel_conductor_profile",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_reduction",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

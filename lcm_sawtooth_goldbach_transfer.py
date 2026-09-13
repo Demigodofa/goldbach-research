@@ -13346,6 +13346,132 @@ def q286_lower_support_component_pair_channel_conductor_profile_receipt(
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_reduction_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Recompute active channel sums from their smaller conductors."""
+    conductor_profile = (
+        q286_lower_support_component_pair_channel_conductor_profile_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    targets = conductor_profile["targets"]
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    unit_index = component_data["unit_index"]
+    _, labels, character_table = _unit_character_table(period, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    lower_tail = q286_first_two_mode_lower_tail_receipt(
+        selected_targets=targets, targets_per_cycle=len(targets),
+        tolerance=tolerance, include_residue_weights=True)
+
+    conductor_rows = conductor_profile["conductor_rows"]
+    maximum_character_reduction_error = 0.0
+    maximum_residue_character_consistency_error = 0.0
+    rows = {}
+    for target in targets:
+        source_row = lower_tail["rows"][target]
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for unit, weight in source_row["strict_central_residue_weight_rows"]:
+            weights[unit_index[unit]] += weight
+            total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - uniform_weight
+
+        aggregate_delta_by_conductor = {}
+        for conductor in conductor_profile["active_channel_conductors"]:
+            aggregate = {}
+            for unit, delta_value in zip(units, delta):
+                residue = unit % conductor
+                aggregate[residue] = aggregate.get(residue, 0.0) + float(
+                    delta_value)
+            aggregate_delta_by_conductor[conductor] = aggregate
+
+        channel_rows = []
+        for channel in conductor_rows:
+            label = channel["representative_label"]
+            label_index = label_to_index[label]
+            conductor = channel["conductor"]
+            character_by_residue = {}
+            consistency_error = 0.0
+            for index, unit in enumerate(units):
+                residue = unit % conductor
+                value = complex(character_table[label_index, index])
+                if residue in character_by_residue:
+                    consistency_error = max(
+                        consistency_error,
+                        abs(character_by_residue[residue] - value))
+                else:
+                    character_by_residue[residue] = value
+            aggregate = aggregate_delta_by_conductor[conductor]
+            reduced_sum = complex(math.fsum(
+                (character_by_residue[residue] * delta_value).real
+                for residue, delta_value in aggregate.items()))
+            reduced_sum += 1j * math.fsum(
+                (character_by_residue[residue] * delta_value).imag
+                for residue, delta_value in aggregate.items())
+            period_sum = complex(character_table[label_index] @ delta)
+            reduction_error = abs(reduced_sum - period_sum)
+            maximum_character_reduction_error = max(
+                maximum_character_reduction_error, reduction_error)
+            maximum_residue_character_consistency_error = max(
+                maximum_residue_character_consistency_error,
+                consistency_error)
+            channel_rows.append({
+                "representative_label": label,
+                "labels": channel["labels"],
+                "conductor": conductor,
+                "active_factor_primes": channel["active_factor_primes"],
+                "period_character_sum": period_sum,
+                "fixed_conductor_character_sum": reduced_sum,
+                "character_sum_reduction_error": reduction_error,
+                "normalized_abs_sum": float(abs(reduced_sum) / total_weight),
+                "conductor_residue_count": len(aggregate),
+                "maximum_aggregate_delta_abs_to_total_weight": float(
+                    max(abs(value) for value in aggregate.values())
+                    / total_weight),
+            })
+
+        rows[target] = {
+            "target": target,
+            "target_residue": target % period,
+            "strict_central_total_weight": total_weight,
+            "channel_rows": tuple(channel_rows),
+            "maximum_character_sum_reduction_error": max(
+                row["character_sum_reduction_error"]
+                for row in channel_rows),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pair": component_pair,
+        "active_channel_conductors": (
+            conductor_profile["active_channel_conductors"]),
+        "active_union_real_channel_count": (
+            conductor_profile["active_union_real_channel_count"]),
+        "maximum_character_sum_reduction_error": (
+            maximum_character_reduction_error),
+        "maximum_residue_character_consistency_error": (
+            maximum_residue_character_consistency_error),
+        "rows": rows,
+        "source_channel_conductor_profile_receipt": conductor_profile,
+        "fixed_conductor_reduction_measured": True,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -41,6 +41,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_character_mixture_receipt`
 - `q286_lower_support_component_pair_channel_pressure_profile_receipt`
 - `q286_lower_support_component_pair_channel_conductor_profile_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
 
 ## Closed or falsified lanes
 
@@ -267,6 +268,10 @@ current comparison set.
    that all `16` active real channels have conductor `35` or `77`; no active
    channel uses factor `13`.  The missing pointwise theorem can therefore be
    stated over adjacent fixed conductors, not the whole period `10010`.
+28. The fixed-conductor reduction regression passed in `162.840s` and
+   reconstructs every selected active period-`10010` channel sum from
+   discrepancy aggregated modulo its own conductor (`35` or `77`), with
+   character reduction error below `1e-8`.
 
 ## Still open
 

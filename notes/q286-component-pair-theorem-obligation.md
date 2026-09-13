@@ -812,6 +812,29 @@ conductors `35=5*7` and `77=7*11`, with the target residue still inherited
 from the lcm-period setup.  This is a meaningful narrowing of the theorem
 obligation, not a proof of that twisted estimate.
 
+`q286_lower_support_component_pair_fixed_conductor_reduction_receipt` verifies
+that reduction directly.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_reduction` passed in
+`162.840s`.  For every selected target and every active real channel, it
+aggregates the strict-central discrepancy by residue modulo the channel's
+own conductor and reconstructs the original period-`10010` character sum.
+The regression checks maximum character-sum reduction error below `1e-8` and
+residue-character consistency error below `1e-12`.
+
+The pressure witnesses survive this smaller-conductor reconstruction:
+
+```text
+target 14138, label (1,1,0,0), conductor 35:
+  normalized abs sum 0.2659059415120284
+
+target 1379072, label (0,3,3,0), conductor 77:
+  normalized abs sum 0.027155981994015317
+```
+
+This makes the next analytic statement sharper: bound the relevant twisted
+binary-prime discrepancy after aggregation modulo `35` and `77`.  It does not
+remove the need for a pointwise prime-correlation theorem.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

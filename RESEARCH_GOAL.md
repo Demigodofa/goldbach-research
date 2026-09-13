@@ -10389,6 +10389,20 @@ label `(1,1,0,0)` has conductor `35`; the worst late-positive pressure label
 to fixed-conductor twisted binary-Goldbach control on adjacent conductors,
 not a full modulus-`10010` theorem.
 
+New receipt
+`q286_lower_support_component_pair_fixed_conductor_reduction_receipt`
+reconstructs each selected active period-`10010` channel sum from
+strict-central discrepancy aggregated modulo its own conductor.  Focused
+regression
+`test_q286_lower_support_component_pair_fixed_conductor_reduction` passed in
+`162.840s`, with character reduction error below `1e-8` and residue-character
+consistency error below `1e-12`.  The boundary pressure label `(1,1,0,0)`
+reconstructs at conductor `35` with normalized sum `0.2659059415120284`; the
+worst late-positive pressure label `(0,3,3,0)` reconstructs at conductor `77`
+with normalized sum `0.027155981994015317`.  The unresolved theorem is now a
+fixed-conductor twisted binary-prime discrepancy estimate on those adjacent
+conductors, not merely a formal lcm-period identity.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
