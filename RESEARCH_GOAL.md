@@ -4,6 +4,52 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
+## Latest continuation evidence, 2026-09-13
+
+The q286 first-three route now has a window-level alignment/complement
+certificate.  `q286_first_three_tail_alignment_complement_window_receipt`
+finds first-three lower-tail hits in a finite window, then checks whether the
+measured complement beats the candidate alignment loss `.4*l2_bound`.
+
+Validation: `py_compile` passed, and focused regression
+`test_q286_first_three_tail_alignment_complement_window` passed in `79.721s`.
+
+On global cycles `105..136`, at tail threshold `.3`, theorem threshold `.2`,
+and alignment ceiling `.4`, the receipt tested `160160` targets, found exactly
+three tail hits `1222142,1323632,1379072`, certified all three by complement,
+found no failed certificates, and found no actual full-action negatives.  The
+worst certificate margin was at `1222142`:
+
+```text
+first_three -0.3075877603708801
+complement 1.2533040265847926
+.4*l2_bound 0.3580390674135778
+margin 0.8952649591712147
+full 0.9457162662139126
+```
+
+The precise unresolved theorem candidate is now:
+
+1. Prove a signed q286 first-three alignment estimate
+   `first_three(N) >= -0.4*l2_bound(N)`.
+2. Prove a conditioned complement lower envelope
+   `full_without_first_three(N) > 0.4*l2_bound(N)` on the first-three lower
+   tail, after excluding and finitely checking the boundary/full-negative
+   layer.
+
+This is a coefficient-matched binary-prime residue discrepancy problem plus a
+complement lower-envelope problem.  It is not solved by a generic max-residue
+discrepancy bound, and it is not merely local admissibility.  If this
+collapses to an equally hard pointwise prime-pair occupancy theorem in fixed
+residue channels, that should be recorded as the impasse rather than promoted
+as proof progress.
+
+Status `theorem-shaping-finite-evidence`: the measured sparse late-tail band
+fits the complement-vs-alignment route, while the boundary target `14138`
+remains an explicit failure of the same sufficient condition.  Goldbach, the
+eventual alignment theorem, the eventual complement theorem, and the signed
+prime-correlation estimate remain open.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

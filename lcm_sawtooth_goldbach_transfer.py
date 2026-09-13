@@ -11522,6 +11522,108 @@ def q286_selected_alignment_complement_certificate_receipt(
     }
 
 
+def q286_first_three_tail_alignment_complement_window_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        tail_threshold=.3, theorem_threshold=.2, alignment_ceiling=.4,
+        tolerance=1e-9):
+    """Check alignment/complement certification on window-discovered tails.
+
+    This finite diagnostic first finds q286 first-three lower-tail targets in a
+    window, then measures whether each tail target's complement beats the
+    candidate alignment loss ``alignment_ceiling * l2_bound``.  A passing
+    finite window is not an eventual complement theorem.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(alignment_ceiling) or alignment_ceiling <= 0:
+        raise ValueError("alignment_ceiling must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    tail_alignment = q286_first_three_tail_alignment_window_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        tail_threshold=tail_threshold,
+        theorem_threshold=theorem_threshold,
+        alignment_ceiling=alignment_ceiling,
+        tolerance=tolerance)
+    tail_targets = tail_alignment["tail_targets"]
+
+    if tail_targets:
+        certificate = q286_selected_alignment_complement_certificate_receipt(
+            targets=tail_targets,
+            theorem_threshold=theorem_threshold,
+            alignment_ceiling=alignment_ceiling,
+            tolerance=tolerance)
+    else:
+        certificate = {
+            "targets": (),
+            "tested_target_count": 0,
+            "theorem_threshold": theorem_threshold,
+            "alignment_ceiling": alignment_ceiling,
+            "target_rows": {},
+            "certified_target_count": 0,
+            "certified_targets": (),
+            "failed_certificate_target_count": 0,
+            "failed_certificate_targets": (),
+            "actual_negative_target_count": 0,
+            "actual_negative_targets": (),
+            "worst_certificate_margin_row": None,
+            "source_alignment_receipt": tail_alignment["alignment_receipt"],
+            "source_lower_tail_receipt": None,
+            "alignment_complement_certificate_measured": True,
+            "eventual_alignment_ceiling_proved": False,
+            "eventual_complement_bound_proved": False,
+            "eventual_first_three_tail_bound_proved": False,
+            "signed_prime_correlation_estimate_proved": False,
+            "goldbach_proved": False,
+        }
+
+    return {
+        "arithmetic_period": tail_alignment["arithmetic_period"],
+        "start": start,
+        "aligned_global_cycle_base": (
+            tail_alignment["aligned_global_cycle_base"]),
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "theorem_threshold": theorem_threshold,
+        "alignment_ceiling": alignment_ceiling,
+        "tested_target_count": tail_alignment["tested_target_count"],
+        "tail_target_count": tail_alignment["tail_target_count"],
+        "tail_targets": tail_targets,
+        "tail_cycles": tail_alignment["tail_cycles"],
+        "source_tail_alignment_receipt": tail_alignment,
+        "complement_certificate_receipt": certificate,
+        "certified_target_count": certificate["certified_target_count"],
+        "certified_targets": certificate["certified_targets"],
+        "failed_certificate_target_count": (
+            certificate["failed_certificate_target_count"]),
+        "failed_certificate_targets": (
+            certificate["failed_certificate_targets"]),
+        "actual_negative_target_count": (
+            certificate["actual_negative_target_count"]),
+        "actual_negative_targets": certificate["actual_negative_targets"],
+        "worst_certificate_margin_row": (
+            certificate["worst_certificate_margin_row"]),
+        "first_three_tail_alignment_complement_window_measured": True,
+        "eventual_alignment_ceiling_proved": False,
+        "eventual_complement_bound_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_hit_residue_profile_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3,), tolerance=1e-9):

@@ -3410,3 +3410,59 @@ works on later alignment-stress targets but fails at the boundary target
 split boundary/full-negative cases from an eventual complement-vs-alignment
 bound; it cannot be a single global complement floor paired with `.4`
 alignment.
+
+## 2026-09-13: tail-window alignment/complement certificate
+
+Added `q286_first_three_tail_alignment_complement_window_receipt`, which first
+finds q286 first-three lower-tail targets in a finite window and then applies
+the selected alignment/complement certificate to exactly those targets.  It is
+the window-level version of the route split above.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_alignment_complement_window ... ok
+Ran 1 test in 79.721s
+```
+
+On global cycles `105..136`, tail threshold `.3`, theorem threshold `.2`, and
+alignment ceiling `.4`:
+
+```text
+tested 160160
+tail_count 3
+tail targets: 1222142, 1323632, 1379072
+certified by complement > .4*l2_bound: all 3
+failed certificate targets: none
+actual full-negative targets: none
+worst certificate margin:
+  target 1222142
+  first_three -0.3075877603708801
+  complement 1.2533040265847926
+  .4*l2_bound 0.3580390674135778
+  margin 0.8952649591712147
+  full 0.9457162662139126
+```
+
+Precise unresolved theorem candidate:
+
+For all sufficiently large even targets in the strict-central q286 setting,
+after excluding a finite boundary layer, prove both:
+
+```text
+first_three(N) >= -0.4 * L2_q286_first_three_discrepancy_bound(N)
+full_without_first_three(N) > 0.4 * L2_q286_first_three_discrepancy_bound(N)
+```
+
+at least on the first-three lower-tail set.  The first statement is a signed
+alignment estimate for the q286 coefficient vector against the prime-pair
+residue discrepancy; the second is a complement lower-envelope estimate strong
+enough to absorb the allowed alignment loss.  The route is not a generic
+supremum-norm equidistribution theorem and not merely local admissibility.
+
+Status `theorem-shaping-finite-evidence`: the late sparse-tail band
+`105..136` is certified by the measured complement under the surviving `.4`
+alignment hypothesis.  This still proves no eventual alignment theorem, no
+eventual complement theorem, no pointwise signed prime-correlation estimate,
+and no Goldbach theorem.

@@ -18120,6 +18120,67 @@ not on the early boundary target `14138`, which is genuinely full-negative.
 Next instruction: theorem route should split boundary/full-negative cases from
 an eventual complement-vs-alignment bound.
 
+## 2026-09-13 continuation: tail-window alignment/complement certificate
+
+New code:
+
+- `q286_first_three_tail_alignment_complement_window_receipt`
+- focused regression
+  `test_q286_first_three_tail_alignment_complement_window`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_alignment_complement_window ... ok
+Ran 1 test in 79.721s
+```
+
+Finite evidence on global cycles `105..136`, tail threshold `.3`, theorem
+threshold `.2`, alignment ceiling `.4`:
+
+```text
+tested 160160
+tail_count 3
+tail targets (1222142, 1323632, 1379072)
+certified 3 (1222142, 1323632, 1379072)
+failed certificates 0 ()
+actual negatives 0 ()
+worst margin at 1222142:
+  first_three -0.3075877603708801
+  complement 1.2533040265847926
+  .4*l2_bound 0.3580390674135778
+  margin 0.8952649591712147
+  full 0.9457162662139126
+```
+
+Current theorem target: after excluding the finite boundary/full-negative
+layer, prove a signed q286 first-three alignment estimate
+`first_three >= -0.4*l2_bound` and a conditioned complement lower envelope
+`full_without_first_three > 0.4*l2_bound` on the first-three lower-tail set.
+This is a coefficient-matched binary-prime residue discrepancy theorem plus a
+complement lower-bound theorem, not a generic max-discrepancy estimate.  If
+the needed statement collapses to pointwise prime-pair occupancy in fixed
+residue channels, record that as a hard equivalence/impasse rather than
+calling the finite diagnostics a proof.
+
+Status `theorem-shaping-finite-evidence`: the sparse late tail band
+`105..136` is certified by complement under the measured `.4` alignment
+hypothesis, while the boundary target `14138` remains an explicit failure of
+the same sufficient condition.  Goldbach, the eventual alignment theorem, the
+eventual complement theorem, and the final signed prime-correlation estimate
+remain open.
+
+Next instructions:
+
+1. Validate this checkpoint with `py_compile`, the focused window test, and
+   `git diff --check`.
+2. Commit and push as a coherent public-safe checkpoint.
+3. Then attempt the theorem route directly: formulate the exact q286
+   coefficient vector, the centered prime-pair residue discrepancy norm, and
+   the complement lower-envelope term; try to prove the two inequalities above
+   or identify the minimal external theorem that would imply them.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
