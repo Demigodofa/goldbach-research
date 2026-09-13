@@ -58,6 +58,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
 
 ## Closed or falsified lanes
 
@@ -373,6 +374,12 @@ current comparison set.
    row `(0,2,6,0)` uses primary bins `4,5`.  This closes a one-orientation
    large-side proof shortcut and leaves explicit thin exception bin-pair mass
    control as the sharper support target.
+45. The phase-antipodal thin-large-side-edge-support regression passed in
+   `415.057s`.  The selected thin large-side bins are not single-edge:
+   exception edge counts are `3`, `5`, and `2`, and the hard `(4,10)` bin has
+   five reflection-orbit edges with largest-edge ratio `0.4406627296301651`.
+   This closes a one-edge large-side shortcut and leaves small explicit
+   reflection-orbit mass/cancellation control as the sharper support target.
 
 ## Still open
 

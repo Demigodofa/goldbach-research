@@ -1300,6 +1300,40 @@ bin pairs `(1,7)`, `(4,10)`, and `(5,11)`, with the hard row concentrated in
 adjacent primary bins `4,5`.  This is still a selected finite profile, not a
 uniform support theorem.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
+then profiles the reflection-orbit edges inside those large-side bins.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support`
+passed in `415.057s`.
+
+```text
+total high-ratio thin exception pairs: 3
+maximum large-side edge count: 5
+maximum largest-edge / signed-large-side ratio: 0.837564290793937
+minimum signed-large-side / edge-mass ratio: 0.9959771123914983
+
+1379072, label (0,1,5,0), bin pair (1,7):
+  large side bin 7, edge count 3
+  leading orbit (3,76), length 0.0026233079773885734
+
+1379072, label (0,2,6,0), bin pair (4,10):
+  large side bin 4, edge count 5
+  leading orbit (26,53), length 0.00713099129439525
+  largest-edge / signed-large-side ratio 0.4406627296301651
+
+1379072, label (0,2,6,0), bin pair (5,11):
+  large side bin 5, edge count 2
+  leading orbit (6,73), length 0.006633859664808887
+  signed-large-side / edge-mass ratio 0.9959771123914983
+```
+
+This finitely falsifies a one-edge large-side theorem.  The hard `(4,10)` bin
+is the clearest obstruction: five reflection-orbit edges contribute, and the
+largest accounts for less than half of the signed large-side magnitude.  The
+remaining support-shaped target is therefore explicit mass/cancellation
+control over a small named set of reflection-orbit pairs, not a single edge
+or single orientation rule.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

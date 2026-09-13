@@ -88,6 +88,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
@@ -3248,6 +3249,73 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             0.006933239211847552)
         self.assertTrue(receipt[
             "fixed_conductor_phase_antipodal_thin_large_side_support_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_large_side_support_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_large_side_budget_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["ratio_bound"], 0.75)
+        self.assertEqual(receipt["thin_side_ratio_threshold"], 0.05)
+        self.assertEqual(receipt["total_high_ratio_exception_pair_count"], 3)
+        self.assertEqual(receipt["maximum_large_side_edge_count"], 5)
+        self.assertAlmostEqual(
+            receipt["maximum_largest_edge_fraction"],
+            0.837564290793937)
+        self.assertAlmostEqual(
+            receipt["minimum_large_side_abs_to_edge_mass_ratio"],
+            0.9959771123914983)
+        self.assertTrue(receipt["single_edge_large_side_theorem_falsified"])
+
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertEqual(
+            by_label[(0, 1, 5, 0)]["maximum_large_side_edge_count"], 3)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)]["maximum_largest_edge_fraction"],
+            0.837564290793937)
+        self.assertEqual(
+            by_label[(0, 2, 6, 0)]["maximum_large_side_edge_count"], 5)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)]["maximum_largest_edge_fraction"],
+            0.7605019497301692)
+
+        hard_rows = {
+            (row["bin_index"], row["opposite_bin_index"]): row
+            for row in by_label[(0, 2, 6, 0)]["exception_rows"]}
+        self.assertEqual(hard_rows[(4, 10)]["large_side_edge_count"], 5)
+        self.assertAlmostEqual(
+            hard_rows[(4, 10)]["largest_large_side_edge_fraction"],
+            0.4406627296301651)
+        self.assertEqual(
+            hard_rows[(4, 10)]["top_large_side_edge_rows"][0]["orbit"],
+            (26, 53))
+        self.assertEqual(hard_rows[(5, 11)]["large_side_edge_count"], 2)
+        self.assertAlmostEqual(
+            hard_rows[(5, 11)]["large_side_abs_to_edge_mass_ratio"],
+            0.9959771123914983)
+        self.assertEqual(
+            hard_rows[(5, 11)]["top_large_side_edge_rows"][0]["orbit"],
+            (6, 73))
+
+        easy_row = by_label[(0, 1, 5, 0)]["exception_rows"][0]
+        self.assertEqual(easy_row["large_side_edge_count"], 3)
+        self.assertEqual(
+            easy_row["top_large_side_edge_rows"][0]["orbit"], (3, 76))
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_antipodal_thin_large_side_edge_support_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_large_side_edge_support_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_large_side_support_theorem_proved"])
         self.assertFalse(receipt[

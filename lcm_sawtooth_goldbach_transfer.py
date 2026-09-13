@@ -14098,6 +14098,7 @@ def q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receip
     for source_row in polygon["polygon_rows"]:
         bin_masses = [0.0 for _ in range(phase_bin_count)]
         signed_bin_vectors = [0.0 + 0.0j for _ in range(phase_bin_count)]
+        bin_edge_rows = [[] for _ in range(phase_bin_count)]
         for edge in source_row["source_residual_orbit_row"][
                 "reflection_orbit_rows"]:
             vector = complex(edge["normalized_orbit_contribution"])
@@ -14108,6 +14109,13 @@ def q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receip
                 int(phase_bin_count * normalized_angle / two_pi))
             bin_masses[bin_index] += abs(vector)
             signed_bin_vectors[bin_index] += vector
+            bin_edge_rows[bin_index].append({
+                "orbit": edge["orbit"],
+                "vector": vector,
+                "length": abs(vector),
+                "angle_radians": angle,
+                "source_reflection_orbit_row": edge,
+            })
         bin_rows = tuple({
             "bin_index": index,
             "angle_start_radians": two_pi * index / phase_bin_count,
@@ -14115,6 +14123,11 @@ def q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receip
             "mass": bin_masses[index],
             "signed_vector": signed_bin_vectors[index],
             "signed_vector_abs": abs(signed_bin_vectors[index]),
+            "edge_count": len(bin_edge_rows[index]),
+            "largest_edge_abs": (
+                max((row["length"] for row in bin_edge_rows[index]),
+                    default=0.0)),
+            "edge_rows": tuple(bin_edge_rows[index]),
         } for index in range(phase_bin_count))
         nonzero_masses = tuple(mass for mass in bin_masses if mass > tolerance)
         resultant = source_row["resultant_abs"]
@@ -14273,6 +14286,9 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compressio
                 "signed_vector_abs": abs(pair_vector),
                 "source_bin_abs": abs(vector_a),
                 "opposite_source_bin_abs": abs(vector_b),
+                "source_bin_edge_rows": phase_bins[index]["edge_rows"],
+                "opposite_source_bin_edge_rows": (
+                    phase_bins[index + half_bin_count]["edge_rows"]),
             })
         antipodal_l1 = float(math.fsum(
             row["signed_vector_abs"] for row in antipodal_rows))
@@ -15174,6 +15190,135 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large
             "worst_thin_large_side_budget_margin_row"],
         "source_phase_antipodal_thin_large_side_budget_receipt": budget,
         "fixed_conductor_phase_antipodal_thin_large_side_support_measured": True,
+        "phase_antipodal_thin_large_side_support_theorem_proved": False,
+        "phase_antipodal_thin_large_side_budget_theorem_proved": False,
+        "phase_antipodal_sector_geometry_theorem_proved": False,
+        "phase_antipodal_nonthin_ratio_theorem_proved": False,
+        "phase_antipodal_exception_budget_theorem_proved": False,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        ratio_bound=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Profile edge concentration inside thin-exception large-side bins."""
+    support = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, ratio_bound=ratio_bound,
+            thin_side_ratio_threshold=thin_side_ratio_threshold,
+            tolerance=tolerance))
+
+    rows = []
+    all_exception_rows = []
+    for source_row in support["rows"]:
+        exception_rows = []
+        for exception_row in source_row["exception_rows"]:
+            source_pair = exception_row["source_exception_row"][
+                "source_high_ratio_pair_row"]["source_antipodal_pair_row"]
+            if exception_row["large_side_orientation"] == "primary":
+                edge_rows = source_pair["source_bin_edge_rows"]
+            else:
+                edge_rows = source_pair["opposite_source_bin_edge_rows"]
+            large_side_mass = exception_row["large_side_abs"]
+            large_side_edge_mass = float(math.fsum(
+                row["length"] for row in edge_rows))
+            largest_edge = max(
+                (row["length"] for row in edge_rows), default=0.0)
+            edge_row = {
+                "target": source_row["target"],
+                "representative_label": source_row["representative_label"],
+                "bin_index": exception_row["bin_index"],
+                "opposite_bin_index": exception_row["opposite_bin_index"],
+                "large_side_bin_index": (
+                    exception_row["large_side_bin_index"]),
+                "large_side_orientation": (
+                    exception_row["large_side_orientation"]),
+                "large_side_abs": large_side_mass,
+                "large_side_edge_mass": large_side_edge_mass,
+                "large_side_abs_to_edge_mass_ratio": (
+                    large_side_mass / large_side_edge_mass
+                    if large_side_edge_mass else 0.0),
+                "large_side_edge_count": len(edge_rows),
+                "largest_large_side_edge_abs": largest_edge,
+                "largest_large_side_edge_fraction": (
+                    largest_edge / large_side_mass
+                    if large_side_mass else 0.0),
+                "largest_large_side_edge_fraction_of_edge_mass": (
+                    largest_edge / large_side_edge_mass
+                    if large_side_edge_mass else 0.0),
+                "top_large_side_edge_rows": tuple(sorted(
+                    edge_rows, key=lambda row: row["length"],
+                    reverse=True)[:5]),
+                "source_thin_large_side_support_exception_row": (
+                    exception_row),
+            }
+            exception_rows.append(edge_row)
+            all_exception_rows.append(edge_row)
+        exception_rows = tuple(exception_rows)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "high_ratio_exception_pair_count": len(exception_rows),
+            "maximum_large_side_edge_count": max(
+                (row["large_side_edge_count"] for row in exception_rows),
+                default=0),
+            "maximum_largest_edge_fraction": max(
+                (row["largest_large_side_edge_fraction"]
+                 for row in exception_rows),
+                default=0.0),
+            "exception_rows": exception_rows,
+            "source_thin_large_side_support_row": source_row,
+        })
+
+    max_edge_count = max(
+        (row["large_side_edge_count"] for row in all_exception_rows),
+        default=0)
+    max_largest_edge_fraction = max(
+        (row["largest_large_side_edge_fraction"]
+         for row in all_exception_rows),
+        default=0.0)
+    min_abs_to_edge_mass_ratio = min(
+        (row["large_side_abs_to_edge_mass_ratio"]
+         for row in all_exception_rows),
+        default=0.0)
+
+    return {
+        "arithmetic_period": support["arithmetic_period"],
+        "targets": support["targets"],
+        "tested_target_count": support["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": support["active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            support["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "rows": tuple(rows),
+        "total_high_ratio_exception_pair_count": len(all_exception_rows),
+        "maximum_large_side_edge_count": max_edge_count,
+        "maximum_largest_edge_fraction": max_largest_edge_fraction,
+        "minimum_large_side_abs_to_edge_mass_ratio": (
+            min_abs_to_edge_mass_ratio),
+        "single_edge_large_side_theorem_falsified": (
+            max_edge_count > 1),
+        "source_thin_large_side_support_receipt": support,
+        "fixed_conductor_phase_antipodal_thin_large_side_edge_support_measured": True,
+        "phase_antipodal_thin_large_side_edge_support_theorem_proved": False,
         "phase_antipodal_thin_large_side_support_theorem_proved": False,
         "phase_antipodal_thin_large_side_budget_theorem_proved": False,
         "phase_antipodal_sector_geometry_theorem_proved": False,

@@ -10602,6 +10602,17 @@ exception pairs `(4,10)` and `(5,11)` with large sides in bins `4,5`.  Thus a
 single-orientation large-side proof is finitely falsified; the remaining
 support-shaped target is explicit thin exception bin-pair mass control.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
+then profiles the reflection-orbit edges inside those large-side bins.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support`
+passed in `415.057s`.  The selected thin large-side bins are not single-edge:
+edge counts are `3`, `5`, and `2`; the hard `(4,10)` bin has five edges and
+largest-edge ratio `0.4406627296301651`.  Leading orbits are `(3,76)`,
+`(26,53)`, and `(6,73)` for bin pairs `(1,7)`, `(4,10)`, and `(5,11)`.
+Thus the one-edge shortcut is finitely falsified; the surviving target is
+small explicit reflection-orbit mass/cancellation control.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

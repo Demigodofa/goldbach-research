@@ -19268,6 +19268,21 @@ with large sides in bins `4,5`.  This finitely falsifies a one-orientation
 large-side theorem and preserves a smaller support target: explicit mass
 control for the thin exception bin pairs `(1,7)`, `(4,10)`, and `(5,11)`.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support`
+passed in `415.057s`.  It profiles the reflection-orbit edges inside the
+selected thin large-side bins.  The bins are not single-edge: the exception
+edge counts are `3`, `5`, and `2`; the hard `(4,10)` bin has five edges and
+largest-edge ratio `0.4406627296301651`.  Leading orbits are `(3,76)` for
+bin pair `(1,7)`, `(26,53)` for hard bin pair `(4,10)`, and `(6,73)` for bin
+pair `(5,11)`.  This finitely falsifies a one-edge large-side theorem and
+leaves explicit small reflection-orbit mass/cancellation control as the next
+support-shaped theorem target.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros
