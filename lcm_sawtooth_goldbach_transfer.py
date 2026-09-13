@@ -13100,6 +13100,72 @@ def q286_lower_support_component_pair_action_identity_receipt(
     }
 
 
+def q286_lower_support_component_pair_closure_margin_profile_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Profile selected margins against the clean two-assumption closure."""
+    identity = q286_lower_support_component_pair_action_identity_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    closure = identity["source_combined_driver_channel_closure_receipt"]
+    driver_floor = identity["combined_floor_driver_floor"]
+    channel_bound = identity["normalized_real_channel_linf_bound"]
+    centered_pair_floor = -1.0 - driver_floor
+
+    rows = {}
+    for target in targets:
+        identity_row = identity["rows"][target]
+        closure_row = closure["rows"][target]
+        driver_margin = (
+            identity_row["combined_floor_driver_to_principal_ratio"]
+            - driver_floor)
+        channel_margin = (
+            channel_bound
+            - closure_row["maximum_normalized_real_channel_sum"])
+        centered_pair_margin = (
+            identity_row["centered_pair_sum_to_principal_ratio"]
+            - centered_pair_floor)
+        rows[target] = {
+            "target": target,
+            "target_residue": identity_row["target_residue"],
+            "driver_margin_to_floor": driver_margin,
+            "channel_margin_to_linf_bound": channel_margin,
+            "centered_pair_margin_to_floor": centered_pair_margin,
+            "full_action_to_principal_ratio": identity_row[
+                "full_action_to_principal_ratio"],
+            "minimum_assumption_margin": min(driver_margin, channel_margin),
+            "fails_driver_floor": bool(driver_margin < -tolerance),
+            "fails_channel_bound": bool(channel_margin < -tolerance),
+            "positive_by_identity": identity_row[
+                "positive_by_reconstructed_identity"],
+            "source_action_identity_row": identity_row,
+        }
+
+    return {
+        "arithmetic_period": identity["arithmetic_period"],
+        "targets": identity["targets"],
+        "tested_target_count": identity["tested_target_count"],
+        "component_pair": component_pair,
+        "combined_floor_driver_floor": driver_floor,
+        "centered_pair_sum_floor": centered_pair_floor,
+        "normalized_real_channel_linf_bound": channel_bound,
+        "rows": rows,
+        "worst_driver_margin_row": min(
+            rows.values(), key=lambda row: row["driver_margin_to_floor"]),
+        "worst_channel_margin_row": min(
+            rows.values(), key=lambda row: row["channel_margin_to_linf_bound"]),
+        "minimum_positive_full_action_row": min(
+            (row for row in rows.values()
+             if row["positive_by_identity"]),
+            key=lambda row: row["full_action_to_principal_ratio"]),
+        "source_action_identity_receipt": identity,
+        "closure_margin_profile_measured": True,
+        "combined_floor_driver_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

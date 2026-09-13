@@ -725,6 +725,33 @@ where the second condition follows from active-channel normalized `Linf <=
 the actual-positive targets, and the conditional-closure targets are exactly
 `1222142`, `1323632`, and `1379072`.  The boundary `14138` remains negative.
 
+`q286_lower_support_component_pair_closure_margin_profile_receipt` records the
+selected margins against the two clean assumptions.  Focused regression
+`test_q286_lower_support_component_pair_closure_margin_profile` passed in
+`118.798s`.
+
+```text
+driver floor: -0.1017253843274695
+centered-pair floor: -0.8982746156725305
+active-channel Linf bound: 0.05885324711081062
+
+target 14138:
+  driver margin  -0.6226726214863387
+  channel margin -0.20705269440121776
+  full action    -0.8769412734408442
+
+target 1379072:
+  driver margin  0.0 (within roundoff)
+  channel margin 0.031697265116795305
+  full action    0.944998867177687
+```
+
+Among the selected late positives, `1379072` is binding on the driver floor,
+while `1323632` is closest to the active-channel Linf bound.  Thus the next
+useful theorem attempts should treat the driver lower bound and the real-
+channel pointwise bound as separate pressure points, not as one generic
+positivity margin.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

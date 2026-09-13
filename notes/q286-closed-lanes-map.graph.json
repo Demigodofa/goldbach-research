@@ -359,6 +359,14 @@
       "status_boundary": "selected identity only; eventual driver and channel assumptions and Goldbach remain unproved"
     },
     {
+      "id": "receipt.component_pair_closure_margin_profile",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_closure_margin_profile_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_closure_margin_profile passed in 118.798s; 14138 fails both clean assumptions, while 1379072 binds the driver floor and 1323632 is closest to the channel bound among late positives",
+      "status_boundary": "selected margin profile only; no eventual driver or channel theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -580,6 +588,16 @@
       "from": "receipt.component_pair_action_identity",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_closure_margin_profile",
+      "to": "receipt.component_pair_action_identity",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.component_pair_closure_margin_profile",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "profiles"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

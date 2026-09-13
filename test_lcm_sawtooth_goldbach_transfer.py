@@ -68,6 +68,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_floor_identity_receipt,
     q286_lower_support_component_pair_combined_driver_channel_closure_receipt,
     q286_lower_support_component_pair_action_identity_receipt,
+    q286_lower_support_component_pair_closure_margin_profile_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2292,6 +2293,47 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             0.9457162662139125)
         self.assertTrue(late["conditional_closure_forces_positive"])
         self.assertTrue(receipt["component_pair_action_identity_measured"])
+        self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_closure_margin_profile(self):
+        receipt = (
+            q286_lower_support_component_pair_closure_margin_profile_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertAlmostEqual(
+            receipt["combined_floor_driver_floor"],
+            -0.1017253843274695)
+        self.assertAlmostEqual(
+            receipt["centered_pair_sum_floor"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        self.assertEqual(
+            receipt["worst_driver_margin_row"]["target"], 14138)
+        self.assertEqual(
+            receipt["worst_channel_margin_row"]["target"], 14138)
+        self.assertEqual(
+            receipt["minimum_positive_full_action_row"]["target"], 1379072)
+        boundary = receipt["rows"][14138]
+        self.assertAlmostEqual(
+            boundary["driver_margin_to_floor"], -0.6226726214863387)
+        self.assertAlmostEqual(
+            boundary["channel_margin_to_linf_bound"],
+            -0.20705269440121776)
+        self.assertTrue(boundary["fails_driver_floor"])
+        self.assertTrue(boundary["fails_channel_bound"])
+        self.assertFalse(boundary["positive_by_identity"])
+        late = receipt["rows"][1379072]
+        self.assertAlmostEqual(
+            late["minimum_assumption_margin"], 0.0)
+        self.assertFalse(late["fails_driver_floor"])
+        self.assertFalse(late["fails_channel_bound"])
+        self.assertTrue(late["positive_by_identity"])
+        self.assertTrue(receipt["closure_margin_profile_measured"])
         self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])

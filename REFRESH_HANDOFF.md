@@ -18961,6 +18961,17 @@ error below `1e-12`.  The selected positive targets by identity, actual full
 action, and conditional closure are all
 `1222142,1323632,1379072`; `14138` remains negative.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_closure_margin_profile_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_closure_margin_profile` passed in
+`118.798s`.  It records margins against the two clean assumptions.  `14138`
+fails the driver floor by `-0.6226726214863387` and the channel bound by
+`-0.20705269440121776`.  Among late positives, `1379072` is binding on the
+driver floor and `1323632` is closest to the channel bound.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

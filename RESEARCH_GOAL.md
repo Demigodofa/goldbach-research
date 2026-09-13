@@ -10355,6 +10355,16 @@ regression `test_q286_lower_support_component_pair_action_identity` passed in
 the identity-positive, actual-positive, and conditional-closure targets are
 exactly `1222142`, `1323632`, and `1379072`; `14138` remains negative.
 
+New receipt
+`q286_lower_support_component_pair_closure_margin_profile_receipt` records
+selected margins against the clean assumptions.  Focused regression
+`test_q286_lower_support_component_pair_closure_margin_profile` passed in
+`118.798s`.  The boundary target `14138` fails the driver floor by
+`-0.6226726214863387` and the channel bound by `-0.20705269440121776`.
+Among late positives, `1379072` is binding on the driver floor and `1323632`
+is closest to the channel bound.  This preserves two separate theorem
+pressure points.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

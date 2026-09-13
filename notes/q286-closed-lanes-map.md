@@ -156,6 +156,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   `full_action/P = 1 + combined_driver + centered_pair_sum` with reconstruction
   error below `1e-12`.  Thus the q286 component-pair target is now a positivity
   split: driver floor plus centered-pair floor.
+- The closure-margin profile shows the selected late positives have different
+  pressure points: `1379072` is binding on the driver floor, while `1323632`
+  is closest to the active-channel Linf bound.  `14138` fails both assumptions
+  by large margins.
 
 ## Current boundary examples
 
@@ -251,6 +255,8 @@ current comparison set.
    packages the q286 component-pair lane as two explicit unproved assumptions.
 24. The action-identity regression passed in `114.284s` and reconstructs full
    action from principal, combined driver, and centered pair sum.
+25. The closure-margin profile regression passed in `118.798s` and identifies
+   the selected driver-bound and channel-bound pressure points.
 
 ## Still open
 
