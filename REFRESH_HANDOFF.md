@@ -17687,6 +17687,25 @@ a single full-period residue channel.  Do not spend the next step trying to
 prove a one-residue exception theorem.  The better target is broader signed
 oscillation control or selected-tail complement rescue.
 
+## 2026-09-13 continuation: cycles 297 through 328 remain tail-free
+
+Using the fast mode-only scanner, global cycles `297..328` were scanned in
+four 8-cycle workers.  Every cycle was tail-free at threshold `.3`; no
+rescue-floor check was needed.
+
+Block minima:
+
+```text
+297..304: cycle 297, target 2986282, first_three -0.1868226923569528
+305..312: cycle 305, target 3069904, first_three -0.15929169145794012
+313..320: cycle 315, target 3170596, first_three -0.1684585498216937
+321..328: cycle 328, target 3299602, first_three -0.19260805167808093
+```
+
+Current interpretation: sparse selected-tail recurrences were seen through
+cycle `136`; checked cycles `137..328` are tail-free.  This is still finite
+evidence only and does not prove eventual disappearance.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

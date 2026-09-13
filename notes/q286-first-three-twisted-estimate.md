@@ -2768,3 +2768,24 @@ single q286 residue channel or a single full-period residue in the checked
 nonempty bands.  The next proof-facing target should not be a one-residue
 exception theorem; it should either explain isolated signed-prime oscillation
 events across several residues or prove selected-tail complement rescue.
+
+## 2026-09-13: cycles 297 through 328 remain tail-free
+
+The accelerated scanner was extended through global cycle `328`.  Every cycle
+in `297..328` was tail-free at threshold `.3`; no complement rescue-floor
+check was needed.
+
+```text
+cycles 297..304: no .3 tail hits; block minimum cycle 297,
+  target 2986282, first_three -0.1868226923569528
+cycles 305..312: no .3 tail hits; block minimum cycle 305,
+  target 3069904, first_three -0.15929169145794012
+cycles 313..320: no .3 tail hits; block minimum cycle 315,
+  target 3170596, first_three -0.1684585498216937
+cycles 321..328: no .3 tail hits; block minimum cycle 328,
+  target 3299602, first_three -0.19260805167808093
+```
+
+Status `finite-tail-absence-evidence`: checked cycles `137..328` are now
+tail-free at threshold `.3`.  This remains finite evidence only, not an
+eventual first-three tail theorem.

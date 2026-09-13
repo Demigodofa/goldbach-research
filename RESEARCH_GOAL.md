@@ -9348,3 +9348,15 @@ Measured sparse-hit bands:
 Status `falsifier`: the checked sparse late tail is not a single-residue or
 single-period-residue channel.  The proof target remains broader signed
 oscillation control or selected-tail complement rescue.
+
+### 2026-09-13 continuation: cycles 297 through 328 remain tail-free
+
+The fast mode-only scanner was extended through global cycle `328`.  Cycles
+`297..328` are all tail-free at threshold `.3`; no rescue-floor check was
+required.  Block minima were: cycle `297`, `-0.1868226923569528`; cycle `305`,
+`-0.15929169145794012`; cycle `315`, `-0.1684585498216937`; and cycle `328`,
+`-0.19260805167808093`.
+
+Status `finite-tail-absence-evidence`: cycles `137..328` are checked
+tail-free after the sparse recurrences through cycle `136`.  This remains a
+finite diagnostic, not an eventual theorem.
