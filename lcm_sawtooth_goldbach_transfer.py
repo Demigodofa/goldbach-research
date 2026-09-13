@@ -12467,6 +12467,110 @@ def q286_lower_support_component_pair_real_channel_action_receipt(
     }
 
 
+def q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """State the selected rescue floor as a real-channel pair inequality."""
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    action = q286_lower_support_component_pair_real_channel_action_receipt(
+        targets=targets, component_pair=component_pair, tolerance=tolerance)
+    package = q286_subcone_lower_support_package_receipt(
+        targets=targets, tolerance=tolerance)
+    component = _q286_lower_support_component_rows_for_targets(
+        targets, tolerance=tolerance)
+
+    rows = {}
+    for target in targets:
+        action_row = action["rows"][target]
+        package_row = package["rows"][target]
+        component_row = component["rows"][target]
+        pair_actual = math.fsum(
+            component_row["component_rows"][support][
+                "actual_to_principal_ratio"]
+            for support in component_pair)
+        pair_centered = action_row[
+            "real_channel_pair_sum_action_to_principal_ratio"]
+        pair_local_mean = pair_actual - pair_centered
+        other_actual = (
+            component_row["actual_lower_support_package_to_principal_ratio"]
+            - pair_actual)
+        required_lower_support = package_row[
+            "required_lower_support_package_to_rescue"]
+        required_centered_pair = (
+            required_lower_support - other_actual - pair_local_mean)
+        centered_pair_margin = pair_centered - required_centered_pair
+        rows[target] = {
+            "target": target,
+            "target_residue": target % action["arithmetic_period"],
+            "required_lower_support_package_to_rescue": (
+                required_lower_support),
+            "actual_lower_support_package_to_principal_ratio": (
+                component_row[
+                    "actual_lower_support_package_to_principal_ratio"]),
+            "lower_support_package_rescue_margin_to_principal_ratio": (
+                package_row[
+                    "lower_support_package_rescue_margin_to_principal_ratio"]),
+            "non_pair_lower_support_actual_to_principal_ratio": other_actual,
+            "component_pair_local_mean_to_principal_ratio": pair_local_mean,
+            "required_centered_pair_sum_to_rescue": required_centered_pair,
+            "actual_centered_real_channel_pair_sum_to_principal_ratio": (
+                pair_centered),
+            "centered_real_channel_pair_margin_to_rescue": (
+                centered_pair_margin),
+            "centered_pair_margin_matches_package_margin": bool(
+                abs(centered_pair_margin - package_row[
+                    "lower_support_package_rescue_margin_to_principal_ratio"])
+                <= 1e-9),
+            "rescued_by_centered_real_channel_pair_floor": bool(
+                centered_pair_margin > tolerance),
+            "source_real_channel_action_row": action_row,
+            "source_component_row": component_row,
+            "source_package_row": package_row,
+        }
+
+    rescued_targets = tuple(
+        target for target in targets
+        if rows[target]["rescued_by_centered_real_channel_pair_floor"])
+    failing_targets = tuple(
+        target for target in targets
+        if not rows[target]["rescued_by_centered_real_channel_pair_floor"])
+    return {
+        "arithmetic_period": action["arithmetic_period"],
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pair": component_pair,
+        "active_union_real_channel_count": (
+            action["active_union_real_channel_count"]),
+        "rows": rows,
+        "rescued_by_centered_real_channel_pair_floor_targets": (
+            rescued_targets),
+        "failing_centered_real_channel_pair_floor_targets": (
+            failing_targets),
+        "minimum_centered_real_channel_pair_margin_row": min(
+            rows.values(),
+            key=lambda row: row[
+                "centered_real_channel_pair_margin_to_rescue"]),
+        "maximum_centered_real_channel_pair_margin_row": max(
+            rows.values(),
+            key=lambda row: row[
+                "centered_real_channel_pair_margin_to_rescue"]),
+        "source_real_channel_action_receipt": action,
+        "real_channel_rescue_margin_measured": True,
+        "pointwise_real_channel_floor_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

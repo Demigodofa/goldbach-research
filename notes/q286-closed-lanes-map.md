@@ -116,6 +116,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   `-1.152543267627036`; the three late comparison targets have positive sums
   `0.01374295170801024`, `0.08749508122821215`, and
   `0.046724251505156425`; maximum reconstruction error is about `1.13e-15`.
+- The rescue-margin receipt rewrites the selected lower-support rescue
+  condition as a centered real-channel pair-sum floor.  The boundary target
+  `14138` misses its floor by `-0.8769412734408442`; the three late comparison
+  targets clear their floors by about `0.945716`, `1.024219`, and `0.944999`.
 
 ## Current boundary examples
 
@@ -194,6 +198,8 @@ current comparison set.
 17. The real-channel action regression passed in `73.676s` and decomposes
    selected actual component-pair sums into the `16` real channel
    contributions with reconstruction error about `1.13e-15`.
+18. The real-channel rescue-margin regression passed in `124.981s` and turns
+   the selected rescue condition into an exact centered pair-sum floor.
 
 ## Still open
 

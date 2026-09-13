@@ -427,6 +427,39 @@ signed real-channel contributions for the current boundary/comparison set.
 It is still finite evidence and does not prove a pointwise real-channel
 estimate.
 
+`q286_lower_support_component_pair_real_channel_rescue_margin_receipt` rewrites
+the lower-support rescue identity as an exact floor for the centered
+real-channel pair sum, after the non-pair lower-support terms and the pair
+local means are accounted for.  Focused regression
+`test_q286_lower_support_component_pair_real_channel_rescue_margin` passed in
+`124.981s`.
+
+```text
+target 14138:
+  required centered pair sum -0.2756019941861918
+  actual centered pair sum   -1.152543267627036
+  margin                     -0.8769412734408442
+
+target 1222142:
+  required centered pair sum -0.9319733145059023
+  actual centered pair sum    0.01374295170801024
+  margin                      0.9457162662139125
+
+target 1323632:
+  required centered pair sum -0.9367241850081613
+  actual centered pair sum    0.08749508122821215
+  margin                      1.0242192662363734
+
+target 1379072:
+  required centered pair sum -0.8982746156725305
+  actual centered pair sum    0.046724251505156425
+  margin                      0.944998867177687
+```
+
+This is the cleanest selected-target sufficient inequality so far: a future
+pointwise theorem may target the centered real-channel pair sum against this
+floor.  The receipt proves no eventual floor estimate.
+
 Selected-target rows:
 
 ```text

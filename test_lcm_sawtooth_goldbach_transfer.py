@@ -61,6 +61,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_character_mixture_receipt,
     q286_lower_support_component_pair_real_channel_receipt,
     q286_lower_support_component_pair_real_channel_action_receipt,
+    q286_lower_support_component_pair_real_channel_rescue_margin_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2010,6 +2011,50 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "real_channel_action_decomposition_measured"])
         self.assertFalse(receipt[
             "pointwise_real_channel_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_real_channel_rescue_margin(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_real_channel_rescue_margin_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertEqual(
+            receipt["failing_centered_real_channel_pair_floor_targets"],
+            (14138,))
+        self.assertEqual(
+            receipt["rescued_by_centered_real_channel_pair_floor_targets"],
+            (1222142, 1323632, 1379072))
+        boundary = receipt["rows"][14138]
+        self.assertAlmostEqual(
+            boundary["required_centered_pair_sum_to_rescue"],
+            -0.2756019941861918)
+        self.assertAlmostEqual(
+            boundary["centered_real_channel_pair_margin_to_rescue"],
+            -0.8769412734408442)
+        self.assertFalse(
+            boundary["rescued_by_centered_real_channel_pair_floor"])
+        for target, expected_floor, expected_margin in (
+                (1222142, -0.9319733145059023, 0.9457162662139125),
+                (1323632, -0.9367241850081613, 1.0242192662363734),
+                (1379072, -0.8982746156725305, 0.944998867177687)):
+            row = receipt["rows"][target]
+            self.assertAlmostEqual(
+                row["required_centered_pair_sum_to_rescue"],
+                expected_floor)
+            self.assertAlmostEqual(
+                row["centered_real_channel_pair_margin_to_rescue"],
+                expected_margin)
+            self.assertTrue(
+                row["rescued_by_centered_real_channel_pair_floor"])
+            self.assertTrue(
+                row["centered_pair_margin_matches_package_margin"])
+        self.assertEqual(
+            receipt["minimum_centered_real_channel_pair_margin_row"][
+                "target"], 14138)
+        self.assertTrue(receipt["real_channel_rescue_margin_measured"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_floor_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

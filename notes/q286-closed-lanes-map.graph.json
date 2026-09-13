@@ -303,6 +303,14 @@
       "status_boundary": "selected finite action decomposition only; no pointwise real-channel estimate or Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_real_channel_rescue_margin",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_real_channel_rescue_margin_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_real_channel_rescue_margin passed in 124.981s; selected rescue condition is rewritten as a centered real-channel pair-sum floor, with 14138 failing and the three late comparison targets clearing",
+      "status_boundary": "selected finite floor identity only; no pointwise real-channel floor estimate or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -453,6 +461,16 @@
     {
       "from": "receipt.component_pair_real_channel_action",
       "to": "receipt.component_pair_real_channel",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_rescue_margin",
+      "to": "receipt.component_pair_real_channel_action",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_real_channel_rescue_margin",
+      "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },
     {
