@@ -9949,6 +9949,50 @@ source_lower_tail False
 Status `engineering-validation`: this preserves the component-pair theorem
 target while removing one unnecessary package/decomposition layer from the
 selected-target path and fixing provenance for the window path.  It is not new
-proof evidence.  Broad scans still require further optimization of the subcone
-selector and target-specific prime-pair/residue-weight work, or a direct proof
-attempt for the signed pointwise arithmetic estimate.
+proof evidence.  Broad scans still require further optimization of the
+lower-tail computation and target-specific prime-pair/residue-weight work, or
+a direct proof attempt for the signed pointwise arithmetic estimate.
+
+### 2026-09-13 continuation: lighter component-pair window selector
+
+The component-pair window receipt now uses
+`q286_first_two_mode_lower_tail_receipt` directly in both selected-target and
+window modes.  This removes the intermediate
+`q286_first_two_mode_subcone_complement_window_receipt` dependency from
+`q286_lower_support_component_pair_tail_window_receipt`; the receipt now
+sources first-two, first-three, full-action, and provenance rows from the
+lower-tail receipt.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 96.155s
+```
+
+The focused test now asserts that the component-pair receipt has no
+`source_subcone_complement_window_receipt` and does have
+`source_lower_tail_receipt`.  A compact unselected window probe at
+`1222142` passed in `102.02481009999974s`:
+
+```text
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone False
+source_lower_tail True
+```
+
+Status `engineering-validation`: the active component-pair theorem target is
+unchanged.  The remaining broad-scan bottleneck is now isolated to the
+lower-tail computation and target-specific strict-central residue weights, not
+the removed subcone-complement wrapper.  Goldbach and the signed pointwise
+estimate remain open.

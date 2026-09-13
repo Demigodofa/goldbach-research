@@ -18435,13 +18435,60 @@ package/decomposition layer for selected component-pair checks and fixes the
 unselected window provenance.  It does not prove the component-pair theorem or
 Goldbach.  Next useful work is either:
 
-1. optimize the remaining subcone selector and target-specific prime-pair
-   residue-weight work for broad component-pair scans; or
+1. optimize the remaining lower-tail computation and target-specific
+   prime-pair residue-weight work for broad component-pair scans; or
 2. attempt the actual proof/reduction for the signed pointwise arithmetic
    estimate preventing simultaneous strong negative `(5,7)` and `(7,11)`
    centered action on the active `.2` / `.3` subcone.
 
-## Temporary wake note continuation
+### 2026-09-13 continuation: lower-tail selector for pair window
+
+`q286_lower_support_component_pair_tail_window_receipt` now uses
+`q286_first_two_mode_lower_tail_receipt` directly in both selected-target and
+window modes.  This removes the intermediate
+`q286_first_two_mode_subcone_complement_window_receipt` dependency from the
+component-pair measurement path.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 96.155s
+```
+
+The focused regression now asserts that the component-pair receipt has no
+`source_subcone_complement_window_receipt` and does have
+`source_lower_tail_receipt`.
+
+Unselected window smoke probe:
+
+```text
+q286_lower_support_component_pair_tail_window_receipt(
+    start=1222142, cycle_count=1, targets_per_cycle=1,
+    first_two_threshold=.2, tail_threshold=.3)
+
+elapsed 102.02481009999974
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone False
+source_lower_tail True
+```
+
+Status: engineering-plus-validation only.  The broad component-pair scan
+bottleneck is now the lower-tail computation plus target-specific
+strict-central residue weights.  The component-pair theorem, signed
+pointwise estimate, and Goldbach remain open.
+
+## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
 

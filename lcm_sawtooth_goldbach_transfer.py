@@ -11288,18 +11288,10 @@ def q286_lower_support_component_pair_tail_window_receipt(
         raise ValueError("tolerance must be finite and nonnegative")
 
     if selected_targets is None:
-        subcone = q286_first_two_mode_subcone_complement_window_receipt(
+        subcone = None
+        lower_tail = q286_first_two_mode_lower_tail_receipt(
             start=start, cycle_count=cycle_count,
-            targets_per_cycle=targets_per_cycle,
-            first_two_negative_thresholds=(first_two_threshold,),
-            tail_threshold=tail_threshold, tolerance=tolerance)
-        tail_targets = subcone["threshold_rows"][first_two_threshold][
-            "tail_targets"]
-        tested_target_count = subcone["tested_target_count"]
-        if tail_targets:
-            component_targets = tail_targets
-        else:
-            component_targets = ()
+            targets_per_cycle=targets_per_cycle, tolerance=tolerance)
     else:
         subcone = None
         start = selected_targets[0]
@@ -11308,14 +11300,14 @@ def q286_lower_support_component_pair_tail_window_receipt(
         lower_tail = q286_first_two_mode_lower_tail_receipt(
             selected_targets=selected_targets, targets_per_cycle=len(
                 selected_targets), tolerance=tolerance)
-        tail_targets = tuple(
-            target for target in selected_targets
-            if lower_tail["rows"][target][
-                "first_two_modes_to_principal_ratio"] < -first_two_threshold
-            and lower_tail["rows"][target][
-                "first_three_modes_to_principal_ratio"] < -tail_threshold)
-        component_targets = tail_targets
-        tested_target_count = len(selected_targets)
+    tail_targets = tuple(
+        target for target in sorted(lower_tail["rows"])
+        if lower_tail["rows"][target][
+            "first_two_modes_to_principal_ratio"] < -first_two_threshold
+        and lower_tail["rows"][target][
+            "first_three_modes_to_principal_ratio"] < -tail_threshold)
+    component_targets = tail_targets
+    tested_target_count = lower_tail["tested_target_count"]
 
     if component_targets:
         component = _q286_lower_support_component_rows_for_targets(
@@ -11326,16 +11318,12 @@ def q286_lower_support_component_pair_tail_window_receipt(
     rows = {}
     both_negative_targets = []
     pair_centered_sum_minimum_row = None
-    source_rows = (
-        lower_tail["rows"] if selected_targets is not None
-        else subcone["rows"])
+    source_rows = lower_tail["rows"]
     for target in tail_targets:
         component_row = component["rows"][target]
         source_row = source_rows[target]
-        first_three_ratio = (
-            source_row["first_three_modes_to_principal_ratio"]
-            if selected_targets is not None
-            else source_row["first_three_to_principal_ratio"])
+        first_three_ratio = source_row[
+            "first_three_modes_to_principal_ratio"]
         pair_rows = {
             support: component_row["component_rows"][support]
             for support in component_pair}
@@ -11371,8 +11359,7 @@ def q286_lower_support_component_pair_tail_window_receipt(
             "source_subcone_row": (
                 subcone["rows"][target] if subcone is not None else None),
             "source_package_row": None,
-            "source_lower_tail_row": (
-                source_row if selected_targets is not None else None),
+            "source_lower_tail_row": source_row,
         }
         rows[target] = row
         if both_negative:
@@ -11405,9 +11392,7 @@ def q286_lower_support_component_pair_tail_window_receipt(
 
     return {
         "arithmetic_period": (
-            subcone["arithmetic_period"] if subcone is not None
-            else component["arithmetic_period"]
-            if component is not None else None),
+            lower_tail["arithmetic_period"]),
         "start": start,
         "aligned_global_cycle_base": (
             subcone["aligned_global_cycle_base"]
@@ -11432,8 +11417,7 @@ def q286_lower_support_component_pair_tail_window_receipt(
         "source_subcone_complement_window_receipt": subcone,
         "source_component_local_discrepancy_receipt": None,
         "source_direct_component_rows_receipt": component,
-        "source_lower_tail_receipt": (
-            lower_tail if selected_targets is not None else None),
+        "source_lower_tail_receipt": lower_tail,
         "lower_support_component_pair_tail_window_measured": True,
         "eventual_component_pair_exclusion_proved": False,
         "signed_prime_correlation_estimate_proved": False,

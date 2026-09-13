@@ -1694,7 +1694,12 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["tail_subcone_targets"], (1222142,))
         self.assertEqual(
             receipt["both_pair_components_centered_negative_targets"], ())
+        self.assertIsNone(receipt[
+            "source_subcone_complement_window_receipt"])
+        self.assertIsNotNone(receipt["source_lower_tail_receipt"])
         row = receipt["rows"][1222142]
+        self.assertIsNone(row["source_subcone_row"])
+        self.assertIsNotNone(row["source_lower_tail_row"])
         self.assertTrue(row["rescued_by_full_complement"])
         self.assertGreater(
             row["component_centered_actions_to_principal_ratio"][(7, 11)],

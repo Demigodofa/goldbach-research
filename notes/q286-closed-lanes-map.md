@@ -96,13 +96,18 @@ current comparison set.
    regression now calls the receipt twice and verifies a cache hit; the latest
    rerun passed in `167.910s`.  This caches the fixed character/component
    setup, not the target-specific prime-pair or package work.
-3. The focused selected component-pair regression passed in `96.695s`, and a
-   compact unselected window probe at `1222142` returned the same tail target,
-   no simultaneous negative pair action, and subcone provenance attached.
-4. Run a broad finite window test of the component-pair theorem target only
-   after the remaining subcone selector and target-specific prime-pair work are
-   efficient enough to avoid spending compute on repeated setup.
-5. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
+3. The component-pair receipt now uses
+   `q286_first_two_mode_lower_tail_receipt` directly for window selection
+   rather than the heavier subcone-complement wrapper.  The focused regression
+   passed in `96.155s` and asserts this dependency boundary.
+4. A compact unselected window probe at `1222142` passed in `102.025s`,
+   returned the same tail target, found no simultaneous negative pair action,
+   and attached lower-tail provenance without subcone-complement provenance.
+5. Run a broad finite window test of the component-pair theorem target only
+   after the remaining lower-tail computation and target-specific prime-pair
+   residue-weight work are efficient enough to avoid spending compute on
+   repeated setup.
+6. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 
 ## Still open
