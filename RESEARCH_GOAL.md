@@ -10555,6 +10555,17 @@ spends `0.0031320675991354753`, and has margin
 two-part inequality: non-thin antipodal pairs satisfy the fixed-ratio bound,
 and thin opposite-sector exceptions stay below the displayed absolute budget.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
+checks the non-thin side of that inequality directly.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio`
+passed in `210.885s`.  With thin-side threshold `0.05` and ratio bound `0.75`,
+label `(0,1,5,0)` has `5` non-thin pairs, non-thin mass
+`0.05563329167440221`, non-thin abs `0.006097759984919418`, and maximum
+non-thin ratio `0.2161610623897297`.  The hard label `(0,2,6,0)` has `3`
+non-thin pairs, non-thin mass `0.03435908095179335`, non-thin abs
+`0.012550306908359576`, and maximum non-thin ratio `0.6626326478324716`,
+leaving margin `0.08736735216752844` to the `0.75` bound.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

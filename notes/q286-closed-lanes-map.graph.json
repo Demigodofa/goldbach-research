@@ -491,6 +491,14 @@
       "status_boundary": "selected exception-budget profile only; no uniform two-part antipodal inequality and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_nonthin_ratio",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio passed in 210.885s; selected non-thin antipodal pairs clear ratio bound 0.75, with hard label (0,2,6,0) worst ratio 0.6626326478324716 and margin 0.08736735216752844",
+      "status_boundary": "selected non-thin pair-ratio profile only; no uniform fixed-ratio cancellation theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -870,6 +878,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_nonthin_ratio",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_nonthin_ratio",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

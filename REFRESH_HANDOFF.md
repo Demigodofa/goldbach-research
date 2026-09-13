@@ -19205,6 +19205,21 @@ margin `0.00906384075086614`.  The current theorem target is now a two-part
 inequality: fixed-ratio cancellation for non-thin antipodal pairs plus an
 absolute-mass bound for thin opposite-sector exceptions.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio`
+passed in `210.885s`.  It profiles the fixed-ratio side of the two-part
+inequality.  With thin-side threshold `0.05` and ratio bound `0.75`, label
+`(0,1,5,0)` has `5` non-thin pairs, non-thin mass `0.05563329167440221`,
+non-thin abs `0.006097759984919418`, and maximum non-thin ratio
+`0.2161610623897297`.  Label `(0,2,6,0)` has `3` non-thin pairs, non-thin
+mass `0.03435908095179335`, non-thin abs `0.012550306908359576`, and maximum
+non-thin ratio `0.6626326478324716`, leaving margin `0.08736735216752844` to
+the `0.75` bound.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

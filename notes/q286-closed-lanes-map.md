@@ -54,6 +54,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_threshold_envelope_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
 
 ## Closed or falsified lanes
 
@@ -346,6 +347,11 @@ current comparison set.
    `0.024020095646099474`, and has margin `0.00906384075086614`.  The current
    proof target is an explicit two-part inequality: non-thin pair cancellation
    plus thin-exception absolute-mass control.
+41. The phase-antipodal non-thin-ratio regression passed in `210.885s`.
+   Non-thin antipodal pairs clear the `0.75` ratio bound in the selected
+   fixture.  The hard `(0,2,6,0)` row has worst non-thin ratio
+   `0.6626326478324716`, leaving margin `0.08736735216752844`.  Both halves
+   of the two-part antipodal inequality are now separately measured.
 
 ## Still open
 

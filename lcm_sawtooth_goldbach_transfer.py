@@ -14742,6 +14742,117 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        ratio_bound=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Profile cancellation ratios for non-thin antipodal phase pairs."""
+    if ratio_bound < 0.0:
+        raise ValueError("ratio_bound must be nonnegative")
+    if thin_side_ratio_threshold < 0.0:
+        raise ValueError("thin_side_ratio_threshold must be nonnegative")
+    pair_balance = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count,
+            high_ratio_threshold=ratio_bound,
+            tolerance=tolerance))
+
+    rows = []
+    for source_row in pair_balance["rows"]:
+        nonthin_rows = []
+        thin_rows = []
+        for pair_row in source_row["pair_rows"]:
+            source_pair = pair_row["source_antipodal_pair_row"]
+            side_a = source_pair["source_bin_abs"]
+            side_b = source_pair["opposite_source_bin_abs"]
+            large_side = max(side_a, side_b)
+            small_side = min(side_a, side_b)
+            small_to_large_ratio = (
+                small_side / large_side if large_side else 0.0)
+            classified_row = {
+                "bin_index": pair_row["bin_index"],
+                "opposite_bin_index": pair_row["opposite_bin_index"],
+                "small_to_large_side_ratio": small_to_large_ratio,
+                "pair_source_mass": pair_row["pair_source_mass"],
+                "pair_abs": pair_row["pair_abs"],
+                "pair_cancellation_ratio": (
+                    pair_row["pair_cancellation_ratio"]),
+                "source_antipodal_pair_row": pair_row,
+            }
+            if small_to_large_ratio <= thin_side_ratio_threshold + tolerance:
+                thin_rows.append(classified_row)
+            else:
+                nonthin_rows.append(classified_row)
+        nonthin_rows = tuple(nonthin_rows)
+        thin_rows = tuple(thin_rows)
+        max_nonthin_ratio = (
+            max(row["pair_cancellation_ratio"] for row in nonthin_rows)
+            if nonthin_rows else 0.0)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "ratio_bound": ratio_bound,
+            "thin_side_ratio_threshold": thin_side_ratio_threshold,
+            "nonthin_pair_count": len(nonthin_rows),
+            "thin_pair_count": len(thin_rows),
+            "nonthin_pair_mass_sum": float(math.fsum(
+                row["pair_source_mass"] for row in nonthin_rows)),
+            "nonthin_pair_abs_sum": float(math.fsum(
+                row["pair_abs"] for row in nonthin_rows)),
+            "maximum_nonthin_pair_cancellation_ratio": (
+                max_nonthin_ratio),
+            "nonthin_ratio_margin_to_bound": (
+                ratio_bound - max_nonthin_ratio),
+            "all_nonthin_pairs_clear_ratio_bound": (
+                max_nonthin_ratio <= ratio_bound + tolerance),
+            "worst_nonthin_pair_row": (
+                max(nonthin_rows,
+                    key=lambda row: row["pair_cancellation_ratio"])
+                if nonthin_rows else None),
+            "nonthin_pair_rows": nonthin_rows,
+            "thin_pair_rows": thin_rows,
+            "source_phase_antipodal_pair_balance_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": pair_balance["arithmetic_period"],
+        "targets": pair_balance["targets"],
+        "tested_target_count": pair_balance["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": pair_balance[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            pair_balance["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "rows": tuple(rows),
+        "all_nonthin_pairs_clear_ratio_bound": all(
+            row["all_nonthin_pairs_clear_ratio_bound"] for row in rows),
+        "worst_nonthin_ratio_margin_row": min(
+            rows,
+            key=lambda row: row["nonthin_ratio_margin_to_bound"]),
+        "source_phase_antipodal_pair_balance_receipt": pair_balance,
+        "fixed_conductor_phase_antipodal_nonthin_ratio_measured": True,
+        "phase_antipodal_nonthin_ratio_theorem_proved": False,
+        "phase_antipodal_exception_budget_theorem_proved": False,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

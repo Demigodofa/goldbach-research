@@ -1191,6 +1191,36 @@ the allowed thin-exception mass.  The current proof target is now an explicit
 two-part inequality: a `0.75` cancellation ratio for non-thin antipodal pairs,
 plus a thin-exception absolute-mass bound below the displayed budget.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
+checks the fixed-ratio half of that target directly.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio`
+passed in `210.885s`.
+
+```text
+thin side ratio threshold: 0.05
+ratio bound: 0.75
+
+1379072, label (0,1,5,0):
+  non-thin pair count 5
+  thin pair count 1
+  non-thin pair mass 0.05563329167440221
+  non-thin pair abs 0.006097759984919418
+  maximum non-thin pair cancellation ratio 0.2161610623897297
+
+1379072, label (0,2,6,0):
+  non-thin pair count 3
+  thin pair count 3
+  non-thin pair mass 0.03435908095179335
+  non-thin pair abs 0.012550306908359576
+  maximum non-thin pair cancellation ratio 0.6626326478324716
+  margin to 0.75 bound 0.08736735216752844
+```
+
+Thus, on the selected fixture, the non-thin side of the two-part inequality
+has visible slack.  The remaining non-computational burden is to prove this
+fixed-ratio cancellation for all relevant residual conductor-`77` rows and to
+prove the thin-exception budget uniformly.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known
