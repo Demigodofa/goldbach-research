@@ -10613,6 +10613,26 @@ largest-edge ratio `0.4406627296301651`.  Leading orbits are `(3,76)`,
 Thus the one-edge shortcut is finitely falsified; the surviving target is
 small explicit reflection-orbit mass/cancellation control.
 
+`q286_lower_support_component_pair_fixed_inequality_stress_receipt` now freezes
+that route as one finite quantified inequality with unchanged constants:
+`(1 + thin_side_ratio_threshold) * thin_large_side_mass <= channel_bound -
+ratio_bound * low_ratio_pair_mass`, with `phase_bin_count = 12`,
+`ratio_bound = 0.75`, and `thin_side_ratio_threshold = 0.05`.  The focused
+regression `test_q286_lower_support_component_pair_fixed_inequality_stress`
+passed in `460.781s` on `target = 1379072` and
+`component_pair = ((5,7),(7,11))`, evaluating two residual polygon rows with
+no counterexample and worst margin `0.006933239211847554` at label
+`(0,2,6,0)`.
+
+This is not a large or non-cherry-picked sample.  The receipt now defaults to
+the full anti-cherry-pick component-pair universe: all `21` unordered pairs
+among `(5,), (5,7), (5,13), (7,), (7,11), (11,), (13,)`.  The next validation
+should run that census on a predeclared target fixture such as
+`14138,1222142,1323632,1379072` and keep `passed`, `failed`, and
+`not_applicable_no_residual_polygons` rows separate.  A not-applicable row
+means the residual-polygon premise did not fire and must not be counted as
+reinforcement.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

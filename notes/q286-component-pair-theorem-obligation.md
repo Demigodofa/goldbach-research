@@ -1334,6 +1334,42 @@ remaining support-shaped target is therefore explicit mass/cancellation
 control over a small named set of reflection-orbit pairs, not a single edge
 or single orientation rule.
 
+`q286_lower_support_component_pair_fixed_inequality_stress_receipt` now states
+one complete finite quantified inequality without changing constants between
+component pairs or targets:
+
+```text
+(1 + thin_side_ratio_threshold) * thin_large_side_mass
+<= channel_bound - ratio_bound * low_ratio_pair_mass
+```
+
+with `phase_bin_count = 12`, `ratio_bound = 0.75`, and
+`thin_side_ratio_threshold = 0.05`.  Rows are deliberately classified as
+`passed`, `failed`, or `not_applicable_no_residual_polygons`; the last bucket
+means the residual-polygon premise did not fire and is not counted as
+reinforcement.
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_inequality_stress` passed in
+`460.781s` on the single evaluated fixture `target = 1379072`,
+`component_pair = ((5,7),(7,11))`.  It produced two residual polygon rows, no
+counterexample rows, and worst margin `0.006933239211847554` at label
+`(0,2,6,0)`.
+
+This is not a broad sample and must not be treated as non-cherry-picked
+reinforcement.  The non-cherry-picked denominator for the component-pair side
+is now explicit: all `21` unordered pairs among the seven lower-support
+components
+
+```text
+(5,), (5,7), (5,13), (7,), (7,11), (11,), (13,)
+```
+
+on a predeclared target fixture such as `14138,1222142,1323632,1379072`.
+That full census is the next validation needed before interpreting the fixed
+inequality as reinforced rather than merely coherent on the narrowed active
+fixture.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

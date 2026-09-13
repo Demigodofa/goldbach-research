@@ -531,6 +531,14 @@
       "status_boundary": "selected edge-support profile only; no uniform reflection-orbit support theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_inequality_stress",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_inequality_stress_receipt",
+      "status": "validated_focused_fixture",
+      "validation": "test_q286_lower_support_component_pair_fixed_inequality_stress passed in 460.781s; focused fixture target 1379072 and component pair ((5,7),(7,11)) evaluated two residual polygon rows, found zero counterexamples, and had worst margin 0.006933239211847554",
+      "status_boundary": "focused narrowed fixture only; full anti-cherry-pick denominator is 21 unordered lower-support component pairs and not-applicable rows must not be counted as reinforcement"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -967,6 +975,16 @@
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_inequality_stress",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.component_pair_fixed_inequality_stress",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "quantifies"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

@@ -90,6 +90,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt,
+    q286_lower_support_component_pair_fixed_inequality_stress_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -3318,6 +3319,50 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "phase_antipodal_thin_large_side_edge_support_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_large_side_support_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_large_side_budget_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_inequality_stress(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_inequality_stress_receipt(
+                targets=(1379072,),
+                component_pairs=(((5, 7), (7, 11)),)))
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["targets"], (1379072,))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["component_pair_selection"],
+                         "caller_supplied")
+        self.assertEqual(receipt["tested_component_pair_count"], 1)
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["ratio_bound"], 0.75)
+        self.assertEqual(receipt["thin_side_ratio_threshold"], 0.05)
+        self.assertIn(
+            "(1 + thin_side_ratio_threshold) * thin_large_side_mass",
+            receipt["quantified_inequality"])
+        self.assertEqual(receipt["evaluated_component_pair_count"], 1)
+        self.assertEqual(receipt["passing_component_pair_count"], 1)
+        self.assertEqual(receipt["failing_component_pair_count"], 0)
+        self.assertEqual(receipt["not_applicable_component_pair_count"], 0)
+        self.assertEqual(receipt["error_component_pair_count"], 0)
+        self.assertEqual(receipt["total_residual_polygon_row_count"], 2)
+        self.assertEqual(receipt["total_failure_row_count"], 0)
+        self.assertTrue(receipt["all_evaluated_rows_pass_fixed_inequality"])
+        self.assertTrue(receipt["all_requested_component_pairs_evaluated"])
+        self.assertEqual(receipt["counterexample_rows"], ())
+        row = receipt["rows"][0]
+        self.assertEqual(row["component_pair"], ((5, 7), (7, 11)))
+        self.assertEqual(row["status"], "passed")
+        self.assertEqual(row["polygon_row_count"], 2)
+        self.assertEqual(row["active_channel_conductors"], (35, 77))
+        self.assertEqual(row["worst_representative_label"], (0, 2, 6, 0))
+        self.assertAlmostEqual(row["worst_margin"], 0.006933239211847554)
+        self.assertTrue(receipt["fixed_inequality_stress_measured"])
+        self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_thin_large_side_budget_theorem_proved"])
         self.assertFalse(receipt[

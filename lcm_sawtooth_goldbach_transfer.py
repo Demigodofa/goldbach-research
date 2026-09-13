@@ -15337,6 +15337,228 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large
     }
 
 
+def q286_lower_support_component_pair_fixed_inequality_stress_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pairs=None,
+        phase_bin_count=12, ratio_bound=0.75,
+        thin_side_ratio_threshold=0.05, tolerance=1e-9):
+    """Stress one unchanged antipodal thin-large-side inequality.
+
+    The tested finite implication is:
+
+    For each requested target and component pair, whenever the fixed-conductor
+    residual-polygon pipeline produces antipodal thin-exception rows, the
+    unchanged sufficient inequality
+
+        (1 + thin_side_ratio_threshold) * thin_large_side_mass
+        <= channel_bound - ratio_bound * low_ratio_pair_mass
+
+    must hold for every generated residual polygon row.
+
+    Rows with no residual polygons do not support this implication; they are
+    reported separately as premise-not-triggered.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if component_pairs is None:
+        supports = tuple(sorted(
+            _q286_lower_support_component_data(
+                tolerance)["component_values"]))
+        component_pairs = tuple(
+            (supports[first], supports[second])
+            for first in range(len(supports))
+            for second in range(first + 1, len(supports)))
+        component_pair_selection = "all_unordered_lower_support_pairs"
+    else:
+        component_pairs = tuple(component_pairs)
+        component_pair_selection = "caller_supplied"
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not component_pairs:
+        raise ValueError("component_pairs must be nonempty")
+    if type(phase_bin_count) is not int or phase_bin_count < 4:
+        raise ValueError("phase_bin_count must be an integer at least 4")
+    if phase_bin_count % 2:
+        raise ValueError("phase_bin_count must be even")
+    if not math.isfinite(ratio_bound) or ratio_bound < 0.0:
+        raise ValueError("ratio_bound must be finite and nonnegative")
+    if (not math.isfinite(thin_side_ratio_threshold)
+            or thin_side_ratio_threshold < 0.0):
+        raise ValueError(
+            "thin_side_ratio_threshold must be finite and nonnegative")
+    if not math.isfinite(tolerance) or tolerance < 0.0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    quantified_inequality = (
+        "For every generated residual polygon row over the finite tested "
+        "targets and component pairs, "
+        "(1 + thin_side_ratio_threshold) * thin_large_side_mass <= "
+        "channel_bound - ratio_bound * low_ratio_pair_mass, with "
+        "phase_bin_count, ratio_bound, and thin_side_ratio_threshold fixed "
+        "unchanged across all tested rows.")
+
+    rows = []
+    passing_rows = []
+    failing_rows = []
+    not_applicable_rows = []
+    error_rows = []
+    all_polygon_rows = []
+    for pair in component_pairs:
+        try:
+            receipt = (
+                q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt(
+                    targets=targets, component_pair=pair,
+                    phase_bin_count=phase_bin_count,
+                    ratio_bound=ratio_bound,
+                    thin_side_ratio_threshold=thin_side_ratio_threshold,
+                    tolerance=tolerance))
+        except ValueError as exc:
+            if "min() arg is an empty sequence" in str(exc):
+                row = {
+                    "component_pair": pair,
+                    "targets": targets,
+                    "status": "not_applicable_no_residual_polygons",
+                    "evaluated": False,
+                    "passed": False,
+                    "failed": False,
+                    "polygon_row_count": 0,
+                    "failure_count": 0,
+                    "error_type": type(exc).__name__,
+                    "error": str(exc),
+                }
+                rows.append(row)
+                not_applicable_rows.append(row)
+                continue
+            row = {
+                "component_pair": pair,
+                "targets": targets,
+                "status": "error",
+                "evaluated": False,
+                "passed": False,
+                "failed": False,
+                "polygon_row_count": 0,
+                "failure_count": 0,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            }
+            rows.append(row)
+            error_rows.append(row)
+            continue
+        except Exception as exc:
+            row = {
+                "component_pair": pair,
+                "targets": targets,
+                "status": "error",
+                "evaluated": False,
+                "passed": False,
+                "failed": False,
+                "polygon_row_count": 0,
+                "failure_count": 0,
+                "error_type": type(exc).__name__,
+                "error": str(exc),
+            }
+            rows.append(row)
+            error_rows.append(row)
+            continue
+
+        polygon_rows = tuple(receipt["rows"])
+        if not polygon_rows:
+            row = {
+                "component_pair": pair,
+                "targets": targets,
+                "status": "not_applicable_no_residual_polygons",
+                "evaluated": False,
+                "passed": False,
+                "failed": False,
+                "polygon_row_count": 0,
+                "failure_count": 0,
+                "active_channel_conductors": receipt[
+                    "active_channel_conductors"],
+                "source_receipt": receipt,
+            }
+            rows.append(row)
+            not_applicable_rows.append(row)
+            continue
+
+        failures = tuple(
+            row for row in polygon_rows
+            if not row[
+                "thin_large_side_envelope_clears_exception_budget"])
+        passed = len(failures) == 0
+        worst = min(
+            polygon_rows,
+            key=lambda row: row[
+                "thin_large_side_envelope_margin_to_exception_budget"])
+        stress_row = {
+            "component_pair": pair,
+            "targets": receipt["targets"],
+            "status": "passed" if passed else "failed",
+            "evaluated": True,
+            "passed": passed,
+            "failed": not passed,
+            "polygon_row_count": len(polygon_rows),
+            "failure_count": len(failures),
+            "active_channel_conductors": receipt[
+                "active_channel_conductors"],
+            "worst_margin": worst[
+                "thin_large_side_envelope_margin_to_exception_budget"],
+            "worst_representative_label": worst["representative_label"],
+            "failing_polygon_labels_by_thin_large_side_budget": (
+                receipt[
+                    "failing_polygon_labels_by_thin_large_side_budget"]),
+            "source_receipt": receipt,
+        }
+        rows.append(stress_row)
+        all_polygon_rows.extend(polygon_rows)
+        if passed:
+            passing_rows.append(stress_row)
+        else:
+            failing_rows.append(stress_row)
+
+    evaluated_rows = tuple(row for row in rows if row["evaluated"])
+    worst_evaluated_row = (
+        min(evaluated_rows, key=lambda row: row["worst_margin"])
+        if evaluated_rows else None)
+    total_polygon_rows = len(all_polygon_rows)
+    total_failure_rows = sum(row["failure_count"] for row in rows)
+
+    return {
+        "arithmetic_period": 10010,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "component_pairs": component_pairs,
+        "component_pair_selection": component_pair_selection,
+        "tested_component_pair_count": len(component_pairs),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "quantified_inequality": quantified_inequality,
+        "rows": tuple(rows),
+        "evaluated_component_pair_count": len(evaluated_rows),
+        "passing_component_pair_count": len(passing_rows),
+        "failing_component_pair_count": len(failing_rows),
+        "not_applicable_component_pair_count": len(not_applicable_rows),
+        "error_component_pair_count": len(error_rows),
+        "total_residual_polygon_row_count": total_polygon_rows,
+        "total_failure_row_count": total_failure_rows,
+        "counterexample_rows": tuple(failing_rows),
+        "not_applicable_rows": tuple(not_applicable_rows),
+        "error_rows": tuple(error_rows),
+        "all_evaluated_rows_pass_fixed_inequality": (
+            total_polygon_rows > 0 and total_failure_rows == 0
+            and not error_rows),
+        "all_requested_component_pairs_evaluated": (
+            len(evaluated_rows) == len(component_pairs)),
+        "worst_evaluated_component_pair_row": worst_evaluated_row,
+        "fixed_inequality_stress_measured": True,
+        "fixed_inequality_uniform_theorem_proved": False,
+        "phase_antipodal_thin_large_side_budget_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

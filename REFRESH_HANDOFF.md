@@ -19283,6 +19283,33 @@ pair `(5,11)`.  This finitely falsifies a one-edge large-side theorem and
 leaves explicit small reflection-orbit mass/cancellation control as the next
 support-shaped theorem target.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_inequality_stress_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_inequality_stress` passed in
+`460.781s`.  It freezes the antipodal thin-large-side inequality
+
+```text
+(1 + thin_side_ratio_threshold) * thin_large_side_mass
+<= channel_bound - ratio_bound * low_ratio_pair_mass
+```
+
+with `phase_bin_count = 12`, `ratio_bound = 0.75`, and
+`thin_side_ratio_threshold = 0.05`.  On the focused fixture
+`target = 1379072`, `component_pair = ((5,7),(7,11))`, it evaluates two
+residual polygon rows, finds no counterexample row, and has worst margin
+`0.006933239211847554` at label `(0,2,6,0)`.
+
+Do not overread this as a large sample.  The receipt now defaults to the
+non-cherry-picked component-pair universe: all `21` unordered pairs among
+`(5,), (5,7), (5,13), (7,), (7,11), (11,), (13,)`.  The next real validation is
+the full 21-pair census over a predeclared target fixture such as
+`14138,1222142,1323632,1379072`, with rows separated into `passed`, `failed`,
+and `not_applicable_no_residual_polygons`.  A not-applicable row means the
+premise did not fire; it is not reinforcement.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

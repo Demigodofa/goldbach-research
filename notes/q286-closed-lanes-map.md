@@ -59,6 +59,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
+- `q286_lower_support_component_pair_fixed_inequality_stress_receipt`
 
 ## Closed or falsified lanes
 
@@ -380,6 +381,15 @@ current comparison set.
    five reflection-orbit edges with largest-edge ratio `0.4406627296301651`.
    This closes a one-edge large-side shortcut and leaves small explicit
    reflection-orbit mass/cancellation control as the sharper support target.
+46. The fixed-inequality stress regression passed in `460.781s` on the
+   narrowed fixture `target = 1379072`,
+   `component_pair = ((5,7),(7,11))`.  It freezes the antipodal thin-large-side
+   inequality with unchanged constants and finds two evaluated residual
+   polygon rows, zero counterexamples, and worst margin
+   `0.006933239211847554`.  This is not broad reinforcement: the anti-
+   cherry-pick denominator is now explicit as all `21` unordered pairs among
+   the seven lower-support components, with `not_applicable_no_residual_polygons`
+   kept separate from passes.
 
 ## Still open
 
