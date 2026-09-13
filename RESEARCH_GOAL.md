@@ -9331,3 +9331,20 @@ target `1222142` from global cycle `121`.  The focused test passed in
 Status `validation`: the fast scanner is now checked on a late nonempty tail
 case as well as the initial tiny window.  This supports the finite horizon
 receipts but does not prove an eventual theorem.
+
+### 2026-09-13 continuation: sparse tail hit residue profile
+
+Added `q286_first_three_tail_hit_residue_profile_receipt`, with focused
+regression `test_q286_first_three_tail_hit_residue_profile` passing in
+`28.527s`.  The receipt profiles first-three tail hits by residues modulo
+`286` and `10010`, offsets, and cycle residues.
+
+Measured sparse-hit bands:
+
+- Cycles `65..96`: nine hits; only `20 mod 286` repeats, and only
+  `4882 mod 10010` repeats.
+- Cycles `105..136`: three hits; no repeated residue modulo `286` or `10010`.
+
+Status `falsifier`: the checked sparse late tail is not a single-residue or
+single-period-residue channel.  The proof target remains broader signed
+oscillation control or selected-tail complement rescue.

@@ -2735,3 +2735,36 @@ Ran 1 test in 60.506s
 Status `validation`: the optimized scanner is checked on both an initial
 five-target window and a late nonempty `.3` tail target.  This validates the
 finite scanner implementation, not an eventual theorem.
+
+## 2026-09-13: sparse tail hit residue profile
+
+Added `q286_first_three_tail_hit_residue_profile_receipt`, a finite diagnostic
+over the validated fast scanner.  It classifies first-three tail hits by target
+residue modulo `286`, target residue modulo the full arithmetic period
+`10010`, target offset inside the period, and cycle residues modulo `11` and
+`13`.  Focused regression
+`test_q286_first_three_tail_hit_residue_profile` passed in `28.527s`.
+
+Applying the receipt to the sparse-hit bands gives:
+
+```text
+cycles 65..96: 9 tail hits
+  residues mod 286: {20: 2, 72: 1, 80: 1, 92: 1, 108: 1,
+    126: 1, 162: 1, 282: 1}
+  repeated mod 286 residues: (20,)
+  residues mod 10010: {1236: 1, 1556: 1, 2396: 1, 4656: 1,
+    4882: 2, 5792: 1, 7598: 1, 7718: 1}
+  repeated mod 10010 residues: (4882,)
+
+cycles 105..136: 3 tail hits
+  residues mod 286: {24: 1, 64: 1, 266: 1}
+  repeated mod 286 residues: ()
+  residues mod 10010: {922: 1, 2312: 1, 7702: 1}
+  repeated mod 10010 residues: ()
+```
+
+Status `falsifier`: the sparse late first-three tail is not explained by a
+single q286 residue channel or a single full-period residue in the checked
+nonempty bands.  The next proof-facing target should not be a one-residue
+exception theorem; it should either explain isolated signed-prime oscillation
+events across several residues or prove selected-tail complement rescue.

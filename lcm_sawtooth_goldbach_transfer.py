@@ -10840,6 +10840,129 @@ def q286_first_three_tail_mode_only_fast_horizon_receipt(
     }
 
 
+def q286_first_three_tail_hit_residue_profile_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        negative_tail_thresholds=(.3,), tolerance=1e-9):
+    """Classify q286 first-three tail hits by residue and cycle position.
+
+    This is a finite diagnostic over the validated fast mode-only scanner.  It
+    does not add complement rescue information; use the rescue-floor receipt on
+    nonempty cycles when full recombination matters.
+    """
+    horizon = q286_first_three_tail_mode_only_fast_horizon_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        negative_tail_thresholds=negative_tail_thresholds,
+        tolerance=tolerance)
+    period = horizon["arithmetic_period"]
+    aligned_global_cycle_base = (
+        (start - 10000) // period
+        if (start - 10000) % period == 0 else None)
+
+    threshold_profiles = {}
+    for threshold in horizon["negative_tail_thresholds"]:
+        tail_targets = horizon["threshold_rows"][threshold][
+            "targets_below_negative_threshold"]
+        residue_counts_mod_286 = {}
+        residue_counts_mod_10010 = {}
+        offset_counts = {}
+        cycle_counts = {}
+        cycle_mod_11_counts = {}
+        cycle_mod_13_counts = {}
+        hit_rows = []
+        for target in tail_targets:
+            local_cycle = horizon["rows"][target]["cycle"]
+            cycle_start = start + local_cycle * period
+            target_offset = (target - cycle_start) // 2
+            global_cycle = (
+                aligned_global_cycle_base + local_cycle
+                if aligned_global_cycle_base is not None else None)
+            first_three = horizon["rows"][target][
+                "first_three_modes_to_principal_ratio"]
+            residue_mod_286 = target % 286
+            residue_mod_10010 = target % period
+            for counts, key in (
+                    (residue_counts_mod_286, residue_mod_286),
+                    (residue_counts_mod_10010, residue_mod_10010),
+                    (offset_counts, target_offset),
+                    (cycle_counts, local_cycle)):
+                counts[key] = counts.get(key, 0) + 1
+            if global_cycle is not None:
+                cycle_mod_11 = global_cycle % 11
+                cycle_mod_13 = global_cycle % 13
+                cycle_mod_11_counts[cycle_mod_11] = (
+                    cycle_mod_11_counts.get(cycle_mod_11, 0) + 1)
+                cycle_mod_13_counts[cycle_mod_13] = (
+                    cycle_mod_13_counts.get(cycle_mod_13, 0) + 1)
+            else:
+                cycle_mod_11 = None
+                cycle_mod_13 = None
+            hit_rows.append({
+                "target": target,
+                "local_cycle": local_cycle,
+                "global_cycle": global_cycle,
+                "cycle_mod_11": cycle_mod_11,
+                "cycle_mod_13": cycle_mod_13,
+                "target_offset": target_offset,
+                "target_mod_286": residue_mod_286,
+                "target_mod_10010": residue_mod_10010,
+                "first_three_modes_to_principal_ratio": first_three,
+            })
+
+        repeated_mod_286 = tuple(
+            residue for residue, count in sorted(
+                residue_counts_mod_286.items())
+            if count > 1)
+        repeated_mod_10010 = tuple(
+            residue for residue, count in sorted(
+                residue_counts_mod_10010.items())
+            if count > 1)
+        threshold_profiles[threshold] = {
+            "tail_target_count": len(tail_targets),
+            "tail_targets": tail_targets,
+            "hit_rows": tuple(hit_rows),
+            "cycle_counts": dict(sorted(cycle_counts.items())),
+            "cycle_mod_11_counts": dict(sorted(cycle_mod_11_counts.items())),
+            "cycle_mod_13_counts": dict(sorted(cycle_mod_13_counts.items())),
+            "target_offset_counts": dict(sorted(offset_counts.items())),
+            "residue_counts_mod_286": dict(sorted(
+                residue_counts_mod_286.items())),
+            "residues_with_multiple_hits_mod_286": repeated_mod_286,
+            "residue_counts_mod_10010": dict(sorted(
+                residue_counts_mod_10010.items())),
+            "residues_with_multiple_hits_mod_10010": repeated_mod_10010,
+            "single_residue_mod_286_explains_all_hits": bool(
+                len(residue_counts_mod_286) == 1 if tail_targets else False),
+            "single_period_residue_explains_all_hits": bool(
+                len(residue_counts_mod_10010) == 1
+                if tail_targets else False),
+        }
+
+    return {
+        "arithmetic_period": period,
+        "start": start,
+        "aligned_global_cycle_base": aligned_global_cycle_base,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "negative_tail_thresholds": horizon["negative_tail_thresholds"],
+        "tested_target_count": horizon["tested_target_count"],
+        "threshold_profiles": threshold_profiles,
+        "global_minimum_first_three_cycle": (
+            horizon["global_minimum_first_three_cycle"]),
+        "global_minimum_first_three_target": (
+            horizon["global_minimum_first_three_target"]),
+        "global_minimum_first_three_to_principal_ratio": (
+            horizon["global_minimum_first_three_to_principal_ratio"]),
+        "source_fast_horizon_receipt": horizon,
+        "first_three_tail_hit_residue_profile_measured": True,
+        "complement_rescue_measured": False,
+        "full_action_negativity_measured": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_complement_cooccurrence_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3, .5, .75, 1.0), tolerance=1e-9):

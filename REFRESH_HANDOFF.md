@@ -17650,6 +17650,43 @@ Ran 1 test in 60.506s
 Use this as the stronger implementation validation for future fast-scanner
 horizon extensions.
 
+## 2026-09-13 continuation: sparse tail hit residue profile
+
+New code:
+
+- `q286_first_three_tail_hit_residue_profile_receipt`
+- focused regression `test_q286_first_three_tail_hit_residue_profile`
+
+Validation:
+
+```text
+test_q286_first_three_tail_hit_residue_profile ... ok
+Ran 1 test in 28.527s
+```
+
+The receipt was applied to the checked sparse-hit bands:
+
+```text
+cycles 65..96: 9 tail hits
+  residues mod 286: {20: 2, 72: 1, 80: 1, 92: 1, 108: 1,
+    126: 1, 162: 1, 282: 1}
+  repeated mod 286 residues: (20,)
+  residues mod 10010: {1236: 1, 1556: 1, 2396: 1, 4656: 1,
+    4882: 2, 5792: 1, 7598: 1, 7718: 1}
+  repeated mod 10010 residues: (4882,)
+
+cycles 105..136: 3 tail hits
+  residues mod 286: {24: 1, 64: 1, 266: 1}
+  repeated mod 286 residues: ()
+  residues mod 10010: {922: 1, 2312: 1, 7702: 1}
+  repeated mod 10010 residues: ()
+```
+
+Interpretation: the sparse late tail is not a single q286 residue channel or
+a single full-period residue channel.  Do not spend the next step trying to
+prove a one-residue exception theorem.  The better target is broader signed
+oscillation control or selected-tail complement rescue.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -52,6 +52,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_threshold_horizon_receipt,
     q286_first_three_tail_mode_only_horizon_receipt,
     q286_first_three_tail_mode_only_fast_horizon_receipt,
+    q286_first_three_tail_hit_residue_profile_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
@@ -1715,6 +1716,29 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["global_minimum_first_three_to_principal_ratio"], -.3)
         self.assertTrue(receipt[
             "first_three_tail_mode_only_fast_horizon_measured"])
+
+    def test_q286_first_three_tail_hit_residue_profile(self):
+        receipt = q286_first_three_tail_hit_residue_profile_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            negative_tail_thresholds=(.3,))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertIn(.3, receipt["threshold_profiles"])
+        profile = receipt["threshold_profiles"][.3]
+        self.assertEqual(profile["tail_target_count"], 1)
+        self.assertEqual(profile["tail_targets"], (1222142,))
+        self.assertEqual(profile["residue_counts_mod_286"], {64: 1})
+        self.assertEqual(profile["residue_counts_mod_10010"], {922: 1})
+        self.assertEqual(profile["target_offset_counts"], {0: 1})
+        self.assertTrue(profile["single_residue_mod_286_explains_all_hits"])
+        self.assertTrue(profile["single_period_residue_explains_all_hits"])
+        self.assertEqual(profile["hit_rows"][0]["target_mod_286"], 64)
+        self.assertEqual(profile["hit_rows"][0]["target_mod_10010"], 922)
+        self.assertLess(profile["hit_rows"][0][
+            "first_three_modes_to_principal_ratio"], -.3)
+        self.assertTrue(receipt[
+            "first_three_tail_hit_residue_profile_measured"])
+        self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_complement_cooccurrence(self):
         receipt = q286_first_three_complement_cooccurrence_receipt(
