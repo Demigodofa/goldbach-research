@@ -2655,3 +2655,25 @@ Status `finite-tail-absence-evidence`: after sparse recurrences through cycle
 does not prove eventual disappearance; it does make the next falsifier cheaper:
 continue fast tail scans and apply the expensive rescue-floor receipt only to
 nonempty selected-tail cycles.
+
+## 2026-09-13: cycles 201 through 232 remain tail-free
+
+The accelerated scanner was extended through global cycle `232`.  Every cycle
+in `201..232` was tail-free at threshold `.3`; again no complement rescue-floor
+check was needed.
+
+```text
+cycles 201..208: no .3 tail hits; block minimum cycle 206,
+  target 2080934, first_three -0.1941773413191678
+cycles 209..216: no .3 tail hits; block minimum cycle 216,
+  target 2180908, first_three -0.20154505507379825
+cycles 217..224: no .3 tail hits; block minimum cycle 217,
+  target 2191822, first_three -0.20736210641526237
+cycles 225..232: no .3 tail hits; block minimum cycle 231,
+  target 2326222, first_three -0.20693553807121948
+```
+
+Status `finite-tail-absence-evidence`: checked cycles `137..232` are now
+tail-free at threshold `.3`, but this still does not prove eventual
+disappearance.  The current falsifier remains any later fast-scan cycle with a
+`.3` first-three tail hit, followed by a rescue-floor failure.
