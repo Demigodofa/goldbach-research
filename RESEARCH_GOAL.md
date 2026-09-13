@@ -10347,6 +10347,14 @@ passed in `121.404s`.  The two assumptions are combined driver
 rescue.  The three late comparison targets satisfy both; `14138` satisfies
 neither.  Proving these assumptions eventually remains open.
 
+New receipt `q286_lower_support_component_pair_action_identity_receipt`
+verifies the direct identity
+`full_action/P = 1 + combined_driver + centered_pair_sum`.  Focused
+regression `test_q286_lower_support_component_pair_action_identity` passed in
+`114.284s`, with reconstruction error below `1e-12`.  On the selected rows,
+the identity-positive, actual-positive, and conditional-closure targets are
+exactly `1222142`, `1323632`, and `1379072`; `14138` remains negative.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

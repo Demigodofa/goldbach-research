@@ -13019,6 +13019,87 @@ def q286_lower_support_component_pair_combined_driver_channel_closure_receipt(
     }
 
 
+def q286_lower_support_component_pair_action_identity_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Reconstruct full action as principal + driver + centered pair."""
+    closure = (
+        q286_lower_support_component_pair_combined_driver_channel_closure_receipt(
+            targets=targets, component_pair=component_pair,
+            tolerance=tolerance))
+    floor_identity = closure["source_floor_identity_receipt"]
+    rescue = floor_identity[
+        "source_floor_stability_decomposition_receipt"][
+            "source_real_channel_rescue_margin_receipt"]
+    action = rescue["source_real_channel_action_receipt"]
+
+    rows = {}
+    maximum_reconstruction_error = 0.0
+    identity_positive_targets = []
+    actual_positive_targets = []
+    closure_positive_targets = []
+    for target in targets:
+        closure_row = closure["rows"][target]
+        floor_row = floor_identity["rows"][target]
+        action_row = action["rows"][target]
+        combined_driver = floor_row[
+            "combined_floor_driver_to_principal_ratio"]
+        centered_pair = action_row[
+            "real_channel_pair_sum_action_to_principal_ratio"]
+        reconstructed_full = 1.0 + combined_driver + centered_pair
+        full_action = action_row["full_action_to_principal_ratio"]
+        reconstruction_error = abs(reconstructed_full - full_action)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        identity_positive = reconstructed_full > tolerance
+        actual_positive = full_action > tolerance
+        closure_forced = closure_row["conditional_rescue_forced"]
+        if identity_positive:
+            identity_positive_targets.append(target)
+        if actual_positive:
+            actual_positive_targets.append(target)
+        if closure_forced:
+            closure_positive_targets.append(target)
+        rows[target] = {
+            "target": target,
+            "target_residue": action_row["target_residue"],
+            "combined_floor_driver_to_principal_ratio": combined_driver,
+            "centered_pair_sum_to_principal_ratio": centered_pair,
+            "reconstructed_full_action_to_principal_ratio": (
+                reconstructed_full),
+            "full_action_to_principal_ratio": full_action,
+            "full_action_reconstruction_error": reconstruction_error,
+            "positive_by_reconstructed_identity": bool(identity_positive),
+            "actually_positive_full_action": bool(actual_positive),
+            "conditional_closure_forces_positive": bool(closure_forced),
+            "source_closure_row": closure_row,
+        }
+
+    return {
+        "arithmetic_period": closure["arithmetic_period"],
+        "targets": closure["targets"],
+        "tested_target_count": closure["tested_target_count"],
+        "component_pair": component_pair,
+        "combined_floor_driver_floor": closure[
+            "combined_floor_driver_floor"],
+        "normalized_real_channel_linf_bound": closure[
+            "normalized_real_channel_linf_bound"],
+        "identity_positive_targets": tuple(identity_positive_targets),
+        "actual_positive_targets": tuple(actual_positive_targets),
+        "conditional_closure_positive_targets": tuple(
+            closure_positive_targets),
+        "rows": rows,
+        "maximum_full_action_reconstruction_error": (
+            maximum_reconstruction_error),
+        "source_combined_driver_channel_closure_receipt": closure,
+        "component_pair_action_identity_measured": True,
+        "combined_floor_driver_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -67,6 +67,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_floor_stability_decomposition_receipt,
     q286_lower_support_component_pair_floor_identity_receipt,
     q286_lower_support_component_pair_combined_driver_channel_closure_receipt,
+    q286_lower_support_component_pair_action_identity_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2257,6 +2258,40 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "actually_rescued_by_centered_real_channel_pair_floor"])
         self.assertTrue(receipt[
             "combined_driver_channel_closure_measured"])
+        self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_action_identity(self):
+        receipt = q286_lower_support_component_pair_action_identity_receipt()
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["tested_target_count"], 4)
+        self.assertLess(
+            receipt["maximum_full_action_reconstruction_error"], 1e-12)
+        self.assertEqual(
+            receipt["identity_positive_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertEqual(
+            receipt["actual_positive_targets"],
+            (1222142, 1323632, 1379072))
+        self.assertEqual(
+            receipt["conditional_closure_positive_targets"],
+            (1222142, 1323632, 1379072))
+        boundary = receipt["rows"][14138]
+        self.assertAlmostEqual(
+            boundary["reconstructed_full_action_to_principal_ratio"],
+            -0.8769412734408442)
+        self.assertAlmostEqual(
+            boundary["full_action_to_principal_ratio"],
+            -0.8769412734408442)
+        self.assertFalse(boundary["positive_by_reconstructed_identity"])
+        late = receipt["rows"][1222142]
+        self.assertAlmostEqual(
+            late["reconstructed_full_action_to_principal_ratio"],
+            0.9457162662139125)
+        self.assertTrue(late["conditional_closure_forces_positive"])
+        self.assertTrue(receipt["component_pair_action_identity_measured"])
         self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_real_channel_norm_estimate_proved"])

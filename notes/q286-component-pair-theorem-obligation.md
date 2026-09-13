@@ -704,6 +704,27 @@ rescued.  The boundary target `14138` satisfies neither.  This is now the
 cleanest current conditional closure of the q286 component-pair lane; proving
 those two assumptions eventually remains open.
 
+`q286_lower_support_component_pair_action_identity_receipt` verifies the
+direct recombined identity
+
+```text
+full_action / P = 1 + combined_driver + centered_pair_sum.
+```
+
+Focused regression `test_q286_lower_support_component_pair_action_identity`
+passed in `114.284s`, with reconstruction error below `1e-12`.  This turns
+the current q286 component-pair target into the clean positivity statement:
+
+```text
+combined_driver >= -0.1017253843274695
+centered_pair_sum >= -0.8982746156725305
+```
+
+where the second condition follows from active-channel normalized `Linf <=
+0.05885324711081062`.  On the selected rows, the identity-positive targets,
+the actual-positive targets, and the conditional-closure targets are exactly
+`1222142`, `1323632`, and `1379072`.  The boundary `14138` remains negative.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

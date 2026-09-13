@@ -152,6 +152,10 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   real-channel normalized `Linf <= 0.05885324711081062` forces selected
   centered-pair rescue.  The late comparison targets satisfy both; `14138`
   satisfies neither.
+- The action-identity receipt verifies the direct recombination
+  `full_action/P = 1 + combined_driver + centered_pair_sum` with reconstruction
+  error below `1e-12`.  Thus the q286 component-pair target is now a positivity
+  split: driver floor plus centered-pair floor.
 
 ## Current boundary examples
 
@@ -245,6 +249,8 @@ current comparison set.
    floor stability as one combined-driver lower bound.
 23. The combined-driver/channel-closure regression passed in `121.404s` and
    packages the q286 component-pair lane as two explicit unproved assumptions.
+24. The action-identity regression passed in `114.284s` and reconstructs full
+   action from principal, combined driver, and centered pair sum.
 
 ## Still open
 
