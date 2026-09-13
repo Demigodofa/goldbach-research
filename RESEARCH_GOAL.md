@@ -82,6 +82,18 @@ principal first-three bound for `epsilon < 0.006190401979261144`; a pointwise
 L2 bound on the character-error vector would be substantially sharper.  This
 remains an unproved twisted binary-prime correlation theorem.
 
+`q286_first_three_character_mixture_norm_receipt` now measures the exact
+99-character vector on selected targets.  Validation passed with focused test
+`test_q286_first_three_character_mixture_norm` in `49.460s`.  On selected
+stress targets `14138,70526,1222142,1379072,1426262,3305200`, all six
+first-three values are negative, but no target is certified by the raw
+triangle or plain character-vector L2 bound at `.2` principal.  The vector-L2
+negative-bound utilizations are approximately
+`.186,.386,.355,.393,.416,.406`, and reconstruction error is below `1.3e-16`.
+The next theorem target is therefore coefficient-specific anti-alignment or
+internal structure inside the 99-character vector, not a raw norm estimate
+alone.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

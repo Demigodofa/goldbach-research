@@ -18204,16 +18204,28 @@ a fixed combination of `99` nonprincipal products
 need the corresponding character-error vector norm below about `.04349`.
 This is the sharper next theorem target.
 
+New code now measures that target directly:
+`q286_first_three_character_mixture_norm_receipt`, with focused regression
+`test_q286_first_three_character_mixture_norm` passing in `49.460s`.
+On selected stress targets `14138,70526,1222142,1379072,1426262,3305200`,
+all six first-three values are negative, but neither the triangle character
+bound nor the plain character-vector L2 bound certifies a `.2` principal
+first-three bound.  The vector-L2 utilizations are `.186,.386,.355,.393,.416,
+.406` respectively, with maximum reconstruction error `1.28e-16`.  This
+falsifies the idea that the raw 99-character norm bound alone is already
+strong enough on selected stress targets, while preserving the exact
+character-mixture theorem target.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused window test, and
    `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then attempt the theorem route directly: either prove a pointwise
-   fixed-modulus L2 discrepancy estimate weaker than full residue-by-residue
-   equidistribution by exploiting the q286 coefficient vector, or identify the
-   minimal external theorem that would imply it.  Do not spend large compute
-   on support-only or max-discrepancy routes already ruled out by the
+3. Then attempt the theorem route directly: seek coefficient-specific
+   anti-alignment or internal structure inside the 99-character vector, rather
+   than a raw norm bound alone; alternatively identify the minimal external
+   twisted binary-prime theorem that would imply it.  Do not spend large
+   compute on support-only or max-discrepancy routes already ruled out by the
    obstruction.
 
 ## Temporary wake note — continuity discussion

@@ -7279,6 +7279,199 @@ def q286_first_three_ap_discrepancy_proxy_receipt(
     }
 
 
+def q286_first_three_character_mixture_norm_receipt(
+        targets=(14138, 70526, 1222142, 1379072, 1426262, 3305200),
+        theorem_threshold=.2, tolerance=1e-9):
+    """Measure the exact 99-character q286 first-three mixture target.
+
+    This finite diagnostic exposes the character-domain vector whose pointwise
+    control would imply first-three q286 bounds.  It proves no character-sum
+    estimate; it only measures selected strict-central targets.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    period_units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in period_units), dtype=np.complex128)
+    principal_mean = float(complex(np.mean(aggregate_values)).real)
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    truncated_matrix = (
+        (left[:, :3] * singular_values[:3]) @ right[:3, :])
+    coefficient_l1 = float(np.sum(np.abs(truncated_matrix)))
+    coefficient_l2 = float(np.linalg.norm(truncated_matrix))
+    coefficient_linf = float(np.max(np.abs(truncated_matrix)))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, labels, character_table = _unit_character_table(modulus, units)
+    mode_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            mode_coefficients[index] = truncated_matrix[first - 1, second - 1]
+    mode_values = character_table.T @ mode_coefficients
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    negative_targets = []
+    triangle_certified_targets = []
+    vector_l2_certified_targets = []
+    maximum_character_linf_row = None
+    maximum_character_l2_row = None
+    maximum_triangle_bound_row = None
+    maximum_vector_l2_bound_row = None
+    maximum_reconstruction_error = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                weights[unit_index[prime % modulus]] += weight
+                total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = weights[admissible_mask] - mean_weight
+        character_imbalance = (
+            character_table @ delta).reshape(10, 12)[1:, 1:]
+        first_three = complex(np.sum(truncated_matrix * character_imbalance))
+        direct_first_three = complex(np.sum(mode_values * delta))
+        principal = principal_mean * total_weight
+        character_linf = float(np.max(np.abs(character_imbalance)))
+        character_l2 = float(np.linalg.norm(character_imbalance))
+        character_linf_relative = character_linf / total_weight
+        character_l2_relative = character_l2 / total_weight
+        triangle_bound = (
+            coefficient_l1 * character_linf_relative / principal_mean)
+        vector_l2_bound = (
+            coefficient_l2 * character_l2_relative / principal_mean)
+        first_three_ratio = float(first_three.real / principal)
+        negative_part = max(0.0, -first_three_ratio)
+        reconstruction_error = abs(
+            first_three - direct_first_three) / max(1.0, abs(first_three))
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        row = {
+            "target": target,
+            "strict_central_interval": (lower, upper),
+            "target_mod_286": target % modulus,
+            "admissible_residue_count": admissible_count,
+            "total_prime_pair_weight": total_weight,
+            "first_three_to_principal_ratio": first_three_ratio,
+            "character_linf_relative": character_linf_relative,
+            "character_l2_relative": character_l2_relative,
+            "triangle_character_bound_to_principal": triangle_bound,
+            "vector_l2_character_bound_to_principal": vector_l2_bound,
+            "triangle_to_sufficient_ratio": (
+                triangle_bound / theorem_threshold),
+            "vector_l2_to_sufficient_ratio": (
+                vector_l2_bound / theorem_threshold),
+            "triangle_negative_bound_utilization": (
+                negative_part / triangle_bound
+                if triangle_bound > tolerance else 0.0),
+            "vector_l2_negative_bound_utilization": (
+                negative_part / vector_l2_bound
+                if vector_l2_bound > tolerance else 0.0),
+            "first_three_reconstruction_error": reconstruction_error,
+        }
+        rows[target] = row
+        if first_three_ratio < 0:
+            negative_targets.append(target)
+        if triangle_bound <= theorem_threshold:
+            triangle_certified_targets.append(target)
+        if vector_l2_bound <= theorem_threshold:
+            vector_l2_certified_targets.append(target)
+        if (maximum_character_linf_row is None
+                or character_linf_relative
+                > maximum_character_linf_row["character_linf_relative"]):
+            maximum_character_linf_row = row
+        if (maximum_character_l2_row is None
+                or character_l2_relative
+                > maximum_character_l2_row["character_l2_relative"]):
+            maximum_character_l2_row = row
+        if (maximum_triangle_bound_row is None
+                or triangle_bound
+                > maximum_triangle_bound_row[
+                    "triangle_character_bound_to_principal"]):
+            maximum_triangle_bound_row = row
+        if (maximum_vector_l2_bound_row is None
+                or vector_l2_bound
+                > maximum_vector_l2_bound_row[
+                    "vector_l2_character_bound_to_principal"]):
+            maximum_vector_l2_bound_row = row
+
+    return {
+        "arithmetic_period": period,
+        "support": (11, 13),
+        "natural_modulus": modulus,
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "theorem_threshold": theorem_threshold,
+        "character_product_count": int(truncated_matrix.size),
+        "first_three_singular_values": tuple(
+            float(value) for value in singular_values[:3]),
+        "character_coefficient_l1": coefficient_l1,
+        "character_coefficient_l2": coefficient_l2,
+        "character_coefficient_linf": coefficient_linf,
+        "character_coefficient_l1_to_principal_mean": (
+            coefficient_l1 / principal_mean),
+        "character_coefficient_l2_to_principal_mean": (
+            coefficient_l2 / principal_mean),
+        "character_coefficient_linf_to_principal_mean": (
+            coefficient_linf / principal_mean),
+        "rows": rows,
+        "negative_target_count": len(negative_targets),
+        "negative_targets": tuple(negative_targets),
+        "triangle_certified_target_count": len(triangle_certified_targets),
+        "triangle_certified_targets": tuple(triangle_certified_targets),
+        "vector_l2_certified_target_count": len(vector_l2_certified_targets),
+        "vector_l2_certified_targets": tuple(vector_l2_certified_targets),
+        "maximum_character_linf_row": maximum_character_linf_row,
+        "maximum_character_l2_row": maximum_character_l2_row,
+        "maximum_triangle_bound_row": maximum_triangle_bound_row,
+        "maximum_vector_l2_bound_row": maximum_vector_l2_bound_row,
+        "maximum_first_three_reconstruction_error": (
+            maximum_reconstruction_error),
+        "first_three_character_mixture_norm_measured": True,
+        "pointwise_character_sum_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_full_negative_driver_receipt(
         start=10000, targets_per_cycle=5005, driver_residues=(133, 153),
         top_count=8, tolerance=1e-9):

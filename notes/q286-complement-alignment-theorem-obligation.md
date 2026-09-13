@@ -269,6 +269,84 @@ control the finite signed q286 character mixture directly.  It is still a
 pointwise twisted binary-prime correlation theorem, so existing average
 Bombieri-Vinogradov style results do not supply it.
 
+## Character-mixture norm receipt
+
+Added `q286_first_three_character_mixture_norm_receipt` to expose the exact
+finite character vector for selected targets.  It measures:
+
+- the normalized maximum character imbalance,
+- the normalized character-vector L2 imbalance,
+- the triangle and vector-L2 character bounds on the first-three term,
+- reconstruction error between the residue-side and character-side first-three
+  actions.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_character_mixture_norm ... ok
+Ran 1 test in 49.460s
+```
+
+Selected stress targets:
+
+```text
+tested 6
+coeff_l1/principal_mean 32.308079615836355
+coeff_l2/principal_mean 4.598721254687924
+negative targets: 14138, 70526, 1222142, 1379072, 1426262, 3305200
+triangle-certified targets at .2 principal: none
+vector-L2-certified targets at .2 principal: none
+maximum reconstruction error: 1.2825000297334084e-16
+
+target 14138:
+  first_three -0.8950145872346784
+  character_linf_relative 0.2194671982889227
+  character_l2_relative 1.0443145675921686
+  triangle bound 7.090563715383058
+  vector-L2 bound 4.802511598566334
+  vector-L2 utilization 0.18636385750778028
+
+target 70526:
+  first_three -0.7650482510196676
+  character_linf_relative 0.09054141464341225
+  character_l2_relative 0.43103036793996347
+  triangle bound 2.9252192328298148
+  vector-L2 bound 1.9821885144614664
+  vector-L2 utilization 0.38596139844323574
+
+target 1222142:
+  first_three -0.3075877603708801
+  character_l2_relative 0.18844394482113214
+  vector-L2 bound 0.8666011743661788
+  vector-L2 utilization 0.35493577607467003
+
+target 1379072:
+  first_three -0.3394138842129011
+  character_l2_relative 0.1880313707312656
+  vector-L2 bound 0.864703861129976
+  vector-L2 utilization 0.3925203754373925
+
+target 1426262:
+  first_three -0.253372013706637
+  character_l2_relative 0.13241221074115736
+  vector-L2 bound 0.6089268479155769
+  vector-L2 utilization 0.41609598028721684
+
+target 3305200:
+  first_three -0.14018011556710222
+  character_l2_relative 0.07505019406826197
+  vector-L2 bound 0.34513492263016987
+  vector-L2 utilization 0.40616033433774695
+```
+
+Status `falsifier-plus-target`: neither the triangle character bound nor the
+plain character-vector L2 bound certifies the selected stress targets at `.2`
+principal.  The receipt nevertheless gives the exact theorem-facing vector and
+shows the later stress targets are far less extreme than the boundary target.
+The next proof step should seek coefficient-specific anti-alignment or sharper
+structure inside the 99-character vector, not just a norm bound.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

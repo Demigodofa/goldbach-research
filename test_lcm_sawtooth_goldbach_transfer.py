@@ -38,6 +38,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_leading_mode_character_shape_receipt,
     q286_leading_singular_mode_contribution_receipt,
     q286_first_three_ap_discrepancy_proxy_receipt,
+    q286_first_three_character_mixture_norm_receipt,
     q286_first_three_full_negative_driver_receipt,
     q286_driver_residue_lift_occupancy_receipt,
     q286_first_two_mode_lower_tail_receipt,
@@ -1760,6 +1761,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_weighted_discrepancy_norm_measured"])
         self.assertFalse(receipt[
             "eventual_weighted_discrepancy_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_character_mixture_norm(self):
+        receipt = q286_first_three_character_mixture_norm_receipt(
+            targets=(1222142,), theorem_threshold=.2)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["character_product_count"], 99)
+        self.assertEqual(receipt["negative_targets"], (1222142,))
+        self.assertIn(1222142, receipt["rows"])
+        row = receipt["rows"][1222142]
+        self.assertLess(row["first_three_to_principal_ratio"], -.3)
+        self.assertGreater(
+            row["triangle_character_bound_to_principal"],
+            abs(row["first_three_to_principal_ratio"]))
+        self.assertGreater(
+            row["vector_l2_character_bound_to_principal"],
+            abs(row["first_three_to_principal_ratio"]))
+        self.assertGreater(row["triangle_to_sufficient_ratio"], 1.0)
+        self.assertGreater(row["vector_l2_to_sufficient_ratio"], 1.0)
+        self.assertLess(row["first_three_reconstruction_error"], 1e-9)
+        self.assertGreater(
+            receipt["character_coefficient_l1_to_principal_mean"],
+            receipt["character_coefficient_l2_to_principal_mean"])
+        self.assertTrue(receipt[
+            "first_three_character_mixture_norm_measured"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_selected_first_three_alignment(self):
