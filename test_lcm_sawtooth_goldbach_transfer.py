@@ -78,6 +78,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt,
     q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt,
     q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -2667,6 +2668,55 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                 row["largest_phase_bin_fraction_of_perimeter"], 0.5)
         self.assertTrue(receipt[
             "fixed_conductor_orbit_phase_profile_measured"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_bin_compression(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(
+            tuple(row["representative_label"] for row in receipt["rows"]),
+            ((0, 1, 5, 0), (0, 2, 6, 0)))
+        self.assertEqual(
+            receipt["passing_polygon_labels_by_phase_bin_signed_bound"],
+            ((0, 1, 5, 0),))
+        self.assertEqual(
+            receipt["failing_polygon_labels_by_phase_bin_signed_bound"],
+            ((0, 2, 6, 0),))
+        self.assertFalse(
+            receipt["all_residual_polygons_clear_by_phase_bin_signed_bound"])
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)]["phase_bin_signed_l1"],
+            0.058765359273537675)
+        self.assertGreater(
+            by_label[(0, 1, 5, 0)][
+                "signed_bin_l1_margin_to_channel_bound"],
+            0.0)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)]["phase_bin_signed_l1"],
+            0.06015000330167732)
+        self.assertLess(
+            by_label[(0, 2, 6, 0)][
+                "signed_bin_l1_margin_to_channel_bound"],
+            0.0)
+        worst = receipt["worst_signed_bin_l1_margin_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertAlmostEqual(
+            worst["signed_bin_l1_margin_to_channel_bound"],
+            -0.001296756190866699)
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_bin_compression_measured"])
+        self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
         self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
         self.assertFalse(receipt["orbit_polygon_theorem_proved"])
         self.assertFalse(receipt[

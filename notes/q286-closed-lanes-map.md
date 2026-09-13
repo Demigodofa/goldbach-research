@@ -48,6 +48,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_residual_orbit_cancellation_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_orbit_polygon_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
 
 ## Closed or falsified lanes
 
@@ -304,6 +305,12 @@ current comparison set.
    residual polygons occupy `11` and `10` of `12` phase bins; the harder
    `(0,2,6,0)` row has largest-bin fraction `0.26794815278810286`, suggesting
    phase-bin balance as the next geometric theorem target.
+35. The phase-bin compression regression passed in `209.826s`.  Signed
+   phase-bin compression clears residual label `(0,1,5,0)` with margin
+   `0.000087887837272945`, but still misses `(0,2,6,0)` by
+   `0.001296756190866699`.  Thus phase-bin compression alone is not the final
+   channel theorem; the remaining hard row needs inter-bin signed cancellation
+   or a sharper phase-balance estimate.
 
 ## Still open
 

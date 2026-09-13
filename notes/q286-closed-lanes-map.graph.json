@@ -24,6 +24,10 @@
     "measures",
     "validates",
     "witnesses",
+    "profiles",
+    "geometrizes",
+    "near_miss",
+    "tests",
     "requires",
     "compares_with"
   ],
@@ -439,6 +443,14 @@
       "status_boundary": "selected phase-bin profile only; no uniform phase-balance theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_bin_compression",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_bin_compression passed in 209.826s; signed phase-bin compression clears (0,1,5,0) by 0.000087887837272945 but misses (0,2,6,0) by 0.001296756190866699",
+      "status_boundary": "selected phase-bin compression profile only; no uniform phase-bin compression theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -760,6 +772,16 @@
       "from": "receipt.component_pair_fixed_conductor_orbit_phase_profile",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_bin_compression",
+      "to": "receipt.component_pair_fixed_conductor_orbit_phase_profile",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_bin_compression",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "near_miss"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

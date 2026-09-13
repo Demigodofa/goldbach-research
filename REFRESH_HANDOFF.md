@@ -19113,6 +19113,22 @@ largest bin mass `0.016182424368813935`, and largest-bin fraction
 `0.26794815278810286`.  This suggests a bounded next theorem attempt around
 phase-bin mass balance and signed cancellation between phase sectors.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_bin_compression`
+passed in `209.826s`.  The signed phase-bin envelope clears one residual
+conductor-`77` polygon but not the other.  Label `(0,1,5,0)` has signed-bin L1
+`0.058765359273537675` versus channel bound `0.05885324711081062`, leaving
+margin `0.000087887837272945`.  Label `(0,2,6,0)` has signed-bin L1
+`0.06015000330167732`, missing the same bound by
+`0.001296756190866699`.  This closes the "phase-bin compression alone"
+shortcut as a full proof engine while preserving a sharper visual theorem
+target: prove the remaining inter-bin signed cancellation or strengthen the
+phase-balance estimate for that single hard row.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

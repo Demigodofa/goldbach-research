@@ -1029,6 +1029,34 @@ control phase-bin mass balance and then control signed cancellation between
 phase bins.  It is still a finite selected measurement, not a phase-balance
 theorem.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
+then tests the coarser signed phase-bin envelope against the channel bound.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_bin_compression`
+passed in `209.826s`.
+
+```text
+channel bound: 0.05885324711081062
+
+1379072, label (0,1,5,0):
+  signed bin L1 0.058765359273537675
+  margin to channel bound 0.000087887837272945
+  resultant 0.0053525925011552716
+  phase-bin signed bound clears
+
+1379072, label (0,2,6,0):
+  signed bin L1 0.06015000330167732
+  margin to channel bound -0.001296756190866699
+  resultant 0.01746105205795644
+  phase-bin signed bound still fails
+```
+
+This rules out the strongest easy geometric closure: phase-bin compression
+alone does not certify all residual conductor-`77` polygons.  It remains useful
+because it clears one of the two residual rows and leaves a single hard row
+where inter-bin signed cancellation, not merely orbit-level reflection pairing,
+must be proved or replaced.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

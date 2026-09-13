@@ -14165,6 +14165,83 @@ def q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receip
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        tolerance=1e-9):
+    """Test whether signed phase-bin compression clears residual polygons."""
+    phase_profile = (
+        q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, tolerance=tolerance))
+    channel_bound = phase_profile["normalized_real_channel_linf_bound"]
+
+    rows = []
+    for source_row in phase_profile["rows"]:
+        signed_l1 = source_row["phase_bin_signed_l1"]
+        mass_l1 = source_row["phase_bin_mass_l1"]
+        resultant_abs = source_row["resultant_abs"]
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": source_row["phase_bin_count"],
+            "nonzero_phase_bin_count": source_row[
+                "nonzero_phase_bin_count"],
+            "phase_bin_mass_l1": mass_l1,
+            "phase_bin_signed_l1": signed_l1,
+            "phase_bin_signed_l1_to_total_weight": (
+                signed_l1 / mass_l1 if mass_l1 else 0.0),
+            "signed_bin_l1_margin_to_channel_bound": (
+                channel_bound - signed_l1),
+            "resultant_abs": resultant_abs,
+            "resultant_margin_to_channel_bound": (
+                channel_bound - resultant_abs),
+            "resultant_to_signed_bin_l1_ratio": (
+                resultant_abs / signed_l1 if signed_l1 else 0.0),
+            "phase_bin_signed_bound_clears_channel_bound": (
+                signed_l1 <= channel_bound + tolerance),
+            "source_phase_profile_row": source_row,
+        })
+
+    passing_rows = tuple(
+        row for row in rows
+        if row["phase_bin_signed_bound_clears_channel_bound"])
+    failing_rows = tuple(
+        row for row in rows
+        if not row["phase_bin_signed_bound_clears_channel_bound"])
+
+    return {
+        "arithmetic_period": phase_profile["arithmetic_period"],
+        "targets": phase_profile["targets"],
+        "tested_target_count": phase_profile["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": (
+            phase_profile["active_channel_conductors"]),
+        "normalized_real_channel_linf_bound": channel_bound,
+        "phase_bin_count": phase_bin_count,
+        "rows": tuple(rows),
+        "passing_polygon_labels_by_phase_bin_signed_bound": tuple(
+            row["representative_label"] for row in passing_rows),
+        "failing_polygon_labels_by_phase_bin_signed_bound": tuple(
+            row["representative_label"] for row in failing_rows),
+        "all_residual_polygons_clear_by_phase_bin_signed_bound": (
+            len(failing_rows) == 0),
+        "worst_signed_bin_l1_margin_row": min(
+            rows,
+            key=lambda row: row[
+                "signed_bin_l1_margin_to_channel_bound"]),
+        "source_orbit_phase_profile_receipt": phase_profile,
+        "fixed_conductor_phase_bin_compression_measured": True,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

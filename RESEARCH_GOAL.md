@@ -10484,6 +10484,19 @@ occupies `10` bins and has largest-bin fraction `0.26794815278810286`.
 This preserves the visual/geometric route as a concrete theorem target:
 phase-bin mass balance plus signed cancellation between bins.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
+tests whether the signed phase-bin envelope alone clears those residual
+polygons.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_bin_compression`
+passed in `209.826s`.  The signed phase-bin bound clears label `(0,1,5,0)`:
+signed-bin L1 `0.058765359273537675` versus channel bound
+`0.05885324711081062`, margin `0.000087887837272945`.  It still misses the
+harder label `(0,2,6,0)`: signed-bin L1 `0.06015000330167732`, margin
+`-0.001296756190866699`.  Thus coarse phase-bin compression is not a proof
+engine by itself; the remaining narrow theorem target is inter-bin signed
+cancellation or a sharper phase-balance estimate for the single hard
+conductor-`77` row.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
