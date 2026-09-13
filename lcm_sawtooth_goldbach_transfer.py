@@ -14956,6 +14956,114 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geo
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        ratio_bound=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Convert thin-exception control to a large-side mass budget."""
+    thin_exception = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count,
+            high_ratio_threshold=ratio_bound,
+            thin_side_ratio_threshold=thin_side_ratio_threshold,
+            tolerance=tolerance))
+    exception_budget = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count,
+            high_ratio_threshold=ratio_bound,
+            thin_side_ratio_threshold=thin_side_ratio_threshold,
+            tolerance=tolerance))
+    budget_rows = {
+        row["representative_label"]: row
+        for row in exception_budget["rows"]}
+
+    rows = []
+    for source_row in thin_exception["rows"]:
+        budget_row = budget_rows[source_row["representative_label"]]
+        exception_rows = source_row["exception_rows"]
+        large_side_mass = float(math.fsum(
+            row["large_side_abs"] for row in exception_rows))
+        small_side_mass = float(math.fsum(
+            row["small_side_abs"] for row in exception_rows))
+        thin_large_side_envelope = (
+            (1.0 + thin_side_ratio_threshold) * large_side_mass)
+        allowed_exception_abs = budget_row[
+            "allowed_high_ratio_exception_abs_sum_after_low_mass"]
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "ratio_bound": ratio_bound,
+            "thin_side_ratio_threshold": thin_side_ratio_threshold,
+            "thin_exception_large_side_mass": large_side_mass,
+            "thin_exception_small_side_mass": small_side_mass,
+            "thin_large_side_envelope": thin_large_side_envelope,
+            "allowed_high_ratio_exception_abs_sum_after_low_mass": (
+                allowed_exception_abs),
+            "thin_large_side_envelope_margin_to_exception_budget": (
+                allowed_exception_abs - thin_large_side_envelope),
+            "actual_high_ratio_exception_abs_sum": (
+                source_row["high_ratio_exception_abs_sum"]),
+            "thin_large_side_envelope_clears_exception_budget": (
+                thin_large_side_envelope <= allowed_exception_abs + tolerance),
+            "source_phase_antipodal_thin_exception_row": source_row,
+            "source_phase_antipodal_exception_budget_row": budget_row,
+        })
+
+    passing_rows = tuple(
+        row for row in rows
+        if row["thin_large_side_envelope_clears_exception_budget"])
+    failing_rows = tuple(
+        row for row in rows
+        if not row["thin_large_side_envelope_clears_exception_budget"])
+
+    return {
+        "arithmetic_period": thin_exception["arithmetic_period"],
+        "targets": thin_exception["targets"],
+        "tested_target_count": thin_exception["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": thin_exception[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            thin_exception["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "rows": tuple(rows),
+        "passing_polygon_labels_by_thin_large_side_budget": tuple(
+            row["representative_label"] for row in passing_rows),
+        "failing_polygon_labels_by_thin_large_side_budget": tuple(
+            row["representative_label"] for row in failing_rows),
+        "all_residual_polygons_clear_by_thin_large_side_budget": (
+            len(failing_rows) == 0),
+        "worst_thin_large_side_budget_margin_row": min(
+            rows,
+            key=lambda row: row[
+                "thin_large_side_envelope_margin_to_exception_budget"]),
+        "source_phase_antipodal_thin_exception_receipt": thin_exception,
+        "source_phase_antipodal_exception_budget_receipt": exception_budget,
+        "fixed_conductor_phase_antipodal_thin_large_side_budget_measured": True,
+        "phase_antipodal_thin_large_side_budget_theorem_proved": False,
+        "phase_antipodal_sector_geometry_theorem_proved": False,
+        "phase_antipodal_nonthin_ratio_theorem_proved": False,
+        "phase_antipodal_exception_budget_theorem_proved": False,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

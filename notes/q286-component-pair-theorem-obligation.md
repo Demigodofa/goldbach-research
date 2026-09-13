@@ -1247,6 +1247,32 @@ mostly concentrated on proving the thin opposite-sector exception budget
 uniformly, together with the support/driver conditions that make the residual
 polygon setup valid.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
+then converts that thin-exception budget into a large-side mass target.  Since
+every selected high-ratio exception has small side at most `0.05` times the
+large side, the receipt compares `(1.05) * large_side_mass` with the allowed
+exception budget.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget`
+passed in `614.609s`.
+
+```text
+1379072, label (0,1,5,0):
+  thin exception large-side mass 0.0031320675991354753
+  thin large-side envelope 0.0032886709790922493
+  margin to exception budget 0.01383960737591672
+
+1379072, label (0,2,6,0):
+  thin exception large-side mass 0.02490542589058863
+  thin large-side envelope 0.026150697185118062
+  margin to exception budget 0.006933239211847552
+```
+
+Thus, on the selected fixture, the high-ratio side of the antipodal theorem is
+equivalent to controlling the large-side mass of thin opposite-sector
+exceptions below the displayed budget.  This is still finite selected evidence:
+the uniform thin large-side mass theorem, the residual polygon setup, and
+Goldbach remain open.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

@@ -10578,6 +10578,19 @@ hard label `(0,2,6,0)` has maximum sector-envelope ratio
 fixture, the non-thin half of the two-part inequality is explained by
 phase-sector separation plus side-balance.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
+then turns the selected thin-exception budget into a large-side mass budget.
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget`
+passed in `614.609s`.  Since selected high-ratio exceptions have small side at
+most `0.05` times the large side, `(1.05) * large-side mass` clears the allowed
+exception budget for both residual rows.  Label `(0,1,5,0)` has large-side
+mass `0.0031320675991354753`, envelope `0.0032886709790922493`, and margin
+`0.01383960737591672`.  The hard label `(0,2,6,0)` has large-side mass
+`0.02490542589058863`, envelope `0.026150697185118062`, and margin
+`0.006933239211847552`.  This reduces the selected thin-exception side to
+large-side mass control; it is not a uniform theorem or a Goldbach proof.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

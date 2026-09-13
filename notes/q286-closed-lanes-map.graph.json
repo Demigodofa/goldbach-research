@@ -507,6 +507,14 @@
       "status_boundary": "selected sector-geometry profile only; no uniform residual-polygon sector theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget passed in 614.609s; selected thin exceptions clear the budget after replacing mass by (1.05) * large-side mass, with hard label (0,2,6,0) envelope 0.026150697185118062 and margin 0.006933239211847552",
+      "status_boundary": "selected thin large-side budget profile only; no uniform thin-exception mass theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -906,6 +914,21 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_sector_geometry",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_exception",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_exception_budget",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

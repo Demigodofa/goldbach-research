@@ -19235,6 +19235,24 @@ maximum sector-envelope ratio `0.6862033816719031`, margin
 `0.06379661832809691`.  This shifts the remaining visual theorem pressure
 toward proving the thin opposite-sector exception budget uniformly.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget`
+passed in `614.609s`.  It converts the selected thin-exception budget into a
+large-side mass budget: because selected high-ratio exceptions have small side
+at most `0.05` times the large side, `(1.05) * large-side mass` is a sufficient
+envelope.  Label `(0,1,5,0)` has large-side mass
+`0.0031320675991354753`, envelope `0.0032886709790922493`, and margin
+`0.01383960737591672` to the allowed exception budget.  The hard label
+`(0,2,6,0)` has large-side mass `0.02490542589058863`, envelope
+`0.026150697185118062`, and margin `0.006933239211847552`.  The remaining
+visual theorem pressure is now concentrated on proving thin opposite-sector
+large-side mass control uniformly, with the residual polygon setup and
+pointwise prime-correlation theorem still open.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

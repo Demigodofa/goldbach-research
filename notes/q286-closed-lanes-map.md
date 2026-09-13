@@ -56,6 +56,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_budget_receipt`
 
 ## Closed or falsified lanes
 
@@ -358,6 +359,13 @@ current comparison set.
    geometry: with `12` bins, opposite sectors are separated by at least
    `5*pi/6`; the hard `(0,2,6,0)` row has worst sector-envelope ratio
    `0.6862033816719031`, still below `0.75` by `0.06379661832809691`.
+43. The phase-antipodal thin-large-side-budget regression passed in
+   `614.609s`.  Selected high-ratio thin exceptions clear the allowed
+   exception budget after replacing their mass by `(1.05) * large-side mass`.
+   The hard `(0,2,6,0)` row has large-side mass `0.02490542589058863`,
+   envelope `0.026150697185118062`, and margin `0.006933239211847552`.
+   The surviving proof target is now uniform large-side mass control for thin
+   opposite-sector exceptions, plus the already-stated residual polygon setup.
 
 ## Still open
 
