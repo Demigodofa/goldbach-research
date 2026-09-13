@@ -9521,3 +9521,26 @@ Status `hypothesis-target`: a negative-alignment ceiling near `.375` would
 explain cycle `329` where plain `L2` Cauchy does not.  This must now be tested
 against earlier sparse-tail and near-tail windows before becoming a serious
 lemma candidate.
+
+### 2026-09-13 continuation: selected bad-target alignment check
+
+The alignment ceiling now has a selected-target falsifier receipt:
+`q286_selected_first_three_alignment_receipt`.  It checks explicit bad and
+near-bad targets against a candidate negative-alignment ceiling.
+
+Validation: `py_compile` passed, and focused tests
+`test_q286_first_three_weighted_discrepancy_norm` and
+`test_q286_selected_first_three_alignment` passed in `28.192s`.
+
+On the default selected set
+`10424,10664,10814,14138,14732,58736,88346,125504,448346,1222142,3304702,3305200`,
+there are `9` targets below `-.2`, `11` negative first-three targets, and
+zero violations of the `.375` negative-alignment ceiling.  The worst
+negative-alignment row is still `3305200` with utilization
+`0.37431718152903626`; the largest discrepancy-size row is `10664`, with
+`l2_to_sufficient_ratio 26.134535399601887` but utilization only
+`0.2200322261927699`.
+
+Status `survived-selected-falsifier`: the ceiling survived known bad selected
+targets, but remains finite evidence.  The next obligation is a windowed scan
+over earlier sparse-tail cycles.

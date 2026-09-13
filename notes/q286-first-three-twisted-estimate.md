@@ -3065,3 +3065,47 @@ alignment ceiling just below `.375` would close the `.2` tail even though
 plain `L2` size fails.  This is still finite evidence only.  The next falsifier
 is to test whether the `.375` alignment ceiling persists across the checked
 post-232 damping window and the earlier sparse-tail window.
+
+## 2026-09-13: selected bad-target alignment check
+
+Added `q286_selected_first_three_alignment_receipt`, a finite diagnostic for
+testing an explicit selected target set against a candidate negative-alignment
+ceiling.  It wraps the weighted-discrepancy receipt target-by-target and
+records tail targets, negative targets, alignment-ceiling violations, the
+maximum negative-alignment row, and the maximum `L2` sufficient-ratio row.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_weighted_discrepancy_norm ... ok
+test_q286_selected_first_three_alignment ... ok
+Ran 2 tests in 28.192s
+```
+
+Default selected set:
+
+```text
+targets:
+  10424, 10664, 10814, 14138, 14732, 58736, 88346, 125504,
+  448346, 1222142, 3304702, 3305200
+tail_count below -.2: 9
+negative_count: 11
+alignment_ceiling: .375
+violation_count: 0
+tail_targets:
+  10424, 10664, 10814, 14138, 58736, 88346, 125504, 448346, 1222142
+maximum negative alignment:
+  target 3305200, first_three -0.14018011556710205,
+  l2_negative_bound_utilization 0.37431718152903626
+maximum L2 sufficient-ratio:
+  target 10664, first_three -1.1500880008976309,
+  l2_to_sufficient_ratio 26.134535399601887,
+  l2_negative_bound_utilization 0.2200322261927699
+```
+
+Status `survived-selected-falsifier`: the `.375` negative-alignment ceiling
+survives this selected bad-target set, including the first-period worst
+first-three tail, the boundary full-negative target, the older `448346` tail,
+and the late `1222142` tail.  It remains a finite hypothesis, not a theorem.
+The next test is a windowed scan over earlier sparse-tail cycles.

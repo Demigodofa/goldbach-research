@@ -17904,6 +17904,42 @@ Next instruction: test the proposed `.375` negative-alignment ceiling against
 earlier sparse-tail cycles and the post-232 damping window.  Do not promote it
 without a falsifier pass over known bad and near-bad targets.
 
+## 2026-09-13 continuation: selected bad-target alignment check
+
+New code:
+
+- `q286_selected_first_three_alignment_receipt`
+- focused regression `test_q286_selected_first_three_alignment`
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_weighted_discrepancy_norm ... ok
+test_q286_selected_first_three_alignment ... ok
+Ran 2 tests in 28.192s
+```
+
+Default selected set:
+
+```text
+tested 12
+tail_count 9
+negative_count 11
+alignment_ceiling .375
+violation_count 0
+maximum negative alignment:
+  target 3305200, l2_negative_bound_utilization 0.37431718152903626
+maximum L2 sufficient-ratio:
+  target 10664, l2_to_sufficient_ratio 26.134535399601887,
+  l2_negative_bound_utilization 0.2200322261927699
+```
+
+Interpretation: the candidate `.375` negative-alignment ceiling survived the
+selected known-bad and near-bad targets, but this is still finite evidence.
+Next instruction: run a bounded windowed scan over known sparse-tail cycles,
+starting with the cheaper known-tail windows before broad horizon scans.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

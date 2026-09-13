@@ -11139,6 +11139,80 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
     }
 
 
+def q286_selected_first_three_alignment_receipt(
+        targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
+                 125504, 448346, 1222142, 3304702, 3305200),
+        theorem_threshold=.2, alignment_ceiling=.375, tolerance=1e-9):
+    """Check weighted q286 alignment on an explicit selected target set.
+
+    This finite diagnostic is for falsifying candidate alignment ceilings on
+    known bad, near-bad, or hand-selected targets.  It proves no eventual
+    estimate.
+    """
+    targets = tuple(targets)
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(theorem_threshold) or theorem_threshold <= 0:
+        raise ValueError("theorem_threshold must be positive and finite")
+    if not math.isfinite(alignment_ceiling) or alignment_ceiling <= 0:
+        raise ValueError("alignment_ceiling must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    target_rows = {}
+    tail_targets = []
+    negative_targets = []
+    alignment_ceiling_violations = []
+    maximum_negative_alignment_row = None
+    maximum_l2_ratio_row = None
+    for target in targets:
+        receipt = q286_first_three_weighted_discrepancy_norm_receipt(
+            start=target, cycle_count=1, targets_per_cycle=1,
+            theorem_threshold=theorem_threshold, tolerance=tolerance,
+            include_rows=True)
+        row = dict(receipt["rows"][target])
+        target_rows[target] = row
+        if row["first_three_to_principal_ratio"] < -theorem_threshold:
+            tail_targets.append(target)
+        if row["first_three_to_principal_ratio"] < 0:
+            negative_targets.append(target)
+        if row["l2_negative_bound_utilization"] >= alignment_ceiling:
+            alignment_ceiling_violations.append(target)
+        if (maximum_negative_alignment_row is None
+                or row["l2_negative_bound_utilization"]
+                > maximum_negative_alignment_row[
+                    "l2_negative_bound_utilization"]):
+            maximum_negative_alignment_row = row
+        if (maximum_l2_ratio_row is None
+                or row["l2_to_sufficient_ratio"]
+                > maximum_l2_ratio_row["l2_to_sufficient_ratio"]):
+            maximum_l2_ratio_row = row
+
+    return {
+        "targets": targets,
+        "tested_target_count": len(targets),
+        "theorem_threshold": theorem_threshold,
+        "alignment_ceiling": alignment_ceiling,
+        "target_rows": target_rows,
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tuple(tail_targets),
+        "negative_target_count": len(negative_targets),
+        "negative_targets": tuple(negative_targets),
+        "alignment_ceiling_violation_count": (
+            len(alignment_ceiling_violations)),
+        "alignment_ceiling_violation_targets": tuple(
+            alignment_ceiling_violations),
+        "maximum_negative_alignment_row": maximum_negative_alignment_row,
+        "maximum_l2_to_sufficient_ratio_row": maximum_l2_ratio_row,
+        "selected_first_three_alignment_measured": True,
+        "eventual_alignment_ceiling_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_hit_residue_profile_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         negative_tail_thresholds=(.3,), tolerance=1e-9):
