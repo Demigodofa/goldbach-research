@@ -271,6 +271,14 @@
       "status_boundary": "finite-vector obstruction only; does not refute arithmetic cone avoidance by actual prime-pair weights"
     },
     {
+      "id": "receipt.component_pair_reflection_support_geometry_obstruction",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_reflection_support_obstruction passed in 34.893s; all 5005 even target residues modulo 10010 remain obstructed after enforcing w(r)=w(N-r), with maximum reflection weight error 0",
+      "status_boundary": "finite-vector obstruction with reflection symmetry only; does not refute arithmetic cone avoidance by actual prime-pair weights"
+    },
+    {
       "id": "receipt.component_pair_character_mixture",
       "type": "receipt",
       "label": "q286_lower_support_component_pair_character_mixture_receipt",
@@ -406,6 +414,11 @@
     },
     {
       "from": "receipt.component_pair_support_geometry_obstruction",
+      "to": "lane.component_pair_support_geometry",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.component_pair_reflection_support_geometry_obstruction",
       "to": "lane.component_pair_support_geometry",
       "type": "falsifies"
     },

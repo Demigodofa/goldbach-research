@@ -56,7 +56,7 @@ prediction, and falsifier.
 | Rank-three internal cancellation | Falsified as explanation | The leading q286 mode contributions are mostly same-sign negative on stress targets. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
-| Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`. |
+| Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
 
 Important nuance: the support/mass witnesses do not refute every possible
 geometric proof.  They refute only the weak projection that forgets additional
@@ -98,6 +98,9 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
   constructs nonnegative admissible same-mass artificial weights with both
   `(5,7)` and `(7,11)` actions negative for all `5005` even residues modulo
   `10010`.
+- This closure survives actual ordered-pair reflection symmetry.  The reflected
+  obstruction receipt passed in `34.893s`, has maximum reflection weight error
+  `0`, and still obstructs all `5005` even residues.
 - The active component-pair cone is an exact `31`-character twisted
   binary-prime problem modulo `10010`: `(5,7)` uses `8` character rows,
   `(7,11)` uses `23`, and their union has `31`.
@@ -177,6 +180,9 @@ current comparison set.
    blocks instead of rediscovering the support.
 15. The real-channel regression passed in `36.836s` and reduces the signed
    character target from `31` complex rows to `16` real conjugacy channels.
+16. The reflection-symmetric support obstruction passed in `34.893s`; support,
+   nonnegativity, total mass, and pair-swap symmetry still do not exclude
+   simultaneous negative `(5,7)` and `(7,11)` component actions.
 
 ## Still open
 

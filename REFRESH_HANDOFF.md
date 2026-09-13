@@ -18850,6 +18850,17 @@ inside these two adjacent character-label blocks modulo `10010`.  That is
 narrower than proving full residue-by-residue prime-pair occupancy, but it
 remains hard arithmetic input and no Goldbach theorem is proved.
 
+Additional closure:
+
+- `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_reflection_support_obstruction` passed
+in `34.893s`.  It enforces `w(r)=w(N-r)` on the artificial same-mass
+nonnegative weights and still obstructs all `5005` even residues modulo
+`10010`, with maximum reflection weight error `0`.  Pair-swap symmetry alone
+does not rescue the support-geometry proof lane.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

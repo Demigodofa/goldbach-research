@@ -307,6 +307,28 @@ This closes the pure support/nonnegativity/total-mass/coefficient-geometry
 route for the component-pair theorem.  It does not refute arithmetic
 cone-avoidance by actual prime-pair weights.
 
+`q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
+adds the actual ordered prime-pair reflection symmetry `w(r)=w(N-r)` to the
+same finite-vector obstruction.  Focused regression
+`test_q286_lower_support_component_pair_reflection_support_obstruction` passed
+in `34.893s`.  It still obstructs all `5005` even residues modulo `10010`.
+
+```text
+obstructed even target residues: 5005 / 5005
+maximum reflection weight error: 0
+least-negative reflected witness residue: 9864
+least-negative reflected witness actions:
+  (5,7)  about -0.033788733675468835
+  (7,11) about -0.2559098620858012
+sample target 14138 reflected actions:
+  (5,7)  about -0.3366393727298987
+  (7,11) about -0.11037824420364589
+```
+
+Thus pair-swap symmetry does not reopen the support-only route.  The surviving
+component-pair theorem must use genuine prime-pair arithmetic beyond support,
+nonnegativity, total mass, and reflection symmetry.
+
 ## Character-mixture receipt
 
 `q286_lower_support_component_pair_character_mixture_receipt` now expresses the

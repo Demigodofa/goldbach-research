@@ -10263,3 +10263,12 @@ inside these two explicit adjacent character-label blocks, not arbitrary
 residue occupancy.  This is narrower than full fixed-modulus
 Goldbach-in-progressions but remains a pointwise binary-prime correlation
 theorem.  Goldbach remains open.
+
+Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
+enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
+support obstruction.  Focused regression
+`test_q286_lower_support_component_pair_reflection_support_obstruction` passed
+in `34.893s`.  All `5005` even residues modulo `10010` remain obstructed, with
+maximum reflection weight error `0`.  Therefore pair-swap symmetry alone does
+not prove the component-pair exclusion; the missing theorem must use sharper
+prime-pair arithmetic.

@@ -57,6 +57,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_coefficient_geometry_receipt,
     q286_lower_support_component_pair_cone_projection_receipt,
     q286_lower_support_component_pair_support_geometry_obstruction_receipt,
+    q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt,
     q286_lower_support_component_pair_character_mixture_receipt,
     q286_lower_support_component_pair_real_channel_receipt,
     q286_first_three_removed_support_gram_receipt,
@@ -1830,6 +1831,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "support_geometry_obstruction_measured"])
         self.assertFalse(receipt[
             "support_geometry_exclusion_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_reflection_support_obstruction(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["even_target_residue_count"], 5005)
+        self.assertEqual(
+            receipt["obstructed_even_target_residue_count"], 5005)
+        self.assertTrue(receipt["all_even_target_residues_obstructed"])
+        self.assertLessEqual(
+            receipt["maximum_reflection_weight_error"], 1e-15)
+        least_negative = receipt["least_negative_max_action_row"]
+        self.assertEqual(least_negative["target_residue"], 9864)
+        self.assertLess(
+            least_negative["maximum_component_action_to_principal_ratio"],
+            0)
+        self.assertGreaterEqual(
+            receipt["minimum_weight_row"]["minimum_weight"], 0)
+        sample = receipt["sample_target_rows"][14138]
+        self.assertTrue(sample[
+            "both_pair_components_centered_negative"])
+        self.assertAlmostEqual(sample["total_weight"], 1.0)
+        self.assertLessEqual(sample["reflection_weight_error"], 1e-15)
+        self.assertLess(
+            sample["component_actions_to_principal_ratio"][(5, 7)], 0)
+        self.assertLess(
+            sample["component_actions_to_principal_ratio"][(7, 11)], 0)
+        self.assertTrue(receipt[
+            "reflection_support_geometry_obstruction_measured"])
+        self.assertFalse(receipt[
+            "reflection_support_geometry_exclusion_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_lower_support_component_pair_character_mixture(self):
