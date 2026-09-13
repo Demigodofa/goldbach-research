@@ -209,6 +209,26 @@ or record that this is a pointwise fixed-modulus binary Goldbach-in-
 progressions theorem.  The weak support/nonnegative/mass implication and a
 plain L2 discrepancy theorem are both insufficient at the measured scale.
 
+`q286_lower_support_package_component_local_discrepancy_receipt` now splits
+that local discrepancy by CRT support component.  Validation passed with
+focused regression
+`test_q286_lower_support_package_component_local_discrepancy` in `79.731s`;
+component reconstruction error was at most `5.551115123125783e-17`.
+
+The component split shows that boundary failures are not diffuse: `10664` and
+`14138` are dominated by simultaneous negative centered action in `(5,7)` and
+`(7,11)`, with `14138` having centered actions about `-0.733` and `-0.419`.
+Late selected subcone targets have positive local means, and at least one of
+the same two channels turns positive enough: `1222142` is led by positive
+`(7,11)`, `1323632` by positive `(5,7)`, and `1379072` by positive `(7,11)`
+despite mildly negative `(5,7)`.
+
+The next theorem target is now narrower than package positivity: after finite
+boundary exceptions, prove that the `.2` first-two / `.3` first-three subcone
+cannot have simultaneous strongly negative centered action in both `(5,7)` and
+`(7,11)` lower-support channels, or record that as a fixed-modulus pointwise
+binary-prime correlation theorem.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

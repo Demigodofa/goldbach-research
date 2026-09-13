@@ -51,6 +51,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_subcone_lower_support_package_receipt,
     q286_lower_support_package_support_only_obstruction_receipt,
     q286_lower_support_package_local_discrepancy_receipt,
+    q286_lower_support_package_component_local_discrepancy_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -1644,6 +1645,33 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "lower_support_package_local_discrepancy_measured"])
         self.assertFalse(receipt["raw_l2_discrepancy_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_package_component_local_discrepancy(self):
+        receipt = (
+            q286_lower_support_package_component_local_discrepancy_receipt(
+                targets=(1222142,)))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertLess(
+            receipt["maximum_component_reconstruction_error"], 1e-12)
+        row = receipt["rows"][1222142]
+        self.assertTrue(row["subcone_member"])
+        self.assertTrue(row["rescued_by_full_complement"])
+        self.assertEqual(row["dominant_abs_centered_support"], (7, 11))
+        self.assertEqual(row["dominant_positive_centered_support"], (7, 11))
+        self.assertIn((5, 7), row["negative_centered_supports"])
+        self.assertGreater(
+            row["local_mean_lower_support_to_principal_ratio"],
+            row["required_lower_support_package_to_rescue"])
+        self.assertAlmostEqual(
+            row["actual_lower_support_package_to_principal_ratio"],
+            row["local_mean_lower_support_to_principal_ratio"]
+            + row["centered_lower_support_action_to_principal_ratio"],
+            places=12)
+        self.assertTrue(receipt[
+            "lower_support_package_component_local_discrepancy_measured"])
+        self.assertFalse(receipt[
+            "component_signed_residue_weight_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_removed_support_gram(self):

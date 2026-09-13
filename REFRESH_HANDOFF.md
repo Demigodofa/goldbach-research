@@ -18327,20 +18327,41 @@ or record that this is a pointwise fixed-modulus binary Goldbach-in-
 progressions theorem.  The weak support/nonnegative/mass implication and a
 plain L2 discrepancy theorem are both insufficient at the measured scale.
 
+New code `q286_lower_support_package_component_local_discrepancy_receipt`
+splits the lower-support local discrepancy by CRT support component.
+Validation: focused regression
+`test_q286_lower_support_package_component_local_discrepancy` passed in
+`79.731s`; component reconstruction error was at most
+`5.551115123125783e-17`.
+
+The component split shows that boundary failures are not diffuse.  Targets
+`10664` and `14138` are dominated by simultaneous negative centered action in
+`(5,7)` and `(7,11)`, with `14138` having centered actions about `-0.733` and
+`-0.419`.  Late selected subcone targets have positive local means and at
+least one of the two channels positive enough: `1222142` is led by positive
+`(7,11)`, `1323632` by positive `(5,7)`, and `1379072` by positive `(7,11)`
+despite mildly negative `(5,7)`.
+
+Next theorem target: after finite boundary exceptions, prove that the `.2`
+first-two / `.3` first-three subcone cannot have simultaneous strongly
+negative centered action in both `(5,7)` and `(7,11)` lower-support channels,
+or record that as a fixed-modulus pointwise binary-prime correlation theorem.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused local-discrepancy
-   test, and `git diff --check`.
+   component test, and `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
 3. Then pivot from diagnostics to theorem obligation: either prove a signed
-   pointwise arithmetic estimate for the lower-support package on the `.2`
-   first-two subcone inside the `.3` first-three tail, prove a conditioned
-   complement lower bound using actual residue-weight arithmetic, or record
-   the needed statement as fixed-modulus binary Goldbach in progressions.  Do
-   not spend large compute on the weak support/nonnegative/mass projection,
-   max-discrepancy, raw L2, raw 99-character norm, hoped-for rank-three
-   cancellation, mere sign-exclusion, or more threshold ladders already ruled
-   out as circular diagnostics.
+   pointwise arithmetic estimate preventing simultaneous strong negative
+   `(5,7)` and `(7,11)` centered actions on the `.2` first-two subcone inside
+   the `.3` first-three tail, prove a conditioned complement lower bound
+   using actual residue-weight arithmetic, or record the needed statement as
+   fixed-modulus binary Goldbach in progressions.  Do not spend large compute
+   on the weak support/nonnegative/mass projection, max-discrepancy, raw L2,
+   raw 99-character norm, hoped-for rank-three cancellation, mere
+   sign-exclusion, or more threshold ladders already ruled out as circular
+   diagnostics.
 
 ## Temporary wake note — continuity discussion
 

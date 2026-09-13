@@ -1084,6 +1084,76 @@ subcone, or identify that estimate as a fixed-modulus pointwise binary
 Goldbach-in-progressions theorem.  A plain L2 discrepancy theorem is not
 enough at the measured scale.
 
+## Lower-support component discrepancy receipt
+
+Added `q286_lower_support_package_component_local_discrepancy_receipt`, which
+splits the lower-support local discrepancy by CRT support component.  This
+keeps the narrowed claim geometric but no longer throws away all geometry:
+it exposes which support channels would need signed residue-weight control.
+
+Validation:
+
+```text
+test_q286_lower_support_package_component_local_discrepancy ... ok
+Ran 1 test in 79.731s
+```
+
+Default selected receipt:
+
+```text
+tested 5
+supports ((13,), (11,), (7,), (7, 11), (5,), (5, 13), (5, 7))
+max_reconstruction_error 5.551115123125783e-17
+
+target 10664
+  required 0.0602630156038384
+  actual/local/centered -0.1557989915957997 -0.008904136872219089 -0.14689485472358135
+  dominant_abs (5, 7) dominant_pos (13,) dominant_neg (5, 7)
+  (5,7) centered -0.09475214633200997
+  (7,11) centered -0.0799133264725722
+
+target 14138
+  required -0.1378737877186007
+  actual/local/centered -1.0148150611594449 0.1593415613835143 -1.1741566225429594
+  dominant_abs (5, 7) dominant_pos (13,) dominant_neg (5, 7)
+  (5,7) centered -0.7331790639459977
+  (7,11) centered -0.41936420368103794
+
+target 1222142
+  required -0.7083019405744888
+  actual/local/centered 0.23741432563942375 0.2218269593126893 0.015587366326734093
+  dominant_abs (7, 11) dominant_pos (7, 11) dominant_neg (7,)
+  (7,11) centered 0.014826359763802506
+  (5,7) centered -0.0010831578446186528
+
+target 1323632
+  required -0.6906391656607804
+  actual/local/centered 0.333580100575593 0.2380419215303219 0.09553817904527069
+  dominant_abs (5, 7) dominant_pos (5, 7) dominant_neg (13,)
+  (5,7) centered 0.06545161702266974
+  (7,11) centered 0.022043464205542634
+
+target 1379072
+  required -0.6751407665271594
+  actual/local/centered 0.2698581006505275 0.22338781055521728 0.04647029009531026
+  dominant_abs (7, 11) dominant_pos (7, 11) dominant_neg (5, 7)
+  (7,11) centered 0.08354880369092738
+  (5,7) centered -0.0368245521857697
+```
+
+Interpretation: the active lower-support theorem has narrowed again.  The
+boundary failures are not diffuse; they are dominated by simultaneous negative
+centered action in the `(5,7)` and `(7,11)` channels.  The late selected
+subcone targets have positive local means and are rescued when at least one of
+those two channels is positive enough, even if the other is mildly negative.
+
+Next theorem target: after finite boundary exceptions, prove that the `.2`
+first-two / `.3` first-three subcone cannot have simultaneous strongly
+negative centered action in both `(5,7)` and `(7,11)` lower-support channels,
+or prove that such a statement is a fixed-modulus pointwise binary-prime
+correlation theorem.  This is a stronger and less circular target than another
+threshold receipt or raw package L2 estimate.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

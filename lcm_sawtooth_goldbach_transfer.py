@@ -11007,6 +11007,189 @@ def q286_lower_support_package_local_discrepancy_receipt(
     }
 
 
+def q286_lower_support_package_component_local_discrepancy_receipt(
+        targets=(10664, 14138, 1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Decompose lower-support local discrepancy by CRT support channel.
+
+    This refines ``q286_lower_support_package_local_discrepancy_receipt`` by
+    splitting the non-q286 lower-support package into its support components.
+    It is finite theorem-shaping evidence only.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    coefficient = combined_fixed_strict_central_coefficient_receipt(
+        tolerance=tolerance)
+    period = coefficient["arithmetic_period"]
+    units = tuple(
+        residue for residue in range(period)
+        if math.gcd(residue, period) == 1)
+    aggregate_values = np.asarray(tuple(
+        coefficient["aggregate_coefficient_by_unit_residue"][unit]
+        for unit in units), dtype=np.complex128)
+    principal_mean = float(complex(np.mean(aggregate_values)).real)
+    centered_values = aggregate_values - principal_mean
+    _, labels, character_table = _unit_character_table(period, units)
+    character_coefficients = (
+        np.conjugate(character_table) @ centered_values / len(units))
+    factor_primes = (5, 7, 11, 13)
+    component_coefficients = {}
+    for index, label in enumerate(labels):
+        support = tuple(
+            prime for prime, exponent in zip(factor_primes, label)
+            if exponent != 0)
+        if not support or support == (11, 13):
+            continue
+        component_coefficients.setdefault(
+            support, np.zeros_like(character_coefficients))
+        component_coefficients[support][index] = (
+            character_coefficients[index])
+    component_values = {}
+    for support, values in component_coefficients.items():
+        if float(np.sum(np.abs(values) ** 2)) > tolerance:
+            component_values[support] = character_table.T @ values
+
+    package = q286_subcone_lower_support_package_receipt(
+        targets=targets, first_two_threshold=first_two_threshold,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    primes = _prime_table(max(targets))
+
+    rows = {}
+    maximum_component_reconstruction_error = 0.0
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        weights = np.zeros(len(units), dtype=np.float64)
+        total_weight = 0.0
+        for prime in range(max(2, lower + 1), min(target, upper)):
+            partner = target - prime
+            if primes[prime] and primes[partner]:
+                weight = math.log(prime) * math.log(partner)
+                weights[unit_index[prime % period]] += weight
+                total_weight += weight
+        if total_weight <= tolerance:
+            raise ArithmeticError("selected target has no strict-central mass")
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target - unit) % period, period) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        uniform_weight = total_weight / admissible_count
+        weight_discrepancy = np.zeros(len(units), dtype=np.float64)
+        weight_discrepancy[admissible_mask] = (
+            weights[admissible_mask] - uniform_weight)
+        principal = principal_mean * total_weight
+
+        component_rows = {}
+        actual_sum = 0.0
+        local_sum = 0.0
+        centered_sum = 0.0
+        for support, values in component_values.items():
+            local_mean = float(np.mean(values[admissible_mask].real))
+            centered_coefficient = np.zeros(len(units), dtype=np.float64)
+            centered_coefficient[admissible_mask] = (
+                values[admissible_mask].real - local_mean)
+            actual = float(np.dot(values.real, weights) / principal)
+            local_ratio = local_mean / principal_mean
+            centered_action = float(
+                np.dot(centered_coefficient, weight_discrepancy)
+                / principal)
+            coefficient_l2_ratio = (
+                float(np.linalg.norm(centered_coefficient))
+                / principal_mean)
+            actual_l2_relative_discrepancy = (
+                float(np.linalg.norm(weight_discrepancy)) / total_weight)
+            actual_sum += actual
+            local_sum += local_ratio
+            centered_sum += centered_action
+            component_rows[support] = {
+                "support": support,
+                "actual_to_principal_ratio": actual,
+                "local_mean_to_principal_ratio": local_ratio,
+                "centered_action_to_principal_ratio": centered_action,
+                "coefficient_l2_to_principal_mean": coefficient_l2_ratio,
+                "actual_l2_relative_discrepancy": (
+                    actual_l2_relative_discrepancy),
+                "cauchy_l2_bound_to_principal_ratio": (
+                    coefficient_l2_ratio
+                    * actual_l2_relative_discrepancy),
+            }
+        package_row = package["rows"][target]
+        reconstruction_error = abs(
+            actual_sum
+            - package_row["visible_lower_support_package_to_principal_ratio"])
+        maximum_component_reconstruction_error = max(
+            maximum_component_reconstruction_error, reconstruction_error)
+        by_centered_magnitude = tuple(
+            support for support, _ in sorted(
+                component_rows.items(),
+                key=lambda item: abs(item[1][
+                    "centered_action_to_principal_ratio"]),
+                reverse=True))
+        positive_centered_supports = tuple(
+            support for support, row in component_rows.items()
+            if row["centered_action_to_principal_ratio"] > tolerance)
+        negative_centered_supports = tuple(
+            support for support, row in component_rows.items()
+            if row["centered_action_to_principal_ratio"] < -tolerance)
+        rows[target] = {
+            "target": target,
+            "subcone_member": package_row["subcone_member"],
+            "rescued_by_full_complement": package_row[
+                "rescued_by_full_complement"],
+            "required_lower_support_package_to_rescue": package_row[
+                "required_lower_support_package_to_rescue"],
+            "actual_lower_support_package_to_principal_ratio": actual_sum,
+            "local_mean_lower_support_to_principal_ratio": local_sum,
+            "centered_lower_support_action_to_principal_ratio": (
+                centered_sum),
+            "component_reconstruction_error": reconstruction_error,
+            "dominant_abs_centered_support": (
+                by_centered_magnitude[0] if by_centered_magnitude else None),
+            "dominant_negative_centered_support": (
+                min(negative_centered_supports,
+                    key=lambda support: component_rows[support][
+                        "centered_action_to_principal_ratio"])
+                if negative_centered_supports else None),
+            "dominant_positive_centered_support": (
+                max(positive_centered_supports,
+                    key=lambda support: component_rows[support][
+                        "centered_action_to_principal_ratio"])
+                if positive_centered_supports else None),
+            "component_supports_by_centered_magnitude": (
+                by_centered_magnitude),
+            "positive_centered_supports": positive_centered_supports,
+            "negative_centered_supports": negative_centered_supports,
+            "component_rows": component_rows,
+            "source_package_row": package_row,
+        }
+
+    return {
+        "targets": targets,
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": len(targets),
+        "component_supports": tuple(component_values),
+        "rows": rows,
+        "maximum_component_reconstruction_error": (
+            maximum_component_reconstruction_error),
+        "source_lower_support_package_receipt": package,
+        "lower_support_package_component_local_discrepancy_measured": True,
+        "component_signed_residue_weight_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):
