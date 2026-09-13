@@ -459,6 +459,14 @@
       "status_boundary": "selected antipodal phase-sector profile only; no uniform antipodal phase-cancellation theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_pair_balance",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance passed in 252.478s; hard label (0,2,6,0) clears by weighted antipodal L1 but has largest pair cancellation ratio 0.9711661073614952 and two high-ratio pairs at threshold 0.75",
+      "status_boundary": "selected antipodal pair-balance profile only; no uniform pairwise cancellation theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -798,6 +806,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_compression",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_pair_balance",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_compression",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_pair_balance",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

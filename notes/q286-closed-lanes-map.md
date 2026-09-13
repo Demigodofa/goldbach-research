@@ -50,6 +50,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_orbit_phase_profile_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_bin_compression_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
 
 ## Closed or falsified lanes
 
@@ -318,6 +319,12 @@ current comparison set.
    label `(0,2,6,0)` has antipodal-pair L1 `0.03657040255445905`, below the
    channel bound `0.05885324711081062`.  The geometric theorem target is now
    antipodal phase-sector cancellation, not undirected phase-bin mass balance.
+37. The phase-antipodal pair-balance regression passed in `252.478s`.  It
+   falsifies a uniform per-pair cancellation strengthening: the hard
+   `(0,2,6,0)` row has weighted antipodal cancellation ratio
+   `0.6079867090121881`, largest pair cancellation ratio
+   `0.9711661073614952`, and `2` high-ratio pairs at threshold `0.75`.
+   The surviving theorem target is a weighted six-pair antipodal L1 bound.
 
 ## Still open
 

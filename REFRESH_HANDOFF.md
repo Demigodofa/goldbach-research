@@ -19144,6 +19144,21 @@ statement: the remaining channel-side theorem should prove antipodal
 phase-sector cancellation for the conductor-`77` residual orbit polygons, or
 replace it with a stronger sourced fixed-conductor binary-prime estimate.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance`
+passed in `252.478s`.  The hard residual label `(0,2,6,0)` clears by weighted
+antipodal L1, but not by uniform per-pair cancellation: its weighted
+antipodal cancellation ratio is `0.6079867090121881`, largest pair abs is
+`0.015424610859844602`, largest pair cancellation ratio is
+`0.9711661073614952`, and it has `2` high-ratio pairs at threshold `0.75`.
+This refines the theorem target again: prove a weighted six-pair antipodal L1
+bound for the conductor-`77` residual polygons; do not assume every opposite
+phase pair cancels strongly on its own.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

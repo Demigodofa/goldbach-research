@@ -1085,6 +1085,31 @@ target is now explicit: prove that the conductor-`77` residual orbit polygons
 have enough opposite-sector pairing, or replace that statement with a sourced
 pointwise fixed-conductor binary-prime estimate.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
+profiles the six antipodal phase pairs themselves.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance`
+passed in `252.478s`.
+
+```text
+high ratio threshold: 0.75
+
+1379072, label (0,1,5,0):
+  weighted antipodal cancellation ratio 0.15706238672161288
+  largest pair abs 0.0031320675991354753
+  high-ratio pair count 1
+
+1379072, label (0,2,6,0):
+  weighted antipodal cancellation ratio 0.6079867090121881
+  largest pair abs 0.015424610859844602
+  largest pair cancellation ratio 0.9711661073614952
+  high-ratio pair count 2
+```
+
+This falsifies a too-strong refinement: not every antipodal phase pair
+cancels uniformly.  The hard row still clears because the weighted L1 over all
+six antipodal pairs is below the channel bound.  A proof should target that
+weighted antipodal-pair sum, not a per-pair cancellation floor.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

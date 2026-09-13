@@ -14343,6 +14343,110 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compressio
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        high_ratio_threshold=0.75, tolerance=1e-9):
+    """Classify whether antipodal clearance is uniform or weighted."""
+    if high_ratio_threshold < 0.0:
+        raise ValueError("high_ratio_threshold must be nonnegative")
+    antipodal = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_compression_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, tolerance=tolerance))
+    channel_bound = antipodal["normalized_real_channel_linf_bound"]
+
+    rows = []
+    for source_row in antipodal["rows"]:
+        pair_rows = []
+        for pair_row in source_row["antipodal_pair_rows"]:
+            pair_mass = (
+                pair_row["source_bin_abs"]
+                + pair_row["opposite_source_bin_abs"])
+            pair_abs = pair_row["signed_vector_abs"]
+            cancellation_ratio = pair_abs / pair_mass if pair_mass else 0.0
+            pair_rows.append({
+                "bin_index": pair_row["bin_index"],
+                "opposite_bin_index": pair_row["opposite_bin_index"],
+                "pair_source_mass": pair_mass,
+                "pair_abs": pair_abs,
+                "pair_cancellation_ratio": cancellation_ratio,
+                "high_cancellation_ratio": (
+                    cancellation_ratio >= high_ratio_threshold),
+                "source_antipodal_pair_row": pair_row,
+            })
+        pair_rows = tuple(pair_rows)
+        total_source_mass = float(math.fsum(
+            row["pair_source_mass"] for row in pair_rows))
+        antipodal_l1 = source_row["antipodal_phase_pair_l1"]
+        high_ratio_rows = tuple(
+            row for row in pair_rows
+            if row["high_cancellation_ratio"])
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "antipodal_pair_count": source_row["antipodal_pair_count"],
+            "phase_bin_signed_l1": source_row["phase_bin_signed_l1"],
+            "antipodal_phase_pair_l1": antipodal_l1,
+            "antipodal_phase_pair_margin_to_channel_bound": (
+                channel_bound - antipodal_l1),
+            "total_antipodal_source_mass": total_source_mass,
+            "weighted_antipodal_cancellation_ratio": (
+                antipodal_l1 / total_source_mass
+                if total_source_mass else 0.0),
+            "largest_antipodal_pair_abs": max(
+                row["pair_abs"] for row in pair_rows),
+            "largest_antipodal_pair_fraction_of_bound": (
+                max(row["pair_abs"] for row in pair_rows) / channel_bound
+                if channel_bound else 0.0),
+            "largest_pair_cancellation_ratio": max(
+                row["pair_cancellation_ratio"] for row in pair_rows),
+            "high_ratio_threshold": high_ratio_threshold,
+            "high_ratio_pair_count": len(high_ratio_rows),
+            "high_ratio_pair_rows": high_ratio_rows,
+            "largest_abs_pair_row": max(
+                pair_rows, key=lambda row: row["pair_abs"]),
+            "largest_ratio_pair_row": max(
+                pair_rows, key=lambda row: row["pair_cancellation_ratio"]),
+            "pair_rows": pair_rows,
+            "source_phase_antipodal_compression_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": antipodal["arithmetic_period"],
+        "targets": antipodal["targets"],
+        "tested_target_count": antipodal["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": antipodal[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": channel_bound,
+        "phase_bin_count": phase_bin_count,
+        "high_ratio_threshold": high_ratio_threshold,
+        "rows": tuple(rows),
+        "worst_weighted_antipodal_cancellation_ratio_row": max(
+            rows,
+            key=lambda row: row[
+                "weighted_antipodal_cancellation_ratio"]),
+        "worst_largest_pair_cancellation_ratio_row": max(
+            rows,
+            key=lambda row: row["largest_pair_cancellation_ratio"]),
+        "source_phase_antipodal_compression_receipt": antipodal,
+        "fixed_conductor_phase_antipodal_pair_balance_measured": True,
+        "all_antipodal_pairs_uniformly_cancel": all(
+            row["high_ratio_pair_count"] == 0 for row in rows),
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

@@ -10507,6 +10507,17 @@ label `(0,1,5,0)` has antipodal-pair L1 `0.009229827584054894`, margin
 theorem target is therefore not arbitrary phase-bin compression but antipodal
 phase-sector cancellation for the conductor-`77` residual orbit polygons.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance_receipt`
+then checks whether each opposite-sector pair cancels uniformly.  Focused
+regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_pair_balance`
+passed in `252.478s`.  This falsifies the uniform per-pair version: the hard
+label `(0,2,6,0)` has weighted antipodal cancellation ratio
+`0.6079867090121881`, largest pair abs `0.015424610859844602`, largest pair
+cancellation ratio `0.9711661073614952`, and `2` high-ratio pairs at threshold
+`0.75`.  The theorem target is therefore the weighted six-pair antipodal L1
+bound, not a claim that every opposite-sector pair individually cancels well.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
