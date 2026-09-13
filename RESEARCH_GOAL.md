@@ -10097,3 +10097,44 @@ finite diagnostics, and the theorem target remains the signed pointwise
 arithmetic estimate preventing simultaneous strong negative `(5,7)` and
 `(7,11)` lower-support centered action on the active subcone.  Goldbach
 remains open.
+
+### 2026-09-13 continuation: three-target component-pair finite probe
+
+The selected-target component-pair receipt was run over all three known late
+sparse-tail comparison targets:
+
+```text
+q286_lower_support_component_pair_tail_window_receipt(
+    selected_targets=(1222142,1323632,1379072),
+    first_two_threshold=.2,
+    tail_threshold=.3)
+```
+
+It completed in `64.87790719999975s`.  All three selected targets were in the
+`.2` first-two / `.3` first-three subcone, sparse lower-tail residue weights
+were reused, and no target had simultaneous negative centered action in both
+active lower-support channels:
+
+```text
+tested 3
+tails (1222142, 1323632, 1379072)
+both_negative ()
+weights_included True
+1222142 pair_sum 0.013742951708009437
+  (5,7) -0.0010834080557930044
+  (7,11) 0.014826359763802442
+1323632 pair_sum 0.08749508122821226
+  (5,7) 0.06545161702266966
+  (7,11) 0.022043464205542592
+1379072 pair_sum 0.04672425150515765
+  (5,7) -0.036824552185769695
+  (7,11) 0.08354880369092735
+```
+
+Status `finite-diagnostic`: this strengthens the finite comparison set for the
+active component-pair theorem target but does not prove the eventual exclusion,
+a signed prime-correlation estimate, RH, or Goldbach.  The remaining
+non-circular path is still to prove, or reduce precisely, the fixed-modulus
+pointwise statement preventing simultaneous strong negative `(5,7)` and
+`(7,11)` centered action on the active subcone after finite boundary
+exceptions.

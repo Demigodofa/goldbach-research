@@ -154,7 +154,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_tail_window_receipt",
       "status": "validated_selected_and_window_paths",
-      "validation": "focused regression passed in 63.162s; compact unselected window probe at 1222142 passed in 68.886s and returned the expected tail target with lower-tail sparse-weight provenance",
+      "validation": "focused regression passed in 63.162s; compact unselected window probe at 1222142 passed in 68.886s; selected three-target probe at 1222142,1323632,1379072 passed in 64.878s with no simultaneous negative pair action",
       "performance_note": "selected targets and window targets now use direct component rows, integrated q286 mode rows, and sparse lower-tail residue weights; broad windows remain finite diagnostics"
     },
     {
@@ -196,6 +196,40 @@
       "status": "validated",
       "validation": "component-local focused regression calls the receipt twice, verifies one cache miss and at least one hit, and latest rerun passed in 167.910s",
       "scope": "caches fixed character/component setup only; target-specific package and prime-pair work remain uncached"
+    },
+    {
+      "id": "test.three_target_component_pair_probe",
+      "type": "test",
+      "label": "Selected three-target component-pair probe",
+      "status": "finite_probe_passed",
+      "validation": "q286_lower_support_component_pair_tail_window_receipt(selected_targets=(1222142,1323632,1379072), first_two_threshold=.2, tail_threshold=.3) passed in 64.878s",
+      "tested_target_count": 3,
+      "tail_subcone_targets": [
+        1222142,
+        1323632,
+        1379072
+      ],
+      "both_pair_components_centered_negative_targets": [],
+      "pair_sum_to_principal": {
+        "1222142": 0.013742951708009437,
+        "1323632": 0.08749508122821226,
+        "1379072": 0.04672425150515765
+      },
+      "pair_components_to_principal": {
+        "1222142": {
+          "(5, 7)": -0.0010834080557930044,
+          "(7, 11)": 0.014826359763802442
+        },
+        "1323632": {
+          "(5, 7)": 0.06545161702266966,
+          "(7, 11)": 0.022043464205542592
+        },
+        "1379072": {
+          "(5, 7)": -0.036824552185769695,
+          "(7, 11)": 0.08354880369092735
+        }
+      },
+      "status_boundary": "finite diagnostic evidence only; does not prove the eventual component-pair theorem or Goldbach"
     },
     {
       "id": "target.10664",
@@ -284,6 +318,16 @@
       "from": "receipt.component_pair_tail_window",
       "to": "theorem.active.component_pair_exclusion",
       "type": "measures"
+    },
+    {
+      "from": "test.three_target_component_pair_probe",
+      "to": "theorem.active.component_pair_exclusion",
+      "type": "measures"
+    },
+    {
+      "from": "test.three_target_component_pair_probe",
+      "to": "receipt.component_pair_tail_window",
+      "type": "validates"
     },
     {
       "from": "structure.active_subcone",

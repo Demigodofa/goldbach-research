@@ -1,7 +1,7 @@
 # q286 closed-lanes map
 
 Status: finite research map, not a proof of Goldbach.
-Last updated at commit work following `8b85d45`.
+Last updated after the 2026-09-13 three-target component-pair probe.
 
 This note indexes which q286 proof lanes have been closed, which components
 survive as reusable structure, and what theorem obligation remains.  It is a
@@ -74,6 +74,9 @@ rescue iff H/P > -1 - Q_tail/P - F_3/P.
 - Late selected targets avoid that simultaneous strong negative pair:
   `1222142` is led by positive `(7,11)`, `1323632` by positive `(5,7)`, and
   `1379072` by positive `(7,11)` despite mildly negative `(5,7)`.
+- A selected-target receipt over all three late sparse-tail targets completed
+  in `64.878s`; it found `both_negative ()`, with pair sums
+  `0.013743`, `0.087495`, and `0.046724` respectively.
 
 ## Current boundary examples
 
@@ -113,10 +116,15 @@ current comparison set.
    run a second prime-pair sweep.  The focused component-pair regression passed
    in `63.162s`; the unselected `1222142` probe passed in `68.886s` with
    `1337` sparse residue-weight rows.
-7. A modest broader finite window test of the component-pair theorem target is
+7. A selected three-target component-pair probe over
+   `1222142,1323632,1379072` passed in `64.878s`; all three were in the
+   `.2` first-two / `.3` first-three subcone, all reused sparse lower-tail
+   weights, and no target had simultaneous negative `(5,7)` and `(7,11)`
+   centered action.
+8. A modest broader finite window test of the component-pair theorem target is
    now more reasonable, but it remains a finite diagnostic and should be
    bounded.
-8. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
+9. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 
 ## Still open

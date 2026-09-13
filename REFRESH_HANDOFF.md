@@ -18585,6 +18585,63 @@ Next useful step: either run a modest broader component-pair window now that
 one-target checks are around one minute, or attempt the proof/reduction for
 the signed `(5,7)` / `(7,11)` pointwise estimate.
 
+### 2026-09-13 continuation: three-target component-pair probe
+
+The compact selected-target component-pair probe was run on the three known
+late sparse-tail comparison targets:
+
+```text
+q286_lower_support_component_pair_tail_window_receipt(
+    selected_targets=(1222142,1323632,1379072),
+    first_two_threshold=.2,
+    tail_threshold=.3)
+```
+
+It completed in `64.87790719999975s`.  Results:
+
+```text
+tested 3
+tails (1222142, 1323632, 1379072)
+both_negative ()
+source_lower_tail True
+weights_included True
+component_supports ((13,), (11,), (7,), (7, 11), (5,), (5, 13), (5, 7))
+
+target 1222142
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair_sum 0.013742951708009437
+pair {(5, 7): -0.0010834080557930044, (7, 11): 0.014826359763802442}
+both_negative_row False
+weight_row_count 1337
+
+target 1323632
+first_two -0.31187798028846203
+first_three -0.31527029112934163
+full 1.0242192662363734
+pair_sum 0.08749508122821226
+pair {(5, 7): 0.06545161702266966, (7, 11): 0.022043464205542592}
+both_negative_row False
+weight_row_count 1355
+
+target 1379072
+first_two -0.3341520684857402
+first_three -0.3394138842129011
+full 0.944998867177687
+pair_sum 0.04672425150515765
+pair {(5, 7): -0.036824552185769695, (7, 11): 0.08354880369092735}
+both_negative_row False
+weight_row_count 1352
+```
+
+Status: finite diagnostic evidence only.  The three late sparse-tail successes
+all avoid simultaneous negative `(5,7)` and `(7,11)` lower-support centered
+action, but this does not prove an eventual component-pair theorem, a signed
+prime-correlation estimate, RH, or Goldbach.  Next useful work is the actual
+proof/reduction of that simultaneous-negativity exclusion, with bounded
+additional finite scans only when they test a new mechanism or falsifier.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
