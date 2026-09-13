@@ -11007,26 +11007,9 @@ def q286_lower_support_package_local_discrepancy_receipt(
     }
 
 
-def q286_lower_support_package_component_local_discrepancy_receipt(
-        targets=(10664, 14138, 1222142, 1323632, 1379072),
-        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
-    """Decompose lower-support local discrepancy by CRT support channel.
-
-    This refines ``q286_lower_support_package_local_discrepancy_receipt`` by
-    splitting the non-q286 lower-support package into its support components.
-    It is finite theorem-shaping evidence only.
-    """
-    targets = tuple(dict.fromkeys(targets))
-    if (not targets or any(type(target) is not int or target < 40
-                           or target % 2 for target in targets)):
-        raise ValueError("targets must be nonempty even integers at least 40")
-    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
-        raise ValueError("first_two_threshold must be positive and finite")
-    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
-        raise ValueError("tail_threshold must be positive and finite")
-    if not math.isfinite(tolerance) or tolerance < 0:
-        raise ValueError("tolerance must be finite and nonnegative")
-
+@lru_cache(maxsize=None)
+def _q286_lower_support_component_data(tolerance):
+    """Cache fixed lower-support component vectors on U_10010."""
     coefficient = combined_fixed_strict_central_coefficient_receipt(
         tolerance=tolerance)
     period = coefficient["arithmetic_period"]
@@ -11057,11 +11040,45 @@ def q286_lower_support_package_component_local_discrepancy_receipt(
     for support, values in component_coefficients.items():
         if float(np.sum(np.abs(values) ** 2)) > tolerance:
             component_values[support] = character_table.T @ values
+    return {
+        "arithmetic_period": period,
+        "units": units,
+        "principal_mean": principal_mean,
+        "component_values": component_values,
+        "unit_index": {unit: index for index, unit in enumerate(units)},
+    }
+
+
+def q286_lower_support_package_component_local_discrepancy_receipt(
+        targets=(10664, 14138, 1222142, 1323632, 1379072),
+        first_two_threshold=.2, tail_threshold=.3, tolerance=1e-9):
+    """Decompose lower-support local discrepancy by CRT support channel.
+
+    This refines ``q286_lower_support_package_local_discrepancy_receipt`` by
+    splitting the non-q286 lower-support package into its support components.
+    It is finite theorem-shaping evidence only.
+    """
+    targets = tuple(dict.fromkeys(targets))
+    if (not targets or any(type(target) is not int or target < 40
+                           or target % 2 for target in targets)):
+        raise ValueError("targets must be nonempty even integers at least 40")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    component_data = _q286_lower_support_component_data(tolerance)
+    period = component_data["arithmetic_period"]
+    units = component_data["units"]
+    principal_mean = component_data["principal_mean"]
+    component_values = component_data["component_values"]
 
     package = q286_subcone_lower_support_package_receipt(
         targets=targets, first_two_threshold=first_two_threshold,
         tail_threshold=tail_threshold, tolerance=tolerance)
-    unit_index = {unit: index for index, unit in enumerate(units)}
+    unit_index = component_data["unit_index"]
     primes = _prime_table(max(targets))
 
     rows = {}

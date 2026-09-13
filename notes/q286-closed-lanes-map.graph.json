@@ -12,6 +12,7 @@
     "surviving_structure",
     "receipt",
     "test",
+    "optimization",
     "target",
     "open_obligation"
   ],
@@ -157,6 +158,14 @@
       "performance_note": "broad windows should wait for coefficient/component caching"
     },
     {
+      "id": "optimization.lower_support_component_cache",
+      "type": "optimization",
+      "label": "_q286_lower_support_component_data cache",
+      "status": "validated",
+      "validation": "component-local focused regression calls the receipt twice, verifies one cache miss and at least one hit, and passed in 134.987s",
+      "scope": "caches fixed character/component setup only; target-specific package and prime-pair work remain uncached"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -278,6 +287,11 @@
       "from": "receipt.component_pair_tail_window",
       "to": "obligation.coefficient_component_cache",
       "type": "requires"
+    },
+    {
+      "from": "optimization.lower_support_component_cache",
+      "to": "obligation.coefficient_component_cache",
+      "type": "supports"
     },
     {
       "from": "theorem.active.component_pair_exclusion",

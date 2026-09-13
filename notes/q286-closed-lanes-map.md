@@ -88,9 +88,14 @@ current comparison set.
 1. Keep the selected-target path in
    `q286_lower_support_component_pair_tail_window_receipt`; it avoids the
    slow extra window selector when testing explicit candidates.
-2. Before broad scans, cache or factor the coefficient/component decomposition.
+2. The fixed lower-support component decomposition is cached by
+   `_q286_lower_support_component_data`.  The focused component-local
+   regression now calls the receipt twice and verifies a cache hit; it passed
+   in `134.987s`.  This caches the fixed character/component setup, not the
+   target-specific prime-pair or package work.
 3. Run a finite window test of the component-pair theorem target only after
-   the receipt is efficient enough to avoid spending compute on repeated setup.
+   the remaining package/target-specific work is efficient enough to avoid
+   spending compute on repeated setup.
 4. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 

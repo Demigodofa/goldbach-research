@@ -52,6 +52,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_package_support_only_obstruction_receipt,
     q286_lower_support_package_local_discrepancy_receipt,
     q286_lower_support_package_component_local_discrepancy_receipt,
+    _q286_lower_support_component_data,
     q286_lower_support_component_pair_tail_window_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
@@ -1649,6 +1650,7 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_lower_support_package_component_local_discrepancy(self):
+        _q286_lower_support_component_data.cache_clear()
         receipt = (
             q286_lower_support_package_component_local_discrepancy_receipt(
                 targets=(1222142,)))
@@ -1674,6 +1676,15 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "component_signed_residue_weight_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
+        misses_after_first = _q286_lower_support_component_data.cache_info().misses
+        receipt_again = (
+            q286_lower_support_package_component_local_discrepancy_receipt(
+                targets=(1222142,)))
+        cache_info = _q286_lower_support_component_data.cache_info()
+        self.assertEqual(receipt_again["component_supports"],
+                         receipt["component_supports"])
+        self.assertEqual(cache_info.misses, misses_after_first)
+        self.assertGreaterEqual(cache_info.hits, 1)
 
     def test_q286_lower_support_component_pair_tail_window(self):
         receipt = q286_lower_support_component_pair_tail_window_receipt(

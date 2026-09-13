@@ -245,6 +245,12 @@ the focused regression to `81.792s`.  The current q286 closure map is recorded
 both as prose in `notes/q286-closed-lanes-map.md` and as typed graph data in
 `notes/q286-closed-lanes-map.graph.json`.
 
+The fixed lower-support component decomposition is now cached in
+`_q286_lower_support_component_data`.  The component-local focused regression
+calls the receipt twice and verifies a cache hit; it passed in `134.987s`.
+This is a real fixed-setup optimization, but it does not yet cache the
+target-specific prime-pair or lower-support package work.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

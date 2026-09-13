@@ -18362,6 +18362,12 @@ The same receipt now has a selected-target path for explicit candidates,
 bypassing the extra window selector.  The focused regression now uses
 `selected_targets=(1222142,)` and passed in `81.792s`.
 
+The fixed lower-support component decomposition is now cached in
+`_q286_lower_support_component_data`.  The component-local focused regression
+calls the receipt twice and verifies the cache hit; it passed in `134.987s`.
+This caches the fixed character/component setup, not the target-specific
+prime-pair or package work.
+
 Closed and active q286 lanes are indexed in:
 
 - `notes/q286-closed-lanes-map.md` for the human-readable map.
@@ -18373,16 +18379,16 @@ Next instructions:
 1. Validate this checkpoint with `py_compile`, the focused component-pair
    window test, and `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then either optimize/cachify the component-pair receipt for broad scans, or
-   move directly to a proof attempt for a signed pointwise arithmetic estimate
-   preventing simultaneous strong negative `(5,7)` and `(7,11)` centered
-   actions on the `.2` first-two subcone inside the `.3` first-three tail.  If
-   that statement is equivalent to fixed-modulus binary Goldbach in
-   progressions, record that as the theorem obligation.  Do not spend large
-   compute on the weak support/nonnegative/mass projection, max-discrepancy,
-   raw L2, raw 99-character norm, hoped-for rank-three cancellation, mere
-   sign-exclusion, or more threshold ladders already ruled out as circular
-   diagnostics.
+3. Then either optimize the remaining target-specific package/prime-pair work
+   for broad scans, or move directly to a proof attempt for a signed pointwise
+   arithmetic estimate preventing simultaneous strong negative `(5,7)` and
+   `(7,11)` centered actions on the `.2` first-two subcone inside the `.3`
+   first-three tail.  If that statement is equivalent to fixed-modulus binary
+   Goldbach in progressions, record that as the theorem obligation.  Do not
+   spend large compute on the weak support/nonnegative/mass projection,
+   max-discrepancy, raw L2, raw 99-character norm, hoped-for rank-three
+   cancellation, mere sign-exclusion, or more threshold ladders already ruled
+   out as circular diagnostics.
 
 ## Temporary wake note — continuity discussion
 
