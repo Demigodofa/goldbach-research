@@ -2025,6 +2025,15 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(
             receipt["rescued_by_centered_real_channel_pair_floor_targets"],
             (1222142, 1323632, 1379072))
+        self.assertAlmostEqual(
+            receipt["uniform_rescued_centered_pair_floor"],
+            -0.8982746156725305)
+        self.assertAlmostEqual(
+            receipt["uniform_rescued_centered_pair_floor_margin"],
+            0.9120175673805407)
+        self.assertEqual(
+            receipt["minimum_rescued_actual_centered_pair_sum_row"][
+                "target"], 1222142)
         boundary = receipt["rows"][14138]
         self.assertAlmostEqual(
             boundary["required_centered_pair_sum_to_rescue"],

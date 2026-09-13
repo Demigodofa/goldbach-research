@@ -12543,6 +12543,23 @@ def q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
     failing_targets = tuple(
         target for target in targets
         if not rows[target]["rescued_by_centered_real_channel_pair_floor"])
+    if rescued_targets:
+        uniform_rescued_floor = max(
+            rows[target]["required_centered_pair_sum_to_rescue"]
+            for target in rescued_targets)
+        minimum_rescued_actual_row = min(
+            (rows[target] for target in rescued_targets),
+            key=lambda row: row[
+                "actual_centered_real_channel_pair_sum_to_principal_ratio"])
+        uniform_rescued_floor_margin = min(
+            rows[target][
+                "actual_centered_real_channel_pair_sum_to_principal_ratio"]
+            - uniform_rescued_floor
+            for target in rescued_targets)
+    else:
+        uniform_rescued_floor = None
+        minimum_rescued_actual_row = None
+        uniform_rescued_floor_margin = None
     return {
         "arithmetic_period": action["arithmetic_period"],
         "targets": targets,
@@ -12555,6 +12572,11 @@ def q286_lower_support_component_pair_real_channel_rescue_margin_receipt(
             rescued_targets),
         "failing_centered_real_channel_pair_floor_targets": (
             failing_targets),
+        "uniform_rescued_centered_pair_floor": uniform_rescued_floor,
+        "minimum_rescued_actual_centered_pair_sum_row": (
+            minimum_rescued_actual_row),
+        "uniform_rescued_centered_pair_floor_margin": (
+            uniform_rescued_floor_margin),
         "minimum_centered_real_channel_pair_margin_row": min(
             rows.values(),
             key=lambda row: row[

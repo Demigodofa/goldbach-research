@@ -18873,11 +18873,13 @@ Follow-up receipt:
 
 Focused regression
 `test_q286_lower_support_component_pair_real_channel_rescue_margin` passed in
-`124.981s`.  It rewrites the selected lower-support rescue condition as a
+`119.854s`.  It rewrites the selected lower-support rescue condition as a
 centered real-channel pair-sum floor.  `14138` misses the floor by
 `-0.8769412734408442`; `1222142`, `1323632`, and `1379072` clear by
 `0.9457162662139125`, `1.0242192662363734`, and `0.944998867177687`.
-This is finite floor-identity evidence only.
+Over the late comparison set, the uniform selected sufficient floor is
+centered pair sum `>= -0.8982746156725305`, leaving observed margin
+`0.9120175673805407`.  This is finite floor-identity evidence only.
 
 Additional closure:
 

@@ -307,7 +307,7 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_real_channel_rescue_margin_receipt",
       "status": "validated",
-      "validation": "test_q286_lower_support_component_pair_real_channel_rescue_margin passed in 124.981s; selected rescue condition is rewritten as a centered real-channel pair-sum floor, with 14138 failing and the three late comparison targets clearing",
+      "validation": "test_q286_lower_support_component_pair_real_channel_rescue_margin passed in 119.854s; selected rescue condition is rewritten as a centered real-channel pair-sum floor, with 14138 failing and the three late comparison targets clearing; late comparison uniform sufficient floor is -0.8982746156725305 with observed margin 0.9120175673805407",
       "status_boundary": "selected finite floor identity only; no pointwise real-channel floor estimate or Goldbach proof"
     },
     {

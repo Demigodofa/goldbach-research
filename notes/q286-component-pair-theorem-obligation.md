@@ -432,7 +432,7 @@ the lower-support rescue identity as an exact floor for the centered
 real-channel pair sum, after the non-pair lower-support terms and the pair
 local means are accounted for.  Focused regression
 `test_q286_lower_support_component_pair_real_channel_rescue_margin` passed in
-`124.981s`.
+`119.854s`.
 
 ```text
 target 14138:
@@ -454,11 +454,18 @@ target 1379072:
   required centered pair sum -0.8982746156725305
   actual centered pair sum    0.046724251505156425
   margin                      0.944998867177687
+
+late-comparison uniform sufficient floor:
+  centered pair sum >= -0.8982746156725305
+  minimum actual late centered pair sum 0.01374295170801024 at 1222142
+  uniform-floor margin 0.9120175673805407
 ```
 
 This is the cleanest selected-target sufficient inequality so far: a future
 pointwise theorem may target the centered real-channel pair sum against this
-floor.  The receipt proves no eventual floor estimate.
+floor.  Over the three late comparison targets, the strongest selected
+uniform sufficient floor is `-0.8982746156725305`, still leaving observed
+margin `0.9120175673805407`.  The receipt proves no eventual floor estimate.
 
 Selected-target rows:
 
