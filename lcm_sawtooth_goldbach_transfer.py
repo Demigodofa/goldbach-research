@@ -11190,6 +11190,155 @@ def q286_lower_support_package_component_local_discrepancy_receipt(
     }
 
 
+def q286_lower_support_component_pair_tail_window_receipt(
+        start=1222142, cycle_count=1, targets_per_cycle=1,
+        first_two_threshold=.2, tail_threshold=.3,
+        component_negative_thresholds=(.02, .05, .1),
+        component_pair=((5, 7), (7, 11)), tolerance=1e-9):
+    """Measure the active lower-support component pair on subcone tail hits.
+
+    This finite receipt finds targets in the ``first_two < -.2`` and
+    ``first_three < -.3`` subcone, then records centered actions for the
+    component pair now implicated by boundary failures.  It is a falsifier for
+    the simultaneous-negative-channel theorem target, not a proof.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(first_two_threshold) or first_two_threshold <= 0:
+        raise ValueError("first_two_threshold must be positive and finite")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    component_negative_thresholds = tuple(component_negative_thresholds)
+    if (not component_negative_thresholds
+            or any(not math.isfinite(threshold) or threshold <= 0
+                   for threshold in component_negative_thresholds)):
+        raise ValueError(
+            "component_negative_thresholds must be positive and finite")
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    subcone = q286_first_two_mode_subcone_complement_window_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle,
+        first_two_negative_thresholds=(first_two_threshold,),
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    tail_targets = subcone["threshold_rows"][first_two_threshold][
+        "tail_targets"]
+    if tail_targets:
+        component = (
+            q286_lower_support_package_component_local_discrepancy_receipt(
+                targets=tail_targets, first_two_threshold=first_two_threshold,
+                tail_threshold=tail_threshold, tolerance=tolerance))
+    else:
+        component = None
+
+    rows = {}
+    both_negative_targets = []
+    pair_centered_sum_minimum_row = None
+    for target in tail_targets:
+        subcone_row = subcone["rows"][target]
+        component_row = component["rows"][target]
+        pair_rows = {
+            support: component_row["component_rows"][support]
+            for support in component_pair}
+        centered_values = tuple(
+            pair_rows[support]["centered_action_to_principal_ratio"]
+            for support in component_pair)
+        pair_centered_sum = math.fsum(centered_values)
+        both_negative = all(value < -tolerance for value in centered_values)
+        row = {
+            "target": target,
+            "first_two_modes_to_principal_ratio": subcone_row[
+                "first_two_modes_to_principal_ratio"],
+            "first_three_to_principal_ratio": subcone_row[
+                "first_three_to_principal_ratio"],
+            "full_action_to_principal_ratio": subcone_row[
+                "full_action_to_principal_ratio"],
+            "rescued_by_full_complement": bool(
+                subcone_row["full_action_to_principal_ratio"] > tolerance),
+            "component_pair": component_pair,
+            "component_centered_actions_to_principal_ratio": {
+                support: pair_rows[support][
+                    "centered_action_to_principal_ratio"]
+                for support in component_pair},
+            "component_actual_actions_to_principal_ratio": {
+                support: pair_rows[support]["actual_to_principal_ratio"]
+                for support in component_pair},
+            "component_local_means_to_principal_ratio": {
+                support: pair_rows[support]["local_mean_to_principal_ratio"]
+                for support in component_pair},
+            "component_pair_centered_sum_to_principal_ratio": (
+                pair_centered_sum),
+            "both_pair_components_centered_negative": both_negative,
+            "source_component_row": component_row,
+            "source_subcone_row": subcone_row,
+        }
+        rows[target] = row
+        if both_negative:
+            both_negative_targets.append(target)
+        if (pair_centered_sum_minimum_row is None
+                or pair_centered_sum
+                < pair_centered_sum_minimum_row[
+                    "component_pair_centered_sum_to_principal_ratio"]):
+            pair_centered_sum_minimum_row = row
+
+    threshold_rows = {}
+    for threshold in component_negative_thresholds:
+        both_strong = tuple(
+            target for target, row in rows.items()
+            if all(value < -threshold for value in row[
+                "component_centered_actions_to_principal_ratio"].values()))
+        either_strong = tuple(
+            target for target, row in rows.items()
+            if any(value < -threshold for value in row[
+                "component_centered_actions_to_principal_ratio"].values()))
+        threshold_rows[threshold] = {
+            "both_components_below_negative_threshold_count": (
+                len(both_strong)),
+            "both_components_below_negative_threshold_targets": both_strong,
+            "either_component_below_negative_threshold_count": (
+                len(either_strong)),
+            "either_component_below_negative_threshold_targets": (
+                either_strong),
+        }
+
+    return {
+        "arithmetic_period": subcone["arithmetic_period"],
+        "start": start,
+        "aligned_global_cycle_base": subcone["aligned_global_cycle_base"],
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "component_pair": component_pair,
+        "component_negative_thresholds": component_negative_thresholds,
+        "tested_target_count": subcone["tested_target_count"],
+        "tail_subcone_target_count": len(tail_targets),
+        "tail_subcone_targets": tail_targets,
+        "rows": rows,
+        "both_pair_components_centered_negative_count": (
+            len(both_negative_targets)),
+        "both_pair_components_centered_negative_targets": tuple(
+            both_negative_targets),
+        "component_negative_threshold_rows": threshold_rows,
+        "pair_centered_sum_minimum_row": pair_centered_sum_minimum_row,
+        "source_subcone_complement_window_receipt": subcone,
+        "source_component_local_discrepancy_receipt": component,
+        "lower_support_component_pair_tail_window_measured": True,
+        "eventual_component_pair_exclusion_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

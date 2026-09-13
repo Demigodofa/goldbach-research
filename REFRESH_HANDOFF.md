@@ -18347,19 +18347,30 @@ first-two / `.3` first-three subcone cannot have simultaneous strongly
 negative centered action in both `(5,7)` and `(7,11)` lower-support channels,
 or record that as a fixed-modulus pointwise binary-prime correlation theorem.
 
+New code `q286_lower_support_component_pair_tail_window_receipt` makes that
+target executable on finite windows.  It finds `.2` first-two / `.3`
+first-three tail-subcone targets, then measures centered actions for `(5,7)`
+and `(7,11)`.  Focused regression
+`test_q286_lower_support_component_pair_tail_window` passed in `186.487s`.
+On witness `1222142`, there is no simultaneous negative pair action:
+`(7,11)` is positive while `(5,7)` is only mildly negative, matching the
+component-local receipt values.  This is finite evidence only.  Broad scans
+should wait for coefficient/component caching because the current receipt
+chains several heavy decompositions.
+
 Next instructions:
 
-1. Validate this checkpoint with `py_compile`, the focused local-discrepancy
-   component test, and `git diff --check`.
+1. Validate this checkpoint with `py_compile`, the focused component-pair
+   window test, and `git diff --check`.
 2. Commit and push as a coherent public-safe checkpoint.
-3. Then pivot from diagnostics to theorem obligation: either prove a signed
-   pointwise arithmetic estimate preventing simultaneous strong negative
-   `(5,7)` and `(7,11)` centered actions on the `.2` first-two subcone inside
-   the `.3` first-three tail, prove a conditioned complement lower bound
-   using actual residue-weight arithmetic, or record the needed statement as
-   fixed-modulus binary Goldbach in progressions.  Do not spend large compute
-   on the weak support/nonnegative/mass projection, max-discrepancy, raw L2,
-   raw 99-character norm, hoped-for rank-three cancellation, mere
+3. Then either optimize/cachify the component-pair receipt for broad scans, or
+   move directly to a proof attempt for a signed pointwise arithmetic estimate
+   preventing simultaneous strong negative `(5,7)` and `(7,11)` centered
+   actions on the `.2` first-two subcone inside the `.3` first-three tail.  If
+   that statement is equivalent to fixed-modulus binary Goldbach in
+   progressions, record that as the theorem obligation.  Do not spend large
+   compute on the weak support/nonnegative/mass projection, max-discrepancy,
+   raw L2, raw 99-character norm, hoped-for rank-three cancellation, mere
    sign-exclusion, or more threshold ladders already ruled out as circular
    diagnostics.
 

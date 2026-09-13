@@ -1154,6 +1154,38 @@ or prove that such a statement is a fixed-modulus pointwise binary-prime
 correlation theorem.  This is a stronger and less circular target than another
 threshold receipt or raw package L2 estimate.
 
+## Component-pair tail window receipt
+
+Added `q286_lower_support_component_pair_tail_window_receipt`, which first
+uses the first-two subcone/tail window selector and then measures only the
+active lower-support component pair `(5,7)` and `(7,11)` on the selected
+tail-subcone targets.  This is the executable form of the current theorem
+target:
+
+```text
+inside L_12/P < -.2 and F_3/P < -.3,
+exclude simultaneous strong negative centered action
+in both (5,7) and (7,11), after finite boundary exceptions.
+```
+
+Validation:
+
+```text
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 186.487s
+```
+
+Focused witness `1222142` is in the active tail subcone and is rescued by the
+full complement.  The receipt records no simultaneous negative pair action:
+the `(7,11)` centered action is positive, while `(5,7)` is only mildly
+negative, matching the component-local receipt values
+`(7,11)=0.014826359763802506` and `(5,7)=-0.0010831578446186528`.
+
+Performance note: this receipt currently chains the subcone selector and the
+component-local decomposition, so broad windows are valid but slow.  Before
+large scans, factor out a cached coefficient/component decomposition or reuse
+the selected-target component rows directly.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

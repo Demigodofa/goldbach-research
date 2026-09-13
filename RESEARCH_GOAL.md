@@ -229,6 +229,17 @@ cannot have simultaneous strongly negative centered action in both `(5,7)` and
 `(7,11)` lower-support channels, or record that as a fixed-modulus pointwise
 binary-prime correlation theorem.
 
+`q286_lower_support_component_pair_tail_window_receipt` now makes that target
+executable on finite windows: it finds `.2` first-two / `.3` first-three
+tail-subcone targets, then measures centered actions for the active component
+pair `(5,7)` and `(7,11)`.  Focused regression
+`test_q286_lower_support_component_pair_tail_window` passed in `186.487s`.
+On witness `1222142`, there is no simultaneous negative pair action:
+`(7,11)` is positive while `(5,7)` is only mildly negative.  This supports the
+current theorem target but remains finite evidence only.  Broad scans should
+wait for coefficient/component caching because the current receipt chains
+several heavy decompositions.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite
