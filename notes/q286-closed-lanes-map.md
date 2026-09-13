@@ -55,6 +55,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt`
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
 
 ## Closed or falsified lanes
 
@@ -352,6 +353,11 @@ current comparison set.
    fixture.  The hard `(0,2,6,0)` row has worst non-thin ratio
    `0.6626326478324716`, leaving margin `0.08736735216752844`.  Both halves
    of the two-part antipodal inequality are now separately measured.
+42. The phase-antipodal sector-geometry regression passed in `240.891s`.
+   The selected non-thin `0.75` bound follows from coarse opposite-sector
+   geometry: with `12` bins, opposite sectors are separated by at least
+   `5*pi/6`; the hard `(0,2,6,0)` row has worst sector-envelope ratio
+   `0.6862033816719031`, still below `0.75` by `0.06379661832809691`.
 
 ## Still open
 

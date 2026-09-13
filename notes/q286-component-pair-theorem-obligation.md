@@ -1221,6 +1221,32 @@ has visible slack.  The remaining non-computational burden is to prove this
 fixed-ratio cancellation for all relevant residual conductor-`77` rows and to
 prove the thin-exception budget uniformly.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
+replaces the measured non-thin ratios by a coarse sector-geometry envelope.
+With `12` phase bins, opposite sectors are separated by at least `5*pi/6`,
+so their cosine is at most `-0.8660254037844387`.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry`
+passed in `240.891s`.
+
+```text
+ratio bound: 0.75
+
+1379072, label (0,1,5,0):
+  maximum sector-geometry envelope ratio 0.3325400441705825
+  margin to 0.75 bound 0.4174599558294175
+
+1379072, label (0,2,6,0):
+  maximum sector-geometry envelope ratio 0.6862033816719031
+  margin to 0.75 bound 0.06379661832809691
+```
+
+This is stronger than the previous non-thin measurement: for the selected
+fixture, the non-thin half of the two-part inequality follows from phase-sector
+separation plus side-balance.  The surviving analytic target is therefore
+mostly concentrated on proving the thin opposite-sector exception budget
+uniformly, together with the support/driver conditions that make the residual
+polygon setup valid.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

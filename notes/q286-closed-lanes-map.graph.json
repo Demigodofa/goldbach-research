@@ -499,6 +499,14 @@
       "status_boundary": "selected non-thin pair-ratio profile only; no uniform fixed-ratio cancellation theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_fixed_conductor_phase_antipodal_sector_geometry",
+      "type": "receipt",
+      "label": "q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt",
+      "status": "validated",
+      "validation": "test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry passed in 240.891s; selected non-thin ratio bound 0.75 follows from 12-bin opposite-sector geometry, with hard label (0,2,6,0) worst sector-envelope ratio 0.6862033816719031",
+      "status_boundary": "selected sector-geometry profile only; no uniform residual-polygon sector theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -888,6 +896,16 @@
     },
     {
       "from": "receipt.component_pair_fixed_conductor_phase_antipodal_nonthin_ratio",
+      "to": "obligation.component_pair_cone_avoidance",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_sector_geometry",
+      "to": "receipt.component_pair_fixed_conductor_phase_antipodal_nonthin_ratio",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.component_pair_fixed_conductor_phase_antipodal_sector_geometry",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
     },

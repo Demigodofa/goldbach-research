@@ -1,3 +1,4 @@
+import math
 import unittest
 
 from lcm_sawtooth_goldbach_transfer import (
@@ -85,6 +86,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_exception_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_exception_budget_receipt,
     q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt,
+    q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -3050,6 +3052,68 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
         self.assertTrue(receipt[
             "fixed_conductor_phase_antipodal_nonthin_ratio_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_nonthin_ratio_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_exception_budget_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_thin_exception_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_threshold_envelope_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_pair_balance_theorem_proved"])
+        self.assertFalse(receipt[
+            "phase_antipodal_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_compression_theorem_proved"])
+        self.assertFalse(receipt["phase_bin_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_polygon_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry(
+            self):
+        receipt = (
+            q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt())
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["active_channel_conductors"], (35, 77))
+        self.assertEqual(receipt["phase_bin_count"], 12)
+        self.assertEqual(receipt["ratio_bound"], 0.75)
+        self.assertEqual(receipt["thin_side_ratio_threshold"], 0.05)
+        self.assertAlmostEqual(
+            receipt["sector_width_radians"], math.pi / 6.0)
+        self.assertAlmostEqual(
+            receipt["minimum_opposite_sector_angle_radians"],
+            5.0 * math.pi / 6.0)
+        self.assertAlmostEqual(receipt["sector_cosine_bound"],
+                               -0.8660254037844387)
+        self.assertTrue(
+            receipt["all_nonthin_pairs_clear_by_sector_geometry"])
+        by_label = {
+            row["representative_label"]: row for row in receipt["rows"]}
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "maximum_sector_geometry_envelope_ratio"],
+            0.3325400441705825)
+        self.assertAlmostEqual(
+            by_label[(0, 1, 5, 0)][
+                "sector_geometry_margin_to_ratio_bound"],
+            0.4174599558294175)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "maximum_sector_geometry_envelope_ratio"],
+            0.6862033816719031)
+        self.assertAlmostEqual(
+            by_label[(0, 2, 6, 0)][
+                "sector_geometry_margin_to_ratio_bound"],
+            0.06379661832809691)
+        worst = receipt["worst_sector_geometry_margin_row"]
+        self.assertEqual(worst["representative_label"], (0, 2, 6, 0))
+        self.assertTrue(receipt[
+            "fixed_conductor_phase_antipodal_sector_geometry_measured"])
+        self.assertFalse(receipt[
+            "phase_antipodal_sector_geometry_theorem_proved"])
         self.assertFalse(receipt[
             "phase_antipodal_nonthin_ratio_theorem_proved"])
         self.assertFalse(receipt[

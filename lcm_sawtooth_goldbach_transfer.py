@@ -14853,6 +14853,109 @@ def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ra
     }
 
 
+def q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt(
+        targets=(14138, 1222142, 1323632, 1379072),
+        component_pair=((5, 7), (7, 11)), phase_bin_count=12,
+        ratio_bound=0.75, thin_side_ratio_threshold=0.05,
+        tolerance=1e-9):
+    """Bound non-thin antipodal-pair ratios from phase-sector geometry."""
+    nonthin = (
+        q286_lower_support_component_pair_fixed_conductor_phase_antipodal_nonthin_ratio_receipt(
+            targets=targets, component_pair=component_pair,
+            phase_bin_count=phase_bin_count, ratio_bound=ratio_bound,
+            thin_side_ratio_threshold=thin_side_ratio_threshold,
+            tolerance=tolerance))
+    sector_width = 2.0 * math.pi / phase_bin_count
+    minimum_opposite_sector_angle = math.pi - sector_width
+    sector_cosine_bound = math.cos(minimum_opposite_sector_angle)
+
+    rows = []
+    for source_row in nonthin["rows"]:
+        sector_pair_rows = []
+        for pair_row in source_row["nonthin_pair_rows"]:
+            side_ratio = pair_row["small_to_large_side_ratio"]
+            sector_envelope_ratio = math.sqrt(
+                1.0 + side_ratio * side_ratio
+                + 2.0 * side_ratio * sector_cosine_bound) / (
+                    1.0 + side_ratio)
+            sector_pair_rows.append({
+                "bin_index": pair_row["bin_index"],
+                "opposite_bin_index": pair_row["opposite_bin_index"],
+                "small_to_large_side_ratio": side_ratio,
+                "actual_pair_cancellation_ratio": (
+                    pair_row["pair_cancellation_ratio"]),
+                "sector_geometry_envelope_ratio": (
+                    sector_envelope_ratio),
+                "sector_geometry_margin_to_ratio_bound": (
+                    ratio_bound - sector_envelope_ratio),
+                "source_nonthin_pair_row": pair_row,
+            })
+        sector_pair_rows = tuple(sector_pair_rows)
+        worst_ratio = (
+            max(row["sector_geometry_envelope_ratio"]
+                for row in sector_pair_rows)
+            if sector_pair_rows else 0.0)
+        rows.append({
+            "target": source_row["target"],
+            "representative_label": source_row["representative_label"],
+            "conductor": source_row["conductor"],
+            "phase_bin_count": phase_bin_count,
+            "ratio_bound": ratio_bound,
+            "thin_side_ratio_threshold": thin_side_ratio_threshold,
+            "sector_width_radians": sector_width,
+            "minimum_opposite_sector_angle_radians": (
+                minimum_opposite_sector_angle),
+            "sector_cosine_bound": sector_cosine_bound,
+            "maximum_sector_geometry_envelope_ratio": worst_ratio,
+            "sector_geometry_margin_to_ratio_bound": (
+                ratio_bound - worst_ratio),
+            "all_nonthin_pairs_clear_by_sector_geometry": (
+                worst_ratio <= ratio_bound + tolerance),
+            "sector_pair_rows": sector_pair_rows,
+            "source_phase_antipodal_nonthin_ratio_row": source_row,
+        })
+
+    return {
+        "arithmetic_period": nonthin["arithmetic_period"],
+        "targets": nonthin["targets"],
+        "tested_target_count": nonthin["tested_target_count"],
+        "component_pair": component_pair,
+        "active_channel_conductors": nonthin[
+            "active_channel_conductors"],
+        "normalized_real_channel_linf_bound": (
+            nonthin["normalized_real_channel_linf_bound"]),
+        "phase_bin_count": phase_bin_count,
+        "ratio_bound": ratio_bound,
+        "thin_side_ratio_threshold": thin_side_ratio_threshold,
+        "sector_width_radians": sector_width,
+        "minimum_opposite_sector_angle_radians": (
+            minimum_opposite_sector_angle),
+        "sector_cosine_bound": sector_cosine_bound,
+        "rows": tuple(rows),
+        "all_nonthin_pairs_clear_by_sector_geometry": all(
+            row["all_nonthin_pairs_clear_by_sector_geometry"]
+            for row in rows),
+        "worst_sector_geometry_margin_row": min(
+            rows,
+            key=lambda row: row["sector_geometry_margin_to_ratio_bound"]),
+        "source_phase_antipodal_nonthin_ratio_receipt": nonthin,
+        "fixed_conductor_phase_antipodal_sector_geometry_measured": True,
+        "phase_antipodal_sector_geometry_theorem_proved": False,
+        "phase_antipodal_nonthin_ratio_theorem_proved": False,
+        "phase_antipodal_exception_budget_theorem_proved": False,
+        "phase_antipodal_thin_exception_theorem_proved": False,
+        "phase_antipodal_threshold_envelope_theorem_proved": False,
+        "phase_antipodal_pair_balance_theorem_proved": False,
+        "phase_antipodal_compression_theorem_proved": False,
+        "phase_bin_compression_theorem_proved": False,
+        "phase_bin_balance_theorem_proved": False,
+        "orbit_polygon_theorem_proved": False,
+        "pointwise_fixed_conductor_twisted_goldbach_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

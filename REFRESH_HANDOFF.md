@@ -19220,6 +19220,21 @@ mass `0.03435908095179335`, non-thin abs `0.012550306908359576`, and maximum
 non-thin ratio `0.6626326478324716`, leaving margin `0.08736735216752844` to
 the `0.75` bound.
 
+Follow-up receipt:
+
+- `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
+
+Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry`
+passed in `240.891s`.  It shows that the selected non-thin `0.75` ratio bound
+is implied by coarse phase-sector geometry.  With `12` phase bins, opposite
+sectors are separated by at least `5*pi/6`, giving sector cosine bound
+`-0.8660254037844387`.  Label `(0,1,5,0)` has maximum sector-envelope ratio
+`0.3325400441705825`, margin `0.4174599558294175`; label `(0,2,6,0)` has
+maximum sector-envelope ratio `0.6862033816719031`, margin
+`0.06379661832809691`.  This shifts the remaining visual theorem pressure
+toward proving the thin opposite-sector exception budget uniformly.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

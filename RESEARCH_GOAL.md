@@ -10566,6 +10566,18 @@ non-thin pairs, non-thin mass `0.03435908095179335`, non-thin abs
 `0.012550306908359576`, and maximum non-thin ratio `0.6626326478324716`,
 leaving margin `0.08736735216752844` to the `0.75` bound.
 
+`q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry_receipt`
+then replaces the measured non-thin ratio with a sector-geometry envelope.  In
+`12` phase bins, opposite sectors are separated by at least `5*pi/6`, so the
+sector cosine bound is `-0.8660254037844387`.  Focused regression
+`test_q286_lower_support_component_pair_fixed_conductor_phase_antipodal_sector_geometry`
+passed in `240.891s`.  Label `(0,1,5,0)` has maximum sector-envelope ratio
+`0.3325400441705825`, margin `0.4174599558294175` to the `0.75` bound.  The
+hard label `(0,2,6,0)` has maximum sector-envelope ratio
+`0.6862033816719031`, margin `0.06379661832809691`.  Thus, on the selected
+fixture, the non-thin half of the two-part inequality is explained by
+phase-sector separation plus side-balance.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise
