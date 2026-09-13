@@ -18288,6 +18288,13 @@ rescued after removing q70.  This is finite evidence only, but it pins the
 next proof target to lower-support-package positivity on the late `.2`
 subcone or a hard-theorem reduction.
 
+The same receipt now exposes the exact rescue inequality.  Writing
+`G/P = F_3/P + 1 + Q_tail/P + H/P`, with `H=q70+q154+small_supports`, rescue
+is equivalent to `H/P > -1 - Q_tail/P - F_3/P`.  The default receipt shows
+late targets clear this strongly with positive `H/P`, while `10664` and
+`14138` miss the floor.  The next proof target is therefore a conditioned
+lower bound for `H/P` on the late `.2` subcone, not another threshold scan.
+
 Next instructions:
 
 1. Validate this checkpoint with `py_compile`, the focused package test, and

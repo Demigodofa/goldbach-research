@@ -169,6 +169,14 @@ eventual lower-support-package positivity on the late `.2` subcone, or a
 reduction showing that positivity is a hard fixed-modulus binary-prime
 correlation theorem.
 
+The receipt now records the exact rescue inequality.  With
+`G/P = F_3/P + 1 + Q_tail/P + H/P`, where `H` is the non-q286 lower-support
+package, rescue is equivalent to `H/P > -1 - Q_tail/P - F_3/P`.  The finite
+late examples have positive `H/P`; the boundary failures `10664,14138` miss
+this floor.  Thus the current theorem is no longer a vague complement floor:
+it is a conditioned lower bound for `H/P` on the late `.2` subcone, after
+finite boundary exceptions.
+
 ## Latest continuation evidence, 2026-09-12
 
 The q286 first-three twisted-correlation route now has a sharper finite

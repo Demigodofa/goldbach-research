@@ -1593,7 +1593,15 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertGreater(
             row["visible_lower_support_package_to_principal_ratio"], 0)
         self.assertGreater(
+            row["lower_support_package_rescue_margin_to_principal_ratio"], 0)
+        self.assertGreater(
             row["without_q70_full_margin_to_principal_ratio"], 0)
+        self.assertAlmostEqual(
+            row["lower_support_package_rescue_margin_to_principal_ratio"],
+            row["full_action_to_principal_ratio"], places=12)
+        self.assertAlmostEqual(
+            row["without_q70_package_rescue_margin_to_principal_ratio"],
+            row["without_q70_full_margin_to_principal_ratio"], places=12)
         self.assertGreater(row["full_action_to_principal_ratio"], 0)
         self.assertTrue(receipt["subcone_lower_support_package_measured"])
         self.assertFalse(receipt[

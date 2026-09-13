@@ -861,6 +861,82 @@ the late pattern persists, but it makes the next theorem target exact:
 eventual lower-support-package positivity or a proof that such positivity is
 equivalent to pointwise fixed-modulus binary-prime correlation control.
 
+## Exact lower-support rescue inequality
+
+The receipt now records the exact lower-support floor required for rescue.
+For each selected target, write
+
+```text
+G/P = F_3/P + 1 + Q_tail/P + H/P,
+```
+
+where `H` is the visible non-q286 lower-support package
+`q70 + q154 + small_supports`, and `Q_tail` is q286 after removing the first
+three singular modes.  Rescue is equivalent to
+
+```text
+H/P > -1 - Q_tail/P - F_3/P.
+```
+
+Validation:
+
+```text
+test_q286_subcone_lower_support_package ... ok
+Ran 1 test in 57.073s
+```
+
+Default selected subcone rows:
+
+```text
+target 10664
+  required_lower_package 0.0602630156038384
+  lower_package -0.15579899159579966
+  rescue_margin -0.21606200719963806
+  package_without_q70 -0.058631376693663334
+  without_q70_margin -0.11889439229750173
+
+target 14138
+  required_lower_package -0.1378737877186007
+  lower_package -1.0148150611594449
+  rescue_margin -0.8769412734408442
+  package_without_q70 -0.3618050543235565
+  without_q70_margin -0.22393126660495577
+
+target 1222142
+  required_lower_package -0.7083019405744888
+  lower_package 0.23741432563942377
+  rescue_margin 0.9457162662139126
+  package_without_q70 0.16005261619345953
+  without_q70_margin 0.8683545567679484
+
+target 1323632
+  required_lower_package -0.6906391656607804
+  lower_package 0.33358010057559306
+  rescue_margin 1.0242192662363734
+  package_without_q70 0.18795942644281105
+  without_q70_margin 0.8785985921035915
+
+target 1379072
+  required_lower_package -0.6751407665271594
+  lower_package 0.26985810065052745
+  rescue_margin 0.9449988671776868
+  package_without_q70 0.2265135957261851
+  without_q70_margin 0.9016543622533445
+```
+
+This is the cleanest current theorem statement for the complement route:
+after the finite boundary layer, prove that targets in the `.2` first-two
+subcone and `.3` first-three tail have
+
+```text
+H/P > -1 - Q_tail/P - F_3/P.
+```
+
+The finite late examples are much stronger, with `H/P` positive and still
+positive after removing q70.  The boundary failures show why the theorem
+cannot be a support-only lower bound: `14138` has required floor only about
+`-.138`, but the lower-support package falls to about `-1.015`.
+
 ## Bounded source check
 
 Searched current public sources on 2026-09-13 for binary Goldbach in

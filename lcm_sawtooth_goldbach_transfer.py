@@ -10689,6 +10689,16 @@ def q286_subcone_lower_support_package_receipt(
             "q286_after_first_three_to_principal_ratio"]
         lower_package_with_q286_tail = (
             visible_lower_support_package + q286_after_first_three)
+        required_lower_support_package = (
+            -1.0 - q286_after_first_three - first_three)
+        lower_support_package_rescue_margin = (
+            visible_lower_support_package - required_lower_support_package)
+        lower_support_package_without_q70 = (
+            visible_lower_support_package
+            - envelope_row["q70_to_principal_ratio"])
+        without_q70_package_rescue_margin = (
+            lower_support_package_without_q70
+            - required_lower_support_package)
         subcone_member = bool(
             first_two < -first_two_threshold
             and first_three < -tail_threshold)
@@ -10711,6 +10721,14 @@ def q286_subcone_lower_support_package_receipt(
                 envelope_row["small_support_to_principal_ratio"]),
             "visible_lower_support_package_to_principal_ratio": (
                 visible_lower_support_package),
+            "required_lower_support_package_to_rescue": (
+                required_lower_support_package),
+            "lower_support_package_rescue_margin_to_principal_ratio": (
+                lower_support_package_rescue_margin),
+            "lower_support_package_without_q70_to_principal_ratio": (
+                lower_support_package_without_q70),
+            "without_q70_package_rescue_margin_to_principal_ratio": (
+                without_q70_package_rescue_margin),
             "non_q286_support_sum_to_principal_ratio": envelope_row[
                 "non_q286_support_sum_to_principal_ratio"],
             "lower_package_with_q286_tail_to_principal_ratio": (
