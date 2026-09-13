@@ -2906,3 +2906,30 @@ Status `finite-damping-evidence`: checked cycles now show no `.2` tail from
 cycle `233` through `328`, no `.25` tail after cycle `149` through `328`, and
 no `.275` or `.3` tail from cycle `137` through `328`.  This is finite
 evidence only, not an eventual q286 tail theorem.
+
+## 2026-09-13: prime-sliced fast scanner
+
+The accelerated first-three scanner now slices the precomputed prime table for
+strict-central candidate primes instead of constructing each full central
+integer interval and then masking nonprimes.  This keeps the measured receipt
+semantics unchanged while reducing avoidable per-target array work.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 4 tests in 85.710s
+```
+
+A direct summary-mode one-cycle probe at global cycle `329` tested `5005`
+targets in `32.48320049999893s`, returned `target_rows_included=False`, and
+was clear at thresholds `.2`, `.25`, `.275`, and `.3`.  Its minimum was target
+`3304702`, first-three ratio `-0.1451192809169075`.
+
+Status `engineering-plus-finite-evidence`: this is an equivalent scanner
+optimization plus one additional checked clear cycle.  It proves no eventual
+tail theorem.

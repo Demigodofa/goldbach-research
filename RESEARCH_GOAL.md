@@ -9437,3 +9437,25 @@ Block minima:
 Status `finite-damping-evidence`: the checked damping window is now extended
 to cycle `328` at the `.2` threshold, but this is still finite evidence and
 not an eventual first-three tail theorem.
+
+### 2026-09-13 continuation: prime-sliced fast scanner
+
+The fast first-three scanner now slices the precomputed prime table for
+strict-central candidate primes and tests prime partners, rather than building
+a dense central integer interval for every target.  The receipt semantics are
+unchanged.
+
+Validation: `py_compile` passed, and the focused bundle
+`test_q286_first_three_tail_mode_only_fast_horizon`,
+`test_q286_first_three_tail_mode_only_fast_late_tail_hit`,
+`test_q286_first_three_tail_hit_residue_profile`, and
+`test_q286_first_three_tail_threshold_ladder` passed in `85.710s`.
+
+One direct summary-mode probe at global cycle `329` tested `5005` targets in
+`32.48320049999893s` and found zero targets below `-.2`, `-.25`, `-.275`, or
+`-.3`.  Its minimum was target `3304702`, first-three
+`-0.1451192809169075`.
+
+Status `engineering-plus-finite-evidence`: the checked `.2` tail-free window
+now reaches cycle `329`, but this is still finite evidence and not an eventual
+first-three tail theorem.

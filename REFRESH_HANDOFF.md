@@ -17794,6 +17794,32 @@ Current finite damping summary: no `.2` tail from cycles `233..328`; no `.25`
 tail after cycle `149` through `328`; no `.275` or `.3` tail from cycles
 `137..328`.  Do not promote this to an eventual theorem.
 
+## 2026-09-13 continuation: prime-sliced fast scanner
+
+The fast q286 first-three scanner now slices the precomputed prime table for
+central candidates and tests only prime partners.  It no longer builds a dense
+central integer interval per target.  Public receipt semantics are unchanged.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_q286_first_three_tail_mode_only_fast_horizon ... ok
+test_q286_first_three_tail_mode_only_fast_late_tail_hit ... ok
+test_q286_first_three_tail_hit_residue_profile ... ok
+test_q286_first_three_tail_threshold_ladder ... ok
+Ran 4 tests in 85.710s
+```
+
+A direct one-cycle summary probe for global cycle `329` took
+`32.48320049999893s`, tested `5005` targets, kept
+`target_rows_included=False`, and was clear at `.2`, `.25`, `.275`, and `.3`.
+Minimum: target `3304702`, first-three `-0.1451192809169075`.
+
+Current finite damping summary: no `.2` tail from cycles `233..329`; no `.25`
+tail after cycle `149` through `329`; no `.275` or `.3` tail from cycles
+`137..329`.  This is still finite evidence only.
+
 ## Temporary wake note — continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

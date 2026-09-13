@@ -10693,9 +10693,10 @@ def _q286_first_three_tail_fast_scan_receipt(
 
     This receipt measures the same first-three singular-mode ratio as
     ``q286_first_three_tail_mode_only_horizon_receipt`` but precomputes the
-    q286 first-three linear functional and uses NumPy residue accumulation for
-    the strict-central prime-pair weights.  It still proves only the checked
-    finite window.
+    q286 first-three linear functional, slices the precomputed prime table for
+    central candidates, and uses NumPy residue accumulation for the
+    strict-central prime-pair weights.  It still proves only the checked finite
+    window.
     """
     if type(start) is not int or start < 40 or start % 2:
         raise ValueError("start must be an even integer at least 40")
@@ -10723,7 +10724,6 @@ def _q286_first_three_tail_fast_scan_receipt(
     log_values = np.zeros(maximum_target + 1, dtype=np.float64)
     prime_indices = np.nonzero(primes)[0]
     log_values[prime_indices] = np.log(prime_indices)
-    integers = np.arange(maximum_target + 1, dtype=np.int64)
 
     data = _q286_first_three_mode_linear_data(tolerance)
     modulus = data["modulus"]
@@ -10753,9 +10753,13 @@ def _q286_first_three_tail_fast_scan_receipt(
             upper = target - lower
             first = max(2, lower + 1)
             last = min(target, upper)
-            prime_values = integers[first:last]
+            left_index = int(np.searchsorted(
+                prime_indices, first, side="left"))
+            right_index = int(np.searchsorted(
+                prime_indices, last, side="left"))
+            prime_values = prime_indices[left_index:right_index]
             partner_values = target - prime_values
-            pair_mask = primes[prime_values] & primes[partner_values]
+            pair_mask = primes[partner_values]
             selected_primes = prime_values[pair_mask]
             selected_partners = partner_values[pair_mask]
             residue_indices = unit_index_by_residue[
