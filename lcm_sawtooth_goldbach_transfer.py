@@ -6407,6 +6407,10 @@ def reduced_full_lower_envelope_receipt(
             q286_matrix = matrix[1:, 1:]
             left, singular_values, right = np.linalg.svd(
                 q286_matrix, full_matrices=False)
+            q286_mode_matrices = tuple(
+                singular_values[index]
+                * np.outer(left[:, index], right[index, :])
+                for index in range(q286_mode_count))
             truncated = (
                 (left[:, :q286_mode_count]
                  * singular_values[:q286_mode_count])
@@ -6419,6 +6423,8 @@ def reduced_full_lower_envelope_receipt(
                 "q286_matrix": q286_matrix,
                 "q286_truncated_matrix": truncated,
                 "q286_tail_matrix": q286_matrix - truncated,
+                "q286_singular_values": singular_values,
+                "q286_mode_matrices": q286_mode_matrices,
                 "q286_singular_energy_fraction": float(
                     np.sum(singular_values[:q286_mode_count] ** 2)
                     / np.sum(singular_values ** 2)),
@@ -6472,19 +6478,37 @@ def reduced_full_lower_envelope_receipt(
                 imbalance_matrix = (
                     data["character_table"] @ weight_delta).reshape(10, 12)[
                         1:, 1:]
-                modeled_deviation = complex(np.sum(
-                    data["q286_truncated_matrix"] * imbalance_matrix))
+                mode_contributions = tuple(
+                    complex(np.sum(mode_matrix * imbalance_matrix))
+                    for mode_matrix in data["q286_mode_matrices"])
+                modeled_deviation = _complex_fsum(mode_contributions)
                 tail = complex(np.sum(
                     data["q286_tail_matrix"] * imbalance_matrix))
                 q286_actual = actual
                 q286_local = local
                 q286_modeled_deviation = modeled_deviation
                 q286_tail = tail
+                q286_deviation = q286_actual - q286_local
+                singular_values = data["q286_singular_values"]
+                mode_rows = tuple({
+                    "mode_index": index + 1,
+                    "singular_value": float(singular_values[index]),
+                    "contribution": contribution,
+                    "contribution_to_principal_ratio": float(
+                        contribution.real / principal_contribution.real
+                        if abs(principal_contribution.real) > tolerance
+                        else math.nan),
+                    "contribution_to_deviation_ratio": float(
+                        contribution.real / q286_deviation.real
+                        if abs(q286_deviation.real) > tolerance
+                        else math.nan),
+                } for index, contribution in enumerate(mode_contributions))
                 support_rows[support] = {
                     "actual_contribution": actual,
                     "local_prediction": local,
                     "modeled_deviation": modeled_deviation,
                     "tail": tail,
+                    "mode_rows": mode_rows,
                     "tail_to_principal_ratio": float(
                         tail.real / principal_contribution.real
                         if abs(principal_contribution.real) > tolerance
@@ -6522,6 +6546,21 @@ def reduced_full_lower_envelope_receipt(
             "full_action": full_action,
             "reduced_model": reduced_model,
             "q286_tail": q286_tail,
+            "q286_deviation": q286_actual - q286_local,
+            "q286_deviation_to_principal_ratio": float(
+                (q286_actual - q286_local).real
+                / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "q286_mode_rows": support_rows[(11, 13)]["mode_rows"],
+            "q286_modeled_sum_to_principal_ratio": float(
+                q286_modeled_deviation.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
+            "q286_mode_residual_to_principal_ratio": float(
+                q286_tail.real / principal_contribution.real
+                if abs(principal_contribution.real) > tolerance
+                else math.nan),
             "small_support_contribution": small_support_contribution,
             "full_action_to_principal_ratio": float(
                 full_action.real / principal_contribution.real
@@ -6787,9 +6826,6 @@ def q286_first_two_mode_lower_tail_receipt(
         targets_per_cycle = len(selected_targets)
         full_rows = {0: first}
         targets = list(selected_targets)
-    mode_receipt = q286_leading_singular_mode_contribution_receipt(
-        targets=tuple(targets), mode_count=6, tolerance=tolerance)
-
     cycle_rows = {}
     global_rows = {}
     negative_full_count = 0
@@ -6814,10 +6850,9 @@ def q286_first_two_mode_lower_tail_receipt(
         cycle_nonpositive_without_first_three = []
         for target in row_targets:
             full_row = receipt["rows"][target]
-            mode_row = mode_receipt["rows"][target]
             mode_ratios = tuple(
                 row["contribution_to_principal_ratio"]
-                for row in mode_row["mode_rows"])
+                for row in full_row["q286_mode_rows"])
             first_two = mode_ratios[0] + mode_ratios[1]
             first_three = first_two + mode_ratios[2]
             modes_three_to_six = sum(mode_ratios[2:])
@@ -6862,15 +6897,15 @@ def q286_first_two_mode_lower_tail_receipt(
                     "full_action_to_principal_ratio"],
                 "reduced_model_to_principal_ratio": full_row[
                     "reduced_model_to_principal_ratio"],
-                "q286_deviation_to_principal_ratio": mode_row[
+                "q286_deviation_to_principal_ratio": full_row[
                     "q286_deviation_to_principal_ratio"],
                 "mode_1_to_principal_ratio": mode_ratios[0],
                 "mode_2_to_principal_ratio": mode_ratios[1],
                 "first_two_modes_to_principal_ratio": first_two,
                 "first_three_modes_to_principal_ratio": first_three,
                 "modes_three_to_six_to_principal_ratio": modes_three_to_six,
-                "six_mode_residual_to_principal_ratio": mode_row[
-                    "residual_to_principal_ratio"],
+                "six_mode_residual_to_principal_ratio": full_row[
+                    "q286_mode_residual_to_principal_ratio"],
                 "full_without_first_two_to_principal_ratio": (
                     without_first_two),
                 "full_without_first_three_to_principal_ratio": (

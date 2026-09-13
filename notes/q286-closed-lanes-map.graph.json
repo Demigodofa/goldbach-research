@@ -154,15 +154,15 @@
       "type": "receipt",
       "label": "q286_lower_support_component_pair_tail_window_receipt",
       "status": "validated_selected_and_window_paths",
-      "validation": "focused regression passed in 96.155s; compact unselected window probe at 1222142 passed in 102.025s and returned the expected tail target with lower-tail provenance",
-      "performance_note": "selected targets and window targets now use direct component rows plus the lower-tail selector; broad windows still need lower-tail and target-specific prime-pair optimization"
+      "validation": "focused regression passed in 67.676s; compact unselected window probe at 1222142 passed in 66.231s and returned the expected tail target with lower-tail provenance",
+      "performance_note": "selected targets and window targets now use direct component rows plus lower-tail rows that reuse integrated q286 mode contributions; broad windows still need target-specific prime-pair/residue-weight optimization"
     },
     {
       "id": "optimization.direct_lower_support_component_rows",
       "type": "optimization",
       "label": "_q286_lower_support_component_rows_for_targets",
       "status": "validated",
-      "validation": "py_compile passed; selected component-pair regression passed in 96.155s; unselected 1222142 smoke probe passed in 102.025s",
+      "validation": "py_compile passed; selected component-pair regression passed in 67.676s; unselected 1222142 smoke probe passed in 66.231s",
       "scope": "computes target-specific lower-support component rows without invoking the full component-local/package receipt"
     },
     {
@@ -170,8 +170,16 @@
       "type": "optimization",
       "label": "component-pair receipt uses q286_first_two_mode_lower_tail_receipt",
       "status": "validated",
-      "validation": "focused regression passed in 96.155s and asserts no source_subcone_complement_window_receipt; unselected 1222142 smoke probe passed in 102.025s",
+      "validation": "focused regression passed in 67.676s and asserts no source_subcone_complement_window_receipt; unselected 1222142 smoke probe passed in 66.231s",
       "scope": "removes q286_first_two_mode_subcone_complement_window_receipt from the component-pair measurement path"
+    },
+    {
+      "id": "optimization.integrated_q286_mode_rows",
+      "type": "optimization",
+      "label": "reduced_full_lower_envelope_receipt stores q286 mode rows",
+      "status": "validated",
+      "validation": "test_reduced_full_lower_envelope and test_q286_first_two_mode_lower_tail passed in 65.408s; reduced-envelope test asserts mode rows plus residual reconstruct q286 deviation",
+      "scope": "removes the duplicate q286_leading_singular_mode_contribution_receipt target sweep from q286_first_two_mode_lower_tail_receipt"
     },
     {
       "id": "optimization.lower_support_component_cache",
@@ -228,7 +236,7 @@
       "type": "open_obligation",
       "label": "Lower-tail and residue-weight optimization for broad scans",
       "status": "engineering_open",
-      "reason": "Current component-pair broad scans still require expensive lower-tail computation and target-specific strict-central residue weights."
+      "reason": "Current component-pair broad scans still require target-specific strict-central prime-pair and residue-weight computation."
     },
     {
       "id": "obligation.goldbach",
@@ -311,6 +319,11 @@
     },
     {
       "from": "optimization.component_pair_lower_tail_selector",
+      "to": "receipt.component_pair_tail_window",
+      "type": "supports"
+    },
+    {
+      "from": "optimization.integrated_q286_mode_rows",
       "to": "receipt.component_pair_tail_window",
       "type": "supports"
     },

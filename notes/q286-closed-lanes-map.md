@@ -103,11 +103,16 @@ current comparison set.
 4. A compact unselected window probe at `1222142` passed in `102.025s`,
    returned the same tail target, found no simultaneous negative pair action,
    and attached lower-tail provenance without subcone-complement provenance.
-5. Run a broad finite window test of the component-pair theorem target only
-   after the remaining lower-tail computation and target-specific prime-pair
-   residue-weight work are efficient enough to avoid spending compute on
+5. The reduced-envelope receipt now stores the q286 singular-mode rows it
+   already computes; lower-tail consumes those rows directly instead of running
+   a second singular-mode target sweep.  The focused component-pair regression
+   passed in `67.676s`, and the compact unselected window probe at `1222142`
+   passed in `66.231s` with unchanged measured values.
+6. Run a broad finite window test of the component-pair theorem target only
+   after the remaining target-specific strict-central prime-pair and
+   residue-weight work is efficient enough to avoid spending compute on
    repeated setup.
-6. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
+7. In parallel, attempt a proof or reduction for simultaneous `(5,7)` and
    `(7,11)` negativity on the active subcone.
 
 ## Still open

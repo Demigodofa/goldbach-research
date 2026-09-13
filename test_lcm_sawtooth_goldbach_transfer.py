@@ -1257,6 +1257,15 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertEqual(receipt["q286_mode_count"], 6)
         self.assertEqual(receipt["tested_target_count"], 9)
         self.assertIn((11, 13), receipt["support_order"])
+        row = receipt["rows"][10000]
+        self.assertEqual(len(row["q286_mode_rows"]), 6)
+        mode_sum = sum(
+            mode_row["contribution_to_principal_ratio"]
+            for mode_row in row["q286_mode_rows"])
+        self.assertAlmostEqual(
+            mode_sum + row["q286_mode_residual_to_principal_ratio"],
+            row["q286_deviation_to_principal_ratio"],
+            places=12)
         self.assertTrue(receipt["reduced_full_lower_envelope_measured"])
         self.assertLess(receipt["maximum_reconstruction_error"], 1e-12)
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])

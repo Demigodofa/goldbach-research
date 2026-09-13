@@ -18488,6 +18488,56 @@ bottleneck is now the lower-tail computation plus target-specific
 strict-central residue weights.  The component-pair theorem, signed
 pointwise estimate, and Goldbach remain open.
 
+### 2026-09-13 continuation: integrated mode rows remove duplicate sweep
+
+`reduced_full_lower_envelope_receipt` now stores the individual q286 singular
+mode contributions from the same imbalance matrix used to form the reduced
+model.  `q286_first_two_mode_lower_tail_receipt` consumes those stored rows
+directly, instead of running a second
+`q286_leading_singular_mode_contribution_receipt` target sweep.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_reduced_full_lower_envelope ... ok
+test_q286_first_two_mode_lower_tail ... ok
+Ran 2 tests in 65.408s
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 67.676s
+```
+
+The reduced-envelope regression now checks:
+
+```text
+sum(q286_mode_rows contribution ratios) + q286 residual ratio
+  == q286 deviation ratio
+```
+
+Unselected component-pair smoke probe at `1222142`:
+
+```text
+elapsed 66.23108959999809
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone False
+source_lower_tail True
+```
+
+Status: engineering-plus-validation only.  This improves the component-pair
+route from roughly `100s` per one-target receipt to roughly `66..68s` in the
+checked fixture by removing a duplicate q286 singular-mode sweep.  The
+remaining broad-scan cost is target-specific strict-central prime-pair and
+residue-weight work.  The theorem target and Goldbach remain open.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

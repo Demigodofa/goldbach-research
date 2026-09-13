@@ -9996,3 +9996,52 @@ unchanged.  The remaining broad-scan bottleneck is now isolated to the
 lower-tail computation and target-specific strict-central residue weights, not
 the removed subcone-complement wrapper.  Goldbach and the signed pointwise
 estimate remain open.
+
+### 2026-09-13 continuation: integrated q286 mode rows
+
+`reduced_full_lower_envelope_receipt` now stores the individual q286 singular
+mode contributions it already computes while forming the reduced model.
+`q286_first_two_mode_lower_tail_receipt` reuses those stored mode rows instead
+of running a separate `q286_leading_singular_mode_contribution_receipt` pass
+over the same targets.
+
+Validation:
+
+```text
+python -B -m py_compile lcm_sawtooth_goldbach_transfer.py test_lcm_sawtooth_goldbach_transfer.py
+test_reduced_full_lower_envelope ... ok
+test_q286_first_two_mode_lower_tail ... ok
+Ran 2 tests in 65.408s
+test_q286_lower_support_component_pair_tail_window ... ok
+Ran 1 test in 67.676s
+```
+
+The reduced-envelope regression now asserts that the stored six mode ratios
+plus the stored residual reconstruct the q286 deviation ratio.  The
+component-pair focused regression improved from about `100.618s` to `67.676s`
+on the same selected target.
+
+The compact unselected window probe at `1222142` improved from about
+`102.025s` to `66.23108959999809s` with unchanged measured values:
+
+```text
+tested 1
+tails (1222142,)
+both_negative ()
+period 10010
+source_subcone_receipt False
+source_lower_tail_receipt True
+first_two -0.30883317956052847
+first_three -0.3075877603708801
+full 0.9457162662139126
+pair {(5, 7): -0.001083408055793006, (7, 11): 0.014826359763802506}
+source_subcone False
+source_lower_tail True
+```
+
+Status `engineering-validation`: this removes a duplicate q286
+singular-mode target sweep from the component-pair route.  The remaining
+broad-scan cost is the target-specific strict-central prime-pair/residue-weight
+work in the reduced-envelope and lower-support component rows.  No eventual
+q286 theorem, signed prime-correlation estimate, RH statement, or Goldbach
+proof is established.
