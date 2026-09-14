@@ -652,13 +652,19 @@ current comparison set.
    despite failing generic uniformity budgets.  This is now the sharpest
    q286 first-three theorem target, but it remains an unproved pointwise
    signed prime-correlation estimate.
+73. `notes/q286-proof-fixture-stack.md`, with structured evidence in
+   `evidence/q286-proof-fixture-stack.json`, records the route as a proof
+   fixture: exact identities are bolted anchors, unresolved theorem
+   obligations are tacks, and condensation into a proof is forbidden until the
+   tacks are proved.  The current tacks are signed-projection anti-alignment,
+   conditioned complement/lower-support rescue, the required pointwise
+   binary-prime residue-correlation input, and finite/endpoint/outer assembly.
+   This is navigation discipline, not proof evidence.
 
 ## Still open
 
-- Eventual q286 first-three alignment theorem.
-- Eventual q286 pressure/ratio staircase-occupancy theorem or coupled
-  mass/landing exact-curve theorem.
-- Eventual complement or lower-support lower-bound theorem.
-- Pointwise signed binary-prime residue correlation estimate.
-- Boundary finite check and outer assembly.
+- q286 signed-projection anti-alignment theorem.
+- Conditioned complement or lower-support rescue theorem.
+- Pointwise binary-prime residue-correlation input backing those estimates.
+- Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

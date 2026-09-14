@@ -20008,6 +20008,22 @@ also fails generic uniformity but passes signed projection with margin about
 prime-correlation estimate, but it is the currently sharpest q286 first-three
 theorem target.
 
+Proof fixture stack:
+
+- `notes/q286-proof-fixture-stack.md`
+- `tools/build_q286_proof_fixture_stack.py`
+- `evidence/q286-proof-fixture-stack.json`
+
+This records the current route in the same spirit as a physical fixture:
+bolt exact identities to the actual q286 frame, tack only named unresolved
+theorem joints, and condense only after every tack is proved.  The bolted
+anchors are the mass/landing identity, the signed-projection identity, the
+demotion of generic orbit uniformity, and the mass/landing pair stress.  The
+unresolved tacks are signed-projection anti-alignment, conditioned
+complement/lower-support rescue, the pointwise binary-prime residue-correlation
+input, and finite/endpoint/outer assembly.  Do not collapse this into a proof
+or a clean theorem statement until those tacks are actually proved.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

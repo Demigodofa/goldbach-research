@@ -11059,6 +11059,16 @@ about `0.01554916722773031` despite failing generic L2 uniformity by about
 pointwise anti-alignment bound for actual prime-pair orbit deviations, not a
 full uniformity bound.
 
+The route is now organized as a proof fixture stack in
+`notes/q286-proof-fixture-stack.md` and
+`evidence/q286-proof-fixture-stack.json`.  The exact q286 mass/landing and
+signed-projection identities are the bolted anchors.  The unresolved tacks are
+the signed-projection anti-alignment theorem, conditioned complement or
+lower-support rescue, the pointwise binary-prime residue-correlation input,
+and finite/endpoint/outer assembly.  Do not condense this into a Goldbach
+proof until those tacks are proved; use the fixture to keep future work
+attached to the actual q286 frame.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
