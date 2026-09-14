@@ -20585,6 +20585,34 @@ nonnegative weights and still obstructs all `5005` even residues modulo
 `10010`, with maximum reflection weight error `0`.  Pair-swap symmetry alone
 does not rescue the support-geometry proof lane.
 
+Dominant-mode volatile undo-repair channels:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_undo_repair_channels.py`
+- `notes/q286-first-three-dominant-mode-volatile-undo-repair-channels.md`
+- `evidence/q286-first-three-dominant-mode-volatile-undo-repair-channels.json`
+
+This starts from each fragile minimal clause plus each minimal adverse
+addition, then enumerates remaining volatile channels and keeps the
+inclusion-minimal additions that restore the row classification.  Across the
+selected deficit fixture, all `26` adverse events have at least one minimal
+repair.  There are `52` minimal repairs total: `50` single-channel repairs and
+`2` three-channel repairs.  The three hard rows `13822`, `164598`, and
+`1222142` have only one-channel repairs.
+
+For `13822`, `(1,5)` is repaired by `(4,4)`.  For `164598`,
+`(1,1),(1,3)` is repaired by either `(1,7)` or `(4,10)`.  For `1222142`, the
+`20` adverse events each have exactly two one-channel repairs, with repair
+frequencies `(1,1):10`, `(2,4):10`, `(1,3):6`, `(4,10):6`, `(1,5):4`, and
+`(3,3):4`.
+
+This tightens the finite q286 hole without closing it.  Pure non-undo is
+demoted as a complete finite explanation.  The live Boolean target is now
+ordered clause/adverse/repair control from actual binary-prime residue
+arithmetic, or a replacement signed aggregate arithmetic-placement theorem.
+This is finite diagnostic evidence only; it proves no volatile-rim theorem,
+stable-core theorem, selected-fixture classifier theorem, pointwise
+character-sum estimate, or Goldbach.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -1237,6 +1237,22 @@ current comparison set.
    non-undo target into named adverse-channel control, especially the
    recurring `1222142` pair `(1,7)/(4,4)`, or a replacement signed aggregate
    arithmetic-placement theorem.
+119. `tools/build_q286_first_three_dominant_mode_volatile_undo_repair_channels.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-undo-repair-channels.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-undo-repair-channels.json`,
+   asks whether those adverse additions are terminal.  Across the selected
+   deficit fixture, all `26` adverse events have at least one minimal repair,
+   with `50` single-channel repairs and `2` three-channel repairs; the three
+   hard deficit rows have only one-channel repairs.  For `13822`,
+   `(1,5)` is repaired by `(4,4)`.  For `164598`, `(1,1),(1,3)` is repaired
+   by either `(1,7)` or `(4,10)`.  For `1222142`, each of the `20` adverse
+   events has exactly two one-channel repairs, with frequencies `(1,1):10`,
+   `(2,4):10`, `(1,3):6`, `(4,10):6`, `(1,5):4`, and `(3,3):4`.  This demotes
+   pure non-undo as a complete finite explanation and sharpens the surviving
+   Boolean target to ordered clause/adverse/repair control, or a replacement
+   signed aggregate arithmetic-placement theorem.
 
 ## Still open
 
@@ -1314,6 +1330,10 @@ current comparison set.
   identifies the named undo channels: `1222142` is vulnerable in every
   minimal clause to adding either `(1,7)` or `(4,4)`, while the fragile
   clauses for `13822` and `164598` are undone by `(1,5)` and by
-  `(1,1),(1,3)` respectively.
+  `(1,1),(1,3)` respectively.  The undo-repair receipt then shows these
+  adverse additions are not terminal in the finite Boolean ledger: every
+  adverse event has a small repair, and the hard-row repairs are all
+  one-channel.  The hole is tighter, but the theorem now has to control
+  ordered adverse/repair balance rather than just forbid adverse additions.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

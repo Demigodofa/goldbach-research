@@ -12222,3 +12222,46 @@ route with a full signed aggregate arithmetic-placement theorem.  This is
 finite undo-channel evidence only; it proves no volatile-rim theorem,
 stable-core theorem, selected-fixture classifier theorem, pointwise character-
 sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile undo-repair channels
+
+The adverse additions were then tested for small repair structure.  The new
+derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-undo-repair-channels.json
+```
+
+For each fragile minimal clause plus each minimal adverse addition, the receipt
+enumerates remaining volatile channels and keeps the inclusion-minimal
+additions that restore the row classification.
+
+Across the selected deficit fixture, there are `26` adverse events.  Every one
+has at least one minimal repair.  There are `52` minimal repairs total: `50`
+are single-channel additions and `2` are three-channel additions.  The three
+hard deficit rows account for `22` adverse events, and all of their minimal
+repairs are single-channel additions.
+
+For `13822`, the adverse addition `(1,5)` is repaired by adding `(4,4)`.  For
+`164598`, the adverse pair `(1,1),(1,3)` is repaired by adding either `(1,7)`
+or `(4,10)`.
+
+For `1222142`, the `20` adverse events each have exactly two one-channel
+repairs.  Their repair-channel frequencies are:
+
+```text
+(1,1):  10
+(2,4):  10
+(1,3):   6
+(4,10):  6
+(1,5):   4
+(3,3):   4
+```
+
+This tightens the finite q286 hole without closing the theorem.  Pure non-undo
+is demoted as a complete finite explanation: the live Boolean route is now an
+ordered clause/adverse/repair control problem, or else must be replaced by a
+full signed aggregate arithmetic-placement theorem.  This is finite
+repair-channel evidence only; it proves no volatile-rim theorem, stable-core
+theorem, selected-fixture classifier theorem, pointwise character-sum estimate,
+or Goldbach.
