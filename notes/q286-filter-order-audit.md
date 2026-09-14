@@ -105,6 +105,86 @@ corresponding predicate set would falsify this compression.
 Next useful test: run the unchanged audit on a later window and compare the
 difference sets before adding any new thresholds.
 
+## Next-Window Holdout
+
+The unchanged audit was then applied to the next contiguous eight q286 periods:
+
+```text
+python tools/build_q286_filter_order_holdout.py
+```
+
+Compact evidence:
+
+```text
+evidence/q286-filter-order-holdout-8-15.json
+```
+
+Holdout parameters:
+
+```text
+start:             90080
+cycle_count:       8
+targets_per_cycle: 5005
+tested targets:    40040
+```
+
+Holdout predicate counts:
+
+```text
+complement_positive:           40040
+complement_floor .3:           40040
+full_positive:                 40040
+first_two_active:               3019
+first_three_tail .3:             891
+active_selector:                 891
+full_nonpositive:                  0
+nonrescued_first_three_tail:        0
+active_nonrescued:                 0
+```
+
+The holdout has:
+
+- `first_three_tail == active_selector == 891`;
+- `first_three_tail_not_first_two_active == []`;
+- `full_nonpositive_not_first_three_tail == []`;
+- `first_three_tail_below_complement_floor == []`.
+
+This strengthens the finite navigation claim: in the next untouched
+eight-period window, first-three exactly captures the active selector and every
+first-three tail row is rescued.  It also removes stress rows from that
+window, so it is not evidence for the strict-closure inequality on difficult
+active targets.
+
+## Octave Side-Check
+
+While the Python receipt was regenerating, the local Octave worker was used as
+an independent numerical side lane on the two predicate-count rows.  With
+columns
+
+```text
+first_two_active, first_three_tail, active_selector,
+full_nonpositive, nonrescued_first_three_tail, complement_floor
+```
+
+and counts normalized by `40040`, the holdout-minus-baseline delta is:
+
+```text
+first_two_active:              -0.118606393606
+first_three_tail:              -0.087787212787
+active_selector:               -0.087762237762
+full_nonpositive:              -0.002222777223
+nonrescued_first_three_tail:   -0.002147852148
+complement_floor:               0.001598401598
+delta_l2:                       0.171721840793
+```
+
+The rank-one SVD loading of the centered two-row matrix is dominated by
+`first_two_active`, `first_three_tail`, and `active_selector`; the failure
+columns are small because the holdout has no full-nonpositive or nonrescued
+rows.  This is a sanity view only.  It does not add a theorem, but it confirms
+that the holdout difference is mainly selector thinning rather than an
+unchanged selector profile with fewer failures.
+
 ## Boundary
 
 This audit is finite evidence and theorem navigation.  It does not prove an

@@ -19577,11 +19577,50 @@ coarse separator in this fixture, while the nonrescued/full-nonpositive
 minority is where proof pressure remains.  It is finite evidence, not a
 theorem.
 
+Next-window filter-order holdout:
+
+- `tools/build_q286_filter_order_holdout.py`
+- `evidence/q286-filter-order-holdout-8-15.json`
+
+The unchanged audit was applied to the next contiguous eight q286 periods
+starting at `90080` (`40040` targets).  In that holdout, `first_three_tail`
+and `active_selector` agree exactly at `891` targets, with no
+`first_three_tail_not_first_two_active` rows, no `full_nonpositive` rows, no
+`nonrescued_first_three_tail` rows, and no first-three tails below the `.3`
+complement floor.  This strengthens the finite filter-order navigation claim,
+but it is not strict-closure evidence because the holdout produces no hard
+active stress rows.  It proves no eventual rarity, complement floor,
+pointwise signed prime-correlation estimate, endpoint/noncentral control,
+outer assembly, or Goldbach.
+
 Local deterministic math-worker stack now verified for this machine:
 `numpy`, `scipy`, `sympy 1.14.0`, `z3-solver 5.1.0.0`, `pulp 3.3.2`, and
-`cvxpy 1.9.2`.  Future agents should use the `python-math-toolchain`
-capability in `codex-agent-ops` and run its cold test before relying on the
-packages.
+`cvxpy 1.9.2`; `oct2py 6.1.1` is also installed.  Direct Oct2Py works with
+`C:\Program Files\GNU Octave\Octave-11.3.0\mingw64\bin\octave.exe`, and the
+local queue worker at `C:\Users\benja\math_worker\mathcli.ps1` passed
+`.\mathcli.ps1 run -Code "disp(1+1);" -Wait` on 2026-09-13 after local
+quote/launcher fixes.  Future agents should use the `python-math-toolchain`
+capability in `codex-agent-ops`, run its cold test, and rerun the worker smoke
+in the current shell before relying on these packages or the Octave queue.
+
+Curiosity/tool side-lane instruction for future agents: when a long q286
+receipt is running and CPU/memory allow it, use one bounded side lane with the
+local math stack only if it has a concrete mechanism, prediction, falsifier,
+and stop condition.  Good side lanes include independent linear-algebra sanity
+views, exact-symbolic checks, solver counterexample searches, or compact
+optimization probes against an already named theorem obligation.  Record the
+result as `finite diagnostic`, `falsifier`, `aha-candidate`, or `dormant`;
+never treat side-lane output as proof, and do not let curiosity replace the
+active validation/commit path.
+
+The first such Octave side-check compared the baseline and holdout
+predicate-count vectors from the filter-order audit.  Normalized by `40040`,
+holdout-minus-baseline deltas were approximately `-0.118606` for
+`first_two_active`, `-0.087787` for `first_three_tail`, `-0.087762` for
+`active_selector`, `-0.002223` for `full_nonpositive`, `-0.002148` for
+`nonrescued_first_three_tail`, and `+0.001598` for `complement_floor`;
+`delta_l2` was about `0.171722`.  Interpretation: the holdout shift is mainly
+selector thinning, not an unchanged selector profile with fewer failures.
 
 Additional closure:
 

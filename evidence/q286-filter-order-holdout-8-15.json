@@ -1,0 +1,131 @@
+{
+  "baseline_window": {
+    "cycle_count": 8,
+    "difference_targets": {
+      "first_three_tail_below_complement_floor": [
+        10294,
+        10564,
+        10814,
+        11902,
+        12424,
+        14138,
+        14852,
+        15026,
+        16388,
+        17042,
+        17522
+      ],
+      "first_three_tail_not_first_two_active": [
+        10648
+      ],
+      "first_two_active_not_first_three_tail_count": 3363,
+      "first_two_active_not_first_three_tail_first20": [
+        10022,
+        10060,
+        10086,
+        10116,
+        10136,
+        10190,
+        10196,
+        10238,
+        10264,
+        10268,
+        10270,
+        10290,
+        10298,
+        10310,
+        10350,
+        10386,
+        10390,
+        10398,
+        10456,
+        10458
+      ],
+      "full_nonpositive_not_first_three_tail": [
+        10354,
+        11614,
+        14888
+      ]
+    },
+    "predicate_counts": {
+      "active_nonrescued": 86,
+      "active_selector": 4405,
+      "complement_floor": 39976,
+      "complement_positive": 40040,
+      "first_three_tail": 4406,
+      "first_two_active": 7768,
+      "full_nonpositive": 89,
+      "full_positive": 39951,
+      "nonrescued_first_three_tail": 86,
+      "rescued_first_three_tail": 4320
+    },
+    "start": 10000,
+    "targets_per_cycle": 5005,
+    "tested_target_count": 40040
+  },
+  "comparison": {
+    "baseline_first_three_tail_not_first_two_active_count": 1,
+    "baseline_full_nonpositive_count": 89,
+    "baseline_nonrescued_first_three_tail_count": 86,
+    "first_three_tail_equals_active_selector_in_holdout": true,
+    "holdout_first_three_tail_not_first_two_active_count": 0,
+    "holdout_full_nonpositive_count": 0,
+    "holdout_nonrescued_first_three_tail_count": 0
+  },
+  "filter_order_holdout_measured": true,
+  "filter_order_theorem_proved": false,
+  "goldbach_proved": false,
+  "holdout_window": {
+    "cycle_count": 8,
+    "difference_targets": {
+      "first_three_tail_below_complement_floor": [],
+      "first_three_tail_not_first_two_active": [],
+      "first_two_active_not_first_three_tail_count": 2128,
+      "first_two_active_not_first_three_tail_first20": [
+        90092,
+        90122,
+        90128,
+        90134,
+        90140,
+        90146,
+        90164,
+        90176,
+        90188,
+        90194,
+        90222,
+        90230,
+        90242,
+        90266,
+        90272,
+        90296,
+        90308,
+        90314,
+        90320,
+        90350
+      ],
+      "full_nonpositive_not_first_three_tail": []
+    },
+    "predicate_counts": {
+      "active_nonrescued": 0,
+      "active_selector": 891,
+      "complement_floor": 40040,
+      "complement_positive": 40040,
+      "first_three_tail": 891,
+      "first_two_active": 3019,
+      "full_nonpositive": 0,
+      "full_positive": 40040,
+      "nonrescued_first_three_tail": 0,
+      "rescued_first_three_tail": 891
+    },
+    "start": 90080,
+    "targets_per_cycle": 5005,
+    "tested_target_count": 40040
+  },
+  "interpretation": {
+    "boundary": "This is finite holdout evidence only.  It does not prove eventual first-three rarity, complement floor, strict closure, prime-correlation control, or Goldbach.",
+    "changed_under_evidence": "The next contiguous eight-period holdout strengthens the finite navigation claim that first_three_tail is the coarse separator for the active selector: in the holdout it exactly equals active_selector, and no full-nonpositive targets occur."
+  },
+  "schema_version": 1,
+  "source_commit": "53b0afbf9d851cc35477ad756af3c01201b6a1d0",
+  "status_boundary": "finite q286 filter-order holdout comparison only; no eventual rarity theorem, signed prime-correlation estimate, or Goldbach proof"
+}

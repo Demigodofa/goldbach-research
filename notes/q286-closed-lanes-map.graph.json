@@ -670,6 +670,14 @@
       "status_boundary": "finite predicate-order diagnostic and aha-candidate only; no eventual rarity theorem, complement floor, strict closure theorem, signed prime-correlation estimate, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_filter_order_holdout_8_15",
+      "type": "receipt",
+      "label": "q286 filter-order holdout cycles 8-15",
+      "status": "finite_filter_order_holdout",
+      "validation": "tools/build_q286_filter_order_holdout.py generated evidence/q286-filter-order-holdout-8-15.json from the unchanged q286_first_three_filter_order_audit_receipt; next contiguous eight-period window starting at 90080 tested 40040 targets, with 891 first-three-tail targets, 891 active-selector targets, zero full-nonpositive targets, and zero nonrescued first-three-tail targets",
+      "status_boundary": "finite holdout diagnostic only; no eventual rarity theorem, complement floor, strict closure theorem, signed prime-correlation estimate, or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1334,6 +1342,21 @@
     },
     {
       "from": "receipt.q286_filter_order_audit",
+      "to": "conditional.q286_proof_stack",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_filter_order_holdout_8_15",
+      "to": "receipt.q286_filter_order_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_filter_order_holdout_8_15",
+      "to": "obligation.active_selector_rarity",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_filter_order_holdout_8_15",
       "to": "conditional.q286_proof_stack",
       "type": "profiles"
     }

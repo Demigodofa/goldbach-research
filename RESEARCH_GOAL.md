@@ -10828,6 +10828,27 @@ target.  The fine residual filter is `full_nonpositive`: `89` total targets,
 separator in this fixture, while the nonrescued/full-nonpositive minority is
 where proof pressure remains.  It is finite evidence only.
 
+The next-window filter-order holdout is now generated:
+`evidence/q286-filter-order-holdout-8-15.json`, produced by
+`tools/build_q286_filter_order_holdout.py`.  The unchanged audit was applied
+to the next contiguous eight q286 periods starting at `90080` (`40040`
+targets).  In that holdout, `first_three_tail` and `active_selector` agree
+exactly at `891` targets, with no `first_three_tail_not_first_two_active`
+rows, no `full_nonpositive` rows, no `nonrescued_first_three_tail` rows, and
+no first-three tails below the `.3` complement floor.  This reinforces the
+finite navigation claim that first-three is the coarse selector in the checked
+q286 windows.  It does not stress the strict-closure inequality, because the
+holdout produces no full-nonpositive or nonrescued active rows; all universal
+rarity, complement, prime-correlation, endpoint, outer-assembly, and Goldbach
+obligations remain open.
+
+Future-agent curiosity/tool-use rule: bounded side lanes are encouraged when
+they serve the active theorem route.  During long q286 receipts, a future Rill
+should consider one independent local math-stack side lane only if it names a
+mechanism, prediction, falsifier, and stop condition, and records the result as
+finite diagnostic, falsifier, aha-candidate, or dormant.  Side lanes must not
+replace validation, theorem quantifiers, or source-backed handoff updates.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
