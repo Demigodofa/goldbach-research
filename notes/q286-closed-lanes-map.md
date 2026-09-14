@@ -93,6 +93,7 @@ prediction, and falsifier.
 | Rank-three internal cancellation | Falsified as explanation | The leading q286 mode contributions are mostly same-sign negative on stress targets. |
 | Dominant mode support/reflection geometry | Falsified as sufficient route | Every even target residue modulo `286` admits a positive reflected synthetic support weight with `mode_1+mode_2 < -.3`. |
 | Dominant mode independent channel norms | Demoted as too blunt | Plain `Linf`/`L2` smallness of the `25` real channels certifies none of the near-boundary samples; clear rows still pass by signed structure. |
+| Dominant tail as monotone reserve | Demoted | The residual staircase shows an intermediate tail channel can knock clear target `13556` below the floor before later repair; tail control is signed cumulative bookkeeping, not a simple positive add-on. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
 | Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
@@ -846,6 +847,19 @@ current comparison set.
    prefix that restores all overrescued failures while preserving all clears
    is the full seven-channel tail.  This demotes a one-channel or proper
    prefix tail-correction route on the selected fixture.
+90. `q286_first_three_dominant_mode_residual_staircase_receipt`, with note
+   `notes/q286-first-three-dominant-mode-residual-staircase.md` and evidence
+   in `evidence/q286-first-three-dominant-mode-residual-staircase.json`,
+   freezes the prefix/tail order and records the exact remaining rowwise
+   requirement after each cumulative channel.  The four-channel prefix first
+   clears every selected clear row but still over-rescues the five selected
+   deficits `24424,13822,55864,164598,1222142`; the first stage matching the
+   selected classification is the full eleven-channel portfolio.  The tail is
+   signed: `(1,3)` temporarily makes clear target `13556` fail before `(5,3)`
+   repairs it, while `(4,6)` eliminates the last overrescued deficits
+   `24424` and `1222142`.  This demotes treating the tail as a monotone
+   positive reserve and sharpens the target to cumulative signed portfolio
+   control or a replacement deficit-exclusion/complement theorem.
 
 ## Still open
 
@@ -864,6 +878,7 @@ current comparison set.
   prefix lower bound, tail classification or a separate deficit
   exclusion/complement theorem, a genuine residual-channel bound, or an
   external theorem strong enough to imply the same pointwise inequality.  The
-  tested tail-classification package is not visibly compressible.
+  tested tail-classification package is not visibly compressible, and its
+  cumulative action is not monotone-positive under the frozen channel order.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

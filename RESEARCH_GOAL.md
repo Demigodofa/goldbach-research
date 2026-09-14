@@ -11297,6 +11297,22 @@ bound plus the full seven-channel tail package, unless an independent
 deficit-exclusion, complement/lower-support, or fixed-modulus prime-pair
 theorem replaces that tail package.
 
+The literal residual staircase is now recorded in
+`notes/q286-first-three-dominant-mode-residual-staircase.md` and
+`evidence/q286-first-three-dominant-mode-residual-staircase.json`.  It freezes
+the same prefix/tail channel order and asks, after each cumulative bolt-on,
+which selected rows remain under-rescued or over-rescued.  The four-channel
+prefix is the first stage clearing every selected clear row, but it still
+over-rescues all five selected deficits
+`24424,13822,55864,164598,1222142`.  The first stage eliminating those
+overrescued deficits and matching the full selected classification is the full
+eleven-channel portfolio.  The tail is signed rather than a monotone positive
+reserve: `(1,3)` temporarily knocks clear target `13556` below the floor
+before `(5,3)` repairs it, while `(4,6)` removes the last overrescued deficits
+`24424` and `1222142`.  This sharpens the proof target to signed cumulative
+portfolio control, or a replacement deficit-exclusion/complement theorem; it
+does not prove a uniform portfolio theorem or Goldbach.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

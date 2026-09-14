@@ -63,6 +63,8 @@ def main():
         EVIDENCE / "q286-first-three-dominant-mode-prefix-tail-classification.json")
     tail_ablation = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-tail-ablation.json")
+    residual_staircase = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-residual-staircase.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -406,6 +408,55 @@ def main():
         "tail-ablation",
         2.0,
         "tail theorem remains seven-channel on selected evidence")
+
+    layer(
+        "residual-staircase",
+        "Residual staircase records cumulative bolt-on leftovers",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-residual-staircase.json",
+        2.0,
+        "Finite cumulative residual ledger only; no portfolio theorem.")
+    for stage in residual_staircase["stage_rows"]:
+        for row in stage["target_rows"]:
+            if (row["remaining_requirement_to_floor"] > 0
+                    or row["stage_floor_passes"] != row[
+                        "dominant_floor_passes"]):
+                add_hit(
+                    target_stacks,
+                    str(row["target"]),
+                    "residual-staircase",
+                    2.0,
+                    "cumulative residual stage row",
+                    {
+                        "stage": stage["stage_name"],
+                        "remaining_requirement": (
+                            row["remaining_requirement_to_floor"]),
+                        "stage_floor_passes": row["stage_floor_passes"],
+                        "dominant_floor_passes": (
+                            row["dominant_floor_passes"]),
+                    })
+    add_hit(
+        mechanism_stacks,
+        "signed-cumulative-portfolio-staircase",
+        "residual-staircase",
+        2.0,
+        "prefix clears selected clears but over-rescues deficits; full "
+        "portfolio first matches classification",
+        {
+            "prefix_stage": residual_staircase["prefix_stage"]["stage_name"],
+            "prefix_overrescued_failure_targets": (
+                residual_staircase["prefix_stage"][
+                    "overrescued_failure_targets"]),
+            "first_matching_stage": (
+                residual_staircase[
+                    "first_stage_matching_classification"]["stage_name"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "residual-staircase",
+        2.0,
+        "tail is signed cumulative control, not monotone positive reserve")
 
     layer(
         "conditional-proof-stack",

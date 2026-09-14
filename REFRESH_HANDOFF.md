@@ -20377,6 +20377,29 @@ tail slack range is about `[0.0095640903,0.0584289263]`.  Therefore the tail
 classification theorem is not visibly compressible by the tested prefix or
 leave-one-out routes.
 
+Dominant-mode residual staircase:
+
+- `q286_first_three_dominant_mode_residual_staircase_receipt`
+- `tools/build_q286_first_three_dominant_mode_residual_staircase.py`
+- `notes/q286-first-three-dominant-mode-residual-staircase.md`
+- `evidence/q286-first-three-dominant-mode-residual-staircase.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_residual_staircase`
+
+This is the literal bolt-on ledger for the selected prefix/tail order.  It
+records the remaining rowwise requirement after each cumulative channel is
+added.  On the full selected fixture, the four-channel prefix
+`(2,6),(3,1),(4,8),(4,2)` is the first stage clearing every selected clear row,
+but it over-rescues the five selected deficits
+`24424,13822,55864,164598,1222142`.  The first stage with no under-rescued
+clears and no over-rescued deficits is the complete eleven-channel portfolio.
+The tail is not monotone-positive: adding `(1,3)` temporarily makes clear
+target `13556` fail before `(5,3)` repairs it, and the last channel `(4,6)`
+finally makes `24424` and `1222142` fail again.  This sharpens the missing
+theorem to signed cumulative portfolio control, or to a replacement
+deficit-exclusion/complement theorem.  It is not a portfolio theorem and not a
+Goldbach proof.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

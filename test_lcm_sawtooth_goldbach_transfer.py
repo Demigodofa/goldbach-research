@@ -54,6 +54,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_portfolio_ablation_receipt,
     q286_first_three_dominant_mode_prefix_tail_classification_receipt,
     q286_first_three_dominant_mode_tail_ablation_receipt,
+    q286_first_three_dominant_mode_residual_staircase_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4750,6 +4751,47 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["tail_ablation_measured"])
         self.assertFalse(receipt[
             "proper_subtail_classification_theorem_proved"])
+        self.assertFalse(receipt["tail_classification_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_residual_staircase(self):
+        receipt = (
+            q286_first_three_dominant_mode_residual_staircase_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["prefix_channel_count"], 5)
+        self.assertEqual(receipt["tail_channel_count"], 1)
+        self.assertEqual(receipt["ordered_channel_count"], 6)
+        self.assertEqual(len(receipt["stage_rows"]), 7)
+        self.assertEqual(
+            receipt["first_stage_clearing_all_original_clears"][
+                "stage_index"],
+            5)
+        self.assertEqual(
+            receipt["first_stage_matching_classification"]["stage_index"],
+            6)
+        self.assertEqual(
+            receipt["prefix_stage"]["overrescued_failure_targets"],
+            (24424, 1222142))
+        self.assertEqual(
+            receipt["full_stage"]["overrescued_failure_targets"], ())
+        self.assertEqual(
+            receipt["full_stage"]["underrescued_clear_targets"], ())
+        self.assertTrue(receipt["full_stage"][
+            "matches_full_dominant_floor_classification"])
+        self.assertLess(
+            receipt["full_stage"]["failure_slack_summary"]["maximum"], 0)
+        self.assertGreater(
+            receipt["full_stage"]["clear_slack_summary"]["minimum"], 0)
+        self.assertEqual(
+            receipt["added_channel_rows"][-1]["newly_failing_targets"],
+            (24424, 1222142))
+        self.assertTrue(receipt["residual_staircase_measured"])
+        self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
         self.assertFalse(receipt["tail_classification_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

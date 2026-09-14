@@ -90,6 +90,13 @@ frame.
   leave-one-out or prefix ablations; every tail channel is essential for the
   selected tail classification, and the first successful tail prefix is the
   full seven-channel tail.
+- `evidence/q286-first-three-dominant-mode-residual-staircase.json`:
+  the selected prefix/tail order has an exact cumulative ledger.  The
+  four-channel prefix is the first stage clearing all selected clear rows but
+  still over-rescues all five selected deficits; the first stage matching the
+  selected dominant-floor classification is the full eleven-channel portfolio.
+  The tail is signed rather than monotone-positive, so the missing theorem is
+  cumulative portfolio control or a replacement deficit-exclusion theorem.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -135,7 +142,11 @@ frame.
    that split exact: prove prefix lower bounds and tail/exclusion control.
    The tail-ablation receipt further says the selected tail control is a
    seven-channel package on current evidence, not a one-channel or proper
-   prefix correction.
+   prefix correction.  The residual-staircase receipt then shows the signed
+   cumulative load path: the prefix clears all selected clears while
+   over-rescuing all selected deficits, intermediate tail channels can knock a
+   clear row below the floor, and only the full eleven-channel portfolio
+   matches the selected classification.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -153,4 +164,5 @@ exclusion/complement mechanism for prefix-overrescued deficits, or reduce the
 same claim to a fixed-modulus strict-central binary Goldbach/AP theorem.
 Current finite evidence says the dominant projection is a prefix/tail
 portfolio arithmetic problem, not a geometry-only, tiny-channel, or one-piece
-classifier problem; the tested tail itself is also not visibly compressible.
+classifier problem; the tested tail itself is also not visibly compressible
+and not monotone-positive under the frozen channel order.

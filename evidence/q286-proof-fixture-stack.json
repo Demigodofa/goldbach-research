@@ -127,6 +127,13 @@
       "validation": "tail channel count 7; classification-essential channels 7; first successful tail prefix 7."
     },
     {
+      "id": "anchor.dominant_mode_residual_staircase",
+      "proved_scope": "finite cumulative residual diagnostic, not a cumulative portfolio theorem",
+      "source": "evidence/q286-first-three-dominant-mode-residual-staircase.json",
+      "statement": "The selected prefix/tail order is an exact cumulative residual ledger: after each bolt-on, the remaining rowwise portfolio requirement is measured.",
+      "validation": "first stage clearing all selected clears prefix_4; first stage matching classification prefix_plus_tail_7; prefix overrescued failures [24424, 13822, 55864, 164598, 1222142]; full-stage maximum failure slack -0.008833179560527815."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -155,7 +162,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "64d83c350e5d5eb400856d6038532c4d9e6d705b",
+  "source_commit": "1e12003594a46bdb3ebac3a511768faaf5e1d84f",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -196,7 +203,7 @@
       "exact_obligation_source": "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently prove the recurrent helpful-channel portfolio or its clear-side prefix lower bound against the rowwise residual requirement, plus a tail classification package or separate exclusion/complement theorem for prefix-overrescued deficits. The norm budget, tiny-channel, small residual-channel classifier, and geometry-only routes are demoted on the current evidence.",
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently prove the recurrent helpful-channel portfolio or its clear-side prefix lower bound against the rowwise residual requirement, plus a tail classification package or separate exclusion/complement theorem for prefix-overrescued deficits. The norm budget, tiny-channel, small residual-channel classifier, and geometry-only routes are demoted on the current evidence; the residual staircase shows the tail is signed rather than a monotone-positive reserve.",
       "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed, and selected clear rows can have large negative pressure."
     }
   ],

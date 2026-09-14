@@ -64,6 +64,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json")
     dominant_mode_tail_ablation = load_json(
         "evidence/q286-first-three-dominant-mode-tail-ablation.json")
+    dominant_mode_residual_staircase = load_json(
+        "evidence/q286-first-three-dominant-mode-residual-staircase.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -428,6 +430,27 @@ def main():
                     "a tail theorem"),
             },
             {
+                "id": "anchor.dominant_mode_residual_staircase",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-residual-staircase.json"),
+                "statement": (
+                    "The selected prefix/tail order is an exact cumulative "
+                    "residual ledger: after each bolt-on, the remaining "
+                    "rowwise portfolio requirement is measured."),
+                "validation": (
+                    "first stage clearing all selected clears "
+                    f"{dominant_mode_residual_staircase['first_stage_clearing_all_original_clears']['stage_name']}; "
+                    "first stage matching classification "
+                    f"{dominant_mode_residual_staircase['first_stage_matching_classification']['stage_name']}; "
+                    "prefix overrescued failures "
+                    f"{dominant_mode_residual_staircase['prefix_stage']['overrescued_failure_targets']}; "
+                    "full-stage maximum failure slack "
+                    f"{dominant_mode_residual_staircase['full_stage']['failure_slack_summary']['maximum']}."),
+                "proved_scope": (
+                    "finite cumulative residual diagnostic, not a cumulative "
+                    "portfolio theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -525,7 +548,8 @@ def main():
                     "theorem for prefix-overrescued deficits. "
                     "The norm budget, tiny-channel, small residual-channel "
                     "classifier, and geometry-only routes are demoted on the "
-                    "current evidence."),
+                    "current evidence; the residual staircase shows the tail "
+                    "is signed rather than a monotone-positive reserve."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

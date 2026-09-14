@@ -1037,6 +1037,22 @@
       "label": "Goldbach",
       "status": "open",
       "reason": "No universal proof, final assembly, or independently reviewed theorem closes Goldbach."
+    },
+    {
+      "id": "lane.dominant_tail_monotone_reserve",
+      "type": "demoted_lane",
+      "label": "Dominant tail as monotone reserve",
+      "status": "demoted_by_residual_staircase",
+      "reason": "The residual staircase shows the frozen tail is signed rather than monotone-positive: channel (1,3) temporarily knocks clear target 13556 below the floor before later repair.",
+      "nuance": "Does not refute a signed cumulative tail theorem, a deficit-exclusion theorem, complement rescue, or fixed-modulus prime-pair arithmetic control."
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_residual_staircase",
+      "type": "receipt",
+      "label": "q286 dominant-mode residual staircase",
+      "status": "validated_finite_diagnostic",
+      "validation": "q286_first_three_dominant_mode_residual_staircase_receipt and tools/build_q286_first_three_dominant_mode_residual_staircase.py generated evidence/q286-first-three-dominant-mode-residual-staircase.json; the four-channel prefix first clears all selected clears but over-rescues five selected deficits, and the full eleven-channel portfolio first matches selected classification.",
+      "status_boundary": "finite selected-fixture cumulative residual ledger only; proves no prefix theorem, tail theorem, fixed-modulus AP theorem, or Goldbach theorem"
     }
   ],
   "edges": [
@@ -2144,6 +2160,31 @@
       "from": "lane.first_three_reflection_orbit_cap",
       "to": "lane.first_three_reflection_geometry",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_staircase",
+      "to": "lane.dominant_tail_monotone_reserve",
+      "type": "demotes"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_tail_ablation",
+      "to": "receipt.q286_first_three_dominant_mode_residual_staircase",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_staircase",
+      "to": "receipt.q286_first_three_dominant_mode_prefix_tail_classification",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_staircase",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "lane.dominant_tail_monotone_reserve",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
     }
   ]
 }

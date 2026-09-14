@@ -10514,6 +10514,279 @@ def q286_first_three_dominant_mode_tail_ablation_receipt(
     }
 
 
+def q286_first_three_dominant_mode_residual_staircase_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Record the exact staged residual after each portfolio bolt-on.
+
+    The rowwise dominant-mode floor is equivalent to
+
+        partial_portfolio_sum >= required_portfolio_for_floor.
+
+    This receipt freezes the selected prefix/tail order and asks, after each
+    added channel, what target rows are still unsupported and by how much.  It
+    is a finite residual ledger, not a lower-bound theorem.
+    """
+    prefix_receipt = (
+        q286_first_three_dominant_mode_prefix_tail_classification_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+
+    sample_rows = swing_receipt["sample_target_rows"]
+    prefix_labels = prefix_receipt["prefix_channel_labels"]
+    tail_labels = prefix_receipt["tail_channel_labels"]
+    ordered_labels = tuple(prefix_labels) + tuple(tail_labels)
+    if not ordered_labels:
+        raise ValueError("selected portfolio has no ordered channels")
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    contributions_by_target = {
+        target: contribution_by_label(row)
+        for target, row in sample_rows.items()}
+
+    target_base_rows = {}
+    for target in prefix_receipt["sample_targets"]:
+        base = prefix_receipt["target_rows"][target]
+        full_portfolio_sum = base["full_portfolio_sum_to_principal"]
+        nonportfolio_sum = (
+            base["dominant_sum_to_principal"] - full_portfolio_sum)
+        required = base["required_portfolio_for_floor"]
+        full_slack = full_portfolio_sum - required
+        target_base_rows[target] = {
+            "target": target,
+            "target_mod_286": base["target_mod_286"],
+            "dominant_floor_passes": base["dominant_floor_passes"],
+            "dominant_sum_to_principal": (
+                base["dominant_sum_to_principal"]),
+            "required_portfolio_for_floor": required,
+            "full_portfolio_sum_to_principal": full_portfolio_sum,
+            "full_portfolio_slack_to_floor": full_slack,
+            "nonportfolio_sum_to_principal": nonportfolio_sum,
+        }
+
+    stage_specs = [{
+        "stage_index": 0,
+        "stage_name": "empty",
+        "stage_role": "no portfolio channels bolted on",
+        "channel_labels": (),
+    }]
+    for count in range(1, len(ordered_labels) + 1):
+        if count <= len(prefix_labels):
+            role = "prefix"
+            local_count = count
+            name = "prefix_%d" % local_count
+        else:
+            role = "prefix_plus_tail"
+            local_count = count - len(prefix_labels)
+            name = "prefix_plus_tail_%d" % local_count
+        stage_specs.append({
+            "stage_index": count,
+            "stage_name": name,
+            "stage_role": role,
+            "channel_labels": ordered_labels[:count],
+            "added_channel_label": ordered_labels[count - 1],
+        })
+
+    stage_rows = []
+    first_stage_clearing_all_original_clears = None
+    first_stage_matching_classification = None
+    first_stage_eliminating_overrescued_failures = None
+    for spec in stage_specs:
+        label_set = set(spec["channel_labels"])
+        row_entries = []
+        clear_slacks = []
+        failure_slacks = []
+        remaining_positive = []
+        pass_targets = []
+        underrescued_clear_targets = []
+        overrescued_failure_targets = []
+        worst_remaining_row = None
+        tightest_pass_row = None
+        for target in prefix_receipt["sample_targets"]:
+            base = target_base_rows[target]
+            partial_sum = math.fsum(
+                contributions_by_target[target].get(label, 0.0)
+                for label in label_set)
+            required = base["required_portfolio_for_floor"]
+            remaining = required - partial_sum
+            slack = -remaining
+            passes = slack >= -tolerance
+            expected_pass = base["dominant_floor_passes"]
+            if passes:
+                pass_targets.append(target)
+            if expected_pass:
+                clear_slacks.append(slack)
+                if not passes:
+                    underrescued_clear_targets.append(target)
+            else:
+                failure_slacks.append(slack)
+                if passes:
+                    overrescued_failure_targets.append(target)
+            if remaining > tolerance:
+                remaining_positive.append(remaining)
+            compact = {
+                "target": target,
+                "target_mod_286": base["target_mod_286"],
+                "dominant_floor_passes": expected_pass,
+                "partial_sum_to_principal": partial_sum,
+                "required_portfolio_for_floor": required,
+                "remaining_requirement_to_floor": remaining,
+                "slack_to_floor": slack,
+                "stage_floor_passes": passes,
+                "classification_matches_full_dominant_floor": (
+                    passes == expected_pass),
+            }
+            row_entries.append(compact)
+            if (worst_remaining_row is None
+                    or remaining > worst_remaining_row[
+                        "remaining_requirement_to_floor"]):
+                worst_remaining_row = compact
+            if passes and (
+                    tightest_pass_row is None
+                    or slack < tightest_pass_row["slack_to_floor"]):
+                tightest_pass_row = compact
+
+        all_clears_pass = not underrescued_clear_targets
+        no_failures_overrescued = not overrescued_failure_targets
+        matches_classification = all(
+            row["classification_matches_full_dominant_floor"]
+            for row in row_entries)
+        stage = {
+            "stage_index": spec["stage_index"],
+            "stage_name": spec["stage_name"],
+            "stage_role": spec["stage_role"],
+            "channel_labels": spec["channel_labels"],
+            "channel_count": len(spec["channel_labels"]),
+            "added_channel_label": spec.get("added_channel_label"),
+            "target_rows": tuple(row_entries),
+            "stage_pass_targets": tuple(pass_targets),
+            "underrescued_clear_targets": tuple(
+                underrescued_clear_targets),
+            "overrescued_failure_targets": tuple(
+                overrescued_failure_targets),
+            "underrescued_clear_count": len(underrescued_clear_targets),
+            "overrescued_failure_count": len(overrescued_failure_targets),
+            "all_original_clears_pass": all_clears_pass,
+            "no_original_failures_overrescued": no_failures_overrescued,
+            "matches_full_dominant_floor_classification": (
+                matches_classification),
+            "clear_slack_summary": summarize(clear_slacks),
+            "failure_slack_summary": summarize(failure_slacks),
+            "positive_remaining_requirement_summary": summarize(
+                remaining_positive),
+            "worst_remaining_requirement_row": worst_remaining_row,
+            "tightest_stage_pass_row": tightest_pass_row,
+        }
+        stage_rows.append(stage)
+        if (first_stage_clearing_all_original_clears is None
+                and all_clears_pass):
+            first_stage_clearing_all_original_clears = stage
+        if (first_stage_eliminating_overrescued_failures is None
+                and no_failures_overrescued):
+            first_stage_eliminating_overrescued_failures = stage
+        if (first_stage_matching_classification is None
+                and matches_classification):
+            first_stage_matching_classification = stage
+
+    prefix_stage = stage_rows[len(prefix_labels)]
+    full_stage = stage_rows[-1]
+    added_channel_rows = []
+    previous_pass_targets = set(stage_rows[0]["stage_pass_targets"])
+    for stage in stage_rows[1:]:
+        current_pass_targets = set(stage["stage_pass_targets"])
+        label = stage["added_channel_label"]
+        values = tuple(
+            contributions_by_target[target].get(label, 0.0)
+            for target in prefix_receipt["sample_targets"])
+        added_channel_rows.append({
+            "stage_index": stage["stage_index"],
+            "added_channel_label": label,
+            "stage_role": stage["stage_role"],
+            "contribution_summary": summarize(values),
+            "newly_passing_targets": tuple(sorted(
+                current_pass_targets - previous_pass_targets)),
+            "newly_failing_targets": tuple(sorted(
+                previous_pass_targets - current_pass_targets)),
+            "underrescued_clear_count_after_add": (
+                stage["underrescued_clear_count"]),
+            "overrescued_failure_count_after_add": (
+                stage["overrescued_failure_count"]),
+        })
+        previous_pass_targets = current_pass_targets
+
+    return {
+        "arithmetic_modulus": prefix_receipt["arithmetic_modulus"],
+        "support": prefix_receipt["support"],
+        "dominant_modes": prefix_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            prefix_receipt["active_real_channel_count"]),
+        "pair_targets": prefix_receipt["pair_targets"],
+        "sample_targets": prefix_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": prefix_labels,
+        "prefix_channel_count": len(prefix_labels),
+        "tail_channel_labels": tail_labels,
+        "tail_channel_count": len(tail_labels),
+        "ordered_channel_labels": ordered_labels,
+        "ordered_channel_count": len(ordered_labels),
+        "target_base_rows": target_base_rows,
+        "stage_rows": tuple(stage_rows),
+        "added_channel_rows": tuple(added_channel_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "first_stage_clearing_all_original_clears": (
+            first_stage_clearing_all_original_clears),
+        "first_stage_eliminating_overrescued_failures": (
+            first_stage_eliminating_overrescued_failures),
+        "first_stage_matching_classification": (
+            first_stage_matching_classification),
+        "residual_staircase_measured": True,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_portfolio_lower_bound_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):
