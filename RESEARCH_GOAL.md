@@ -12688,3 +12688,34 @@ the next proof route has to explain the placement arithmetically from actual
 binary-prime residue weights, or replace the plane with a stronger signed
 aggregate estimate.  This is finite expanded-window evidence only and proves
 no arithmetic placement theorem, signed projection theorem, or Goldbach.
+
+### 2026-09-14 continuation: pair/complement false-positive offset autopsy
+
+The first expanded `.02` pair/complement false positive, clear row `1200302`,
+was then compared directly against stress row `1222142`.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pair-complement-false-positive-offset.json
+```
+
+The result explains why fixed pair/complement boxes are incomplete.  Relative
+to `1222142`, clear row `1200302` is close in the plane, with L1 distance
+about `0.0195523595` and Linf distance about `0.0115203663`, but the volatile
+pair/complement total is slightly worse by about `-0.0034883731`.  Its full
+dominant first-three sum is much better, by about `0.2123485082`, because the
+dominant contribution outside the named pair/complement plane improves by
+about `0.2158368813`.
+
+Thus the `.02` false positive is rescued outside the two-coordinate volatile
+plane.  The live theorem target becomes a three-part arithmetic balance:
+
+```text
+named adverse pair
++ six-channel repair complement
++ outside-pair/complement dominant remainder
+```
+
+The proof route still has to derive that balance from actual binary-prime
+residue weights, or replace it with a stronger signed aggregate estimate.
+This is finite offset evidence only and proves no three-part balance theorem,
+arithmetic placement theorem, signed projection theorem, or Goldbach.

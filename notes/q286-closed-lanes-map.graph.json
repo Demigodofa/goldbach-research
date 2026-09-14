@@ -1253,6 +1253,14 @@
       "status": "validated_falsifier",
       "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_window_holdout.py generated evidence/q286-first-three-dominant-mode-pair-complement-window-holdout.json; on the predeclared 72-row window-closest denominator, the .02 stress-centered pair/complement square admits clear row 1200302, while the .005 and .01 squares still isolate deficit 1222142",
       "status_boundary": "finite expanded-window holdout only; no stable box-selector theorem, arithmetic placement theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
+      "type": "receipt",
+      "label": "q286 pair/complement false-positive offset",
+      "status": "finite_offset_diagnostic",
+      "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_false_positive_offset.py generated evidence/q286-first-three-dominant-mode-pair-complement-false-positive-offset.json; clear row 1200302 is slightly worse than stress row 1222142 in the two-coordinate pair/complement total by about -0.0034883731, but improves outside that plane by about 0.2158368813",
+      "status_boundary": "finite false-positive offset autopsy only; no three-part balance theorem, arithmetic placement theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2673,6 +2681,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
+      "to": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
+      "to": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

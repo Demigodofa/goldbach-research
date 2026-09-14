@@ -1418,6 +1418,19 @@ current comparison set.
    while its above-floor surplus is about `0.0648396973`.  This demotes the
    `.02` top-`20` box as a stable selector and preserves the plane only as a
    finite microscope for an arithmetic placement theorem.
+132. `tools/build_q286_first_three_dominant_mode_pair_complement_false_positive_offset.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pair-complement-false-positive-offset.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-pair-complement-false-positive-offset.json`,
+   autopsies the first `.02` clear false positive `1200302` against stress
+   row `1222142`.  The clear row is slightly worse in the two-coordinate
+   volatile pair/complement total by about `-0.0034883731`, but the dominant
+   contribution outside that plane improves by about `0.2158368813`, while
+   the full dominant first-three sum improves by about `0.2123485082`.  This
+   moves the live obligation from a pure pair/complement box to a three-part
+   balance: named pair, six-channel repair complement, and outside-plane
+   dominant remainder.
 
 ## Still open
 
@@ -1538,9 +1551,11 @@ current comparison set.
   modestly wider boxes and the natural tight-two rectangle admit clear rows.
   The expanded window holdout then punctures the `.02` top-`20` box with clear
   row `1200302`, while preserving `.01` isolation on the `72`-row denominator.
-  The remaining target is therefore a row-dependent arithmetic placement bound
-  for actual binary-prime residue weights, or a stronger signed aggregate
-  theorem explaining the allowed pair/complement band without a tuned
-  fixed-width box.
+  The false-positive offset autopsy then explains that clear row: its
+  pair/complement total is slightly worse than the stress row, and its rescue
+  comes from the dominant contribution outside the two-coordinate plane.  The
+  remaining target is therefore a row-dependent arithmetic placement bound for
+  the full three-part balance, or a stronger signed aggregate theorem
+  explaining the allowed region without a tuned fixed-width box.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

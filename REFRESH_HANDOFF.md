@@ -20917,6 +20917,28 @@ This demotes the `.02` top-`20` box as a stable selector.  Keep the
 pair/complement plane as a finite microscope and a way to shape the arithmetic
 placement theorem obligation, not as a proof object by itself.
 
+Dominant-mode pair/complement false-positive offset autopsy:
+
+- `tools/build_q286_first_three_dominant_mode_pair_complement_false_positive_offset.py`
+- `notes/q286-first-three-dominant-mode-pair-complement-false-positive-offset.md`
+- `evidence/q286-first-three-dominant-mode-pair-complement-false-positive-offset.json`
+
+This explains the first clear row that punctures the expanded `.02`
+pair/complement stress box.  Clear row `1200302` is close to stress row
+`1222142` in the named pair/complement plane, with L1 distance about
+`0.0195523595` and Linf distance about `0.0115203663`, but its volatile
+pair/complement total is slightly worse than the stress row by about
+`-0.0034883731`.
+
+The rescue comes from outside the two-coordinate volatile plane: the omitted
+dominant-channel contribution improves by about `0.2158368813`, while the full
+dominant first-three sum improves by about `0.2123485082`.
+
+This changes the next theorem obligation from a pure pair/complement box into
+a three-part arithmetic balance: named pair, six-channel repair complement,
+and outside-pair/complement dominant remainder.  It is finite offset evidence
+only; no three-part balance theorem or Goldbach proof is established.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
