@@ -1431,6 +1431,18 @@ current comparison set.
    moves the live obligation from a pure pair/complement box to a three-part
    balance: named pair, six-channel repair complement, and outside-plane
    dominant remainder.
+133. `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_separator.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-outside-plane-remainder-separator.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-outside-plane-remainder-separator.json`,
+   tests that third term on the same predeclared `72`-row expanded-window
+   denominator.  Stress row `1222142` is the unique minimum
+   outside-pair/complement remainder row; all `71` checked clears have
+   positive outside delta to stress.  The closest clear is `1242118`, with
+   outside delta about `0.0398241886`.  This keeps the loop tightening around
+   a conditional outside-remainder floor, while preserving the theorem
+   obligation as arithmetic rather than finite geometry.
 
 ## Still open
 
@@ -1556,6 +1568,11 @@ current comparison set.
   comes from the dominant contribution outside the two-coordinate plane.  The
   remaining target is therefore a row-dependent arithmetic placement bound for
   the full three-part balance, or a stronger signed aggregate theorem
-  explaining the allowed region without a tuned fixed-width box.
+  explaining the allowed region without a tuned fixed-width box.  The
+  outside-plane remainder separator then verifies a finite floor on the
+  predeclared 72-row denominator: all checked clears sit above the stress row
+  on the omitted dominant remainder, so the next theorem target is a
+  non-post-hoc outside-remainder lower bound under the relevant
+  pair/complement placement conditions.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

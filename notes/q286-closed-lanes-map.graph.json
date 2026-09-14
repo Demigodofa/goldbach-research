@@ -1261,6 +1261,14 @@
       "status": "finite_offset_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_false_positive_offset.py generated evidence/q286-first-three-dominant-mode-pair-complement-false-positive-offset.json; clear row 1200302 is slightly worse than stress row 1222142 in the two-coordinate pair/complement total by about -0.0034883731, but improves outside that plane by about 0.2158368813",
       "status_boundary": "finite false-positive offset autopsy only; no three-part balance theorem, arithmetic placement theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_separator",
+      "type": "receipt",
+      "label": "q286 outside-plane remainder separator",
+      "status": "finite_separator_diagnostic",
+      "validation": "tools/build_q286_first_three_dominant_mode_outside_plane_remainder_separator.py generated evidence/q286-first-three-dominant-mode-outside-plane-remainder-separator.json; on the predeclared 72-row denominator, stress row 1222142 is the unique minimum outside-pair/complement remainder row, and the nearest clear 1242118 has outside delta about 0.0398241886",
+      "status_boundary": "finite outside-plane remainder separator only; no three-part balance theorem, arithmetic placement theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2696,6 +2704,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_separator",
+      "to": "receipt.q286_first_three_dominant_mode_pair_complement_false_positive_offset",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_separator",
+      "to": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_separator",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

@@ -20939,6 +20939,27 @@ a three-part arithmetic balance: named pair, six-channel repair complement,
 and outside-pair/complement dominant remainder.  It is finite offset evidence
 only; no three-part balance theorem or Goldbach proof is established.
 
+Dominant-mode outside-plane remainder separator:
+
+- `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_separator.py`
+- `notes/q286-first-three-dominant-mode-outside-plane-remainder-separator.md`
+- `evidence/q286-first-three-dominant-mode-outside-plane-remainder-separator.json`
+
+This tests the third term named by the false-positive autopsy on the same
+predeclared `72`-row expanded-window denominator.  Stress row `1222142` is
+the unique minimum outside-pair/complement remainder row; all `71` checked
+clears have positive outside delta to stress.  The closest clear is
+`1242118`, with outside delta about `0.0398241886`.
+
+Inside the `.03` pair/complement box, all six clear rows are still above the
+stress row on outside remainder.  The loop is therefore tighter in a finite
+way: the pair/complement plane locates the danger region, while the omitted
+dominant remainder separates checked clears from the stress deficit.  The
+remaining theorem target is a non-post-hoc outside-remainder lower bound under
+the relevant pair/complement placement conditions, or a stronger signed
+aggregate estimate.  This is finite separator evidence only; no three-part
+balance theorem or Goldbach proof is established.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

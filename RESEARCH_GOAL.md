@@ -12719,3 +12719,29 @@ The proof route still has to derive that balance from actual binary-prime
 residue weights, or replace it with a stronger signed aggregate estimate.
 This is finite offset evidence only and proves no three-part balance theorem,
 arithmetic placement theorem, signed projection theorem, or Goldbach.
+
+### 2026-09-14 continuation: outside-plane remainder separator
+
+The next receipt tests whether the omitted dominant contribution outside the
+pair/complement plane separates the expanded holdout.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-outside-plane-remainder-separator.json
+```
+
+On the predeclared `72`-row denominator, stress row `1222142` is the unique
+minimum outside-pair/complement remainder row.  All `71` checked clear rows
+have positive outside delta to the stress row.  The closest clear is
+`1242118`, with outside delta about `0.0398241886`.
+
+Inside the `.03` stress-centered pair/complement box, all six clear rows are
+above the stress row on the outside-plane remainder.  Thus the loop is
+tighter: the two-coordinate plane locates the danger region, and the omitted
+dominant remainder separates the checked clears from the stress deficit.
+
+The proof route is still open.  A theorem must give a non-post-hoc lower
+bound for the outside-plane dominant remainder under the relevant
+pair/complement placement conditions, or replace the decomposition with a
+stronger signed aggregate estimate.  This is finite separator evidence only
+and proves no three-part balance theorem, arithmetic placement theorem,
+signed projection theorem, or Goldbach.
