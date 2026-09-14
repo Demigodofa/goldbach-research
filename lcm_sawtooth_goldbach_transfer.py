@@ -18585,6 +18585,173 @@ def q286_nonrescued_first_three_tail_classification_receipt(
     }
 
 
+def q286_first_three_filter_order_audit_receipt(
+        start=10000, cycle_count=8, targets_per_cycle=5005,
+        first_two_threshold=.2, tail_threshold=.3, complement_floor=.3,
+        tolerance=1e-9):
+    """Audit q286 filter order and survivor counts for the current route.
+
+    The same final intersection is obtained whichever way commuting finite
+    predicates are ordered, but the intermediate survivor counts matter for
+    theorem design: a coarse first filter can hide which later predicate is
+    doing the real work.  This receipt records both single-predicate
+    selectivity and named sequential filtrations.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    for name, value in (
+            ("first_two_threshold", first_two_threshold),
+            ("tail_threshold", tail_threshold),
+            ("complement_floor", complement_floor)):
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError(f"{name} must be finite and positive")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    lower = q286_first_two_mode_lower_tail_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tolerance=tolerance,
+        include_residue_weights=False)
+    all_targets = frozenset(lower["rows"])
+    predicate_sets = {
+        "first_two_active": set(),
+        "first_three_tail": set(),
+        "complement_positive": set(),
+        "complement_floor": set(),
+        "full_positive": set(),
+        "full_nonpositive": set(),
+    }
+    target_rows = {}
+    for target, row in lower["rows"].items():
+        first_two = row["first_two_modes_to_principal_ratio"]
+        first_three = row["first_three_modes_to_principal_ratio"]
+        complement = row["full_without_first_three_to_principal_ratio"]
+        full = row["full_action_to_principal_ratio"]
+        predicates = {
+            "first_two_active": first_two < -first_two_threshold,
+            "first_three_tail": first_three < -tail_threshold,
+            "complement_positive": complement > tolerance,
+            "complement_floor": complement > complement_floor,
+            "full_positive": full > tolerance,
+            "full_nonpositive": full <= tolerance,
+        }
+        for predicate, passed in predicates.items():
+            if passed:
+                predicate_sets[predicate].add(target)
+        target_rows[target] = {
+            "cycle": row["cycle"],
+            "target_residue": target % lower["arithmetic_period"],
+            "first_two_modes_to_principal_ratio": first_two,
+            "first_three_modes_to_principal_ratio": first_three,
+            "complement_to_principal_ratio": complement,
+            "full_action_to_principal_ratio": full,
+            "passed_predicates": tuple(
+                predicate for predicate, passed in predicates.items()
+                if passed),
+        }
+
+    predicate_sets["active_selector"] = (
+        predicate_sets["first_two_active"]
+        & predicate_sets["first_three_tail"])
+    predicate_sets["rescued_first_three_tail"] = (
+        predicate_sets["first_three_tail"] & predicate_sets["full_positive"])
+    predicate_sets["nonrescued_first_three_tail"] = (
+        predicate_sets["first_three_tail"]
+        & predicate_sets["full_nonpositive"])
+    predicate_sets["active_nonrescued"] = (
+        predicate_sets["active_selector"]
+        & predicate_sets["full_nonpositive"])
+
+    def sorted_targets(targets):
+        return tuple(sorted(targets))
+
+    def build_order(name, predicates):
+        current = set(all_targets)
+        stages = []
+        for predicate in predicates:
+            input_count = len(current)
+            current &= predicate_sets[predicate]
+            survivor_count = len(current)
+            stages.append({
+                "predicate": predicate,
+                "input_count": input_count,
+                "survivor_count": survivor_count,
+                "rejected_count": input_count - survivor_count,
+                "survivor_fraction_of_input": (
+                    survivor_count / input_count if input_count else math.nan),
+                "survivor_fraction_of_total": (
+                    survivor_count / len(all_targets) if all_targets
+                    else math.nan),
+                "survivor_targets": sorted_targets(current),
+            })
+        return {
+            "order": name,
+            "predicates": tuple(predicates),
+            "final_survivor_count": len(current),
+            "final_survivor_targets": sorted_targets(current),
+            "stages": tuple(stages),
+        }
+
+    order_specs = (
+        ("first_three_then_full_nonpositive",
+         ("first_three_tail", "full_nonpositive")),
+        ("full_nonpositive_then_first_three",
+         ("full_nonpositive", "first_three_tail")),
+        ("first_two_then_first_three",
+         ("first_two_active", "first_three_tail")),
+        ("first_three_then_first_two",
+         ("first_three_tail", "first_two_active")),
+        ("first_three_then_complement_floor",
+         ("first_three_tail", "complement_floor")),
+        ("complement_floor_then_first_three",
+         ("complement_floor", "first_three_tail")),
+        ("active_selector_then_full_nonpositive",
+         ("active_selector", "full_nonpositive")),
+        ("full_nonpositive_then_active_selector",
+         ("full_nonpositive", "active_selector")),
+    )
+    ordered_filter_rows = tuple(
+        build_order(name, predicates) for name, predicates in order_specs)
+    predicate_counts = {
+        predicate: len(targets)
+        for predicate, targets in predicate_sets.items()
+    }
+    selectivity_rank = tuple({
+        "predicate": predicate,
+        "survivor_count": count,
+        "survivor_fraction": (
+            count / len(all_targets) if all_targets else math.nan),
+    } for predicate, count in sorted(
+        predicate_counts.items(), key=lambda item: (item[1], item[0])))
+    return {
+        "arithmetic_period": lower["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tested_target_count": lower["tested_target_count"],
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "complement_floor": complement_floor,
+        "predicate_counts": predicate_counts,
+        "selectivity_rank": selectivity_rank,
+        "ordered_filter_rows": ordered_filter_rows,
+        "target_rows": target_rows,
+        "source_first_two_mode_lower_tail_receipt": lower,
+        "filter_order_audit_measured": True,
+        "filter_order_theorem_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "eventual_complement_floor_proved": False,
+        "strict_closure_margin_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_nonrescued_first_three_tail_cycle_horizon_receipt(
         start=10000, cycle_count=8, targets_per_cycle=5005,
         threshold=.3, tolerance=1e-9):

@@ -114,6 +114,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
+    q286_first_three_filter_order_audit_receipt,
     q286_nonrescued_first_three_tail_cycle_horizon_receipt,
     q286_first_three_tail_rescue_profile_receipt,
     q286_first_three_tail_rescue_floor_candidate_receipt,
@@ -4037,6 +4038,36 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "nonrescued_first_three_tail_classification_measured"])
         self.assertFalse(receipt[
             "nonrescued_classification_theorem_proved"])
+
+    def test_q286_first_three_filter_order_audit(self):
+        receipt = q286_first_three_filter_order_audit_receipt(
+            start=14138, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3, complement_floor=.3)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["predicate_counts"][
+            "first_three_tail"], 1)
+        self.assertEqual(receipt["predicate_counts"][
+            "full_nonpositive"], 1)
+        self.assertEqual(receipt["predicate_counts"][
+            "nonrescued_first_three_tail"], 1)
+        self.assertEqual(receipt["predicate_counts"][
+            "rescued_first_three_tail"], 0)
+        self.assertEqual(receipt["predicate_counts"][
+            "complement_floor"], 0)
+        first_three_order = next(
+            row for row in receipt["ordered_filter_rows"]
+            if row["order"] == "first_three_then_full_nonpositive")
+        full_order = next(
+            row for row in receipt["ordered_filter_rows"]
+            if row["order"] == "full_nonpositive_then_first_three")
+        self.assertEqual(first_three_order["final_survivor_targets"], (14138,))
+        self.assertEqual(full_order["final_survivor_targets"], (14138,))
+        self.assertEqual(
+            first_three_order["final_survivor_targets"],
+            full_order["final_survivor_targets"])
+        self.assertTrue(receipt["filter_order_audit_measured"])
+        self.assertFalse(receipt["filter_order_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_nonrescued_first_three_tail_cycle_horizon(self):
         receipt = q286_nonrescued_first_three_tail_cycle_horizon_receipt(

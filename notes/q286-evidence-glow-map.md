@@ -24,6 +24,12 @@ The first static visual summary is:
 evidence/q286-visual-summary.svg
 ```
 
+The first filter-order audit is:
+
+```text
+evidence/q286-filter-order-audit.json
+```
+
 They are built by:
 
 ```text
@@ -31,6 +37,7 @@ python tools/build_q286_evidence_glow_map.py
 python tools/build_q286_target_vector_overlay.py
 python tools/build_q286_target_vector_pca.py
 python tools/build_q286_visual_summary_svg.py
+python tools/build_q286_filter_order_audit.py
 ```
 
 The map overlays existing q286 graph roles, finite evidence receipts, selected
@@ -162,6 +169,16 @@ is deterministic so future commits can be compared directly.  It is also
 ordered: selection and finite receipts feed vector coordinates, vector
 coordinates feed PCA/shape views, and the views point back to theorem
 obligations rather than replacing them.
+
+The filter-order audit answers which predicates are acting as coarse or fine
+cloth in the current q286 lane.  On the eight-period fixture, the
+`first_three_tail` filter has `4406` targets while the full active selector has
+`4405`; after the first-three tail, `first_two_active` removes exactly one
+target.  The truly fine residual filter is `full_nonpositive`, with `89`
+targets globally and `86` inside the first-three tail.  This is an
+`aha-candidate` for theorem navigation only: first-three is the main coarse
+separator in this fixture, while the nonrescued/full-nonpositive minority is
+where proof pressure remains.
 
 ## Boundary
 

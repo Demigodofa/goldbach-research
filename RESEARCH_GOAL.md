@@ -10815,6 +10815,19 @@ feed vector coordinates, vector coordinates feed PCA/shape views, and the
 views point back to theorem obligations.  This is a static navigation artifact
 only, not proof evidence.
 
+The first filter-order audit is now generated:
+`evidence/q286-filter-order-audit.json`, produced by
+`tools/build_q286_filter_order_audit.py` from
+`q286_first_three_filter_order_audit_receipt` and documented in
+`notes/q286-filter-order-audit.md`.  On the same eight-period fixture,
+`first_three_tail` has `4406` targets and the full active selector has `4405`;
+after the first-three tail, the `first_two_active` filter removes exactly one
+target.  The fine residual filter is `full_nonpositive`: `89` total targets,
+`86` inside the first-three tail, and three outside it.  This is an
+`aha-candidate` for theorem navigation: first-three looks like the main coarse
+separator in this fixture, while the nonrescued/full-nonpositive minority is
+where proof pressure remains.  It is finite evidence only.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

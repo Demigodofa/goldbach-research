@@ -19560,6 +19560,29 @@ and receipts feed vector coordinates, vector coordinates feed PCA/shape views,
 and the views point back to theorem obligations.  It is deterministic and
 repo-backed, but only a navigation artifact.
 
+New filter-order audit:
+
+- `q286_first_three_filter_order_audit_receipt`
+- `tools/build_q286_filter_order_audit.py`
+- `evidence/q286-filter-order-audit.json`
+- `notes/q286-filter-order-audit.md`
+
+On the eight-period fixture (`40040` targets), `first_three_tail` has `4406`
+targets and the full active selector has `4405`; after first-three, the
+`first_two_active` filter removes exactly one target (`10648`).  The fine
+residual filter is `full_nonpositive`: `89` targets globally, `86` inside the
+first-three tail, and three outside (`10354`, `11614`, `14888`).  Treat this
+as an `aha-candidate` for theorem navigation only: first-three is the main
+coarse separator in this fixture, while the nonrescued/full-nonpositive
+minority is where proof pressure remains.  It is finite evidence, not a
+theorem.
+
+Local deterministic math-worker stack now verified for this machine:
+`numpy`, `scipy`, `sympy 1.14.0`, `z3-solver 5.1.0.0`, `pulp 3.3.2`, and
+`cvxpy 1.9.2`.  Future agents should use the `python-math-toolchain`
+capability in `codex-agent-ops` and run its cold test before relying on the
+packages.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -1,0 +1,518 @@
+{
+  "difference_targets": {
+    "first_three_tail_below_complement_floor": [
+      10294,
+      10564,
+      10814,
+      11902,
+      12424,
+      14138,
+      14852,
+      15026,
+      16388,
+      17042,
+      17522
+    ],
+    "first_three_tail_not_first_two_active": [
+      10648
+    ],
+    "first_two_active_not_first_three_tail_count": 3363,
+    "first_two_active_not_first_three_tail_first20": [
+      10022,
+      10060,
+      10086,
+      10116,
+      10136,
+      10190,
+      10196,
+      10238,
+      10264,
+      10268,
+      10270,
+      10290,
+      10298,
+      10310,
+      10350,
+      10386,
+      10390,
+      10398,
+      10456,
+      10458
+    ],
+    "full_nonpositive_not_first_three_tail": [
+      10354,
+      11614,
+      14888
+    ]
+  },
+  "filter_order_audit_measured": true,
+  "filter_order_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "complement_floor_vs_first_three": "The complement .3 floor is very coarse globally but removes only eleven first-three tail targets on this fixture, so it is not the first sorting cloth for the tail problem.",
+    "first_three_vs_active_selector": "On this eight-period fixture, first_three_tail has one more target than active_selector, so the first_two filter is almost redundant after the first-three tail filter.",
+    "full_nonpositive_vs_first_three": "Only three full-nonpositive targets are outside the first-three tail; the nonrescued minority is essentially the hard residual inside the first-three tail on this finite fixture."
+  },
+  "ordered_filter_rows": [
+    {
+      "final_survivor_count": 86,
+      "first_final_survivor_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11894
+      ],
+      "order": "first_three_then_full_nonpositive",
+      "predicates": [
+        "first_three_tail",
+        "full_nonpositive"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "first_three_tail",
+          "rejected_count": 35634,
+          "survivor_count": 4406,
+          "survivor_fraction_of_input": 0.11003996003996004,
+          "survivor_fraction_of_total": 0.11003996003996004
+        },
+        {
+          "input_count": 4406,
+          "predicate": "full_nonpositive",
+          "rejected_count": 4320,
+          "survivor_count": 86,
+          "survivor_fraction_of_input": 0.019518837948252384,
+          "survivor_fraction_of_total": 0.002147852147852148
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 86,
+      "first_final_survivor_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11894
+      ],
+      "order": "full_nonpositive_then_first_three",
+      "predicates": [
+        "full_nonpositive",
+        "first_three_tail"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "full_nonpositive",
+          "rejected_count": 39951,
+          "survivor_count": 89,
+          "survivor_fraction_of_input": 0.002222777222777223,
+          "survivor_fraction_of_total": 0.002222777222777223
+        },
+        {
+          "input_count": 89,
+          "predicate": "first_three_tail",
+          "rejected_count": 3,
+          "survivor_count": 86,
+          "survivor_fraction_of_input": 0.9662921348314607,
+          "survivor_fraction_of_total": 0.002147852147852148
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 4405,
+      "first_final_survivor_targets": [
+        10012,
+        10016,
+        10018,
+        10020,
+        10028,
+        10030,
+        10034,
+        10036,
+        10040,
+        10042,
+        10044,
+        10048,
+        10050,
+        10056,
+        10058,
+        10066,
+        10078,
+        10088,
+        10090,
+        10092
+      ],
+      "order": "first_two_then_first_three",
+      "predicates": [
+        "first_two_active",
+        "first_three_tail"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "first_two_active",
+          "rejected_count": 32272,
+          "survivor_count": 7768,
+          "survivor_fraction_of_input": 0.194005994005994,
+          "survivor_fraction_of_total": 0.194005994005994
+        },
+        {
+          "input_count": 7768,
+          "predicate": "first_three_tail",
+          "rejected_count": 3363,
+          "survivor_count": 4405,
+          "survivor_fraction_of_input": 0.5670700308959835,
+          "survivor_fraction_of_total": 0.11001498501498501
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 4405,
+      "first_final_survivor_targets": [
+        10012,
+        10016,
+        10018,
+        10020,
+        10028,
+        10030,
+        10034,
+        10036,
+        10040,
+        10042,
+        10044,
+        10048,
+        10050,
+        10056,
+        10058,
+        10066,
+        10078,
+        10088,
+        10090,
+        10092
+      ],
+      "order": "first_three_then_first_two",
+      "predicates": [
+        "first_three_tail",
+        "first_two_active"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "first_three_tail",
+          "rejected_count": 35634,
+          "survivor_count": 4406,
+          "survivor_fraction_of_input": 0.11003996003996004,
+          "survivor_fraction_of_total": 0.11003996003996004
+        },
+        {
+          "input_count": 4406,
+          "predicate": "first_two_active",
+          "rejected_count": 1,
+          "survivor_count": 4405,
+          "survivor_fraction_of_input": 0.9997730367680435,
+          "survivor_fraction_of_total": 0.11001498501498501
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 4395,
+      "first_final_survivor_targets": [
+        10012,
+        10016,
+        10018,
+        10020,
+        10028,
+        10030,
+        10034,
+        10036,
+        10040,
+        10042,
+        10044,
+        10048,
+        10050,
+        10056,
+        10058,
+        10066,
+        10078,
+        10088,
+        10090,
+        10092
+      ],
+      "order": "first_three_then_complement_floor",
+      "predicates": [
+        "first_three_tail",
+        "complement_floor"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "first_three_tail",
+          "rejected_count": 35634,
+          "survivor_count": 4406,
+          "survivor_fraction_of_input": 0.11003996003996004,
+          "survivor_fraction_of_total": 0.11003996003996004
+        },
+        {
+          "input_count": 4406,
+          "predicate": "complement_floor",
+          "rejected_count": 11,
+          "survivor_count": 4395,
+          "survivor_fraction_of_input": 0.9975034044484793,
+          "survivor_fraction_of_total": 0.10976523476523477
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 4395,
+      "first_final_survivor_targets": [
+        10012,
+        10016,
+        10018,
+        10020,
+        10028,
+        10030,
+        10034,
+        10036,
+        10040,
+        10042,
+        10044,
+        10048,
+        10050,
+        10056,
+        10058,
+        10066,
+        10078,
+        10088,
+        10090,
+        10092
+      ],
+      "order": "complement_floor_then_first_three",
+      "predicates": [
+        "complement_floor",
+        "first_three_tail"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "complement_floor",
+          "rejected_count": 64,
+          "survivor_count": 39976,
+          "survivor_fraction_of_input": 0.9984015984015984,
+          "survivor_fraction_of_total": 0.9984015984015984
+        },
+        {
+          "input_count": 39976,
+          "predicate": "first_three_tail",
+          "rejected_count": 35581,
+          "survivor_count": 4395,
+          "survivor_fraction_of_input": 0.10994096457874725,
+          "survivor_fraction_of_total": 0.10976523476523477
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 86,
+      "first_final_survivor_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11894
+      ],
+      "order": "active_selector_then_full_nonpositive",
+      "predicates": [
+        "active_selector",
+        "full_nonpositive"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "active_selector",
+          "rejected_count": 35635,
+          "survivor_count": 4405,
+          "survivor_fraction_of_input": 0.11001498501498501,
+          "survivor_fraction_of_total": 0.11001498501498501
+        },
+        {
+          "input_count": 4405,
+          "predicate": "full_nonpositive",
+          "rejected_count": 4319,
+          "survivor_count": 86,
+          "survivor_fraction_of_input": 0.01952326901248581,
+          "survivor_fraction_of_total": 0.002147852147852148
+        }
+      ]
+    },
+    {
+      "final_survivor_count": 86,
+      "first_final_survivor_targets": [
+        10042,
+        10088,
+        10294,
+        10344,
+        10392,
+        10424,
+        10464,
+        10498,
+        10522,
+        10532,
+        10564,
+        10664,
+        10814,
+        10824,
+        10934,
+        11168,
+        11192,
+        11486,
+        11576,
+        11894
+      ],
+      "order": "full_nonpositive_then_active_selector",
+      "predicates": [
+        "full_nonpositive",
+        "active_selector"
+      ],
+      "stage_counts": [
+        {
+          "input_count": 40040,
+          "predicate": "full_nonpositive",
+          "rejected_count": 39951,
+          "survivor_count": 89,
+          "survivor_fraction_of_input": 0.002222777222777223,
+          "survivor_fraction_of_total": 0.002222777222777223
+        },
+        {
+          "input_count": 89,
+          "predicate": "active_selector",
+          "rejected_count": 3,
+          "survivor_count": 86,
+          "survivor_fraction_of_input": 0.9662921348314607,
+          "survivor_fraction_of_total": 0.002147852147852148
+        }
+      ]
+    }
+  ],
+  "parameters": {
+    "complement_floor": 0.3,
+    "cycle_count": 8,
+    "first_two_threshold": 0.2,
+    "start": 10000,
+    "tail_threshold": 0.3,
+    "targets_per_cycle": 5005,
+    "tested_target_count": 40040
+  },
+  "predicate_counts": {
+    "active_nonrescued": 86,
+    "active_selector": 4405,
+    "complement_floor": 39976,
+    "complement_positive": 40040,
+    "first_three_tail": 4406,
+    "first_two_active": 7768,
+    "full_nonpositive": 89,
+    "full_positive": 39951,
+    "nonrescued_first_three_tail": 86,
+    "rescued_first_three_tail": 4320
+  },
+  "schema_version": 1,
+  "selectivity_rank": [
+    {
+      "predicate": "active_nonrescued",
+      "survivor_count": 86,
+      "survivor_fraction": 0.002147852147852148
+    },
+    {
+      "predicate": "nonrescued_first_three_tail",
+      "survivor_count": 86,
+      "survivor_fraction": 0.002147852147852148
+    },
+    {
+      "predicate": "full_nonpositive",
+      "survivor_count": 89,
+      "survivor_fraction": 0.002222777222777223
+    },
+    {
+      "predicate": "rescued_first_three_tail",
+      "survivor_count": 4320,
+      "survivor_fraction": 0.10789210789210789
+    },
+    {
+      "predicate": "active_selector",
+      "survivor_count": 4405,
+      "survivor_fraction": 0.11001498501498501
+    },
+    {
+      "predicate": "first_three_tail",
+      "survivor_count": 4406,
+      "survivor_fraction": 0.11003996003996004
+    },
+    {
+      "predicate": "first_two_active",
+      "survivor_count": 7768,
+      "survivor_fraction": 0.194005994005994
+    },
+    {
+      "predicate": "full_positive",
+      "survivor_count": 39951,
+      "survivor_fraction": 0.9977772227772228
+    },
+    {
+      "predicate": "complement_floor",
+      "survivor_count": 39976,
+      "survivor_fraction": 0.9984015984015984
+    },
+    {
+      "predicate": "complement_positive",
+      "survivor_count": 40040,
+      "survivor_fraction": 1.0
+    }
+  ],
+  "source_commit": "a4334c4e182b488d4171fad78b4666350aaba83b",
+  "status_boundary": "finite q286 filter-order audit only; no eventual theorem, signed prime-correlation estimate, or Goldbach proof"
+}
