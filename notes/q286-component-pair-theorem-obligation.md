@@ -1454,6 +1454,13 @@ The larger selector-only holdout in
 first-two/first-three row at target `1010026`.  This broadens the denominator
 record but still supplies no fixed-inequality or strict-closure stress row.
 
+`evidence/q286-first-three-tail-scout-4x12x25.json` then uses the cheaper
+first-three mode-only scout as a necessary-condition screen.  Across starts
+`1120120`, `1240240`, `1500500`, and `2001000`, with `12` cycles and `25`
+targets per cycle at each start, it scanned `1200` targets and found zero
+first-three hits below `-0.3`.  Therefore these windows contain no active
+selector rows, but this remains denominator screening only.
+
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json` records a
 second selector-only check: the next six same-residue q286-period shifts after
 the known hit `1379072`, with five even targets per window.  It scanned
@@ -1486,13 +1493,15 @@ currently observed strict slack is channel-carried.
 `evidence/q286-active-lane-sampling-denominator-map.json` records the current
 sample posture explicitly: the strict closure margin has only been stressed on
 the three selected late active rows, while the `300`-target neutral selector
-holdout and the `30`-target same-residue holdout selected zero active tail
-targets.  Those zero-hit scans are useful denominator evidence, but no
-fixed-inequality or strict-closure row was stressed there.  Thus the next
-obligation is not another tuned threshold receipt; it is either a larger
-predeclared selector holdout on new windows or a stress pass on active rows
-found by an unchanged selector, with scanned, selected, applicable, stressed,
-passed, failed, and not-applicable counts kept separate.
+holdout selected zero active tail targets, the `1200`-target first-three scout
+excluded active rows by the necessary condition, and the `30`-target
+same-residue holdout selected zero active tail targets.  Those zero-hit scans
+are useful denominator evidence, but no fixed-inequality or strict-closure row
+was stressed there.  Thus the next obligation is not another tuned threshold
+receipt; it is either a larger predeclared selector holdout on new windows or
+a stress pass on active rows found by an unchanged selector, with scanned,
+selected, applicable, stressed, passed, failed, and not-applicable counts kept
+separate.
 
 ## External source context
 

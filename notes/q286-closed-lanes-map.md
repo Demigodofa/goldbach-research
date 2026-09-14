@@ -416,6 +416,13 @@ current comparison set.
    `1010026`, with first-two `-0.20990264929935676` and first-three
    `-0.21213063260679105`.  This broadens the denominator evidence but still
    creates no fixed-inequality or strict-closure stress row.
+48b. The fast necessary-condition scout
+   `evidence/q286-first-three-tail-scout-4x12x25.json` scanned `1200` new
+   targets across starts `1120120`, `1240240`, `1500500`, and `2001000`,
+   with `12` cycles and `25` targets per cycle at each start.  It found zero
+   first-three hits below `-0.3`, so these windows contain no active-selector
+   rows.  This is only a necessary-condition exclusion; no fixed-inequality or
+   strict-closure row was stressed.
 49. The active-residue selector holdout
    `evidence/q286-tail-selector-active-residue-holdout-6x5.json` scanned the
    next six same-residue q286-period shifts after the known `1379072` hit,
@@ -438,7 +445,9 @@ current comparison set.
    sampling posture explicitly.  The strict closure margin has only been
    stressed on the three selected late active rows.  The broader neutral
    selector holdout scanned `300` targets and found zero active tail rows; the
-   same-residue holdout scanned `30` targets and found zero active tail rows.
+   necessary-condition scout scanned `1200` targets and found zero first-three
+   hits below `-0.3`; the same-residue holdout scanned `30` targets and found
+   zero active tail rows.
    These are denominator facts, not strict-closure successes.  The
    sample-size/cherry-pick concern remains open.
 

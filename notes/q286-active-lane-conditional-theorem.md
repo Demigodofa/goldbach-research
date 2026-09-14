@@ -152,8 +152,10 @@ The sampling posture is now tracked separately in
 `evidence/q286-active-lane-sampling-denominator-map.json`.  The key warning is
 that strict closure has only been stressed on selected active fixtures; the
 broader neutral holdout now scans `300` targets with zero active-tail hits,
-and the same-residue holdout scans `30` more with zero active-tail hits.
-These windows therefore supply denominator evidence only.  They do not support
-the strict closure inequality.  The sample-size/cherry-pick question remains
-open until larger unchanged selector holdouts either produce stressable active
-rows or support a meaningful rarity theorem for the active selector.
+the necessary-condition scout scans `1200` new targets with zero first-three
+hits below `-0.3`, and the same-residue holdout scans `30` more targets with
+zero active-tail hits.  These windows therefore supply denominator evidence
+only.  They do not support the strict closure inequality.  The
+sample-size/cherry-pick question remains open until larger unchanged selector
+holdouts either produce stressable active rows or support a meaningful rarity
+theorem for the active selector.

@@ -66,6 +66,26 @@
       "boundary": "Selector-only evidence. Because no target entered the active lane, this larger holdout broadens the denominator record but still gives no direct strict-closure support."
     },
     {
+      "source": "evidence/q286-first-three-tail-scout-4x12x25.json",
+      "role": "necessary-condition scout for active-selector denominator",
+      "sample_posture": "predeclared new windows screened by the first-three < -0.3 necessary condition before expensive active-selector or strict-closure work",
+      "starts": [
+        1120120,
+        1240240,
+        1500500,
+        2001000
+      ],
+      "cycle_count_per_start": 12,
+      "targets_per_cycle": 25,
+      "scanned_target_count": 1200,
+      "first_three_tail_count_below_0_3": 0,
+      "selected_tail_target_count": 0,
+      "fixed_inequality_stressed_target_count": 0,
+      "strict_closure_stressed_target_count": 0,
+      "failure_count": 0,
+      "boundary": "Necessary-condition scout evidence only. It excludes active-selector rows in the tested windows, but does not provide strict-closure support."
+    },
+    {
       "source": "evidence/q286-tail-selector-active-residue-holdout-6x5.json",
       "role": "same-residue active-hit recurrence holdout",
       "sample_posture": "predeclared same-residue holdout after the known 1379072 hit",
@@ -105,7 +125,7 @@
       "boundary": "Finite selected-fixture strict-margin evidence only; no broad active-lane theorem."
     }
   ],
-  "raw_scanned_target_count_across_recorded_receipts_including_overlaps": 500,
+  "raw_scanned_target_count_across_recorded_receipts_including_overlaps": 1700,
   "known_overlap": [
     "Target 1379072 appears in both the local fixed-inequality window and the selected strict-closure window.",
     "The 12x25 neutral selector holdout includes the earlier 6x25 neutral selector grid."
@@ -113,6 +133,9 @@
   "largest_broad_neutral_selector_scanned_target_count": 300,
   "broad_neutral_selector_scanned_target_count": 300,
   "broad_neutral_selector_selected_tail_target_count": 0,
+  "necessary_condition_scout_scanned_target_count": 1200,
+  "necessary_condition_scout_first_three_tail_count_below_0_3": 0,
+  "necessary_condition_scout_active_selector_rows_excluded": true,
   "broad_neutral_strict_closure_stressed_target_count": 0,
   "selected_fixture_strict_closure_stressed_target_count": 3,
   "sample_size_concern_closed": false,

@@ -1,0 +1,56 @@
+{
+  "receipt": "q286-first-three-tail-scout-4x12x25",
+  "generated_on": "2026-09-13",
+  "source_commit": "b7737417f4155e3e277502c274a6a6c503fd2282",
+  "purpose": "Fast necessary-condition scout for the q286 active selector on new predeclared windows. Since the active selector requires first_three < -0.3, windows with no first-three tail hit cannot contain active-selector rows.",
+  "scout_function": "q286_first_three_tail_hit_residue_profile_receipt",
+  "active_selector_necessary_condition": {
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "blocks": [
+    {
+      "start": 1120120,
+      "cycle_count": 12,
+      "targets_per_cycle": 25,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 1170178,
+      "minimum_first_three_to_principal_ratio": -0.20254699412387317
+    },
+    {
+      "start": 1240240,
+      "cycle_count": 12,
+      "targets_per_cycle": 25,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 1240258,
+      "minimum_first_three_to_principal_ratio": -0.23248485272080724
+    },
+    {
+      "start": 1500500,
+      "cycle_count": 12,
+      "targets_per_cycle": 25,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 1510514,
+      "minimum_first_three_to_principal_ratio": -0.13253981209348936
+    },
+    {
+      "start": 2001000,
+      "cycle_count": 12,
+      "targets_per_cycle": 25,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 2061064,
+      "minimum_first_three_to_principal_ratio": -0.12131202314480176
+    }
+  ],
+  "tested_target_count": 1200,
+  "first_three_tail_count_below_0_3": 0,
+  "active_selector_rows_excluded_by_necessary_condition": true,
+  "validation": {
+    "direct_scout_probe": "q286_first_three_tail_hit_residue_profile_receipt(start=start, cycle_count=12, targets_per_cycle=25, negative_tail_thresholds=(.3,)) for starts 1120120,1240240,1500500,2001000",
+    "probe_output_summary": "Each 300-target block had tail_count 0; global block minima were -0.20254699412387317, -0.23248485272080724, -0.13253981209348936, and -0.12131202314480176."
+  },
+  "boundary": "Necessary-condition scout evidence only. It excludes active-selector rows in these tested windows because first_three never drops below -0.3, but it does not run fixed-inequality or strict-closure stress rows and proves no uniform theorem or Goldbach."
+}

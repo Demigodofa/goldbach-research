@@ -19371,6 +19371,17 @@ first-two and first-three row was target `1010026`, with first-two
 the denominator record, but it remains selector-only: no fixed-inequality or
 strict-closure stress rows were generated.
 
+Fast necessary-condition scout evidence is recorded in
+`evidence/q286-first-three-tail-scout-4x12x25.json`.  It used
+`q286_first_three_tail_hit_residue_profile_receipt` on starts `1120120`,
+`1240240`, `1500500`, and `2001000`, with `12` cycles and `25` targets per
+cycle at each start.  It scanned `1200` new targets and found zero
+first-three hits below `-0.3`; block minima were `-0.20254699412387317`,
+`-0.23248485272080724`, `-0.13253981209348936`, and
+`-0.12131202314480176`.  Since the active selector requires
+`first_three < -0.3`, these windows contain no active-selector rows.  This is
+only a necessary-condition exclusion and not strict-closure support.
+
 Additional active-residue holdout evidence is recorded in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json`.  This used
 starts `1379072 + 10010*k` for `k=1..6`, with five even targets per window,
@@ -19410,12 +19421,14 @@ This evidence map separates selected stress fixtures from neutral
 selector-denominator scans.  It records that the strict closure margin has
 only been stressed on the three selected late active rows.  The broader
 neutral selector holdout now scans `300` predeclared targets and selects zero
-active tail targets; the same-residue holdout after `1379072` scans `30`
-targets and also selects zero.  These zero-hit windows are denominator
-evidence only and must not be counted as fixed-inequality or strict-closure
-successes.  The sample-size/cherry-pick concern is still open.  Future
-holdouts should report scanned, selected, applicable, stressed, passed,
-failed, and not-applicable counts separately before any constants are changed.
+active tail targets; a necessary-condition scout scans `1200` additional
+targets and finds zero first-three hits below `-0.3`; the same-residue holdout
+after `1379072` scans `30` targets and also selects zero.  These zero-hit
+windows are denominator evidence only and must not be counted as
+fixed-inequality or strict-closure successes.  The sample-size/cherry-pick
+concern is still open.  Future holdouts should report scanned, selected,
+applicable, stressed, passed, failed, and not-applicable counts separately
+before any constants are changed.
 
 Do not count the interrupted `12x25` broad strict-closure probe from
 2026-09-13 as mathematical evidence.  It was interrupted after more than
