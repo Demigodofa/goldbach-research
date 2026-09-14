@@ -1,0 +1,234 @@
+{
+  "arithmetic_modulus": 286,
+  "coupled_pressure_offset_curve_proved": false,
+  "dominant_floor_failure_targets": [
+    1222142
+  ],
+  "dominant_floor_pass_targets": [
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "dominant_mode_pressure_offset_scalar_falsifier_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "exact_curve_mismatch_targets": [],
+  "falsifier": "If a failing named row has at least as much positive offset or at least as high a positive/negative ratio as a clear named row, then that scalar floor cannot certify the clear row without also certifying the tail row.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "pressure_only": "The algebraic pressure-only sufficient condition remains B <= tau.  Named clear rows with B > tau show pressure excess is not itself failure.",
+    "remaining_theorem": "The viable scalar formulation is the coupled exact curve P >= B - tau, equivalently R >= 1 - tau/B when B > 0, or a stronger arithmetic theorem implying it.",
+    "scalar_offset_floor": "Falsified on the named fixture: the tail row can have more positive offset than a clear row.",
+    "scalar_ratio_floor": "Falsified on the named fixture: the tail row can have a higher positive/negative pressure ratio than a clear row."
+  },
+  "maximum_real_channel_identity_error": 2.3314683517128287e-15,
+  "mechanism": "After top-k negative pressure was demoted, test whether the positive rescue side can be separated by one scalar offset floor or one scalar offset/pressure ratio floor.",
+  "pointwise_character_sum_estimate_proved": false,
+  "positive_offset_floor_counterexamples": [
+    {
+      "clear_positive_offset_P": 0.05996824017570475,
+      "clear_target": 1242118,
+      "tail_minus_clear_positive_offset": 0.0031655827193251274,
+      "tail_positive_offset_P": 0.06313382289502988,
+      "tail_target": 1222142
+    },
+    {
+      "clear_positive_offset_P": 0.013711748649337881,
+      "clear_target": 1240888,
+      "tail_minus_clear_positive_offset": 0.04942207424569199,
+      "tail_positive_offset_P": 0.06313382289502988,
+      "tail_target": 1222142
+    },
+    {
+      "clear_positive_offset_P": 0.03405108770329006,
+      "clear_target": 1243130,
+      "tail_minus_clear_positive_offset": 0.029082735191739817,
+      "tail_positive_offset_P": 0.06313382289502988,
+      "tail_target": 1222142
+    },
+    {
+      "clear_positive_offset_P": 0.034145907625464274,
+      "clear_target": 1244094,
+      "tail_minus_clear_positive_offset": 0.028987915269565602,
+      "tail_positive_offset_P": 0.06313382289502988,
+      "tail_target": 1222142
+    }
+  ],
+  "positive_ratio_floor_counterexamples": [
+    {
+      "clear_ratio_R": 0.047855301498350294,
+      "clear_target": 1240888,
+      "tail_minus_clear_ratio": 0.12187433171709239,
+      "tail_ratio_R": 0.16972963321544268,
+      "tail_target": 1222142
+    }
+  ],
+  "pressure_excess_clear_rows": [
+    {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2834710865332539,
+      "exact_curve_margin": 0.048127608521523896,
+      "exact_required_ratio_for_threshold": 0.12648326307071944,
+      "mean_negative_pressure_per_negative_channel": 0.017171966335448006,
+      "mean_positive_offset_per_positive_channel": 0.01199364803514095,
+      "negative_pressure_B": 0.34343932670896016,
+      "negative_real_channel_count": 20,
+      "positive_offset_P": 0.05996824017570475,
+      "positive_offset_slack_to_floor": 0.01652891346674458,
+      "positive_real_channel_count": 5,
+      "positive_to_negative_pressure_ratio_R": 0.17461087159224334,
+      "required_positive_offset_for_floor": 0.04343932670896017,
+      "target": 1242118,
+      "target_mod_286": 20
+    }
+  ],
+  "pressure_excess_implies_failure_falsified_on_named_rows": true,
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "scalar_offset_theorem_proved": false,
+  "scalar_ratio_theorem_proved": false,
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "e5b9578b3812a9d3ec076ea521a0996b182257c2",
+  "status_boundary": "finite named-row scalar-separator falsifier only; no scalar offset theorem, scalar ratio theorem, coupled pressure/offset curve theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "target_rows": {
+    "1222142": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.3088331795605278,
+      "exact_curve_margin": -0.02374721279634337,
+      "exact_required_ratio_for_threshold": 0.19347684601178605,
+      "mean_negative_pressure_per_negative_channel": 0.02188041190915059,
+      "mean_positive_offset_per_positive_channel": 0.007891727861878734,
+      "negative_pressure_B": 0.37196700245556,
+      "negative_real_channel_count": 17,
+      "positive_offset_P": 0.06313382289502988,
+      "positive_offset_slack_to_floor": -0.00883317956053016,
+      "positive_real_channel_count": 8,
+      "positive_to_negative_pressure_ratio_R": 0.16972963321544268,
+      "required_positive_offset_for_floor": 0.07196700245556004,
+      "target": 1222142,
+      "target_mod_286": 64
+    },
+    "1240888": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.27281342661908214,
+      "exact_curve_margin": 0.09488371608341087,
+      "exact_required_ratio_for_threshold": -0.047028414585060574,
+      "mean_negative_pressure_per_negative_channel": 0.013023871603109981,
+      "mean_positive_offset_per_positive_channel": 0.004570582883112627,
+      "negative_pressure_B": 0.2865251752684196,
+      "negative_real_channel_count": 22,
+      "positive_offset_P": 0.013711748649337881,
+      "positive_offset_slack_to_floor": 0.013711748649337881,
+      "positive_real_channel_count": 3,
+      "positive_to_negative_pressure_ratio_R": 0.047855301498350294,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1240888,
+      "target_mod_286": 220
+    },
+    "1242118": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2834710865332539,
+      "exact_curve_margin": 0.048127608521523896,
+      "exact_required_ratio_for_threshold": 0.12648326307071944,
+      "mean_negative_pressure_per_negative_channel": 0.017171966335448006,
+      "mean_positive_offset_per_positive_channel": 0.01199364803514095,
+      "negative_pressure_B": 0.34343932670896016,
+      "negative_real_channel_count": 20,
+      "positive_offset_P": 0.05996824017570475,
+      "positive_offset_slack_to_floor": 0.01652891346674458,
+      "positive_real_channel_count": 5,
+      "positive_to_negative_pressure_ratio_R": 0.17461087159224334,
+      "required_positive_offset_for_floor": 0.04343932670896017,
+      "target": 1242118,
+      "target_mod_286": 20
+    },
+    "1243018": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1375691011170794,
+      "exact_curve_margin": 0.6280582709387459,
+      "exact_required_ratio_for_threshold": -0.15998546198672248,
+      "mean_negative_pressure_per_negative_channel": 0.018473137923530895,
+      "mean_positive_offset_per_positive_channel": 0.01100498452839578,
+      "negative_pressure_B": 0.25862393092943253,
+      "negative_real_channel_count": 14,
+      "positive_offset_P": 0.12105482981235356,
+      "positive_offset_slack_to_floor": 0.12105482981235356,
+      "positive_real_channel_count": 11,
+      "positive_to_negative_pressure_ratio_R": 0.46807280895202336,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1243018,
+      "target_mod_286": 62
+    },
+    "1243130": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.07231331638447305,
+      "exact_curve_margin": 2.1406285831080707,
+      "exact_required_ratio_for_threshold": -1.8204924624262544,
+      "mean_negative_pressure_per_negative_channel": 0.006256729652221439,
+      "mean_positive_offset_per_positive_channel": 0.004256385962911257,
+      "negative_pressure_B": 0.10636440408776447,
+      "negative_real_channel_count": 17,
+      "positive_offset_P": 0.03405108770329006,
+      "positive_offset_slack_to_floor": 0.03405108770329006,
+      "positive_real_channel_count": 8,
+      "positive_to_negative_pressure_ratio_R": 0.32013612068181646,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1243130,
+      "target_mod_286": 174
+    },
+    "1244072": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.11518488645319175,
+      "exact_curve_margin": 0.7864703464143646,
+      "exact_required_ratio_for_threshold": -0.2766331681231886,
+      "mean_negative_pressure_per_negative_channel": 0.015666207411329063,
+      "mean_positive_offset_per_positive_channel": 0.01198082247167448,
+      "negative_pressure_B": 0.23499311116993596,
+      "negative_real_channel_count": 15,
+      "positive_offset_P": 0.1198082247167448,
+      "positive_offset_slack_to_floor": 0.1198082247167448,
+      "positive_real_channel_count": 10,
+      "positive_to_negative_pressure_ratio_R": 0.509837178291176,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1244072,
+      "target_mod_286": 258
+    },
+    "1244094": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15128938620082624,
+      "exact_curve_margin": 0.8019542058615708,
+      "exact_required_ratio_for_threshold": -0.6178150006385856,
+      "mean_negative_pressure_per_negative_channel": 0.009271764691314634,
+      "mean_positive_offset_per_positive_channel": 0.006829181525092855,
+      "negative_pressure_B": 0.18543529382629267,
+      "negative_real_channel_count": 20,
+      "positive_offset_P": 0.034145907625464274,
+      "positive_offset_slack_to_floor": 0.034145907625464274,
+      "positive_real_channel_count": 5,
+      "positive_to_negative_pressure_ratio_R": 0.18413920522298524,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1244094,
+      "target_mod_286": 280
+    }
+  },
+  "uniform_positive_offset_floor_falsified_on_named_rows": true,
+  "uniform_positive_ratio_floor_falsified_on_named_rows": true
+}

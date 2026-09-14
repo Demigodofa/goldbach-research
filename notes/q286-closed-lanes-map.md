@@ -1017,6 +1017,23 @@ current comparison set.
    `0.9523322684`.  Only `1222142` fails among the named rows.  This demotes a
    tiny top-k pressure theorem on current evidence and keeps the live pressure
    target in the bulk multi-channel or residue-dependent envelope class.
+103. `q286_first_three_dominant_mode_signed_channel_profile_receipt`, reused
+   by
+   `tools/build_q286_first_three_dominant_mode_pressure_offset_scalar_falsifier.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pressure-offset-scalar-falsifier.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-pressure-offset-scalar-falsifier.json`,
+   tests scalar rescue simplifications after the top-k pressure route was
+   demoted.  The named fixture has `4` positive-offset floor counterexamples:
+   tail `1222142` has `P=0.0631338229`, more positive offset than clear
+   high-pressure row `1242118` with `P=0.0599682402`.  It also has one global
+   ratio-floor counterexample: tail `1222142` has `R=0.1697296332`, while clear
+   pressure-branch row `1240888` has `R=0.0478553015`.  The exact coupled curve
+   `P >= B - 0.3` has no named-row mismatch, but that is algebraic.  This
+   demotes scalar offset floors and global scalar ratio floors; the live scalar
+   target is coupled pressure/offset curve control or a split theorem implying
+   it.
 
 ## Still open
 
@@ -1053,7 +1070,8 @@ current comparison set.
   sparse in the checked stress neighborhoods, so the next useful target is a
   near-boundary selector/arithmetic-placement theorem rather than another raw
   threshold scan.  The simple-selector audit further says this theorem cannot
-  be just q286 residue membership or one scalar residual interval on the
-  checked rows.
+  be just q286 residue membership, one scalar residual interval, a scalar
+  positive-offset floor, or a global scalar positive/negative pressure ratio
+  floor on the checked rows.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

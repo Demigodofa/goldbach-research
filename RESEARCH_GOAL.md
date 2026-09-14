@@ -11633,3 +11633,56 @@ remaining pressure route is a bulk/residue-dependent envelope or a separate
 classification/rescue of failures.  This is finite diagnostic evidence only;
 it proves no top-k theorem, pressure envelope theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: dominant-mode pressure/offset scalar falsifier
+
+The bulk-pressure result was then tested against a scalar rescue
+simplification.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pressure-offset-scalar-falsifier.json
+```
+
+The exact branch identity is still:
+
+```text
+dominant_sum = P - B
+floor condition: P >= B - 0.3
+```
+
+where `B` is negative real-channel pressure and `P` is positive real-channel
+offset.  The diagnostic asks whether `P` alone or the ratio `R=P/B` alone can
+separate the named clear rows from the tail row.
+
+The named fixture has `4` positive-offset floor counterexamples.  In
+particular:
+
+```text
+tail 1222142:
+  B = 0.37196700245556
+  P = 0.06313382289502988
+  R = 0.16972963321544268
+  exact curve margin = -0.02374721279634337
+  slack = -0.00883317956053016
+
+clear 1242118:
+  B = 0.34343932670896016
+  P = 0.05996824017570475
+  R = 0.17461087159224334
+  exact curve margin = 0.048127608521523896
+  slack = 0.01652891346674458
+```
+
+The tail has more positive offset than the clear high-pressure row
+`1242118`, so a uniform positive-offset floor that certifies `1242118` would
+also certify the tail.  A global ratio floor is also falsified on the named
+fixture: tail `1222142` has `R = 0.16972963321544268`, while pressure-branch
+clear row `1240888` has `R = 0.047855301498350294`.
+
+The exact pressure/offset curve has zero named-row mismatches, but that is an
+algebraic restatement of the floor condition, not a proof.  The remaining
+scalar theorem target is coupled curve control `P >= B - 0.3`, or an
+arithmetic theorem that implies it, possibly after splitting into pressure
+subregions or invoking lower-support/complement rescue.  This is finite
+falsifier evidence only; it proves no scalar theorem, coupled curve theorem,
+pointwise character-sum estimate, or Goldbach.
