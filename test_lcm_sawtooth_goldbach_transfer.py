@@ -112,6 +112,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt,
     q286_first_three_reflection_orbit_dual_rectangle_receipt,
     q286_first_three_positive_orbit_landing_profile_receipt,
+    q286_first_three_positive_mass_threshold_falsifier_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4045,6 +4046,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "landing_classification_recurrence_proved"])
         self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_positive_mass_threshold_falsifier(self):
+        high_tail = (
+            q286_first_three_positive_mass_threshold_falsifier_receipt(
+                start=10348, cycle_count=1, targets_per_cycle=1,
+                positive_mass_floor=.49))
+        self.assertEqual(high_tail["near_boundary_target_count"], 1)
+        self.assertEqual(
+            high_tail["high_positive_mass_tail_counterexample_count"], 1)
+        self.assertFalse(high_tail[
+            "positive_mass_floor_certifies_clear_on_this_window"])
+        low_clear = (
+            q286_first_three_positive_mass_threshold_falsifier_receipt(
+                start=10116, cycle_count=1, targets_per_cycle=1,
+                positive_mass_floor=.49))
+        self.assertEqual(low_clear["near_boundary_target_count"], 1)
+        self.assertEqual(
+            low_clear["low_positive_mass_clear_exception_count"], 1)
+        self.assertFalse(low_clear[
+            "positive_mass_floor_catches_all_clear_rows_on_this_window"])
+        holdout = (
+            q286_first_three_positive_mass_threshold_falsifier_receipt(
+                start=1222142, cycle_count=2, targets_per_cycle=5005,
+                positive_mass_floor=.49))
+        self.assertEqual(holdout["near_boundary_target_count"], 3)
+        self.assertEqual(
+            holdout["high_positive_mass_tail_counterexample_count"], 0)
+        self.assertEqual(
+            holdout["low_positive_mass_clear_exception_count"], 0)
+        self.assertTrue(holdout[
+            "positive_mass_floor_certifies_clear_on_this_window"])
+        self.assertFalse(holdout["positive_mass_threshold_theorem_proved"])
+        self.assertFalse(holdout["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):
         receipt = q286_first_three_character_mixture_norm_receipt(

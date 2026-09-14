@@ -19083,6 +19083,119 @@ def q286_first_three_positive_orbit_landing_profile_receipt(
     }
 
 
+def q286_first_three_positive_mass_threshold_falsifier_receipt(
+        start=10000, cycle_count=16, targets_per_cycle=5005,
+        tail_threshold=.3, near_window=(-.33, -.27),
+        positive_mass_floor=.49, tolerance=1e-9, include_rows=False):
+    """Test whether positive-orbit mass alone separates boundary rows.
+
+    The boundary-pair autopsy suggests that clear rows near ``-.3`` can be
+    rescued by moving more mass onto positive orbit classes.  This receipt
+    tests the deliberately simple separator
+
+    ``positive_orbit_mass_fraction >= positive_mass_floor``.
+
+    A high-positive-mass tail falsifies "mass floor certifies clear."  A
+    low-positive-mass clear row falsifies "mass floor catches all clear rows."
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(positive_mass_floor):
+        raise ValueError("positive_mass_floor must be finite")
+    if positive_mass_floor < 0 or positive_mass_floor > 1:
+        raise ValueError("positive_mass_floor must lie in [0, 1]")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    profile = q286_first_three_positive_orbit_landing_profile_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tail_threshold=tail_threshold,
+        near_window=near_window, tolerance=tolerance, include_rows=True)
+    high_tail_rows = []
+    low_clear_rows = []
+    high_clear_rows = []
+    low_tail_rows = []
+    near_rows = []
+    for row in profile["target_rows"].values():
+        if not row["near_boundary_target"]:
+            continue
+        compact = {
+            "target": row["target"],
+            "local_cycle": row["local_cycle"],
+            "target_offset": row["target_offset"],
+            "target_mod_286": row["target_mod_286"],
+            "first_three_to_principal_ratio": (
+                row["first_three_to_principal_ratio"]),
+            "tail_target": row["tail_target"],
+            "positive_orbit_mass_fraction": (
+                row["positive_orbit_mass_fraction"]),
+            "positive_landing_mean_to_principal_ratio": (
+                row["positive_landing_mean_to_principal_ratio"]),
+            "negative_pressure_B": row["negative_pressure_B"],
+            "positive_to_negative_pressure_ratio_R": (
+                row["positive_to_negative_pressure_ratio_R"]),
+        }
+        near_rows.append(compact)
+        high = row["positive_orbit_mass_fraction"] >= (
+            positive_mass_floor - tolerance)
+        if high and row["tail_target"]:
+            high_tail_rows.append(compact)
+        elif high:
+            high_clear_rows.append(compact)
+        elif row["tail_target"]:
+            low_tail_rows.append(compact)
+        else:
+            low_clear_rows.append(compact)
+    near_rows.sort(key=lambda row: row["target"])
+    for rows in (high_tail_rows, low_clear_rows, high_clear_rows,
+                 low_tail_rows):
+        rows.sort(key=lambda row: (
+            abs(row["first_three_to_principal_ratio"] + tail_threshold),
+            row["target"]))
+
+    return {
+        "arithmetic_modulus": profile["arithmetic_modulus"],
+        "arithmetic_period": profile["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "near_window": profile["near_window"],
+        "positive_mass_floor": positive_mass_floor,
+        "tested_target_count": profile["tested_target_count"],
+        "near_boundary_target_count": len(near_rows),
+        "near_boundary_tail_target_count": (
+            profile["near_boundary_tail_target_count"]),
+        "near_boundary_clear_target_count": (
+            profile["near_boundary_clear_target_count"]),
+        "high_positive_mass_tail_counterexample_count": (
+            len(high_tail_rows)),
+        "low_positive_mass_clear_exception_count": len(low_clear_rows),
+        "high_positive_mass_clear_count": len(high_clear_rows),
+        "low_positive_mass_tail_count": len(low_tail_rows),
+        "first_high_positive_mass_tail_counterexamples": tuple(
+            high_tail_rows[:20]),
+        "first_low_positive_mass_clear_exceptions": tuple(
+            low_clear_rows[:20]),
+        "positive_mass_floor_certifies_clear_on_this_window": bool(
+            not high_tail_rows),
+        "positive_mass_floor_catches_all_clear_rows_on_this_window": bool(
+            not low_clear_rows),
+        "target_rows_included": include_rows,
+        "target_rows": tuple(near_rows) if include_rows else (),
+        "positive_mass_threshold_falsifier_measured": True,
+        "positive_mass_threshold_theorem_proved": False,
+        "eventual_exact_curve_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

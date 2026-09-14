@@ -10973,6 +10973,16 @@ live mechanism is "more mass on positive orbit classes near the exact curve,"
 not "positive mass lands on higher-average positive classes."  This is still
 finite profile evidence only.
 
+The simple mass-share theorem candidate is already falsified as a standalone
+rule.  `evidence/q286-first-three-positive-mass-threshold-falsifier.json`
+tests the separator `positive_orbit_mass_fraction >= .49` on near-boundary
+rows `-.33 <= first_three <= -.27`.  The `1200200` holdout obeys it, but
+early cycles `0..15` from start `10000` have `265` high-mass tails and `896`
+low-mass clear rows; cycles `8..15` from start `90080` have `64` high-mass
+tails and `294` low-mass clear rows.  This preserves mass allocation as a
+useful coordinate, but rules out positive mass fraction alone as the missing
+first-three rarity theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -146,6 +146,14 @@
       "status_boundary": "finite mass-allocation diagnostic only; no recurrence theorem, no exact-curve theorem, no signed prime-correlation estimate, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_positive_mass_threshold_falsifier",
+      "type": "receipt",
+      "label": "q286 first-three positive-mass threshold falsifier",
+      "status": "validated_falsifier",
+      "validation": "q286_first_three_positive_mass_threshold_falsifier_receipt and tools/build_q286_first_three_positive_mass_threshold_falsifier.py generated evidence/q286-first-three-positive-mass-threshold-falsifier.json; the .49 positive-mass floor splits the 1200200 holdout but fails on broader horizons, including 265 high-mass tails and 896 low-mass clear rows in early cycles 0..15 from start 10000",
+      "status_boundary": "finite falsifier of a one-dimensional mass-share certificate only; no exact-curve theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1547,6 +1555,16 @@
       "from": "receipt.q286_first_three_positive_orbit_landing_profile",
       "to": "obligation.active_selector_rarity",
       "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_first_three_positive_mass_threshold_falsifier",
+      "to": "receipt.q286_first_three_positive_orbit_landing_profile",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_first_three_positive_mass_threshold_falsifier",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
     },
     {
       "from": "lane.first_three_reflection_orbit_cap",

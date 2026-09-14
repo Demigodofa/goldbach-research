@@ -67,6 +67,7 @@ Current executable receipts:
 - `tools/build_q286_first_three_reflection_orbit_refined_staircase.py`
 - `tools/build_q286_first_three_boundary_pair_autopsy.py`
 - `q286_first_three_positive_orbit_landing_profile_receipt`
+- `q286_first_three_positive_mass_threshold_falsifier_receipt`
 
 ## Closed or falsified lanes
 
@@ -594,6 +595,16 @@ current comparison set.
    positive landing means actually decrease relative to tail `1222142`.
    Thus the live mechanism is positive-class mass allocation near the exact
    curve, not higher positive-orbit average coefficients.
+68. `q286_first_three_positive_mass_threshold_falsifier_receipt`, with
+   evidence in
+   `evidence/q286-first-three-positive-mass-threshold-falsifier.json`,
+   falsifies the standalone rule that near-boundary rows with
+   `positive_orbit_mass_fraction >= .49` are clear.  The rule happens to
+   split the three-row `1200200` holdout, but early cycles `0..15` contain
+   `265` high-positive-mass tails and `896` low-positive-mass clear rows;
+   cycles `8..15` from start `90080` contain `64` high-positive-mass tails
+   and `294` low-positive-mass clear rows.  This leaves mass allocation as a
+   coordinate in the exact-curve problem, not a one-dimensional certificate.
 
 ## Still open
 

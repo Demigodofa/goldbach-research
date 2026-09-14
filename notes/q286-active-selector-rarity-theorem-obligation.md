@@ -545,6 +545,30 @@ relative to tail `1222142`, while its positive landing mean decreases by about
 mass transfer between negative and positive orbit classes near the exact
 curve, not merely search for stronger positive-orbit average coefficients.
 
+The simple positive-mass separator falsifier is recorded in:
+
+```text
+evidence/q286-first-three-positive-mass-threshold-falsifier.json
+```
+
+It tests the tempting local rule suggested by the holdout:
+
+```text
+near-boundary row and positive_orbit_mass_fraction >= .49
+    => clear first_three >= -.3.
+```
+
+The rule happens to split the three near-boundary rows in the
+`1200200` holdout: the two clear rows are above `.49`, and the tail
+`1222142` is below.  But it fails immediately on broader windows.  On early
+cycles `0..15` from start `10000`, among `2289` near-boundary rows there are
+`265` high-positive-mass tails and `896` low-positive-mass clear rows.  On
+the next cycles `8..15` from start `90080`, among `677` near-boundary rows
+there are `64` high-positive-mass tails and `294` low-positive-mass clear
+rows.  Thus positive mass share alone is not a theorem mechanism; any viable
+mass-transfer theorem must also use landing means, orbit coefficients, target
+residue structure, or another arithmetic constraint.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

@@ -19855,6 +19855,26 @@ to tail `1222142`, `1242118` increases positive mass fraction by about
 positive-class occupancy estimate near the exact curve, not a pressure-only
 or positive-average-only bound.
 
+Positive-mass-only falsifier:
+
+- `q286_first_three_positive_mass_threshold_falsifier_receipt`
+- `tools/build_q286_first_three_positive_mass_threshold_falsifier.py`
+- `evidence/q286-first-three-positive-mass-threshold-falsifier.json`
+- focused regression:
+  `test_q286_first_three_positive_mass_threshold_falsifier`
+
+This tests the simple separator
+`positive_orbit_mass_fraction >= .49` on near-boundary rows
+`-.33 <= first_three <= -.27`.  The `1200200` holdout split is real but local:
+its two clear rows are above `.49`, and tail `1222142` is below.  The broader
+windows falsify the standalone rule.  Early cycles `0..15` from start `10000`
+have `2289` near-boundary rows, including `265` high-positive-mass tails and
+`896` low-positive-mass clear rows.  Cycles `8..15` from start `90080` have
+`677` near-boundary rows, including `64` high-positive-mass tails and `294`
+low-positive-mass clear rows.  Therefore positive mass fraction remains a
+useful coordinate, but the theorem cannot be a one-dimensional mass-share
+floor.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
