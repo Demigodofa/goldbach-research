@@ -12057,3 +12057,47 @@ aggregate inequality, or a replacement arithmetic-placement theorem.  This is
 finite common-core obstruction evidence only; it proves no volatile-rim
 theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile forced-channel attribution
+
+The common-core obstruction was then decomposed into row-attributed volatile
+obligations.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-forced-channel-attribution.json
+```
+
+The hard selected deficit rows are still:
+
+```text
+13822, 1222142, 164598
+```
+
+Row `13822` individually forces five volatile channels across all satisfying
+subsets:
+
+```text
+(1,1), (1,3), (1,7), (2,4), (3,3)
+```
+
+Row `164598` individually forces two different volatile channels:
+
+```text
+(1,5), (4,4)
+```
+
+The union of those row-forced channels has seven channels and correctly
+classifies every selected row except `1222142`.  It still over-rescues
+`1222142`, with margin about `0.0052135929` above the floor.  The remaining
+channel `(4,10)` contributes about `-0.0140467724` at `1222142`, moving its
+full-rim margin to about `-0.0088331796` and restoring the correct deficit
+classification.
+
+This sharpens the volatile route: the full rim decomposes on this fixture into
+a five-channel `13822` obligation, a two-channel `164598` obligation, and a
+`(4,10)` combination hinge for `1222142`.  A proof can now target those
+row-specific signed arithmetic obligations, or replace the decomposition with
+a full-package aggregate arithmetic-placement theorem.  This is finite
+attribution evidence only; it proves no volatile-rim theorem, stable-core
+theorem, selected-fixture classifier theorem, pointwise character-sum
+estimate, or Goldbach.

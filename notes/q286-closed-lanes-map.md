@@ -1183,6 +1183,21 @@ current comparison set.
    volatile-core theorem on the selected fixture and keeps the target at
    row-specific signed volatile action, a full-package aggregate inequality,
    or replacement arithmetic placement.
+115. `tools/build_q286_first_three_dominant_mode_volatile_forced_channel_attribution.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-forced-channel-attribution.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-forced-channel-attribution.json`,
+   decomposes the full volatile rim into row-attributed hard obligations.  Row
+   `13822` individually forces `(1,1)`, `(1,3)`, `(1,7)`, `(2,4)`, and
+   `(3,3)`; row `164598` individually forces `(1,5)` and `(4,4)`.  The union
+   of those seven channels correctly classifies every selected row except
+   `1222142`, which remains over-rescued by about `0.0052135929`; adding the
+   remaining channel `(4,10)` contributes about `-0.0140467724` at `1222142`
+   and restores the correct deficit classification.  This sharpens the
+   volatile theorem target to a five-channel `13822` obligation, a two-channel
+   `164598` obligation, and a `(4,10)` combination hinge for `1222142`, or a
+   replacement aggregate arithmetic-placement theorem.
 
 ## Still open
 
@@ -1247,6 +1262,9 @@ current comparison set.
   `164598` carrying the tightest subset constraints.  The common-core
   obstruction then shows that those three hard deficit constraints do not
   share a proper volatile subpackage; their only common satisfying subset is
-  the full eight-channel rim.
+  the full eight-channel rim.  The forced-channel attribution further splits
+  that rim into a five-channel `13822` obligation, a two-channel `164598`
+  obligation, and a `(4,10)` combination hinge needed to stop `1222142` from
+  remaining over-rescued after the seven row-forced channels are fixed.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

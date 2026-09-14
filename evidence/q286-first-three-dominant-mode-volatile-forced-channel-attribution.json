@@ -1,0 +1,682 @@
+{
+  "arithmetic_modulus": 286,
+  "candidate": "The full volatile rim may decompose into row-attributed hard obligations rather than being an opaque eight-channel object.",
+  "channel_attribution": [
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        13822
+      ],
+      "label": [
+        1,
+        1
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        13822
+      ],
+      "label": [
+        1,
+        3
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        164598
+      ],
+      "label": [
+        1,
+        5
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        13822
+      ],
+      "label": [
+        1,
+        7
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        13822
+      ],
+      "label": [
+        2,
+        4
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        13822
+      ],
+      "label": [
+        3,
+        3
+      ]
+    },
+    {
+      "attribution": "individually_necessary_for_rows",
+      "individually_necessary_for_targets": [
+        164598
+      ],
+      "label": [
+        4,
+        4
+      ]
+    },
+    {
+      "attribution": "combination_hinge",
+      "individually_necessary_for_targets": [],
+      "label": [
+        4,
+        10
+      ]
+    }
+  ],
+  "combination_hinge": {
+    "mask": 128,
+    "subset_labels": [
+      [
+        4,
+        10
+      ]
+    ],
+    "subset_size": 1
+  },
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "If the row-forced union has more than one mismatch, or if adding the hinge does not restore exact selected classification, this attribution fails.",
+  "full_volatile_rim_classification": {
+    "exact_selected_classification": true,
+    "false_negative_targets": [],
+    "false_positive_targets": [],
+    "mask": 255,
+    "mismatch_targets": [],
+    "name": "full_volatile_rim",
+    "rows": [
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.009564090345659026,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 13556,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.036744346024292496,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 13822,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.013458672694179214,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 24424,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.04893840350347499,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 40420,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.09922857579168903,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 55864,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.05842892627684908,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 129706,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.0191517924551758,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 164598,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.008833179560530147,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 1222142,
+        "target_mod_286": 64
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.02718657338091826,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1240888,
+        "target_mod_286": 220
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.016528913466744594,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1242118,
+        "target_mod_286": 20
+      }
+    ],
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "subset_size": 8
+  },
+  "goldbach_proved": false,
+  "hard_common_subset": {
+    "mask": 255,
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "subset_size": 8
+  },
+  "hard_common_subset_count": 1,
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "hard_rows": [
+    {
+      "dominant_floor_passes": false,
+      "full_rim_margin_to_floor": -0.036744346024292496,
+      "hinge_channel_contribution": -0.0048636377924981275,
+      "minimum_satisfying_subset_size": 6,
+      "necessary_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "row_forced_union_margin_to_floor": -0.03188070823179434,
+      "satisfying_subset_count": 5,
+      "target": 13822
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_rim_margin_to_floor": -0.008833179560530147,
+      "hinge_channel_contribution": -0.014046772444381602,
+      "minimum_satisfying_subset_size": 4,
+      "necessary_channels": [],
+      "row_forced_union_margin_to_floor": 0.005213592883851453,
+      "satisfying_subset_count": 32,
+      "target": 1222142
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_rim_margin_to_floor": -0.0191517924551758,
+      "hinge_channel_contribution": -0.003549784149911439,
+      "minimum_satisfying_subset_size": 3,
+      "necessary_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "row_forced_union_margin_to_floor": -0.015602008305264356,
+      "satisfying_subset_count": 46,
+      "target": 164598
+    }
+  ],
+  "hinge_added_classification": {
+    "exact_selected_classification": true,
+    "false_negative_targets": [],
+    "false_positive_targets": [],
+    "mask": 255,
+    "mismatch_targets": [],
+    "name": "row_forced_union_plus_combination_hinge",
+    "rows": [
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.009564090345659026,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 13556,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.036744346024292496,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 13822,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.013458672694179214,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 24424,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.04893840350347499,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 40420,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.09922857579168903,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 55864,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.05842892627684908,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 129706,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.0191517924551758,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 164598,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.008833179560530147,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 1222142,
+        "target_mod_286": 64
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.02718657338091826,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1240888,
+        "target_mod_286": 220
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.016528913466744594,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1242118,
+        "target_mod_286": 20
+      }
+    ],
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "subset_size": 8
+  },
+  "interpretation": {
+    "combination_hinge": "The remaining channel (4,10) is not individually necessary for those two rows, but adding it is what changes 1222142 from a false positive to a correctly classified deficit.",
+    "remaining_theorem": "A non-circular theorem can now target the five-channel 13822 obligation, the two-channel 164598 obligation, and the (4,10) combination hinge for 1222142, or replace this decomposition with an aggregate arithmetic-placement proof.",
+    "row_attribution": "Five channels are individually necessary for 13822 and two different channels are individually necessary for 164598."
+  },
+  "mechanism": "Use rowwise necessary channels from satisfying-subset families, then test the union of individually forced hard-row channels against the remaining hard target.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If the seven channels forced by 13822 and 164598 almost classify the fixture, the missing eighth channel is a combination hinge rather than an independent row necessity.",
+  "row_forced_targets": [
+    13822,
+    164598
+  ],
+  "row_forced_union": {
+    "mask": 127,
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "subset_size": 7
+  },
+  "row_forced_union_classification": {
+    "exact_selected_classification": false,
+    "false_negative_targets": [],
+    "false_positive_targets": [
+      1222142
+    ],
+    "mask": 127,
+    "mismatch_targets": [
+      1222142
+    ],
+    "name": "row_forced_union_from_13822_and_164598",
+    "rows": [
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.026357338310920575,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 13556,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.03188070823179434,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 13822,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.00492014369200963,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 24424,
+        "target_mod_286": 114
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.0749139684871607,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 40420,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.07931484634723361,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 55864,
+        "target_mod_286": 94
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.06933970567530615,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 129706,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": -0.015602008305264356,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": false,
+        "target": 164598,
+        "target_mod_286": 148
+      },
+      {
+        "expected_dominant_floor_passes": false,
+        "margin_to_floor": 0.005213592883851453,
+        "matches_expected_classification": false,
+        "predicted_dominant_floor_passes": true,
+        "target": 1222142,
+        "target_mod_286": 64
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.054129004818139745,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1240888,
+        "target_mod_286": 220
+      },
+      {
+        "expected_dominant_floor_passes": true,
+        "margin_to_floor": 0.027231175943911973,
+        "matches_expected_classification": true,
+        "predicted_dominant_floor_passes": true,
+        "target": 1242118,
+        "target_mod_286": 20
+      }
+    ],
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "subset_size": 7
+  },
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "ef0ef8f503799ab349fe1587166c6d9636f86a51",
+  "source_common_core_matches": true,
+  "source_common_core_obstruction": "evidence\\q286-first-three-dominant-mode-volatile-common-core-obstruction.json",
+  "source_row_thresholds": "evidence\\q286-first-three-dominant-mode-volatile-row-thresholds.json",
+  "source_subset_ablation": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile forced-channel attribution only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "tested_subset_count": 256,
+  "volatile_channel_count": 8,
+  "volatile_forced_channel_attribution_measured": true,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}
