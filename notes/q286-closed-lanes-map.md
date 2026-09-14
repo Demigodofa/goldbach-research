@@ -1004,6 +1004,19 @@ current comparison set.
    rows.  This demotes a one-channel pressure theorem on current evidence and
    sharpens the pressure route to a multi-channel or residue-dependent
    negative-channel envelope.
+102. `q286_first_three_dominant_mode_signed_channel_profile_receipt`, reused
+   by `tools/build_q286_first_three_dominant_mode_pressure_bulk_share.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pressure-bulk-share.md` and evidence
+   in `evidence/q286-first-three-dominant-mode-pressure-bulk-share.json`,
+   measures how much named-row negative pressure is carried by each row's top
+   negative real channels.  The top-one share ranges from about `0.1042376170`
+   to `0.1883703993`, the top-three share ranges from about `0.2725197862` to
+   `0.4453824162`, the top-five share ranges from about `0.4237604469` to
+   `0.6607281866`, and the top-ten share ranges from about `0.7114630603` to
+   `0.9523322684`.  Only `1222142` fails among the named rows.  This demotes a
+   tiny top-k pressure theorem on current evidence and keeps the live pressure
+   target in the bulk multi-channel or residue-dependent envelope class.
 
 ## Still open
 

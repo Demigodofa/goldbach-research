@@ -11597,3 +11597,39 @@ pressure-route target is now a multi-channel or residue-dependent envelope
 for the negative real q286 channel ledger, or a separate classification/rescue
 of pressure failures.  This is finite theorem-shaping evidence only; it proves
 no pressure envelope theorem, pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: dominant-mode pressure bulk share
+
+The pressure-channel autopsy was then sharpened from recurring-label frequency
+to bulk pressure share.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pressure-bulk-share.json
+```
+
+Named rows:
+
+```text
+1222142, 1242118, 1240888, 1243018, 1243130, 1244072, 1244094
+```
+
+The share ranges below measure how much of each row's total negative
+real-channel pressure is carried by its largest negative channels:
+
+```text
+top1 share range:  0.1042376170 .. 0.1883703993
+top3 share range:  0.2725197862 .. 0.4453824162
+top5 share range:  0.4237604469 .. 0.6607281866
+top10 share range: 0.7114630603 .. 0.9523322684
+```
+
+The maximum top-three share row is `1244072`, with share about
+`0.4453824162`; the minimum top-three share row is `1242118`, with share about
+`0.2725197862`.  Only `1222142` fails the dominant floor in the named set.
+
+This further demotes a tiny top-k pressure theorem on current evidence.  The
+negative pressure is a bulk multi-channel phenomenon in these rows, so the
+remaining pressure route is a bulk/residue-dependent envelope or a separate
+classification/rescue of failures.  This is finite diagnostic evidence only;
+it proves no top-k theorem, pressure envelope theorem, pointwise
+character-sum estimate, or Goldbach.

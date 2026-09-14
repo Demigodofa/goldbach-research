@@ -1,0 +1,1500 @@
+{
+  "active_real_channel_count": 25,
+  "arithmetic_modulus": 286,
+  "dominant_floor_failure_targets": [
+    1222142
+  ],
+  "dominant_floor_pass_targets": [
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "dominant_mode_pressure_bulk_share_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "If top-one/top-three/top-five channels carry only a minority or moderate share of pressure on the named rows, a small top-k pressure theorem is too narrow for the observed ledger.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "observed_shape": "Negative pressure is not concentrated in one or three channels on the named rows.  Top-five channels still leave a substantial tail on several rows.",
+    "remaining_theorem": "The pressure branch now points to a bulk multi-channel or residue-dependent envelope for the negative real-channel ledger, not a one-channel or tiny top-k bound."
+  },
+  "maximum_real_channel_identity_error": 2.3314683517128287e-15,
+  "maximum_top3_share_row": {
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.11518488645319175,
+    "negative_pressure_to_principal": 0.23499311116993596,
+    "negative_real_channel_count": 15,
+    "positive_offset_slack_to_floor": 0.1198082247167448,
+    "positive_offset_to_principal": 0.1198082247167448,
+    "positive_real_channel_count": 10,
+    "target": 1244072,
+    "target_mod_286": 258,
+    "top10_negative_pressure_share": 0.9523322684307125,
+    "top1_negative_pressure_share": 0.18837039929628638,
+    "top3_negative_pressure_share": 0.44538241620707253,
+    "top5_negative_pressure_share": 0.6607281865740008,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.04426574618295745,
+        "contribution_to_principal_ratio": -0.04426574618295745,
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.031814648338309645,
+        "contribution_to_principal_ratio": -0.031814648338309645,
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.028581405123616198,
+        "contribution_to_principal_ratio": -0.028581405123616198,
+        "representative_label": [
+          2,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.028108477457052163,
+        "contribution_to_principal_ratio": -0.028108477457052163,
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02249629509875889,
+        "contribution_to_principal_ratio": -0.02249629509875889,
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.020433544822618915,
+        "contribution_to_principal_ratio": -0.020433544822618915,
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.018760328395633335,
+        "contribution_to_principal_ratio": -0.018760328395633335,
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011466330555633251,
+        "contribution_to_principal_ratio": -0.011466330555633251,
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.009118247238243577,
+        "contribution_to_principal_ratio": -0.009118247238243577,
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008746499413232302,
+        "contribution_to_principal_ratio": -0.008746499413232302,
+        "representative_label": [
+          3,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0046693917163953755,
+        "contribution_to_principal_ratio": -0.0046693917163953755,
+        "representative_label": [
+          2,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0043686055006104275,
+        "contribution_to_principal_ratio": -0.0043686055006104275,
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0013404812656923532,
+        "contribution_to_principal_ratio": -0.0013404812656923532,
+        "representative_label": [
+          4,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.00081763685451174,
+        "contribution_to_principal_ratio": -0.00081763685451174,
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 5.473206670345918e-06,
+        "contribution_to_principal_ratio": -5.473206670345918e-06,
+        "representative_label": [
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  "mechanism": "After one-channel pressure was demoted, test whether the negative pressure is still top-heavy enough for a small top-k channel theorem or whether pressure is distributed across a larger channel tail.",
+  "minimum_top3_share_row": {
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.2834710865332539,
+    "negative_pressure_to_principal": 0.34343932670896016,
+    "negative_real_channel_count": 20,
+    "positive_offset_slack_to_floor": 0.01652891346674458,
+    "positive_offset_to_principal": 0.05996824017570475,
+    "positive_real_channel_count": 5,
+    "target": 1242118,
+    "target_mod_286": 20,
+    "top10_negative_pressure_share": 0.711463060303258,
+    "top1_negative_pressure_share": 0.10423761704162167,
+    "top3_negative_pressure_share": 0.27251978624366835,
+    "top5_negative_pressure_share": 0.4237604468628453,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.035799297014520975,
+        "contribution_to_principal_ratio": -0.035799297014520975,
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.029793911186253248,
+        "contribution_to_principal_ratio": -0.029793911186253248,
+        "representative_label": [
+          3,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.028000803701620967,
+        "contribution_to_principal_ratio": -0.028000803701620967,
+        "representative_label": [
+          1,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.027116580066035668,
+        "contribution_to_principal_ratio": -0.027116580066035668,
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02482541058803283,
+        "contribution_to_principal_ratio": -0.02482541058803283,
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.024065064692908807,
+        "contribution_to_principal_ratio": -0.024065064692908807,
+        "representative_label": [
+          2,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.020307055047630907,
+        "contribution_to_principal_ratio": -0.020307055047630907,
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.018767697954612292,
+        "contribution_to_principal_ratio": -0.018767697954612292,
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01863359219696881,
+        "contribution_to_principal_ratio": -0.01863359219696881,
+        "representative_label": [
+          2,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.017034981960262735,
+        "contribution_to_principal_ratio": -0.017034981960262735,
+        "representative_label": [
+          1,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.016863245855835356,
+        "contribution_to_principal_ratio": -0.016863245855835356,
+        "representative_label": [
+          3,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.016272520483701067,
+        "contribution_to_principal_ratio": -0.016272520483701067,
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.013844678483777073,
+        "contribution_to_principal_ratio": -0.013844678483777073,
+        "representative_label": [
+          1,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010702262477167376,
+        "contribution_to_principal_ratio": -0.010702262477167376,
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008885386077419323,
+        "contribution_to_principal_ratio": -0.008885386077419323,
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008550136128354369,
+        "contribution_to_principal_ratio": -0.008550136128354369,
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008171500150437593,
+        "contribution_to_principal_ratio": -0.008171500150437593,
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.00635000965347585,
+        "contribution_to_principal_ratio": -0.00635000965347585,
+        "representative_label": [
+          3,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004999226541020484,
+        "contribution_to_principal_ratio": -0.004999226541020484,
+        "representative_label": [
+          4,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004455966448924407,
+        "contribution_to_principal_ratio": -0.004455966448924407,
+        "representative_label": [
+          1,
+          1
+        ]
+      }
+    ]
+  },
+  "multi_channel_pressure_envelope_proved": false,
+  "pointwise_character_sum_estimate_proved": false,
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "small_topk_pressure_theorem_proved": false,
+  "source_commit": "9fea01be501c1a282e6455c0a5f587f9a7014842",
+  "status_boundary": "finite named-row pressure bulk-share diagnostic only; no top-k pressure theorem, multi-channel envelope theorem, pointwise character-sum estimate, signed-projection theorem, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "target_rows": {
+    "1222142": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.3088331795605278,
+      "negative_pressure_to_principal": 0.37196700245556,
+      "negative_real_channel_count": 17,
+      "positive_offset_slack_to_floor": -0.00883317956053016,
+      "positive_offset_to_principal": 0.06313382289502988,
+      "positive_real_channel_count": 8,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "top10_negative_pressure_share": 0.7739388242295493,
+      "top1_negative_pressure_share": 0.12043022788072252,
+      "top3_negative_pressure_share": 0.33416995122221727,
+      "top5_negative_pressure_share": 0.5073559895169537,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+          "contribution_to_principal_ratio": -0.044796070869832366,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+          "contribution_to_principal_ratio": -0.04172119298516034,
+          "representative_label": [
+            4,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+          "contribution_to_principal_ratio": -0.03778293121185615,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+          "contribution_to_principal_ratio": -0.03276868188260557,
+          "representative_label": [
+            3,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+          "contribution_to_principal_ratio": -0.03165080964904138,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+          "contribution_to_principal_ratio": -0.022673098546932353,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.021124614674965642,
+          "contribution_to_principal_ratio": -0.021124614674965642,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01971808029035685,
+          "contribution_to_principal_ratio": -0.01971808029035685,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.018474432503645177,
+          "contribution_to_principal_ratio": -0.018474432503645177,
+          "representative_label": [
+            1,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.017169791918250164,
+          "contribution_to_principal_ratio": -0.017169791918250164,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01454886268634833,
+          "contribution_to_principal_ratio": -0.01454886268634833,
+          "representative_label": [
+            1,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.014046772444381602,
+          "contribution_to_principal_ratio": -0.014046772444381602,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011851048833984464,
+          "contribution_to_principal_ratio": -0.011851048833984464,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01164907384453154,
+          "contribution_to_principal_ratio": -0.01164907384453154,
+          "representative_label": [
+            2,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011300721417063436,
+          "contribution_to_principal_ratio": -0.011300721417063436,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010938875282588398,
+          "contribution_to_principal_ratio": -0.010938875282588398,
+          "representative_label": [
+            1,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009751943414016263,
+          "contribution_to_principal_ratio": -0.009751943414016263,
+          "representative_label": [
+            4,
+            6
+          ]
+        }
+      ]
+    },
+    "1240888": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.27281342661908214,
+      "negative_pressure_to_principal": 0.2865251752684196,
+      "negative_real_channel_count": 22,
+      "positive_offset_slack_to_floor": 0.013711748649337881,
+      "positive_offset_to_principal": 0.013711748649337881,
+      "positive_real_channel_count": 3,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "top10_negative_pressure_share": 0.7172850119949294,
+      "top1_negative_pressure_share": 0.12549263271759306,
+      "top3_negative_pressure_share": 0.3064814377927302,
+      "top5_negative_pressure_share": 0.45736242407771655,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.035956798584303756,
+          "contribution_to_principal_ratio": -0.035956798584303756,
+          "representative_label": [
+            1,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02694243143722148,
+          "contribution_to_principal_ratio": -0.02694243143722148,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02491541765855402,
+          "contribution_to_principal_ratio": -0.02491541765855402,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02407910288083677,
+          "contribution_to_principal_ratio": -0.02407910288083677,
+          "representative_label": [
+            1,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.019152098159140953,
+          "contribution_to_principal_ratio": -0.019152098159140953,
+          "representative_label": [
+            4,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.017710726808205953,
+          "contribution_to_principal_ratio": -0.017710726808205953,
+          "representative_label": [
+            1,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.016671721712498113,
+          "contribution_to_principal_ratio": -0.016671721712498113,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.015199253273180417,
+          "contribution_to_principal_ratio": -0.015199253273180417,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01367701137087164,
+          "contribution_to_principal_ratio": -0.01367701137087164,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011215651894444517,
+          "contribution_to_principal_ratio": -0.011215651894444517,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010763130759390534,
+          "contribution_to_principal_ratio": -0.010763130759390534,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010154066626900262,
+          "contribution_to_principal_ratio": -0.010154066626900262,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009228052305590486,
+          "contribution_to_principal_ratio": -0.009228052305590486,
+          "representative_label": [
+            4,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008890727300290047,
+          "contribution_to_principal_ratio": -0.008890727300290047,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008006736357364156,
+          "contribution_to_principal_ratio": -0.008006736357364156,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0073561207101152885,
+          "contribution_to_principal_ratio": -0.0073561207101152885,
+          "representative_label": [
+            3,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.00695084698711403,
+          "contribution_to_principal_ratio": -0.00695084698711403,
+          "representative_label": [
+            1,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.006031670501281841,
+          "contribution_to_principal_ratio": -0.006031670501281841,
+          "representative_label": [
+            3,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.005907881099705902,
+          "contribution_to_principal_ratio": -0.005907881099705902,
+          "representative_label": [
+            5,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.005164394843740592,
+          "contribution_to_principal_ratio": -0.005164394843740592,
+          "representative_label": [
+            2,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.001931166614128453,
+          "contribution_to_principal_ratio": -0.001931166614128453,
+          "representative_label": [
+            1,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0006201673835403827,
+          "contribution_to_principal_ratio": -0.0006201673835403827,
+          "representative_label": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "1242118": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2834710865332539,
+      "negative_pressure_to_principal": 0.34343932670896016,
+      "negative_real_channel_count": 20,
+      "positive_offset_slack_to_floor": 0.01652891346674458,
+      "positive_offset_to_principal": 0.05996824017570475,
+      "positive_real_channel_count": 5,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "top10_negative_pressure_share": 0.711463060303258,
+      "top1_negative_pressure_share": 0.10423761704162167,
+      "top3_negative_pressure_share": 0.27251978624366835,
+      "top5_negative_pressure_share": 0.4237604468628453,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.035799297014520975,
+          "contribution_to_principal_ratio": -0.035799297014520975,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.029793911186253248,
+          "contribution_to_principal_ratio": -0.029793911186253248,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028000803701620967,
+          "contribution_to_principal_ratio": -0.028000803701620967,
+          "representative_label": [
+            1,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.027116580066035668,
+          "contribution_to_principal_ratio": -0.027116580066035668,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02482541058803283,
+          "contribution_to_principal_ratio": -0.02482541058803283,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.024065064692908807,
+          "contribution_to_principal_ratio": -0.024065064692908807,
+          "representative_label": [
+            2,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.020307055047630907,
+          "contribution_to_principal_ratio": -0.020307055047630907,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.018767697954612292,
+          "contribution_to_principal_ratio": -0.018767697954612292,
+          "representative_label": [
+            4,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01863359219696881,
+          "contribution_to_principal_ratio": -0.01863359219696881,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.017034981960262735,
+          "contribution_to_principal_ratio": -0.017034981960262735,
+          "representative_label": [
+            1,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.016863245855835356,
+          "contribution_to_principal_ratio": -0.016863245855835356,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.016272520483701067,
+          "contribution_to_principal_ratio": -0.016272520483701067,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.013844678483777073,
+          "contribution_to_principal_ratio": -0.013844678483777073,
+          "representative_label": [
+            1,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010702262477167376,
+          "contribution_to_principal_ratio": -0.010702262477167376,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008885386077419323,
+          "contribution_to_principal_ratio": -0.008885386077419323,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008550136128354369,
+          "contribution_to_principal_ratio": -0.008550136128354369,
+          "representative_label": [
+            3,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008171500150437593,
+          "contribution_to_principal_ratio": -0.008171500150437593,
+          "representative_label": [
+            3,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.00635000965347585,
+          "contribution_to_principal_ratio": -0.00635000965347585,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004999226541020484,
+          "contribution_to_principal_ratio": -0.004999226541020484,
+          "representative_label": [
+            4,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004455966448924407,
+          "contribution_to_principal_ratio": -0.004455966448924407,
+          "representative_label": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "1243018": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1375691011170794,
+      "negative_pressure_to_principal": 0.25862393092943253,
+      "negative_real_channel_count": 14,
+      "positive_offset_slack_to_floor": 0.12105482981235356,
+      "positive_offset_to_principal": 0.12105482981235356,
+      "positive_real_channel_count": 11,
+      "target": 1243018,
+      "target_mod_286": 62,
+      "top10_negative_pressure_share": 0.900285795048439,
+      "top1_negative_pressure_share": 0.13116704778417357,
+      "top3_negative_pressure_share": 0.3533612981481148,
+      "top5_negative_pressure_share": 0.5482859622175037,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.03392293750635168,
+          "contribution_to_principal_ratio": -0.03392293750635168,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02903523919288895,
+          "contribution_to_principal_ratio": -0.02903523919288895,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028429511266152015,
+          "contribution_to_principal_ratio": -0.028429511266152015,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02578822372044247,
+          "contribution_to_principal_ratio": -0.02578822372044247,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.024623959136281997,
+          "contribution_to_principal_ratio": -0.024623959136281997,
+          "representative_label": [
+            1,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.023995829908812938,
+          "contribution_to_principal_ratio": -0.023995829908812938,
+          "representative_label": [
+            1,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.021146903161945993,
+          "contribution_to_principal_ratio": -0.021146903161945993,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01863164747514214,
+          "contribution_to_principal_ratio": -0.01863164747514214,
+          "representative_label": [
+            2,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.016481637984434697,
+          "contribution_to_principal_ratio": -0.016481637984434697,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010779561922903864,
+          "contribution_to_principal_ratio": -0.010779561922903864,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010016410826751431,
+          "contribution_to_principal_ratio": -0.010016410826751431,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009483568949970518,
+          "contribution_to_principal_ratio": -0.009483568949970518,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.005087464294462314,
+          "contribution_to_principal_ratio": -0.005087464294462314,
+          "representative_label": [
+            1,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0012010355828915428,
+          "contribution_to_principal_ratio": -0.0012010355828915428,
+          "representative_label": [
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    "1243130": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.07231331638447305,
+      "negative_pressure_to_principal": 0.10636440408776447,
+      "negative_real_channel_count": 17,
+      "positive_offset_slack_to_floor": 0.03405108770329006,
+      "positive_offset_to_principal": 0.03405108770329006,
+      "positive_real_channel_count": 8,
+      "target": 1243130,
+      "target_mod_286": 174,
+      "top10_negative_pressure_share": 0.9000440250725317,
+      "top1_negative_pressure_share": 0.1620380995589127,
+      "top3_negative_pressure_share": 0.43011631751640095,
+      "top5_negative_pressure_share": 0.601209353373737,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.017235085899097603,
+          "contribution_to_principal_ratio": -0.017235085899097603,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.015467691079902696,
+          "contribution_to_principal_ratio": -0.015467691079902696,
+          "representative_label": [
+            4,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.013046288822055378,
+          "contribution_to_principal_ratio": -0.013046288822055378,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009414784073943932,
+          "contribution_to_principal_ratio": -0.009414784073943932,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008783424728588137,
+          "contribution_to_principal_ratio": -0.008783424728588137,
+          "representative_label": [
+            5,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008235146916787539,
+          "contribution_to_principal_ratio": -0.008235146916787539,
+          "representative_label": [
+            4,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.007687022150294371,
+          "contribution_to_principal_ratio": -0.007687022150294371,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.007554801187669638,
+          "contribution_to_principal_ratio": -0.007554801187669638,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004263408571929763,
+          "contribution_to_principal_ratio": -0.004263408571929763,
+          "representative_label": [
+            1,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004044992949323722,
+          "contribution_to_principal_ratio": -0.004044992949323722,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0024743234462967006,
+          "contribution_to_principal_ratio": -0.0024743234462967006,
+          "representative_label": [
+            1,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.002395641170959624,
+          "contribution_to_principal_ratio": -0.002395641170959624,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.002189457545550983,
+          "contribution_to_principal_ratio": -0.002189457545550983,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0011863284296919387,
+          "contribution_to_principal_ratio": -0.0011863284296919387,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0009451121424695482,
+          "contribution_to_principal_ratio": -0.0009451121424695482,
+          "representative_label": [
+            1,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0008937063814060405,
+          "contribution_to_principal_ratio": -0.0008937063814060405,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0005471885917968565,
+          "contribution_to_principal_ratio": -0.0005471885917968565,
+          "representative_label": [
+            2,
+            10
+          ]
+        }
+      ]
+    },
+    "1244072": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.11518488645319175,
+      "negative_pressure_to_principal": 0.23499311116993596,
+      "negative_real_channel_count": 15,
+      "positive_offset_slack_to_floor": 0.1198082247167448,
+      "positive_offset_to_principal": 0.1198082247167448,
+      "positive_real_channel_count": 10,
+      "target": 1244072,
+      "target_mod_286": 258,
+      "top10_negative_pressure_share": 0.9523322684307125,
+      "top1_negative_pressure_share": 0.18837039929628638,
+      "top3_negative_pressure_share": 0.44538241620707253,
+      "top5_negative_pressure_share": 0.6607281865740008,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.04426574618295745,
+          "contribution_to_principal_ratio": -0.04426574618295745,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.031814648338309645,
+          "contribution_to_principal_ratio": -0.031814648338309645,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028581405123616198,
+          "contribution_to_principal_ratio": -0.028581405123616198,
+          "representative_label": [
+            2,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028108477457052163,
+          "contribution_to_principal_ratio": -0.028108477457052163,
+          "representative_label": [
+            4,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02249629509875889,
+          "contribution_to_principal_ratio": -0.02249629509875889,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.020433544822618915,
+          "contribution_to_principal_ratio": -0.020433544822618915,
+          "representative_label": [
+            4,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.018760328395633335,
+          "contribution_to_principal_ratio": -0.018760328395633335,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011466330555633251,
+          "contribution_to_principal_ratio": -0.011466330555633251,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009118247238243577,
+          "contribution_to_principal_ratio": -0.009118247238243577,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008746499413232302,
+          "contribution_to_principal_ratio": -0.008746499413232302,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0046693917163953755,
+          "contribution_to_principal_ratio": -0.0046693917163953755,
+          "representative_label": [
+            2,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0043686055006104275,
+          "contribution_to_principal_ratio": -0.0043686055006104275,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0013404812656923532,
+          "contribution_to_principal_ratio": -0.0013404812656923532,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.00081763685451174,
+          "contribution_to_principal_ratio": -0.00081763685451174,
+          "representative_label": [
+            1,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 5.473206670345918e-06,
+          "contribution_to_principal_ratio": -5.473206670345918e-06,
+          "representative_label": [
+            3,
+            3
+          ]
+        }
+      ]
+    },
+    "1244094": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15128938620082624,
+      "negative_pressure_to_principal": 0.18543529382629267,
+      "negative_real_channel_count": 20,
+      "positive_offset_slack_to_floor": 0.034145907625464274,
+      "positive_offset_to_principal": 0.034145907625464274,
+      "positive_real_channel_count": 5,
+      "target": 1244094,
+      "target_mod_286": 280,
+      "top10_negative_pressure_share": 0.7759886540837211,
+      "top1_negative_pressure_share": 0.11294255567335933,
+      "top3_negative_pressure_share": 0.30819331162319974,
+      "top5_negative_pressure_share": 0.47781984443742725,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.020943535996781806,
+          "contribution_to_principal_ratio": -0.020943535996781806,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01853069774492278,
+          "contribution_to_principal_ratio": -0.01853069774492278,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.017675683554441646,
+          "contribution_to_principal_ratio": -0.017675683554441646,
+          "representative_label": [
+            1,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.016463093256108348,
+          "contribution_to_principal_ratio": -0.016463093256108348,
+          "representative_label": [
+            3,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.014991652697033212,
+          "contribution_to_principal_ratio": -0.014991652697033212,
+          "representative_label": [
+            3,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.014357512919482287,
+          "contribution_to_principal_ratio": -0.014357512919482287,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011635559612813363,
+          "contribution_to_principal_ratio": -0.011635559612813363,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010562379675784215,
+          "contribution_to_principal_ratio": -0.010562379675784215,
+          "representative_label": [
+            5,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009586236547767841,
+          "contribution_to_principal_ratio": -0.009586236547767841,
+          "representative_label": [
+            2,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.009149332070748728,
+          "contribution_to_principal_ratio": -0.009149332070748728,
+          "representative_label": [
+            2,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.008405660133848998,
+          "contribution_to_principal_ratio": -0.008405660133848998,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.006626495228717568,
+          "contribution_to_principal_ratio": -0.006626495228717568,
+          "representative_label": [
+            1,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.006467861897901981,
+          "contribution_to_principal_ratio": -0.006467861897901981,
+          "representative_label": [
+            4,
+            2
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.006263652997234157,
+          "contribution_to_principal_ratio": -0.006263652997234157,
+          "representative_label": [
+            4,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004446961840441596,
+          "contribution_to_principal_ratio": -0.004446961840441596,
+          "representative_label": [
+            3,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.004209470227335095,
+          "contribution_to_principal_ratio": -0.004209470227335095,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0035490047936885556,
+          "contribution_to_principal_ratio": -0.0035490047936885556,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0006181317114077752,
+          "contribution_to_principal_ratio": -0.0006181317114077752,
+          "representative_label": [
+            1,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0005689255895262099,
+          "contribution_to_principal_ratio": -0.0005689255895262099,
+          "representative_label": [
+            4,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.000383445330306515,
+          "contribution_to_principal_ratio": -0.000383445330306515,
+          "representative_label": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  },
+  "top10_share_range": {
+    "maximum": 0.9523322684307125,
+    "minimum": 0.711463060303258
+  },
+  "top1_share_range": {
+    "maximum": 0.18837039929628638,
+    "minimum": 0.10423761704162167
+  },
+  "top3_share_range": {
+    "maximum": 0.44538241620707253,
+    "minimum": 0.27251978624366835
+  },
+  "top5_share_range": {
+    "maximum": 0.6607281865740008,
+    "minimum": 0.4237604468628453
+  }
+}
