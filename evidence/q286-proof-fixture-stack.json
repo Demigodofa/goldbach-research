@@ -22,6 +22,20 @@
       "validation": "sample rows match the signed-projection receipt below 5.551115123125783e-17 and local centered coefficient sums are below 2.3092638912203256e-14."
     },
     {
+      "id": "anchor.external_theorem_strength_comparison",
+      "proved_scope": "source-backed theorem-strength comparison, not proof",
+      "source": "evidence/q286-residue-pair-external-theorem-comparison.json",
+      "statement": "Checked average, almost-all, distribution, and upper-bound AP-Goldbach sources do not supply the pointwise q286 residue-pair obligation; full fixed-modulus AP asymptotics would imply it.",
+      "validation": "average results supply obligation = False; almost-all results supply obligation = False."
+    },
+    {
+      "id": "anchor.character_mode_narrowing",
+      "proved_scope": "finite theorem-shaping diagnostic",
+      "source": "evidence/q286-residue-pair-character-mode-narrowing.json",
+      "statement": "Near-boundary samples are almost perfectly same-sign negative in the rank-three q286 first-three character-mode ledger.",
+      "validation": "same-sign sample count 3 of 3; character product count 99."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -47,9 +61,9 @@
     "short_statement": "If the q286 signed-projection anti-alignment theorem, the conditioned lower-support/complement rescue, and the finite/endpoint/outer assembly joints are proved, condense the route into a single conditional Goldbach theorem stack."
   },
   "goldbach_proved": false,
-  "next_non_circular_action": "Attack the residue-pair discrepancy inequality directly: seek a one-sided fixed-modulus theorem for actual strict-central binary-prime residue weights, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
+  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "d8d05e83b59fe3dc6022270ff7534b66e1078ffa",
+  "source_commit": "3418d3f182f076b1e1bf2bbea843026d8d5162b4",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {

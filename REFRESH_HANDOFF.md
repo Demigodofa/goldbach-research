@@ -20052,6 +20052,44 @@ the precise theorem backing this lane is a one-sided fixed-modulus
 binary-prime residue-discrepancy theorem.  No such theorem, strict-central
 existence theorem, or Goldbach proof is established here.
 
+External theorem comparison:
+
+- `notes/q286-residue-pair-external-theorem-comparison.md`
+- `evidence/q286-residue-pair-external-theorem-comparison.json`
+
+The comparison checked public arXiv source locators for AP Goldbach context:
+Bhowmik-Halupczok-Matsumoto-Suzuki on AP Goldbach averages and Dirichlet
+`L`-zeros, Salmensuu on almost-all summands in APs, and Lichtman on levels of
+distribution and Goldbach upper-bound improvements.  These sources do not
+supply the q286 obligation as stated: average, almost-all, distribution, and
+upper-bound results do not imply an every-sufficiently-large-`N` one-sided
+lower discrepancy inequality.  A full uniform fixed-modulus AP asymptotic
+`W_N(u)=T_N/|A_a|+o(T_N)` would imply the q286 signed-projection tack, but a
+positive pointwise AP asymptotic is Goldbach-strength for the strict-central
+AP problem.  The narrower remaining opportunity is to decompose `gamma_a`
+into Dirichlet-character modes and test whether the one-sided projection is
+strictly weaker than full AP Goldbach.
+
+Character-mode narrowing:
+
+- `tools/build_q286_residue_pair_character_mode_narrowing.py`
+- `notes/q286-residue-pair-character-mode-narrowing.md`
+- `evidence/q286-residue-pair-character-mode-narrowing.json`
+
+This reuses the existing q286 first-three character-mixture and
+singular-coordinate receipts on the near-boundary samples `1222142`,
+`1242118`, and `1240888`.  The underlying character-product space has `99`
+entries, but the active first-three approximation is rank three.  All three
+sample rows are almost perfectly same-sign negative in the rank-three mode
+ledger.  Tail `1222142` has mode contributions about `-0.226941309`,
+`-0.081891871`, and `+0.001245419`; clear rows `1242118` and `1240888` are
+also same-sign negative in all three modes.  Therefore the current samples
+are not rescued by internal cancellation among the first-three character
+modes.  The next theorem target is a pointwise lower bound on the first two
+dominant singular coordinates, a structural exclusion of simultaneous strong
+negativity there, a complement/lower-support rescue theorem, or a full
+fixed-modulus AP/Goldbach-strength input.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -34,6 +34,10 @@ def main():
         "evidence/q286-first-three-signed-projection-obligation.json")
     residue_pair = load_json(
         "evidence/q286-first-three-residue-pair-correlation-obligation.json")
+    external_comparison = load_json(
+        "evidence/q286-residue-pair-external-theorem-comparison.json")
+    character_narrowing = load_json(
+        "evidence/q286-residue-pair-character-mode-narrowing.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -100,6 +104,40 @@ def main():
                 "proved_scope": (
                     "exact finite algebraic identification of the missing "
                     "arithmetic theorem"),
+            },
+            {
+                "id": "anchor.external_theorem_strength_comparison",
+                "source": (
+                    "evidence/q286-residue-pair-external-theorem-comparison.json"),
+                "statement": (
+                    "Checked average, almost-all, distribution, and "
+                    "upper-bound AP-Goldbach sources do not supply the "
+                    "pointwise q286 residue-pair obligation; full "
+                    "fixed-modulus AP asymptotics would imply it."),
+                "validation": (
+                    "average results supply obligation = "
+                    f"{external_comparison['comparison_result']['average_goldbach_ap_results_supply_q286_obligation']}; "
+                    "almost-all results supply obligation = "
+                    f"{external_comparison['comparison_result']['almost_all_goldbach_ap_results_supply_q286_obligation']}."),
+                "proved_scope": (
+                    "source-backed theorem-strength comparison, not proof"),
+            },
+            {
+                "id": "anchor.character_mode_narrowing",
+                "source": (
+                    "evidence/q286-residue-pair-character-mode-narrowing.json"),
+                "statement": (
+                    "Near-boundary samples are almost perfectly same-sign "
+                    "negative in the rank-three q286 first-three "
+                    "character-mode ledger."),
+                "validation": (
+                    "same-sign sample count "
+                    f"{character_narrowing['same_sign_mode_target_count']} "
+                    "of "
+                    f"{len(character_narrowing['sample_targets'])}; "
+                    "character product count "
+                    f"{character_narrowing['character_product_count']}."),
+                "proved_scope": "finite theorem-shaping diagnostic",
             },
             {
                 "id": "anchor.generic_uniformity_is_too_blunt",
@@ -202,10 +240,11 @@ def main():
             "current_status": "not ready to condense into a proof",
         },
         "next_non_circular_action": (
-            "Attack the residue-pair discrepancy inequality directly: seek "
-            "a one-sided fixed-modulus theorem for actual strict-central "
-            "binary-prime residue weights, or prove/cite that this joint "
-            "requires an external fixed-modulus binary Goldbach/AP theorem."),
+            "Attack the first two dominant q286 first-three singular "
+            "character coordinates directly: seek pointwise lower bounds or "
+            "a structural exclusion of simultaneous strong negativity, or "
+            "prove/cite that this joint requires an external fixed-modulus "
+            "binary Goldbach/AP theorem."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

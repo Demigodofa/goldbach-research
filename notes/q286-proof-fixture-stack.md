@@ -17,6 +17,15 @@ frame.
 - `evidence/q286-first-three-residue-pair-correlation-obligation.json`:
   the signed-projection tack is exactly the fixed-modulus residue-pair
   discrepancy inequality against centered coefficients `gamma_a(u)`.
+- `evidence/q286-residue-pair-external-theorem-comparison.json`:
+  average, almost-all, distribution, and upper-bound AP-Goldbach results do
+  not supply the pointwise q286 obligation as stated; full fixed-modulus AP
+  asymptotics would imply it but are Goldbach-strength for strict-central AP
+  existence.
+- `evidence/q286-residue-pair-character-mode-narrowing.json`:
+  near-boundary samples are almost perfectly same-sign negative in the
+  rank-three q286 first-three character-mode ledger, so internal mode
+  cancellation is not the observed rescue mechanism there.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -49,4 +58,9 @@ global statement.
 
 Current next non-circular action: attack the residue-pair discrepancy
 inequality directly, or prove/cite that an external fixed-modulus
-strict-central binary Goldbach/AP theorem supplies it.
+strict-central binary Goldbach/AP theorem supplies it.  The next narrowing
+test is to decompose `gamma_a` into Dirichlet-character modes and ask whether
+the required one-sided projection is strictly weaker than full per-residue AP
+Goldbach.  Current finite evidence says the first two dominant singular
+coordinates must be controlled directly, structurally excluded from
+simultaneous strong negativity, or rescued by complement/lower-support terms.

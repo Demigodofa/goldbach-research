@@ -674,6 +674,29 @@ current comparison set.
    `1222142` is dominated by named residues such as `133` and `153`.
    This closes only the ambiguity of the required residue-correlation input;
    it does not prove that input.
+75. `notes/q286-residue-pair-external-theorem-comparison.md`, with evidence
+   in `evidence/q286-residue-pair-external-theorem-comparison.json`, compares
+   the q286 residue-pair obligation against public arXiv AP-Goldbach source
+   locators.  Checked average, almost-all, level-of-distribution, and
+   upper-bound results do not supply the every-sufficiently-large-`N`
+   one-sided q286 inequality.  A full uniform fixed-modulus AP asymptotic
+   would imply the q286 tack, and a positive pointwise AP asymptotic is
+   Goldbach-strength for the strict-central AP problem.  The remaining
+   possible narrowing is a Dirichlet-character decomposition of the specific
+   one-sided projection against `gamma_a`.
+76. `tools/build_q286_residue_pair_character_mode_narrowing.py`, with note
+   `notes/q286-residue-pair-character-mode-narrowing.md` and evidence in
+   `evidence/q286-residue-pair-character-mode-narrowing.json`, reuses the
+   existing first-three character-mixture and singular-coordinate receipts on
+   the near-boundary samples `1222142`, `1242118`, and `1240888`.  The q286
+   first-three channel remains broad in the `99` character-product space, but
+   the active approximation is rank three.  In the three tested rows, the
+   rank-three mode ledger is almost perfectly same-sign negative; the tail
+   `1222142` has contributions about `-0.226941309`, `-0.081891871`, and
+   `+0.001245419`, while both clear rows are same-sign negative in all three
+   modes.  This finite evidence demotes internal character-mode cancellation
+   as the rescue mechanism for these rows and points to controlling the first
+   two dominant singular coordinates or using a separate rescue theorem.
 
 ## Still open
 
@@ -681,5 +704,7 @@ current comparison set.
 - Conditioned complement or lower-support rescue theorem.
 - Pointwise binary-prime residue-correlation theorem backing those estimates.
   Its exact q286 form is now identified, but not proved.
+- Pointwise lower bounds or structural exclusion for simultaneous strong
+  negativity in the first two q286 first-three singular character coordinates.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

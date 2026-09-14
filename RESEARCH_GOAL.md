@@ -11082,6 +11082,34 @@ The tail residual at `1222142` is dominated by named residue hits such as
 residue-discrepancy theorem, not another threshold scan.  No such theorem is
 proved here.
 
+That outside theorem's strength is now classified in
+`notes/q286-residue-pair-external-theorem-comparison.md` and
+`evidence/q286-residue-pair-external-theorem-comparison.json`.  Public arXiv
+source locators for AP Goldbach averages, almost-all AP Goldbach, and modern
+level-of-distribution/upper-bound progress do not supply the q286 obligation
+as stated, because it is pointwise in every sufficiently large target in this
+fixed q286 lane.  A uniform fixed-modulus strict-central AP asymptotic
+`W_N(u)=T_N/|A_a|+o(T_N)` would imply the q286 tack; a positive pointwise AP
+asymptotic is Goldbach-strength for the strict-central AP problem.  The
+remaining possible narrowing is to prove only the specific one-sided
+projection against `gamma_a`, likely through a Dirichlet-character
+decomposition, rather than full per-residue AP asymptotics.
+
+That narrowing test is now recorded in
+`notes/q286-residue-pair-character-mode-narrowing.md` and
+`evidence/q286-residue-pair-character-mode-narrowing.json`.  Reusing the
+existing q286 character-mixture receipts on samples `1222142`, `1242118`,
+and `1240888`, the first-three channel is broad in the `99` character-product
+space but rank-three in the active singular approximation.  The three tested
+near-boundary rows are almost perfectly same-sign negative across those
+rank-three mode coordinates; `1222142` has mode contributions about
+`-0.226941309`, `-0.081891871`, and `+0.001245419`, while the two clear rows
+are same-sign negative in all three modes.  This finite evidence demotes
+internal character-mode cancellation as the rescue mechanism for these rows.
+The next theorem target is control of the first two dominant singular
+coordinates, a structural exclusion of simultaneous strong negativity there,
+or rescue from complement/lower-support/outer assembly.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

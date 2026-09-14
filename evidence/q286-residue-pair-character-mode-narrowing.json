@@ -1,0 +1,151 @@
+{
+  "all_sample_rows_same_sign_by_rank_three_modes": true,
+  "character_coefficient_l1_to_principal_mean": 32.308079615836355,
+  "character_coefficient_l2_to_principal_mean": 4.598721254687924,
+  "character_coefficient_linf_to_principal_mean": 0.8164555716483828,
+  "character_product_count": 99,
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "narrowing_result": "The q286 gamma projection is broad in the underlying 99-character product space, but the tested near-boundary rows are carried by the first three singular coordinates.",
+    "pressure_result": "The tested near-boundary rows have almost no cancellation among the rank-three mode contributions; mode contributions are same-sign negative up to tiny positive leakage.",
+    "route_effect": "This does not produce a proof, but it narrows the next theorem question: prove a one-sided lower bound for the three singular character coordinates, especially the first two dominant modes, or record that those coordinates require full pointwise binary-prime AP control."
+  },
+  "mixture_rows": {
+    "1222142": {
+      "first_three_reconstruction_error": 2.3414874186692842e-17,
+      "first_three_to_principal_ratio": -0.3075877603708801,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "triangle_character_bound_to_principal": 1.3222006419740187,
+      "triangle_to_sufficient_ratio": 4.407335473246729,
+      "vector_l2_character_bound_to_principal": 0.8666011743661788,
+      "vector_l2_to_sufficient_ratio": 2.888670581220596
+    },
+    "1240888": {
+      "first_three_reconstruction_error": 1.5144148796406301e-16,
+      "first_three_to_principal_ratio": -0.27468410150061706,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "triangle_character_bound_to_principal": 1.0390504056310832,
+      "triangle_to_sufficient_ratio": 3.4635013521036107,
+      "vector_l2_character_bound_to_principal": 0.7472700036765942,
+      "vector_l2_to_sufficient_ratio": 2.4909000122553144
+    },
+    "1242118": {
+      "first_three_reconstruction_error": 4.2222580940860013e-16,
+      "first_three_to_principal_ratio": -0.2864267432684323,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "triangle_character_bound_to_principal": 0.8786210410090121,
+      "triangle_to_sufficient_ratio": 2.928736803363374,
+      "vector_l2_character_bound_to_principal": 0.8209290164875931,
+      "vector_l2_to_sufficient_ratio": 2.7364300549586438
+    }
+  },
+  "mode_rows": {
+    "1222142": {
+      "dominant_mode_absolute_fraction": 0.7318831723225921,
+      "first_three_to_principal_ratio": -0.3075877603708801,
+      "mode_contribution_absolute_sum_to_principal": 0.3100785987501768,
+      "mode_reconstruction_error": 5.551115123125783e-17,
+      "mode_rows": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.22694130852262354,
+          "contribution_to_principal_ratio": -0.22694130852262354,
+          "mode_index": 1,
+          "singular_value": 158279.09383760378
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.08189187103790489,
+          "contribution_to_principal_ratio": -0.08189187103790489,
+          "mode_index": 2,
+          "singular_value": 124234.1882436279
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.001245419189648385,
+          "contribution_to_principal_ratio": 0.001245419189648385,
+          "mode_index": 3,
+          "singular_value": 21476.920434701242
+        }
+      ],
+      "signed_to_absolute_mode_contribution_ratio": -0.9919670741891364,
+      "target": 1222142,
+      "target_mod_286": 64
+    },
+    "1240888": {
+      "dominant_mode_absolute_fraction": 0.680499978404236,
+      "first_three_to_principal_ratio": -0.27468410150061706,
+      "mode_contribution_absolute_sum_to_principal": 0.274684101500617,
+      "mode_reconstruction_error": 5.551115123125783e-17,
+      "mode_rows": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.18692252513915686,
+          "contribution_to_principal_ratio": -0.18692252513915686,
+          "mode_index": 1,
+          "singular_value": 158279.09383760378
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.08589090147992547,
+          "contribution_to_principal_ratio": -0.08589090147992547,
+          "mode_index": 2,
+          "singular_value": 124234.1882436279
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0018706748815347056,
+          "contribution_to_principal_ratio": -0.0018706748815347056,
+          "mode_index": 3,
+          "singular_value": 21476.920434701242
+        }
+      ],
+      "signed_to_absolute_mode_contribution_ratio": -1.0000000000000002,
+      "target": 1240888,
+      "target_mod_286": 220
+    },
+    "1242118": {
+      "dominant_mode_absolute_fraction": 0.7289819198054382,
+      "first_three_to_principal_ratio": -0.2864267432684323,
+      "mode_contribution_absolute_sum_to_principal": 0.28642674326843226,
+      "mode_reconstruction_error": 5.551115123125783e-17,
+      "mode_rows": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.20879991719144114,
+          "contribution_to_principal_ratio": -0.20879991719144114,
+          "mode_index": 1,
+          "singular_value": 158279.09383760378
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.07467116934181281,
+          "contribution_to_principal_ratio": -0.07467116934181281,
+          "mode_index": 2,
+          "singular_value": 124234.1882436279
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.002955656735178345,
+          "contribution_to_principal_ratio": -0.002955656735178345,
+          "mode_index": 3,
+          "singular_value": 21476.920434701242
+        }
+      ],
+      "signed_to_absolute_mode_contribution_ratio": -1.0000000000000002,
+      "target": 1242118,
+      "target_mod_286": 20
+    }
+  },
+  "pointwise_character_sum_estimate_proved": false,
+  "rank_three_singular_values": [
+    158279.09383760378,
+    124234.1882436279,
+    21476.920434701242
+  ],
+  "same_sign_mode_target_count": 3,
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "3418d3f182f076b1e1bf2bbea843026d8d5162b4",
+  "status_boundary": "finite character-mode narrowing evidence only; no pointwise character-sum estimate, fixed-modulus AP theorem, q286 signed-projection theorem, or Goldbach proof is established"
+}

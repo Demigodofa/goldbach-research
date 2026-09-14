@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "source_commit": "3418d3f182f076b1e1bf2bbea843026d8d5162b4",
+  "status_boundary": "source-backed theorem-strength comparison only; no fixed-modulus binary AP theorem, q286 signed-projection theorem, strict-central existence theorem, or Goldbach proof is established",
+  "goldbach_proved": false,
+  "q286_obligation": {
+    "modulus": 286,
+    "tail_threshold": 0.3,
+    "statement": "For M=286, A_a={u in U : a-u in U}, centered first-three coefficient gamma_a(u), strict-central weighted binary-prime residue weights W_N(u), and T_N=sum_u W_N(u), prove sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N for every sufficiently large even N==a mod 286."
+  },
+  "comparison_result": {
+    "full_uniform_fixed_modulus_ap_asymptotic_would_imply_q286_obligation": true,
+    "average_goldbach_ap_results_supply_q286_obligation": false,
+    "almost_all_goldbach_ap_results_supply_q286_obligation": false,
+    "level_of_distribution_or_upper_bound_results_supply_q286_obligation": false,
+    "positive_pointwise_ap_asymptotic_is_goldbach_strength_for_strict_central_problem": true,
+    "narrower_remaining_opportunity": "Prove only the one-sided projection against gamma_a, rather than a full per-residue AP asymptotic."
+  },
+  "source_comparisons": [
+    {
+      "source": "https://arxiv.org/abs/1704.06103",
+      "title": "Goldbach Representations in Arithmetic Progressions and zeros of Dirichlet L-functions",
+      "used_for": "average-order and GRH/Dirichlet-L-function context",
+      "fit_to_q286_obligation": "not sufficient as checked; source studies average/summatory AP Goldbach representation functions rather than a pointwise every-large-N q286 one-sided discrepancy inequality"
+    },
+    {
+      "source": "https://arxiv.org/abs/2106.00778",
+      "title": "The Goldbach conjecture with summands in arithmetic progressions",
+      "used_for": "almost-all AP Goldbach comparison",
+      "fit_to_q286_obligation": "not sufficient as checked; almost-all results do not imply every sufficiently large N in the fixed q286 lane"
+    },
+    {
+      "source": "https://arxiv.org/abs/2309.08522",
+      "title": "Primes in arithmetic progressions to large moduli, and Goldbach beyond the square-root barrier",
+      "used_for": "level-of-distribution and Goldbach upper-bound comparison",
+      "fit_to_q286_obligation": "not sufficient as checked; distribution and upper-bound improvements do not provide the required pointwise one-sided lower discrepancy inequality"
+    }
+  ],
+  "next_non_circular_action": "Decompose gamma_a into Dirichlet-character modes and test whether the q286 one-sided projection can be reduced to a smaller signed zero-sum estimate than full fixed-modulus AP Goldbach."
+}
