@@ -31,6 +31,10 @@ frame.
   projection; modes `1` and `2` are same-sign negative on the three
   near-boundary samples, and their sum falls below `-.3` only on tail
   `1222142`.
+- `evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json`:
+  support, nonnegativity, total mass, and ordered-pair reflection symmetry
+  alone do not force the dominant `mode_1+mode_2` sum above `-.3`; every even
+  q286 residue has a positive reflected synthetic witness below the floor.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -53,9 +57,10 @@ frame.
    tail/near-clear rows.
 4. Prove a lower bound for the combined dominant singular-mode projection
    `mode_1(N)+mode_2(N)`, or classify the arithmetic conditions that stop
-   simultaneous strong negativity in those two coordinates.  In the current
-   sample, this is the immediate residual after bolting on the residue-pair
-   identity.
+   simultaneous strong negativity in those two coordinates.  The
+   support/reflection-only version of this tack is now obstructed, so the
+   surviving proof must use actual prime-pair arithmetic or a stronger
+   residue-weight constraint.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

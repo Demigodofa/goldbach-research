@@ -69,6 +69,7 @@ Current executable receipts:
 - `q286_first_three_positive_orbit_landing_profile_receipt`
 - `q286_first_three_positive_mass_threshold_falsifier_receipt`
 - `q286_first_three_singular_mode_residue_obligation_receipt`
+- `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`
 
 ## Closed or falsified lanes
 
@@ -84,6 +85,7 @@ prediction, and falsifier.
 | Raw package L2/Cauchy discrepancy | Falsified at measured scale | Late targets need roughly `0.0072..0.0075` relative discrepancy; actual is about `0.0157..0.0164`. |
 | Raw 99-character norm bound | Falsified as already sufficient | Selected stress targets are not certified by triangle or plain vector-L2 bounds. |
 | Rank-three internal cancellation | Falsified as explanation | The leading q286 mode contributions are mostly same-sign negative on stress targets. |
+| Dominant mode support/reflection geometry | Falsified as sufficient route | Every even target residue modulo `286` admits a positive reflected synthetic support weight with `mode_1+mode_2 < -.3`. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
 | Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
@@ -709,6 +711,18 @@ current comparison set.
    `1222142`.  This makes the next residual theorem a pointwise lower bound
    or structural exclusion for the dominant two-mode projection, not another
    threshold receipt.
+78. `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-reflection-support-obstruction.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json`,
+   closes the support/reflection-only version of that residual theorem.  All
+   `143` even residues modulo `286` admit strictly positive nonnegative
+   reflected synthetic support weights with `mode_1+mode_2 < -.3`; the
+   least-negative extremal row is still about `-2.5799705631335383`.
+   Therefore the dominant two-mode lower bound requires actual prime-pair
+   arithmetic, a stronger residue-weight constraint, complement/lower-support
+   rescue, or a fixed-modulus character-sum theorem.
 
 ## Still open
 

@@ -20121,6 +20121,27 @@ obligation as a lower bound or structural exclusion for the combined
 mode-1/mode-2 residue projection, with complement/lower-support rescue still
 open.
 
+Dominant-mode reflection-support obstruction:
+
+- `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`
+- `tools/build_q286_first_three_dominant_mode_reflection_support_obstruction.py`
+- `notes/q286-first-three-dominant-mode-reflection-support-obstruction.md`
+- `evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_reflection_support_obstruction`
+
+This closes the support/reflection-only proof shortcut for the dominant
+two-mode residual.  Even after throwing away mode `3`, every even target
+residue modulo `286` admits a strictly positive nonnegative reflected
+synthetic support weight with `mode_1+mode_2 < -.3`.  All `143` even residues
+are obstructed.  The worst extremal residue is `46`, with dominant-mode ratio
+about `-6.79376971010447`; the least-negative extremal residue is `276`, still
+about `-2.5799705631335383`.  Therefore support, total mass, nonnegativity,
+and ordered-pair reflection symmetry alone cannot prove the dominant
+mode-1/mode-2 lower bound.  The remaining route must use actual prime-pair
+arithmetic, a stronger residue-weight structural constraint, a pointwise
+fixed-modulus character-sum estimate, or complement/lower-support rescue.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

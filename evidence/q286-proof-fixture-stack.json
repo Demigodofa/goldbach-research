@@ -43,6 +43,13 @@
       "validation": "dominant modes [1, 2] are same-sign negative on 3 sample rows; dominant-mode failure targets [1222142]; maximum mode identity error 4.440892098500626e-16."
     },
     {
+      "id": "anchor.dominant_mode_reflection_support_obstruction",
+      "proved_scope": "finite-vector obstruction to a geometry-only dominant mode proof",
+      "source": "evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json",
+      "statement": "Support, nonnegativity, total mass, and ordered prime-pair reflection symmetry alone do not force the dominant singular mode-1/mode-2 sum above -0.3.",
+      "validation": "positive reflected synthetic witnesses exist for 143 of 143 even target residues modulo 286; least-negative extremal row 276 has ratio about -2.5799705631335383."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -71,7 +78,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "a6cc880fa65d7aef4a223bbd234b6c1b37c1e291",
+  "source_commit": "4667f878a23304b9ff28daca1e3db61ae3957580",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {

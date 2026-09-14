@@ -64,6 +64,14 @@ or classify the finite/residue conditions under which simultaneous strong
 negativity in these two singular coordinates is impossible for actual
 prime-pair weights.
 
+The support/reflection-only version of this theorem is already obstructed.
+`notes/q286-first-three-dominant-mode-reflection-support-obstruction.md`
+constructs positive nonnegative reflected synthetic support weights with
+`mode_1+mode_2 < -0.3` for every even target residue modulo `286`.  Therefore
+any successful proof of the dominant two-mode lower bound must use actual
+prime-pair arithmetic or a stronger residue-weight constraint than support,
+total mass, nonnegativity, and ordered-pair reflection symmetry.
+
 ## Boundary
 
 This is not a proof of the q286 first-three theorem.  It proves only exact

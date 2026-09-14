@@ -40,6 +40,8 @@ def main():
         "evidence/q286-residue-pair-character-mode-narrowing.json")
     singular_mode_obligation = load_json(
         "evidence/q286-first-three-singular-mode-residue-obligation.json")
+    dominant_mode_obstruction = load_json(
+        "evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -161,6 +163,28 @@ def main():
                 "proved_scope": (
                     "exact finite singular-mode residue identity and sample "
                     "classification"),
+            },
+            {
+                "id": "anchor.dominant_mode_reflection_support_obstruction",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json"),
+                "statement": (
+                    "Support, nonnegativity, total mass, and ordered "
+                    "prime-pair reflection symmetry alone do not force the "
+                    "dominant singular mode-1/mode-2 sum above -0.3."),
+                "validation": (
+                    "positive reflected synthetic witnesses exist for "
+                    f"{dominant_mode_obstruction['positive_witness_even_target_residue_count']} "
+                    "of "
+                    f"{dominant_mode_obstruction['even_target_residue_count']} "
+                    "even target residues modulo 286; least-negative "
+                    "extremal row "
+                    f"{dominant_mode_obstruction['least_negative_extremal_row']['target_residue']} "
+                    "has ratio about "
+                    f"{dominant_mode_obstruction['least_negative_extremal_row']['minimum_extremal_dominant_mode_to_principal_ratio']}."),
+                "proved_scope": (
+                    "finite-vector obstruction to a geometry-only dominant "
+                    "mode proof"),
             },
             {
                 "id": "anchor.generic_uniformity_is_too_blunt",

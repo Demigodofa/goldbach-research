@@ -42,6 +42,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_character_mixture_norm_receipt,
     q286_first_three_character_mode_coordinate_receipt,
     q286_first_three_singular_mode_residue_obligation_receipt,
+    q286_first_three_dominant_mode_reflection_support_obstruction_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4311,6 +4312,51 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             rows[1242118]["dominant_mode_threshold_slack"], 0)
         self.assertGreater(
             rows[1240888]["dominant_mode_threshold_slack"], 0)
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_reflection_support_obstruction(
+            self):
+        receipt = (
+            q286_first_three_dominant_mode_reflection_support_obstruction_receipt(
+                dominant_modes=(1, 2), tail_threshold=.3, slack_factor=1.25))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["even_target_residue_count"], 143)
+        self.assertEqual(
+            receipt["obstructed_even_target_residue_count"], 143)
+        self.assertEqual(
+            receipt["positive_witness_even_target_residue_count"], 143)
+        self.assertTrue(receipt[
+            "all_even_target_residues_have_extremal_obstruction"])
+        self.assertTrue(receipt[
+            "all_even_target_residues_have_positive_reflection_witness"])
+        self.assertTrue(receipt[
+            "support_reflection_dominant_mode_theorem_refuted"])
+        self.assertEqual(
+            receipt["worst_extremal_row"]["target_residue"], 46)
+        self.assertLess(
+            receipt["worst_extremal_row"][
+                "minimum_extremal_dominant_mode_to_principal_ratio"],
+            -6.7)
+        self.assertEqual(
+            receipt["least_negative_extremal_row"]["target_residue"], 276)
+        self.assertLess(
+            receipt["least_negative_extremal_row"][
+                "minimum_extremal_dominant_mode_to_principal_ratio"],
+            -2.5)
+        self.assertLess(
+            receipt["least_negative_positive_witness_row"][
+                "constructed_dominant_mode_sum_to_principal_ratio"],
+            -.3)
+        self.assertLess(
+            receipt["maximum_reflection_weight_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_constructed_reconstruction_error"], 1e-12)
+        self.assertTrue(receipt[
+            "dominant_mode_reflection_support_obstruction_measured"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])

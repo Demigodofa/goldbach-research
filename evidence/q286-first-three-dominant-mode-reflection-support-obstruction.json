@@ -1,0 +1,93 @@
+{
+  "all_even_target_residues_have_positive_reflection_witness": true,
+  "arithmetic_modulus": 286,
+  "dominant_mode_reflection_support_obstruction_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "even_target_residue_count": 143,
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "changed_under_evidence": "After throwing away mode 3 and keeping only singular modes 1 and 2, every even target residue modulo 286 still admits a strictly positive reflected synthetic support weight with dominant mode sum below -0.3.",
+    "remaining_theorem": "The dominant two-mode projection needs actual prime-pair arithmetic, a stronger structural constraint than reflection symmetry, complement/lower-support rescue, or a fixed-modulus binary-prime character-sum input."
+  },
+  "least_negative_extremal_row": {
+    "admissible_count": 99,
+    "constructed_dominant_mode_sum_to_principal_ratio": -0.37499999999999994,
+    "constructed_expected_ratio": -0.37500000000000006,
+    "constructed_reconstruction_error": 1.1102230246251565e-16,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "extremal_reflection_orbit": [
+      75,
+      201
+    ],
+    "maximum_weight": 0.08130807107964048,
+    "minimum_extremal_dominant_mode_to_principal_ratio": -2.5799705631335383,
+    "minimum_weight": 0.008632823276708444,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_dominant_bound": true,
+    "target_residue": 276,
+    "uniform_mixture_alpha": 0.14535049560586408
+  },
+  "least_negative_positive_witness_row": {
+    "admissible_count": 110,
+    "constructed_dominant_mode_sum_to_principal_ratio": -0.37499999999999967,
+    "constructed_expected_ratio": -0.375,
+    "constructed_reconstruction_error": 3.3306690738754696e-16,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "extremal_reflection_orbit": [
+      21,
+      23
+    ],
+    "maximum_weight": 0.0493177381656497,
+    "minimum_extremal_dominant_mode_to_principal_ratio": -4.576321657092882,
+    "minimum_weight": 0.008345967811747228,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_dominant_bound": true,
+    "target_residue": 44,
+    "uniform_mixture_alpha": 0.08194354070780495
+  },
+  "maximum_constructed_reconstruction_error": 3.3306690738754696e-16,
+  "maximum_reflection_weight_error": 0.0,
+  "obstructed_even_target_residue_count": 143,
+  "pointwise_character_sum_estimate_proved": false,
+  "positive_witness_even_target_residue_count": 143,
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "slack_factor": 1.25,
+  "source_commit": "4667f878a23304b9ff28daca1e3db61ae3957580",
+  "status_boundary": "finite-vector obstruction only; refutes a support/nonnegativity/total/reflection-only proof of the dominant mode-1/mode-2 lower bound, not arithmetic q286 rarity, not a pointwise character-sum estimate, and not Goldbach",
+  "support_reflection_dominant_mode_theorem_refuted": true,
+  "tail_threshold": 0.3,
+  "worst_extremal_row": {
+    "admissible_count": 99,
+    "constructed_dominant_mode_sum_to_principal_ratio": -0.375,
+    "constructed_expected_ratio": -0.375,
+    "constructed_reconstruction_error": 0.0,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "extremal_reflection_orbit": [
+      23
+    ],
+    "maximum_weight": 0.06474109021146957,
+    "minimum_extremal_dominant_mode_to_principal_ratio": -6.79376971010447,
+    "minimum_weight": 0.00954345826314827,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_dominant_bound": true,
+    "target_residue": 46,
+    "uniform_mixture_alpha": 0.0551976319483213
+  }
+}

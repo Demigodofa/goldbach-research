@@ -11133,6 +11133,20 @@ for the dominant two-mode residue projection, plus any complement/lower-support
 rescue needed afterward.  No pointwise character-sum theorem or Goldbach proof
 is established.
 
+The geometry-only shortcut under that residual is now closed in
+`notes/q286-first-three-dominant-mode-reflection-support-obstruction.md` and
+`evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json`.
+After discarding mode `3` and keeping only `mode_1+mode_2`, every even target
+residue modulo `286` still has a strictly positive nonnegative reflected
+synthetic support weight with dominant-mode sum below `-.3`.  The worst
+extremal residue is `46`, with ratio about `-6.79376971010447`; the
+least-negative extremal residue is `276`, still about
+`-2.5799705631335383`.  Therefore support, total mass, nonnegativity, and
+ordered-pair reflection symmetry alone cannot prove the dominant two-mode
+lower bound.  The remaining theorem must use actual prime-pair arithmetic, a
+stronger residue-weight constraint, complement/lower-support rescue, or an
+external fixed-modulus binary-prime character-sum input.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
