@@ -20295,6 +20295,28 @@ or prove a residual-channel bound that keeps the requirement in a provable
 range.  It is not a portfolio theorem, not a residual theorem, and not a
 Goldbach proof.
 
+Dominant-mode residual channel profile:
+
+- `q286_first_three_dominant_mode_residual_channel_profile_receipt`
+- `tools/build_q286_first_three_dominant_mode_residual_channel_profile.py`
+- `notes/q286-first-three-dominant-mode-residual-channel-profile.md`
+- `evidence/q286-first-three-dominant-mode-residual-channel-profile.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_residual_channel_profile`
+
+This profiles the `14` real residual channels left after subtracting the
+`11`-channel recurrent helpful portfolio.  On the selected fixture, no
+individual residual channel separates selected clears from selected deficits.
+The residual delta is negative in every selected deficit-to-clear pair:
+`-0.5407412596`, `-0.2510131904`, `-0.1938102546`, `-0.1426643073`,
+`-0.1084846894`, and `-0.0743618794`.  Thus the residual does not provide the
+observed rescue on those pairs; it pushes against the clear side.  The
+harshest residual pressure and harshest residual sum both occur at passing
+target `13556`.  This demotes a small residual-channel classifier.  The live
+target remains a recurrent-portfolio lower bound strong enough to overcome
+adverse residual requirements, or a genuine fixed-modulus residual-channel
+theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

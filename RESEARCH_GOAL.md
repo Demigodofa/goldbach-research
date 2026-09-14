@@ -11246,6 +11246,19 @@ recurrent-portfolio lower bound against this row-dependent residual
 requirement, or a residual-channel theorem that keeps the required portfolio
 inside a provable range.
 
+The residual-channel follow-up is now recorded in
+`notes/q286-first-three-dominant-mode-residual-channel-profile.md` and
+`evidence/q286-first-three-dominant-mode-residual-channel-profile.json`.
+After removing the `11` recurrent portfolio channels, the remaining `14`
+channels do not contain an individual residual-channel separator on the
+selected fixture.  The residual delta is negative in every selected
+deficit-to-clear pair, so the residual pushes against the clear side rather
+than rescuing it.  The harshest residual pressure and harshest residual sum
+both occur at target `13556`, a passing row.  This demotes a small residual
+classifier and sharpens the route: the recurrent portfolio itself must supply
+the rescue against potentially adverse residual requirements, unless a real
+fixed-modulus residual-channel theorem is proved.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

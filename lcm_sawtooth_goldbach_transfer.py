@@ -9485,6 +9485,251 @@ def q286_first_three_dominant_mode_portfolio_residual_obligation_receipt(
     }
 
 
+def q286_first_three_dominant_mode_residual_channel_profile_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Profile the channels left after subtracting the helpful portfolio.
+
+    This receipt asks whether the nonportfolio residual is itself a small,
+    repeatable signed object.  It keeps the exact dominant identity, but the
+    measured claim is only finite channel bookkeeping on the selected rows.
+    """
+    if (type(recurrent_min_pair_count) is not int
+            or recurrent_min_pair_count < 1):
+        raise ValueError(
+            "recurrent_min_pair_count must be a positive integer")
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+    if portfolio_name == "universal_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["universally_helpful_channel_rows"])
+    elif portfolio_name == "recurrent_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["channel_frequency_rows"]
+            if row["helpful_pair_count"] >= recurrent_min_pair_count)
+    else:
+        raise ValueError("unknown portfolio_name")
+
+    sample_rows = swing_receipt["sample_target_rows"]
+    first_target = swing_receipt["sample_targets"][0]
+    all_labels = tuple(
+        tuple(row["representative_label"])
+        for row in sample_rows[first_target]["real_channel_contribution_rows"])
+    portfolio_label_set = set(portfolio_labels)
+    residual_labels = tuple(
+        label for label in all_labels if label not in portfolio_label_set)
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    target_rows = {}
+    maximum_residual_identity_error = 0.0
+    residual_negative_pressures = []
+    residual_positive_offsets = []
+    for target in swing_receipt["sample_targets"]:
+        row = sample_rows[target]
+        contributions = contribution_by_label(row)
+        residual_entries = tuple({
+            "representative_label": label,
+            "contribution_to_principal_ratio": contributions[label],
+        } for label in residual_labels)
+        residual_sum = math.fsum(
+            item["contribution_to_principal_ratio"]
+            for item in residual_entries)
+        residual_positive_offset = math.fsum(
+            max(0.0, item["contribution_to_principal_ratio"])
+            for item in residual_entries)
+        residual_negative_pressure = math.fsum(
+            max(0.0, -item["contribution_to_principal_ratio"])
+            for item in residual_entries)
+        sorted_by_abs = sorted(
+            residual_entries,
+            key=lambda item: (
+                -abs(item["contribution_to_principal_ratio"]),
+                item["representative_label"]))
+        target_rows[target] = {
+            "target": target,
+            "target_mod_286": row["target_mod_286"],
+            "branch_label": row["signed_channel_branch_label"],
+            "dominant_floor_passes": row["dominant_floor_passes"],
+            "dominant_sum_to_principal": row[
+                "dominant_character_sum_to_principal_ratio"],
+            "residual_sum_to_principal": residual_sum,
+            "residual_positive_offset_to_principal": (
+                residual_positive_offset),
+            "residual_negative_pressure_to_principal": (
+                residual_negative_pressure),
+            "residual_signed_balance_error": abs(
+                residual_sum
+                - residual_positive_offset
+                + residual_negative_pressure),
+            "top_residual_channel_rows": tuple(sorted_by_abs[:5]),
+        }
+        residual_negative_pressures.append(residual_negative_pressure)
+        residual_positive_offsets.append(residual_positive_offset)
+        maximum_residual_identity_error = max(
+            maximum_residual_identity_error,
+            abs(residual_sum
+                - residual_positive_offset
+                + residual_negative_pressure))
+
+    channel_rows = []
+    for label in residual_labels:
+        values = []
+        failure_values = []
+        clear_values = []
+        positive_targets = []
+        negative_targets = []
+        maximum_abs_row = None
+        for target in swing_receipt["sample_targets"]:
+            value = contribution_by_label(sample_rows[target])[label]
+            values.append(value)
+            if sample_rows[target]["dominant_floor_passes"]:
+                clear_values.append(value)
+            else:
+                failure_values.append(value)
+            if value > tolerance:
+                positive_targets.append(target)
+            elif value < -tolerance:
+                negative_targets.append(target)
+            if (maximum_abs_row is None
+                    or abs(value)
+                    > abs(maximum_abs_row["contribution_to_principal_ratio"])):
+                maximum_abs_row = {
+                    "target": target,
+                    "contribution_to_principal_ratio": value,
+                    "dominant_floor_passes": sample_rows[target][
+                        "dominant_floor_passes"],
+                }
+        clear_summary = summarize(clear_values)
+        failure_summary = summarize(failure_values)
+        clear_mean = clear_summary["mean"]
+        failure_mean = failure_summary["mean"]
+        absolute_sum = math.fsum(abs(value) for value in values)
+        channel_rows.append({
+            "representative_label": label,
+            "all_summary": summarize(values),
+            "absolute_contribution_sum": absolute_sum,
+            "failure_summary": failure_summary,
+            "clear_summary": clear_summary,
+            "clear_minus_failure_mean": (
+                clear_mean - failure_mean
+                if clear_mean is not None and failure_mean is not None
+                else None),
+            "positive_targets": tuple(positive_targets),
+            "negative_targets": tuple(negative_targets),
+            "maximum_abs_row": maximum_abs_row,
+            "clear_min_exceeds_failure_max": bool(
+                clear_values and failure_values
+                and min(clear_values) > max(failure_values)),
+            "failure_min_exceeds_clear_max": bool(
+                clear_values and failure_values
+                and min(failure_values) > max(clear_values)),
+        })
+
+    channel_rows = tuple(sorted(
+        channel_rows,
+        key=lambda row: (
+            -row["absolute_contribution_sum"],
+            row["representative_label"])))
+
+    pair_rows = []
+    for pair in swing_receipt["pair_rows"]:
+        left_contributions = contribution_by_label(
+            sample_rows[pair["left_target"]])
+        right_contributions = contribution_by_label(
+            sample_rows[pair["right_target"]])
+        residual_delta = math.fsum(
+            right_contributions[label] - left_contributions[label]
+            for label in residual_labels)
+        pair_rows.append({
+            "left_target": pair["left_target"],
+            "right_target": pair["right_target"],
+            "residual_delta_to_principal": residual_delta,
+            "residual_delta_helped_clear": residual_delta > tolerance,
+            "left_residual_sum_to_principal": target_rows[
+                pair["left_target"]]["residual_sum_to_principal"],
+            "right_residual_sum_to_principal": target_rows[
+                pair["right_target"]]["residual_sum_to_principal"],
+        })
+
+    separating_channels = tuple(
+        row for row in channel_rows
+        if (row["clear_min_exceeds_failure_max"]
+            or row["failure_min_exceeds_clear_max"]))
+    largest_residual_pressure_row = max(
+        target_rows.values(),
+        key=lambda row: row["residual_negative_pressure_to_principal"])
+    largest_positive_offset_row = max(
+        target_rows.values(),
+        key=lambda row: row["residual_positive_offset_to_principal"])
+    harshest_residual_sum_row = min(
+        target_rows.values(),
+        key=lambda row: row["residual_sum_to_principal"])
+
+    return {
+        "arithmetic_modulus": swing_receipt["arithmetic_modulus"],
+        "support": swing_receipt["support"],
+        "dominant_modes": swing_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            swing_receipt["active_real_channel_count"]),
+        "pair_targets": swing_receipt["pair_targets"],
+        "sample_targets": swing_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "portfolio_channel_labels": portfolio_labels,
+        "portfolio_channel_count": len(portfolio_labels),
+        "residual_channel_labels": residual_labels,
+        "residual_channel_count": len(residual_labels),
+        "target_rows": target_rows,
+        "channel_rows": channel_rows,
+        "pair_rows": tuple(pair_rows),
+        "separating_residual_channel_rows": separating_channels,
+        "separating_residual_channel_count": len(separating_channels),
+        "residual_negative_pressure_summary": summarize(
+            residual_negative_pressures),
+        "residual_positive_offset_summary": summarize(
+            residual_positive_offsets),
+        "largest_residual_pressure_row": largest_residual_pressure_row,
+        "largest_positive_residual_offset_row": largest_positive_offset_row,
+        "harshest_residual_sum_row": harshest_residual_sum_row,
+        "maximum_residual_identity_error": maximum_residual_identity_error,
+        "residual_channel_profile_measured": True,
+        "residual_small_channel_theorem_proved": False,
+        "residual_separation_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

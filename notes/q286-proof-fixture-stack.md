@@ -68,6 +68,12 @@ frame.
   `portfolio_sum >= -0.3 - nonportfolio_residual_sum`; the remaining theorem
   is a portfolio lower bound against this residual requirement, or a residual
   theorem that keeps the requirement in range.
+- `evidence/q286-first-three-dominant-mode-residual-channel-profile.json`:
+  the `14` residual channels left after subtracting the recurrent portfolio do
+  not contain an individual channel separator on the selected fixture, and the
+  residual delta is negative in every selected deficit-to-clear pair.  This
+  demotes a small residual-channel classifier and leaves the recurrent
+  portfolio as the object that must overcome adverse residual requirements.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -104,7 +110,9 @@ frame.
    diagnostic preserves the recurrent portfolio as a finite candidate while
    keeping the nonportfolio residual explicit.  The portfolio/residual
    obligation now rewrites that residual explicitly as the rowwise required
-   portfolio floor.
+   portfolio floor.  The residual-channel profile demotes a one-channel
+   residual classifier: no residual channel separates the selected outcomes,
+   and residual deltas move against the clear side on all selected pairs.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

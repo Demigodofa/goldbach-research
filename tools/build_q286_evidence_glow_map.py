@@ -55,6 +55,8 @@ def main():
     late_zero = load_json(EVIDENCE / "q286-tail-alignment-complement-window-233-264.json")
     portfolio_residual = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-portfolio-residual-obligation.json")
+    residual_profile = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-residual-channel-profile.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -239,6 +241,45 @@ def main():
         "portfolio-residual-obligation",
         2.5,
         "prove recurrent portfolio lower bound or residual-channel bound")
+
+    layer(
+        "residual-channel-profile",
+        "Residual channels do not provide selected-pair rescue",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-residual-channel-profile.json",
+        2.0,
+        "Finite residual-channel profile only; no residual theorem.")
+    for target, row in residual_profile["target_rows"].items():
+        add_hit(
+            target_stacks,
+            str(target),
+            "residual-channel-profile",
+            2.0,
+            "residual signed pressure profiled",
+            {
+                "residual_sum": row["residual_sum_to_principal"],
+                "residual_negative_pressure": (
+                    row["residual_negative_pressure_to_principal"]),
+                "dominant_floor_passes": row["dominant_floor_passes"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "small-residual-channel-classifier-demoted",
+        "residual-channel-profile",
+        2.0,
+        "no individual residual channel separates selected outcomes",
+        {
+            "separating_residual_channel_count": (
+                residual_profile["separating_residual_channel_count"]),
+            "harshest_residual_target": (
+                residual_profile["harshest_residual_sum_row"]["target"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "residual-channel-profile",
+        2.0,
+        "residual pushes against clear side on selected pairs")
 
     layer(
         "conditional-proof-stack",

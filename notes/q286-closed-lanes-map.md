@@ -806,6 +806,17 @@ current comparison set.
    target is now a recurrent-portfolio lower bound against this residual
    requirement, or a residual-channel theorem that keeps the requirement in a
    provable range.
+86. `q286_first_three_dominant_mode_residual_channel_profile_receipt`, with
+   note `notes/q286-first-three-dominant-mode-residual-channel-profile.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-residual-channel-profile.json`,
+   profiles the `14` channels left after the recurrent portfolio is removed.
+   No individual residual channel separates selected clears from selected
+   deficits, and the residual delta is negative in every selected
+   deficit-to-clear pair.  The harshest residual pressure and harshest
+   residual sum both occur at passing target `13556`.  This demotes a small
+   residual-channel classifier; the recurrent portfolio must overcome adverse
+   residual requirements unless a genuine residual-channel theorem is proved.
 
 ## Still open
 
@@ -818,9 +829,10 @@ current comparison set.
   coordinates, now sharpened to the `11`-channel recurrent portfolio versus
   `14`-channel residual obligation
   `portfolio_sum >= -0.3 - nonportfolio_residual_sum`.  The geometry-only,
-  generic norm, pressure-ceiling-only, and tiny-channel routes are demoted on
-  current evidence; the live target is a recurrent-portfolio lower bound, a
-  residual-channel bound, or an external theorem strong enough to imply the
-  same pointwise inequality.
+  generic norm, pressure-ceiling-only, tiny-channel, and small
+  residual-channel classifier routes are demoted on current evidence; the live
+  target is a recurrent-portfolio lower bound, a genuine residual-channel
+  bound, or an external theorem strong enough to imply the same pointwise
+  inequality.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

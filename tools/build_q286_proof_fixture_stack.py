@@ -56,6 +56,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-helpful-portfolio.json")
     dominant_mode_portfolio_residual = load_json(
         "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json")
+    dominant_mode_residual_profile = load_json(
+        "evidence/q286-first-three-dominant-mode-residual-channel-profile.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -337,6 +339,27 @@ def main():
                     "portfolio or residual theorem"),
             },
             {
+                "id": "anchor.dominant_mode_residual_channel_profile",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-residual-channel-profile.json"),
+                "statement": (
+                    "The residual channels left after subtracting the "
+                    "recurrent portfolio do not provide a one-channel "
+                    "separator or a residual rescue on the selected pairs."),
+                "validation": (
+                    "residual channel count "
+                    f"{dominant_mode_residual_profile['residual_channel_count']}; "
+                    "separating residual channels "
+                    f"{dominant_mode_residual_profile['separating_residual_channel_count']}; "
+                    "harshest residual target "
+                    f"{dominant_mode_residual_profile['harshest_residual_sum_row']['target']}; "
+                    "maximum identity error "
+                    f"{dominant_mode_residual_profile['maximum_residual_identity_error']}."),
+                "proved_scope": (
+                    "finite residual-channel diagnostic and demoted shortcut, "
+                    "not a residual theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -431,8 +454,9 @@ def main():
                     "portfolio lower bound against the rowwise residual "
                     "requirement, or prove a residual-channel theorem that "
                     "keeps that requirement in range.  The norm budget, "
-                    "tiny-channel, and geometry-only routes are demoted on "
-                    "the current evidence."),
+                    "tiny-channel, small residual-channel classifier, and "
+                    "geometry-only routes are demoted on the current "
+                    "evidence."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

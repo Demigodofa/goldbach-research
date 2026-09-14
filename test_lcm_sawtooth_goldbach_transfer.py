@@ -50,6 +50,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_channel_swing_pair_receipt,
     q286_first_three_dominant_mode_helpful_portfolio_receipt,
     q286_first_three_dominant_mode_portfolio_residual_obligation_receipt,
+    q286_first_three_dominant_mode_residual_channel_profile_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4633,6 +4634,32 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "fixed_portfolio_lower_bound_theorem_proved"])
         self.assertFalse(receipt["residual_channel_bound_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_residual_channel_profile(self):
+        receipt = q286_first_three_dominant_mode_residual_channel_profile_receipt(
+            pair_targets=((24424, 13556), (1222142, 1242118)),
+            recurrent_min_pair_count=2,
+            top_channel_count=4)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["portfolio_channel_count"], 6)
+        self.assertEqual(receipt["residual_channel_count"], 19)
+        self.assertLess(receipt["maximum_residual_identity_error"], 1e-12)
+        self.assertEqual(
+            receipt["largest_residual_pressure_row"]["target"], 13556)
+        self.assertEqual(
+            receipt["harshest_residual_sum_row"]["target"], 13556)
+        self.assertGreater(
+            receipt["separating_residual_channel_count"], 0)
+        self.assertEqual(
+            receipt["channel_rows"][0]["representative_label"], (5, 1))
+        for row in receipt["pair_rows"]:
+            self.assertFalse(row["residual_delta_helped_clear"])
+        self.assertTrue(receipt["residual_channel_profile_measured"])
+        self.assertFalse(receipt["residual_small_channel_theorem_proved"])
+        self.assertFalse(receipt["residual_separation_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

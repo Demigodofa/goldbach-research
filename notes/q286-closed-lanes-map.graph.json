@@ -323,6 +323,14 @@
       "status_boundary": "finite exact portfolio/residual obligation only; no portfolio lower-bound theorem, no residual-channel theorem, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_dominant_mode_residual_channel_profile",
+      "type": "receipt",
+      "label": "q286 dominant-mode residual channel profile",
+      "status": "finite_theorem_shaping_evidence_and_demoted_shortcut",
+      "validation": "q286_first_three_dominant_mode_residual_channel_profile_receipt and tools/build_q286_first_three_dominant_mode_residual_channel_profile.py generated evidence/q286-first-three-dominant-mode-residual-channel-profile.json; no individual residual channel separates selected outcomes, residual deltas are negative in every selected deficit-to-clear pair, and the harshest residual sum occurs at passing target 13556",
+      "status_boundary": "finite residual-channel diagnostic only; no residual-channel theorem, no portfolio lower-bound theorem, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
+    },
+    {
       "id": "structure.q286_proof_fixture_stack",
       "type": "surviving_structure",
       "label": "q286 proof fixture stack",
@@ -1924,6 +1932,11 @@
       "type": "refines"
     },
     {
+      "from": "receipt.q286_first_three_dominant_mode_residual_channel_profile",
+      "to": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
+      "type": "refines"
+    },
+    {
       "from": "receipt.q286_first_three_dominant_mode_channel_swing_pairs",
       "to": "receipt.q286_first_three_dominant_mode_signed_channel_profile",
       "type": "refines"
@@ -1950,6 +1963,11 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
+      "to": "obligation.q286_residue_pair_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_channel_profile",
       "to": "obligation.q286_residue_pair_correlation",
       "type": "requires"
     },
@@ -2027,6 +2045,11 @@
       "from": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
       "to": "structure.q286_proof_fixture_stack",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_channel_profile",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "demotes"
     },
     {
       "from": "receipt.q286_first_three_orbit_uniformity_budget",
