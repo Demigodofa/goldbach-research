@@ -605,12 +605,25 @@ current comparison set.
    cycles `8..15` from start `90080` contain `64` high-positive-mass tails
    and `294` low-positive-mass clear rows.  This leaves mass allocation as a
    coordinate in the exact-curve problem, not a one-dimensional certificate.
+69. `q286_first_three_mass_matched_pair_decomposition_receipt`, with evidence
+   in `evidence/q286-first-three-mass-matched-pair-decomposition.json`,
+   reuses the four mass-threshold windows and decomposes mass-nearest
+   clear-minus-tail pairs by exact midpoint products.  Early cycles `0..15`
+   yield `1024` same-residue/sign-mask pairs, cycles `8..15` yield `283`
+   pairs with `264` same-residue/sign-mask, the late `1120120` window has no
+   near-boundary tails, and the `1200200` holdout has one fallback pair.
+   Across all `1308` pairs, positive landing quality is positive in `865`
+   pairs and dominant in `769`; positive mass transfer is nearly
+   sign-balanced.  The holdout pair shows a different cancellation pattern in
+   which helpful mass terms are mostly offset by worse landing quality.  This
+   refines the surviving exact-curve route toward a coupled mass/landing
+   arithmetic estimate, not a new threshold theorem.
 
 ## Still open
 
 - Eventual q286 first-three alignment theorem.
-- Eventual q286 pressure/ratio staircase-occupancy theorem or exact-curve
-  theorem.
+- Eventual q286 pressure/ratio staircase-occupancy theorem or coupled
+  mass/landing exact-curve theorem.
 - Eventual complement or lower-support lower-bound theorem.
 - Pointwise signed binary-prime residue correlation estimate.
 - Boundary finite check and outer assembly.

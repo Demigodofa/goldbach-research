@@ -4,6 +4,7 @@ This module isolates an algebraic transfer.  It does not assert a mean-square
 estimate for the resulting twisted Goldbach sums.
 """
 
+import hashlib
 import math
 from functools import lru_cache
 from fractions import Fraction
@@ -19190,6 +19191,389 @@ def q286_first_three_positive_mass_threshold_falsifier_receipt(
         "target_rows": tuple(near_rows) if include_rows else (),
         "positive_mass_threshold_falsifier_measured": True,
         "positive_mass_threshold_theorem_proved": False,
+        "eventual_exact_curve_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def _q286_first_three_reflection_orbit_sign_mask_rows(tolerance=1e-9):
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    units = data["units"]
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+
+    rows = {}
+    for target_residue in range(0, modulus, 2):
+        admissible_mask = admissible_masks[target_residue]
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        seen = set()
+        signature = []
+        positive_count = 0
+        negative_count = 0
+        zero_count = 0
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected)
+            if reflected == index:
+                orbit = (unit,)
+                average = centered[index]
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                average = 0.5 * (centered[index] + centered[reflected])
+            ratio = float(average / principal_mean)
+            if ratio < -tolerance:
+                sign = -1
+                negative_count += 1
+            elif ratio > tolerance:
+                sign = 1
+                positive_count += 1
+            else:
+                sign = 0
+                zero_count += 1
+            signature.append((orbit, sign))
+        signature = tuple(sorted(signature))
+        rows[target_residue] = {
+            "target_mod_286": target_residue,
+            "positive_orbit_sign_count": positive_count,
+            "negative_orbit_sign_count": negative_count,
+            "zero_orbit_sign_count": zero_count,
+            "sign_mask_id": hashlib.sha256(
+                repr(signature).encode("ascii")).hexdigest()[:16],
+        }
+    return rows
+
+
+def q286_first_three_mass_matched_pair_decomposition_receipt(
+        windows=((10000, 16), (90080, 8), (1120120, 8), (1200200, 8)),
+        targets_per_cycle=5005, tail_threshold=.3,
+        near_window=(-.33, -.27), tolerance=1e-9,
+        include_pair_rows=True):
+    """Decompose mass-matched opposite outcomes into four product terms.
+
+    For near-boundary q286 rows, write
+
+    ``first_three = -B + P``,
+    ``B = negative_mass * negative_landing_mean_abs``, and
+    ``P = positive_mass * positive_landing_mean``.
+
+    Each tail row is paired with the mass-nearest clear row, prioritizing
+    identical q286 target residue and then identical reflection-orbit sign
+    masks.  The clear-minus-tail swing is decomposed exactly by midpoint
+    product identities into:
+
+    * positive mass transfer;
+    * positive landing quality;
+    * negative pressure mass control;
+    * negative pressure landing control.
+
+    This is finite diagnostic evidence only.  It proves no separator, no
+    eventual first-three bound, no signed prime-correlation estimate, and no
+    Goldbach theorem.
+    """
+    windows = tuple(windows)
+    if not windows:
+        raise ValueError("windows must be nonempty")
+    for window in windows:
+        if (not isinstance(window, (tuple, list)) or len(window) != 2
+                or type(window[0]) is not int or type(window[1]) is not int
+                or window[0] < 40 or window[0] % 2 or window[1] < 1):
+            raise ValueError(
+                "each window must be (even_start_at_least_40, cycles)")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    near_low, near_high = tuple(near_window)
+    if (not math.isfinite(near_low) or not math.isfinite(near_high)
+            or near_low >= near_high):
+        raise ValueError("near_window must be a finite increasing pair")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_pair_rows) is not bool:
+        raise ValueError("include_pair_rows must be boolean")
+
+    sign_masks = _q286_first_three_reflection_orbit_sign_mask_rows(tolerance)
+
+    term_names = (
+        "positive_mass_transfer_term",
+        "positive_landing_quality_term",
+        "negative_pressure_mass_control_term",
+        "negative_pressure_landing_control_term",
+    )
+
+    def summarize_pairs(pair_rows):
+        sign_summary = {}
+        dominant_counts = {name: 0 for name in term_names}
+        dominant_positive_counts = {name: 0 for name in term_names}
+        dominant_negative_counts = {name: 0 for name in term_names}
+        sums = {name: 0.0 for name in term_names}
+        positives = {name: 0 for name in term_names}
+        negatives = {name: 0 for name in term_names}
+        zeros = {name: 0 for name in term_names}
+        for pair in pair_rows:
+            for name in term_names:
+                value = pair["term_values"][name]
+                sums[name] += value
+                if value > tolerance:
+                    positives[name] += 1
+                elif value < -tolerance:
+                    negatives[name] += 1
+                else:
+                    zeros[name] += 1
+            dominant = pair["dominant_term"]
+            dominant_counts[dominant] += 1
+            if pair["term_values"][dominant] > tolerance:
+                dominant_positive_counts[dominant] += 1
+            elif pair["term_values"][dominant] < -tolerance:
+                dominant_negative_counts[dominant] += 1
+        count = len(pair_rows)
+        for name in term_names:
+            sign_summary[name] = {
+                "positive_count": positives[name],
+                "negative_count": negatives[name],
+                "zero_count": zeros[name],
+                "positive_fraction": positives[name] / count
+                if count else math.nan,
+                "negative_fraction": negatives[name] / count
+                if count else math.nan,
+                "sum": sums[name],
+                "mean": sums[name] / count if count else math.nan,
+                "abs_dominant_count": dominant_counts[name],
+                "abs_dominant_positive_count": (
+                    dominant_positive_counts[name]),
+                "abs_dominant_negative_count": (
+                    dominant_negative_counts[name]),
+            }
+        return sign_summary
+
+    def mass_distance(left, right):
+        return (
+            abs(left["positive_orbit_mass_fraction"]
+                - right["positive_orbit_mass_fraction"])
+            + abs(left["negative_orbit_mass_fraction"]
+                  - right["negative_orbit_mass_fraction"]))
+
+    def pair_decomposition(tail_row, clear_row, match_tier, sign_match):
+        pos_mass_tail = tail_row["positive_orbit_mass_fraction"]
+        pos_mass_clear = clear_row["positive_orbit_mass_fraction"]
+        pos_landing_tail = tail_row[
+            "positive_landing_mean_to_principal_ratio"]
+        pos_landing_clear = clear_row[
+            "positive_landing_mean_to_principal_ratio"]
+        neg_mass_tail = tail_row["negative_orbit_mass_fraction"]
+        neg_mass_clear = clear_row["negative_orbit_mass_fraction"]
+        neg_landing_tail = tail_row[
+            "negative_landing_mean_abs_to_principal_ratio"]
+        neg_landing_clear = clear_row[
+            "negative_landing_mean_abs_to_principal_ratio"]
+
+        delta_pos_mass = pos_mass_clear - pos_mass_tail
+        delta_pos_landing = pos_landing_clear - pos_landing_tail
+        delta_neg_mass = neg_mass_clear - neg_mass_tail
+        delta_neg_landing = neg_landing_clear - neg_landing_tail
+        mid_pos_mass = 0.5 * (pos_mass_clear + pos_mass_tail)
+        mid_pos_landing = 0.5 * (pos_landing_clear + pos_landing_tail)
+        mid_neg_mass = 0.5 * (neg_mass_clear + neg_mass_tail)
+        mid_neg_landing = 0.5 * (neg_landing_clear + neg_landing_tail)
+
+        positive_mass_transfer = mid_pos_landing * delta_pos_mass
+        positive_landing_quality = mid_pos_mass * delta_pos_landing
+        negative_mass_control = -mid_neg_landing * delta_neg_mass
+        negative_landing_control = -mid_neg_mass * delta_neg_landing
+        term_values = {
+            "positive_mass_transfer_term": positive_mass_transfer,
+            "positive_landing_quality_term": positive_landing_quality,
+            "negative_pressure_mass_control_term": negative_mass_control,
+            "negative_pressure_landing_control_term": (
+                negative_landing_control),
+        }
+        ranked_terms = tuple(
+            sorted(term_values.items(), key=lambda item: abs(item[1]),
+                   reverse=True))
+        first_three_swing = (
+            clear_row["first_three_to_principal_ratio"]
+            - tail_row["first_three_to_principal_ratio"])
+        positive_compensation_swing = (
+            clear_row["positive_compensation_P"]
+            - tail_row["positive_compensation_P"])
+        negative_pressure_reduction = (
+            tail_row["negative_pressure_B"]
+            - clear_row["negative_pressure_B"])
+        midpoint_recombined_swing = math.fsum(term_values.values())
+        return {
+            "tail_target": tail_row["target"],
+            "clear_target": clear_row["target"],
+            "tail_target_mod_286": tail_row["target_mod_286"],
+            "clear_target_mod_286": clear_row["target_mod_286"],
+            "same_target_mod_286": bool(
+                tail_row["target_mod_286"] == clear_row["target_mod_286"]),
+            "same_reflection_orbit_sign_mask": sign_match,
+            "match_tier": match_tier,
+            "mass_distance_l1": mass_distance(tail_row, clear_row),
+            "first_three_tail": tail_row[
+                "first_three_to_principal_ratio"],
+            "first_three_clear": clear_row[
+                "first_three_to_principal_ratio"],
+            "first_three_swing_to_principal_ratio": first_three_swing,
+            "positive_compensation_swing": positive_compensation_swing,
+            "negative_pressure_reduction": negative_pressure_reduction,
+            "delta_positive_orbit_mass_fraction": delta_pos_mass,
+            "delta_positive_landing_mean": delta_pos_landing,
+            "delta_negative_orbit_mass_fraction": delta_neg_mass,
+            "delta_negative_landing_mean_abs": delta_neg_landing,
+            "term_values": term_values,
+            "ranked_terms": ranked_terms,
+            "dominant_term": ranked_terms[0][0],
+            "midpoint_recombined_swing": midpoint_recombined_swing,
+            "midpoint_reconstruction_error": abs(
+                first_three_swing - midpoint_recombined_swing),
+            "positive_midpoint_reconstruction_error": abs(
+                positive_compensation_swing
+                - positive_mass_transfer - positive_landing_quality),
+            "negative_midpoint_reconstruction_error": abs(
+                negative_pressure_reduction
+                - negative_mass_control - negative_landing_control),
+        }
+
+    window_rows = []
+    total_pair_count = 0
+    aggregate_pair_rows = []
+    for label_index, window in enumerate(windows):
+        start, cycle_count = window
+        label = f"start_{start}_cycles_{cycle_count}"
+        profile = q286_first_three_positive_orbit_landing_profile_receipt(
+            start=start, cycle_count=cycle_count,
+            targets_per_cycle=targets_per_cycle,
+            tail_threshold=tail_threshold, near_window=near_window,
+            tolerance=tolerance, include_rows=True)
+        near_rows = tuple(
+            row for row in profile["target_rows"].values()
+            if row["near_boundary_target"])
+        tail_rows = tuple(row for row in near_rows if row["tail_target"])
+        clear_rows = tuple(
+            row for row in near_rows if not row["tail_target"])
+        for row in near_rows:
+            mask = sign_masks[row["target_mod_286"]]
+            row["reflection_orbit_sign_mask_id"] = mask["sign_mask_id"]
+            row["positive_orbit_sign_count"] = (
+                mask["positive_orbit_sign_count"])
+            row["negative_orbit_sign_count"] = (
+                mask["negative_orbit_sign_count"])
+            row["zero_orbit_sign_count"] = mask["zero_orbit_sign_count"]
+
+        pair_rows = []
+        not_applicable_reason = None
+        if not tail_rows:
+            not_applicable_reason = "no near-boundary tail rows"
+        elif not clear_rows:
+            not_applicable_reason = "no near-boundary clear rows"
+        else:
+            for tail_row in tail_rows:
+                tail_mask = tail_row["reflection_orbit_sign_mask_id"]
+
+                def candidate_key(clear_row):
+                    if tail_row["target_mod_286"] == clear_row[
+                            "target_mod_286"]:
+                        tier = 0
+                    elif tail_mask == clear_row[
+                            "reflection_orbit_sign_mask_id"]:
+                        tier = 1
+                    else:
+                        tier = 2
+                    return (
+                        tier,
+                        mass_distance(tail_row, clear_row),
+                        abs(clear_row["first_three_to_principal_ratio"]
+                            - tail_row["first_three_to_principal_ratio"]),
+                        abs(clear_row["target"] - tail_row["target"]),
+                        clear_row["target"],
+                    )
+
+                clear_row = min(clear_rows, key=candidate_key)
+                key = candidate_key(clear_row)
+                sign_match = bool(
+                    tail_mask == clear_row[
+                        "reflection_orbit_sign_mask_id"])
+                pair_rows.append(pair_decomposition(
+                    tail_row, clear_row, key[0], sign_match))
+
+        pair_rows.sort(key=lambda row: (
+            row["match_tier"], row["mass_distance_l1"],
+            abs(row["first_three_swing_to_principal_ratio"]),
+            row["tail_target"]))
+        total_pair_count += len(pair_rows)
+        aggregate_pair_rows.extend(pair_rows)
+        mass_distances = [row["mass_distance_l1"] for row in pair_rows]
+        reconstruction_errors = [
+            row["midpoint_reconstruction_error"] for row in pair_rows]
+        window_summary = {
+            "window_label": label,
+            "window_index": label_index,
+            "start": start,
+            "cycle_count": cycle_count,
+            "targets_per_cycle": targets_per_cycle,
+            "tested_target_count": profile["tested_target_count"],
+            "near_boundary_target_count": len(near_rows),
+            "near_boundary_tail_target_count": len(tail_rows),
+            "near_boundary_clear_target_count": len(clear_rows),
+            "opposite_outcome_pair_count": len(pair_rows),
+            "same_target_mod_286_pair_count": sum(
+                1 for row in pair_rows if row["same_target_mod_286"]),
+            "same_sign_mask_pair_count": sum(
+                1 for row in pair_rows
+                if row["same_reflection_orbit_sign_mask"]),
+            "fallback_pair_count": sum(
+                1 for row in pair_rows if row["match_tier"] == 2),
+            "not_applicable_reason": not_applicable_reason,
+            "mass_distance_min": min(mass_distances)
+            if mass_distances else math.nan,
+            "mass_distance_mean": (
+                math.fsum(mass_distances) / len(mass_distances)
+                if mass_distances else math.nan),
+            "mass_distance_max": max(mass_distances)
+            if mass_distances else math.nan,
+            "maximum_midpoint_reconstruction_error": (
+                max(reconstruction_errors) if reconstruction_errors else 0.0),
+            "sign_consistency_by_term": summarize_pairs(pair_rows),
+            "pair_rows_included": include_pair_rows,
+            "pair_rows": tuple(pair_rows) if include_pair_rows else (),
+            "first_pair_rows": tuple(pair_rows[:20]),
+        }
+        window_rows.append(window_summary)
+
+    aggregate_sign_summary = summarize_pairs(aggregate_pair_rows)
+    max_error = max(
+        (row["midpoint_reconstruction_error"]
+         for row in aggregate_pair_rows),
+        default=0.0)
+
+    return {
+        "arithmetic_modulus": 286,
+        "arithmetic_period": 10010,
+        "windows": tuple(windows),
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "near_window": (near_low, near_high),
+        "term_names": term_names,
+        "window_rows": tuple(window_rows),
+        "total_opposite_outcome_pair_count": total_pair_count,
+        "aggregate_sign_consistency_by_term": aggregate_sign_summary,
+        "maximum_midpoint_reconstruction_error": max_error,
+        "mass_matched_pair_decomposition_measured": True,
+        "mass_transfer_landing_quality_theorem_proved": False,
         "eventual_exact_curve_theorem_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,

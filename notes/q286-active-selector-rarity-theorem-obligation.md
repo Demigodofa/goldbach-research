@@ -569,6 +569,33 @@ rows.  Thus positive mass share alone is not a theorem mechanism; any viable
 mass-transfer theorem must also use landing means, orbit coefficients, target
 residue structure, or another arithmetic constraint.
 
+The mass-matched opposite-outcome decomposition is recorded in:
+
+```text
+evidence/q286-first-three-mass-matched-pair-decomposition.json
+```
+
+It keeps the same near-boundary window and decomposes each clear-minus-tail
+matched pair by the exact midpoint product identities
+`B = negative_mass * negative_landing_mean_abs` and
+`P = positive_mass * positive_landing_mean`.  Matching prioritizes identical
+target residue modulo `286`, then identical reflection-orbit sign masks, then
+nearest positive/negative mass fractions.  In early cycles `0..15`, all
+`1024` tail pairs are same-residue/sign-mask matches; in cycles `8..15`,
+`264/283` are same-residue/sign-mask matches; the late `1120120` window has
+no near-boundary tail rows; and the `1200200` holdout has one fallback pair.
+
+This changes the mechanism picture.  Across all `1308` matched pairs, the
+positive landing-quality term is positive in `865` pairs and is the largest
+absolute term in `769` pairs, with aggregate sum about `40.420704`.  The
+positive mass-transfer term is almost sign-balanced (`657` positive,
+`651` negative) and aggregate sum about `1.388876`.  The holdout fallback pair
+`1222142 -> 1242118` is different: both positive mass transfer and negative
+pressure mass control are large and helpful, but they are mostly offset by
+worse positive and negative landing-quality terms.  Therefore the next proof
+target is a coupled mass/landing arithmetic estimate near the exact curve, not
+positive mass share alone and not pressure control alone.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

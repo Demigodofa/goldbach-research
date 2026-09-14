@@ -19875,6 +19875,39 @@ low-positive-mass clear rows.  Therefore positive mass fraction remains a
 useful coordinate, but the theorem cannot be a one-dimensional mass-share
 floor.
 
+Mass-matched midpoint-product decomposition:
+
+- `q286_first_three_mass_matched_pair_decomposition_receipt`
+- `tools/build_q286_first_three_mass_matched_pair_decomposition.py`
+- `evidence/q286-first-three-mass-matched-pair-decomposition.json`
+- focused regression:
+  `test_q286_first_three_mass_matched_pair_decomposition`
+
+This reuses the four windows from the mass-threshold falsifier and pairs each
+near-boundary tail with the mass-nearest clear row, prioritizing identical
+target residue modulo `286` and then identical reflection-orbit sign masks.
+It decomposes the clear-minus-tail swing exactly into four midpoint terms:
+positive mass transfer, positive landing quality, negative-pressure mass
+control, and negative-pressure landing control.  Validation passed for the
+focused regression.
+
+Four-window facts: early cycles `0..15` from start `10000` have `1024`
+opposite-outcome pairs, all same-residue/sign-mask; cycles `8..15` from start
+`90080` have `283` pairs, with `264` same-residue/sign-mask and `19`
+fallback; the late `1120120` window has no near-boundary tails; and the
+`1200200` holdout has one fallback pair.  Maximum midpoint reconstruction
+error is about `1.1501216645726231e-15`.
+
+Changed-under-evidence interpretation: across all `1308` matched pairs,
+positive landing quality is positive in `865` pairs and is the largest
+absolute term in `769`, while positive mass transfer is nearly sign-balanced
+(`657` positive, `651` negative).  The holdout fallback
+`1222142 -> 1242118` remains instructive because large helpful mass-transfer
+and negative-pressure mass-control terms are mostly canceled by worse landing
+quality.  The live theorem target is now a coupled mass/landing arithmetic
+estimate near the exact curve, not mass share alone and not pressure control
+alone.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

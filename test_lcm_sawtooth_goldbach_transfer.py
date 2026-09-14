@@ -113,6 +113,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_orbit_dual_rectangle_receipt,
     q286_first_three_positive_orbit_landing_profile_receipt,
     q286_first_three_positive_mass_threshold_falsifier_receipt,
+    q286_first_three_mass_matched_pair_decomposition_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4079,6 +4080,37 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "positive_mass_floor_certifies_clear_on_this_window"])
         self.assertFalse(holdout["positive_mass_threshold_theorem_proved"])
         self.assertFalse(holdout["goldbach_proved"])
+
+    def test_q286_first_three_mass_matched_pair_decomposition(self):
+        receipt = (
+            q286_first_three_mass_matched_pair_decomposition_receipt(
+                windows=((1222142, 2),), targets_per_cycle=5005))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["total_opposite_outcome_pair_count"], 1)
+        window = receipt["window_rows"][0]
+        self.assertEqual(window["near_boundary_target_count"], 3)
+        self.assertEqual(window["near_boundary_tail_target_count"], 1)
+        self.assertEqual(window["near_boundary_clear_target_count"], 2)
+        self.assertEqual(window["fallback_pair_count"], 1)
+        pair = window["pair_rows"][0]
+        self.assertEqual(pair["tail_target"], 1222142)
+        self.assertIn(pair["clear_target"], (1240888, 1242118))
+        self.assertLess(pair["midpoint_reconstruction_error"], 1e-9)
+        self.assertGreater(
+            pair["term_values"]["positive_mass_transfer_term"], 0)
+        self.assertLess(
+            pair["term_values"]["positive_landing_quality_term"], 0)
+        self.assertIn(pair["dominant_term"], (
+            "positive_mass_transfer_term",
+            "negative_pressure_mass_control_term"))
+        term_sum = math.fsum(pair["term_values"].values())
+        self.assertAlmostEqual(
+            term_sum, pair["first_three_swing_to_principal_ratio"])
+        self.assertTrue(receipt[
+            "mass_matched_pair_decomposition_measured"])
+        self.assertFalse(receipt[
+            "mass_transfer_landing_quality_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):
         receipt = q286_first_three_character_mixture_norm_receipt(

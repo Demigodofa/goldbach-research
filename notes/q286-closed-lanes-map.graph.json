@@ -32,7 +32,8 @@
     "near_miss",
     "tests",
     "requires",
-    "compares_with"
+    "compares_with",
+    "falsifies_simplification"
   ],
   "nodes": [
     {
@@ -152,6 +153,14 @@
       "status": "validated_falsifier",
       "validation": "q286_first_three_positive_mass_threshold_falsifier_receipt and tools/build_q286_first_three_positive_mass_threshold_falsifier.py generated evidence/q286-first-three-positive-mass-threshold-falsifier.json; the .49 positive-mass floor splits the 1200200 holdout but fails on broader horizons, including 265 high-mass tails and 896 low-mass clear rows in early cycles 0..15 from start 10000",
       "status_boundary": "finite falsifier of a one-dimensional mass-share certificate only; no exact-curve theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_mass_matched_pair_decomposition",
+      "type": "receipt",
+      "label": "q286 first-three mass-matched pair decomposition",
+      "status": "changed_under_evidence_finite_diagnostic",
+      "validation": "q286_first_three_mass_matched_pair_decomposition_receipt and tools/build_q286_first_three_mass_matched_pair_decomposition.py generated evidence/q286-first-three-mass-matched-pair-decomposition.json; four reused windows yield 1308 opposite-outcome near-boundary pairs, with positive landing quality positive in 865 pairs and dominant in 769, while positive mass transfer is nearly sign-balanced",
+      "status_boundary": "finite matched-pair product decomposition only; refines the mass/landing exact-curve mechanism but proves no eventual exact-curve theorem, signed prime-correlation estimate, or Goldbach theorem"
     },
     {
       "id": "lane.support_mass_projection",
@@ -1563,6 +1572,21 @@
     },
     {
       "from": "receipt.q286_first_three_positive_mass_threshold_falsifier",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_mass_matched_pair_decomposition",
+      "to": "receipt.q286_first_three_positive_mass_threshold_falsifier",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_mass_matched_pair_decomposition",
+      "to": "receipt.q286_first_three_positive_orbit_landing_profile",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_first_three_mass_matched_pair_decomposition",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
     },

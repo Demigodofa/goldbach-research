@@ -10983,6 +10983,24 @@ tails and `294` low-mass clear rows.  This preserves mass allocation as a
 useful coordinate, but rules out positive mass fraction alone as the missing
 first-three rarity theorem.
 
+The next curiosity check is now recorded in
+`evidence/q286-first-three-mass-matched-pair-decomposition.json`.  It reuses
+the four mass-threshold windows and, without introducing a new threshold,
+pairs each near-boundary tail with the mass-nearest clear row, prioritizing
+identical target residue modulo `286` and then identical reflection-orbit sign
+masks.  The receipt decomposes the clear-minus-tail swing exactly into
+positive mass transfer, positive landing quality, negative-pressure mass
+control, and negative-pressure landing control.  Early cycles `0..15` give
+`1024` same-residue/sign-mask opposite-outcome pairs; cycles `8..15` give
+`283` pairs, `264` of them same-residue/sign-mask; the `1120120` window has no
+near-boundary tails; and the `1200200` holdout has one fallback pair.  Across
+all `1308` pairs, positive landing quality is positive in `865` pairs and
+dominant in `769`, while positive mass transfer is nearly sign-balanced.
+The holdout pair still shows helpful mass-transfer and negative-pressure
+mass-control terms mostly offset by worse landing quality.  Therefore the
+active exact-curve target is now a coupled mass/landing arithmetic estimate,
+not a one-dimensional mass-share floor or a pressure-only bound.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
