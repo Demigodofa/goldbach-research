@@ -21170,6 +21170,31 @@ just a training-window curiosity.  The next stronger lift should include
 target residue or conductor-`11`/conductor-`13` splitting data up front, then
 face a new heldout denominator.
 
+Target-residue lift heldout:
+
+- `tools/build_q286_target_residue_lift_holdout.py`
+- `notes/q286-target-residue-lift-holdout.md`
+- `evidence/q286-target-residue-lift-holdout.json`
+
+This tests the next promised representation shift: tensor predeclared
+`N mod 11` and `N mod 13` row features with the low-frequency q286
+channel-label basis.  Ridge coefficients are fit only on the original
+full-window rows and then scored on the same `606` fresh heldout targets.
+
+The simple residue tensor does not improve the static low-frequency lift.
+Training matrix cosine to the frozen rank-`1` reference falls from about
+`0.8301028274` for the static lift to `0.8254616182` for the tensor.  Heldout
+cosine falls from about `0.8302450384` to `0.8259350681`, and high-drag
+overlap falls from `8/10` to `7/10`.  The tensor still has zero heldout
+nonpositive reconstructed deltas and zero `0.75` cap failures, so the failure
+is not instability; it is failure to beat the simpler frozen tool.
+
+Decision: demote coarse target-residue phases alone as the next explanation.
+The static low-frequency lift remains the better local tool.  The next richer
+lift should use actual row-dependent character-sum magnitudes,
+splitting/correlation data, or a larger signed cone with explicit arithmetic
+coefficients.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

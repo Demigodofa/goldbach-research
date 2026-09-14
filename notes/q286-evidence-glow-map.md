@@ -225,6 +225,19 @@ around `1260000` and `1280000`.  The lift survives this heldout with no
 nonpositive reconstructed deltas, no `0.75` cap failures, and `8/10` overlap
 with the heldout frozen-rank1 high-drag rows.
 
+The target-residue tensor extension is:
+
+```text
+evidence/q286-target-residue-lift-holdout.json
+```
+
+It adds predeclared `N mod 11/13` row features to the low-frequency channel
+basis, trains only on the original full-window rows, and scores the same
+heldout denominator.  It fails to improve the static low-frequency lift:
+heldout cosine drops from about `0.8302450384` to `0.8259350681`, and
+high-drag overlap drops from `8/10` to `7/10`, while positivity and the
+`0.75` cap remain intact.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

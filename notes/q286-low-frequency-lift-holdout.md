@@ -132,6 +132,17 @@ The next useful version should add target residue or splitting data up front,
 then freeze a richer dictionary and test it on another held-out denominator.
 Do not retune the low-frequency coefficients on the heldout rows.
 
+The first target-residue extension is now recorded in:
+
+```text
+notes/q286-target-residue-lift-holdout.md
+```
+
+It does not improve the static low-frequency lift.  Heldout matrix cosine
+drops from about `0.8302450384` to `0.8259350681`, and high-drag overlap
+drops from `8/10` to `7/10`, while positivity and the `0.75` cap still
+survive.  That demotes coarse `N mod 11/13` phase features alone.
+
 ## Boundary
 
 This holdout tightens the method-transfer lane by preserving a partial

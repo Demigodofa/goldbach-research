@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "c15e2c940b3dfbdb3203ea2564fb73b2810b6e31",
+  "generated_from_commit": "ed4a3d9a1ce23f902de8d82a89c58036bf620863",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -210,6 +210,14 @@
       "source": "evidence/q286-low-frequency-lift-holdout.json",
       "default_weight": 3.0,
       "boundary": "Finite heldout diagnostic only; no lifted dictionary theorem."
+    },
+    {
+      "id": "target-residue-lift-holdout",
+      "label": "Target-residue tensor fails to improve static low-frequency q286 lift",
+      "kind": "finite_falsifier",
+      "source": "evidence/q286-target-residue-lift-holdout.json",
+      "default_weight": 2.5,
+      "boundary": "Finite falsifier for one residue-augmented lift only."
     },
     {
       "id": "conditional-proof-stack",
@@ -4614,6 +4622,25 @@
       "glow": 0.333333
     },
     {
+      "id": "coarse-target-residue-lift-demoted",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "target-residue-lift-holdout",
+          "weight": 2.5,
+          "reason": "N mod 11/13 tensor features do not improve static low-frequency lift on heldout",
+          "value": {
+            "static_heldout_cosine": 0.8302450383501551,
+            "tensor_heldout_cosine": 0.8259350681493004,
+            "static_high_drag_overlap": 8,
+            "tensor_high_drag_overlap": 7
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.277778
+    },
+    {
       "id": "near-sharp-rank1-residual-drag-cap",
       "stack_weight": 2.5,
       "layers": [
@@ -5128,6 +5155,34 @@
       "glow": 1.0
     },
     {
+      "id": "rank1-outside-direction-arithmetic-meaning",
+      "stack_weight": 10.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
+        },
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem"
+        },
+        {
+          "layer": "target-residue-lift-holdout",
+          "weight": 2.5,
+          "reason": "coarse target residues alone do not explain the rank-1 shadow"
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.636364
+    },
+    {
       "id": "rank1-residual-drag-bound",
       "stack_weight": 8.5,
       "layers": [
@@ -5149,29 +5204,6 @@
       ],
       "layer_count": 3,
       "glow": 0.515152
-    },
-    {
-      "id": "rank1-outside-direction-arithmetic-meaning",
-      "stack_weight": 8.0,
-      "layers": [
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
-        },
-        {
-          "layer": "lift-project-dictionary-audit",
-          "weight": 2.5,
-          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
-        },
-        {
-          "layer": "low-frequency-lift-holdout",
-          "weight": 3.0,
-          "reason": "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem"
-        }
-      ],
-      "layer_count": 3,
-      "glow": 0.484848
     },
     {
       "id": "active-lane-strict-closure",

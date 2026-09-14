@@ -105,6 +105,8 @@ def main():
         EVIDENCE / "q286-lift-project-dictionary-audit.json")
     low_frequency_lift_holdout = load_json(
         EVIDENCE / "q286-low-frequency-lift-holdout.json")
+    target_residue_lift_holdout = load_json(
+        EVIDENCE / "q286-target-residue-lift-holdout.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1179,6 +1181,40 @@ def main():
         "low-frequency-lift-holdout",
         3.0,
         "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem")
+
+    layer(
+        "target-residue-lift-holdout",
+        "Target-residue tensor fails to improve static low-frequency q286 lift",
+        "finite_falsifier",
+        "evidence/q286-target-residue-lift-holdout.json",
+        2.5,
+        "Finite falsifier for one residue-augmented lift only.")
+    add_hit(
+        mechanism_stacks,
+        "coarse-target-residue-lift-demoted",
+        "target-residue-lift-holdout",
+        2.5,
+        "N mod 11/13 tensor features do not improve static low-frequency lift on heldout",
+        {
+            "static_heldout_cosine": target_residue_lift_holdout[
+                "static_low_frequency_heldout_summary"][
+                "matrix_cosine_to_rank1_reference"],
+            "tensor_heldout_cosine": target_residue_lift_holdout[
+                "target_residue_heldout_summary"][
+                "matrix_cosine_to_rank1_reference"],
+            "static_high_drag_overlap": target_residue_lift_holdout[
+                "static_low_frequency_heldout_summary"][
+                "high_drag_overlap_count_at_reference_k"],
+            "tensor_high_drag_overlap": target_residue_lift_holdout[
+                "target_residue_heldout_summary"][
+                "high_drag_overlap_count_at_reference_k"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "target-residue-lift-holdout",
+        2.5,
+        "coarse target residues alone do not explain the rank-1 shadow")
 
     layer(
         "conditional-proof-stack",

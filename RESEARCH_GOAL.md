@@ -13016,3 +13016,30 @@ tool for tightening the q286 residual-drag hole.  It still is not a
 rank-`1` theorem or a Goldbach proof.  The next lift should add target residue
 or splitting data before fitting and should be tested on another fresh
 denominator.
+
+### 2026-09-14 continuation: target-residue lift heldout
+
+The next richer-lift receipt is:
+
+```text
+evidence/q286-target-residue-lift-holdout.json
+```
+
+It tensors predeclared `N mod 11` and `N mod 13` row features with the
+low-frequency q286 channel-label basis.  The row features include first two
+Fourier harmonics mod `11` and `13`, Legendre symbols, Legendre product, and
+sum/difference phase features.  Coefficients are trained only on the original
+full-window rows and then frozen for the `606` heldout targets.
+
+Result: the target-residue tensor does not improve the static low-frequency
+lift.  On training rows, matrix cosine to the frozen rank-`1` reference drops
+from `0.8301028274` to `0.8254616182`.  On heldout rows, cosine drops from
+`0.8302450384` to `0.8259350681`, and high-drag overlap drops from `8/10` to
+`7/10`.  The tensor has zero heldout nonpositive deltas and zero `0.75` cap
+failures, so this is a clean failure to improve rather than an instability
+failure.
+
+Decision: demote simple target-residue phase features alone.  The next lift
+should use actual row-dependent character-sum magnitudes, splitting/correlation
+data, or a larger signed cone with explicit arithmetic coefficients.  Static
+`full_low_frequency_lift` remains the better finite q286 hole-tightening tool.
