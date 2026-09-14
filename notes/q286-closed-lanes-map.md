@@ -1224,6 +1224,19 @@ current comparison set.
    minimal clause and ignore the remaining volatile channels.  The surviving
    target is clause forcing plus non-undo control, or a replacement signed
    aggregate arithmetic-placement theorem.
+118. `tools/build_q286_first_three_dominant_mode_volatile_adverse_undo_channels.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-adverse-undo-channels.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-adverse-undo-channels.json`,
+   extracts inclusion-minimal adverse additions for fragile hard-row clauses.
+   For `13822`, the single fragile clause is undone by `(1,5)`.  For
+   `164598`, the single fragile clause is undone by the pair `(1,1),(1,3)`.
+   For `1222142`, all ten minimal clauses are fragile, and every one is
+   vulnerable to adding either `(1,7)` or `(4,4)` alone.  This turns the
+   non-undo target into named adverse-channel control, especially the
+   recurring `1222142` pair `(1,7)/(4,4)`, or a replacement signed aggregate
+   arithmetic-placement theorem.
 
 ## Still open
 
@@ -1297,6 +1310,10 @@ current comparison set.
   and no individually necessary volatile channel.  The clause-stability
   receipt further says minimal clauses are not enough by themselves: only
   two of the fourteen hard-row clauses survive all volatile supersets, and
-  every `1222142` minimal clause is fragile.
+  every `1222142` minimal clause is fragile.  The adverse-undo receipt then
+  identifies the named undo channels: `1222142` is vulnerable in every
+  minimal clause to adding either `(1,7)` or `(4,4)`, while the fragile
+  clauses for `13822` and `164598` are undone by `(1,5)` and by
+  `(1,1),(1,3)` respectively.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

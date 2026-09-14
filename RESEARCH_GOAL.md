@@ -12182,3 +12182,43 @@ signed aggregate arithmetic-placement theorem.  This is finite stability
 evidence only; it proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: volatile adverse undo channels
+
+The fragile minimal clauses were then checked for inclusion-minimal adverse
+additions.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-adverse-undo-channels.json
+```
+
+For `13822`, the single fragile minimal clause has one minimal adverse
+addition:
+
+```text
+(1,5)
+```
+
+For `164598`, the single fragile minimal clause has one minimal adverse
+addition, the two-channel set:
+
+```text
+(1,1), (1,3)
+```
+
+For `1222142`, all ten minimal clauses are fragile.  Across them there are
+twenty minimal adverse additions, all of size `1`, and they collapse to the
+same two channels repeated for every clause:
+
+```text
+(1,7)
+(4,4)
+```
+
+Thus every minimal `1222142` clause is vulnerable to adding either `(1,7)` or
+`(4,4)` alone.  This sharpens the non-undo target: prove clause forcing plus
+signed control of these named adverse additions, or replace the Boolean-clause
+route with a full signed aggregate arithmetic-placement theorem.  This is
+finite undo-channel evidence only; it proves no volatile-rim theorem,
+stable-core theorem, selected-fixture classifier theorem, pointwise character-
+sum estimate, or Goldbach.

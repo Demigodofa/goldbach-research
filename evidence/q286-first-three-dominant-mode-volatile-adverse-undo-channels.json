@@ -1,0 +1,7669 @@
+{
+  "arithmetic_modulus": 286,
+  "candidate": "The non-undo obstruction may be controlled by a small set of named adverse channels rather than arbitrary volatile additions.",
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "If the fragile-clause counts or minimal adverse additions drift from the clause-stability receipt, this undo-channel ledger is invalid.",
+  "goldbach_proved": false,
+  "hard_adverse_channel_frequency": [
+    {
+      "label": [
+        1,
+        1
+      ],
+      "minimal_adverse_addition_count": 1
+    },
+    {
+      "label": [
+        1,
+        3
+      ],
+      "minimal_adverse_addition_count": 1
+    },
+    {
+      "label": [
+        1,
+        5
+      ],
+      "minimal_adverse_addition_count": 1
+    },
+    {
+      "label": [
+        1,
+        7
+      ],
+      "minimal_adverse_addition_count": 10
+    },
+    {
+      "label": [
+        4,
+        4
+      ],
+      "minimal_adverse_addition_count": 10
+    }
+  ],
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "hard_undo_rows": [
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            5
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.04485330873578486,
+            "mask": 123,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 6,
+            "volatile_subset_sum": -0.3472203773740969
+          },
+          "failing_superset_count": 0,
+          "minimal_adverse_addition_count": 0,
+          "minimal_adverse_additions": [],
+          "nearest_failing_supersets": [],
+          "superset_count": 4
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004510147505186357,
+            "mask": 187,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 6,
+            "volatile_subset_sum": -0.3068772161434984
+          },
+          "failing_superset_count": 1,
+          "minimal_adverse_addition_count": 1,
+          "minimal_adverse_additions": [
+            {
+              "mask": 4,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 4,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008462452998804104,
+              "mask": 191,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.2939046156395079
+            }
+          ],
+          "superset_count": 4
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 1,
+      "minimal_adverse_addition_size_counts": {
+        "1": 1
+      },
+      "minimal_clause_count": 2,
+      "stable_clause_count": 1,
+      "target": 13822,
+      "target_mod_286": 94
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            1
+          ],
+          "minimal_adverse_addition_count": 1
+        },
+        {
+          "label": [
+            1,
+            3
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.010110172094593445,
+            "mask": 76,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 3,
+            "volatile_subset_sum": -0.08579617729113562
+          },
+          "failing_superset_count": 0,
+          "minimal_adverse_addition_count": 0,
+          "minimal_adverse_additions": [],
+          "nearest_failing_supersets": [],
+          "superset_count": 32
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004952502130437242,
+            "mask": 84,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 3,
+            "volatile_subset_sum": -0.08063850732697941
+          },
+          "failing_superset_count": 2,
+          "minimal_adverse_addition_count": 1,
+          "minimal_adverse_additions": [
+            {
+              "mask": 3,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "subset_size": 2
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 3,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.0013262929441548582,
+              "mask": 87,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.07435971225238731
+            },
+            {
+              "added_channels": {
+                "mask": 35,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.001352955922468313,
+              "mask": 119,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.07433304927407386
+            }
+          ],
+          "superset_count": 32
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 1,
+      "minimal_adverse_addition_size_counts": {
+        "2": 1
+      },
+      "minimal_clause_count": 2,
+      "stable_clause_count": 1,
+      "target": 164598,
+      "target_mod_286": 148
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            7
+          ],
+          "minimal_adverse_addition_count": 10
+        },
+        {
+          "label": [
+            4,
+            4
+          ],
+          "minimal_adverse_addition_count": 10
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.004558250692844566,
+            "mask": 39,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.061131962390832066
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005659113600310156,
+              "mask": 47,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.050914598097677344
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006847277424681199,
+              "mask": 103,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.0497264342733063
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01706464171783592,
+              "mask": 111,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03950906998015158
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001435231218976006,
+            "mask": 135,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.058008942916963506
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 104,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.008336612357720014,
+              "mask": 223,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.048237099340267486
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008782133074178716,
+              "mask": 143,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.047791578623808784
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009970296898549759,
+              "mask": 199,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04660341479943774
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.02018766119170448,
+              "mask": 207,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03638605050628302
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.0001305906335809931,
+            "mask": 163,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05670430233156849
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 76,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.009641252943115027,
+              "mask": 251,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.04693245875487247
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.01008677365957373,
+              "mask": 171,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04648693803841377
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.011274937483944772,
+              "mask": 227,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04529877421404273
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.021492301777099494,
+              "mask": 235,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.035081409920888006
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001860436840480706,
+            "mask": 53,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.058434148538468206
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008356927452674016,
+              "mask": 61,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04821678424531348
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009545091277045059,
+              "mask": 117,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04702862042094244
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01976245557019978,
+              "mask": 125,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03681125612778772
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004056160450877838,
+            "mask": 165,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06062987214886534
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006161203842276877,
+              "mask": 173,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05041250785571062
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.007349367666647927,
+              "mask": 229,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04922434403133957
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.017566731959802642,
+              "mask": 237,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03900697973818486
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.005470424244240636,
+            "mask": 54,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.062044135942228136
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.004746940048914086,
+              "mask": 62,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.051826771649073414
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005935103873285129,
+              "mask": 118,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05063860782470237
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01615246816643985,
+              "mask": 126,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.04042124353154765
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.002347404770372069,
+            "mask": 150,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05892111646835957
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 104,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.007869959522782646,
+              "mask": 158,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.048703752175204854
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.008336612357720014,
+              "mask": 223,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.048237099340267486
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009058123347153696,
+              "mask": 214,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.047515588350833804
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01927548764030841,
+              "mask": 222,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03729822405767909
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.007666147854637775,
+            "mask": 166,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06423985955262528
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.002551216438516947,
+              "mask": 174,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05402249525947055
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.0037393802628879896,
+              "mask": 230,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05283433143509951
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.013956744556042712,
+              "mask": 238,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.04261696714194479
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001042764184977063,
+            "mask": 178,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05761647588296456
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 76,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.00917460010817766,
+              "mask": 186,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04739911158980984
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.009641252943115027,
+              "mask": 251,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.04693245875487247
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.010362763932548702,
+              "mask": 242,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.0462109477654388
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.020580128225703424,
+              "mask": 250,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.035993583472284076
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004968334002273908,
+            "mask": 180,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06154204570026141
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005249030290880814,
+              "mask": 188,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.051324681407106686
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006437194115251857,
+              "mask": 244,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05013651758273564
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01665455840840658,
+              "mask": 252,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03991915328958092
+            }
+          ],
+          "superset_count": 16
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [],
+      "fragile_clause_count": 10,
+      "minimal_adverse_addition_count": 20,
+      "minimal_adverse_addition_size_counts": {
+        "1": 20
+      },
+      "minimal_clause_count": 10,
+      "stable_clause_count": 0,
+      "target": 1222142,
+      "target_mod_286": 64
+    }
+  ],
+  "interpretation": {
+    "non_undo_target": "The hardest disjunctive row 1222142 has a two-channel undo pattern: every minimal clause is vulnerable to adding either (1,7) or (4,4).",
+    "remaining_theorem": "Prove a signed non-undo estimate for the adverse channels in the actual binary-prime residue weights, or replace the Boolean-clause route with a full signed aggregate theorem.",
+    "route_status": "The clause route remains alive but narrower: it must pair clause forcing with control of named adverse additions."
+  },
+  "mechanism": "For each fragile minimal deficit-row clause, extract inclusion-minimal added channel sets whose superset fails the same row classification.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If adverse additions are small and recurrent, they become a sharper non-undo theorem target; if they are diffuse, the clause route should give way to a signed aggregate theorem.",
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_clause_stability": "evidence\\q286-first-three-dominant-mode-volatile-clause-stability.json",
+  "source_commit": "db7e58df95362a1d11005122bf7bbbe2e52297d0",
+  "source_minimal_clause_structure": "evidence\\q286-first-three-dominant-mode-volatile-minimal-clause-structure.json",
+  "source_subset_ablation": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile adverse undo-channel diagnostic only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "summary": {
+    "target_1222142": "all ten clauses are fragile, and the only minimal adverse one-channel additions are (1,7) and (4,4), recurring for every clause",
+    "target_13822": "one fragile clause; its single minimal adverse addition is (1,5)",
+    "target_164598": "one fragile clause; its single minimal adverse addition is the two-channel set (1,1),(1,3)"
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "tested_subset_count": 256,
+  "undo_rows": [
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            5
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.04485330873578486,
+            "mask": 123,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 6,
+            "volatile_subset_sum": -0.3472203773740969
+          },
+          "failing_superset_count": 0,
+          "minimal_adverse_addition_count": 0,
+          "minimal_adverse_additions": [],
+          "nearest_failing_supersets": [],
+          "superset_count": 4
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004510147505186357,
+            "mask": 187,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 6,
+            "volatile_subset_sum": -0.3068772161434984
+          },
+          "failing_superset_count": 1,
+          "minimal_adverse_addition_count": 1,
+          "minimal_adverse_additions": [
+            {
+              "mask": 4,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 4,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008462452998804104,
+              "mask": 191,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.2939046156395079
+            }
+          ],
+          "superset_count": 4
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [
+        [
+          1,
+          5
+        ]
+      ],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 1,
+      "minimal_adverse_addition_size_counts": {
+        "1": 1
+      },
+      "minimal_clause_count": 2,
+      "stable_clause_count": 1,
+      "target": 13822,
+      "target_mod_286": 94
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            3
+          ],
+          "minimal_adverse_addition_count": 1
+        },
+        {
+          "label": [
+            1,
+            7
+          ],
+          "minimal_adverse_addition_count": 1
+        },
+        {
+          "label": [
+            4,
+            4
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.0008784786089613417,
+            "mask": 0,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [],
+            "subset_size": 0,
+            "volatile_subset_sum": 0.0
+          },
+          "failing_superset_count": 113,
+          "minimal_adverse_addition_count": 3,
+          "minimal_adverse_additions": [
+            {
+              "mask": 2,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 208,
+                "subset_labels": [
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 5.920852508679766e-05,
+              "mask": 208,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 3,
+              "volatile_subset_sum": 0.0009376871340481393
+            },
+            {
+              "added_channels": {
+                "mask": 46,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 4
+              },
+              "margin_to_floor": 0.0013244745866185224,
+              "mask": 46,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 4,
+              "volatile_subset_sum": 0.002202953195579864
+            },
+            {
+              "added_channels": {
+                "mask": 42,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0013847517739433123,
+              "mask": 42,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 3,
+              "volatile_subset_sum": 0.002263230382904654
+            },
+            {
+              "added_channels": {
+                "mask": 135,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 4
+              },
+              "margin_to_floor": 0.0018254834689196927,
+              "mask": 135,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 4,
+              "volatile_subset_sum": 0.0027039620778810344
+            },
+            {
+              "added_channels": {
+                "mask": 111,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 6
+              },
+              "margin_to_floor": 0.0018828327848544172,
+              "mask": 111,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": 0.002761311393815759
+            },
+            {
+              "added_channels": {
+                "mask": 131,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0018857606562444826,
+              "mask": 131,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 3,
+              "volatile_subset_sum": 0.0027642392652058242
+            },
+            {
+              "added_channels": {
+                "mask": 107,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 5
+              },
+              "margin_to_floor": 0.001943109972179207,
+              "mask": 107,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": 0.0028215885811405488
+            },
+            {
+              "added_channels": {
+                "mask": 254,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 7
+              },
+              "margin_to_floor": 0.0022621617206666617,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": 0.0031406403296280034
+            }
+          ],
+          "superset_count": 256
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 3,
+      "minimal_adverse_addition_size_counts": {
+        "1": 3
+      },
+      "minimal_clause_count": 1,
+      "stable_clause_count": 0,
+      "target": 24424,
+      "target_mod_286": 114
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            1
+          ],
+          "minimal_adverse_addition_count": 1
+        },
+        {
+          "label": [
+            3,
+            3
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.16996298157625767,
+            "mask": 0,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [],
+            "subset_size": 0,
+            "volatile_subset_sum": 0.0
+          },
+          "failing_superset_count": 17,
+          "minimal_adverse_addition_count": 1,
+          "minimal_adverse_additions": [
+            {
+              "mask": 33,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 2
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 37,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0014656428611357075,
+              "mask": 37,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 3,
+              "volatile_subset_sum": 0.17142862443739337
+            },
+            {
+              "added_channels": {
+                "mask": 187,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 6
+              },
+              "margin_to_floor": 0.002013754776661353,
+              "mask": 187,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": 0.17197673635291902
+            },
+            {
+              "added_channels": {
+                "mask": 173,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 5
+              },
+              "margin_to_floor": 0.005107371397664873,
+              "mask": 173,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": 0.17507035297392254
+            },
+            {
+              "added_channels": {
+                "mask": 63,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 6
+              },
+              "margin_to_floor": 0.010235726742698903,
+              "mask": 63,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": 0.18019870831895657
+            },
+            {
+              "added_channels": {
+                "mask": 33,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.013157400339553593,
+              "mask": 33,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 2,
+              "volatile_subset_sum": 0.18312038191581126
+            },
+            {
+              "added_channels": {
+                "mask": 169,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 4
+              },
+              "margin_to_floor": 0.01679912887608273,
+              "mask": 169,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 4,
+              "volatile_subset_sum": 0.1867621104523404
+            },
+            {
+              "added_channels": {
+                "mask": 181,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 5
+              },
+              "margin_to_floor": 0.01900060594107053,
+              "mask": 181,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": 0.1889635875173282
+            },
+            {
+              "added_channels": {
+                "mask": 59,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 5
+              },
+              "margin_to_floor": 0.02192748422111676,
+              "mask": 59,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": 0.19189046579737443
+            }
+          ],
+          "superset_count": 256
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 1,
+      "minimal_adverse_addition_size_counts": {
+        "2": 1
+      },
+      "minimal_clause_count": 1,
+      "stable_clause_count": 0,
+      "target": 55864,
+      "target_mod_286": 94
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            1
+          ],
+          "minimal_adverse_addition_count": 1
+        },
+        {
+          "label": [
+            1,
+            3
+          ],
+          "minimal_adverse_addition_count": 1
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.010110172094593445,
+            "mask": 76,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 3,
+            "volatile_subset_sum": -0.08579617729113562
+          },
+          "failing_superset_count": 0,
+          "minimal_adverse_addition_count": 0,
+          "minimal_adverse_additions": [],
+          "nearest_failing_supersets": [],
+          "superset_count": 32
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004952502130437242,
+            "mask": 84,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            "subset_size": 3,
+            "volatile_subset_sum": -0.08063850732697941
+          },
+          "failing_superset_count": 2,
+          "minimal_adverse_addition_count": 1,
+          "minimal_adverse_additions": [
+            {
+              "mask": 3,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "subset_size": 2
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 3,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.0013262929441548582,
+              "mask": 87,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.07435971225238731
+            },
+            {
+              "added_channels": {
+                "mask": 35,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    3,
+                    3
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.001352955922468313,
+              "mask": 119,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.07433304927407386
+            }
+          ],
+          "superset_count": 32
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "fragile_clause_count": 1,
+      "minimal_adverse_addition_count": 1,
+      "minimal_adverse_addition_size_counts": {
+        "2": 1
+      },
+      "minimal_clause_count": 2,
+      "stable_clause_count": 1,
+      "target": 164598,
+      "target_mod_286": 148
+    },
+    {
+      "adverse_channel_frequency": [
+        {
+          "label": [
+            1,
+            7
+          ],
+          "minimal_adverse_addition_count": 10
+        },
+        {
+          "label": [
+            4,
+            4
+          ],
+          "minimal_adverse_addition_count": 10
+        }
+      ],
+      "clause_rows": [
+        {
+          "clause": {
+            "margin_to_floor": -0.004558250692844566,
+            "mask": 39,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.061131962390832066
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005659113600310156,
+              "mask": 47,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.050914598097677344
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006847277424681199,
+              "mask": 103,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.0497264342733063
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01706464171783592,
+              "mask": 111,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03950906998015158
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001435231218976006,
+            "mask": 135,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.058008942916963506
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 104,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.008336612357720014,
+              "mask": 223,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.048237099340267486
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008782133074178716,
+              "mask": 143,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.047791578623808784
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009970296898549759,
+              "mask": 199,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04660341479943774
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.02018766119170448,
+              "mask": 207,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03638605050628302
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.0001305906335809931,
+            "mask": 163,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05670430233156849
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 76,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.009641252943115027,
+              "mask": 251,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.04693245875487247
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.01008677365957373,
+              "mask": 171,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04648693803841377
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.011274937483944772,
+              "mask": 227,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04529877421404273
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.021492301777099494,
+              "mask": 235,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.035081409920888006
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001860436840480706,
+            "mask": 53,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.058434148538468206
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.008356927452674016,
+              "mask": 61,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04821678424531348
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009545091277045059,
+              "mask": 117,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04702862042094244
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01976245557019978,
+              "mask": 125,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03681125612778772
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004056160450877838,
+            "mask": 165,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06062987214886534
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006161203842276877,
+              "mask": 173,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05041250785571062
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.007349367666647927,
+              "mask": 229,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04922434403133957
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.017566731959802642,
+              "mask": 237,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03900697973818486
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.005470424244240636,
+            "mask": 54,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.062044135942228136
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 200,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    4,
+                    10
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.004746940048914086,
+              "mask": 62,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.051826771649073414
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.005213592883851453,
+              "mask": 127,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.051360118814136047
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005935103873285129,
+              "mask": 118,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05063860782470237
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01615246816643985,
+              "mask": 126,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.04042124353154765
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.002347404770372069,
+            "mask": 150,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05892111646835957
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 104,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    3,
+                    3
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.007869959522782646,
+              "mask": 158,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.048703752175204854
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.008336612357720014,
+              "mask": 223,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.048237099340267486
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.009058123347153696,
+              "mask": 214,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.047515588350833804
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01927548764030841,
+              "mask": 222,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03729822405767909
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.007666147854637775,
+            "mask": 166,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06423985955262528
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 88,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.002551216438516947,
+              "mask": 174,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05402249525947055
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.003017869273454314,
+              "mask": 239,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.053555842424533186
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.0037393802628879896,
+              "mask": 230,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05283433143509951
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.013956744556042712,
+              "mask": 238,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.04261696714194479
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.001042764184977063,
+            "mask": 178,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.05761647588296456
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 76,
+                "subset_labels": [
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.00917460010817766,
+              "mask": 186,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.04739911158980984
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.009641252943115027,
+              "mask": 251,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.04693245875487247
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.010362763932548702,
+              "mask": 242,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.0462109477654388
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.020580128225703424,
+              "mask": 250,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.035993583472284076
+            }
+          ],
+          "superset_count": 16
+        },
+        {
+          "clause": {
+            "margin_to_floor": -0.004968334002273908,
+            "mask": 180,
+            "satisfies_deficit_classification": true,
+            "subset_labels": [
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                10
+              ]
+            ],
+            "subset_size": 4,
+            "volatile_subset_sum": -0.06154204570026141
+          },
+          "failing_superset_count": 5,
+          "minimal_adverse_addition_count": 2,
+          "minimal_adverse_additions": [
+            {
+              "mask": 8,
+              "subset_labels": [
+                [
+                  1,
+                  7
+                ]
+              ],
+              "subset_size": 1
+            },
+            {
+              "mask": 64,
+              "subset_labels": [
+                [
+                  4,
+                  4
+                ]
+              ],
+              "subset_size": 1
+            }
+          ],
+          "nearest_failing_supersets": [
+            {
+              "added_channels": {
+                "mask": 74,
+                "subset_labels": [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.002105695722058251,
+              "mask": 254,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05446801597592925
+            },
+            {
+              "added_channels": {
+                "mask": 8,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.005249030290880814,
+              "mask": 188,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.051324681407106686
+            },
+            {
+              "added_channels": {
+                "mask": 73,
+                "subset_labels": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 3
+              },
+              "margin_to_floor": 0.0057156831258181814,
+              "mask": 253,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 7,
+              "volatile_subset_sum": -0.05085802857216932
+            },
+            {
+              "added_channels": {
+                "mask": 64,
+                "subset_labels": [
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 1
+              },
+              "margin_to_floor": 0.006437194115251857,
+              "mask": 244,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 5,
+              "volatile_subset_sum": -0.05013651758273564
+            },
+            {
+              "added_channels": {
+                "mask": 72,
+                "subset_labels": [
+                  [
+                    1,
+                    7
+                  ],
+                  [
+                    4,
+                    4
+                  ]
+                ],
+                "subset_size": 2
+              },
+              "margin_to_floor": 0.01665455840840658,
+              "mask": 252,
+              "satisfies_deficit_classification": false,
+              "subset_labels": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  4,
+                  4
+                ],
+                [
+                  4,
+                  10
+                ]
+              ],
+              "subset_size": 6,
+              "volatile_subset_sum": -0.03991915328958092
+            }
+          ],
+          "superset_count": 16
+        }
+      ],
+      "common_channels_across_minimal_adverse_additions": [],
+      "fragile_clause_count": 10,
+      "minimal_adverse_addition_count": 20,
+      "minimal_adverse_addition_size_counts": {
+        "1": 20
+      },
+      "minimal_clause_count": 10,
+      "stable_clause_count": 0,
+      "target": 1222142,
+      "target_mod_286": 64
+    }
+  ],
+  "volatile_adverse_undo_channels_measured": true,
+  "volatile_channel_count": 8,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}
