@@ -10272,6 +10272,248 @@ def q286_first_three_dominant_mode_prefix_tail_classification_receipt(
     }
 
 
+def q286_first_three_dominant_mode_tail_ablation_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Ablate the tail left after the clear-side portfolio prefix.
+
+    This asks whether the tail classification job is carried by a smaller
+    subtail, or whether the full selected tail package is load-bearing.
+
+    It proves no tail theorem and no Goldbach theorem.
+    """
+    prefix_receipt = (
+        q286_first_three_dominant_mode_prefix_tail_classification_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+    sample_rows = swing_receipt["sample_target_rows"]
+    tail_labels = prefix_receipt["tail_channel_labels"]
+    if not tail_labels:
+        raise ValueError("selected prefix leaves no tail channels")
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    contributions_by_target = {
+        target: contribution_by_label(row)
+        for target, row in sample_rows.items()}
+
+    def subtail_summary(labels):
+        label_set = set(labels)
+        rows = []
+        clear_slacks = []
+        failure_slacks = []
+        values = []
+        for target in prefix_receipt["sample_targets"]:
+            base = prefix_receipt["target_rows"][target]
+            value = math.fsum(
+                contributions_by_target[target].get(label, 0.0)
+                for label in label_set)
+            required_tail = base["required_tail_for_full_floor"]
+            slack = value - required_tail
+            dominant_passes = base["dominant_floor_passes"]
+            compact = {
+                "target": target,
+                "subtail_sum_to_principal": value,
+                "required_tail_for_full_floor": required_tail,
+                "subtail_slack_to_full_floor": slack,
+                "dominant_floor_passes": dominant_passes,
+                "restores_failure": (
+                    not dominant_passes and slack < -tolerance),
+                "preserves_clear": (
+                    dominant_passes and slack >= -tolerance),
+            }
+            rows.append(compact)
+            values.append(value)
+            if dominant_passes:
+                clear_slacks.append(slack)
+            else:
+                failure_slacks.append(slack)
+        return {
+            "channel_labels": tuple(labels),
+            "channel_count": len(labels),
+            "target_rows": tuple(rows),
+            "all_overrescued_failures_restored": all(
+                row["restores_failure"] for row in rows
+                if not row["dominant_floor_passes"]),
+            "all_original_clears_preserved": all(
+                row["preserves_clear"] for row in rows
+                if row["dominant_floor_passes"]),
+            "matches_full_tail_classification": all(
+                (row["restores_failure"] if not row["dominant_floor_passes"]
+                 else row["preserves_clear"])
+                for row in rows),
+            "clear_slack_summary": summarize(clear_slacks),
+            "failure_slack_summary": summarize(failure_slacks),
+            "subtail_value_summary": summarize(values),
+        }
+
+    leave_one_out_rows = []
+    restoration_essential_labels = []
+    classification_essential_labels = []
+    for label in tail_labels:
+        reduced_labels = tuple(item for item in tail_labels if item != label)
+        summary = subtail_summary(reduced_labels)
+        row = {
+            "removed_label": label,
+            "remaining_channel_count": len(reduced_labels),
+            "all_overrescued_failures_restored": (
+                summary["all_overrescued_failures_restored"]),
+            "all_original_clears_preserved": (
+                summary["all_original_clears_preserved"]),
+            "matches_full_tail_classification": (
+                summary["matches_full_tail_classification"]),
+            "minimum_clear_slack": (
+                summary["clear_slack_summary"]["minimum"]),
+            "maximum_failure_slack": (
+                summary["failure_slack_summary"]["maximum"]),
+        }
+        leave_one_out_rows.append(row)
+        if not row["all_overrescued_failures_restored"]:
+            restoration_essential_labels.append(label)
+        if not row["matches_full_tail_classification"]:
+            classification_essential_labels.append(label)
+
+    prefix_rows = []
+    first_tail_prefix_restoring_failures = None
+    first_tail_prefix_matching_classification = None
+    for count in range(1, len(tail_labels) + 1):
+        summary = subtail_summary(tail_labels[:count])
+        row = {
+            "tail_prefix_channel_count": count,
+            "tail_prefix_channel_labels": tail_labels[:count],
+            "all_overrescued_failures_restored": (
+                summary["all_overrescued_failures_restored"]),
+            "all_original_clears_preserved": (
+                summary["all_original_clears_preserved"]),
+            "matches_full_tail_classification": (
+                summary["matches_full_tail_classification"]),
+            "minimum_clear_slack": (
+                summary["clear_slack_summary"]["minimum"]),
+            "maximum_failure_slack": (
+                summary["failure_slack_summary"]["maximum"]),
+        }
+        prefix_rows.append(row)
+        if (first_tail_prefix_restoring_failures is None
+                and row["all_overrescued_failures_restored"]):
+            first_tail_prefix_restoring_failures = row
+        if (first_tail_prefix_matching_classification is None
+                and row["matches_full_tail_classification"]):
+            first_tail_prefix_matching_classification = row
+
+    channel_rows = []
+    for label in tail_labels:
+        clear_values = []
+        failure_values = []
+        all_values = []
+        for target in prefix_receipt["sample_targets"]:
+            value = contributions_by_target[target].get(label, 0.0)
+            all_values.append(value)
+            if sample_rows[target]["dominant_floor_passes"]:
+                clear_values.append(value)
+            else:
+                failure_values.append(value)
+        channel_rows.append({
+            "representative_label": label,
+            "all_summary": summarize(all_values),
+            "clear_summary": summarize(clear_values),
+            "failure_summary": summarize(failure_values),
+            "clear_minus_failure_mean": (
+                math.fsum(clear_values) / len(clear_values)
+                - math.fsum(failure_values) / len(failure_values)
+                if clear_values and failure_values else None),
+            "absolute_contribution_sum": math.fsum(
+                abs(value) for value in all_values),
+            "clear_min_exceeds_failure_max": bool(
+                clear_values and failure_values
+                and min(clear_values) > max(failure_values)),
+            "failure_max_below_clear_min": bool(
+                clear_values and failure_values
+                and max(failure_values) < min(clear_values)),
+        })
+
+    full_tail_summary = subtail_summary(tail_labels)
+    return {
+        "arithmetic_modulus": prefix_receipt["arithmetic_modulus"],
+        "support": prefix_receipt["support"],
+        "dominant_modes": prefix_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            prefix_receipt["active_real_channel_count"]),
+        "pair_targets": prefix_receipt["pair_targets"],
+        "sample_targets": prefix_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": prefix_receipt["prefix_channel_labels"],
+        "prefix_channel_count": prefix_receipt["prefix_channel_count"],
+        "tail_channel_labels": tail_labels,
+        "tail_channel_count": len(tail_labels),
+        "full_tail_rows": full_tail_summary["target_rows"],
+        "full_tail_clear_slack_summary": (
+            full_tail_summary["clear_slack_summary"]),
+        "full_tail_failure_slack_summary": (
+            full_tail_summary["failure_slack_summary"]),
+        "channel_rows": tuple(channel_rows),
+        "leave_one_out_rows": tuple(leave_one_out_rows),
+        "restoration_essential_channel_labels": tuple(
+            restoration_essential_labels),
+        "classification_essential_channel_labels": tuple(
+            classification_essential_labels),
+        "restoration_essential_channel_count": len(
+            restoration_essential_labels),
+        "classification_essential_channel_count": len(
+            classification_essential_labels),
+        "tail_prefix_rows": tuple(prefix_rows),
+        "first_tail_prefix_restoring_failures": (
+            first_tail_prefix_restoring_failures),
+        "first_tail_prefix_matching_classification": (
+            first_tail_prefix_matching_classification),
+        "all_leave_one_out_restore_failures": not (
+            restoration_essential_labels),
+        "all_leave_one_out_match_classification": not (
+            classification_essential_labels),
+        "tail_ablation_measured": True,
+        "proper_subtail_classification_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

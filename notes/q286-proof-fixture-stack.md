@@ -85,6 +85,11 @@ frame.
   `full_portfolio = prefix + tail`, with exact tail obligation
   `tail_sum >= -prefix_slack`; the prefix over-rescues all selected deficits
   and the tail restores them while preserving all selected clears.
+- `evidence/q286-first-three-dominant-mode-tail-ablation.json`:
+  the seven-channel classification tail is not compressed by tested
+  leave-one-out or prefix ablations; every tail channel is essential for the
+  selected tail classification, and the first successful tail prefix is the
+  full seven-channel tail.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -128,6 +133,9 @@ frame.
    smaller clear-side lower-bound package and a separate classification or
    exclusion problem for over-rescued deficits.  The prefix/tail receipt makes
    that split exact: prove prefix lower bounds and tail/exclusion control.
+   The tail-ablation receipt further says the selected tail control is a
+   seven-channel package on current evidence, not a one-channel or proper
+   prefix correction.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -145,4 +153,4 @@ exclusion/complement mechanism for prefix-overrescued deficits, or reduce the
 same claim to a fixed-modulus strict-central binary Goldbach/AP theorem.
 Current finite evidence says the dominant projection is a prefix/tail
 portfolio arithmetic problem, not a geometry-only, tiny-channel, or one-piece
-classifier problem.
+classifier problem; the tested tail itself is also not visibly compressible.

@@ -11285,6 +11285,18 @@ route two separately named jobs: a prefix lower-bound theorem for rows that
 should clear, plus a tail/exclusion/complement theorem preventing
 prefix-overrescued deficits from becoming false positives.
 
+The tail-ablation follow-up is now recorded in
+`notes/q286-first-three-dominant-mode-tail-ablation.md` and
+`evidence/q286-first-three-dominant-mode-tail-ablation.json`.  On the selected
+fixture, removing any one of the seven tail channels loses the selected tail
+classification, and the first tail prefix that restores all overrescued
+failures while preserving all clears is the full seven-channel tail.  Thus the
+tail classification theorem is not visibly compressible by the tested prefix
+or leave-one-out routes; the proof target is the four-channel prefix lower
+bound plus the full seven-channel tail package, unless an independent
+deficit-exclusion, complement/lower-support, or fixed-modulus prime-pair
+theorem replaces that tail package.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

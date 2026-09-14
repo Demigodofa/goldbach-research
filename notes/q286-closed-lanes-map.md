@@ -838,6 +838,14 @@ current comparison set.
    `(3,11),(5,5),(4,4),(1,3),(5,3),(2,4),(4,6)` restores all selected
    deficits and preserves all selected clears.  The exact tail obligation is
    `tail_sum >= -prefix_slack`.
+89. `q286_first_three_dominant_mode_tail_ablation_receipt`, with note
+   `notes/q286-first-three-dominant-mode-tail-ablation.md` and evidence in
+   `evidence/q286-first-three-dominant-mode-tail-ablation.json`, tests whether
+   the seven-channel classification tail can be compressed.  Removing any one
+   tail channel loses the selected tail classification, and the first tail
+   prefix that restores all overrescued failures while preserving all clears
+   is the full seven-channel tail.  This demotes a one-channel or proper
+   prefix tail-correction route on the selected fixture.
 
 ## Still open
 
@@ -855,6 +863,7 @@ current comparison set.
   on current evidence; the live target is a recurrent-portfolio or clear-side
   prefix lower bound, tail classification or a separate deficit
   exclusion/complement theorem, a genuine residual-channel bound, or an
-  external theorem strong enough to imply the same pointwise inequality.
+  external theorem strong enough to imply the same pointwise inequality.  The
+  tested tail-classification package is not visibly compressible.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

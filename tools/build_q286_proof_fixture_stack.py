@@ -62,6 +62,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-portfolio-ablation.json")
     dominant_mode_prefix_tail = load_json(
         "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json")
+    dominant_mode_tail_ablation = load_json(
+        "evidence/q286-first-three-dominant-mode-tail-ablation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -408,6 +410,24 @@ def main():
                     "tail theorem"),
             },
             {
+                "id": "anchor.dominant_mode_tail_ablation",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-tail-ablation.json"),
+                "statement": (
+                    "The selected classification tail is not compressed by "
+                    "leave-one-out or prefix ablation."),
+                "validation": (
+                    "tail channel count "
+                    f"{dominant_mode_tail_ablation['tail_channel_count']}; "
+                    "classification-essential channels "
+                    f"{dominant_mode_tail_ablation['classification_essential_channel_count']}; "
+                    "first successful tail prefix "
+                    f"{dominant_mode_tail_ablation['first_tail_prefix_matching_classification']['tail_prefix_channel_count']}."),
+                "proved_scope": (
+                    "finite tail ablation and demoted compression route, not "
+                    "a tail theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -501,8 +521,8 @@ def main():
                     "equivalently prove the recurrent helpful-channel "
                     "portfolio or its clear-side prefix lower bound against "
                     "the rowwise residual requirement, plus a tail "
-                    "classification or separate exclusion/complement theorem "
-                    "for prefix-overrescued deficits. "
+                    "classification package or separate exclusion/complement "
+                    "theorem for prefix-overrescued deficits. "
                     "The norm budget, tiny-channel, small residual-channel "
                     "classifier, and geometry-only routes are demoted on the "
                     "current evidence."),

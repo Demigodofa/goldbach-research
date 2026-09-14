@@ -20359,6 +20359,24 @@ The next proof route is now a two-job target: prove a prefix lower bound for
 rows that should clear, and prove a tail/exclusion/complement theorem that
 prevents prefix-overrescued deficits from becoming false positives.
 
+Dominant-mode tail ablation:
+
+- `q286_first_three_dominant_mode_tail_ablation_receipt`
+- `tools/build_q286_first_three_dominant_mode_tail_ablation.py`
+- `notes/q286-first-three-dominant-mode-tail-ablation.md`
+- `evidence/q286-first-three-dominant-mode-tail-ablation.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_tail_ablation`
+
+This ablates the seven-channel classification tail from the prefix/tail split.
+On the selected fixture, removing any one tail channel loses the selected tail
+classification, and the first tail prefix that restores all overrescued
+failures while preserving all clears is the full seven-channel tail.  The
+failure tail slack range is about `[-0.0992285758,-0.0088331796]`; the clear
+tail slack range is about `[0.0095640903,0.0584289263]`.  Therefore the tail
+classification theorem is not visibly compressible by the tested prefix or
+leave-one-out routes.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

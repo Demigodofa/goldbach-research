@@ -61,6 +61,8 @@ def main():
         EVIDENCE / "q286-first-three-dominant-mode-portfolio-ablation.json")
     prefix_tail = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-prefix-tail-classification.json")
+    tail_ablation = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-tail-ablation.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -364,6 +366,46 @@ def main():
         "prefix-tail-classification",
         2.0,
         "prove prefix lower bound plus tail/exclusion theorem")
+
+    layer(
+        "tail-ablation",
+        "Tail classification is not compressed on selected fixture",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-tail-ablation.json",
+        2.0,
+        "Finite tail ablation only; no tail theorem.")
+    for row in tail_ablation["full_tail_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "tail-ablation",
+            2.0,
+            "tail ablation slack row",
+            {
+                "subtail_slack": row["subtail_slack_to_full_floor"],
+                "dominant_floor_passes": row["dominant_floor_passes"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "tail-package-not-compressed",
+        "tail-ablation",
+        2.0,
+        "every selected tail channel is essential under leave-one-out",
+        {
+            "tail_channel_count": tail_ablation["tail_channel_count"],
+            "classification_essential_channel_count": (
+                tail_ablation["classification_essential_channel_count"]),
+            "first_successful_tail_prefix": (
+                tail_ablation[
+                    "first_tail_prefix_matching_classification"][
+                    "tail_prefix_channel_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "tail-ablation",
+        2.0,
+        "tail theorem remains seven-channel on selected evidence")
 
     layer(
         "conditional-proof-stack",

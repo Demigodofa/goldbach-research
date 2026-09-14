@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "7764431673b051601b65a3a26cc9c11bc781fdc5",
+  "generated_from_commit": "64d83c350e5d5eb400856d6038532c4d9e6d705b",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -84,6 +84,14 @@
       "boundary": "Finite prefix/tail diagnostic only; no prefix or tail theorem."
     },
     {
+      "id": "tail-ablation",
+      "label": "Tail classification is not compressed on selected fixture",
+      "kind": "selected_stress",
+      "source": "evidence/q286-first-three-dominant-mode-tail-ablation.json",
+      "default_weight": 2.0,
+      "boundary": "Finite tail ablation only; no tail theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -95,7 +103,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 12.5,
+      "stack_weight": 14.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -143,14 +151,23 @@
             "tail_slack": -0.008833179560527801,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.008833179560527801,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 6,
+      "layer_count": 7,
       "glow": 1.0
     },
     {
       "id": "1240888",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -186,14 +203,23 @@
             "tail_slack": 0.027186573380917844,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.027186573380917844,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "1242118",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -229,14 +255,23 @@
             "tail_slack": 0.016528913466746065,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "129706",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -272,14 +307,23 @@
             "tail_slack": 0.05842892627684947,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.05842892627684947,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "13556",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -315,14 +359,23 @@
             "tail_slack": 0.009564090345658104,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.009564090345658104,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "13822",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -358,14 +411,23 @@
             "tail_slack": -0.03674434602428939,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.03674434602428939,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "164598",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -401,14 +463,23 @@
             "tail_slack": -0.01915179245517605,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "24424",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -444,14 +515,23 @@
             "tail_slack": -0.013458672694171753,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.013458672694171753,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "40420",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -487,14 +567,23 @@
             "tail_slack": 0.048938403503475614,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.048938403503475614,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "55864",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -530,10 +619,19 @@
             "tail_slack": -0.09922857579168887,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": -0.09922857579168887,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 4,
-      "glow": 0.68
+      "layer_count": 5,
+      "glow": 0.724138
     },
     {
       "id": "1379072",
@@ -559,7 +657,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.48
+      "glow": 0.413793
     },
     {
       "id": "1323632",
@@ -579,7 +677,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.32
+      "glow": 0.275862
     },
     {
       "id": "10664",
@@ -593,7 +691,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.08
+      "glow": 0.068966
     },
     {
       "id": "14138",
@@ -607,7 +705,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.08
+      "glow": 0.068966
     }
   ],
   "mechanism_stacks": [
@@ -722,6 +820,24 @@
       "glow": 0.222222
     },
     {
+      "id": "tail-package-not-compressed",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "every selected tail channel is essential under leave-one-out",
+          "value": {
+            "tail_channel_count": 7,
+            "classification_essential_channel_count": 7,
+            "first_successful_tail_prefix": 7
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "tail-thinning-after-cycle-232",
       "stack_weight": 2.0,
       "layers": [
@@ -760,7 +876,7 @@
   "theorem_gap_stacks": [
     {
       "id": "portfolio-residual-lower-bound",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -781,9 +897,14 @@
           "layer": "prefix-tail-classification",
           "weight": 2.0,
           "reason": "prove prefix lower bound plus tail/exclusion theorem"
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail theorem remains seven-channel on selected evidence"
         }
       ],
-      "layer_count": 4,
+      "layer_count": 5,
       "glow": 1.0
     },
     {
@@ -802,7 +923,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.588235
+      "glow": 0.47619
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -815,7 +936,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.235294
+      "glow": 0.190476
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -828,7 +949,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.235294
+      "glow": 0.190476
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -845,7 +966,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.176471
+      "glow": 0.142857
     },
     {
       "id": "alignment-complement-route",
@@ -858,7 +979,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.117647
+      "glow": 0.095238
     }
   ],
   "goldbach_proved": false,

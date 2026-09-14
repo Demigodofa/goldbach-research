@@ -1,0 +1,828 @@
+{
+  "active_real_channel_count": 25,
+  "all_leave_one_out_match_classification": false,
+  "all_leave_one_out_restore_failures": false,
+  "arithmetic_modulus": 286,
+  "channel_rows": [
+    {
+      "absolute_contribution_sum": 0.45728300573520203,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.032258380041760695,
+        "mean": -0.03159143624241402,
+        "minimum": -0.2725859335772476
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.05623818022403744,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.032258380041760695,
+        "mean": -0.003472346130395292,
+        "minimum": -0.029996978333560236
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.03103176149121156,
+        "mean": -0.05971052635443273,
+        "minimum": -0.2725859335772476
+      },
+      "representative_label": [
+        3,
+        11
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.4161336988984731,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.03423983508199343,
+        "mean": -0.0266457049930491,
+        "minimum": -0.12904762091735458
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.008624512615866515,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.03423983508199343,
+        "mean": -0.02233344868511584,
+        "minimum": -0.11878129442284051
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.02695705576940767,
+        "mean": -0.030957961300982356,
+        "minimum": -0.12904762091735458
+      },
+      "representative_label": [
+        5,
+        5
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.3153270940936698,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.01627919261308177,
+        "mean": -0.020837490555292985,
+        "minimum": -0.08955057308993251
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.013523451093864268,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.015373178249955429,
+        "mean": -0.014075765008360852,
+        "minimum": -0.05299037239421609
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.01627919261308177,
+        "mean": -0.02759921610222512,
+        "minimum": -0.08955057308993251
+      },
+      "representative_label": [
+        4,
+        4
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.2539160292388152,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.04331158147838401,
+        "mean": -0.010474393233468436,
+        "minimum": -0.05489223962692793
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.015211494318425714,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.04331158147838401,
+        "mean": -0.0028686460742555777,
+        "minimum": -0.036708874354922455
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.027023602682221284,
+        "mean": -0.018080140392681292,
+        "minimum": -0.05489223962692793
+      },
+      "representative_label": [
+        1,
+        3
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.3992774334207976,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.03291346904715566,
+        "mean": -0.03297635930414807,
+        "minimum": -0.1078086228446772
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.0444831268515055,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.03291346904715566,
+        "mean": -0.010734795878395317,
+        "minimum": -0.07876676493797805
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.0011403388875531792,
+        "mean": -0.05521792272990082,
+        "minimum": -0.1078086228446772
+      },
+      "representative_label": [
+        5,
+        3
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.19673951267529124,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.03744869252439023,
+        "mean": -0.004234561193663481,
+        "minimum": -0.059241998640124714
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": 0.012428727888736824,
+      "clear_summary": {
+        "count": 5,
+        "maximum": 0.030886114797656437,
+        "mean": 0.0019798027507049315,
+        "minimum": -0.01863359219696881
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.03744869252439023,
+        "mean": -0.010448925138031893,
+        "minimum": -0.059241998640124714
+      },
+      "representative_label": [
+        2,
+        4
+      ]
+    },
+    {
+      "absolute_contribution_sum": 0.2533301853202694,
+      "all_summary": {
+        "count": 10,
+        "maximum": 0.05596673841300563,
+        "mean": -0.012118701729358618,
+        "minimum": -0.06335614065199476
+      },
+      "clear_min_exceeds_failure_max": false,
+      "clear_minus_failure_mean": -0.005358973905987769,
+      "clear_summary": {
+        "count": 5,
+        "maximum": -0.004999226541020484,
+        "mean": -0.014798188682352503,
+        "minimum": -0.021439017639507386
+      },
+      "failure_max_below_clear_min": false,
+      "failure_summary": {
+        "count": 5,
+        "maximum": 0.05596673841300563,
+        "mean": -0.009439214776364734,
+        "minimum": -0.06335614065199476
+      },
+      "representative_label": [
+        4,
+        6
+      ]
+    }
+  ],
+  "classification_essential_channel_count": 7,
+  "classification_essential_channel_labels": [
+    [
+      3,
+      11
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "first_tail_prefix_matching_classification": {
+    "all_original_clears_preserved": true,
+    "all_overrescued_failures_restored": true,
+    "matches_full_tail_classification": true,
+    "maximum_failure_slack": -0.008833179560527801,
+    "minimum_clear_slack": 0.009564090345658104,
+    "tail_prefix_channel_count": 7,
+    "tail_prefix_channel_labels": [
+      [
+        3,
+        11
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        6
+      ]
+    ]
+  },
+  "first_tail_prefix_restoring_failures": {
+    "all_original_clears_preserved": true,
+    "all_overrescued_failures_restored": true,
+    "matches_full_tail_classification": true,
+    "maximum_failure_slack": -0.008833179560527801,
+    "minimum_clear_slack": 0.009564090345658104,
+    "tail_prefix_channel_count": 7,
+    "tail_prefix_channel_labels": [
+      [
+        3,
+        11
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        6
+      ]
+    ]
+  },
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "full_tail_clear_slack_summary": {
+    "count": 5,
+    "maximum": 0.05842892627684947,
+    "mean": 0.032129381394729414,
+    "minimum": 0.009564090345658104
+  },
+  "full_tail_failure_slack_summary": {
+    "count": 5,
+    "maximum": -0.008833179560527801,
+    "mean": -0.03548331330517077,
+    "minimum": -0.09922857579168887
+  },
+  "full_tail_rows": [
+    {
+      "dominant_floor_passes": false,
+      "preserves_clear": false,
+      "required_tail_for_full_floor": -0.17951252425509298,
+      "restores_failure": true,
+      "subtail_slack_to_full_floor": -0.013458672694171753,
+      "subtail_sum_to_principal": -0.19297119694926473,
+      "target": 24424
+    },
+    {
+      "dominant_floor_passes": true,
+      "preserves_clear": true,
+      "required_tail_for_full_floor": -0.043949273107673714,
+      "restores_failure": false,
+      "subtail_slack_to_full_floor": 0.009564090345658104,
+      "subtail_sum_to_principal": -0.03438518276201561,
+      "target": 13556
+    },
+    {
+      "dominant_floor_passes": false,
+      "preserves_clear": false,
+      "required_tail_for_full_floor": -0.42006745350537134,
+      "restores_failure": true,
+      "subtail_slack_to_full_floor": -0.03674434602428939,
+      "subtail_sum_to_principal": -0.4568117995296607,
+      "target": 13822
+    },
+    {
+      "dominant_floor_passes": true,
+      "preserves_clear": true,
+      "required_tail_for_full_floor": -0.2559232556016382,
+      "restores_failure": false,
+      "subtail_slack_to_full_floor": 0.048938403503475614,
+      "subtail_sum_to_principal": -0.20698485209816259,
+      "target": 40420
+    },
+    {
+      "dominant_floor_passes": false,
+      "preserves_clear": false,
+      "required_tail_for_full_floor": -0.15193968736605606,
+      "restores_failure": true,
+      "subtail_slack_to_full_floor": -0.09922857579168887,
+      "subtail_sum_to_principal": -0.25116826315774493,
+      "target": 55864
+    },
+    {
+      "dominant_floor_passes": false,
+      "preserves_clear": false,
+      "required_tail_for_full_floor": -0.04904634279178903,
+      "restores_failure": true,
+      "subtail_slack_to_full_floor": -0.01915179245517605,
+      "subtail_sum_to_principal": -0.06819813524696508,
+      "target": 164598
+    },
+    {
+      "dominant_floor_passes": true,
+      "preserves_clear": true,
+      "required_tail_for_full_floor": -0.009507493347217372,
+      "restores_failure": false,
+      "subtail_slack_to_full_floor": 0.05842892627684947,
+      "subtail_sum_to_principal": 0.0489214329296321,
+      "target": 129706
+    },
+    {
+      "dominant_floor_passes": false,
+      "preserves_clear": false,
+      "required_tail_for_full_floor": -0.07928695952893153,
+      "restores_failure": true,
+      "subtail_slack_to_full_floor": -0.008833179560527801,
+      "subtail_sum_to_principal": -0.08812013908945933,
+      "target": 1222142
+    },
+    {
+      "dominant_floor_passes": true,
+      "preserves_clear": true,
+      "required_tail_for_full_floor": -0.08280908010396126,
+      "restores_failure": false,
+      "subtail_slack_to_full_floor": 0.016528913466746065,
+      "subtail_sum_to_principal": -0.0662801666372152,
+      "target": 1242118
+    },
+    {
+      "dominant_floor_passes": true,
+      "preserves_clear": true,
+      "required_tail_for_full_floor": -0.09997474335400884,
+      "restores_failure": false,
+      "subtail_slack_to_full_floor": 0.027186573380917844,
+      "subtail_sum_to_principal": -0.072788169973091,
+      "target": 1240888
+    }
+  ],
+  "goldbach_proved": false,
+  "interpretation": {
+    "boundary": "Finite selected-tail bookkeeping only; no uniform tail classification theorem is proved.",
+    "mechanism_tested": "Ablate the classification tail left after the clear-side prefix and test whether a proper subtail still restores overrescued deficits while preserving clears.",
+    "remaining_theorem": "Prove the required tail classification or replace it with a separate deficit exclusion/complement mechanism."
+  },
+  "leave_one_out_rows": [
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.2358415875529582,
+      "minimum_clear_slack": 0.002169910223099411,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        3,
+        11
+      ]
+    },
+    {
+      "all_original_clears_preserved": false,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.11558894822318282,
+      "minimum_clear_slack": -0.024675744736335326,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        5,
+        5
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.011771636673527978,
+      "minimum_clear_slack": 0.001155735216790632,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        4,
+        4
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.018147893602638576,
+      "minimum_clear_slack": 0.015117344798465467,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        1,
+        3
+      ]
+    },
+    {
+      "all_original_clears_preserved": false,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.07106427682038785,
+      "minimum_clear_slack": -0.02334937870149756,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        5,
+        3
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.022497652615835362,
+      "minimum_clear_slack": 0.0073584929707355695,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        2,
+        4
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.04989746795782299,
+      "minimum_clear_slack": 0.021528140007766546,
+      "remaining_channel_count": 6,
+      "removed_label": [
+        4,
+        6
+      ]
+    }
+  ],
+  "pair_targets": [
+    [
+      24424,
+      13556
+    ],
+    [
+      13822,
+      40420
+    ],
+    [
+      55864,
+      40420
+    ],
+    [
+      164598,
+      129706
+    ],
+    [
+      1222142,
+      1242118
+    ],
+    [
+      1222142,
+      1240888
+    ]
+  ],
+  "portfolio_name": "recurrent_helpful",
+  "prefix_channel_count": 4,
+  "prefix_channel_labels": [
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      2
+    ]
+  ],
+  "proper_subtail_classification_theorem_proved": false,
+  "restoration_essential_channel_count": 7,
+  "restoration_essential_channel_labels": [
+    [
+      3,
+      11
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "sample_targets": [
+    24424,
+    13556,
+    13822,
+    40420,
+    55864,
+    164598,
+    129706,
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "64d83c350e5d5eb400856d6038532c4d9e6d705b",
+  "status_boundary": "finite tail ablation only; it tests selected q286 rows and proves no tail classification theorem, no fixed-modulus AP theorem, and no Goldbach theorem",
+  "support": [
+    11,
+    13
+  ],
+  "tail_ablation_measured": true,
+  "tail_channel_count": 7,
+  "tail_channel_labels": [
+    [
+      3,
+      11
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "tail_classification_theorem_proved": false,
+  "tail_prefix_rows": [
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.21054428574630454,
+      "minimum_clear_slack": 0.04176587338897807,
+      "tail_prefix_channel_count": 1,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.1744385756975314,
+      "minimum_clear_slack": 0.04112042366009308,
+      "tail_prefix_channel_count": 2,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.12923177667443486,
+      "minimum_clear_slack": 0.03063702513724951,
+      "tail_prefix_channel_count": 3,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": false,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.12479946012425301,
+      "minimum_clear_slack": -0.004115958436912703,
+      "tail_prefix_channel_count": 4,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.05670044443468704,
+      "minimum_clear_slack": 0.028797510610242955,
+      "tail_prefix_channel_count": 5,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": false,
+      "matches_full_tail_classification": false,
+      "maximum_failure_slack": 0.04989746795782299,
+      "minimum_clear_slack": 0.021528140007766546,
+      "tail_prefix_channel_count": 6,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ]
+    },
+    {
+      "all_original_clears_preserved": true,
+      "all_overrescued_failures_restored": true,
+      "matches_full_tail_classification": true,
+      "maximum_failure_slack": -0.008833179560527801,
+      "minimum_clear_slack": 0.009564090345658104,
+      "tail_prefix_channel_count": 7,
+      "tail_prefix_channel_labels": [
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ]
+    }
+  ],
+  "tail_threshold": 0.3
+}

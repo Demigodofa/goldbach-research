@@ -53,6 +53,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_residual_channel_profile_receipt,
     q286_first_three_dominant_mode_portfolio_ablation_receipt,
     q286_first_three_dominant_mode_prefix_tail_classification_receipt,
+    q286_first_three_dominant_mode_tail_ablation_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4720,6 +4721,35 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertLess(receipt["maximum_tail_floor_identity_error"], 1e-12)
         self.assertTrue(receipt["prefix_tail_classification_measured"])
         self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
+        self.assertFalse(receipt["tail_classification_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_tail_ablation(self):
+        receipt = q286_first_three_dominant_mode_tail_ablation_receipt(
+            pair_targets=((24424, 13556), (1222142, 1242118)),
+            recurrent_min_pair_count=2,
+            top_channel_count=4)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["prefix_channel_count"], 5)
+        self.assertEqual(receipt["tail_channel_count"], 1)
+        self.assertEqual(receipt["tail_channel_labels"], ((4, 6),))
+        self.assertEqual(receipt["restoration_essential_channel_count"], 1)
+        self.assertEqual(receipt["classification_essential_channel_count"], 1)
+        self.assertFalse(receipt["all_leave_one_out_restore_failures"])
+        self.assertFalse(receipt["all_leave_one_out_match_classification"])
+        self.assertEqual(
+            receipt["first_tail_prefix_matching_classification"][
+                "tail_prefix_channel_count"],
+            1)
+        self.assertLess(
+            receipt["full_tail_failure_slack_summary"]["maximum"], 0)
+        self.assertGreater(
+            receipt["full_tail_clear_slack_summary"]["minimum"], 0)
+        self.assertTrue(receipt["tail_ablation_measured"])
+        self.assertFalse(receipt[
+            "proper_subtail_classification_theorem_proved"])
         self.assertFalse(receipt["tail_classification_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
