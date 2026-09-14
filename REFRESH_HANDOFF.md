@@ -20984,6 +20984,29 @@ ranges from about `-0.1146136245` to `0.1032801744`.  The remaining theorem
 target is now a positive rank-`1` outside direction plus a residual-drag
 bound, or a stronger signed aggregate theorem that removes the SVD proxy.
 
+Dominant-mode outside-plane rank-1 residual-drag ledger:
+
+- `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_ledger.py`
+- `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.md`
+- `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json`
+
+This measures the negative residual row-sum obstruction after the Octave
+rank-`1` outside reconstruction.  For each checked clear row it verifies
+`exact outside delta = rank-1 reconstructed outside delta + residual row-sum`,
+then tests residual-drag caps of the form
+`max(0, -residual) <= c * rank1`.
+
+On the `71` checked clears, the three-quarter cap holds.  The maximum
+drag/rank-`1` ratio is about `0.7421344693`, at the exact closest clear
+`1242118`, so the bound is close to sharp.  Lower caps fail: `0.7` fails at
+`1242118`, the half-drag cap fails at `1242118` and `1222048`, and the
+quarter cap also fails at `1220056`.
+
+The remaining theorem target is therefore not just "residual smallness"; it
+is a positive arithmetic rank-`1` outside direction plus a near-sharp
+residual-drag inequality, or a stronger signed aggregate theorem that removes
+the SVD proxy.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

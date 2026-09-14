@@ -12773,3 +12773,37 @@ clear rows, and the residual row-sum ranges from about `-0.1146136245` to
 outside direction plus a residual-drag bound, or a stronger arithmetic
 aggregate that replaces the SVD language.  This proves no rank-`1` theorem,
 residual-bound theorem, signed projection theorem, or Goldbach.
+
+### 2026-09-14 continuation: rank-1 residual-drag ledger
+
+The next receipt measures the residual-drag side of that target.  The new
+evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json
+```
+
+For each checked clear row, it verifies:
+
+```text
+exact outside delta = rank-1 reconstructed outside delta + residual row-sum
+```
+
+Residual drag is `max(0, -residual)`.  On the `71` checked clears, the
+three-quarter cap
+
+```text
+residual drag <= 0.75 * rank-1 reconstructed outside delta
+```
+
+holds.  The worst row is the exact closest clear `1242118`, with drag/rank-`1`
+about `0.7421344693`, so the cap is close to sharp on this denominator.
+
+Lower caps fail: `0.7` fails at `1242118`, the half-drag cap fails at
+`1242118` and `1222048`, and the quarter cap also fails at `1220056`.  This
+keeps the loop tightening, but it also prevents a too-comfortable residual
+claim.  The proof target is a positive arithmetic rank-`1` outside direction
+plus a near-sharp residual-drag inequality, or a stronger signed aggregate
+theorem that removes the SVD proxy.  This is finite ledger evidence only and
+proves no residual-bound theorem, rank-`1` theorem, signed projection theorem,
+or Goldbach.

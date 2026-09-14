@@ -1455,6 +1455,18 @@ current comparison set.
    rank `1` overshoots exact outside delta on `36` checked clear rows and the
    residual row-sum can be negative, so the remaining target is a positive
    rank-`1` outside direction plus residual-drag control.
+135. `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_ledger.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json`,
+   measures the negative residual row-sum obstruction after the rank-`1`
+   outside reconstruction.  On the `71` checked clear rows, residual drag is
+   always below `0.75` times the rank-`1` reconstructed outside delta, but the
+   cap is close to sharp: the worst row is `1242118`, with ratio about
+   `0.7421344693`.  Lower caps fail, including `0.7` at `1242118` and the
+   half-drag cap at `1242118` and `1222048`, so residual control is a real
+   theorem obligation rather than harmless numerical dust.
 
 ## Still open
 
@@ -1590,6 +1602,8 @@ current comparison set.
   clear-minus-stress outside-channel matrix, but the residual row-sum is not
   automatically harmless.  The sharpened target is a positive arithmetic
   meaning for that rank-1 outside direction plus a residual-drag bound, or a
-  stronger signed aggregate theorem.
+  stronger signed aggregate theorem.  The residual-drag ledger then makes that
+  bound near-sharp on the checked denominator: `0.75 * rank1` survives, while
+  `0.7 * rank1` already fails at the closest clear `1242118`.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
