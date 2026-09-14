@@ -123,6 +123,14 @@
       "nuance": "Does not refute row-dependent rank structure, arithmetic weights, a different aggregate theorem, or the signed adverse-pair absorption target."
     },
     {
+      "id": "lane.named_adverse_pair_sign_selector",
+      "type": "closed_lane",
+      "label": "Named adverse-pair sign selector",
+      "status": "falsified_on_checked_top20",
+      "reason": "Positive (1,7),(4,4) pair sum selects deficit 1222142, but also selects six nearby clear rows, including closest clear 1242118.",
+      "nuance": "Does not refute the coupled six-versus-two adverse-pair absorption target or a stronger signed aggregate theorem."
+    },
+    {
       "id": "receipt.q286_first_three_reflection_orbit_cap",
       "type": "receipt",
       "label": "q286 first-three reflection-orbit cap diagnostic",
@@ -1221,6 +1229,14 @@
       "status": "validated_falsifier",
       "validation": "tools/build_q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier.py generated evidence/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json; on the top-20 closest near-boundary rows, the fixed rank-5 template gives 10 positive and 10 nonpositive estimated increments, and the positive sign catches deficit 1222142 plus nine clear rows",
       "status_boundary": "finite rank-5 template selector falsifier only; no selector theorem, rank-5 theorem, pointwise prime-correlation estimate, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "type": "receipt",
+      "label": "q286 adverse-pair near-boundary falsifier",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier.py generated evidence/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json; on the top-20 closest near-boundary rows, positive (1,7),(4,4) pair sum catches deficit 1222142 but also catches six clear rows including 1242118",
+      "status_boundary": "finite adverse-pair sign-selector falsifier only; no adverse-pair theorem, pointwise prime-correlation estimate, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2591,6 +2607,26 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "to": "lane.named_adverse_pair_sign_selector",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_volatile_adverse_absorption_ladder",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

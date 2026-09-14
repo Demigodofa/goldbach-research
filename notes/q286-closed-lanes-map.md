@@ -97,6 +97,7 @@ prediction, and falsifier.
 | Dominant staircase from weak reflected geometry | Falsified as sufficient route | Synthetic nonnegative reflected weights with the same local admissible support and total mass can break every selected full-stage pass and over-rescue every selected full-stage deficit. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | Fixed rank-5 SVD template selector | Falsified on checked top-20 near-boundary rows | The two tightest rows have opposite template-increment signs, and the sign catching deficit `1222142` also catches nine clear rows. |
+| Named adverse-pair sign selector | Falsified on checked top-20 near-boundary rows | Positive `(1,7),(4,4)` pair sum catches deficit `1222142`, but also catches six nearby clear rows, including the closest clear `1242118`. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
 | Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
 
@@ -1379,6 +1380,18 @@ current comparison set.
    clear row `1242118` has negative estimated increment about
    `-0.0276644469`.  This falsifies the fixed rank-`5` template as a simple
    checked near-boundary selector.
+129. `tools/build_q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json`,
+   tests the named stress pair `(1,7),(4,4)` directly on the same top-`20`
+   near-boundary rows.  Positive named-pair sum occurs on seven rows: deficit
+   `1222142` plus six clears, including closest clear `1242118`.  The two
+   tightest rows both have positive named-pair sum: about `0.0216228924` for
+   `1222142` and `0.0287525311` for `1242118`.  This falsifies adverse-pair
+   sign as a simple checked selector while preserving the coupled
+   pair-versus-complement absorption target.
 
 ## Still open
 
@@ -1490,6 +1503,9 @@ current comparison set.
   mixed channel balance rather than a clean adverse-pair-only theorem route.
   The fixed rank-`5` template near-boundary falsifier then closes the simple
   selector version of that idea: on the top-`20` tight rows it has mixed signs
-  and selects many clears along with the lone deficit.
+  and selects many clears along with the lone deficit.  The direct
+  adverse-pair falsifier then closes the even simpler named-pair sign selector:
+  positive `(1,7),(4,4)` pair sum catches the deficit but also six nearby
+  clears, so the live theorem must control pair-plus-complement balance.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

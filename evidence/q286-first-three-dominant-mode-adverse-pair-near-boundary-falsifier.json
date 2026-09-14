@@ -1,0 +1,856 @@
+{
+  "adverse_pair": [
+    [
+      1,
+      7
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "adverse_pair_abs_share_summary": {
+    "count": 20,
+    "maximum": 0.8395255397822527,
+    "mean": 0.35799001396508756,
+    "minimum": 0.04104871461193377
+  },
+  "adverse_pair_near_boundary_falsifier_measured": true,
+  "adverse_pair_sign_selector_theorem_proved": false,
+  "adverse_pair_sign_simple_selector_refuted": true,
+  "adverse_pair_sum_summary": {
+    "count": 20,
+    "maximum": 0.033583638977611525,
+    "mean": -0.004687862405419603,
+    "minimum": -0.037685397411738764
+  },
+  "arithmetic_modulus": 286,
+  "candidate": "The named stress pair (1,7),(4,4) might itself act as a simple near-boundary or deficit selector.",
+  "correlations": {
+    "pearson_abs_surplus_vs_adverse_pair_abs_share": 0.4068782683633153,
+    "pearson_abs_surplus_vs_adverse_pair_sum": -0.4862013031074177,
+    "pearson_abs_surplus_vs_repair_complement_sum": 0.8290021562864662
+  },
+  "falsifier": "The shortcut fails if positive pair sum also occurs on nearby clears, especially the closest clear 1242118.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "hole_status": "The q286 hole is tighter: the pair remains central to the stress-row absorption balance, but pair sign alone is not the theorem.",
+    "remaining_theorem": "Control the named pair together with the six-channel repair complement from actual binary-prime residue weights, or replace both with a stronger signed aggregate theorem.",
+    "route_status": "Do not replace the six-versus-two adverse-pair absorption target with a pair-sign selector without a changed mechanism."
+  },
+  "mechanism": "Reuse the exact top-20 signed q286 channel rows from the rank-5-template falsifier, sum the named pair (1,7),(4,4), compare it with the six-channel complement, and audit whether pair sign or pair magnitude isolates the tight deficit.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If the named pair alone is the selector, positive adverse-pair sum or a narrow pair magnitude band should pick out 1222142 without also selecting nearby clear rows.",
+  "repair_complement_sum_summary": {
+    "count": 20,
+    "maximum": -0.0015856754171093839,
+    "mean": -0.04192561762676084,
+    "minimum": -0.10862151797119754
+  },
+  "row_records": [
+    {
+      "above_floor_signed_surplus_to_threshold": -0.002859222244159798,
+      "absolute_above_floor_signed_surplus": 0.002859222244159798,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.19900929448607318,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.021622892410680487,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.30883317956053014,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.08702978366919814,
+      "target": 1222142,
+      "volatile_total_sum_to_principal": -0.06540689125851765
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.0047979812823502055,
+      "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.20930103825638072,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.02875253110010704,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.28347108653325537,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.10862151797119754,
+      "target": 1242118,
+      "volatile_total_sum_to_principal": -0.07986898687109051
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.021280120300458616,
+      "absolute_above_floor_signed_surplus": 0.021280120300458616,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.1449527035217972,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.010911411909444479,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.16952594800174586,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.23622267798144572,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.06436425832187122,
+      "target": 1222048,
+      "volatile_total_sum_to_principal": -0.05345284641242674
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.04023311644888955,
+      "absolute_above_floor_signed_surplus": 0.04023311644888955,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.3488231523644242,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.03302899414540394,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.5356811342894049,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1681603652623105,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.06165793796195151,
+      "target": 1220098,
+      "volatile_total_sum_to_principal": -0.09468693210735545
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.042368787096773886,
+      "absolute_above_floor_signed_surplus": 0.042368787096773886,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.37003059052882115,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.02840378961649695,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.5873786646869718,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.14976871279170298,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.04835686299847818,
+      "target": 1220056,
+      "volatile_total_sum_to_principal": -0.019953073381981233
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.043637464512128576,
+      "absolute_above_floor_signed_surplus": 0.043637464512128576,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.23524609703095148,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.0140691295557616,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.3076101947536873,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15028340975129342,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.04573687672161572,
+      "target": 1200224,
+      "volatile_total_sum_to_principal": -0.059806006277377324
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.044915700209767595,
+      "absolute_above_floor_signed_surplus": 0.044915700209767595,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.5657884220296194,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.037685397411738764,
+      "adverse_pair_to_repair_complement_abs_ratio": -1.3030247251219407,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.17472695697081017,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.028921475306780582,
+      "target": 1221042,
+      "volatile_total_sum_to_principal": -0.06660687271851934
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.04873418761757481,
+      "absolute_above_floor_signed_surplus": 0.04873418761757481,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.0989882289829935,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.0069027163888469665,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.10986341373904772,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15009213962633342,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.06282998273877229,
+      "target": 1242136,
+      "volatile_total_sum_to_principal": -0.06973269912761926
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05081609192466835,
+      "absolute_above_floor_signed_surplus": 0.05081609192466835,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.04104871461193377,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.00204890760843244,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.04280583929278771,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.12308946319950455,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.04786514275349478,
+      "target": 1200208,
+      "volatile_total_sum_to_principal": -0.04581623514506234
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05237494786232505,
+      "absolute_above_floor_signed_surplus": 0.05237494786232505,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.4320932949690831,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.015070495343619388,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.7608526033260339,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.11354488790949976,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.019807378298686732,
+      "target": 1221052,
+      "volatile_total_sum_to_principal": -0.03487787364230612
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.0525379332055963,
+      "absolute_above_floor_signed_surplus": 0.0525379332055963,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.8395255397822527,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.008295494551979692,
+      "adverse_pair_to_repair_complement_abs_ratio": -5.231521194357677,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1375650539141141,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.0015856754171093839,
+      "target": 1240160,
+      "volatile_total_sum_to_principal": -0.009881169969089075
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.052833147281108384,
+      "absolute_above_floor_signed_surplus": 0.052833147281108384,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.1922180740770655,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.010851621760755176,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.237957879358895,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.13988689338113589,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.04560312014038604,
+      "target": 1242162,
+      "volatile_total_sum_to_principal": -0.05645474190114122
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05312980592257055,
+      "absolute_above_floor_signed_surplus": 0.05312980592257055,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.24502933505539246,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.011689682981340118,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.32455477601023125,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15182213768220096,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.03601759655193493,
+      "target": 1222018,
+      "volatile_total_sum_to_principal": -0.024327913570594807
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05330971110326033,
+      "absolute_above_floor_signed_surplus": 0.05330971110326033,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.27697789856010047,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.013733756750829825,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.3830835848703637,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.08402726728738842,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.03585054879205372,
+      "target": 1222078,
+      "volatile_total_sum_to_principal": -0.04958430554288354
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05359542426213604,
+      "absolute_above_floor_signed_surplus": 0.05359542426213604,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.4899436705191885,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.01091573235206715,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.9605677690891599,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1227523044374992,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.011363833665185109,
+      "target": 1222168,
+      "volatile_total_sum_to_principal": -0.02227956601725226
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.054619248161674794,
+      "absolute_above_floor_signed_surplus": 0.054619248161674794,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.36951343194022057,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.018592733055087164,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.5860766123493137,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.07955331294831826,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.03172406587008716,
+      "target": 1220076,
+      "volatile_total_sum_to_principal": -0.05031679892517432
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05674908372357923,
+      "absolute_above_floor_signed_surplus": 0.05674908372357923,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.46937999395253144,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.014520869300898263,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.8845878191606317,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.11638288033906258,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.016415407251115934,
+      "target": 1240144,
+      "volatile_total_sum_to_principal": -0.030936276552014197
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05675540221763353,
+      "absolute_above_floor_signed_surplus": 0.05675540221763353,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.4367895005839457,
+      "adverse_pair_sign": "positive",
+      "adverse_pair_sum_to_principal": 0.033583638977611525,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.7755350815313566,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.09068924231140818,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.04330382954604441,
+      "target": 1200362,
+      "volatile_total_sum_to_principal": -0.009720190568432888
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.057522463636510424,
+      "absolute_above_floor_signed_surplus": 0.057522463636510424,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.73707611594452,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.01726858997665895,
+      "adverse_pair_to_repair_complement_abs_ratio": -2.8033821217588164,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.06799527292317352,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.006159913000310066,
+      "target": 1200342,
+      "volatile_total_sum_to_principal": -0.023428502976969016
+    },
+    {
+      "above_floor_signed_surplus_to_threshold": 0.05806169655303428,
+      "absolute_above_floor_signed_surplus": 0.05806169655303428,
+      "adverse_pair": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "adverse_pair_abs_share": 0.4580651821044562,
+      "adverse_pair_sign": "negative",
+      "adverse_pair_sum_to_principal": -0.029834572118858236,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.845240362823019,
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.12078081510410221,
+      "repair_complement_sign": "negative",
+      "repair_complement_sum_to_principal": -0.03529714555894341,
+      "target": 1200526,
+      "volatile_total_sum_to_principal": -0.06513171767780164
+    }
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "sign_summary": {
+    "clear_count": 19,
+    "deficit_count": 1,
+    "negative_or_zero_adverse_pair_clear_count": 13,
+    "positive_adverse_pair_clear_false_positive_count": 6,
+    "positive_adverse_pair_clear_false_positive_targets": [
+      1242118,
+      1222048,
+      1220056,
+      1200208,
+      1222018,
+      1200362
+    ],
+    "positive_adverse_pair_count": 7,
+    "positive_adverse_pair_targets": [
+      1222142,
+      1242118,
+      1222048,
+      1220056,
+      1200208,
+      1222018,
+      1200362
+    ]
+  },
+  "signed_projection_theorem_proved": false,
+  "source_commit": "ddfeac202328647430a955ff8f14bb9438f3f9f5",
+  "source_rank5_template_falsifier": "evidence\\q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json",
+  "source_top20_target_order": [
+    1222142,
+    1242118,
+    1222048,
+    1220098,
+    1220056,
+    1200224,
+    1221042,
+    1242136,
+    1200208,
+    1221052,
+    1240160,
+    1242162,
+    1222018,
+    1222078,
+    1222168,
+    1220076,
+    1240144,
+    1200362,
+    1200342,
+    1200526
+  ],
+  "status_boundary": "finite adverse-pair near-boundary falsifier only; it refutes the named pair sign as a simple selector on the checked top-20 rows and proves no adverse-pair theorem, volatile-rim theorem, pointwise character-sum estimate, or Goldbach proof",
+  "summary": {
+    "false_positive_result": "Positive adverse-pair sum selects the deficit but also six checked clear rows.",
+    "selector_result": "The named adverse pair is not a simple checked near-boundary deficit selector on the top-20 rows.",
+    "tightest_rows": "The tight deficit 1222142 and the closest clear 1242118 both have positive (1,7),(4,4) pair sum."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "threshold_sign_audits": {
+    "0.005": {
+      "adverse_pair_signs": [
+        "positive",
+        "positive"
+      ],
+      "mixed_signs_on_near_rows": false,
+      "near_targets": [
+        1222142,
+        1242118
+      ],
+      "near_threshold": 0.005,
+      "positive_pair_clear_count": 1,
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "adverse_pair_abs_share": 0.19900929448607318,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.021622892410680487,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+          "dominant_floor_passes": false,
+          "repair_complement_sum_to_principal": -0.08702978366919814,
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "adverse_pair_abs_share": 0.20930103825638072,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.02875253110010704,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.10862151797119754,
+          "target": 1242118
+        }
+      ]
+    },
+    "0.01": {
+      "adverse_pair_signs": [
+        "positive",
+        "positive"
+      ],
+      "mixed_signs_on_near_rows": false,
+      "near_targets": [
+        1222142,
+        1242118
+      ],
+      "near_threshold": 0.01,
+      "positive_pair_clear_count": 1,
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "adverse_pair_abs_share": 0.19900929448607318,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.021622892410680487,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+          "dominant_floor_passes": false,
+          "repair_complement_sum_to_principal": -0.08702978366919814,
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "adverse_pair_abs_share": 0.20930103825638072,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.02875253110010704,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.10862151797119754,
+          "target": 1242118
+        }
+      ]
+    },
+    "0.03": {
+      "adverse_pair_signs": [
+        "positive",
+        "positive",
+        "positive"
+      ],
+      "mixed_signs_on_near_rows": false,
+      "near_targets": [
+        1222142,
+        1242118,
+        1222048
+      ],
+      "near_threshold": 0.03,
+      "positive_pair_clear_count": 2,
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "adverse_pair_abs_share": 0.19900929448607318,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.021622892410680487,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+          "dominant_floor_passes": false,
+          "repair_complement_sum_to_principal": -0.08702978366919814,
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "adverse_pair_abs_share": 0.20930103825638072,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.02875253110010704,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.10862151797119754,
+          "target": 1242118
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.021280120300458616,
+          "adverse_pair_abs_share": 0.1449527035217972,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.010911411909444479,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.16952594800174586,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.06436425832187122,
+          "target": 1222048
+        }
+      ]
+    },
+    "0.05": {
+      "adverse_pair_signs": [
+        "positive",
+        "positive",
+        "positive",
+        "negative",
+        "positive",
+        "negative",
+        "negative",
+        "negative"
+      ],
+      "mixed_signs_on_near_rows": true,
+      "near_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1220098,
+        1220056,
+        1200224,
+        1221042,
+        1242136
+      ],
+      "near_threshold": 0.05,
+      "positive_pair_clear_count": 3,
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "adverse_pair_abs_share": 0.19900929448607318,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.021622892410680487,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+          "dominant_floor_passes": false,
+          "repair_complement_sum_to_principal": -0.08702978366919814,
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "adverse_pair_abs_share": 0.20930103825638072,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.02875253110010704,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.10862151797119754,
+          "target": 1242118
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.021280120300458616,
+          "adverse_pair_abs_share": 0.1449527035217972,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.010911411909444479,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.16952594800174586,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.06436425832187122,
+          "target": 1222048
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.04023311644888955,
+          "adverse_pair_abs_share": 0.3488231523644242,
+          "adverse_pair_sign": "negative",
+          "adverse_pair_sum_to_principal": -0.03302899414540394,
+          "adverse_pair_to_repair_complement_abs_ratio": -0.5356811342894049,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.06165793796195151,
+          "target": 1220098
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.042368787096773886,
+          "adverse_pair_abs_share": 0.37003059052882115,
+          "adverse_pair_sign": "positive",
+          "adverse_pair_sum_to_principal": 0.02840378961649695,
+          "adverse_pair_to_repair_complement_abs_ratio": 0.5873786646869718,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.04835686299847818,
+          "target": 1220056
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.043637464512128576,
+          "adverse_pair_abs_share": 0.23524609703095148,
+          "adverse_pair_sign": "negative",
+          "adverse_pair_sum_to_principal": -0.0140691295557616,
+          "adverse_pair_to_repair_complement_abs_ratio": -0.3076101947536873,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.04573687672161572,
+          "target": 1200224
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.044915700209767595,
+          "adverse_pair_abs_share": 0.5657884220296194,
+          "adverse_pair_sign": "negative",
+          "adverse_pair_sum_to_principal": -0.037685397411738764,
+          "adverse_pair_to_repair_complement_abs_ratio": -1.3030247251219407,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.028921475306780582,
+          "target": 1221042
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.04873418761757481,
+          "adverse_pair_abs_share": 0.0989882289829935,
+          "adverse_pair_sign": "negative",
+          "adverse_pair_sum_to_principal": -0.0069027163888469665,
+          "adverse_pair_to_repair_complement_abs_ratio": -0.10986341373904772,
+          "dominant_floor_passes": true,
+          "repair_complement_sum_to_principal": -0.06282998273877229,
+          "target": 1242136
+        }
+      ]
+    }
+  },
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}

@@ -20844,6 +20844,29 @@ weights or a proven signed aggregate.  The live theorem target remains signed
 adverse-pair absorption from actual binary-prime residue weights, or a
 stronger signed aggregate arithmetic-placement theorem.
 
+Dominant-mode adverse-pair near-boundary falsifier:
+
+- `tools/build_q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier.py`
+- `notes/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.md`
+- `evidence/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json`
+
+This tests the named stress pair `(1,7),(4,4)` directly as a simple
+near-boundary selector, reusing the exact top-`20` signed q286 channel rows
+from the rank-`5` template falsifier.
+
+The top-`20` set has one deficit, `1222142`, and nineteen clears.  Positive
+named-pair sum occurs on seven rows: `1222142` plus clear rows
+`1242118,1222048,1220056,1200208,1222018,1200362`.  The two tightest rows
+already refute the pair-sign shortcut: `1222142` has pair sum about
+`0.0216228924`, while clear row `1242118` has pair sum about `0.0287525311`.
+
+Every checked near-boundary band through `.05` contains at least one clear row
+with positive named-pair sum.  Do not replace the six-versus-two absorption
+target with a pair-sign selector without a changed mechanism.  The live target
+is the coupled balance between the named pair and the six-channel repair
+complement from actual binary-prime residue weights, or a stronger signed
+aggregate arithmetic-placement theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

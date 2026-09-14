@@ -12590,3 +12590,34 @@ signs.  This refutes the fixed rank-`5` template as a simple checked
 near-boundary selector.  It does not refute row-dependent rank structure,
 arithmetic weights, a different aggregate theorem, or the surviving signed
 adverse-pair absorption target.  Goldbach remains open.
+
+### 2026-09-14 continuation: adverse-pair near-boundary falsifier
+
+The named stress pair `(1,7),(4,4)` was then tested directly as a possible
+simple near-boundary selector.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json
+```
+
+The receipt reuses the exact top-`20` signed q286 channel rows from the
+rank-`5` template falsifier, sums the named pair, compares it with the
+six-channel volatile complement, and asks whether pair sign isolates the lone
+dominant-floor deficit `1222142`.
+
+It does not.  The top-`20` set has one deficit and nineteen clears.  Positive
+named-pair sum occurs on `7` rows: the deficit `1222142` plus six clear rows
+`1242118,1222048,1220056,1200208,1222018,1200362`.  The two tightest rows
+already refute the pair-sign shortcut:
+
+```text
+1222142   deficit   pair sum 0.0216228924
+1242118   clear     pair sum 0.0287525311
+```
+
+Every checked near-boundary band through `.05` contains at least one clear row
+with positive named-pair sum.  Thus the named pair remains central to the
+stress-row absorption balance, but pair sign alone is not the theorem.  The
+live target is the coupled balance between the named pair and the six-channel
+repair complement from actual binary-prime residue weights, or a stronger
+signed aggregate arithmetic-placement theorem.
