@@ -65,6 +65,9 @@ def main():
         EVIDENCE / "q286-first-three-dominant-mode-tail-ablation.json")
     residual_staircase = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-residual-staircase.json")
+    staircase_geometry = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-geometry-obstruction.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -457,6 +460,46 @@ def main():
         "residual-staircase",
         2.0,
         "tail is signed cumulative control, not monotone positive reserve")
+
+    layer(
+        "staircase-geometry-obstruction",
+        "Weak reflected geometry does not force staircase classification",
+        "finite_obstruction",
+        "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json",
+        2.0,
+        "Synthetic reflected weights only; not actual prime-pair weights.")
+    for target in (
+            staircase_geometry[
+                "full_stage_pass_targets_breakable_by_weak_geometry"]
+            + staircase_geometry[
+                "full_stage_fail_targets_breakable_by_weak_geometry"]):
+        add_hit(
+            target_stacks,
+            str(target),
+            "staircase-geometry-obstruction",
+            2.0,
+            "full-stage classification breakable by weak geometry")
+    add_hit(
+        mechanism_stacks,
+        "weak-geometry-staircase-shortcut-closed",
+        "staircase-geometry-obstruction",
+        2.0,
+        "support/nonnegative/total/reflection constraints force no selected "
+        "full-stage classification",
+        {
+            "full_stage_forced_targets": (
+                staircase_geometry[
+                    "full_stage_classification_forced_targets"]),
+            "prefix_clear_passes_forced": (
+                staircase_geometry[
+                    "prefix_stage_all_clear_passes_forced_by_geometry"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "staircase-geometry-obstruction",
+        2.0,
+        "actual prime-pair arithmetic or stronger residue constraints required")
 
     layer(
         "conditional-proof-stack",

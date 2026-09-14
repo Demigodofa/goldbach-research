@@ -11313,6 +11313,21 @@ before `(5,3)` repairs it, while `(4,6)` removes the last overrescued deficits
 portfolio control, or a replacement deficit-exclusion/complement theorem; it
 does not prove a uniform portfolio theorem or Goldbach.
 
+The weak-geometry shortcut under that staircase is now closed in
+`notes/q286-first-three-dominant-mode-staircase-geometry-obstruction.md` and
+`evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json`.
+For each cumulative stage, the receipt minimizes and maximizes the partial
+portfolio action over synthetic weights with nonnegative local admissible
+q286 support, total mass one, and ordered-pair reflection symmetry.  At the
+full eleven-channel stage, geometry forces none of the ten selected
+classifications: every selected pass row can be made to fail synthetically,
+and every selected deficit can be over-rescued synthetically.  The four-channel
+prefix clear-side implication is not forced either.  Thus support,
+nonnegativity, total mass, and pair-swap reflection cannot prove the residual
+staircase; the missing theorem must use actual prime-pair arithmetic, stronger
+residue-weight constraints, complement/lower-support rescue, or an external
+fixed-modulus pointwise prime-pair theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

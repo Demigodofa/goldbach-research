@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "1e12003594a46bdb3ebac3a511768faaf5e1d84f",
+  "generated_from_commit": "dd2b91d907d986de429aa212c4ec6e8b831c5da7",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -100,6 +100,14 @@
       "boundary": "Finite cumulative residual ledger only; no portfolio theorem."
     },
     {
+      "id": "staircase-geometry-obstruction",
+      "label": "Weak reflected geometry does not force staircase classification",
+      "kind": "finite_obstruction",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json",
+      "default_weight": 2.0,
+      "boundary": "Synthetic reflected weights only; not actual prime-pair weights."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -111,7 +119,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 38.5,
+      "stack_weight": 40.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -300,14 +308,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 19,
+      "layer_count": 20,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 34.5,
+      "stack_weight": 36.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -484,14 +497,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 17,
-      "glow": 0.896104
+      "layer_count": 18,
+      "glow": 0.901235
     },
     {
       "id": "164598",
-      "stack_weight": 34.5,
+      "stack_weight": 36.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -668,14 +686,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 17,
-      "glow": 0.896104
+      "layer_count": 18,
+      "glow": 0.901235
     },
     {
       "id": "24424",
-      "stack_weight": 34.5,
+      "stack_weight": 36.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -852,14 +875,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 17,
-      "glow": 0.896104
+      "layer_count": 18,
+      "glow": 0.901235
     },
     {
       "id": "55864",
-      "stack_weight": 34.5,
+      "stack_weight": 36.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1036,14 +1064,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 17,
-      "glow": 0.896104
+      "layer_count": 18,
+      "glow": 0.901235
     },
     {
       "id": "129706",
-      "stack_weight": 18.5,
+      "stack_weight": 20.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1132,14 +1165,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 9,
-      "glow": 0.480519
+      "layer_count": 10,
+      "glow": 0.506173
     },
     {
       "id": "13556",
-      "stack_weight": 16.5,
+      "stack_weight": 18.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1217,14 +1255,19 @@
             "stage_floor_passes": false,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 8,
-      "glow": 0.428571
+      "layer_count": 9,
+      "glow": 0.45679
     },
     {
       "id": "1240888",
-      "stack_weight": 10.5,
+      "stack_weight": 12.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1269,14 +1312,19 @@
             "subtail_slack": 0.027186573380917844,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 5,
-      "glow": 0.272727
+      "layer_count": 6,
+      "glow": 0.308642
     },
     {
       "id": "1242118",
-      "stack_weight": 10.5,
+      "stack_weight": 12.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1321,14 +1369,19 @@
             "subtail_slack": 0.016528913466746065,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 5,
-      "glow": 0.272727
+      "layer_count": 6,
+      "glow": 0.308642
     },
     {
       "id": "40420",
-      "stack_weight": 10.5,
+      "stack_weight": 12.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1373,10 +1426,15 @@
             "subtail_slack": 0.048938403503475614,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
         }
       ],
-      "layer_count": 5,
-      "glow": 0.272727
+      "layer_count": 6,
+      "glow": 0.308642
     },
     {
       "id": "1379072",
@@ -1402,7 +1460,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.155844
+      "glow": 0.148148
     },
     {
       "id": "1323632",
@@ -1422,7 +1480,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.103896
+      "glow": 0.098765
     },
     {
       "id": "10664",
@@ -1436,7 +1494,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025974
+      "glow": 0.024691
     },
     {
       "id": "14138",
@@ -1450,7 +1508,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.025974
+      "glow": 0.024691
     }
   ],
   "mechanism_stacks": [
@@ -1625,6 +1683,23 @@
       "glow": 0.222222
     },
     {
+      "id": "weak-geometry-staircase-shortcut-closed",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "support/nonnegative/total/reflection constraints force no selected full-stage classification",
+          "value": {
+            "full_stage_forced_targets": [],
+            "prefix_clear_passes_forced": false
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "active-selector-rarity",
       "stack_weight": 1.5,
       "layers": [
@@ -1645,7 +1720,7 @@
   "theorem_gap_stacks": [
     {
       "id": "portfolio-residual-lower-bound",
-      "stack_weight": 12.5,
+      "stack_weight": 14.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1676,9 +1751,14 @@
           "layer": "residual-staircase",
           "weight": 2.0,
           "reason": "tail is signed cumulative control, not monotone positive reserve"
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "actual prime-pair arithmetic or stronger residue constraints required"
         }
       ],
-      "layer_count": 6,
+      "layer_count": 7,
       "glow": 1.0
     },
     {
@@ -1697,7 +1777,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.4
+      "glow": 0.344828
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -1710,7 +1790,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.16
+      "glow": 0.137931
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -1723,7 +1803,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.16
+      "glow": 0.137931
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -1740,7 +1820,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.12
+      "glow": 0.103448
     },
     {
       "id": "alignment-complement-route",
@@ -1753,7 +1833,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.08
+      "glow": 0.068966
     }
   ],
   "goldbach_proved": false,

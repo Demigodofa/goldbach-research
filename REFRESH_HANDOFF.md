@@ -20400,6 +20400,28 @@ theorem to signed cumulative portfolio control, or to a replacement
 deficit-exclusion/complement theorem.  It is not a portfolio theorem and not a
 Goldbach proof.
 
+Dominant-mode staircase geometry obstruction:
+
+- `q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_geometry_obstruction.py`
+- `notes/q286-first-three-dominant-mode-staircase-geometry-obstruction.md`
+- `evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_geometry_obstruction`
+
+This closes the weak-geometry shortcut under the residual staircase.  For
+each cumulative stage, it minimizes and maximizes the partial-channel action
+over synthetic weights with nonnegative local admissible q286 support, total
+mass one, and ordered-pair reflection symmetry.  On the full selected fixture,
+the full eleven-channel stage has no geometry-forced classifications: every
+selected pass row `13556,40420,129706,1242118,1240888` can be made to fail,
+and every selected deficit `24424,13822,55864,164598,1222142` can be made to
+pass synthetically.  The four-channel prefix also does not have geometry-forced
+clear-side passes.  The synthetic witnesses are not prime-pair weights; this
+is a proof-strategy obstruction showing that actual prime-pair arithmetic,
+stronger residue-weight constraints, complement/lower-support rescue, or an
+external fixed-modulus theorem is required.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

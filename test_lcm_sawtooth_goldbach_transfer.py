@@ -55,6 +55,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_prefix_tail_classification_receipt,
     q286_first_three_dominant_mode_tail_ablation_receipt,
     q286_first_three_dominant_mode_residual_staircase_receipt,
+    q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4791,6 +4792,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["added_channel_rows"][-1]["newly_failing_targets"],
             (24424, 1222142))
         self.assertTrue(receipt["residual_staircase_measured"])
+        self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
+        self.assertFalse(receipt["tail_classification_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_staircase_geometry_obstruction(
+            self):
+        receipt = (
+            q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertFalse(
+            receipt["full_stage_all_classifications_forced_by_geometry"])
+        self.assertFalse(
+            receipt["prefix_stage_all_clear_passes_forced_by_geometry"])
+        self.assertFalse(receipt[
+            "support_nonnegativity_total_reflection_suffices_for_staircase"])
+        self.assertTrue(
+            receipt["full_stage_pass_targets_breakable_by_weak_geometry"])
+        self.assertTrue(
+            receipt["full_stage_fail_targets_breakable_by_weak_geometry"])
+        self.assertEqual(
+            receipt["prefix_stage"]["pass_targets_breakable_by_weak_geometry"],
+            (13556, 1242118))
+        self.assertEqual(
+            receipt["full_stage"]["geometry_forced_classification_targets"],
+            ())
+        for stage in receipt["stage_rows"]:
+            self.assertEqual(
+                len(stage["target_rows"]),
+                len(receipt["sample_targets"]))
+        self.assertTrue(receipt["staircase_geometry_obstruction_measured"])
         self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
         self.assertFalse(receipt["tail_classification_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])

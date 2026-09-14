@@ -66,6 +66,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-tail-ablation.json")
     dominant_mode_residual_staircase = load_json(
         "evidence/q286-first-three-dominant-mode-residual-staircase.json")
+    dominant_mode_staircase_geometry = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -451,6 +453,25 @@ def main():
                     "portfolio theorem"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_geometry_obstruction",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json"),
+                "statement": (
+                    "Weak support, nonnegativity, total mass, and pair-swap "
+                    "reflection geometry do not force the frozen residual "
+                    "staircase classifications."),
+                "validation": (
+                    "full-stage pass breakable targets "
+                    f"{dominant_mode_staircase_geometry['full_stage_pass_targets_breakable_by_weak_geometry']}; "
+                    "full-stage fail breakable targets "
+                    f"{dominant_mode_staircase_geometry['full_stage_fail_targets_breakable_by_weak_geometry']}; "
+                    "full-stage forced targets "
+                    f"{dominant_mode_staircase_geometry['full_stage_classification_forced_targets']}."),
+                "proved_scope": (
+                    "finite weak-geometry obstruction using synthetic "
+                    "reflected weights, not prime-pair weights"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -549,7 +570,10 @@ def main():
                     "The norm budget, tiny-channel, small residual-channel "
                     "classifier, and geometry-only routes are demoted on the "
                     "current evidence; the residual staircase shows the tail "
-                    "is signed rather than a monotone-positive reserve."),
+                    "is signed rather than a monotone-positive reserve, and "
+                    "the weak-geometry staircase obstruction shows support/"
+                    "reflection constraints alone do not force the selected "
+                    "classifications."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

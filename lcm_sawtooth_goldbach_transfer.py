@@ -10787,6 +10787,285 @@ def q286_first_three_dominant_mode_residual_staircase_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Test weak reflected-geometry force behind the residual staircase.
+
+    For every selected target and cumulative staircase stage, this computes
+    the extremal possible partial-channel action among nonnegative
+    pair-reflection-symmetric weights with the same admissible q286 support
+    and total mass.  If a pass row can be made to fail, or a fail row can be
+    made to pass, then that stage's classification cannot follow from these
+    weak geometric constraints alone.
+
+    Synthetic extremal weights are not prime-pair weights.  This is a
+    proof-strategy obstruction only, not a Goldbach theorem.
+    """
+    staircase_receipt = (
+        q286_first_three_dominant_mode_residual_staircase_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    dominant_matrix = np.zeros_like(coefficient_matrix)
+    for mode_index in dominant_modes:
+        index = mode_index - 1
+        dominant_matrix += (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, labels, character_table = _unit_character_table(modulus, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    factor_orders = (10, 12)
+    dominant_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            dominant_coefficients[index] = dominant_matrix[
+                first - 1, second - 1]
+
+    def conjugate_label(label):
+        return tuple((-exponent) % order
+                     for exponent, order in zip(label, factor_orders))
+
+    active_indices = tuple(
+        index for index, coefficient in enumerate(dominant_coefficients)
+        if abs(coefficient) > tolerance)
+    remaining = set(active_indices)
+    real_channel_rows = []
+    for index in sorted(active_indices):
+        if index not in remaining:
+            continue
+        conjugate_index = label_to_index[conjugate_label(labels[index])]
+        orbit = tuple(sorted({index, conjugate_index}))
+        remaining.difference_update(orbit)
+        representative = orbit[0]
+        real_channel_rows.append({
+            "representative_index": representative,
+            "representative_label": labels[representative],
+            "real_formula_multiplier": 1.0 if len(orbit) == 1 else 2.0,
+            "representative_coefficient": (
+                dominant_coefficients[representative]),
+        })
+
+    principal_mean = float(
+        character_receipt["rows"][10424]["principal_contribution"].real
+        / character_receipt["rows"][10424]["total_prime_pair_weight"])
+    channel_coefficients = {}
+    for channel in real_channel_rows:
+        label = tuple(channel["representative_label"])
+        representative = channel["representative_index"]
+        coefficient = channel["representative_coefficient"]
+        multiplier = channel["real_formula_multiplier"]
+        channel_coefficients[label] = np.asarray(
+            multiplier * np.real(coefficient * character_table[representative])
+            / principal_mean,
+            dtype=np.float64)
+
+    unit_index = {unit: index for index, unit in enumerate(units)}
+
+    def reflected_orbit_extrema(target_residue, coefficient_values):
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            coefficient_values[admissible_mask]
+            - float(np.mean(coefficient_values[admissible_mask])))
+        seen = set()
+        orbit_rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected_index = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected_index)
+            if reflected_index == index:
+                orbit = (unit,)
+                average = centered[index]
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                average = 0.5 * (
+                    centered[index] + centered[reflected_index])
+            orbit_rows.append({
+                "orbit": orbit,
+                "stage_action_to_principal": float(average),
+            })
+        minimum = min(orbit_rows,
+                      key=lambda row: row["stage_action_to_principal"])
+        maximum = max(orbit_rows,
+                      key=lambda row: row["stage_action_to_principal"])
+        return {
+            "admissible_count": int(np.sum(admissible_mask)),
+            "minimum_row": minimum,
+            "maximum_row": maximum,
+        }
+
+    def witness_alpha_for_break(expected_pass, required, minimum, maximum):
+        if expected_pass:
+            if 0.0 < required - tolerance:
+                return 0.0
+            if minimum < required - tolerance and minimum < -tolerance:
+                return 0.5 * (required / minimum + 1.0)
+            return None
+        if 0.0 >= required - tolerance:
+            return 0.0
+        if maximum > required + tolerance and maximum > tolerance:
+            return 0.5 * (required / maximum + 1.0)
+        return None
+
+    stage_rows = []
+    for stage in staircase_receipt["stage_rows"]:
+        labels_for_stage = tuple(tuple(label)
+                                 for label in stage["channel_labels"])
+        if labels_for_stage:
+            combined_coefficients = np.zeros(len(units), dtype=np.float64)
+            for label in labels_for_stage:
+                combined_coefficients += channel_coefficients[label]
+        else:
+            combined_coefficients = np.zeros(len(units), dtype=np.float64)
+
+        row_entries = []
+        pass_break_targets = []
+        fail_break_targets = []
+        geometry_forced_targets = []
+        for row in stage["target_rows"]:
+            target = row["target"]
+            target_residue = row["target_mod_286"]
+            required = row["required_portfolio_for_floor"]
+            expected_pass = row["dominant_floor_passes"]
+            extrema = reflected_orbit_extrema(
+                target_residue, combined_coefficients)
+            minimum = extrema["minimum_row"]["stage_action_to_principal"]
+            maximum = extrema["maximum_row"]["stage_action_to_principal"]
+            geometry_forces_pass = minimum >= required - tolerance
+            geometry_forces_fail = maximum < required - tolerance
+            geometry_forces_classification = (
+                geometry_forces_pass if expected_pass
+                else geometry_forces_fail)
+            synthetic_breaks_classification = not (
+                geometry_forces_classification)
+            alpha = witness_alpha_for_break(
+                expected_pass, required, minimum, maximum)
+            if expected_pass and synthetic_breaks_classification:
+                pass_break_targets.append(target)
+            if (not expected_pass) and synthetic_breaks_classification:
+                fail_break_targets.append(target)
+            if geometry_forces_classification:
+                geometry_forced_targets.append(target)
+            row_entries.append({
+                "target": target,
+                "target_mod_286": target_residue,
+                "dominant_floor_passes": expected_pass,
+                "required_portfolio_for_floor": required,
+                "actual_stage_sum_to_principal": (
+                    row["partial_sum_to_principal"]),
+                "actual_stage_slack_to_floor": row["slack_to_floor"],
+                "weak_geometry_min_stage_sum_to_principal": minimum,
+                "weak_geometry_max_stage_sum_to_principal": maximum,
+                "minimum_reflection_orbit": (
+                    extrema["minimum_row"]["orbit"]),
+                "maximum_reflection_orbit": (
+                    extrema["maximum_row"]["orbit"]),
+                "admissible_count": extrema["admissible_count"],
+                "geometry_forces_stage_pass": geometry_forces_pass,
+                "geometry_forces_stage_fail": geometry_forces_fail,
+                "geometry_forces_full_classification": (
+                    geometry_forces_classification),
+                "synthetic_reflected_weight_breaks_classification": (
+                    synthetic_breaks_classification),
+                "strict_positive_uniform_extremal_mixture_alpha": alpha,
+            })
+
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": tuple(row_entries),
+            "pass_targets_breakable_by_weak_geometry": tuple(
+                pass_break_targets),
+            "fail_targets_breakable_by_weak_geometry": tuple(
+                fail_break_targets),
+            "geometry_forced_classification_targets": tuple(
+                geometry_forced_targets),
+            "all_selected_classifications_forced_by_geometry": bool(
+                len(geometry_forced_targets)
+                == len(staircase_receipt["sample_targets"])),
+            "any_selected_classification_forced_by_geometry": bool(
+                geometry_forced_targets),
+        })
+
+    prefix_stage = stage_rows[
+        staircase_receipt["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        staircase_receipt["full_stage"]["stage_index"]]
+    return {
+        "arithmetic_modulus": modulus,
+        "support": staircase_receipt["support"],
+        "dominant_modes": staircase_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": staircase_receipt["sample_targets"],
+        "pair_targets": staircase_receipt["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": (
+            staircase_receipt["prefix_channel_labels"]),
+        "tail_channel_labels": staircase_receipt["tail_channel_labels"],
+        "ordered_channel_labels": (
+            staircase_receipt["ordered_channel_labels"]),
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_pass_targets_breakable_by_weak_geometry": (
+            full_stage["pass_targets_breakable_by_weak_geometry"]),
+        "full_stage_fail_targets_breakable_by_weak_geometry": (
+            full_stage["fail_targets_breakable_by_weak_geometry"]),
+        "full_stage_classification_forced_targets": (
+            full_stage["geometry_forced_classification_targets"]),
+        "full_stage_all_classifications_forced_by_geometry": (
+            full_stage["all_selected_classifications_forced_by_geometry"]),
+        "full_stage_any_classification_forced_by_geometry": (
+            full_stage["any_selected_classification_forced_by_geometry"]),
+        "prefix_stage_all_clear_passes_forced_by_geometry": all(
+            row["geometry_forces_stage_pass"]
+            for row in prefix_stage["target_rows"]
+            if row["dominant_floor_passes"]),
+        "staircase_geometry_obstruction_measured": True,
+        "support_nonnegativity_total_reflection_suffices_for_staircase": (
+            full_stage["all_selected_classifications_forced_by_geometry"]),
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

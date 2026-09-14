@@ -97,6 +97,11 @@ frame.
   selected dominant-floor classification is the full eleven-channel portfolio.
   The tail is signed rather than monotone-positive, so the missing theorem is
   cumulative portfolio control or a replacement deficit-exclusion theorem.
+- `evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json`:
+  weak support/nonnegativity/total/reflection geometry does not force the
+  staircase.  At the full stage every selected pass can be made to fail
+  synthetically, every selected deficit can be over-rescued synthetically, and
+  no selected classification is geometry-forced.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -146,7 +151,9 @@ frame.
    cumulative load path: the prefix clears all selected clears while
    over-rescuing all selected deficits, intermediate tail channels can knock a
    clear row below the floor, and only the full eleven-channel portfolio
-   matches the selected classification.
+   matches the selected classification.  The staircase-geometry obstruction
+   closes the weak-geometry proof shortcut under that load path: actual
+   prime-pair arithmetic or stronger residue-weight structure is required.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -165,4 +172,5 @@ same claim to a fixed-modulus strict-central binary Goldbach/AP theorem.
 Current finite evidence says the dominant projection is a prefix/tail
 portfolio arithmetic problem, not a geometry-only, tiny-channel, or one-piece
 classifier problem; the tested tail itself is also not visibly compressible
-and not monotone-positive under the frozen channel order.
+and not monotone-positive under the frozen channel order.  Weak reflected
+geometry also does not force the frozen staircase classifications.
