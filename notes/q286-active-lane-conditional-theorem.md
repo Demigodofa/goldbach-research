@@ -156,7 +156,18 @@ the necessary-condition scouts now scan `3600` new targets with zero
 first-three hits below `-0.3`, and the same-residue holdout scans `30` more
 targets with zero active-tail hits.  These windows therefore supply
 denominator evidence only.  They do not support the strict closure inequality.
-The
-sample-size/cherry-pick question remains open until larger unchanged selector
-holdouts either produce stressable active rows or support a meaningful rarity
-theorem for the active selector.
+The sample-size/cherry-pick question remains open until larger unchanged
+selector holdouts either produce stressable active rows or support a
+meaningful rarity theorem for the active selector.
+
+The exact rarity theorem obligation is now separated in
+`notes/q286-active-selector-rarity-theorem-obligation.md`: prove a pointwise
+lower bound for the fixed q286 first-three singular-mode residue-discrepancy
+functional,
+
+```text
+first_three_modes_to_principal_ratio >= -0.3,
+```
+
+outside a finite checked set, or escalate any unchanged-selector target below
+`-0.3` to full active-selector and strict-closure stress.

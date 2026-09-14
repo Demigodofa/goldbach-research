@@ -1510,6 +1510,14 @@ a stress pass on active rows found by an unchanged selector, with scanned,
 selected, applicable, stressed, passed, failed, and not-applicable counts kept
 separate.
 
+`notes/q286-active-selector-rarity-theorem-obligation.md` states the analytic
+version of that next obligation.  The fast first-three scanner is measuring a
+fixed signed linear functional of strict-central prime-pair residue-weight
+deviations modulo `286`, normalized by the principal mass.  Proving
+`first_three >= -0.3` outside a finite checked set would exclude the active
+selector there; failing that, any unchanged-selector target below `-0.3` must
+be escalated to full active-selector and strict-closure stress.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

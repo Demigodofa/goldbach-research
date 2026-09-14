@@ -19457,6 +19457,25 @@ missing q286 channel estimate as serious pointwise binary-prime arithmetic,
 not as a sourced theorem already available here.  See
 `notes/q286-component-pair-theorem-obligation.md` for exact links.
 
+New theorem-obligation note:
+
+- `notes/q286-active-selector-rarity-theorem-obligation.md`
+
+This note separates the finite scout evidence from the theorem target.  The
+fast q286 first-three scanner computes a fixed signed linear functional of
+strict-central prime-pair residue-weight deviations modulo `286`, normalized
+by the principal mass.  To exclude the current active selector after a finite
+bound, one must prove
+
+```text
+first_three_modes_to_principal_ratio >= -0.3
+```
+
+outside the checked set, or else run the unchanged full selector and strict
+closure stress on any target where the inequality fails.  This is a pointwise
+binary prime-pair residue-discrepancy obligation, not a result supplied by the
+finite scout receipts.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

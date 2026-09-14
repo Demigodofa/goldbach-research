@@ -603,6 +603,14 @@
       "status_boundary": "bookkeeping evidence only; sample-size and cherry-picking risk remain open, no uniform theorem and no Goldbach proof"
     },
     {
+      "id": "obligation.active_selector_rarity",
+      "type": "theorem_obligation",
+      "label": "q286 active-selector rarity theorem",
+      "status": "open",
+      "validation": "notes/q286-active-selector-rarity-theorem-obligation.md states the pointwise first-three residue-discrepancy bound needed to exclude active-selector rows outside a finite checked set",
+      "status_boundary": "open analytic obligation only; finite scout receipts do not prove rarity, strict closure, or Goldbach"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1114,6 +1122,16 @@
       "from": "evidence.active_lane_sampling_denominator_map",
       "to": "receipt.active_lane_strict_closure_margin_census",
       "type": "bounds_claim_scope"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "obligation.active_selector_rarity",
+      "type": "motivates"
+    },
+    {
+      "from": "obligation.active_selector_rarity",
+      "to": "theorem.active.component_pair_exclusion",
+      "type": "would_reduce"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

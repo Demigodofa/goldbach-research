@@ -456,6 +456,12 @@ current comparison set.
    targets and found zero active tail rows.
    These are denominator facts, not strict-closure successes.  The
    sample-size/cherry-pick concern remains open.
+52. `notes/q286-active-selector-rarity-theorem-obligation.md` separates the
+   theorem target from the finite scouts.  The target is a pointwise lower
+   bound on the fixed q286 first-three singular-mode residue-discrepancy
+   functional modulo `286`: prove `first_three >= -0.3` outside a finite
+   checked set, or stress any unchanged-selector failures with the full active
+   selector and strict-closure receipts.
 
 ## Still open
 

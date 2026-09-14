@@ -10739,6 +10739,15 @@ fixed-modulus theorem for this `16`-channel target.  See
 `notes/q286-component-pair-theorem-obligation.md` for the current source
 context and links to arXiv:1704.06103, arXiv:1809.06920, and arXiv:1212.4406.
 
+`notes/q286-active-selector-rarity-theorem-obligation.md` now records the
+separate theorem target suggested by the zero-hit scouts.  The first-three
+quantity is a fixed signed linear functional of strict-central prime-pair
+residue-weight deviations modulo `286`, divided by the principal mass.  A
+usable rarity theorem would prove
+`first_three_modes_to_principal_ratio >= -0.3` outside a finite checked set.
+Without that analytic pointwise residue-discrepancy estimate, the scout
+receipts remain finite denominator evidence only.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
