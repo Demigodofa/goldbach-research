@@ -1322,6 +1322,20 @@ current comparison set.
    repair-compression route for `1222142` on the current finite fixture and
    leaves the live target as full critical-channel magnitude balance or a
    replacement signed aggregate arithmetic-placement theorem.
+125. `tools/build_q286_first_three_dominant_mode_volatile_adverse_absorption_ladder.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.json`,
+   splits the critical-dependency audit by adverse-channel subsets.  For
+   stress row `1222142`, the minimum sufficient repair-bundle sizes are `4`
+   with no adverse channel, `5` with adverse singleton `(1,7)`, `5` with
+   adverse singleton `(4,4)`, and `6` only when the full adverse pair
+   `(1,7),(4,4)` is absorbed.  The nearest five-channel repair near miss at
+   the full step falls short by about `0.0021056957`.  This shows where the
+   all-six dependency turns on and sharpens the live target to the full
+   adverse-pair absorption step or a replacement signed aggregate arithmetic-
+   placement theorem.
 
 ## Still open
 
@@ -1421,6 +1435,10 @@ current comparison set.
   channels are individually intolerable.  The critical-dependency audit then
   shows this does not compress to a smaller repair bundle for `1222142`: the
   full six-channel repair set is its unique minimal sufficient repair bundle,
-  while either adverse channel `(1,7)` or `(4,4)` alone is intolerable.
+  while either adverse channel `(1,7)` or `(4,4)` alone is intolerable.  The
+  adverse-absorption ladder then shows the all-six repair dependency turns on
+  exactly at the joint adverse-pair step: base-only needs four repair
+  channels, either adverse singleton needs five, and both adverses need all
+  six.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

@@ -12464,3 +12464,37 @@ This closes the attractive lower-dimensional repair-compression route for
 collapsing the tight row to a smaller repair dependency: the surviving target
 is a full six-versus-two critical-channel magnitude balance, or a replacement
 signed aggregate arithmetic-placement theorem.
+
+### 2026-09-14 continuation: volatile adverse-absorption ladder
+
+The critical-dependency audit was then split by adverse-channel subsets to ask
+where the all-six repair dependency turns on.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.json
+```
+
+For each selected row, the audit enumerates adverse-channel subsets, computes
+the repair threshold after absorbing that adverse magnitude, then enumerates
+the inclusion-minimal repair bundles that beat the threshold.
+
+For stress row `1222142`, the minimum sufficient repair-bundle sizes form the
+ladder:
+
+```text
+no adverse channels:        4 repair channels suffice
+adverse channel (1,7):      5 repair channels suffice
+adverse channel (4,4):      5 repair channels suffice
+adverse pair (1,7),(4,4):  6 repair channels are required
+```
+
+So the full six-channel dependency is not already forced by the base margin or
+by either adverse singleton alone.  It turns on exactly at the joint
+adverse-pair absorption step.  At that full step, the nearest five-channel
+repair near miss falls short by about `0.0021056957`.
+
+This gives the finite stress row a sharper local mechanism: prove the full
+adverse-pair absorption step from actual binary-prime residue weights, or
+replace the local ladder with a signed aggregate arithmetic-placement theorem.
+This remains finite diagnostic evidence only and proves no q286 theorem or
+Goldbach.

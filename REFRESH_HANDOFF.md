@@ -20733,6 +20733,38 @@ placement theorem.  This is finite dependency evidence only; it proves no
 volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem,
 pointwise character-sum estimate, or Goldbach.
 
+Dominant-mode volatile adverse-absorption ladder:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_adverse_absorption_ladder.py`
+- `notes/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.md`
+- `evidence/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.json`
+
+This splits the critical-dependency audit by adverse-channel subsets.  For
+each selected row, it enumerates adverse subsets, computes the repair threshold
+after absorbing that adverse magnitude, and records the inclusion-minimal
+repair bundles that beat that threshold.
+
+For stress row `1222142`, the minimum sufficient repair-bundle sizes are:
+
+```text
+no adverse channels:        4 repair channels suffice
+adverse channel (1,7):      5 repair channels suffice
+adverse channel (4,4):      5 repair channels suffice
+adverse pair (1,7),(4,4):  6 repair channels are required
+```
+
+Thus the full six-channel repair dependency is forced exactly at the full
+adverse-pair absorption step, not at base-only or singleton-adverse steps.  At
+that full step, the signed surplus is about `0.0088331796`, and the nearest
+five-channel repair near miss falls short by about `0.0021056957`.
+
+This sharpens the next target: prove the full adverse-pair absorption step
+from actual binary-prime residue weights, or replace the local ladder with a
+signed aggregate arithmetic-placement theorem.  This is finite ladder evidence
+only; it proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
