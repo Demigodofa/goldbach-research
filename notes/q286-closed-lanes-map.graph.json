@@ -637,6 +637,14 @@
       "status_boundary": "glow means overlapping evidence layers, not proof; no rarity, strict closure, pointwise signed prime-correlation, outer assembly, or Goldbach theorem is proved"
     },
     {
+      "id": "visualization.q286_target_vector_overlay",
+      "type": "visualization_layer",
+      "label": "q286 selected target vector overlay",
+      "status": "generated_selected_vector_layer",
+      "validation": "tools/build_q286_target_vector_overlay.py generated evidence/q286-target-vector-overlay.json from executable q286 receipts and structured evidence rows",
+      "status_boundary": "finite selected target vectors only; useful for mechanism comparison and bias control, not a pointwise theorem or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1257,6 +1265,16 @@
     {
       "from": "visualization.q286_evidence_glow_map",
       "to": "evidence.active_lane_sampling_denominator_map",
+      "type": "profiles"
+    },
+    {
+      "from": "visualization.q286_target_vector_overlay",
+      "to": "visualization.q286_evidence_glow_map",
+      "type": "refines"
+    },
+    {
+      "from": "visualization.q286_target_vector_overlay",
+      "to": "theorem.active.component_pair_exclusion",
       "type": "profiles"
     }
   ]

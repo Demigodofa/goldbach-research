@@ -12,10 +12,17 @@ represented as a generated data layer:
 evidence/q286-evidence-glow-map.json
 ```
 
-It is built by:
+The first vector-coordinate overlay is:
+
+```text
+evidence/q286-target-vector-overlay.json
+```
+
+They are built by:
 
 ```text
 python tools/build_q286_evidence_glow_map.py
+python tools/build_q286_target_vector_overlay.py
 ```
 
 The map overlays existing q286 graph roles, finite evidence receipts, selected
@@ -40,6 +47,27 @@ this is proved
 Every generated record keeps a `boundary` or `status_boundary` field for that
 reason.  Bright nodes are good places to inspect mechanisms and falsifiers;
 they are not theorem certificates.
+
+## Anti-Attention-Bias Rule
+
+There are two different reasons a point can glow:
+
+```text
+evidence glow: independent frozen receipts keep hitting the same mechanism
+attention glow: humans/agents kept selecting the same row
+```
+
+Only evidence glow is useful.  To avoid confusing them:
+
+- keep denominator counts beside every selected-row stress result;
+- keep selected fixtures labeled as selected fixtures;
+- do not let repeated manual inspection add weight by itself;
+- prefer unchanged selectors on new windows before increasing confidence;
+- treat boundary failures as separate shapes, not as dim successes.
+
+The current map already shows this distinction: `1379072` is bright because
+several structured evidence layers hit it, but the sample-size/cherry-pick
+risk remains explicitly open.
 
 ## Current Bright Spots
 
@@ -76,6 +104,29 @@ A stronger version should add vector-valued fields directly from q286 receipts:
 That would make the visualization closer to a true stacked vector field:
 targets that share the same mechanism would glow and point in the same
 direction, while boundary failures would glow in a different shape/color lane.
+
+The first vector overlay now adds selected target coordinates:
+
+- `first_three`, `complement`, and `full`;
+- `.4` alignment/complement certificate margin;
+- `(5,7)` and `(7,11)` centered component actions where available;
+- strict-closure driver/channel/margin coordinates for active rows;
+- role-based shapes: boundary failures as down-triangles, late active
+  successes as circles, and alignment-stress successes as diamonds.
+
+## Visualization Roadmap
+
+The next visual layers should be added in this order:
+
+1. Heat/shape map: already started.  Use glow for stacked evidence and shape
+   for role/failure/success type.
+2. PCA/SVD on selected vector coordinates: ask whether boundary failures and
+   late successes separate along a real low-dimensional direction.
+3. Complex phase plot: use only after the vector overlay shows a stable
+   character/component direction worth viewing as an angle.
+4. Convex optimization/cone search: use as a falsifier for geometric claims,
+   not as a proof substitute.  Ask whether nonnegative admissible weights can
+   reproduce a bad pattern after adding each proposed constraint.
 
 ## Boundary
 

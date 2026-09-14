@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "receipt": "q286-target-vector-overlay",
+  "generated_from_commit": "f689933be9e0276bf60b5db7194cb1f1189b9956",
+  "purpose": "Selected target vector coordinates for superimposed q286 evidence visualization.  Shapes encode role; glow is imported from the stacked evidence map; coordinates come from executable receipts.",
+  "targets": [
+    10664,
+    14138,
+    70526,
+    1222142,
+    1323632,
+    1379072,
+    1426262,
+    3305200
+  ],
+  "coordinate_legend": {
+    "x_suggestion": "first_three",
+    "y_suggestion": "complement or full",
+    "radius_suggestion": "glow or stack_weight",
+    "shape_suggestion": "shape",
+    "color_lane_suggestion": "role",
+    "vector_suggestion": "Use (5,7)_centered and (7,11)_centered as component-plane arrows where present; use driver/channel strict-closure margins as a second vector field for active rows.",
+    "attention_bias_warning": "Do not infer importance from repeated manual attention.  Use denominator fields and independent receipt layers to separate evidence glow from attention glow."
+  },
+  "target_rows": {
+    "10664": {
+      "target": 10664,
+      "role": "boundary_failure",
+      "shape": "down_triangle",
+      "glow": 0.166667,
+      "stack_weight": 1.0,
+      "coordinates": {
+        "first_three": -1.1500880008976306,
+        "complement": 0.9340259936979926,
+        "full": -0.21606200719963808,
+        "l2_bound": 5.226907079920377,
+        "alignment_bound_0_4": 2.0907628319681506,
+        "certificate_margin": -1.1567368382701582,
+        "l2_negative_bound_utilization": 0.2200322261927699,
+        "l2_to_sufficient_ratio": 26.134535399601887
+      },
+      "signs": {
+        "full_positive": false,
+        "alignment_complement_certified": false
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem.",
+      "lower_support": {
+        "first_two": -1.1124437977839818,
+        "visible_lower_package": -0.15579899159579966,
+        "required_lower_package": 0.0602630156038384,
+        "lower_package_rescue_margin": -0.21606200719963806,
+        "q70": -0.09716761490213632,
+        "q154": -0.08856264952577178,
+        "small_support": 0.029931272832108457,
+        "subcone_member": true,
+        "rescued_without_q70": false
+      },
+      "component_actions": {
+        "local_mean_lower_support": -0.008904136872219089,
+        "centered_lower_support": -0.14689485472358135,
+        "dominant_positive_centered_support": [
+          13
+        ],
+        "dominant_negative_centered_support": [
+          5,
+          7
+        ],
+        "(5,7)_centered": -0.09475214633200997,
+        "(7,11)_centered": -0.0799133264725722
+      }
+    },
+    "14138": {
+      "target": 14138,
+      "role": "boundary_failure",
+      "shape": "down_triangle",
+      "glow": 0.166667,
+      "stack_weight": 1.0,
+      "coordinates": {
+        "first_three": -0.8950145872346785,
+        "complement": 0.018073313793834367,
+        "full": -0.8769412734408442,
+        "l2_bound": 4.989075299783179,
+        "alignment_bound_0_4": 1.9956301199132718,
+        "certificate_margin": -1.9775568061194373,
+        "l2_negative_bound_utilization": 0.17939488451368424,
+        "l2_to_sufficient_ratio": 24.945376498915895
+      },
+      "signs": {
+        "full_positive": false,
+        "alignment_complement_certified": false
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem.",
+      "lower_support": {
+        "first_two": -0.8699032465481025,
+        "visible_lower_package": -1.0148150611594449,
+        "required_lower_package": -0.1378737877186007,
+        "lower_package_rescue_margin": -0.8769412734408442,
+        "q70": -0.6530100068358884,
+        "q154": -0.4313790490173474,
+        "small_support": 0.06957399469379084,
+        "subcone_member": true,
+        "rescued_without_q70": false
+      },
+      "component_actions": {
+        "local_mean_lower_support": 0.1593415613835143,
+        "centered_lower_support": -1.1741566225429594,
+        "dominant_positive_centered_support": [
+          13
+        ],
+        "dominant_negative_centered_support": [
+          5,
+          7
+        ],
+        "(5,7)_centered": -0.7331790639459977,
+        "(7,11)_centered": -0.41936420368103794
+      }
+    },
+    "70526": {
+      "target": 70526,
+      "role": "alignment_stress_success",
+      "shape": "diamond",
+      "glow": 0.0,
+      "stack_weight": 0.0,
+      "coordinates": {
+        "first_three": -0.7650482510196677,
+        "complement": 1.5026821577282998,
+        "full": 0.7376339067086323,
+        "l2_bound": 2.0541857978129414,
+        "alignment_bound_0_4": 0.8216743191251766,
+        "certificate_margin": 0.6810078386031232,
+        "l2_negative_bound_utilization": 0.3724338138420597,
+        "l2_to_sufficient_ratio": 10.270928989064709
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem."
+    },
+    "1222142": {
+      "target": 1222142,
+      "role": "late_active_success",
+      "shape": "circle",
+      "glow": 0.666667,
+      "stack_weight": 4.0,
+      "coordinates": {
+        "first_three": -0.3075877603708801,
+        "complement": 1.2533040265847926,
+        "full": 0.9457162662139126,
+        "l2_bound": 0.8950976685339446,
+        "alignment_bound_0_4": 0.3580390674135778,
+        "certificate_margin": 0.8952649591712147,
+        "l2_negative_bound_utilization": 0.34363597536196105,
+        "l2_to_sufficient_ratio": 4.475488342669722
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem.",
+      "lower_support": {
+        "first_two": -0.30883317956052847,
+        "visible_lower_package": 0.23741432563942377,
+        "required_lower_package": -0.7083019405744888,
+        "lower_package_rescue_margin": 0.9457162662139126,
+        "q70": 0.07736170944596424,
+        "q154": 0.0788962040290605,
+        "small_support": 0.08115641216439903,
+        "subcone_member": true,
+        "rescued_without_q70": true
+      },
+      "component_actions": {
+        "local_mean_lower_support": 0.2218269593126893,
+        "centered_lower_support": 0.015587366326734093,
+        "dominant_positive_centered_support": [
+          7,
+          11
+        ],
+        "dominant_negative_centered_support": [
+          7
+        ],
+        "(5,7)_centered": -0.001083408055793006,
+        "(7,11)_centered": 0.014826359763802506
+      },
+      "strict_closure": {
+        "driver_margin": 0.0336986988333719,
+        "channel_margin_contribution": 0.5169646774182272,
+        "strict_margin": 0.5506633762515991,
+        "dominant_margin_source": "channel"
+      }
+    },
+    "1323632": {
+      "target": 1323632,
+      "role": "late_active_success",
+      "shape": "circle",
+      "glow": 0.666667,
+      "stack_weight": 4.0,
+      "coordinates": {
+        "first_three": -0.31527029112934163,
+        "complement": 1.339489557365715,
+        "full": 1.0242192662363734,
+        "l2_bound": 0.8331043261282075,
+        "alignment_bound_0_4": 0.333241730451283,
+        "certificate_margin": 1.0062478269144322,
+        "l2_negative_bound_utilization": 0.37842834473629144,
+        "l2_to_sufficient_ratio": 4.165521630641038
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem.",
+      "lower_support": {
+        "first_two": -0.31187798028846203,
+        "visible_lower_package": 0.33358010057559306,
+        "required_lower_package": -0.6906391656607804,
+        "lower_package_rescue_margin": 1.0242192662363734,
+        "q70": 0.145620674132782,
+        "q154": 0.08611330847079984,
+        "small_support": 0.10184611797201121,
+        "subcone_member": true,
+        "rescued_without_q70": true
+      },
+      "component_actions": {
+        "local_mean_lower_support": 0.2380419215303219,
+        "centered_lower_support": 0.09553817904527069,
+        "dominant_positive_centered_support": [
+          5,
+          7
+        ],
+        "dominant_negative_centered_support": [
+          13
+        ],
+        "(5,7)_centered": 0.06545161702266974,
+        "(7,11)_centered": 0.022043464205542634
+      },
+      "strict_closure": {
+        "driver_margin": 0.03844956933563071,
+        "channel_margin_contribution": 0.5083708245135773,
+        "strict_margin": 0.546820393849208,
+        "dominant_margin_source": "channel"
+      }
+    },
+    "1379072": {
+      "target": 1379072,
+      "role": "late_active_success",
+      "shape": "circle",
+      "glow": 1.0,
+      "stack_weight": 6.0,
+      "coordinates": {
+        "first_three": -0.3394138842129011,
+        "complement": 1.284412751390588,
+        "full": 0.944998867177687,
+        "l2_bound": 0.8841836803172203,
+        "alignment_bound_0_4": 0.35367347212688816,
+        "certificate_margin": 0.9307392792636999,
+        "l2_negative_bound_utilization": 0.38387259544434144,
+        "l2_to_sufficient_ratio": 4.420918401586101
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem.",
+      "lower_support": {
+        "first_two": -0.3341520684857402,
+        "visible_lower_package": 0.26985810065052745,
+        "required_lower_package": -0.6751407665271594,
+        "lower_package_rescue_margin": 0.9449988671776868,
+        "q70": 0.04334450492434235,
+        "q154": 0.14761864795618446,
+        "small_support": 0.07889494777000067,
+        "subcone_member": true,
+        "rescued_without_q70": true
+      },
+      "component_actions": {
+        "local_mean_lower_support": 0.22338781055521728,
+        "centered_lower_support": 0.04647029009531026,
+        "dominant_positive_centered_support": [
+          7,
+          11
+        ],
+        "dominant_negative_centered_support": [
+          5,
+          7
+        ],
+        "(5,7)_centered": -0.0368245521857697,
+        "(7,11)_centered": 0.08354880369092738
+      },
+      "strict_closure": {
+        "driver_margin": 5.551115123125783e-17,
+        "channel_margin_contribution": 0.4837940137279103,
+        "strict_margin": 0.48379401372791037,
+        "dominant_margin_source": "channel"
+      },
+      "fixed_inequality": {
+        "status": "passed",
+        "worst_margin": 0.006933239211847554,
+        "polygon_row_count": 2
+      }
+    },
+    "1426262": {
+      "target": 1426262,
+      "role": "alignment_stress_success",
+      "shape": "diamond",
+      "glow": 0.0,
+      "stack_weight": 0.0,
+      "coordinates": {
+        "first_three": -0.253372013706637,
+        "complement": 1.1735385116259511,
+        "full": 0.9201664979193143,
+        "l2_bound": 0.6609900937629457,
+        "alignment_bound_0_4": 0.2643960375051783,
+        "certificate_margin": 0.9091424741207728,
+        "l2_negative_bound_utilization": 0.3833219530783246,
+        "l2_to_sufficient_ratio": 3.304950468814728
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem."
+    },
+    "3305200": {
+      "target": 3305200,
+      "role": "alignment_stress_success",
+      "shape": "diamond",
+      "glow": 0.0,
+      "stack_weight": 0.0,
+      "coordinates": {
+        "first_three": -0.14018011556710225,
+        "complement": 1.0529616444361518,
+        "full": 0.9127815288690496,
+        "l2_bound": 0.3744955414402427,
+        "alignment_bound_0_4": 0.1497982165760971,
+        "certificate_margin": 0.9031634278600547,
+        "l2_negative_bound_utilization": 0.37431718152903626,
+        "l2_to_sufficient_ratio": 1.8724777072012133
+      },
+      "signs": {
+        "full_positive": true,
+        "alignment_complement_certified": true
+      },
+      "boundary": "Selected finite vector row only; not a universal theorem."
+    }
+  },
+  "source_receipts": {
+    "alignment_complement": "q286_selected_alignment_complement_certificate_receipt",
+    "lower_support_package": "q286_subcone_lower_support_package_receipt",
+    "component_local_discrepancy": "q286_lower_support_package_component_local_discrepancy_receipt",
+    "strict_closure": "evidence/q286-active-lane-strict-closure-margin-census-selected-late.json",
+    "fixed_inequality": "evidence/q286-fixed-inequality-target-window-census.json",
+    "glow": "evidence/q286-evidence-glow-map.json"
+  },
+  "status_boundary": "Finite selected target vectors only.  This helps visual comparison of mechanisms and falsifiers; it does not prove pointwise signed prime correlation, strict closure, outer assembly, or Goldbach.",
+  "goldbach_proved": false
+}

@@ -10785,6 +10785,16 @@ and structured evidence receipts into target, mechanism, and theorem-gap
 stacks.  Brightness means repeated repo-backed evidence layers overlap; it is
 not a proof score.
 
+The first vector-coordinate overlay is also generated:
+`evidence/q286-target-vector-overlay.json`, produced by
+`tools/build_q286_target_vector_overlay.py`.  It computes selected target
+coordinates from executable q286 receipts: first-three, complement, full
+action, `.4` certificate margin, `(5,7)/(7,11)` centered actions where
+available, and strict-closure driver/channel coordinates for active rows.
+The note now records an anti-attention-bias rule: selected rows may be bright
+because they received attention, so denominator counts and independent receipt
+layers must stay visible.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

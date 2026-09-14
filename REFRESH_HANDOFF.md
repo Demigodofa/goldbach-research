@@ -19515,6 +19515,8 @@ New evidence glow-map layer:
 
 - `tools/build_q286_evidence_glow_map.py`
 - `evidence/q286-evidence-glow-map.json`
+- `tools/build_q286_target_vector_overlay.py`
+- `evidence/q286-target-vector-overlay.json`
 - `notes/q286-evidence-glow-map.md`
 
 This is the first repo-backed version of Kevin's stacked
@@ -19525,6 +19527,13 @@ Current brightest target is `1379072`, because graph role, strict closure, and
 fixed-inequality stress all hit it.  Current brightest mechanism is
 `channel-carried-strict-slack`, because all three selected late active rows
 share it.
+
+The target vector overlay computes selected coordinates from executable
+receipts: first-three, complement, full action, `.4` certificate margin,
+`(5,7)/(7,11)` centered component actions where available, and strict-closure
+driver/channel/margin coordinates for active rows.  The note also records the
+anti-attention-bias rule: glow from repeated independent receipts is useful;
+glow from repeatedly selecting the same target is not evidence.
 
 Additional closure:
 
