@@ -607,8 +607,8 @@
       "type": "theorem_obligation",
       "label": "q286 active-selector rarity theorem",
       "status": "open",
-      "validation": "notes/q286-active-selector-rarity-theorem-obligation.md states the pointwise first-three residue-discrepancy bound needed to exclude active-selector rows outside a finite checked set",
-      "status_boundary": "open analytic obligation only; finite scout receipts do not prove rarity, strict closure, or Goldbach"
+      "validation": "notes/q286-active-selector-rarity-theorem-obligation.md states the pointwise first-three residue-discrepancy bound needed to exclude active-selector rows outside a finite checked set and quantifies sufficient L-infinity/L2 relative-delta ranges at threshold .3 using q286_first_three_weighted_discrepancy_norm_receipt",
+      "status_boundary": "open analytic obligation only; quantified norm certificate is sufficient-condition bookkeeping, finite scout receipts do not prove rarity, strict closure, or Goldbach"
     },
     {
       "id": "target.10664",

@@ -55,6 +55,58 @@ Re(sum_u ell(u) delta_N(u)) >= -0.3 P W_N
 for all targets outside a finite checked set, or for the specific outer
 target family being assembled.
 
+## Quantified Norm Certificate
+
+The existing executable certificate
+`q286_first_three_weighted_discrepancy_norm_receipt` converts the same
+linear functional into conservative sufficient conditions.  For each target
+residue it subtracts the admissible mean from the q286 first-three coefficient
+vector and computes:
+
+```text
+|Re(sum_u ell(u) delta_N(u))| / (P W_N)
+    <= ||ell_centered||_1 * ||delta_N||_infinity / (P W_N)
+
+|Re(sum_u ell(u) delta_N(u))| / (P W_N)
+    <= ||ell_centered||_2 * ||delta_N||_2 / (P W_N).
+```
+
+Therefore either of the following would be a sufficient, non-circular route
+to the active `.3` first-three cutoff on a target range:
+
+```text
+||delta_N||_infinity / W_N
+    <= 0.3 P / ||ell_centered||_1
+
+||delta_N||_2 / W_N
+    <= 0.3 P / ||ell_centered||_2.
+```
+
+Direct coefficient evaluation with `theorem_threshold=.3` gives the q286
+residue-class ranges:
+
+```text
+L_infinity sufficient relative-delta range:
+  0.0012438599030454018 .. 0.002451362294448365
+
+L2 sufficient relative-delta range:
+  0.005955161523943415 .. 0.017908306132142508
+```
+
+The worst class for both sufficient criteria is target residue `0 mod 286`,
+with `120` admissible unit residues, centered coefficient `L1`
+`10612733.570460552`, centered coefficient `L2`
+`2216691.1337206536`, `L_infinity` sufficient relative delta
+`0.0012438599030454018`, and `L2` sufficient relative delta
+`0.005955161523943415`.
+
+This is useful because it gives a fully quantified theorem obligation.  It is
+also a warning: a plain uniform q286 residue-weight discrepancy theorem strong
+enough for this route would need sub-percent relative `L2` control in the
+worst target residue class.  The finite scout receipts do not prove that
+estimate; they only say the checked windows did not produce active-selector
+rows.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

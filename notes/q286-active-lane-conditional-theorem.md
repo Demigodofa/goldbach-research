@@ -171,3 +171,12 @@ first_three_modes_to_principal_ratio >= -0.3,
 
 outside a finite checked set, or escalate any unchanged-selector target below
 `-0.3` to full active-selector and strict-closure stress.
+
+The active-selector rarity note also quantifies the sufficient norm route at
+the `.3` threshold.  The existing weighted-discrepancy receipt gives
+`L_infinity` sufficient relative-delta range
+`0.0012438599030454018..0.002451362294448365` and `L2` sufficient
+relative-delta range `0.005955161523943415..0.017908306132142508`, with target
+residue `0 mod 286` the worst class.  A plain uniform discrepancy theorem
+strong enough to close this lane would therefore be a sub-percent pointwise
+binary-prime residue estimate, not a consequence of the current finite scouts.

@@ -19476,6 +19476,17 @@ closure stress on any target where the inequality fails.  This is a pointwise
 binary prime-pair residue-discrepancy obligation, not a result supplied by the
 finite scout receipts.
 
+The same note now records the quantified sufficient norm certificate from
+`q286_first_three_weighted_discrepancy_norm_receipt` at the active `.3`
+threshold.  Across q286 target residues, the `L_infinity` sufficient relative
+delta range is `0.0012438599030454018..0.002451362294448365`, and the `L2`
+sufficient relative delta range is
+`0.005955161523943415..0.017908306132142508`.  The worst residue class is
+`0 mod 286` for both criteria.  This gives a precise theorem target and a
+scale warning: a plain uniform residue discrepancy theorem strong enough for
+the active-selector extinction route would require sub-percent relative `L2`
+control in the worst class.  This remains unproved.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

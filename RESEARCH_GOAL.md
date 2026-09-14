@@ -10748,6 +10748,17 @@ usable rarity theorem would prove
 Without that analytic pointwise residue-discrepancy estimate, the scout
 receipts remain finite denominator evidence only.
 
+That theorem obligation is now numerically quantified by the existing
+weighted-discrepancy certificate.  At the active `.3` threshold,
+`q286_first_three_weighted_discrepancy_norm_receipt` gives sufficient relative
+delta ranges `0.0012438599030454018..0.002451362294448365` in `L_infinity`
+and `0.005955161523943415..0.017908306132142508` in `L2`, with target residue
+`0 mod 286` the worst class for both criteria.  Thus a generic uniform
+residue-weight discrepancy proof would need sub-percent relative `L2` control
+in the worst class.  This sharpens the open theorem target, but it is still
+an unproved pointwise binary-prime residue-correlation estimate, not a
+Goldbach proof.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

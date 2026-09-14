@@ -462,6 +462,13 @@ current comparison set.
    functional modulo `286`: prove `first_three >= -0.3` outside a finite
    checked set, or stress any unchanged-selector failures with the full active
    selector and strict-closure receipts.
+53. The same rarity note now quantifies the conservative norm certificate
+   supplied by `q286_first_three_weighted_discrepancy_norm_receipt` at the
+   active `.3` threshold.  The sufficient relative-delta ranges are
+   `0.0012438599030454018..0.002451362294448365` in `L_infinity` and
+   `0.005955161523943415..0.017908306132142508` in `L2`; residue `0 mod 286`
+   is the worst class for both criteria.  This sharpens the theorem target
+   but does not prove the needed pointwise prime-pair discrepancy estimate.
 
 ## Still open
 
