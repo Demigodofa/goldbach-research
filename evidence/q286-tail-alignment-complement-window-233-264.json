@@ -1,0 +1,46 @@
+{
+  "receipt": "q286-tail-alignment-complement-window-233-264",
+  "generated_on": "2026-09-14",
+  "source_commit": "c05a51861ee1ae9f31ecfad3e823d7de9b14e7a0",
+  "purpose": "Predeclared adjacent-window check after the recorded post-136 near-tail blocks, using unchanged q286 first-three tail and alignment/complement receipts.",
+  "window": {
+    "start": 2342330,
+    "global_cycle_start": 233,
+    "global_cycle_end": 264,
+    "cycle_count": 32,
+    "targets_per_cycle": 5005,
+    "tested_target_count": 160160
+  },
+  "near_tail_alignment_check": {
+    "receipt_function": "q286_first_three_tail_alignment_window_receipt",
+    "tail_threshold": 0.2,
+    "theorem_threshold": 0.2,
+    "alignment_ceiling": 0.4,
+    "tail_target_count": 0,
+    "tail_cycles": [],
+    "alignment_ceiling_violation_count": 0,
+    "alignment_ceiling_violation_targets": [],
+    "maximum_negative_alignment_row": null
+  },
+  "deep_tail_alignment_complement_check": {
+    "receipt_function": "q286_first_three_tail_alignment_complement_window_receipt",
+    "tail_threshold": 0.3,
+    "theorem_threshold": 0.2,
+    "alignment_ceiling": 0.4,
+    "tail_target_count": 0,
+    "tail_cycles": [],
+    "certified_target_count": 0,
+    "certified_targets": [],
+    "failed_certificate_target_count": 0,
+    "failed_certificate_targets": [],
+    "actual_negative_target_count": 0,
+    "actual_negative_targets": [],
+    "worst_certificate_margin_row": null
+  },
+  "interpretation": "The adjacent post-232 block produced no .2 near-tail rows and no .3 deep-tail rows. This is denominator evidence for thinning first-three tails in this finite window only; it is not an eventual rarity theorem, not strict-closure support, and not a Goldbach proof.",
+  "eventual_alignment_ceiling_proved": false,
+  "eventual_complement_bound_proved": false,
+  "eventual_first_three_tail_bound_proved": false,
+  "signed_prime_correlation_estimate_proved": false,
+  "goldbach_proved": false
+}

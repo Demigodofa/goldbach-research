@@ -469,6 +469,12 @@ current comparison set.
    `0.005955161523943415..0.017908306132142508` in `L2`; residue `0 mod 286`
    is the worst class for both criteria.  This sharpens the theorem target
    but does not prove the needed pointwise prime-pair discrepancy estimate.
+54. `evidence/q286-tail-alignment-complement-window-233-264.json` records the
+   next adjacent post-232 denominator block.  Global cycles `233..264`
+   scanned `160160` targets with the unchanged `.4` alignment ceiling; the
+   `.2` near-tail alignment window and the `.3` alignment/complement window
+   both found zero first-three tail rows.  This supports finite tail thinning
+   in that block only and supplies no stress-row theorem evidence.
 
 ## Still open
 

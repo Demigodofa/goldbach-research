@@ -3466,3 +3466,37 @@ Status `theorem-shaping-finite-evidence`: the late sparse-tail band
 alignment hypothesis.  This still proves no eventual alignment theorem, no
 eventual complement theorem, no pointwise signed prime-correlation estimate,
 and no Goldbach theorem.
+
+## 2026-09-14: adjacent post-232 tail-denominator window
+
+The unchanged tail-alignment and alignment/complement receipts were applied to
+the next adjacent `32`-cycle block after the recorded post-136 near-tail
+checks: global cycles `233..264`, start `2342330`, `160160` targets.
+
+The `.2` near-tail alignment window found no tail rows:
+
+```text
+tested 160160
+tail_count 0
+tail_cycles ()
+alignment violations at .4: ()
+maximum negative alignment: none
+```
+
+The `.3` deep-tail alignment/complement window also found no tail rows:
+
+```text
+tested 160160
+tail_count 0
+tail_cycles ()
+certified by complement > .4*l2_bound: none
+failed certificate targets: none
+actual full-negative targets: none
+```
+
+Evidence is recorded in
+`evidence/q286-tail-alignment-complement-window-233-264.json` and the sampling
+denominator map has been updated.  This is useful denominator evidence for
+tail thinning in an adjacent later block, but it creates no stress rows and
+proves no eventual rarity, alignment, complement, strict-closure, or Goldbach
+theorem.

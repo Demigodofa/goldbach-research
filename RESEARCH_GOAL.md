@@ -10759,6 +10759,15 @@ in the worst class.  This sharpens the open theorem target, but it is still
 an unproved pointwise binary-prime residue-correlation estimate, not a
 Goldbach proof.
 
+New adjacent denominator evidence is recorded in
+`evidence/q286-tail-alignment-complement-window-233-264.json`.  Using the
+unchanged `.4` alignment ceiling, global cycles `233..264` scanned `160160`
+targets.  The `.2` near-tail alignment receipt found zero first-three rows
+below `-0.2`, and the `.3` alignment/complement receipt found zero rows below
+`-0.3`.  This extends the recorded tail-thinning pattern beyond the post-136
+near-tail checks, but it supplies no stress rows and proves no eventual
+rarity, complement, alignment, strict-closure, or Goldbach theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

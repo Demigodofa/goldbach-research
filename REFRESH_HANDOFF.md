@@ -19487,6 +19487,18 @@ scale warning: a plain uniform residue discrepancy theorem strong enough for
 the active-selector extinction route would require sub-percent relative `L2`
 control in the worst class.  This remains unproved.
 
+Adjacent-window denominator evidence:
+
+- `evidence/q286-tail-alignment-complement-window-233-264.json`
+
+Using the unchanged `.4` alignment ceiling, global cycles `233..264` scanned
+`160160` targets.  The `.2` near-tail alignment window found zero first-three
+rows below `-0.2`, and the `.3` alignment/complement window found zero rows
+below `-0.3`.  This extends the finite tail-thinning record into the next
+adjacent block after the post-136 checks.  It supplies no stress rows and
+proves no eventual rarity, alignment, complement, strict closure, or Goldbach
+theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

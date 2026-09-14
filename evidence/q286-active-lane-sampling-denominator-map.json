@@ -1,7 +1,7 @@
 {
   "receipt": "q286-active-lane-sampling-denominator-map",
-  "generated_on": "2026-09-13",
-  "source_commit": "464cb8afa6d5246f604c9f57a9cbaff2c9fa2255",
+  "generated_on": "2026-09-14",
+  "source_commit": "c05a51861ee1ae9f31ecfad3e823d7de9b14e7a0",
   "purpose": "Separate selected stress fixtures, neutral selector-denominator scans, same-residue holdouts, and closure-stressed rows for the q286 active lane.",
   "active_selector": {
     "first_two_modes_to_principal_ratio": "< -0.2",
@@ -140,6 +140,24 @@
       "boundary": "Selector-only evidence. It rejects immediate same-residue repetition of the known hit, but gives no direct closure-margin support."
     },
     {
+      "source": "evidence/q286-tail-alignment-complement-window-233-264.json",
+      "role": "adjacent later tail-denominator window",
+      "sample_posture": "predeclared adjacent global-cycle block after the recorded post-136 near-tail checks; unchanged .4 alignment ceiling and unchanged .2/.3 first-three tail thresholds",
+      "start": 2342330,
+      "global_cycle_start": 233,
+      "global_cycle_end": 264,
+      "cycle_count": 32,
+      "targets_per_cycle": 5005,
+      "scanned_target_count": 160160,
+      "first_three_near_tail_count_below_0_2": 0,
+      "first_three_tail_count_below_0_3": 0,
+      "selected_tail_target_count": 0,
+      "fixed_inequality_stressed_target_count": 0,
+      "strict_closure_stressed_target_count": 0,
+      "failure_count": 0,
+      "boundary": "Large finite denominator window only. Because no .2 or .3 first-three tail rows appeared, it supplies no direct alignment, complement, fixed-inequality, or strict-closure stress row."
+    },
+    {
       "source": "evidence/q286-active-lane-strict-closure-margin-census-selected-late.json",
       "role": "strict closure-margin stress receipt",
       "sample_posture": "selected late active windows",
@@ -159,7 +177,7 @@
       "boundary": "Finite selected-fixture strict-margin evidence only; no broad active-lane theorem."
     }
   ],
-  "raw_scanned_target_count_across_recorded_receipts_including_overlaps": 4100,
+  "raw_scanned_target_count_across_recorded_receipts_including_overlaps": 164260,
   "known_overlap": [
     "Target 1379072 appears in both the local fixed-inequality window and the selected strict-closure window.",
     "The 12x25 neutral selector holdout includes the earlier 6x25 neutral selector grid."
@@ -170,6 +188,9 @@
   "necessary_condition_scout_scanned_target_count": 3600,
   "necessary_condition_scout_first_three_tail_count_below_0_3": 0,
   "necessary_condition_scout_active_selector_rows_excluded": true,
+  "large_contiguous_tail_window_scanned_target_count": 160160,
+  "large_contiguous_tail_window_first_three_near_tail_count_below_0_2": 0,
+  "large_contiguous_tail_window_first_three_tail_count_below_0_3": 0,
   "broad_neutral_strict_closure_stressed_target_count": 0,
   "selected_fixture_strict_closure_stressed_target_count": 3,
   "sample_size_concern_closed": false,
