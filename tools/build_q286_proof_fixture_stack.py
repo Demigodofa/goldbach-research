@@ -48,6 +48,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-channel-norm-budget.json")
     dominant_mode_signed_profile = load_json(
         "evidence/q286-first-three-dominant-mode-signed-channel-profile.json")
+    dominant_mode_branch_sample = load_json(
+        "evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -248,6 +250,26 @@ def main():
                     "theorem"),
             },
             {
+                "id": "anchor.dominant_mode_signed_channel_branch_sample",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json"),
+                "statement": (
+                    "The exact pressure/offset branch split was checked on "
+                    "deterministic near-boundary mass-matched samples."),
+                "validation": (
+                    "unresolved deficits "
+                    f"{dominant_mode_branch_sample['unresolved_deficit_targets']}; "
+                    "offset clears "
+                    f"{dominant_mode_branch_sample['offset_branch_targets']}; "
+                    "pressure-and-offset clears "
+                    f"{dominant_mode_branch_sample['pressure_and_offset_branch_targets']}; "
+                    "pressure-only clears "
+                    f"{dominant_mode_branch_sample['pressure_branch_targets']}."),
+                "proved_scope": (
+                    "finite branch-sample classification, not an eventual "
+                    "branch theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -341,12 +363,14 @@ def main():
                     "now identified for that projection.  After the norm "
                     "budget demotion, either control negative-channel "
                     "pressure below 0.3 or prove enough positive offset when "
-                    "that pressure exceeds 0.3."),
+                    "that pressure exceeds 0.3; the wider branch sample "
+                    "currently points toward the offset-under-pressure side."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
                     "in modes 1+2, while the near-clear rows stay above it. "
-                    "Support/reflection geometry alone is obstructed."),
+                    "Support/reflection geometry alone is obstructed, and "
+                    "selected clear rows can have large negative pressure."),
                 "exact_obligation_source": (
                     "evidence/q286-first-three-dominant-mode-character-sum-obligation.json"),
                 "proved": False,
@@ -369,10 +393,10 @@ def main():
         },
         "next_non_circular_action": (
             "Attack the first two dominant q286 first-three singular "
-            "character coordinates directly: seek pointwise lower bounds or "
-            "a structural exclusion of simultaneous strong negativity, or "
-            "prove/cite that this joint requires an external fixed-modulus "
-            "binary Goldbach/AP theorem."),
+            "character coordinates directly: seek an arithmetic mechanism "
+            "forcing positive offset under large negative channel pressure, "
+            "classify the true deficit rows, or prove/cite that this joint "
+            "requires an external fixed-modulus binary Goldbach/AP theorem."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

@@ -47,6 +47,11 @@ frame.
   the signed structure is now split exactly into positive offset and negative
   pressure; active samples suggest two theorem branches, pressure below `.3`
   or enough positive offset above pressure.
+- `evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json`:
+  deterministic near-boundary mass-matched samples show that the clear rows
+  mostly use the positive-offset branch under pressure, while five sampled
+  rows remain true finite deficits.  This demotes a pressure-ceiling-only
+  explanation for the selected rows.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -76,7 +81,8 @@ frame.
    pointwise signed control of `25` real q286 binary-prime character channels;
    plain independent channel `Linf`/`L2` control is sufficient but already too
    blunt on the active samples.  The sharper split is negative-channel
-   pressure versus positive-channel offset.
+   pressure versus positive-channel offset, and the wider branch sample points
+   toward offset forcing under pressure rather than a pressure ceiling alone.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

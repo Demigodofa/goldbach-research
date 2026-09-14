@@ -71,6 +71,13 @@
       "validation": "floor failures [1222142]; floor passes [1242118, 1240888]; maximum real-channel identity error 2.3314683517128287e-15."
     },
     {
+      "id": "anchor.dominant_mode_signed_channel_branch_sample",
+      "proved_scope": "finite branch-sample classification, not an eventual branch theorem",
+      "source": "evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json",
+      "statement": "The exact pressure/offset branch split was checked on deterministic near-boundary mass-matched samples.",
+      "validation": "unresolved deficits [24424, 13822, 55864, 164598, 1222142]; offset clears [13556, 40420, 129706, 1242118]; pressure-and-offset clears [1240888]; pressure-only clears []."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -97,9 +104,9 @@
     "short_statement": "If the q286 signed-projection anti-alignment theorem, the conditioned lower-support/complement rescue, and the finite/endpoint/outer assembly joints are proved, condense the route into a single conditional Goldbach theorem stack."
   },
   "goldbach_proved": false,
-  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
+  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing positive offset under large negative channel pressure, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "9fbd6fa1c4fc48dac4bdbd6e168bbe3575651832",
+  "source_commit": "d378694ad2eb6bf1692835f09cc0549a89f15579",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -140,8 +147,8 @@
       "exact_obligation_source": "evidence/q286-first-three-dominant-mode-character-sum-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection.  After the norm budget demotion, either control negative-channel pressure below 0.3 or prove enough positive offset when that pressure exceeds 0.3.",
-      "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed."
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection.  After the norm budget demotion, either control negative-channel pressure below 0.3 or prove enough positive offset when that pressure exceeds 0.3; the wider branch sample currently points toward the offset-under-pressure side.",
+      "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed, and selected clear rows can have large negative pressure."
     }
   ],
   "workshop_rule": "Do not fabricate the whole theorem from free-space measurements. Bolt exact identities to the actual q286 frame, tack only named unresolved theorem joints, validate each tack unchanged, then condense the assembly only after the joints are proved."

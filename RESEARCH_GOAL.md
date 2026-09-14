@@ -11189,6 +11189,22 @@ offset.  The next theorem target is therefore a two-branch signed-channel
 claim: either control negative-channel pressure below `.3`, or prove enough
 positive-channel offset when the pressure exceeds `.3`.
 
+That branch split has now been widened in
+`notes/q286-first-three-dominant-mode-signed-channel-branch-sample.md` and
+`evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json`.
+The ten selected rows come from the recorded mass-matched near-boundary
+fixture: the five lowest first-three tail rows there, their paired clear rows,
+and the late holdout rows.  The exact branch classification found five
+unresolved deficits `24424,13822,55864,164598,1222142`; four offset-branch
+clears `13556,40420,129706,1242118`; one pressure-and-offset clear `1240888`;
+and no pressure-only clears.  The largest clear pressure is at `13556`, with
+negative pressure about `0.9544512968249877` and offset slack only about
+`0.009564090345658971`.  Thus a simple negative-pressure ceiling is not the
+visible explanation for the sampled clear rows; the sharper target is
+positive-offset forcing under large negative channel pressure, together with a
+classification or finite handling of true deficit rows.  This is still finite
+theorem-shaping evidence only.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

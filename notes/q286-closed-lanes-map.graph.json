@@ -291,6 +291,14 @@
       "status_boundary": "finite signed-channel profile only; no signed channel cancellation theorem, no pointwise character-sum estimate, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_dominant_mode_signed_channel_branch_sample",
+      "type": "receipt",
+      "label": "q286 dominant-mode signed channel branch sample",
+      "status": "finite_theorem_shaping_evidence",
+      "validation": "q286_first_three_dominant_mode_signed_channel_branch_sample_receipt and tools/build_q286_first_three_dominant_mode_signed_channel_branch_sample.py generated evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json; ten deterministic mass-matched near-boundary rows split into five unresolved deficits, four offset-branch clears, one pressure-and-offset clear, and no pressure-only clears",
+      "status_boundary": "finite branch-sample diagnostic only; no eventual signed-channel branch theorem, no pointwise character-sum estimate, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
+    },
+    {
       "id": "structure.q286_proof_fixture_stack",
       "type": "surviving_structure",
       "label": "q286 proof fixture stack",
@@ -1872,6 +1880,16 @@
       "type": "requires"
     },
     {
+      "from": "receipt.q286_first_three_dominant_mode_signed_channel_branch_sample",
+      "to": "receipt.q286_first_three_dominant_mode_signed_channel_profile",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_signed_channel_branch_sample",
+      "to": "obligation.q286_residue_pair_correlation",
+      "type": "requires"
+    },
+    {
       "from": "theorem.first_three_signed_projection",
       "to": "obligation.active_selector_rarity",
       "type": "requires"
@@ -1923,6 +1941,11 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_signed_channel_profile",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_signed_channel_branch_sample",
       "to": "structure.q286_proof_fixture_stack",
       "type": "refines"
     },

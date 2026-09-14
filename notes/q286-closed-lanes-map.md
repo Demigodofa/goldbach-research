@@ -1,7 +1,7 @@
 # q286 closed-lanes map
 
 Status: finite research map, not a proof of Goldbach.
-Last updated after the 2026-09-13 q286 real-channel conductor profile.
+Last updated after the q286 dominant signed-channel branch sample.
 
 This note indexes which q286 proof lanes have been closed, which components
 survive as reusable structure, and what theorem obligation remains.  It is a
@@ -73,6 +73,7 @@ Current executable receipts:
 - `q286_first_three_dominant_mode_character_sum_obligation_receipt`
 - `q286_first_three_dominant_mode_channel_norm_budget_receipt`
 - `q286_first_three_dominant_mode_signed_channel_profile_receipt`
+- `q286_first_three_dominant_mode_signed_channel_branch_sample_receipt`
 
 ## Closed or falsified lanes
 
@@ -756,6 +757,19 @@ current comparison set.
    positive offset, while clear `1240888` clears because its negative pressure
    is already below `.3`.  This points to a two-branch signed-channel theorem
    target rather than independent channel smallness.
+82. `q286_first_three_dominant_mode_signed_channel_branch_sample_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-signed-channel-branch-sample.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json`,
+   applies the same exact branch split to deterministic near-boundary
+   mass-matched samples.  Among ten selected rows, five are unresolved
+   deficits `24424,13822,55864,164598,1222142`; four clear by the offset
+   branch `13556,40420,129706,1242118`; one clears by both pressure and
+   offset `1240888`; and none clear by pressure alone.  This demotes a
+   pressure-ceiling-only explanation for the selected rows and sharpens the
+   live theorem target to positive-offset forcing under pressure, plus
+   classification or finite handling of true deficits.
 
 ## Still open
 
@@ -767,6 +781,8 @@ current comparison set.
   character channels that make up the first two dominant first-three singular
   coordinates, using signed channel structure rather than only independent
   `Linf`/`L2` smallness.  The current split is negative-channel pressure
-  below `.3`, or enough positive offset when pressure exceeds `.3`.
+  below `.3`, or enough positive offset when pressure exceeds `.3`; the wider
+  selected sample currently points more strongly at offset forcing under
+  pressure than at a pressure ceiling alone.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

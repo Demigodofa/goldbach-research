@@ -20212,6 +20212,26 @@ positive offset.  The next theorem target is a two-branch signed-channel
 claim: control negative pressure below `.3`, or prove enough positive offset
 when pressure exceeds `.3`.
 
+Dominant-mode signed channel branch sample:
+
+- `q286_first_three_dominant_mode_signed_channel_branch_sample_receipt`
+- `tools/build_q286_first_three_dominant_mode_signed_channel_branch_sample.py`
+- `notes/q286-first-three-dominant-mode-signed-channel-branch-sample.md`
+- `evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_signed_channel_branch_sample`
+
+This widens the prior signed-channel ledger using deterministic rows from the
+mass-matched near-boundary fixture: five lowest recorded tail rows, their
+paired clear rows, and the late holdout rows.  The exact branch split found
+five unresolved deficits `24424,13822,55864,164598,1222142`; four
+offset-branch clears `13556,40420,129706,1242118`; one pressure-and-offset
+clear `1240888`; and no pressure-only clears.  The largest clear pressure is
+at `13556`, with pressure about `0.9544512968249877` and offset slack about
+`0.009564090345658971`.  Therefore the next non-circular theorem target is
+not a standalone pressure ceiling: it is positive-offset forcing under
+pressure, plus classification or finite handling of the true deficit rows.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

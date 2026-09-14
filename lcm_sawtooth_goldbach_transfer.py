@@ -8694,6 +8694,150 @@ def q286_first_three_dominant_mode_signed_channel_profile_receipt(
     }
 
 
+def q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
+        sample_targets=(24424, 13556, 13822, 40420, 55864, 164598,
+                        129706, 1222142, 1242118, 1240888),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6):
+    """Classify selected rows by the exact signed-channel branch split.
+
+    This widens the previous three-row signed-channel profile without changing
+    the algebra.  For each target, write
+
+    ``dominant_sum = positive_offset - negative_pressure``.
+
+    The floor ``dominant_sum >= -tau`` is equivalent to the union of two
+    exact branches: either ``negative_pressure <= tau`` or the positive
+    offset is at least ``negative_pressure - tau``.  This receipt records
+    which branch selected mass-matched near-boundary rows use, and which rows
+    remain true finite deficits.
+
+    It proves no eventual branch theorem and no Goldbach theorem.
+    """
+    profile = q286_first_three_dominant_mode_signed_channel_profile_receipt(
+        sample_targets=sample_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+
+    rows = {}
+    pressure_branch_targets = []
+    offset_branch_targets = []
+    dual_branch_targets = []
+    deficit_targets = []
+    clear_targets = []
+    tail_targets = []
+    maximum_pressure_clear_row = None
+    minimum_slack_clear_row = None
+    maximum_deficit_row = None
+    branch_counts_by_residue = {}
+
+    for target, row in profile["target_rows"].items():
+        if not row["has_strict_central_prime_pairs"]:
+            rows[target] = row
+            continue
+        pressure_branch = bool(
+            row["negative_channel_pressure_to_principal"]
+            <= tail_threshold + tolerance)
+        offset_branch = bool(
+            row["positive_offset_slack_to_floor"] >= -tolerance)
+        dominant_floor_passes = row["dominant_floor_passes"]
+        if pressure_branch and offset_branch:
+            branch_label = "pressure_and_offset"
+            dual_branch_targets.append(target)
+        elif pressure_branch:
+            branch_label = "pressure"
+            pressure_branch_targets.append(target)
+        elif offset_branch:
+            branch_label = "offset"
+            offset_branch_targets.append(target)
+        else:
+            branch_label = "unresolved_deficit"
+            deficit_targets.append(target)
+        if dominant_floor_passes:
+            clear_targets.append(target)
+        else:
+            tail_targets.append(target)
+
+        compact = dict(row)
+        compact.update({
+            "pressure_branch_clears": pressure_branch,
+            "offset_branch_clears": offset_branch,
+            "signed_channel_branch_label": branch_label,
+            "branch_split_exactly_matches_floor": bool(
+                dominant_floor_passes
+                == (pressure_branch or offset_branch)),
+            "dominant_floor_deficit_to_threshold": float(
+                max(0.0, -tail_threshold
+                    - row["dominant_character_sum_to_principal_ratio"])),
+        })
+        rows[target] = compact
+        branch_counts_by_residue.setdefault(
+            compact["target_mod_286"],
+            {
+                "target_mod_286": compact["target_mod_286"],
+                "pressure": 0,
+                "offset": 0,
+                "pressure_and_offset": 0,
+                "unresolved_deficit": 0,
+            })[branch_label] += 1
+        if compact["dominant_floor_passes"]:
+            if (maximum_pressure_clear_row is None
+                    or compact["negative_channel_pressure_to_principal"]
+                    > maximum_pressure_clear_row[
+                        "negative_channel_pressure_to_principal"]):
+                maximum_pressure_clear_row = compact
+            if (minimum_slack_clear_row is None
+                    or compact["positive_offset_slack_to_floor"]
+                    < minimum_slack_clear_row[
+                        "positive_offset_slack_to_floor"]):
+                minimum_slack_clear_row = compact
+        elif (maximum_deficit_row is None
+              or compact["dominant_floor_deficit_to_threshold"]
+              > maximum_deficit_row[
+                  "dominant_floor_deficit_to_threshold"]):
+            maximum_deficit_row = compact
+
+    exact_mismatch_targets = tuple(
+        target for target, row in rows.items()
+        if row.get("has_strict_central_prime_pairs")
+        and not row["branch_split_exactly_matches_floor"])
+
+    return {
+        "arithmetic_modulus": profile["arithmetic_modulus"],
+        "support": profile["support"],
+        "sample_targets": profile["sample_targets"],
+        "dominant_modes": profile["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            profile["active_real_channel_count"]),
+        "tested_target_count": len(profile["sample_targets"]),
+        "tested_targets_with_prime_pairs": sum(
+            1 for row in rows.values()
+            if row.get("has_strict_central_prime_pairs")),
+        "dominant_floor_pass_targets": tuple(clear_targets),
+        "dominant_floor_failure_targets": tuple(tail_targets),
+        "pressure_branch_targets": tuple(pressure_branch_targets),
+        "offset_branch_targets": tuple(offset_branch_targets),
+        "pressure_and_offset_branch_targets": tuple(dual_branch_targets),
+        "unresolved_deficit_targets": tuple(deficit_targets),
+        "maximum_pressure_clear_row": maximum_pressure_clear_row,
+        "minimum_slack_clear_row": minimum_slack_clear_row,
+        "maximum_deficit_row": maximum_deficit_row,
+        "branch_counts_by_residue": branch_counts_by_residue,
+        "exact_branch_floor_mismatch_targets": exact_mismatch_targets,
+        "target_rows": rows,
+        "maximum_real_channel_identity_error": (
+            profile["maximum_real_channel_identity_error"]),
+        "dominant_mode_signed_channel_branch_sample_measured": True,
+        "branch_split_exact_on_samples": bool(not exact_mismatch_targets),
+        "eventual_signed_channel_branch_theorem_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

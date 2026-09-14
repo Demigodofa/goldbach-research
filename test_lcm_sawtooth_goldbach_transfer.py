@@ -46,6 +46,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_character_sum_obligation_receipt,
     q286_first_three_dominant_mode_channel_norm_budget_receipt,
     q286_first_three_dominant_mode_signed_channel_profile_receipt,
+    q286_first_three_dominant_mode_signed_channel_branch_sample_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4471,6 +4472,45 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "dominant_mode_signed_channel_profile_measured"])
         self.assertFalse(receipt[
             "signed_channel_cancellation_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_signed_channel_branch_sample(self):
+        receipt = (
+            q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
+                sample_targets=(24424, 13556, 1222142, 1242118,
+                                1240888),
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["active_real_channel_count"], 25)
+        self.assertEqual(receipt["tested_target_count"], 5)
+        self.assertEqual(
+            receipt["dominant_floor_failure_targets"],
+            (24424, 1222142))
+        self.assertEqual(
+            receipt["unresolved_deficit_targets"],
+            (24424, 1222142))
+        self.assertEqual(receipt["exact_branch_floor_mismatch_targets"], ())
+        self.assertTrue(receipt["branch_split_exact_on_samples"])
+        rows = receipt["target_rows"]
+        self.assertEqual(
+            rows[1222142]["signed_channel_branch_label"],
+            "unresolved_deficit")
+        self.assertEqual(
+            rows[1242118]["signed_channel_branch_label"],
+            "offset")
+        self.assertEqual(
+            rows[1240888]["signed_channel_branch_label"],
+            "pressure_and_offset")
+        self.assertLess(
+            receipt["maximum_real_channel_identity_error"], 1e-9)
+        self.assertTrue(receipt[
+            "dominant_mode_signed_channel_branch_sample_measured"])
+        self.assertFalse(receipt[
+            "eventual_signed_channel_branch_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
