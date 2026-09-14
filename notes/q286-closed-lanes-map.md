@@ -1267,6 +1267,19 @@ current comparison set.
    edges.  This confirms a finite boundary-polarity symmetry and sharpens the
    live target to signed placement of actual binary-prime residue weights
    relative to that volatile cut, or a replacement signed aggregate theorem.
+121. `tools/build_q286_first_three_dominant_mode_volatile_sign_polarity_profile.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-sign-polarity-profile.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-sign-polarity-profile.json`,
+   compresses the boundary cut to signed channel polarity.  Across all `936`
+   selected boundary edges, there are zero sign-direction violations.  Tight
+   tail `1222142` and tight clear `1242118` share the same positive volatile
+   pair `(1,7),(4,4)`; for `1222142` the pair is adverse, while for `1242118`
+   it is repairing because the expected side of the floor is reversed.  This
+   sharpens the live target to signed volatile channel polarity/magnitude
+   control from actual binary-prime residue weights, or a replacement signed
+   aggregate arithmetic-placement theorem.
 
 ## Still open
 
@@ -1353,5 +1366,9 @@ current comparison set.
   the volatile cube: its adverse boundary is exactly the two channels `(1,7)`
   and `(4,4)`, while its repair boundary uses the complementary six.  This is
   a sharper finite signed-polarity target, not yet a uniform theorem.
+  The sign-polarity profile then checks that all boundary-crossing directions
+  are exactly consistent with volatile channel contribution signs, and that
+  the tight tail/clear pair `1222142`/`1242118` shares the same positive pair
+  `(1,7),(4,4)` with reversed adverse/repair interpretation.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

@@ -20636,6 +20636,28 @@ local clause artifact.  It is not a theorem.  The next useful route is signed
 placement of actual binary-prime residue weights relative to this volatile cut,
 or a replacement signed aggregate arithmetic-placement theorem.
 
+Dominant-mode volatile sign-polarity profile:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_sign_polarity_profile.py`
+- `notes/q286-first-three-dominant-mode-volatile-sign-polarity-profile.md`
+- `evidence/q286-first-three-dominant-mode-volatile-sign-polarity-profile.json`
+
+This compares each one-channel boundary-crossing direction with the sign of
+that volatile channel's contribution.  On the selected fixture, all `936`
+boundary edges match the sign-predicted direction: zero sign-direction
+violations.
+
+The tight tail `1222142` and tight clear `1242118` share the same positive
+volatile pair `(1,7),(4,4)`.  For the tail, that pair is adverse; for the
+clear row, the same pair is repairing because the expected side of the floor
+is reversed.  Row `1240888` has all eight volatile channels negative but is
+boundary-free because every volatile subset still classifies it correctly.
+
+This compresses the boundary-cut target to signed volatile channel polarity
+plus margin magnitude on the fixture.  The remaining theorem is still uniform
+control from actual binary-prime residue weights, or a replacement signed
+aggregate theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

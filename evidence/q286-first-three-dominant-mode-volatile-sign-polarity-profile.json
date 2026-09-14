@@ -1,0 +1,2627 @@
+{
+  "aggregates": {
+    "clear": {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 340,
+      "correct_to_wrong_edge_count": 191,
+      "dormant_signed_channel_count": 9,
+      "negative_channel_count": 28,
+      "positive_channel_count": 12,
+      "target_count": 5,
+      "wrong_to_correct_edge_count": 149,
+      "zero_channel_count": 0
+    },
+    "deficit": {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 596,
+      "correct_to_wrong_edge_count": 172,
+      "dormant_signed_channel_count": 1,
+      "negative_channel_count": 27,
+      "positive_channel_count": 13,
+      "target_count": 5,
+      "wrong_to_correct_edge_count": 424,
+      "zero_channel_count": 0
+    },
+    "hard_deficit": {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 308,
+      "correct_to_wrong_edge_count": 37,
+      "dormant_signed_channel_count": 1,
+      "negative_channel_count": 18,
+      "positive_channel_count": 6,
+      "target_count": 3,
+      "wrong_to_correct_edge_count": 271,
+      "zero_channel_count": 0
+    },
+    "selected": {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 936,
+      "correct_to_wrong_edge_count": 363,
+      "dormant_signed_channel_count": 10,
+      "negative_channel_count": 55,
+      "positive_channel_count": 25,
+      "target_count": 10,
+      "wrong_to_correct_edge_count": 573,
+      "zero_channel_count": 0
+    }
+  },
+  "arithmetic_modulus": 286,
+  "boundary_direction_sign_violations": 0,
+  "candidate": "The finite boundary-cut symmetry may be compressed to signed polarity of the volatile channel contributions, especially the shared positive pair (1,7),(4,4) on 1222142 and 1242118.",
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "A boundary edge whose direction contradicts its channel sign, or loss of the shared (1,7),(4,4) polarity on 1222142 and 1242118, would falsify this compression.",
+  "goldbach_proved": false,
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "hard_rows": [
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 30,
+      "channels": [
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05398792710903812,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05489223962692793,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": 0.012972600503990475,
+          "correct_to_wrong_edge_count": 1,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.08202130544146466,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.059241998640124714,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05187010753344486,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.045206799023096586,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 3
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -0.0048636377924981275,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 1
+        }
+      ],
+      "correct_to_wrong_edge_count": 1,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 7,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 1,
+      "positive_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 13822,
+      "target_mod_286": 94,
+      "wrong_to_correct_edge_count": 29,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 130,
+      "channels": [
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": 0.002027930783131995,
+          "correct_to_wrong_edge_count": 2,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": 0.004250864291460111,
+          "correct_to_wrong_edge_count": 2,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 46,
+          "contribution_to_principal": -0.03791778393469892,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 46
+        },
+        {
+          "active_boundary_edge_count": 18,
+          "contribution_to_principal": -0.016954964227732676,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 18
+        },
+        {
+          "active_boundary_edge_count": 14,
+          "contribution_to_principal": -0.011797294263576466,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 14
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 46,
+          "contribution_to_principal": -0.03092342912870403,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 46
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": -0.003549784149911439,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 2
+        }
+      ],
+      "correct_to_wrong_edge_count": 4,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 1,
+      "negative_channel_count": 5,
+      "negative_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 3,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 164598,
+      "target_mod_286": 148,
+      "wrong_to_correct_edge_count": 126,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 148,
+      "channels": [
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": -0.010938875282588398,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 16
+        },
+        {
+          "active_boundary_edge_count": 20,
+          "contribution_to_principal": -0.01454886268634833,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 20
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.018474432503645177,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 22
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": 0.01021736429315472,
+          "correct_to_wrong_edge_count": 16,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": -0.011851048833984464,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 16
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.017169791918250164,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 22
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": 0.011405528117525765,
+          "correct_to_wrong_edge_count": 16,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 20,
+          "contribution_to_principal": -0.014046772444381602,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 20
+        }
+      ],
+      "correct_to_wrong_edge_count": 32,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 6,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 2,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 1222142,
+      "target_mod_286": 64,
+      "wrong_to_correct_edge_count": 116,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    }
+  ],
+  "interpretation": {
+    "remaining_theorem": "Prove the signed volatile channel polarity/magnitude behavior from actual binary-prime residue weights uniformly, or replace this channel-polarity picture with a full signed aggregate arithmetic-placement theorem.",
+    "route_status": "The Boolean boundary-cut target compresses to signed channel polarity plus margin magnitude on this fixture.",
+    "symmetry_status": "The remembered symmetry is finite and concrete: the tight tail 1222142 and tight clear 1242118 share the same positive volatile pair, while their expected classifications reverse whether that pair is adverse or repairing."
+  },
+  "mechanism": "Compare each volatile channel contribution sign with its boundary-crossing direction in the full volatile cube.  Positive channels raise the row margin and negative channels lower it; the expected classification determines whether that is adverse or repairing.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If boundary directions have no sign violations and the tight tail/clear pair shares a small polarity set, the next theorem target can be stated as signed channel polarity and magnitude control rather than an abstract Boolean cut.",
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "selected_rows": [
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 56,
+      "channels": [
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.03315009592129518,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 7,
+          "contribution_to_principal": -0.036708874354922455,
+          "correct_to_wrong_edge_count": 7,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 11,
+          "contribution_to_principal": 0.06050184284993354,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 11
+        },
+        {
+          "active_boundary_edge_count": 11,
+          "contribution_to_principal": -0.15706315156427392,
+          "correct_to_wrong_edge_count": 11,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": 0.0022055973749225363,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 1
+        },
+        {
+          "active_boundary_edge_count": 11,
+          "contribution_to_principal": -0.06099947139326837,
+          "correct_to_wrong_edge_count": 11,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 9,
+          "contribution_to_principal": -0.05299037239421609,
+          "correct_to_wrong_edge_count": 9,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.016793247965261587,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        }
+      ],
+      "correct_to_wrong_edge_count": 44,
+      "dominant_floor_passes": true,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 6,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 2,
+      "positive_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "target": 13556,
+      "target_mod_286": 114,
+      "wrong_to_correct_edge_count": 12,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 30,
+      "channels": [
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05398792710903812,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05489223962692793,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": 0.012972600503990475,
+          "correct_to_wrong_edge_count": 1,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.08202130544146466,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.059241998640124714,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.05187010753344486,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.045206799023096586,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 3
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -0.0048636377924981275,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 1
+        }
+      ],
+      "correct_to_wrong_edge_count": 1,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 7,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 1,
+      "positive_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 13822,
+      "target_mod_286": 94,
+      "wrong_to_correct_edge_count": 29,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 212,
+      "channels": [
+        {
+          "active_boundary_edge_count": 17,
+          "contribution_to_principal": -0.015720834414845876,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 17
+        },
+        {
+          "active_boundary_edge_count": 35,
+          "contribution_to_principal": 0.027023602682221284,
+          "correct_to_wrong_edge_count": 35,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -6.027718732478987e-05,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 1
+        },
+        {
+          "active_boundary_edge_count": 39,
+          "contribution_to_principal": 0.04909814967859022,
+          "correct_to_wrong_edge_count": 39,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 7,
+          "contribution_to_principal": -0.006802976476864048,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 7
+        },
+        {
+          "active_boundary_edge_count": 89,
+          "contribution_to_principal": -0.07385852197790685,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 89
+        },
+        {
+          "active_boundary_edge_count": 17,
+          "contribution_to_principal": 0.01627919261308177,
+          "correct_to_wrong_edge_count": 17,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 7,
+          "contribution_to_principal": -0.008538529002169584,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 7
+        }
+      ],
+      "correct_to_wrong_edge_count": 91,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 5,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 3,
+      "positive_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 24424,
+      "target_mod_286": 114,
+      "wrong_to_correct_edge_count": 121,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 86,
+      "channels": [
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": 0.05750789877276248,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 22
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.001979788920348253,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.07573268993869196,
+          "correct_to_wrong_edge_count": 22,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": -0.010566116512437034,
+          "correct_to_wrong_edge_count": 2,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 10,
+          "contribution_to_principal": 0.030886114797656437,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 10
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.09676684778153875,
+          "correct_to_wrong_edge_count": 22,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": 0.010418195289807024,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 2
+        },
+        {
+          "active_boundary_edge_count": 6,
+          "contribution_to_principal": -0.025975564983685705,
+          "correct_to_wrong_edge_count": 6,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        }
+      ],
+      "correct_to_wrong_edge_count": 52,
+      "dominant_floor_passes": true,
+      "dormant_signed_channel_count": 1,
+      "negative_channel_count": 5,
+      "negative_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 3,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "target": 40420,
+      "target_mod_286": 94,
+      "wrong_to_correct_edge_count": 34,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 76,
+      "channels": [
+        {
+          "active_boundary_edge_count": 17,
+          "contribution_to_principal": 0.08817081509299234,
+          "correct_to_wrong_edge_count": 17,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 11,
+          "contribution_to_principal": -0.05223406662381161,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 11
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -0.011691757478417861,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 1
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": 0.02355545798098456,
+          "correct_to_wrong_edge_count": 5,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": 0.03744869252439023,
+          "correct_to_wrong_edge_count": 5,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 17,
+          "contribution_to_principal": 0.09494956682281891,
+          "correct_to_wrong_edge_count": 17,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 17,
+          "contribution_to_principal": -0.08955057308993251,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 17
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.01991372944445541,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 3
+        }
+      ],
+      "correct_to_wrong_edge_count": 44,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 4,
+      "negative_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 4,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 55864,
+      "target_mod_286": 94,
+      "wrong_to_correct_edge_count": 32,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 178,
+      "channels": [
+        {
+          "active_boundary_edge_count": 21,
+          "contribution_to_principal": 0.03312336907121687,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 21
+        },
+        {
+          "active_boundary_edge_count": 25,
+          "contribution_to_principal": 0.04331158147838401,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 25
+        },
+        {
+          "active_boundary_edge_count": 7,
+          "contribution_to_principal": 0.014080539007662048,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 7
+        },
+        {
+          "active_boundary_edge_count": 39,
+          "contribution_to_principal": 0.056801848808468926,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 39
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": 0.006656545672359012,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 5
+        },
+        {
+          "active_boundary_edge_count": 65,
+          "contribution_to_principal": -0.09717824084358448,
+          "correct_to_wrong_edge_count": 65,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 11,
+          "contribution_to_principal": -0.024027728028209676,
+          "correct_to_wrong_edge_count": 11,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 5,
+          "contribution_to_principal": -0.010910779398457072,
+          "correct_to_wrong_edge_count": 5,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        }
+      ],
+      "correct_to_wrong_edge_count": 81,
+      "dominant_floor_passes": true,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 3,
+      "negative_channels": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 5,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "target": 129706,
+      "target_mod_286": 148,
+      "wrong_to_correct_edge_count": 97,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 130,
+      "channels": [
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": 0.002027930783131995,
+          "correct_to_wrong_edge_count": 2,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": 0.004250864291460111,
+          "correct_to_wrong_edge_count": 2,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 46,
+          "contribution_to_principal": -0.03791778393469892,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 46
+        },
+        {
+          "active_boundary_edge_count": 18,
+          "contribution_to_principal": -0.016954964227732676,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 18
+        },
+        {
+          "active_boundary_edge_count": 14,
+          "contribution_to_principal": -0.011797294263576466,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 14
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 46,
+          "contribution_to_principal": -0.03092342912870403,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 46
+        },
+        {
+          "active_boundary_edge_count": 2,
+          "contribution_to_principal": -0.003549784149911439,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 2
+        }
+      ],
+      "correct_to_wrong_edge_count": 4,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 1,
+      "negative_channel_count": 5,
+      "negative_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 3,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 164598,
+      "target_mod_286": 148,
+      "wrong_to_correct_edge_count": 126,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 148,
+      "channels": [
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": -0.010938875282588398,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 16
+        },
+        {
+          "active_boundary_edge_count": 20,
+          "contribution_to_principal": -0.01454886268634833,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 20
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.018474432503645177,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 22
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": 0.01021736429315472,
+          "correct_to_wrong_edge_count": 16,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": -0.011851048833984464,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 16
+        },
+        {
+          "active_boundary_edge_count": 22,
+          "contribution_to_principal": -0.017169791918250164,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 22
+        },
+        {
+          "active_boundary_edge_count": 16,
+          "contribution_to_principal": 0.011405528117525765,
+          "correct_to_wrong_edge_count": 16,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 20,
+          "contribution_to_principal": -0.014046772444381602,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 20
+        }
+      ],
+      "correct_to_wrong_edge_count": 32,
+      "dominant_floor_passes": false,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 6,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 2,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "target": 1222142,
+      "target_mod_286": 64,
+      "wrong_to_correct_edge_count": 116,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 0,
+      "channels": [
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.02407910288083677,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.001931166614128453,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.017710726808205953,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.035956798584303756,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.011215651894444517,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.008006736357364156,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.019152098159140953,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 0,
+          "contribution_to_principal": -0.02694243143722148,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": true,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        }
+      ],
+      "correct_to_wrong_edge_count": 0,
+      "dominant_floor_passes": true,
+      "dormant_signed_channel_count": 8,
+      "negative_channel_count": 8,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 0,
+      "positive_channels": [],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [],
+      "target": 1240888,
+      "target_mod_286": 220,
+      "wrong_to_correct_edge_count": 0,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    },
+    {
+      "boundary_direction_sign_violation_count": 0,
+      "boundary_edge_count": 20,
+      "channels": [
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -0.004455966448924407,
+          "correct_to_wrong_edge_count": 1,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            1
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.017034981960262735,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.028000803701620967,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            1,
+            5
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": 0.013379352850151611,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            1,
+            7
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 3
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.01863359219696881,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            2,
+            4
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": -0.029793911186253248,
+          "correct_to_wrong_edge_count": 3,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            3,
+            3
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        },
+        {
+          "active_boundary_edge_count": 3,
+          "contribution_to_principal": 0.015373178249955429,
+          "correct_to_wrong_edge_count": 0,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "wrong_to_correct",
+          "label": [
+            4,
+            4
+          ],
+          "sign": "positive",
+          "wrong_to_correct_edge_count": 3
+        },
+        {
+          "active_boundary_edge_count": 1,
+          "contribution_to_principal": -0.010702262477167376,
+          "correct_to_wrong_edge_count": 1,
+          "dormant_signed_channel": false,
+          "expected_boundary_direction_from_sign": "correct_to_wrong",
+          "label": [
+            4,
+            10
+          ],
+          "sign": "negative",
+          "wrong_to_correct_edge_count": 0
+        }
+      ],
+      "correct_to_wrong_edge_count": 14,
+      "dominant_floor_passes": true,
+      "dormant_signed_channel_count": 0,
+      "negative_channel_count": 6,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "positive_channel_count": 2,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "target": 1242118,
+      "target_mod_286": 20,
+      "wrong_to_correct_edge_count": 6,
+      "zero_channel_count": 0,
+      "zero_channels": []
+    }
+  ],
+  "signed_projection_theorem_proved": false,
+  "source_boundary_cut_graph": "evidence\\q286-first-three-dominant-mode-volatile-boundary-cut-graph.json",
+  "source_commit": "d8de75bbb579c19c405ff9ff44e192f433789a19",
+  "source_subset_ablation": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile sign-polarity diagnostic only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "summary": {
+    "sign_direction_check": "Every boundary-crossing direction matches the sign-predicted direction of its volatile channel contribution.",
+    "target_1222142": "positive channels are exactly (1,7) and (4,4), so those are the sign-expected adverse channels for this deficit row; the other six channels are sign-expected repair channels.",
+    "target_1240888": "all volatile channels are negative, yet the row is boundary-free because every volatile subset still classifies it correctly.",
+    "target_1242118": "positive channels are also exactly (1,7) and (4,4), but because this is a clear row they are sign-expected repair channels rather than adverse channels."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "volatile_channel_count": 8,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_sign_polarity_profile_measured": true,
+  "volatile_threshold_theorem_proved": false,
+  "zero_tolerance": 1e-14
+}

@@ -12309,3 +12309,39 @@ signed aggregate arithmetic-placement theorem.  This is finite boundary-cut
 evidence only; it proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: volatile sign-polarity profile
+
+The volatile boundary-cut graph was then compressed to signed channel polarity.
+The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-sign-polarity-profile.json
+```
+
+The receipt compares each one-channel boundary-crossing direction with the
+sign of that volatile channel's contribution.  On the selected fixture there
+are zero sign-direction violations across `936` boundary edges.
+
+The tight tail row `1222142` and tight clear row `1242118` share the same
+positive volatile pair:
+
+```text
+(1,7)
+(4,4)
+```
+
+For `1222142`, that pair is adverse: it is exactly the sign-expected
+correct-to-wrong pair, while the complementary six channels are sign-expected
+repairs.  For `1242118`, the same pair is repairing because the row is a clear
+row.  Clear row `1240888` has all eight volatile channels negative, but is
+boundary-free because all `256` volatile subsets classify it correctly.
+
+This makes the finite symmetry more concrete: the Boolean boundary-cut target
+compresses to signed channel polarity plus margin magnitude on this fixture.
+The remaining theorem is to prove the signed volatile channel
+polarity/magnitude behavior from actual binary-prime residue weights
+uniformly, or replace it with a full signed aggregate arithmetic-placement
+theorem.  This is finite sign-polarity evidence only; it proves no volatile-rim
+theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
+character-sum estimate, or Goldbach.
