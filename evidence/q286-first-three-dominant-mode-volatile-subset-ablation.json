@@ -1,0 +1,1244 @@
+{
+  "active_real_channel_count": 25,
+  "arithmetic_modulus": 286,
+  "best_nonexact_subsets": [
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        13822,
+        55864,
+        164598
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 1,
+      "false_positive_targets": [
+        1222142
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.0749139684871607,
+        "mean": 0.012546707954298861,
+        "minimum": -0.07931484634723363
+      },
+      "margins_by_target": {
+        "1222142": 0.005213592883851426,
+        "1240888": 0.05412900481813976,
+        "1242118": 0.027231175943911945,
+        "129706": 0.06933970567530615,
+        "13556": 0.026357338310920575,
+        "13822": -0.03188070823179434,
+        "164598": -0.01560200830526437,
+        "24424": -0.004920143692009604,
+        "40420": 0.0749139684871607,
+        "55864": -0.07931484634723363
+      },
+      "pass_targets": [
+        13556,
+        40420,
+        129706,
+        1222142,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "subset_size": 7
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        164598,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 1,
+      "false_positive_targets": [
+        13822
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.1666272419099329,
+        "mean": 0.013274050316664125,
+        "minimum": -0.1227840337726736
+      },
+      "margins_by_target": {
+        "1222142": -0.019050543853684876,
+        "1240888": 0.06314337196522202,
+        "1242118": 0.0031495606165929946,
+        "129706": 0.0016270774683801448,
+        "13556": 0.1666272419099329,
+        "13822": 0.04527695941717219,
+        "164598": -0.002196828227443104,
+        "24424": -0.06255682237276944,
+        "40420": 0.05950452001591203,
+        "55864": -0.1227840337726736
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 7
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.23420526489448806,
+        "mean": 0.05256977597514154,
+        "minimum": -0.06349450950681756
+      },
+      "margins_by_target": {
+        "1222142": -0.004558250692844545,
+        "1240888": 0.12045355345602898,
+        "1242118": 0.017112237040773748,
+        "129706": 0.029909039222687894,
+        "13556": 0.23420526489448806,
+        "13822": 0.1545893948728916,
+        "164598": 0.044073679314748815,
+        "24424": -0.06349450950681756,
+        "40420": 0.04417577491213426,
+        "55864": -0.050768423762675874
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "subset_size": 4
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.15691017407929292,
+        "mean": 0.04854945098472255,
+        "minimum": -0.07197276132166236
+      },
+      "margins_by_target": {
+        "1222142": -0.00013059063358100698,
+        "1240888": 0.11122184882701344,
+        "1242118": 0.034410778265227315,
+        "129706": 0.004917720816568771,
+        "13556": 0.15691017407929292,
+        "13822": 0.13675315657640302,
+        "164598": 0.07844167909953628,
+        "24424": -0.07197276132166236,
+        "40420": 0.09393289986714054,
+        "55864": -0.05899039572871345
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 4
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        164598
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.2811288356233853,
+        "mean": 0.07203885737870136,
+        "minimum": -0.14558580452722547
+      },
+      "margins_by_target": {
+        "1222142": 0.026714883195295247,
+        "1240888": 0.1000237063739361,
+        "1242118": 0.06068071624027635,
+        "129706": 0.06640451623203769,
+        "13556": 0.2811288356233853,
+        "13822": 0.15690294437004312,
+        "164598": -0.002924571347305227,
+        "24424": -0.007183374074914262,
+        "40420": 0.18422672170148474,
+        "55864": -0.14558580452722547
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        129706,
+        1222142,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "subset_size": 4
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.26956095819070575,
+        "mean": 0.04448549361522055,
+        "minimum": -0.10149054633127802
+      },
+      "margins_by_target": {
+        "1222142": -0.005470424244240657,
+        "1240888": 0.13331700444242123,
+        "1242118": 0.002934611292729372,
+        "129706": 0.0034422158238300304,
+        "13556": 0.26956095819070575,
+        "13822": 0.14933532334180502,
+        "164598": 0.030248454268040348,
+        "24424": -0.05457665156883573,
+        "40420": 0.017553990937028197,
+        "55864": -0.10149054633127802
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "subset_size": 4
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        164598
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.2974856835794189,
+        "mean": 0.05396546230292291,
+        "minimum": -0.2536703490646733
+      },
+      "margins_by_target": {
+        "1222142": 0.02360698603350203,
+        "1240888": 0.09716037781755138,
+        "1242118": 0.054434420212033374,
+        "129706": 0.02237036776236373,
+        "13556": 0.2974856835794189,
+        "13822": 0.2060272336865831,
+        "164598": -0.008502286280348714,
+        "24424": -1.068662237979634e-06,
+        "40420": 0.10074325794503655,
+        "55864": -0.2536703490646733
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        129706,
+        1222142,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 4
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.2806170856974174,
+        "mean": 0.06817828079100496,
+        "minimum": -0.12818302750556
+      },
+      "margins_by_target": {
+        "1222142": -0.013286280052960453,
+        "1240888": 0.09030220648172713,
+        "1242118": 0.017570293552890803,
+        "129706": 0.1228330463401743,
+        "13556": 0.2806170856974174,
+        "13822": 0.14235386597371363,
+        "164598": 0.02869993792294745,
+        "24424": -0.004977493007944367,
+        "40420": 0.14585317250764376,
+        "55864": -0.12818302750556
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 5
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.21741201692922646,
+        "mean": 0.03834610206562059,
+        "minimum": -0.07203303850898718
+      },
+      "margins_by_target": {
+        "1222142": -0.018605023137226173,
+        "1240888": 0.09351112201880749,
+        "1242118": 0.006409974563606369,
+        "129706": 0.018998259824230812,
+        "13556": 0.21741201692922646,
+        "13822": 0.14972575708039348,
+        "164598": 0.0405238951648374,
+        "24424": -0.07203303850898718,
+        "40420": 0.018200209928448563,
+        "55864": -0.07068215320713128
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 5
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.15911577145421546,
+        "mean": 0.04431488979105907,
+        "minimum": -0.07877573779852642
+      },
+      "margins_by_target": {
+        "1222142": -0.011981639467565475,
+        "1240888": 0.10000619693256893,
+        "1242118": 0.01577718606825851,
+        "129706": 0.011574266488927787,
+        "13556": 0.15911577145421546,
+        "13822": 0.0775111579362783,
+        "164598": 0.06664438483595983,
+        "24424": -0.07877573779852642,
+        "40420": 0.12481901466479697,
+        "55864": -0.021541703204323193
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        164598,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 5
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        164598
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.08225353003525832,
+        "mean": 0.02725566238143078,
+        "minimum": -0.06452947224781225
+      },
+      "margins_by_target": {
+        "1222142": 0.031613504404184256,
+        "1240888": 0.06727582332671272,
+        "1242118": 0.06289975010114351,
+        "129706": 0.019371578524563116,
+        "13556": 0.06086061529092049,
+        "13822": 0.08225353003525832,
+        "164598": -0.008055578333148017,
+        "24424": -0.025140769897366855,
+        "40420": 0.04600764260985252,
+        "55864": -0.06452947224781225
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        129706,
+        1222142,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "subset_size": 5
+    },
+    {
+      "exact_selected_classification": false,
+      "failure_targets": [
+        24424,
+        55864,
+        164598
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.2643355876581237,
+        "mean": 0.05781518346918042,
+        "minimum": -0.16549953397168088
+      },
+      "margins_by_target": {
+        "1222142": 0.01266811075091362,
+        "1240888": 0.07308127493671462,
+        "1242118": 0.049978453763109,
+        "129706": 0.05549373683358061,
+        "13556": 0.2643355876581237,
+        "13822": 0.152039306577545,
+        "164598": -0.0064743554972166995,
+        "24424": -0.015721903077083876,
+        "40420": 0.15825115671779905,
+        "55864": -0.16549953397168088
+      },
+      "pass_targets": [
+        13556,
+        13822,
+        40420,
+        129706,
+        1222142,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": false,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 5
+    }
+  ],
+  "clear_preserving_subset_count": 171,
+  "clear_targets": [
+    13556,
+    40420,
+    129706,
+    1240888,
+    1242118
+  ],
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "exact_subset_count": 1,
+  "exact_subsets_by_size": {
+    "8": 1
+  },
+  "failure_targets": [
+    13822,
+    24424,
+    55864,
+    164598,
+    1222142
+  ],
+  "falsifier": "Any proper subset with exact selected classification falsifies the claim that the full volatile rim is needed on this fixture.",
+  "full_volatile_subset_row": {
+    "exact_selected_classification": true,
+    "failure_targets": [
+      24424,
+      13822,
+      55864,
+      164598,
+      1222142
+    ],
+    "false_negative_count": 0,
+    "false_negative_targets": [],
+    "false_positive_count": 0,
+    "false_positive_targets": [],
+    "margin_summary": {
+      "count": 10,
+      "maximum": 0.05842892627684909,
+      "mean": -0.001676965955222065,
+      "minimum": -0.09922857579168903
+    },
+    "margins_by_target": {
+      "1222142": -0.008833179560530147,
+      "1240888": 0.02718657338091829,
+      "1242118": 0.01652891346674462,
+      "129706": 0.05842892627684909,
+      "13556": 0.009564090345659026,
+      "13822": -0.036744346024292496,
+      "164598": -0.019151792455175787,
+      "24424": -0.013458672694179219,
+      "40420": 0.048938403503475,
+      "55864": -0.09922857579168903
+    },
+    "pass_targets": [
+      13556,
+      40420,
+      129706,
+      1242118,
+      1240888
+    ],
+    "preserves_all_selected_clears": true,
+    "restores_all_selected_failures": true,
+    "subset_labels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ]
+    ],
+    "subset_size": 8
+  },
+  "goldbach_proved": false,
+  "interpretation": {
+    "compression": "If proper_exact_subset_exists is false, no tested proper volatile subpackage replaces the full rim on this fixture.",
+    "remaining_theorem": "Use the minimal exact subset if one exists; otherwise treat the full volatile package as the current finite theorem target or seek a different arithmetic/exclusion structure."
+  },
+  "maximum_full_reconstruction_error": 7.438494264988549e-15,
+  "mechanism": "Search all subsets of the eight volatile q286 channels after the stable core is fixed.",
+  "minimal_exact_subsets": [
+    {
+      "exact_selected_classification": true,
+      "failure_targets": [
+        24424,
+        13822,
+        55864,
+        164598,
+        1222142
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 0,
+      "false_positive_targets": [],
+      "margin_summary": {
+        "count": 10,
+        "maximum": 0.05842892627684909,
+        "mean": -0.001676965955222065,
+        "minimum": -0.09922857579168903
+      },
+      "margins_by_target": {
+        "1222142": -0.008833179560530147,
+        "1240888": 0.02718657338091829,
+        "1242118": 0.01652891346674462,
+        "129706": 0.05842892627684909,
+        "13556": 0.009564090345659026,
+        "13822": -0.036744346024292496,
+        "164598": -0.019151792455175787,
+        "24424": -0.013458672694179219,
+        "40420": 0.048938403503475,
+        "55864": -0.09922857579168903
+      },
+      "pass_targets": [
+        13556,
+        40420,
+        129706,
+        1242118,
+        1240888
+      ],
+      "preserves_all_selected_clears": true,
+      "restores_all_selected_failures": true,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 8
+    }
+  ],
+  "minimum_exact_subset_size": 8,
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "A small exact subset would narrow the volatile/exclusion theorem target; absence of a proper exact subset would make the tested volatile package less compressible on this fixture.",
+  "previous_stable_core_false_positives": [
+    13822,
+    164598,
+    1222142
+  ],
+  "proper_exact_subset_exists": false,
+  "sample_targets": [
+    24424,
+    13556,
+    13822,
+    40420,
+    55864,
+    164598,
+    129706,
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "7856d7dacaf85287b1aa56b3e844af1c83ff0c67",
+  "source_evidence": "evidence\\q286-first-three-dominant-mode-pairwise-swing-sign-stability.json",
+  "source_selected_classification": "evidence\\q286-first-three-dominant-mode-stable-core-selected-classification.json",
+  "stable_core_channel_count": 17,
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile-subset ablation only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "target_rows": {
+    "1222142": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.3088331795605278,
+      "full_volatile_sum_to_principal": -0.06540689125851765,
+      "stable_core_sum_to_principal": -0.2434262883020125,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.010938875282588398,
+        "(1, 3)": -0.01454886268634833,
+        "(1, 5)": -0.018474432503645177,
+        "(1, 7)": 0.01021736429315472,
+        "(2, 4)": -0.011851048833984464,
+        "(3, 3)": -0.017169791918250164,
+        "(4, 10)": -0.014046772444381602,
+        "(4, 4)": 0.011405528117525765
+      }
+    },
+    "1240888": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.27281342661908214,
+      "full_volatile_sum_to_principal": -0.14499471273564604,
+      "stable_core_sum_to_principal": -0.1278187138834357,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.02407910288083677,
+        "(1, 3)": -0.001931166614128453,
+        "(1, 5)": -0.017710726808205953,
+        "(1, 7)": -0.035956798584303756,
+        "(2, 4)": -0.011215651894444517,
+        "(3, 3)": -0.008006736357364156,
+        "(4, 10)": -0.02694243143722148,
+        "(4, 4)": -0.019152098159140953
+      }
+    },
+    "1242118": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2834710865332539,
+      "full_volatile_sum_to_principal": -0.07986898687109051,
+      "stable_core_sum_to_principal": -0.2036020996621649,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.004455966448924407,
+        "(1, 3)": -0.017034981960262735,
+        "(1, 5)": -0.028000803701620967,
+        "(1, 7)": 0.013379352850151611,
+        "(2, 4)": -0.01863359219696881,
+        "(3, 3)": -0.029793911186253248,
+        "(4, 10)": -0.010702262477167376,
+        "(4, 4)": 0.015373178249955429
+      }
+    },
+    "129706": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2415710737231505,
+      "full_volatile_sum_to_principal": 0.02185713576783964,
+      "stable_core_sum_to_principal": -0.26342820949099055,
+      "target": 129706,
+      "target_mod_286": 148,
+      "volatile_channel_contributions": {
+        "(1, 1)": 0.03312336907121687,
+        "(1, 3)": 0.04331158147838401,
+        "(1, 5)": 0.014080539007662048,
+        "(1, 7)": 0.056801848808468926,
+        "(2, 4)": 0.006656545672359012,
+        "(3, 3)": -0.09717824084358448,
+        "(4, 10)": -0.010910779398457072,
+        "(4, 4)": -0.024027728028209676
+      }
+    },
+    "13556": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.29043590965434185,
+      "full_volatile_sum_to_principal": -0.2949977733683815,
+      "stable_core_sum_to_principal": 0.004561863714040528,
+      "target": 13556,
+      "target_mod_286": 114,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.03315009592129518,
+        "(1, 3)": -0.036708874354922455,
+        "(1, 5)": 0.06050184284993354,
+        "(1, 7)": -0.15706315156427392,
+        "(2, 4)": 0.0022055973749225363,
+        "(3, 3)": -0.06099947139326837,
+        "(4, 10)": -0.016793247965261587,
+        "(4, 4)": -0.05299037239421609
+      }
+    },
+    "13822": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.3367443460242893,
+      "full_volatile_sum_to_principal": -0.3391114146626045,
+      "stable_core_sum_to_principal": 0.0023670686383120663,
+      "target": 13822,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.05398792710903812,
+        "(1, 3)": -0.05489223962692793,
+        "(1, 5)": 0.012972600503990475,
+        "(1, 7)": -0.08202130544146466,
+        "(2, 4)": -0.059241998640124714,
+        "(3, 3)": -0.05187010753344486,
+        "(4, 10)": -0.0048636377924981275,
+        "(4, 4)": -0.045206799023096586
+      }
+    },
+    "164598": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.31915179245517605,
+      "full_volatile_sum_to_principal": -0.09483779765171797,
+      "stable_core_sum_to_principal": -0.22431399480345782,
+      "target": 164598,
+      "target_mod_286": 148,
+      "volatile_channel_contributions": {
+        "(1, 1)": 0.002027930783131995,
+        "(1, 3)": 0.004250864291460111,
+        "(1, 5)": -0.03791778393469892,
+        "(1, 7)": -0.016954964227732676,
+        "(2, 4)": -0.011797294263576466,
+        "(3, 3)": 2.6662978313450717e-05,
+        "(4, 10)": -0.003549784149911439,
+        "(4, 4)": -0.03092342912870403
+      }
+    },
+    "24424": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.31345867269417177,
+      "full_volatile_sum_to_principal": -0.012580194085217872,
+      "stable_core_sum_to_principal": -0.30087847860896133,
+      "target": 24424,
+      "target_mod_286": 114,
+      "volatile_channel_contributions": {
+        "(1, 1)": -0.015720834414845876,
+        "(1, 3)": 0.027023602682221284,
+        "(1, 5)": -6.027718732478987e-05,
+        "(1, 7)": 0.04909814967859022,
+        "(2, 4)": -0.006802976476864048,
+        "(3, 3)": -0.07385852197790685,
+        "(4, 10)": -0.008538529002169584,
+        "(4, 4)": 0.01627919261308177
+      }
+    },
+    "40420": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2510615964965243,
+      "full_volatile_sum_to_principal": -0.11220879927647577,
+      "stable_core_sum_to_principal": -0.13885279722004923,
+      "target": 40420,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": {
+        "(1, 1)": 0.05750789877276248,
+        "(1, 3)": -0.001979788920348253,
+        "(1, 5)": -0.07573268993869196,
+        "(1, 7)": -0.010566116512437034,
+        "(2, 4)": 0.030886114797656437,
+        "(3, 3)": -0.09676684778153875,
+        "(4, 10)": -0.025975564983685705,
+        "(4, 4)": 0.010418195289807024
+      }
+    },
+    "55864": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.39922857579168886,
+      "full_volatile_sum_to_principal": 0.07073440578456863,
+      "stable_core_sum_to_principal": -0.46996298157625765,
+      "target": 55864,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": {
+        "(1, 1)": 0.08817081509299234,
+        "(1, 3)": -0.05223406662381161,
+        "(1, 5)": -0.011691757478417861,
+        "(1, 7)": 0.02355545798098456,
+        "(2, 4)": 0.03744869252439023,
+        "(3, 3)": 0.09494956682281891,
+        "(4, 10)": -0.01991372944445541,
+        "(4, 4)": -0.08955057308993251
+      }
+    }
+  },
+  "tested_subset_count": 256,
+  "volatile_channel_count": 8,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_subpackage_theorem_proved": false,
+  "volatile_subset_ablation_measured": true
+}

@@ -1126,6 +1126,19 @@ current comparison set.
    selected-fixture classifier while keeping a finite clear-side stable-core
    lower-bound target alive; the volatile rim carries row-dependent
    classification/exclusion work and cannot be treated as disposable noise.
+111. `tools/build_q286_first_three_dominant_mode_volatile_subset_ablation.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-subset-ablation.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-subset-ablation.json`,
+   tests all `256` subsets of the eight volatile q286 channels after fixing
+   the stable core.  Exactly one subset gives exact selected-fixture
+   classification, and it is the full eight-channel volatile rim.  There are
+   `171` clear-preserving subsets, but no proper subset both preserves all
+   selected clears and restores all selected deficits; the closest
+   seven-channel subsets still leave one selected deficit over-rescued
+   (`1222142` or `13822`).  This demotes arbitrary subset deletion as a
+   compression route for the volatile package on the selected fixture.
 
 ## Still open
 
@@ -1178,5 +1191,8 @@ current comparison set.
   The selected-classification receipt further says stable core alone preserves
   selected clears but over-rescues selected deficits; volatile/exclusion
   control is part of the theorem, not an optional cleanup.
+  The volatile-subset ablation says arbitrary deletion does not compress the
+  volatile restoration package on the selected fixture: the only exact subset
+  among all `256` tested subsets is the full eight-channel rim.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

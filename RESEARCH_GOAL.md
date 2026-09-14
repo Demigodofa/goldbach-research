@@ -11911,3 +11911,35 @@ non-circular volatile/exclusion theorem, or a stronger arithmetic-placement
 replacement.  This is finite selected-fixture evidence only; it proves no
 stable-core theorem, volatile-rim theorem, coupled budget theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile subset ablation
+
+The volatile rim's restoration role was then tested for arbitrary subset
+compression.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-subset-ablation.json
+```
+
+All `256` subsets of the `8` volatile q286 channels were tested after fixing
+the stable core.  Exactly one subset matches the selected ten-row
+dominant-floor classification, and it is the full volatile rim:
+
+```text
+exact subsets:              1
+minimum exact subset size:  8
+proper exact subset exists: false
+```
+
+There are `171` clear-preserving subsets, but no proper subset both preserves
+all selected clears and restores all selected deficits.  The closest
+seven-channel subsets still leave one selected deficit over-rescued: one
+leaves `1222142`, and another leaves `13822`.
+
+This demotes arbitrary subset deletion as a compression route for the volatile
+package on the selected fixture.  It does not prove universal necessity of
+the full volatile rim, but it says the current finite target should keep the
+full volatile/exclusion package live unless a new arithmetic structure
+replaces it.  This proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.
