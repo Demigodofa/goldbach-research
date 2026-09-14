@@ -12345,3 +12345,45 @@ uniformly, or replace it with a full signed aggregate arithmetic-placement
 theorem.  This is finite sign-polarity evidence only; it proves no volatile-rim
 theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile polarity-magnitude ledger
+
+The sign-polarity profile was then rewritten as exact rowwise magnitude
+inequalities.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.json
+```
+
+For deficit rows, the needed inequality is:
+
+```text
+-negative_sum > base_margin + positive_sum
+```
+
+For clear rows, the needed inequality is:
+
+```text
+positive_sum > -base_margin - negative_sum
+```
+
+The tightest selected row is the known tail `1222142`, with signed magnitude
+surplus about `0.0088331796` and repair-to-required ratio about `1.112961`.
+The next tightest row is clear row `13556`, with surplus about `0.0095640903`
+and repair-to-required ratio about `1.179968`.
+
+The tight tail `1222142` and tight clear `1242118` share the positive volatile
+pair `(1,7),(4,4)`.  For `1222142`, that pair is adverse; for `1242118`, it is
+repairing.  But `1242118` is not the tightest magnitude row: its
+repair-to-required ratio is about `2.352211`.  Clear row `1240888` has no
+positive volatile channel and remains clear because its base margin absorbs
+all negative volatile drag.
+
+This says the loop is tightening into a quantitative signed-margin problem,
+not an infinite threshold scan.  The remaining theorem is to prove these
+signed volatile repair-versus-adverse magnitude inequalities from actual
+binary-prime residue weights uniformly, or replace them with a full signed
+aggregate arithmetic-placement theorem.  This is finite magnitude-ledger
+evidence only; it proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.

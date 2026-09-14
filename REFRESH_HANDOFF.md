@@ -20658,6 +20658,29 @@ plus margin magnitude on the fixture.  The remaining theorem is still uniform
 control from actual binary-prime residue weights, or a replacement signed
 aggregate theorem.
 
+Dominant-mode volatile polarity-magnitude ledger:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_polarity_magnitude_ledger.py`
+- `notes/q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.md`
+- `evidence/q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.json`
+
+This rewrites sign polarity as exact rowwise magnitude inequalities.  For
+deficit rows, negative volatile magnitude must beat base margin plus positive
+pressure.  For clear rows, positive volatile magnitude must beat remaining
+negative drag after the base margin is included.
+
+The tightest selected row is `1222142`, with signed magnitude surplus about
+`0.0088331796` and repair-to-required ratio about `1.112961`.  The next
+tightest row is clear row `13556`, with surplus about `0.0095640903`.  The
+tight tail `1222142` and tight clear `1242118` share positive volatile pair
+`(1,7),(4,4)`, but `1242118` has a larger repair-to-required ratio, about
+`2.352211`.  Row `1240888` has no positive volatile channel and clears from
+base margin alone after absorbing negative volatile drag.
+
+This is the current narrowed theorem target: signed volatile
+repair-versus-adverse magnitude control from actual binary-prime residue
+weights, or a replacement signed aggregate arithmetic-placement theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

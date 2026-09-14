@@ -1280,6 +1280,19 @@ current comparison set.
    sharpens the live target to signed volatile channel polarity/magnitude
    control from actual binary-prime residue weights, or a replacement signed
    aggregate arithmetic-placement theorem.
+122. `tools/build_q286_first_three_dominant_mode_volatile_polarity_magnitude_ledger.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.json`,
+   rewrites the sign-polarity profile as exact magnitude inequalities.  The
+   tightest selected row is tail `1222142`, with signed magnitude surplus
+   about `0.0088331796` and repair-to-required ratio about `1.112961`; the
+   next tightest row is clear `13556`, with surplus about `0.0095640903`.
+   The tight tail `1222142` and tight clear `1242118` share positive pair
+   `(1,7),(4,4)`, but `1242118` has repair-to-required ratio about `2.352211`.
+   This confirms the loop is tightening into signed repair-versus-adverse
+   magnitude control rather than another raw threshold scan.
 
 ## Still open
 
@@ -1370,5 +1383,9 @@ current comparison set.
   are exactly consistent with volatile channel contribution signs, and that
   the tight tail/clear pair `1222142`/`1242118` shares the same positive pair
   `(1,7),(4,4)` with reversed adverse/repair interpretation.
+  The polarity-magnitude ledger then names the actual narrow hinge: `1222142`
+  has the smallest selected signed surplus, about `0.0088331796`, so the
+  current theorem target is a quantitative repair-versus-adverse magnitude
+  inequality from the prime-pair residue weights.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

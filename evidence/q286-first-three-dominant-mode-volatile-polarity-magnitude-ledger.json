@@ -1,0 +1,2020 @@
+{
+  "aggregates": {
+    "clear": {
+      "maximum_repair_to_required_ratio": 2.3522112653157228,
+      "maximum_signed_magnitude_surplus": 0.05842892627684909,
+      "mean_signed_magnitude_surplus": 0.03212938139472919,
+      "minimum_repair_to_required_ratio": 1.179967773341343,
+      "minimum_signed_magnitude_surplus": 0.009564090345659026,
+      "target_count": 5,
+      "tightest_surplus_target": 13556
+    },
+    "deficit": {
+      "maximum_repair_to_required_ratio": 2.338005673575729,
+      "maximum_signed_magnitude_surplus": 0.09922857579168903,
+      "mean_signed_magnitude_surplus": 0.035483313305173333,
+      "minimum_repair_to_required_ratio": 1.1129611657848324,
+      "minimum_signed_magnitude_surplus": 0.008833179560530147,
+      "target_count": 5,
+      "tightest_surplus_target": 1222142
+    },
+    "hard_deficit": {
+      "maximum_repair_to_required_ratio": 1.233582762109137,
+      "maximum_signed_magnitude_surplus": 0.036744346024292496,
+      "mean_signed_magnitude_surplus": 0.021576439346666147,
+      "minimum_repair_to_required_ratio": 1.1129611657848324,
+      "minimum_signed_magnitude_surplus": 0.008833179560530147,
+      "target_count": 3,
+      "tightest_surplus_target": 1222142
+    },
+    "selected": {
+      "maximum_repair_to_required_ratio": 2.3522112653157228,
+      "maximum_signed_magnitude_surplus": 0.09922857579168903,
+      "mean_signed_magnitude_surplus": 0.03380634734995126,
+      "minimum_repair_to_required_ratio": 1.1129611657848324,
+      "minimum_signed_magnitude_surplus": 0.008833179560530147,
+      "target_count": 10,
+      "tightest_surplus_target": 1222142
+    }
+  },
+  "arithmetic_modulus": 286,
+  "candidate": "The signed-polarity theorem target may be stated as an exact rowwise repair-magnitude inequality rather than a Boolean boundary condition.",
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "A different tightest row, loss of the shared positive pair on 1222142/1242118, or failure of the surplus identities would falsify this magnitude ledger.",
+  "goldbach_proved": false,
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "hard_rows": [
+    {
+      "adverse_magnitude": 0.012972600503990475,
+      "base_margin_without_volatile": 0.30236706863831203,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.036744346024292496,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.352084015166595,
+      "positive_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "positive_sum_to_principal": 0.012972600503990475,
+      "repair_magnitude": 0.352084015166595,
+      "repair_to_required_ratio": 1.1165230689948842,
+      "required_adverse_bound_given_repair": 0.04971694652828296,
+      "required_repair_magnitude": 0.3153396691423025,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.036744346024292496,
+      "target": 13822,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.05398792710903812,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05489223962692793,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.012972600503990475,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.08202130544146466,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.059241998640124714,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05187010753344486,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.045206799023096586,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.0048636377924981275,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.006305458052905557,
+      "base_margin_without_volatile": 0.07568600519654217,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.0191517924551758,
+      "negative_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.10114325570462353,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "positive_sum_to_principal": 0.006305458052905557,
+      "repair_magnitude": 0.10114325570462353,
+      "repair_to_required_ratio": 1.233582762109137,
+      "required_adverse_bound_given_repair": 0.025457250508081355,
+      "required_repair_magnitude": 0.08199146324944773,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.0191517924551758,
+      "target": 164598,
+      "target_mod_286": 148,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": 0.002027930783131995,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": 0.004250864291460111,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.03791778393469892,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.016954964227732676,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011797294263576466,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.03092342912870403,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.003549784149911439,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.021622892410680487,
+      "base_margin_without_volatile": 0.0565737116979875,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.008833179560530147,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.08702978366919814,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.021622892410680487,
+      "repair_magnitude": 0.08702978366919814,
+      "repair_to_required_ratio": 1.1129611657848324,
+      "required_adverse_bound_given_repair": 0.03045607197121064,
+      "required_repair_magnitude": 0.078196604108668,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.008833179560530147,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.010938875282588398,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.01454886268634833,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.018474432503645177,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.01021736429315472,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011851048833984464,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.017169791918250164,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.011405528117525765,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.014046772444381602,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "hole_status": "The finite q286 hole is now a quantitative signed-margin problem: the tightest selected surplus is small and occurs at the known tail row 1222142.",
+    "remaining_theorem": "Prove these signed volatile repair-versus-adverse magnitude inequalities from actual binary-prime residue weights uniformly, or replace them with a full signed aggregate arithmetic-placement theorem.",
+    "route_status": "The symmetry has moved from Boolean boundary polarity to signed magnitude inequalities with explicit tight rows."
+  },
+  "mechanism": "Split the eight volatile channels into positive and negative contribution sums for each row.  For deficit rows, negative volatile magnitude must beat base plus positive pressure; for clear rows, positive volatile magnitude must beat the negative drag after the base margin is included.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If the tight rows have small positive magnitude surplus, the proof target is a quantitative signed-channel margin theorem. If surplus is comfortably large or sign-free, the Boolean cut would not be the active obstruction.",
+  "rows": [
+    {
+      "adverse_magnitude": 0.3577052135932376,
+      "base_margin_without_volatile": 0.30456186371404054,
+      "dominant_floor_passes": true,
+      "full_margin_to_floor": 0.009564090345659026,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.3577052135932376,
+      "positive_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.06270744022485608,
+      "repair_magnitude": 0.06270744022485608,
+      "repair_to_required_ratio": 1.179967773341343,
+      "required_adverse_bound_given_repair": 0.3672693039388966,
+      "required_repair_magnitude": 0.053143349879197055,
+      "row_inequality": "repair_magnitude > -base_margin - negative_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "signed_magnitude_surplus": 0.009564090345659026,
+      "target": 13556,
+      "target_mod_286": 114,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.03315009592129518,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.036708874354922455,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.06050184284993354,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.15706315156427392,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": 0.0022055973749225363,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.06099947139326837,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05299037239421609,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.016793247965261587,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.012972600503990475,
+      "base_margin_without_volatile": 0.30236706863831203,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.036744346024292496,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.352084015166595,
+      "positive_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "positive_sum_to_principal": 0.012972600503990475,
+      "repair_magnitude": 0.352084015166595,
+      "repair_to_required_ratio": 1.1165230689948842,
+      "required_adverse_bound_given_repair": 0.04971694652828296,
+      "required_repair_magnitude": 0.3153396691423025,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.036744346024292496,
+      "target": 13822,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.05398792710903812,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05489223962692793,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.012972600503990475,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.08202130544146466,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.059241998640124714,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05187010753344486,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.045206799023096586,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.0048636377924981275,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.09240094497389327,
+      "base_margin_without_volatile": -0.0008784786089613417,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.013458672694179219,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.10498113905911115,
+      "positive_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.09240094497389327,
+      "repair_magnitude": 0.10498113905911115,
+      "repair_to_required_ratio": 1.1470532124922728,
+      "required_adverse_bound_given_repair": 0.10585961766807249,
+      "required_repair_magnitude": 0.09152246636493193,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.013458672694179219,
+      "target": 24424,
+      "target_mod_286": 114,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.015720834414845876,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": 0.027023602682221284,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -6.027718732478987e-05,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.04909814967859022,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.006802976476864048,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.07385852197790685,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.01627919261308177,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.008538529002169584,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.21102100813670172,
+      "base_margin_without_volatile": 0.16114720277995076,
+      "dominant_floor_passes": true,
+      "full_margin_to_floor": 0.048938403503475,
+      "negative_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.21102100813670172,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.09881220886022594,
+      "repair_magnitude": 0.09881220886022594,
+      "repair_to_required_ratio": 1.9812446263808232,
+      "required_adverse_bound_given_repair": 0.2599594116401767,
+      "required_repair_magnitude": 0.049873805356750955,
+      "row_inequality": "repair_magnitude > -base_margin - negative_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "signed_magnitude_surplus": 0.04893840350347499,
+      "target": 40420,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": 0.05750789877276248,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.001979788920348253,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.07573268993869196,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.010566116512437034,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": 0.030886114797656437,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.09676684778153875,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.010418195289807024,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.025975564983685705,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.24412453242118604,
+      "base_margin_without_volatile": -0.16996298157625767,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.09922857579168903,
+      "negative_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.1733901266366174,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "positive_sum_to_principal": 0.24412453242118604,
+      "repair_magnitude": 0.1733901266366174,
+      "repair_to_required_ratio": 2.338005673575729,
+      "required_adverse_bound_given_repair": 0.34335310821287507,
+      "required_repair_magnitude": 0.07416155084492837,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.09922857579168903,
+      "target": 55864,
+      "target_mod_286": 94,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": 0.08817081509299234,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.05223406662381161,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011691757478417861,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.02355545798098456,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": 0.03744869252439023,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": 0.09494956682281891,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.08955057308993251,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.01991372944445541,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.13211674827025122,
+      "base_margin_without_volatile": 0.03657179050900944,
+      "dominant_floor_passes": true,
+      "full_margin_to_floor": 0.05842892627684909,
+      "negative_channels": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.13211674827025122,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.15397388403809087,
+      "repair_magnitude": 0.15397388403809087,
+      "repair_to_required_ratio": 1.6115333309671631,
+      "required_adverse_bound_given_repair": 0.1905456745471003,
+      "required_repair_magnitude": 0.09554495776124178,
+      "row_inequality": "repair_magnitude > -base_margin - negative_sum",
+      "sign_expected_adverse_channels": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "signed_magnitude_surplus": 0.05842892627684909,
+      "target": 129706,
+      "target_mod_286": 148,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": 0.03312336907121687,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": 0.04331158147838401,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.014080539007662048,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.056801848808468926,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": 0.006656545672359012,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.09717824084358448,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.024027728028209676,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.010910779398457072,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.006305458052905557,
+      "base_margin_without_volatile": 0.07568600519654217,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.0191517924551758,
+      "negative_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.10114325570462353,
+      "positive_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "positive_sum_to_principal": 0.006305458052905557,
+      "repair_magnitude": 0.10114325570462353,
+      "repair_to_required_ratio": 1.233582762109137,
+      "required_adverse_bound_given_repair": 0.025457250508081355,
+      "required_repair_magnitude": 0.08199146324944773,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.0191517924551758,
+      "target": 164598,
+      "target_mod_286": 148,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": 0.002027930783131995,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": 0.004250864291460111,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.03791778393469892,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.016954964227732676,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011797294263576466,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.03092342912870403,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.003549784149911439,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.021622892410680487,
+      "base_margin_without_volatile": 0.0565737116979875,
+      "dominant_floor_passes": false,
+      "full_margin_to_floor": -0.008833179560530147,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.08702978366919814,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.021622892410680487,
+      "repair_magnitude": 0.08702978366919814,
+      "repair_to_required_ratio": 1.1129611657848324,
+      "required_adverse_bound_given_repair": 0.03045607197121064,
+      "required_repair_magnitude": 0.078196604108668,
+      "row_inequality": "repair_magnitude > base_margin + positive_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "signed_magnitude_surplus": 0.008833179560530147,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.010938875282588398,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.01454886268634833,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.018474432503645177,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.01021736429315472,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011851048833984464,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.017169791918250164,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.011405528117525765,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.014046772444381602,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.14499471273564604,
+      "base_margin_without_volatile": 0.1721812861165643,
+      "dominant_floor_passes": true,
+      "full_margin_to_floor": 0.02718657338091826,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.14499471273564604,
+      "positive_channels": [],
+      "positive_sum_to_principal": 0.0,
+      "repair_magnitude": 0.0,
+      "repair_to_required_ratio": null,
+      "required_adverse_bound_given_repair": 0.1721812861165643,
+      "required_repair_magnitude": -0.02718657338091826,
+      "row_inequality": "repair_magnitude > -base_margin - negative_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [],
+      "signed_magnitude_surplus": 0.02718657338091826,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.02407910288083677,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.001931166614128453,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.017710726808205953,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": -0.035956798584303756,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.011215651894444517,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.008006736357364156,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.019152098159140953,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.02694243143722148,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "adverse_magnitude": 0.10862151797119754,
+      "base_margin_without_volatile": 0.0963979003378351,
+      "dominant_floor_passes": true,
+      "full_margin_to_floor": 0.016528913466744594,
+      "negative_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "negative_sum_to_principal": -0.10862151797119754,
+      "positive_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "positive_sum_to_principal": 0.02875253110010704,
+      "repair_magnitude": 0.02875253110010704,
+      "repair_to_required_ratio": 2.3522112653157228,
+      "required_adverse_bound_given_repair": 0.12515043143794213,
+      "required_repair_magnitude": 0.012223617633362438,
+      "row_inequality": "repair_magnitude > -base_margin - negative_sum",
+      "sign_expected_adverse_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "sign_expected_repair_channels": [
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "signed_magnitude_surplus": 0.0165289134667446,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "volatile_channel_contributions": [
+        {
+          "contribution_to_principal": -0.004455966448924407,
+          "label": [
+            1,
+            1
+          ]
+        },
+        {
+          "contribution_to_principal": -0.017034981960262735,
+          "label": [
+            1,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": -0.028000803701620967,
+          "label": [
+            1,
+            5
+          ]
+        },
+        {
+          "contribution_to_principal": 0.013379352850151611,
+          "label": [
+            1,
+            7
+          ]
+        },
+        {
+          "contribution_to_principal": -0.01863359219696881,
+          "label": [
+            2,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.029793911186253248,
+          "label": [
+            3,
+            3
+          ]
+        },
+        {
+          "contribution_to_principal": 0.015373178249955429,
+          "label": [
+            4,
+            4
+          ]
+        },
+        {
+          "contribution_to_principal": -0.010702262477167376,
+          "label": [
+            4,
+            10
+          ]
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "7bcb1df0c5894395924062be0700f9250f60ab04",
+  "source_sign_polarity_profile": "evidence\\q286-first-three-dominant-mode-volatile-sign-polarity-profile.json",
+  "source_subset_ablation": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile polarity-magnitude ledger only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "summary": {
+    "next_tightest_row": "13556 is next, with surplus about 0.0095640903 and repair/required ratio about 1.179968.",
+    "shared_positive_pair": "1222142 and 1242118 share positive volatile channels (1,7),(4,4); for 1222142 that pair is adverse, while for 1242118 it is repairing.",
+    "target_1240888": "1240888 has no positive volatile channel and remains clear because its base margin already absorbs all negative volatile drag.",
+    "target_1242118": "1242118 has repair/required ratio about 2.352211, so the shared positive pair is not itself the tight margin there.",
+    "tightest_selected_row": "1222142 has the smallest signed magnitude surplus, about 0.0088331796, with repair/required ratio about 1.112961."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "volatile_channel_count": 8,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_polarity_magnitude_ledger_measured": true,
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}
