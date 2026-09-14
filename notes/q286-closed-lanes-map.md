@@ -1168,6 +1168,21 @@ current comparison set.
    satisfying subsets and `164598` with `46`.  This sharpens the missing
    theorem to signed row-threshold inequalities rather than a vague volatile
    correction term.
+114. `tools/build_q286_first_three_dominant_mode_volatile_common_core_obstruction.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-common-core-obstruction.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-common-core-obstruction.json`,
+   intersects the satisfying volatile-subset families from the row-threshold
+   ledger.  The three hardest selected deficit rows `13822`, `1222142`, and
+   `164598` share exactly one satisfying subset, with minimum common subset
+   size `8`, and that subset is the full eight-channel volatile rim.  All
+   selected deficit rows and the full selected fixture have the same one-subset
+   common intersection, while selected clears share `171` satisfying volatile
+   subsets with minimum common size `0`.  This demotes a small row-invariant
+   volatile-core theorem on the selected fixture and keeps the target at
+   row-specific signed volatile action, a full-package aggregate inequality,
+   or replacement arithmetic placement.
 
 ## Still open
 
@@ -1229,6 +1244,9 @@ current comparison set.
   deficit cap.
   The volatile row-threshold ledger makes that obligation explicit: each
   selected row is a finite threshold inequality, with `13822`, `1222142`, and
-  `164598` carrying the tightest subset constraints.
+  `164598` carrying the tightest subset constraints.  The common-core
+  obstruction then shows that those three hard deficit constraints do not
+  share a proper volatile subpackage; their only common satisfying subset is
+  the full eight-channel rim.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

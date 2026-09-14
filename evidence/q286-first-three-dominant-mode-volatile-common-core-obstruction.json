@@ -1,0 +1,1656 @@
+{
+  "all_selected_common_subset_count": 1,
+  "all_selected_common_subset_sample": [
+    {
+      "mask": 255,
+      "subset_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "subset_size": 8
+    }
+  ],
+  "arithmetic_modulus": 286,
+  "by_target": [
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.5224489795918368,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 128,
+          "target": 13556
+        },
+        {
+          "frequency": 0.5020408163265306,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 123,
+          "target": 13556
+        },
+        {
+          "frequency": 0.49387755102040815,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 121,
+          "target": 13556
+        },
+        {
+          "frequency": 0.49387755102040815,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 121,
+          "target": 13556
+        },
+        {
+          "frequency": 0.4857142857142857,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 119,
+          "target": 13556
+        },
+        {
+          "frequency": 0.4816326530612245,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 118,
+          "target": 13556
+        },
+        {
+          "frequency": 0.4775510204081633,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 117,
+          "target": 13556
+        },
+        {
+          "frequency": 0.4775510204081633,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 117,
+          "target": 13556
+        }
+      ],
+      "dominant_floor_passes": true,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 245,
+      "target": 13556,
+      "target_mod_286": 114
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 1.0,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 5,
+          "target": 13822
+        },
+        {
+          "frequency": 1.0,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 5,
+          "target": 13822
+        },
+        {
+          "frequency": 1.0,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 5,
+          "target": 13822
+        },
+        {
+          "frequency": 1.0,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 5,
+          "target": 13822
+        },
+        {
+          "frequency": 1.0,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 5,
+          "target": 13822
+        },
+        {
+          "frequency": 0.8,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 4,
+          "target": 13822
+        },
+        {
+          "frequency": 0.6,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 3,
+          "target": 13822
+        },
+        {
+          "frequency": 0.4,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 2,
+          "target": 13822
+        }
+      ],
+      "dominant_floor_passes": false,
+      "minimum_satisfying_subset_size": 6,
+      "necessary_channels_across_satisfying_subsets": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "satisfying_subset_count": 5,
+      "target": 13822,
+      "target_mod_286": 94
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.8111888111888111,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 116,
+          "target": 24424
+        },
+        {
+          "frequency": 0.5594405594405595,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 80,
+          "target": 24424
+        },
+        {
+          "frequency": 0.5244755244755245,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 75,
+          "target": 24424
+        },
+        {
+          "frequency": 0.5244755244755245,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 75,
+          "target": 24424
+        },
+        {
+          "frequency": 0.5034965034965035,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 72,
+          "target": 24424
+        },
+        {
+          "frequency": 0.4405594405594406,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 63,
+          "target": 24424
+        },
+        {
+          "frequency": 0.3776223776223776,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 54,
+          "target": 24424
+        },
+        {
+          "frequency": 0.36363636363636365,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 52,
+          "target": 24424
+        }
+      ],
+      "dominant_floor_passes": false,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 143,
+      "target": 24424,
+      "target_mod_286": 114
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.5470085470085471,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 128,
+          "target": 40420
+        },
+        {
+          "frequency": 0.5213675213675214,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 122,
+          "target": 40420
+        },
+        {
+          "frequency": 0.5042735042735043,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 118,
+          "target": 40420
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 117,
+          "target": 40420
+        },
+        {
+          "frequency": 0.49572649572649574,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 116,
+          "target": 40420
+        },
+        {
+          "frequency": 0.48717948717948717,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 114,
+          "target": 40420
+        },
+        {
+          "frequency": 0.452991452991453,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 106,
+          "target": 40420
+        },
+        {
+          "frequency": 0.452991452991453,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 106,
+          "target": 40420
+        }
+      ],
+      "dominant_floor_passes": true,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 234,
+      "target": 40420,
+      "target_mod_286": 94
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.5355648535564853,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 128,
+          "target": 55864
+        },
+        {
+          "frequency": 0.5230125523012552,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 125,
+          "target": 55864
+        },
+        {
+          "frequency": 0.5062761506276151,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 121,
+          "target": 55864
+        },
+        {
+          "frequency": 0.502092050209205,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 120,
+          "target": 55864
+        },
+        {
+          "frequency": 0.4895397489539749,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 117,
+          "target": 55864
+        },
+        {
+          "frequency": 0.4895397489539749,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 117,
+          "target": 55864
+        },
+        {
+          "frequency": 0.46443514644351463,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 111,
+          "target": 55864
+        },
+        {
+          "frequency": 0.46443514644351463,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 111,
+          "target": 55864
+        }
+      ],
+      "dominant_floor_passes": false,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 239,
+      "target": 55864,
+      "target_mod_286": 94
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.6020942408376964,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 115,
+          "target": 129706
+        },
+        {
+          "frequency": 0.5654450261780105,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 108,
+          "target": 129706
+        },
+        {
+          "frequency": 0.5549738219895288,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 106,
+          "target": 129706
+        },
+        {
+          "frequency": 0.518324607329843,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 99,
+          "target": 129706
+        },
+        {
+          "frequency": 0.5130890052356021,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 98,
+          "target": 129706
+        },
+        {
+          "frequency": 0.4869109947643979,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 93,
+          "target": 129706
+        },
+        {
+          "frequency": 0.4712041884816754,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 90,
+          "target": 129706
+        },
+        {
+          "frequency": 0.3298429319371728,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 63,
+          "target": 129706
+        }
+      ],
+      "dominant_floor_passes": true,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 191,
+      "target": 129706,
+      "target_mod_286": 148
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 1.0,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 46,
+          "target": 164598
+        },
+        {
+          "frequency": 1.0,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 46,
+          "target": 164598
+        },
+        {
+          "frequency": 0.6956521739130435,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 32,
+          "target": 164598
+        },
+        {
+          "frequency": 0.6521739130434783,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 30,
+          "target": 164598
+        },
+        {
+          "frequency": 0.5217391304347826,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 24,
+          "target": 164598
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 23,
+          "target": 164598
+        },
+        {
+          "frequency": 0.4782608695652174,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 22,
+          "target": 164598
+        },
+        {
+          "frequency": 0.4782608695652174,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 22,
+          "target": 164598
+        }
+      ],
+      "dominant_floor_passes": false,
+      "minimum_satisfying_subset_size": 3,
+      "necessary_channels_across_satisfying_subsets": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "satisfying_subset_count": 46,
+      "target": 164598,
+      "target_mod_286": 148
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.84375,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 27,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.84375,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 27,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.8125,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 26,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.8125,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 26,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.75,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 24,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.75,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 24,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.25,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 8,
+          "target": 1222142
+        },
+        {
+          "frequency": 0.25,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 8,
+          "target": 1222142
+        }
+      ],
+      "dominant_floor_passes": false,
+      "minimum_satisfying_subset_size": 4,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 32,
+      "target": 1222142,
+      "target_mod_286": 64
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.5,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        },
+        {
+          "frequency": 0.5,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1240888
+        }
+      ],
+      "dominant_floor_passes": true,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 256,
+      "target": 1240888,
+      "target_mod_286": 220
+    },
+    {
+      "channel_frequency": [
+        {
+          "frequency": 0.5059288537549407,
+          "label": [
+            1,
+            7
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.5059288537549407,
+          "label": [
+            4,
+            4
+          ],
+          "satisfying_subset_count": 128,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.4980237154150198,
+          "label": [
+            1,
+            1
+          ],
+          "satisfying_subset_count": 126,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.4980237154150198,
+          "label": [
+            4,
+            10
+          ],
+          "satisfying_subset_count": 126,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.49407114624505927,
+          "label": [
+            1,
+            3
+          ],
+          "satisfying_subset_count": 125,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.49407114624505927,
+          "label": [
+            1,
+            5
+          ],
+          "satisfying_subset_count": 125,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.49407114624505927,
+          "label": [
+            2,
+            4
+          ],
+          "satisfying_subset_count": 125,
+          "target": 1242118
+        },
+        {
+          "frequency": 0.49407114624505927,
+          "label": [
+            3,
+            3
+          ],
+          "satisfying_subset_count": 125,
+          "target": 1242118
+        }
+      ],
+      "dominant_floor_passes": true,
+      "minimum_satisfying_subset_size": 0,
+      "necessary_channels_across_satisfying_subsets": [],
+      "satisfying_subset_count": 253,
+      "target": 1242118,
+      "target_mod_286": 20
+    }
+  ],
+  "candidate": "A small row-invariant volatile core might satisfy the hard deficit-row thresholds while the clear rows remain tolerant.",
+  "clear_targets": [
+    13556,
+    40420,
+    129706,
+    1240888,
+    1242118
+  ],
+  "deficit_targets": [
+    13822,
+    24424,
+    55864,
+    164598,
+    1222142
+  ],
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "A proper volatile subset satisfying all hardest deficit-row thresholds falsifies the common-core obstruction.",
+  "goldbach_proved": false,
+  "group_summaries": [
+    {
+      "full_volatile_subset_is_common": true,
+      "intersection_count": 1,
+      "intersection_subset_sample": [
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.013333333333333334,
+      "minimum_intersection_subset_size": 8,
+      "name": "hardest_three_deficit_rows",
+      "proper_common_subset_exists": false,
+      "target_count": 3,
+      "targets": [
+        13822,
+        1222142,
+        164598
+      ],
+      "union_count": 75
+    },
+    {
+      "full_volatile_subset_is_common": true,
+      "intersection_count": 1,
+      "intersection_subset_sample": [
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.00390625,
+      "minimum_intersection_subset_size": 8,
+      "name": "all_deficit_rows",
+      "proper_common_subset_exists": false,
+      "target_count": 5,
+      "targets": [
+        13822,
+        24424,
+        55864,
+        164598,
+        1222142
+      ],
+      "union_count": 256
+    },
+    {
+      "full_volatile_subset_is_common": true,
+      "intersection_count": 171,
+      "intersection_subset_sample": [
+        {
+          "mask": 0,
+          "subset_labels": [],
+          "subset_size": 0
+        },
+        {
+          "mask": 1,
+          "subset_labels": [
+            [
+              1,
+              1
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 2,
+          "subset_labels": [
+            [
+              1,
+              3
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 4,
+          "subset_labels": [
+            [
+              1,
+              5
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 8,
+          "subset_labels": [
+            [
+              1,
+              7
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 16,
+          "subset_labels": [
+            [
+              2,
+              4
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 64,
+          "subset_labels": [
+            [
+              4,
+              4
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 128,
+          "subset_labels": [
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 1
+        },
+        {
+          "mask": 3,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "subset_size": 2
+        },
+        {
+          "mask": 5,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "subset_size": 2
+        },
+        {
+          "mask": 9,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "subset_size": 2
+        },
+        {
+          "mask": 17,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "subset_size": 2
+        }
+      ],
+      "jaccard_index": 0.66796875,
+      "minimum_intersection_subset_size": 0,
+      "name": "all_clear_rows",
+      "proper_common_subset_exists": true,
+      "target_count": 5,
+      "targets": [
+        13556,
+        40420,
+        129706,
+        1240888,
+        1242118
+      ],
+      "union_count": 256
+    },
+    {
+      "full_volatile_subset_is_common": true,
+      "intersection_count": 1,
+      "intersection_subset_sample": [
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.00390625,
+      "minimum_intersection_subset_size": 8,
+      "name": "all_selected_rows",
+      "proper_common_subset_exists": false,
+      "target_count": 10,
+      "targets": [
+        13556,
+        13822,
+        24424,
+        40420,
+        55864,
+        129706,
+        164598,
+        1222142,
+        1240888,
+        1242118
+      ],
+      "union_count": 256
+    }
+  ],
+  "hard_deficit_common_subset_count": 1,
+  "hard_deficit_minimum_common_subset_size": 8,
+  "hard_deficit_pairwise_overlap": [
+    {
+      "intersection_count": 2,
+      "intersection_subset_sample": [
+        {
+          "mask": 187,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 6
+        },
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.05714285714285714,
+      "minimum_intersection_subset_size": 6,
+      "proper_common_subset_exists": true,
+      "targets": [
+        13822,
+        1222142
+      ],
+      "union_count": 35
+    },
+    {
+      "intersection_count": 2,
+      "intersection_subset_sample": [
+        {
+          "mask": 127,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "subset_size": 7
+        },
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.04081632653061224,
+      "minimum_intersection_subset_size": 7,
+      "proper_common_subset_exists": true,
+      "targets": [
+        13822,
+        164598
+      ],
+      "union_count": 49
+    },
+    {
+      "intersection_count": 5,
+      "intersection_subset_sample": [
+        {
+          "mask": 215,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 6
+        },
+        {
+          "mask": 245,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 6
+        },
+        {
+          "mask": 246,
+          "subset_labels": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 6
+        },
+        {
+          "mask": 247,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 7
+        },
+        {
+          "mask": 255,
+          "subset_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "subset_size": 8
+        }
+      ],
+      "jaccard_index": 0.0684931506849315,
+      "minimum_intersection_subset_size": 6,
+      "proper_common_subset_exists": true,
+      "targets": [
+        1222142,
+        164598
+      ],
+      "union_count": 73
+    }
+  ],
+  "hard_deficit_proper_common_subset_exists": false,
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "interpretation": {
+    "clear_side": "Clear rows are not the binding common-core obstruction: many volatile subsets preserve all selected clears.",
+    "common_core": "The hardest three selected deficit rows have exactly one common satisfying volatile subset, and it is the full eight-channel rim.",
+    "remaining_theorem": "The next non-circular theorem must explain row-specific signed volatile action, prove a full-package aggregate inequality, or replace this split with a stronger arithmetic placement theorem."
+  },
+  "mechanism": "Intersect the satisfying volatile-subset families for hard deficit rows after fixing the stable core.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "A proper common hard-deficit subset would narrow the missing volatile theorem; if the only common subset is the full rim, the selected fixture needs row-specific or full-package control.",
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "0904f92c8922d0ccca6de358e6c6f0a64854fbe1",
+  "source_exact_subset_count_matches": true,
+  "source_row_thresholds": "evidence\\q286-first-three-dominant-mode-volatile-row-thresholds.json",
+  "source_subset_ablation": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile common-core obstruction only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "tested_subset_count": 256,
+  "volatile_channel_count": 8,
+  "volatile_common_core_obstruction_measured": true,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}

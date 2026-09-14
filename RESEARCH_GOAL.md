@@ -12013,3 +12013,47 @@ or replace them with a stronger non-circular arithmetic-placement theorem.
 This is finite threshold evidence only; it proves no volatile-rim theorem,
 stable-core theorem, selected-fixture classifier theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile common-core obstruction
+
+The row-threshold ledger was then tested for a small common volatile core
+across the hardest deficit rows.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-common-core-obstruction.json
+```
+
+The three hardest selected deficit rows by satisfying-subset count are:
+
+```text
+13822, 1222142, 164598
+```
+
+Their satisfying volatile-subset families have exactly one common subset:
+
+```text
+intersection count:          1
+minimum common subset size:  8
+proper common subset exists: false
+```
+
+That single common subset is the full eight-channel volatile rim:
+
+```text
+(1,1), (1,3), (1,5), (1,7), (2,4), (3,3), (4,4), (4,10)
+```
+
+All five selected deficit rows have the same one-subset intersection, and the
+full ten-row selected fixture also has exactly one common satisfying subset,
+matching the earlier exact-subset ablation receipt.  The selected clears are
+not the binding obstruction: they share `171` satisfying volatile subsets,
+with minimum common subset size `0`.
+
+This demotes a small row-invariant volatile-core theorem on the selected
+fixture.  Pairwise hard-deficit overlaps still have proper common subsets, so
+the obstruction appears when the three hard deficit obligations are combined.
+The remaining target is row-specific signed volatile action, a full-package
+aggregate inequality, or a replacement arithmetic-placement theorem.  This is
+finite common-core obstruction evidence only; it proves no volatile-rim
+theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
+character-sum estimate, or Goldbach.
