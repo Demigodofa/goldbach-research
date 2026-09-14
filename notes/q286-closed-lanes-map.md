@@ -416,7 +416,7 @@ current comparison set.
    scanned targets.  This falsifies simple immediate same-residue repetition
    of the known local active row, but no fixed-inequality rows were stressed.
 50. The active-lane strict closure-margin census regression passed in
-   `324.552s`.  It freezes the closure constants from
+   `321.226s`.  It freezes the closure constants from
    `14138,1222142,1323632,1379072` and applies
    `driver_margin + L * channel_margin` to selected active-window targets.
    The compact evidence file
@@ -424,7 +424,9 @@ current comparison set.
    scanned selected late windows around `1222142`, `1323632`, and `1379072`,
    selected exactly those three active starts, and measured positive strict
    margins `0.5506633762515991`, `0.546820393849208`, and
-   `0.48379401372791037`.
+   `0.48379401372791037`.  In all three rows, the channel-margin contribution
+   dominates the driver-margin contribution, so this selected strict slack is
+   channel-carried.
 
 ## Still open
 

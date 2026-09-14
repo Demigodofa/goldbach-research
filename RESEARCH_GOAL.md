@@ -10677,15 +10677,17 @@ theorem is proved.
 strict closure scalar to targets selected by a predeclared active-lane window,
 while keeping the closure constants calibrated from
 `14138,1222142,1323632,1379072`.  Focused regression
-`test_q286_active_lane_strict_closure_margin_census` passed in `324.552s`.
+`test_q286_active_lane_strict_closure_margin_census` passed in `321.226s`.
 The evidence file
 `evidence/q286-active-lane-strict-closure-margin-census-selected-late.json`
 records three compact selected late windows starting at `1222142`, `1323632`,
 and `1379072`: `15` scanned targets, three selected tail targets, and positive
 calibrated strict closure margins `0.5506633762515991`,
-`0.546820393849208`, and `0.48379401372791037`.  This is finite
-selected-fixture evidence only; the universal active-lane strict-margin
-theorem remains open.
+`0.546820393849208`, and `0.48379401372791037`.  The channel-margin
+contribution dominates the driver-margin contribution in all three rows,
+which points the next theorem pressure toward fixed-conductor channel slack.
+This is finite selected-fixture evidence only; the universal active-lane
+strict-margin theorem remains open.
 
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to

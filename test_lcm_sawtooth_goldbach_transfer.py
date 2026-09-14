@@ -3496,14 +3496,22 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             early_row["strict_closure_margin_to_calibrated_endpoint"],
             0.5506633762515991)
+        self.assertAlmostEqual(
+            early_row["channel_margin_contribution_to_strict_closure"],
+            0.5169646774182272)
+        self.assertEqual(
+            early_row["dominant_strict_margin_source"], "channel")
         middle_row = receipt["target_rows"][1323632]
         self.assertAlmostEqual(
             middle_row["strict_closure_margin_to_calibrated_endpoint"],
             0.546820393849208)
+        self.assertEqual(
+            middle_row["dominant_strict_margin_source"], "channel")
         row = receipt["target_rows"][1379072]
         self.assertAlmostEqual(
             row["strict_closure_margin_to_calibrated_endpoint"],
             0.48379401372791037)
+        self.assertEqual(row["dominant_strict_margin_source"], "channel")
         self.assertTrue(row["strict_closure_margin_positive"])
         self.assertTrue(row["positive_by_reconstructed_identity"])
         self.assertTrue(receipt["strict_closure_margin_census_measured"])

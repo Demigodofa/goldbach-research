@@ -567,7 +567,7 @@
       "type": "receipt",
       "label": "q286_active_lane_strict_closure_margin_census_receipt",
       "status": "validated_selected_active_window",
-      "validation": "test_q286_active_lane_strict_closure_margin_census passed in 324.552s; evidence/q286-active-lane-strict-closure-margin-census-selected-late.json selected 1222142, 1323632, and 1379072 from three selected late windows and measured positive calibrated strict closure margins",
+      "validation": "test_q286_active_lane_strict_closure_margin_census passed in 321.226s; evidence/q286-active-lane-strict-closure-margin-census-selected-late.json selected 1222142, 1323632, and 1379072 from three selected late windows, measured positive calibrated strict closure margins, and found channel-margin contribution dominant in all three rows",
       "status_boundary": "finite selected-fixture strict-margin evidence only; no universal active-lane theorem and no Goldbach proof"
     },
     {

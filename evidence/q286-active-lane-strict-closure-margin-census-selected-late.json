@@ -39,24 +39,30 @@
     "1222142": {
       "driver_margin_to_calibrated_floor": 0.0336986988333719,
       "channel_margin_to_calibrated_linf_bound": 0.03387054401495744,
+      "channel_margin_contribution_to_strict_closure": 0.5169646774182272,
       "strict_closure_margin_to_calibrated_endpoint": 0.5506633762515991,
+      "dominant_strict_margin_source": "channel",
       "full_action_to_principal_ratio": 0.9457162662139126
     },
     "1323632": {
       "driver_margin_to_calibrated_floor": 0.03844956933563071,
       "channel_margin_to_calibrated_linf_bound": 0.03330749109126701,
+      "channel_margin_contribution_to_strict_closure": 0.5083708245135773,
       "strict_closure_margin_to_calibrated_endpoint": 0.546820393849208,
+      "dominant_strict_margin_source": "channel",
       "full_action_to_principal_ratio": 1.0242192662363734
     },
     "1379072": {
       "driver_margin_to_calibrated_floor": 5.551115123125783e-17,
       "channel_margin_to_calibrated_linf_bound": 0.031697265116795305,
+      "channel_margin_contribution_to_strict_closure": 0.4837940137279103,
       "strict_closure_margin_to_calibrated_endpoint": 0.48379401372791037,
+      "dominant_strict_margin_source": "channel",
       "full_action_to_principal_ratio": 0.944998867177687
     }
   },
   "validation": {
-    "focused_unittest": "test_q286_active_lane_strict_closure_margin_census passed in 324.552s",
+    "focused_unittest": "test_q286_active_lane_strict_closure_margin_census passed in 321.226s",
     "direct_probe": "q286_active_lane_strict_closure_margin_census_receipt(starts=(1222142,1323632,1379072), targets_per_window=5)"
   },
   "boundary": "Finite selected-fixture evidence only. The closure constants are frozen from the calibration targets, but this does not prove the strict closure margin is positive on the whole active lane or prove Goldbach."

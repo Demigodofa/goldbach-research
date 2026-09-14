@@ -15945,14 +15945,19 @@ def q286_active_lane_strict_closure_margin_census_receipt(
                 "maximum_normalized_real_channel_sum"]
             driver_margin = driver - driver_floor
             channel_margin = channel_bound - max_channel
+            channel_margin_contribution = (
+                channel_l1_to_principal * channel_margin)
             strict_margin = (
-                driver_margin
-                + channel_l1_to_principal * channel_margin)
+                driver_margin + channel_margin_contribution)
             positive = strict_margin > tolerance
             if positive:
                 positive_margin_targets.append(target)
             else:
                 nonpositive_margin_targets.append(target)
+            if abs(driver_margin) >= abs(channel_margin_contribution):
+                dominant_margin_source = "driver"
+            else:
+                dominant_margin_source = "channel"
             target_rows[target] = {
                 "target": target,
                 "target_residue": identity_row["target_residue"],
@@ -15960,8 +15965,18 @@ def q286_active_lane_strict_closure_margin_census_receipt(
                 "maximum_normalized_real_channel_sum": max_channel,
                 "driver_margin_to_calibrated_floor": driver_margin,
                 "channel_margin_to_calibrated_linf_bound": channel_margin,
+                "channel_margin_contribution_to_strict_closure": (
+                    channel_margin_contribution),
                 "strict_closure_margin_to_calibrated_endpoint": (
                     strict_margin),
+                "dominant_strict_margin_source": (
+                    dominant_margin_source),
+                "driver_share_of_strict_margin": (
+                    driver_margin / strict_margin
+                    if abs(strict_margin) > tolerance else math.nan),
+                "channel_share_of_strict_margin": (
+                    channel_margin_contribution / strict_margin
+                    if abs(strict_margin) > tolerance else math.nan),
                 "strict_closure_margin_positive": bool(positive),
                 "full_action_to_principal_ratio": identity_row[
                     "full_action_to_principal_ratio"],

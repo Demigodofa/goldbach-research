@@ -1467,12 +1467,14 @@ driver_margin + L * channel_margin
 
 for every target selected by the predeclared active-lane selector.  Focused
 regression `test_q286_active_lane_strict_closure_margin_census` passed in
-`324.552s`.  The compact evidence file
+`321.226s`.  The compact evidence file
 `evidence/q286-active-lane-strict-closure-margin-census-selected-late.json`
 scans three selected late windows starting at `1222142`, `1323632`, and
 `1379072`, selects those same three starts as active tail targets, and
 measures positive strict margins `0.5506633762515991`,
-`0.546820393849208`, and `0.48379401372791037`.
+`0.546820393849208`, and `0.48379401372791037`.  In all three rows, the
+channel-margin contribution dominates the driver-margin contribution, so the
+currently observed strict slack is channel-carried.
 
 ## External source context
 

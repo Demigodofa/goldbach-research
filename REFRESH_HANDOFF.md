@@ -19376,7 +19376,7 @@ New strict closure-margin census:
 - `q286_active_lane_strict_closure_margin_census_receipt`
 
 Focused regression
-`test_q286_active_lane_strict_closure_margin_census` passed in `324.552s`.
+`test_q286_active_lane_strict_closure_margin_census` passed in `321.226s`.
 The receipt freezes the closure constants from calibration targets
 `14138,1222142,1323632,1379072`, then applies
 `driver_margin + L * channel_margin` only to targets selected by a
@@ -19388,7 +19388,9 @@ It scanned three selected late windows starting at `1222142`, `1323632`, and
 `1379072`, `15` targets total, selected exactly those three starts as active
 tail targets, and measured positive calibrated strict closure margins:
 `0.5506633762515991`, `0.546820393849208`, and
-`0.48379401372791037`.  This is finite selected-fixture evidence only; the
+`0.48379401372791037`.  In all three rows, the channel-margin contribution
+dominates the driver-margin contribution, so the selected strict slack is
+channel-carried.  This is finite selected-fixture evidence only; the
 strict-margin theorem over the full active lane remains open.
 
 External-source context checked on 2026-09-13: public arXiv sources around
