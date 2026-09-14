@@ -98,6 +98,14 @@
       "status_boundary": "finite theorem-shaping diagnostic only; identifies a compensation target but proves no eventual first-three rarity theorem, no signed prime-correlation estimate, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_reflection_orbit_ratio_certificate",
+      "type": "receipt",
+      "label": "q286 first-three reflection-orbit pressure/ratio certificate",
+      "status": "validated_finite_diagnostic",
+      "validation": "q286_first_three_reflection_orbit_ratio_certificate_receipt and tools/build_q286_first_three_reflection_orbit_ratio_certificate.py generated evidence/q286-first-three-reflection-orbit-ratio-certificate.json; the algebraic condition B<=1.25 and positive/B>=.76 implies first_three>=-.3, certifies 3645/5005 targets at start 10000, 4451/5005 at start 90080, and all 5005/5005 at start 1120120 with zero certified-tail counterexamples",
+      "status_boundary": "finite conditional certificate evidence only; the eventual pressure ceiling and compensation-ratio floor remain unproved, and Goldbach is not proved"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1437,6 +1445,16 @@
     },
     {
       "from": "receipt.q286_first_three_reflection_orbit_signed_cancellation",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_ratio_certificate",
+      "to": "receipt.q286_first_three_reflection_orbit_signed_cancellation",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_ratio_certificate",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
     },

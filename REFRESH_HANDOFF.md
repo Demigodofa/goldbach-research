@@ -19691,6 +19691,30 @@ pressure, or an explicit classification of compensation-deficit rows.  This
 proves no eventual q286 rarity, no signed prime-correlation estimate, and no
 Goldbach theorem.
 
+Fixed pressure/ratio certificate:
+
+- `q286_first_three_reflection_orbit_ratio_certificate_receipt`
+- `tools/build_q286_first_three_reflection_orbit_ratio_certificate.py`
+- `evidence/q286-first-three-reflection-orbit-ratio-certificate.json`
+
+This receipt makes the signed-orbit compensation target algebraic.  Let
+`B=-negative_orbit_contribution` and
+`R=positive_orbit_contribution/B`.  If `B <= 1.25` and `R >= .76`, then
+`first_three >= -(1-.76)*1.25 = -.3`.  These constants are now tested
+unchanged on three single-period windows.  At start `10000`, the certificate
+covers `3645/5005` targets, with `972` tails all uncertified.  At start
+`90080`, it covers `4451/5005` targets, with `241` tails all uncertified.  At
+start `1120120`, it covers all `5005/5005` targets: no tails, no pressure
+failures, no ratio failures, and no uncertified clear rows.  The late minimum
+ratio row is `1129472`, with ratio about `0.7600375137629325`; the late
+maximum pressure row is `1122550`, with pressure about `1.049858297023376`.
+
+Status: finite conditional certificate evidence.  The sharper possible
+eventual theorem is now: prove a pointwise negative-pressure ceiling
+`B <= 1.25` and a pointwise compensation-ratio floor `R >= .76` after a
+finite boundary, then check the earlier uncertified rows.  Those two
+arithmetic bounds are not proved, and Goldbach remains open.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

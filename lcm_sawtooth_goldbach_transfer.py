@@ -18241,6 +18241,203 @@ def q286_first_three_reflection_orbit_signed_cancellation_receipt(
     }
 
 
+def q286_first_three_reflection_orbit_ratio_certificate_receipt(
+        start=1120120, cycle_count=1, targets_per_cycle=5005,
+        tail_threshold=.3, pressure_ceiling=1.25,
+        compensation_ratio_floor=.76, tolerance=1e-9,
+        include_rows=False):
+    """Check a fixed algebraic signed-orbit compensation certificate.
+
+    Let ``B = -negative_orbit_contribution`` and
+    ``R = positive_orbit_contribution / B``.  If
+    ``B <= pressure_ceiling`` and ``R >= compensation_ratio_floor``, then
+    ``first_three >= -(1 - compensation_ratio_floor) * pressure_ceiling``.
+    The default constants make that bound exactly ``-.3``.
+
+    This receipt does not prove those two inequalities.  It measures where
+    actual q286 strict-central targets satisfy the fixed sufficient condition
+    and records the remaining uncertified rows.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    for name, value in (
+            ("tail_threshold", tail_threshold),
+            ("pressure_ceiling", pressure_ceiling),
+            ("compensation_ratio_floor", compensation_ratio_floor)):
+        if not math.isfinite(value) or value <= 0:
+            raise ValueError(f"{name} must be positive and finite")
+    if compensation_ratio_floor >= 1:
+        raise ValueError("compensation_ratio_floor must be less than 1")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    signed = q286_first_three_reflection_orbit_signed_cancellation_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tail_threshold=tail_threshold,
+        tolerance=tolerance, include_rows=True)
+    algebraic_bound = -(
+        1.0 - compensation_ratio_floor) * pressure_ceiling
+    algebraic_certificate_valid = bool(
+        algebraic_bound >= -tail_threshold - tolerance)
+
+    target_rows = {} if include_rows else None
+    certified_targets = []
+    certified_tail_targets = []
+    uncertified_clear_targets = []
+    uncertified_tail_targets = []
+    pressure_ceiling_failure_targets = []
+    ratio_floor_failure_targets = []
+    minimum_ratio_row = None
+    maximum_pressure_row = None
+    minimum_certificate_margin_row = None
+    uncertified_tail_rows = []
+    uncertified_clear_rows = []
+    certified_boundary_rows = []
+
+    def push_top(rows, row, key, reverse=False, limit=10):
+        rows.append(row)
+        rows.sort(key=key, reverse=reverse)
+        del rows[limit:]
+
+    for target, signed_row in signed["target_rows"].items():
+        pressure = -signed_row[
+            "negative_orbit_contribution_to_principal_ratio"]
+        ratio = signed_row["positive_to_negative_pressure_ratio"]
+        pressure_ok = bool(pressure <= pressure_ceiling + tolerance)
+        ratio_ok = bool(ratio >= compensation_ratio_floor - tolerance)
+        certified = bool(pressure_ok and ratio_ok)
+        tail = bool(
+            signed_row["first_three_to_principal_ratio"]
+            < -tail_threshold - tolerance)
+        certificate_margin = min(
+            pressure_ceiling - pressure,
+            ratio - compensation_ratio_floor)
+        row = {
+            "target": target,
+            "local_cycle": signed_row["local_cycle"],
+            "target_offset": signed_row["target_offset"],
+            "target_mod_286": signed_row["target_mod_286"],
+            "first_three_to_principal_ratio": signed_row[
+                "first_three_to_principal_ratio"],
+            "negative_pressure_to_principal_ratio": pressure,
+            "positive_to_negative_pressure_ratio": ratio,
+            "positive_orbit_contribution_to_principal_ratio": signed_row[
+                "positive_orbit_contribution_to_principal_ratio"],
+            "negative_orbit_contribution_to_principal_ratio": signed_row[
+                "negative_orbit_contribution_to_principal_ratio"],
+            "pressure_ceiling_margin": pressure_ceiling - pressure,
+            "compensation_ratio_margin": (
+                ratio - compensation_ratio_floor),
+            "certificate_margin": certificate_margin,
+            "pressure_ceiling_condition": pressure_ok,
+            "compensation_ratio_condition": ratio_ok,
+            "ratio_pressure_certificate": certified,
+            "tail_target": tail,
+        }
+        if include_rows:
+            target_rows[target] = row
+        if certified:
+            certified_targets.append(target)
+            if tail:
+                certified_tail_targets.append(target)
+            push_top(
+                certified_boundary_rows, row,
+                lambda item: item["certificate_margin"])
+        else:
+            if tail:
+                uncertified_tail_targets.append(target)
+                push_top(
+                    uncertified_tail_rows, row,
+                    lambda item: item["first_three_to_principal_ratio"])
+            else:
+                uncertified_clear_targets.append(target)
+                push_top(
+                    uncertified_clear_rows, row,
+                    lambda item: item["certificate_margin"])
+        if not pressure_ok:
+            pressure_ceiling_failure_targets.append(target)
+        if not ratio_ok:
+            ratio_floor_failure_targets.append(target)
+        if (minimum_ratio_row is None
+                or ratio < minimum_ratio_row[
+                    "positive_to_negative_pressure_ratio"]):
+            minimum_ratio_row = row
+        if (maximum_pressure_row is None
+                or pressure > maximum_pressure_row[
+                    "negative_pressure_to_principal_ratio"]):
+            maximum_pressure_row = row
+        if (minimum_certificate_margin_row is None
+                or certificate_margin < minimum_certificate_margin_row[
+                    "certificate_margin"]):
+            minimum_certificate_margin_row = row
+
+    return {
+        "arithmetic_modulus": signed["arithmetic_modulus"],
+        "arithmetic_period": signed["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "pressure_ceiling": pressure_ceiling,
+        "compensation_ratio_floor": compensation_ratio_floor,
+        "algebraic_certificate_bound": algebraic_bound,
+        "algebraic_certificate_valid": algebraic_certificate_valid,
+        "tested_target_count": signed["tested_target_count"],
+        "tested_targets_with_prime_pairs": (
+            signed["tested_targets_with_prime_pairs"]),
+        "target_rows_included": include_rows,
+        "target_rows": target_rows if include_rows else {},
+        "tail_target_count": signed["tail_target_count"],
+        "certified_target_count": len(certified_targets),
+        "certified_tail_target_count": len(certified_tail_targets),
+        "uncertified_clear_target_count": len(uncertified_clear_targets),
+        "uncertified_tail_target_count": len(uncertified_tail_targets),
+        "pressure_ceiling_failure_count": (
+            len(pressure_ceiling_failure_targets)),
+        "compensation_ratio_floor_failure_count": (
+            len(ratio_floor_failure_targets)),
+        "certified_targets": tuple(certified_targets[:20]),
+        "certified_tail_targets": tuple(certified_tail_targets),
+        "first_uncertified_clear_targets": tuple(
+            uncertified_clear_targets[:20]),
+        "first_uncertified_tail_targets": tuple(
+            uncertified_tail_targets[:20]),
+        "first_pressure_ceiling_failure_targets": tuple(
+            pressure_ceiling_failure_targets[:20]),
+        "first_compensation_ratio_floor_failure_targets": tuple(
+            ratio_floor_failure_targets[:20]),
+        "minimum_ratio_row": minimum_ratio_row,
+        "maximum_pressure_row": maximum_pressure_row,
+        "minimum_certificate_margin_row": (
+            minimum_certificate_margin_row),
+        "worst_uncertified_tail_rows": tuple(uncertified_tail_rows),
+        "nearest_uncertified_clear_rows": tuple(uncertified_clear_rows),
+        "nearest_certified_boundary_rows": tuple(certified_boundary_rows),
+        "maximum_orbit_reconstruction_error": signed[
+            "maximum_orbit_reconstruction_error"],
+        "maximum_reflection_pair_weight_fraction_error": signed[
+            "maximum_reflection_pair_weight_fraction_error"],
+        "first_three_reflection_orbit_ratio_certificate_measured": True,
+        "ratio_certificate_algebraic_sufficient_condition": (
+            algebraic_certificate_valid),
+        "ratio_certificate_all_targets_certified": bool(
+            len(certified_targets) == signed["tested_targets_with_prime_pairs"]),
+        "ratio_certificate_has_certified_tail_counterexample": bool(
+            len(certified_tail_targets) > 0),
+        "eventual_pressure_ratio_bounds_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

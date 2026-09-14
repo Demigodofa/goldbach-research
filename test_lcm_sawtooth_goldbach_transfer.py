@@ -108,6 +108,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_support_obstruction_receipt,
     q286_first_three_reflection_orbit_cap_receipt,
     q286_first_three_reflection_orbit_signed_cancellation_receipt,
+    q286_first_three_reflection_orbit_ratio_certificate_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3861,6 +3862,40 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_reflection_orbit_signed_cancellation_measured"])
         self.assertTrue(receipt["signed_orbit_cancellation_required"])
         self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_ratio_certificate(self):
+        receipt = q286_first_three_reflection_orbit_ratio_certificate_receipt(
+            start=1120120, cycle_count=1, targets_per_cycle=501,
+            tail_threshold=.3, pressure_ceiling=1.25,
+            compensation_ratio_floor=.76)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 501)
+        self.assertAlmostEqual(receipt["algebraic_certificate_bound"], -.3)
+        self.assertTrue(receipt["algebraic_certificate_valid"])
+        self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(
+            receipt["certified_target_count"],
+            receipt["tested_targets_with_prime_pairs"])
+        self.assertEqual(receipt["certified_tail_target_count"], 0)
+        self.assertEqual(receipt["uncertified_clear_target_count"], 0)
+        self.assertEqual(receipt["uncertified_tail_target_count"], 0)
+        self.assertGreater(
+            receipt["minimum_ratio_row"][
+                "positive_to_negative_pressure_ratio"],
+            .76)
+        self.assertLess(
+            receipt["maximum_pressure_row"][
+                "negative_pressure_to_principal_ratio"],
+            1.25)
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_ratio_certificate_measured"])
+        self.assertTrue(receipt[
+            "ratio_certificate_algebraic_sufficient_condition"])
+        self.assertTrue(receipt["ratio_certificate_all_targets_certified"])
+        self.assertFalse(receipt[
+            "ratio_certificate_has_certified_tail_counterexample"])
+        self.assertFalse(receipt["eventual_pressure_ratio_bounds_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

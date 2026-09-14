@@ -255,6 +255,78 @@ negative-orbit pressure, or an explicit classification of the compensation
 deficit rows.  This remains finite diagnostic evidence, not a proof of
 eventual first-three rarity or Goldbach.
 
+## Reflection-Orbit Ratio Certificate
+
+The receipt
+`q286_first_three_reflection_orbit_ratio_certificate_receipt` turns the signed
+decomposition into an explicit sufficient condition.  Let
+`B=-negative_orbit_contribution` and
+`R=positive_orbit_contribution/B`.  With the fixed constants
+
+```text
+B <= 1.25
+R >= 0.76
+```
+
+one has the algebraic implication
+
+```text
+first_three >= -(1 - 0.76)*1.25 = -0.3.
+```
+
+The receipt does not prove either inequality.  It only measures where actual
+strict-central q286 rows satisfy this fixed certificate.
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-ratio-certificate.json
+```
+
+Single-period window results:
+
+```text
+baseline start 10000:
+  tails: 972
+  certified: 3645
+  certified tails: 0
+  uncertified clear: 388
+  uncertified tails: 972
+  pressure failures: 16
+  ratio failures: 1356
+
+intermediate start 90080:
+  tails: 241
+  certified: 4451
+  certified tails: 0
+  uncertified clear: 313
+  uncertified tails: 241
+  pressure failures: 0
+  ratio failures: 554
+
+late start 1120120:
+  tails: 0
+  certified: 5005
+  certified tails: 0
+  uncertified clear: 0
+  uncertified tails: 0
+  pressure failures: 0
+  ratio failures: 0
+```
+
+The late minimum-ratio row is `1129472`, with
+`R=0.7600375137629325` and first-three/principal about
+`-0.2192068192668631`.  The late maximum-pressure row is `1122550`, with
+`B=1.049858297023376` and first-three/principal about
+`0.08634675899428819`.
+
+Interpretation: this is a real algebraic certificate and a sharper eventual
+theorem target: prove an eventual negative-pressure ceiling and an eventual
+positive-compensation ratio floor, then finitely check the earlier
+uncertified rows.  The early/intermediate windows also show why this is not
+already a proof: ratio failures explain the remaining tails, and the constants
+are only measured, not proved.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

@@ -10885,6 +10885,21 @@ orbit pressure, or a classification of the compensation-deficit rows.  This is
 finite theorem-shaping evidence only; no eventual rarity theorem or Goldbach
 proof is established.
 
+The ratio-certificate follow-up
+`q286_first_three_reflection_orbit_ratio_certificate_receipt` is recorded in
+`evidence/q286-first-three-reflection-orbit-ratio-certificate.json`.  It uses
+the explicit algebraic implication: if
+`B=-negative_orbit_contribution <= 1.25` and
+`positive_orbit_contribution/B >= .76`, then `first_three >= -.3`.  On
+single-period windows, this fixed certificate covers `3645/5005` targets at
+start `10000`, `4451/5005` targets at start `90080`, and all `5005/5005`
+targets at start `1120120`; it has zero certified-tail counterexamples in all
+three windows.  The late window has no tails, no pressure failures, and no
+ratio failures, with minimum ratio at `1129472` equal to about
+`0.7600375137629325`.  This sharpens the possible eventual theorem to two
+pointwise arithmetic bounds: a negative-pressure ceiling and a positive
+compensation-ratio floor.  Those bounds remain unproved.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
