@@ -12265,3 +12265,47 @@ full signed aggregate arithmetic-placement theorem.  This is finite
 repair-channel evidence only; it proves no volatile-rim theorem, stable-core
 theorem, selected-fixture classifier theorem, pointwise character-sum estimate,
 or Goldbach.
+
+### 2026-09-14 continuation: volatile boundary-cut graph
+
+The repair structure was then lifted from local fragile-clause events to the
+whole eight-channel volatile Boolean cube.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-boundary-cut-graph.json
+```
+
+For each selected row, the receipt enumerates all `256` volatile subsets and
+all `1024` one-channel addition edges, then keeps the edges that cross between
+correct and incorrect selected-row classification.
+
+For the hardest disjunctive row `1222142`, the boundary has a clean polarity:
+the only correct-to-wrong additions are `(1,7)` and `(4,4)`, each with `16`
+boundary edges.  The wrong-to-correct side uses the complementary six volatile
+channels:
+
+```text
+(1,1):  16
+(1,3):  20
+(1,5):  22
+(2,4):  16
+(3,3):  22
+(4,10): 20
+```
+
+Across the three hard deficit rows, there are `37` correct-to-wrong boundary
+edges and `271` wrong-to-correct boundary edges.  Across all selected deficit
+rows, there are `172` correct-to-wrong boundary edges and `424`
+wrong-to-correct boundary edges.  The selected clear rows have a different
+polarity, with `191` correct-to-wrong edges and `149` wrong-to-correct edges;
+clear row `1240888` is boundary-free because all `256` volatile subsets
+classify it correctly.
+
+This confirms that the remembered symmetry is real as finite boundary
+polarity, not merely a local clause artifact.  It is still not a proof.  The
+remaining theorem is to control actual binary-prime residue weights relative
+to this volatile boundary cut, or replace the Boolean cut picture with a full
+signed aggregate arithmetic-placement theorem.  This is finite boundary-cut
+evidence only; it proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.

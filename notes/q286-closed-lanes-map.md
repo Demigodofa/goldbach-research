@@ -1253,6 +1253,20 @@ current comparison set.
    pure non-undo as a complete finite explanation and sharpens the surviving
    Boolean target to ordered clause/adverse/repair control, or a replacement
    signed aggregate arithmetic-placement theorem.
+120. `tools/build_q286_first_three_dominant_mode_volatile_boundary_cut_graph.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-boundary-cut-graph.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-boundary-cut-graph.json`,
+   lifts the repair structure from local fragile-clause events to the whole
+   eight-channel volatile Boolean cube.  For `1222142`, the only
+   correct-to-wrong one-channel boundary additions are `(1,7)` and `(4,4)`,
+   each with `16` edges, while the wrong-to-correct side uses the six
+   complementary volatile channels.  Across the three hard deficit rows, there
+   are `37` correct-to-wrong boundary edges and `271` wrong-to-correct boundary
+   edges.  This confirms a finite boundary-polarity symmetry and sharpens the
+   live target to signed placement of actual binary-prime residue weights
+   relative to that volatile cut, or a replacement signed aggregate theorem.
 
 ## Still open
 
@@ -1335,5 +1349,9 @@ current comparison set.
   adverse event has a small repair, and the hard-row repairs are all
   one-channel.  The hole is tighter, but the theorem now has to control
   ordered adverse/repair balance rather than just forbid adverse additions.
+  The boundary-cut graph shows the `1222142` symmetry persists globally across
+  the volatile cube: its adverse boundary is exactly the two channels `(1,7)`
+  and `(4,4)`, while its repair boundary uses the complementary six.  This is
+  a sharper finite signed-polarity target, not yet a uniform theorem.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

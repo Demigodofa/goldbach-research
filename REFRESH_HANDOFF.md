@@ -20613,6 +20613,29 @@ This is finite diagnostic evidence only; it proves no volatile-rim theorem,
 stable-core theorem, selected-fixture classifier theorem, pointwise
 character-sum estimate, or Goldbach.
 
+Dominant-mode volatile boundary-cut graph:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_boundary_cut_graph.py`
+- `notes/q286-first-three-dominant-mode-volatile-boundary-cut-graph.md`
+- `evidence/q286-first-three-dominant-mode-volatile-boundary-cut-graph.json`
+
+This lifts the repair structure from local fragile-clause events to the whole
+eight-channel volatile Boolean cube.  For each selected row it enumerates all
+`256` volatile subsets and all `1024` one-channel addition edges, then keeps
+the boundary crossings between correct and incorrect classification.
+
+For `1222142`, the global volatile boundary is cleanly polarized: the only
+correct-to-wrong additions are `(1,7)` and `(4,4)`, each with `16` boundary
+edges.  The wrong-to-correct side uses the complementary six channels with
+counts `(1,1):16`, `(1,3):20`, `(1,5):22`, `(2,4):16`, `(3,3):22`, and
+`(4,10):20`.  Across the three hard deficit rows, there are `37`
+correct-to-wrong boundary edges and `271` wrong-to-correct boundary edges.
+
+This confirms the finite symmetry as a boundary-polarity target, not merely a
+local clause artifact.  It is not a theorem.  The next useful route is signed
+placement of actual binary-prime residue weights relative to this volatile cut,
+or a replacement signed aggregate arithmetic-placement theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
