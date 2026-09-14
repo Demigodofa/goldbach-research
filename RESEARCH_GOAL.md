@@ -12655,3 +12655,36 @@ binary-prime residue weights, or replace it with a stronger signed aggregate
 estimate.  This is finite q286 plane evidence only and proves no stable
 selector theorem, adverse-pair theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: pair/complement window holdout
+
+The `.02` top-`20` plane isolation was then tested on a wider predeclared
+denominator: the twelve closest-margin rows from each of the six windows in
+the near-boundary selector audit, `72` targets total.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pair-complement-window-holdout.json
+```
+
+The expanded holdout still contains exactly one dominant-floor deficit,
+`1222142`.  Stress-centered pair/complement squares at `.005` and `.01`
+continue to select only that finite deficit.  The `.02` square no longer does:
+clear row `1200302` enters the same box.
+
+```text
+1222142   deficit   pair 0.0216228924   complement -0.0870297837
+1200302   clear     pair 0.0101025261   complement -0.0789977905
+```
+
+The clear false positive is close in the plane, with stress-plane L1 distance
+about `0.0195523595` and Linf distance about `0.0115203663`, but it is not
+near the floor in outcome: its above-floor surplus is about `0.0648396973`.
+At `.03`, the stress-centered square contains seven rows: the deficit plus
+six clears.
+
+This demotes fixed-width pair/complement stress boxes as a stable selector.
+The plane remains useful as a microscope and theorem-obligation shaper, but
+the next proof route has to explain the placement arithmetically from actual
+binary-prime residue weights, or replace the plane with a stronger signed
+aggregate estimate.  This is finite expanded-window evidence only and proves
+no arithmetic placement theorem, signed projection theorem, or Goldbach.

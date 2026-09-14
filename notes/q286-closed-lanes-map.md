@@ -1405,6 +1405,19 @@ current comparison set.
    natural rectangle spanned by the two tightest rows already contains both
    `1222142` and clear row `1242118`, so the plane is a finite local locator
    and theorem-obligation shaper, not a classification theorem.
+131. `tools/build_q286_first_three_dominant_mode_pair_complement_window_holdout.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pair-complement-window-holdout.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-pair-complement-window-holdout.json`,
+   expands the pair/complement denominator from the top-`20` closest rows to
+   the predeclared `72` closest-margin rows from the six near-boundary
+   selector-audit windows.  The `.005` and `.01` stress-centered squares still
+   isolate deficit `1222142`, but the `.02` square now admits clear row
+   `1200302`, whose pair/complement coordinates are close to the stress row
+   while its above-floor surplus is about `0.0648396973`.  This demotes the
+   `.02` top-`20` box as a stable selector and preserves the plane only as a
+   finite microscope for an arithmetic placement theorem.
 
 ## Still open
 
@@ -1523,8 +1536,11 @@ current comparison set.
   pair/complement plane audit then shows this balance really does tighten the
   local finite picture: small stress-centered boxes isolate `1222142`, but
   modestly wider boxes and the natural tight-two rectangle admit clear rows.
+  The expanded window holdout then punctures the `.02` top-`20` box with clear
+  row `1200302`, while preserving `.01` isolation on the `72`-row denominator.
   The remaining target is therefore a row-dependent arithmetic placement bound
   for actual binary-prime residue weights, or a stronger signed aggregate
-  theorem explaining the allowed pair/complement band.
+  theorem explaining the allowed pair/complement band without a tuned
+  fixed-width box.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

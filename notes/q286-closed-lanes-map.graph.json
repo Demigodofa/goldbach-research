@@ -1245,6 +1245,14 @@
       "status": "finite_plane_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_plane_audit.py generated evidence/q286-first-three-dominant-mode-pair-complement-plane-audit.json; stress-centered pair/complement squares at epsilons .005, .01, and .02 isolate deficit 1222142 on the checked top-20 set, while the .03 square admits clears 1242118, 1222048, and 1242136",
       "status_boundary": "finite pair/complement plane diagnostic only; no stable selector theorem, adverse-pair theorem, pointwise prime-correlation estimate, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "type": "receipt",
+      "label": "q286 pair/complement window holdout",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_window_holdout.py generated evidence/q286-first-three-dominant-mode-pair-complement-window-holdout.json; on the predeclared 72-row window-closest denominator, the .02 stress-centered pair/complement square admits clear row 1200302, while the .005 and .01 squares still isolate deficit 1222142",
+      "status_boundary": "finite expanded-window holdout only; no stable box-selector theorem, arithmetic placement theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2650,6 +2658,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "to": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
+      "to": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_window_holdout",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

@@ -20889,6 +20889,34 @@ to proof.  The live theorem target is now a row-dependent arithmetic placement
 bound for actual binary-prime residue weights, or a stronger signed aggregate
 inequality explaining the allowed pair/complement band.
 
+Dominant-mode pair/complement window holdout:
+
+- `tools/build_q286_first_three_dominant_mode_pair_complement_window_holdout.py`
+- `notes/q286-first-three-dominant-mode-pair-complement-window-holdout.md`
+- `evidence/q286-first-three-dominant-mode-pair-complement-window-holdout.json`
+
+This expands the pair/complement plane denominator from the top-`20` closest
+rows to the predeclared `72` closest-margin rows, taking the twelve closest
+rows from each of the six near-boundary selector-audit windows and recomputing
+their exact signed q286 channel profiles.
+
+The expanded holdout still has exactly one dominant-floor deficit, `1222142`.
+Stress-centered pair/complement squares at `.005` and `.01` still isolate it,
+but the `.02` square now includes clear row `1200302`:
+
+```text
+1222142   deficit   pair 0.0216228924   complement -0.0870297837
+1200302   clear     pair 0.0101025261   complement -0.0789977905
+```
+
+The clear row has stress-plane L1 distance about `0.0195523595` and Linf
+distance about `0.0115203663`, while its above-floor surplus is about
+`0.0648396973`.  At `.03`, the square contains the deficit plus six clears.
+
+This demotes the `.02` top-`20` box as a stable selector.  Keep the
+pair/complement plane as a finite microscope and a way to shape the arithmetic
+placement theorem obligation, not as a proof object by itself.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
