@@ -12872,3 +12872,31 @@ This is a stronger finite stability result, but it is still not a theorem.
 The proof target remains a non-post-hoc arithmetic meaning for the frozen
 rank-`1` outside direction plus a residual-drag inequality, or a stronger
 signed aggregate theorem that removes the SVD proxy.
+
+### 2026-09-14 continuation: residual-drag channel-certificate falsifier
+
+The next receipt asks whether the residual-drag theorem target has a much
+simpler proof shape: perhaps a fixed small set of outside channels carries the
+negative residual mass on every dangerous row.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json
+```
+
+The test recomputes the full-window exact q286 signed channel rows, subtracts
+stress row `1222142`, subtracts the frozen Octave rank-`1` reconstruction, and
+then brute-forces all fixed outside-label subsets of size `1..5` on the
+high-drag rows with `residual_drag / rank1 >= 0.2`.
+
+That small fixed-channel certificate is refuted.  There are `73` negative-drag
+rows and `10` high-drag rows.  The best fixed five-label subset,
+`(1,9), (2,2), (2,8), (4,8), (5,1)`, covers only about `0.3570706202` of the
+negative residual mass in its worst row, target `1200482`, far below the
+`0.75` certificate threshold.  The high-drag rows have no common top-three
+negative-residual label.
+
+This preserves the finite `0.75` residual-drag cap but closes the simplest
+sparse proof explanation.  The next proof route should target a row-dependent
+arithmetic balance, a larger signed cone with explicit coefficients, or a
+replacement signed aggregate theorem rather than a tiny static bad-channel
+list.

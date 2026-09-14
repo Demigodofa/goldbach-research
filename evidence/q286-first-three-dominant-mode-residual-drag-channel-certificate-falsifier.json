@@ -1,0 +1,2015 @@
+{
+  "aggregate_negative_by_label_on_high_drag_rows": [
+    {
+      "aggregate_negative_residual": 0.13271572852882751,
+      "label": [
+        2,
+        2
+      ],
+      "row_count_with_negative_residual": 9
+    },
+    {
+      "aggregate_negative_residual": 0.12552441112443477,
+      "label": [
+        4,
+        8
+      ],
+      "row_count_with_negative_residual": 8
+    },
+    {
+      "aggregate_negative_residual": 0.12086649906039502,
+      "label": [
+        2,
+        10
+      ],
+      "row_count_with_negative_residual": 8
+    },
+    {
+      "aggregate_negative_residual": 0.11486588613402818,
+      "label": [
+        2,
+        8
+      ],
+      "row_count_with_negative_residual": 7
+    },
+    {
+      "aggregate_negative_residual": 0.09856430498847638,
+      "label": [
+        1,
+        9
+      ],
+      "row_count_with_negative_residual": 8
+    },
+    {
+      "aggregate_negative_residual": 0.09648521211818843,
+      "label": [
+        5,
+        1
+      ],
+      "row_count_with_negative_residual": 6
+    },
+    {
+      "aggregate_negative_residual": 0.06957126850395332,
+      "label": [
+        5,
+        5
+      ],
+      "row_count_with_negative_residual": 6
+    },
+    {
+      "aggregate_negative_residual": 0.068914305413178,
+      "label": [
+        3,
+        11
+      ],
+      "row_count_with_negative_residual": 6
+    },
+    {
+      "aggregate_negative_residual": 0.0626516383696165,
+      "label": [
+        1,
+        11
+      ],
+      "row_count_with_negative_residual": 5
+    },
+    {
+      "aggregate_negative_residual": 0.05789765526831793,
+      "label": [
+        3,
+        5
+      ],
+      "row_count_with_negative_residual": 7
+    },
+    {
+      "aggregate_negative_residual": 0.05696070607229694,
+      "label": [
+        3,
+        7
+      ],
+      "row_count_with_negative_residual": 6
+    },
+    {
+      "aggregate_negative_residual": 0.055824730685758744,
+      "label": [
+        4,
+        6
+      ],
+      "row_count_with_negative_residual": 3
+    },
+    {
+      "aggregate_negative_residual": 0.04556012749096211,
+      "label": [
+        2,
+        6
+      ],
+      "row_count_with_negative_residual": 7
+    },
+    {
+      "aggregate_negative_residual": 0.03258779340061879,
+      "label": [
+        4,
+        2
+      ],
+      "row_count_with_negative_residual": 5
+    },
+    {
+      "aggregate_negative_residual": 0.03167455963617834,
+      "label": [
+        3,
+        9
+      ],
+      "row_count_with_negative_residual": 4
+    },
+    {
+      "aggregate_negative_residual": 0.027461775648746013,
+      "label": [
+        5,
+        3
+      ],
+      "row_count_with_negative_residual": 5
+    },
+    {
+      "aggregate_negative_residual": 0.01827331068907235,
+      "label": [
+        3,
+        1
+      ],
+      "row_count_with_negative_residual": 4
+    }
+  ],
+  "best_fixed_subsets_on_high_drag_rows": [
+    {
+      "channel_count": 1,
+      "labels": [
+        [
+          2,
+          2
+        ]
+      ],
+      "maximum_row_share": 0.1748202478827233,
+      "mean_row_share": 0.11108935770171813,
+      "minimum_row_share": 0.0,
+      "minimum_share_target": 1200482
+    },
+    {
+      "channel_count": 2,
+      "labels": [
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "maximum_row_share": 0.3088943370200743,
+      "mean_row_share": 0.1968552103530193,
+      "minimum_row_share": 0.1000056763886446,
+      "minimum_share_target": 1222048
+    },
+    {
+      "channel_count": 3,
+      "labels": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "maximum_row_share": 0.4160056858622264,
+      "mean_row_share": 0.3079445680547374,
+      "minimum_row_share": 0.22856555998738662,
+      "minimum_share_target": 1222048
+    },
+    {
+      "channel_count": 4,
+      "labels": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          3
+        ]
+      ],
+      "maximum_row_share": 0.45108010979438307,
+      "mean_row_share": 0.32954919282543566,
+      "minimum_row_share": 0.2777326757285332,
+      "minimum_share_target": 1200482
+    },
+    {
+      "channel_count": 5,
+      "labels": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "maximum_row_share": 0.6486343770546467,
+      "mean_row_share": 0.4639514216633291,
+      "minimum_row_share": 0.3570706201967922,
+      "minimum_share_target": 1200482
+    }
+  ],
+  "candidate": "The negative residual drag after the frozen rank-1 outside direction might be certified by a fixed small subset of outside channels on every high-drag full-window row.",
+  "certificate_channel_limit": 5,
+  "certificate_share_threshold": 0.75,
+  "clear_count": 715,
+  "common_top3_negative_labels_on_high_drag_rows": [],
+  "falsifier": "Brute-force all outside-label subsets of size one through five. The certificate is refuted if the best five-label subset has a minimum row share below 0.75 across the high-drag rows.",
+  "full_window_target_count": 716,
+  "goldbach_proved": false,
+  "high_drag_ratio_summary": {
+    "count": 10,
+    "maximum": 0.7421344693153629,
+    "mean": 0.3352575836117262,
+    "minimum": 0.20093221854607832
+  },
+  "high_drag_ratio_threshold": 0.2,
+  "high_drag_row_count": 10,
+  "high_drag_rows_by_ratio": [
+    {
+      "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.03982418863984762,
+      "negative_residual_vector": [
+        0.009414195864056746,
+        0.012107834359311793,
+        0.011186156733912536,
+        0.0,
+        0.025980398295982095,
+        0.02461057264795589,
+        0.003491467760082103,
+        0.01312759366361367,
+        0.0,
+        0.0,
+        0.0073596992536243706,
+        0.0,
+        0.0,
+        0.007264637837776266,
+        0.027772365147467754,
+        0.0,
+        0.010169875258155943
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.0378711723344806,
+      "rank1_reconstructed_outside_delta": 0.1544378131273062,
+      "residual_after_rank1_row_sum": -0.11461362448745857,
+      "residual_drag": 0.11461362448745857,
+      "residual_drag_to_rank1_ratio": 0.7421344693153629,
+      "target": 1242118,
+      "target_mod_10010": 878,
+      "target_mod_286": 20,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.027772365147467754
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.025980398295982095
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.02461057264795589
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.01312759366361367
+        },
+        {
+          "label": [
+            1,
+            11
+          ],
+          "negative_residual": 0.012107834359311793
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.011186156733912536
+        },
+        {
+          "label": [
+            5,
+            5
+          ],
+          "negative_residual": 0.010169875258155943
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.009414195864056746
+        }
+      ],
+      "total_negative_residual_mass": 0.15248479682193916,
+      "window_index": 5,
+      "window_role": "stress",
+      "window_start": 1242000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.021280120300458616,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.06065645673299353,
+      "negative_residual_vector": [
+        0.022725352424183047,
+        0.0,
+        0.020274303004850072,
+        0.0,
+        0.0,
+        0.021052359940178733,
+        0.0,
+        0.0,
+        0.003620448145430928,
+        0.003535519591356083,
+        0.030585069673193657,
+        0.0,
+        0.0,
+        0.015771213605300753,
+        0.0,
+        0.015464802546715527,
+        0.024674115276158207
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.09415028579256698,
+      "rank1_reconstructed_outside_delta": 0.12420935514779355,
+      "residual_after_rank1_row_sum": -0.06355289841480002,
+      "residual_drag": 0.06355289841480002,
+      "residual_drag_to_rank1_ratio": 0.5116595150114099,
+      "target": 1222048,
+      "target_mod_10010": 828,
+      "target_mod_286": 256,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            3,
+            11
+          ],
+          "negative_residual": 0.030585069673193657
+        },
+        {
+          "label": [
+            5,
+            5
+          ],
+          "negative_residual": 0.024674115276158207
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.022725352424183047
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.021052359940178733
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.020274303004850072
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.015771213605300753
+        },
+        {
+          "label": [
+            5,
+            3
+          ],
+          "negative_residual": 0.015464802546715527
+        },
+        {
+          "label": [
+            3,
+            7
+          ],
+          "negative_residual": 0.003620448145430928
+        }
+      ],
+      "total_negative_residual_mass": 0.157703184207367,
+      "window_index": 3,
+      "window_role": "stress",
+      "window_start": 1222000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.042368787096773886,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.11361064889229076,
+      "negative_residual_vector": [
+        0.015915514451660596,
+        0.0025095442894288653,
+        0.018004207454812446,
+        0.0009993992504057445,
+        0.00993713099074744,
+        0.017055818437088414,
+        0.0,
+        0.0,
+        0.0,
+        0.017090904943966825,
+        0.008879529181537414,
+        0.0001571868469565918,
+        0.018856106386596648,
+        0.013763212862720219,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.028816778667211076,
+      "rank1_reconstructed_outside_delta": 0.2079624253210009,
+      "residual_after_rank1_row_sum": -0.09435177642871014,
+      "residual_drag": 0.09435177642871014,
+      "residual_drag_to_rank1_ratio": 0.4536962688479576,
+      "target": 1220056,
+      "target_mod_10010": 8846,
+      "target_mod_286": 266,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            4,
+            6
+          ],
+          "negative_residual": 0.018856106386596648
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.018004207454812446
+        },
+        {
+          "label": [
+            3,
+            9
+          ],
+          "negative_residual": 0.017090904943966825
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.017055818437088414
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.015915514451660596
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.013763212862720219
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.00993713099074744
+        },
+        {
+          "label": [
+            3,
+            11
+          ],
+          "negative_residual": 0.008879529181537414
+        }
+      ],
+      "total_negative_residual_mass": 0.1231685550959212,
+      "window_index": 1,
+      "window_role": "stress",
+      "window_start": 1220000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.09931914886199378,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.14488035491514292,
+      "negative_residual_vector": [
+        0.0,
+        0.01670419591230945,
+        0.019279462764980042,
+        0.0,
+        0.026598324434939584,
+        0.013154985162965312,
+        0.00884356117958424,
+        0.0007659766089990645,
+        0.0210670641037737,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.003868064817393306,
+        0.0
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.03697890818229609,
+      "rank1_reconstructed_outside_delta": 0.21818308171779152,
+      "residual_after_rank1_row_sum": -0.0733027268026486,
+      "residual_drag": 0.0733027268026486,
+      "residual_drag_to_rank1_ratio": 0.33596888551359755,
+      "target": 1200254,
+      "target_mod_10010": 9064,
+      "target_mod_286": 198,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.026598324434939584
+        },
+        {
+          "label": [
+            3,
+            7
+          ],
+          "negative_residual": 0.0210670641037737
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.019279462764980042
+        },
+        {
+          "label": [
+            1,
+            11
+          ],
+          "negative_residual": 0.01670419591230945
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.013154985162965312
+        },
+        {
+          "label": [
+            3,
+            1
+          ],
+          "negative_residual": 0.00884356117958424
+        },
+        {
+          "label": [
+            5,
+            3
+          ],
+          "negative_residual": 0.003868064817393306
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.0007659766089990645
+        }
+      ],
+      "total_negative_residual_mass": 0.1102816349849447,
+      "window_index": 0,
+      "window_role": "primary",
+      "window_start": 1200200
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.06889799801122376,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.1720944931362972,
+      "negative_residual_vector": [
+        0.015233580584272894,
+        0.0064543302892491605,
+        0.0,
+        0.023285077077364,
+        0.00999877131668064,
+        0.004084456625749547,
+        0.0,
+        0.007785390720332963,
+        0.0,
+        0.010121377029017609,
+        0.0,
+        0.0,
+        0.028597925748498728,
+        0.022011141973016568,
+        0.0,
+        0.004736492665379345,
+        0.0
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.07972351813660662,
+      "rank1_reconstructed_outside_delta": 0.22467951902925204,
+      "residual_after_rank1_row_sum": -0.05258502589295483,
+      "residual_drag": 0.05258502589295483,
+      "residual_drag_to_rank1_ratio": 0.2340445899125703,
+      "target": 1200482,
+      "target_mod_10010": 9292,
+      "target_mod_286": 140,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            4,
+            6
+          ],
+          "negative_residual": 0.028597925748498728
+        },
+        {
+          "label": [
+            2,
+            6
+          ],
+          "negative_residual": 0.023285077077364
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.022011141973016568
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.015233580584272894
+        },
+        {
+          "label": [
+            3,
+            9
+          ],
+          "negative_residual": 0.010121377029017609
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.00999877131668064
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.007785390720332963
+        },
+        {
+          "label": [
+            1,
+            11
+          ],
+          "negative_residual": 0.0064543302892491605
+        }
+      ],
+      "total_negative_residual_mass": 0.13230854402956146,
+      "window_index": 0,
+      "window_role": "primary",
+      "window_start": 1200200
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05870310895936798,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.1285171257570954,
+      "negative_residual_vector": [
+        0.016742509205408977,
+        0.0,
+        0.020512992020977797,
+        0.001725216766660662,
+        0.0,
+        0.0,
+        0.0,
+        0.019866730853160833,
+        0.017736877090817924,
+        0.0,
+        0.0,
+        0.008933024787390092,
+        0.0,
+        0.015839279778329947,
+        0.015637156858067006,
+        0.0,
+        0.00747272269521429
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.08749990537981922,
+      "rank1_reconstructed_outside_delta": 0.16548373043330372,
+      "residual_after_rank1_row_sum": -0.036966604676208305,
+      "residual_drag": 0.036966604676208305,
+      "residual_drag_to_rank1_ratio": 0.22338513024461495,
+      "target": 1222072,
+      "target_mod_10010": 852,
+      "target_mod_286": 280,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.020512992020977797
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.019866730853160833
+        },
+        {
+          "label": [
+            3,
+            7
+          ],
+          "negative_residual": 0.017736877090817924
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.016742509205408977
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.015839279778329947
+        },
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.015637156858067006
+        },
+        {
+          "label": [
+            4,
+            2
+          ],
+          "negative_residual": 0.008933024787390092
+        },
+        {
+          "label": [
+            5,
+            5
+          ],
+          "negative_residual": 0.00747272269521429
+        }
+      ],
+      "total_negative_residual_mass": 0.12446651005602753,
+      "window_index": 3,
+      "window_role": "stress",
+      "window_start": 1222000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.06950558123062478,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.17997068376978353,
+      "negative_residual_vector": [
+        0.006903532511756266,
+        0.0,
+        0.012459520689300056,
+        0.01312029649752892,
+        0.016621600695248477,
+        0.010184752910439116,
+        0.0,
+        0.0,
+        0.007580501448864343,
+        0.0,
+        0.005094412646923438,
+        0.009988568549698491,
+        0.0,
+        0.023790489461466117,
+        0.025084524764190454,
+        0.0,
+        0.0
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.07918985440912785,
+      "rank1_reconstructed_outside_delta": 0.23160902953607138,
+      "residual_after_rank1_row_sum": -0.05163834576628784,
+      "residual_drag": 0.05163834576628784,
+      "residual_drag_to_rank1_ratio": 0.2229548039198772,
+      "target": 1222030,
+      "target_mod_10010": 810,
+      "target_mod_286": 238,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.025084524764190454
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.023790489461466117
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.016621600695248477
+        },
+        {
+          "label": [
+            2,
+            6
+          ],
+          "negative_residual": 0.01312029649752892
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.012459520689300056
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.010184752910439116
+        },
+        {
+          "label": [
+            4,
+            2
+          ],
+          "negative_residual": 0.009988568549698491
+        },
+        {
+          "label": [
+            3,
+            7
+          ],
+          "negative_residual": 0.007580501448864343
+        }
+      ],
+      "total_negative_residual_mass": 0.1308282001754157,
+      "window_index": 3,
+      "window_role": "stress",
+      "window_start": 1222000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.06243712430917403,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.15354704589790968,
+      "negative_residual_vector": [
+        0.0,
+        0.0,
+        0.00547157180153237,
+        0.0029740813377862486,
+        0.01113276030086658,
+        0.0,
+        0.005892657562810787,
+        0.0034782290289538595,
+        0.004929352871126105,
+        0.0,
+        0.0067534993307226746,
+        0.011036036143179741,
+        0.0,
+        0.0,
+        0.011577065476741649,
+        0.002834576431618734,
+        0.002813258372655579
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.025657965789172565,
+      "rank1_reconstructed_outside_delta": 0.19678216876673144,
+      "residual_after_rank1_row_sum": -0.04323512286882176,
+      "residual_drag": 0.04323512286882176,
+      "residual_drag_to_rank1_ratio": 0.21971057204920497,
+      "target": 1220124,
+      "target_mod_10010": 8914,
+      "target_mod_286": 48,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.011577065476741649
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.01113276030086658
+        },
+        {
+          "label": [
+            4,
+            2
+          ],
+          "negative_residual": 0.011036036143179741
+        },
+        {
+          "label": [
+            3,
+            11
+          ],
+          "negative_residual": 0.0067534993307226746
+        },
+        {
+          "label": [
+            3,
+            1
+          ],
+          "negative_residual": 0.005892657562810787
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.00547157180153237
+        },
+        {
+          "label": [
+            3,
+            7
+          ],
+          "negative_residual": 0.004929352871126105
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.0034782290289538595
+        }
+      ],
+      "total_negative_residual_mass": 0.06889308865799433,
+      "window_index": 1,
+      "window_role": "stress",
+      "window_start": 1220000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05237494786232505,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.16475927403481885,
+      "negative_residual_vector": [
+        0.000547609282947668,
+        0.0,
+        0.0159189707994313,
+        0.002343288181039115,
+        0.0,
+        0.010661311254975258,
+        4.5624186595219496e-05,
+        0.006853738920914749,
+        0.0020264624122839393,
+        0.0,
+        0.010242095327176452,
+        0.0,
+        0.008370698550663372,
+        0.014792997053314515,
+        0.009890492586239166,
+        0.0005578391876391023,
+        0.011256669949417052
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.05021420509417972,
+      "rank1_reconstructed_outside_delta": 0.20805286663327605,
+      "residual_after_rank1_row_sum": -0.04329359259845719,
+      "residual_drag": 0.04329359259845719,
+      "residual_drag_to_rank1_ratio": 0.20808938275658828,
+      "target": 1221052,
+      "target_mod_10010": 9842,
+      "target_mod_286": 118,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.0159189707994313
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.014792997053314515
+        },
+        {
+          "label": [
+            5,
+            5
+          ],
+          "negative_residual": 0.011256669949417052
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.010661311254975258
+        },
+        {
+          "label": [
+            3,
+            11
+          ],
+          "negative_residual": 0.010242095327176452
+        },
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.009890492586239166
+        },
+        {
+          "label": [
+            4,
+            6
+          ],
+          "negative_residual": 0.008370698550663372
+        },
+        {
+          "label": [
+            3,
+            5
+          ],
+          "negative_residual": 0.006853738920914749
+        }
+      ],
+      "total_negative_residual_mass": 0.09350779769263691,
+      "window_index": 2,
+      "window_role": "stress",
+      "window_start": 1221000
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.07280069492223662,
+      "dominant_floor_passes": true,
+      "full_outside_delta_to_stress": 0.16515040568144265,
+      "negative_residual_vector": [
+        0.011082010664190184,
+        0.024875733519317236,
+        0.009608543259030902,
+        0.0011127683801774226,
+        0.014596900099563357,
+        0.020062242081042746,
+        0.0,
+        0.0060199954723427936,
+        0.0,
+        0.0009267580718378202,
+        0.0,
+        0.002472977073393872,
+        0.0,
+        0.012291438552510383,
+        0.00652360728548241,
+        0.0,
+        0.013184626952352244
+      ],
+      "outside_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "positive_residual_mass": 0.0812291626760717,
+      "rank1_reconstructed_outside_delta": 0.20667884441661233,
+      "residual_after_rank1_row_sum": -0.04152843873516967,
+      "residual_drag": 0.04152843873516967,
+      "residual_drag_to_rank1_ratio": 0.20093221854607832,
+      "target": 1242070,
+      "target_mod_10010": 830,
+      "target_mod_286": 258,
+      "top_negative_residual_channels": [
+        {
+          "label": [
+            1,
+            11
+          ],
+          "negative_residual": 0.024875733519317236
+        },
+        {
+          "label": [
+            2,
+            10
+          ],
+          "negative_residual": 0.020062242081042746
+        },
+        {
+          "label": [
+            2,
+            8
+          ],
+          "negative_residual": 0.014596900099563357
+        },
+        {
+          "label": [
+            5,
+            5
+          ],
+          "negative_residual": 0.013184626952352244
+        },
+        {
+          "label": [
+            4,
+            8
+          ],
+          "negative_residual": 0.012291438552510383
+        },
+        {
+          "label": [
+            1,
+            9
+          ],
+          "negative_residual": 0.011082010664190184
+        },
+        {
+          "label": [
+            2,
+            2
+          ],
+          "negative_residual": 0.009608543259030902
+        },
+        {
+          "label": [
+            5,
+            1
+          ],
+          "negative_residual": 0.00652360728548241
+        }
+      ],
+      "total_negative_residual_mass": 0.12275760141124137,
+      "window_index": 5,
+      "window_role": "stress",
+      "window_start": 1242000
+    }
+  ],
+  "high_drag_targets": [
+    1200254,
+    1200482,
+    1220056,
+    1220124,
+    1221052,
+    1222030,
+    1222048,
+    1222072,
+    1242070,
+    1242118
+  ],
+  "interpretation": {
+    "route_status": "This closes the simplest sparse-channel explanation for the rank-1 residual drag while preserving the 0.75 finite cap."
+  },
+  "mechanism": "Recompute exact full-window q286 signed channel rows, subtract stress row 1222142 on the 17 outside channels, subtract the frozen Octave rank-1 reconstruction, and inspect the negative part of the residual vector.",
+  "negative_drag_row_count": 73,
+  "negative_drag_summary": {
+    "count": 73,
+    "maximum": 0.11461362448745857,
+    "mean": 0.02130390602060534,
+    "minimum": 0.0002697154088439238
+  },
+  "novelty_label": "new-to-this-task",
+  "outside_labels": [
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "prediction": "If a small fixed-channel certificate exists, some subset of at most five outside labels should cover at least 75 percent of the negative residual mass in every high-drag row.",
+  "rank1_residual_bound_theorem_proved": false,
+  "residual_drag_channel_certificate_falsifier_measured": true,
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "small_fixed_channel_certificate_refuted": true,
+  "small_fixed_channel_certificate_theorem_proved": false,
+  "source_commit": "dce61000b8ff3004d6073450abe47f0acb21dd2c",
+  "source_outside_plane_remainder_octave_rank1_audit": "evidence\\q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json",
+  "source_rank1_residual_drag_full_window_audit": "evidence\\q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json",
+  "status_boundary": "finite full-window residual-channel diagnostic only; this falsifies one small fixed-channel certificate shape and proves no residual theorem, signed projection theorem, or Goldbach proof",
+  "summary": {
+    "best_five_label_subset": "Even the best fixed five-label subset fails to cover 75 percent of negative residual mass in every high-drag row.",
+    "result": "The small fixed-channel certificate is refuted on the predeclared high-drag full-window rows.",
+    "theorem_impact": "The residual-drag proof route should not target a tiny static bad-channel list; it needs a row-dependent arithmetic balance, a larger signed cone, or a replacement aggregate theorem."
+  }
+}

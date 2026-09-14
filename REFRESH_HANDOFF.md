@@ -21053,6 +21053,32 @@ cap fails at `1242118` and `1222048`; the quarter cap now fails at
 ten checked rows.  This makes the finite rank-`1` plus residual-drag target
 more stable, but the theorem obligation remains arithmetic and non-post-hoc.
 
+Dominant-mode residual-drag channel-certificate falsifier:
+
+- `tools/build_q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier.py`
+- `notes/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.md`
+- `evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json`
+
+This tests the simplest proof shortcut for the residual obstruction: a fixed
+small subset of outside channels might carry the negative residual mass after
+subtracting the frozen Octave rank-`1` reconstruction.  The builder recomputes
+the full-window q286 signed channel profiles, subtracts stress row `1222142`,
+forms the residual vector on the `17` outside channels, and brute-forces all
+fixed outside-label subsets of sizes `1..5` on the high-drag rows with
+`residual_drag / rank1 >= 0.2`.
+
+The shortcut is refuted.  There are `73` rows with negative residual drag and
+`10` high-drag rows.  The best fixed five-label subset is
+`(1,9), (2,2), (2,8), (4,8), (5,1)`, but its worst-row negative-mass coverage
+is only about `0.3570706202` at target `1200482`, below the `0.75` threshold.
+The high-drag rows also have no common top-three negative-residual label.
+
+This does not refute the finite full-window `0.75` residual-drag cap.  It
+does refute a tiny static bad-channel certificate as the likely theorem
+mechanism.  The next theorem route should use row-dependent arithmetic
+balance, a larger signed cone with explicit coefficients, or a replacement
+signed aggregate theorem that removes the SVD proxy.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

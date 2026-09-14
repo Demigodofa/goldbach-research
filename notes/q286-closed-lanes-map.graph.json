@@ -1301,6 +1301,14 @@
       "status": "finite_holdout_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_full_window_audit.py generated evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json; on all 716 targets in the six windows, 1222142 remains the lone deficit, the frozen rank-1 outside direction is positive on all 715 checked clears, and the 0.75 residual-drag cap survives with worst ratio about 0.7421344693 at 1242118",
       "status_boundary": "finite full-window residual-drag audit only; no residual-bound theorem, rank-1 theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier",
+      "type": "receipt",
+      "label": "q286 residual-drag channel-certificate falsifier",
+      "status": "finite_falsifier",
+      "validation": "tools/build_q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier.py generated evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json; on the 10 high-drag full-window rows, the best fixed five-label subset covers only about 0.3570706202 of negative residual mass in its worst row 1200482, so the small fixed-channel certificate is refuted",
+      "status_boundary": "finite channel-certificate falsifier only; no residual-bound theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2811,6 +2819,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_full_window_audit",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_full_window_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

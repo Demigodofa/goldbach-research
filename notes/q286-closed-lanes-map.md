@@ -1492,6 +1492,21 @@ current comparison set.
    residual-drag cap survives with the same worst row `1242118` at ratio
    about `0.7421344693`.  This strengthens the finite stability of the
    target, while lower caps remain refuted.
+138. `tools/build_q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json`,
+   tests whether the rank-`1` residual-drag theorem target has a small fixed
+   outside-channel certificate.  It recomputes the full-window q286 signed
+   channel rows, subtracts stress row `1222142`, subtracts the frozen Octave
+   rank-`1` reconstruction, and brute-forces all fixed outside-label subsets
+   of sizes `1..5` on the `10` high-drag rows.  The certificate is refuted:
+   the best fixed five-label subset covers only about `0.3570706202` of the
+   negative residual mass in its worst row `1200482`, and there is no common
+   top-three negative-residual label across the high-drag rows.  This
+   preserves the finite `0.75` residual-drag cap while demoting the tiny
+   static bad-channel proof shortcut.
 
 ## Still open
 
@@ -1635,5 +1650,10 @@ current comparison set.
   is no longer just a 72-row artifact.  The full-window audit then removes the
   closest-row filter entirely and preserves rank-`1` positivity plus the
   `0.75` residual-drag cap across all `715` checked clears in the six windows.
+  The channel-certificate falsifier then closes the simplest sparse residual
+  proof explanation: no fixed outside-label subset of size at most `5` covers
+  `75%` of negative residual mass on every high-drag row, so the next theorem
+  target must use row-dependent arithmetic balance, a larger signed cone, or a
+  replacement aggregate theorem rather than a tiny static bad-channel list.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
