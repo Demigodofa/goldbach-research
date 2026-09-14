@@ -1,0 +1,2220 @@
+{
+  "clear_target_count": 4033,
+  "cycle_count": 1,
+  "eventual_first_three_tail_bound_proved": false,
+  "first_tail_targets": [
+    10012,
+    10016,
+    10018,
+    10020,
+    10028,
+    10030,
+    10034,
+    10036,
+    10040,
+    10042,
+    10044,
+    10048,
+    10050,
+    10056,
+    10058,
+    10066,
+    10078,
+    10088,
+    10090,
+    10092
+  ],
+  "first_three_reflection_orbit_signed_cancellation_measured": true,
+  "goldbach_proved": false,
+  "interpretation": {
+    "changed_under_evidence": "A uniform reflection-orbit mass cap is not the active phenomenon: in the first q286 period, 5002 of 5005 targets have negative orbit pressure already below the -.3 tail threshold before compensation, but 4030 of those are cleared by positive orbit contribution.",
+    "remaining_theorem": "The natural next theorem target is a pointwise arithmetic lower bound on positive-orbit compensation relative to negative-orbit pressure, or an explicit classification of the compensation-deficit rows."
+  },
+  "largest_compensation_deficit_rows": [
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.1500880008976309,
+      "first_three_to_principal_ratio": -1.1500880008976309,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        161,
+        207
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06697182904368795,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.152514776421717,
+        "mass_fraction": 0.0664864961762005,
+        "orbit": [
+          7,
+          75
+        ],
+        "orbit_average_to_principal_ratio": -2.2939210996700288,
+        "signed_contribution_to_principal_ratio": -0.152514776421717
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.046266970431913704,
+        "mass_fraction": 0.06683904129510138,
+        "orbit": [
+          129,
+          239
+        ],
+        "orbit_average_to_principal_ratio": 0.6922147525671438,
+        "signed_contribution_to_principal_ratio": 0.046266970431913704
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.269809632792171,
+      "negative_orbit_mass_fraction": 0.799310342754281,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.1500880008976306,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": -0.8500880008976304,
+      "positive_orbit_contribution_to_principal_ratio": 0.1197216318945406,
+      "positive_orbit_mass_fraction": 0.20068965724571905,
+      "positive_to_negative_pressure_ratio": 0.09428313410356319,
+      "required_positive_compensation_to_clear_threshold": 0.969809632792171,
+      "target": 10664,
+      "target_mod_286": 82,
+      "target_offset": 332,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0569183143768837,
+      "first_three_to_principal_ratio": -1.0569183143768837,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        37,
+        75
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06675581272941014,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.15449072814865217,
+        "mass_fraction": 0.06675581272941014,
+        "orbit": [
+          37,
+          75
+        ],
+        "orbit_average_to_principal_ratio": -2.3142663062895985,
+        "signed_contribution_to_principal_ratio": -0.15449072814865217
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.025758089147312473,
+        "mass_fraction": 0.033061935203503666,
+        "orbit": [
+          185,
+          213
+        ],
+        "orbit_average_to_principal_ratio": 0.7790859485013694,
+        "signed_contribution_to_principal_ratio": 0.02575808914731247
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2247796678728486,
+      "negative_orbit_mass_fraction": 0.6670201242160139,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0569183143768837,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7569183143768836,
+      "positive_orbit_contribution_to_principal_ratio": 0.16786135349596498,
+      "positive_orbit_mass_fraction": 0.3329798757839859,
+      "positive_to_negative_pressure_ratio": 0.1370543273203582,
+      "required_positive_compensation_to_clear_threshold": 0.9247796678728486,
+      "target": 10408,
+      "target_mod_286": 112,
+      "target_offset": 204,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0401885969034605,
+      "first_three_to_principal_ratio": -1.0401885969034605,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        141,
+        251
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06476582182078236,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.21608240590863056,
+        "mass_fraction": 0.06435493740199323,
+        "orbit": [
+          107,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -3.357666321060518,
+        "signed_contribution_to_principal_ratio": -0.21608240590863056
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.030948370673483227,
+        "mass_fraction": 0.032363048875252244,
+        "orbit": [
+          123,
+          269
+        ],
+        "orbit_average_to_principal_ratio": 0.956287239585427,
+        "signed_contribution_to_principal_ratio": 0.030948370673483227
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.234361047007222,
+      "negative_orbit_mass_fraction": 0.6773627937321335,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0401885969034605,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7401885969034603,
+      "positive_orbit_contribution_to_principal_ratio": 0.1941724501037616,
+      "positive_orbit_mass_fraction": 0.32263720626786646,
+      "positive_to_negative_pressure_ratio": 0.15730604151398303,
+      "required_positive_compensation_to_clear_threshold": 0.9343610470072219,
+      "target": 12118,
+      "target_mod_286": 106,
+      "target_offset": 1059,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0019767370885293,
+      "first_three_to_principal_ratio": -1.0019767370885293,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        259
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.10357383277476663,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.20303327389453357,
+        "mass_fraction": 0.06919115884360966,
+        "orbit": [
+          107,
+          197
+        ],
+        "orbit_average_to_principal_ratio": -2.934381751770375,
+        "signed_contribution_to_principal_ratio": -0.20303327389453357
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.02213795522788487,
+        "mass_fraction": 0.034597805918592045,
+        "orbit": [
+          147,
+          157
+        ],
+        "orbit_average_to_principal_ratio": 0.6398658712629074,
+        "signed_contribution_to_principal_ratio": 0.02213795522788487
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1330342757522651,
+      "negative_orbit_mass_fraction": 0.7248085580537593,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0019767370885293,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7019767370885294,
+      "positive_orbit_contribution_to_principal_ratio": 0.1310575386637357,
+      "positive_orbit_mass_fraction": 0.2751914419462407,
+      "positive_to_negative_pressure_ratio": 0.1156695269229358,
+      "required_positive_compensation_to_clear_threshold": 0.8330342757522651,
+      "target": 10028,
+      "target_mod_286": 18,
+      "target_offset": 14,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 4.440892098500626e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9923694214370516,
+      "first_three_to_principal_ratio": -0.9923694214370512,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        159,
+        251
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06380433729342745,
+      "maximum_reflection_pair_weight_fraction_error": 3.814786506134695e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.14963792962963107,
+        "mass_fraction": 0.06380433729342745,
+        "orbit": [
+          159,
+          251
+        ],
+        "orbit_average_to_principal_ratio": -2.345262657324793,
+        "signed_contribution_to_principal_ratio": -0.14963792962963107
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.04102355336394209,
+        "mass_fraction": 0.0212367562068712,
+        "orbit": [
+          5,
+          119
+        ],
+        "orbit_average_to_principal_ratio": 1.9317240808494482,
+        "signed_contribution_to_principal_ratio": 0.04102355336394208
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2541488662503688,
+      "negative_orbit_mass_fraction": 0.6601268233073609,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9923694214370515,
+      "orbit_reconstruction_error": 3.3306690738754696e-16,
+      "positive_compensation_surplus_to_threshold": -0.6923694214370513,
+      "positive_orbit_contribution_to_principal_ratio": 0.26177944481331755,
+      "positive_orbit_mass_fraction": 0.33987317669263906,
+      "positive_to_negative_pressure_ratio": 0.20873075904934707,
+      "required_positive_compensation_to_clear_threshold": 0.9541488662503688,
+      "target": 14996,
+      "target_mod_286": 124,
+      "target_offset": 2498,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.1102230246251565e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9736501368716948,
+      "first_three_to_principal_ratio": -0.9736501368716949,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        57,
+        205
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07065811542855599,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.23292070652912877,
+        "mass_fraction": 0.04714393638142486,
+        "orbit": [
+          263,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -4.940629154185387,
+        "signed_contribution_to_principal_ratio": -0.2329207065291288
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.041990385782580734,
+        "mass_fraction": 0.023604028954465256,
+        "orbit": [
+          95,
+          167
+        ],
+        "orbit_average_to_principal_ratio": 1.778949935351493,
+        "signed_contribution_to_principal_ratio": 0.041990385782580734
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.215568107459701,
+      "negative_orbit_mass_fraction": 0.6706998972334491,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.973650136871695,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.6736501368716947,
+      "positive_orbit_contribution_to_principal_ratio": 0.24191797058800613,
+      "positive_orbit_mass_fraction": 0.3293001027665509,
+      "positive_to_negative_pressure_ratio": 0.19901638509878913,
+      "required_positive_compensation_to_clear_threshold": 0.9155681074597009,
+      "target": 18566,
+      "target_mod_286": 262,
+      "target_offset": 4283,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.9521227451437584,
+      "first_three_to_principal_ratio": -0.9521227451437584,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        37,
+        211
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06467632118258411,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.19490572283805907,
+        "mass_fraction": 0.06451998647807855,
+        "orbit": [
+          23,
+          225
+        ],
+        "orbit_average_to_principal_ratio": -3.020858085645765,
+        "signed_contribution_to_principal_ratio": -0.19490572283805901
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.03815895499093837,
+        "mass_fraction": 0.06422414890311305,
+        "orbit": [
+          35,
+          213
+        ],
+        "orbit_average_to_principal_ratio": 0.5941527547294401,
+        "signed_contribution_to_principal_ratio": 0.03815895499093837
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1943578494132103,
+      "negative_orbit_mass_fraction": 0.6128950615685852,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9521227451437583,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.6521227451437583,
+      "positive_orbit_contribution_to_principal_ratio": 0.24223510426945188,
+      "positive_orbit_mass_fraction": 0.38710493843141475,
+      "positive_to_negative_pressure_ratio": 0.2028161864456807,
+      "required_positive_compensation_to_clear_threshold": 0.8943578494132103,
+      "target": 13976,
+      "target_mod_286": 248,
+      "target_offset": 1988,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.9512760932193727,
+      "first_three_to_principal_ratio": -0.9512760932193727,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        93
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07304248505186738,
+      "maximum_reflection_pair_weight_fraction_error": 4.357068990178543e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.18359807991708266,
+        "mass_fraction": 0.048747519178390715,
+        "orbit": [
+          159,
+          265
+        ],
+        "orbit_average_to_principal_ratio": -3.76630612206559,
+        "signed_contribution_to_principal_ratio": -0.1835980799170827
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.031431642154576604,
+        "mass_fraction": 0.048913613055226714,
+        "orbit": [
+          157,
+          267
+        ],
+        "orbit_average_to_principal_ratio": 0.6425949790110208,
+        "signed_contribution_to_principal_ratio": 0.031431642154576604
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1225184056000557,
+      "negative_orbit_mass_fraction": 0.7071085085204,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9512760932193727,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.6512760932193726,
+      "positive_orbit_contribution_to_principal_ratio": 0.17124231238068305,
+      "positive_orbit_mass_fraction": 0.2928914914796001,
+      "positive_to_negative_pressure_ratio": 0.15255189716835282,
+      "required_positive_compensation_to_clear_threshold": 0.8225184056000556,
+      "target": 15296,
+      "target_mod_286": 138,
+      "target_offset": 2648,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.1102230246251565e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9459676768684486,
+      "first_three_to_principal_ratio": -0.9459676768684487,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        97,
+        107
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05804530653159878,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.17864934946347572,
+        "mass_fraction": 0.057730973440346535,
+        "orbit": [
+          227,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -3.0945147607475256,
+        "signed_contribution_to_principal_ratio": -0.17864934946347572
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.05238646519648567,
+        "mass_fraction": 0.028778515058368107,
+        "orbit": [
+          85,
+          119
+        ],
+        "orbit_average_to_principal_ratio": 1.8203324629584363,
+        "signed_contribution_to_principal_ratio": 0.05238646519648566
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2025016857691782,
+      "negative_orbit_mass_fraction": 0.6956577271623211,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.945967676868449,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": -0.6459676768684488,
+      "positive_orbit_contribution_to_principal_ratio": 0.25653400890072925,
+      "positive_orbit_mass_fraction": 0.304342272837679,
+      "positive_to_negative_pressure_ratio": 0.21333359606613583,
+      "required_positive_compensation_to_clear_threshold": 0.9025016857691781,
+      "target": 10786,
+      "target_mod_286": 204,
+      "target_offset": 393,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 3.3306690738754696e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9446471096921445,
+      "first_three_to_principal_ratio": -0.9446471096921448,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        21,
+        157
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06682910027087967,
+      "maximum_reflection_pair_weight_fraction_error": 4.1096354807559174e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.18409101065980105,
+        "mass_fraction": 0.04447864863040734,
+        "orbit": [
+          23,
+          155
+        ],
+        "orbit_average_to_principal_ratio": -4.138862495340051,
+        "signed_contribution_to_principal_ratio": -0.18409101065980107
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.0516891216643652,
+        "mass_fraction": 0.06679111330435077,
+        "orbit": [
+          83,
+          95
+        ],
+        "orbit_average_to_principal_ratio": 0.7738922007308144,
+        "signed_contribution_to_principal_ratio": 0.05168912166436519
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1906577154676836,
+      "negative_orbit_mass_fraction": 0.6443349832503991,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9446471096921445,
+      "orbit_reconstruction_error": 3.3306690738754696e-16,
+      "positive_compensation_surplus_to_threshold": -0.6446471096921448,
+      "positive_orbit_contribution_to_principal_ratio": 0.24601060577553877,
+      "positive_orbit_mass_fraction": 0.3556650167496008,
+      "positive_to_negative_pressure_ratio": 0.20661740362460693,
+      "required_positive_compensation_to_clear_threshold": 0.8906577154676836,
+      "target": 13048,
+      "target_mod_286": 178,
+      "target_offset": 1524,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    }
+  ],
+  "largest_negative_pressure_rows": [
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.7582066082555756,
+      "first_three_to_principal_ratio": -0.7582066082555756,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        125,
+        183
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05788598080113673,
+      "maximum_reflection_pair_weight_fraction_error": 3.33269250740023e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.2835019337232994,
+        "mass_fraction": 0.05773631244140057,
+        "orbit": [
+          23,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -4.910288200533063,
+        "signed_contribution_to_principal_ratio": -0.28350193372329946
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.2888479147619498,
+        "mass_fraction": 0.019223056841992086,
+        "orbit": [
+          133,
+          175
+        ],
+        "orbit_average_to_principal_ratio": 15.026117705222187,
+        "signed_contribution_to_principal_ratio": 0.2888479147619498
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3482034556689724,
+      "negative_orbit_mass_fraction": 0.5382171985918456,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.7582066082555757,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.4582066082555756,
+      "positive_orbit_contribution_to_principal_ratio": 0.5899968474133968,
+      "positive_orbit_mass_fraction": 0.4617828014081543,
+      "positive_to_negative_pressure_ratio": 0.43761707102333675,
+      "required_positive_compensation_to_clear_threshold": 1.0482034556689723,
+      "target": 17468,
+      "target_mod_286": 22,
+      "target_offset": 3734,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 4.163336342344337e-16,
+      "actual_orbit_total_to_principal_ratio": -0.2117638115997881,
+      "first_three_to_principal_ratio": -0.2117638115997877,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        265,
+        285
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.08575062117580251,
+      "maximum_reflection_pair_weight_fraction_error": 5.596880113751995e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.23087940928760778,
+        "mass_fraction": 0.08575062117580251,
+        "orbit": [
+          265,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -2.6924517411281257,
+        "signed_contribution_to_principal_ratio": -0.2308794092876078
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.8743106184520487,
+        "mass_fraction": 0.057428132918006455,
+        "orbit": [
+          131,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 15.224430501690765,
+        "signed_contribution_to_principal_ratio": 0.8743106184520489
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3438848378302222,
+      "negative_orbit_mass_fraction": 0.5428814840478857,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.2117638115997879,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 0.08823618840021208,
+      "positive_orbit_contribution_to_principal_ratio": 1.1321210262304342,
+      "positive_orbit_mass_fraction": 0.4571185159521142,
+      "positive_to_negative_pressure_ratio": 0.8424241381116461,
+      "required_positive_compensation_to_clear_threshold": 1.0438848378302221,
+      "target": 10274,
+      "target_mod_286": 264,
+      "target_offset": 137,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": -0.6413194604614308,
+      "first_three_to_principal_ratio": -0.6413194604614311,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        205,
+        283
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06536843465403304,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.22378137355505617,
+        "mass_fraction": 0.04341157626832419,
+        "orbit": [
+          75,
+          127
+        ],
+        "orbit_average_to_principal_ratio": -5.154877864187141,
+        "signed_contribution_to_principal_ratio": -0.2237813735550562
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.35583736455207016,
+        "mass_fraction": 0.021798618222485192,
+        "orbit": [
+          69,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 16.323849563318895,
+        "signed_contribution_to_principal_ratio": 0.3558373645520702
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3375825214077084,
+      "negative_orbit_mass_fraction": 0.6087256724027305,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.6413194604614307,
+      "orbit_reconstruction_error": 3.3306690738754696e-16,
+      "positive_compensation_surplus_to_threshold": -0.3413194604614307,
+      "positive_orbit_contribution_to_principal_ratio": 0.6962630609462777,
+      "positive_orbit_mass_fraction": 0.39127432759726954,
+      "positive_to_negative_pressure_ratio": 0.5205383965495537,
+      "required_positive_compensation_to_clear_threshold": 1.0375825214077083,
+      "target": 19364,
+      "target_mod_286": 202,
+      "target_offset": 4682,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": -0.632964412138191,
+      "first_three_to_principal_ratio": -0.6329644121381908,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        125,
+        159
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07807960741425622,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.1746998401442516,
+        "mass_fraction": 0.05206802871358017,
+        "orbit": [
+          43,
+          241
+        ],
+        "orbit_average_to_principal_ratio": -3.3552228586423722,
+        "signed_contribution_to_principal_ratio": -0.17469984014425158
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.42717327906996,
+        "mass_fraction": 0.026073783569986454,
+        "orbit": [
+          133,
+          151
+        ],
+        "orbit_average_to_principal_ratio": 16.38324863452803,
+        "signed_contribution_to_principal_ratio": 0.42717327906995994
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.333098597457122,
+      "negative_orbit_mass_fraction": 0.5846625950937389,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.6329644121381907,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.3329644121381907,
+      "positive_orbit_contribution_to_principal_ratio": 0.7001341853189311,
+      "positive_orbit_mass_fraction": 0.41533740490626114,
+      "positive_to_negative_pressure_ratio": 0.5251931002361214,
+      "required_positive_compensation_to_clear_threshold": 1.0330985974571218,
+      "target": 16586,
+      "target_mod_286": 284,
+      "target_offset": 3293,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.2809262776045315,
+      "first_three_to_principal_ratio": -0.2809262776045315,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        23,
+        263
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.038605854212853175,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.26237006775570987,
+        "mass_fraction": 0.038605854212853175,
+        "orbit": [
+          23,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -6.796121290546607,
+        "signed_contribution_to_principal_ratio": -0.26237006775570987
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.6160863529777696,
+        "mass_fraction": 0.0193004614788894,
+        "orbit": [
+          133,
+          153
+        ],
+        "orbit_average_to_principal_ratio": 31.920809440315047,
+        "signed_contribution_to_principal_ratio": 0.6160863529777696
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3310714919065607,
+      "negative_orbit_mass_fraction": 0.4036823166913729,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.2809262776045315,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": 0.01907372239546845,
+      "positive_orbit_contribution_to_principal_ratio": 1.0501452143020291,
+      "positive_orbit_mass_fraction": 0.5963176833086272,
+      "positive_to_negative_pressure_ratio": 0.7889472659337428,
+      "required_positive_compensation_to_clear_threshold": 1.0310714919065607,
+      "target": 15158,
+      "target_mod_286": 0,
+      "target_offset": 2579,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.6653345369377348e-16,
+      "actual_orbit_total_to_principal_ratio": -0.4430450117814401,
+      "first_three_to_principal_ratio": -0.44304501178143996,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        5,
+        257
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07154153747291718,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.35296322356842275,
+        "mass_fraction": 0.07144094659875752,
+        "orbit": [
+          263,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -4.940629154185387,
+        "signed_contribution_to_principal_ratio": -0.35296322356842275
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.5767816452621038,
+        "mass_fraction": 0.03552417549520671,
+        "orbit": [
+          129,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 16.236313361866184,
+        "signed_contribution_to_principal_ratio": 0.576781645262104
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3154936363414524,
+      "negative_orbit_mass_fraction": 0.571750985023547,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.4430450117814399,
+      "orbit_reconstruction_error": 5.551115123125783e-17,
+      "positive_compensation_surplus_to_threshold": -0.1430450117814399,
+      "positive_orbit_contribution_to_principal_ratio": 0.8724486245600125,
+      "positive_orbit_mass_fraction": 0.428249014976453,
+      "positive_to_negative_pressure_ratio": 0.663210068416901,
+      "required_positive_compensation_to_clear_threshold": 1.0154936363414524,
+      "target": 11416,
+      "target_mod_286": 262,
+      "target_offset": 708,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": -0.840825888019245,
+      "first_three_to_principal_ratio": -0.8408258880192447,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        241
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05267860081624351,
+      "maximum_reflection_pair_weight_fraction_error": 3.1008102065807758e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.23834618772403118,
+        "mass_fraction": 0.03507091435457021,
+        "orbit": [
+          23,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -6.796121290546607,
+        "signed_contribution_to_principal_ratio": -0.23834618772403118
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.05245134656605439,
+        "mass_fraction": 0.017461929099078226,
+        "orbit": [
+          119,
+          167
+        ],
+        "orbit_average_to_principal_ratio": 3.003754411580057,
+        "signed_contribution_to_principal_ratio": 0.052451346566054394
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.3076052669651017,
+      "negative_orbit_mass_fraction": 0.3688220957514363,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.8408258880192447,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.5408258880192451,
+      "positive_orbit_contribution_to_principal_ratio": 0.4667793789458565,
+      "positive_orbit_mass_fraction": 0.6311779042485639,
+      "positive_to_negative_pressure_ratio": 0.35697269714218294,
+      "required_positive_compensation_to_clear_threshold": 1.0076052669651017,
+      "target": 16016,
+      "target_mod_286": 0,
+      "target_offset": 3008,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.214306433183765e-16,
+      "actual_orbit_total_to_principal_ratio": -0.010853050172986638,
+      "first_three_to_principal_ratio": -0.01085305017298676,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        241
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.053887057440426156,
+      "maximum_reflection_pair_weight_fraction_error": 2.3101486263785584e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.275808849429579,
+        "mass_fraction": 0.040583273552405354,
+        "orbit": [
+          23,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -6.796121290546607,
+        "signed_contribution_to_principal_ratio": -0.27580884942957906
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.8623640085631604,
+        "mass_fraction": 0.02701573123249249,
+        "orbit": [
+          133,
+          153
+        ],
+        "orbit_average_to_principal_ratio": 31.920809440315047,
+        "signed_contribution_to_principal_ratio": 0.8623640085631604
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2850619866848287,
+      "negative_orbit_mass_fraction": 0.3782921926378307,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.010853050172986756,
+      "orbit_reconstruction_error": 3.469446951953614e-18,
+      "positive_compensation_surplus_to_threshold": 0.2891469498270127,
+      "positive_orbit_contribution_to_principal_ratio": 1.2742089365118414,
+      "positive_orbit_mass_fraction": 0.6217078073621692,
+      "positive_to_negative_pressure_ratio": 0.9915544539598546,
+      "required_positive_compensation_to_clear_threshold": 0.9850619866848287,
+      "target": 18590,
+      "target_mod_286": 0,
+      "target_offset": 4295,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 5.551115123125783e-17,
+      "actual_orbit_total_to_principal_ratio": -0.2676911885039571,
+      "first_three_to_principal_ratio": -0.2676911885039572,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        1,
+        285
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05561361982844672,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.19148274468805718,
+        "mass_fraction": 0.03714855041081519,
+        "orbit": [
+          127,
+          159
+        ],
+        "orbit_average_to_principal_ratio": -5.154514579182882,
+        "signed_contribution_to_principal_ratio": -0.19148274468805712
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.593952744453995,
+        "mass_fraction": 0.01860707027384619,
+        "orbit": [
+          133,
+          153
+        ],
+        "orbit_average_to_principal_ratio": 31.920809440315047,
+        "signed_contribution_to_principal_ratio": 0.5939527444539949
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2775984511839469,
+      "negative_orbit_mass_fraction": 0.3702920918584597,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.2676911885039571,
+      "orbit_reconstruction_error": 5.551115123125783e-17,
+      "positive_compensation_surplus_to_threshold": 0.03230881149604281,
+      "positive_orbit_contribution_to_principal_ratio": 1.0099072626799896,
+      "positive_orbit_mass_fraction": 0.6297079081415405,
+      "positive_to_negative_pressure_ratio": 0.790473142593521,
+      "required_positive_compensation_to_clear_threshold": 0.9775984511839468,
+      "target": 16874,
+      "target_mod_286": 0,
+      "target_offset": 3437,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.5197760447029707,
+      "first_three_to_principal_ratio": -0.5197760447029707,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        21,
+        43
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05900010039825613,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.1792611774615993,
+        "mass_fraction": 0.05900010039825613,
+        "orbit": [
+          21,
+          43
+        ],
+        "orbit_average_to_principal_ratio": -3.03831987151835,
+        "signed_contribution_to_principal_ratio": -0.1792611774615993
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.48182254932794394,
+        "mass_fraction": 0.029508114571230013,
+        "orbit": [
+          133,
+          217
+        ],
+        "orbit_average_to_principal_ratio": 16.328476296405395,
+        "signed_contribution_to_principal_ratio": 0.4818225493279439
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2743657643105237,
+      "negative_orbit_mass_fraction": 0.6174068704169335,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.5197760447029707,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.2197760447029704,
+      "positive_orbit_contribution_to_principal_ratio": 0.7545897196075533,
+      "positive_orbit_mass_fraction": 0.38259312958306657,
+      "positive_to_negative_pressure_ratio": 0.5921296230174644,
+      "required_positive_compensation_to_clear_threshold": 0.9743657643105237,
+      "target": 12934,
+      "target_mod_286": 64,
+      "target_offset": 1467,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    }
+  ],
+  "largest_positive_compensation_rows": [
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": 1.48252491117725,
+      "first_three_to_principal_ratio": 1.4825249111772503,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        255,
+        271
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.12026969709166307,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.15125758397805047,
+        "mass_fraction": 0.04003943411975528,
+        "orbit": [
+          81,
+          159
+        ],
+        "orbit_average_to_principal_ratio": -3.7777153274856268,
+        "signed_contribution_to_principal_ratio": -0.1512575839780505
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.1294576281472792,
+        "mass_fraction": 0.07997789423357811,
+        "orbit": [
+          107,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 14.122122606137399,
+        "signed_contribution_to_principal_ratio": 1.1294576281472792
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.6327193495305856,
+      "negative_orbit_mass_fraction": 0.3197142036251718,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.4825249111772505,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.7825249111772508,
+      "positive_orbit_contribution_to_principal_ratio": 2.1152442607078363,
+      "positive_orbit_mass_fraction": 0.6802857963748283,
+      "positive_to_negative_pressure_ratio": 3.3431003212990653,
+      "required_positive_compensation_to_clear_threshold": 0.33271934953058563,
+      "target": 11108,
+      "target_mod_286": 240,
+      "target_offset": 554,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": 1.1835119731621464,
+      "first_three_to_principal_ratio": 1.1835119731621466,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        137,
+        147
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.08697572546296393,
+      "maximum_reflection_pair_weight_fraction_error": 5.3574335283343926e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.13042412415799973,
+        "mass_fraction": 0.043445545733900075,
+        "orbit": [
+          285
+        ],
+        "orbit_average_to_principal_ratio": -3.002013715211114,
+        "signed_contribution_to_principal_ratio": -0.13042412415799973
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.4160969477315064,
+        "mass_fraction": 0.08643566238426323,
+        "orbit": [
+          133,
+          151
+        ],
+        "orbit_average_to_principal_ratio": 16.38324863452803,
+        "signed_contribution_to_principal_ratio": 1.4160969477315064
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.9217454908687319,
+      "negative_orbit_mass_fraction": 0.536879617870393,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.1835119731621464,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.4835119731621467,
+      "positive_orbit_contribution_to_principal_ratio": 2.1052574640308785,
+      "positive_orbit_mass_fraction": 0.46312038212960693,
+      "positive_to_negative_pressure_ratio": 2.2839899786726416,
+      "required_positive_compensation_to_clear_threshold": 0.6217454908687319,
+      "target": 13154,
+      "target_mod_286": 284,
+      "target_offset": 1577,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 6.661338147750939e-16,
+      "actual_orbit_total_to_principal_ratio": 1.2333486603169461,
+      "first_three_to_principal_ratio": 1.2333486603169455,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        101,
+        203
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.056590625480422256,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.14423892800899957,
+        "mass_fraction": 0.05641305383533005,
+        "orbit": [
+          67,
+          237
+        ],
+        "orbit_average_to_principal_ratio": -2.5568360193729918,
+        "signed_contribution_to_principal_ratio": -0.14423892800899957
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.9168706587510924,
+        "mass_fraction": 0.05606446893438804,
+        "orbit": [
+          151,
+          153
+        ],
+        "orbit_average_to_principal_ratio": 16.353863260955908,
+        "signed_contribution_to_principal_ratio": 0.9168706587510924
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.8702704278724275,
+      "negative_orbit_mass_fraction": 0.56338830971916,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.2333486603169461,
+      "orbit_reconstruction_error": 6.661338147750939e-16,
+      "positive_compensation_surplus_to_threshold": 1.5333486603169457,
+      "positive_orbit_contribution_to_principal_ratio": 2.1036190881893733,
+      "positive_orbit_mass_fraction": 0.43661169028084,
+      "positive_to_negative_pressure_ratio": 2.4172016201126643,
+      "required_positive_compensation_to_clear_threshold": 0.5702704278724275,
+      "target": 12602,
+      "target_mod_286": 18,
+      "target_offset": 1301,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": 1.3339140832297418,
+      "first_three_to_principal_ratio": 1.3339140832297418,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        133,
+        153
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.047749176556491156,
+      "maximum_reflection_pair_weight_fraction_error": 2.7523513550707814e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.10727903154533576,
+        "mass_fraction": 0.015785332097377473,
+        "orbit": [
+          23,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -6.796121290546607,
+        "signed_contribution_to_principal_ratio": -0.10727903154533577
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.5241923657917131,
+        "mass_fraction": 0.047749176556491156,
+        "orbit": [
+          133,
+          153
+        ],
+        "orbit_average_to_principal_ratio": 31.920809440315047,
+        "signed_contribution_to_principal_ratio": 1.524192365791713
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.7670370183682718,
+      "negative_orbit_mass_fraction": 0.25383602084852797,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.3339140832297416,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.633914083229742,
+      "positive_orbit_contribution_to_principal_ratio": 2.100951101598014,
+      "positive_orbit_mass_fraction": 0.746163979151472,
+      "positive_to_negative_pressure_ratio": 2.73904785725648,
+      "required_positive_compensation_to_clear_threshold": 0.4670370183682718,
+      "target": 17446,
+      "target_mod_286": 0,
+      "target_offset": 3723,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 4.440892098500626e-16,
+      "actual_orbit_total_to_principal_ratio": 1.4100169950237649,
+      "first_three_to_principal_ratio": 1.4100169950237644,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        79,
+        95
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.055000744187305044,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.14211913859256772,
+        "mass_fraction": 0.05469953683829819,
+        "orbit": [
+          43,
+          131
+        ],
+        "orbit_average_to_principal_ratio": -2.5981780981564406,
+        "signed_contribution_to_principal_ratio": -0.14211913859256775
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.8857078444021916,
+        "mass_fraction": 0.0545441720543453,
+        "orbit": [
+          41,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 16.2383589491415,
+        "signed_contribution_to_principal_ratio": 0.8857078444021917
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.6813366395550622,
+      "negative_orbit_mass_fraction": 0.3423873688428497,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.4100169950237647,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.7100169950237645,
+      "positive_orbit_contribution_to_principal_ratio": 2.0913536345788266,
+      "positive_orbit_mass_fraction": 0.6576126311571502,
+      "positive_to_negative_pressure_ratio": 3.0694865256983057,
+      "required_positive_compensation_to_clear_threshold": 0.3813366395550622,
+      "target": 15046,
+      "target_mod_286": 174,
+      "target_offset": 2523,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": 1.2192158534341102,
+      "first_three_to_principal_ratio": 1.21921585343411,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        133,
+        271
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.08437899812520055,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.2494808864253752,
+        "mass_fraction": 0.056265468061360215,
+        "orbit": [
+          43,
+          75
+        ],
+        "orbit_average_to_principal_ratio": -4.433996463928892,
+        "signed_contribution_to_principal_ratio": -0.24948088642537522
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.370886386825349,
+        "mass_fraction": 0.08437899812520055,
+        "orbit": [
+          133,
+          271
+        ],
+        "orbit_average_to_principal_ratio": 16.246772506012025,
+        "signed_contribution_to_principal_ratio": 1.3708863868253487
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.8662061335667219,
+      "negative_orbit_mass_fraction": 0.47889593159078747,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.2192158534341098,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.5192158534341096,
+      "positive_orbit_contribution_to_principal_ratio": 2.0854219870008315,
+      "positive_orbit_mass_fraction": 0.5211040684092125,
+      "positive_to_negative_pressure_ratio": 2.40753546550614,
+      "required_positive_compensation_to_clear_threshold": 0.5662061335667219,
+      "target": 13274,
+      "target_mod_286": 118,
+      "target_offset": 1637,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 6.661338147750939e-16,
+      "actual_orbit_total_to_principal_ratio": 1.2262146498094848,
+      "first_three_to_principal_ratio": 1.2262146498094841,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        183,
+        255
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.08098054705944992,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.11735521547619948,
+        "mass_fraction": 0.027060725717581096,
+        "orbit": [
+          175,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -4.336735706979023,
+        "signed_contribution_to_principal_ratio": -0.11735521547619948
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.8779137262395202,
+        "mass_fraction": 0.05385581689235721,
+        "orbit": [
+          19,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 16.3011867036429,
+        "signed_contribution_to_principal_ratio": 0.8779137262395201
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.7993281526056175,
+      "negative_orbit_mass_fraction": 0.4329232832030706,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.2262146498094848,
+      "orbit_reconstruction_error": 6.661338147750939e-16,
+      "positive_compensation_surplus_to_threshold": 1.5262146498094842,
+      "positive_orbit_contribution_to_principal_ratio": 2.0255428024151017,
+      "positive_orbit_mass_fraction": 0.5670767167969294,
+      "positive_to_negative_pressure_ratio": 2.5340566271966267,
+      "required_positive_compensation_to_clear_threshold": 0.4993281526056175,
+      "target": 13022,
+      "target_mod_286": 152,
+      "target_offset": 1511,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": 1.2888920120478782,
+      "first_three_to_principal_ratio": 1.2888920120478784,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        153,
+        261
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06449544011632506,
+      "maximum_reflection_pair_weight_fraction_error": 3.62538026243586e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.1292872470598081,
+        "mass_fraction": 0.04304453725026056,
+        "orbit": [
+          151,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -3.0035692173465156,
+        "signed_contribution_to_principal_ratio": -0.12928724705980807
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.048885426669058,
+        "mass_fraction": 0.06449544011632506,
+        "orbit": [
+          153,
+          261
+        ],
+        "orbit_average_to_principal_ratio": 16.262939283417097,
+        "signed_contribution_to_principal_ratio": 1.0488854266690577
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.7279900147184635,
+      "negative_orbit_mass_fraction": 0.4948527018986425,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.2888920120478782,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.588892012047878,
+      "positive_orbit_contribution_to_principal_ratio": 2.0168820267663414,
+      "positive_orbit_mass_fraction": 0.5051472981013575,
+      "positive_to_negative_pressure_ratio": 2.770480344495292,
+      "required_positive_compensation_to_clear_threshold": 0.4279900147184635,
+      "target": 19862,
+      "target_mod_286": 128,
+      "target_offset": 4931,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+      "actual_orbit_total_to_principal_ratio": 1.2478522431018224,
+      "first_three_to_principal_ratio": 1.2478522431018222,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        95,
+        133
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.057815559980852256,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.12159865250284939,
+        "mass_fraction": 0.03841150681224361,
+        "orbit": [
+          251,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -3.1656829579018235,
+        "signed_contribution_to_principal_ratio": -0.1215986525028494
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.9401520216760886,
+        "mass_fraction": 0.057815559980852256,
+        "orbit": [
+          95,
+          133
+        ],
+        "orbit_average_to_principal_ratio": 16.261228326551787,
+        "signed_contribution_to_principal_ratio": 0.9401520216760886
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.7683703049086046,
+      "negative_orbit_mass_fraction": 0.49995508253308696,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.2478522431018224,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": 1.5478522431018222,
+      "positive_orbit_contribution_to_principal_ratio": 2.0162225480104268,
+      "positive_orbit_mass_fraction": 0.5000449174669129,
+      "positive_to_negative_pressure_ratio": 2.6240245557775044,
+      "required_positive_compensation_to_clear_threshold": 0.4683703049086046,
+      "target": 16816,
+      "target_mod_286": 228,
+      "target_offset": 3408,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": 1.1314679409775716,
+      "first_three_to_principal_ratio": 1.1314679409775716,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        133,
+        245
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.0925753130573944,
+      "maximum_reflection_pair_weight_fraction_error": 6.249658442406385e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.13963732977540316,
+        "mass_fraction": 0.03692295446194918,
+        "orbit": [
+          159,
+          219
+        ],
+        "orbit_average_to_principal_ratio": -3.7818568912004564,
+        "signed_contribution_to_principal_ratio": -0.13963732977540316
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 1.5033148947116475,
+        "mass_fraction": 0.0925753130573944,
+        "orbit": [
+          133,
+          245
+        ],
+        "orbit_average_to_principal_ratio": 16.238831337028582,
+        "signed_contribution_to_principal_ratio": 1.5033148947116475
+      },
+      "negative_orbit_contribution_to_principal_ratio": -0.8752925454539306,
+      "negative_orbit_mass_fraction": 0.5927371798631111,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": 1.1314679409775716,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": 1.431467940977572,
+      "positive_orbit_contribution_to_principal_ratio": 2.0067604864315025,
+      "positive_orbit_mass_fraction": 0.40726282013688886,
+      "positive_to_negative_pressure_ratio": 2.292674028648088,
+      "required_positive_compensation_to_clear_threshold": 0.5752925454539306,
+      "target": 19826,
+      "target_mod_286": 92,
+      "target_offset": 4913,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    }
+  ],
+  "maximum_negative_mass_fraction_row": {
+    "actual_orbit_reconstruction_error": 0.0,
+    "actual_orbit_total_to_principal_ratio": -1.1500880008976309,
+    "first_three_to_principal_ratio": -1.1500880008976309,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      161,
+      207
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.06697182904368795,
+    "maximum_reflection_pair_weight_fraction_error": 0.0,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.152514776421717,
+      "mass_fraction": 0.0664864961762005,
+      "orbit": [
+        7,
+        75
+      ],
+      "orbit_average_to_principal_ratio": -2.2939210996700288,
+      "signed_contribution_to_principal_ratio": -0.152514776421717
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 0.046266970431913704,
+      "mass_fraction": 0.06683904129510138,
+      "orbit": [
+        129,
+        239
+      ],
+      "orbit_average_to_principal_ratio": 0.6922147525671438,
+      "signed_contribution_to_principal_ratio": 0.046266970431913704
+    },
+    "negative_orbit_contribution_to_principal_ratio": -1.269809632792171,
+    "negative_orbit_mass_fraction": 0.799310342754281,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": -1.1500880008976306,
+    "orbit_reconstruction_error": 2.220446049250313e-16,
+    "positive_compensation_surplus_to_threshold": -0.8500880008976304,
+    "positive_orbit_contribution_to_principal_ratio": 0.1197216318945406,
+    "positive_orbit_mass_fraction": 0.20068965724571905,
+    "positive_to_negative_pressure_ratio": 0.09428313410356319,
+    "required_positive_compensation_to_clear_threshold": 0.969809632792171,
+    "target": 10664,
+    "target_mod_286": 82,
+    "target_offset": 332,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "maximum_negative_pressure_row": {
+    "actual_orbit_reconstruction_error": 0.0,
+    "actual_orbit_total_to_principal_ratio": -0.7582066082555756,
+    "first_three_to_principal_ratio": -0.7582066082555756,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      125,
+      183
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.05788598080113673,
+    "maximum_reflection_pair_weight_fraction_error": 3.33269250740023e-18,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.2835019337232994,
+      "mass_fraction": 0.05773631244140057,
+      "orbit": [
+        23,
+        285
+      ],
+      "orbit_average_to_principal_ratio": -4.910288200533063,
+      "signed_contribution_to_principal_ratio": -0.28350193372329946
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 0.2888479147619498,
+      "mass_fraction": 0.019223056841992086,
+      "orbit": [
+        133,
+        175
+      ],
+      "orbit_average_to_principal_ratio": 15.026117705222187,
+      "signed_contribution_to_principal_ratio": 0.2888479147619498
+    },
+    "negative_orbit_contribution_to_principal_ratio": -1.3482034556689724,
+    "negative_orbit_mass_fraction": 0.5382171985918456,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": -0.7582066082555757,
+    "orbit_reconstruction_error": 1.1102230246251565e-16,
+    "positive_compensation_surplus_to_threshold": -0.4582066082555756,
+    "positive_orbit_contribution_to_principal_ratio": 0.5899968474133968,
+    "positive_orbit_mass_fraction": 0.4617828014081543,
+    "positive_to_negative_pressure_ratio": 0.43761707102333675,
+    "required_positive_compensation_to_clear_threshold": 1.0482034556689723,
+    "target": 17468,
+    "target_mod_286": 22,
+    "target_offset": 3734,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "maximum_orbit_reconstruction_error": 9.992007221626409e-16,
+  "maximum_positive_compensation_row": {
+    "actual_orbit_reconstruction_error": 2.220446049250313e-16,
+    "actual_orbit_total_to_principal_ratio": 1.48252491117725,
+    "first_three_to_principal_ratio": 1.4825249111772503,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      255,
+      271
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.12026969709166307,
+    "maximum_reflection_pair_weight_fraction_error": 0.0,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.15125758397805047,
+      "mass_fraction": 0.04003943411975528,
+      "orbit": [
+        81,
+        159
+      ],
+      "orbit_average_to_principal_ratio": -3.7777153274856268,
+      "signed_contribution_to_principal_ratio": -0.1512575839780505
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 1.1294576281472792,
+      "mass_fraction": 0.07997789423357811,
+      "orbit": [
+        107,
+        133
+      ],
+      "orbit_average_to_principal_ratio": 14.122122606137399,
+      "signed_contribution_to_principal_ratio": 1.1294576281472792
+    },
+    "negative_orbit_contribution_to_principal_ratio": -0.6327193495305856,
+    "negative_orbit_mass_fraction": 0.3197142036251718,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": 1.4825249111772505,
+    "orbit_reconstruction_error": 2.220446049250313e-16,
+    "positive_compensation_surplus_to_threshold": 1.7825249111772508,
+    "positive_orbit_contribution_to_principal_ratio": 2.1152442607078363,
+    "positive_orbit_mass_fraction": 0.6802857963748283,
+    "positive_to_negative_pressure_ratio": 3.3431003212990653,
+    "required_positive_compensation_to_clear_threshold": 0.33271934953058563,
+    "target": 11108,
+    "target_mod_286": 240,
+    "target_offset": 554,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "maximum_positive_mass_fraction_row": {
+    "actual_orbit_reconstruction_error": 0.0,
+    "actual_orbit_total_to_principal_ratio": 0.43378492770269556,
+    "first_three_to_principal_ratio": 0.43378492770269556,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      9,
+      69
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.08361683331912914,
+    "maximum_reflection_pair_weight_fraction_error": 5.1777675611811976e-18,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.11521757685942652,
+      "mass_fraction": 0.027656950772164093,
+      "orbit": [
+        3,
+        75
+      ],
+      "orbit_average_to_principal_ratio": -4.165953716611074,
+      "signed_contribution_to_principal_ratio": -0.1152175768594265
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 0.37062633785152604,
+      "mass_fraction": 0.027681254498850238,
+      "orbit": [
+        153,
+        211
+      ],
+      "orbit_average_to_principal_ratio": 13.389073022933998,
+      "signed_contribution_to_principal_ratio": 0.3706263378515261
+    },
+    "negative_orbit_contribution_to_principal_ratio": -0.46607466357979627,
+    "negative_orbit_mass_fraction": 0.19490696225084617,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": 0.43378492770269556,
+    "orbit_reconstruction_error": 0.0,
+    "positive_compensation_surplus_to_threshold": 0.7337849277026954,
+    "positive_orbit_contribution_to_principal_ratio": 0.8998595912824917,
+    "positive_orbit_mass_fraction": 0.805093037749154,
+    "positive_to_negative_pressure_ratio": 1.9307198215215307,
+    "required_positive_compensation_to_clear_threshold": 0.16607466357979628,
+    "target": 12662,
+    "target_mod_286": 78,
+    "target_offset": 1331,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "maximum_reflection_pair_weight_fraction_error": 1.2969092866030027e-17,
+  "minimum_compensation_surplus_row": {
+    "actual_orbit_reconstruction_error": 0.0,
+    "actual_orbit_total_to_principal_ratio": -1.1500880008976309,
+    "first_three_to_principal_ratio": -1.1500880008976309,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      161,
+      207
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.06697182904368795,
+    "maximum_reflection_pair_weight_fraction_error": 0.0,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.152514776421717,
+      "mass_fraction": 0.0664864961762005,
+      "orbit": [
+        7,
+        75
+      ],
+      "orbit_average_to_principal_ratio": -2.2939210996700288,
+      "signed_contribution_to_principal_ratio": -0.152514776421717
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 0.046266970431913704,
+      "mass_fraction": 0.06683904129510138,
+      "orbit": [
+        129,
+        239
+      ],
+      "orbit_average_to_principal_ratio": 0.6922147525671438,
+      "signed_contribution_to_principal_ratio": 0.046266970431913704
+    },
+    "negative_orbit_contribution_to_principal_ratio": -1.269809632792171,
+    "negative_orbit_mass_fraction": 0.799310342754281,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": -1.1500880008976306,
+    "orbit_reconstruction_error": 2.220446049250313e-16,
+    "positive_compensation_surplus_to_threshold": -0.8500880008976304,
+    "positive_orbit_contribution_to_principal_ratio": 0.1197216318945406,
+    "positive_orbit_mass_fraction": 0.20068965724571905,
+    "positive_to_negative_pressure_ratio": 0.09428313410356319,
+    "required_positive_compensation_to_clear_threshold": 0.969809632792171,
+    "target": 10664,
+    "target_mod_286": 82,
+    "target_offset": 332,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "minimum_first_three_row": {
+    "actual_orbit_reconstruction_error": 0.0,
+    "actual_orbit_total_to_principal_ratio": -1.1500880008976309,
+    "first_three_to_principal_ratio": -1.1500880008976309,
+    "local_cycle": 0,
+    "maximum_reflection_orbit": [
+      161,
+      207
+    ],
+    "maximum_reflection_orbit_mass_fraction": 0.06697182904368795,
+    "maximum_reflection_pair_weight_fraction_error": 0.0,
+    "most_negative_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": -0.152514776421717,
+      "mass_fraction": 0.0664864961762005,
+      "orbit": [
+        7,
+        75
+      ],
+      "orbit_average_to_principal_ratio": -2.2939210996700288,
+      "signed_contribution_to_principal_ratio": -0.152514776421717
+    },
+    "most_positive_orbit_row": {
+      "actual_signed_contribution_to_principal_ratio": 0.046266970431913704,
+      "mass_fraction": 0.06683904129510138,
+      "orbit": [
+        129,
+        239
+      ],
+      "orbit_average_to_principal_ratio": 0.6922147525671438,
+      "signed_contribution_to_principal_ratio": 0.046266970431913704
+    },
+    "negative_orbit_contribution_to_principal_ratio": -1.269809632792171,
+    "negative_orbit_mass_fraction": 0.799310342754281,
+    "negative_pressure_exceeds_threshold_before_compensation": true,
+    "orbit_recombined_first_three_to_principal_ratio": -1.1500880008976306,
+    "orbit_reconstruction_error": 2.220446049250313e-16,
+    "positive_compensation_surplus_to_threshold": -0.8500880008976304,
+    "positive_orbit_contribution_to_principal_ratio": 0.1197216318945406,
+    "positive_orbit_mass_fraction": 0.20068965724571905,
+    "positive_to_negative_pressure_ratio": 0.09428313410356319,
+    "required_positive_compensation_to_clear_threshold": 0.969809632792171,
+    "target": 10664,
+    "target_mod_286": 82,
+    "target_offset": 332,
+    "zero_orbit_contribution_to_principal_ratio": 0.0,
+    "zero_orbit_mass_fraction": 0.0
+  },
+  "negative_pressure_target_count": 5002,
+  "reflection_orbit_cap_rarity_theorem_proved": false,
+  "rescued_negative_pressure_fraction": 0.8056777289084366,
+  "rescued_negative_pressure_target_count": 4030,
+  "schema_version": 1,
+  "signed_orbit_cancellation_required": true,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "8d1c526f2226faf5c61b6361950f376082319503",
+  "start": 10000,
+  "status_boundary": "finite diagnostic only; the signed reflection-orbit decomposition identifies a compensation target but proves no eventual first-three rarity estimate and no Goldbach theorem",
+  "tail_negative_pressure_target_count": 972,
+  "tail_target_count": 972,
+  "tail_threshold": 0.3,
+  "targets_per_cycle": 5005,
+  "tested_target_count": 5005,
+  "tested_targets_with_prime_pairs": 5005,
+  "worst_first_three_rows": [
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.1500880008976309,
+      "first_three_to_principal_ratio": -1.1500880008976309,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        161,
+        207
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06697182904368795,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.152514776421717,
+        "mass_fraction": 0.0664864961762005,
+        "orbit": [
+          7,
+          75
+        ],
+        "orbit_average_to_principal_ratio": -2.2939210996700288,
+        "signed_contribution_to_principal_ratio": -0.152514776421717
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.046266970431913704,
+        "mass_fraction": 0.06683904129510138,
+        "orbit": [
+          129,
+          239
+        ],
+        "orbit_average_to_principal_ratio": 0.6922147525671438,
+        "signed_contribution_to_principal_ratio": 0.046266970431913704
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.269809632792171,
+      "negative_orbit_mass_fraction": 0.799310342754281,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.1500880008976306,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": -0.8500880008976304,
+      "positive_orbit_contribution_to_principal_ratio": 0.1197216318945406,
+      "positive_orbit_mass_fraction": 0.20068965724571905,
+      "positive_to_negative_pressure_ratio": 0.09428313410356319,
+      "required_positive_compensation_to_clear_threshold": 0.969809632792171,
+      "target": 10664,
+      "target_mod_286": 82,
+      "target_offset": 332,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0569183143768837,
+      "first_three_to_principal_ratio": -1.0569183143768837,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        37,
+        75
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06675581272941014,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.15449072814865217,
+        "mass_fraction": 0.06675581272941014,
+        "orbit": [
+          37,
+          75
+        ],
+        "orbit_average_to_principal_ratio": -2.3142663062895985,
+        "signed_contribution_to_principal_ratio": -0.15449072814865217
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.025758089147312473,
+        "mass_fraction": 0.033061935203503666,
+        "orbit": [
+          185,
+          213
+        ],
+        "orbit_average_to_principal_ratio": 0.7790859485013694,
+        "signed_contribution_to_principal_ratio": 0.02575808914731247
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2247796678728486,
+      "negative_orbit_mass_fraction": 0.6670201242160139,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0569183143768837,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7569183143768836,
+      "positive_orbit_contribution_to_principal_ratio": 0.16786135349596498,
+      "positive_orbit_mass_fraction": 0.3329798757839859,
+      "positive_to_negative_pressure_ratio": 0.1370543273203582,
+      "required_positive_compensation_to_clear_threshold": 0.9247796678728486,
+      "target": 10408,
+      "target_mod_286": 112,
+      "target_offset": 204,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0401885969034605,
+      "first_three_to_principal_ratio": -1.0401885969034605,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        141,
+        251
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06476582182078236,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.21608240590863056,
+        "mass_fraction": 0.06435493740199323,
+        "orbit": [
+          107,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -3.357666321060518,
+        "signed_contribution_to_principal_ratio": -0.21608240590863056
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.030948370673483227,
+        "mass_fraction": 0.032363048875252244,
+        "orbit": [
+          123,
+          269
+        ],
+        "orbit_average_to_principal_ratio": 0.956287239585427,
+        "signed_contribution_to_principal_ratio": 0.030948370673483227
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.234361047007222,
+      "negative_orbit_mass_fraction": 0.6773627937321335,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0401885969034605,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7401885969034603,
+      "positive_orbit_contribution_to_principal_ratio": 0.1941724501037616,
+      "positive_orbit_mass_fraction": 0.32263720626786646,
+      "positive_to_negative_pressure_ratio": 0.15730604151398303,
+      "required_positive_compensation_to_clear_threshold": 0.9343610470072219,
+      "target": 12118,
+      "target_mod_286": 106,
+      "target_offset": 1059,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -1.0019767370885293,
+      "first_three_to_principal_ratio": -1.0019767370885293,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        259
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.10357383277476663,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.20303327389453357,
+        "mass_fraction": 0.06919115884360966,
+        "orbit": [
+          107,
+          197
+        ],
+        "orbit_average_to_principal_ratio": -2.934381751770375,
+        "signed_contribution_to_principal_ratio": -0.20303327389453357
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.02213795522788487,
+        "mass_fraction": 0.034597805918592045,
+        "orbit": [
+          147,
+          157
+        ],
+        "orbit_average_to_principal_ratio": 0.6398658712629074,
+        "signed_contribution_to_principal_ratio": 0.02213795522788487
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1330342757522651,
+      "negative_orbit_mass_fraction": 0.7248085580537593,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -1.0019767370885293,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.7019767370885294,
+      "positive_orbit_contribution_to_principal_ratio": 0.1310575386637357,
+      "positive_orbit_mass_fraction": 0.2751914419462407,
+      "positive_to_negative_pressure_ratio": 0.1156695269229358,
+      "required_positive_compensation_to_clear_threshold": 0.8330342757522651,
+      "target": 10028,
+      "target_mod_286": 18,
+      "target_offset": 14,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 4.440892098500626e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9923694214370516,
+      "first_three_to_principal_ratio": -0.9923694214370512,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        159,
+        251
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06380433729342745,
+      "maximum_reflection_pair_weight_fraction_error": 3.814786506134695e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.14963792962963107,
+        "mass_fraction": 0.06380433729342745,
+        "orbit": [
+          159,
+          251
+        ],
+        "orbit_average_to_principal_ratio": -2.345262657324793,
+        "signed_contribution_to_principal_ratio": -0.14963792962963107
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.04102355336394209,
+        "mass_fraction": 0.0212367562068712,
+        "orbit": [
+          5,
+          119
+        ],
+        "orbit_average_to_principal_ratio": 1.9317240808494482,
+        "signed_contribution_to_principal_ratio": 0.04102355336394208
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2541488662503688,
+      "negative_orbit_mass_fraction": 0.6601268233073609,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9923694214370515,
+      "orbit_reconstruction_error": 3.3306690738754696e-16,
+      "positive_compensation_surplus_to_threshold": -0.6923694214370513,
+      "positive_orbit_contribution_to_principal_ratio": 0.26177944481331755,
+      "positive_orbit_mass_fraction": 0.33987317669263906,
+      "positive_to_negative_pressure_ratio": 0.20873075904934707,
+      "required_positive_compensation_to_clear_threshold": 0.9541488662503688,
+      "target": 14996,
+      "target_mod_286": 124,
+      "target_offset": 2498,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.1102230246251565e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9736501368716948,
+      "first_three_to_principal_ratio": -0.9736501368716949,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        57,
+        205
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07065811542855599,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.23292070652912877,
+        "mass_fraction": 0.04714393638142486,
+        "orbit": [
+          263,
+          285
+        ],
+        "orbit_average_to_principal_ratio": -4.940629154185387,
+        "signed_contribution_to_principal_ratio": -0.2329207065291288
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.041990385782580734,
+        "mass_fraction": 0.023604028954465256,
+        "orbit": [
+          95,
+          167
+        ],
+        "orbit_average_to_principal_ratio": 1.778949935351493,
+        "signed_contribution_to_principal_ratio": 0.041990385782580734
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.215568107459701,
+      "negative_orbit_mass_fraction": 0.6706998972334491,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.973650136871695,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.6736501368716947,
+      "positive_orbit_contribution_to_principal_ratio": 0.24191797058800613,
+      "positive_orbit_mass_fraction": 0.3293001027665509,
+      "positive_to_negative_pressure_ratio": 0.19901638509878913,
+      "required_positive_compensation_to_clear_threshold": 0.9155681074597009,
+      "target": 18566,
+      "target_mod_286": 262,
+      "target_offset": 4283,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.9521227451437584,
+      "first_three_to_principal_ratio": -0.9521227451437584,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        37,
+        211
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06467632118258411,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.19490572283805907,
+        "mass_fraction": 0.06451998647807855,
+        "orbit": [
+          23,
+          225
+        ],
+        "orbit_average_to_principal_ratio": -3.020858085645765,
+        "signed_contribution_to_principal_ratio": -0.19490572283805901
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.03815895499093837,
+        "mass_fraction": 0.06422414890311305,
+        "orbit": [
+          35,
+          213
+        ],
+        "orbit_average_to_principal_ratio": 0.5941527547294401,
+        "signed_contribution_to_principal_ratio": 0.03815895499093837
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1943578494132103,
+      "negative_orbit_mass_fraction": 0.6128950615685852,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9521227451437583,
+      "orbit_reconstruction_error": 1.1102230246251565e-16,
+      "positive_compensation_surplus_to_threshold": -0.6521227451437583,
+      "positive_orbit_contribution_to_principal_ratio": 0.24223510426945188,
+      "positive_orbit_mass_fraction": 0.38710493843141475,
+      "positive_to_negative_pressure_ratio": 0.2028161864456807,
+      "required_positive_compensation_to_clear_threshold": 0.8943578494132103,
+      "target": 13976,
+      "target_mod_286": 248,
+      "target_offset": 1988,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 0.0,
+      "actual_orbit_total_to_principal_ratio": -0.9512760932193727,
+      "first_three_to_principal_ratio": -0.9512760932193727,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        45,
+        93
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.07304248505186738,
+      "maximum_reflection_pair_weight_fraction_error": 4.357068990178543e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.18359807991708266,
+        "mass_fraction": 0.048747519178390715,
+        "orbit": [
+          159,
+          265
+        ],
+        "orbit_average_to_principal_ratio": -3.76630612206559,
+        "signed_contribution_to_principal_ratio": -0.1835980799170827
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.031431642154576604,
+        "mass_fraction": 0.048913613055226714,
+        "orbit": [
+          157,
+          267
+        ],
+        "orbit_average_to_principal_ratio": 0.6425949790110208,
+        "signed_contribution_to_principal_ratio": 0.031431642154576604
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1225184056000557,
+      "negative_orbit_mass_fraction": 0.7071085085204,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9512760932193727,
+      "orbit_reconstruction_error": 0.0,
+      "positive_compensation_surplus_to_threshold": -0.6512760932193726,
+      "positive_orbit_contribution_to_principal_ratio": 0.17124231238068305,
+      "positive_orbit_mass_fraction": 0.2928914914796001,
+      "positive_to_negative_pressure_ratio": 0.15255189716835282,
+      "required_positive_compensation_to_clear_threshold": 0.8225184056000556,
+      "target": 15296,
+      "target_mod_286": 138,
+      "target_offset": 2648,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 1.1102230246251565e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9459676768684486,
+      "first_three_to_principal_ratio": -0.9459676768684487,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        97,
+        107
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.05804530653159878,
+      "maximum_reflection_pair_weight_fraction_error": 0.0,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.17864934946347572,
+        "mass_fraction": 0.057730973440346535,
+        "orbit": [
+          227,
+          263
+        ],
+        "orbit_average_to_principal_ratio": -3.0945147607475256,
+        "signed_contribution_to_principal_ratio": -0.17864934946347572
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.05238646519648567,
+        "mass_fraction": 0.028778515058368107,
+        "orbit": [
+          85,
+          119
+        ],
+        "orbit_average_to_principal_ratio": 1.8203324629584363,
+        "signed_contribution_to_principal_ratio": 0.05238646519648566
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.2025016857691782,
+      "negative_orbit_mass_fraction": 0.6956577271623211,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.945967676868449,
+      "orbit_reconstruction_error": 2.220446049250313e-16,
+      "positive_compensation_surplus_to_threshold": -0.6459676768684488,
+      "positive_orbit_contribution_to_principal_ratio": 0.25653400890072925,
+      "positive_orbit_mass_fraction": 0.304342272837679,
+      "positive_to_negative_pressure_ratio": 0.21333359606613583,
+      "required_positive_compensation_to_clear_threshold": 0.9025016857691781,
+      "target": 10786,
+      "target_mod_286": 204,
+      "target_offset": 393,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    },
+    {
+      "actual_orbit_reconstruction_error": 3.3306690738754696e-16,
+      "actual_orbit_total_to_principal_ratio": -0.9446471096921445,
+      "first_three_to_principal_ratio": -0.9446471096921448,
+      "local_cycle": 0,
+      "maximum_reflection_orbit": [
+        21,
+        157
+      ],
+      "maximum_reflection_orbit_mass_fraction": 0.06682910027087967,
+      "maximum_reflection_pair_weight_fraction_error": 4.1096354807559174e-18,
+      "most_negative_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": -0.18409101065980105,
+        "mass_fraction": 0.04447864863040734,
+        "orbit": [
+          23,
+          155
+        ],
+        "orbit_average_to_principal_ratio": -4.138862495340051,
+        "signed_contribution_to_principal_ratio": -0.18409101065980107
+      },
+      "most_positive_orbit_row": {
+        "actual_signed_contribution_to_principal_ratio": 0.0516891216643652,
+        "mass_fraction": 0.06679111330435077,
+        "orbit": [
+          83,
+          95
+        ],
+        "orbit_average_to_principal_ratio": 0.7738922007308144,
+        "signed_contribution_to_principal_ratio": 0.05168912166436519
+      },
+      "negative_orbit_contribution_to_principal_ratio": -1.1906577154676836,
+      "negative_orbit_mass_fraction": 0.6443349832503991,
+      "negative_pressure_exceeds_threshold_before_compensation": true,
+      "orbit_recombined_first_three_to_principal_ratio": -0.9446471096921445,
+      "orbit_reconstruction_error": 3.3306690738754696e-16,
+      "positive_compensation_surplus_to_threshold": -0.6446471096921448,
+      "positive_orbit_contribution_to_principal_ratio": 0.24601060577553877,
+      "positive_orbit_mass_fraction": 0.3556650167496008,
+      "positive_to_negative_pressure_ratio": 0.20661740362460693,
+      "required_positive_compensation_to_clear_threshold": 0.8906577154676836,
+      "target": 13048,
+      "target_mod_286": 178,
+      "target_offset": 1524,
+      "zero_orbit_contribution_to_principal_ratio": 0.0,
+      "zero_orbit_mass_fraction": 0.0
+    }
+  ]
+}

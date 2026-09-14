@@ -90,6 +90,14 @@
       "status_boundary": "finite sufficient-condition diagnostic only; no rarity theorem, no signed orbit-cancellation theorem, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_reflection_orbit_signed_cancellation",
+      "type": "receipt",
+      "label": "q286 first-three reflection-orbit signed-cancellation diagnostic",
+      "status": "validated_finite_diagnostic",
+      "validation": "q286_first_three_reflection_orbit_signed_cancellation_receipt and tools/build_q286_first_three_reflection_orbit_signed_cancellation.py generated evidence/q286-first-three-reflection-orbit-signed-cancellation.json; in the first q286 period, 5002 of 5005 targets have negative orbit pressure below -.3 before compensation, 4030 of those pressure rows are rescued by positive orbit contribution, and 972 remain first-three tails; worst target 10664 has first_three/principal about -1.1500880008976309 with negative contribution about -1.269809632792171 and positive contribution about 0.1197216318945406",
+      "status_boundary": "finite theorem-shaping diagnostic only; identifies a compensation target but proves no eventual first-three rarity theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1419,6 +1427,16 @@
     },
     {
       "from": "receipt.q286_first_three_reflection_orbit_cap",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_signed_cancellation",
+      "to": "receipt.q286_first_three_reflection_orbit_cap",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_signed_cancellation",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
     },

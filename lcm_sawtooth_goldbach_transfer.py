@@ -17870,6 +17870,377 @@ def q286_first_three_reflection_orbit_cap_receipt(
     }
 
 
+def q286_first_three_reflection_orbit_signed_cancellation_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        tail_threshold=.3, tolerance=1e-9, include_rows=False):
+    """Measure signed cancellation across q286 reflection orbits.
+
+    The preceding orbit-cap receipt shows that bounding the largest
+    reflection-orbit mass is far too strong for actual prime-pair weights.
+    This receipt keeps the same reflection-orbit decomposition but separates
+    orbit-average contributions by sign.  It asks how much positive orbit
+    contribution is required to offset negative-orbit pressure in the actual
+    strict-central binary-prime distribution.
+
+    This is a finite diagnostic only.  It does not prove an eventual
+    first-three tail bound, a signed prime-correlation estimate, or Goldbach.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    period = 10010
+    units = data["units"]
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+
+    centered_by_residue = {}
+    orbit_rows_by_residue = {}
+    for target_residue in range(0, modulus, 2):
+        admissible_mask = admissible_masks[target_residue]
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        centered_by_residue[target_residue] = centered
+        seen = set()
+        orbit_rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected)
+            if reflected == index:
+                orbit = (unit,)
+                average = centered[index]
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                average = 0.5 * (centered[index] + centered[reflected])
+            orbit_rows.append({
+                "orbit": orbit,
+                "indices": (index,) if reflected == index
+                else (index, reflected),
+                "orbit_average_to_principal_ratio": float(
+                    average / principal_mean),
+            })
+        orbit_rows_by_residue[target_residue] = tuple(orbit_rows)
+
+    maximum_target = (
+        start + (cycle_count - 1) * period
+        + 2 * (targets_per_cycle - 1))
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    target_rows = {} if include_rows else None
+    tested_with_pairs = 0
+    tail_targets = []
+    clear_targets = []
+    negative_pressure_targets = []
+    rescued_negative_pressure_targets = []
+    tail_negative_pressure_targets = []
+    maximum_reconstruction_error = 0.0
+    maximum_orbit_pair_weight_error = 0.0
+    minimum_first_three_row = None
+    maximum_negative_pressure_row = None
+    maximum_positive_compensation_row = None
+    minimum_compensation_surplus_row = None
+    maximum_negative_mass_fraction_row = None
+    maximum_positive_mass_fraction_row = None
+    worst_rows = []
+    pressure_rows = []
+    compensation_rows = []
+    deficit_rows = []
+
+    def push_top(rows, row, key, reverse=False, limit=10):
+        rows.append(row)
+        rows.sort(key=key, reverse=reverse)
+        del rows[limit:]
+
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        for target_offset in range(targets_per_cycle):
+            target = cycle_start + 2 * target_offset
+            lower = target // 3
+            upper = target - lower
+            left_index = int(np.searchsorted(
+                prime_indices, max(2, lower + 1), side="left"))
+            right_index = int(np.searchsorted(
+                prime_indices, min(target, upper), side="left"))
+            prime_values = prime_indices[left_index:right_index]
+            partner_values = target - prime_values
+            pair_mask = primes[partner_values]
+            selected_primes = prime_values[pair_mask]
+            selected_partners = partner_values[pair_mask]
+            if len(selected_primes) == 0:
+                continue
+            residue_weights = np.bincount(
+                unit_index_by_residue[selected_primes % modulus],
+                weights=(log_values[selected_primes]
+                         * log_values[selected_partners]),
+                minlength=len(units))
+            total_weight = float(np.sum(residue_weights))
+            if total_weight <= tolerance:
+                continue
+            tested_with_pairs += 1
+            target_residue = target % modulus
+            admissible_mask = admissible_masks[target_residue]
+            centered = centered_by_residue[target_residue]
+            weight_delta = np.zeros(len(units), dtype=np.float64)
+            mean_weight = total_weight / admissible_counts[target_residue]
+            weight_delta[admissible_mask] = (
+                residue_weights[admissible_mask] - mean_weight)
+            direct_first_three = float(
+                (linear_coefficients @ weight_delta)
+                / (principal_mean * total_weight))
+
+            positive_contribution = 0.0
+            negative_contribution = 0.0
+            zero_contribution = 0.0
+            positive_mass_fraction = 0.0
+            negative_mass_fraction = 0.0
+            zero_mass_fraction = 0.0
+            maximum_orbit_mass_fraction = 0.0
+            maximum_orbit = None
+            most_negative_orbit_row = None
+            most_positive_orbit_row = None
+            orbit_recombined_total = 0.0
+            actual_orbit_total = 0.0
+            local_pair_weight_error = 0.0
+            included_orbit_rows = []
+
+            for orbit_row in orbit_rows_by_residue[target_residue]:
+                indices = orbit_row["indices"]
+                orbit_mass = float(sum(residue_weights[index]
+                                       for index in indices))
+                mass_fraction = orbit_mass / total_weight
+                average_ratio = orbit_row[
+                    "orbit_average_to_principal_ratio"]
+                contribution = mass_fraction * average_ratio
+                actual_contribution = float(sum(
+                    centered[index] * residue_weights[index]
+                    for index in indices) / (principal_mean * total_weight))
+                orbit_recombined_total += contribution
+                actual_orbit_total += actual_contribution
+                if len(indices) == 2:
+                    local_pair_weight_error = max(
+                        local_pair_weight_error,
+                        abs(residue_weights[indices[0]]
+                            - residue_weights[indices[1]]) / total_weight)
+                if mass_fraction > maximum_orbit_mass_fraction:
+                    maximum_orbit_mass_fraction = mass_fraction
+                    maximum_orbit = orbit_row["orbit"]
+                compact_orbit_row = {
+                    "orbit": orbit_row["orbit"],
+                    "mass_fraction": mass_fraction,
+                    "orbit_average_to_principal_ratio": average_ratio,
+                    "signed_contribution_to_principal_ratio": contribution,
+                    "actual_signed_contribution_to_principal_ratio": (
+                        actual_contribution),
+                }
+                if average_ratio < -tolerance:
+                    negative_contribution += contribution
+                    negative_mass_fraction += mass_fraction
+                    if (most_negative_orbit_row is None
+                            or contribution < most_negative_orbit_row[
+                                "signed_contribution_to_principal_ratio"]):
+                        most_negative_orbit_row = compact_orbit_row
+                elif average_ratio > tolerance:
+                    positive_contribution += contribution
+                    positive_mass_fraction += mass_fraction
+                    if (most_positive_orbit_row is None
+                            or contribution > most_positive_orbit_row[
+                                "signed_contribution_to_principal_ratio"]):
+                        most_positive_orbit_row = compact_orbit_row
+                else:
+                    zero_contribution += contribution
+                    zero_mass_fraction += mass_fraction
+                if include_rows:
+                    included_orbit_rows.append(compact_orbit_row)
+
+            reconstruction_error = abs(
+                direct_first_three - orbit_recombined_total)
+            actual_reconstruction_error = abs(
+                direct_first_three - actual_orbit_total)
+            maximum_reconstruction_error = max(
+                maximum_reconstruction_error, reconstruction_error,
+                actual_reconstruction_error)
+            maximum_orbit_pair_weight_error = max(
+                maximum_orbit_pair_weight_error, local_pair_weight_error)
+            required_positive_compensation = max(
+                0.0, -tail_threshold
+                - negative_contribution - zero_contribution)
+            compensation_surplus = (
+                positive_contribution - required_positive_compensation)
+            positive_to_negative_pressure_ratio = (
+                positive_contribution / (-negative_contribution)
+                if negative_contribution < -tolerance else math.inf)
+            negative_pressure = bool(
+                negative_contribution + zero_contribution
+                < -tail_threshold - tolerance)
+            tail = bool(direct_first_three < -tail_threshold - tolerance)
+            row = {
+                "target": target,
+                "local_cycle": cycle,
+                "target_offset": target_offset,
+                "target_mod_286": target_residue,
+                "first_three_to_principal_ratio": direct_first_three,
+                "negative_orbit_contribution_to_principal_ratio": (
+                    negative_contribution),
+                "positive_orbit_contribution_to_principal_ratio": (
+                    positive_contribution),
+                "zero_orbit_contribution_to_principal_ratio": (
+                    zero_contribution),
+                "negative_orbit_mass_fraction": negative_mass_fraction,
+                "positive_orbit_mass_fraction": positive_mass_fraction,
+                "zero_orbit_mass_fraction": zero_mass_fraction,
+                "required_positive_compensation_to_clear_threshold": (
+                    required_positive_compensation),
+                "positive_compensation_surplus_to_threshold": (
+                    compensation_surplus),
+                "positive_to_negative_pressure_ratio": (
+                    positive_to_negative_pressure_ratio),
+                "negative_pressure_exceeds_threshold_before_compensation": (
+                    negative_pressure),
+                "maximum_reflection_orbit_mass_fraction": (
+                    maximum_orbit_mass_fraction),
+                "maximum_reflection_orbit": maximum_orbit,
+                "most_negative_orbit_row": most_negative_orbit_row,
+                "most_positive_orbit_row": most_positive_orbit_row,
+                "orbit_recombined_first_three_to_principal_ratio": (
+                    orbit_recombined_total),
+                "actual_orbit_total_to_principal_ratio": actual_orbit_total,
+                "orbit_reconstruction_error": reconstruction_error,
+                "actual_orbit_reconstruction_error": (
+                    actual_reconstruction_error),
+                "maximum_reflection_pair_weight_fraction_error": (
+                    local_pair_weight_error),
+            }
+            if include_rows:
+                row["orbit_rows"] = tuple(included_orbit_rows)
+                target_rows[target] = row
+            if tail:
+                tail_targets.append(target)
+                tail_negative_pressure_targets.append(target)
+            else:
+                clear_targets.append(target)
+            if negative_pressure:
+                negative_pressure_targets.append(target)
+                if not tail:
+                    rescued_negative_pressure_targets.append(target)
+
+            if (minimum_first_three_row is None
+                    or direct_first_three < minimum_first_three_row[
+                        "first_three_to_principal_ratio"]):
+                minimum_first_three_row = row
+            if (maximum_negative_pressure_row is None
+                    or negative_contribution < maximum_negative_pressure_row[
+                        "negative_orbit_contribution_to_principal_ratio"]):
+                maximum_negative_pressure_row = row
+            if (maximum_positive_compensation_row is None
+                    or positive_contribution
+                    > maximum_positive_compensation_row[
+                        "positive_orbit_contribution_to_principal_ratio"]):
+                maximum_positive_compensation_row = row
+            if (minimum_compensation_surplus_row is None
+                    or compensation_surplus < minimum_compensation_surplus_row[
+                        "positive_compensation_surplus_to_threshold"]):
+                minimum_compensation_surplus_row = row
+            if (maximum_negative_mass_fraction_row is None
+                    or negative_mass_fraction > maximum_negative_mass_fraction_row[
+                        "negative_orbit_mass_fraction"]):
+                maximum_negative_mass_fraction_row = row
+            if (maximum_positive_mass_fraction_row is None
+                    or positive_mass_fraction > maximum_positive_mass_fraction_row[
+                        "positive_orbit_mass_fraction"]):
+                maximum_positive_mass_fraction_row = row
+
+            push_top(
+                worst_rows, row,
+                lambda item: item["first_three_to_principal_ratio"])
+            push_top(
+                pressure_rows, row,
+                lambda item: item[
+                    "negative_orbit_contribution_to_principal_ratio"])
+            push_top(
+                compensation_rows, row,
+                lambda item: item[
+                    "positive_orbit_contribution_to_principal_ratio"],
+                reverse=True)
+            push_top(
+                deficit_rows, row,
+                lambda item: item[
+                    "positive_compensation_surplus_to_threshold"])
+
+    return {
+        "arithmetic_modulus": modulus,
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "tested_targets_with_prime_pairs": tested_with_pairs,
+        "target_rows_included": include_rows,
+        "target_rows": target_rows if include_rows else {},
+        "tail_target_count": len(tail_targets),
+        "clear_target_count": len(clear_targets),
+        "tail_targets": tuple(tail_targets),
+        "first_tail_targets": tuple(tail_targets[:20]),
+        "negative_pressure_target_count": len(negative_pressure_targets),
+        "rescued_negative_pressure_target_count": (
+            len(rescued_negative_pressure_targets)),
+        "tail_negative_pressure_target_count": (
+            len(tail_negative_pressure_targets)),
+        "rescued_negative_pressure_fraction": (
+            len(rescued_negative_pressure_targets)
+            / len(negative_pressure_targets)
+            if negative_pressure_targets else math.nan),
+        "maximum_orbit_reconstruction_error": maximum_reconstruction_error,
+        "maximum_reflection_pair_weight_fraction_error": (
+            maximum_orbit_pair_weight_error),
+        "minimum_first_three_row": minimum_first_three_row,
+        "maximum_negative_pressure_row": maximum_negative_pressure_row,
+        "maximum_positive_compensation_row": (
+            maximum_positive_compensation_row),
+        "minimum_compensation_surplus_row": minimum_compensation_surplus_row,
+        "maximum_negative_mass_fraction_row": (
+            maximum_negative_mass_fraction_row),
+        "maximum_positive_mass_fraction_row": (
+            maximum_positive_mass_fraction_row),
+        "worst_first_three_rows": tuple(worst_rows),
+        "largest_negative_pressure_rows": tuple(pressure_rows),
+        "largest_positive_compensation_rows": tuple(compensation_rows),
+        "largest_compensation_deficit_rows": tuple(deficit_rows),
+        "first_three_reflection_orbit_signed_cancellation_measured": True,
+        "reflection_orbit_cap_rarity_theorem_proved": False,
+        "signed_orbit_cancellation_required": True,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

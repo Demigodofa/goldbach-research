@@ -193,6 +193,68 @@ uniform reflection-orbit mass cap is far too strong for actual prime weights.
 The surviving target is signed cancellation or arithmetic distribution across
 orbits, not merely small maximum orbit mass.
 
+## Reflection-Orbit Signed-Cancellation Diagnostic
+
+The receipt
+`q286_first_three_reflection_orbit_signed_cancellation_receipt` keeps the same
+reflection-orbit decomposition but separates actual orbit-average contribution
+by sign.  For each strict-central target, it writes the first-three ratio as:
+
+```text
+negative orbit contribution
++ positive orbit contribution
++ zero orbit contribution
+```
+
+with reconstruction checked against the direct q286 first-three value.  This
+does not add a theorem; it measures the compensation theorem that would be
+needed after the orbit-cap route failed.
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-signed-cancellation.json
+```
+
+On the first q286 period starting at `10000`:
+
+```text
+tested targets with prime pairs:       5005
+first-three tails below -0.3:           972
+negative-pressure targets:             5002
+rescued negative-pressure targets:     4030
+tail negative-pressure targets:         972
+rescued negative-pressure fraction:    about 0.8056777289084366
+maximum reconstruction error:          about 9.992007221626409e-16
+```
+
+The worst target remains `10664`:
+
+```text
+first_three/principal:                  about -1.1500880008976309
+negative orbit contribution:            about -1.269809632792171
+positive orbit contribution:            about 0.1197216318945406
+negative orbit mass fraction:           about 0.799310342754281
+positive compensation surplus to .3:    about -0.8500880008976304
+```
+
+The largest positive-compensation row is `11108`:
+
+```text
+first_three/principal:                  about 1.4825249111772503
+negative orbit contribution:            about -0.6327193495305856
+positive orbit contribution:            about 2.1152442607078363
+maximum reflection-orbit mass fraction: about 0.12026969709166307
+```
+
+Interpretation: large orbit mass is not itself the enemy.  Almost every target
+has negative orbit pressure below the `.3` threshold before compensation; most
+are cleared by positive orbit contribution.  The next non-circular target is a
+pointwise arithmetic lower bound on positive-orbit compensation relative to
+negative-orbit pressure, or an explicit classification of the compensation
+deficit rows.  This remains finite diagnostic evidence, not a proof of
+eventual first-three rarity or Goldbach.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

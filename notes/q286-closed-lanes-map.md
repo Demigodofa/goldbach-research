@@ -60,6 +60,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_support_receipt`
 - `q286_lower_support_component_pair_fixed_conductor_phase_antipodal_thin_large_side_edge_support_receipt`
 - `q286_lower_support_component_pair_fixed_inequality_stress_receipt`
+- `q286_first_three_reflection_orbit_signed_cancellation_receipt`
 
 ## Closed or falsified lanes
 

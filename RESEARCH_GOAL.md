@@ -10870,6 +10870,21 @@ on all `5005` tested targets.  This makes the surviving theorem target still
 sharper: prove signed cancellation or arithmetic distribution across
 reflection orbits, not merely a maximum-orbit-mass bound.
 
+The signed-cancellation follow-up
+`q286_first_three_reflection_orbit_signed_cancellation_receipt` is recorded in
+`evidence/q286-first-three-reflection-orbit-signed-cancellation.json`.  On the
+same first q286 period, `5002/5005` targets have negative reflection-orbit
+pressure below the `-.3` threshold before compensation, but `4030` of those
+pressure rows are cleared by positive orbit contribution.  There are `972`
+actual first-three tails, with worst row `10664` having first-three/principal
+about `-1.1500880008976309`, negative orbit contribution about
+`-1.269809632792171`, and positive contribution only about
+`0.1197216318945406`.  The next theorem target is therefore a pointwise
+arithmetic lower bound on positive-orbit compensation relative to negative
+orbit pressure, or a classification of the compensation-deficit rows.  This is
+finite theorem-shaping evidence only; no eventual rarity theorem or Goldbach
+proof is established.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

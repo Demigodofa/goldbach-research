@@ -107,6 +107,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_weighted_discrepancy_norm_receipt,
     q286_first_three_reflection_support_obstruction_receipt,
     q286_first_three_reflection_orbit_cap_receipt,
+    q286_first_three_reflection_orbit_signed_cancellation_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3825,6 +3826,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "reflection_orbit_cap_rarity_theorem_proved"])
         self.assertTrue(receipt["signed_orbit_cancellation_required"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_signed_cancellation(self):
+        receipt = (
+            q286_first_three_reflection_orbit_signed_cancellation_receipt(
+                start=10000, cycle_count=1, targets_per_cycle=501,
+                tail_threshold=.3))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 501)
+        self.assertGreater(receipt["tested_targets_with_prime_pairs"], 450)
+        self.assertGreater(receipt["negative_pressure_target_count"], 0)
+        self.assertGreater(
+            receipt["rescued_negative_pressure_target_count"], 0)
+        self.assertGreater(
+            receipt["rescued_negative_pressure_fraction"], .5)
+        self.assertLess(
+            receipt["maximum_orbit_reconstruction_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_reflection_pair_weight_fraction_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_negative_pressure_row"][
+                "negative_orbit_contribution_to_principal_ratio"],
+            -.3)
+        self.assertGreater(
+            receipt["maximum_positive_compensation_row"][
+                "positive_orbit_contribution_to_principal_ratio"],
+            .3)
+        self.assertLess(
+            receipt["minimum_compensation_surplus_row"][
+                "positive_compensation_surplus_to_threshold"],
+            0)
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_signed_cancellation_measured"])
+        self.assertTrue(receipt["signed_orbit_cancellation_required"])
+        self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

@@ -19661,6 +19661,36 @@ disprove rarity, because the cap is only sufficient.  It does rule out a
 plain maximum-orbit-mass proof at the measured scale and points to signed
 cancellation or arithmetic distribution across reflection orbits.
 
+Signed reflection-orbit cancellation diagnostic:
+
+- `q286_first_three_reflection_orbit_signed_cancellation_receipt`
+- `tools/build_q286_first_three_reflection_orbit_signed_cancellation.py`
+- `evidence/q286-first-three-reflection-orbit-signed-cancellation.json`
+
+The receipt keeps the same q286 reflection-orbit decomposition and separates
+actual orbit-average contribution into negative pressure, positive
+compensation, and zero contribution.  On the first q286 period starting at
+`10000`, all `5005` tested targets have prime pairs, `972` are below the
+first-three `-.3` threshold, `5002` have negative orbit pressure already below
+`-.3` before compensation, and `4030` of those pressure rows are rescued by
+positive orbit contribution.  The rescued negative-pressure fraction is about
+`0.8056777289084366`; reconstruction error is at most about
+`9.992007221626409e-16`, and pair-reflection weight error is at most about
+`1.2969092866030027e-17`.  The worst target remains `10664`, with
+first-three/principal about `-1.1500880008976309`, negative contribution
+about `-1.269809632792171`, positive contribution about
+`0.1197216318945406`, and compensation surplus to the `.3` threshold about
+`-0.8500880008976304`.  The strongest positive-compensation row is `11108`,
+with first-three/principal about `1.4825249111772503` despite maximum
+reflection-orbit mass `0.12026969709166307`.
+
+Status: `changed-under-evidence`, finite diagnostic only.  Large orbit mass is
+not itself the obstruction; the theorem target is now a pointwise arithmetic
+lower bound on positive-orbit compensation relative to negative-orbit
+pressure, or an explicit classification of compensation-deficit rows.  This
+proves no eventual q286 rarity, no signed prime-correlation estimate, and no
+Goldbach theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
