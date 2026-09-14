@@ -10795,6 +10795,16 @@ The note now records an anti-attention-bias rule: selected rows may be bright
 because they received attention, so denominator counts and independent receipt
 layers must stay visible.
 
+The first PCA/SVD layer over those selected vectors is now generated:
+`evidence/q286-target-vector-pca.json`, produced by
+`tools/build_q286_target_vector_pca.py` and documented in
+`notes/q286-target-vector-pca.md`.  On selected alignment/complement
+coordinates, PC1 explains about `0.891` of variance and separates boundary
+failures from rescued/stress targets.  On selected lower-support component
+coordinates, PC1 explains about `0.897` and separates boundary failures from
+late active successes.  This is a visualization clue and falsifier-axis
+candidate only; it is not a population theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

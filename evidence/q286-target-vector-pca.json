@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "receipt": "q286-target-vector-pca",
+  "generated_from_commit": "58fc55e2d95cfee0deae812354af50eba9ed3551",
+  "purpose": "Small selected-target PCA/SVD diagnostic for q286 visualization. It tests whether measured vector coordinates separate boundary failures from late/alignment successes.",
+  "alignment_dataset": {
+    "feature_names": [
+      "first_three",
+      "complement",
+      "full",
+      "certificate_margin",
+      "l2_negative_bound_utilization",
+      "l2_to_sufficient_ratio"
+    ],
+    "feature_means": {
+      "first_three": -0.5207468630173548,
+      "complement": 1.0698109945779157,
+      "full": 0.5490641315605608,
+      "certificate_margin": 0.2739090201929627,
+      "l2_negative_bound_utilization": 0.32942962183730856,
+      "l2_to_sufficient_ratio": 9.948774679811912
+    },
+    "feature_scales": {
+      "first_three": 0.34144714059168474,
+      "complement": 0.42945613745393296,
+      "full": 0.6580601157598263,
+      "certificate_margin": 1.0859838487440447,
+      "l2_negative_bound_utilization": 0.07649639059344793,
+      "l2_to_sufficient_ratio": 9.289158645473929
+    },
+    "explained_variance_fraction": [
+      0.8908699272236911,
+      0.1026817659417241,
+      0.005927844730240692,
+      0.0005204621043441195,
+      7.909751701494962e-33,
+      1.0688836745436309e-33
+    ],
+    "component_loadings": [
+      {
+        "component": 1,
+        "explained_variance_fraction": 0.8908699272236911,
+        "loadings": {
+          "first_three": 0.3715158806294864,
+          "complement": 0.36324817449184166,
+          "full": 0.4298272852370095,
+          "certificate_margin": 0.43165582447976786,
+          "l2_negative_bound_utilization": 0.426386873377506,
+          "l2_to_sufficient_ratio": -0.4208832408617268
+        },
+        "dominant_positive_feature": "certificate_margin",
+        "dominant_negative_feature": "l2_to_sufficient_ratio"
+      },
+      {
+        "component": 2,
+        "explained_variance_fraction": 0.1026817659417241,
+        "loadings": {
+          "first_three": -0.6473079956210984,
+          "complement": 0.6882242931816195,
+          "full": 0.11327336314663977,
+          "certificate_margin": 0.07434613362036951,
+          "l2_negative_bound_utilization": 0.0735886152258789,
+          "l2_to_sufficient_ratio": 0.28907818043903866
+        },
+        "dominant_positive_feature": "complement",
+        "dominant_negative_feature": "first_three"
+      },
+      {
+        "component": 3,
+        "explained_variance_fraction": 0.005927844730240692,
+        "loadings": {
+          "first_three": 0.3145186865578632,
+          "complement": 0.2839048982109363,
+          "full": 0.3484730371677006,
+          "certificate_margin": 0.05069183323816685,
+          "l2_negative_bound_utilization": -0.8296835317728237,
+          "l2_to_sufficient_ratio": 0.08998956657747006
+        },
+        "dominant_positive_feature": "full",
+        "dominant_negative_feature": "l2_negative_bound_utilization"
+      }
+    ],
+    "rows": [
+      {
+        "target": 10664,
+        "role": "boundary_failure",
+        "shape": "down_triangle",
+        "glow": 0.166667,
+        "pc1": -3.211163017729469,
+        "pc2": 1.1443057190825203,
+        "features": {
+          "first_three": -1.1500880008976306,
+          "complement": 0.9340259936979926,
+          "full": -0.21606200719963808,
+          "certificate_margin": -1.1567368382701582,
+          "l2_negative_bound_utilization": 0.2200322261927699,
+          "l2_to_sufficient_ratio": 26.134535399601887
+        }
+      },
+      {
+        "target": 14138,
+        "role": "boundary_failure",
+        "shape": "down_triangle",
+        "glow": 0.166667,
+        "pc1": -4.63892830293927,
+        "pc2": -1.0531663925125538,
+        "features": {
+          "first_three": -0.8950145872346785,
+          "complement": 0.018073313793834367,
+          "full": -0.8769412734408442,
+          "certificate_margin": -1.9775568061194373,
+          "l2_negative_bound_utilization": 0.17939488451368424,
+          "l2_to_sufficient_ratio": 24.945376498915895
+        }
+      },
+      {
+        "target": 70526,
+        "role": "alignment_stress_success",
+        "shape": "diamond",
+        "glow": 0.0,
+        "pc1": 0.610410086706716,
+        "pc2": 1.268561997138119,
+        "features": {
+          "first_three": -0.7650482510196677,
+          "complement": 1.5026821577282998,
+          "full": 0.7376339067086323,
+          "certificate_margin": 0.6810078386031232,
+          "l2_negative_bound_utilization": 0.3724338138420597,
+          "l2_to_sufficient_ratio": 10.270928989064709
+        }
+      },
+      {
+        "target": 1222142,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 0.666667,
+        "pc1": 1.2203685067298715,
+        "pc2": -0.15589346926140643,
+        "features": {
+          "first_three": -0.3075877603708801,
+          "complement": 1.2533040265847926,
+          "full": 0.9457162662139126,
+          "certificate_margin": 0.8952649591712147,
+          "l2_negative_bound_utilization": 0.34363597536196105,
+          "l2_to_sufficient_ratio": 4.475488342669722
+        }
+      },
+      {
+        "target": 1323632,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 0.666667,
+        "pc1": 1.588272575741464,
+        "pc2": 0.0417218444320672,
+        "features": {
+          "first_three": -0.31527029112934163,
+          "complement": 1.339489557365715,
+          "full": 1.0242192662363734,
+          "certificate_margin": 1.0062478269144322,
+          "l2_negative_bound_utilization": 0.37842834473629144,
+          "l2_to_sufficient_ratio": 4.165521630641038
+        }
+      },
+      {
+        "target": 1379072,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 1.0,
+        "pc1": 1.4524335153905927,
+        "pc2": -0.006390953053826271,
+        "features": {
+          "first_three": -0.3394138842129011,
+          "complement": 1.284412751390588,
+          "full": 0.944998867177687,
+          "certificate_margin": 0.9307392792636999,
+          "l2_negative_bound_utilization": 0.38387259544434144,
+          "l2_to_sufficient_ratio": 4.420918401586101
+        }
+      },
+      {
+        "target": 1426262,
+        "role": "alignment_stress_success",
+        "shape": "diamond",
+        "glow": 0.0,
+        "pc1": 1.4749614818837984,
+        "pc2": -0.38820013388914987,
+        "features": {
+          "first_three": -0.253372013706637,
+          "complement": 1.1735385116259511,
+          "full": 0.9201664979193143,
+          "certificate_margin": 0.9091424741207728,
+          "l2_negative_bound_utilization": 0.3833219530783246,
+          "l2_to_sufficient_ratio": 3.304950468814728
+        }
+      },
+      {
+        "target": 3305200,
+        "role": "alignment_stress_success",
+        "shape": "diamond",
+        "glow": 0.0,
+        "pc1": 1.5036451542162983,
+        "pc2": -0.8509386119357701,
+        "features": {
+          "first_three": -0.14018011556710225,
+          "complement": 1.0529616444361518,
+          "full": 0.9127815288690496,
+          "certificate_margin": 0.9031634278600547,
+          "l2_negative_bound_utilization": 0.37431718152903626,
+          "l2_to_sufficient_ratio": 1.8724777072012133
+        }
+      }
+    ],
+    "role_centers": {
+      "boundary_failure": {
+        "count": 2,
+        "pc1_mean": -3.9250456603343693,
+        "pc2_mean": 0.04556966328498324
+      },
+      "alignment_stress_success": {
+        "count": 3,
+        "pc1_mean": 1.1963389076022708,
+        "pc2_mean": 0.009807750437733001
+      },
+      "late_active_success": {
+        "count": 3,
+        "pc1_mean": 1.4203581992873093,
+        "pc2_mean": -0.04018752596105517
+      }
+    }
+  },
+  "component_dataset": {
+    "feature_names": [
+      "first_three",
+      "full",
+      "visible_lower_package",
+      "lower_package_rescue_margin",
+      "component_57_centered",
+      "component_711_centered",
+      "centered_lower_support"
+    ],
+    "feature_means": {
+      "first_three": -0.6014749047690863,
+      "full": 0.36438622379749813,
+      "visible_lower_package": -0.06595230517794003,
+      "lower_package_rescue_margin": 0.36438622379749813,
+      "component_57_centered": -0.16007751069938014,
+      "component_711_centered": -0.07577178049866752,
+      "centered_lower_support": -0.23269112835984512
+    },
+    "feature_scales": {
+      "first_three": 0.35329890671551906,
+      "full": 0.7730781859593057,
+      "visible_lower_package": 0.5045471318623168,
+      "lower_package_rescue_margin": 0.7730781859593057,
+      "component_57_centered": 0.29122039676927897,
+      "component_711_centered": 0.17957271470547168,
+      "centered_lower_support": 0.4777082925854845
+    },
+    "explained_variance_fraction": [
+      0.8965052711777547,
+      0.09951309551391786,
+      0.003952496160630472,
+      2.9137147697066626e-05,
+      1.991932846610279e-33
+    ],
+    "component_loadings": [
+      {
+        "component": 1,
+        "explained_variance_fraction": 0.8965052711777547,
+        "loadings": {
+          "first_three": -0.30745419897603854,
+          "full": -0.39229311465534694,
+          "visible_lower_package": -0.39667512286025847,
+          "lower_package_rescue_margin": -0.3922931146553471,
+          "component_57_centered": -0.3784180263169717,
+          "component_711_centered": -0.38830436401639845,
+          "centered_lower_support": -0.38256045936296557
+        },
+        "dominant_positive_feature": "first_three",
+        "dominant_negative_feature": "visible_lower_package"
+      },
+      {
+        "component": 2,
+        "explained_variance_fraction": 0.09951309551391786,
+        "loadings": {
+          "first_three": -0.7641353653679924,
+          "full": -0.22140737133774552,
+          "visible_lower_package": 0.13248134260994637,
+          "lower_package_rescue_margin": -0.2214073713377454,
+          "component_57_centered": 0.3649019818441822,
+          "component_711_centered": 0.224574846284664,
+          "centered_lower_support": 0.34192992140381473
+        },
+        "dominant_positive_feature": "component_57_centered",
+        "dominant_negative_feature": "first_three"
+      },
+      {
+        "component": 3,
+        "explained_variance_fraction": 0.003952496160630472,
+        "loadings": {
+          "first_three": -0.03346895420021215,
+          "full": -0.055176267889479866,
+          "visible_lower_package": -0.0786293714330255,
+          "lower_package_rescue_margin": -0.05517626788948078,
+          "component_57_centered": -0.5562239082621268,
+          "component_711_centered": 0.820657770960939,
+          "centered_lower_support": -0.06118984242009728
+        },
+        "dominant_positive_feature": "component_711_centered",
+        "dominant_negative_feature": "component_57_centered"
+      }
+    ],
+    "rows": [
+      {
+        "target": 10664,
+        "role": "boundary_failure",
+        "shape": "down_triangle",
+        "glow": 0.166667,
+        "pc1": 0.9925130093301127,
+        "pc2": 1.6335425474456002,
+        "features": {
+          "first_three": -1.1500880008976306,
+          "full": -0.21606200719963808,
+          "visible_lower_package": -0.15579899159579966,
+          "lower_package_rescue_margin": -0.21606200719963806,
+          "component_57_centered": -0.09475214633200997,
+          "component_711_centered": -0.0799133264725722,
+          "centered_lower_support": -0.14689485472358135
+        }
+      },
+      {
+        "target": 14138,
+        "role": "boundary_failure",
+        "shape": "down_triangle",
+        "glow": 0.166667,
+        "pc1": 4.502877768998275,
+        "pc2": -0.7249123590548096,
+        "features": {
+          "first_three": -0.8950145872346785,
+          "full": -0.8769412734408442,
+          "visible_lower_package": -1.0148150611594449,
+          "lower_package_rescue_margin": -0.8769412734408442,
+          "component_57_centered": -0.7331790639459977,
+          "component_711_centered": -0.41936420368103794,
+          "centered_lower_support": -1.1741566225429594
+        }
+      },
+      {
+        "target": 1222142,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 0.666667,
+        "pc1": -1.6855778713025706,
+        "pc2": -0.3987278108434498,
+        "features": {
+          "first_three": -0.3075877603708801,
+          "full": 0.9457162662139126,
+          "visible_lower_package": 0.23741432563942377,
+          "lower_package_rescue_margin": 0.9457162662139126,
+          "component_57_centered": -0.001083408055793006,
+          "component_711_centered": 0.014826359763802506,
+          "centered_lower_support": 0.015587366326734093
+        }
+      },
+      {
+        "target": 1323632,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 0.666667,
+        "pc1": -2.0002591186510057,
+        "pc2": -0.2522056553616081,
+        "features": {
+          "first_three": -0.31527029112934163,
+          "full": 1.0242192662363734,
+          "visible_lower_package": 0.33358010057559306,
+          "lower_package_rescue_margin": 1.0242192662363734,
+          "component_57_centered": 0.06545161702266974,
+          "component_711_centered": 0.022043464205542634,
+          "centered_lower_support": 0.09553817904527069
+        }
+      },
+      {
+        "target": 1379072,
+        "role": "late_active_success",
+        "shape": "circle",
+        "glow": 1.0,
+        "pc1": -1.8095537883748098,
+        "pc2": -0.25769672218573125,
+        "features": {
+          "first_three": -0.3394138842129011,
+          "full": 0.944998867177687,
+          "visible_lower_package": 0.26985810065052745,
+          "lower_package_rescue_margin": 0.9449988671776868,
+          "component_57_centered": -0.0368245521857697,
+          "component_711_centered": 0.08354880369092738,
+          "centered_lower_support": 0.04647029009531026
+        }
+      }
+    ],
+    "role_centers": {
+      "boundary_failure": {
+        "count": 2,
+        "pc1_mean": 2.7476953891641935,
+        "pc2_mean": 0.45431509419539534
+      },
+      "late_active_success": {
+        "count": 3,
+        "pc1_mean": -1.831796926109462,
+        "pc2_mean": -0.3028767294635964
+      }
+    }
+  },
+  "interpretation_boundary": "This PCA uses selected finite targets only.  It can suggest a visual coordinate system or a falsifier direction, but it does not prove a distribution theorem, signed prime-correlation estimate, strict closure, outer assembly, or Goldbach.",
+  "goldbach_proved": false
+}

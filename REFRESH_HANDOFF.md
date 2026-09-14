@@ -19535,6 +19535,19 @@ driver/channel/margin coordinates for active rows.  The note also records the
 anti-attention-bias rule: glow from repeated independent receipts is useful;
 glow from repeatedly selecting the same target is not evidence.
 
+New selected PCA/SVD layer:
+
+- `tools/build_q286_target_vector_pca.py`
+- `evidence/q286-target-vector-pca.json`
+- `notes/q286-target-vector-pca.md`
+
+On the selected alignment/complement coordinates, PC1 explains about `0.891`
+of variance and separates boundary failures from rescued/stress targets.  On
+the selected lower-support component coordinates, PC1 explains about `0.897`
+and separates boundary failures from late active successes.  Treat this as a
+visualization axis and falsifier-direction clue only; it is selected-fixture
+evidence and not a theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

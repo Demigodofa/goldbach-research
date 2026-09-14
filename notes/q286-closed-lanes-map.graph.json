@@ -645,6 +645,14 @@
       "status_boundary": "finite selected target vectors only; useful for mechanism comparison and bias control, not a pointwise theorem or Goldbach proof"
     },
     {
+      "id": "visualization.q286_target_vector_pca",
+      "type": "visualization_layer",
+      "label": "q286 selected target vector PCA",
+      "status": "generated_selected_pca_layer",
+      "validation": "tools/build_q286_target_vector_pca.py generated evidence/q286-target-vector-pca.json; selected alignment/complement PC1 explains about 0.891 variance and selected lower-support component PC1 explains about 0.897",
+      "status_boundary": "selected-fixture PCA only; useful visualization/falsifier axis, no population cluster theorem, pointwise signed prime-correlation estimate, or Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1274,6 +1282,16 @@
     },
     {
       "from": "visualization.q286_target_vector_overlay",
+      "to": "theorem.active.component_pair_exclusion",
+      "type": "profiles"
+    },
+    {
+      "from": "visualization.q286_target_vector_pca",
+      "to": "visualization.q286_target_vector_overlay",
+      "type": "refines"
+    },
+    {
+      "from": "visualization.q286_target_vector_pca",
       "to": "theorem.active.component_pair_exclusion",
       "type": "profiles"
     }

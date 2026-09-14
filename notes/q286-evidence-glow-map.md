@@ -128,6 +128,25 @@ The next visual layers should be added in this order:
    not as a proof substitute.  Ask whether nonnegative admissible weights can
    reproduce a bad pattern after adding each proposed constraint.
 
+The first selected PCA/SVD layer is now generated:
+
+```text
+evidence/q286-target-vector-pca.json
+```
+
+It is built by:
+
+```text
+python tools/build_q286_target_vector_pca.py
+```
+
+On the selected alignment/complement coordinates, PC1 explains about `0.891`
+of selected variance and separates boundary failures from rescued/stress
+targets.  On the selected lower-support component coordinates, PC1 explains
+about `0.897` of selected variance and again separates boundary failures from
+late active successes.  This is a useful visualization axis, not a theorem or
+population claim.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict
