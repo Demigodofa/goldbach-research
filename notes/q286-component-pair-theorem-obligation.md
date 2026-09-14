@@ -1461,6 +1461,13 @@ targets per cycle at each start, it scanned `1200` targets and found zero
 first-three hits below `-0.3`.  Therefore these windows contain no active
 selector rows, but this remains denominator screening only.
 
+The later scout in `evidence/q286-first-three-tail-scout-8x12x25-late.json`
+uses global-cycle starts `250,350,500,800,1200,1600,2200,3000`, scans `2400`
+targets, and again finds zero first-three hits below `-0.3`.  The worst block
+minimum is only `-0.1282544626188415`, so these later windows are excluded
+from the active selector by the necessary first-three condition.  This is
+finite rarity evidence only.
+
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json` records a
 second selector-only check: the next six same-residue q286-period shifts after
 the known hit `1379072`, with five even targets per window.  It scanned
@@ -1493,8 +1500,8 @@ currently observed strict slack is channel-carried.
 `evidence/q286-active-lane-sampling-denominator-map.json` records the current
 sample posture explicitly: the strict closure margin has only been stressed on
 the three selected late active rows, while the `300`-target neutral selector
-holdout selected zero active tail targets, the `1200`-target first-three scout
-excluded active rows by the necessary condition, and the `30`-target
+holdout selected zero active tail targets, the `3600`-target first-three
+scout set excluded active rows by the necessary condition, and the `30`-target
 same-residue holdout selected zero active tail targets.  Those zero-hit scans
 are useful denominator evidence, but no fixed-inequality or strict-closure row
 was stressed there.  Thus the next obligation is not another tuned threshold

@@ -19384,6 +19384,17 @@ only a necessary-condition exclusion and not strict-closure support.  Focused
 regression `test_q286_active_selector_necessary_condition_scout` passed in
 `33.894s`.
 
+Later necessary-condition scout evidence is recorded in
+`evidence/q286-first-three-tail-scout-8x12x25-late.json`.  It used global
+cycle starts `k = 250,350,500,800,1200,1600,2200,3000`, i.e. starts
+`2512500,3513500,5015000,8018000,12022000,16026000,22032000,30040000`,
+with `12` cycles and `25` targets per cycle at each start.  It scanned
+`2400` targets and found zero first-three hits below `-0.3`; the worst block
+minimum was `-0.1282544626188415` at target `2562584`.  Since the active
+selector requires `first_three < -0.3`, these later windows contain no
+active-selector rows.  This is necessary-condition evidence only, not
+strict-closure support and not a theorem.
+
 Additional active-residue holdout evidence is recorded in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json`.  This used
 starts `1379072 + 10010*k` for `k=1..6`, with five even targets per window,
@@ -19423,8 +19434,8 @@ This evidence map separates selected stress fixtures from neutral
 selector-denominator scans.  It records that the strict closure margin has
 only been stressed on the three selected late active rows.  The broader
 neutral selector holdout now scans `300` predeclared targets and selects zero
-active tail targets; a necessary-condition scout scans `1200` additional
-targets and finds zero first-three hits below `-0.3`; the same-residue holdout
+active tail targets; necessary-condition scouts now scan `3600` additional
+targets and find zero first-three hits below `-0.3`; the same-residue holdout
 after `1379072` scans `30` targets and also selects zero.  These zero-hit
 windows are denominator evidence only and must not be counted as
 fixed-inequality or strict-closure successes.  The sample-size/cherry-pick

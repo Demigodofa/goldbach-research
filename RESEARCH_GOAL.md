@@ -10685,6 +10685,15 @@ starts `1120120`, `1240240`, `1500500`, and `2001000`, with `12` cycles and
 `first_three < -0.3`, these windows contain no active-selector rows.  This is
 only a necessary-condition exclusion and gives no strict-closure stress row.
 
+`evidence/q286-first-three-tail-scout-8x12x25-late.json` extends that scout to
+later disjoint global-cycle starts `k = 250,350,500,800,1200,1600,2200,3000`,
+with starts `2512500,3513500,5015000,8018000,12022000,16026000,22032000,
+30040000`, again using `12` cycles and `25` targets per start.  It scanned
+`2400` targets and found zero first-three hits below `-0.3`.  The worst block
+minimum was `-0.1282544626188415` at target `2562584`.  These later windows
+therefore contain no active-selector rows, but this remains finite
+necessary-condition evidence only.
+
 The active-residue holdout in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json` then scanned
 the six same-residue q286-period shifts immediately after the known
@@ -10714,8 +10723,8 @@ strict-margin theorem remains open.
 sample/cherry-pick posture explicit.  Across the current recorded receipts,
 the strict closure margin has been stressed only on the three selected late
 active targets.  The broader neutral selector holdout now scans `300`
-predeclared targets and finds zero active tail targets; a necessary-condition
-scout scans `1200` additional targets and finds zero first-three hits below
+predeclared targets and finds zero active tail targets; necessary-condition
+scouts now scan `3600` additional targets and find zero first-three hits below
 `-0.3`; the same-residue holdout after `1379072` scans `30` targets and also
 finds zero active tail targets.  Those zero-hit windows are denominator
 evidence, not closure-margin support.  Therefore the sample-size concern and

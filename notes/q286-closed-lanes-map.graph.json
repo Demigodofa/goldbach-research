@@ -571,6 +571,14 @@
       "status_boundary": "necessary-condition scout only; no fixed-inequality or strict-closure rows were stressed, no uniform theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.first_three_tail_scout_8x12x25_late",
+      "type": "receipt",
+      "label": "q286 first-three tail scout 8x12x25 late",
+      "status": "necessary_condition_screen",
+      "validation": "evidence/q286-first-three-tail-scout-8x12x25-late.json scanned 2400 targets across eight later 12x25 blocks and found zero first-three hits below -0.3",
+      "status_boundary": "necessary-condition scout only; no fixed-inequality or strict-closure rows were stressed, no uniform theorem and no Goldbach proof"
+    },
+    {
       "id": "receipt.component_pair_tail_selector_active_residue_holdout",
       "type": "receipt",
       "label": "q286 tail selector active-residue holdout 6x5",
@@ -591,7 +599,7 @@
       "type": "evidence_map",
       "label": "q286 active-lane sampling denominator map",
       "status": "sample_size_open",
-      "validation": "evidence/q286-active-lane-sampling-denominator-map.json separates selected strict-closure stress rows from neutral selector-only zero-hit windows, necessary-condition scout windows, and same-residue holdouts",
+      "validation": "evidence/q286-active-lane-sampling-denominator-map.json separates selected strict-closure stress rows from neutral selector-only zero-hit windows, necessary-condition scout windows totalling 3600 targets, and same-residue holdouts",
       "status_boundary": "bookkeeping evidence only; sample-size and cherry-picking risk remain open, no uniform theorem and no Goldbach proof"
     },
     {
@@ -1090,6 +1098,11 @@
     {
       "from": "evidence.active_lane_sampling_denominator_map",
       "to": "receipt.first_three_tail_scout_4x12x25",
+      "type": "classifies"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "receipt.first_three_tail_scout_8x12x25_late",
       "type": "classifies"
     },
     {

@@ -1,0 +1,111 @@
+{
+  "receipt": "q286-first-three-tail-scout-8x12x25-late",
+  "generated_on": "2026-09-13",
+  "source_commit": "169c15a23617522f85ff4169d172731bb7d48c0d",
+  "purpose": "Later disjoint necessary-condition scout for the q286 active selector. Since the active selector requires first_three < -0.3, windows with no first-three tail hit cannot contain active-selector rows.",
+  "scout_function": "q286_active_selector_necessary_condition_scout_receipt",
+  "global_cycle_indices": [
+    250,
+    350,
+    500,
+    800,
+    1200,
+    1600,
+    2200,
+    3000
+  ],
+  "active_selector_necessary_condition": {
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "starts": [
+    2512500,
+    3513500,
+    5015000,
+    8018000,
+    12022000,
+    16026000,
+    22032000,
+    30040000
+  ],
+  "cycle_count_per_start": 12,
+  "targets_per_cycle": 25,
+  "blocks": [
+    {
+      "global_cycle_index": 250,
+      "start": 2512500,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 2562584,
+      "minimum_first_three_to_principal_ratio": -0.1282544626188415
+    },
+    {
+      "global_cycle_index": 350,
+      "start": 3513500,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 3523544,
+      "minimum_first_three_to_principal_ratio": -0.08785482175735299
+    },
+    {
+      "global_cycle_index": 500,
+      "start": 5015000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 5085110,
+      "minimum_first_three_to_principal_ratio": -0.09787818654273037
+    },
+    {
+      "global_cycle_index": 800,
+      "start": 8018000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 8098094,
+      "minimum_first_three_to_principal_ratio": -0.0959974299372042
+    },
+    {
+      "global_cycle_index": 1200,
+      "start": 12022000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 12102092,
+      "minimum_first_three_to_principal_ratio": -0.0764768707368185
+    },
+    {
+      "global_cycle_index": 1600,
+      "start": 16026000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 16026038,
+      "minimum_first_three_to_principal_ratio": -0.06428433088933039
+    },
+    {
+      "global_cycle_index": 2200,
+      "start": 22032000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 22132106,
+      "minimum_first_three_to_principal_ratio": -0.03490258736585775
+    },
+    {
+      "global_cycle_index": 3000,
+      "start": 30040000,
+      "tested_target_count": 300,
+      "first_three_tail_count_below_0_3": 0,
+      "minimum_first_three_target": 30070042,
+      "minimum_first_three_to_principal_ratio": -0.04057275695360149
+    }
+  ],
+  "tested_target_count": 2400,
+  "first_three_tail_count_below_0_3": 0,
+  "active_selector_rows_excluded_by_necessary_condition": true,
+  "global_minimum_first_three_row": {
+    "start": 2512500,
+    "minimum_first_three_target": 2562584,
+    "minimum_first_three_to_principal_ratio": -0.1282544626188415
+  },
+  "validation": {
+    "direct_scout_probe": "q286_active_selector_necessary_condition_scout_receipt(starts=tuple(10000+10010*k for k in (250,350,500,800,1200,1600,2200,3000)), cycle_count=12, targets_per_cycle=25)",
+    "probe_output_summary": "Scanned 2400 targets; first_three_tail_target_count 0; active_selector_rows_excluded_by_first_three_condition True."
+  },
+  "boundary": "Necessary-condition scout evidence only. It excludes active-selector rows in these tested windows because first_three never drops below -0.3, but it does not run fixed-inequality or strict-closure stress rows and proves no uniform theorem or Goldbach."
+}
