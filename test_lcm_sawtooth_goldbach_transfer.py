@@ -52,6 +52,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_portfolio_residual_obligation_receipt,
     q286_first_three_dominant_mode_residual_channel_profile_receipt,
     q286_first_three_dominant_mode_portfolio_ablation_receipt,
+    q286_first_three_dominant_mode_prefix_tail_classification_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4690,6 +4691,36 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["portfolio_ablation_measured"])
         self.assertFalse(receipt["single_channel_portfolio_theorem_proved"])
         self.assertFalse(receipt["proper_subportfolio_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_prefix_tail_classification(self):
+        receipt = (
+            q286_first_three_dominant_mode_prefix_tail_classification_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["portfolio_channel_count"], 6)
+        self.assertEqual(receipt["prefix_channel_count"], 5)
+        self.assertEqual(receipt["tail_channel_count"], 1)
+        self.assertEqual(receipt["tail_channel_labels"], ((4, 6),))
+        self.assertEqual(
+            receipt["overrescued_failure_targets"], (24424, 1222142))
+        self.assertEqual(
+            receipt["tail_restored_failure_targets"], (24424, 1222142))
+        self.assertEqual(
+            receipt["tail_preserved_clear_targets"], (13556, 1242118))
+        self.assertTrue(receipt["all_prefix_clears_original_clears"])
+        self.assertTrue(receipt["all_prefix_overrescued_failures"])
+        self.assertTrue(receipt["tail_restores_all_overrescued_failures"])
+        self.assertTrue(receipt["tail_preserves_all_original_clears"])
+        self.assertLess(receipt["maximum_reconstruction_error"], 1e-12)
+        self.assertLess(receipt["maximum_tail_floor_identity_error"], 1e-12)
+        self.assertTrue(receipt["prefix_tail_classification_measured"])
+        self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
+        self.assertFalse(receipt["tail_classification_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

@@ -59,6 +59,8 @@ def main():
         EVIDENCE / "q286-first-three-dominant-mode-residual-channel-profile.json")
     portfolio_ablation = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-portfolio-ablation.json")
+    prefix_tail = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-prefix-tail-classification.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -324,6 +326,44 @@ def main():
         "portfolio-ablation",
         2.0,
         "separate clear-side lower bound from deficit exclusion")
+
+    layer(
+        "prefix-tail-classification",
+        "Prefix lower bound and tail classification are split exactly",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json",
+        2.0,
+        "Finite prefix/tail diagnostic only; no prefix or tail theorem.")
+    for target, row in prefix_tail["target_rows"].items():
+        add_hit(
+            target_stacks,
+            str(target),
+            "prefix-tail-classification",
+            2.0,
+            "prefix/tail floor obligation",
+            {
+                "prefix_slack": row["prefix_slack_to_floor"],
+                "tail_slack": row["tail_slack_to_full_floor"],
+                "dominant_floor_passes": row["dominant_floor_passes"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "prefix-lower-bound-plus-tail-classification",
+        "prefix-tail-classification",
+        2.0,
+        "prefix over-rescues deficits and tail restores selected split",
+        {
+            "prefix_channel_count": prefix_tail["prefix_channel_count"],
+            "tail_channel_count": prefix_tail["tail_channel_count"],
+            "tail_restores_all_overrescued_failures": (
+                prefix_tail["tail_restores_all_overrescued_failures"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "prefix-tail-classification",
+        2.0,
+        "prove prefix lower bound plus tail/exclusion theorem")
 
     layer(
         "conditional-proof-stack",

@@ -20338,6 +20338,27 @@ theorem target has split: a smaller positive package may suffice for
 clear-side lower bounds, but exact deficit/clear classification needs the
 full tested portfolio or a separate exclusion/complement theorem.
 
+Dominant-mode prefix/tail classification:
+
+- `q286_first_three_dominant_mode_prefix_tail_classification_receipt`
+- `tools/build_q286_first_three_dominant_mode_prefix_tail_classification.py`
+- `notes/q286-first-three-dominant-mode-prefix-tail-classification.md`
+- `evidence/q286-first-three-dominant-mode-prefix-tail-classification.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_prefix_tail_classification`
+
+This splits the recurrent portfolio into the first clear-preserving prefix and
+the remaining classification tail.  The prefix is
+`(2,6),(3,1),(4,8),(4,2)`, and the tail is
+`(3,11),(5,5),(4,4),(1,3),(5,3),(2,4),(4,6)`.  The prefix keeps every
+selected clear passing but over-rescues every selected deficit.  The tail
+restores every selected deficit and preserves every selected clear.  With the
+prefix fixed, the exact tail obligation is `tail_sum >= -prefix_slack`.
+Maximum reconstruction and tail-floor identity errors are about `5.55e-17`.
+The next proof route is now a two-job target: prove a prefix lower bound for
+rows that should clear, and prove a tail/exclusion/complement theorem that
+prevents prefix-overrescued deficits from becoming false positives.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

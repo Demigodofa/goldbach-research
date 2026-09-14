@@ -60,6 +60,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-residual-channel-profile.json")
     dominant_mode_portfolio_ablation = load_json(
         "evidence/q286-first-three-dominant-mode-portfolio-ablation.json")
+    dominant_mode_prefix_tail = load_json(
+        "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -385,6 +387,27 @@ def main():
                     "lower-bound theorem"),
             },
             {
+                "id": "anchor.dominant_mode_prefix_tail_classification",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json"),
+                "statement": (
+                    "The recurrent portfolio splits into a clear-preserving "
+                    "prefix and a classification tail with exact rowwise "
+                    "tail obligation."),
+                "validation": (
+                    "prefix channel count "
+                    f"{dominant_mode_prefix_tail['prefix_channel_count']}; "
+                    "tail channel count "
+                    f"{dominant_mode_prefix_tail['tail_channel_count']}; "
+                    "overrescued failures "
+                    f"{dominant_mode_prefix_tail['overrescued_failure_targets']}; "
+                    "tail restores all overrescued failures "
+                    f"{dominant_mode_prefix_tail['tail_restores_all_overrescued_failures']}"),
+                "proved_scope": (
+                    "finite exact prefix/tail diagnostic, not a prefix or "
+                    "tail theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -477,8 +500,9 @@ def main():
                     "singular-mode-1 and singular-mode-2 residue projection, "
                     "equivalently prove the recurrent helpful-channel "
                     "portfolio or its clear-side prefix lower bound against "
-                    "the rowwise residual requirement, plus a separate "
-                    "exclusion/complement theorem for over-rescued deficits. "
+                    "the rowwise residual requirement, plus a tail "
+                    "classification or separate exclusion/complement theorem "
+                    "for prefix-overrescued deficits. "
                     "The norm budget, tiny-channel, small residual-channel "
                     "classifier, and geometry-only routes are demoted on the "
                     "current evidence."),

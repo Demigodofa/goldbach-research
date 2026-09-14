@@ -827,6 +827,17 @@ current comparison set.
    row passing but over-rescues every selected failing row.  This demotes a
    tiny exact classifier and splits the live theorem into a clear-side
    lower-bound package plus a separate deficit exclusion/rescue problem.
+88. `q286_first_three_dominant_mode_prefix_tail_classification_receipt`, with
+   note
+   `notes/q286-first-three-dominant-mode-prefix-tail-classification.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-prefix-tail-classification.json`,
+   makes the ablation split exact.  The four-channel prefix
+   `(2,6),(3,1),(4,8),(4,2)` keeps selected clears passing and over-rescues
+   selected deficits.  The seven-channel tail
+   `(3,11),(5,5),(4,4),(1,3),(5,3),(2,4),(4,6)` restores all selected
+   deficits and preserves all selected clears.  The exact tail obligation is
+   `tail_sum >= -prefix_slack`.
 
 ## Still open
 
@@ -842,8 +853,8 @@ current comparison set.
   generic norm, pressure-ceiling-only, tiny-channel, and small
   residual-channel classifier, and tiny exact-classifier routes are demoted
   on current evidence; the live target is a recurrent-portfolio or clear-side
-  prefix lower bound, a separate deficit exclusion/complement theorem, a
-  genuine residual-channel bound, or an external theorem strong enough to
-  imply the same pointwise inequality.
+  prefix lower bound, tail classification or a separate deficit
+  exclusion/complement theorem, a genuine residual-channel bound, or an
+  external theorem strong enough to imply the same pointwise inequality.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

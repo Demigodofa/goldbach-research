@@ -10007,6 +10007,271 @@ def q286_first_three_dominant_mode_portfolio_ablation_receipt(
     }
 
 
+def q286_first_three_dominant_mode_prefix_tail_classification_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Split the recurrent portfolio into clear-prefix and classification tail.
+
+    The portfolio ablation found that an initial prefix can keep selected
+    clear rows above the floor while over-rescuing selected deficits.  This
+    receipt records the exact tail obligation needed to turn the prefix result
+    back into the full selected classification.
+
+    It proves no prefix theorem, no tail theorem, and no Goldbach theorem.
+    """
+    if (type(recurrent_min_pair_count) is not int
+            or recurrent_min_pair_count < 1):
+        raise ValueError(
+            "recurrent_min_pair_count must be a positive integer")
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+    if portfolio_name == "universal_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["universally_helpful_channel_rows"])
+    elif portfolio_name == "recurrent_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["channel_frequency_rows"]
+            if row["helpful_pair_count"] >= recurrent_min_pair_count)
+    else:
+        raise ValueError("unknown portfolio_name")
+    if prefix_channel_count is not None and (
+            type(prefix_channel_count) is not int
+            or prefix_channel_count < 1
+            or prefix_channel_count > len(portfolio_labels)):
+        raise ValueError(
+            "prefix_channel_count must be None or a positive prefix length")
+
+    sample_rows = swing_receipt["sample_target_rows"]
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    contributions_by_target = {
+        target: contribution_by_label(row)
+        for target, row in sample_rows.items()}
+
+    base_rows = {}
+    clear_targets = []
+    failure_targets = []
+    for target in swing_receipt["sample_targets"]:
+        row = sample_rows[target]
+        contributions = contributions_by_target[target]
+        full_portfolio = math.fsum(
+            contributions.get(label, 0.0) for label in portfolio_labels)
+        dominant_sum = row["dominant_character_sum_to_principal_ratio"]
+        nonportfolio = dominant_sum - full_portfolio
+        required_portfolio = -tail_threshold - nonportfolio
+        if row["dominant_floor_passes"]:
+            clear_targets.append(target)
+        else:
+            failure_targets.append(target)
+        base_rows[target] = {
+            "target": target,
+            "target_mod_286": row["target_mod_286"],
+            "dominant_floor_passes": row["dominant_floor_passes"],
+            "dominant_sum_to_principal": dominant_sum,
+            "full_portfolio_sum_to_principal": full_portfolio,
+            "nonportfolio_sum_to_principal": nonportfolio,
+            "required_portfolio_for_floor": required_portfolio,
+        }
+
+    def prefix_slack_rows(count):
+        labels = portfolio_labels[:count]
+        rows = []
+        for target in swing_receipt["sample_targets"]:
+            prefix_sum = math.fsum(
+                contributions_by_target[target].get(label, 0.0)
+                for label in labels)
+            rows.append((
+                target,
+                prefix_sum - base_rows[target][
+                    "required_portfolio_for_floor"]))
+        return rows
+
+    selected_prefix_count = prefix_channel_count
+    if selected_prefix_count is None:
+        for count in range(1, len(portfolio_labels) + 1):
+            rows = prefix_slack_rows(count)
+            if all(
+                    slack >= -tolerance
+                    for target, slack in rows
+                    if sample_rows[target]["dominant_floor_passes"]):
+                selected_prefix_count = count
+                break
+    if selected_prefix_count is None:
+        selected_prefix_count = len(portfolio_labels)
+
+    prefix_labels = portfolio_labels[:selected_prefix_count]
+    tail_labels = portfolio_labels[selected_prefix_count:]
+    target_rows = {}
+    clear_tail_slacks = []
+    failure_tail_slacks = []
+    tail_values = []
+    prefix_values = []
+    maximum_reconstruction_error = 0.0
+    maximum_tail_floor_identity_error = 0.0
+    for target in swing_receipt["sample_targets"]:
+        contributions = contributions_by_target[target]
+        base = base_rows[target]
+        prefix_sum = math.fsum(
+            contributions.get(label, 0.0) for label in prefix_labels)
+        tail_sum = math.fsum(
+            contributions.get(label, 0.0) for label in tail_labels)
+        full_sum = base["full_portfolio_sum_to_principal"]
+        prefix_slack = prefix_sum - base["required_portfolio_for_floor"]
+        required_tail = -prefix_slack
+        tail_slack = tail_sum - required_tail
+        full_slack = full_sum - base["required_portfolio_for_floor"]
+        reconstruction_error = abs(full_sum - prefix_sum - tail_sum)
+        tail_floor_identity_error = abs(tail_slack - full_slack)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        maximum_tail_floor_identity_error = max(
+            maximum_tail_floor_identity_error, tail_floor_identity_error)
+        row = {
+            "target": target,
+            "target_mod_286": base["target_mod_286"],
+            "dominant_floor_passes": base["dominant_floor_passes"],
+            "dominant_sum_to_principal": (
+                base["dominant_sum_to_principal"]),
+            "prefix_sum_to_principal": prefix_sum,
+            "tail_sum_to_principal": tail_sum,
+            "full_portfolio_sum_to_principal": full_sum,
+            "required_portfolio_for_floor": (
+                base["required_portfolio_for_floor"]),
+            "prefix_slack_to_floor": prefix_slack,
+            "required_tail_for_full_floor": required_tail,
+            "tail_slack_to_full_floor": tail_slack,
+            "full_portfolio_slack_to_floor": full_slack,
+            "prefix_overrescues_failure": (
+                not base["dominant_floor_passes"]
+                and prefix_slack >= -tolerance),
+            "tail_restores_failure": (
+                not base["dominant_floor_passes"]
+                and tail_slack < -tolerance),
+            "tail_preserves_clear": (
+                base["dominant_floor_passes"]
+                and tail_slack >= -tolerance),
+            "reconstruction_error": reconstruction_error,
+            "tail_floor_identity_error": tail_floor_identity_error,
+        }
+        target_rows[target] = row
+        tail_values.append(tail_sum)
+        prefix_values.append(prefix_sum)
+        if base["dominant_floor_passes"]:
+            clear_tail_slacks.append(tail_slack)
+        else:
+            failure_tail_slacks.append(tail_slack)
+
+    pair_rows = []
+    for pair in swing_receipt["pair_rows"]:
+        left = target_rows[pair["left_target"]]
+        right = target_rows[pair["right_target"]]
+        pair_rows.append({
+            "left_target": pair["left_target"],
+            "right_target": pair["right_target"],
+            "prefix_delta_to_principal": (
+                right["prefix_sum_to_principal"]
+                - left["prefix_sum_to_principal"]),
+            "tail_delta_to_principal": (
+                right["tail_sum_to_principal"]
+                - left["tail_sum_to_principal"]),
+            "full_portfolio_delta_to_principal": (
+                right["full_portfolio_sum_to_principal"]
+                - left["full_portfolio_sum_to_principal"]),
+            "full_floor_slack_swing": (
+                right["full_portfolio_slack_to_floor"]
+                - left["full_portfolio_slack_to_floor"]),
+        })
+
+    all_prefix_clears_original_clears = all(
+        target_rows[target]["prefix_slack_to_floor"] >= -tolerance
+        for target in clear_targets)
+    overrescued_failure_targets = tuple(
+        target for target in failure_targets
+        if target_rows[target]["prefix_overrescues_failure"])
+    tail_restored_failure_targets = tuple(
+        target for target in failure_targets
+        if target_rows[target]["tail_restores_failure"])
+    tail_preserved_clear_targets = tuple(
+        target for target in clear_targets
+        if target_rows[target]["tail_preserves_clear"])
+
+    return {
+        "arithmetic_modulus": swing_receipt["arithmetic_modulus"],
+        "support": swing_receipt["support"],
+        "dominant_modes": swing_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            swing_receipt["active_real_channel_count"]),
+        "pair_targets": swing_receipt["pair_targets"],
+        "sample_targets": swing_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "portfolio_channel_labels": portfolio_labels,
+        "portfolio_channel_count": len(portfolio_labels),
+        "prefix_channel_labels": prefix_labels,
+        "prefix_channel_count": len(prefix_labels),
+        "tail_channel_labels": tail_labels,
+        "tail_channel_count": len(tail_labels),
+        "target_rows": target_rows,
+        "pair_rows": tuple(pair_rows),
+        "clear_targets": tuple(clear_targets),
+        "failure_targets": tuple(failure_targets),
+        "overrescued_failure_targets": overrescued_failure_targets,
+        "tail_restored_failure_targets": tail_restored_failure_targets,
+        "tail_preserved_clear_targets": tail_preserved_clear_targets,
+        "all_prefix_clears_original_clears": (
+            all_prefix_clears_original_clears),
+        "all_prefix_overrescued_failures": (
+            overrescued_failure_targets == tuple(failure_targets)),
+        "tail_restores_all_overrescued_failures": (
+            tail_restored_failure_targets == overrescued_failure_targets),
+        "tail_preserves_all_original_clears": (
+            tail_preserved_clear_targets == tuple(clear_targets)),
+        "prefix_summary": summarize(prefix_values),
+        "tail_summary": summarize(tail_values),
+        "clear_tail_slack_summary": summarize(clear_tail_slacks),
+        "failure_tail_slack_summary": summarize(failure_tail_slacks),
+        "maximum_reconstruction_error": maximum_reconstruction_error,
+        "maximum_tail_floor_identity_error": (
+            maximum_tail_floor_identity_error),
+        "prefix_tail_classification_measured": True,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "b2723c82555cd8da517f38b46dd190ba9dbcacb1",
+  "generated_from_commit": "7764431673b051601b65a3a26cc9c11bc781fdc5",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -76,6 +76,14 @@
       "boundary": "Finite recurrent-portfolio ablation only; no portfolio theorem."
     },
     {
+      "id": "prefix-tail-classification",
+      "label": "Prefix lower bound and tail classification are split exactly",
+      "kind": "selected_stress",
+      "source": "evidence/q286-first-three-dominant-mode-prefix-tail-classification.json",
+      "default_weight": 2.0,
+      "boundary": "Finite prefix/tail diagnostic only; no prefix or tail theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -87,7 +95,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 10.5,
+      "stack_weight": 12.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -125,14 +133,24 @@
             "full_portfolio_slack": -0.008833179560527815,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.07928695952893153,
+            "tail_slack": -0.008833179560527801,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 5,
+      "layer_count": 6,
       "glow": 1.0
     },
     {
       "id": "1240888",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -158,14 +176,24 @@
             "full_portfolio_slack": 0.02718657338091786,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.09997474335400884,
+            "tail_slack": 0.027186573380917844,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "1242118",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -191,14 +219,24 @@
             "full_portfolio_slack": 0.016528913466746065,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.08280908010396126,
+            "tail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "129706",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -224,14 +262,24 @@
             "full_portfolio_slack": 0.05842892627684948,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.009507493347217372,
+            "tail_slack": 0.05842892627684947,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "13556",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -257,14 +305,24 @@
             "full_portfolio_slack": 0.00956409034565811,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.043949273107673714,
+            "tail_slack": 0.009564090345658104,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "13822",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -290,14 +348,24 @@
             "full_portfolio_slack": -0.03674434602428933,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.42006745350537134,
+            "tail_slack": -0.03674434602428939,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "164598",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -323,14 +391,24 @@
             "full_portfolio_slack": -0.01915179245517605,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.04904634279178903,
+            "tail_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "24424",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -356,14 +434,24 @@
             "full_portfolio_slack": -0.01345867269417178,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.17951252425509298,
+            "tail_slack": -0.013458672694171753,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "40420",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -389,14 +477,24 @@
             "full_portfolio_slack": 0.04893840350347566,
             "dominant_floor_passes": true
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.2559232556016382,
+            "tail_slack": 0.048938403503475614,
+            "dominant_floor_passes": true
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "55864",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -422,10 +520,20 @@
             "full_portfolio_slack": -0.09922857579168887,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.15193968736605606,
+            "tail_slack": -0.09922857579168887,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 3,
-      "glow": 0.619048
+      "layer_count": 4,
+      "glow": 0.68
     },
     {
       "id": "1379072",
@@ -451,7 +559,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.571429
+      "glow": 0.48
     },
     {
       "id": "1323632",
@@ -471,7 +579,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.380952
+      "glow": 0.32
     },
     {
       "id": "10664",
@@ -485,7 +593,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.095238
+      "glow": 0.08
     },
     {
       "id": "14138",
@@ -499,7 +607,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.095238
+      "glow": 0.08
     }
   ],
   "mechanism_stacks": [
@@ -579,6 +687,24 @@
       "glow": 0.222222
     },
     {
+      "id": "prefix-lower-bound-plus-tail-classification",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix over-rescues deficits and tail restores selected split",
+          "value": {
+            "prefix_channel_count": 4,
+            "tail_channel_count": 7,
+            "tail_restores_all_overrescued_failures": true
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "small-residual-channel-classifier-demoted",
       "stack_weight": 2.0,
       "layers": [
@@ -634,7 +760,7 @@
   "theorem_gap_stacks": [
     {
       "id": "portfolio-residual-lower-bound",
-      "stack_weight": 6.5,
+      "stack_weight": 8.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -650,9 +776,14 @@
           "layer": "portfolio-ablation",
           "weight": 2.0,
           "reason": "separate clear-side lower bound from deficit exclusion"
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prove prefix lower bound plus tail/exclusion theorem"
         }
       ],
-      "layer_count": 3,
+      "layer_count": 4,
       "glow": 1.0
     },
     {
@@ -671,7 +802,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.769231
+      "glow": 0.588235
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -684,7 +815,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.307692
+      "glow": 0.235294
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -697,7 +828,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.307692
+      "glow": 0.235294
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -714,7 +845,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.230769
+      "glow": 0.176471
     },
     {
       "id": "alignment-complement-route",
@@ -727,7 +858,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.153846
+      "glow": 0.117647
     }
   ],
   "goldbach_proved": false,

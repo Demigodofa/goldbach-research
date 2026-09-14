@@ -11272,6 +11272,19 @@ classification target split apart: a smaller positive portfolio package may
 be enough for clear-side rescue, but reproducing the selected pass/fail split
 requires the full tested portfolio or a separate exclusion/rescue theorem.
 
+The prefix/tail classification split is now recorded in
+`notes/q286-first-three-dominant-mode-prefix-tail-classification.md` and
+`evidence/q286-first-three-dominant-mode-prefix-tail-classification.json`.
+The four-channel prefix `(2,6),(3,1),(4,8),(4,2)` keeps all selected clears
+passing but over-rescues all selected deficits.  The seven-channel tail
+`(3,11),(5,5),(4,4),(1,3),(5,3),(2,4),(4,6)` restores all selected deficits
+and preserves all selected clears, with maximum prefix/tail reconstruction
+and floor identity errors about `5.55e-17`.  The exact tail obligation after
+fixing the prefix is `tail_sum >= -prefix_slack`.  This gives the next proof
+route two separately named jobs: a prefix lower-bound theorem for rows that
+should clear, plus a tail/exclusion/complement theorem preventing
+prefix-overrescued deficits from becoming false positives.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
