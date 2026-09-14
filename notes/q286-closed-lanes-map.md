@@ -1336,6 +1336,18 @@ current comparison set.
    all-six dependency turns on and sharpens the live target to the full
    adverse-pair absorption step or a replacement signed aggregate arithmetic-
    placement theorem.
+126. `tools/build_q286_first_three_dominant_mode_volatile_octave_svd_rank_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.json`,
+   uses Octave `11.3.0` to SVD the selected `10 by 8` oriented
+   volatile-channel matrix and replay truncated-rank classification margins.
+   Rank `4` captures about `0.9315947381` of the matrix energy but still has
+   five selected-row failures; rank `5` is the first all-pass truncation, with
+   minimum reconstructed oriented margin about `0.0055715827`.  This demotes
+   a rank-`<=4` low-rank shortcut for the current fixture while preserving
+   low-rank linear algebra as a diagnostic.
 
 ## Still open
 
@@ -1439,6 +1451,9 @@ current comparison set.
   adverse-absorption ladder then shows the all-six repair dependency turns on
   exactly at the joint adverse-pair step: base-only needs four repair
   channels, either adverse singleton needs five, and both adverses need all
-  six.
+  six.  The Octave SVD rank audit then demotes a rank-`<=4` low-rank
+  explanation: rank `4` captures more than `93%` of oriented volatile-channel
+  energy but still fails five selected rows, and rank `5` is the first
+  all-pass truncation.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

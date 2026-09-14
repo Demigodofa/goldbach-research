@@ -20765,6 +20765,30 @@ only; it proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
 
+Dominant-mode volatile Octave SVD rank audit:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_octave_svd_rank_audit.py`
+- `notes/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.md`
+- `evidence/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.json`
+
+This orients the selected volatile-channel matrix so positive channel mass
+helps the row's actual classification, then uses Octave `11.3.0` to compute
+the SVD and replay truncated-rank reconstructions against the selected
+classification margins.
+
+Rank `4` captures about `0.9315947381` of oriented matrix energy, but it still
+leaves five selected rows with nonpositive reconstructed oriented margin.
+Rank `5` is the first truncation preserving all selected row classifications,
+with minimum reconstructed oriented margin about `0.0055715827`.
+
+This demotes a rank-`<=4` low-rank SVD explanation for the current fixture.
+The finite q286 hole is not just a very-low-rank shadow of the signed volatile
+matrix.  The live theorem target remains critical adverse-pair absorption from
+actual binary-prime residue weights, or a replacement signed aggregate
+arithmetic-placement theorem.  This is finite Octave/SVD evidence only; it
+proves no low-rank theorem, volatile-rim theorem, selected-fixture classifier
+theorem, pointwise character-sum estimate, or Goldbach.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

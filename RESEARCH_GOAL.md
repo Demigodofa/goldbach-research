@@ -12498,3 +12498,30 @@ adverse-pair absorption step from actual binary-prime residue weights, or
 replace the local ladder with a signed aggregate arithmetic-placement theorem.
 This remains finite diagnostic evidence only and proves no q286 theorem or
 Goldbach.
+
+### 2026-09-14 continuation: volatile Octave SVD rank audit
+
+The adverse-absorption ladder was then tested against a low-rank
+linear-algebra shortcut using Octave.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.json
+```
+
+Each selected row was oriented so positive channel mass helps the row's actual
+classification.  Octave `11.3.0` computed the SVD of the resulting `10 by 8`
+oriented volatile-channel matrix, and each truncated rank was replayed by
+testing whether oriented base margin plus reconstructed channel sum stayed
+positive for every selected row.
+
+Rank `4` captures about `0.9315947381` of the oriented volatile-channel matrix
+energy, but still leaves five selected rows with nonpositive reconstructed
+oriented margin.  Rank `5` is the first truncation preserving all selected row
+classifications, with minimum reconstructed oriented margin about
+`0.0055715827`.
+
+This demotes the attractive rank-`<=4` SVD shortcut on the current fixture.
+Low-rank structure remains useful diagnostically, but it is too blunt here to
+replace the critical adverse-pair absorption balance.  The live theorem target
+remains actual binary-prime residue-weight control, or a stronger signed
+aggregate arithmetic-placement theorem.

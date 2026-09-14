@@ -1189,6 +1189,14 @@
       "status": "finite_ladder_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_volatile_adverse_absorption_ladder.py generated evidence/q286-first-three-dominant-mode-volatile-adverse-absorption-ladder.json; for stress row 1222142, minimum sufficient repair-bundle sizes are 4 with no adverse channel, 5 with either singleton adverse channel, and 6 only for the full adverse pair (1,7),(4,4)",
       "status_boundary": "finite adverse-absorption ladder only; no volatile-rim theorem, pointwise prime-correlation estimate, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_volatile_octave_svd_rank_audit",
+      "type": "receipt",
+      "label": "q286 volatile Octave SVD rank audit",
+      "status": "finite_svd_diagnostic",
+      "validation": "tools/build_q286_first_three_dominant_mode_volatile_octave_svd_rank_audit.py generated evidence/q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.json; Octave 11.3.0 rank 4 captures about 0.9315947381 of oriented matrix energy but still fails five selected rows, while rank 5 is the first all-pass truncation",
+      "status_boundary": "finite Octave SVD rank audit only; no low-rank theorem, pointwise prime-correlation estimate, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2514,6 +2522,16 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_volatile_adverse_absorption_ladder",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_volatile_octave_svd_rank_audit",
+      "to": "receipt.q286_first_three_dominant_mode_volatile_adverse_absorption_ladder",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_volatile_octave_svd_rank_audit",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }
