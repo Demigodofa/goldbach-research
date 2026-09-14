@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "evidence"
 
 WIDTH = 1200
-HEIGHT = 760
+HEIGHT = 880
 
 
 def load_json(path: Path):
@@ -194,21 +194,31 @@ def render_alignment_plot(pca, overlay):
 
 
 def render_stack_bars(glow):
-    x0, y0, w = 635, 425, 500
-    pieces = [text(x0, y0 - 18, "Mechanism / theorem glow stacks", 17, "500")]
-    stacks = (
-        [("mechanism", row) for row in glow["mechanism_stacks"]]
-        + [("theorem", row) for row in glow["theorem_gap_stacks"]])
-    max_weight = max(row["stack_weight"] for _, row in stacks)
-    bar_h = 18
-    for index, (kind, row) in enumerate(stacks[:9]):
-        y = y0 + index * 31
-        bar_w = scale(row["stack_weight"], 0, max_weight, 0, 280)
-        color = "#1b9e77" if kind == "mechanism" else "#7570b3"
-        pieces.append(text(x0, y + 14, row["id"][:39], 11))
-        pieces.append(rect(x0 + 250, y, 285, bar_h, "#eeeeee", "none"))
-        pieces.append(rect(x0 + 250, y, bar_w, bar_h, color, "none", 0.78))
-        pieces.append(text(x0 + 542, y + 14, f"{row['stack_weight']:.1f}", 11))
+    x0, y0 = 635, 394
+    pieces = [text(x0, y0 - 18, "Heat stacks: targets / mechanisms / theorem gaps", 17, "500")]
+
+    sections = [
+        ("Targets", glow["target_stacks"][:8], "#d95f02"),
+        ("Mechanisms", glow["mechanism_stacks"][:5], "#1b9e77"),
+        ("Theorem gaps", glow["theorem_gap_stacks"][:5], "#7570b3"),
+    ]
+    max_weight = max(
+        row["stack_weight"]
+        for _label, rows, _color in sections
+        for row in rows)
+    bar_h = 13
+    y = y0
+    for label, rows, color in sections:
+        pieces.append(text(x0, y + 10, label, 12, "600"))
+        y += 17
+        for row in rows:
+            bar_w = scale(row["stack_weight"], 0, max_weight, 0, 220)
+            pieces.append(text(x0, y + 11, row["id"][:35], 10))
+            pieces.append(rect(x0 + 225, y, 225, bar_h, "#eeeeee", "none"))
+            pieces.append(rect(x0 + 225, y, bar_w, bar_h, color, "none", 0.78))
+            pieces.append(text(x0 + 456, y + 11, f"{row['stack_weight']:.1f}", 10))
+            y += 20
+        y += 8
     return pieces
 
 
@@ -226,7 +236,7 @@ def main():
         rect(0, 0, WIDTH, HEIGHT, "#fafafa", "none"),
         text(38, 42, "q286 Evidence Glow / Vector / PCA Summary", 24, "500"),
         text(38, 66, "Finite navigation layer only: glow is overlap, not proof. Boundary, endpoint, outer assembly, and signed prime correlation remain open.", 13),
-        text(38, 735, f"generated from commit {commit}", 11, fill="#555"),
+        text(38, 855, f"generated from commit {commit}", 11, fill="#555"),
     ]
     pieces.extend(render_scatter(pca, overlay))
     pieces.extend(render_alignment_plot(pca, overlay))

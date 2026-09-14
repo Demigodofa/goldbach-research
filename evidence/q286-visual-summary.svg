@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880" role="img" aria-labelledby="title desc">
 <title id="title">q286 evidence glow and vector summary</title>
 <desc id="desc">Finite selected-target visualization. Brightness means overlapping evidence layers, not proof.</desc>
-<rect x="0.00" y="0.00" width="1200.00" height="760.00" fill="#fafafa" stroke="none" opacity="1.0"/>
+<rect x="0.00" y="0.00" width="1200.00" height="880.00" fill="#fafafa" stroke="none" opacity="1.0"/>
 <text x="38.00" y="42.00" font-size="24" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">q286 Evidence Glow / Vector / PCA Summary</text>
 <text x="38.00" y="66.00" font-size="13" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">Finite navigation layer only: glow is overlap, not proof. Boundary, endpoint, outer assembly, and signed prime correlation remain open.</text>
-<text x="38.00" y="735.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit ba601cd5d54eb776911626c088eaf5a313a407ed</text>
+<text x="38.00" y="855.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#555">generated from commit 5d9f2b09262ce6d20deb6008fd4aa913a719167f</text>
 <rect x="55.00" y="95.00" width="500.00" height="360.00" fill="#ffffff" stroke="#bbbbbb" opacity="1.0"/>
 <text x="55.00" y="79.00" font-size="17" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">Selected component PCA / SVD</text>
 <text x="55.00" y="487.00" font-size="12" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">PC1: boundary vs late component split</text>
@@ -60,41 +60,80 @@
 <text x="1102.07" y="263.73" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1426262</text>
 <polygon points="1097.07,291.80 1102.07,296.80 1097.07,301.80 1092.07,296.80" fill="#7570b3" stroke="#3f007d" stroke-width="1.5" opacity="0.88"><title>target 3305200; alignment PC1 1.504; PC2 -0.851</title></polygon>
 <text x="1104.07" y="300.80" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">3305200</text>
-<text x="635.00" y="407.00" font-size="17" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">Mechanism / theorem glow stacks</text>
-<text x="635.00" y="439.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">channel-carried-strict-slack</text>
-<rect x="885.00" y="425.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="425.00" width="280.00" height="18.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="439.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.0</text>
-<text x="635.00" y="470.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">fixed-component-pair-((5,7),(7,11))</text>
-<rect x="885.00" y="456.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="456.00" width="62.22" height="18.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="470.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.0</text>
-<text x="635.00" y="501.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">tail-thinning-after-cycle-232</text>
-<rect x="885.00" y="487.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="487.00" width="62.22" height="18.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="501.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.0</text>
-<text x="635.00" y="532.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">active-selector-rarity</text>
-<rect x="885.00" y="518.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="518.00" width="46.67" height="18.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="532.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1.5</text>
-<text x="635.00" y="563.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">active-lane-strict-closure</text>
-<rect x="885.00" y="549.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="549.00" width="155.56" height="18.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="563.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">5.0</text>
-<text x="635.00" y="594.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">alignment-plus-complement-tail</text>
-<rect x="885.00" y="580.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="580.00" width="62.22" height="18.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="594.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.0</text>
-<text x="635.00" y="625.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rarity-plus-complement-floor</text>
-<rect x="885.00" y="611.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="611.00" width="62.22" height="18.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="625.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.0</text>
-<text x="635.00" y="656.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">sample-size-cherry-pick-risk</text>
-<rect x="885.00" y="642.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="642.00" width="46.67" height="18.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="656.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1.5</text>
-<text x="635.00" y="687.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">alignment-complement-route</text>
-<rect x="885.00" y="673.00" width="285.00" height="18.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
-<rect x="885.00" y="673.00" width="31.11" height="18.00" fill="#7570b3" stroke="none" opacity="0.78"/>
-<text x="1177.00" y="687.00" font-size="11" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1.0</text>
+<text x="635.00" y="376.00" font-size="17" font-family="Arial, sans-serif" font-weight="500" text-anchor="start" fill="#222">Heat stacks: targets / mechanisms / theorem gaps</text>
+<text x="635.00" y="404.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Targets</text>
+<text x="635.00" y="422.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1222142</text>
+<rect x="860.00" y="411.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="411.00" width="220.00" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="422.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">54.0</text>
+<text x="635.00" y="442.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">13822</text>
+<rect x="860.00" y="431.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="431.00" width="189.44" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="442.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">46.5</text>
+<text x="635.00" y="462.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">164598</text>
+<rect x="860.00" y="451.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="451.00" width="189.44" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="462.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">46.5</text>
+<text x="635.00" y="482.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">24424</text>
+<rect x="860.00" y="471.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="471.00" width="189.44" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="482.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">46.5</text>
+<text x="635.00" y="502.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">55864</text>
+<rect x="860.00" y="491.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="491.00" width="189.44" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="502.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">46.5</text>
+<text x="635.00" y="522.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">1242118</text>
+<rect x="860.00" y="511.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="511.00" width="150.74" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="522.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">37.0</text>
+<text x="635.00" y="542.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">129706</text>
+<rect x="860.00" y="531.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="531.00" width="124.26" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="542.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">30.5</text>
+<text x="635.00" y="562.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">13556</text>
+<rect x="860.00" y="551.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="551.00" width="116.11" height="13.00" fill="#d95f02" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="562.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">28.5</text>
+<text x="635.00" y="589.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Mechanisms</text>
+<text x="635.00" y="607.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">channel-carried-strict-slack</text>
+<rect x="860.00" y="596.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="596.00" width="36.67" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="607.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">9.0</text>
+<text x="635.00" y="627.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rank1-cap-survives-full-window</text>
+<rect x="860.00" y="616.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="616.00" width="12.22" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="627.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">3.0</text>
+<text x="635.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">small-fixed-channel-certificate-ref</text>
+<rect x="860.00" y="636.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="636.00" width="12.22" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="647.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">3.0</text>
+<text x="635.00" y="667.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">near-sharp-rank1-residual-drag-cap</text>
+<rect x="860.00" y="656.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="656.00" width="10.19" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="667.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.5</text>
+<text x="635.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">positive-rank1-outside-direction</text>
+<rect x="860.00" y="676.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="676.00" width="10.19" height="13.00" fill="#1b9e77" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="687.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.5</text>
+<text x="635.00" y="714.00" font-size="12" font-family="Arial, sans-serif" font-weight="600" text-anchor="start" fill="#222">Theorem gaps</text>
+<text x="635.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">portfolio-residual-lower-bound</text>
+<rect x="860.00" y="721.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="721.00" width="67.22" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="732.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">16.5</text>
+<text x="635.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rank1-residual-drag-bound</text>
+<rect x="860.00" y="741.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="741.00" width="34.63" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="752.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">8.5</text>
+<text x="635.00" y="772.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">active-lane-strict-closure</text>
+<rect x="860.00" y="761.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="761.00" width="20.37" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="772.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">5.0</text>
+<text x="635.00" y="792.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">near-boundary-selector-theorem</text>
+<rect x="860.00" y="781.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="781.00" width="14.26" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="792.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">3.5</text>
+<text x="635.00" y="812.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">rank1-outside-direction-arithmetic-</text>
+<rect x="860.00" y="801.00" width="225.00" height="13.00" fill="#eeeeee" stroke="none" opacity="1.0"/>
+<rect x="860.00" y="801.00" width="10.19" height="13.00" fill="#7570b3" stroke="none" opacity="0.78"/>
+<text x="1091.00" y="812.00" font-size="10" font-family="Arial, sans-serif" font-weight="400" text-anchor="start" fill="#222">2.5</text>
 </svg>

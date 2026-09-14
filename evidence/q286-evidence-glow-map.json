@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "6488ac1b909beef2764c014fc2b69e68f25c7f34",
+  "generated_from_commit": "5d9f2b09262ce6d20deb6008fd4aa913a719167f",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -162,6 +162,38 @@
       "source": "evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json",
       "default_weight": 2.0,
       "boundary": "Finite falsifier for simple selector families only."
+    },
+    {
+      "id": "outside-rank1-separator",
+      "label": "Frozen Octave rank-1 outside direction separates checked clears",
+      "kind": "finite_svd_diagnostic",
+      "source": "evidence/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json",
+      "default_weight": 2.5,
+      "boundary": "Finite SVD diagnostic only; rank-1 direction is not yet an arithmetic theorem."
+    },
+    {
+      "id": "rank1-residual-drag-ledger",
+      "label": "Near-sharp residual drag after rank-1 reconstruction",
+      "kind": "finite_ratio_diagnostic",
+      "source": "evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json",
+      "default_weight": 2.5,
+      "boundary": "Finite residual-drag ratio only; no residual-bound theorem."
+    },
+    {
+      "id": "rank1-residual-drag-full-window",
+      "label": "Rank-1 residual-drag cap survives the full six-window denominator",
+      "kind": "finite_holdout_diagnostic",
+      "source": "evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Full-window finite audit only; not a uniform denominator theorem."
+    },
+    {
+      "id": "residual-drag-channel-certificate-falsifier",
+      "label": "Small fixed outside-channel certificate is refuted",
+      "kind": "finite_falsifier",
+      "source": "evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json",
+      "default_weight": 3.0,
+      "boundary": "Finite falsifier for one sparse proof shortcut only."
     },
     {
       "id": "conditional-proof-stack",
@@ -1482,6 +1514,211 @@
       "glow": 0.861111
     },
     {
+      "id": "1242118",
+      "stack_weight": 37.0,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.016528913466746065
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.22038568263372166,
+            "residual_negative_pressure": 0.23376503548387326,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.08280908010396126,
+            "tail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.016528913466746065,
+            "position": 0.2166023339897376,
+            "uniform_correct": true
+          }
+        },
+        {
+          "layer": "staircase-orbit-mass-gap",
+          "weight": 2.0,
+          "reason": "actual breaker-orbit mass measured",
+          "value": {
+            "breaking_orbit": [
+              49,
+              257
+            ],
+            "breaking_mass": 0.02461931032734391,
+            "top_actual_orbit": [
+              57,
+              249
+            ],
+            "top_actual_mass": 0.027196371750000652,
+            "breaking_orbit_is_top": false
+          }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "opposing_mass": 0.5131334480712859,
+            "supporting_hinge": 0.8686962800128225,
+            "opposing_hinge": 0.8521673665460764,
+            "hinge_margin": 0.01652891346674612,
+            "mass_driven": false,
+            "landing_driven": true
+          }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "surplus": 0.004797981282350594,
+            "relative_surplus": 0.009952902085936449,
+            "identity_error": 1.2836953722228372e-16
+          }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "signed_surplus": 0.004797981282350594,
+            "predicts_pass": true,
+            "identity_error": 1.8388068845354155e-16
+          }
+        },
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 20,
+            "signed_surplus": 0.0047979812823502055
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 20,
+            "target_mod_10010": 878,
+            "signed_surplus": 0.0047979812823502055
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.03982418863984762,
+            "rank1_reconstructed_delta": 0.15443781312730606,
+            "residual_after_rank1": -0.11461362448745843
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.7421344693153626,
+            "residual_drag": 0.11461362448745843,
+            "rank1_reconstructed_delta": 0.15443781312730606
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.7421344693153629,
+            "full_outside_delta": 0.03982418863984762,
+            "window_start": 1242000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.7421344693153629,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  5,
+                  1
+                ],
+                "negative_residual": 0.027772365147467754
+              },
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.025980398295982095
+              },
+              {
+                "label": [
+                  2,
+                  10
+                ],
+                "negative_residual": 0.02461057264795589
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 17,
+      "glow": 0.685185
+    },
+    {
       "id": "129706",
       "stack_weight": 30.5,
       "layers": [
@@ -1805,150 +2042,6 @@
       "glow": 0.527778
     },
     {
-      "id": "1242118",
-      "stack_weight": 26.0,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.016528913466746065
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.22038568263372166,
-            "residual_negative_pressure": 0.23376503548387326,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "portfolio-ablation",
-          "weight": 2.0,
-          "reason": "portfolio ablation baseline row",
-          "value": {
-            "full_portfolio_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "prefix-tail-classification",
-          "weight": 2.0,
-          "reason": "prefix/tail floor obligation",
-          "value": {
-            "prefix_slack": 0.08280908010396126,
-            "tail_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "tail-ablation",
-          "weight": 2.0,
-          "reason": "tail ablation slack row",
-          "value": {
-            "subtail_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "staircase-geometry-obstruction",
-          "weight": 2.0,
-          "reason": "full-stage classification breakable by weak geometry"
-        },
-        {
-          "layer": "staircase-arithmetic-gap",
-          "weight": 2.0,
-          "reason": "one_sided_lower_bound",
-          "value": {
-            "actual_gap": 0.016528913466746065,
-            "position": 0.2166023339897376,
-            "uniform_correct": true
-          }
-        },
-        {
-          "layer": "staircase-orbit-mass-gap",
-          "weight": 2.0,
-          "reason": "actual breaker-orbit mass measured",
-          "value": {
-            "breaking_orbit": [
-              49,
-              257
-            ],
-            "breaking_mass": 0.02461931032734391,
-            "top_actual_orbit": [
-              57,
-              249
-            ],
-            "top_actual_mass": 0.027196371750000652,
-            "breaking_orbit_is_top": false
-          }
-        },
-        {
-          "layer": "staircase-hinge-decomposition",
-          "weight": 2.0,
-          "reason": "above-floor/below-floor hinge balance measured",
-          "value": {
-            "supporting_mass": 0.48686655192871414,
-            "opposing_mass": 0.5131334480712859,
-            "supporting_hinge": 0.8686962800128225,
-            "opposing_hinge": 0.8521673665460764,
-            "hinge_margin": 0.01652891346674612,
-            "mass_driven": false,
-            "landing_driven": true
-          }
-        },
-        {
-          "layer": "staircase-hinge-threshold",
-          "weight": 2.0,
-          "reason": "support-mass surplus over landing-dependent threshold",
-          "value": {
-            "supporting_mass": 0.48686655192871414,
-            "threshold": 0.48206857064636355,
-            "surplus": 0.004797981282350594,
-            "relative_surplus": 0.009952902085936449,
-            "identity_error": 1.2836953722228372e-16
-          }
-        },
-        {
-          "layer": "staircase-above-floor-threshold",
-          "weight": 2.0,
-          "reason": "above-floor signed surplus measured",
-          "value": {
-            "above_mass": 0.48686655192871414,
-            "threshold": 0.48206857064636355,
-            "signed_surplus": 0.004797981282350594,
-            "predicts_pass": true,
-            "identity_error": 1.8388068845354155e-16
-          }
-        },
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1242000,
-            "target_mod_286": 20,
-            "signed_surplus": 0.0047979812823502055
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1242000,
-            "target_mod_286": 20,
-            "target_mod_10010": 878,
-            "signed_surplus": 0.0047979812823502055
-          }
-        }
-      ],
-      "layer_count": 13,
-      "glow": 0.481481
-    },
-    {
       "id": "1240888",
       "stack_weight": 22.5,
       "layers": [
@@ -2195,8 +2288,534 @@
       "glow": 0.416667
     },
     {
+      "id": "1220056",
+      "stack_weight": 14.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 266,
+            "signed_surplus": 0.042368787096773886
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 266,
+            "target_mod_10010": 8846,
+            "signed_surplus": 0.042368787096773886
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.11361064889229076,
+            "rank1_reconstructed_delta": 0.2079624253210008,
+            "residual_after_rank1": -0.09435177642871002
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.45369626884795733,
+            "residual_drag": 0.09435177642871002,
+            "rank1_reconstructed_delta": 0.2079624253210008
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.4536962688479577,
+            "full_outside_delta": 0.11361064889229076,
+            "window_start": 1220000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.4536962688479576,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  4,
+                  6
+                ],
+                "negative_residual": 0.018856106386596648
+              },
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.018004207454812446
+              },
+              {
+                "label": [
+                  3,
+                  9
+                ],
+                "negative_residual": 0.017090904943966825
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.268519
+    },
+    {
+      "id": "1222048",
+      "stack_weight": 14.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 256,
+            "signed_surplus": 0.021280120300458616
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 256,
+            "target_mod_10010": 828,
+            "signed_surplus": 0.021280120300458616
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.06065645673299353,
+            "rank1_reconstructed_delta": 0.12420935514779338,
+            "residual_after_rank1": -0.06355289841479986
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.5116595150114093,
+            "residual_drag": 0.06355289841479986,
+            "rank1_reconstructed_delta": 0.12420935514779338
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.5116595150114099,
+            "full_outside_delta": 0.06065645673299353,
+            "window_start": 1222000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.5116595150114099,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  3,
+                  11
+                ],
+                "negative_residual": 0.030585069673193657
+              },
+              {
+                "label": [
+                  5,
+                  5
+                ],
+                "negative_residual": 0.024674115276158207
+              },
+              {
+                "label": [
+                  1,
+                  9
+                ],
+                "negative_residual": 0.022725352424183047
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.268519
+    },
+    {
+      "id": "1220124",
+      "stack_weight": 12.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 48,
+            "signed_surplus": 0.06243712430917403
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.15354704589790968,
+            "rank1_reconstructed_delta": 0.19678216876673132,
+            "residual_after_rank1": -0.04323512286882164
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2197105720492045,
+            "residual_drag": 0.04323512286882164,
+            "rank1_reconstructed_delta": 0.19678216876673132
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.21971057204920505,
+            "full_outside_delta": 0.15354704589790968,
+            "window_start": 1220000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.21971057204920497,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  5,
+                  1
+                ],
+                "negative_residual": 0.011577065476741649
+              },
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.01113276030086658
+              },
+              {
+                "label": [
+                  4,
+                  2
+                ],
+                "negative_residual": 0.011036036143179741
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.231481
+    },
+    {
+      "id": "1221052",
+      "stack_weight": 12.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 118,
+            "signed_surplus": 0.05237494786232505
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 118,
+            "target_mod_10010": 9842,
+            "signed_surplus": 0.05237494786232505
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.20808938275658764,
+            "residual_drag": 0.043293592598457026,
+            "rank1_reconstructed_delta": 0.20805286663327588
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2080893827565884,
+            "full_outside_delta": 0.16475927403481885,
+            "window_start": 1221000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.20808938275658828,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.0159189707994313
+              },
+              {
+                "label": [
+                  4,
+                  8
+                ],
+                "negative_residual": 0.014792997053314515
+              },
+              {
+                "label": [
+                  5,
+                  5
+                ],
+                "negative_residual": 0.011256669949417052
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.222222
+    },
+    {
+      "id": "1200224",
+      "stack_weight": 11.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 168,
+            "signed_surplus": 0.043637464512128576,
+            "dominant_sum": -0.15028340975129342
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1200200,
+            "target_mod_286": 168,
+            "target_mod_10010": 9034,
+            "signed_surplus": 0.043637464512128576
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1529488848280964,
+            "rank1_reconstructed_delta": 0.1870237800461432,
+            "residual_after_rank1": -0.0340748952180468
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.18219552192581986,
+            "residual_drag": 0.0340748952180468,
+            "rank1_reconstructed_delta": 0.1870237800461432
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.18219552192581986,
+            "full_outside_delta": 0.1529488848280964,
+            "window_start": 1200200
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.212963
+    },
+    {
+      "id": "1221042",
+      "stack_weight": 11.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 108,
+            "signed_surplus": 0.044915700209767595
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 108,
+            "target_mod_10010": 9832,
+            "signed_surplus": 0.044915700209767595
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.13530620404972166,
+            "rank1_reconstructed_delta": 0.1622242924186475,
+            "residual_after_rank1": -0.02691808836892584
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.16593130392246752,
+            "residual_drag": 0.02691808836892584,
+            "rank1_reconstructed_delta": 0.1622242924186475
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.16593130392246794,
+            "full_outside_delta": 0.13530620404972166,
+            "window_start": 1221000
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.212963
+    },
+    {
+      "id": "1222072",
+      "stack_weight": 11.0,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1285171257570954,
+            "rank1_reconstructed_delta": 0.16548373043330353,
+            "residual_after_rank1": -0.03696660467620813
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.22338513024461418,
+            "residual_drag": 0.03696660467620813,
+            "rank1_reconstructed_delta": 0.16548373043330353
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2233851302446151,
+            "full_outside_delta": 0.1285171257570954,
+            "window_start": 1222000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.22338513024461495,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.020512992020977797
+              },
+              {
+                "label": [
+                  3,
+                  5
+                ],
+                "negative_residual": 0.019866730853160833
+              },
+              {
+                "label": [
+                  3,
+                  7
+                ],
+                "negative_residual": 0.017736877090817924
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.203704
+    },
+    {
       "id": "1240160",
-      "stack_weight": 7.5,
+      "stack_weight": 10.0,
       "layers": [
         {
           "layer": "above-floor-holdout-census",
@@ -2258,10 +2877,186 @@
             "target_mod_286": 64,
             "abs_surplus": 0.0525379332055963
           }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.11574240435698746,
+            "rank1_reconstructed_delta": 0.10168839499070212,
+            "residual_after_rank1": 0.014054009366285342
+          }
         }
       ],
-      "layer_count": 6,
-      "glow": 0.138889
+      "layer_count": 7,
+      "glow": 0.185185
+    },
+    {
+      "id": "1222018",
+      "stack_weight": 9.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 226,
+            "signed_surplus": 0.05312980592257055
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.11593206419040636,
+            "rank1_reconstructed_delta": 0.13760195914669698,
+            "residual_after_rank1": -0.021669894956290625
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.15748245948437714,
+            "residual_drag": 0.021669894956290625,
+            "rank1_reconstructed_delta": 0.13760195914669698
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1574824594843778,
+            "full_outside_delta": 0.11593206419040636,
+            "window_start": 1222000
+          }
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.175926
+    },
+    {
+      "id": "1222030",
+      "stack_weight": 8.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.22295480391987646,
+            "residual_drag": 0.05163834576628762,
+            "rank1_reconstructed_delta": 0.23160902953607115
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2229548039198773,
+            "full_outside_delta": 0.17997068376978353,
+            "window_start": 1222000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2229548039198772,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  5,
+                  1
+                ],
+                "negative_residual": 0.025084524764190454
+              },
+              {
+                "label": [
+                  4,
+                  8
+                ],
+                "negative_residual": 0.023790489461466117
+              },
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.016621600695248477
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.157407
+    },
+    {
+      "id": "1242070",
+      "stack_weight": 8.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.20093221854607793,
+            "residual_drag": 0.041528438735169565,
+            "rank1_reconstructed_delta": 0.20667884441661222
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.20093221854607846,
+            "full_outside_delta": 0.16515040568144265,
+            "window_start": 1242000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.20093221854607832,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  1,
+                  11
+                ],
+                "negative_residual": 0.024875733519317236
+              },
+              {
+                "label": [
+                  2,
+                  10
+                ],
+                "negative_residual": 0.020062242081042746
+              },
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.014596900099563357
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.157407
     },
     {
       "id": "1242162",
@@ -2331,6 +3126,180 @@
       ],
       "layer_count": 6,
       "glow": 0.138889
+    },
+    {
+      "id": "1200262",
+      "stack_weight": 7.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 206,
+            "signed_surplus": 0.06193250948006862,
+            "dominant_sum": -0.12164090941396052
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.17375666404960405,
+            "residual_drag": 0.03677795433218739,
+            "rank1_reconstructed_delta": 0.21166356141418566
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.17375666404960435,
+            "full_outside_delta": 0.17488560708199827,
+            "window_start": 1200200
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.12963
+    },
+    {
+      "id": "1240144",
+      "stack_weight": 7.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 48,
+            "signed_surplus": 0.05674908372357923
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1579796845149641,
+            "rank1_reconstructed_delta": 0.18313193799620364,
+            "residual_after_rank1": -0.025152253481239534
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1373449861146617,
+            "full_outside_delta": 0.1579796845149641,
+            "window_start": 1240000
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.12963
+    },
+    {
+      "id": "1200254",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.33596888551359766,
+            "full_outside_delta": 0.14488035491514292,
+            "window_start": 1200200
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.33596888551359755,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.026598324434939584
+              },
+              {
+                "label": [
+                  3,
+                  7
+                ],
+                "negative_residual": 0.0210670641037737
+              },
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.019279462764980042
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.111111
+    },
+    {
+      "id": "1200482",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2340445899125704,
+            "full_outside_delta": 0.1720944931362972,
+            "window_start": 1200200
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2340445899125703,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  4,
+                  6
+                ],
+                "negative_residual": 0.028597925748498728
+              },
+              {
+                "label": [
+                  2,
+                  6
+                ],
+                "negative_residual": 0.023285077077364
+              },
+              {
+                "label": [
+                  4,
+                  8
+                ],
+                "negative_residual": 0.022011141973016568
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.111111
     },
     {
       "id": "1379072",
@@ -2417,6 +3386,118 @@
       "glow": 0.101852
     },
     {
+      "id": "1221092",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 158,
+            "signed_surplus": 0.06005485039849434
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.14143870572940756,
+            "rank1_reconstructed_delta": 0.13791994038774197,
+            "residual_after_rank1": 0.0035187653416655917
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.074074
+    },
+    {
+      "id": "1221118",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 184,
+            "signed_surplus": 0.059682810649436036
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.14327563356971942,
+            "rank1_reconstructed_delta": 0.162633307130501,
+            "residual_after_rank1": -0.01935767356078158
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.074074
+    },
+    {
+      "id": "1222168",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 90,
+            "signed_surplus": 0.05359542426213604
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.14295354988176556,
+            "rank1_reconstructed_delta": 0.13387170267223067,
+            "residual_after_rank1": 0.009081847209534893
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.074074
+    },
+    {
+      "id": "1242106",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 8,
+            "signed_surplus": 0.058816980845934785
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.11462970581449047,
+            "rank1_reconstructed_delta": 0.11955016798842566,
+            "residual_after_rank1": -0.004920462173935186
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.074074
+    },
+    {
       "id": "1323632",
       "stack_weight": 4.0,
       "layers": [
@@ -2466,35 +3547,6 @@
       "glow": 0.064815
     },
     {
-      "id": "1200224",
-      "stack_weight": 3.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 168,
-            "signed_surplus": 0.043637464512128576,
-            "dominant_sum": -0.15028340975129342
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1200200,
-            "target_mod_286": 168,
-            "target_mod_10010": 9034,
-            "signed_surplus": 0.043637464512128576
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.064815
-    },
-    {
       "id": "1200598",
       "stack_weight": 3.5,
       "layers": [
@@ -2533,35 +3585,6 @@
       "glow": 0.064815
     },
     {
-      "id": "1220056",
-      "stack_weight": 3.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1220000,
-            "target_mod_286": 266,
-            "signed_surplus": 0.042368787096773886
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1220000,
-            "target_mod_286": 266,
-            "target_mod_10010": 8846,
-            "signed_surplus": 0.042368787096773886
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.064815
-    },
-    {
       "id": "1220098",
       "stack_weight": 3.5,
       "layers": [
@@ -2584,93 +3607,6 @@
             "target_mod_286": 22,
             "target_mod_10010": 8888,
             "signed_surplus": 0.04023311644888955
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.064815
-    },
-    {
-      "id": "1221042",
-      "stack_weight": 3.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 108,
-            "signed_surplus": 0.044915700209767595
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 108,
-            "target_mod_10010": 9832,
-            "signed_surplus": 0.044915700209767595
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.064815
-    },
-    {
-      "id": "1221052",
-      "stack_weight": 3.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 118,
-            "signed_surplus": 0.05237494786232505
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 118,
-            "target_mod_10010": 9842,
-            "signed_surplus": 0.05237494786232505
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.064815
-    },
-    {
-      "id": "1222048",
-      "stack_weight": 3.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1222000,
-            "target_mod_286": 256,
-            "signed_surplus": 0.021280120300458616
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1222000,
-            "target_mod_286": 256,
-            "target_mod_10010": 828,
-            "signed_surplus": 0.021280120300458616
           }
         }
       ],
@@ -2705,6 +3641,204 @@
       ],
       "layer_count": 2,
       "glow": 0.064815
+    },
+    {
+      "id": "1200232",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1348072451439954,
+            "full_outside_delta": 0.15370653444214188,
+            "window_start": 1200200
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1200392",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.15394596827956888,
+            "full_outside_delta": 0.20279901025678784,
+            "window_start": 1200200
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1200520",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.16036424085441686,
+            "full_outside_delta": 0.1983317655101589,
+            "window_start": 1200200
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1221148",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1850388088775552,
+            "full_outside_delta": 0.18587200484612396,
+            "window_start": 1221000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1221154",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1462259634336195,
+            "full_outside_delta": 0.17056844477113892,
+            "window_start": 1221000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1220188",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.15748483346390274,
+            "rank1_reconstructed_delta": 0.17396818999252012,
+            "residual_after_rank1": -0.016483356528617377
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1221002",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.14496464120338576,
+            "rank1_reconstructed_delta": 0.13252276537713367,
+            "residual_after_rank1": 0.012441875826252086
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1221156",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1547218608681727,
+            "rank1_reconstructed_delta": 0.1729664126332003,
+            "residual_after_rank1": -0.018244551765027622
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1221162",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1572128871373991,
+            "rank1_reconstructed_delta": 0.16162576947302487,
+            "residual_after_rank1": -0.004412882335625784
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1242062",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.13839273485912754,
+            "rank1_reconstructed_delta": 0.11238036412236828,
+            "residual_after_rank1": 0.026012370736759258
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1242152",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1526724224903824,
+            "rank1_reconstructed_delta": 0.17476136759973143,
+            "residual_after_rank1": -0.02208894510934903
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
     },
     {
       "id": "1240116",
@@ -2746,24 +3880,6 @@
             "target_mod_286": 154,
             "signed_surplus": 0.06303603705071159,
             "dominant_sum": -0.0740811038580045
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
-      "id": "1200262",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 206,
-            "signed_surplus": 0.06193250948006862,
-            "dominant_sum": -0.12164090941396052
           }
         }
       ],
@@ -2915,24 +4031,6 @@
       "glow": 0.027778
     },
     {
-      "id": "1220124",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1220000,
-            "target_mod_286": 48,
-            "signed_surplus": 0.06243712430917403
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
       "id": "1221016",
       "stack_weight": 1.5,
       "layers": [
@@ -2951,60 +4049,6 @@
       "glow": 0.027778
     },
     {
-      "id": "1221092",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 158,
-            "signed_surplus": 0.06005485039849434
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
-      "id": "1221118",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 184,
-            "signed_surplus": 0.059682810649436036
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
-      "id": "1222018",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1222000,
-            "target_mod_286": 226,
-            "signed_surplus": 0.05312980592257055
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
       "id": "1222078",
       "stack_weight": 1.5,
       "layers": [
@@ -3016,24 +4060,6 @@
             "window_start": 1222000,
             "target_mod_286": 0,
             "signed_surplus": 0.05330971110326033
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
-      "id": "1222168",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1222000,
-            "target_mod_286": 90,
-            "signed_surplus": 0.05359542426213604
           }
         }
       ],
@@ -3095,24 +4121,6 @@
       "glow": 0.027778
     },
     {
-      "id": "1240144",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1240000,
-            "target_mod_286": 48,
-            "signed_surplus": 0.05674908372357923
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
       "id": "1242044",
       "stack_weight": 1.5,
       "layers": [
@@ -3124,24 +4132,6 @@
             "window_start": 1242000,
             "target_mod_286": 232,
             "signed_surplus": 0.0680776923866061
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.027778
-    },
-    {
-      "id": "1242106",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1242000,
-            "target_mod_286": 8,
-            "signed_surplus": 0.058816980845934785
           }
         }
       ],
@@ -3203,6 +4193,102 @@
       ],
       "layer_count": 3,
       "glow": 1.0
+    },
+    {
+      "id": "rank1-cap-survives-full-window",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "frozen rank-1 positivity plus 0.75 residual-drag cap survives all full-window clears",
+          "value": {
+            "full_window_target_count": 716,
+            "clear_count": 715,
+            "deficit_targets": [
+              1222142
+            ],
+            "maximum_ratio": 0.7421344693153629
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
+      "id": "small-fixed-channel-certificate-refuted",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "best fixed five-label subset covers only 0.3570706202 on its worst high-drag row",
+          "value": {
+            "high_drag_row_count": 10,
+            "best_five_label_subset": [
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                2,
+                8
+              ],
+              [
+                4,
+                8
+              ],
+              [
+                5,
+                1
+              ]
+            ],
+            "best_five_minimum_share": 0.3570706201967922
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
+      "id": "near-sharp-rank1-residual-drag-cap",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "0.75 residual-drag cap survives while 0.7 and half caps fail",
+          "value": {
+            "worst_target": 1242118,
+            "maximum_ratio": 0.7421344693153626,
+            "negative_residual_row_count": 36
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.277778
+    },
+    {
+      "id": "positive-rank1-outside-direction",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "rank-1 reconstruction is positive on every checked clear row",
+          "value": {
+            "clear_count": 71,
+            "rank1_energy_fraction": 0.7471393936534104,
+            "minimum_rank1_target": 1240160
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.277778
     },
     {
       "id": "recurrent-portfolio-versus-residual",
@@ -3649,6 +4735,29 @@
       "glow": 1.0
     },
     {
+      "id": "rank1-residual-drag-bound",
+      "stack_weight": 8.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "prove near-sharp residual-drag inequality or replace rank-1 proxy"
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window survival makes residual-drag theorem target more stable"
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "tiny static bad-channel proof route is closed; use row-dependent balance or larger cone"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.515152
+    },
+    {
       "id": "active-lane-strict-closure",
       "stack_weight": 5.0,
       "layers": [
@@ -3683,6 +4792,19 @@
       ],
       "layer_count": 2,
       "glow": 0.212121
+    },
+    {
+      "id": "rank1-outside-direction-arithmetic-meaning",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.151515
     },
     {
       "id": "alignment-plus-complement-tail",

@@ -86,24 +86,44 @@ risk remains explicitly open.
 
 ## Current Bright Spots
 
-The current generated target stacks highlight:
+The regenerated map after the rank-`1` residual/full-window branch highlights:
 
-- `1379072`: graph late-success role, fixed-inequality stress, and positive
-  strict-closure margin all overlap.
-- `1222142` and `1323632`: graph late-success role plus positive strict
-  closure margin.
-- `10664` and `14138`: boundary-failure roles remain visible but are not
-  bright under this first generated layer because only graph-role evidence is
-  currently counted there.
+- `1222142`: still the brightest target.  This is partly evidence glow and
+  partly attention glow: it is the stress row, the lone full-window deficit,
+  and the row many later receipts subtract against.  Read it as the anchor of
+  the obstruction, not as proof that the whole problem is local.
+- `1242118`: now becomes the important second-tier hotspot.  It is the closest
+  clear in the outside-plane remainder, the worst residual-drag ratio row, and
+  a high-drag row in the fixed-channel certificate falsifier.  This is the
+  strongest visual sign that the live q286 bottleneck is not merely the deficit
+  row; it is the gap between the deficit and the nearest rescued clear.
+- `13822`, `164598`, `24424`, and `55864`: remain bright because many earlier
+  selected staircase/portfolio layers overlap there.  They matter as repeated
+  mechanism fixtures, but they are not the current rank-`1` edge.
+- `1220056`, `1222048`, `1220124`, `1221052`, `1200224`, `1221042`, and nearby
+  rows now light up as the broader high-drag/residual neighborhood.
 
 The current mechanism stacks highlight:
 
 - `channel-carried-strict-slack`: all three selected late active rows have
   strict closure dominated by channel margin.
-- `tail-thinning-after-cycle-232`: the adjacent cycles `233..264` denominator
-  window has zero `.2` near-tail and zero `.3` deep-tail rows.
-- `active-selector-rarity`: denominator and scout receipts support the
-  question but still leave the theorem open.
+- `rank1-cap-survives-full-window`: the frozen Octave rank-`1` direction and
+  `0.75` residual-drag cap survived all `715` checked clears in the six-window
+  denominator.
+- `small-fixed-channel-certificate-refuted`: the simplest sparse explanation
+  for residual drag is now visibly closed.
+- `near-sharp-rank1-residual-drag-cap` and
+  `positive-rank1-outside-direction`: the map now separates the two rank-`1`
+  facts: positivity of the SVD shadow, and the near-sharp residual-drag
+  inequality still needing proof.
+
+The theorem-gap heat now puts `portfolio-residual-lower-bound` first and
+`rank1-residual-drag-bound` second.  That is the current "step back" reading:
+two independent-looking bottlenecks keep recurring.  The first is the older
+portfolio/residual lower-bound family; the second is the newer rank-`1`
+outside-direction plus residual-drag family.  The proof route should look for
+a bridge between those two heat islands before spending much more effort on
+single-row threshold squeezing.
 
 ## Useful Next Extension
 

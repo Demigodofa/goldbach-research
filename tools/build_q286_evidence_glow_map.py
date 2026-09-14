@@ -89,6 +89,18 @@ def main():
     selector_audit = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-near-boundary-selector-audit.json")
+    outside_rank1 = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json")
+    residual_drag = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json")
+    residual_drag_full_window = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json")
+    residual_drag_channel_certificate = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -886,6 +898,177 @@ def main():
         2.0,
         "selector must use finer prime-pair distribution than q286 residue or "
         "one scalar interval")
+
+    layer(
+        "outside-rank1-separator",
+        "Frozen Octave rank-1 outside direction separates checked clears",
+        "finite_svd_diagnostic",
+        "evidence/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json",
+        2.5,
+        "Finite SVD diagnostic only; rank-1 direction is not yet an arithmetic theorem.")
+    for row in outside_rank1["rows_by_full_outside_delta"][:20]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "outside-rank1-separator",
+            2.5,
+            "small exact outside delta with positive rank-1 reconstruction",
+            {
+                "full_outside_delta": row["full_outside_delta_to_stress"],
+                "rank1_reconstructed_delta": (
+                    row["rank1_reconstructed_outside_delta"]),
+                "residual_after_rank1": (
+                    row["residual_after_rank1_row_sum"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "positive-rank1-outside-direction",
+        "outside-rank1-separator",
+        2.5,
+        "rank-1 reconstruction is positive on every checked clear row",
+        {
+            "clear_count": outside_rank1["clear_count"],
+            "rank1_energy_fraction": outside_rank1[
+                "rank1_energy_fraction"],
+            "minimum_rank1_target": (
+                outside_rank1[
+                    "rank1_minimum_reconstructed_outside_delta"][
+                    "target"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "outside-rank1-separator",
+        2.5,
+        "identify the frozen rank-1 vector as a non-post-hoc arithmetic object")
+
+    layer(
+        "rank1-residual-drag-ledger",
+        "Near-sharp residual drag after rank-1 reconstruction",
+        "finite_ratio_diagnostic",
+        "evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json",
+        2.5,
+        "Finite residual-drag ratio only; no residual-bound theorem.")
+    for row in residual_drag["rows_by_residual_drag_ratio"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "rank1-residual-drag-ledger",
+            2.5,
+            "high residual-drag ratio on original checked denominator",
+            {
+                "residual_drag_to_rank1_ratio": (
+                    row["residual_drag_to_rank1_ratio"]),
+                "residual_drag": row["residual_drag"],
+                "rank1_reconstructed_delta": (
+                    row["rank1_reconstructed_outside_delta"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "near-sharp-rank1-residual-drag-cap",
+        "rank1-residual-drag-ledger",
+        2.5,
+        "0.75 residual-drag cap survives while 0.7 and half caps fail",
+        {
+            "worst_target": residual_drag["worst_residual_drag_row"][
+                "target"],
+            "maximum_ratio": residual_drag[
+                "maximum_residual_drag_to_rank1_ratio"],
+            "negative_residual_row_count": residual_drag[
+                "negative_residual_row_count"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-residual-drag-bound",
+        "rank1-residual-drag-ledger",
+        2.5,
+        "prove near-sharp residual-drag inequality or replace rank-1 proxy")
+
+    layer(
+        "rank1-residual-drag-full-window",
+        "Rank-1 residual-drag cap survives the full six-window denominator",
+        "finite_holdout_diagnostic",
+        "evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json",
+        3.0,
+        "Full-window finite audit only; not a uniform denominator theorem.")
+    for row in residual_drag_full_window["rows_by_residual_drag_ratio"][:20]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "rank1-residual-drag-full-window",
+            3.0,
+            "full-window high residual-drag row",
+            {
+                "residual_drag_to_rank1_ratio": (
+                    row["residual_drag_to_rank1_ratio"]),
+                "full_outside_delta": row["full_outside_delta_to_stress"],
+                "window_start": row["window_start"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "rank1-cap-survives-full-window",
+        "rank1-residual-drag-full-window",
+        3.0,
+        "frozen rank-1 positivity plus 0.75 residual-drag cap survives all full-window clears",
+        {
+            "full_window_target_count": residual_drag_full_window[
+                "full_window_target_count"],
+            "clear_count": residual_drag_full_window["clear_count"],
+            "deficit_targets": residual_drag_full_window["deficit_targets"],
+            "maximum_ratio": residual_drag_full_window[
+                "maximum_residual_drag_to_rank1_ratio"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-residual-drag-bound",
+        "rank1-residual-drag-full-window",
+        3.0,
+        "full-window survival makes residual-drag theorem target more stable")
+
+    layer(
+        "residual-drag-channel-certificate-falsifier",
+        "Small fixed outside-channel certificate is refuted",
+        "finite_falsifier",
+        "evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json",
+        3.0,
+        "Finite falsifier for one sparse proof shortcut only.")
+    for row in residual_drag_channel_certificate["high_drag_rows_by_ratio"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "residual-drag-channel-certificate-falsifier",
+            3.0,
+            "high-drag row resists one fixed five-channel certificate",
+            {
+                "residual_drag_to_rank1_ratio": (
+                    row["residual_drag_to_rank1_ratio"]),
+                "top_negative_residual_channels": (
+                    row["top_negative_residual_channels"][:3]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "small-fixed-channel-certificate-refuted",
+        "residual-drag-channel-certificate-falsifier",
+        3.0,
+        "best fixed five-label subset covers only 0.3570706202 on its worst high-drag row",
+        {
+            "high_drag_row_count": residual_drag_channel_certificate[
+                "high_drag_row_count"],
+            "best_five_label_subset": (
+                residual_drag_channel_certificate[
+                    "best_fixed_subsets_on_high_drag_rows"][-1][
+                    "labels"]),
+            "best_five_minimum_share": (
+                residual_drag_channel_certificate[
+                    "best_fixed_subsets_on_high_drag_rows"][-1][
+                    "minimum_row_share"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-residual-drag-bound",
+        "residual-drag-channel-certificate-falsifier",
+        3.0,
+        "tiny static bad-channel proof route is closed; use row-dependent balance or larger cone")
 
     layer(
         "conditional-proof-stack",
