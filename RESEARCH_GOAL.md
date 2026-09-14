@@ -11001,6 +11001,25 @@ mass-control terms mostly offset by worse landing quality.  Therefore the
 active exact-curve target is now a coupled mass/landing arithmetic estimate,
 not a one-dimensional mass-share floor or a pressure-only bound.
 
+That target is now stated as an exact proof obligation in
+`evidence/q286-first-three-mass-landing-obligation.json`.  For actual
+strict-central binary-prime mass on q286 reflection-orbit sign classes, write
+`P = m_plus * ell_plus`, `B = m_minus * ell_minus`, and
+`first_three = P - B`.  The pointwise first-three rarity theorem at threshold
+`tau=.3` is exactly:
+
+```text
+m_plus(N) * ell_plus(N) + tau >= m_minus(N) * ell_minus(N).
+```
+
+The receipt verifies this algebra on the holdout samples with reconstruction
+errors below `2.3e-16`: tail `1222142` has slack about
+`-0.00758776037087916`, while clear rows `1242118` and `1240888` have slacks
+about `0.013573256731567618` and `0.025315898499383316`.  This is only a
+formalized theorem obligation.  The missing ingredient remains a pointwise
+arithmetic estimate for actual binary-prime residue weights forcing the
+mass/landing inequality.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

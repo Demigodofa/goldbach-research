@@ -19580,6 +19580,240 @@ def q286_first_three_mass_matched_pair_decomposition_receipt(
     }
 
 
+def q286_first_three_mass_landing_obligation_receipt(
+        sample_windows=((1222142, 2),), sample_targets=(1222142, 1242118,
+                                                        1240888),
+        targets_per_cycle=5005, tail_threshold=.3,
+        near_window=(-.33, -.27), tolerance=1e-9,
+        include_residue_rows=True, include_sample_rows=True):
+    """State the exact q286 first-three mass/landing proof obligation.
+
+    For each target residue, reflection orbits split into positive,
+    negative, and zero classes by the q286 first-three orbit coefficient.
+    For actual strict-central prime-pair mass on a target ``N``, write
+
+    ``P = m_plus * ell_plus``
+    ``B = m_minus * ell_minus``
+    ``first_three = P - B``.
+
+    Therefore the exact pointwise obligation for the first-three rarity
+    threshold ``tau`` is
+
+    ``m_plus(N) * ell_plus(N) + tau >= m_minus(N) * ell_minus(N)``.
+
+    This receipt records the algebraic target and finite sample rows.  It
+    does not prove the needed pointwise arithmetic estimate for the actual
+    binary-prime residue weights.
+    """
+    sample_windows = tuple(sample_windows)
+    sample_targets = tuple(sample_targets)
+    if not sample_windows:
+        raise ValueError("sample_windows must be nonempty")
+    for window in sample_windows:
+        if (not isinstance(window, (tuple, list)) or len(window) != 2
+                or type(window[0]) is not int or type(window[1]) is not int
+                or window[0] < 40 or window[0] % 2 or window[1] < 1):
+            raise ValueError(
+                "each sample window must be (even_start_at_least_40, cycles)")
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    near_low, near_high = tuple(near_window)
+    if (not math.isfinite(near_low) or not math.isfinite(near_high)
+            or near_low >= near_high):
+        raise ValueError("near_window must be a finite increasing pair")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_residue_rows) is not bool:
+        raise ValueError("include_residue_rows must be boolean")
+    if type(include_sample_rows) is not bool:
+        raise ValueError("include_sample_rows must be boolean")
+
+    sign_masks = _q286_first_three_reflection_orbit_sign_mask_rows(tolerance)
+    residue_rows = tuple(sign_masks[residue]
+                         for residue in sorted(sign_masks))
+    positive_counts = [row["positive_orbit_sign_count"]
+                       for row in residue_rows]
+    negative_counts = [row["negative_orbit_sign_count"]
+                       for row in residue_rows]
+    zero_counts = [row["zero_orbit_sign_count"] for row in residue_rows]
+    sign_mask_histogram = {}
+    for row in residue_rows:
+        key = (
+            row["positive_orbit_sign_count"],
+            row["negative_orbit_sign_count"],
+            row["zero_orbit_sign_count"],
+        )
+        sign_mask_histogram[key] = sign_mask_histogram.get(key, 0) + 1
+
+    target_rows = {}
+    missing_sample_targets = set(sample_targets)
+    window_summaries = []
+    for start, cycle_count in sample_windows:
+        profile = q286_first_three_positive_orbit_landing_profile_receipt(
+            start=start, cycle_count=cycle_count,
+            targets_per_cycle=targets_per_cycle,
+            tail_threshold=tail_threshold, near_window=near_window,
+            tolerance=tolerance, include_rows=True)
+        captured = []
+        for target in sample_targets:
+            row = profile["target_rows"].get(target)
+            if row is None:
+                continue
+            missing_sample_targets.discard(target)
+            pressure = row["negative_pressure_B"]
+            positive = row["positive_compensation_P"]
+            positive_mass = row["positive_orbit_mass_fraction"]
+            negative_mass = row["negative_orbit_mass_fraction"]
+            positive_landing = row[
+                "positive_landing_mean_to_principal_ratio"]
+            negative_landing = row[
+                "negative_landing_mean_abs_to_principal_ratio"]
+            first_three = row["first_three_to_principal_ratio"]
+            required_positive_landing = (
+                (pressure - tail_threshold) / positive_mass
+                if positive_mass > tolerance else math.inf)
+            required_positive_mass = (
+                (pressure - tail_threshold) / positive_landing
+                if positive_landing > tolerance else math.inf)
+            required_negative_landing_ceiling = (
+                (positive + tail_threshold) / negative_mass
+                if negative_mass > tolerance else math.inf)
+            required_negative_mass_ceiling = (
+                (positive + tail_threshold) / negative_landing
+                if negative_landing > tolerance else math.inf)
+            mass_landing_recombined = (
+                positive_mass * positive_landing
+                - negative_mass * negative_landing)
+            exact_slack = positive + tail_threshold - pressure
+            compact = {
+                "target": target,
+                "window_start": start,
+                "window_cycle_count": cycle_count,
+                "target_mod_286": row["target_mod_286"],
+                "tail_target": row["tail_target"],
+                "near_boundary_target": row["near_boundary_target"],
+                "first_three_to_principal_ratio": first_three,
+                "positive_mass_m_plus": positive_mass,
+                "positive_landing_ell_plus": positive_landing,
+                "positive_compensation_P": positive,
+                "negative_mass_m_minus": negative_mass,
+                "negative_landing_ell_minus": negative_landing,
+                "negative_pressure_B": pressure,
+                "exact_threshold_slack": exact_slack,
+                "first_three_plus_threshold": (
+                    first_three + tail_threshold),
+                "mass_landing_recombined_first_three": (
+                    mass_landing_recombined),
+                "mass_landing_reconstruction_error": abs(
+                    first_three - mass_landing_recombined),
+                "threshold_slack_identity_error": abs(
+                    exact_slack - (first_three + tail_threshold)),
+                "required_positive_landing_given_mass": (
+                    required_positive_landing),
+                "positive_landing_surplus_given_mass": (
+                    positive_landing - required_positive_landing),
+                "required_positive_mass_given_landing": (
+                    required_positive_mass),
+                "positive_mass_surplus_given_landing": (
+                    positive_mass - required_positive_mass),
+                "required_negative_landing_ceiling_given_mass": (
+                    required_negative_landing_ceiling),
+                "negative_landing_margin_given_mass": (
+                    required_negative_landing_ceiling - negative_landing),
+                "required_negative_mass_ceiling_given_landing": (
+                    required_negative_mass_ceiling),
+                "negative_mass_margin_given_landing": (
+                    required_negative_mass_ceiling - negative_mass),
+            }
+            mask = sign_masks[row["target_mod_286"]]
+            compact["reflection_orbit_sign_mask_id"] = mask["sign_mask_id"]
+            compact["positive_orbit_sign_count"] = (
+                mask["positive_orbit_sign_count"])
+            compact["negative_orbit_sign_count"] = (
+                mask["negative_orbit_sign_count"])
+            compact["zero_orbit_sign_count"] = (
+                mask["zero_orbit_sign_count"])
+            target_rows[target] = compact
+            captured.append(target)
+        window_summaries.append({
+            "start": start,
+            "cycle_count": cycle_count,
+            "targets_per_cycle": targets_per_cycle,
+            "tested_target_count": profile["tested_target_count"],
+            "near_boundary_target_count": (
+                profile["near_boundary_target_count"]),
+            "captured_sample_targets": tuple(captured),
+        })
+
+    maximum_reconstruction_error = max(
+        (row["mass_landing_reconstruction_error"]
+         for row in target_rows.values()),
+        default=0.0)
+    maximum_slack_identity_error = max(
+        (row["threshold_slack_identity_error"]
+         for row in target_rows.values()),
+        default=0.0)
+    tail_sample_targets = tuple(
+        target for target, row in sorted(target_rows.items())
+        if row["tail_target"])
+    clear_sample_targets = tuple(
+        target for target, row in sorted(target_rows.items())
+        if not row["tail_target"])
+
+    return {
+        "arithmetic_modulus": 286,
+        "arithmetic_period": 10010,
+        "tail_threshold": tail_threshold,
+        "near_window": (near_low, near_high),
+        "sample_windows": sample_windows,
+        "sample_targets": sample_targets,
+        "missing_sample_targets": tuple(sorted(missing_sample_targets)),
+        "sample_window_summaries": tuple(window_summaries),
+        "even_target_residue_count": len(residue_rows),
+        "minimum_positive_orbit_sign_count": min(positive_counts),
+        "maximum_positive_orbit_sign_count": max(positive_counts),
+        "minimum_negative_orbit_sign_count": min(negative_counts),
+        "maximum_negative_orbit_sign_count": max(negative_counts),
+        "minimum_zero_orbit_sign_count": min(zero_counts),
+        "maximum_zero_orbit_sign_count": max(zero_counts),
+        "sign_count_histogram": tuple(
+            {"positive": key[0], "negative": key[1], "zero": key[2],
+             "even_target_residue_count": count}
+            for key, count in sorted(sign_mask_histogram.items())),
+        "residue_rows_included": include_residue_rows,
+        "residue_rows": residue_rows if include_residue_rows else (),
+        "sample_rows_included": include_sample_rows,
+        "sample_rows": target_rows if include_sample_rows else {},
+        "tail_sample_targets": tail_sample_targets,
+        "clear_sample_targets": clear_sample_targets,
+        "maximum_mass_landing_reconstruction_error": (
+            maximum_reconstruction_error),
+        "maximum_threshold_slack_identity_error": (
+            maximum_slack_identity_error),
+        "exact_pointwise_obligation": (
+            "For every sufficiently large even N in the strict-central "
+            "q286 first-three lane, prove m_plus(N)*ell_plus(N)+tau >= "
+            "m_minus(N)*ell_minus(N), with tau=tail_threshold."),
+        "missing_arithmetic_input": (
+            "A pointwise estimate for actual binary-prime residue weights "
+            "forcing the mass/landing inequality, not support geometry, "
+            "mass share alone, or an unconstrained threshold fit."),
+        "mass_landing_obligation_formalized": True,
+        "mass_landing_inequality_proved": False,
+        "eventual_exact_curve_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

@@ -1,0 +1,288 @@
+{
+  "even_target_residue_count": 143,
+  "eventual_exact_curve_theorem_proved": false,
+  "exact_pointwise_obligation": "For every sufficiently large even N in the strict-central q286 first-three lane, prove m_plus(N)*ell_plus(N)+tau >= m_minus(N)*ell_minus(N), with tau=tail_threshold.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "changed_under_evidence": "The mass-matched pair decomposition demoted scalar positive-mass thresholds.  The remaining exact first-three rarity target is a pointwise inequality coupling mass allocation and landing quality.",
+    "proof_pressure": "A proof must constrain actual binary-prime residue weights on q286 reflection-orbit sign classes; the recorded algebra is necessary bookkeeping, not an analytic estimate."
+  },
+  "mass_landing_inequality_proved": false,
+  "mass_landing_obligation_formalized": true,
+  "maximum_mass_landing_reconstruction_error": 1.6653345369377348e-16,
+  "maximum_threshold_slack_identity_error": 2.220446049250313e-16,
+  "missing_arithmetic_input": "A pointwise estimate for actual binary-prime residue weights forcing the mass/landing inequality, not support geometry, mass share alone, or an unconstrained threshold fit.",
+  "missing_sample_targets": [],
+  "near_window": [
+    -0.33,
+    -0.27
+  ],
+  "sample_rows": {
+    "1222142": {
+      "exact_threshold_slack": -0.00758776037087916,
+      "first_three_plus_threshold": -0.007587760370879382,
+      "first_three_to_principal_ratio": -0.30758776037087937,
+      "mass_landing_recombined_first_three": -0.3075877603708792,
+      "mass_landing_reconstruction_error": 1.6653345369377348e-16,
+      "near_boundary_target": true,
+      "negative_landing_ell_minus": 1.8616344980267232,
+      "negative_landing_margin_given_mass": -0.013971411594644323,
+      "negative_mass_m_minus": 0.5430918930044133,
+      "negative_mass_margin_given_landing": -0.004075859347751676,
+      "negative_orbit_sign_count": 26,
+      "negative_pressure_B": 1.0110386036156538,
+      "positive_compensation_P": 0.7034508432447746,
+      "positive_landing_ell_plus": 1.5395893232675104,
+      "positive_landing_surplus_given_mass": -0.016606753644125005,
+      "positive_mass_m_plus": 0.4569081069955867,
+      "positive_mass_surplus_given_landing": -0.004928431404535527,
+      "positive_orbit_sign_count": 24,
+      "reflection_orbit_sign_mask_id": "1c84550cae6f56b3",
+      "required_negative_landing_ceiling_given_mass": 1.8476630864320789,
+      "required_negative_mass_ceiling_given_landing": 0.5390160336566616,
+      "required_positive_landing_given_mass": 1.5561960769116354,
+      "required_positive_mass_given_landing": 0.46183653840012223,
+      "tail_target": true,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "threshold_slack_identity_error": 2.220446049250313e-16,
+      "window_cycle_count": 2,
+      "window_start": 1222142,
+      "zero_orbit_sign_count": 0
+    },
+    "1240888": {
+      "exact_threshold_slack": 0.025315898499383316,
+      "first_three_plus_threshold": 0.02531589849938315,
+      "first_three_to_principal_ratio": -0.27468410150061684,
+      "mass_landing_recombined_first_three": -0.27468410150061673,
+      "mass_landing_reconstruction_error": 1.1102230246251565e-16,
+      "near_boundary_target": true,
+      "negative_landing_ell_minus": 2.2159832758144367,
+      "negative_landing_margin_given_mass": 0.055233116836637564,
+      "negative_mass_m_minus": 0.45834636807225515,
+      "negative_mass_margin_given_landing": 0.011424228140927195,
+      "negative_orbit_sign_count": 24,
+      "negative_pressure_B": 1.0156878861784056,
+      "positive_compensation_P": 0.7410037846777888,
+      "positive_landing_ell_plus": 1.3680399077922858,
+      "positive_landing_surplus_given_mass": 0.0467381680969885,
+      "positive_mass_m_plus": 0.5416536319277448,
+      "positive_mass_surplus_given_landing": 0.018505233915461994,
+      "positive_orbit_sign_count": 31,
+      "reflection_orbit_sign_mask_id": "60963b269c422158",
+      "required_negative_landing_ceiling_given_mass": 2.2712163926510742,
+      "required_negative_mass_ceiling_given_landing": 0.46977059621318235,
+      "required_positive_landing_given_mass": 1.3213017396952973,
+      "required_positive_mass_given_landing": 0.5231483980122829,
+      "tail_target": false,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "threshold_slack_identity_error": 1.6653345369377348e-16,
+      "window_cycle_count": 2,
+      "window_start": 1222142,
+      "zero_orbit_sign_count": 0
+    },
+    "1242118": {
+      "exact_threshold_slack": 0.013573256731567618,
+      "first_three_plus_threshold": 0.013573256731567729,
+      "first_three_to_principal_ratio": -0.28642674326843226,
+      "mass_landing_recombined_first_three": -0.2864267432684323,
+      "mass_landing_reconstruction_error": 5.551115123125783e-17,
+      "near_boundary_target": true,
+      "negative_landing_ell_minus": 1.9845712349197187,
+      "negative_landing_margin_given_mass": 0.026930528564336864,
+      "negative_mass_m_minus": 0.5040100382412157,
+      "negative_mass_margin_given_landing": 0.006839390036869508,
+      "negative_orbit_sign_count": 25,
+      "negative_pressure_B": 1.0002438240043041,
+      "positive_compensation_P": 0.7138170807358718,
+      "positive_landing_ell_plus": 1.4391764668072526,
+      "positive_landing_surplus_given_mass": 0.027365990802387996,
+      "positive_mass_m_plus": 0.49598996175878446,
+      "positive_mass_surplus_given_landing": 0.009431266453153841,
+      "positive_orbit_sign_count": 25,
+      "reflection_orbit_sign_mask_id": "4f4ce4af764015aa",
+      "required_negative_landing_ceiling_given_mass": 2.0115017634840555,
+      "required_negative_mass_ceiling_given_landing": 0.5108494282780852,
+      "required_positive_landing_given_mass": 1.4118104760048646,
+      "required_positive_mass_given_landing": 0.4865586953056306,
+      "tail_target": false,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "threshold_slack_identity_error": 1.1102230246251565e-16,
+      "window_cycle_count": 2,
+      "window_start": 1222142,
+      "zero_orbit_sign_count": 0
+    }
+  },
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
+  ],
+  "sample_window_summaries": [
+    {
+      "captured_sample_targets": [
+        1222142,
+        1242118,
+        1240888
+      ],
+      "cycle_count": 2,
+      "near_boundary_target_count": 3,
+      "start": 1222142,
+      "targets_per_cycle": 5005,
+      "tested_target_count": 10010
+    }
+  ],
+  "sample_windows": [
+    [
+      1222142,
+      2
+    ]
+  ],
+  "schema_version": 1,
+  "sign_count_histogram": [
+    {
+      "even_target_residue_count": 16,
+      "negative": 30,
+      "positive": 20,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 36,
+      "negative": 29,
+      "positive": 21,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 8,
+      "negative": 28,
+      "positive": 22,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 16,
+      "negative": 27,
+      "positive": 23,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 10,
+      "negative": 26,
+      "positive": 24,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 4,
+      "negative": 25,
+      "positive": 25,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 29,
+      "positive": 25,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 4,
+      "negative": 24,
+      "positive": 26,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 28,
+      "positive": 26,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 16,
+      "negative": 23,
+      "positive": 27,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 27,
+      "positive": 27,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 22,
+      "positive": 28,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 21,
+      "positive": 29,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 20,
+      "positive": 30,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 25,
+      "positive": 30,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 23,
+      "positive": 31,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 6,
+      "negative": 24,
+      "positive": 31,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 18,
+      "positive": 32,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 23,
+      "positive": 32,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 17,
+      "positive": 33,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 18,
+      "positive": 36,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 2,
+      "negative": 19,
+      "positive": 36,
+      "zero": 0
+    },
+    {
+      "even_target_residue_count": 1,
+      "negative": 20,
+      "positive": 40,
+      "zero": 0
+    }
+  ],
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "f43d3c7df26eb7098155bd084bc62799817e8ffa",
+  "status_boundary": "exact q286 first-three mass/landing proof obligation with finite sample rows; no mass/landing inequality, exact-curve theorem, signed prime-correlation estimate, or Goldbach proof is established",
+  "tail_threshold": 0.3
+}

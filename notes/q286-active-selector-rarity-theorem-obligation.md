@@ -596,6 +596,30 @@ worse positive and negative landing-quality terms.  Therefore the next proof
 target is a coupled mass/landing arithmetic estimate near the exact curve, not
 positive mass share alone and not pressure control alone.
 
+The exact mass/landing theorem obligation is recorded in:
+
+```text
+evidence/q286-first-three-mass-landing-obligation.json
+```
+
+For actual strict-central binary-prime mass on the q286 first-three
+reflection-orbit sign classes, write
+`P = m_plus * ell_plus`, `B = m_minus * ell_minus`, and
+`first_three = P - B`.  The pointwise first-three rarity theorem at threshold
+`tau=.3` is exactly:
+
+```text
+m_plus(N) * ell_plus(N) + tau >= m_minus(N) * ell_minus(N).
+```
+
+On the holdout sample rows, tail `1222142` has slack about
+`-0.00758776037087916`; clear rows `1242118` and `1240888` have slacks about
+`0.013573256731567618` and `0.025315898499383316`.  The recorded
+mass/landing and threshold-slack reconstruction errors are below `2.3e-16`.
+This is theorem-obligation bookkeeping, not a proof: the missing input is a
+pointwise arithmetic estimate for actual binary-prime residue weights forcing
+that inequality.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

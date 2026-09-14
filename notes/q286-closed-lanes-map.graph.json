@@ -163,6 +163,14 @@
       "status_boundary": "finite matched-pair product decomposition only; refines the mass/landing exact-curve mechanism but proves no eventual exact-curve theorem, signed prime-correlation estimate, or Goldbach theorem"
     },
     {
+      "id": "receipt.q286_first_three_mass_landing_obligation",
+      "type": "receipt",
+      "label": "q286 first-three mass/landing theorem obligation",
+      "status": "theorem_obligation_formalized",
+      "validation": "q286_first_three_mass_landing_obligation_receipt and tools/build_q286_first_three_mass_landing_obligation.py generated evidence/q286-first-three-mass-landing-obligation.json; the exact obligation is m_plus(N)*ell_plus(N)+tau >= m_minus(N)*ell_minus(N), with holdout tail 1222142 at slack about -0.00758776037087916 and clear rows 1242118,1240888 at positive slacks",
+      "status_boundary": "exact algebraic proof obligation and finite sample verification only; no mass/landing inequality theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1589,6 +1597,16 @@
       "from": "receipt.q286_first_three_mass_matched_pair_decomposition",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_mass_landing_obligation",
+      "to": "receipt.q286_first_three_mass_matched_pair_decomposition",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_mass_landing_obligation",
+      "to": "obligation.active_selector_rarity",
+      "type": "requires"
     },
     {
       "from": "lane.first_three_reflection_orbit_cap",

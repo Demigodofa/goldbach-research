@@ -618,6 +618,17 @@ current comparison set.
    which helpful mass terms are mostly offset by worse landing quality.  This
    refines the surviving exact-curve route toward a coupled mass/landing
    arithmetic estimate, not a new threshold theorem.
+70. `q286_first_three_mass_landing_obligation_receipt`, with evidence in
+   `evidence/q286-first-three-mass-landing-obligation.json`, states the exact
+   pointwise first-three rarity obligation in mass/landing variables:
+   `m_plus(N)*ell_plus(N)+tau >= m_minus(N)*ell_minus(N)` for `tau=.3`.
+   On holdout samples, tail `1222142` has slack about
+   `-0.00758776037087916`, while clear rows `1242118` and `1240888` have
+   positive slacks about `0.013573256731567618` and
+   `0.025315898499383316`; reconstruction errors are below `2.3e-16`.  This
+   is an exact theorem-obligation artifact only.  The missing proof input is
+   a pointwise arithmetic estimate for actual binary-prime residue weights on
+   q286 reflection-orbit sign classes.
 
 ## Still open
 

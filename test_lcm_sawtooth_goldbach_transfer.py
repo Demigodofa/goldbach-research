@@ -114,6 +114,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_positive_orbit_landing_profile_receipt,
     q286_first_three_positive_mass_threshold_falsifier_receipt,
     q286_first_three_mass_matched_pair_decomposition_receipt,
+    q286_first_three_mass_landing_obligation_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4110,6 +4111,27 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "mass_matched_pair_decomposition_measured"])
         self.assertFalse(receipt[
             "mass_transfer_landing_quality_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_mass_landing_obligation(self):
+        receipt = q286_first_three_mass_landing_obligation_receipt()
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["even_target_residue_count"], 143)
+        self.assertEqual(receipt["missing_sample_targets"], ())
+        rows = receipt["sample_rows"]
+        self.assertLess(rows[1222142]["exact_threshold_slack"], 0)
+        self.assertGreater(rows[1242118]["exact_threshold_slack"], 0)
+        self.assertGreater(rows[1240888]["exact_threshold_slack"], 0)
+        self.assertLess(
+            receipt["maximum_mass_landing_reconstruction_error"], 1e-9)
+        self.assertLess(
+            receipt["maximum_threshold_slack_identity_error"], 1e-9)
+        for row in rows.values():
+            self.assertAlmostEqual(
+                row["exact_threshold_slack"],
+                row["first_three_plus_threshold"])
+        self.assertTrue(receipt["mass_landing_obligation_formalized"])
+        self.assertFalse(receipt["mass_landing_inequality_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

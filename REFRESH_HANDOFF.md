@@ -19908,6 +19908,38 @@ quality.  The live theorem target is now a coupled mass/landing arithmetic
 estimate near the exact curve, not mass share alone and not pressure control
 alone.
 
+Mass/landing theorem obligation:
+
+- `q286_first_three_mass_landing_obligation_receipt`
+- `tools/build_q286_first_three_mass_landing_obligation.py`
+- `evidence/q286-first-three-mass-landing-obligation.json`
+- focused regression:
+  `test_q286_first_three_mass_landing_obligation`
+
+For actual strict-central binary-prime mass on the q286 first-three
+reflection-orbit sign classes, write:
+
+```text
+P = m_plus * ell_plus
+B = m_minus * ell_minus
+first_three = P - B
+```
+
+The exact pointwise first-three rarity obligation at threshold `tau=.3` is:
+
+```text
+m_plus(N) * ell_plus(N) + tau >= m_minus(N) * ell_minus(N).
+```
+
+The receipt records all `143` even q286 target-residue sign-count rows and the
+holdout sample rows.  Reconstruction errors are below `2.3e-16`.  Tail
+`1222142` has exact threshold slack about `-0.00758776037087916`; clear
+`1242118` has slack about `0.013573256731567618`; clear `1240888` has slack
+about `0.025315898499383316`.  This formalizes the next theorem target but
+does not prove it.  The missing input is still a pointwise arithmetic estimate
+for actual binary-prime residue weights, not support geometry, mass share
+alone, or an unconstrained threshold fit.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
