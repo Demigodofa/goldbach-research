@@ -379,6 +379,99 @@ certificate only on a subregion plus classify the clear exceptions, or replace
 `.76` with a pressure-dependent compensation curve that still implies the
 `-.3` first-three floor.
 
+Kevin's suggested clean rectangle `B <= 1`, `R >= 0.70` has the same algebraic
+bound:
+
+```text
+first_three >= -(1 - 0.70)*1 = -0.3.
+```
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-b1-r70-certificate.json
+```
+
+On the same horizons, this candidate gives:
+
+```text
+early cycles 0..15 from start 10000:
+  tails:                       5297
+  certified targets:          69838
+  certified tails:                0
+  uncertified clear targets:   4945
+  uncertified tails:           5297
+  pressure failures:           5370
+  ratio failures:              6734
+
+late cycles 0..7 from start 1120120:
+  tails:                          0
+  certified targets:          39829
+  certified tails:                0
+  uncertified clear targets:    211
+  uncertified tails:              0
+  pressure failures:            211
+  ratio failures:                 0
+```
+
+This is a useful changed condition: lowering the ratio floor to `.70` clears
+the late ratio exceptions, but the `B <= 1` pressure ceiling becomes the only
+late failure mode.  The late maximum-pressure clear exception is target
+`1179464`, with `B=1.0671808195157813`, `R=0.8345837922126714`, and
+first-three/principal about `-0.17652900418767442`.  This points away from one
+rectangle and toward the curve `R >= 1 - .3/B`, or a two-region theorem:
+`B <= 1` with `R >= .70`, plus a separate high-pressure clear-row mechanism.
+
+The three-branch rational staircase makes that curve idea explicit while
+keeping complete algebraic quantifiers.  With
+`B=-negative_orbit_contribution` and `R=positive_orbit_contribution/B`, each
+branch below satisfies `(1-R)B <= .3`, hence certifies
+`first_three >= -.3`:
+
+```text
+B <= 1,     R >= 7/10
+B <= 21/20, R >= 5/7
+B <= 5/4,  R >= 19/25
+```
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-staircase-certificate.json
+```
+
+On early cycles `0..15` from start `10000`, the staircase certifies `73101`
+of `80080` targets and has no certified-tail counterexample, but all `5297`
+first-three tails remain outside the staircase; another `1682` clear targets
+also remain outside it.  The worst uncertified row is still target `10664`,
+with first-three/principal about `-1.1500880008976309`.
+
+On late cycles `0..7` from start `1120120`, where the two flat rectangles had
+complementary clear failures, the staircase certifies all `40040` targets and
+has zero uncertified rows.  In particular, the prior dual-rectangle
+intersection row `1157462` is certified by the middle branch:
+`B=1.0267310119901476`, `R=0.7346113305066312`, and exact curve margin about
+`0.026800810026198607`.
+
+On the unchanged holdout from start `1200200`, cycles `0..7`, the staircase
+tests another `40040` targets and leaves exactly two rows outside the union:
+tail target `1222142` and clear target `1242118`.  The tail row has
+`B=1.0110386036156538`, `R=0.6957705083951388`, first-three/principal about
+`-0.30758776037087937`, and exact-curve margin about
+`-0.007504916571675957`.  The clear row has
+`B=1.0002438240043041`, `R=0.7136430774230906`, first-three/principal about
+`-0.28642674326843226`, and exact-curve margin about
+`0.01356994805249534`.  So the holdout refines the theorem target rather than
+falsifying the algebra: the unchanged staircase avoids certifying the true
+tail but is still slightly too coarse near the exact curve.
+
+Status: `aha-candidate`, finite diagnostic.  The mechanism is now a precise
+eventual theorem candidate: prove that all sufficiently late q286 rows lie in
+this safe staircase, or replace the staircase by the exact pressure-dependent
+curve `R >= 1 - .3/B`, then separately discharge the finite early rows outside
+it.  No eventual staircase occupancy theorem, first-three rarity theorem,
+signed prime-correlation estimate, or Goldbach proof is established.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

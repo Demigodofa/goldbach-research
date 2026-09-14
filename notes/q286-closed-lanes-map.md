@@ -63,6 +63,7 @@ Current executable receipts:
 - `q286_first_three_reflection_orbit_signed_cancellation_receipt`
 - `q286_first_three_reflection_orbit_ratio_certificate_receipt`
 - `q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt`
+- `q286_first_three_reflection_orbit_dual_rectangle_receipt`
 
 ## Closed or falsified lanes
 
@@ -548,10 +549,26 @@ current comparison set.
    targets, with maximum orbit mass `0.12026969709166307` and worst
    actual/cap ratio about `5.923169478623975`.  The remaining route is signed
    orbit cancellation or arithmetic distribution, not a pure orbit-cap proof.
+64. `q286_first_three_reflection_orbit_dual_rectangle_receipt`, with compact
+   evidence in
+   `evidence/q286-first-three-reflection-orbit-staircase-certificate.json`,
+   tests the three-branch rational staircase
+   `(B<=1,R>=7/10)`, `(B<=21/20,R>=5/7)`, `(B<=5/4,R>=19/25)`.  Each branch
+   directly implies `first_three >= -0.3`.  On early cycles `0..15` from
+   start `10000`, all `5297` first-three tails remain outside the staircase,
+   with `1682` additional clear outside rows.  On late cycles `0..7` from
+   start `1120120`, all `40040` targets are certified, including the prior
+   old/new rectangle intersection row `1157462` via the middle branch.  The
+   unchanged holdout from start `1200200`, cycles `0..7`, tests another
+   `40040` targets and leaves exactly two rows outside: tail `1222142` and
+   clear `1242118`.  This is an `aha-candidate` for a refined eventual
+   staircase-occupancy or exact-curve theorem, not a theorem.
 
 ## Still open
 
 - Eventual q286 first-three alignment theorem.
+- Eventual q286 pressure/ratio staircase-occupancy theorem or exact-curve
+  theorem.
 - Eventual complement or lower-support lower-bound theorem.
 - Pointwise signed binary-prime residue correlation estimate.
 - Boundary finite check and outer assembly.

@@ -1,0 +1,514 @@
+{
+  "algebraic_statement": "Each branch satisfies (1-R)*B <= .3, so any branch certifies first_three >= -.3.",
+  "eventual_first_three_tail_bound_proved": false,
+  "eventual_staircase_bounds_proved": false,
+  "first_three_reflection_orbit_staircase_certificate_measured": true,
+  "goldbach_proved": false,
+  "horizon_rows": {
+    "early_cycles_0_15": {
+      "all_tail_targets_union_uncertified": true,
+      "cycle_count": 16,
+      "intersection_fail_sets": {
+        "B<=1,R>=0.7 & B<=1.05,R>=0.714286": {
+          "clear_count": 2384,
+          "count": 7681,
+          "first_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10066,
+            10078,
+            10086,
+            10088
+          ],
+          "tail_count": 5297
+        },
+        "B<=1,R>=0.7 & B<=1.25,R>=0.76": {
+          "clear_count": 1963,
+          "count": 7260,
+          "first_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10066,
+            10078,
+            10086,
+            10088
+          ],
+          "tail_count": 5297
+        },
+        "B<=1.05,R>=0.714286 & B<=1.25,R>=0.76": {
+          "clear_count": 2232,
+          "count": 7529,
+          "first_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10060,
+            10066,
+            10078,
+            10086
+          ],
+          "tail_count": 5297
+        }
+      },
+      "minimum_exact_curve_margin_row": {
+        "exact_curve_margin": -0.66946097977567,
+        "exact_required_ratio_for_threshold": 0.7637441138792331,
+        "first_three_to_principal_ratio": -1.1500880008976309,
+        "local_cycle": 0,
+        "negative_pressure_to_principal_ratio": 1.269809632792171,
+        "positive_to_negative_pressure_ratio": 0.09428313410356319,
+        "rectangle_certified": [
+          false,
+          false,
+          false
+        ],
+        "tail_target": true,
+        "target": 10664,
+        "target_mod_286": 82,
+        "target_offset": 332,
+        "union_certified": false
+      },
+      "rectangle_rows": [
+        {
+          "clear_failure_count": 4945,
+          "failure_count": 10242,
+          "first_failure_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10066,
+            10076,
+            10078,
+            10086
+          ],
+          "label": "B<=1,R>=0.7",
+          "tail_failure_count": 5297
+        },
+        {
+          "clear_failure_count": 2934,
+          "failure_count": 8231,
+          "first_failure_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10060,
+            10066,
+            10078,
+            10086
+          ],
+          "label": "B<=1.05,R>=0.714286",
+          "tail_failure_count": 5297
+        },
+        {
+          "clear_failure_count": 4767,
+          "failure_count": 10064,
+          "first_failure_targets": [
+            10012,
+            10016,
+            10018,
+            10020,
+            10022,
+            10028,
+            10030,
+            10034,
+            10036,
+            10040,
+            10042,
+            10044,
+            10048,
+            10050,
+            10056,
+            10058,
+            10060,
+            10066,
+            10078,
+            10086
+          ],
+          "label": "B<=1.25,R>=0.76",
+          "tail_failure_count": 5297
+        }
+      ],
+      "start": 10000,
+      "tail_target_count": 5297,
+      "targets_per_cycle": 5005,
+      "tested_targets_with_prime_pairs": 80080,
+      "union_certificate_has_tail_counterexample": false,
+      "union_certified_target_count": 73101,
+      "union_uncertified_clear_target_count": 1682,
+      "union_uncertified_tail_target_count": 5297,
+      "union_uncertified_target_count": 6979,
+      "worst_union_uncertified_row": {
+        "exact_curve_margin": -0.66946097977567,
+        "exact_required_ratio_for_threshold": 0.7637441138792331,
+        "first_three_to_principal_ratio": -1.1500880008976309,
+        "local_cycle": 0,
+        "negative_pressure_to_principal_ratio": 1.269809632792171,
+        "positive_to_negative_pressure_ratio": 0.09428313410356319,
+        "rectangle_certified": [
+          false,
+          false,
+          false
+        ],
+        "tail_target": true,
+        "target": 10664,
+        "target_mod_286": 82,
+        "target_offset": 332,
+        "union_certified": false
+      }
+    },
+    "holdout_start_1200200_cycles_0_7": {
+      "all_tail_targets_union_uncertified": true,
+      "cycle_count": 8,
+      "intersection_fail_sets": {
+        "B<=1,R>=0.7 & B<=1.05,R>=0.714286": {
+          "clear_count": 6,
+          "count": 7,
+          "first_targets": [
+            1200628,
+            1214642,
+            1222142,
+            1230658,
+            1242118,
+            1254110,
+            1266694
+          ],
+          "tail_count": 1
+        },
+        "B<=1,R>=0.7 & B<=1.25,R>=0.76": {
+          "clear_count": 3,
+          "count": 4,
+          "first_targets": [
+            1222048,
+            1222142,
+            1240888,
+            1242118
+          ],
+          "tail_count": 1
+        },
+        "B<=1.05,R>=0.714286 & B<=1.25,R>=0.76": {
+          "clear_count": 1,
+          "count": 2,
+          "first_targets": [
+            1222142,
+            1242118
+          ],
+          "tail_count": 1
+        }
+      },
+      "minimum_exact_curve_margin_row": {
+        "exact_curve_margin": -0.007504916571675957,
+        "exact_required_ratio_for_threshold": 0.7032754249668147,
+        "first_three_to_principal_ratio": -0.30758776037087937,
+        "local_cycle": 2,
+        "negative_pressure_to_principal_ratio": 1.0110386036156538,
+        "positive_to_negative_pressure_ratio": 0.6957705083951388,
+        "rectangle_certified": [
+          false,
+          false,
+          false
+        ],
+        "tail_target": true,
+        "target": 1222142,
+        "target_mod_286": 64,
+        "target_offset": 961,
+        "union_certified": false
+      },
+      "rectangle_rows": [
+        {
+          "clear_failure_count": 274,
+          "failure_count": 275,
+          "first_failure_targets": [
+            1200342,
+            1200362,
+            1200608,
+            1200628,
+            1200934,
+            1201200,
+            1201486,
+            1201772,
+            1202896,
+            1203182,
+            1203222,
+            1203488,
+            1203754,
+            1203774,
+            1203794,
+            1204040,
+            1204060,
+            1204346,
+            1204918,
+            1205204
+          ],
+          "label": "B<=1,R>=0.7",
+          "tail_failure_count": 1
+        },
+        {
+          "clear_failure_count": 6,
+          "failure_count": 7,
+          "first_failure_targets": [
+            1200628,
+            1214642,
+            1222142,
+            1230658,
+            1242118,
+            1254110,
+            1266694
+          ],
+          "label": "B<=1.05,R>=0.714286",
+          "tail_failure_count": 1
+        },
+        {
+          "clear_failure_count": 9,
+          "failure_count": 10,
+          "first_failure_targets": [
+            1209574,
+            1222048,
+            1222142,
+            1222264,
+            1225018,
+            1240258,
+            1240888,
+            1242118,
+            1248992,
+            1274762
+          ],
+          "label": "B<=1.25,R>=0.76",
+          "tail_failure_count": 1
+        }
+      ],
+      "start": 1200200,
+      "tail_target_count": 1,
+      "targets_per_cycle": 5005,
+      "tested_targets_with_prime_pairs": 40040,
+      "union_certificate_has_tail_counterexample": false,
+      "union_certified_target_count": 40038,
+      "union_uncertified_clear_target_count": 1,
+      "union_uncertified_tail_target_count": 1,
+      "union_uncertified_target_count": 2,
+      "worst_union_uncertified_row": {
+        "exact_curve_margin": -0.007504916571675957,
+        "exact_required_ratio_for_threshold": 0.7032754249668147,
+        "first_three_to_principal_ratio": -0.30758776037087937,
+        "local_cycle": 2,
+        "negative_pressure_to_principal_ratio": 1.0110386036156538,
+        "positive_to_negative_pressure_ratio": 0.6957705083951388,
+        "rectangle_certified": [
+          false,
+          false,
+          false
+        ],
+        "tail_target": true,
+        "target": 1222142,
+        "target_mod_286": 64,
+        "target_offset": 961,
+        "union_certified": false
+      }
+    },
+    "late_cycles_0_7": {
+      "all_tail_targets_union_uncertified": true,
+      "cycle_count": 8,
+      "intersection_fail_sets": {
+        "B<=1,R>=0.7 & B<=1.05,R>=0.714286": {
+          "clear_count": 2,
+          "count": 2,
+          "first_targets": [
+            1179464,
+            1198626
+          ],
+          "tail_count": 0
+        },
+        "B<=1,R>=0.7 & B<=1.25,R>=0.76": {
+          "clear_count": 1,
+          "count": 1,
+          "first_targets": [
+            1157462
+          ],
+          "tail_count": 0
+        },
+        "B<=1.05,R>=0.714286 & B<=1.25,R>=0.76": {
+          "clear_count": 0,
+          "count": 0,
+          "first_targets": [],
+          "tail_count": 0
+        }
+      },
+      "minimum_exact_curve_margin_row": {
+        "exact_curve_margin": 0.026800810026198607,
+        "exact_required_ratio_for_threshold": 0.7078105204804326,
+        "first_three_to_principal_ratio": -0.2724827771996456,
+        "local_cycle": 3,
+        "negative_pressure_to_principal_ratio": 1.0267310119901476,
+        "positive_to_negative_pressure_ratio": 0.7346113305066312,
+        "rectangle_certified": [
+          false,
+          true,
+          false
+        ],
+        "tail_target": false,
+        "target": 1157462,
+        "target_mod_286": 20,
+        "target_offset": 3656,
+        "union_certified": true
+      },
+      "rectangle_rows": [
+        {
+          "clear_failure_count": 211,
+          "failure_count": 211,
+          "first_failure_targets": [
+            1120548,
+            1121692,
+            1121978,
+            1122264,
+            1122550,
+            1123408,
+            1123694,
+            1124374,
+            1125410,
+            1125430,
+            1125696,
+            1125716,
+            1126288,
+            1126534,
+            1126840,
+            1127126,
+            1127698,
+            1127984,
+            1128556,
+            1129128
+          ],
+          "label": "B<=1,R>=0.7",
+          "tail_failure_count": 0
+        },
+        {
+          "clear_failure_count": 2,
+          "failure_count": 2,
+          "first_failure_targets": [
+            1179464,
+            1198626
+          ],
+          "label": "B<=1.05,R>=0.714286",
+          "tail_failure_count": 0
+        },
+        {
+          "clear_failure_count": 11,
+          "failure_count": 11,
+          "first_failure_targets": [
+            1138862,
+            1141034,
+            1147442,
+            1149658,
+            1157462,
+            1161302,
+            1178192,
+            1183528,
+            1195972,
+            1198412,
+            1200118
+          ],
+          "label": "B<=1.25,R>=0.76",
+          "tail_failure_count": 0
+        }
+      ],
+      "start": 1120120,
+      "tail_target_count": 0,
+      "targets_per_cycle": 5005,
+      "tested_targets_with_prime_pairs": 40040,
+      "union_certificate_has_tail_counterexample": false,
+      "union_certified_target_count": 40040,
+      "union_uncertified_clear_target_count": 0,
+      "union_uncertified_tail_target_count": 0,
+      "union_uncertified_target_count": 0,
+      "worst_union_uncertified_row": null
+    }
+  },
+  "interpretation": {
+    "changed_under_evidence": "The three-branch rational staircase certifies every target in the late 8-cycle horizon starting at 1120120, including the prior dual-rectangle intersection row 1157462.  In the holdout starting at 1200200 it leaves exactly two targets uncertified, the tail target 1222142 and clear target 1242118.  Early tails remain outside the staircase.",
+    "remaining_theorem": "A possible next theorem target is an eventual staircase occupancy result in (B,R)-space, plus finite checking for the early rows outside the staircase."
+  },
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "fbaa4a4628f809cb33f079b99ecdc25848051e29",
+  "staircase_branches": [
+    [
+      1.0,
+      0.7
+    ],
+    [
+      1.05,
+      0.7142857142857143
+    ],
+    [
+      1.25,
+      0.76
+    ]
+  ],
+  "status_boundary": "finite staircase-certificate diagnostic only; the staircase branches are sufficient conditions on measured rows, but no eventual staircase theorem, first-three tail bound, signed prime-correlation estimate, or Goldbach proof is established",
+  "tail_threshold": 0.3
+}

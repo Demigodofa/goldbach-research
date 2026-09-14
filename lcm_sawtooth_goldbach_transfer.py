@@ -18683,6 +18683,185 @@ def q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt(
     }
 
 
+def q286_first_three_reflection_orbit_dual_rectangle_receipt(
+        start=1120120, cycle_count=8, targets_per_cycle=5005,
+        tail_threshold=.3,
+        rectangles=((1.25, .76), (1.0, .70)), tolerance=1e-9,
+        include_rows=False):
+    """Measure union/intersection of signed-orbit rectangle certificates.
+
+    Each rectangle is a pair ``(pressure_ceiling, ratio_floor)`` and certifies
+    ``first_three >= -tail_threshold`` when
+    ``-(negative contribution) <= pressure_ceiling`` and
+    ``positive/negative_pressure >= ratio_floor``.  This receipt records
+    which targets fail each rectangle, their intersections, and the remaining
+    exact-curve margin ``R - (1 - tail_threshold/B)``.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+    rectangles = tuple(rectangles)
+    if len(rectangles) < 1:
+        raise ValueError("rectangles must be nonempty")
+    for pressure_ceiling, ratio_floor in rectangles:
+        if not math.isfinite(pressure_ceiling) or pressure_ceiling <= 0:
+            raise ValueError("pressure ceilings must be positive and finite")
+        if not math.isfinite(ratio_floor) or ratio_floor <= 0:
+            raise ValueError("ratio floors must be positive and finite")
+        if ratio_floor >= 1:
+            raise ValueError("ratio floors must be less than 1")
+        if (1.0 - ratio_floor) * pressure_ceiling > tail_threshold + tolerance:
+            raise ValueError(
+                "each rectangle must imply the requested tail threshold")
+
+    signed = q286_first_three_reflection_orbit_signed_cancellation_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tail_threshold=tail_threshold,
+        tolerance=tolerance, include_rows=True, include_orbit_rows=False)
+    rectangle_labels = tuple(
+        f"B<={pressure:g},R>={ratio:g}"
+        for pressure, ratio in rectangles)
+    fail_sets = [set() for _ in rectangles]
+    tail_targets = set()
+    clear_targets = set()
+    union_certified_targets = []
+    union_uncertified_targets = []
+    union_uncertified_tail_targets = []
+    union_uncertified_clear_targets = []
+    target_rows = {} if include_rows else None
+    minimum_exact_curve_margin_row = None
+    worst_union_uncertified_row = None
+
+    for target, signed_row in signed["target_rows"].items():
+        pressure = -signed_row[
+            "negative_orbit_contribution_to_principal_ratio"]
+        ratio = signed_row["positive_to_negative_pressure_ratio"]
+        exact_required_ratio = (
+            1.0 - tail_threshold / pressure
+            if pressure > tolerance else -math.inf)
+        exact_curve_margin = ratio - exact_required_ratio
+        tail = bool(
+            signed_row["first_three_to_principal_ratio"]
+            < -tail_threshold - tolerance)
+        if tail:
+            tail_targets.add(target)
+        else:
+            clear_targets.add(target)
+        rectangle_ok = []
+        for index, (pressure_ceiling, ratio_floor) in enumerate(rectangles):
+            ok = bool(
+                pressure <= pressure_ceiling + tolerance
+                and ratio >= ratio_floor - tolerance)
+            rectangle_ok.append(ok)
+            if not ok:
+                fail_sets[index].add(target)
+        union_certified = any(rectangle_ok)
+        compact = {
+            "target": target,
+            "local_cycle": signed_row["local_cycle"],
+            "target_offset": signed_row["target_offset"],
+            "target_mod_286": signed_row["target_mod_286"],
+            "first_three_to_principal_ratio": signed_row[
+                "first_three_to_principal_ratio"],
+            "negative_pressure_to_principal_ratio": pressure,
+            "positive_to_negative_pressure_ratio": ratio,
+            "exact_required_ratio_for_threshold": exact_required_ratio,
+            "exact_curve_margin": exact_curve_margin,
+            "tail_target": tail,
+            "rectangle_certified": tuple(rectangle_ok),
+            "union_certified": union_certified,
+        }
+        if include_rows:
+            target_rows[target] = compact
+        if union_certified:
+            union_certified_targets.append(target)
+        else:
+            union_uncertified_targets.append(target)
+            if tail:
+                union_uncertified_tail_targets.append(target)
+            else:
+                union_uncertified_clear_targets.append(target)
+            if (worst_union_uncertified_row is None
+                    or compact["first_three_to_principal_ratio"]
+                    < worst_union_uncertified_row[
+                        "first_three_to_principal_ratio"]):
+                worst_union_uncertified_row = compact
+        if (minimum_exact_curve_margin_row is None
+                or exact_curve_margin < minimum_exact_curve_margin_row[
+                    "exact_curve_margin"]):
+            minimum_exact_curve_margin_row = compact
+
+    intersection_fail_sets = {}
+    for i in range(len(rectangles)):
+        for j in range(i + 1, len(rectangles)):
+            key = f"{rectangle_labels[i]} & {rectangle_labels[j]}"
+            values = fail_sets[i] & fail_sets[j]
+            intersection_fail_sets[key] = {
+                "count": len(values),
+                "tail_count": len(values & tail_targets),
+                "clear_count": len(values & clear_targets),
+                "first_targets": tuple(sorted(values)[:20]),
+            }
+    rectangle_rows = []
+    for label, failures in zip(rectangle_labels, fail_sets):
+        rectangle_rows.append({
+            "label": label,
+            "failure_count": len(failures),
+            "tail_failure_count": len(failures & tail_targets),
+            "clear_failure_count": len(failures & clear_targets),
+            "first_failure_targets": tuple(sorted(failures)[:20]),
+        })
+
+    return {
+        "arithmetic_modulus": signed["arithmetic_modulus"],
+        "arithmetic_period": signed["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "rectangles": rectangles,
+        "rectangle_labels": rectangle_labels,
+        "tested_target_count": signed["tested_target_count"],
+        "tested_targets_with_prime_pairs": (
+            signed["tested_targets_with_prime_pairs"]),
+        "tail_target_count": len(tail_targets),
+        "clear_target_count": len(clear_targets),
+        "rectangle_rows": tuple(rectangle_rows),
+        "intersection_fail_sets": intersection_fail_sets,
+        "union_certified_target_count": len(union_certified_targets),
+        "union_uncertified_target_count": len(union_uncertified_targets),
+        "union_uncertified_tail_target_count": (
+            len(union_uncertified_tail_targets)),
+        "union_uncertified_clear_target_count": (
+            len(union_uncertified_clear_targets)),
+        "first_union_uncertified_targets": tuple(
+            union_uncertified_targets[:20]),
+        "minimum_exact_curve_margin_row": minimum_exact_curve_margin_row,
+        "worst_union_uncertified_row": worst_union_uncertified_row,
+        "target_rows_included": include_rows,
+        "target_rows": target_rows if include_rows else {},
+        "first_three_reflection_orbit_dual_rectangle_measured": True,
+        "all_tail_targets_union_uncertified": bool(
+            not (set(union_certified_targets) & tail_targets)),
+        "union_certificate_has_tail_counterexample": bool(
+            len(set(union_certified_targets) & tail_targets) > 0),
+        "eventual_dual_rectangle_bounds_proved": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

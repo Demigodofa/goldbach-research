@@ -110,6 +110,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_orbit_signed_cancellation_receipt,
     q286_first_three_reflection_orbit_ratio_certificate_receipt,
     q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt,
+    q286_first_three_reflection_orbit_dual_rectangle_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3928,6 +3929,58 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "ratio_certificate_has_certified_tail_counterexample"])
         self.assertFalse(receipt["eventual_pressure_ratio_bounds_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_dual_rectangle(self):
+        receipt = q286_first_three_reflection_orbit_dual_rectangle_receipt(
+            start=1157462, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3,
+            rectangles=((1.25, .76), (1.0, .70)))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(receipt["union_certified_target_count"], 0)
+        self.assertEqual(receipt["union_uncertified_clear_target_count"], 1)
+        self.assertEqual(receipt["union_uncertified_tail_target_count"], 0)
+        self.assertGreater(
+            receipt["minimum_exact_curve_margin_row"][
+                "exact_curve_margin"],
+            0)
+        for row in receipt["rectangle_rows"]:
+            self.assertEqual(row["failure_count"], 1)
+            self.assertEqual(row["tail_failure_count"], 0)
+            self.assertEqual(row["clear_failure_count"], 1)
+        intersection = next(
+            iter(receipt["intersection_fail_sets"].values()))
+        self.assertEqual(intersection["count"], 1)
+        self.assertEqual(intersection["tail_count"], 0)
+        self.assertEqual(intersection["clear_count"], 1)
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_dual_rectangle_measured"])
+        self.assertTrue(receipt["all_tail_targets_union_uncertified"])
+        self.assertFalse(receipt[
+            "union_certificate_has_tail_counterexample"])
+        self.assertFalse(receipt["eventual_dual_rectangle_bounds_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_staircase_certificate(self):
+        receipt = q286_first_three_reflection_orbit_dual_rectangle_receipt(
+            start=1157462, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3,
+            rectangles=((1.0, .70), (21.0 / 20.0, 5.0 / 7.0),
+                        (1.25, .76)))
+        self.assertEqual(receipt["tested_target_count"], 1)
+        self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(receipt["union_certified_target_count"], 1)
+        self.assertEqual(receipt["union_uncertified_target_count"], 0)
+        row = receipt["minimum_exact_curve_margin_row"]
+        self.assertGreater(row["exact_curve_margin"], 0)
+        self.assertEqual(row["rectangle_certified"], (False, True, False))
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_dual_rectangle_measured"])
+        self.assertFalse(receipt[
+            "union_certificate_has_tail_counterexample"])
+        self.assertFalse(receipt["eventual_dual_rectangle_bounds_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

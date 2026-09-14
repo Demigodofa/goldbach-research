@@ -10914,6 +10914,25 @@ universal late-row condition; it remains a sufficient certificate, but the
 eventual theorem likely needs a pressure-dependent compensation curve or an
 explicit classification of clear ratio exceptions.
 
+Kevin's follow-up staircase mechanism is now recorded through
+`q286_first_three_reflection_orbit_dual_rectangle_receipt` and
+`evidence/q286-first-three-reflection-orbit-staircase-certificate.json`.  The
+three rational branches
+`(B<=1,R>=7/10)`, `(B<=21/20,R>=5/7)`, and `(B<=5/4,R>=19/25)` each satisfy
+`(1-R)B <= .3`, so every certified row has `first_three >= -.3` by direct
+algebra.  On early cycles `0..15` from start `10000`, all `5297`
+first-three tails remain outside the staircase, with another `1682` clear
+uncertified rows.  On late cycles `0..7` from start `1120120`, the staircase
+certifies all `40040` rows, including the prior dual-rectangle intersection
+row `1157462` via the middle branch.  On the unchanged holdout from start
+`1200200`, cycles `0..7`, it tests another `40040` targets and leaves exactly
+two rows uncertified: tail target `1222142` and clear target `1242118`.  The
+tail has exact-curve margin about `-0.007504916571675957`; the clear row has
+margin about `0.01356994805249534`.  This is an `aha-candidate` for an
+eventual staircase-occupancy theorem, but the holdout shows the staircase is
+still a coarse approximation to the exact curve; that theorem remains
+unproved, and Goldbach remains open.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

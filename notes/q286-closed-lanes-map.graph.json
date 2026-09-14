@@ -114,6 +114,14 @@
       "status_boundary": "finite horizon diagnostic only; demotes the flat .76 ratio floor as a universal late-row condition while preserving it as a sufficient certificate; no eventual theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_reflection_orbit_staircase_certificate",
+      "type": "receipt",
+      "label": "q286 first-three pressure/ratio staircase certificate",
+      "status": "aha_candidate_finite_diagnostic",
+      "validation": "q286_first_three_reflection_orbit_dual_rectangle_receipt and tools/build_q286_first_three_reflection_orbit_staircase_certificate.py generated evidence/q286-first-three-reflection-orbit-staircase-certificate.json; the branches B<=1,R>=7/10; B<=21/20,R>=5/7; B<=5/4,R>=19/25 each imply first_three>=-.3, certify all 40040 targets in late cycles 0..7 from start 1120120, and in the unchanged holdout from start 1200200 leave exactly two rows outside: tail 1222142 and clear 1242118",
+      "status_boundary": "finite staircase-certificate evidence only; no eventual staircase occupancy theorem, no first-three rarity theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1473,6 +1481,16 @@
     },
     {
       "from": "receipt.q286_first_three_reflection_orbit_ratio_cycle_horizon",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_staircase_certificate",
+      "to": "receipt.q286_first_three_reflection_orbit_ratio_cycle_horizon",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_staircase_certificate",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
     },

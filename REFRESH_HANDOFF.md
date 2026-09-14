@@ -19742,6 +19742,49 @@ classify clear ratio exceptions, or replace the flat ratio floor with a
 pressure-dependent compensation curve that still implies `first_three >= -.3`.
 No eventual pressure/ratio theorem and no Goldbach proof is established.
 
+Staircase pressure/ratio certificate:
+
+- `q286_first_three_reflection_orbit_dual_rectangle_receipt`
+- `tools/build_q286_first_three_reflection_orbit_staircase_certificate.py`
+- `evidence/q286-first-three-reflection-orbit-staircase-certificate.json`
+
+This receipt tests Kevin's exact rational staircase in the
+`(B=-negative_orbit_contribution, R=positive/B)` plane:
+`B <= 1, R >= 7/10`; `B <= 21/20, R >= 5/7`; and
+`B <= 5/4, R >= 19/25`.  Each branch satisfies `(1-R)B <= .3`, so each branch
+is a sufficient certificate for `first_three >= -.3`.
+
+On early cycles `0..15` from start `10000`, it scans `80080` targets:
+`5297` tails, `73101` union-certified targets, zero certified-tail
+counterexamples, `1682` uncertified clear targets, and `5297` uncertified
+tails.  The worst uncertified target remains `10664`, with
+first-three/principal about `-1.1500880008976309`.
+
+On late cycles `0..7` from start `1120120`, it scans `40040` targets and
+certifies all `40040`: zero tails, zero uncertified clear rows, and zero
+certified-tail counterexamples.  The old `B<=1.25,R>=.76` rectangle had `11`
+late clear failures and the clean `B<=1,R>=.70` rectangle had `211`; their
+intersection row `1157462` is caught by the middle branch, with
+`B=1.0267310119901476`, `R=0.7346113305066312`, and exact-curve margin about
+`0.026800810026198607`.
+
+On the unchanged holdout from start `1200200`, cycles `0..7`, it scans another
+`40040` targets.  There is one tail and one clear row outside the staircase:
+`1222142` is a genuine first-three tail with `B=1.0110386036156538`,
+`R=0.6957705083951388`, first-three/principal about
+`-0.30758776037087937`, and exact-curve margin about
+`-0.007504916571675957`; `1242118` is clear but outside the staircase, with
+`B=1.0002438240043041`, `R=0.7136430774230906`, first-three/principal about
+`-0.28642674326843226`, and exact-curve margin about
+`0.01356994805249534`.  The staircase has no certified-tail counterexample.
+
+Status: `aha-candidate`, finite diagnostic.  Recommended next theorem target:
+prove eventual occupancy after a boundary that excludes `1222142`, refine the
+staircase near `B~1.0`, or prove the sharper exact curve
+`R >= 1 - .3/B`; then combine with finite checking of early rows outside the
+certificate.  No eventual staircase theorem, first-three rarity theorem,
+signed prime-correlation theorem, or Goldbach proof is established.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
