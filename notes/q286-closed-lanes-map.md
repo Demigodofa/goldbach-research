@@ -1211,6 +1211,19 @@ current comparison set.
    necessary volatile channel; its nearest minimal clause has margin about
    `-0.0001305906`.  This makes the narrowest volatile target an exact
    finite clause-family theorem, or a replacement signed aggregate theorem.
+117. `tools/build_q286_first_three_dominant_mode_volatile_clause_stability.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-clause-stability.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-clause-stability.json`,
+   checks whether each minimal satisfying deficit-row clause survives all
+   volatile supersets.  Across the three hard selected deficit rows, only
+   `2` of `14` minimal clauses are stable; `12` are fragile.  Row `1222142`
+   has no stable minimal clause: all ten four-channel clauses have five
+   failing supersets.  This falsifies the shortcut that one may prove a
+   minimal clause and ignore the remaining volatile channels.  The surviving
+   target is clause forcing plus non-undo control, or a replacement signed
+   aggregate arithmetic-placement theorem.
 
 ## Still open
 
@@ -1281,6 +1294,9 @@ current comparison set.
   remaining over-rescued after the seven row-forced channels are fixed.  The
   minimal-clause receipt then makes the target explicit: `13822` and `164598`
   each have two compact clauses, while `1222142` has ten four-channel clauses
-  and no individually necessary volatile channel.
+  and no individually necessary volatile channel.  The clause-stability
+  receipt further says minimal clauses are not enough by themselves: only
+  two of the fourteen hard-row clauses survive all volatile supersets, and
+  every `1222142` minimal clause is fragile.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

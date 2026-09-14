@@ -12148,3 +12148,37 @@ clause view with a stronger signed aggregate theorem.  This is finite minimal-
 clause evidence only; it proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: volatile clause stability
+
+The minimal-clause route was then tested for stability under extra volatile
+channels.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-clause-stability.json
+```
+
+For each minimal satisfying deficit-row clause, the receipt enumerates every
+volatile superset and checks whether the row still satisfies its deficit
+classification.
+
+Across the three hard selected deficit rows, there are `14` minimal clauses.
+Only `2` are stable under all supersets; `12` are fragile.
+
+For `13822`, one of two minimal clauses is stable.  The fragile clause has one
+failing superset, with nearest failing margin about `0.0084624530` above the
+floor.  For `164598`, one of two minimal clauses is stable.  Its fragile clause
+has two failing supersets, with nearest failing margin about `0.0013262929`
+above the floor.
+
+For `1222142`, all ten minimal clauses are fragile.  Each has `16` supersets:
+`11` remain satisfying and `5` fail.  The nearest failing superset margins
+begin around `0.0021056957` to `0.0052135929` above the floor.
+
+This falsifies the shortcut that a proof may merely force one minimal volatile
+clause and ignore the remaining channels.  The current target is clause
+forcing plus non-undo control for adverse extra channels, or a replacement
+signed aggregate arithmetic-placement theorem.  This is finite stability
+evidence only; it proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.
