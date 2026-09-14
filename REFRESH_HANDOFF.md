@@ -20704,6 +20704,35 @@ The live theorem target is now named critical repair/adverse channel magnitude
 control from actual binary-prime residue weights, or a replacement signed
 aggregate theorem.
 
+Dominant-mode volatile critical-dependency audit:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_critical_dependency_audit.py`
+- `notes/q286-first-three-dominant-mode-volatile-critical-dependency-audit.md`
+- `evidence/q286-first-three-dominant-mode-volatile-critical-dependency-audit.json`
+
+This tests whether the critical-margin ledger compresses to smaller signed
+magnitude bundles.  For each selected row it enumerates all repair-channel
+subsets and keeps the inclusion-minimal subsets whose total magnitude exceeds
+the required repair magnitude; it also enumerates inclusion-minimal adverse
+subsets whose magnitude exceeds the signed surplus.
+
+Across the selected fixture there are `17` minimal sufficient repair bundles
+and `39` minimal intolerable adverse bundles.  Eight selected rows have at
+least one proper sufficient repair bundle, but tight stress row `1222142` does
+not compress: it has exactly one minimal sufficient repair bundle, the full
+six-channel repair set `(1,1),(1,3),(1,5),(2,4),(3,3),(4,10)`.  Its nearest
+five-channel repair near miss falls short by about `0.0021056957`.  The same
+row's minimal intolerable adverse bundles are exactly the singleton channels
+`(1,7)` and `(4,4)`.
+
+This closes the lower-dimensional repair-compression route for `1222142` on
+the current finite fixture.  The loop is tighter, but the theorem target is
+now a full six-versus-two critical-channel magnitude balance from actual
+binary-prime residue weights, or a replacement signed aggregate arithmetic-
+placement theorem.  This is finite dependency evidence only; it proves no
+volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem,
+pointwise character-sum estimate, or Goldbach.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

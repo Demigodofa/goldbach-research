@@ -1306,6 +1306,23 @@ current comparison set.
    route from aggregate signed margin to named critical channel magnitudes,
    unless a stronger signed aggregate theorem replaces the channel ledger.
 
+124. `tools/build_q286_first_three_dominant_mode_volatile_critical_dependency_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-critical-dependency-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-critical-dependency-audit.json`,
+   tests whether the critical-margin ledger compresses to smaller signed
+   magnitude bundles.  Across the selected fixture there are `17` minimal
+   sufficient repair bundles and `39` minimal intolerable adverse bundles, but
+   tight stress row `1222142` has exactly one minimal sufficient repair bundle:
+   the full six-channel set `(1,1),(1,3),(1,5),(2,4),(3,3),(4,10)`.  Its
+   nearest five-channel repair near miss falls short by about `0.0021056957`,
+   and its two minimal intolerable adverse bundles are the singleton channels
+   `(1,7)` and `(4,4)`.  This closes the lower-dimensional
+   repair-compression route for `1222142` on the current finite fixture and
+   leaves the live target as full critical-channel magnitude balance or a
+   replacement signed aggregate arithmetic-placement theorem.
+
 ## Still open
 
 - q286 signed-projection anti-alignment theorem.
@@ -1401,6 +1418,9 @@ current comparison set.
   inequality from the prime-pair residue weights.
   The critical-margin ledger then shows this hinge is genuinely load-bearing:
   every `1222142` repair channel is individually critical and both adverse
-  channels are individually intolerable.
+  channels are individually intolerable.  The critical-dependency audit then
+  shows this does not compress to a smaller repair bundle for `1222142`: the
+  full six-channel repair set is its unique minimal sufficient repair bundle,
+  while either adverse channel `(1,7)` or `(4,4)` alone is intolerable.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

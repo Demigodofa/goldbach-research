@@ -12426,3 +12426,41 @@ channel ledger with a full signed aggregate arithmetic-placement theorem.
 This is finite critical-margin evidence only; it proves no volatile-rim
 theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile critical-dependency audit
+
+The critical-margin ledger was then tested for lower-dimensional bundle
+compression.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-critical-dependency-audit.json
+```
+
+For each selected row, the audit enumerates all repair-channel subsets and
+keeps the inclusion-minimal subsets whose total magnitude beats the row's
+required repair magnitude.  It separately enumerates inclusion-minimal adverse
+subsets whose total magnitude exceeds the row's signed surplus.
+
+Across the selected fixture there are `17` minimal sufficient repair bundles.
+Eight selected rows have at least one proper sufficient repair bundle, but the
+tight stress row `1222142` does not compress.  It has exactly one minimal
+sufficient repair bundle, and that bundle is the full six-channel repair set:
+
+```text
+(1,1), (1,3), (1,5), (2,4), (3,3), (4,10)
+```
+
+Its nearest five-channel repair near miss falls short by about `0.0021056957`.
+The same row has exactly two minimal intolerable adverse bundles, both
+singletons:
+
+```text
+(1,7)
+(4,4)
+```
+
+This closes the attractive lower-dimensional repair-compression route for
+`1222142` at the current fixture level.  The hole is tightening, but not by
+collapsing the tight row to a smaller repair dependency: the surviving target
+is a full six-versus-two critical-channel magnitude balance, or a replacement
+signed aggregate arithmetic-placement theorem.
