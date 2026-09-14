@@ -19499,6 +19499,18 @@ adjacent block after the post-136 checks.  It supplies no stress rows and
 proves no eventual rarity, alignment, complement, strict closure, or Goldbach
 theorem.
 
+New conditional proof-stack note:
+
+- `notes/q286-conditional-proof-stack.md`
+
+This consolidates the current q286 theorem route into three conditional
+closures: rarity plus complement floor, `.4` alignment plus complement on the
+first-three tail, and active-lane strict closure via
+`M_active(N) = D(N) - d0 + L*(B - max_channel(N))`.  It explicitly preserves
+the finite boundary, endpoint/noncentral, outer assembly, and pointwise
+prime-correlation gaps.  Treat it as a map of what must be proved, not as a
+new theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

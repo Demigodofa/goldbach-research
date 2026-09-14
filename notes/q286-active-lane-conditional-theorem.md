@@ -180,3 +180,9 @@ relative-delta range `0.005955161523943415..0.017908306132142508`, with target
 residue `0 mod 286` the worst class.  A plain uniform discrepancy theorem
 strong enough to close this lane would therefore be a sub-percent pointwise
 binary-prime residue estimate, not a consequence of the current finite scouts.
+
+The broader dependency stack is now summarized in
+`notes/q286-conditional-proof-stack.md`.  This active-lane note is the
+component-pair strict-closure branch of that stack; it does not by itself
+cover the rarity route, the alignment/complement route, endpoint/noncentral
+terms, or the outer Goldbach assembly.

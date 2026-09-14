@@ -475,6 +475,12 @@ current comparison set.
    `.2` near-tail alignment window and the `.3` alignment/complement window
    both found zero first-three tail rows.  This supports finite tail thinning
    in that block only and supplies no stress-row theorem evidence.
+55. `notes/q286-conditional-proof-stack.md` consolidates the surviving q286
+   route into three conditional theorem shapes: rarity plus complement floor,
+   `.4` alignment plus complement on the first-three tail, and active-lane
+   strict closure via the calibrated scalar margin.  It makes explicit that
+   all three still require finite boundary verification, endpoint/noncentral
+   control, outer assembly, and a pointwise signed prime-correlation theorem.
 
 ## Still open
 

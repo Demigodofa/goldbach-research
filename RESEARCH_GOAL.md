@@ -10768,6 +10768,15 @@ below `-0.2`, and the `.3` alignment/complement receipt found zero rows below
 near-tail checks, but it supplies no stress rows and proves no eventual
 rarity, complement, alignment, strict-closure, or Goldbach theorem.
 
+`notes/q286-conditional-proof-stack.md` now consolidates the strongest honest
+q286 theorem stack.  It states three conditional routes: rarity plus
+complement floor, `.4` alignment plus complement on the first-three tail, and
+active-lane strict closure via the calibrated margin
+`M_active(N) = D(N) - d0 + L*(B - max_channel(N))`.  Each route names its
+exact finite boundary and outer-assembly obligations.  This is a theorem map,
+not a proof: all pointwise residue-correlation hypotheses, endpoint/noncentral
+terms, and the final Goldbach assembly remain open.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

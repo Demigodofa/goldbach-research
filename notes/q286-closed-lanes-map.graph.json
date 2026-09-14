@@ -10,6 +10,7 @@
     "closed_lane",
     "demoted_lane",
     "surviving_structure",
+    "conditional_theorem",
     "receipt",
     "test",
     "optimization",
@@ -619,6 +620,14 @@
       "status_boundary": "open analytic obligation only; quantified norm certificate is sufficient-condition bookkeeping, finite scout receipts do not prove rarity, strict closure, or Goldbach"
     },
     {
+      "id": "conditional.q286_proof_stack",
+      "type": "conditional_theorem",
+      "label": "q286 conditional proof stack",
+      "status": "open_hypotheses_explicit",
+      "validation": "notes/q286-conditional-proof-stack.md states the three current conditional closures: rarity plus complement floor, .4 alignment plus complement on the first-three tail, and active-lane strict closure via the calibrated scalar margin",
+      "status_boundary": "conditional theorem map only; pointwise residue-correlation hypotheses, finite boundary checks, endpoint/noncentral terms, outer assembly, and Goldbach remain open"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1142,6 +1151,21 @@
       "type": "would_reduce"
     },
     {
+      "from": "obligation.active_selector_rarity",
+      "to": "conditional.q286_proof_stack",
+      "type": "supports"
+    },
+    {
+      "from": "evidence.tail_alignment_complement_window_233_264",
+      "to": "conditional.q286_proof_stack",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.active_lane_strict_closure_margin_census",
+      "to": "conditional.q286_proof_stack",
+      "type": "supports"
+    },
+    {
       "from": "receipt.component_pair_real_channel_action",
       "to": "obligation.component_pair_cone_avoidance",
       "type": "refines"
@@ -1208,6 +1232,11 @@
     },
     {
       "from": "theorem.active.component_pair_exclusion",
+      "to": "obligation.goldbach",
+      "type": "supports"
+    },
+    {
+      "from": "conditional.q286_proof_stack",
       "to": "obligation.goldbach",
       "type": "supports"
     }
