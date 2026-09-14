@@ -3983,6 +3983,35 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["eventual_dual_rectangle_bounds_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_q286_first_three_reflection_orbit_refined_staircase(self):
+        rectangles = ((1.0, .70), (101.0 / 100.0, 71.0 / 101.0),
+                      (21.0 / 20.0, 5.0 / 7.0), (1.25, .76))
+        tail_receipt = q286_first_three_reflection_orbit_dual_rectangle_receipt(
+            start=1222142, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3, rectangles=rectangles, include_rows=True)
+        clear_receipt = q286_first_three_reflection_orbit_dual_rectangle_receipt(
+            start=1242118, cycle_count=1, targets_per_cycle=1,
+            tail_threshold=.3, rectangles=rectangles, include_rows=True)
+        tail_row = tail_receipt["target_rows"][1222142]
+        clear_row = clear_receipt["target_rows"][1242118]
+        self.assertTrue(tail_row["tail_target"])
+        self.assertFalse(tail_row["union_certified"])
+        self.assertEqual(
+            tail_row["rectangle_certified"],
+            (False, False, False, False))
+        self.assertFalse(clear_row["tail_target"])
+        self.assertTrue(clear_row["union_certified"])
+        self.assertEqual(
+            clear_row["rectangle_certified"],
+            (False, True, False, False))
+        self.assertFalse(clear_receipt[
+            "union_certificate_has_tail_counterexample"])
+        self.assertTrue(clear_receipt[
+            "first_three_reflection_orbit_dual_rectangle_measured"])
+        self.assertFalse(clear_receipt[
+            "eventual_dual_rectangle_bounds_proved"])
+        self.assertFalse(clear_receipt["goldbach_proved"])
+
     def test_q286_first_three_character_mixture_norm(self):
         receipt = q286_first_three_character_mixture_norm_receipt(
             targets=(1222142,), theorem_threshold=.2)

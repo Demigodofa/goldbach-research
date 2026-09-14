@@ -64,6 +64,8 @@ Current executable receipts:
 - `q286_first_three_reflection_orbit_ratio_certificate_receipt`
 - `q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt`
 - `q286_first_three_reflection_orbit_dual_rectangle_receipt`
+- `tools/build_q286_first_three_reflection_orbit_refined_staircase.py`
+- `tools/build_q286_first_three_boundary_pair_autopsy.py`
 
 ## Closed or falsified lanes
 
@@ -563,6 +565,25 @@ current comparison set.
    `40040` targets and leaves exactly two rows outside: tail `1222142` and
    clear `1242118`.  This is an `aha-candidate` for a refined eventual
    staircase-occupancy or exact-curve theorem, not a theorem.
+65. `evidence/q286-first-three-reflection-orbit-refined-staircase.json` adds
+   the post-hoc exact step `(B<=101/100,R>=71/101)` between the first two
+   staircase branches.  The step is safe because
+   `(1-71/101)*(101/100)=3/10`.  On the same holdout from start `1200200`,
+   it certifies clear row `1242118` and leaves only tail `1222142` outside.
+   On early cycles it reduces uncertified clear rows by `13` but leaves all
+   `5297` tails outside.  This preserves the exact-curve/staircase theorem
+   target while exposing that a proof must explain why rows eventually clear
+   these near-curve steps, not merely fit one observed clear exception.
+66. `evidence/q286-first-three-boundary-pair-autopsy.json` subtracts the
+   holdout tail `1222142` from the two clear near-threshold rows `1242118`
+   and `1240888`.  The first clear row improves by about `0.021161`, split
+   between reduced negative pressure and increased positive compensation.  The
+   second clear row has worse negative pressure by about `0.004649`, but gains
+   about `0.037553` positive compensation.  This rejects a single-factor
+   pressure-only explanation and points to classifying positive orbit-mass
+   landing near the exact curve.  The q286 first-three character layer has
+   support `(11,13)` on modulus `286`; conductor `77` is not native to this
+   receipt.
 
 ## Still open
 

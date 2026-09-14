@@ -472,6 +472,54 @@ curve `R >= 1 - .3/B`, then separately discharge the finite early rows outside
 it.  No eventual staircase occupancy theorem, first-three rarity theorem,
 signed prime-correlation estimate, or Goldbach proof is established.
 
+A post-hoc refinement of the holdout miss inserts one exact rational branch
+between the first two steps:
+
+```text
+B <= 101/100, R >= 71/101
+```
+
+This is algebraically safe because `(1-71/101)*(101/100)=3/10`.  The refined
+four-branch staircase is recorded in:
+
+```text
+evidence/q286-first-three-reflection-orbit-refined-staircase.json
+```
+
+On the same three horizons it has no certified-tail counterexample.  It leaves
+the genuine holdout tail `1222142` outside the certificate, but now certifies
+the clear holdout row `1242118` by the added step.  The holdout
+`1200200`, cycles `0..7`, therefore changes from two outside rows to exactly
+one outside row, the tail `1222142`.  Early cycles `0..15` improve only
+slightly, from `1682` to `1669` uncertified clear rows, while all `5297` tails
+remain outside.  This is useful theorem shaping but is not independent
+validation, because the added step was chosen after seeing the holdout clear
+miss.
+
+A direct boundary-pair autopsy is recorded in:
+
+```text
+evidence/q286-first-three-boundary-pair-autopsy.json
+```
+
+In the holdout from start `1200200`, only three rows lie in the near-threshold
+window `-.33 <= first_three <= -.27`: tail `1222142`, clear `1242118`, and
+clear `1240888`.  Relative to tail `1222142`, clear row `1242118` improves by
+`0.02116101710244711`, split almost evenly between lower negative pressure
+(`0.01079477961134967`) and higher positive compensation
+(`0.010366237491097219`).  Clear row `1240888` has worse negative pressure by
+about `0.0046492825627517664`, but has higher positive compensation by about
+`0.03755294143301424`, for net improvement about
+`0.03290365887026253`.  Thus the near-boundary rows already show at least two
+rescue patterns: balanced pressure/compensation improvement, and compensation
+overcoming worse pressure.
+
+The character-coordinate autopsy for this q286 first-three layer has support
+`(11,13)` on natural modulus `286`.  A conductor-77 explanation is therefore
+not native to this receipt; conductor `77` belongs to the separate
+lower-support/component-pair lanes and needs an explicit overlay test before
+being claimed relevant here.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

@@ -10933,6 +10933,32 @@ eventual staircase-occupancy theorem, but the holdout shows the staircase is
 still a coarse approximation to the exact curve; that theorem remains
 unproved, and Goldbach remains open.
 
+A post-hoc refined staircase is now recorded in
+`evidence/q286-first-three-reflection-orbit-refined-staircase.json`.  It adds
+the exact safe branch `(B<=101/100,R>=71/101)`, since
+`(1-71/101)*(101/100)=3/10`.  This branch certifies the clear holdout miss
+`1242118` while leaving the genuine tail `1222142` outside.  On the recorded
+holdout from start `1200200`, cycles `0..7`, the refined staircase leaves only
+one row uncertified, namely `1222142`; on early cycles `0..15`, all `5297`
+tails still remain outside and the uncertified clear count drops only from
+`1682` to `1669`.  Because the added branch was selected after observing
+`1242118`, this is theorem-shaping post-hoc evidence, not an independent
+holdout proof.
+
+The boundary-pair autopsy
+`evidence/q286-first-three-boundary-pair-autopsy.json` compares the tail
+`1222142` with the two clear near-threshold holdout rows `1242118` and
+`1240888`.  The `1222142 -> 1242118` swing is split between reduced negative
+pressure (`0.01079477961134967`) and increased positive compensation
+(`0.010366237491097219`).  The `1222142 -> 1240888` swing instead has worse
+negative pressure by about `0.0046492825627517664`, overcome by increased
+positive compensation of about `0.03755294143301424`.  This finite autopsy
+rejects a one-factor "reduce B only" explanation and preserves a sharper
+question: classify where positive orbit mass lands near the exact curve.  The
+autopsy also records that conductor `77` is not native to the q286 first-three
+character layer, whose support is `(11,13)` on modulus `286`; a conductor-77
+claim would require a separate lower-support overlay.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

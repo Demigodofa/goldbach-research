@@ -122,6 +122,22 @@
       "status_boundary": "finite staircase-certificate evidence only; no eventual staircase occupancy theorem, no first-three rarity theorem, no signed prime-correlation estimate, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_reflection_orbit_refined_staircase",
+      "type": "receipt",
+      "label": "q286 first-three refined pressure/ratio staircase",
+      "status": "post_hoc_aha_candidate_finite_diagnostic",
+      "validation": "tools/build_q286_first_three_reflection_orbit_refined_staircase.py generated evidence/q286-first-three-reflection-orbit-refined-staircase.json; adding exact safe branch B<=101/100,R>=71/101 certifies clear holdout row 1242118 while leaving tail row 1222142 uncertified, leaves all 5297 early tails outside, and introduces no certified-tail counterexample on the recorded horizons",
+      "status_boundary": "post-hoc finite refined-certificate evidence only; no eventual refined-staircase theorem, no first-three rarity theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_boundary_pair_autopsy",
+      "type": "receipt",
+      "label": "q286 first-three boundary-pair autopsy",
+      "status": "finite_diagnostic",
+      "validation": "tools/build_q286_first_three_boundary_pair_autopsy.py generated evidence/q286-first-three-boundary-pair-autopsy.json; in the 1200200 holdout only 1222142, 1242118, and 1240888 lie in -.33<=first_three<=-.27, and the two clear rows separate into balanced pressure/compensation rescue and compensation-over-worse-pressure rescue",
+      "status_boundary": "finite boundary-row autopsy only; no recurrence theorem, no pointwise signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1493,6 +1509,26 @@
       "from": "receipt.q286_first_three_reflection_orbit_staircase_certificate",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_refined_staircase",
+      "to": "receipt.q286_first_three_reflection_orbit_staircase_certificate",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_refined_staircase",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_boundary_pair_autopsy",
+      "to": "receipt.q286_first_three_reflection_orbit_refined_staircase",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_first_three_boundary_pair_autopsy",
+      "to": "obligation.active_selector_rarity",
+      "type": "profiles"
     },
     {
       "from": "lane.first_three_reflection_orbit_cap",

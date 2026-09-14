@@ -19785,6 +19785,50 @@ staircase near `B~1.0`, or prove the sharper exact curve
 certificate.  No eventual staircase theorem, first-three rarity theorem,
 signed prime-correlation theorem, or Goldbach proof is established.
 
+Post-hoc refined staircase:
+
+- `tools/build_q286_first_three_reflection_orbit_refined_staircase.py`
+- `evidence/q286-first-three-reflection-orbit-refined-staircase.json`
+- focused regression:
+  `test_q286_first_three_reflection_orbit_refined_staircase`
+
+The refinement adds the exact safe step
+`B <= 101/100, R >= 71/101`, satisfying
+`(1-71/101)*(101/100)=3/10`.  It was selected after observing the clear
+holdout miss `1242118`, so label it post-hoc theorem shaping rather than an
+independent holdout.
+
+Measured effect on the same horizons: early cycles `0..15` from start
+`10000` certify `73114/80080`, leave all `5297` tails outside, and reduce
+uncertified clear rows from `1682` to `1669`; late cycles `0..7` from start
+`1120120` remain fully certified; the holdout from start `1200200`, cycles
+`0..7`, changes from two outside rows to one outside row.  The added branch
+certifies clear target `1242118`, while genuine tail `1222142` remains
+uncertified.  No certified-tail counterexample appears in these finite
+horizons.
+
+Boundary-pair autopsy:
+
+- `tools/build_q286_first_three_boundary_pair_autopsy.py`
+- `evidence/q286-first-three-boundary-pair-autopsy.json`
+
+In the holdout from start `1200200`, cycles `0..7`, only three targets lie in
+the near-boundary window `-.33 <= first_three <= -.27`: tail `1222142`, clear
+`1242118`, and clear `1240888`.  Relative to `1222142`, row `1242118`
+improves by `0.02116101710244711`, with `0.01079477961134967` from reduced
+negative pressure and `0.010366237491097219` from increased positive
+compensation.  Relative to `1222142`, row `1240888` has worse negative
+pressure by about `0.0046492825627517664`, but has increased positive
+compensation by about `0.03755294143301424`, giving net improvement about
+`0.03290365887026253`.
+
+Interpretation: near the exact curve, rescue is not just "smaller B."  One
+clear row is balanced between pressure and compensation; another is a
+positive-compensation rescue despite worse pressure.  The autopsy's character
+layer has support `(11,13)` on natural modulus `286`; conductor `77` is not
+native to this first-three receipt and should only be tested through a
+separate lower-support/component-pair overlay.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
