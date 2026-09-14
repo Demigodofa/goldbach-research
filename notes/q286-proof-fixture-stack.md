@@ -52,6 +52,11 @@ frame.
   mostly use the positive-offset branch under pressure, while five sampled
   rows remain true finite deficits.  This demotes a pressure-ceiling-only
   explanation for the selected rows.
+- `evidence/q286-first-three-dominant-mode-channel-swing-pairs.json`:
+  selected deficit-to-clear pairs have recurrent helpful channels `(2,6)` and
+  `(3,1)`, but the helpful swing is portfolio-level: reaching `80%` of
+  positive delta takes `5` to `9` helpful channels across the checked pairs.
+  This demotes a one- or two-channel offset lemma.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -83,6 +88,8 @@ frame.
    blunt on the active samples.  The sharper split is negative-channel
    pressure versus positive-channel offset, and the wider branch sample points
    toward offset forcing under pressure rather than a pressure ceiling alone.
+   The swing-pair decomposition further sharpens this to a helpful-channel
+   portfolio estimate, not a tiny-channel lemma.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

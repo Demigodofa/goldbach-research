@@ -8838,6 +8838,261 @@ def q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
     }
 
 
+def q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6):
+    """Decompose deficit-to-clear swings across the 25 real channels.
+
+    The branch sample says selected clear rows usually clear by positive
+    offset under negative pressure.  This receipt compares named
+    deficit-to-clear pairs and decomposes the dominant-mode swing into exact
+    real-channel contribution deltas.
+
+    It proves no recurrence theorem, no signed-channel offset theorem, and no
+    Goldbach theorem.
+    """
+    pair_targets = tuple(pair_targets)
+    if not pair_targets:
+        raise ValueError("pair_targets must be nonempty")
+    for pair in pair_targets:
+        if (not isinstance(pair, (tuple, list)) or len(pair) != 2
+                or any(type(target) is not int or target < 40
+                       or target % 2 for target in pair)):
+            raise ValueError(
+                "each pair must be two even integers at least 40")
+    if type(top_channel_count) is not int or top_channel_count < 1:
+        raise ValueError("top_channel_count must be a positive integer")
+
+    sample_targets = tuple(dict.fromkeys(
+        target for pair in pair_targets for target in pair))
+    branch_receipt = (
+        q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
+            sample_targets=sample_targets, dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold, tolerance=tolerance,
+            top_channel_count=top_channel_count))
+    sample_rows = branch_receipt["target_rows"]
+
+    channel_summary = {}
+    pair_rows = []
+    maximum_swing_reconstruction_error = 0.0
+    minimum_top_helpful_share_row = None
+    maximum_channel_count_for_80_row = None
+    deficit_to_clear_count = 0
+    helpful_term_names = (
+        "negative_pressure_reduced",
+        "sign_flip_to_positive",
+        "positive_channel_created",
+        "positive_channel_amplified",
+        "other_helpful",
+    )
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def classify_helpful(left_value, right_value, delta):
+        if delta <= tolerance:
+            return None
+        if left_value < -tolerance and right_value < -tolerance:
+            return "negative_pressure_reduced"
+        if left_value < -tolerance and right_value > tolerance:
+            return "sign_flip_to_positive"
+        if abs(left_value) <= tolerance and right_value > tolerance:
+            return "positive_channel_created"
+        if left_value > tolerance and right_value > left_value + tolerance:
+            return "positive_channel_amplified"
+        return "other_helpful"
+
+    def count_for_fraction(rows, total, fraction):
+        if total <= tolerance:
+            return 0
+        running = 0.0
+        for index, row in enumerate(rows, start=1):
+            running += row["delta_contribution_to_principal"]
+            if running >= fraction * total - tolerance:
+                return index
+        return len(rows)
+
+    for left_target, right_target in pair_targets:
+        left = sample_rows[left_target]
+        right = sample_rows[right_target]
+        if (not left["has_strict_central_prime_pairs"]
+                or not right["has_strict_central_prime_pairs"]):
+            continue
+        left_contributions = contribution_by_label(left)
+        right_contributions = contribution_by_label(right)
+        all_labels = tuple(sorted(set(left_contributions)
+                                  | set(right_contributions)))
+        channel_delta_rows = []
+        positive_delta_sum = 0.0
+        negative_delta_sum = 0.0
+        absolute_delta_sum = 0.0
+        helpful_sums_by_type = {name: 0.0 for name in helpful_term_names}
+        helpful_counts_by_type = {name: 0 for name in helpful_term_names}
+        for label in all_labels:
+            left_value = left_contributions.get(label, 0.0)
+            right_value = right_contributions.get(label, 0.0)
+            delta = right_value - left_value
+            positive_delta_sum += delta if delta > tolerance else 0.0
+            negative_delta_sum += delta if delta < -tolerance else 0.0
+            absolute_delta_sum += abs(delta)
+            helpful_type = classify_helpful(left_value, right_value, delta)
+            if helpful_type is not None:
+                helpful_sums_by_type[helpful_type] += delta
+                helpful_counts_by_type[helpful_type] += 1
+            channel_row = {
+                "representative_label": label,
+                "left_contribution_to_principal": left_value,
+                "right_contribution_to_principal": right_value,
+                "delta_contribution_to_principal": delta,
+                "absolute_delta_contribution_to_principal": abs(delta),
+                "helpful_type": helpful_type,
+            }
+            channel_delta_rows.append(channel_row)
+            summary = channel_summary.setdefault(label, {
+                "representative_label": label,
+                "helpful_pair_count": 0,
+                "harmful_pair_count": 0,
+                "net_delta_sum": 0.0,
+                "positive_delta_sum": 0.0,
+                "negative_delta_sum": 0.0,
+                "absolute_delta_sum": 0.0,
+            })
+            summary["net_delta_sum"] += delta
+            summary["positive_delta_sum"] += (
+                delta if delta > tolerance else 0.0)
+            summary["negative_delta_sum"] += (
+                delta if delta < -tolerance else 0.0)
+            summary["absolute_delta_sum"] += abs(delta)
+            if delta > tolerance:
+                summary["helpful_pair_count"] += 1
+            elif delta < -tolerance:
+                summary["harmful_pair_count"] += 1
+
+        helpful_rows = tuple(sorted(
+            (row for row in channel_delta_rows
+             if row["delta_contribution_to_principal"] > tolerance),
+            key=lambda row: row["delta_contribution_to_principal"],
+            reverse=True))
+        harmful_rows = tuple(sorted(
+            (row for row in channel_delta_rows
+             if row["delta_contribution_to_principal"] < -tolerance),
+            key=lambda row: row["delta_contribution_to_principal"]))
+        swing = (
+            right["dominant_character_sum_to_principal_ratio"]
+            - left["dominant_character_sum_to_principal_ratio"])
+        recombined_swing = positive_delta_sum + negative_delta_sum
+        reconstruction_error = abs(swing - recombined_swing)
+        maximum_swing_reconstruction_error = max(
+            maximum_swing_reconstruction_error, reconstruction_error)
+        top_helpful_sum = math.fsum(
+            row["delta_contribution_to_principal"]
+            for row in helpful_rows[:top_channel_count])
+        top_helpful_share = (
+            top_helpful_sum / positive_delta_sum
+            if positive_delta_sum > tolerance else math.nan)
+        count_for_80 = count_for_fraction(
+            helpful_rows, positive_delta_sum, .8)
+        row = {
+            "left_target": left_target,
+            "right_target": right_target,
+            "left_branch_label": left["signed_channel_branch_label"],
+            "right_branch_label": right["signed_channel_branch_label"],
+            "left_dominant_sum_to_principal": (
+                left["dominant_character_sum_to_principal_ratio"]),
+            "right_dominant_sum_to_principal": (
+                right["dominant_character_sum_to_principal_ratio"]),
+            "dominant_swing_to_principal": swing,
+            "positive_channel_delta_sum": positive_delta_sum,
+            "negative_channel_delta_sum": negative_delta_sum,
+            "absolute_channel_delta_sum": absolute_delta_sum,
+            "signed_to_absolute_delta_ratio": (
+                swing / absolute_delta_sum
+                if absolute_delta_sum > tolerance else math.nan),
+            "top_helpful_channel_delta_sum": top_helpful_sum,
+            "top_helpful_channel_share": top_helpful_share,
+            "helpful_channel_count": len(helpful_rows),
+            "harmful_channel_count": len(harmful_rows),
+            "helpful_channel_count_for_50_percent": count_for_fraction(
+                helpful_rows, positive_delta_sum, .5),
+            "helpful_channel_count_for_80_percent": count_for_80,
+            "helpful_channel_count_for_90_percent": count_for_fraction(
+                helpful_rows, positive_delta_sum, .9),
+            "helpful_sums_by_type": helpful_sums_by_type,
+            "helpful_counts_by_type": helpful_counts_by_type,
+            "top_helpful_channel_rows": helpful_rows[:top_channel_count],
+            "top_harmful_channel_rows": harmful_rows[:top_channel_count],
+            "swing_reconstruction_error": reconstruction_error,
+            "left_floor_passes": left["dominant_floor_passes"],
+            "right_floor_passes": right["dominant_floor_passes"],
+        }
+        pair_rows.append(row)
+        if (not left["dominant_floor_passes"]
+                and right["dominant_floor_passes"]):
+            deficit_to_clear_count += 1
+        if (minimum_top_helpful_share_row is None
+                or top_helpful_share < minimum_top_helpful_share_row[
+                    "top_helpful_channel_share"]):
+            minimum_top_helpful_share_row = row
+        if (maximum_channel_count_for_80_row is None
+                or count_for_80 > maximum_channel_count_for_80_row[
+                    "helpful_channel_count_for_80_percent"]):
+            maximum_channel_count_for_80_row = row
+
+    channel_frequency_rows = tuple(sorted(
+        channel_summary.values(),
+        key=lambda row: (
+            -row["helpful_pair_count"],
+            -row["positive_delta_sum"],
+            row["representative_label"])))
+    recurrent_helpful_rows = tuple(
+        row for row in channel_frequency_rows
+        if row["helpful_pair_count"] >= max(2, len(pair_rows) // 2))
+    universally_helpful_rows = tuple(
+        row for row in channel_frequency_rows
+        if row["helpful_pair_count"] == len(pair_rows))
+
+    return {
+        "arithmetic_modulus": branch_receipt["arithmetic_modulus"],
+        "support": branch_receipt["support"],
+        "dominant_modes": branch_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            branch_receipt["active_real_channel_count"]),
+        "pair_targets": pair_targets,
+        "sample_targets": sample_targets,
+        "pair_count": len(pair_rows),
+        "deficit_to_clear_pair_count": deficit_to_clear_count,
+        "pair_rows": tuple(pair_rows),
+        "channel_frequency_rows": channel_frequency_rows,
+        "recurrent_helpful_channel_rows": recurrent_helpful_rows,
+        "universally_helpful_channel_rows": universally_helpful_rows,
+        "minimum_top_helpful_share_row": minimum_top_helpful_share_row,
+        "maximum_channel_count_for_80_percent_row": (
+            maximum_channel_count_for_80_row),
+        "maximum_swing_reconstruction_error": (
+            maximum_swing_reconstruction_error),
+        "dominant_channel_swing_pair_decomposition_measured": True,
+        "recurrent_helpful_channels_observed": bool(
+            recurrent_helpful_rows),
+        "single_or_two_channel_offset_theorem_demoted_on_samples": bool(
+            maximum_channel_count_for_80_row is not None
+            and maximum_channel_count_for_80_row[
+                "helpful_channel_count_for_80_percent"] > 2),
+        "eventual_signed_channel_offset_theorem_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

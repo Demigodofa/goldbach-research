@@ -74,6 +74,7 @@ Current executable receipts:
 - `q286_first_three_dominant_mode_channel_norm_budget_receipt`
 - `q286_first_three_dominant_mode_signed_channel_profile_receipt`
 - `q286_first_three_dominant_mode_signed_channel_branch_sample_receipt`
+- `q286_first_three_dominant_mode_channel_swing_pair_receipt`
 
 ## Closed or falsified lanes
 
@@ -770,6 +771,15 @@ current comparison set.
    pressure-ceiling-only explanation for the selected rows and sharpens the
    live theorem target to positive-offset forcing under pressure, plus
    classification or finite handling of true deficits.
+83. `q286_first_three_dominant_mode_channel_swing_pair_receipt`, with note
+   `notes/q286-first-three-dominant-mode-channel-swing-pairs.md` and evidence
+   in `evidence/q286-first-three-dominant-mode-channel-swing-pairs.json`,
+   decomposes six selected deficit-to-clear swings into exact deltas across
+   the same `25` real q286 channels.  Channels `(2,6)` and `(3,1)` are helpful
+   in all six checked pairs, but a tiny-channel lemma is demoted: reaching
+   `80%` of positive delta takes `5` to `9` helpful channels.  The live target
+   is now a portfolio-level offset estimate under pressure or a classification
+   of true deficit rows.
 
 ## Still open
 
@@ -783,6 +793,7 @@ current comparison set.
   `Linf`/`L2` smallness.  The current split is negative-channel pressure
   below `.3`, or enough positive offset when pressure exceeds `.3`; the wider
   selected sample currently points more strongly at offset forcing under
-  pressure than at a pressure ceiling alone.
+  pressure than at a pressure ceiling alone, and the swing-pair autopsy says
+  that offset forcing is portfolio-level rather than one- or two-channel.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

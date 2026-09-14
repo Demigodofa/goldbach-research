@@ -47,6 +47,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_channel_norm_budget_receipt,
     q286_first_three_dominant_mode_signed_channel_profile_receipt,
     q286_first_three_dominant_mode_signed_channel_branch_sample_receipt,
+    q286_first_three_dominant_mode_channel_swing_pair_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4511,6 +4512,47 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "dominant_mode_signed_channel_branch_sample_measured"])
         self.assertFalse(receipt[
             "eventual_signed_channel_branch_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_channel_swing_pair(self):
+        receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+            pair_targets=((24424, 13556), (1222142, 1242118)),
+            top_channel_count=4)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["active_real_channel_count"], 25)
+        self.assertEqual(receipt["pair_count"], 2)
+        self.assertEqual(receipt["deficit_to_clear_pair_count"], 2)
+        self.assertLess(receipt["maximum_swing_reconstruction_error"], 1e-9)
+        self.assertEqual(
+            receipt["minimum_top_helpful_share_row"]["left_target"],
+            1222142)
+        self.assertEqual(
+            receipt["maximum_channel_count_for_80_percent_row"][
+                "helpful_channel_count_for_80_percent"],
+            7)
+        universal_labels = {
+            row["representative_label"]
+            for row in receipt["universally_helpful_channel_rows"]}
+        self.assertIn((3, 1), universal_labels)
+        self.assertIn((2, 6), universal_labels)
+        for row in receipt["pair_rows"]:
+            self.assertEqual(row["left_branch_label"], "unresolved_deficit")
+            self.assertEqual(row["right_branch_label"], "offset")
+            self.assertGreater(row["positive_channel_delta_sum"], 0)
+            self.assertLess(row["negative_channel_delta_sum"], 0)
+            self.assertGreater(row["top_helpful_channel_share"], .5)
+            self.assertLess(row["swing_reconstruction_error"], 1e-9)
+        self.assertTrue(receipt[
+            "dominant_channel_swing_pair_decomposition_measured"])
+        self.assertTrue(receipt["recurrent_helpful_channels_observed"])
+        self.assertTrue(receipt[
+            "single_or_two_channel_offset_theorem_demoted_on_samples"])
+        self.assertFalse(receipt[
+            "eventual_signed_channel_offset_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])

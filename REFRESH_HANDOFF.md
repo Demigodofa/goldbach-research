@@ -20232,6 +20232,23 @@ at `13556`, with pressure about `0.9544512968249877` and offset slack about
 not a standalone pressure ceiling: it is positive-offset forcing under
 pressure, plus classification or finite handling of the true deficit rows.
 
+Dominant-mode channel swing pairs:
+
+- `q286_first_three_dominant_mode_channel_swing_pair_receipt`
+- `tools/build_q286_first_three_dominant_mode_channel_swing_pairs.py`
+- `notes/q286-first-three-dominant-mode-channel-swing-pairs.md`
+- `evidence/q286-first-three-dominant-mode-channel-swing-pairs.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_channel_swing_pair`
+
+This decomposes six selected deficit-to-clear pairs into exact deltas across
+the same `25` real q286 channels.  Channels `(2,6)` and `(3,1)` are helpful in
+all six checked pairs, with positive delta sums about `0.5758302749811214`
+and `0.4003828170751664`.  The swing is not a one- or two-channel event:
+reaching `80%` of positive delta takes between `5` and `9` helpful channels.
+The next theorem target is therefore a portfolio-level offset estimate under
+pressure, not a tiny-channel offset lemma.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

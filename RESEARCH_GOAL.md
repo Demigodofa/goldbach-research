@@ -11205,6 +11205,20 @@ positive-offset forcing under large negative channel pressure, together with a
 classification or finite handling of true deficit rows.  This is still finite
 theorem-shaping evidence only.
 
+The channel-swing pair autopsy is now recorded in
+`notes/q286-first-three-dominant-mode-channel-swing-pairs.md` and
+`evidence/q286-first-three-dominant-mode-channel-swing-pairs.json`.  It
+decomposes six selected deficit-to-clear pairs into exact deltas across the
+same `25` real channels.  Two channels, `(2,6)` and `(3,1)`, are helpful in
+every checked pair, with positive delta sums about `0.5758302749811214` and
+`0.4003828170751664`.  But the helpful swing is not carried by one or two
+channels: reaching `80%` of positive delta takes between `5` and `9` helpful
+channels across the pairs.  This preserves a recurrent helpful-channel
+portfolio but demotes a tiny-channel offset lemma.  The next theorem target is
+a portfolio-level arithmetic estimate for helpful channel deltas under high
+negative pressure, or a classification of the true deficit rows as finite or
+boundary phenomena.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

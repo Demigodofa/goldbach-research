@@ -50,6 +50,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-signed-channel-profile.json")
     dominant_mode_branch_sample = load_json(
         "evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json")
+    dominant_mode_swing_pairs = load_json(
+        "evidence/q286-first-three-dominant-mode-channel-swing-pairs.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -270,6 +272,24 @@ def main():
                     "branch theorem"),
             },
             {
+                "id": "anchor.dominant_mode_channel_swing_pairs",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-channel-swing-pairs.json"),
+                "statement": (
+                    "Selected deficit-to-clear swings decompose into a "
+                    "recurrent but multi-channel helpful portfolio."),
+                "validation": (
+                    "universal helpful channels "
+                    f"{dominant_mode_swing_pairs['universally_helpful_channel_rows'][:2]}; "
+                    "maximum channels needed for 80 percent helpful delta "
+                    f"{dominant_mode_swing_pairs['maximum_channel_count_for_80_percent_row']['helpful_channel_count_for_80_percent']}; "
+                    "maximum reconstruction error "
+                    f"{dominant_mode_swing_pairs['maximum_swing_reconstruction_error']}."),
+                "proved_scope": (
+                    "finite pairwise channel-swing decomposition, not an "
+                    "offset theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -364,7 +384,10 @@ def main():
                     "budget demotion, either control negative-channel "
                     "pressure below 0.3 or prove enough positive offset when "
                     "that pressure exceeds 0.3; the wider branch sample "
-                    "currently points toward the offset-under-pressure side."),
+                    "currently points toward the offset-under-pressure side, "
+                    "and the swing-pair autopsy points to a recurrent "
+                    "helpful-channel portfolio rather than one or two "
+                    "channels."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
@@ -394,9 +417,10 @@ def main():
         "next_non_circular_action": (
             "Attack the first two dominant q286 first-three singular "
             "character coordinates directly: seek an arithmetic mechanism "
-            "forcing positive offset under large negative channel pressure, "
-            "classify the true deficit rows, or prove/cite that this joint "
-            "requires an external fixed-modulus binary Goldbach/AP theorem."),
+            "forcing a helpful-channel portfolio under large negative "
+            "pressure, classify the true deficit rows, or prove/cite that "
+            "this joint requires an external fixed-modulus binary "
+            "Goldbach/AP theorem."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

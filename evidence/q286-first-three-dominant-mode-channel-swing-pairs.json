@@ -1,0 +1,1971 @@
+{
+  "active_real_channel_count": 25,
+  "arithmetic_modulus": 286,
+  "channel_frequency_rows": [
+    {
+      "absolute_delta_sum": 0.5758302749811214,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.5758302749811214,
+      "positive_delta_sum": 0.5758302749811214,
+      "representative_label": [
+        2,
+        6
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4003828170751664,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.4003828170751664,
+      "positive_delta_sum": 0.4003828170751664,
+      "representative_label": [
+        3,
+        1
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.35669478575779234,
+      "harmful_pair_count": 1,
+      "helpful_pair_count": 5,
+      "negative_delta_sum": -0.15912479736677523,
+      "net_delta_sum": 0.03844519102424191,
+      "positive_delta_sum": 0.19756998839101717,
+      "representative_label": [
+        4,
+        8
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.1290920276447924,
+      "harmful_pair_count": 1,
+      "helpful_pair_count": 5,
+      "negative_delta_sum": -0.021863777916088963,
+      "net_delta_sum": 0.08536447181261449,
+      "positive_delta_sum": 0.10722824972870346,
+      "representative_label": [
+        4,
+        2
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.3606219609737121,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.04485497894836413,
+      "net_delta_sum": 0.2709120030769839,
+      "positive_delta_sum": 0.315766982025348,
+      "representative_label": [
+        3,
+        11
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4808851800700192,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.25587392027184735,
+      "net_delta_sum": -0.03086266047367555,
+      "positive_delta_sum": 0.22501125979817177,
+      "representative_label": [
+        5,
+        5
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.2662843052095317,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.09982719128396458,
+      "net_delta_sum": 0.06662992264160257,
+      "positive_delta_sum": 0.16645711392556717,
+      "representative_label": [
+        4,
+        4
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.22106373798024495,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.06621859631105814,
+      "net_delta_sum": 0.08862654535812867,
+      "positive_delta_sum": 0.1548451416691868,
+      "representative_label": [
+        1,
+        3
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.15747942367172169,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.007485446619862673,
+      "net_delta_sum": 0.14250853043199635,
+      "positive_delta_sum": 0.14999397705185902,
+      "representative_label": [
+        5,
+        3
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.13157104525476132,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.01334512108971814,
+      "net_delta_sum": 0.104880803075325,
+      "positive_delta_sum": 0.11822592416504316,
+      "representative_label": [
+        2,
+        4
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.17298520019114993,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.10439623093898576,
+      "net_delta_sum": -0.035807261686821565,
+      "positive_delta_sum": 0.06858896925216419,
+      "representative_label": [
+        4,
+        6
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.46642726244391325,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.12161706651501464,
+      "net_delta_sum": 0.22319312941388397,
+      "positive_delta_sum": 0.3448101959288986,
+      "representative_label": [
+        2,
+        2
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.24328194208525578,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.04400410970349581,
+      "net_delta_sum": 0.15527372267826417,
+      "positive_delta_sum": 0.19927783238175997,
+      "representative_label": [
+        2,
+        10
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.21030657842847697,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.061232405424927534,
+      "net_delta_sum": 0.08784176757862194,
+      "positive_delta_sum": 0.14907417300354947,
+      "representative_label": [
+        1,
+        1
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4348310291359704,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.2864570386137442,
+      "net_delta_sum": -0.13808304809151808,
+      "positive_delta_sum": 0.1483739905222261,
+      "representative_label": [
+        1,
+        7
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.35353211717648514,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.23222463950555128,
+      "net_delta_sum": -0.11091716183461747,
+      "positive_delta_sum": 0.1213074776709338,
+      "representative_label": [
+        1,
+        11
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.27559674277599083,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.1622725941009323,
+      "net_delta_sum": -0.048948445425873816,
+      "positive_delta_sum": 0.11332414867505852,
+      "representative_label": [
+        1,
+        5
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.43725525719743596,
+      "harmful_pair_count": 4,
+      "helpful_pair_count": 2,
+      "negative_delta_sum": -0.13338355582324607,
+      "net_delta_sum": 0.17048814555094383,
+      "positive_delta_sum": 0.3038717013741899,
+      "representative_label": [
+        3,
+        5
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.36957711587605435,
+      "harmful_pair_count": 4,
+      "helpful_pair_count": 2,
+      "negative_delta_sum": -0.3134434775625942,
+      "net_delta_sum": -0.2573098392491341,
+      "positive_delta_sum": 0.05613363831346013,
+      "representative_label": [
+        3,
+        9
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.29465927228105254,
+      "harmful_pair_count": 4,
+      "helpful_pair_count": 2,
+      "negative_delta_sum": -0.2695231833439876,
+      "net_delta_sum": -0.2443870944069227,
+      "positive_delta_sum": 0.0251360889370649,
+      "representative_label": [
+        3,
+        7
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.3684642840878771,
+      "harmful_pair_count": 4,
+      "helpful_pair_count": 2,
+      "negative_delta_sum": -0.3464421779423526,
+      "net_delta_sum": -0.3244200717968281,
+      "positive_delta_sum": 0.022022106145524488,
+      "representative_label": [
+        3,
+        3
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.3532341026358257,
+      "harmful_pair_count": 5,
+      "helpful_pair_count": 1,
+      "negative_delta_sum": -0.2989251966444415,
+      "net_delta_sum": -0.24461629065305726,
+      "positive_delta_sum": 0.05430890599138422,
+      "representative_label": [
+        5,
+        1
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.16742506381412345,
+      "harmful_pair_count": 5,
+      "helpful_pair_count": 1,
+      "negative_delta_sum": -0.11883344060453013,
+      "net_delta_sum": -0.07024181739493683,
+      "positive_delta_sum": 0.0485916232095933,
+      "representative_label": [
+        1,
+        9
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.05902964590210961,
+      "harmful_pair_count": 5,
+      "helpful_pair_count": 1,
+      "negative_delta_sum": -0.05568513593489538,
+      "net_delta_sum": -0.05234062596768115,
+      "positive_delta_sum": 0.003344509967214226,
+      "representative_label": [
+        4,
+        10
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4566079511543099,
+      "harmful_pair_count": 6,
+      "helpful_pair_count": 0,
+      "negative_delta_sum": -0.4566079511543099,
+      "net_delta_sum": -0.4566079511543099,
+      "positive_delta_sum": 0.0,
+      "representative_label": [
+        2,
+        8
+      ]
+    }
+  ],
+  "deficit_to_clear_pair_count": 6,
+  "dominant_channel_swing_pair_decomposition_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "eventual_signed_channel_offset_theorem_proved": false,
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "falsifier": "Diffuse pair-specific helpful channels would demote a tiny-channel offset lemma and keep the theorem target at full signed-channel structure.",
+    "mechanism_tested": "If offset forcing is low-dimensional, the helpful clear-minus-deficit channel deltas should concentrate in a small recurrent set of real q286 channels.",
+    "remaining_theorem": "A proof would need an arithmetic reason why the helpful channel portfolio appears when pressure is high, or a proof that the unresolved deficits are finite/boundary rows."
+  },
+  "maximum_channel_count_for_80_percent_row": {
+    "absolute_channel_delta_sum": 0.9388718808404539,
+    "dominant_swing_to_principal": 0.07758071873202554,
+    "harmful_channel_count": 10,
+    "helpful_channel_count": 15,
+    "helpful_channel_count_for_50_percent": 5,
+    "helpful_channel_count_for_80_percent": 9,
+    "helpful_channel_count_for_90_percent": 10,
+    "helpful_counts_by_type": {
+      "negative_pressure_reduced": 3,
+      "other_helpful": 0,
+      "positive_channel_amplified": 5,
+      "positive_channel_created": 0,
+      "sign_flip_to_positive": 7
+    },
+    "helpful_sums_by_type": {
+      "negative_pressure_reduced": 0.018501147876997782,
+      "other_helpful": 0.0,
+      "positive_channel_amplified": 0.16478715091524906,
+      "positive_channel_created": 0.0,
+      "sign_flip_to_positive": 0.32493800099399267
+    },
+    "left_branch_label": "unresolved_deficit",
+    "left_dominant_sum_to_principal": -0.31915179245517605,
+    "left_target": 164598,
+    "negative_channel_delta_sum": -0.4306455810542146,
+    "positive_channel_delta_sum": 0.5082262997862395,
+    "right_branch_label": "offset",
+    "right_dominant_sum_to_principal": -0.2415710737231505,
+    "right_target": 129706,
+    "signed_to_absolute_delta_ratio": 0.08263184819485411,
+    "swing_reconstruction_error": 6.661338147750939e-16,
+    "top_harmful_channel_rows": [
+      {
+        "absolute_delta_contribution_to_principal": 0.09720490382189793,
+        "delta_contribution_to_principal": -0.09720490382189793,
+        "helpful_type": null,
+        "left_contribution_to_principal": 2.6662978313450717e-05,
+        "representative_label": [
+          3,
+          3
+        ],
+        "right_contribution_to_principal": -0.09717824084358448
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.07379175566694363,
+        "delta_contribution_to_principal": -0.07379175566694363,
+        "helpful_type": null,
+        "left_contribution_to_principal": 0.0026341461247513897,
+        "representative_label": [
+          2,
+          2
+        ],
+        "right_contribution_to_principal": -0.07115760954219223
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05971137267788121,
+        "delta_contribution_to_principal": -0.05971137267788121,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.019059307398525824,
+        "representative_label": [
+          3,
+          7
+        ],
+        "right_contribution_to_principal": -0.07877068007640703
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.056821823963569676,
+        "delta_contribution_to_principal": -0.056821823963569676,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.0246966619039187,
+        "representative_label": [
+          3,
+          9
+        ],
+        "right_contribution_to_principal": -0.08151848586748837
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.0432985792781679,
+        "delta_contribution_to_principal": -0.0432985792781679,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.003990706779666689,
+        "representative_label": [
+          1,
+          9
+        ],
+        "right_contribution_to_principal": -0.04728928605783459
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.029665156955081137,
+        "delta_contribution_to_principal": -0.029665156955081137,
+        "helpful_type": null,
+        "left_contribution_to_principal": 0.010104845600335973,
+        "representative_label": [
+          4,
+          6
+        ],
+        "right_contribution_to_principal": -0.019560311354745164
+      }
+    ],
+    "top_helpful_channel_rows": [
+      {
+        "absolute_delta_contribution_to_principal": 0.0737568130362016,
+        "delta_contribution_to_principal": 0.0737568130362016,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.016954964227732676,
+        "representative_label": [
+          1,
+          7
+        ],
+        "right_contribution_to_principal": 0.056801848808468926
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.06075917868368254,
+        "delta_contribution_to_principal": 0.06075917868368254,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.02850079864192184,
+        "representative_label": [
+          3,
+          11
+        ],
+        "right_contribution_to_principal": 0.032258380041760695
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05430890599138422,
+        "delta_contribution_to_principal": 0.05430890599138422,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.04537812052114434,
+        "representative_label": [
+          5,
+          1
+        ],
+        "right_contribution_to_principal": 0.008930785470239885
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05199832294236097,
+        "delta_contribution_to_principal": 0.05199832294236097,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.03791778393469892,
+        "representative_label": [
+          1,
+          5
+        ],
+        "right_contribution_to_principal": 0.014080539007662048
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.04715663649444007,
+        "delta_contribution_to_principal": 0.04715663649444007,
+        "helpful_type": "positive_channel_amplified",
+        "left_contribution_to_principal": 0.005190809370973005,
+        "representative_label": [
+          3,
+          5
+        ],
+        "right_contribution_to_principal": 0.052347445865413074
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.040685830734201886,
+        "delta_contribution_to_principal": 0.040685830734201886,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.013858338126464198,
+        "representative_label": [
+          4,
+          8
+        ],
+        "right_contribution_to_principal": 0.026827492607737688
+      }
+    ],
+    "top_helpful_channel_share": 0.6466916175343709
+  },
+  "maximum_swing_reconstruction_error": 8.1601392309949e-15,
+  "minimum_top_helpful_share_row": {
+    "absolute_channel_delta_sum": 0.9388718808404539,
+    "dominant_swing_to_principal": 0.07758071873202554,
+    "harmful_channel_count": 10,
+    "helpful_channel_count": 15,
+    "helpful_channel_count_for_50_percent": 5,
+    "helpful_channel_count_for_80_percent": 9,
+    "helpful_channel_count_for_90_percent": 10,
+    "helpful_counts_by_type": {
+      "negative_pressure_reduced": 3,
+      "other_helpful": 0,
+      "positive_channel_amplified": 5,
+      "positive_channel_created": 0,
+      "sign_flip_to_positive": 7
+    },
+    "helpful_sums_by_type": {
+      "negative_pressure_reduced": 0.018501147876997782,
+      "other_helpful": 0.0,
+      "positive_channel_amplified": 0.16478715091524906,
+      "positive_channel_created": 0.0,
+      "sign_flip_to_positive": 0.32493800099399267
+    },
+    "left_branch_label": "unresolved_deficit",
+    "left_dominant_sum_to_principal": -0.31915179245517605,
+    "left_target": 164598,
+    "negative_channel_delta_sum": -0.4306455810542146,
+    "positive_channel_delta_sum": 0.5082262997862395,
+    "right_branch_label": "offset",
+    "right_dominant_sum_to_principal": -0.2415710737231505,
+    "right_target": 129706,
+    "signed_to_absolute_delta_ratio": 0.08263184819485411,
+    "swing_reconstruction_error": 6.661338147750939e-16,
+    "top_harmful_channel_rows": [
+      {
+        "absolute_delta_contribution_to_principal": 0.09720490382189793,
+        "delta_contribution_to_principal": -0.09720490382189793,
+        "helpful_type": null,
+        "left_contribution_to_principal": 2.6662978313450717e-05,
+        "representative_label": [
+          3,
+          3
+        ],
+        "right_contribution_to_principal": -0.09717824084358448
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.07379175566694363,
+        "delta_contribution_to_principal": -0.07379175566694363,
+        "helpful_type": null,
+        "left_contribution_to_principal": 0.0026341461247513897,
+        "representative_label": [
+          2,
+          2
+        ],
+        "right_contribution_to_principal": -0.07115760954219223
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05971137267788121,
+        "delta_contribution_to_principal": -0.05971137267788121,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.019059307398525824,
+        "representative_label": [
+          3,
+          7
+        ],
+        "right_contribution_to_principal": -0.07877068007640703
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.056821823963569676,
+        "delta_contribution_to_principal": -0.056821823963569676,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.0246966619039187,
+        "representative_label": [
+          3,
+          9
+        ],
+        "right_contribution_to_principal": -0.08151848586748837
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.0432985792781679,
+        "delta_contribution_to_principal": -0.0432985792781679,
+        "helpful_type": null,
+        "left_contribution_to_principal": -0.003990706779666689,
+        "representative_label": [
+          1,
+          9
+        ],
+        "right_contribution_to_principal": -0.04728928605783459
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.029665156955081137,
+        "delta_contribution_to_principal": -0.029665156955081137,
+        "helpful_type": null,
+        "left_contribution_to_principal": 0.010104845600335973,
+        "representative_label": [
+          4,
+          6
+        ],
+        "right_contribution_to_principal": -0.019560311354745164
+      }
+    ],
+    "top_helpful_channel_rows": [
+      {
+        "absolute_delta_contribution_to_principal": 0.0737568130362016,
+        "delta_contribution_to_principal": 0.0737568130362016,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.016954964227732676,
+        "representative_label": [
+          1,
+          7
+        ],
+        "right_contribution_to_principal": 0.056801848808468926
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.06075917868368254,
+        "delta_contribution_to_principal": 0.06075917868368254,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.02850079864192184,
+        "representative_label": [
+          3,
+          11
+        ],
+        "right_contribution_to_principal": 0.032258380041760695
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05430890599138422,
+        "delta_contribution_to_principal": 0.05430890599138422,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.04537812052114434,
+        "representative_label": [
+          5,
+          1
+        ],
+        "right_contribution_to_principal": 0.008930785470239885
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.05199832294236097,
+        "delta_contribution_to_principal": 0.05199832294236097,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.03791778393469892,
+        "representative_label": [
+          1,
+          5
+        ],
+        "right_contribution_to_principal": 0.014080539007662048
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.04715663649444007,
+        "delta_contribution_to_principal": 0.04715663649444007,
+        "helpful_type": "positive_channel_amplified",
+        "left_contribution_to_principal": 0.005190809370973005,
+        "representative_label": [
+          3,
+          5
+        ],
+        "right_contribution_to_principal": 0.052347445865413074
+      },
+      {
+        "absolute_delta_contribution_to_principal": 0.040685830734201886,
+        "delta_contribution_to_principal": 0.040685830734201886,
+        "helpful_type": "sign_flip_to_positive",
+        "left_contribution_to_principal": -0.013858338126464198,
+        "representative_label": [
+          4,
+          8
+        ],
+        "right_contribution_to_principal": 0.026827492607737688
+      }
+    ],
+    "top_helpful_channel_share": 0.6466916175343709
+  },
+  "pair_count": 6,
+  "pair_rows": [
+    {
+      "absolute_channel_delta_sum": 2.121125605529714,
+      "dominant_swing_to_principal": 0.02302276303982992,
+      "harmful_channel_count": 13,
+      "helpful_channel_count": 12,
+      "helpful_channel_count_for_50_percent": 4,
+      "helpful_channel_count_for_80_percent": 7,
+      "helpful_channel_count_for_90_percent": 8,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 4,
+        "other_helpful": 0,
+        "positive_channel_amplified": 0,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 8
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.15176193798343468,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.0,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.9203122463013416
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.31345867269417177,
+      "left_target": 24424,
+      "negative_channel_delta_sum": -1.049051421244938,
+      "positive_channel_delta_sum": 1.072074184284776,
+      "right_branch_label": "offset",
+      "right_dominant_sum_to_principal": -0.29043590965434185,
+      "right_target": 13556,
+      "signed_to_absolute_delta_ratio": 0.010854030982328547,
+      "swing_reconstruction_error": 8.1601392309949e-15,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.22905350863681395,
+          "delta_contribution_to_principal": -0.22905350863681395,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.08741362634349732,
+          "representative_label": [
+            5,
+            1
+          ],
+          "right_contribution_to_principal": -0.14163988229331664
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.20616130124286414,
+          "delta_contribution_to_principal": -0.20616130124286414,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.04909814967859022,
+          "representative_label": [
+            1,
+            7
+          ],
+          "right_contribution_to_principal": -0.15706315156427392
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.17490531063227355,
+          "delta_contribution_to_principal": -0.17490531063227355,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.01525557685816427,
+          "representative_label": [
+            3,
+            9
+          ],
+          "right_contribution_to_principal": -0.15964973377410926
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.09259587455150252,
+          "delta_contribution_to_principal": -0.09259587455150252,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.0171815681939228,
+          "representative_label": [
+            2,
+            8
+          ],
+          "right_contribution_to_principal": -0.07541430635757972
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.06926956500729786,
+          "delta_contribution_to_principal": -0.06926956500729786,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.01627919261308177,
+          "representative_label": [
+            4,
+            4
+          ],
+          "right_contribution_to_principal": -0.05299037239421609
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.06373247703714374,
+          "delta_contribution_to_principal": -0.06373247703714374,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.027023602682221284,
+          "representative_label": [
+            1,
+            3
+          ],
+          "right_contribution_to_principal": -0.036708874354922455
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.18301664943943124,
+          "delta_contribution_to_principal": 0.18301664943943124,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.037504058127023746,
+          "representative_label": [
+            3,
+            1
+          ],
+          "right_contribution_to_principal": 0.1455125913124075
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.16328745599934802,
+          "delta_contribution_to_principal": 0.16328745599934802,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.12904762091735458,
+          "representative_label": [
+            5,
+            5
+          ],
+          "right_contribution_to_principal": 0.03423983508199343
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.15799853885429427,
+          "delta_contribution_to_principal": 0.15799853885429427,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.011744341904916638,
+          "representative_label": [
+            2,
+            6
+          ],
+          "right_contribution_to_principal": 0.14625419694937764
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.154462335429095,
+          "delta_contribution_to_principal": 0.154462335429095,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.026741678233548782,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": 0.1277206571955462
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.10101248473672164,
+          "delta_contribution_to_principal": 0.10101248473672164,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.06809901568956597,
+          "representative_label": [
+            5,
+            3
+          ],
+          "right_contribution_to_principal": 0.03291346904715566
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.09096408795340644,
+          "delta_contribution_to_principal": 0.09096408795340644,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.015185313137269837,
+          "representative_label": [
+            1,
+            11
+          ],
+          "right_contribution_to_principal": 0.0757787748161366
+        }
+      ],
+      "top_helpful_channel_share": 0.7935472795475068
+    },
+    {
+      "absolute_channel_delta_sum": 2.416177701025559,
+      "dominant_swing_to_principal": 0.085682749527765,
+      "harmful_channel_count": 12,
+      "helpful_channel_count": 13,
+      "helpful_channel_count_for_50_percent": 4,
+      "helpful_channel_count_for_80_percent": 8,
+      "helpful_channel_count_for_90_percent": 10,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 7,
+        "other_helpful": 0,
+        "positive_channel_amplified": 0,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 6
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.6412131264433109,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.0,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.609717098833352
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.3367443460242893,
+      "left_target": 13822,
+      "negative_channel_delta_sum": -1.1652474757488955,
+      "positive_channel_delta_sum": 1.2509302252766628,
+      "right_branch_label": "offset",
+      "right_dominant_sum_to_principal": -0.2510615964965243,
+      "right_target": 40420,
+      "signed_to_absolute_delta_ratio": 0.035462105908599564,
+      "swing_reconstruction_error": 2.220446049250313e-15,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.1805962756776543,
+          "delta_contribution_to_principal": -0.1805962756776543,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.07917786121679074,
+          "representative_label": [
+            2,
+            8
+          ],
+          "right_contribution_to_principal": -0.10141841446086354
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.1738558001034121,
+          "delta_contribution_to_principal": -0.1738558001034121,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.1570523393358171,
+          "representative_label": [
+            1,
+            11
+          ],
+          "right_contribution_to_principal": -0.01680346076759497
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.17274131265531092,
+          "delta_contribution_to_principal": -0.17274131265531092,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.17668541061933477,
+          "representative_label": [
+            3,
+            7
+          ],
+          "right_contribution_to_principal": 0.003944097964023833
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.15912479736677523,
+          "delta_contribution_to_principal": -0.15912479736677523,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.252715065455607,
+          "representative_label": [
+            4,
+            8
+          ],
+          "right_contribution_to_principal": 0.09359026808883178
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.14573835019224818,
+          "delta_contribution_to_principal": -0.14573835019224818,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.02695705576940767,
+          "representative_label": [
+            5,
+            5
+          ],
+          "right_contribution_to_principal": -0.11878129442284051
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.08870529044268244,
+          "delta_contribution_to_principal": -0.08870529044268244,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.012972600503990475,
+          "representative_label": [
+            1,
+            5
+          ],
+          "right_contribution_to_principal": -0.07573268993869196
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.24258895524368734,
+          "delta_contribution_to_principal": 0.24258895524368734,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.2725859335772476,
+          "representative_label": [
+            3,
+            11
+          ],
+          "right_contribution_to_principal": -0.029996978333560236
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.174924022949609,
+          "delta_contribution_to_principal": 0.174924022949609,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.19635985853466756,
+          "representative_label": [
+            2,
+            10
+          ],
+          "right_contribution_to_principal": -0.02143583558505858
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.152108997441404,
+          "delta_contribution_to_principal": 0.152108997441404,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.02960768497332291,
+          "representative_label": [
+            2,
+            6
+          ],
+          "right_contribution_to_principal": 0.12250131246808107
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.12817340284398218,
+          "delta_contribution_to_principal": 0.12817340284398218,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.10412172067923825,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": 0.024051682164743925
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.1114958258818006,
+          "delta_contribution_to_principal": 0.1114958258818006,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.05398792710903812,
+          "representative_label": [
+            1,
+            1
+          ],
+          "right_contribution_to_principal": 0.05750789877276248
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.09012811343778115,
+          "delta_contribution_to_principal": 0.09012811343778115,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.059241998640124714,
+          "representative_label": [
+            2,
+            4
+          ],
+          "right_contribution_to_principal": 0.030886114797656437
+        }
+      ],
+      "top_helpful_channel_share": 0.7190003883704573
+    },
+    {
+      "absolute_channel_delta_sum": 1.476186910662326,
+      "dominant_swing_to_principal": 0.14816697929516454,
+      "harmful_channel_count": 14,
+      "helpful_channel_count": 11,
+      "helpful_channel_count_for_50_percent": 2,
+      "helpful_channel_count_for_80_percent": 5,
+      "helpful_channel_count_for_90_percent": 6,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 5,
+        "other_helpful": 0,
+        "positive_channel_amplified": 1,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 5
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.10515993852426701,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.004402690434871487,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.7026143160196067
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.39922857579168886,
+      "left_target": 55864,
+      "negative_channel_delta_sum": -0.6640099656835813,
+      "positive_channel_delta_sum": 0.8121769449787453,
+      "right_branch_label": "offset",
+      "right_dominant_sum_to_principal": -0.2510615964965243,
+      "right_target": 40420,
+      "signed_to_absolute_delta_ratio": 0.10037142195542564,
+      "swing_reconstruction_error": 5.551115123125783e-16,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.19171641460435768,
+          "delta_contribution_to_principal": -0.19171641460435768,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.09494956682281891,
+          "representative_label": [
+            3,
+            3
+          ],
+          "right_contribution_to_principal": -0.09676684778153875
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.12088225533040126,
+          "delta_contribution_to_principal": -0.12088225533040126,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.019463840869537712,
+          "representative_label": [
+            2,
+            8
+          ],
+          "right_contribution_to_principal": -0.10141841446086354
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.11013557007959916,
+          "delta_contribution_to_principal": -0.11013557007959916,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.008645724343241344,
+          "representative_label": [
+            5,
+            5
+          ],
+          "right_contribution_to_principal": -0.11878129442284051
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.0640409324602741,
+          "delta_contribution_to_principal": -0.0640409324602741,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.011691757478417861,
+          "representative_label": [
+            1,
+            5
+          ],
+          "right_contribution_to_principal": -0.07573268993869196
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.0366286016784468,
+          "delta_contribution_to_principal": -0.0366286016784468,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.05606368251642527,
+          "representative_label": [
+            5,
+            1
+          ],
+          "right_contribution_to_principal": 0.019435080837978465
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.0341215744934216,
+          "delta_contribution_to_principal": -0.0341215744934216,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.02355545798098456,
+          "representative_label": [
+            1,
+            7
+          ],
+          "right_contribution_to_principal": -0.010566116512437034
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.2567150648797498,
+          "delta_contribution_to_principal": 0.2567150648797498,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.17134599996169902,
+          "representative_label": [
+            3,
+            5
+          ],
+          "right_contribution_to_principal": 0.08536906491805081
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.1916776639918499,
+          "delta_contribution_to_principal": 0.1916776639918499,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.06917635152376883,
+          "representative_label": [
+            2,
+            6
+          ],
+          "right_contribution_to_principal": 0.12250131246808107
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.09996876837973953,
+          "delta_contribution_to_principal": 0.09996876837973953,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.08955057308993251,
+          "representative_label": [
+            4,
+            4
+          ],
+          "right_contribution_to_principal": 0.010418195289807024
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.09207836111244602,
+          "delta_contribution_to_principal": 0.09207836111244602,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.040022632853105373,
+          "representative_label": [
+            3,
+            1
+          ],
+          "right_contribution_to_principal": 0.05205572825934064
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.062174457655821386,
+          "delta_contribution_to_principal": 0.062174457655821386,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.03812277549107746,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": 0.024051682164743925
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.05025427770346336,
+          "delta_contribution_to_principal": 0.05025427770346336,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.05223406662381161,
+          "representative_label": [
+            1,
+            3
+          ],
+          "right_contribution_to_principal": -0.001979788920348253
+        }
+      ],
+      "top_helpful_channel_share": 0.9269760713815542
+    },
+    {
+      "absolute_channel_delta_sum": 0.9388718808404539,
+      "dominant_swing_to_principal": 0.07758071873202554,
+      "harmful_channel_count": 10,
+      "helpful_channel_count": 15,
+      "helpful_channel_count_for_50_percent": 5,
+      "helpful_channel_count_for_80_percent": 9,
+      "helpful_channel_count_for_90_percent": 10,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 3,
+        "other_helpful": 0,
+        "positive_channel_amplified": 5,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 7
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.018501147876997782,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.16478715091524906,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.32493800099399267
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.31915179245517605,
+      "left_target": 164598,
+      "negative_channel_delta_sum": -0.4306455810542146,
+      "positive_channel_delta_sum": 0.5082262997862395,
+      "right_branch_label": "offset",
+      "right_dominant_sum_to_principal": -0.2415710737231505,
+      "right_target": 129706,
+      "signed_to_absolute_delta_ratio": 0.08263184819485411,
+      "swing_reconstruction_error": 6.661338147750939e-16,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.09720490382189793,
+          "delta_contribution_to_principal": -0.09720490382189793,
+          "helpful_type": null,
+          "left_contribution_to_principal": 2.6662978313450717e-05,
+          "representative_label": [
+            3,
+            3
+          ],
+          "right_contribution_to_principal": -0.09717824084358448
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.07379175566694363,
+          "delta_contribution_to_principal": -0.07379175566694363,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.0026341461247513897,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": -0.07115760954219223
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.05971137267788121,
+          "delta_contribution_to_principal": -0.05971137267788121,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.019059307398525824,
+          "representative_label": [
+            3,
+            7
+          ],
+          "right_contribution_to_principal": -0.07877068007640703
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.056821823963569676,
+          "delta_contribution_to_principal": -0.056821823963569676,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.0246966619039187,
+          "representative_label": [
+            3,
+            9
+          ],
+          "right_contribution_to_principal": -0.08151848586748837
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.0432985792781679,
+          "delta_contribution_to_principal": -0.0432985792781679,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.003990706779666689,
+          "representative_label": [
+            1,
+            9
+          ],
+          "right_contribution_to_principal": -0.04728928605783459
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.029665156955081137,
+          "delta_contribution_to_principal": -0.029665156955081137,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.010104845600335973,
+          "representative_label": [
+            4,
+            6
+          ],
+          "right_contribution_to_principal": -0.019560311354745164
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.0737568130362016,
+          "delta_contribution_to_principal": 0.0737568130362016,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.016954964227732676,
+          "representative_label": [
+            1,
+            7
+          ],
+          "right_contribution_to_principal": 0.056801848808468926
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.06075917868368254,
+          "delta_contribution_to_principal": 0.06075917868368254,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.02850079864192184,
+          "representative_label": [
+            3,
+            11
+          ],
+          "right_contribution_to_principal": 0.032258380041760695
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.05430890599138422,
+          "delta_contribution_to_principal": 0.05430890599138422,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.04537812052114434,
+          "representative_label": [
+            5,
+            1
+          ],
+          "right_contribution_to_principal": 0.008930785470239885
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.05199832294236097,
+          "delta_contribution_to_principal": 0.05199832294236097,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.03791778393469892,
+          "representative_label": [
+            1,
+            5
+          ],
+          "right_contribution_to_principal": 0.014080539007662048
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.04715663649444007,
+          "delta_contribution_to_principal": 0.04715663649444007,
+          "helpful_type": "positive_channel_amplified",
+          "left_contribution_to_principal": 0.005190809370973005,
+          "representative_label": [
+            3,
+            5
+          ],
+          "right_contribution_to_principal": 0.052347445865413074
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.040685830734201886,
+          "delta_contribution_to_principal": 0.040685830734201886,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.013858338126464198,
+          "representative_label": [
+            4,
+            8
+          ],
+          "right_contribution_to_principal": 0.026827492607737688
+        }
+      ],
+      "top_helpful_channel_share": 0.6466916175343709
+    },
+    {
+      "absolute_channel_delta_sum": 0.3977538746404652,
+      "dominant_swing_to_principal": 0.02536209302727388,
+      "harmful_channel_count": 11,
+      "helpful_channel_count": 14,
+      "helpful_channel_count_for_50_percent": 4,
+      "helpful_channel_count_for_80_percent": 7,
+      "helpful_channel_count_for_90_percent": 9,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 10,
+        "other_helpful": 0,
+        "positive_channel_amplified": 2,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 2
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.13959357593233135,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.007129638689426555,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.06483476921211201
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.3088331795605278,
+      "left_target": 1222142,
+      "negative_channel_delta_sum": -0.18619589080659518,
+      "positive_channel_delta_sum": 0.21155798383386992,
+      "right_branch_label": "offset",
+      "right_dominant_sum_to_principal": -0.2834710865332539,
+      "right_target": 1242118,
+      "signed_to_absolute_delta_ratio": 0.06376328338774576,
+      "swing_reconstruction_error": 8.604228440844963e-16,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.03740523075092713,
+          "delta_contribution_to_principal": -0.03740523075092713,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.010288650684891465,
+          "representative_label": [
+            2,
+            8
+          ],
+          "right_contribution_to_principal": -0.027116580066035668
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.025795406977996045,
+          "delta_contribution_to_principal": -0.025795406977996045,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.01762390682755845,
+          "representative_label": [
+            3,
+            5
+          ],
+          "right_contribution_to_principal": -0.008171500150437593
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.024731610595653677,
+          "delta_contribution_to_principal": -0.024731610595653677,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.0006665459027448693,
+          "representative_label": [
+            2,
+            10
+          ],
+          "right_contribution_to_principal": -0.024065064692908807
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.02449857559745754,
+          "delta_contribution_to_principal": -0.02449857559745754,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.011300721417063436,
+          "representative_label": [
+            5,
+            1
+          ],
+          "right_contribution_to_principal": -0.035799297014520975
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.023713054809636987,
+          "delta_contribution_to_principal": -0.023713054809636987,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.007440534325935918,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": -0.016272520483701067
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.018195632339442575,
+          "delta_contribution_to_principal": -0.018195632339442575,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.004350953855665503,
+          "representative_label": [
+            1,
+            9
+          ],
+          "right_contribution_to_principal": -0.013844678483777073
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.038041058562356074,
+          "delta_contribution_to_principal": 0.038041058562356074,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.01164907384453154,
+          "representative_label": [
+            2,
+            6
+          ],
+          "right_contribution_to_principal": 0.026391984717824533
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.026793710649755942,
+          "delta_contribution_to_principal": 0.026793710649755942,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.022673098546932353,
+          "representative_label": [
+            4,
+            2
+          ],
+          "right_contribution_to_principal": 0.004120612102823591
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.024218545754251204,
+          "delta_contribution_to_principal": 0.024218545754251204,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.03276868188260557,
+          "representative_label": [
+            3,
+            1
+          ],
+          "right_contribution_to_principal": -0.008550136128354369
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.022953495030548048,
+          "delta_contribution_to_principal": 0.022953495030548048,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.04172119298516034,
+          "representative_label": [
+            4,
+            8
+          ],
+          "right_contribution_to_principal": -0.018767697954612292
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.022765423571622055,
+          "delta_contribution_to_principal": 0.022765423571622055,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.03165080964904138,
+          "representative_label": [
+            3,
+            9
+          ],
+          "right_contribution_to_principal": -0.008885386077419323
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.019970660281799536,
+          "delta_contribution_to_principal": 0.019970660281799536,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.044796070869832366,
+          "representative_label": [
+            5,
+            5
+          ],
+          "right_contribution_to_principal": -0.02482541058803283
+        }
+      ],
+      "top_helpful_channel_share": 0.7314443588753793
+    },
+    {
+      "absolute_channel_delta_sum": 0.3930031511063759,
+      "dominant_swing_to_principal": 0.03601975294144566,
+      "harmful_channel_count": 11,
+      "helpful_channel_count": 14,
+      "helpful_channel_count_for_50_percent": 4,
+      "helpful_channel_count_for_80_percent": 7,
+      "helpful_channel_count_for_90_percent": 9,
+      "helpful_counts_by_type": {
+        "negative_pressure_reduced": 12,
+        "other_helpful": 0,
+        "positive_channel_amplified": 0,
+        "positive_channel_created": 0,
+        "sign_flip_to_positive": 2
+      },
+      "helpful_sums_by_type": {
+        "negative_pressure_reduced": 0.13764186319445382,
+        "other_helpful": 0.0,
+        "positive_channel_amplified": 0.0,
+        "positive_channel_created": 0.0,
+        "sign_flip_to_positive": 0.07686958882945838
+      },
+      "left_branch_label": "unresolved_deficit",
+      "left_dominant_sum_to_principal": -0.3088331795605278,
+      "left_target": 1222142,
+      "negative_channel_delta_sum": -0.17849169908246373,
+      "positive_channel_delta_sum": 0.21451145202391217,
+      "right_branch_label": "pressure_and_offset",
+      "right_dominant_sum_to_principal": -0.27281342661908214,
+      "right_target": 1240888,
+      "signed_to_absolute_delta_ratio": 0.0916525804946944,
+      "swing_reconstruction_error": 2.7755575615628914e-15,
+      "top_harmful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.04617416287745848,
+          "delta_contribution_to_principal": -0.04617416287745848,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.01021736429315472,
+          "representative_label": [
+            1,
+            7
+          ],
+          "right_contribution_to_principal": -0.035956798584303756
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.030557626276666718,
+          "delta_contribution_to_principal": -0.030557626276666718,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.011405528117525765,
+          "representative_label": [
+            4,
+            4
+          ],
+          "right_contribution_to_principal": -0.019152098159140953
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.02498002753767374,
+          "delta_contribution_to_principal": -0.02498002753767374,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.01762390682755845,
+          "representative_label": [
+            3,
+            5
+          ],
+          "right_contribution_to_principal": -0.0073561207101152885
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.024112256038434032,
+          "delta_contribution_to_principal": -0.024112256038434032,
+          "helpful_type": null,
+          "left_contribution_to_principal": 0.007440534325935918,
+          "representative_label": [
+            2,
+            2
+          ],
+          "right_contribution_to_principal": -0.016671721712498113
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.013140227598248372,
+          "delta_contribution_to_principal": -0.013140227598248372,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.010938875282588398,
+          "representative_label": [
+            1,
+            1
+          ],
+          "right_contribution_to_principal": -0.02407910288083677
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.012895658992839879,
+          "delta_contribution_to_principal": -0.012895658992839879,
+          "helpful_type": null,
+          "left_contribution_to_principal": -0.014046772444381602,
+          "representative_label": [
+            4,
+            10
+          ],
+          "right_contribution_to_principal": -0.02694243143722148
+        }
+      ],
+      "top_helpful_channel_rows": [
+        {
+          "absolute_delta_contribution_to_principal": 0.04350137408762031,
+          "delta_contribution_to_principal": 0.04350137408762031,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.04172119298516034,
+          "representative_label": [
+            4,
+            8
+          ],
+          "right_contribution_to_principal": 0.0017801811024599687
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.03336821474183808,
+          "delta_contribution_to_principal": 0.03336821474183808,
+          "helpful_type": "sign_flip_to_positive",
+          "left_contribution_to_principal": -0.03165080964904138,
+          "representative_label": [
+            3,
+            9
+          ],
+          "right_contribution_to_principal": 0.0017174050927967002
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.029596817596651948,
+          "delta_contribution_to_principal": 0.029596817596651948,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.044796070869832366,
+          "representative_label": [
+            5,
+            5
+          ],
+          "right_contribution_to_principal": -0.015199253273180417
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.02673701138132373,
+          "delta_contribution_to_principal": 0.02673701138132373,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.03276868188260557,
+          "representative_label": [
+            3,
+            1
+          ],
+          "right_contribution_to_principal": -0.006031670501281841
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.013782371246642305,
+          "delta_contribution_to_principal": 0.013782371246642305,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.022673098546932353,
+          "representative_label": [
+            4,
+            2
+          ],
+          "right_contribution_to_principal": -0.008890727300290047
+        },
+        {
+          "absolute_delta_contribution_to_principal": 0.01286751355330213,
+          "delta_contribution_to_principal": 0.01286751355330213,
+          "helpful_type": "negative_pressure_reduced",
+          "left_contribution_to_principal": -0.03778293121185615,
+          "representative_label": [
+            1,
+            11
+          ],
+          "right_contribution_to_principal": -0.02491541765855402
+        }
+      ],
+      "top_helpful_channel_share": 0.7451970563770145
+    }
+  ],
+  "pair_selection": {
+    "not_independent_holdout": true,
+    "not_random": true,
+    "rule": "selected deficit-to-clear pairs from the mass-matched near-boundary fixture and late holdout rows; includes the two clear partners for the late deficit 1222142"
+  },
+  "pair_targets": [
+    [
+      24424,
+      13556
+    ],
+    [
+      13822,
+      40420
+    ],
+    [
+      55864,
+      40420
+    ],
+    [
+      164598,
+      129706
+    ],
+    [
+      1222142,
+      1242118
+    ],
+    [
+      1222142,
+      1240888
+    ]
+  ],
+  "pointwise_character_sum_estimate_proved": false,
+  "recurrent_helpful_channel_rows": [
+    {
+      "absolute_delta_sum": 0.5758302749811214,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.5758302749811214,
+      "positive_delta_sum": 0.5758302749811214,
+      "representative_label": [
+        2,
+        6
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4003828170751664,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.4003828170751664,
+      "positive_delta_sum": 0.4003828170751664,
+      "representative_label": [
+        3,
+        1
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.35669478575779234,
+      "harmful_pair_count": 1,
+      "helpful_pair_count": 5,
+      "negative_delta_sum": -0.15912479736677523,
+      "net_delta_sum": 0.03844519102424191,
+      "positive_delta_sum": 0.19756998839101717,
+      "representative_label": [
+        4,
+        8
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.1290920276447924,
+      "harmful_pair_count": 1,
+      "helpful_pair_count": 5,
+      "negative_delta_sum": -0.021863777916088963,
+      "net_delta_sum": 0.08536447181261449,
+      "positive_delta_sum": 0.10722824972870346,
+      "representative_label": [
+        4,
+        2
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.3606219609737121,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.04485497894836413,
+      "net_delta_sum": 0.2709120030769839,
+      "positive_delta_sum": 0.315766982025348,
+      "representative_label": [
+        3,
+        11
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4808851800700192,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.25587392027184735,
+      "net_delta_sum": -0.03086266047367555,
+      "positive_delta_sum": 0.22501125979817177,
+      "representative_label": [
+        5,
+        5
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.2662843052095317,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.09982719128396458,
+      "net_delta_sum": 0.06662992264160257,
+      "positive_delta_sum": 0.16645711392556717,
+      "representative_label": [
+        4,
+        4
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.22106373798024495,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.06621859631105814,
+      "net_delta_sum": 0.08862654535812867,
+      "positive_delta_sum": 0.1548451416691868,
+      "representative_label": [
+        1,
+        3
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.15747942367172169,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.007485446619862673,
+      "net_delta_sum": 0.14250853043199635,
+      "positive_delta_sum": 0.14999397705185902,
+      "representative_label": [
+        5,
+        3
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.13157104525476132,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.01334512108971814,
+      "net_delta_sum": 0.104880803075325,
+      "positive_delta_sum": 0.11822592416504316,
+      "representative_label": [
+        2,
+        4
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.17298520019114993,
+      "harmful_pair_count": 2,
+      "helpful_pair_count": 4,
+      "negative_delta_sum": -0.10439623093898576,
+      "net_delta_sum": -0.035807261686821565,
+      "positive_delta_sum": 0.06858896925216419,
+      "representative_label": [
+        4,
+        6
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.46642726244391325,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.12161706651501464,
+      "net_delta_sum": 0.22319312941388397,
+      "positive_delta_sum": 0.3448101959288986,
+      "representative_label": [
+        2,
+        2
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.24328194208525578,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.04400410970349581,
+      "net_delta_sum": 0.15527372267826417,
+      "positive_delta_sum": 0.19927783238175997,
+      "representative_label": [
+        2,
+        10
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.21030657842847697,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.061232405424927534,
+      "net_delta_sum": 0.08784176757862194,
+      "positive_delta_sum": 0.14907417300354947,
+      "representative_label": [
+        1,
+        1
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4348310291359704,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.2864570386137442,
+      "net_delta_sum": -0.13808304809151808,
+      "positive_delta_sum": 0.1483739905222261,
+      "representative_label": [
+        1,
+        7
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.35353211717648514,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.23222463950555128,
+      "net_delta_sum": -0.11091716183461747,
+      "positive_delta_sum": 0.1213074776709338,
+      "representative_label": [
+        1,
+        11
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.27559674277599083,
+      "harmful_pair_count": 3,
+      "helpful_pair_count": 3,
+      "negative_delta_sum": -0.1622725941009323,
+      "net_delta_sum": -0.048948445425873816,
+      "positive_delta_sum": 0.11332414867505852,
+      "representative_label": [
+        1,
+        5
+      ]
+    }
+  ],
+  "recurrent_helpful_channels_observed": true,
+  "sample_targets": [
+    24424,
+    13556,
+    13822,
+    40420,
+    55864,
+    164598,
+    129706,
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "single_or_two_channel_offset_theorem_demoted_on_samples": true,
+  "source_commit": "2b6b2d8acbb5bca12f00327e3a7494c982dca494",
+  "status_boundary": "finite channel-swing pair diagnostic only; selected deficit-to-clear pairs are decomposed exactly, but no recurrence theorem, signed-channel offset theorem, pointwise character-sum estimate, fixed-modulus AP theorem, signed projection theorem, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "universally_helpful_channel_rows": [
+    {
+      "absolute_delta_sum": 0.5758302749811214,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.5758302749811214,
+      "positive_delta_sum": 0.5758302749811214,
+      "representative_label": [
+        2,
+        6
+      ]
+    },
+    {
+      "absolute_delta_sum": 0.4003828170751664,
+      "harmful_pair_count": 0,
+      "helpful_pair_count": 6,
+      "negative_delta_sum": 0.0,
+      "net_delta_sum": 0.4003828170751664,
+      "positive_delta_sum": 0.4003828170751664,
+      "representative_label": [
+        3,
+        1
+      ]
+    }
+  ]
+}
