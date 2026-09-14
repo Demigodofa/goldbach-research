@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "e023164079559eb8846240eecd1002eeaa37ff45",
+  "generated_from_commit": "72126526c9430200123ad4710c24e5b5fd870b66",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -132,6 +132,14 @@
       "boundary": "Finite hinge diagnostic only; no hinge-balance theorem."
     },
     {
+      "id": "staircase-hinge-threshold",
+      "label": "Hinge balance rewritten as support-mass threshold surplus",
+      "kind": "exact_obligation",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json",
+      "default_weight": 2.0,
+      "boundary": "Finite threshold-obligation form; support side not yet non-circular."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -143,7 +151,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 46.5,
+      "stack_weight": 48.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -379,14 +387,26 @@
             "mass_driven": false,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.49884676802297184,
+            "threshold": 0.49598754577881293,
+            "surplus": 0.00285922224415891,
+            "relative_surplus": 0.005764705723949747,
+            "identity_error": 4.336808689942018e-17
+          }
         }
       ],
-      "layer_count": 23,
+      "layer_count": 24,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 42.5,
+      "stack_weight": 44.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -610,14 +630,26 @@
             "mass_driven": true,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5060374169854678,
+            "threshold": 0.4882684858280829,
+            "surplus": 0.01776893115738487,
+            "relative_surplus": 0.03639172232721411,
+            "identity_error": 2.220446049250313e-16
+          }
         }
       ],
-      "layer_count": 21,
-      "glow": 0.913978
+      "layer_count": 22,
+      "glow": 0.917526
     },
     {
       "id": "164598",
-      "stack_weight": 42.5,
+      "stack_weight": 44.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -841,14 +873,26 @@
             "mass_driven": true,
             "landing_driven": false
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5572164027328628,
+            "threshold": 0.5513447942937817,
+            "surplus": 0.0058716084390810774,
+            "relative_surplus": 0.01064961254708504,
+            "identity_error": 2.185751579730777e-16
+          }
         }
       ],
-      "layer_count": 21,
-      "glow": 0.913978
+      "layer_count": 22,
+      "glow": 0.917526
     },
     {
       "id": "24424",
-      "stack_weight": 42.5,
+      "stack_weight": 44.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1072,14 +1116,26 @@
             "mass_driven": false,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.44557618457771914,
+            "threshold": 0.44122153010288545,
+            "surplus": 0.004354654474833686,
+            "relative_surplus": 0.009869542118260306,
+            "identity_error": 1.7867651802561113e-16
+          }
         }
       ],
-      "layer_count": 21,
-      "glow": 0.913978
+      "layer_count": 22,
+      "glow": 0.917526
     },
     {
       "id": "55864",
-      "stack_weight": 42.5,
+      "stack_weight": 44.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1303,14 +1359,26 @@
             "mass_driven": true,
             "landing_driven": false
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5385775565107184,
+            "threshold": 0.5054962581685852,
+            "surplus": 0.033081298342133136,
+            "relative_surplus": 0.06544321111690678,
+            "identity_error": 3.191891195797325e-16
+          }
         }
       ],
-      "layer_count": 21,
-      "glow": 0.913978
+      "layer_count": 22,
+      "glow": 0.917526
     },
     {
       "id": "129706",
-      "stack_weight": 26.5,
+      "stack_weight": 28.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1446,14 +1514,26 @@
             "mass_driven": false,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.486324029599814,
+            "threshold": 0.4676397249761305,
+            "surplus": 0.018684304623683534,
+            "relative_surplus": 0.03995448552758692,
+            "identity_error": 2.1510571102112408e-16
+          }
         }
       ],
-      "layer_count": 13,
-      "glow": 0.569892
+      "layer_count": 14,
+      "glow": 0.587629
     },
     {
       "id": "13556",
-      "stack_weight": 24.5,
+      "stack_weight": 26.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1578,14 +1658,26 @@
             "mass_driven": true,
             "landing_driven": false
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5279540327909489,
+            "threshold": 0.5245142639380949,
+            "surplus": 0.0034397688528540193,
+            "relative_surplus": 0.006558008217027238,
+            "identity_error": 2.896988204881268e-16
+          }
         }
       ],
-      "layer_count": 12,
-      "glow": 0.526882
+      "layer_count": 13,
+      "glow": 0.546392
     },
     {
       "id": "1240888",
-      "stack_weight": 18.5,
+      "stack_weight": 20.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1677,14 +1769,26 @@
             "mass_driven": true,
             "landing_driven": false
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.5747545980822478,
+            "threshold": 0.5652872457485755,
+            "surplus": 0.009467352333672352,
+            "relative_surplus": 0.01674786120662481,
+            "identity_error": 8.673617379884035e-17
+          }
         }
       ],
-      "layer_count": 9,
-      "glow": 0.397849
+      "layer_count": 10,
+      "glow": 0.42268
     },
     {
       "id": "1242118",
-      "stack_weight": 18.5,
+      "stack_weight": 20.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1776,14 +1880,26 @@
             "mass_driven": false,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "surplus": 0.004797981282350594,
+            "relative_surplus": 0.009952902085936449,
+            "identity_error": 1.2836953722228372e-16
+          }
         }
       ],
-      "layer_count": 9,
-      "glow": 0.397849
+      "layer_count": 10,
+      "glow": 0.42268
     },
     {
       "id": "40420",
-      "stack_weight": 18.5,
+      "stack_weight": 20.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1875,10 +1991,22 @@
             "mass_driven": true,
             "landing_driven": true
           }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.515510182552706,
+            "threshold": 0.49883123284255904,
+            "surplus": 0.01667894971014694,
+            "relative_surplus": 0.033436057351707855,
+            "identity_error": 5.551115123125783e-17
+          }
         }
       ],
-      "layer_count": 9,
-      "glow": 0.397849
+      "layer_count": 10,
+      "glow": 0.42268
     },
     {
       "id": "1379072",
@@ -1904,7 +2032,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.129032
+      "glow": 0.123711
     },
     {
       "id": "1323632",
@@ -1924,7 +2052,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.086022
+      "glow": 0.082474
     },
     {
       "id": "10664",
@@ -1938,7 +2066,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.021505
+      "glow": 0.020619
     },
     {
       "id": "14138",
@@ -1952,7 +2080,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.021505
+      "glow": 0.020619
     }
   ],
   "mechanism_stacks": [
@@ -2220,6 +2348,29 @@
       "glow": 0.222222
     },
     {
+      "id": "tiny-positive-hinge-threshold-surplus",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "all selected full-stage rows clear the exact threshold with small positive surplus",
+          "value": {
+            "surplus_summary": {
+              "count": 10,
+              "maximum": 0.033081298342133136,
+              "mean": 0.011700407146029912,
+              "minimum": 0.00285922224415891
+            },
+            "tightest_target": 1222142,
+            "maximum_identity_error": 3.191891195797325e-16
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "weak-geometry-staircase-shortcut-closed",
       "stack_weight": 2.0,
       "layers": [
@@ -2355,6 +2506,19 @@
           "layer": "staircase-hinge-decomposition",
           "weight": 2.0,
           "reason": "prove mixed actual-mass and landing-quality hinge balance"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.121212
+    },
+    {
+      "id": "dominant-staircase-hinge-threshold-surplus",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "prove positive surplus with non-circular support-side definition"
         }
       ],
       "layer_count": 1,

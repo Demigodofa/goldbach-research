@@ -11858,6 +11858,168 @@ def q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_hinge_threshold_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Rewrite hinge balance as a support-mass threshold obligation.
+
+    If s is classification-supporting mass, L_s is supporting landing, and
+    L_o is opposing landing, the hinge margin satisfies
+
+        s * L_s - (1-s) * L_o >= 0
+        iff s >= L_o / (L_s + L_o).
+
+    This receipt records the exact threshold and surplus for the selected
+    staircase rows.  The classification side is inherited from the finite
+    fixture; this is an obligation form, not a theorem or Goldbach proof.
+    """
+    hinge_receipt = (
+        q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    stage_rows = []
+    maximum_threshold_identity_error = 0.0
+    for stage in hinge_receipt["stage_rows"]:
+        target_rows = []
+        surplus_values = []
+        relative_surplus_values = []
+        reconstructed_margin_errors = []
+        for row in stage["target_rows"]:
+            support_mass = row["classification_supporting_mass_fraction"]
+            support_landing = row["classification_support_landing_mean"]
+            opposing_landing = row["classification_opposing_landing_mean"]
+            denominator = (
+                None if (support_landing is None
+                         or opposing_landing is None)
+                else support_landing + opposing_landing)
+            threshold = (
+                None if denominator is None or denominator <= tolerance
+                else opposing_landing / denominator)
+            surplus = (
+                None if threshold is None else support_mass - threshold)
+            relative_surplus = (
+                None if threshold is None or threshold <= tolerance
+                else surplus / threshold)
+            reconstructed_margin = (
+                None if surplus is None or denominator is None
+                else surplus * denominator)
+            margin = row["classification_hinge_margin"]
+            identity_error = (
+                None if reconstructed_margin is None
+                else abs(reconstructed_margin - margin))
+            if identity_error is not None:
+                maximum_threshold_identity_error = max(
+                    maximum_threshold_identity_error, identity_error)
+                reconstructed_margin_errors.append(identity_error)
+            if surplus is not None:
+                surplus_values.append(surplus)
+            if relative_surplus is not None:
+                relative_surplus_values.append(relative_surplus)
+            compact = dict(row)
+            compact.update({
+                "hinge_support_mass_threshold": threshold,
+                "hinge_support_mass_surplus_to_threshold": surplus,
+                "hinge_support_mass_relative_surplus_to_threshold": (
+                    relative_surplus),
+                "hinge_landing_denominator": denominator,
+                "hinge_margin_reconstructed_from_threshold": (
+                    reconstructed_margin),
+                "hinge_threshold_identity_error": identity_error,
+                "hinge_threshold_condition_holds": (
+                    surplus is not None and surplus >= -tolerance),
+            })
+            target_rows.append(compact)
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": tuple(target_rows),
+            "hinge_support_mass_surplus_summary": summarize(
+                surplus_values),
+            "hinge_support_mass_relative_surplus_summary": summarize(
+                relative_surplus_values),
+            "hinge_threshold_identity_error_summary": summarize(
+                reconstructed_margin_errors),
+            "all_selected_rows_satisfy_hinge_threshold": all(
+                row["hinge_threshold_condition_holds"]
+                for row in target_rows),
+        })
+
+    prefix_stage = stage_rows[
+        hinge_receipt["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        hinge_receipt["full_stage"]["stage_index"]]
+    full_rows = full_stage["target_rows"]
+    tightest_surplus_row = min(
+        full_rows,
+        key=lambda row: row[
+            "hinge_support_mass_surplus_to_threshold"])
+    largest_relative_surplus_row = max(
+        full_rows,
+        key=lambda row: row[
+            "hinge_support_mass_relative_surplus_to_threshold"])
+
+    return {
+        "arithmetic_modulus": hinge_receipt["arithmetic_modulus"],
+        "support": hinge_receipt["support"],
+        "dominant_modes": hinge_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": hinge_receipt["sample_targets"],
+        "pair_targets": hinge_receipt["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": hinge_receipt["prefix_channel_labels"],
+        "tail_channel_labels": hinge_receipt["tail_channel_labels"],
+        "ordered_channel_labels": hinge_receipt["ordered_channel_labels"],
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_tightest_surplus_row": tightest_surplus_row,
+        "full_stage_largest_relative_surplus_row": (
+            largest_relative_surplus_row),
+        "maximum_hinge_threshold_identity_error": (
+            maximum_threshold_identity_error),
+        "hinge_threshold_obligation_measured": True,
+        "hinge_threshold_theorem_proved": False,
+        "hinge_balance_theorem_proved": False,
+        "orbit_mass_theorem_proved": False,
+        "arithmetic_gap_theorem_proved": False,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

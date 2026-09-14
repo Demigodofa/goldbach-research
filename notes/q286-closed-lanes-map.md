@@ -913,6 +913,19 @@ current comparison set.
    rows split between mass-driven and landing-driven classifications.  This
    demotes a one-dimensional mass-cap or landing-floor route and refines the
    surviving target to a mixed hinge-balance theorem.
+95. `q286_first_three_dominant_mode_staircase_hinge_threshold_receipt`, with
+   note
+   `notes/q286-first-three-dominant-mode-staircase-hinge-threshold.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json`,
+   rewrites the mixed hinge balance as
+   `supporting_mass >= opposing_landing/(supporting_landing+opposing_landing)`.
+   The full-stage support-mass surplus ranges from about `0.0028592222` to
+   `0.0330812983`, with tightest row `1222142`, and the maximum threshold
+   reconstruction error is about `3.19e-16`.  This is an exact obligation
+   form, but the support side remains inherited from the finite classification
+   and must be defined arithmetically before it can become a non-circular
+   theorem.
 
 ## Still open
 
@@ -940,6 +953,8 @@ current comparison set.
   for deficit rows.  The newest subtarget is to bound actual mass on the
   dangerous reflected breaker orbits that make the weak synthetic witnesses
   possible, then prove the mixed hinge-balance inequality, or replace both
-  with a signed aggregate theorem.
+  with a signed aggregate theorem.  The current narrowest formulation is a
+  positive support-mass surplus over the landing-dependent hinge threshold,
+  plus a non-circular arithmetic definition of the intended support side.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

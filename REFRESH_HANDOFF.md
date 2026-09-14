@@ -20483,6 +20483,26 @@ next tack is not a one-dimensional mass cap or landing floor; it is a
 row-dependent hinge-balance theorem for actual q286 reflection-orbit mass, or
 a signed aggregate theorem that implies that balance.
 
+Dominant-mode staircase hinge threshold:
+
+- `q286_first_three_dominant_mode_staircase_hinge_threshold_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_hinge_threshold.py`
+- `notes/q286-first-three-dominant-mode-staircase-hinge-threshold.md`
+- `evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_hinge_threshold`
+
+This rewrites the hinge balance as the exact threshold inequality
+`supporting_mass >= opposing_landing / (supporting_landing +
+opposing_landing)`.  On the full eleven-channel selected fixture, every row
+satisfies this threshold, with support-mass surplus ranging from about
+`0.0028592222` to `0.0330812983` and mean about `0.0117004071`; the tightest
+row is target `1222142`.  The maximum threshold reconstruction error is about
+`3.19e-16`.  This is still finite and not fully non-circular: the support side
+is inherited from the selected pass/deficit classification.  The next theorem
+must define the intended side arithmetically or replace the threshold with a
+signed aggregate theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

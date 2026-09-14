@@ -77,6 +77,9 @@ def main():
     staircase_hinge = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-hinge-decomposition.json")
+    staircase_hinge_threshold = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-hinge-threshold.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -650,6 +653,56 @@ def main():
         "staircase-hinge-decomposition",
         2.0,
         "prove mixed actual-mass and landing-quality hinge balance")
+
+    layer(
+        "staircase-hinge-threshold",
+        "Hinge balance rewritten as support-mass threshold surplus",
+        "exact_obligation",
+        "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json",
+        2.0,
+        "Finite threshold-obligation form; support side not yet non-circular.")
+    for row in staircase_hinge_threshold["full_stage"]["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "staircase-hinge-threshold",
+            2.0,
+            "support-mass surplus over landing-dependent threshold",
+            {
+                "supporting_mass": (
+                    row["classification_supporting_mass_fraction"]),
+                "threshold": row["hinge_support_mass_threshold"],
+                "surplus": (
+                    row["hinge_support_mass_surplus_to_threshold"]),
+                "relative_surplus": (
+                    row[
+                        "hinge_support_mass_relative_surplus_to_threshold"]),
+                "identity_error": row["hinge_threshold_identity_error"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "tiny-positive-hinge-threshold-surplus",
+        "staircase-hinge-threshold",
+        2.0,
+        "all selected full-stage rows clear the exact threshold with small "
+        "positive surplus",
+        {
+            "surplus_summary": (
+                staircase_hinge_threshold["full_stage"][
+                    "hinge_support_mass_surplus_summary"]),
+            "tightest_target": (
+                staircase_hinge_threshold[
+                    "full_stage_tightest_surplus_row"]["target"]),
+            "maximum_identity_error": (
+                staircase_hinge_threshold[
+                    "maximum_hinge_threshold_identity_error"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "dominant-staircase-hinge-threshold-surplus",
+        "staircase-hinge-threshold",
+        2.0,
+        "prove positive surplus with non-circular support-side definition")
 
     layer(
         "conditional-proof-stack",

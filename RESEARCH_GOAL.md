@@ -11372,6 +11372,21 @@ demotes a one-dimensional mass-cap or landing-floor proof story and sharpens
 the surviving tack to a row-dependent hinge-balance theorem, or a signed
 aggregate theorem that implies the same balance.
 
+The hinge-balance threshold form is now recorded in
+`notes/q286-first-three-dominant-mode-staircase-hinge-threshold.md` and
+`evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json`.
+It rewrites each selected row as the exact inequality
+`supporting_mass >= opposing_landing / (supporting_landing +
+opposing_landing)`, with maximum reconstruction error about `3.19e-16`.  At
+the full eleven-channel stage, all selected rows satisfy the threshold; the
+support-mass surplus ranges from about `0.0028592222` to `0.0330812983`, with
+mean about `0.0117004071`.  The tightest row is target `1222142`, whose
+surplus is only about `0.0028592222`.  This makes the next proof obligation
+smaller and sharper, but still finite and partly classificatory: the support
+side is inherited from the selected pass/deficit row type.  A non-circular
+theorem must define that intended side arithmetically or replace the
+threshold inequality with a signed aggregate theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

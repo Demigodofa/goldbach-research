@@ -162,6 +162,13 @@
       "validation": "maximum hinge identity error 3.3306690738754696e-16; full-stage supporting mass range 0.44557618457771914..0.5747545980822478; opposing mass range 0.4252454019177522..0.5544238154222809."
     },
     {
+      "id": "anchor.dominant_mode_staircase_hinge_threshold",
+      "proved_scope": "finite exact threshold-obligation form; support side is still inherited from finite classification",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json",
+      "statement": "The mixed hinge balance is exactly equivalent to a support-mass threshold surplus supporting_mass - L_o/(L_s+L_o) >= 0.",
+      "validation": "full-stage surplus range 0.00285922224415891..0.033081298342133136; tightest surplus target 1222142; maximum threshold identity error 3.191891195797325e-16."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -184,15 +191,16 @@
       "joint.external_prime_correlation_input",
       "joint.dominant_singular_mode_projection",
       "joint.dangerous_reflection_orbit_mass_bound",
-      "joint.dominant_staircase_hinge_balance"
+      "joint.dominant_staircase_hinge_balance",
+      "joint.dominant_staircase_hinge_threshold_surplus"
     ],
     "current_status": "not ready to condense into a proof",
     "short_statement": "If the q286 signed-projection anti-alignment theorem, the conditioned lower-support/complement rescue, and the finite/endpoint/outer assembly joints are proved, condense the route into a single conditional Goldbach theorem stack."
   },
   "goldbach_proved": false,
-  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.  A sharper near-term version is to prove that actual prime-pair mass cannot concentrate on the dangerous reflected breaker orbits identified by the weak-geometry obstruction, then prove the mixed hinge-balance inequality left after that localization.",
+  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.  A sharper near-term version is to prove that actual prime-pair mass cannot concentrate on the dangerous reflected breaker orbits identified by the weak-geometry obstruction, then prove the mixed hinge-balance inequality left after that localization. The narrowest current form is a positive support-mass surplus over the landing-dependent threshold, with the support side defined arithmetically rather than post hoc.",
   "schema_version": 1,
-  "source_commit": "e023164079559eb8846240eecd1002eeaa37ff45",
+  "source_commit": "72126526c9430200123ad4710c24e5b5fd870b66",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -249,6 +257,13 @@
       "proved": false,
       "statement": "For the q286 dominant-mode staircase, prove the exact row-dependent hinge balance: actual mass above each row floor times positive landing quality must dominate the below-floor hinge for pass rows, while the reverse or an exclusion/complement mechanism handles deficit rows.",
       "why_it_is_needed": "The full-stage selected rows are split between mass-driven and landing-driven classifications; neither a simple mass cap nor a simple landing floor matches the observed finite mechanism."
+    },
+    {
+      "exact_obligation_source": "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json",
+      "id": "joint.dominant_staircase_hinge_threshold_surplus",
+      "proved": false,
+      "statement": "Prove a positive surplus over the landing-dependent hinge threshold supporting_mass >= opposing_landing / (supporting_landing + opposing_landing), with a non-circular arithmetic definition of the intended support side.",
+      "why_it_is_needed": "The selected full-stage surplus is tiny; the tightest row has only about 0.00285922224415891 mass fraction of slack over threshold."
     }
   ],
   "workshop_rule": "Do not fabricate the whole theorem from free-space measurements. Bolt exact identities to the actual q286 frame, tack only named unresolved theorem joints, validate each tack unchanged, then condense the assembly only after the joints are proved."

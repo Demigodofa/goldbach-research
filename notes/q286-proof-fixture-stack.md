@@ -120,6 +120,12 @@ frame.
   `3.33e-16`.  Full-stage supporting and opposing masses both stay near
   one-half, and the selected rows split between mass-driven and landing-driven
   classifications.
+- `evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json`:
+  the hinge balance is equivalently the support-mass threshold
+  `supporting_mass >= opposing_landing/(supporting_landing+opposing_landing)`.
+  Full-stage surplus ranges from about `0.0028592222` to `0.0330812983`,
+  with tightest row `1222142`.  The support side is still inherited from the
+  finite classification, so this is an obligation form, not a theorem.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -185,7 +191,11 @@ frame.
    staircase, or replace it with an equally explicit signed aggregate theorem.
 6. Prove the row-dependent hinge-balance theorem for actual q286 reflection
    orbits, or replace it with an equally explicit signed aggregate theorem.
-7. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
+7. Prove or replace the hinge-threshold surplus theorem
+   `supporting_mass - opposing_landing/(supporting_landing+opposing_landing)
+   > 0`, including a non-circular arithmetic definition of the intended
+   support side.
+8. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
 
@@ -209,4 +219,4 @@ current quantitative target is actual arithmetic placement inside the broad
 weak-geometry interval, not shrinking that interval by geometry alone.  The
 newest sharpened subtarget is actual mass control on the dangerous reflected
 breaker orbits used by the synthetic weak-geometry witnesses, now refined by
-the mixed hinge-balance decomposition.
+the mixed hinge-balance decomposition and its tiny positive threshold surplus.

@@ -74,6 +74,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json")
     dominant_mode_staircase_hinge = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json")
+    dominant_mode_staircase_hinge_threshold = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -546,6 +548,26 @@ def main():
                     "hinge-balance theorem"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_hinge_threshold",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json"),
+                "statement": (
+                    "The mixed hinge balance is exactly equivalent to a "
+                    "support-mass threshold surplus "
+                    "supporting_mass - L_o/(L_s+L_o) >= 0."),
+                "validation": (
+                    "full-stage surplus range "
+                    f"{dominant_mode_staircase_hinge_threshold['full_stage']['hinge_support_mass_surplus_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_hinge_threshold['full_stage']['hinge_support_mass_surplus_summary']['maximum']}; "
+                    "tightest surplus target "
+                    f"{dominant_mode_staircase_hinge_threshold['full_stage_tightest_surplus_row']['target']}; "
+                    "maximum threshold identity error "
+                    f"{dominant_mode_staircase_hinge_threshold['maximum_hinge_threshold_identity_error']}."),
+                "proved_scope": (
+                    "finite exact threshold-obligation form; support side is "
+                    "still inherited from finite classification"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -701,6 +723,24 @@ def main():
                     "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json"),
                 "proved": False,
             },
+            {
+                "id": "joint.dominant_staircase_hinge_threshold_surplus",
+                "statement": (
+                    "Prove a positive surplus over the landing-dependent "
+                    "hinge threshold "
+                    "supporting_mass >= opposing_landing / "
+                    "(supporting_landing + opposing_landing), with a "
+                    "non-circular arithmetic definition of the intended "
+                    "support side."),
+                "why_it_is_needed": (
+                    "The selected full-stage surplus is tiny; the tightest "
+                    "row has only about "
+                    f"{dominant_mode_staircase_hinge_threshold['full_stage_tightest_surplus_row']['hinge_support_mass_surplus_to_threshold']} "
+                    "mass fraction of slack over threshold."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json"),
+                "proved": False,
+            },
         ],
         "condensation_target": {
             "short_statement": (
@@ -716,6 +756,7 @@ def main():
                 "joint.dominant_singular_mode_projection",
                 "joint.dangerous_reflection_orbit_mass_bound",
                 "joint.dominant_staircase_hinge_balance",
+                "joint.dominant_staircase_hinge_threshold_surplus",
             ],
             "current_status": "not ready to condense into a proof",
         },
@@ -729,7 +770,10 @@ def main():
             "A sharper near-term version is to prove that actual prime-pair "
             "mass cannot concentrate on the dangerous reflected breaker "
             "orbits identified by the weak-geometry obstruction, then prove "
-            "the mixed hinge-balance inequality left after that localization."),
+            "the mixed hinge-balance inequality left after that localization. "
+            "The narrowest current form is a positive support-mass surplus "
+            "over the landing-dependent threshold, with the support side "
+            "defined arithmetically rather than post hoc."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

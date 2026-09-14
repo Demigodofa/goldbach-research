@@ -1117,6 +1117,22 @@
       "status": "open_precisely_stated",
       "statement": "Prove a row-dependent inequality controlling actual q286 reflection-orbit mass and landing quality so that above-floor positive hinge dominates below-floor negative hinge for pass rows, with deficit rows handled by reverse dominance, exclusion, complement rescue, or an equivalent signed aggregate theorem.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_staircase_hinge_threshold",
+      "type": "receipt",
+      "label": "q286 dominant-mode staircase hinge threshold",
+      "status": "exact_obligation_formalized",
+      "validation": "q286_first_three_dominant_mode_staircase_hinge_threshold_receipt and tools/build_q286_first_three_dominant_mode_staircase_hinge_threshold.py generated evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json; full-stage support-mass surplus ranges from about 0.0028592222 to 0.0330812983, tightest at target 1222142, with maximum threshold identity error about 3.19e-16",
+      "status_boundary": "finite selected exact threshold obligation only; support side is inherited from finite classification and no hinge-threshold theorem or Goldbach proof is proved"
+    },
+    {
+      "id": "obligation.dominant_staircase_hinge_threshold_surplus",
+      "type": "open_obligation",
+      "label": "q286 dominant staircase hinge-threshold surplus theorem",
+      "status": "open_precisely_stated",
+      "statement": "Prove supporting_mass - opposing_landing/(supporting_landing+opposing_landing) > 0 for the intended q286 staircase side, with a non-circular arithmetic definition of that side, or prove an equivalent signed aggregate theorem.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -2337,6 +2353,31 @@
     },
     {
       "from": "obligation.dominant_staircase_hinge_balance",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_hinge_threshold",
+      "to": "obligation.dominant_staircase_hinge_threshold_surplus",
+      "type": "measures"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_hinge_decomposition",
+      "to": "receipt.q286_first_three_dominant_mode_staircase_hinge_threshold",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_hinge_threshold",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "obligation.dominant_staircase_hinge_threshold_surplus",
+      "to": "obligation.dominant_staircase_hinge_balance",
+      "type": "refines"
+    },
+    {
+      "from": "obligation.dominant_staircase_hinge_threshold_surplus",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }
