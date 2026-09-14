@@ -74,6 +74,9 @@ def main():
     staircase_orbit_mass_gap = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-orbit-mass-gap.json")
+    staircase_hinge = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-hinge-decomposition.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -596,6 +599,57 @@ def main():
         "staircase-orbit-mass-gap",
         2.0,
         "prove actual mass cannot concentrate on weak breaker orbits")
+
+    layer(
+        "staircase-hinge-decomposition",
+        "Actual orbit mass decomposes into mixed hinge balance",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json",
+        2.0,
+        "Finite hinge diagnostic only; no hinge-balance theorem.")
+    for row in staircase_hinge["full_stage"]["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "staircase-hinge-decomposition",
+            2.0,
+            "above-floor/below-floor hinge balance measured",
+            {
+                "supporting_mass": (
+                    row["classification_supporting_mass_fraction"]),
+                "opposing_mass": (
+                    row["classification_opposing_mass_fraction"]),
+                "supporting_hinge": (
+                    row["classification_supporting_hinge_to_principal"]),
+                "opposing_hinge": (
+                    row["classification_opposing_hinge_to_principal"]),
+                "hinge_margin": row["classification_hinge_margin"],
+                "mass_driven": row["classification_mass_driven"],
+                "landing_driven": row["classification_landing_driven"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "mixed-mass-landing-hinge-balance",
+        "staircase-hinge-decomposition",
+        2.0,
+        "selected rows split between mass-driven and landing-driven hinge "
+        "classification",
+        {
+            "maximum_hinge_identity_error": (
+                staircase_hinge["maximum_hinge_identity_error"]),
+            "mass_driven_targets": (
+                staircase_hinge["full_stage"][
+                    "classification_mass_driven_targets"]),
+            "landing_driven_targets": (
+                staircase_hinge["full_stage"][
+                    "classification_landing_driven_targets"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "dominant-staircase-hinge-balance",
+        "staircase-hinge-decomposition",
+        2.0,
+        "prove mixed actual-mass and landing-quality hinge balance")
 
     layer(
         "conditional-proof-stack",

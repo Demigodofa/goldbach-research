@@ -11480,6 +11480,384 @@ def q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Decompose staircase slack into below/above-floor orbit hinges.
+
+    For each selected target and staircase stage, write
+
+        stage_sum - required_floor
+          = sum_orbits mass(o) * max(action(o)-required_floor, 0)
+            - sum_orbits mass(o) * max(required_floor-action(o), 0).
+
+    This is the bolted-on "what is left" ledger after weak geometry: not just
+    the single extremal orbit, but the whole set of below-floor and above-floor
+    reflected q286 orbits with actual prime-pair mass.
+
+    It proves no hinge theorem and no Goldbach theorem.
+    """
+    mass_receipt = (
+        q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    dominant_matrix = np.zeros_like(coefficient_matrix)
+    for mode_index in dominant_modes:
+        index = mode_index - 1
+        dominant_matrix += (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+
+    _, labels, character_table = _unit_character_table(modulus, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    factor_orders = (10, 12)
+    dominant_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            dominant_coefficients[index] = dominant_matrix[
+                first - 1, second - 1]
+
+    def conjugate_label(label):
+        return tuple((-exponent) % order
+                     for exponent, order in zip(label, factor_orders))
+
+    principal_mean = float(
+        character_receipt["rows"][10424]["principal_contribution"].real
+        / character_receipt["rows"][10424]["total_prime_pair_weight"])
+    remaining = {
+        index for index, coefficient in enumerate(dominant_coefficients)
+        if abs(coefficient) > tolerance}
+    channel_coefficients = {}
+    for index in sorted(tuple(remaining)):
+        if index not in remaining:
+            continue
+        conjugate_index = label_to_index[conjugate_label(labels[index])]
+        orbit = tuple(sorted({index, conjugate_index}))
+        remaining.difference_update(orbit)
+        representative = orbit[0]
+        coefficient = dominant_coefficients[representative]
+        multiplier = 1.0 if len(orbit) == 1 else 2.0
+        channel_coefficients[labels[representative]] = np.asarray(
+            multiplier * np.real(
+                coefficient * character_table[representative])
+            / principal_mean,
+            dtype=np.float64)
+
+    maximum_target = max(mass_receipt["sample_targets"])
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def target_residue_weights(target):
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        weights = np.bincount(
+            [unit_index[prime % modulus] for prime in selected_primes],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=len(units))
+        return weights.astype(np.float64)
+
+    weights_by_target = {
+        target: target_residue_weights(target)
+        for target in mass_receipt["sample_targets"]}
+
+    def combined_stage_coefficients(stage):
+        coefficients = np.zeros(len(units), dtype=np.float64)
+        for label in stage["channel_labels"]:
+            coefficients += channel_coefficients[tuple(label)]
+        return coefficients
+
+    def orbit_action_mass_rows(target, stage, coefficients):
+        target_residue = target % modulus
+        weights = weights_by_target[target]
+        total = float(np.sum(weights))
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            coefficients[admissible_mask]
+            - float(np.mean(coefficients[admissible_mask])))
+        seen = set()
+        rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected_index = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected_index)
+            if reflected_index == index:
+                orbit = (unit,)
+                action = float(centered[index])
+                actual_weight = float(weights[index])
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                action = float(0.5 * (
+                    centered[index] + centered[reflected_index]))
+                actual_weight = float(
+                    weights[index] + weights[reflected_index])
+            mass_fraction = (
+                actual_weight / total if total > tolerance else 0.0)
+            rows.append({
+                "orbit": orbit,
+                "stage_action_to_principal": action,
+                "actual_mass_fraction": mass_fraction,
+            })
+        return rows
+
+    def largest_or_none(rows, key):
+        if not rows:
+            return None
+        return max(rows, key=key)
+
+    stage_rows = []
+    maximum_hinge_identity_error = 0.0
+    for stage in mass_receipt["stage_rows"]:
+        coefficients = combined_stage_coefficients(stage)
+        target_rows = []
+        signed_hinge_errors = []
+        supporting_mass_values = []
+        opposing_mass_values = []
+        supporting_hinge_values = []
+        opposing_hinge_values = []
+        mass_driven_rows = []
+        landing_driven_rows = []
+        for row in stage["target_rows"]:
+            target = row["target"]
+            required = row["required_portfolio_for_floor"]
+            expected_pass = row["dominant_floor_passes"]
+            orbit_rows = orbit_action_mass_rows(target, stage, coefficients)
+            below_rows = []
+            above_rows = []
+            positive_hinge = 0.0
+            negative_hinge = 0.0
+            below_mass = 0.0
+            above_mass = 0.0
+            for orbit_row in orbit_rows:
+                action = orbit_row["stage_action_to_principal"]
+                mass = orbit_row["actual_mass_fraction"]
+                positive_gap = max(0.0, action - required)
+                negative_gap = max(0.0, required - action)
+                positive_contribution = mass * positive_gap
+                negative_contribution = mass * negative_gap
+                compact = dict(orbit_row)
+                compact.update({
+                    "positive_hinge_to_principal": (
+                        positive_contribution),
+                    "negative_hinge_to_principal": (
+                        negative_contribution),
+                })
+                if action >= required - tolerance:
+                    above_rows.append(compact)
+                    above_mass += mass
+                    positive_hinge += positive_contribution
+                else:
+                    below_rows.append(compact)
+                    below_mass += mass
+                    negative_hinge += negative_contribution
+            signed_hinge = positive_hinge - negative_hinge
+            actual_slack = row["actual_stage_slack_to_floor"]
+            identity_error = abs(signed_hinge - actual_slack)
+            maximum_hinge_identity_error = max(
+                maximum_hinge_identity_error, identity_error)
+            signed_hinge_errors.append(identity_error)
+            if expected_pass:
+                supporting_mass = above_mass
+                opposing_mass = below_mass
+                supporting_hinge = positive_hinge
+                opposing_hinge = negative_hinge
+            else:
+                supporting_mass = below_mass
+                opposing_mass = above_mass
+                supporting_hinge = negative_hinge
+                opposing_hinge = positive_hinge
+            supporting_mass_values.append(supporting_mass)
+            opposing_mass_values.append(opposing_mass)
+            supporting_hinge_values.append(supporting_hinge)
+            opposing_hinge_values.append(opposing_hinge)
+            support_landing = (
+                supporting_hinge / supporting_mass
+                if supporting_mass > tolerance else None)
+            opposing_landing = (
+                opposing_hinge / opposing_mass
+                if opposing_mass > tolerance else None)
+            mass_driven = supporting_mass >= opposing_mass - tolerance
+            landing_driven = (
+                support_landing is not None
+                and opposing_landing is not None
+                and support_landing >= opposing_landing - tolerance)
+            if mass_driven:
+                mass_driven_rows.append(target)
+            if landing_driven:
+                landing_driven_rows.append(target)
+            compact = dict(row)
+            compact.update({
+                "below_floor_orbit_count": len(below_rows),
+                "above_floor_orbit_count": len(above_rows),
+                "below_floor_mass_fraction": below_mass,
+                "above_floor_mass_fraction": above_mass,
+                "below_floor_negative_hinge_to_principal": (
+                    negative_hinge),
+                "above_floor_positive_hinge_to_principal": (
+                    positive_hinge),
+                "signed_hinge_slack_to_floor": signed_hinge,
+                "hinge_identity_error": identity_error,
+                "classification_supporting_mass_fraction": (
+                    supporting_mass),
+                "classification_opposing_mass_fraction": opposing_mass,
+                "classification_supporting_hinge_to_principal": (
+                    supporting_hinge),
+                "classification_opposing_hinge_to_principal": (
+                    opposing_hinge),
+                "classification_hinge_margin": (
+                    supporting_hinge - opposing_hinge),
+                "classification_support_landing_mean": support_landing,
+                "classification_opposing_landing_mean": opposing_landing,
+                "classification_mass_driven": mass_driven,
+                "classification_landing_driven": landing_driven,
+                "largest_below_floor_mass_orbit": largest_or_none(
+                    below_rows,
+                    lambda item: item["actual_mass_fraction"]),
+                "largest_above_floor_mass_orbit": largest_or_none(
+                    above_rows,
+                    lambda item: item["actual_mass_fraction"]),
+                "largest_negative_hinge_orbit": largest_or_none(
+                    below_rows,
+                    lambda item: item[
+                        "negative_hinge_to_principal"]),
+                "largest_positive_hinge_orbit": largest_or_none(
+                    above_rows,
+                    lambda item: item[
+                        "positive_hinge_to_principal"]),
+            })
+            target_rows.append(compact)
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": tuple(target_rows),
+            "hinge_identity_error_summary": summarize(
+                signed_hinge_errors),
+            "classification_supporting_mass_summary": summarize(
+                supporting_mass_values),
+            "classification_opposing_mass_summary": summarize(
+                opposing_mass_values),
+            "classification_supporting_hinge_summary": summarize(
+                supporting_hinge_values),
+            "classification_opposing_hinge_summary": summarize(
+                opposing_hinge_values),
+            "classification_mass_driven_targets": tuple(
+                mass_driven_rows),
+            "classification_landing_driven_targets": tuple(
+                landing_driven_rows),
+        })
+
+    prefix_stage = stage_rows[
+        mass_receipt["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        mass_receipt["full_stage"]["stage_index"]]
+    full_rows = full_stage["target_rows"]
+    largest_opposing_mass_row = max(
+        full_rows,
+        key=lambda row: row[
+            "classification_opposing_mass_fraction"])
+    largest_supporting_hinge_row = max(
+        full_rows,
+        key=lambda row: row[
+            "classification_supporting_hinge_to_principal"])
+    smallest_hinge_margin_row = min(
+        full_rows,
+        key=lambda row: row["classification_hinge_margin"])
+
+    return {
+        "arithmetic_modulus": modulus,
+        "support": mass_receipt["support"],
+        "dominant_modes": mass_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": mass_receipt["sample_targets"],
+        "pair_targets": mass_receipt["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": mass_receipt["prefix_channel_labels"],
+        "tail_channel_labels": mass_receipt["tail_channel_labels"],
+        "ordered_channel_labels": mass_receipt["ordered_channel_labels"],
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_largest_opposing_mass_row": (
+            largest_opposing_mass_row),
+        "full_stage_largest_supporting_hinge_row": (
+            largest_supporting_hinge_row),
+        "full_stage_smallest_hinge_margin_row": (
+            smallest_hinge_margin_row),
+        "maximum_hinge_identity_error": maximum_hinge_identity_error,
+        "hinge_decomposition_measured": True,
+        "hinge_balance_theorem_proved": False,
+        "orbit_mass_theorem_proved": False,
+        "arithmetic_gap_theorem_proved": False,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

@@ -901,6 +901,18 @@ current comparison set.
    is never the top actual mass orbit on the selected fixture.  This narrows
    the surviving theorem target to dangerous reflected-orbit mass control, or
    a signed aggregate replacement.
+94. `q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-staircase-hinge-decomposition.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json`,
+   decomposes each selected staircase row into exact above-floor positive
+   hinge minus below-floor negative hinge.  The maximum identity error is
+   about `3.33e-16`.  At the full stage, supporting mass ranges about
+   `0.4456..0.5748`, opposing mass about `0.4252..0.5544`, and the selected
+   rows split between mass-driven and landing-driven classifications.  This
+   demotes a one-dimensional mass-cap or landing-floor route and refines the
+   surviving target to a mixed hinge-balance theorem.
 
 ## Still open
 
@@ -927,6 +939,7 @@ current comparison set.
   pass rows and upper bounds, exclusion, or complement/lower-support rescue
   for deficit rows.  The newest subtarget is to bound actual mass on the
   dangerous reflected breaker orbits that make the weak synthetic witnesses
-  possible, or replace that bound with a signed aggregate theorem.
+  possible, then prove the mixed hinge-balance inequality, or replace both
+  with a signed aggregate theorem.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

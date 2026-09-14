@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "4d6ef09cd513f39439c9869cadf55676128e69fa",
+  "generated_from_commit": "e023164079559eb8846240eecd1002eeaa37ff45",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -124,6 +124,14 @@
       "boundary": "Finite orbit-mass diagnostic only; no pointwise mass theorem."
     },
     {
+      "id": "staircase-hinge-decomposition",
+      "label": "Actual orbit mass decomposes into mixed hinge balance",
+      "kind": "selected_stress",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json",
+      "default_weight": 2.0,
+      "boundary": "Finite hinge diagnostic only; no hinge-balance theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -135,7 +143,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 44.5,
+      "stack_weight": 46.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -357,14 +365,28 @@
             "top_actual_mass": 0.026413278799159435,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.49884676802297184,
+            "opposing_mass": 0.5011532319770281,
+            "supporting_hinge": 0.7767434073108495,
+            "opposing_hinge": 0.7679102277503218,
+            "hinge_margin": 0.008833179560527649,
+            "mass_driven": false,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 22,
+      "layer_count": 23,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 40.5,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -574,14 +596,28 @@
             "top_actual_mass": 0.07778114054775113,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5060374169854678,
+            "opposing_mass": 0.49396258301453205,
+            "supporting_hinge": 0.5354932623338841,
+            "opposing_hinge": 0.4987489163095945,
+            "hinge_margin": 0.036744346024289554,
+            "mass_driven": true,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 20,
-      "glow": 0.910112
+      "layer_count": 21,
+      "glow": 0.913978
     },
     {
       "id": "164598",
-      "stack_weight": 40.5,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -791,14 +827,28 @@
             "top_actual_mass": 0.02935341139923258,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5572164027328628,
+            "opposing_mass": 0.44278359726713723,
+            "supporting_hinge": 0.8154342412225315,
+            "opposing_hinge": 0.7962824487673553,
+            "hinge_margin": 0.019151792455176175,
+            "mass_driven": true,
+            "landing_driven": false
+          }
         }
       ],
-      "layer_count": 20,
-      "glow": 0.910112
+      "layer_count": 21,
+      "glow": 0.913978
     },
     {
       "id": "24424",
-      "stack_weight": 40.5,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1008,14 +1058,28 @@
             "top_actual_mass": 0.05398784677240028,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.44557618457771914,
+            "opposing_mass": 0.5544238154222809,
+            "supporting_hinge": 0.7695027298766108,
+            "opposing_hinge": 0.756044057182439,
+            "hinge_margin": 0.01345867269417178,
+            "mass_driven": false,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 20,
-      "glow": 0.910112
+      "layer_count": 21,
+      "glow": 0.913978
     },
     {
       "id": "55864",
-      "stack_weight": 40.5,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1225,14 +1289,28 @@
             "top_actual_mass": 0.03425153073739215,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5385775565107184,
+            "opposing_mass": 0.46142244348928174,
+            "supporting_hinge": 0.7988625198530616,
+            "opposing_hinge": 0.6996339440613728,
+            "hinge_margin": 0.09922857579168876,
+            "mass_driven": true,
+            "landing_driven": false
+          }
         }
       ],
-      "layer_count": 20,
-      "glow": 0.910112
+      "layer_count": 21,
+      "glow": 0.913978
     },
     {
       "id": "129706",
-      "stack_weight": 24.5,
+      "stack_weight": 26.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1354,14 +1432,28 @@
             "top_actual_mass": 0.04232128133144582,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.486324029599814,
+            "opposing_mass": 0.5136759704001861,
+            "supporting_hinge": 0.8096220653795566,
+            "opposing_hinge": 0.7511931391027071,
+            "hinge_margin": 0.05842892627684948,
+            "mass_driven": false,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 12,
-      "glow": 0.550562
+      "layer_count": 13,
+      "glow": 0.569892
     },
     {
       "id": "13556",
-      "stack_weight": 22.5,
+      "stack_weight": 24.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1472,14 +1564,28 @@
             "top_actual_mass": 0.08319711352001508,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5279540327909489,
+            "opposing_mass": 0.4720459672090511,
+            "supporting_hinge": 0.6979880947512592,
+            "opposing_hinge": 0.6884240044056013,
+            "hinge_margin": 0.009564090345657972,
+            "mass_driven": true,
+            "landing_driven": false
+          }
         }
       ],
-      "layer_count": 11,
-      "glow": 0.505618
+      "layer_count": 12,
+      "glow": 0.526882
     },
     {
       "id": "1240888",
-      "stack_weight": 16.5,
+      "stack_weight": 18.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1557,14 +1663,28 @@
             "top_actual_mass": 0.025681804086383663,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.5747545980822478,
+            "opposing_mass": 0.4252454019177522,
+            "supporting_hinge": 0.7174816015939508,
+            "opposing_hinge": 0.6902950282130327,
+            "hinge_margin": 0.027186573380918122,
+            "mass_driven": true,
+            "landing_driven": false
+          }
         }
       ],
-      "layer_count": 8,
-      "glow": 0.370787
+      "layer_count": 9,
+      "glow": 0.397849
     },
     {
       "id": "1242118",
-      "stack_weight": 16.5,
+      "stack_weight": 18.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1642,14 +1762,28 @@
             "top_actual_mass": 0.027196371750000652,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "opposing_mass": 0.5131334480712859,
+            "supporting_hinge": 0.8686962800128225,
+            "opposing_hinge": 0.8521673665460764,
+            "hinge_margin": 0.01652891346674612,
+            "mass_driven": false,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 8,
-      "glow": 0.370787
+      "layer_count": 9,
+      "glow": 0.397849
     },
     {
       "id": "40420",
-      "stack_weight": 16.5,
+      "stack_weight": 18.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1727,10 +1861,24 @@
             "top_actual_mass": 0.046166896603183655,
             "breaking_orbit_is_top": false
           }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.515510182552706,
+            "opposing_mass": 0.48448981744729397,
+            "supporting_hinge": 0.7580578409466537,
+            "opposing_hinge": 0.7091194374431781,
+            "hinge_margin": 0.04893840350347567,
+            "mass_driven": true,
+            "landing_driven": true
+          }
         }
       ],
-      "layer_count": 8,
-      "glow": 0.370787
+      "layer_count": 9,
+      "glow": 0.397849
     },
     {
       "id": "1379072",
@@ -1756,7 +1904,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.134831
+      "glow": 0.129032
     },
     {
       "id": "1323632",
@@ -1776,7 +1924,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.089888
+      "glow": 0.086022
     },
     {
       "id": "10664",
@@ -1790,7 +1938,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.022472
+      "glow": 0.021505
     },
     {
       "id": "14138",
@@ -1804,7 +1952,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.022472
+      "glow": 0.021505
     }
   ],
   "mechanism_stacks": [
@@ -1939,6 +2087,38 @@
           "layer": "fixed-inequality-target-window",
           "weight": 2.0,
           "reason": "active component pair stress path passed on tiny window"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
+      "id": "mixed-mass-landing-hinge-balance",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "selected rows split between mass-driven and landing-driven hinge classification",
+          "value": {
+            "maximum_hinge_identity_error": 3.3306690738754696e-16,
+            "mass_driven_targets": [
+              13556,
+              13822,
+              40420,
+              55864,
+              164598,
+              1240888
+            ],
+            "landing_driven_targets": [
+              24424,
+              13822,
+              40420,
+              129706,
+              1222142,
+              1242118
+            ]
+          }
         }
       ],
       "layer_count": 1,
@@ -2162,6 +2342,19 @@
           "layer": "staircase-orbit-mass-gap",
           "weight": 2.0,
           "reason": "prove actual mass cannot concentrate on weak breaker orbits"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.121212
+    },
+    {
+      "id": "dominant-staircase-hinge-balance",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "prove mixed actual-mass and landing-quality hinge balance"
         }
       ],
       "layer_count": 1,

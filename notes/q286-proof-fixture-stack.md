@@ -114,6 +114,12 @@ frame.
   about `0.0246193103`, while top actual orbit mass ranges from about
   `0.0256818041` to `0.0831971135`; the breaker orbit is never the top
   actual mass orbit.
+- `evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json`:
+  each selected staircase row is exactly decomposed into above-floor positive
+  hinge minus below-floor negative hinge, with maximum identity error about
+  `3.33e-16`.  Full-stage supporting and opposing masses both stay near
+  one-half, and the selected rows split between mass-driven and landing-driven
+  classifications.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -172,10 +178,14 @@ frame.
    orbit-mass gap receipt then isolates one concrete subclaim: actual
    prime-pair mass must be bounded away from the reflected breaker orbits, or
    the signed aggregate must be controlled in a way that neutralizes those
-   orbits.
+   orbits.  The hinge-decomposition receipt shows that the selected fixture is
+   a mixed mass-and-landing balance, not a one-dimensional mass cap or landing
+   floor.
 5. Prove the dangerous reflected-orbit mass-control tack for the dominant
    staircase, or replace it with an equally explicit signed aggregate theorem.
-6. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
+6. Prove the row-dependent hinge-balance theorem for actual q286 reflection
+   orbits, or replace it with an equally explicit signed aggregate theorem.
+7. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
 
@@ -198,4 +208,5 @@ geometry also does not force the frozen staircase classifications.  The
 current quantitative target is actual arithmetic placement inside the broad
 weak-geometry interval, not shrinking that interval by geometry alone.  The
 newest sharpened subtarget is actual mass control on the dangerous reflected
-breaker orbits used by the synthetic weak-geometry witnesses.
+breaker orbits used by the synthetic weak-geometry witnesses, now refined by
+the mixed hinge-balance decomposition.

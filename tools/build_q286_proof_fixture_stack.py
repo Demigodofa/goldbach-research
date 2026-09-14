@@ -72,6 +72,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json")
     dominant_mode_staircase_orbit_mass_gap = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json")
+    dominant_mode_staircase_hinge = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -521,6 +523,29 @@ def main():
                     "or pointwise prime-correlation theorem"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_hinge_decomposition",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json"),
+                "statement": (
+                    "The selected staircase slack decomposes exactly into "
+                    "actual above-floor positive hinge minus below-floor "
+                    "negative hinge; the sampled mechanism is mixed mass and "
+                    "landing quality rather than one-dimensional mass or "
+                    "landing control."),
+                "validation": (
+                    "maximum hinge identity error "
+                    f"{dominant_mode_staircase_hinge['maximum_hinge_identity_error']}; "
+                    "full-stage supporting mass range "
+                    f"{dominant_mode_staircase_hinge['full_stage']['classification_supporting_mass_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_hinge['full_stage']['classification_supporting_mass_summary']['maximum']}; "
+                    "opposing mass range "
+                    f"{dominant_mode_staircase_hinge['full_stage']['classification_opposing_mass_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_hinge['full_stage']['classification_opposing_mass_summary']['maximum']}."),
+                "proved_scope": (
+                    "finite exact hinge identity and diagnostic, not a "
+                    "hinge-balance theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -627,7 +652,10 @@ def main():
                     "prime-pair rows inside a broad weak interval.  The "
                     "orbit-mass gap receipt sharpens that placement problem "
                     "to control of the extremal reflected breaker orbits "
-                    "used by the weak synthetic witnesses."),
+                    "used by the weak synthetic witnesses.  The hinge "
+                    "decomposition then shows the selected fixture is a "
+                    "mixed mass-and-landing balance, not a one-dimensional "
+                    "mass cap or landing floor."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
@@ -655,6 +683,24 @@ def main():
                     "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json"),
                 "proved": False,
             },
+            {
+                "id": "joint.dominant_staircase_hinge_balance",
+                "statement": (
+                    "For the q286 dominant-mode staircase, prove the exact "
+                    "row-dependent hinge balance: actual mass above each "
+                    "row floor times positive landing quality must dominate "
+                    "the below-floor hinge for pass rows, while the reverse "
+                    "or an exclusion/complement mechanism handles deficit "
+                    "rows."),
+                "why_it_is_needed": (
+                    "The full-stage selected rows are split between "
+                    "mass-driven and landing-driven classifications; neither "
+                    "a simple mass cap nor a simple landing floor matches the "
+                    "observed finite mechanism."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json"),
+                "proved": False,
+            },
         ],
         "condensation_target": {
             "short_statement": (
@@ -669,6 +715,7 @@ def main():
                 "joint.external_prime_correlation_input",
                 "joint.dominant_singular_mode_projection",
                 "joint.dangerous_reflection_orbit_mass_bound",
+                "joint.dominant_staircase_hinge_balance",
             ],
             "current_status": "not ready to condense into a proof",
         },
@@ -681,7 +728,8 @@ def main():
             "requires an external fixed-modulus binary Goldbach/AP theorem.  "
             "A sharper near-term version is to prove that actual prime-pair "
             "mass cannot concentrate on the dangerous reflected breaker "
-            "orbits identified by the weak-geometry obstruction."),
+            "orbits identified by the weak-geometry obstruction, then prove "
+            "the mixed hinge-balance inequality left after that localization."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

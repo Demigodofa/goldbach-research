@@ -11356,6 +11356,22 @@ breaker orbits, or prove a signed aggregate replacement that makes such
 concentration unnecessary.  This is finite theorem-shaping evidence only, not
 an orbit-mass theorem or a Goldbach proof.
 
+The hinge-balance follow-up is now recorded in
+`notes/q286-first-three-dominant-mode-staircase-hinge-decomposition.md` and
+`evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json`.
+It decomposes each selected staircase row exactly as
+`stage_sum - required_floor = positive_above_floor_hinge -
+negative_below_floor_hinge`, with maximum identity error about `3.33e-16`.
+On the full eleven-channel stage, classification-supporting mass fractions
+range from about `0.4456` to `0.5748`, and opposing mass fractions from about
+`0.4252` to `0.5544`; supporting hinge contributions range from about
+`0.5355` to `0.8687`, while opposing hinge contributions range from about
+`0.4987` to `0.8522`.  Six selected rows are mass-driven by this diagnostic
+and six are landing-driven, with overlapping but different target sets.  This
+demotes a one-dimensional mass-cap or landing-floor proof story and sharpens
+the surviving tack to a row-dependent hinge-balance theorem, or a signed
+aggregate theorem that implies the same balance.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -20462,6 +20462,27 @@ zero actual mass.  This sharpens the leftover theorem to actual mass control
 on dangerous reflected breaker orbits, or a signed aggregate replacement.  It
 is not an orbit-mass theorem and not a Goldbach proof.
 
+Dominant-mode staircase hinge decomposition:
+
+- `q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_hinge_decomposition.py`
+- `notes/q286-first-three-dominant-mode-staircase-hinge-decomposition.md`
+- `evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_hinge_decomposition`
+
+This decomposes every selected staircase row as
+`stage_sum - required_floor = positive_above_floor_hinge -
+negative_below_floor_hinge`.  The full-stage maximum identity error is about
+`3.33e-16`.  Supporting and opposing mass are both near half on the selected
+fixture: supporting mass ranges about `0.4456..0.5748`, opposing mass about
+`0.4252..0.5544`.  Supporting and opposing hinge contributions are also
+close: about `0.5355..0.8687` versus `0.4987..0.8522`.  Six selected rows are
+mass-driven and six are landing-driven by this diagnostic.  Therefore the
+next tack is not a one-dimensional mass cap or landing floor; it is a
+row-dependent hinge-balance theorem for actual q286 reflection-orbit mass, or
+a signed aggregate theorem that implies that balance.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -58,6 +58,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt,
     q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt,
     q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt,
+    q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4917,6 +4918,43 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["staircase_orbit_mass_gap_measured"])
         self.assertFalse(receipt["orbit_mass_theorem_proved"])
         self.assertFalse(receipt["arithmetic_gap_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_staircase_hinge_decomposition(self):
+        receipt = (
+            q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertLessEqual(receipt["maximum_hinge_identity_error"], 1e-8)
+        self.assertEqual(
+            len(receipt["full_stage"]["target_rows"]),
+            len(receipt["sample_targets"]))
+        self.assertGreaterEqual(
+            receipt["full_stage"][
+                "classification_supporting_mass_summary"]["minimum"],
+            0)
+        self.assertLessEqual(
+            receipt["full_stage"][
+                "classification_opposing_mass_summary"]["maximum"],
+            1)
+        for row in receipt["full_stage"]["target_rows"]:
+            self.assertLessEqual(row["hinge_identity_error"], 1e-8)
+            self.assertAlmostEqual(
+                row["classification_hinge_margin"],
+                abs(row["actual_stage_slack_to_floor"]),
+                places=8)
+            self.assertGreaterEqual(
+                row["classification_supporting_hinge_to_principal"],
+                row["classification_opposing_hinge_to_principal"] - 1e-8)
+            self.assertIsNotNone(row["largest_below_floor_mass_orbit"])
+            self.assertIsNotNone(row["largest_above_floor_mass_orbit"])
+        self.assertTrue(receipt["hinge_decomposition_measured"])
+        self.assertFalse(receipt["hinge_balance_theorem_proved"])
+        self.assertFalse(receipt["orbit_mass_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):
