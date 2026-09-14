@@ -68,6 +68,7 @@ Current executable receipts:
 - `tools/build_q286_first_three_boundary_pair_autopsy.py`
 - `q286_first_three_positive_orbit_landing_profile_receipt`
 - `q286_first_three_positive_mass_threshold_falsifier_receipt`
+- `q286_first_three_singular_mode_residue_obligation_receipt`
 
 ## Closed or falsified lanes
 
@@ -697,6 +698,17 @@ current comparison set.
    modes.  This finite evidence demotes internal character-mode cancellation
    as the rescue mechanism for these rows and points to controlling the first
    two dominant singular coordinates or using a separate rescue theorem.
+77. `q286_first_three_singular_mode_residue_obligation_receipt`, with note
+   `notes/q286-first-three-singular-mode-residue-obligation.md` and evidence
+   in `evidence/q286-first-three-singular-mode-residue-obligation.json`,
+   bolts the character-mode narrowing to actual residue weights.  For each
+   singular mode `j`, it verifies
+   `mode_j(N)=sum_u (W_N(u)-T_N/|A_a|)*gamma_{a,j}(u)/T_N`.  On samples
+   `1222142`, `1242118`, and `1240888`, modes `1` and `2` are same-sign
+   negative on all three rows, but their sum falls below `-.3` only on tail
+   `1222142`.  This makes the next residual theorem a pointwise lower bound
+   or structural exclusion for the dominant two-mode projection, not another
+   threshold receipt.
 
 ## Still open
 

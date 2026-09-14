@@ -26,6 +26,11 @@ frame.
   near-boundary samples are almost perfectly same-sign negative in the
   rank-three q286 first-three character-mode ledger, so internal mode
   cancellation is not the observed rescue mechanism there.
+- `evidence/q286-first-three-singular-mode-residue-obligation.json`:
+  each singular coordinate is now an exact centered residue-discrepancy
+  projection; modes `1` and `2` are same-sign negative on the three
+  near-boundary samples, and their sum falls below `-.3` only on tail
+  `1222142`.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -46,7 +51,12 @@ frame.
    The current residual ledger shows the largest local deficits are not
    anonymous noise; residues such as `133` and `153` dominate the sample
    tail/near-clear rows.
-4. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
+4. Prove a lower bound for the combined dominant singular-mode projection
+   `mode_1(N)+mode_2(N)`, or classify the arithmetic conditions that stop
+   simultaneous strong negativity in those two coordinates.  In the current
+   sample, this is the immediate residual after bolting on the residue-pair
+   identity.
+5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
 
@@ -56,11 +66,9 @@ signed projection controls q286 first-three; complement/lower support rescues
 the remaining strict-central action; finite and endpoint assembly close the
 global statement.
 
-Current next non-circular action: attack the residue-pair discrepancy
-inequality directly, or prove/cite that an external fixed-modulus
-strict-central binary Goldbach/AP theorem supplies it.  The next narrowing
-test is to decompose `gamma_a` into Dirichlet-character modes and ask whether
-the required one-sided projection is strictly weaker than full per-residue AP
-Goldbach.  Current finite evidence says the first two dominant singular
-coordinates must be controlled directly, structurally excluded from
-simultaneous strong negativity, or rescued by complement/lower-support terms.
+Current next non-circular action: attack the first two dominant singular-mode
+residue projections directly, or prove/cite that an external fixed-modulus
+strict-central binary Goldbach/AP theorem supplies the needed one-sided
+control.  Current finite evidence says the first two dominant singular
+coordinates must be bounded below, structurally excluded from simultaneous
+strong negativity, or rescued by complement/lower-support terms.

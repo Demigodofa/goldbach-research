@@ -11110,6 +11110,29 @@ The next theorem target is control of the first two dominant singular
 coordinates, a structural exclusion of simultaneous strong negativity there,
 or rescue from complement/lower-support/outer assembly.
 
+The singular-coordinate residual is now formalized in
+`notes/q286-first-three-singular-mode-residue-obligation.md` and
+`evidence/q286-first-three-singular-mode-residue-obligation.json`.  For each
+singular mode `j`, centered residue coefficient `gamma_{a,j}(u)`, and actual
+strict-central binary-prime residue weights `W_N(u)`, the exact identity is:
+
+```text
+mode_j(N) =
+sum_{u in A_a} (W_N(u)-T_N/|A_a|) * gamma_{a,j}(u) / T_N.
+```
+
+The focused regression verifies this against the prior character-coordinate
+receipt.  On samples `1222142`, `1242118`, and `1240888`, modes `1` and `2`
+are same-sign negative on all three rows.  Their combined pressure is about
+`-0.3088331795605278` on tail `1222142`, leaving slack
+`-0.008833179560527815` to the `-.3` floor, while clear rows `1242118` and
+`1240888` remain above the floor with slacks about `0.016528913466746065` and
+`0.027186573380917844`.  This is the current "bolt it on, then measure what is
+left" layer: the unresolved theorem is a lower bound or structural exclusion
+for the dominant two-mode residue projection, plus any complement/lower-support
+rescue needed afterward.  No pointwise character-sum theorem or Goldbach proof
+is established.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

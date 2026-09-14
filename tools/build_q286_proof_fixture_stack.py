@@ -38,6 +38,8 @@ def main():
         "evidence/q286-residue-pair-external-theorem-comparison.json")
     character_narrowing = load_json(
         "evidence/q286-residue-pair-character-mode-narrowing.json")
+    singular_mode_obligation = load_json(
+        "evidence/q286-first-three-singular-mode-residue-obligation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -140,6 +142,27 @@ def main():
                 "proved_scope": "finite theorem-shaping diagnostic",
             },
             {
+                "id": "anchor.singular_mode_residue_obligation",
+                "source": (
+                    "evidence/q286-first-three-singular-mode-residue-obligation.json"),
+                "statement": (
+                    "Each rank-three q286 first-three singular mode is an "
+                    "exact centered residue-discrepancy projection against "
+                    "a mode coefficient gamma_{a,j}(u)."),
+                "validation": (
+                    "dominant modes "
+                    f"{singular_mode_obligation['dominant_modes']} are "
+                    "same-sign negative on "
+                    f"{singular_mode_obligation['same_sign_dominant_target_count']} "
+                    "sample rows; dominant-mode failure targets "
+                    f"{singular_mode_obligation['dominant_mode_failure_targets']}; "
+                    "maximum mode identity error "
+                    f"{singular_mode_obligation['maximum_mode_identity_error']}."),
+                "proved_scope": (
+                    "exact finite singular-mode residue identity and sample "
+                    "classification"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -224,6 +247,21 @@ def main():
                     "evidence/q286-first-three-residue-pair-correlation-obligation.json"),
                 "proved": False,
             },
+            {
+                "id": "joint.dominant_singular_mode_projection",
+                "statement": (
+                    "Prove a pointwise lower bound for the combined q286 "
+                    "singular-mode-1 and singular-mode-2 residue projection, "
+                    "or classify the arithmetic conditions that prevent "
+                    "simultaneous strong negativity in those two modes."),
+                "why_it_is_needed": (
+                    "The current samples are not saved by cancellation among "
+                    "the leading modes; the tail row is already below -0.3 "
+                    "in modes 1+2, while the near-clear rows stay above it."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-singular-mode-residue-obligation.json"),
+                "proved": False,
+            },
         ],
         "condensation_target": {
             "short_statement": (
@@ -236,6 +274,7 @@ def main():
                 "joint.lower_support_or_complement_rescue",
                 "joint.boundary_and_endpoint_assembly",
                 "joint.external_prime_correlation_input",
+                "joint.dominant_singular_mode_projection",
             ],
             "current_status": "not ready to condense into a proof",
         },

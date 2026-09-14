@@ -235,6 +235,14 @@
       "status_boundary": "finite character-mode diagnostic only; no pointwise character-sum estimate, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_singular_mode_residue_obligation",
+      "type": "receipt",
+      "label": "q286 first-three singular-mode residue obligation",
+      "status": "theorem_obligation_formalized",
+      "validation": "q286_first_three_singular_mode_residue_obligation_receipt and tools/build_q286_first_three_singular_mode_residue_obligation.py generated evidence/q286-first-three-singular-mode-residue-obligation.json; each singular mode is an exact centered residue-discrepancy projection, modes 1 and 2 are same-sign negative on samples 1222142, 1242118, and 1240888, and their sum falls below -.3 only on tail 1222142",
+      "status_boundary": "exact singular-mode residue-discrepancy obligation and finite sample classification only; no pointwise character-sum estimate, no fixed-modulus binary AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
+    },
+    {
       "id": "structure.q286_proof_fixture_stack",
       "type": "surviving_structure",
       "label": "q286 proof fixture stack",
@@ -1741,6 +1749,21 @@
       "type": "supports"
     },
     {
+      "from": "receipt.q286_first_three_singular_mode_residue_obligation",
+      "to": "receipt.q286_residue_pair_character_mode_narrowing",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_singular_mode_residue_obligation",
+      "to": "obligation.q286_residue_pair_correlation",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_first_three_singular_mode_residue_obligation",
+      "to": "theorem.first_three_signed_projection",
+      "type": "supports"
+    },
+    {
       "from": "theorem.first_three_signed_projection",
       "to": "obligation.active_selector_rarity",
       "type": "requires"
@@ -1767,6 +1790,11 @@
     },
     {
       "from": "receipt.q286_residue_pair_character_mode_narrowing",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_singular_mode_residue_obligation",
       "to": "structure.q286_proof_fixture_stack",
       "type": "refines"
     },

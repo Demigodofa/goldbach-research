@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "623f0fb33e21de72240d98a609035ac7824825ec",
+  "generated_from_commit": "a6cc880fa65d7aef4a223bbd234b6c1b37c1e291",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",

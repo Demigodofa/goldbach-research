@@ -41,6 +41,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_ap_discrepancy_proxy_receipt,
     q286_first_three_character_mixture_norm_receipt,
     q286_first_three_character_mode_coordinate_receipt,
+    q286_first_three_singular_mode_residue_obligation_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4270,6 +4271,49 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_character_mode_coordinate_measured"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_singular_mode_residue_obligation(self):
+        receipt = q286_first_three_singular_mode_residue_obligation_receipt(
+            sample_targets=(1222142, 1242118, 1240888))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(
+            receipt["same_sign_dominant_target_count"], 3)
+        self.assertEqual(
+            set(receipt["dominant_mode_failure_targets"]),
+            {1222142})
+        self.assertLess(receipt["maximum_mode_identity_error"], 1e-9)
+        self.assertLess(
+            receipt["maximum_recombined_identity_error"], 1e-9)
+        rows = receipt["target_rows"]
+        for target in (1222142, 1242118, 1240888):
+            row = rows[target]
+            self.assertTrue(row["dominant_modes_same_sign_negative"])
+            self.assertEqual(len(row["mode_rows"]), 3)
+            self.assertLess(row["recombined_identity_error"], 1e-9)
+            self.assertLess(
+                row["mode_rows"][0][
+                    "mode_contribution_to_principal_ratio"], 0)
+            self.assertLess(
+                row["mode_rows"][1][
+                    "mode_contribution_to_principal_ratio"], 0)
+            for mode_row in row["mode_rows"]:
+                self.assertLess(mode_row["mode_identity_error"], 1e-9)
+                self.assertLess(
+                    abs(mode_row[
+                        "gamma_sum_on_admissible_residues"]), 1e-9)
+        self.assertTrue(receipt[
+            "singular_mode_residue_obligation_formalized"])
+        self.assertLess(
+            rows[1222142]["dominant_mode_threshold_slack"], 0)
+        self.assertGreater(
+            rows[1242118]["dominant_mode_threshold_slack"], 0)
+        self.assertGreater(
+            rows[1240888]["dominant_mode_threshold_slack"], 0)
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

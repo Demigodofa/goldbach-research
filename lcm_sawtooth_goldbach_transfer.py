@@ -7721,6 +7721,238 @@ def q286_first_three_character_mode_coordinate_receipt(
     }
 
 
+def q286_first_three_singular_mode_residue_obligation_receipt(
+        sample_targets=(1222142, 1242118, 1240888),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_contribution_count=6):
+    """State residue-discrepancy obligations for q286 singular modes.
+
+    The first-three residue-pair obligation can be split into its first three
+    singular-mode coordinates.  For each mode ``j``, this receipt constructs a
+    centered residue coefficient ``gamma_{a,j}(u)`` such that the mode
+    contribution is exactly
+
+    ``sum_u (W_N(u)-T_N/|A_a|)*gamma_{a,j}(u)/T_N``.
+
+    This is a finite algebraic receipt and theorem-obligation statement.  It
+    proves no pointwise character-sum estimate and no Goldbach theorem.
+    """
+    sample_targets = tuple(sample_targets)
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    dominant_modes = tuple(dominant_modes)
+    if (not dominant_modes
+            or any(type(index) is not int or index < 1 or index > 3
+                   for index in dominant_modes)):
+        raise ValueError("dominant_modes must contain mode indices 1..3")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if (type(top_contribution_count) is not int
+            or top_contribution_count < 1):
+        raise ValueError("top_contribution_count must be a positive integer")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    units = data["units"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+    mode_linear_coefficients = tuple(
+        np.asarray(values.real, dtype=np.float64)
+        for values in data["singular_mode_linear_coefficients"])
+    unit_count = len(units)
+
+    coordinate_receipt = q286_first_three_character_mode_coordinate_receipt(
+        targets=sample_targets, tolerance=tolerance)
+
+    maximum_target = max(sample_targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    target_rows = {}
+    maximum_mode_identity_error = 0.0
+    maximum_recombined_identity_error = 0.0
+    same_sign_dominant_target_count = 0
+    dominant_failure_targets = []
+    for target in sample_targets:
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        target_residue = target % modulus
+        admissible_mask = admissible_masks[target_residue]
+        if len(selected_primes) == 0:
+            target_rows[target] = {
+                "target": target,
+                "target_mod_286": target_residue,
+                "has_strict_central_prime_pairs": False,
+            }
+            continue
+
+        residue_weights = np.bincount(
+            unit_index_by_residue[selected_primes % modulus],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=unit_count)
+        total_weight = float(np.sum(residue_weights))
+        uniform_weight = total_weight / admissible_counts[target_residue]
+        discrepancy = np.zeros(unit_count, dtype=np.float64)
+        discrepancy[admissible_mask] = (
+            residue_weights[admissible_mask] - uniform_weight)
+        normalized_discrepancy = discrepancy / total_weight
+        coordinate_row = coordinate_receipt["rows"][target]
+        coordinate_by_mode = {
+            row["mode_index"]: row["contribution_to_principal_ratio"]
+            for row in coordinate_row["mode_rows"]
+        }
+
+        mode_rows = []
+        recombined = 0.0
+        dominant_sum = 0.0
+        dominant_signs = []
+        for mode_index, raw_coefficients in enumerate(
+                mode_linear_coefficients, start=1):
+            local_mean = float(np.mean(raw_coefficients[admissible_mask]))
+            gamma = np.zeros(unit_count, dtype=np.float64)
+            gamma[admissible_mask] = (
+                raw_coefficients[admissible_mask] - local_mean
+            ) / principal_mean
+            contribution = float(np.dot(discrepancy, gamma) / total_weight)
+            normalized_contribution = float(
+                np.dot(normalized_discrepancy, gamma))
+            expected = float(coordinate_by_mode[mode_index])
+            mode_identity_error = max(
+                abs(contribution - normalized_contribution),
+                abs(contribution - expected))
+            maximum_mode_identity_error = max(
+                maximum_mode_identity_error, mode_identity_error)
+            recombined += contribution
+            if mode_index in dominant_modes:
+                dominant_sum += contribution
+                if contribution < -tolerance:
+                    dominant_signs.append("-")
+                elif contribution > tolerance:
+                    dominant_signs.append("+")
+                else:
+                    dominant_signs.append("0")
+
+            contribution_rows = []
+            for index in np.nonzero(admissible_mask)[0]:
+                signed_piece = float(normalized_discrepancy[index]
+                                     * gamma[index])
+                contribution_rows.append({
+                    "residue": units[index],
+                    "partner_residue": (
+                        target_residue - units[index]) % modulus,
+                    "weight_fraction": float(
+                        residue_weights[index] / total_weight),
+                    "uniform_weight_fraction": float(
+                        1.0 / admissible_counts[target_residue]),
+                    "relative_discrepancy": float(
+                        normalized_discrepancy[index]),
+                    "gamma_mode_to_principal_ratio": float(gamma[index]),
+                    "mode_projection_contribution": signed_piece,
+                })
+            negative_rows = sorted(
+                (row for row in contribution_rows
+                 if row["mode_projection_contribution"] < -tolerance),
+                key=lambda row: row["mode_projection_contribution"])
+            positive_rows = sorted(
+                (row for row in contribution_rows
+                 if row["mode_projection_contribution"] > tolerance),
+                key=lambda row: row["mode_projection_contribution"],
+                reverse=True)
+            mode_rows.append({
+                "mode_index": mode_index,
+                "singular_value": data["singular_values"][mode_index - 1],
+                "mode_contribution_to_principal_ratio": contribution,
+                "expected_character_coordinate_contribution": expected,
+                "mode_identity_error": mode_identity_error,
+                "gamma_sum_on_admissible_residues": float(
+                    np.sum(gamma[admissible_mask])),
+                "gamma_l1_to_principal_ratio": float(
+                    np.sum(np.abs(gamma[admissible_mask]))),
+                "gamma_l2_to_principal_ratio": float(
+                    np.linalg.norm(gamma[admissible_mask])),
+                "top_negative_residue_contributions": tuple(
+                    negative_rows[:top_contribution_count]),
+                "top_positive_residue_contributions": tuple(
+                    positive_rows[:top_contribution_count]),
+            })
+
+        first_three = coordinate_row["first_three_to_principal_ratio"]
+        recombined_error = abs(recombined - first_three)
+        maximum_recombined_identity_error = max(
+            maximum_recombined_identity_error, recombined_error)
+        same_sign_dominant = bool(
+            dominant_signs
+            and all(sign == "-" for sign in dominant_signs))
+        if same_sign_dominant:
+            same_sign_dominant_target_count += 1
+        if dominant_sum < -tail_threshold - tolerance:
+            dominant_failure_targets.append(target)
+
+        target_rows[target] = {
+            "target": target,
+            "target_mod_286": target_residue,
+            "has_strict_central_prime_pairs": True,
+            "admissible_residue_count": admissible_counts[target_residue],
+            "total_strict_central_prime_pair_weight": total_weight,
+            "first_three_to_principal_ratio": first_three,
+            "recombined_mode_sum_to_principal_ratio": recombined,
+            "recombined_identity_error": recombined_error,
+            "dominant_modes": dominant_modes,
+            "dominant_mode_sum_to_principal_ratio": dominant_sum,
+            "dominant_mode_threshold_slack": (
+                dominant_sum + tail_threshold),
+            "dominant_modes_same_sign_negative": same_sign_dominant,
+            "mode_rows": tuple(mode_rows),
+        }
+
+    return {
+        "arithmetic_modulus": modulus,
+        "arithmetic_period": 10010,
+        "sample_targets": sample_targets,
+        "tail_threshold": tail_threshold,
+        "dominant_modes": dominant_modes,
+        "rank_three_singular_values": data["singular_values"],
+        "target_rows": target_rows,
+        "same_sign_dominant_target_count": same_sign_dominant_target_count,
+        "dominant_mode_failure_targets": tuple(
+            sorted(dominant_failure_targets)),
+        "maximum_mode_identity_error": maximum_mode_identity_error,
+        "maximum_recombined_identity_error": (
+            maximum_recombined_identity_error),
+        "dominant_mode_residue_obligation": (
+            "For each dominant singular mode j, with centered coefficient "
+            "gamma_{a,j}(u), control "
+            "sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_{a,j}(u)/T_N. "
+            "The current first-three route needs the combined dominant-mode "
+            "pressure plus the remaining mode/complement terms to stay above "
+            "-tau."),
+        "singular_mode_residue_obligation_formalized": True,
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):
@@ -16924,16 +17156,23 @@ def _q286_first_three_mode_linear_data(tolerance):
     left, singular_values, right = np.linalg.svd(
         coefficient_matrix, full_matrices=False)
     first_three_matrix = np.zeros((10, 12), dtype=np.complex128)
+    singular_mode_matrices = []
     for index in range(3):
-        first_three_matrix[1:, 1:] += (
+        mode_matrix = np.zeros((10, 12), dtype=np.complex128)
+        mode_matrix[1:, 1:] = (
             singular_values[index]
             * np.outer(left[:, index], right[index, :]))
+        first_three_matrix += mode_matrix
+        singular_mode_matrices.append(mode_matrix)
 
     modulus = 286
     units = tuple(unit for unit in range(modulus)
                   if math.gcd(unit, modulus) == 1)
     _, _, character_table = _unit_character_table(modulus, units)
     linear_coefficients = first_three_matrix.reshape(-1) @ character_table
+    singular_mode_linear_coefficients = tuple(
+        mode_matrix.reshape(-1) @ character_table
+        for mode_matrix in singular_mode_matrices)
     sample_row = character_receipt["rows"][10424]
     principal_mean = (
         sample_row["principal_contribution"]
@@ -16958,6 +17197,8 @@ def _q286_first_three_mode_linear_data(tolerance):
         "admissible_masks": admissible_masks,
         "admissible_counts": admissible_counts,
         "singular_values": tuple(float(value) for value in singular_values[:3]),
+        "singular_mode_linear_coefficients": tuple(
+            singular_mode_linear_coefficients),
     }
 
 

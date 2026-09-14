@@ -36,6 +36,13 @@
       "validation": "same-sign sample count 3 of 3; character product count 99."
     },
     {
+      "id": "anchor.singular_mode_residue_obligation",
+      "proved_scope": "exact finite singular-mode residue identity and sample classification",
+      "source": "evidence/q286-first-three-singular-mode-residue-obligation.json",
+      "statement": "Each rank-three q286 first-three singular mode is an exact centered residue-discrepancy projection against a mode coefficient gamma_{a,j}(u).",
+      "validation": "dominant modes [1, 2] are same-sign negative on 3 sample rows; dominant-mode failure targets [1222142]; maximum mode identity error 4.440892098500626e-16."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -55,7 +62,8 @@
       "joint.q286_first_three_signed_projection",
       "joint.lower_support_or_complement_rescue",
       "joint.boundary_and_endpoint_assembly",
-      "joint.external_prime_correlation_input"
+      "joint.external_prime_correlation_input",
+      "joint.dominant_singular_mode_projection"
     ],
     "current_status": "not ready to condense into a proof",
     "short_statement": "If the q286 signed-projection anti-alignment theorem, the conditioned lower-support/complement rescue, and the finite/endpoint/outer assembly joints are proved, condense the route into a single conditional Goldbach theorem stack."
@@ -63,7 +71,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "3418d3f182f076b1e1bf2bbea843026d8d5162b4",
+  "source_commit": "a6cc880fa65d7aef4a223bbd234b6c1b37c1e291",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -99,6 +107,13 @@
       "proved": false,
       "statement": "Prove the q286 pointwise binary-prime residue correlation theorem sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N, or cite an external theorem strong enough to imply it.",
       "why_it_is_needed": "The surviving tacks are arithmetic distribution claims about actual prime-pair weights, not geometry-only claims."
+    },
+    {
+      "exact_obligation_source": "evidence/q286-first-three-singular-mode-residue-obligation.json",
+      "id": "joint.dominant_singular_mode_projection",
+      "proved": false,
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, or classify the arithmetic conditions that prevent simultaneous strong negativity in those two modes.",
+      "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it."
     }
   ],
   "workshop_rule": "Do not fabricate the whole theorem from free-space measurements. Bolt exact identities to the actual q286 frame, tack only named unresolved theorem joints, validate each tack unchanged, then condense the assembly only after the joints are proved."

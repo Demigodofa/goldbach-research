@@ -20090,6 +20090,37 @@ dominant singular coordinates, a structural exclusion of simultaneous strong
 negativity there, a complement/lower-support rescue theorem, or a full
 fixed-modulus AP/Goldbach-strength input.
 
+Singular-mode residue obligation:
+
+- `q286_first_three_singular_mode_residue_obligation_receipt`
+- `tools/build_q286_first_three_singular_mode_residue_obligation.py`
+- `notes/q286-first-three-singular-mode-residue-obligation.md`
+- `evidence/q286-first-three-singular-mode-residue-obligation.json`
+- focused regression:
+  `test_q286_first_three_singular_mode_residue_obligation`
+
+This is the literal residual stack below the character-mode narrowing.  For
+each singular mode `j`, target residue `a`, centered coefficient
+`gamma_{a,j}(u)`, strict-central binary-prime residue weights `W_N(u)`, and
+total weight `T_N`, the receipt verifies:
+
+```text
+mode_j(N) =
+sum_{u in A_a} (W_N(u)-T_N/|A_a|) * gamma_{a,j}(u) / T_N.
+```
+
+The focused regression passed and checks both the per-mode identities and the
+recombined first-three identity below `1e-9`.  On samples `1222142`,
+`1242118`, and `1240888`, modes `1` and `2` are same-sign negative on all
+three rows.  The dominant two-mode sum falls below `-.3` only on tail
+`1222142`: about `-0.3088331795605278`, slack
+`-0.008833179560527815`.  Clear rows `1242118` and `1240888` remain above
+that floor at about `-0.2834710865332539` and `-0.27281342661908214`.  This
+does not prove the first-three theorem; it states the next exact theorem
+obligation as a lower bound or structural exclusion for the combined
+mode-1/mode-2 residue projection, with complement/lower-support rescue still
+open.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
