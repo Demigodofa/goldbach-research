@@ -21079,6 +21079,31 @@ mechanism.  The next theorem route should use row-dependent arithmetic
 balance, a larger signed cone with explicit coefficients, or a replacement
 signed aggregate theorem that removes the SVD proxy.
 
+AI unit-distance method-transfer note:
+
+- `notes/ai-unit-distance-method-transfer-for-goldbach.md`
+
+Kevin flagged OpenAI's 2026 unit-distance counterexample method as highly
+interesting.  The useful transfer is not theorem content; it is the proof
+search pattern: change representation, use a mature external structure in the
+lifted domain, and prove that projection back to the original problem cannot
+erase the needed effect.
+
+For q286, this becomes a disciplined lift-and-project lane for local
+hole-tightening, not a universal proof engine.  Treat the frozen Octave
+rank-`1` outside direction as a possible shadow of a hidden arithmetic basis
+rather than a proof object by itself.  The next bounded test is a predeclared
+lifted-dictionary audit that projects candidate dictionaries onto the existing
+`17` outside channels, asks whether they reproduce the frozen rank-`1`
+direction without target-specific fitting, and checks whether they predict
+high residual-drag rows such as `1242118`, `1222048`, `1220056`, and
+`1200254`.
+
+This is an `aha-candidate` and strategy pivot only.  It remains falsified if
+the lift requires post-hoc fitting, collapses to the already-refuted fixed
+small-channel certificate, or merely restates an unproved pointwise
+Goldbach-in-progressions theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

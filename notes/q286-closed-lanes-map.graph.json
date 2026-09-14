@@ -1309,6 +1309,14 @@
       "status": "finite_falsifier",
       "validation": "tools/build_q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier.py generated evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json; on the 10 high-drag full-window rows, the best fixed five-label subset covers only about 0.3570706202 of negative residual mass in its worst row 1200482, so the small fixed-channel certificate is refuted",
       "status_boundary": "finite channel-certificate falsifier only; no residual-bound theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "strategy.ai_unit_distance_lift_project_transfer",
+      "type": "open_obligation",
+      "label": "AI unit-distance lift-and-project method transfer",
+      "status": "aha_candidate_unvalidated",
+      "validation": "notes/ai-unit-distance-method-transfer-for-goldbach.md preserves a source-backed strategy from the 2026 OpenAI unit-distance counterexample: change representation, use mature lifted structure, then prove projection loss; proposed q286 test is a predeclared lifted-dictionary audit against the frozen 17 outside channels",
+      "status_boundary": "strategy note only; no lifted dictionary has been validated, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
     }
   ],
   "edges": [
@@ -2834,6 +2842,16 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_residual_drag_channel_certificate_falsifier",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "strategy.ai_unit_distance_lift_project_transfer",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "strategy.ai_unit_distance_lift_project_transfer",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

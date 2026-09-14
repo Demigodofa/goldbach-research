@@ -12900,3 +12900,32 @@ sparse proof explanation.  The next proof route should target a row-dependent
 arithmetic balance, a larger signed cone with explicit coefficients, or a
 replacement signed aggregate theorem rather than a tiny static bad-channel
 list.
+
+### 2026-09-14 continuation: AI unit-distance method transfer
+
+Kevin flagged the 2026 OpenAI unit-distance counterexample discussion as a
+possible methodological clue.  The resulting Goldbach note is:
+
+```text
+notes/ai-unit-distance-method-transfer-for-goldbach.md
+```
+
+The source-backed lesson is a representation shift, not a theorem import.
+OpenAI's geometry result used a lifted algebraic construction and projected it
+back to the original setting.  The Goldbach analogue is to search for a lifted
+domain where binary prime-pair positivity becomes forced or easier, then prove
+that projection back to ordinary even targets cannot erase it.
+
+For the current q286 state, that means treating this as a local
+hole-tightening tool, not a universal proof engine.  Treat the frozen Octave
+rank-`1` outside direction as a possible shadow of a hidden arithmetic basis.
+The next bounded experiment is a predeclared lift-and-project dictionary
+audit: project candidate arithmetic dictionaries onto the existing `17`
+outside channels, test whether they reproduce the frozen rank-`1` direction
+without post-hoc target fitting, and test whether they predict the known high
+residual-drag rows before promotion.
+
+This is an `aha-candidate`, not proof progress by itself.  It is retired if
+candidate lifts only work after tuning to the rows, if they collapse to the
+already-refuted fixed small-channel certificate, or if they merely rename an
+unproved pointwise Goldbach-in-progressions theorem.
