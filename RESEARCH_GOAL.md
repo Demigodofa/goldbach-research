@@ -12840,3 +12840,35 @@ shape, but it does not prove the cap.  The proof target remains a
 non-post-hoc arithmetic meaning for the frozen rank-`1` outside direction and
 a residual-drag inequality, or a stronger signed aggregate theorem that
 removes the SVD proxy.
+
+### 2026-09-14 continuation: rank-1 residual-drag full-window audit
+
+The next receipt removes the closest-row filter and tests the full six-window
+denominator.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json
+```
+
+The full denominator has `716` targets from the same six near-boundary
+windows.  The lone deficit is still stress row `1222142`; the other `715`
+checked rows are clears.
+
+The frozen Octave rank-`1` outside direction remains positive on all `715`
+clear-minus-stress outside-channel vectors.  The exact outside delta is also
+positive for every checked clear.  The `0.75` residual-drag cap survives on
+the full denominator, with the same worst row:
+
+```text
+1242118   drag/rank1 about 0.7421344693
+```
+
+Lower caps remain refuted.  The `0.7` cap fails at `1242118`; the half-drag
+cap fails at `1242118` and `1222048`; the quarter cap now fails at
+`1242118`, `1222048`, `1220056`, and `1200254`; and the `0.2` cap fails at
+ten checked rows.
+
+This is a stronger finite stability result, but it is still not a theorem.
+The proof target remains a non-post-hoc arithmetic meaning for the frozen
+rank-`1` outside direction plus a residual-drag inequality, or a stronger
+signed aggregate theorem that removes the SVD proxy.

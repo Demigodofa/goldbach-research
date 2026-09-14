@@ -21031,6 +21031,28 @@ the same: identify the arithmetic meaning of the frozen rank-`1` outside
 direction and prove a residual-drag inequality, or replace the SVD proxy with
 a stronger signed aggregate theorem.
 
+Dominant-mode outside-plane rank-1 residual-drag full-window audit:
+
+- `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_full_window_audit.py`
+- `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.md`
+- `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json`
+
+This removes the closest-row filter and tests every evaluated target in the
+same six near-boundary windows: `716` targets total.  The lone deficit is
+still stress row `1222142`, and the other `715` rows are clears.
+
+The frozen Octave rank-`1` outside direction remains positive on all `715`
+clear-minus-stress outside-channel vectors.  The exact outside delta is also
+positive for every checked clear.  The `0.75` residual-drag cap survives on
+the full denominator; the worst row is unchanged, `1242118`, with
+drag/rank-`1` about `0.7421344693`.
+
+Lower caps remain refuted.  The `0.7` cap fails at `1242118`; the half-drag
+cap fails at `1242118` and `1222048`; the quarter cap now fails at
+`1242118`, `1222048`, `1220056`, and `1200254`; and the `0.2` cap fails at
+ten checked rows.  This makes the finite rank-`1` plus residual-drag target
+more stable, but the theorem obligation remains arithmetic and non-post-hoc.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

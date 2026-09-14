@@ -1480,6 +1480,18 @@ current comparison set.
    at ratio about `0.7421344693`.  This is a finite stability check only, but
    it keeps the rank-`1` plus residual-drag theorem target alive under a
    no-refit denominator expansion.
+137. `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_full_window_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-full-window-audit.json`,
+   removes the closest-row filter and tests all `716` targets in the same six
+   near-boundary windows.  The lone deficit is still `1222142`; the frozen
+   Octave rank-`1` outside direction stays positive on all `715` checked
+   clears; exact outside delta is positive for every clear; and the `0.75`
+   residual-drag cap survives with the same worst row `1242118` at ratio
+   about `0.7421344693`.  This strengthens the finite stability of the
+   target, while lower caps remain refuted.
 
 ## Still open
 
@@ -1620,6 +1632,8 @@ current comparison set.
   `0.7 * rank1` already fails at the closest clear `1242118`.  The closest-20
   expanded holdout preserves the same worst row and keeps the frozen rank-`1`
   direction positive on all `119` expanded clears, so the live finite target
-  is no longer just a 72-row artifact.
+  is no longer just a 72-row artifact.  The full-window audit then removes the
+  closest-row filter entirely and preserves rank-`1` positivity plus the
+  `0.75` residual-drag cap across all `715` checked clears in the six windows.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
