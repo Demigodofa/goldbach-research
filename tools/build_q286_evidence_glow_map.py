@@ -53,6 +53,8 @@ def main():
         EVIDENCE / "q286-active-lane-strict-closure-margin-census-selected-late.json")
     fixed = load_json(EVIDENCE / "q286-fixed-inequality-target-window-census.json")
     late_zero = load_json(EVIDENCE / "q286-tail-alignment-complement-window-233-264.json")
+    portfolio_residual = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-portfolio-residual-obligation.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -194,6 +196,49 @@ def main():
         "post-232-zero-tail-window",
         1.0,
         "no falsifier rows in adjacent post-232 window")
+
+    layer(
+        "portfolio-residual-obligation",
+        "Recurrent portfolio is split from residual requirement",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json",
+        2.5,
+        "Finite selected portfolio/residual split only; no lower-bound theorem.")
+    for target, row in portfolio_residual["target_rows"].items():
+        reason = (
+            "portfolio/residual floor passed"
+            if row["dominant_floor_passes"]
+            else "portfolio/residual floor failed")
+        add_hit(
+            target_stacks,
+            str(target),
+            "portfolio-residual-obligation",
+            2.5,
+            reason,
+            row["portfolio_slack_to_floor"])
+    add_hit(
+        mechanism_stacks,
+        "recurrent-portfolio-versus-residual",
+        "portfolio-residual-obligation",
+        2.5,
+        "dominant floor rewritten as rowwise portfolio lower bound",
+        {
+            "portfolio_channel_count": (
+                portfolio_residual["portfolio_channel_count"]),
+            "residual_channel_count": (
+                portfolio_residual["residual_channel_count"]),
+            "worst_target": (
+                portfolio_residual["worst_floor_slack_row"]["target"]),
+            "worst_slack": (
+                portfolio_residual["worst_floor_slack_row"][
+                    "portfolio_slack_to_floor"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "portfolio-residual-obligation",
+        2.5,
+        "prove recurrent portfolio lower bound or residual-channel bound")
 
     layer(
         "conditional-proof-stack",

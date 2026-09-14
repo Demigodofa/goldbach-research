@@ -62,6 +62,12 @@ frame.
   clear rows from selected deficits, but the universal two-channel portfolio
   captures as little as `0.0534` of a positive swing delta and the recurrent
   portfolio still leaves a nonportfolio residual.
+- `evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json`:
+  bolting on the `11`-channel recurrent portfolio and subtracting it from the
+  selected dominant rows gives the exact rowwise obligation
+  `portfolio_sum >= -0.3 - nonportfolio_residual_sum`; the remaining theorem
+  is a portfolio lower bound against this residual requirement, or a residual
+  theorem that keeps the requirement in range.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -96,7 +102,9 @@ frame.
    The swing-pair decomposition further sharpens this to a helpful-channel
    portfolio estimate, not a tiny-channel lemma.  The fixed-portfolio
    diagnostic preserves the recurrent portfolio as a finite candidate while
-   keeping the nonportfolio residual explicit.
+   keeping the nonportfolio residual explicit.  The portfolio/residual
+   obligation now rewrites that residual explicitly as the rowwise required
+   portfolio floor.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -107,9 +115,9 @@ signed projection controls q286 first-three; complement/lower support rescues
 the remaining strict-central action; finite and endpoint assembly close the
 global statement.
 
-Current next non-circular action: attack the first two dominant singular-mode
-residue projections directly, or prove/cite that an external fixed-modulus
-strict-central binary Goldbach/AP theorem supplies the needed one-sided
-control.  Current finite evidence says the first two dominant singular
-coordinates must be bounded below, structurally excluded from simultaneous
-strong negativity, or rescued by complement/lower-support terms.
+Current next non-circular action: prove a lower bound for the recurrent
+helpful-channel portfolio against the rowwise residual requirement, prove a
+residual-channel theorem that keeps that requirement in range, or reduce the
+same claim to a fixed-modulus strict-central binary Goldbach/AP theorem.
+Current finite evidence says the dominant projection is a portfolio/residual
+arithmetic problem, not a geometry-only or tiny-channel problem.

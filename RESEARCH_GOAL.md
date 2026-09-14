@@ -11231,6 +11231,21 @@ delta on every selected pair, but still leaves a nonportfolio residual.  Thus
 the live target is a recurrent-portfolio lower bound under high negative
 pressure, not a two-channel theorem and not a finished signed-channel theorem.
 
+The "bolt it on and ask what is left" version is now recorded in
+`notes/q286-first-three-dominant-mode-portfolio-residual-obligation.md` and
+`evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json`.
+The `11`-channel recurrent portfolio and complementary `14` real channels
+reconstruct the selected dominant rows exactly, with maximum row identity
+error `0` and maximum floor-identity error about `2.78e-17`.  The dominant
+floor is equivalent row by row to
+`portfolio_sum >= -0.3 - nonportfolio_residual_sum`.  On the selected fixture,
+target `55864` is the worst miss by about `0.0992285758`, while target `13556`
+is the tightest clear by about `0.0095640903` despite carrying the harshest
+negative residual.  Thus the current precise theorem obligation is either a
+recurrent-portfolio lower bound against this row-dependent residual
+requirement, or a residual-channel theorem that keeps the required portfolio
+inside a provable range.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

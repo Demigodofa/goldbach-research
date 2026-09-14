@@ -9296,6 +9296,195 @@ def q286_first_three_dominant_mode_helpful_portfolio_receipt(
     }
 
 
+def q286_first_three_dominant_mode_portfolio_residual_obligation_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Turn the fixed helpful portfolio into an exact residual obligation.
+
+    This is the "bolt it on and ask what is left" receipt.  For each selected
+    row it records the identity
+
+        dominant_sum = portfolio_sum + nonportfolio_sum
+
+    and rewrites the dominant floor ``dominant_sum >= -tail_threshold`` as the
+    exact target-by-target requirement
+
+        portfolio_sum >= -tail_threshold - nonportfolio_sum.
+
+    It proves no portfolio theorem and no Goldbach theorem.
+    """
+    helpful_receipt = q286_first_three_dominant_mode_helpful_portfolio_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count,
+        recurrent_min_pair_count=recurrent_min_pair_count)
+    if portfolio_name not in helpful_receipt["portfolio_rows"]:
+        raise ValueError("unknown portfolio_name")
+    portfolio = helpful_receipt["portfolio_rows"][portfolio_name]
+
+    rows = {}
+    failure_targets = []
+    passing_targets = []
+    residual_negative_targets = []
+    residual_positive_targets = []
+    maximum_identity_error = 0.0
+    maximum_floor_identity_error = 0.0
+    worst_floor_slack_row = None
+    largest_required_portfolio_row = None
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    portfolio_slacks = []
+    residual_values = []
+    required_values = []
+    deficit_slacks = []
+    clear_slacks = []
+    for target in helpful_receipt["sample_targets"]:
+        row = portfolio["target_rows"][target]
+        dominant_sum = row["dominant_sum_to_principal"]
+        portfolio_sum = row["portfolio_sum_to_principal"]
+        residual_sum = row["nonportfolio_sum_to_principal"]
+        required_portfolio = -tail_threshold - residual_sum
+        portfolio_slack = portfolio_sum - required_portfolio
+        dominant_floor_slack = dominant_sum + tail_threshold
+        identity_error = abs(dominant_sum - portfolio_sum - residual_sum)
+        floor_identity_error = abs(portfolio_slack - dominant_floor_slack)
+        maximum_identity_error = max(maximum_identity_error, identity_error)
+        maximum_floor_identity_error = max(
+            maximum_floor_identity_error, floor_identity_error)
+        floor_passes_from_obligation = portfolio_slack >= -tolerance
+        compact = {
+            "target": target,
+            "target_mod_286": row["target_mod_286"],
+            "branch_label": row["branch_label"],
+            "dominant_sum_to_principal": dominant_sum,
+            "portfolio_sum_to_principal": portfolio_sum,
+            "nonportfolio_sum_to_principal": residual_sum,
+            "required_portfolio_for_floor": required_portfolio,
+            "portfolio_slack_to_floor": portfolio_slack,
+            "dominant_floor_slack": dominant_floor_slack,
+            "dominant_floor_passes": row["dominant_floor_passes"],
+            "floor_passes_from_portfolio_obligation": (
+                floor_passes_from_obligation),
+            "obligation_matches_dominant_floor": (
+                floor_passes_from_obligation
+                == row["dominant_floor_passes"]),
+            "residual_sign": (
+                "positive" if residual_sum > tolerance
+                else "negative" if residual_sum < -tolerance
+                else "zero"),
+            "identity_error": identity_error,
+            "floor_identity_error": floor_identity_error,
+        }
+        rows[target] = compact
+        residual_values.append(residual_sum)
+        required_values.append(required_portfolio)
+        portfolio_slacks.append(portfolio_slack)
+        if row["dominant_floor_passes"]:
+            passing_targets.append(target)
+            clear_slacks.append(portfolio_slack)
+        else:
+            failure_targets.append(target)
+            deficit_slacks.append(portfolio_slack)
+        if residual_sum < -tolerance:
+            residual_negative_targets.append(target)
+        elif residual_sum > tolerance:
+            residual_positive_targets.append(target)
+        if (worst_floor_slack_row is None
+                or portfolio_slack
+                < worst_floor_slack_row["portfolio_slack_to_floor"]):
+            worst_floor_slack_row = compact
+        if (largest_required_portfolio_row is None
+                or required_portfolio > largest_required_portfolio_row[
+                    "required_portfolio_for_floor"]):
+            largest_required_portfolio_row = compact
+
+    pair_rows = []
+    for pair in portfolio["pair_rows"]:
+        left = rows[pair["left_target"]]
+        right = rows[pair["right_target"]]
+        pair_rows.append({
+            "left_target": pair["left_target"],
+            "right_target": pair["right_target"],
+            "left_floor_slack": left["portfolio_slack_to_floor"],
+            "right_floor_slack": right["portfolio_slack_to_floor"],
+            "floor_slack_swing": (
+                right["portfolio_slack_to_floor"]
+                - left["portfolio_slack_to_floor"]),
+            "portfolio_delta_to_principal": (
+                pair["portfolio_delta_to_principal"]),
+            "nonportfolio_delta_to_principal": (
+                pair["nonportfolio_delta_to_principal"]),
+            "dominant_swing_to_principal": (
+                pair["dominant_swing_to_principal"]),
+            "portfolio_reconstructs_swing_error": (
+                pair["portfolio_reconstructs_swing_error"]),
+        })
+
+    all_obligations_match = all(
+        row["obligation_matches_dominant_floor"]
+        for row in rows.values())
+    return {
+        "arithmetic_modulus": helpful_receipt["arithmetic_modulus"],
+        "support": helpful_receipt["support"],
+        "dominant_modes": helpful_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            helpful_receipt["active_real_channel_count"]),
+        "pair_targets": helpful_receipt["pair_targets"],
+        "sample_targets": helpful_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "portfolio_channel_labels": portfolio["channel_labels"],
+        "portfolio_channel_count": portfolio["channel_count"],
+        "residual_channel_count": (
+            helpful_receipt["active_real_channel_count"]
+            - portfolio["channel_count"]),
+        "target_rows": rows,
+        "pair_rows": tuple(pair_rows),
+        "dominant_floor_failure_targets": tuple(failure_targets),
+        "dominant_floor_pass_targets": tuple(passing_targets),
+        "residual_negative_targets": tuple(residual_negative_targets),
+        "residual_positive_targets": tuple(residual_positive_targets),
+        "portfolio_slack_summary": summarize(portfolio_slacks),
+        "deficit_portfolio_slack_summary": summarize(deficit_slacks),
+        "clear_portfolio_slack_summary": summarize(clear_slacks),
+        "residual_summary": summarize(residual_values),
+        "required_portfolio_summary": summarize(required_values),
+        "worst_floor_slack_row": worst_floor_slack_row,
+        "largest_required_portfolio_row": largest_required_portfolio_row,
+        "maximum_identity_error": maximum_identity_error,
+        "maximum_floor_identity_error": maximum_floor_identity_error,
+        "maximum_helpful_receipt_row_reconstruction_error": (
+            helpful_receipt["maximum_row_reconstruction_error"]),
+        "maximum_swing_reconstruction_error": (
+            helpful_receipt["maximum_swing_reconstruction_error"]),
+        "all_obligations_match_dominant_floor": all_obligations_match,
+        "portfolio_residual_obligation_measured": True,
+        "fixed_portfolio_lower_bound_theorem_proved": False,
+        "residual_channel_bound_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

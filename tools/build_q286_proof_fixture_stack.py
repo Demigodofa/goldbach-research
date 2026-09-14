@@ -54,6 +54,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-channel-swing-pairs.json")
     dominant_mode_helpful_portfolio = load_json(
         "evidence/q286-first-three-dominant-mode-helpful-portfolio.json")
+    dominant_mode_portfolio_residual = load_json(
+        "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -311,6 +313,30 @@ def main():
                     "lower-bound theorem"),
             },
             {
+                "id": "anchor.dominant_mode_portfolio_residual_obligation",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json"),
+                "statement": (
+                    "The recurrent helpful portfolio plus the nonportfolio "
+                    "residual reconstructs selected dominant rows exactly, "
+                    "and the -0.3 floor is equivalent row by row to a "
+                    "required portfolio lower bound."),
+                "validation": (
+                    "portfolio channel count "
+                    f"{dominant_mode_portfolio_residual['portfolio_channel_count']}; "
+                    "residual channel count "
+                    f"{dominant_mode_portfolio_residual['residual_channel_count']}; "
+                    "maximum identity error "
+                    f"{dominant_mode_portfolio_residual['maximum_identity_error']}; "
+                    "worst slack target "
+                    f"{dominant_mode_portfolio_residual['worst_floor_slack_row']['target']} "
+                    "with slack "
+                    f"{dominant_mode_portfolio_residual['worst_floor_slack_row']['portfolio_slack_to_floor']}."),
+                "proved_scope": (
+                    "finite exact portfolio/residual obligation, not a "
+                    "portfolio or residual theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -342,7 +368,8 @@ def main():
                 "statement": (
                     "For all sufficiently large even N in the q286 "
                     "first-three lane, prove <delta_N,c_a> >= -0.3, or the "
-                    "equivalent cosine floor when norms are nonzero."),
+                    "equivalent portfolio/residual floor when norms are "
+                    "nonzero."),
                 "why_it_is_needed": (
                     "This is the currently sharpest first-three rarity target "
                     "after generic uniformity was demoted."),
@@ -400,16 +427,12 @@ def main():
                 "statement": (
                     "Prove a pointwise lower bound for the combined q286 "
                     "singular-mode-1 and singular-mode-2 residue projection, "
-                    "equivalently control the 25 real q286 character channels "
-                    "now identified for that projection.  After the norm "
-                    "budget demotion, either control negative-channel "
-                    "pressure below 0.3 or prove enough positive offset when "
-                    "that pressure exceeds 0.3; the wider branch sample "
-                    "currently points toward the offset-under-pressure side, "
-                    "and the swing-pair autopsy points to a recurrent "
-                    "helpful-channel portfolio rather than one or two "
-                    "channels; the fixed-portfolio diagnostic keeps the "
-                    "nonportfolio residual explicit."),
+                    "equivalently prove the recurrent helpful-channel "
+                    "portfolio lower bound against the rowwise residual "
+                    "requirement, or prove a residual-channel theorem that "
+                    "keeps that requirement in range.  The norm budget, "
+                    "tiny-channel, and geometry-only routes are demoted on "
+                    "the current evidence."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
@@ -417,7 +440,7 @@ def main():
                     "Support/reflection geometry alone is obstructed, and "
                     "selected clear rows can have large negative pressure."),
                 "exact_obligation_source": (
-                    "evidence/q286-first-three-dominant-mode-character-sum-obligation.json"),
+                    "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json"),
                 "proved": False,
             },
         ],

@@ -20269,6 +20269,32 @@ nonportfolio residual.  The next target is a recurrent-portfolio lower bound
 under high negative pressure, or a reduction showing that such a lower bound
 is a fixed-modulus binary-prime character-sum theorem.
 
+Dominant-mode portfolio/residual obligation:
+
+- `q286_first_three_dominant_mode_portfolio_residual_obligation_receipt`
+- `tools/build_q286_first_three_dominant_mode_portfolio_residual_obligation.py`
+- `notes/q286-first-three-dominant-mode-portfolio-residual-obligation.md`
+- `evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_portfolio_residual_obligation`
+
+This is Kevin's "bolt it on and ask what is left" receipt.  It freezes the
+`11`-channel recurrent helpful portfolio and subtracts it exactly from the
+selected q286 dominant rows, leaving the complementary `14`-channel residual.
+For each target,
+`dominant_sum = portfolio_sum + nonportfolio_residual_sum`, and the `-.3`
+floor is exactly equivalent to
+`portfolio_sum >= -0.3 - nonportfolio_residual_sum`.  The full receipt has
+maximum row identity error `0` and maximum floor-identity error about
+`2.78e-17`.  The worst selected miss is target `55864` by about
+`0.0992285758`; the tightest selected clear is target `13556` by about
+`0.0095640903`, where the residual is most negative and requires a positive
+portfolio value about `0.1829701729`.  This sharpens the next theorem target:
+prove the recurrent portfolio lower bound against the residual requirement,
+or prove a residual-channel bound that keeps the requirement in a provable
+range.  It is not a portfolio theorem, not a residual theorem, and not a
+Goldbach proof.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

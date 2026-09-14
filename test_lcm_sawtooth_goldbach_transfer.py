@@ -49,6 +49,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_signed_channel_branch_sample_receipt,
     q286_first_three_dominant_mode_channel_swing_pair_receipt,
     q286_first_three_dominant_mode_helpful_portfolio_receipt,
+    q286_first_three_dominant_mode_portfolio_residual_obligation_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4597,6 +4598,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["fixed_portfolio_theorem_proved"])
         self.assertFalse(receipt[
             "eventual_signed_channel_offset_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_portfolio_residual_obligation(
+            self):
+        receipt = (
+            q286_first_three_dominant_mode_portfolio_residual_obligation_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["portfolio_name"], "recurrent_helpful")
+        self.assertEqual(receipt["portfolio_channel_count"], 6)
+        self.assertEqual(receipt["residual_channel_count"], 19)
+        self.assertLess(receipt["maximum_identity_error"], 1e-12)
+        self.assertLess(receipt["maximum_floor_identity_error"], 1e-12)
+        self.assertTrue(receipt["all_obligations_match_dominant_floor"])
+        self.assertEqual(
+            receipt["dominant_floor_failure_targets"], (24424, 1222142))
+        self.assertEqual(
+            receipt["dominant_floor_pass_targets"], (13556, 1242118))
+        self.assertAlmostEqual(
+            receipt["target_rows"][13556][
+                "required_portfolio_for_floor"],
+            0.35301085467375676)
+        self.assertGreater(
+            receipt["target_rows"][13556]["portfolio_slack_to_floor"], 0)
+        self.assertLess(
+            receipt["target_rows"][1222142]["portfolio_slack_to_floor"], 0)
+        self.assertTrue(receipt[
+            "portfolio_residual_obligation_measured"])
+        self.assertFalse(receipt[
+            "fixed_portfolio_lower_bound_theorem_proved"])
+        self.assertFalse(receipt["residual_channel_bound_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

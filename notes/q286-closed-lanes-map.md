@@ -791,6 +791,21 @@ current comparison set.
    positive delta on pair `(164598,129706)`, and the recurrent portfolio still
    leaves a nonportfolio residual.  The surviving target is a recurrent
    portfolio lower bound under pressure plus residual control.
+85. `q286_first_three_dominant_mode_portfolio_residual_obligation_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-portfolio-residual-obligation.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json`,
+   bolts on the `11`-channel recurrent portfolio and subtracts it exactly
+   from the selected dominant rows.  The remaining floor condition is the
+   exact rowwise obligation
+   `portfolio_sum >= -0.3 - nonportfolio_residual_sum`, with maximum row
+   identity error `0` and maximum floor-identity error about `2.78e-17`.  The
+   worst selected miss is target `55864` by about `0.0992285758`; the tightest
+   selected clear is target `13556` by about `0.0095640903`.  The surviving
+   target is now a recurrent-portfolio lower bound against this residual
+   requirement, or a residual-channel theorem that keeps the requirement in a
+   provable range.
 
 ## Still open
 
@@ -800,13 +815,12 @@ current comparison set.
   Its exact q286 form is now identified, but not proved.
 - Pointwise lower bounds or structural exclusion for the `25` real q286
   character channels that make up the first two dominant first-three singular
-  coordinates, using signed channel structure rather than only independent
-  `Linf`/`L2` smallness.  The current split is negative-channel pressure
-  below `.3`, or enough positive offset when pressure exceeds `.3`; the wider
-  selected sample currently points more strongly at offset forcing under
-  pressure than at a pressure ceiling alone, and the swing-pair autopsy says
-  that offset forcing is portfolio-level rather than one- or two-channel.  The
-  fixed-portfolio diagnostic preserves the recurrent portfolio candidate but
-  keeps residual control open.
+  coordinates, now sharpened to the `11`-channel recurrent portfolio versus
+  `14`-channel residual obligation
+  `portfolio_sum >= -0.3 - nonportfolio_residual_sum`.  The geometry-only,
+  generic norm, pressure-ceiling-only, and tiny-channel routes are demoted on
+  current evidence; the live target is a recurrent-portfolio lower bound, a
+  residual-channel bound, or an external theorem strong enough to imply the
+  same pointwise inequality.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

@@ -92,6 +92,13 @@
       "validation": "universal separates True; recurrent separates True; recurrent channel count 11."
     },
     {
+      "id": "anchor.dominant_mode_portfolio_residual_obligation",
+      "proved_scope": "finite exact portfolio/residual obligation, not a portfolio or residual theorem",
+      "source": "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json",
+      "statement": "The recurrent helpful portfolio plus the nonportfolio residual reconstructs selected dominant rows exactly, and the -0.3 floor is equivalent row by row to a required portfolio lower bound.",
+      "validation": "portfolio channel count 11; residual channel count 14; maximum identity error 0.0; worst slack target 55864 with slack -0.09922857579168887."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -120,7 +127,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "28d080a8dc98dbe6ba46d6be01e0f98f0ed8d2ae",
+  "source_commit": "f11ed179df94259174951e83f1cd830c29a3b866",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -135,7 +142,7 @@
         ]
       },
       "proved": false,
-      "statement": "For all sufficiently large even N in the q286 first-three lane, prove <delta_N,c_a> >= -0.3, or the equivalent cosine floor when norms are nonzero.",
+      "statement": "For all sufficiently large even N in the q286 first-three lane, prove <delta_N,c_a> >= -0.3, or the equivalent portfolio/residual floor when norms are nonzero.",
       "why_it_is_needed": "This is the currently sharpest first-three rarity target after generic uniformity was demoted."
     },
     {
@@ -158,10 +165,10 @@
       "why_it_is_needed": "The surviving tacks are arithmetic distribution claims about actual prime-pair weights, not geometry-only claims."
     },
     {
-      "exact_obligation_source": "evidence/q286-first-three-dominant-mode-character-sum-obligation.json",
+      "exact_obligation_source": "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection.  After the norm budget demotion, either control negative-channel pressure below 0.3 or prove enough positive offset when that pressure exceeds 0.3; the wider branch sample currently points toward the offset-under-pressure side, and the swing-pair autopsy points to a recurrent helpful-channel portfolio rather than one or two channels; the fixed-portfolio diagnostic keeps the nonportfolio residual explicit.",
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently prove the recurrent helpful-channel portfolio lower bound against the rowwise residual requirement, or prove a residual-channel theorem that keeps that requirement in range.  The norm budget, tiny-channel, and geometry-only routes are demoted on the current evidence.",
       "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed, and selected clear rows can have large negative pressure."
     }
   ],

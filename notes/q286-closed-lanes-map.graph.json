@@ -315,6 +315,14 @@
       "status_boundary": "finite fixed-portfolio diagnostic only; no portfolio lower-bound theorem, no eventual signed-channel offset theorem, no pointwise character-sum estimate, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
+      "type": "receipt",
+      "label": "q286 dominant-mode portfolio residual obligation",
+      "status": "finite_theorem_shaping_evidence",
+      "validation": "q286_first_three_dominant_mode_portfolio_residual_obligation_receipt and tools/build_q286_first_three_dominant_mode_portfolio_residual_obligation.py generated evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json; the 11-channel recurrent portfolio plus the 14-channel residual reconstruct selected dominant rows exactly and rewrites the -0.3 floor as a rowwise required portfolio lower bound",
+      "status_boundary": "finite exact portfolio/residual obligation only; no portfolio lower-bound theorem, no residual-channel theorem, no fixed-modulus AP theorem, no q286 signed-projection theorem, and no Goldbach proof"
+    },
+    {
       "id": "structure.q286_proof_fixture_stack",
       "type": "surviving_structure",
       "label": "q286 proof fixture stack",
@@ -1911,6 +1919,11 @@
       "type": "refines"
     },
     {
+      "from": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
+      "to": "receipt.q286_first_three_dominant_mode_helpful_portfolio",
+      "type": "refines"
+    },
+    {
       "from": "receipt.q286_first_three_dominant_mode_channel_swing_pairs",
       "to": "receipt.q286_first_three_dominant_mode_signed_channel_profile",
       "type": "refines"
@@ -1932,6 +1945,11 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_helpful_portfolio",
+      "to": "obligation.q286_residue_pair_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
       "to": "obligation.q286_residue_pair_correlation",
       "type": "requires"
     },
@@ -2002,6 +2020,11 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_helpful_portfolio",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_portfolio_residual_obligation",
       "to": "structure.q286_proof_fixture_stack",
       "type": "refines"
     },
