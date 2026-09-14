@@ -11259,6 +11259,19 @@ classifier and sharpens the route: the recurrent portfolio itself must supply
 the rescue against potentially adverse residual requirements, unless a real
 fixed-modulus residual-channel theorem is proved.
 
+The recurrent-portfolio ablation is now recorded in
+`notes/q286-first-three-dominant-mode-portfolio-ablation.md` and
+`evidence/q286-first-three-dominant-mode-portfolio-ablation.json`.  On the
+selected fixture, removing any one of the `11` recurrent channels changes the
+selected pass/fail classification, and removing one of five channels
+`(2,6),(3,1),(4,8),(5,5),(5,3)` makes at least one selected clear row fail.
+A four-channel prefix `(2,6),(3,1),(4,8),(4,2)` already keeps all selected
+clear rows above the residual requirement, but it over-rescues every selected
+failing row.  Therefore the lower-bound theorem target and the exact
+classification target split apart: a smaller positive portfolio package may
+be enough for clear-side rescue, but reproducing the selected pass/fail split
+requires the full tested portfolio or a separate exclusion/rescue theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

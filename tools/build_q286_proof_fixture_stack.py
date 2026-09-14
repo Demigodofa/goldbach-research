@@ -58,6 +58,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json")
     dominant_mode_residual_profile = load_json(
         "evidence/q286-first-three-dominant-mode-residual-channel-profile.json")
+    dominant_mode_portfolio_ablation = load_json(
+        "evidence/q286-first-three-dominant-mode-portfolio-ablation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -360,6 +362,29 @@ def main():
                     "not a residual theorem"),
             },
             {
+                "id": "anchor.dominant_mode_portfolio_ablation",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-portfolio-ablation.json"),
+                "statement": (
+                    "Ablating the recurrent portfolio separates the "
+                    "clear-side lower-bound target from exact selected "
+                    "deficit/clear classification."),
+                "validation": (
+                    "portfolio channel count "
+                    f"{dominant_mode_portfolio_ablation['portfolio_channel_count']}; "
+                    "clear-essential channels "
+                    f"{dominant_mode_portfolio_ablation['clear_essential_channel_count']}; "
+                    "classification-essential channels "
+                    f"{dominant_mode_portfolio_ablation['classification_essential_channel_count']}; "
+                    "first prefix clearing all original clears "
+                    f"{dominant_mode_portfolio_ablation['first_prefix_clearing_all_original_clears']['channel_count']}; "
+                    "first prefix matching classification "
+                    f"{dominant_mode_portfolio_ablation['first_prefix_matching_classification']['channel_count']}."),
+                "proved_scope": (
+                    "finite recurrent-portfolio ablation, not a portfolio "
+                    "lower-bound theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -451,12 +476,12 @@ def main():
                     "Prove a pointwise lower bound for the combined q286 "
                     "singular-mode-1 and singular-mode-2 residue projection, "
                     "equivalently prove the recurrent helpful-channel "
-                    "portfolio lower bound against the rowwise residual "
-                    "requirement, or prove a residual-channel theorem that "
-                    "keeps that requirement in range.  The norm budget, "
-                    "tiny-channel, small residual-channel classifier, and "
-                    "geometry-only routes are demoted on the current "
-                    "evidence."),
+                    "portfolio or its clear-side prefix lower bound against "
+                    "the rowwise residual requirement, plus a separate "
+                    "exclusion/complement theorem for over-rescued deficits. "
+                    "The norm budget, tiny-channel, small residual-channel "
+                    "classifier, and geometry-only routes are demoted on the "
+                    "current evidence."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

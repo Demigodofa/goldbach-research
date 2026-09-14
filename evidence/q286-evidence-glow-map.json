@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "a119ca224a362271b90ecffadd97c01f34bbf5b0",
+  "generated_from_commit": "b2723c82555cd8da517f38b46dd190ba9dbcacb1",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -68,6 +68,14 @@
       "boundary": "Finite residual-channel profile only; no residual theorem."
     },
     {
+      "id": "portfolio-ablation",
+      "label": "Portfolio ablation splits lower-bound and classification targets",
+      "kind": "selected_stress",
+      "source": "evidence/q286-first-three-dominant-mode-portfolio-ablation.json",
+      "default_weight": 2.0,
+      "boundary": "Finite recurrent-portfolio ablation only; no portfolio theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -79,7 +87,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 8.5,
+      "stack_weight": 10.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -108,10 +116,316 @@
             "residual_negative_pressure": 0.16248894910179196,
             "dominant_floor_passes": false
           }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.008833179560527815,
+            "dominant_floor_passes": false
+          }
         }
       ],
-      "layer_count": 4,
+      "layer_count": 5,
       "glow": 1.0
+    },
+    {
+      "id": "1240888",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.02718657338091786
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.18626287256333843,
+            "residual_negative_pressure": 0.19819444011021634,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.02718657338091786,
+            "dominant_floor_passes": true
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "1242118",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.016528913466746065
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.22038568263372166,
+            "residual_negative_pressure": 0.23376503548387326,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "129706",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.05842892627684948
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.35457976289595927,
+            "residual_negative_pressure": 0.5198637511189601,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.05842892627684948,
+            "dominant_floor_passes": true
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "13556",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.00956409034565811
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.48297017290081456,
+            "residual_negative_pressure": 0.7784656901830459,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.00956409034565811,
+            "dominant_floor_passes": true
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "13822",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor failed",
+          "value": -0.03674434602428933
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.011309233322353403,
+            "residual_negative_pressure": 0.6119165638867794,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.03674434602428933,
+            "dominant_floor_passes": false
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "164598",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor failed",
+          "value": -0.01915179245517605
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.21191545554929755,
+            "residual_negative_pressure": 0.22193871911816507,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.01915179245517605,
+            "dominant_floor_passes": false
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "24424",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor failed",
+          "value": -0.01345867269417178
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": 0.05777108672800834,
+            "residual_negative_pressure": 0.23539858920371612,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.01345867269417178,
+            "dominant_floor_passes": false
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "40420",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.04893840350347566
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.2623224237143082,
+            "residual_negative_pressure": 0.4526302483718677,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.04893840350347566,
+            "dominant_floor_passes": true
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
+    },
+    {
+      "id": "55864",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor failed",
+          "value": -0.09922857579168887
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.06851216910196008,
+            "residual_negative_pressure": 0.3751851366578261,
+            "dominant_floor_passes": false
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": -0.09922857579168887,
+            "dominant_floor_passes": false
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.619048
     },
     {
       "id": "1379072",
@@ -137,223 +451,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.705882
-    },
-    {
-      "id": "1240888",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.02718657338091786
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.18626287256333843,
-            "residual_negative_pressure": 0.19819444011021634,
-            "dominant_floor_passes": true
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "1242118",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.016528913466746065
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.22038568263372166,
-            "residual_negative_pressure": 0.23376503548387326,
-            "dominant_floor_passes": true
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "129706",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.05842892627684948
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.35457976289595927,
-            "residual_negative_pressure": 0.5198637511189601,
-            "dominant_floor_passes": true
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "13556",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.00956409034565811
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.48297017290081456,
-            "residual_negative_pressure": 0.7784656901830459,
-            "dominant_floor_passes": true
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "13822",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor failed",
-          "value": -0.03674434602428933
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.011309233322353403,
-            "residual_negative_pressure": 0.6119165638867794,
-            "dominant_floor_passes": false
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "164598",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor failed",
-          "value": -0.01915179245517605
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.21191545554929755,
-            "residual_negative_pressure": 0.22193871911816507,
-            "dominant_floor_passes": false
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "24424",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor failed",
-          "value": -0.01345867269417178
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": 0.05777108672800834,
-            "residual_negative_pressure": 0.23539858920371612,
-            "dominant_floor_passes": false
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "40420",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.04893840350347566
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.2623224237143082,
-            "residual_negative_pressure": 0.4526302483718677,
-            "dominant_floor_passes": true
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
-    },
-    {
-      "id": "55864",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor failed",
-          "value": -0.09922857579168887
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.06851216910196008,
-            "residual_negative_pressure": 0.3751851366578261,
-            "dominant_floor_passes": false
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.529412
+      "glow": 0.571429
     },
     {
       "id": "1323632",
@@ -373,7 +471,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.470588
+      "glow": 0.380952
     },
     {
       "id": "10664",
@@ -387,7 +485,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.117647
+      "glow": 0.095238
     },
     {
       "id": "14138",
@@ -401,7 +499,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.117647
+      "glow": 0.095238
     }
   ],
   "mechanism_stacks": [
@@ -449,6 +547,23 @@
       ],
       "layer_count": 1,
       "glow": 0.277778
+    },
+    {
+      "id": "clear-side-prefix-versus-deficit-classification",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "four-channel prefix clears selected clears but over-rescues deficits",
+          "value": {
+            "clear_prefix_channel_count": 4,
+            "classification_prefix_channel_count": 11
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
     },
     {
       "id": "fixed-component-pair-((5,7),(7,11))",
@@ -518,6 +633,29 @@
   ],
   "theorem_gap_stacks": [
     {
+      "id": "portfolio-residual-lower-bound",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "prove recurrent portfolio lower bound or residual-channel bound"
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual pushes against clear side on selected pairs"
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "separate clear-side lower bound from deficit exclusion"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 1.0
+    },
+    {
       "id": "active-lane-strict-closure",
       "stack_weight": 5.0,
       "layers": [
@@ -533,25 +671,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 1.0
-    },
-    {
-      "id": "portfolio-residual-lower-bound",
-      "stack_weight": 4.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "prove recurrent portfolio lower bound or residual-channel bound"
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual pushes against clear side on selected pairs"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.9
+      "glow": 0.769231
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -564,7 +684,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.4
+      "glow": 0.307692
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -577,7 +697,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.4
+      "glow": 0.307692
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -594,7 +714,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.3
+      "glow": 0.230769
     },
     {
       "id": "alignment-complement-route",
@@ -607,7 +727,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.2
+      "glow": 0.153846
     }
   ],
   "goldbach_proved": false,

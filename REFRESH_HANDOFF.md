@@ -20317,6 +20317,27 @@ target remains a recurrent-portfolio lower bound strong enough to overcome
 adverse residual requirements, or a genuine fixed-modulus residual-channel
 theorem.
 
+Dominant-mode recurrent portfolio ablation:
+
+- `q286_first_three_dominant_mode_portfolio_ablation_receipt`
+- `tools/build_q286_first_three_dominant_mode_portfolio_ablation.py`
+- `notes/q286-first-three-dominant-mode-portfolio-ablation.md`
+- `evidence/q286-first-three-dominant-mode-portfolio-ablation.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_portfolio_ablation`
+
+This ablates the fixed recurrent portfolio against the unchanged rowwise
+residual requirements.  On the selected fixture, removing any one of the
+`11` recurrent channels changes the selected pass/fail classification, and
+removing one of five channels `(2,6),(3,1),(4,8),(5,5),(5,3)` makes at least
+one selected clear row fail.  A four-channel prefix
+`(2,6),(3,1),(4,8),(4,2)` keeps every selected clear row passing, but it
+over-rescues every selected failing row; the first prefix matching the full
+selected classification is the full `11`-channel portfolio.  The surviving
+theorem target has split: a smaller positive package may suffice for
+clear-side lower bounds, but exact deficit/clear classification needs the
+full tested portfolio or a separate exclusion/complement theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

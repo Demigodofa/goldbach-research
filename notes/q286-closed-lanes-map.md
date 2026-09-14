@@ -817,6 +817,16 @@ current comparison set.
    residual sum both occur at passing target `13556`.  This demotes a small
    residual-channel classifier; the recurrent portfolio must overcome adverse
    residual requirements unless a genuine residual-channel theorem is proved.
+87. `q286_first_three_dominant_mode_portfolio_ablation_receipt`, with note
+   `notes/q286-first-three-dominant-mode-portfolio-ablation.md` and evidence
+   in `evidence/q286-first-three-dominant-mode-portfolio-ablation.json`,
+   ablates the fixed recurrent portfolio.  Removing any one of the `11`
+   recurrent channels changes the selected pass/fail classification; removing
+   one of five channels `(2,6),(3,1),(4,8),(5,5),(5,3)` makes at least one
+   selected clear row fail.  A four-channel prefix keeps every selected clear
+   row passing but over-rescues every selected failing row.  This demotes a
+   tiny exact classifier and splits the live theorem into a clear-side
+   lower-bound package plus a separate deficit exclusion/rescue problem.
 
 ## Still open
 
@@ -830,9 +840,10 @@ current comparison set.
   `14`-channel residual obligation
   `portfolio_sum >= -0.3 - nonportfolio_residual_sum`.  The geometry-only,
   generic norm, pressure-ceiling-only, tiny-channel, and small
-  residual-channel classifier routes are demoted on current evidence; the live
-  target is a recurrent-portfolio lower bound, a genuine residual-channel
-  bound, or an external theorem strong enough to imply the same pointwise
-  inequality.
+  residual-channel classifier, and tiny exact-classifier routes are demoted
+  on current evidence; the live target is a recurrent-portfolio or clear-side
+  prefix lower bound, a separate deficit exclusion/complement theorem, a
+  genuine residual-channel bound, or an external theorem strong enough to
+  imply the same pointwise inequality.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

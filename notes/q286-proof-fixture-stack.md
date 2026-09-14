@@ -74,6 +74,12 @@ frame.
   residual delta is negative in every selected deficit-to-clear pair.  This
   demotes a small residual-channel classifier and leaves the recurrent
   portfolio as the object that must overcome adverse residual requirements.
+- `evidence/q286-first-three-dominant-mode-portfolio-ablation.json`:
+  leave-one-out and prefix ablations of the fixed recurrent portfolio show
+  that a four-channel prefix keeps every selected clear row passing but also
+  over-rescues every selected deficit, while the full selected classification
+  first reappears at all `11` recurrent channels.  This separates the
+  lower-bound theorem target from exact deficit/clear classification.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -113,6 +119,9 @@ frame.
    portfolio floor.  The residual-channel profile demotes a one-channel
    residual classifier: no residual channel separates the selected outcomes,
    and residual deltas move against the clear side on all selected pairs.
+   The portfolio ablation then splits the surviving target into a possible
+   smaller clear-side lower-bound package and a separate classification or
+   exclusion problem for over-rescued deficits.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -124,8 +133,9 @@ the remaining strict-central action; finite and endpoint assembly close the
 global statement.
 
 Current next non-circular action: prove a lower bound for the recurrent
-helpful-channel portfolio against the rowwise residual requirement, prove a
-residual-channel theorem that keeps that requirement in range, or reduce the
-same claim to a fixed-modulus strict-central binary Goldbach/AP theorem.
-Current finite evidence says the dominant projection is a portfolio/residual
-arithmetic problem, not a geometry-only or tiny-channel problem.
+helpful-channel portfolio or its clear-side four-channel prefix against the
+rowwise residual requirement, then prove a separate exclusion/complement
+mechanism for over-rescued deficits, or reduce the same claim to a
+fixed-modulus strict-central binary Goldbach/AP theorem.  Current finite
+evidence says the dominant projection is a portfolio/residual arithmetic
+problem, not a geometry-only, tiny-channel, or one-piece classifier problem.

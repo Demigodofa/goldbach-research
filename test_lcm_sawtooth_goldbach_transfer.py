@@ -51,6 +51,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_helpful_portfolio_receipt,
     q286_first_three_dominant_mode_portfolio_residual_obligation_receipt,
     q286_first_three_dominant_mode_residual_channel_profile_receipt,
+    q286_first_three_dominant_mode_portfolio_ablation_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4660,6 +4661,35 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["residual_channel_profile_measured"])
         self.assertFalse(receipt["residual_small_channel_theorem_proved"])
         self.assertFalse(receipt["residual_separation_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_portfolio_ablation(self):
+        receipt = q286_first_three_dominant_mode_portfolio_ablation_receipt(
+            pair_targets=((24424, 13556), (1222142, 1242118)),
+            recurrent_min_pair_count=2,
+            top_channel_count=4)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["portfolio_channel_count"], 6)
+        self.assertEqual(
+            receipt["baseline_pass_targets"], (13556, 1242118))
+        self.assertEqual(
+            receipt["baseline_fail_targets"], (24424, 1222142))
+        self.assertEqual(receipt["clear_essential_channel_count"], 4)
+        self.assertEqual(receipt["classification_essential_channel_count"], 6)
+        self.assertFalse(
+            receipt["all_leave_one_out_preserve_classification"])
+        self.assertEqual(
+            receipt["first_prefix_clearing_all_original_clears"][
+                "channel_count"],
+            5)
+        self.assertEqual(
+            receipt["first_prefix_matching_classification"]["channel_count"],
+            6)
+        self.assertTrue(receipt["portfolio_ablation_measured"])
+        self.assertFalse(receipt["single_channel_portfolio_theorem_proved"])
+        self.assertFalse(receipt["proper_subportfolio_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

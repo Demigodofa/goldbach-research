@@ -57,6 +57,8 @@ def main():
         EVIDENCE / "q286-first-three-dominant-mode-portfolio-residual-obligation.json")
     residual_profile = load_json(
         EVIDENCE / "q286-first-three-dominant-mode-residual-channel-profile.json")
+    portfolio_ablation = load_json(
+        EVIDENCE / "q286-first-three-dominant-mode-portfolio-ablation.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -280,6 +282,48 @@ def main():
         "residual-channel-profile",
         2.0,
         "residual pushes against clear side on selected pairs")
+
+    layer(
+        "portfolio-ablation",
+        "Portfolio ablation splits lower-bound and classification targets",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-portfolio-ablation.json",
+        2.0,
+        "Finite recurrent-portfolio ablation only; no portfolio theorem.")
+    for target, row in portfolio_ablation["baseline_target_rows"].items():
+        add_hit(
+            target_stacks,
+            str(target),
+            "portfolio-ablation",
+            2.0,
+            "portfolio ablation baseline row",
+            {
+                "full_portfolio_slack": (
+                    row["full_portfolio_slack_to_floor"]),
+                "dominant_floor_passes": row["dominant_floor_passes"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "clear-side-prefix-versus-deficit-classification",
+        "portfolio-ablation",
+        2.0,
+        "four-channel prefix clears selected clears but over-rescues deficits",
+        {
+            "clear_prefix_channel_count": (
+                portfolio_ablation[
+                    "first_prefix_clearing_all_original_clears"][
+                    "channel_count"]),
+            "classification_prefix_channel_count": (
+                portfolio_ablation[
+                    "first_prefix_matching_classification"][
+                    "channel_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "portfolio-ablation",
+        2.0,
+        "separate clear-side lower bound from deficit exclusion")
 
     layer(
         "conditional-proof-stack",

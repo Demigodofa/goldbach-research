@@ -9730,6 +9730,283 @@ def q286_first_three_dominant_mode_residual_channel_profile_receipt(
     }
 
 
+def q286_first_three_dominant_mode_portfolio_ablation_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Ablate the fixed helpful portfolio against exact residual obligations.
+
+    The previous receipt showed that the nonportfolio residual can be adverse
+    on clear rows.  This receipt asks whether the fixed helpful portfolio can
+    be compressed without losing the selected-row floor classification.
+
+    It proves no portfolio theorem and no Goldbach theorem.
+    """
+    if (type(recurrent_min_pair_count) is not int
+            or recurrent_min_pair_count < 1):
+        raise ValueError(
+            "recurrent_min_pair_count must be a positive integer")
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+    if portfolio_name == "universal_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["universally_helpful_channel_rows"])
+    elif portfolio_name == "recurrent_helpful":
+        portfolio_labels = tuple(
+            tuple(row["representative_label"])
+            for row in swing_receipt["channel_frequency_rows"]
+            if row["helpful_pair_count"] >= recurrent_min_pair_count)
+    else:
+        raise ValueError("unknown portfolio_name")
+
+    sample_rows = swing_receipt["sample_target_rows"]
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def classification_from_slacks(slack_rows):
+        pass_targets = tuple(
+            target for target, slack in slack_rows
+            if slack >= -tolerance)
+        fail_targets = tuple(
+            target for target, slack in slack_rows
+            if slack < -tolerance)
+        return pass_targets, fail_targets
+
+    contributions_by_target = {
+        target: contribution_by_label(row)
+        for target, row in sample_rows.items()}
+    baseline_rows = {}
+    full_slack_rows = []
+    full_portfolio_values = []
+    for target in swing_receipt["sample_targets"]:
+        row = sample_rows[target]
+        contributions = contributions_by_target[target]
+        full_portfolio = math.fsum(
+            contributions.get(label, 0.0) for label in portfolio_labels)
+        dominant_sum = row["dominant_character_sum_to_principal_ratio"]
+        residual_sum = dominant_sum - full_portfolio
+        required_portfolio = -tail_threshold - residual_sum
+        slack = full_portfolio - required_portfolio
+        baseline_rows[target] = {
+            "target": target,
+            "target_mod_286": row["target_mod_286"],
+            "dominant_floor_passes": row["dominant_floor_passes"],
+            "dominant_sum_to_principal": dominant_sum,
+            "full_portfolio_sum_to_principal": full_portfolio,
+            "nonportfolio_sum_to_principal": residual_sum,
+            "required_portfolio_for_floor": required_portfolio,
+            "full_portfolio_slack_to_floor": slack,
+        }
+        full_slack_rows.append((target, slack))
+        full_portfolio_values.append(full_portfolio)
+
+    baseline_pass_targets, baseline_fail_targets = classification_from_slacks(
+        full_slack_rows)
+
+    def subportfolio_summary(labels):
+        label_set = set(labels)
+        slack_rows = []
+        value_rows = []
+        for target in swing_receipt["sample_targets"]:
+            base = baseline_rows[target]
+            contributions = contributions_by_target[target]
+            value = math.fsum(
+                contributions.get(label, 0.0) for label in label_set)
+            slack = value - base["required_portfolio_for_floor"]
+            slack_rows.append((target, slack))
+            value_rows.append((target, value))
+        pass_targets, fail_targets = classification_from_slacks(slack_rows)
+        clear_slacks = [
+            slack for target, slack in slack_rows
+            if sample_rows[target]["dominant_floor_passes"]]
+        failure_slacks = [
+            slack for target, slack in slack_rows
+            if not sample_rows[target]["dominant_floor_passes"]]
+        clear_values = [
+            value for target, value in value_rows
+            if sample_rows[target]["dominant_floor_passes"]]
+        failure_values = [
+            value for target, value in value_rows
+            if not sample_rows[target]["dominant_floor_passes"]]
+        return {
+            "channel_labels": tuple(labels),
+            "channel_count": len(labels),
+            "pass_targets_from_subportfolio": pass_targets,
+            "fail_targets_from_subportfolio": fail_targets,
+            "matches_full_floor_classification": (
+                pass_targets == baseline_pass_targets
+                and fail_targets == baseline_fail_targets),
+            "all_original_clears_still_pass": all(
+                slack >= -tolerance for slack in clear_slacks),
+            "all_original_failures_still_fail": all(
+                slack < -tolerance for slack in failure_slacks),
+            "minimum_clear_slack": min(clear_slacks)
+            if clear_slacks else None,
+            "maximum_failure_slack": max(failure_slacks)
+            if failure_slacks else None,
+            "clear_min_exceeds_failure_max_by_value": bool(
+                clear_values and failure_values
+                and min(clear_values) > max(failure_values)),
+            "slack_rows": tuple({
+                "target": target,
+                "subportfolio_sum_to_principal": value,
+                "subportfolio_slack_to_floor": slack,
+                "dominant_floor_passes": sample_rows[target][
+                    "dominant_floor_passes"],
+            } for (target, slack), (_, value)
+                in zip(slack_rows, value_rows)),
+        }
+
+    leave_one_out_rows = []
+    clear_essential_labels = []
+    classification_essential_labels = []
+    for label in portfolio_labels:
+        reduced_labels = tuple(
+            item for item in portfolio_labels if item != label)
+        summary = subportfolio_summary(reduced_labels)
+        row = {
+            "removed_label": label,
+            "remaining_channel_count": len(reduced_labels),
+            "all_original_clears_still_pass": (
+                summary["all_original_clears_still_pass"]),
+            "matches_full_floor_classification": (
+                summary["matches_full_floor_classification"]),
+            "minimum_clear_slack": summary["minimum_clear_slack"],
+            "maximum_failure_slack": summary["maximum_failure_slack"],
+            "pass_targets_from_reduced_portfolio": (
+                summary["pass_targets_from_subportfolio"]),
+            "fail_targets_from_reduced_portfolio": (
+                summary["fail_targets_from_subportfolio"]),
+        }
+        leave_one_out_rows.append(row)
+        if not row["all_original_clears_still_pass"]:
+            clear_essential_labels.append(label)
+        if not row["matches_full_floor_classification"]:
+            classification_essential_labels.append(label)
+
+    prefix_rows = []
+    first_prefix_clearing_all_original_clears = None
+    first_prefix_matching_classification = None
+    for count in range(1, len(portfolio_labels) + 1):
+        summary = subportfolio_summary(portfolio_labels[:count])
+        prefix_rows.append({
+            "channel_count": count,
+            "channel_labels": portfolio_labels[:count],
+            "all_original_clears_still_pass": (
+                summary["all_original_clears_still_pass"]),
+            "matches_full_floor_classification": (
+                summary["matches_full_floor_classification"]),
+            "minimum_clear_slack": summary["minimum_clear_slack"],
+            "maximum_failure_slack": summary["maximum_failure_slack"],
+            "pass_targets_from_prefix": (
+                summary["pass_targets_from_subportfolio"]),
+            "fail_targets_from_prefix": (
+                summary["fail_targets_from_subportfolio"]),
+        })
+        if (first_prefix_clearing_all_original_clears is None
+                and summary["all_original_clears_still_pass"]):
+            first_prefix_clearing_all_original_clears = prefix_rows[-1]
+        if (first_prefix_matching_classification is None
+                and summary["matches_full_floor_classification"]):
+            first_prefix_matching_classification = prefix_rows[-1]
+
+    channel_rows = []
+    for label in portfolio_labels:
+        values = [
+            contributions_by_target[target].get(label, 0.0)
+            for target in swing_receipt["sample_targets"]]
+        clear_values = [
+            contributions_by_target[target].get(label, 0.0)
+            for target in swing_receipt["sample_targets"]
+            if sample_rows[target]["dominant_floor_passes"]]
+        failure_values = [
+            contributions_by_target[target].get(label, 0.0)
+            for target in swing_receipt["sample_targets"]
+            if not sample_rows[target]["dominant_floor_passes"]]
+        channel_rows.append({
+            "representative_label": label,
+            "all_summary": summarize(values),
+            "clear_summary": summarize(clear_values),
+            "failure_summary": summarize(failure_values),
+            "clear_minus_failure_mean": (
+                math.fsum(clear_values) / len(clear_values)
+                - math.fsum(failure_values) / len(failure_values)
+                if clear_values and failure_values else None),
+            "clear_min_exceeds_failure_max": bool(
+                clear_values and failure_values
+                and min(clear_values) > max(failure_values)),
+            "absolute_contribution_sum": math.fsum(
+                abs(value) for value in values),
+        })
+
+    return {
+        "arithmetic_modulus": swing_receipt["arithmetic_modulus"],
+        "support": swing_receipt["support"],
+        "dominant_modes": swing_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            swing_receipt["active_real_channel_count"]),
+        "pair_targets": swing_receipt["pair_targets"],
+        "sample_targets": swing_receipt["sample_targets"],
+        "portfolio_name": portfolio_name,
+        "portfolio_channel_labels": portfolio_labels,
+        "portfolio_channel_count": len(portfolio_labels),
+        "baseline_target_rows": baseline_rows,
+        "baseline_pass_targets": baseline_pass_targets,
+        "baseline_fail_targets": baseline_fail_targets,
+        "full_portfolio_summary": summarize(full_portfolio_values),
+        "channel_rows": tuple(channel_rows),
+        "leave_one_out_rows": tuple(leave_one_out_rows),
+        "clear_essential_channel_labels": tuple(clear_essential_labels),
+        "classification_essential_channel_labels": tuple(
+            classification_essential_labels),
+        "clear_essential_channel_count": len(clear_essential_labels),
+        "classification_essential_channel_count": len(
+            classification_essential_labels),
+        "prefix_rows": tuple(prefix_rows),
+        "first_prefix_clearing_all_original_clears": (
+            first_prefix_clearing_all_original_clears),
+        "first_prefix_matching_classification": (
+            first_prefix_matching_classification),
+        "all_leave_one_out_preserve_clear_passes": not clear_essential_labels,
+        "all_leave_one_out_preserve_classification": not (
+            classification_essential_labels),
+        "portfolio_ablation_measured": True,
+        "single_channel_portfolio_theorem_proved": False,
+        "proper_subportfolio_theorem_proved": False,
+        "fixed_portfolio_lower_bound_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):
