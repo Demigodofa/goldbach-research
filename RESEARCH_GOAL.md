@@ -11817,3 +11817,36 @@ The four post-stress clear rows `1243018`, `1243130`, `1244072`, and
 This strengthens the finite named-fixture posture for the stable-core route,
 but proves no uniform stable-core theorem, volatile-rim bound, coupled curve
 theorem, pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: stable-partition label-rule audit
+
+The surviving stable-core / volatile-rim partition was then audited for simple
+representative-label geometry.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-stable-partition-label-rule-audit.json
+```
+
+The audit tested `1056` coordinate equality, threshold, parity, small modular,
+and rectangle rules in the `(first, second)` label plane.  No tested rule
+exactly captures the stable helpful class, stable harmful class, or volatile
+rim:
+
+```text
+stable helpful exact matches: 0
+stable harmful exact matches: 0
+volatile exact matches:       0
+```
+
+The best single-rule approximations still miss rows: stable helpful is best
+approximated by rectangle `3 <= first <= 4 and 1 <= second <= 11` with F1
+about `0.67`; stable harmful by `first % 3 == 2` with F1 about `0.67`; and
+volatile by rectangle `1 <= first <= 4 and 3 <= second <= 5` with F1 about
+`0.71`.
+
+This demotes a simple coordinate/parity/threshold/rectangle theorem for the
+current partition.  The next target must use arithmetic action of the channel
+sums, a richer structured partition, pressure subregions, or
+lower-support/complement rescue.  This is finite label-rule audit evidence
+only; it proves no label-geometry theorem, stable-core theorem, volatile-rim
+bound, pointwise character-sum estimate, or Goldbach.

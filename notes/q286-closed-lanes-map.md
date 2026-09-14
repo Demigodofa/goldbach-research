@@ -1086,6 +1086,17 @@ current comparison set.
    the largest budget use remains `1240888` at about `74.54%`.  The four
    post-stress clear rows have net positive volatile-rim swing.  This
    strengthens the finite named-fixture target but proves no uniform theorem.
+108. `tools/build_q286_first_three_dominant_mode_stable_partition_label_rule_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-stable-partition-label-rule-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-stable-partition-label-rule-audit.json`,
+   audits `1056` simple coordinate, threshold, parity, modular, and rectangle
+   rules against the frozen stable helpful, stable harmful, and volatile label
+   classes.  No tested rule exactly captures any class.  The best F1 scores are
+   about `0.67` for stable helpful, `0.67` for stable harmful, and `0.71` for
+   volatile.  This demotes a simple label-geometry theorem for the current
+   stable-core / volatile-rim partition.
 
 ## Still open
 
@@ -1130,5 +1141,7 @@ current comparison set.
   partition there.  The surviving sharpened target is a stable-core surplus
   plus volatile-rim drag bound, now finite-holdout checked on the named clear
   fixture, or a pressure-subregion / lower-support-complement replacement.
+  The simple label-rule audit says the current partition is not explained by
+  coordinate, parity, threshold, small-modular, or rectangle label geometry.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

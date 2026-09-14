@@ -1,0 +1,2591 @@
+{
+  "all_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      3
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "any_exact_simple_rule": false,
+  "class_rows": {
+    "stable_negative": {
+      "best_rules": [
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "false_positive_count": 3,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "kind": "first_mod",
+          "name": "first % 3 == 2",
+          "precision": 0.625,
+          "recall": 0.7142857142857143,
+          "selected_count": 8,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 15,
+          "true_positive_count": 5
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 0,
+          "false_positive_labels": [],
+          "kind": "rectangle",
+          "name": "1 <= first <= 2 and 8 <= second <= 10",
+          "precision": 1.0,
+          "recall": 0.42857142857142855,
+          "selected_count": 3,
+          "selected_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 18,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5454545454545454,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 1,
+          "false_positive_labels": [
+            [
+              3,
+              9
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 3 and 8 <= second <= 10",
+          "precision": 0.75,
+          "recall": 0.42857142857142855,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              9
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 17,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5454545454545454,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 1,
+          "false_positive_labels": [
+            [
+              1,
+              11
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 2 and 8 <= second <= 11",
+          "precision": 0.75,
+          "recall": 0.42857142857142855,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 17,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5454545454545454,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 1,
+          "false_positive_labels": [
+            [
+              1,
+              7
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 2 and 7 <= second <= 10",
+          "precision": 0.75,
+          "recall": 0.42857142857142855,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 17,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "first_equality",
+          "name": "first == 2",
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "selected_count": 5,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 16,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "first_mod",
+          "name": "first % 4 == 2",
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "selected_count": 5,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 16,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "2 <= first <= 2 and 2 <= second <= 11",
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "selected_count": 5,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 16,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "2 <= first <= 2 and 2 <= second <= 10",
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "selected_count": 5,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 16,
+          "true_positive_count": 3
+        },
+        {
+          "exact_match": false,
+          "f1": 0.5,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "2 <= first <= 2 and 1 <= second <= 11",
+          "precision": 0.6,
+          "recall": 0.42857142857142855,
+          "selected_count": 5,
+          "selected_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "target_count": 7,
+          "true_negative_count": 16,
+          "true_positive_count": 3
+        }
+      ],
+      "target_labels": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          3
+        ]
+      ]
+    },
+    "stable_positive": {
+      "best_rules": [
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "false_positive_count": 4,
+          "false_positive_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "3 <= first <= 4 and 1 <= second <= 11",
+          "precision": 0.6363636363636364,
+          "recall": 0.7,
+          "selected_count": 11,
+          "selected_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 11,
+          "true_positive_count": 7
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "false_positive_count": 4,
+          "false_positive_labels": [
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "2 <= first <= 5 and 5 <= second <= 11",
+          "precision": 0.6363636363636364,
+          "recall": 0.7,
+          "selected_count": 11,
+          "selected_labels": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 11,
+          "true_positive_count": 7
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "false_positive_count": 6,
+          "false_positive_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "kind": "first_threshold",
+          "name": "first >= 3",
+          "precision": 0.5714285714285714,
+          "recall": 0.8,
+          "selected_count": 14,
+          "selected_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 9,
+          "true_positive_count": 8
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "false_positive_count": 6,
+          "false_positive_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "3 <= first <= 5 and 1 <= second <= 11",
+          "precision": 0.5714285714285714,
+          "recall": 0.8,
+          "selected_count": 14,
+          "selected_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 9,
+          "true_positive_count": 8
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666665,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "3 <= first <= 5 and 5 <= second <= 11",
+          "precision": 0.75,
+          "recall": 0.6,
+          "selected_count": 8,
+          "selected_labels": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 13,
+          "true_positive_count": 6
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666665,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "2 <= first <= 5 and 5 <= second <= 9",
+          "precision": 0.75,
+          "recall": 0.6,
+          "selected_count": 8,
+          "selected_labels": [
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 13,
+          "true_positive_count": 6
+        },
+        {
+          "exact_match": false,
+          "f1": 0.64,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "false_positive_count": 7,
+          "false_positive_labels": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "second_threshold",
+          "name": "second >= 5",
+          "precision": 0.5333333333333333,
+          "recall": 0.8,
+          "selected_count": 15,
+          "selected_labels": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 8,
+          "true_positive_count": 8
+        },
+        {
+          "exact_match": false,
+          "f1": 0.64,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "false_positive_count": 7,
+          "false_positive_labels": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 5 and 5 <= second <= 11",
+          "precision": 0.5333333333333333,
+          "recall": 0.8,
+          "selected_count": 15,
+          "selected_labels": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 8,
+          "true_positive_count": 8
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6363636363636365,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "false_positive_count": 5,
+          "false_positive_labels": [
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "kind": "second_threshold",
+          "name": "second >= 6",
+          "precision": 0.5833333333333334,
+          "recall": 0.7,
+          "selected_count": 12,
+          "selected_labels": [
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              8
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 10,
+          "true_positive_count": 7
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6363636363636365,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "false_positive_count": 5,
+          "false_positive_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "3 <= first <= 5 and 2 <= second <= 11",
+          "precision": 0.5833333333333334,
+          "recall": 0.7,
+          "selected_count": 12,
+          "selected_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "target_count": 10,
+          "true_negative_count": 10,
+          "true_positive_count": 7
+        }
+      ],
+      "target_labels": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          5
+        ]
+      ]
+    },
+    "volatile": {
+      "best_rules": [
+        {
+          "exact_match": false,
+          "f1": 0.7142857142857143,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 1,
+          "false_positive_labels": [
+            [
+              3,
+              5
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 4 and 3 <= second <= 5",
+          "precision": 0.8333333333333334,
+          "recall": 0.625,
+          "selected_count": 6,
+          "selected_labels": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 16,
+          "true_positive_count": 5
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 0,
+          "false_positive_labels": [],
+          "kind": "rectangle",
+          "name": "1 <= first <= 4 and 3 <= second <= 4",
+          "precision": 1.0,
+          "recall": 0.5,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 17,
+          "true_positive_count": 4
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 0,
+          "false_positive_labels": [],
+          "kind": "rectangle",
+          "name": "1 <= first <= 1 and 1 <= second <= 8",
+          "precision": 1.0,
+          "recall": 0.5,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 17,
+          "true_positive_count": 4
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 4,
+          "false_negative_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 0,
+          "false_positive_labels": [],
+          "kind": "rectangle",
+          "name": "1 <= first <= 1 and 1 <= second <= 7",
+          "precision": 1.0,
+          "recall": 0.5,
+          "selected_count": 4,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 17,
+          "true_positive_count": 4
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666666,
+          "false_negative_count": 3,
+          "false_negative_labels": [
+            [
+              3,
+              3
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 2,
+          "false_positive_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 2 and 1 <= second <= 7",
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "selected_count": 7,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 15,
+          "true_positive_count": 5
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666665,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 4,
+          "false_positive_labels": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 4 and 3 <= second <= 7",
+          "precision": 0.6,
+          "recall": 0.75,
+          "selected_count": 10,
+          "selected_labels": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 13,
+          "true_positive_count": 6
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6666666666666665,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              1,
+              7
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 4,
+          "false_positive_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 4 and 1 <= second <= 5",
+          "precision": 0.6,
+          "recall": 0.75,
+          "selected_count": 10,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 13,
+          "true_positive_count": 6
+        },
+        {
+          "exact_match": false,
+          "f1": 0.6363636363636364,
+          "false_negative_count": 1,
+          "false_negative_labels": [
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 7,
+          "false_positive_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 4 and 1 <= second <= 7",
+          "precision": 0.5,
+          "recall": 0.875,
+          "selected_count": 14,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 10,
+          "true_positive_count": 7
+        },
+        {
+          "exact_match": false,
+          "f1": 0.631578947368421,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "false_positive_count": 5,
+          "false_positive_labels": [
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "kind": "first_mod",
+          "name": "first % 3 == 1",
+          "precision": 0.5454545454545454,
+          "recall": 0.75,
+          "selected_count": 11,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 12,
+          "true_positive_count": 6
+        },
+        {
+          "exact_match": false,
+          "f1": 0.631578947368421,
+          "false_negative_count": 2,
+          "false_negative_labels": [
+            [
+              4,
+              4
+            ],
+            [
+              4,
+              10
+            ]
+          ],
+          "false_positive_count": 5,
+          "false_positive_labels": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "kind": "rectangle",
+          "name": "1 <= first <= 3 and 1 <= second <= 7",
+          "precision": 0.5454545454545454,
+          "recall": 0.75,
+          "selected_count": 11,
+          "selected_labels": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "target_count": 8,
+          "true_negative_count": 12,
+          "true_positive_count": 6
+        }
+      ],
+      "target_labels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          10
+        ]
+      ]
+    }
+  },
+  "exact_match_counts": {
+    "stable_negative": 0,
+    "stable_positive": 0,
+    "volatile": 0
+  },
+  "falsifier": "If no tested coordinate, parity, threshold, modular, or rectangle rule exactly captures a partition class, then that simple label-geometry route is not enough for this fixture.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "remaining_theorem": "A proof must use arithmetic action of the channel sums, a richer structured partition, or lower-support/complement rescue rather than only simple representative-label geometry.",
+    "simple_label_geometry": "If exact_match_counts are zero, the stable/volatile classes are not explained by the tested simple label rules."
+  },
+  "mechanism": "Test whether the frozen q286 stable/volatile partition is explained by simple representative-label geometry.",
+  "pointwise_character_sum_estimate_proved": false,
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "simple_label_geometry_theorem_proved": false,
+  "source_commit": "4b0a92a47a593cb4a04987f282f1fe674c773677",
+  "source_evidence": "evidence\\q286-first-three-dominant-mode-pairwise-swing-sign-stability.json",
+  "stable_core_theorem_proved": false,
+  "stable_partition_label_rule_audit_measured": true,
+  "status_boundary": "finite label-rule audit only; no label-geometry theorem, stable-core theorem, volatile-rim theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "tested_rule_count": 1056,
+  "tested_rule_kinds": [
+    "first_equality",
+    "first_mod",
+    "first_parity",
+    "first_threshold",
+    "rectangle",
+    "second_equality",
+    "second_mod",
+    "second_parity",
+    "second_threshold"
+  ],
+  "volatile_rim_bound_proved": false
+}
