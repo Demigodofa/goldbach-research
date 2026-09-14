@@ -282,6 +282,27 @@ The DFT/closed-graph/pigeonhole reading is theorem-shaping only: a future proof
 would need to replace this finite LP by a bounded Fourier/cone or finite-box
 argument on actual admissible prime-pair residue measures.
 
+The far stress LP cone holdout is:
+
+```text
+evidence/q286-low-frequency-lp-cone-stress-holdout.json
+```
+
+It freezes the selected LP vector from the previous receipt and replays it
+without refitting on six farther q286 windows: `6000000`, `8000000`,
+`10000000`, `12000000`, `16000000`, and `20000000`.  All `606` targets clear;
+there are no dominant-floor deficits, no nonpositive exact/rank-`1`/
+low-frequency/LP deltas, and no `0.75` cap failures.  The LP residual drag is
+`0.0` on this far holdout because every LP reconstructed delta stays below the
+full outside delta.  This strengthens the residual-cap certificate candidate,
+but it still does not explain the rank-`1` direction or prove a uniform cone
+theorem.
+
+The Riesz-Thorin/logistic/Laplace reading is now recorded as theorem-shaping
+only.  A proof route would need an actual operator and arithmetic endpoint
+bounds; the finite LP cone is only a measured shadow of that possible
+interpolation/cone argument.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

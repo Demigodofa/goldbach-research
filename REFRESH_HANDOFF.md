@@ -4,6 +4,28 @@ Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.
 
+## Latest active checkpoint note, 2026-09-14
+
+The q286 low-frequency LP cone route now has a farther no-refit stress
+holdout.  `tools/build_q286_low_frequency_lp_cone_stress_holdout.py` freezes
+the selected vector from `evidence/q286-low-frequency-lp-cone-audit.json` and
+replays it on six predeclared windows starting at `6000000`, `8000000`,
+`10000000`, `12000000`, `16000000`, and `20000000`.
+
+Result: `606` targets, `606` clears, no dominant-floor deficits, no
+nonpositive exact/rank-`1`/low-frequency/LP outside deltas, and no `0.75`
+residual-drag cap failures.  The LP residual drag is `0.0` on every far row;
+minimum LP reconstructed delta is `0.112824576695152` at `8000116`, while the
+minimum full outside delta is `0.169776829781052` at `6000008`.
+
+This strengthens the finite residual-cap certificate candidate and makes the
+far loop look tighter for that subproblem.  It still does not prove Goldbach,
+does not explain the Octave rank-`1` direction, and does not prove a uniform
+LP/cone/interpolation theorem.  The next theorem target is to replace the
+fitted LP vector by an arithmetic cone or endpoint-bound argument, or else
+record that the route collapses to hard pointwise binary-prime correlation in
+fixed residue classes.
+
 ## Latest active checkpoint note, 2026-09-12
 
 The q286 driver-residue lift route has new evidence.  The receipt

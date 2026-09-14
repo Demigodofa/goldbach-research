@@ -4,6 +4,29 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
+## Latest continuation evidence, 2026-09-14
+
+The q286 low-frequency LP cone has a farther frozen stress holdout.
+`tools/build_q286_low_frequency_lp_cone_stress_holdout.py` generated
+`evidence/q286-low-frequency-lp-cone-stress-holdout.json` by replaying the
+selected LP effective vector from `q286-low-frequency-lp-cone-audit.json`
+without refit on six windows from `6000000` through `20000000`.
+
+Result: `606/606` far targets clear.  There are no dominant-floor deficits,
+no nonpositive exact/rank-`1`/low-frequency/LP outside deltas, and no `0.75`
+cap failures.  The LP residual drag is `0.0` on this far holdout; minimum LP
+reconstructed delta is `0.112824576695152`, and minimum full outside delta is
+`0.169776829781052`.
+
+Interpretation: the LP route is useful for the residual-cap certificate
+problem and the finite hole is tightening there.  It remains separate from
+the Octave rank-`1` explanation because the LP vector's source cosine to
+rank-`1` is only about `0.6019`.  The Riesz-Thorin/logistic/Laplace analogies
+are theorem-shaping only until an actual operator and arithmetic endpoint
+bounds are defined.  Goldbach, the rank-`1` arithmetic explanation, the
+uniform cone theorem, and the pointwise signed prime-correlation theorem
+remain open.
+
 ## Latest continuation evidence, 2026-09-13
 
 The q286 first-three route now has a window-level alignment/complement

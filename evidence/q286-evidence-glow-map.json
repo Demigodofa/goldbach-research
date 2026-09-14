@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "460c3f914a854f653cf51d9ac625e86fbcf8c698",
+  "generated_from_commit": "54a2cedb7905ceeef9620d6282c7c0ff16b0b94d",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -242,6 +242,14 @@
       "source": "evidence/q286-low-frequency-lp-cone-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite LP cone diagnostic only; no LP theorem or Goldbach proof."
+    },
+    {
+      "id": "low-frequency-lp-cone-stress-holdout",
+      "label": "Frozen low-frequency LP cone survives far stress holdout",
+      "kind": "finite_holdout_certificate_candidate",
+      "source": "evidence/q286-low-frequency-lp-cone-stress-holdout.json",
+      "default_weight": 3.5,
+      "boundary": "Finite far stress holdout only; no LP theorem or Goldbach proof."
     },
     {
       "id": "conditional-proof-stack",
@@ -3859,6 +3867,234 @@
       "glow": 0.064815
     },
     {
+      "id": "6000000",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.16097269553727583,
+            "full_delta": 0.2558780615365131,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000002",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.17064453022976372,
+            "full_delta": 0.25113478951517326,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000004",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.158119796000635,
+            "full_delta": 0.22256967581110673,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000006",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.15108477518313299,
+            "full_delta": 0.23540158210770526,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000008",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.1183640983465532,
+            "full_delta": 0.1697768297810522,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000010",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.16382285955294862,
+            "full_delta": 0.23256279340898786,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000012",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.17017538921366898,
+            "full_delta": 0.2571321539346245,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000014",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.12647735860808335,
+            "full_delta": 0.22850815066283925,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000016",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.15416472846915735,
+            "full_delta": 0.2291923794464829,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000018",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.1528042862445361,
+            "full_delta": 0.22671815873915227,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000020",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.15939222271780537,
+            "full_delta": 0.26448110183424667,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
+      "id": "6000022",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "far stress row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "lp_delta": 0.1715237014210968,
+            "full_delta": 0.26707614992603174,
+            "window_start": 6000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.064815
+    },
+    {
       "id": "1200232",
       "stack_weight": 3.0,
       "layers": [
@@ -5007,6 +5243,40 @@
       "glow": 1.0
     },
     {
+      "id": "low-frequency-lp-cap-certificate-survives",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
+          "value": {
+            "selected_l1_multiplier": 1.0,
+            "training_slack": 0.0796483772796952,
+            "rank1_cosine": 0.6019078700529527,
+            "training_max_ratio": 0.5000000000000002,
+            "heldout_max_ratio": 0.33946759079383754,
+            "horizon_max_ratio": 0.42590751493414414
+          }
+        },
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "same frozen LP vector has zero positivity/cap failures and zero residual drag on six far stress windows",
+          "value": {
+            "far_stress_clear_count": 606,
+            "lp_max_ratio": 0.0,
+            "minimum_lp_delta": 0.1128245766951522,
+            "minimum_lp_delta_target": 8000116,
+            "maximum_rank1_ratio": 0.086045031830256,
+            "maximum_low_frequency_ratio": 0.1578325865611584
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.722222
+    },
+    {
       "id": "low-frequency-label-lattice-heldout-survives",
       "stack_weight": 3.0,
       "layers": [
@@ -5040,27 +5310,6 @@
             "matrix_cosine": 0.8311579645183356,
             "maximum_low_frequency_ratio": 0.6419474569885669,
             "tight_target": 1426262
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.333333
-    },
-    {
-      "id": "low-frequency-lp-cap-certificate-survives",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "low-frequency-lp-cone-audit",
-          "weight": 3.0,
-          "reason": "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
-          "value": {
-            "selected_l1_multiplier": 1.0,
-            "training_slack": 0.0796483772796952,
-            "rank1_cosine": 0.6019078700529527,
-            "training_max_ratio": 0.5000000000000002,
-            "heldout_max_ratio": 0.33946759079383754,
-            "horizon_max_ratio": 0.42590751493414414
           }
         }
       ],
@@ -5726,7 +5975,7 @@
     },
     {
       "id": "rank1-residual-drag-bound",
-      "stack_weight": 11.5,
+      "stack_weight": 15.0,
       "layers": [
         {
           "layer": "rank1-residual-drag-ledger",
@@ -5747,10 +5996,15 @@
           "layer": "low-frequency-lp-cone-audit",
           "weight": 3.0,
           "reason": "LP finds finite cap-certificate vector; a non-optimized arithmetic cone theorem is still needed"
+        },
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 3.5,
+          "reason": "LP cap-certificate candidate survives far stress replay but still needs an arithmetic cone or endpoint theorem"
         }
       ],
-      "layer_count": 4,
-      "glow": 0.657143
+      "layer_count": 5,
+      "glow": 0.857143
     },
     {
       "id": "active-lane-strict-closure",
@@ -5848,6 +6102,19 @@
           "layer": "staircase-hinge-threshold",
           "weight": 2.0,
           "reason": "prove positive surplus with non-circular support-side definition"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.114286
+    },
+    {
+      "id": "interpolation-or-cone-endpoint-theorem",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-stress-holdout",
+          "weight": 2.0,
+          "reason": "Riesz-Thorin/logistic/Laplace analogies remain theorem-shaping until operator and endpoint arithmetic bounds exist"
         }
       ],
       "layer_count": 1,

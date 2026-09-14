@@ -113,6 +113,8 @@ def main():
         EVIDENCE / "q286-frobenius-lattice-claim-audit.json")
     low_frequency_lp_cone = load_json(
         EVIDENCE / "q286-low-frequency-lp-cone-audit.json")
+    low_frequency_lp_cone_stress = load_json(
+        EVIDENCE / "q286-low-frequency-lp-cone-stress-holdout.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1367,6 +1369,60 @@ def main():
         "low-frequency-lp-cone-audit",
         1.5,
         "LP vector is useful for cap but has only about 0.602 cosine to rank-1")
+
+    layer(
+        "low-frequency-lp-cone-stress-holdout",
+        "Frozen low-frequency LP cone survives far stress holdout",
+        "finite_holdout_certificate_candidate",
+        "evidence/q286-low-frequency-lp-cone-stress-holdout.json",
+        3.5,
+        "Finite far stress holdout only; no LP theorem or Goldbach proof.")
+    for row in low_frequency_lp_cone_stress[
+            "selected_lp_rows_by_residual_drag_ratio"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "low-frequency-lp-cone-stress-holdout",
+            3.5,
+            "far stress row under frozen LP cone vector",
+            {
+                "lp_ratio": row["lp_residual_drag_ratio"],
+                "lp_delta": row["lp_reconstructed_outside_delta"],
+                "full_delta": row["full_outside_delta_to_stress"],
+                "window_start": row["window_start"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "low-frequency-lp-cap-certificate-survives",
+        "low-frequency-lp-cone-stress-holdout",
+        3.5,
+        "same frozen LP vector has zero positivity/cap failures and zero residual drag on six far stress windows",
+        {
+            "far_stress_clear_count": low_frequency_lp_cone_stress[
+                "far_stress_clear_count"],
+            "lp_max_ratio": low_frequency_lp_cone_stress[
+                "lp_summary"]["maximum_residual_drag_ratio"]["value"],
+            "minimum_lp_delta": low_frequency_lp_cone_stress[
+                "lp_summary"]["minimum_reconstructed_delta"]["value"],
+            "minimum_lp_delta_target": low_frequency_lp_cone_stress[
+                "lp_summary"]["minimum_reconstructed_delta"]["target"],
+            "maximum_rank1_ratio": low_frequency_lp_cone_stress[
+                "maximum_rank1_residual_drag_ratio"]["value"],
+            "maximum_low_frequency_ratio": low_frequency_lp_cone_stress[
+                "maximum_low_frequency_residual_drag_ratio"]["value"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-residual-drag-bound",
+        "low-frequency-lp-cone-stress-holdout",
+        3.5,
+        "LP cap-certificate candidate survives far stress replay but still needs an arithmetic cone or endpoint theorem")
+    add_hit(
+        theorem_stacks,
+        "interpolation-or-cone-endpoint-theorem",
+        "low-frequency-lp-cone-stress-holdout",
+        2.0,
+        "Riesz-Thorin/logistic/Laplace analogies remain theorem-shaping until operator and endpoint arithmetic bounds exist")
 
     layer(
         "conditional-proof-stack",
