@@ -1,0 +1,313 @@
+{
+  "all_stable_core_rows_clear_reference": true,
+  "all_volatile_rims_within_budget": true,
+  "arithmetic_modulus": 286,
+  "coupled_pressure_offset_curve_proved": false,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "failure_count": 0,
+  "failure_rows": [],
+  "falsifier": "A named clear row where stable-core margin is nonpositive, or where volatile-rim drag exceeds stable-core margin, falsifies this fixed partition as a named-row holdout certificate.",
+  "goldbach_proved": false,
+  "holdout_rows": [
+    {
+      "actual_volatile_drag": 0.014462095612572855,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.016528913466746065,
+      "clear_floor_margin_reconstruction_error": 8.673617379884035e-16,
+      "clear_target": 1242118,
+      "clear_target_mod_286": 20,
+      "final_floor_margin_reconstructed": 0.016528913466746932,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.030991009079319787,
+      "stable_core_net_swing": 0.0398241886398476,
+      "stable_negative_swing_sum": -0.15477673770371755,
+      "stable_positive_swing_sum": 0.19460092634356516,
+      "volatile_drag_budget": 0.030991009079319787,
+      "volatile_drag_budget_used_fraction": 0.46665455698967123,
+      "volatile_rim_net_swing": -0.014462095612572855,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0795878214771284,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.027186573380917844,
+      "clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+      "clear_target": 1240888,
+      "clear_target_mod_286": 220,
+      "final_floor_margin_reconstructed": 0.02718657338092062,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.10677439485804902,
+      "stable_core_net_swing": 0.11560757441857683,
+      "stable_negative_swing_sum": -0.07572402333725031,
+      "stable_positive_swing_sum": 0.19133159775582714,
+      "volatile_drag_budget": 0.10677439485804902,
+      "volatile_drag_budget_used_fraction": 0.7453830254241782,
+      "volatile_rim_net_swing": -0.0795878214771284,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.1624308988829206,
+      "clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+      "clear_target": 1243018,
+      "clear_target_mod_286": 62,
+      "final_floor_margin_reconstructed": 0.16243089888292336,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.13447969041717747,
+      "stable_core_net_swing": 0.1433128699777053,
+      "stable_negative_swing_sum": -0.050428249414784625,
+      "stable_positive_swing_sum": 0.19374111939248992,
+      "volatile_drag_budget": 0.13447969041717747,
+      "volatile_drag_budget_used_fraction": 0.0,
+      "volatile_rim_net_swing": 0.027951208465745885,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.22768668361552694,
+      "clear_floor_margin_reconstruction_error": 9.71445146547012e-16,
+      "clear_target": 1243130,
+      "clear_target_mod_286": 174,
+      "final_floor_margin_reconstructed": 0.2276866836155279,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.19285064985400277,
+      "stable_core_net_swing": 0.20168382941453059,
+      "stable_negative_swing_sum": -0.03970210066321502,
+      "stable_positive_swing_sum": 0.24138593007774561,
+      "volatile_drag_budget": 0.19285064985400277,
+      "volatile_drag_budget_used_fraction": 0.0,
+      "volatile_rim_net_swing": 0.03483603376152515,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.18481511354680824,
+      "clear_floor_margin_reconstruction_error": 2.914335439641036e-15,
+      "clear_target": 1244072,
+      "clear_target_mod_286": 258,
+      "final_floor_margin_reconstructed": 0.18481511354681115,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.09950312955133506,
+      "stable_core_net_swing": 0.10833630911186287,
+      "stable_negative_swing_sum": -0.06033263623902735,
+      "stable_positive_swing_sum": 0.16866894535089022,
+      "volatile_drag_budget": 0.09950312955133506,
+      "volatile_drag_budget_used_fraction": 0.0,
+      "volatile_rim_net_swing": 0.0853119839954761,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_dominant_floor_passes": true,
+      "clear_floor_margin": 0.14871061379917375,
+      "clear_floor_margin_reconstruction_error": 1.6653345369377348e-16,
+      "clear_target": 1244094,
+      "clear_target_mod_286": 280,
+      "final_floor_margin_reconstructed": 0.1487106137991739,
+      "reference_floor_margin": -0.008833179560527815,
+      "reference_target": 1222142,
+      "stable_core_alone_clears_reference": true,
+      "stable_core_margin_to_floor": 0.11609723970413371,
+      "stable_core_net_swing": 0.12493041926466153,
+      "stable_negative_swing_sum": -0.10953410372518443,
+      "stable_positive_swing_sum": 0.23446452298984596,
+      "volatile_drag_budget": 0.11609723970413371,
+      "volatile_drag_budget_used_fraction": 0.0,
+      "volatile_rim_net_swing": 0.0326133740950402,
+      "volatile_rim_within_budget": true
+    }
+  ],
+  "holdout_target_count": 6,
+  "interpretation": {
+    "observed_shape": "The frozen stable-core/volatile-rim partition survives the broader named clear fixture if failure_count is zero.",
+    "remaining_theorem": "A uniform proof still needs arithmetic estimates forcing stable-core surplus and bounding volatile-rim drag outside this finite fixture."
+  },
+  "maximum_budget_used_row": {
+    "actual_volatile_drag": 0.0795878214771284,
+    "clear_dominant_floor_passes": true,
+    "clear_floor_margin": 0.027186573380917844,
+    "clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+    "clear_target": 1240888,
+    "clear_target_mod_286": 220,
+    "final_floor_margin_reconstructed": 0.02718657338092062,
+    "reference_floor_margin": -0.008833179560527815,
+    "reference_target": 1222142,
+    "stable_core_alone_clears_reference": true,
+    "stable_core_margin_to_floor": 0.10677439485804902,
+    "stable_core_net_swing": 0.11560757441857683,
+    "stable_negative_swing_sum": -0.07572402333725031,
+    "stable_positive_swing_sum": 0.19133159775582714,
+    "volatile_drag_budget": 0.10677439485804902,
+    "volatile_drag_budget_used_fraction": 0.7453830254241782,
+    "volatile_rim_net_swing": -0.0795878214771284,
+    "volatile_rim_within_budget": true
+  },
+  "maximum_clear_floor_margin_reconstruction_error": 2.914335439641036e-15,
+  "mechanism": "Freeze the stable-positive, stable-negative, and volatile-rim labels derived from the two near-boundary clear comparisons and apply them to the broader named pressure fixture.",
+  "minimum_stable_core_margin_row": {
+    "actual_volatile_drag": 0.014462095612572855,
+    "clear_dominant_floor_passes": true,
+    "clear_floor_margin": 0.016528913466746065,
+    "clear_floor_margin_reconstruction_error": 8.673617379884035e-16,
+    "clear_target": 1242118,
+    "clear_target_mod_286": 20,
+    "final_floor_margin_reconstructed": 0.016528913466746932,
+    "reference_floor_margin": -0.008833179560527815,
+    "reference_target": 1222142,
+    "stable_core_alone_clears_reference": true,
+    "stable_core_margin_to_floor": 0.030991009079319787,
+    "stable_core_net_swing": 0.0398241886398476,
+    "stable_negative_swing_sum": -0.15477673770371755,
+    "stable_positive_swing_sum": 0.19460092634356516,
+    "volatile_drag_budget": 0.030991009079319787,
+    "volatile_drag_budget_used_fraction": 0.46665455698967123,
+    "volatile_rim_net_swing": -0.014462095612572855,
+    "volatile_rim_within_budget": true
+  },
+  "pointwise_character_sum_estimate_proved": false,
+  "reference_target": 1222142,
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "dc24346726520af2818536a8fe4e5392021e4598",
+  "source_evidence": "evidence\\q286-first-three-dominant-mode-pairwise-swing-sign-stability.json",
+  "stable_core_named_holdout_measured": true,
+  "stable_core_theorem_proved": false,
+  "stable_negative_labels": [
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      5,
+      3
+    ]
+  ],
+  "stable_positive_labels": [
+    [
+      1,
+      11
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "status_boundary": "finite named-row stable-core holdout diagnostic only; no stable-core theorem, volatile-rim theorem, coupled curve theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_bound_proved": false
+}

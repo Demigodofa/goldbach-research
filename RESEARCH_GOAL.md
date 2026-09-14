@@ -11783,3 +11783,37 @@ the stable core alone would clear the tail in both comparisons, and the
 volatile rim is harmful but within the finite budget.  It proves no uniform
 stable-core theorem, volatile-rim bound, coupled curve theorem, pointwise
 character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: stable-core named holdout
+
+The stable-core / volatile-rim partition was then frozen and applied to every
+clear row in the broader named pressure fixture.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-stable-core-named-holdout.json
+```
+
+Reference tail:
+
+```text
+1222142
+```
+
+Named clear rows:
+
+```text
+1242118, 1240888, 1243018, 1243130, 1244072, 1244094
+```
+
+All `6` named clear rows satisfy the frozen stable-core / volatile-rim budget,
+with zero failure rows and reconstruction error below `3e-15`.  The tightest
+stable-core margin remains `1242118`, with margin about `0.0309910091` and
+volatile-rim budget use about `46.67%`.  The largest volatile-drag budget use
+remains `1240888`, with stable-core margin about `0.1067743949` and budget
+use about `74.54%`.
+
+The four post-stress clear rows `1243018`, `1243130`, `1244072`, and
+`1244094` have net positive volatile-rim swing rather than volatile-rim drag.
+This strengthens the finite named-fixture posture for the stable-core route,
+but proves no uniform stable-core theorem, volatile-rim bound, coupled curve
+theorem, pointwise character-sum estimate, or Goldbach.

@@ -1074,6 +1074,18 @@ current comparison set.
    volatile drag is about `0.0795878215`, and the rim uses about `74.54%` of
    the budget.  This does not prove the theorem, but it sharpens the surviving
    candidate to stable-core surplus plus volatile-rim drag control.
+107. `tools/build_q286_first_three_dominant_mode_stable_core_named_holdout.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-stable-core-named-holdout.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-stable-core-named-holdout.json`,
+   freezes the stable/volatile partition and applies it to all six named clear
+   rows relative to tail `1222142`.  All `6` holdout rows pass the finite
+   stable-core / volatile-rim budget with reconstruction error below `3e-15`.
+   The tightest stable-core margin remains `1242118` at about `0.0309910091`;
+   the largest budget use remains `1240888` at about `74.54%`.  The four
+   post-stress clear rows have net positive volatile-rim swing.  This
+   strengthens the finite named-fixture target but proves no uniform theorem.
 
 ## Still open
 
@@ -1116,7 +1128,7 @@ current comparison set.
   demotes a one-channel rescue swing on the named tail-to-clear pairs, and the
   sign-stability diagnostic demotes a single fixed helpful/harmful channel
   partition there.  The surviving sharpened target is a stable-core surplus
-  plus volatile-rim drag bound, or a pressure-subregion /
-  lower-support-complement replacement.
+  plus volatile-rim drag bound, now finite-holdout checked on the named clear
+  fixture, or a pressure-subregion / lower-support-complement replacement.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
