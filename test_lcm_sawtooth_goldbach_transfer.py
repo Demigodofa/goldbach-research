@@ -3468,12 +3468,13 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
 
     def test_q286_active_lane_strict_closure_margin_census(self):
         receipt = q286_active_lane_strict_closure_margin_census_receipt(
-            starts=(1379072,), targets_per_window=5)
+            starts=(1222142, 1323632, 1379072), targets_per_window=5)
         self.assertEqual(receipt["arithmetic_period"], 10010)
-        self.assertEqual(receipt["starts"], (1379072,))
-        self.assertEqual(receipt["scanned_target_count"], 5)
-        self.assertEqual(receipt["tail_target_count"], 1)
-        self.assertEqual(receipt["tail_targets"], (1379072,))
+        self.assertEqual(receipt["starts"], (1222142, 1323632, 1379072))
+        self.assertEqual(receipt["scanned_target_count"], 15)
+        self.assertEqual(receipt["tail_target_count"], 3)
+        self.assertEqual(
+            receipt["tail_targets"], (1222142, 1323632, 1379072))
         self.assertEqual(receipt["calibration_targets"], (
             14138, 1222142, 1323632, 1379072))
         self.assertAlmostEqual(
@@ -3485,11 +3486,20 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertAlmostEqual(
             receipt["calibrated_real_channel_l1_to_principal_mean"],
             15.262957606760978)
-        self.assertEqual(receipt["positive_strict_margin_targets"],
-                         (1379072,))
+        self.assertEqual(
+            receipt["positive_strict_margin_targets"],
+            (1222142, 1323632, 1379072))
         self.assertEqual(receipt["nonpositive_strict_margin_targets"], ())
         self.assertTrue(receipt[
             "all_tail_targets_have_positive_strict_margin"])
+        early_row = receipt["target_rows"][1222142]
+        self.assertAlmostEqual(
+            early_row["strict_closure_margin_to_calibrated_endpoint"],
+            0.5506633762515991)
+        middle_row = receipt["target_rows"][1323632]
+        self.assertAlmostEqual(
+            middle_row["strict_closure_margin_to_calibrated_endpoint"],
+            0.546820393849208)
         row = receipt["target_rows"][1379072]
         self.assertAlmostEqual(
             row["strict_closure_margin_to_calibrated_endpoint"],

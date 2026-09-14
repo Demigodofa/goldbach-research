@@ -139,8 +139,9 @@ assumptions is actually carrying the slack.
 `q286_active_lane_strict_closure_margin_census_receipt` now implements this
 audit with calibration constants frozen from
 `14138,1222142,1323632,1379072`.  The focused regression
-`test_q286_active_lane_strict_closure_margin_census` passed in `259.586s`.
+`test_q286_active_lane_strict_closure_margin_census` passed in `324.552s`.
 The compact active-window evidence in
-`evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`
-scanned `1379072,1379074,1379076,1379078,1379080`, selected `1379072`, and
-measured strict closure margin `0.48379401372791037`.
+`evidence/q286-active-lane-strict-closure-margin-census-selected-late.json`
+scanned selected late windows starting at `1222142`, `1323632`, and
+`1379072`, selected those three targets, and measured strict closure margins
+`0.5506633762515991`, `0.546820393849208`, and `0.48379401372791037`.
