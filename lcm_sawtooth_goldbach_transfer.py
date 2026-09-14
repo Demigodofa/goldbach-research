@@ -11248,6 +11248,238 @@ def q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Compare actual orbit mass with weak-geometry extremal witnesses.
+
+    The weak-geometry obstruction breaks a stage by concentrating synthetic
+    mass on a best or worst reflected q286 orbit.  This receipt measures how
+    much of the actual strict-central prime-pair mass sits on those extremal
+    orbits.
+
+    It proves no orbit-mass theorem and no Goldbach theorem.
+    """
+    gap_receipt = (
+        q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    maximum_target = max(gap_receipt["sample_targets"])
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def target_residue_weights(target):
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        weights = np.bincount(
+            [unit_index[prime % modulus] for prime in selected_primes],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=len(units))
+        return weights.astype(np.float64)
+
+    weights_by_target = {
+        target: target_residue_weights(target)
+        for target in gap_receipt["sample_targets"]}
+
+    def orbit_mass_data(target, orbit):
+        weights = weights_by_target[target]
+        total = float(np.sum(weights))
+        if total <= tolerance:
+            return {
+                "actual_mass_fraction": None,
+                "actual_weight": 0.0,
+            }
+        actual_weight = float(math.fsum(
+            weights[unit_index[unit]] for unit in orbit))
+        return {
+            "actual_mass_fraction": actual_weight / total,
+            "actual_weight": actual_weight,
+        }
+
+    def orbit_rows_for_target(target, stage_row):
+        weights = weights_by_target[target]
+        total = float(np.sum(weights))
+        target_residue = target % modulus
+        seen = set()
+        rows = []
+        for unit in units:
+            index = unit_index[unit]
+            if index in seen:
+                continue
+            if math.gcd((target_residue - unit) % modulus, modulus) != 1:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected_index = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected_index)
+            orbit = ((unit,) if reflected_index == index
+                     else tuple(sorted((unit, reflected_unit))))
+            mass = math.fsum(weights[unit_index[item]] for item in orbit)
+            mass_fraction = float(mass / total) if total > tolerance else 0.0
+            rows.append({
+                "orbit": orbit,
+                "actual_mass_fraction": mass_fraction,
+            })
+        return rows
+
+    stage_rows = []
+    for stage in gap_receipt["stage_rows"]:
+        target_rows = []
+        extremal_break_mass_fractions = []
+        top_mass_fractions = []
+        for row in stage["target_rows"]:
+            target = row["target"]
+            expected_pass = row["dominant_floor_passes"]
+            breaking_orbit = (
+                tuple(row["minimum_reflection_orbit"]) if expected_pass
+                else tuple(row["maximum_reflection_orbit"]))
+            opposite_orbit = (
+                tuple(row["maximum_reflection_orbit"]) if expected_pass
+                else tuple(row["minimum_reflection_orbit"]))
+            break_mass = orbit_mass_data(target, breaking_orbit)
+            opposite_mass = orbit_mass_data(target, opposite_orbit)
+            orbit_rows = orbit_rows_for_target(target, row)
+            top_actual_orbit = max(
+                orbit_rows, key=lambda item: item["actual_mass_fraction"])
+            extremal_break_mass_fractions.append(
+                break_mass["actual_mass_fraction"])
+            top_mass_fractions.append(top_actual_orbit[
+                "actual_mass_fraction"])
+            uniform_break_mass = (
+                len(breaking_orbit) / row["admissible_count"])
+            break_mass_lift_over_uniform = (
+                break_mass["actual_mass_fraction"] / uniform_break_mass
+                if uniform_break_mass > tolerance else math.nan)
+            compact = dict(row)
+            compact.update({
+                "breaking_extremal_orbit": breaking_orbit,
+                "opposite_extremal_orbit": opposite_orbit,
+                "breaking_extremal_orbit_actual_mass_fraction": (
+                    break_mass["actual_mass_fraction"]),
+                "opposite_extremal_orbit_actual_mass_fraction": (
+                    opposite_mass["actual_mass_fraction"]),
+                "breaking_extremal_orbit_uniform_mass_fraction": (
+                    uniform_break_mass),
+                "breaking_extremal_orbit_mass_lift_over_uniform": (
+                    break_mass_lift_over_uniform),
+                "top_actual_mass_orbit": top_actual_orbit["orbit"],
+                "top_actual_mass_orbit_fraction": (
+                    top_actual_orbit["actual_mass_fraction"]),
+                "breaking_orbit_is_top_actual_mass_orbit": (
+                    tuple(top_actual_orbit["orbit"]) == breaking_orbit),
+                "extremal_break_mass_gap_to_top_actual_orbit": (
+                    top_actual_orbit["actual_mass_fraction"]
+                    - break_mass["actual_mass_fraction"]),
+            })
+            target_rows.append(compact)
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": tuple(target_rows),
+            "breaking_extremal_orbit_mass_fraction_summary": summarize(
+                extremal_break_mass_fractions),
+            "top_actual_orbit_mass_fraction_summary": summarize(
+                top_mass_fractions),
+            "breaking_orbit_top_actual_count": sum(
+                1 for row in target_rows
+                if row["breaking_orbit_is_top_actual_mass_orbit"]),
+        })
+
+    prefix_stage = stage_rows[
+        gap_receipt["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        gap_receipt["full_stage"]["stage_index"]]
+    full_rows = full_stage["target_rows"]
+    largest_break_mass_row = max(
+        full_rows,
+        key=lambda row: row[
+            "breaking_extremal_orbit_actual_mass_fraction"])
+    smallest_break_mass_row = min(
+        full_rows,
+        key=lambda row: row[
+            "breaking_extremal_orbit_actual_mass_fraction"])
+    largest_break_lift_row = max(
+        full_rows,
+        key=lambda row: row[
+            "breaking_extremal_orbit_mass_lift_over_uniform"])
+
+    return {
+        "arithmetic_modulus": modulus,
+        "support": gap_receipt["support"],
+        "dominant_modes": gap_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": gap_receipt["sample_targets"],
+        "pair_targets": gap_receipt["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": gap_receipt["prefix_channel_labels"],
+        "tail_channel_labels": gap_receipt["tail_channel_labels"],
+        "ordered_channel_labels": gap_receipt["ordered_channel_labels"],
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_largest_breaking_orbit_mass_row": (
+            largest_break_mass_row),
+        "full_stage_smallest_breaking_orbit_mass_row": (
+            smallest_break_mass_row),
+        "full_stage_largest_breaking_orbit_lift_row": (
+            largest_break_lift_row),
+        "staircase_orbit_mass_gap_measured": True,
+        "orbit_mass_theorem_proved": False,
+        "arithmetic_gap_theorem_proved": False,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

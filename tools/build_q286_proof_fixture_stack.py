@@ -70,6 +70,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json")
     dominant_mode_staircase_arithmetic_gap = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json")
+    dominant_mode_staircase_orbit_mass_gap = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -497,6 +499,28 @@ def main():
                     "prime-correlation theorem"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_orbit_mass_gap",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json"),
+                "statement": (
+                    "The weak synthetic obstruction breaks selected rows by "
+                    "concentrating mass on an extremal reflected orbit, but "
+                    "actual strict-central prime-pair mass is not visibly "
+                    "concentrated on those breaker orbits."),
+                "validation": (
+                    "full-stage breaker mass fraction range "
+                    f"{dominant_mode_staircase_orbit_mass_gap['full_stage']['breaking_extremal_orbit_mass_fraction_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_orbit_mass_gap['full_stage']['breaking_extremal_orbit_mass_fraction_summary']['maximum']}; "
+                    "top actual orbit mass range "
+                    f"{dominant_mode_staircase_orbit_mass_gap['full_stage']['top_actual_orbit_mass_fraction_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_orbit_mass_gap['full_stage']['top_actual_orbit_mass_fraction_summary']['maximum']}; "
+                    "breaker orbit top-actual count "
+                    f"{dominant_mode_staircase_orbit_mass_gap['full_stage']['breaking_orbit_top_actual_count']}."),
+                "proved_scope": (
+                    "finite orbit-mass diagnostic, not an orbit-mass theorem "
+                    "or pointwise prime-correlation theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -600,7 +624,10 @@ def main():
                     "reflection constraints alone do not force the selected "
                     "classifications.  The arithmetic-gap receipt then shows "
                     "the remaining task is one-sided placement of actual "
-                    "prime-pair rows inside a broad weak interval."),
+                    "prime-pair rows inside a broad weak interval.  The "
+                    "orbit-mass gap receipt sharpens that placement problem "
+                    "to control of the extremal reflected breaker orbits "
+                    "used by the weak synthetic witnesses."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
@@ -609,6 +636,23 @@ def main():
                     "selected clear rows can have large negative pressure."),
                 "exact_obligation_source": (
                     "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json"),
+                "proved": False,
+            },
+            {
+                "id": "joint.dangerous_reflection_orbit_mass_bound",
+                "statement": (
+                    "For the q286 dominant-mode staircase, prove a pointwise "
+                    "bound or signed aggregate replacement controlling actual "
+                    "strict-central prime-pair mass on the extremal reflected "
+                    "orbits that would break each cumulative stage."),
+                "why_it_is_needed": (
+                    "Weak geometry fails by synthetic concentration on "
+                    "specific breaker orbits.  On the selected fixture, those "
+                    "breaker orbits are never the top actual mass orbit and "
+                    "sometimes carry zero actual mass, but this is finite "
+                    "evidence only."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json"),
                 "proved": False,
             },
         ],
@@ -624,6 +668,7 @@ def main():
                 "joint.boundary_and_endpoint_assembly",
                 "joint.external_prime_correlation_input",
                 "joint.dominant_singular_mode_projection",
+                "joint.dangerous_reflection_orbit_mass_bound",
             ],
             "current_status": "not ready to condense into a proof",
         },
@@ -633,7 +678,10 @@ def main():
             "forcing the recurrent helpful-channel portfolio under large "
             "negative pressure while controlling the nonportfolio residual, "
             "classify the true deficit rows, or prove/cite that this joint "
-            "requires an external fixed-modulus binary Goldbach/AP theorem."),
+            "requires an external fixed-modulus binary Goldbach/AP theorem.  "
+            "A sharper near-term version is to prove that actual prime-pair "
+            "mass cannot concentrate on the dangerous reflected breaker "
+            "orbits identified by the weak-geometry obstruction."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

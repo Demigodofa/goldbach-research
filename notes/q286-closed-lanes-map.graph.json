@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "graph_id": "q286-closed-lanes-map",
-  "generated_on": "2026-09-13",
+  "generated_on": "2026-09-14",
   "source_commit_at_start": "8b85d45a002bd5eb0e463cbb991d9580480302b6",
   "scope": "q286 first-three, lower-support, and component-pair theorem route",
   "status_boundary": "finite evidence and proof-strategy map only; Goldbach is not proved",
@@ -1085,6 +1085,22 @@
       "status": "validated_finite_diagnostic",
       "validation": "q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt and tools/build_q286_first_three_dominant_mode_staircase_arithmetic_gap.py generated evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json; actual rows lie inside weak-geometry intervals but classification margins are tiny compared with missing weak-geometry margins.",
       "status_boundary": "finite selected-fixture diagnostic only; proves no pointwise arithmetic placement theorem and no Goldbach theorem"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_staircase_orbit_mass_gap",
+      "type": "receipt",
+      "label": "q286 dominant-mode staircase orbit-mass gap",
+      "status": "finite_theorem_shaping_evidence",
+      "validation": "q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt and tools/build_q286_first_three_dominant_mode_staircase_orbit_mass_gap.py generated evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json; on the full stage, breaker-orbit mass ranges from 0 to about 0.02461931032734391 with mean about 0.010645012057166277, while top actual orbit mass ranges from about 0.025681804086383663 to 0.08319711352001508, and the breaker orbit is never the top actual mass orbit on the selected fixture",
+      "status_boundary": "finite selected orbit-mass diagnostic only; no dangerous-orbit mass theorem, no pointwise prime-correlation estimate, and no Goldbach proof"
+    },
+    {
+      "id": "obligation.dangerous_reflection_orbit_mass_control",
+      "type": "open_obligation",
+      "label": "Dangerous q286 reflected breaker-orbit mass control",
+      "status": "open_precisely_stated",
+      "statement": "For the q286 dominant-mode staircase, prove that actual strict-central binary-prime residue weights cannot concentrate enough on the extremal reflected orbits that break the weak-geometry classification, or prove an equivalent signed aggregate replacement.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -2255,6 +2271,31 @@
     },
     {
       "from": "obligation.dominant_staircase_arithmetic_placement",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_orbit_mass_gap",
+      "to": "obligation.dangerous_reflection_orbit_mass_control",
+      "type": "measures"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_arithmetic_gap",
+      "to": "receipt.q286_first_three_dominant_mode_staircase_orbit_mass_gap",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_geometry_obstruction",
+      "to": "receipt.q286_first_three_dominant_mode_staircase_orbit_mass_gap",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_staircase_orbit_mass_gap",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
+    },
+    {
+      "from": "obligation.dangerous_reflection_orbit_mass_control",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

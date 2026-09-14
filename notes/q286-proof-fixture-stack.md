@@ -107,6 +107,13 @@ frame.
   intervals, but the intervals are far too wide.  Full-stage pass positions
   are about `0.2166..0.3528`, deficit positions about `0.2887..0.4044`, while
   actual one-sided margins are only about `0.008833..0.099229`.
+- `evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json`:
+  the weak synthetic obstruction breaks rows by concentrating on extremal
+  reflected orbits, but actual prime-pair mass is not concentrated there on
+  the selected fixture.  Full-stage breaker-orbit mass ranges from `0` to
+  about `0.0246193103`, while top actual orbit mass ranges from about
+  `0.0256818041` to `0.0831971135`; the breaker orbit is never the top
+  actual mass orbit.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -161,8 +168,14 @@ frame.
    prime-pair arithmetic or stronger residue-weight structure is required.
    The arithmetic-gap receipt quantifies this requirement as pointwise
    placement inside a broad weak cone: lower bounds for selected pass rows and
-   upper bounds/exclusion or complement rescue for selected deficits.
-5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
+   upper bounds/exclusion or complement rescue for selected deficits.  The
+   orbit-mass gap receipt then isolates one concrete subclaim: actual
+   prime-pair mass must be bounded away from the reflected breaker orbits, or
+   the signed aggregate must be controlled in a way that neutralizes those
+   orbits.
+5. Prove the dangerous reflected-orbit mass-control tack for the dominant
+   staircase, or replace it with an equally explicit signed aggregate theorem.
+6. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
 
@@ -183,4 +196,6 @@ classifier problem; the tested tail itself is also not visibly compressible
 and not monotone-positive under the frozen channel order.  Weak reflected
 geometry also does not force the frozen staircase classifications.  The
 current quantitative target is actual arithmetic placement inside the broad
-weak-geometry interval, not shrinking that interval by geometry alone.
+weak-geometry interval, not shrinking that interval by geometry alone.  The
+newest sharpened subtarget is actual mass control on the dangerous reflected
+breaker orbits used by the synthetic weak-geometry witnesses.

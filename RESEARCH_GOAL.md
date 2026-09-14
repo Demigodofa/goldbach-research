@@ -11341,6 +11341,21 @@ placement theorem inside a broad weak cone: pass rows need lower bounds,
 deficit rows need upper bounds/exclusion or complement rescue, and a blunt
 geometry/norm squeeze is not the visible route.
 
+The breaker-orbit mass gap is now recorded in
+`notes/q286-first-three-dominant-mode-staircase-orbit-mass-gap.md` and
+`evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json`.
+The weak synthetic obstruction breaks selected rows by concentrating mass on
+an extremal reflected q286 orbit.  On the full eleven-channel stage, actual
+strict-central prime-pair mass on those breaker orbits ranges from `0` to
+about `0.0246193103`, with mean about `0.0106450121`, while the top actual
+reflection-orbit masses range from about `0.0256818041` to `0.0831971135`.
+The breaker orbit is never the top actual mass orbit on the selected fixture,
+and several breaker orbits have zero actual mass.  Thus the next narrow
+theorem target is to bound actual prime-pair mass on the dangerous reflected
+breaker orbits, or prove a signed aggregate replacement that makes such
+concentration unnecessary.  This is finite theorem-shaping evidence only, not
+an orbit-mass theorem or a Goldbach proof.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

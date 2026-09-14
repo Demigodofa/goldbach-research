@@ -71,6 +71,9 @@ def main():
     staircase_arithmetic_gap = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-arithmetic-gap.json")
+    staircase_orbit_mass_gap = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-orbit-mass-gap.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -546,6 +549,53 @@ def main():
         "staircase-arithmetic-gap",
         2.0,
         "prove one-sided arithmetic placement inside broad weak interval")
+
+    layer(
+        "staircase-orbit-mass-gap",
+        "Actual mass avoids weak breaker orbits on selected fixture",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json",
+        2.0,
+        "Finite orbit-mass diagnostic only; no pointwise mass theorem.")
+    for row in staircase_orbit_mass_gap["full_stage"]["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "staircase-orbit-mass-gap",
+            2.0,
+            "actual breaker-orbit mass measured",
+            {
+                "breaking_orbit": row["breaking_extremal_orbit"],
+                "breaking_mass": (
+                    row["breaking_extremal_orbit_actual_mass_fraction"]),
+                "top_actual_orbit": row["top_actual_mass_orbit"],
+                "top_actual_mass": row["top_actual_mass_orbit_fraction"],
+                "breaking_orbit_is_top": (
+                    row["breaking_orbit_is_top_actual_mass_orbit"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "actual-mass-avoids-extremal-breaker-orbits",
+        "staircase-orbit-mass-gap",
+        2.0,
+        "breaker orbit is never the top actual mass orbit on selected rows",
+        {
+            "breaker_mass_summary": (
+                staircase_orbit_mass_gap["full_stage"][
+                    "breaking_extremal_orbit_mass_fraction_summary"]),
+            "top_mass_summary": (
+                staircase_orbit_mass_gap["full_stage"][
+                    "top_actual_orbit_mass_fraction_summary"]),
+            "breaking_orbit_top_actual_count": (
+                staircase_orbit_mass_gap["full_stage"][
+                    "breaking_orbit_top_actual_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "dangerous-reflection-orbit-mass-bound",
+        "staircase-orbit-mass-gap",
+        2.0,
+        "prove actual mass cannot concentrate on weak breaker orbits")
 
     layer(
         "conditional-proof-stack",

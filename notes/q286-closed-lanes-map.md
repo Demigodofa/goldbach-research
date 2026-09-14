@@ -888,6 +888,19 @@ current comparison set.
    `3.313..9.972`.  This sharpens the surviving theorem target to one-sided
    arithmetic placement of actual prime-pair residue weights inside a broad
    weak cone.
+93. `q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt`, with
+   note
+   `notes/q286-first-three-dominant-mode-staircase-orbit-mass-gap.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json`,
+   measures actual prime-pair mass on the extremal reflected orbit that would
+   break each selected staircase row under the weak-geometry obstruction.  At
+   the full stage, breaker-orbit mass ranges from `0` to about
+   `0.0246193103`, with mean about `0.0106450121`, while top actual orbit
+   mass ranges from about `0.0256818041` to `0.0831971135`.  The breaker orbit
+   is never the top actual mass orbit on the selected fixture.  This narrows
+   the surviving theorem target to dangerous reflected-orbit mass control, or
+   a signed aggregate replacement.
 
 ## Still open
 
@@ -912,6 +925,8 @@ current comparison set.
   frozen staircase classifications.  The current sharpened target is
   pointwise arithmetic placement inside that broad weak cone: lower bounds for
   pass rows and upper bounds, exclusion, or complement/lower-support rescue
-  for deficit rows.
+  for deficit rows.  The newest subtarget is to bound actual mass on the
+  dangerous reflected breaker orbits that make the weak synthetic witnesses
+  possible, or replace that bound with a signed aggregate theorem.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

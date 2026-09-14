@@ -20442,6 +20442,26 @@ placement of actual binary-prime residue weights inside a broad weak cone:
 lower bounds for pass rows, upper bounds or exclusion/complement rescue for
 deficit rows.  This is not a pointwise theorem or Goldbach proof.
 
+Dominant-mode staircase orbit-mass gap:
+
+- `q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_orbit_mass_gap.py`
+- `notes/q286-first-three-dominant-mode-staircase-orbit-mass-gap.md`
+- `evidence/q286-first-three-dominant-mode-staircase-orbit-mass-gap.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_orbit_mass_gap`
+
+This measures actual strict-central prime-pair mass on the extremal reflected
+q286 orbit that would break each selected staircase row under the weak
+geometry obstruction.  On the full eleven-channel stage, breaker-orbit actual
+mass fractions range from `0` to about `0.0246193103`, with mean about
+`0.0106450121`; the top actual reflection-orbit mass fractions range from
+about `0.0256818041` to `0.0831971135`.  The breaker orbit is never the top
+actual mass orbit on the selected fixture, and several breaker orbits carry
+zero actual mass.  This sharpens the leftover theorem to actual mass control
+on dangerous reflected breaker orbits, or a signed aggregate replacement.  It
+is not an orbit-mass theorem and not a Goldbach proof.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

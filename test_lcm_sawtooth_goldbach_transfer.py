@@ -57,6 +57,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_residual_staircase_receipt,
     q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt,
     q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt,
+    q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4871,6 +4872,51 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["arithmetic_gap_theorem_proved"])
         self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
         self.assertFalse(receipt["tail_classification_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_staircase_orbit_mass_gap(self):
+        receipt = (
+            q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(
+            len(receipt["full_stage"]["target_rows"]),
+            len(receipt["sample_targets"]))
+        self.assertGreaterEqual(
+            receipt["full_stage"][
+                "breaking_extremal_orbit_mass_fraction_summary"][
+                "minimum"],
+            0)
+        self.assertLessEqual(
+            receipt["full_stage"][
+                "breaking_extremal_orbit_mass_fraction_summary"][
+                "maximum"],
+            1)
+        self.assertGreaterEqual(
+            receipt["full_stage"][
+                "top_actual_orbit_mass_fraction_summary"]["minimum"],
+            receipt["full_stage"][
+                "breaking_extremal_orbit_mass_fraction_summary"][
+                "minimum"])
+        self.assertGreaterEqual(
+            receipt["full_stage_largest_breaking_orbit_lift_row"][
+                "breaking_extremal_orbit_mass_lift_over_uniform"],
+            0)
+        for row in receipt["full_stage"]["target_rows"]:
+            self.assertGreaterEqual(
+                row["breaking_extremal_orbit_actual_mass_fraction"], 0)
+            self.assertLessEqual(
+                row["breaking_extremal_orbit_actual_mass_fraction"], 1)
+            self.assertGreaterEqual(
+                row["top_actual_mass_orbit_fraction"],
+                row["breaking_extremal_orbit_actual_mass_fraction"])
+        self.assertTrue(receipt["staircase_orbit_mass_gap_measured"])
+        self.assertFalse(receipt["orbit_mass_theorem_proved"])
+        self.assertFalse(receipt["arithmetic_gap_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):
