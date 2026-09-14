@@ -8838,6 +8838,136 @@ def q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
     }
 
 
+def q286_first_three_dominant_mode_signed_channel_branch_holdout_receipt(
+        windows=((1243000, 101),), dominant_modes=(1, 2),
+        tail_threshold=.3, tolerance=1e-9, top_channel_count=6):
+    """Apply the exact signed-channel branch split to target windows.
+
+    This is a target-denominator wrapper around the selected-row branch
+    receipt.  It freezes the same branch rule,
+
+    ``negative_pressure <= tau`` or
+    ``positive_offset >= negative_pressure - tau``,
+
+    and applies it to predeclared even-target windows.  The result is finite
+    holdout evidence only; it proves no eventual branch theorem.
+    """
+    windows = tuple(windows)
+    if not windows:
+        raise ValueError("windows must be nonempty")
+    target_windows = []
+    all_targets = []
+    for window in windows:
+        if (not isinstance(window, (tuple, list)) or len(window) != 2
+                or type(window[0]) is not int or type(window[1]) is not int
+                or window[0] < 40 or window[0] % 2 or window[1] < 1):
+            raise ValueError(
+                "each window must be (even_start_at_least_40, target_count)")
+        start, target_count = window
+        targets = tuple(start + 2 * offset for offset in range(target_count))
+        target_windows.append((start, target_count, targets))
+        all_targets.extend(targets)
+
+    sample_targets = tuple(all_targets)
+    sample_receipt = (
+        q286_first_three_dominant_mode_signed_channel_branch_sample_receipt(
+            sample_targets=sample_targets, dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold, tolerance=tolerance,
+            top_channel_count=top_channel_count))
+    rows = sample_receipt["target_rows"]
+
+    branch_labels = (
+        "pressure", "offset", "pressure_and_offset", "unresolved_deficit")
+
+    def summarize_window(start, target_count, targets):
+        window_rows = [
+            rows[target] for target in targets
+            if rows[target].get("has_strict_central_prime_pairs")]
+        counts = {label: 0 for label in branch_labels}
+        pass_targets = []
+        fail_targets = []
+        for row in window_rows:
+            label = row["signed_channel_branch_label"]
+            counts[label] += 1
+            if row["dominant_floor_passes"]:
+                pass_targets.append(row["target"])
+            else:
+                fail_targets.append(row["target"])
+        min_slack_row = min(
+            (row for row in window_rows if row["dominant_floor_passes"]),
+            key=lambda row: row["positive_offset_slack_to_floor"],
+            default=None)
+        max_pressure_row = max(
+            (row for row in window_rows if row["dominant_floor_passes"]),
+            key=lambda row: row["negative_channel_pressure_to_principal"],
+            default=None)
+        max_deficit_row = max(
+            (row for row in window_rows if not row["dominant_floor_passes"]),
+            key=lambda row: row["dominant_floor_deficit_to_threshold"],
+            default=None)
+        return {
+            "start": start,
+            "target_count": target_count,
+            "targets": targets,
+            "tested_targets_with_prime_pairs": len(window_rows),
+            "dominant_floor_pass_target_count": len(pass_targets),
+            "dominant_floor_failure_target_count": len(fail_targets),
+            "dominant_floor_pass_targets": tuple(pass_targets),
+            "dominant_floor_failure_targets": tuple(fail_targets),
+            "branch_counts": counts,
+            "minimum_slack_clear_row": min_slack_row,
+            "maximum_pressure_clear_row": max_pressure_row,
+            "maximum_deficit_row": max_deficit_row,
+        }
+
+    window_summaries = tuple(
+        summarize_window(start, target_count, targets)
+        for start, target_count, targets in target_windows)
+
+    return {
+        "arithmetic_modulus": sample_receipt["arithmetic_modulus"],
+        "support": sample_receipt["support"],
+        "windows": windows,
+        "sample_targets": sample_targets,
+        "dominant_modes": sample_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            sample_receipt["active_real_channel_count"]),
+        "tested_target_count": sample_receipt["tested_target_count"],
+        "tested_targets_with_prime_pairs": (
+            sample_receipt["tested_targets_with_prime_pairs"]),
+        "dominant_floor_pass_targets": (
+            sample_receipt["dominant_floor_pass_targets"]),
+        "dominant_floor_failure_targets": (
+            sample_receipt["dominant_floor_failure_targets"]),
+        "pressure_branch_targets": sample_receipt["pressure_branch_targets"],
+        "offset_branch_targets": sample_receipt["offset_branch_targets"],
+        "pressure_and_offset_branch_targets": (
+            sample_receipt["pressure_and_offset_branch_targets"]),
+        "unresolved_deficit_targets": (
+            sample_receipt["unresolved_deficit_targets"]),
+        "window_summaries": window_summaries,
+        "branch_counts_by_residue": (
+            sample_receipt["branch_counts_by_residue"]),
+        "exact_branch_floor_mismatch_targets": (
+            sample_receipt["exact_branch_floor_mismatch_targets"]),
+        "target_rows": rows,
+        "maximum_real_channel_identity_error": (
+            sample_receipt["maximum_real_channel_identity_error"]),
+        "dominant_mode_signed_channel_branch_holdout_measured": True,
+        "all_holdout_targets_pass_dominant_floor": bool(
+            not sample_receipt["dominant_floor_failure_targets"]),
+        "all_holdout_targets_clear_by_both_branches": bool(
+            sample_receipt["tested_targets_with_prime_pairs"]
+            == len(sample_receipt["pressure_and_offset_branch_targets"])),
+        "eventual_signed_channel_branch_theorem_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_dominant_mode_channel_swing_pair_receipt(
         pair_targets=((24424, 13556), (13822, 40420),
                       (55864, 40420), (164598, 129706),

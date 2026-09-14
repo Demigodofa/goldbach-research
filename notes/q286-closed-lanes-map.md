@@ -961,6 +961,20 @@ current comparison set.
    scalar intervals also have false positives at every checked band.  The
    selector theorem must use finer actual prime-pair distribution or be
    replaced by a signed aggregate or rescue theorem.
+99. `q286_first_three_dominant_mode_signed_channel_branch_holdout_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-signed-channel-branch-holdout.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-signed-channel-branch-holdout.json`,
+   applies the exact dominant two-mode pressure-or-offset branch split to the
+   next nonoverlapping deterministic window after the recorded `1242000`
+   stress neighborhood.  All `101` targets from `1243000..1243200` pass the
+   dominant floor, all `101` clear by both the pressure and offset branches,
+   and no unresolved deficit is found.  The tightest clear row is `1243130`,
+   with positive offset slack about `0.0340510877`, and the
+   maximum-pressure clear row is `1243018`, with negative pressure about
+   `0.2586239309`.  This is finite branch-denominator evidence only; it does
+   not prove the eventual branch theorem or the pointwise character-sum input.
 
 ## Still open
 

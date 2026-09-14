@@ -47,6 +47,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_channel_norm_budget_receipt,
     q286_first_three_dominant_mode_signed_channel_profile_receipt,
     q286_first_three_dominant_mode_signed_channel_branch_sample_receipt,
+    q286_first_three_dominant_mode_signed_channel_branch_holdout_receipt,
     q286_first_three_dominant_mode_channel_swing_pair_receipt,
     q286_first_three_dominant_mode_helpful_portfolio_receipt,
     q286_first_three_dominant_mode_portfolio_residual_obligation_receipt,
@@ -4549,6 +4550,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["maximum_real_channel_identity_error"], 1e-9)
         self.assertTrue(receipt[
             "dominant_mode_signed_channel_branch_sample_measured"])
+        self.assertFalse(receipt[
+            "eventual_signed_channel_branch_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_signed_channel_branch_holdout(
+            self):
+        receipt = (
+            q286_first_three_dominant_mode_signed_channel_branch_holdout_receipt(
+                windows=((1243000, 5),), top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["tested_target_count"], 5)
+        self.assertEqual(receipt["tested_targets_with_prime_pairs"], 5)
+        self.assertEqual(receipt["dominant_floor_failure_targets"], ())
+        self.assertEqual(receipt["unresolved_deficit_targets"], ())
+        self.assertEqual(receipt["pressure_branch_targets"], ())
+        self.assertEqual(receipt["offset_branch_targets"], ())
+        self.assertEqual(
+            receipt["pressure_and_offset_branch_targets"],
+            (1243000, 1243002, 1243004, 1243006, 1243008))
+        self.assertTrue(receipt["all_holdout_targets_pass_dominant_floor"])
+        self.assertTrue(receipt["all_holdout_targets_clear_by_both_branches"])
+        self.assertEqual(receipt["exact_branch_floor_mismatch_targets"], ())
+        self.assertEqual(len(receipt["window_summaries"]), 1)
+        summary = receipt["window_summaries"][0]
+        self.assertEqual(summary["start"], 1243000)
+        self.assertEqual(summary["target_count"], 5)
+        self.assertEqual(summary["branch_counts"]["pressure_and_offset"], 5)
+        self.assertIsNone(summary["maximum_deficit_row"])
+        self.assertLess(receipt["maximum_real_channel_identity_error"], 1e-9)
+        self.assertTrue(receipt[
+            "dominant_mode_signed_channel_branch_holdout_measured"])
         self.assertFalse(receipt[
             "eventual_signed_channel_branch_theorem_proved"])
         self.assertFalse(receipt[
