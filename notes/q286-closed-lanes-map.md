@@ -1392,6 +1392,19 @@ current comparison set.
    `1222142` and `0.0287525311` for `1242118`.  This falsifies adverse-pair
    sign as a simple checked selector while preserving the coupled
    pair-versus-complement absorption target.
+130. `tools/build_q286_first_three_dominant_mode_pair_complement_plane_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pair-complement-plane-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-pair-complement-plane-audit.json`,
+   makes that coupled target measurable in the plane whose coordinates are
+   the named pair `(1,7),(4,4)` and the six-channel repair complement.
+   Stress-centered square boxes at epsilons `.005`, `.01`, and `.02` select
+   only deficit `1222142` on the checked top-`20` set, but the `.03` by `.03`
+   square also admits clear rows `1242118`, `1222048`, and `1242136`.  The
+   natural rectangle spanned by the two tightest rows already contains both
+   `1222142` and clear row `1242118`, so the plane is a finite local locator
+   and theorem-obligation shaper, not a classification theorem.
 
 ## Still open
 
@@ -1506,6 +1519,12 @@ current comparison set.
   and selects many clears along with the lone deficit.  The direct
   adverse-pair falsifier then closes the even simpler named-pair sign selector:
   positive `(1,7),(4,4)` pair sum catches the deficit but also six nearby
-  clears, so the live theorem must control pair-plus-complement balance.
+  clears, so the live theorem must control pair-plus-complement balance.  The
+  pair/complement plane audit then shows this balance really does tighten the
+  local finite picture: small stress-centered boxes isolate `1222142`, but
+  modestly wider boxes and the natural tight-two rectangle admit clear rows.
+  The remaining target is therefore a row-dependent arithmetic placement bound
+  for actual binary-prime residue weights, or a stronger signed aggregate
+  theorem explaining the allowed pair/complement band.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

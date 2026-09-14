@@ -12621,3 +12621,37 @@ stress-row absorption balance, but pair sign alone is not the theorem.  The
 live target is the coupled balance between the named pair and the six-channel
 repair complement from actual binary-prime residue weights, or a stronger
 signed aggregate arithmetic-placement theorem.
+
+### 2026-09-14 continuation: pair/complement plane audit
+
+The next receipt made that live target measurable by treating each checked
+top-`20` near-boundary row as a point in the plane formed by the named pair
+`(1,7),(4,4)` and the six-channel repair complement.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pair-complement-plane-audit.json
+```
+
+The plane is a better finite locator than pair sign alone, but not yet a
+theorem.  Square boxes centered on the stress row `1222142` with
+pair/complement epsilons `.005`, `.01`, and `.02` select only that finite
+deficit on the checked top-`20` set.  The first checked square false positive
+appears at `.03` by `.03`, where the box also admits clear rows `1242118`,
+`1222048`, and `1242136`.
+
+The natural rectangle spanned by the two tightest rows already contains both a
+deficit and a clear:
+
+```text
+1222142   deficit   pair 0.0216228924   complement -0.0870297837
+1242118   clear     pair 0.0287525311   complement -0.1086215180
+```
+
+So the loop is tightening locally: pair-plus-complement geometry sees the
+stress row better than pair sign alone.  But the proof obligation remains
+arithmetic, not geometric after the fact.  A theorem still has to explain why a
+row-dependent pair/complement band is uniformly allowed from actual
+binary-prime residue weights, or replace it with a stronger signed aggregate
+estimate.  This is finite q286 plane evidence only and proves no stable
+selector theorem, adverse-pair theorem, pointwise character-sum estimate, or
+Goldbach.

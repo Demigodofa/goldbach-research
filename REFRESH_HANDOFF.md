@@ -20867,6 +20867,28 @@ is the coupled balance between the named pair and the six-channel repair
 complement from actual binary-prime residue weights, or a stronger signed
 aggregate arithmetic-placement theorem.
 
+Dominant-mode pair/complement plane audit:
+
+- `tools/build_q286_first_three_dominant_mode_pair_complement_plane_audit.py`
+- `notes/q286-first-three-dominant-mode-pair-complement-plane-audit.md`
+- `evidence/q286-first-three-dominant-mode-pair-complement-plane-audit.json`
+
+This makes the surviving coupled-balance target measurable on the same
+top-`20` near-boundary ledger by viewing each row as a point in the plane
+formed by the named pair `(1,7),(4,4)` and the six-channel repair complement.
+
+Stress-centered square boxes at epsilons `.005`, `.01`, and `.02` select only
+the finite stress deficit `1222142` on the checked top-`20` set.  At `.03` by
+`.03`, the same square admits clear rows `1242118`, `1222048`, and `1242136`.
+The natural rectangle spanned by the two tightest rows already contains both
+`1222142` and clear row `1242118`, so the plane is not a classification
+theorem by itself.
+
+This keeps the loop tightening locally without promoting the finite geometry
+to proof.  The live theorem target is now a row-dependent arithmetic placement
+bound for actual binary-prime residue weights, or a stronger signed aggregate
+inequality explaining the allowed pair/complement band.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

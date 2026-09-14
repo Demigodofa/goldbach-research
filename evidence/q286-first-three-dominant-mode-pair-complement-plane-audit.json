@@ -1,0 +1,1338 @@
+{
+  "adverse_pair": [
+    [
+      1,
+      7
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "adverse_pair_theorem_proved": false,
+  "arithmetic_modulus": 286,
+  "candidate": "After pair sign fails, the coupled plane of named-pair sum against six-channel repair-complement sum might isolate the tight q286 near-boundary deficit more sharply than either coordinate alone.",
+  "clear_count": 19,
+  "correlations": {
+    "pearson_abs_surplus_vs_pair_abs_share": 0.4068782683633153,
+    "pearson_abs_surplus_vs_pair_abs_to_complement_abs_ratio": -0.3151745593129989,
+    "pearson_abs_surplus_vs_pair_sum": -0.4862013031074177,
+    "pearson_abs_surplus_vs_repair_complement_sum": 0.8290021562864662,
+    "pearson_abs_surplus_vs_volatile_total_sum": 0.49361223976801016
+  },
+  "deficit_targets": [
+    1222142
+  ],
+  "falsifier": "The simple-plane handle fails if the tight clear lies in the same natural pair/complement rectangle or if modestly widened stress-centered boxes immediately collect clear rows.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "hole_status": "The loop is tightening locally: pair-plus-complement geometry isolates the stress row at very small finite bands, then admits nearby clears as soon as the band is modestly widened.",
+    "remaining_theorem": "Prove a row-dependent arithmetic placement bound for actual binary-prime residue weights, or derive a signed aggregate inequality explaining why the stress row sits in the narrow allowed plane box.",
+    "route_status": "Preserve pair/complement plane geometry as a finite locator and theorem-obligation shaper, not as a proved selector."
+  },
+  "mechanism": "Use the exact top-20 q286 near-boundary row ledger and view each row as a point (pair sum, repair-complement sum).  Check stress-centered scalar neighborhoods, stress-centered plane rectangles, and the rectangle spanned by the tight deficit 1222142 and closest clear 1242118.",
+  "novelty_label": "new-to-this-task",
+  "pair_complement_plane_audit_measured": true,
+  "plane_summaries": {
+    "pair_abs_share": {
+      "count": 20,
+      "maximum": 0.8395255397822527,
+      "mean": 0.35799001396508756,
+      "minimum": 0.04104871461193377
+    },
+    "pair_abs_to_complement_abs_ratio": {
+      "count": 20,
+      "maximum": 0.7755350815313566,
+      "mean": -0.6268245672459931,
+      "minimum": -5.231521194357677
+    },
+    "pair_sum": {
+      "count": 20,
+      "maximum": 0.033583638977611525,
+      "mean": -0.004687862405419603,
+      "minimum": -0.037685397411738764
+    },
+    "repair_complement_sum": {
+      "count": 20,
+      "maximum": -0.0015856754171093839,
+      "mean": -0.04192561762676084,
+      "minimum": -0.10862151797119754
+    },
+    "volatile_total_sum": {
+      "count": 20,
+      "maximum": -0.009720190568432888,
+      "mean": -0.046613480032180445,
+      "minimum": -0.09468693210735545
+    }
+  },
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If the pair/complement plane is a simple theorem handle, a non-tuned rectangle or scalar band should separate the lone deficit from nearby clears across the checked near-boundary rows.",
+  "row_records": [
+    {
+      "absolute_above_floor_signed_surplus": 0.002859222244159798,
+      "adverse_pair_abs_share": 0.19900929448607318,
+      "adverse_pair_sum_to_principal": 0.021622892410680487,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+      "classification": "deficit",
+      "repair_complement_sum_to_principal": -0.08702978366919814,
+      "target": 1222142,
+      "volatile_total_sum_to_principal": -0.06540689125851765
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+      "adverse_pair_abs_share": 0.20930103825638072,
+      "adverse_pair_sum_to_principal": 0.02875253110010704,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.10862151797119754,
+      "target": 1242118,
+      "volatile_total_sum_to_principal": -0.07986898687109051
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.021280120300458616,
+      "adverse_pair_abs_share": 0.1449527035217972,
+      "adverse_pair_sum_to_principal": 0.010911411909444479,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.16952594800174586,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.06436425832187122,
+      "target": 1222048,
+      "volatile_total_sum_to_principal": -0.05345284641242674
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.04023311644888955,
+      "adverse_pair_abs_share": 0.3488231523644242,
+      "adverse_pair_sum_to_principal": -0.03302899414540394,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.5356811342894049,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.06165793796195151,
+      "target": 1220098,
+      "volatile_total_sum_to_principal": -0.09468693210735545
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.042368787096773886,
+      "adverse_pair_abs_share": 0.37003059052882115,
+      "adverse_pair_sum_to_principal": 0.02840378961649695,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.5873786646869718,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.04835686299847818,
+      "target": 1220056,
+      "volatile_total_sum_to_principal": -0.019953073381981233
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.043637464512128576,
+      "adverse_pair_abs_share": 0.23524609703095148,
+      "adverse_pair_sum_to_principal": -0.0140691295557616,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.3076101947536873,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.04573687672161572,
+      "target": 1200224,
+      "volatile_total_sum_to_principal": -0.059806006277377324
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.044915700209767595,
+      "adverse_pair_abs_share": 0.5657884220296194,
+      "adverse_pair_sum_to_principal": -0.037685397411738764,
+      "adverse_pair_to_repair_complement_abs_ratio": -1.3030247251219407,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.028921475306780582,
+      "target": 1221042,
+      "volatile_total_sum_to_principal": -0.06660687271851934
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.04873418761757481,
+      "adverse_pair_abs_share": 0.0989882289829935,
+      "adverse_pair_sum_to_principal": -0.0069027163888469665,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.10986341373904772,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.06282998273877229,
+      "target": 1242136,
+      "volatile_total_sum_to_principal": -0.06973269912761926
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05081609192466835,
+      "adverse_pair_abs_share": 0.04104871461193377,
+      "adverse_pair_sum_to_principal": 0.00204890760843244,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.04280583929278771,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.04786514275349478,
+      "target": 1200208,
+      "volatile_total_sum_to_principal": -0.04581623514506234
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05237494786232505,
+      "adverse_pair_abs_share": 0.4320932949690831,
+      "adverse_pair_sum_to_principal": -0.015070495343619388,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.7608526033260339,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.019807378298686732,
+      "target": 1221052,
+      "volatile_total_sum_to_principal": -0.03487787364230612
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.0525379332055963,
+      "adverse_pair_abs_share": 0.8395255397822527,
+      "adverse_pair_sum_to_principal": -0.008295494551979692,
+      "adverse_pair_to_repair_complement_abs_ratio": -5.231521194357677,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.0015856754171093839,
+      "target": 1240160,
+      "volatile_total_sum_to_principal": -0.009881169969089075
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.052833147281108384,
+      "adverse_pair_abs_share": 0.1922180740770655,
+      "adverse_pair_sum_to_principal": -0.010851621760755176,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.237957879358895,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.04560312014038604,
+      "target": 1242162,
+      "volatile_total_sum_to_principal": -0.05645474190114122
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05312980592257055,
+      "adverse_pair_abs_share": 0.24502933505539246,
+      "adverse_pair_sum_to_principal": 0.011689682981340118,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.32455477601023125,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.03601759655193493,
+      "target": 1222018,
+      "volatile_total_sum_to_principal": -0.024327913570594807
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05330971110326033,
+      "adverse_pair_abs_share": 0.27697789856010047,
+      "adverse_pair_sum_to_principal": -0.013733756750829825,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.3830835848703637,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.03585054879205372,
+      "target": 1222078,
+      "volatile_total_sum_to_principal": -0.04958430554288354
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05359542426213604,
+      "adverse_pair_abs_share": 0.4899436705191885,
+      "adverse_pair_sum_to_principal": -0.01091573235206715,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.9605677690891599,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.011363833665185109,
+      "target": 1222168,
+      "volatile_total_sum_to_principal": -0.02227956601725226
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.054619248161674794,
+      "adverse_pair_abs_share": 0.36951343194022057,
+      "adverse_pair_sum_to_principal": -0.018592733055087164,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.5860766123493137,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.03172406587008716,
+      "target": 1220076,
+      "volatile_total_sum_to_principal": -0.05031679892517432
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05674908372357923,
+      "adverse_pair_abs_share": 0.46937999395253144,
+      "adverse_pair_sum_to_principal": -0.014520869300898263,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.8845878191606317,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.016415407251115934,
+      "target": 1240144,
+      "volatile_total_sum_to_principal": -0.030936276552014197
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05675540221763353,
+      "adverse_pair_abs_share": 0.4367895005839457,
+      "adverse_pair_sum_to_principal": 0.033583638977611525,
+      "adverse_pair_to_repair_complement_abs_ratio": 0.7755350815313566,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.04330382954604441,
+      "target": 1200362,
+      "volatile_total_sum_to_principal": -0.009720190568432888
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.057522463636510424,
+      "adverse_pair_abs_share": 0.73707611594452,
+      "adverse_pair_sum_to_principal": -0.01726858997665895,
+      "adverse_pair_to_repair_complement_abs_ratio": -2.8033821217588164,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.006159913000310066,
+      "target": 1200342,
+      "volatile_total_sum_to_principal": -0.023428502976969016
+    },
+    {
+      "absolute_above_floor_signed_surplus": 0.05806169655303428,
+      "adverse_pair_abs_share": 0.4580651821044562,
+      "adverse_pair_sum_to_principal": -0.029834572118858236,
+      "adverse_pair_to_repair_complement_abs_ratio": -0.845240362823019,
+      "classification": "clear",
+      "repair_complement_sum_to_principal": -0.03529714555894341,
+      "target": 1200526,
+      "volatile_total_sum_to_principal": -0.06513171767780164
+    }
+  ],
+  "scalar_neighborhoods": {
+    "absolute_above_floor_signed_surplus": {
+      "first_false_positive_epsilon": 0.0025,
+      "records": [
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 3,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 3,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1221052,
+            1240160,
+            1242162
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 12,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1221052,
+            1240160,
+            1242162
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [],
+      "stress_value": 0.002859222244159798
+    },
+    "complement_sum": {
+      "first_false_positive_epsilon": 0.03,
+      "records": [
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220098,
+            1242136
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 5,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220098,
+            1242136
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1242136,
+            1200208,
+            1242162,
+            1200362
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 10,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1242136,
+            1200208,
+            1242162,
+            1200362
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [
+        0.0025,
+        0.005,
+        0.01,
+        0.02
+      ],
+      "stress_value": -0.08702978366919814
+    },
+    "pair_abs_share": {
+      "first_false_positive_epsilon": 0.01,
+      "records": [
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242162
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242162
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1242162
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 3,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1242162
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1242162
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 3,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1242162
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1200224,
+            1242162,
+            1222018
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 5,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1200224,
+            1242162,
+            1222018
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [
+        0.0025,
+        0.005
+      ],
+      "stress_value": 0.19900929448607318
+    },
+    "pair_abs_to_complement_abs_ratio": {
+      "first_false_positive_epsilon": 0.02,
+      "records": [
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 2,
+          "selected_targets": [
+            1222142,
+            1242118
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [
+        0.0025,
+        0.005,
+        0.01
+      ],
+      "stress_value": 0.24845393725060275
+    },
+    "pair_sum": {
+      "first_false_positive_epsilon": 0.01,
+      "records": [
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 1,
+          "selected_targets": [
+            1222142
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1220056,
+            1222018
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 4,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1220056,
+            1222018
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220056,
+            1200208,
+            1222018,
+            1200362
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 7,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220056,
+            1200208,
+            1222018,
+            1200362
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220056,
+            1242136,
+            1200208,
+            1240160,
+            1222018,
+            1200362
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 9,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220056,
+            1242136,
+            1200208,
+            1240160,
+            1222018,
+            1200362
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220056,
+            1200224,
+            1242136,
+            1200208,
+            1221052,
+            1240160,
+            1242162,
+            1222018,
+            1222078,
+            1222168,
+            1220076,
+            1240144,
+            1200362,
+            1200342
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 17,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220056,
+            1200224,
+            1242136,
+            1200208,
+            1221052,
+            1240160,
+            1242162,
+            1222018,
+            1222078,
+            1222168,
+            1220076,
+            1240144,
+            1200362,
+            1200342
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [
+        0.0025,
+        0.005
+      ],
+      "stress_value": 0.021622892410680487
+    },
+    "volatile_total": {
+      "first_false_positive_epsilon": 0.0025,
+      "records": [
+        {
+          "clear_false_positive_targets": [
+            1221042,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.0025,
+          "selected_count": 3,
+          "selected_targets": [
+            1222142,
+            1221042,
+            1200526
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1221042,
+            1242136,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.005,
+          "selected_count": 4,
+          "selected_targets": [
+            1222142,
+            1221042,
+            1242136,
+            1200526
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1200224,
+            1221042,
+            1242136,
+            1242162,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.01,
+          "selected_count": 6,
+          "selected_targets": [
+            1222142,
+            1200224,
+            1221042,
+            1242136,
+            1242162,
+            1200526
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1242162,
+            1222078,
+            1220076,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.02,
+          "selected_count": 11,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1242162,
+            1222078,
+            1220076,
+            1200526
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220098,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1242162,
+            1222078,
+            1220076,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.03,
+          "selected_count": 12,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220098,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1242162,
+            1222078,
+            1220076,
+            1200526
+          ]
+        },
+        {
+          "clear_false_positive_targets": [
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1221052,
+            1242162,
+            1222018,
+            1222078,
+            1222168,
+            1220076,
+            1240144,
+            1200342,
+            1200526
+          ],
+          "deficit_targets": [
+            1222142
+          ],
+          "epsilon": 0.05,
+          "selected_count": 18,
+          "selected_targets": [
+            1222142,
+            1242118,
+            1222048,
+            1220098,
+            1220056,
+            1200224,
+            1221042,
+            1242136,
+            1200208,
+            1221052,
+            1242162,
+            1222018,
+            1222078,
+            1222168,
+            1220076,
+            1240144,
+            1200342,
+            1200526
+          ]
+        }
+      ],
+      "stress_isolated_epsilons": [],
+      "stress_value": -0.06540689125851765
+    }
+  },
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "simple_pair_complement_plane_selector_theorem_proved": false,
+  "source_adverse_pair_falsifier": "evidence\\q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json",
+  "source_commit": "05322e0a03a16fe3304fdebc759122d6c3aa94d3",
+  "status_boundary": "finite pair/complement plane diagnostic only; the checked stress-centered plane boxes expose a narrow local locator but do not prove a stable selector, an adverse-pair theorem, a pointwise character-sum estimate, or Goldbach",
+  "stress_centered_plane_local_locator_observed": true,
+  "stress_centered_rectangles": [
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.005,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.005,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    },
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.01,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.01,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    },
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.02,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.02,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118,
+        1222048,
+        1242136
+      ],
+      "complement_epsilon": 0.03,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.03,
+      "selected_count": 4,
+      "selected_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1242136
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118,
+        1222048,
+        1220056,
+        1200224,
+        1242136,
+        1200208,
+        1242162,
+        1200362
+      ],
+      "complement_epsilon": 0.05,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.05,
+      "selected_count": 9,
+      "selected_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1220056,
+        1200224,
+        1242136,
+        1200208,
+        1242162,
+        1200362
+      ]
+    },
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.02,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.01,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    },
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.01,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.02,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118
+      ],
+      "complement_epsilon": 0.03,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.01,
+      "selected_count": 2,
+      "selected_targets": [
+        1222142,
+        1242118
+      ]
+    },
+    {
+      "clear_false_positive_targets": [],
+      "complement_epsilon": 0.01,
+      "deficit_targets": [
+        1222142
+      ],
+      "pair_epsilon": 0.03,
+      "selected_count": 1,
+      "selected_targets": [
+        1222142
+      ]
+    }
+  ],
+  "stress_row": {
+    "absolute_above_floor_signed_surplus": 0.002859222244159798,
+    "adverse_pair_abs_share": 0.19900929448607318,
+    "adverse_pair_sum_to_principal": 0.021622892410680487,
+    "adverse_pair_to_repair_complement_abs_ratio": 0.24845393725060275,
+    "classification": "deficit",
+    "repair_complement_sum_to_principal": -0.08702978366919814,
+    "target": 1222142,
+    "volatile_total_sum_to_principal": -0.06540689125851765
+  },
+  "summary": {
+    "first_square_false_positive": "The .03 by .03 stress-centered square selects clear rows 1242118, 1222048, and 1242136 along with the deficit.",
+    "live_target": "The plane is a useful diagnostic for where the q286 hole is narrowest, but a proof still needs an arithmetic reason for the allowed pair/complement band or a stronger signed aggregate estimate.",
+    "stress_centered_local_locator": "Square pair/complement boxes centered at 1222142 with epsilons .005, .01, and .02 select only the finite stress deficit on the checked top-20 set.",
+    "tight_two_rectangle": "The natural rectangle spanned by the two tightest rows already contains one deficit and one clear, so the plane is not a classification theorem by itself."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tight_clear_row": {
+    "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+    "adverse_pair_abs_share": 0.20930103825638072,
+    "adverse_pair_sum_to_principal": 0.02875253110010704,
+    "adverse_pair_to_repair_complement_abs_ratio": 0.2647038233044318,
+    "classification": "clear",
+    "repair_complement_sum_to_principal": -0.10862151797119754,
+    "target": 1242118,
+    "volatile_total_sum_to_principal": -0.07986898687109051
+  },
+  "tight_two_spanning_rectangles": [
+    {
+      "clear_false_positive_targets": [
+        1242118
+      ],
+      "complement_high": -0.08702978366919814,
+      "complement_low": -0.10862151797119754,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.0,
+      "pair_high": 0.02875253110010704,
+      "pair_low": 0.021622892410680487,
+      "selected_count": 2,
+      "selected_targets": [
+        1222142,
+        1242118
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118
+      ],
+      "complement_high": -0.08202978366919814,
+      "complement_low": -0.11362151797119754,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.005,
+      "pair_high": 0.033752531100107036,
+      "pair_low": 0.016622892410680486,
+      "selected_count": 2,
+      "selected_targets": [
+        1222142,
+        1242118
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118
+      ],
+      "complement_high": -0.07702978366919815,
+      "complement_low": -0.11862151797119753,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.01,
+      "pair_high": 0.03875253110010704,
+      "pair_low": 0.011622892410680487,
+      "selected_count": 2,
+      "selected_targets": [
+        1222142,
+        1242118
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118
+      ],
+      "complement_high": -0.06702978366919814,
+      "complement_low": -0.12862151797119753,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.02,
+      "pair_high": 0.048752531100107035,
+      "pair_low": 0.001622892410680487,
+      "selected_count": 2,
+      "selected_targets": [
+        1222142,
+        1242118
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118,
+        1222048,
+        1242136
+      ],
+      "complement_high": -0.05702978366919814,
+      "complement_low": -0.13862151797119754,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.03,
+      "pair_high": 0.05875253110010704,
+      "pair_low": -0.008377107589319512,
+      "selected_count": 4,
+      "selected_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1242136
+      ]
+    },
+    {
+      "clear_false_positive_targets": [
+        1242118,
+        1222048,
+        1220056,
+        1200224,
+        1242136,
+        1200208,
+        1242162,
+        1200362
+      ],
+      "complement_high": -0.03702978366919814,
+      "complement_low": -0.15862151797119756,
+      "deficit_targets": [
+        1222142
+      ],
+      "pad": 0.05,
+      "pair_high": 0.07875253110010705,
+      "pair_low": -0.028377107589319515,
+      "selected_count": 9,
+      "selected_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1220056,
+        1200224,
+        1242136,
+        1200208,
+        1242162,
+        1200362
+      ]
+    }
+  ],
+  "top20_row_count": 20,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false
+}

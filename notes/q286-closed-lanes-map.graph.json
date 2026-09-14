@@ -1237,6 +1237,14 @@
       "status": "validated_falsifier",
       "validation": "tools/build_q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier.py generated evidence/q286-first-three-dominant-mode-adverse-pair-near-boundary-falsifier.json; on the top-20 closest near-boundary rows, positive (1,7),(4,4) pair sum catches deficit 1222142 but also catches six clear rows including 1242118",
       "status_boundary": "finite adverse-pair sign-selector falsifier only; no adverse-pair theorem, pointwise prime-correlation estimate, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "type": "receipt",
+      "label": "q286 pair/complement plane audit",
+      "status": "finite_plane_diagnostic",
+      "validation": "tools/build_q286_first_three_dominant_mode_pair_complement_plane_audit.py generated evidence/q286-first-three-dominant-mode-pair-complement-plane-audit.json; stress-centered pair/complement squares at epsilons .005, .01, and .02 isolate deficit 1222142 on the checked top-20 set, while the .03 square admits clears 1242118, 1222048, and 1242136",
+      "status_boundary": "finite pair/complement plane diagnostic only; no stable selector theorem, adverse-pair theorem, pointwise prime-correlation estimate, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2627,6 +2635,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "to": "receipt.q286_first_three_dominant_mode_adverse_pair_near_boundary_falsifier",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
+      "to": "receipt.q286_first_three_dominant_mode_volatile_adverse_absorption_ladder",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_pair_complement_plane_audit",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }
