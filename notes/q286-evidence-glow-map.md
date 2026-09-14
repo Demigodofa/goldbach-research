@@ -18,11 +18,19 @@ The first vector-coordinate overlay is:
 evidence/q286-target-vector-overlay.json
 ```
 
+The first static visual summary is:
+
+```text
+evidence/q286-visual-summary.svg
+```
+
 They are built by:
 
 ```text
 python tools/build_q286_evidence_glow_map.py
 python tools/build_q286_target_vector_overlay.py
+python tools/build_q286_target_vector_pca.py
+python tools/build_q286_visual_summary_svg.py
 ```
 
 The map overlays existing q286 graph roles, finite evidence receipts, selected
@@ -146,6 +154,14 @@ targets.  On the selected lower-support component coordinates, PC1 explains
 about `0.897` of selected variance and again separates boundary failures from
 late active successes.  This is a useful visualization axis, not a theorem or
 population claim.
+
+The static SVG summary superimposes selected component PCA positions, selected
+alignment/complement PCA positions, role shapes, glow-scaled target sizes,
+`(5,7)/(7,11)` component-vector arrows, and mechanism/theorem glow bars.  It
+is deterministic so future commits can be compared directly.  It is also
+ordered: selection and finite receipts feed vector coordinates, vector
+coordinates feed PCA/shape views, and the views point back to theorem
+obligations rather than replacing them.
 
 ## Boundary
 

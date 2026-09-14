@@ -19548,6 +19548,18 @@ and separates boundary failures from late active successes.  Treat this as a
 visualization axis and falsifier-direction clue only; it is selected-fixture
 evidence and not a theorem.
 
+New static visual summary:
+
+- `tools/build_q286_visual_summary_svg.py`
+- `evidence/q286-visual-summary.svg`
+
+The SVG overlays selected component PCA, alignment/complement PCA, role
+shapes, glow-scaled target sizes, `(5,7)/(7,11)` component-vector arrows, and
+mechanism/theorem glow bars.  It preserves evidence order: finite selectors
+and receipts feed vector coordinates, vector coordinates feed PCA/shape views,
+and the views point back to theorem obligations.  It is deterministic and
+repo-backed, but only a navigation artifact.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
