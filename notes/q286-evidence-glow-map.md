@@ -264,6 +264,24 @@ projection, parity-axis split, and cyclotomic unit-rank bridge do not force
 the observed rank-`1` vector.  This should glow as a closed shortcut, not as
 negative evidence against richer character-sum lifts.
 
+The low-frequency LP cone layer is:
+
+```text
+evidence/q286-low-frequency-lp-cone-audit.json
+```
+
+It treats the surviving low-frequency DFT features as a finite cone and solves
+a bounded LP for the residual-drag cap.  The selected vector survives
+training, heldout, and horizon rows with zero nonpositive deltas and zero
+`0.75` cap failures.  Worst residual-drag ratios are `0.5000` on training,
+`0.3395` on heldout, and `0.4259` on horizon.  Its rank-`1` cosine is only
+about `0.6019`, so this glows as a residual-cap certificate candidate, not as
+an explanation of the Octave rank-`1` direction.
+
+The DFT/closed-graph/pigeonhole reading is theorem-shaping only: a future proof
+would need to replace this finite LP by a bounded Fourier/cone or finite-box
+argument on actual admissible prime-pair residue measures.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

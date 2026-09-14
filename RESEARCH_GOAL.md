@@ -13115,3 +13115,50 @@ has cosine about `0.3552346438` with `11/17` sign mismatches.
 This closes a tempting shortcut while preserving the useful character-lattice
 setting.  The live route remains actual character-sum magnitudes,
 row-dependent signed cones, or a stronger signed aggregate theorem.
+
+### 2026-09-14 continuation: low-frequency LP cone audit
+
+Kevin asked whether linear programming should be used.  The finite audit is:
+
+```text
+evidence/q286-low-frequency-lp-cone-audit.json
+```
+
+It uses the same `13` low-frequency DFT/character-label features on the
+`C10 x C12` outside-channel lattice, fixes the total effective vector scale to
+the frozen low-frequency replay scale, and solves an `L1`-bounded LP on the
+original training denominator.  The LP maximizes common slack in:
+
+```text
+reconstructed_delta >= slack
+reconstructed_delta <= 4 * exact_outside_delta - slack
+```
+
+The second inequality is the `0.75` residual-drag cap in linear form.  The
+selected vector is then frozen and replayed on both the prior heldout and the
+farther horizon denominator.
+
+Result: the LP is feasible at the base `L1` multiplier `1.0`, and larger
+multipliers return the same optimum.  The selected vector has training slack
+about `0.0796483773`, coefficient `L1` about `3.5698104294`, cosine about
+`0.6019078701` to the frozen rank-`1` vector, and cosine about
+`0.7230387006` to the frozen low-frequency vector.
+
+It has zero nonpositive reconstructed deltas and zero `0.75` cap failures on
+training, heldout, and horizon rows.  Worst residual-drag ratios are:
+
+```text
+training: 0.5000000000 at 1242118
+heldout:  0.3394675908 at 1282186
+horizon:  0.4259075149 at 1426262
+```
+
+Decision: LP is useful, but it splits the problem.  It gives a finite
+low-frequency cone certificate candidate for the residual-drag cap, not an
+arithmetic explanation of the Octave rank-`1` direction.  The next theorem
+target is a non-optimized Fourier/cone/box-principle argument on actual
+admissible prime-pair residue measures, or a proof that such a finite cone
+certificate still reduces to the hard pointwise signed prime-correlation
+estimate.  Riesz-Thorin-style interpolation is a plausible theorem-shaping
+analogy only after the actual operator and arithmetic endpoint bounds are
+defined; it is not used as a proved estimate here.

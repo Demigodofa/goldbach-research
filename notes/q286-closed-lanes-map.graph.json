@@ -1357,6 +1357,14 @@
       "status": "finite_falsifier",
       "validation": "tools/build_q286_frobenius_lattice_claim_audit.py generated evidence/q286-frobenius-lattice-claim-audit.json; the true C10 x C12 character setting is preserved, but the Frobenius formula, gcd(17,120) rank claim, parity-axis split, and cyclotomic unit-rank bridge are rejected as explanations of the observed 17-channel rank-1 direction",
       "status_boundary": "finite claim audit only; no universal no-go, no replacement rank-1 theorem, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_low_frequency_lp_cone_audit",
+      "type": "receipt",
+      "label": "q286 low-frequency LP cone audit",
+      "status": "finite_optimization_certificate_candidate",
+      "validation": "tools/build_q286_low_frequency_lp_cone_audit.py generated evidence/q286-low-frequency-lp-cone-audit.json; a bounded LP in the same 13 low-frequency C10 x C12 Fourier features finds a frozen vector with zero nonpositive deltas and zero 0.75 cap failures on training, heldout, and horizon rows; worst drag ratios are 0.5000, 0.3395, and 0.4259, but rank1 cosine is only about 0.6019",
+      "status_boundary": "finite LP cone diagnostic only; useful residual-cap certificate candidate but no LP theorem, rank-1 explanation, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2967,6 +2975,21 @@
     },
     {
       "from": "receipt.q286_frobenius_lattice_claim_audit",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lp_cone_audit",
+      "to": "receipt.q286_low_frequency_lift_horizon_holdout",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lp_cone_audit",
+      "to": "receipt.q286_lift_project_dictionary_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lp_cone_audit",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

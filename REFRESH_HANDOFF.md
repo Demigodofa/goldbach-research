@@ -21258,6 +21258,50 @@ constant-sum cosine is about `0.5129804485`, edge/parity-lift cosine is about
 `0.3552346438` with `11/17` sign mismatches.  The true `C10 x C12` lattice
 still matters, but this Frobenius/GCD/parity shortcut is closed.
 
+Low-frequency LP cone audit:
+
+- `tools/build_q286_low_frequency_lp_cone_audit.py`
+- `notes/q286-low-frequency-lp-cone-audit.md`
+- `evidence/q286-low-frequency-lp-cone-audit.json`
+
+Kevin asked whether linear programming should be used.  The audit fits a
+bounded LP in the same `13` low-frequency DFT/character-label features on the
+`C10 x C12` outside-channel lattice.  It fixes total effective vector scale to
+the frozen low-frequency replay scale, bounds coefficient `L1` by a
+predeclared ladder relative to the original frozen vector, and maximizes
+training slack in:
+
+```text
+reconstructed_delta >= slack
+reconstructed_delta <= 4 * exact_outside_delta - slack
+```
+
+The LP is feasible at the base `L1` multiplier `1.0`; larger multipliers
+return the same optimum.  The selected vector has training slack
+`0.0796483772796952`, coefficient `L1` `3.5698104293761475`, cosine
+`0.6019078700529527` to the frozen rank-`1` vector, and cosine
+`0.7230387005616671` to the frozen low-frequency vector.
+
+The frozen LP vector has zero nonpositive reconstructed deltas and zero `0.75`
+cap failures on training, heldout, and horizon denominators.  Worst
+residual-drag ratios are:
+
+```text
+training: 0.5000000000000002 at 1242118
+heldout:  0.33946759079383754 at 1282186
+horizon:  0.42590751493414414 at 1426262
+```
+
+Decision: LP is useful as a finite residual-cap certificate search.  It does
+not explain rank-`1`: the selected vector's rank-`1` cosine is only about
+`0.602`.  The next theorem target is a non-optimized Fourier/cone or
+box-principle argument on actual admissible prime-pair residue measures, or a
+proof that this cone certificate still reduces to the hard pointwise signed
+prime-correlation theorem.  Kevin's Riesz-Thorin prompt suggests an
+interpolation route between crude `L1`/triangle control and measured
+`L2`/Fourier control, but that remains a theorem-shaping analogy until the
+operator and endpoint bounds are defined from actual prime-pair arithmetic.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

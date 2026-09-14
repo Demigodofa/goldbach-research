@@ -111,6 +111,8 @@ def main():
         EVIDENCE / "q286-low-frequency-lift-horizon-holdout.json")
     frobenius_lattice_claim = load_json(
         EVIDENCE / "q286-frobenius-lattice-claim-audit.json")
+    low_frequency_lp_cone = load_json(
+        EVIDENCE / "q286-low-frequency-lp-cone-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1308,6 +1310,63 @@ def main():
         "frobenius-lattice-claim-audit",
         2.5,
         "closed one arithmetic-sounding shortcut; actual character-sum mechanism still open")
+
+    layer(
+        "low-frequency-lp-cone-audit",
+        "Bounded low-frequency LP cone survives training and two heldouts",
+        "finite_optimization_certificate_candidate",
+        "evidence/q286-low-frequency-lp-cone-audit.json",
+        3.0,
+        "Finite LP cone diagnostic only; no LP theorem or Goldbach proof.")
+    for row in low_frequency_lp_cone[
+            "selected_horizon_rows_by_residual_drag_ratio"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "low-frequency-lp-cone-audit",
+            3.0,
+            "horizon high residual-drag row under frozen LP cone vector",
+            {
+                "lp_ratio": row["lp_residual_drag_ratio"],
+                "rank1_ratio": row["rank1_residual_drag_to_rank1_ratio"],
+                "low_frequency_ratio": (
+                    row[
+                        "low_frequency_residual_drag_to_low_frequency_ratio"]),
+                "window_start": row["window_start"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "low-frequency-lp-cap-certificate-survives",
+        "low-frequency-lp-cone-audit",
+        3.0,
+        "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
+        {
+            "selected_l1_multiplier": low_frequency_lp_cone[
+                "selected_lp_record"]["l1_multiplier"],
+            "training_slack": low_frequency_lp_cone[
+                "selected_lp_record"]["objective_minimum_training_slack"],
+            "rank1_cosine": low_frequency_lp_cone[
+                "selected_lp_rank1_direction_cosine"],
+            "training_max_ratio": low_frequency_lp_cone[
+                "selected_lp_record"]["training_summary"][
+                "maximum_residual_drag_ratio"]["value"],
+            "heldout_max_ratio": low_frequency_lp_cone[
+                "heldout_summary"]["maximum_residual_drag_ratio"]["value"],
+            "horizon_max_ratio": low_frequency_lp_cone[
+                "horizon_summary"]["maximum_residual_drag_ratio"]["value"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-residual-drag-bound",
+        "low-frequency-lp-cone-audit",
+        3.0,
+        "LP finds finite cap-certificate vector; a non-optimized arithmetic cone theorem is still needed")
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "low-frequency-lp-cone-audit",
+        1.5,
+        "LP vector is useful for cap but has only about 0.602 cosine to rank-1")
 
     layer(
         "conditional-proof-stack",

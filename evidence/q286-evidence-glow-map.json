@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "d49fa539df39442f0ba64b092d327b597f30fb05",
+  "generated_from_commit": "460c3f914a854f653cf51d9ac625e86fbcf8c698",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -234,6 +234,14 @@
       "source": "evidence/q286-frobenius-lattice-claim-audit.json",
       "default_weight": 2.5,
       "boundary": "Finite claim audit only; richer character-lattice lifts remain open."
+    },
+    {
+      "id": "low-frequency-lp-cone-audit",
+      "label": "Bounded low-frequency LP cone survives training and two heldouts",
+      "kind": "finite_optimization_certificate_candidate",
+      "source": "evidence/q286-low-frequency-lp-cone-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite LP cone diagnostic only; no LP theorem or Goldbach proof."
     },
     {
       "id": "conditional-proof-stack",
@@ -3448,6 +3456,66 @@
       "glow": 0.111111
     },
     {
+      "id": "1426162",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.1725416513673862,
+            "rank1_ratio": 0.20627768097038965,
+            "full_outside_delta": 0.1940180886135212,
+            "window_start": 1426162
+          }
+        },
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.20627768097038965,
+            "low_frequency_ratio": 0.1725416513673862,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.111111
+    },
+    {
+      "id": "1426262",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.6419474569885669,
+            "rank1_ratio": 0.6778685566389991,
+            "full_outside_delta": 0.04463793369291936,
+            "window_start": 1426162
+          }
+        },
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.42590751493414414,
+            "rank1_ratio": 0.6778685566389991,
+            "low_frequency_ratio": 0.6419474569885668,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.111111
+    },
+    {
       "id": "1200362",
       "stack_weight": 5.5,
       "layers": [
@@ -4079,17 +4147,188 @@
       "glow": 0.055556
     },
     {
-      "id": "1426162",
+      "id": "1426164",
       "stack_weight": 3.0,
       "layers": [
         {
-          "layer": "low-frequency-lift-horizon-holdout",
+          "layer": "low-frequency-lp-cone-audit",
           "weight": 3.0,
-          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
           "value": {
-            "low_frequency_ratio": 0.1725416513673862,
-            "rank1_ratio": 0.20627768097038965,
-            "full_outside_delta": 0.1940180886135212,
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426166",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.05830954185191057,
+            "low_frequency_ratio": 0.16320029695105004,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426168",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426170",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426172",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426174",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426176",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.05343105169137737,
+            "low_frequency_ratio": 0.11919852698621489,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426178",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426180",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426182",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen LP cone vector",
+          "value": {
+            "lp_ratio": 0.0,
+            "rank1_ratio": 0.0,
+            "low_frequency_ratio": 0.0,
             "window_start": 1426162
           }
         }
@@ -4109,25 +4348,6 @@
             "low_frequency_ratio": 0.16412353267894958,
             "rank1_ratio": 0.013730727258235972,
             "full_outside_delta": 0.1890033940807873,
-            "window_start": 1426162
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.055556
-    },
-    {
-      "id": "1426262",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "low-frequency-lift-horizon-holdout",
-          "weight": 3.0,
-          "reason": "horizon high residual-drag row under frozen low-frequency lift",
-          "value": {
-            "low_frequency_ratio": 0.6419474569885669,
-            "rank1_ratio": 0.6778685566389991,
-            "full_outside_delta": 0.04463793369291936,
             "window_start": 1426162
           }
         }
@@ -4827,6 +5047,27 @@
       "glow": 0.333333
     },
     {
+      "id": "low-frequency-lp-cap-certificate-survives",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "bounded LP in the same low-frequency C10 x C12 Fourier band has zero positivity/cap failures on training plus two heldouts",
+          "value": {
+            "selected_l1_multiplier": 1.0,
+            "training_slack": 0.0796483772796952,
+            "rank1_cosine": 0.6019078700529527,
+            "training_max_ratio": 0.5000000000000002,
+            "heldout_max_ratio": 0.33946759079383754,
+            "horizon_max_ratio": 0.42590751493414414
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
       "id": "rank1-cap-survives-full-window",
       "stack_weight": 3.0,
       "layers": [
@@ -5393,6 +5634,49 @@
   ],
   "theorem_gap_stacks": [
     {
+      "id": "rank1-outside-direction-arithmetic-meaning",
+      "stack_weight": 17.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
+        },
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem"
+        },
+        {
+          "layer": "target-residue-lift-holdout",
+          "weight": 2.5,
+          "reason": "coarse target residues alone do not explain the rank-1 shadow"
+        },
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "low-frequency label-lattice signal survives farther horizon but still needs arithmetic theorem"
+        },
+        {
+          "layer": "frobenius-lattice-claim-audit",
+          "weight": 2.5,
+          "reason": "closed one arithmetic-sounding shortcut; actual character-sum mechanism still open"
+        },
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 1.5,
+          "reason": "LP vector is useful for cap but has only about 0.602 cosine to rank-1"
+        }
+      ],
+      "layer_count": 7,
+      "glow": 1.0
+    },
+    {
       "id": "portfolio-residual-lower-bound",
       "stack_weight": 16.5,
       "layers": [
@@ -5438,49 +5722,11 @@
         }
       ],
       "layer_count": 8,
-      "glow": 1.0
-    },
-    {
-      "id": "rank1-outside-direction-arithmetic-meaning",
-      "stack_weight": 16.0,
-      "layers": [
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
-        },
-        {
-          "layer": "lift-project-dictionary-audit",
-          "weight": 2.5,
-          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
-        },
-        {
-          "layer": "low-frequency-lift-holdout",
-          "weight": 3.0,
-          "reason": "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem"
-        },
-        {
-          "layer": "target-residue-lift-holdout",
-          "weight": 2.5,
-          "reason": "coarse target residues alone do not explain the rank-1 shadow"
-        },
-        {
-          "layer": "low-frequency-lift-horizon-holdout",
-          "weight": 3.0,
-          "reason": "low-frequency label-lattice signal survives farther horizon but still needs arithmetic theorem"
-        },
-        {
-          "layer": "frobenius-lattice-claim-audit",
-          "weight": 2.5,
-          "reason": "closed one arithmetic-sounding shortcut; actual character-sum mechanism still open"
-        }
-      ],
-      "layer_count": 6,
-      "glow": 0.969697
+      "glow": 0.942857
     },
     {
       "id": "rank1-residual-drag-bound",
-      "stack_weight": 8.5,
+      "stack_weight": 11.5,
       "layers": [
         {
           "layer": "rank1-residual-drag-ledger",
@@ -5496,10 +5742,15 @@
           "layer": "residual-drag-channel-certificate-falsifier",
           "weight": 3.0,
           "reason": "tiny static bad-channel proof route is closed; use row-dependent balance or larger cone"
+        },
+        {
+          "layer": "low-frequency-lp-cone-audit",
+          "weight": 3.0,
+          "reason": "LP finds finite cap-certificate vector; a non-optimized arithmetic cone theorem is still needed"
         }
       ],
-      "layer_count": 3,
-      "glow": 0.515152
+      "layer_count": 4,
+      "glow": 0.657143
     },
     {
       "id": "active-lane-strict-closure",
@@ -5517,7 +5768,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.30303
+      "glow": 0.285714
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -5535,7 +5786,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.212121
+      "glow": 0.2
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -5548,7 +5799,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -5561,7 +5812,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -5574,7 +5825,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -5587,7 +5838,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -5600,7 +5851,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -5613,7 +5864,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.121212
+      "glow": 0.114286
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -5630,7 +5881,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.090909
+      "glow": 0.085714
     },
     {
       "id": "alignment-complement-route",
@@ -5643,7 +5894,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.060606
+      "glow": 0.057143
     }
   ],
   "goldbach_proved": false,
