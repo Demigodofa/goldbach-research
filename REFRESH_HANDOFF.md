@@ -19715,6 +19715,33 @@ eventual theorem is now: prove a pointwise negative-pressure ceiling
 finite boundary, then check the earlier uncertified rows.  Those two
 arithmetic bounds are not proved, and Goldbach remains open.
 
+Fixed certificate cycle horizon:
+
+- `q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt`
+- `tools/build_q286_first_three_reflection_orbit_ratio_cycle_horizon.py`
+- `evidence/q286-first-three-reflection-orbit-ratio-cycle-horizon.json`
+
+This receipt applies the same `B <= 1.25`, `R >= .76` certificate by q286
+cycle.  In early cycles `0..15` from start `10000`, it scans `80080` targets:
+`5297` tails, `70016` certified targets, zero certified tails, `4767`
+uncertified clear targets, `5297` uncertified tails, `24` pressure failures,
+and `10059` ratio failures.  No early cycle is all-certified or no-tail.
+
+In late cycles `0..7` from start `1120120`, it scans `40040` targets: zero
+tails, `40029` certified targets, `11` uncertified clear targets, zero
+pressure failures, and `11` ratio failures.  Only local cycle `0` is
+all-certified, but all eight late cycles are no-tail.  The late minimum-ratio
+exception is target `1178192`, with ratio about `0.7199213315162449`,
+pressure about `0.954498236614443`, and first-three/principal about
+`-0.2673345951810655`.
+
+Status: changed-under-evidence.  The fixed `.76` ratio floor is a useful
+sufficient certificate but too strict as a universal late no-tail condition.
+Next theorem target: either prove the fixed certificate on a subregion and
+classify clear ratio exceptions, or replace the flat ratio floor with a
+pressure-dependent compensation curve that still implies `first_three >= -.3`.
+No eventual pressure/ratio theorem and no Goldbach proof is established.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

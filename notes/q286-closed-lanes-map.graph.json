@@ -106,6 +106,14 @@
       "status_boundary": "finite conditional certificate evidence only; the eventual pressure ceiling and compensation-ratio floor remain unproved, and Goldbach is not proved"
     },
     {
+      "id": "receipt.q286_first_three_reflection_orbit_ratio_cycle_horizon",
+      "type": "receipt",
+      "label": "q286 first-three pressure/ratio cycle horizon",
+      "status": "validated_finite_diagnostic",
+      "validation": "q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt and tools/build_q286_first_three_reflection_orbit_ratio_cycle_horizon.py generated evidence/q286-first-three-reflection-orbit-ratio-cycle-horizon.json; early cycles 0..15 from start 10000 have 5297 tails, all uncertified, while late cycles 0..7 from start 1120120 have zero tails but 11 clear ratio-floor failures, with worst late ratio row 1178192 at about 0.7199213315162449",
+      "status_boundary": "finite horizon diagnostic only; demotes the flat .76 ratio floor as a universal late-row condition while preserving it as a sufficient certificate; no eventual theorem and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1455,6 +1463,16 @@
     },
     {
       "from": "receipt.q286_first_three_reflection_orbit_ratio_certificate",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_ratio_cycle_horizon",
+      "to": "receipt.q286_first_three_reflection_orbit_ratio_certificate",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_ratio_cycle_horizon",
       "to": "obligation.active_selector_rarity",
       "type": "refines"
     },

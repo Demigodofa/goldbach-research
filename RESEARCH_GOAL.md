@@ -10900,6 +10900,20 @@ ratio failures, with minimum ratio at `1129472` equal to about
 pointwise arithmetic bounds: a negative-pressure ceiling and a positive
 compensation-ratio floor.  Those bounds remain unproved.
 
+The cycle-horizon follow-up
+`q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt` is recorded in
+`evidence/q286-first-three-reflection-orbit-ratio-cycle-horizon.json`.  With
+the same constants unchanged, early cycles `0..15` from start `10000` have
+`5297` tails, all uncertified, with `24` pressure failures and `10059` ratio
+failures.  Late cycles `0..7` from start `1120120` have zero tails, zero
+pressure failures, and only `11` ratio failures; however those `11` are clear
+uncertified targets, not tails.  The late worst ratio exception is `1178192`,
+with ratio about `0.7199213315162449` and first-three/principal about
+`-0.2673345951810655`.  This demotes the fixed `.76` ratio floor as a
+universal late-row condition; it remains a sufficient certificate, but the
+eventual theorem likely needs a pressure-dependent compensation curve or an
+explicit classification of clear ratio exceptions.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

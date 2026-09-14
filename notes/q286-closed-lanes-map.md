@@ -62,6 +62,7 @@ Current executable receipts:
 - `q286_lower_support_component_pair_fixed_inequality_stress_receipt`
 - `q286_first_three_reflection_orbit_signed_cancellation_receipt`
 - `q286_first_three_reflection_orbit_ratio_certificate_receipt`
+- `q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt`
 
 ## Closed or falsified lanes
 

@@ -109,6 +109,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_orbit_cap_receipt,
     q286_first_three_reflection_orbit_signed_cancellation_receipt,
     q286_first_three_reflection_orbit_ratio_certificate_receipt,
+    q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3893,6 +3894,37 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "ratio_certificate_algebraic_sufficient_condition"])
         self.assertTrue(receipt["ratio_certificate_all_targets_certified"])
+        self.assertFalse(receipt[
+            "ratio_certificate_has_certified_tail_counterexample"])
+        self.assertFalse(receipt["eventual_pressure_ratio_bounds_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_ratio_cycle_horizon(self):
+        receipt = (
+            q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt(
+                start=1120120, cycle_count=2, targets_per_cycle=101,
+                tail_threshold=.3, pressure_ceiling=1.25,
+                compensation_ratio_floor=.76))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 202)
+        self.assertEqual(len(receipt["cycle_rows"]), 2)
+        self.assertAlmostEqual(receipt["algebraic_certificate_bound"], -.3)
+        self.assertTrue(receipt["algebraic_certificate_valid"])
+        self.assertEqual(receipt["tail_target_count"], 0)
+        self.assertEqual(
+            receipt["certified_target_count"],
+            receipt["tested_targets_with_prime_pairs"])
+        self.assertEqual(receipt["certified_tail_target_count"], 0)
+        self.assertEqual(receipt["uncertified_tail_target_count"], 0)
+        self.assertEqual(receipt["all_certified_cycles"], (0, 1))
+        self.assertEqual(receipt["no_tail_cycles"], (0, 1))
+        self.assertEqual(
+            receipt["no_pressure_or_ratio_failure_cycles"], (0, 1))
+        self.assertEqual(receipt["first_all_certified_cycle"], 0)
+        self.assertEqual(receipt["first_no_tail_cycle"], 0)
+        self.assertIsNone(receipt["last_uncertified_tail_cycle"])
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_ratio_cycle_horizon_measured"])
         self.assertFalse(receipt[
             "ratio_certificate_has_certified_tail_counterexample"])
         self.assertFalse(receipt["eventual_pressure_ratio_bounds_proved"])

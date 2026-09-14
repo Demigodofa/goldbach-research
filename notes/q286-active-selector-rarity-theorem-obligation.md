@@ -327,6 +327,58 @@ uncertified rows.  The early/intermediate windows also show why this is not
 already a proof: ratio failures explain the remaining tails, and the constants
 are only measured, not proved.
 
+## Pressure-Ratio Cycle Horizon
+
+The receipt
+`q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt` applies the
+same fixed certificate by q286 cycle.  It is not a new threshold search: the
+constants remain `B <= 1.25` and `R >= 0.76`.
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-ratio-cycle-horizon.json
+```
+
+In the early horizon from start `10000`, cycles `0..15`:
+
+```text
+tested targets with prime pairs:       80080
+tails:                                  5297
+certified targets:                     70016
+certified tails:                           0
+uncertified clear targets:              4767
+uncertified tails:                      5297
+pressure failures:                        24
+ratio failures:                        10059
+all-certified cycles:                     []
+no-tail cycles:                           []
+```
+
+In the late horizon from start `1120120`, cycles `0..7`:
+
+```text
+tested targets with prime pairs:       40040
+tails:                                     0
+certified targets:                     40029
+certified tails:                           0
+uncertified clear targets:                11
+uncertified tails:                         0
+pressure failures:                         0
+ratio failures:                           11
+all-certified cycles:                    [0]
+no-tail cycles:             [0,1,2,3,4,5,6,7]
+```
+
+The late minimum-ratio clear exception is target `1178192`, with
+`R=0.7199213315162449`, `B=0.954498236614443`, and first-three/principal about
+`-0.2673345951810655`.  This is an important demotion: the fixed ratio floor
+`.76` is a useful sufficient certificate, but it is too strict to certify all
+late no-tail rows.  The next theorem target must either prove the fixed
+certificate only on a subregion plus classify the clear exceptions, or replace
+`.76` with a pressure-dependent compensation curve that still implies the
+`-.3` first-three floor.
+
 ## Current Evidence
 
 Finite denominator evidence so far:
