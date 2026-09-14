@@ -1049,6 +1049,18 @@ current comparison set.
    carries about `0.2027927818` and the top three about `0.4963203849`.  This
    demotes a one-channel tail-to-clear swing theorem; the live route remains a
    coupled aggregate, pressure-subregion, or lower-support/complement theorem.
+105. `tools/build_q286_first_three_dominant_mode_pairwise_swing_sign_stability.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pairwise-swing-sign-stability.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-pairwise-swing-sign-stability.json`,
+   derives sign-stability from the pairwise channel-swing evidence.  Across the
+   `25` active real q286 channels, `10` are stable helpful and `7` are stable
+   harmful across the two named clear comparisons, but `8` channels flip sign:
+   `(1,1)`, `(1,3)`, `(1,5)`, `(1,7)`, `(2,4)`, `(3,3)`, `(4,4)`, and
+   `(4,10)`.  This demotes a single fixed helpful/harmful channel partition on
+   the named fixture, while preserving a narrower stable-core plus volatile-rim
+   theorem target.
 
 ## Still open
 
@@ -1088,6 +1100,8 @@ current comparison set.
   be just q286 residue membership, one scalar residual interval, a scalar
   positive-offset floor, or a global scalar positive/negative pressure ratio
   floor on the checked rows.  The pairwise channel-swing diagnostic further
-  demotes a one-channel rescue swing on the named tail-to-clear pairs.
+  demotes a one-channel rescue swing on the named tail-to-clear pairs, and the
+  sign-stability diagnostic demotes a single fixed helpful/harmful channel
+  partition there.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

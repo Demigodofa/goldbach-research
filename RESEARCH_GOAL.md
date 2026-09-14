@@ -11723,3 +11723,33 @@ multi-channel aggregate theorem, pressure-subregion theorem, or
 lower-support/complement rescue.  This is finite diagnostic evidence only; it
 proves no pairwise recurrence theorem, one-channel swing theorem, coupled
 curve theorem, pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: pairwise swing sign stability
+
+The pairwise channel-swing result was then checked for a fixed helpful/harmful
+channel partition.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pairwise-swing-sign-stability.json
+```
+
+Across the `25` active real q286 channels, the two named clear comparisons
+share `10` stable helpful channels and `7` stable harmful channels, but `8`
+channels flip sign:
+
+```text
+(1,1), (1,3), (1,5), (1,7), (2,4), (3,3), (4,4), (4,10)
+```
+
+The stable helpful core contributes about `0.1946009263` to the
+`1222142 -> 1242118` swing and about `0.1913315978` to the
+`1222142 -> 1240888` swing.  The sign-flip set is net harmful in both pairs:
+about `-0.0144620956` in the first pair and about `-0.0795878215` in the
+second.
+
+This demotes a single fixed helpful/harmful channel partition on the named
+fixture.  It leaves a narrower candidate target: stable helpful core plus a
+volatile-rim bound, pressure-subregion split, or lower-support/complement
+rescue.  This is finite derivative diagnostic evidence only; it proves no
+stable-core theorem, coupled curve theorem, pointwise character-sum estimate,
+or Goldbach.
