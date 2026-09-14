@@ -11753,3 +11753,33 @@ volatile-rim bound, pressure-subregion split, or lower-support/complement
 rescue.  This is finite derivative diagnostic evidence only; it proves no
 stable-core theorem, coupled curve theorem, pointwise character-sum estimate,
 or Goldbach.
+
+### 2026-09-14 continuation: stable-core / volatile-rim budget
+
+The stable-core candidate was then quantified as a finite floor-margin budget.
+The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-stable-core-volatile-rim-budget.json
+```
+
+The budget uses the branch-independent floor margin
+`dominant_sum + 0.3`, not positive-offset slack, because offset slack changes
+meaning once a clear row is in the pressure branch.
+
+For `1222142 -> 1242118`, tail floor margin is about
+`-0.0088331796`.  The stable core has net swing about `0.0398241886`, so
+stable-core margin is about `0.0309910091`.  The volatile rim contributes
+about `-0.0144620956`, using about `46.67%` of the available volatile-drag
+budget and leaving final floor margin about `0.0165289135`.
+
+For `1222142 -> 1240888`, the stable core has net swing about
+`0.1156075744`, so stable-core margin is about `0.1067743949`.  The volatile
+rim contributes about `-0.0795878215`, using about `74.54%` of the volatile
+drag budget and leaving final floor margin about `0.0271865734`.
+
+This keeps the stable-core plus volatile-rim route alive on the named fixture:
+the stable core alone would clear the tail in both comparisons, and the
+volatile rim is harmful but within the finite budget.  It proves no uniform
+stable-core theorem, volatile-rim bound, coupled curve theorem, pointwise
+character-sum estimate, or Goldbach.

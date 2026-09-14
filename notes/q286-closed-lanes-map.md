@@ -1061,6 +1061,19 @@ current comparison set.
    `(4,10)`.  This demotes a single fixed helpful/harmful channel partition on
    the named fixture, while preserving a narrower stable-core plus volatile-rim
    theorem target.
+106. `tools/build_q286_first_three_dominant_mode_stable_core_volatile_rim_budget.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-stable-core-volatile-rim-budget.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-stable-core-volatile-rim-budget.json`,
+   turns the stable-core plus volatile-rim target into a finite floor-margin
+   budget using the branch-independent margin `dominant_sum + 0.3`.  For
+   `1222142 -> 1242118`, stable-core margin is about `0.0309910091`, volatile
+   drag is about `0.0144620956`, and the rim uses about `46.67%` of the budget.
+   For `1222142 -> 1240888`, stable-core margin is about `0.1067743949`,
+   volatile drag is about `0.0795878215`, and the rim uses about `74.54%` of
+   the budget.  This does not prove the theorem, but it sharpens the surviving
+   candidate to stable-core surplus plus volatile-rim drag control.
 
 ## Still open
 
@@ -1102,6 +1115,8 @@ current comparison set.
   floor on the checked rows.  The pairwise channel-swing diagnostic further
   demotes a one-channel rescue swing on the named tail-to-clear pairs, and the
   sign-stability diagnostic demotes a single fixed helpful/harmful channel
-  partition there.
+  partition there.  The surviving sharpened target is a stable-core surplus
+  plus volatile-rim drag bound, or a pressure-subregion /
+  lower-support-complement replacement.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

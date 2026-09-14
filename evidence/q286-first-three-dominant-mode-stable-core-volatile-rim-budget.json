@@ -1,0 +1,83 @@
+{
+  "all_stable_core_rows_clear_tail": true,
+  "all_volatile_rims_within_budget": true,
+  "budget_rows": [
+    {
+      "actual_volatile_drag": 0.014462095612572855,
+      "allowed_volatile_rim_lower_bound": -0.030991009079319787,
+      "clear_floor_margin": 0.016528913466746065,
+      "clear_floor_margin_reconstruction_error": 8.673617379884035e-16,
+      "clear_positive_offset_slack_to_floor": 0.01652891346674458,
+      "clear_target": 1242118,
+      "final_floor_margin_reconstructed": 0.016528913466746932,
+      "stable_core_alone_clears_tail": true,
+      "stable_core_margin_to_floor": 0.030991009079319787,
+      "stable_core_net_swing": 0.0398241886398476,
+      "stable_negative_swing_sum": -0.15477673770371755,
+      "stable_positive_swing_sum": 0.19460092634356516,
+      "tail_floor_margin": -0.008833179560527815,
+      "tail_positive_offset_slack_to_floor": -0.00883317956053016,
+      "tail_target": 1222142,
+      "volatile_drag_budget": 0.030991009079319787,
+      "volatile_drag_budget_used_fraction": 0.46665455698967123,
+      "volatile_rim_net_swing": -0.014462095612572855,
+      "volatile_rim_within_budget": true
+    },
+    {
+      "actual_volatile_drag": 0.0795878214771284,
+      "allowed_volatile_rim_lower_bound": -0.10677439485804902,
+      "clear_floor_margin": 0.027186573380917844,
+      "clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+      "clear_positive_offset_slack_to_floor": 0.013711748649337881,
+      "clear_target": 1240888,
+      "final_floor_margin_reconstructed": 0.02718657338092062,
+      "stable_core_alone_clears_tail": true,
+      "stable_core_margin_to_floor": 0.10677439485804902,
+      "stable_core_net_swing": 0.11560757441857683,
+      "stable_negative_swing_sum": -0.07572402333725031,
+      "stable_positive_swing_sum": 0.19133159775582714,
+      "tail_floor_margin": -0.008833179560527815,
+      "tail_positive_offset_slack_to_floor": -0.00883317956053016,
+      "tail_target": 1222142,
+      "volatile_drag_budget": 0.10677439485804902,
+      "volatile_drag_budget_used_fraction": 0.7453830254241782,
+      "volatile_rim_net_swing": -0.0795878214771284,
+      "volatile_rim_within_budget": true
+    }
+  ],
+  "coupled_pressure_offset_curve_proved": false,
+  "falsifier": "If stable-core slack is nonpositive or the volatile rim exceeds the allowed drag budget, the stable-core plus bounded-rim route fails on the named pair.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "remaining_theorem": "A future proof target can be phrased as a positive stable core surplus plus an upper bound on volatile-rim drag, but this diagnostic proves neither bound uniformly.",
+    "stable_core": "On both named comparisons, the stable core alone would move the tail above the floor.",
+    "volatile_rim": "The volatile rim is net harmful on both comparisons but remains inside the finite named budget."
+  },
+  "maximum_clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+  "mechanism": "After fixed sign partition was demoted, quantify whether the stable core alone clears the named tail and how much negative volatile-rim swing can be tolerated.",
+  "pair_targets": [
+    [
+      1222142,
+      1242118
+    ],
+    [
+      1222142,
+      1240888
+    ]
+  ],
+  "pointwise_character_sum_estimate_proved": false,
+  "schema_version": 1,
+  "sign_flip_channel_count": 8,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "b8440bb71c69607ec3235da137e3ba3fa06fe41a",
+  "source_evidence": [
+    "evidence\\q286-first-three-dominant-mode-pairwise-channel-swing.json",
+    "evidence\\q286-first-three-dominant-mode-pairwise-swing-sign-stability.json"
+  ],
+  "stable_core_theorem_proved": false,
+  "stable_core_volatile_rim_budget_measured": true,
+  "stable_negative_channel_count": 7,
+  "stable_positive_channel_count": 10,
+  "status_boundary": "finite derivative stable-core/volatile-rim budget diagnostic only; no stable-core theorem, volatile-rim bound, coupled pressure/offset curve theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "volatile_rim_bound_proved": false
+}
