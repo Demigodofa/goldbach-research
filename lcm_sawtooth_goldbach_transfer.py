@@ -8262,6 +8262,10 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
         row["real_formula_multiplier"]
         * row["representative_coefficient_abs"]
         for row in real_channel_rows))
+    real_channel_l2 = float(math.sqrt(math.fsum(
+        (row["real_formula_multiplier"]
+         * row["representative_coefficient_abs"]) ** 2
+        for row in real_channel_rows)))
 
     residue_receipt = q286_first_three_singular_mode_residue_obligation_receipt(
         sample_targets=sample_targets, dominant_modes=dominant_modes,
@@ -8315,9 +8319,14 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
         principal = principal_mean * total_weight
         complex_sum = complex(np.sum(dominant_coefficients * character_sums))
         real_channel_contributions = []
+        normalized_representative_character_sums = []
         real_channel_sum = 0.0
         for channel in real_channel_rows:
             representative = channel["representative_index"]
+            normalized_representative_character_sum = (
+                character_sums[representative] / total_weight)
+            normalized_representative_character_sums.append(
+                normalized_representative_character_sum)
             contribution = float((
                 channel["real_formula_multiplier"]
                 * dominant_coefficients[representative]
@@ -8368,6 +8377,22 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
             "complex_character_identity_error": complex_identity_error,
             "real_channel_identity_error": real_channel_identity_error,
             "threshold_slack": complex_ratio + tail_threshold,
+            "representative_character_sum_linf_to_total_weight": float(
+                max(abs(value) for value
+                    in normalized_representative_character_sums)),
+            "representative_character_sum_l2_to_total_weight": float(
+                math.sqrt(math.fsum(
+                    abs(value) ** 2
+                    for value in normalized_representative_character_sums))),
+            "linf_channel_bound_to_principal": float(
+                (real_channel_l1 / principal_mean)
+                * max(abs(value) for value
+                      in normalized_representative_character_sums)),
+            "l2_channel_bound_to_principal": float(
+                (real_channel_l2 / principal_mean)
+                * math.sqrt(math.fsum(
+                    abs(value) ** 2
+                    for value in normalized_representative_character_sums))),
             "top_negative_real_channels": negative_channels,
             "top_positive_real_channels": positive_channels,
         }
@@ -8394,6 +8419,8 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
             coefficient_linf / principal_mean),
         "dominant_real_channel_l1_to_principal_mean": (
             real_channel_l1 / principal_mean),
+        "dominant_real_channel_l2_to_principal_mean": (
+            real_channel_l2 / principal_mean),
         "maximum_conjugate_coefficient_error": (
             conjugate_coefficient_error),
         "real_channel_rows": real_channel_rows,
@@ -8411,6 +8438,122 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
         "dominant_mode_character_sum_obligation_formalized": True,
         "single_character_or_tiny_channel_proof_found": bool(
             len(real_channel_rows) <= 6),
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_dominant_mode_channel_norm_budget_receipt(
+        sample_targets=(1222142, 1242118, 1240888),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9):
+    """Quantify generic channel-norm budgets for the dominant modes.
+
+    The exact 25-real-channel character obligation suggests simple sufficient
+    estimates: a uniform bound on each normalized representative character sum
+    or an L2 bound across the representative sums.  This receipt computes the
+    sufficient thresholds and compares them to selected actual rows.
+
+    These are sufficient conditions only.  Failing the budgets does not prove
+    the dominant-mode floor false; it demotes generic independent channel-norm
+    control as a standalone active-scale proof route.
+    """
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    character_receipt = (
+        q286_first_three_dominant_mode_character_sum_obligation_receipt(
+            sample_targets=sample_targets, dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold, tolerance=tolerance,
+            top_channel_count=6))
+    linf_threshold = (
+        tail_threshold
+        / character_receipt["dominant_real_channel_l1_to_principal_mean"])
+    l2_threshold = (
+        tail_threshold
+        / character_receipt["dominant_real_channel_l2_to_principal_mean"])
+
+    rows = {}
+    linf_certified_targets = []
+    l2_certified_targets = []
+    bound_failure_but_floor_pass_targets = []
+    maximum_linf_utilization_row = None
+    maximum_l2_utilization_row = None
+    for target, row in character_receipt["target_rows"].items():
+        if not row["has_strict_central_prime_pairs"]:
+            rows[target] = row
+            continue
+        linf_value = row[
+            "representative_character_sum_linf_to_total_weight"]
+        l2_value = row[
+            "representative_character_sum_l2_to_total_weight"]
+        linf_utilization = linf_value / linf_threshold
+        l2_utilization = l2_value / l2_threshold
+        floor_passes = row["dominant_character_sum_to_principal_ratio"] >= (
+            -tail_threshold - tolerance)
+        row = dict(row)
+        row.update({
+            "linf_sufficient_relative_channel_sum": linf_threshold,
+            "l2_sufficient_relative_channel_sum": l2_threshold,
+            "linf_budget_utilization": linf_utilization,
+            "l2_budget_utilization": l2_utilization,
+            "linf_budget_certifies_dominant_floor": bool(
+                linf_value <= linf_threshold + tolerance),
+            "l2_budget_certifies_dominant_floor": bool(
+                l2_value <= l2_threshold + tolerance),
+            "dominant_floor_passes": bool(floor_passes),
+        })
+        rows[target] = row
+        if row["linf_budget_certifies_dominant_floor"]:
+            linf_certified_targets.append(target)
+        if row["l2_budget_certifies_dominant_floor"]:
+            l2_certified_targets.append(target)
+        if (not row["linf_budget_certifies_dominant_floor"]
+                and not row["l2_budget_certifies_dominant_floor"]
+                and floor_passes):
+            bound_failure_but_floor_pass_targets.append(target)
+        if (maximum_linf_utilization_row is None
+                or linf_utilization > maximum_linf_utilization_row[
+                    "linf_budget_utilization"]):
+            maximum_linf_utilization_row = row
+        if (maximum_l2_utilization_row is None
+                or l2_utilization > maximum_l2_utilization_row[
+                    "l2_budget_utilization"]):
+            maximum_l2_utilization_row = row
+
+    return {
+        "arithmetic_modulus": character_receipt["arithmetic_modulus"],
+        "support": character_receipt["support"],
+        "sample_targets": character_receipt["sample_targets"],
+        "dominant_modes": character_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            character_receipt["active_real_channel_count"]),
+        "dominant_real_channel_l1_to_principal_mean": (
+            character_receipt[
+                "dominant_real_channel_l1_to_principal_mean"]),
+        "dominant_real_channel_l2_to_principal_mean": (
+            character_receipt[
+                "dominant_real_channel_l2_to_principal_mean"]),
+        "linf_sufficient_relative_channel_sum": linf_threshold,
+        "l2_sufficient_relative_channel_sum": l2_threshold,
+        "target_rows": rows,
+        "linf_certified_target_count": len(linf_certified_targets),
+        "linf_certified_targets": tuple(linf_certified_targets),
+        "l2_certified_target_count": len(l2_certified_targets),
+        "l2_certified_targets": tuple(l2_certified_targets),
+        "bound_failure_but_dominant_floor_pass_targets": tuple(
+            bound_failure_but_floor_pass_targets),
+        "maximum_linf_budget_utilization_row": (
+            maximum_linf_utilization_row),
+        "maximum_l2_budget_utilization_row": maximum_l2_utilization_row,
+        "dominant_mode_channel_norm_budget_measured": True,
+        "generic_independent_channel_norm_bound_sufficient": True,
+        "generic_independent_channel_norm_bound_demoted_on_samples": bool(
+            bound_failure_but_floor_pass_targets),
         "pointwise_character_sum_estimate_proved": False,
         "fixed_modulus_binary_ap_theorem_proved": False,
         "signed_projection_theorem_proved": False,

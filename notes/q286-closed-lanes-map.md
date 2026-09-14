@@ -71,6 +71,7 @@ Current executable receipts:
 - `q286_first_three_singular_mode_residue_obligation_receipt`
 - `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`
 - `q286_first_three_dominant_mode_character_sum_obligation_receipt`
+- `q286_first_three_dominant_mode_channel_norm_budget_receipt`
 
 ## Closed or falsified lanes
 
@@ -87,6 +88,7 @@ prediction, and falsifier.
 | Raw 99-character norm bound | Falsified as already sufficient | Selected stress targets are not certified by triangle or plain vector-L2 bounds. |
 | Rank-three internal cancellation | Falsified as explanation | The leading q286 mode contributions are mostly same-sign negative on stress targets. |
 | Dominant mode support/reflection geometry | Falsified as sufficient route | Every even target residue modulo `286` admits a positive reflected synthetic support weight with `mode_1+mode_2 < -.3`. |
+| Dominant mode independent channel norms | Demoted as too blunt | Plain `Linf`/`L2` smallness of the `25` real channels certifies none of the near-boundary samples; clear rows still pass by signed structure. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
 | Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
@@ -734,6 +736,15 @@ current comparison set.
    focused regression reconstructs the prior residue-obligation sample ratios
    below `1e-9`; this is narrower than the full `99`-character product space,
    but it is not a single-character or tiny-channel proof.
+80. `q286_first_three_dominant_mode_channel_norm_budget_receipt`, with note
+   `notes/q286-first-three-dominant-mode-channel-norm-budget.md` and evidence
+   in `evidence/q286-first-three-dominant-mode-channel-norm-budget.json`,
+   quantifies independent `Linf`/`L2` sufficient bounds for those `25` real
+   channels.  The thresholds are about `0.009312260360507715` and
+   `0.046390507527336665`.  None of the three near-boundary samples is
+   certified; clear rows `1242118` and `1240888` fail both budgets while
+   passing the signed dominant floor.  Thus generic channel smallness is too
+   blunt at the active scale.
 
 ## Still open
 
@@ -743,6 +754,7 @@ current comparison set.
   Its exact q286 form is now identified, but not proved.
 - Pointwise lower bounds or structural exclusion for the `25` real q286
   character channels that make up the first two dominant first-three singular
-  coordinates.
+  coordinates, using signed channel structure rather than only independent
+  `Linf`/`L2` smallness.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

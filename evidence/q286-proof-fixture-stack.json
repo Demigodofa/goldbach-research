@@ -57,6 +57,13 @@
       "validation": "active complex characters 50; real channels 25; maximum real-channel identity error 2.3314683517128287e-15."
     },
     {
+      "id": "anchor.dominant_mode_channel_norm_budget",
+      "proved_scope": "finite sufficient-condition budget and sample demotion, not a pointwise theorem",
+      "source": "evidence/q286-first-three-dominant-mode-channel-norm-budget.json",
+      "statement": "Plain independent Linf/L2 smallness of the 25 real dominant channels is sufficient but too blunt on the current near-boundary samples.",
+      "validation": "Linf threshold 0.009312260360507715; L2 threshold 0.046390507527336665; budget-failing but floor-passing targets [1242118, 1240888]."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -85,7 +92,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "313c034354734fa5d59ac8e1f801f4329f07b1ad",
+  "source_commit": "4bc7fe212a6fb3f2b834592d07216a3e0a5c9186",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {

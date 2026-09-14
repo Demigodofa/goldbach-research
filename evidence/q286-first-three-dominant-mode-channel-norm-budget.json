@@ -1,791 +1,510 @@
 {
-  "active_complex_character_count": 50,
   "active_real_channel_count": 25,
-  "active_self_conjugate_channel_count": 0,
   "arithmetic_modulus": 286,
-  "dominant_character_coefficient_l1_to_principal_mean": 32.21559410777112,
-  "dominant_character_coefficient_l2_to_principal_mean": 4.572746573875277,
-  "dominant_character_coefficient_linf_to_principal_mean": 0.8079022122683025,
-  "dominant_mode_character_sum_obligation": "For q286 strict-central binary-prime weights, control the real part of sum c_chi S_chi(N)/P over the active dominant mode-1/mode-2 character channels.  Support/reflection geometry alone is already obstructed; this is a pointwise arithmetic character-sum obligation.",
-  "dominant_mode_character_sum_obligation_formalized": true,
+  "bound_failure_but_dominant_floor_pass_targets": [
+    1242118,
+    1240888
+  ],
+  "dominant_mode_channel_norm_budget_measured": true,
   "dominant_modes": [
     1,
     2
   ],
   "dominant_real_channel_l1_to_principal_mean": 32.215594107770805,
   "dominant_real_channel_l2_to_principal_mean": 6.466840222069529,
-  "dominant_singular_values": [
-    158279.09383760378,
-    124234.1882436279
-  ],
   "fixed_modulus_binary_ap_theorem_proved": false,
+  "generic_independent_channel_norm_bound_demoted_on_samples": true,
+  "generic_independent_channel_norm_bound_sufficient": true,
   "goldbach_proved": false,
   "interpretation": {
-    "next_action": "Seek pointwise control of these 25 real channels, a stronger arithmetic residue-weight constraint, or a theorem showing that complement/lower-support terms rescue the remaining dominant-mode deficits.",
-    "sample_fact": "The character-channel identity reproduces the residue obligation on 1222142, 1242118, and 1240888; the tail row is below -0.3 while the two near-clear rows remain above it.",
-    "what_changed": "After support/reflection geometry was obstructed, the dominant mode-1/mode-2 residual is now an exact q286 character-sum obligation with 50 active complex characters collapsing to 25 real conjugacy channels."
+    "route_effect": "Generic independent channel smallness is too blunt at the active scale.  A proof needs signed channel cancellation, structured correlations among channels, a stronger prime-pair input, or complement/lower-support rescue.",
+    "sample_fact": "No current near-boundary sample row is certified by either generic channel norm budget; the two near-clear rows fail both budgets while their signed dominant sums still clear the -0.3 floor.",
+    "what_changed": "The exact 25-channel obligation now has explicit independent Linf and L2 sufficient thresholds."
   },
-  "maximum_complex_character_identity_error": 0.0,
-  "maximum_conjugate_coefficient_error": 7.399288316253503e-15,
-  "maximum_real_channel_identity_error": 2.3314683517128287e-15,
+  "l2_certified_targets": [],
+  "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+  "linf_certified_targets": [],
+  "linf_sufficient_relative_channel_sum": 0.009312260360507715,
+  "maximum_l2_budget_utilization_row": {
+    "complex_character_identity_error": 0.0,
+    "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+    "dominant_floor_passes": false,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "dominant_real_channel_sum_to_principal_ratio": -0.30883317956053014,
+    "expected_residue_obligation_ratio": -0.3088331795605278,
+    "has_strict_central_prime_pairs": true,
+    "l2_budget_certifies_dominant_floor": false,
+    "l2_budget_utilization": 2.0930749450275714,
+    "l2_channel_bound_to_principal": 0.6279224835082714,
+    "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+    "linf_budget_certifies_dominant_floor": false,
+    "linf_budget_utilization": 3.661464047083634,
+    "linf_channel_bound_to_principal": 1.09843921412509,
+    "linf_sufficient_relative_channel_sum": 0.009312260360507715,
+    "real_channel_identity_error": 2.3314683517128287e-15,
+    "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
+    "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
+    "target": 1222142,
+    "target_mod_286": 64,
+    "threshold_slack": -0.008833179560527815,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      }
+    ],
+    "total_strict_central_prime_pair_weight": 536021.9613320271
+  },
+  "maximum_linf_budget_utilization_row": {
+    "complex_character_identity_error": 0.0,
+    "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+    "dominant_floor_passes": false,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "dominant_real_channel_sum_to_principal_ratio": -0.30883317956053014,
+    "expected_residue_obligation_ratio": -0.3088331795605278,
+    "has_strict_central_prime_pairs": true,
+    "l2_budget_certifies_dominant_floor": false,
+    "l2_budget_utilization": 2.0930749450275714,
+    "l2_channel_bound_to_principal": 0.6279224835082714,
+    "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+    "linf_budget_certifies_dominant_floor": false,
+    "linf_budget_utilization": 3.661464047083634,
+    "linf_channel_bound_to_principal": 1.09843921412509,
+    "linf_sufficient_relative_channel_sum": 0.009312260360507715,
+    "real_channel_identity_error": 2.3314683517128287e-15,
+    "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
+    "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
+    "target": 1222142,
+    "target_mod_286": 64,
+    "threshold_slack": -0.008833179560527815,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      }
+    ],
+    "total_strict_central_prime_pair_weight": 536021.9613320271
+  },
   "pointwise_character_sum_estimate_proved": false,
-  "real_channel_rows": [
-    {
-      "indices": [
-        13,
-        119
-      ],
-      "labels": [
-        [
-          1,
-          1
-        ],
-        [
-          9,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -24751.84461428807,
-        "real": -9761.03304337016
-      },
-      "representative_coefficient_abs": 26606.983629934934,
-      "representative_index": 13,
-      "representative_label": [
-        1,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        15,
-        117
-      ],
-      "labels": [
-        [
-          1,
-          3
-        ],
-        [
-          9,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 2599.3861417488292,
-        "real": 24270.631471747987
-      },
-      "representative_coefficient_abs": 24409.431790832816,
-      "representative_index": 15,
-      "representative_label": [
-        1,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        17,
-        115
-      ],
-      "labels": [
-        [
-          1,
-          5
-        ],
-        [
-          9,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 23584.373797486896,
-        "real": -17709.071373101906
-      },
-      "representative_coefficient_abs": 29492.94655196737,
-      "representative_index": 17,
-      "representative_label": [
-        1,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        19,
-        113
-      ],
-      "labels": [
-        [
-          1,
-          7
-        ],
-        [
-          9,
-          5
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -27028.346017841817,
-        "real": -11802.644104479989
-      },
-      "representative_coefficient_abs": 29492.946551967332,
-      "representative_index": 19,
-      "representative_label": [
-        1,
-        7
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        21,
-        111
-      ],
-      "labels": [
-        [
-          1,
-          9
-        ],
-        [
-          9,
-          3
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 3059.045381706526,
-        "real": 24216.989938965864
-      },
-      "representative_coefficient_abs": 24409.431790832696,
-      "representative_index": 21,
-      "representative_label": [
-        1,
-        9
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        23,
-        109
-      ],
-      "labels": [
-        [
-          1,
-          11
-        ],
-        [
-          9,
-          1
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 21839.148219605817,
-        "real": -15198.130902374098
-      },
-      "representative_coefficient_abs": 26606.98362993465,
-      "representative_index": 23,
-      "representative_label": [
-        1,
-        11
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        26,
-        106
-      ],
-      "labels": [
-        [
-          2,
-          2
-        ],
-        [
-          8,
-          10
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 25754.85220203842,
-        "real": -9472.533308098818
-      },
-      "representative_coefficient_abs": 27441.59797136247,
-      "representative_index": 26,
-      "representative_label": [
-        2,
-        2
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        28,
-        104
-      ],
-      "labels": [
-        [
-          2,
-          4
-        ],
-        [
-          8,
-          8
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23076.681120213303,
-        "real": -17363.53574476855
-      },
-      "representative_coefficient_abs": 28879.50112248936,
-      "representative_index": 28,
-      "representative_label": [
-        2,
-        4
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        30,
-        102
-      ],
-      "labels": [
-        [
-          2,
-          6
-        ],
-        [
-          8,
-          6
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -3424.347648638145,
-        "real": 28448.397243153933
-      },
-      "representative_coefficient_abs": 28653.75128186573,
-      "representative_index": 30,
-      "representative_label": [
-        2,
-        6
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        32,
-        100
-      ],
-      "labels": [
-        [
-          2,
-          8
-        ],
-        [
-          8,
-          4
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 26537.927058104648,
-        "real": -11391.400815640603
-      },
-      "representative_coefficient_abs": 28879.50112248929,
-      "representative_index": 32,
-      "representative_label": [
-        2,
-        8
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        34,
-        98
-      ],
-      "labels": [
-        [
-          2,
-          10
-        ],
-        [
-          8,
-          2
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -22771.326639904662,
-        "real": -15313.653459597166
-      },
-      "representative_coefficient_abs": 27441.59797136209,
-      "representative_index": 34,
-      "representative_label": [
-        2,
-        10
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        37,
-        95
-      ],
-      "labels": [
-        [
-          3,
-          1
-        ],
-        [
-          7,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -27542.16653352562,
-        "real": -7686.732911943688
-      },
-      "representative_coefficient_abs": 28594.69881324189,
-      "representative_index": 37,
-      "representative_label": [
-        3,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        39,
-        93
-      ],
-      "labels": [
-        [
-          3,
-          3
-        ],
-        [
-          7,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 5472.635445840942,
-        "real": 25655.784259715267
-      },
-      "representative_coefficient_abs": 26232.975521357243,
-      "representative_index": 39,
-      "representative_label": [
-        3,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        41,
-        91
-      ],
-      "labels": [
-        [
-          3,
-          5
-        ],
-        [
-          7,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 23245.054004854956,
-        "real": -21548.09708864169
-      },
-      "representative_coefficient_abs": 31696.26198513244,
-      "representative_index": 41,
-      "representative_label": [
-        3,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        43,
-        89
-      ],
-      "labels": [
-        [
-          3,
-          7
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -30202.268645847682,
-        "real": -9616.44385800672
-      },
-      "representative_coefficient_abs": 31696.261985132394,
-      "representative_index": 43,
-      "representative_label": [
-        3,
-        7
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        45,
-        87
-      ],
-      "labels": [
-        [
-          3,
-          9
-        ],
-        [
-          7,
-          3
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 5958.03824175934,
-        "real": 25547.42227728376
-      },
-      "representative_coefficient_abs": 26232.975521357108,
-      "representative_index": 45,
-      "representative_label": [
-        3,
-        9
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        47,
-        85
-      ],
-      "labels": [
-        [
-          3,
-          11
-        ],
-        [
-          7,
-          1
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 21658.18933937734,
-        "real": -18670.287484655437
-      },
-      "representative_coefficient_abs": 28594.698813241583,
-      "representative_index": 47,
-      "representative_label": [
-        3,
-        11
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        50,
-        82
-      ],
-      "labels": [
-        [
-          4,
-          2
-        ],
-        [
-          6,
-          10
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 24094.90120351043,
-        "real": -10998.539998598271
-      },
-      "representative_coefficient_abs": 26486.45212382539,
-      "representative_index": 50,
-      "representative_label": [
-        4,
-        2
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        52,
-        80
-      ],
-      "labels": [
-        [
-          4,
-          4
-        ],
-        [
-          6,
-          8
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23478.32391436858,
-        "real": -15024.822516543854
-      },
-      "representative_coefficient_abs": 27874.30690585247,
-      "representative_index": 52,
-      "representative_label": [
-        4,
-        4
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        54,
-        78
-      ],
-      "labels": [
-        [
-          4,
-          6
-        ],
-        [
-          6,
-          6
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -1216.8995818123246,
-        "real": 27629.629483061668
-      },
-      "representative_coefficient_abs": 27656.414625968522,
-      "representative_index": 54,
-      "representative_label": [
-        4,
-        6
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        56,
-        76
-      ],
-      "labels": [
-        [
-          4,
-          8
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 24708.33592440658,
-        "real": -12902.523835604039
-      },
-      "representative_coefficient_abs": 27874.306905852405,
-      "representative_index": 56,
-      "representative_label": [
-        4,
-        8
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        58,
-        74
-      ],
-      "labels": [
-        [
-          4,
-          10
-        ],
-        [
-          6,
-          2
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23034.65517085884,
-        "real": -13074.280372827448
-      },
-      "representative_coefficient_abs": 26486.45212382502,
-      "representative_index": 58,
-      "representative_label": [
-        4,
-        10
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        61,
-        71
-      ],
-      "labels": [
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -28270.10031983778,
-        "real": -15144.516691478673
-      },
-      "representative_coefficient_abs": 32071.092246946755,
-      "representative_index": 61,
-      "representative_label": [
-        5,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        63,
-        69
-      ],
-      "labels": [
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -278.90826179376955,
-        "real": 29420.921044507166
-      },
-      "representative_coefficient_abs": 29422.243030156988,
-      "representative_index": 63,
-      "representative_label": [
-        5,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        65,
-        67
-      ],
-      "labels": [
-        [
-          5,
-          5
-        ],
-        [
-          5,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 30710.370816530212,
-        "real": -17906.876553074882
-      },
-      "representative_coefficient_abs": 35549.727194112944,
-      "representative_index": 65,
-      "representative_label": [
-        5,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    }
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
   ],
   "schema_version": 1,
   "signed_projection_theorem_proved": false,
-  "single_character_or_tiny_channel_proof_found": false,
   "source_commit": "4bc7fe212a6fb3f2b834592d07216a3e0a5c9186",
-  "status_boundary": "exact q286 dominant-mode character-sum obligation and finite sample checks only; no pointwise character-sum estimate, fixed-modulus AP theorem, q286 signed-projection theorem, or Goldbach proof is established",
+  "status_boundary": "finite norm-budget diagnostic only; records sufficient Linf/L2 conditions for the dominant two-mode q286 character obligation and active sample stress.  It proves no pointwise character-sum estimate, fixed-modulus AP theorem, q286 signed-projection theorem, or Goldbach proof.",
   "support": [
     11,
     13
@@ -795,6 +514,7 @@
     "1222142": {
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+      "dominant_floor_passes": false,
       "dominant_modes": [
         1,
         2
@@ -802,8 +522,14 @@
       "dominant_real_channel_sum_to_principal_ratio": -0.30883317956053014,
       "expected_residue_obligation_ratio": -0.3088331795605278,
       "has_strict_central_prime_pairs": true,
+      "l2_budget_certifies_dominant_floor": false,
+      "l2_budget_utilization": 2.0930749450275714,
       "l2_channel_bound_to_principal": 0.6279224835082714,
+      "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+      "linf_budget_certifies_dominant_floor": false,
+      "linf_budget_utilization": 3.661464047083634,
       "linf_channel_bound_to_principal": 1.09843921412509,
+      "linf_sufficient_relative_channel_sum": 0.009312260360507715,
       "real_channel_identity_error": 2.3314683517128287e-15,
       "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
       "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
@@ -1023,6 +749,7 @@
     "1240888": {
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.27281342661908214,
+      "dominant_floor_passes": true,
       "dominant_modes": [
         1,
         2
@@ -1030,8 +757,14 @@
       "dominant_real_channel_sum_to_principal_ratio": -0.2728134266190817,
       "expected_residue_obligation_ratio": -0.27281342661908214,
       "has_strict_central_prime_pairs": true,
+      "l2_budget_certifies_dominant_floor": false,
+      "l2_budget_utilization": 1.7027510931802834,
       "l2_channel_bound_to_principal": 0.5108253279540851,
+      "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+      "linf_budget_certifies_dominant_floor": false,
+      "linf_budget_utilization": 2.950247050646688,
       "linf_channel_bound_to_principal": 0.8850741151940063,
+      "linf_sufficient_relative_channel_sum": 0.009312260360507715,
       "real_channel_identity_error": 4.440892098500626e-16,
       "representative_character_sum_l2_to_total_weight": 0.07899148740536067,
       "representative_character_sum_linf_to_total_weight": 0.027473468663441948,
@@ -1200,6 +933,7 @@
     "1242118": {
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.2834710865332539,
+      "dominant_floor_passes": true,
       "dominant_modes": [
         1,
         2
@@ -1207,8 +941,14 @@
       "dominant_real_channel_sum_to_principal_ratio": -0.2834710865332554,
       "expected_residue_obligation_ratio": -0.2834710865332539,
       "has_strict_central_prime_pairs": true,
+      "l2_budget_certifies_dominant_floor": false,
+      "l2_budget_utilization": 2.0551735456902227,
       "l2_channel_bound_to_principal": 0.6165520637070668,
+      "l2_sufficient_relative_channel_sum": 0.046390507527336665,
+      "linf_budget_certifies_dominant_floor": false,
+      "linf_budget_utilization": 2.920352965188215,
       "linf_channel_bound_to_principal": 0.8761058895564644,
+      "linf_sufficient_relative_channel_sum": 0.009312260360507715,
       "real_channel_identity_error": 1.4988010832439613e-15,
       "representative_character_sum_l2_to_total_weight": 0.09534054384132545,
       "representative_character_sum_linf_to_total_weight": 0.027195087156413382,

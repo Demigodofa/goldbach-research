@@ -20165,6 +20165,31 @@ The next non-circular theorem is pointwise control of these `25` real
 binary-prime character channels, a stronger residue-weight arithmetic
 constraint, or complement/lower-support rescue.
 
+Dominant-mode channel norm budget:
+
+- `q286_first_three_dominant_mode_channel_norm_budget_receipt`
+- `tools/build_q286_first_three_dominant_mode_channel_norm_budget.py`
+- `notes/q286-first-three-dominant-mode-channel-norm-budget.md`
+- `evidence/q286-first-three-dominant-mode-channel-norm-budget.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_channel_norm_budget`
+
+This quantifies the plain independent-channel route beneath the `25` real
+channels.  For `tau=.3`, sufficient bounds are:
+
+```text
+max_chi |S_chi(N)|/T_N <= 0.009312260360507715
+sqrt(sum_chi |S_chi(N)|^2)/T_N <= 0.046390507527336665
+```
+
+No current near-boundary sample row is certified by either budget.  The two
+near-clear rows `1242118` and `1240888` fail both budgets while their signed
+dominant sums still clear `-.3`.  This demotes generic independent
+channel-norm smallness at the active scale.  Future proof attempts should use
+signed channel cancellation, structured channel correlations, stronger
+prime-pair input, or complement/lower-support rescue rather than reopening
+plain `Linf`/`L2` channel smallness as if it were untested.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -77,6 +77,8 @@ def main():
             receipt["dominant_character_coefficient_linf_to_principal_mean"]),
         "dominant_real_channel_l1_to_principal_mean": (
             receipt["dominant_real_channel_l1_to_principal_mean"]),
+        "dominant_real_channel_l2_to_principal_mean": (
+            receipt["dominant_real_channel_l2_to_principal_mean"]),
         "maximum_conjugate_coefficient_error": (
             receipt["maximum_conjugate_coefficient_error"]),
         "maximum_complex_character_identity_error": (

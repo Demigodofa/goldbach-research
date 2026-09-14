@@ -44,6 +44,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json")
     dominant_mode_character_sum = load_json(
         "evidence/q286-first-three-dominant-mode-character-sum-obligation.json")
+    dominant_mode_channel_budget = load_json(
+        "evidence/q286-first-three-dominant-mode-channel-norm-budget.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -205,6 +207,25 @@ def main():
                 "proved_scope": (
                     "exact finite character-sum identity and theorem "
                     "obligation, not a pointwise estimate"),
+            },
+            {
+                "id": "anchor.dominant_mode_channel_norm_budget",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-channel-norm-budget.json"),
+                "statement": (
+                    "Plain independent Linf/L2 smallness of the 25 real "
+                    "dominant channels is sufficient but too blunt on the "
+                    "current near-boundary samples."),
+                "validation": (
+                    "Linf threshold "
+                    f"{dominant_mode_channel_budget['linf_sufficient_relative_channel_sum']}; "
+                    "L2 threshold "
+                    f"{dominant_mode_channel_budget['l2_sufficient_relative_channel_sum']}; "
+                    "budget-failing but floor-passing targets "
+                    f"{dominant_mode_channel_budget['bound_failure_but_dominant_floor_pass_targets']}."),
+                "proved_scope": (
+                    "finite sufficient-condition budget and sample demotion, "
+                    "not a pointwise theorem"),
             },
             {
                 "id": "anchor.generic_uniformity_is_too_blunt",

@@ -44,6 +44,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_singular_mode_residue_obligation_receipt,
     q286_first_three_dominant_mode_reflection_support_obstruction_receipt,
     q286_first_three_dominant_mode_character_sum_obligation_receipt,
+    q286_first_three_dominant_mode_channel_norm_budget_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4396,6 +4397,42 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_channel_norm_budget(self):
+        receipt = q286_first_three_dominant_mode_channel_norm_budget_receipt(
+            sample_targets=(1222142, 1242118, 1240888))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["active_real_channel_count"], 25)
+        self.assertAlmostEqual(
+            receipt["linf_sufficient_relative_channel_sum"],
+            0.009312260360507715)
+        self.assertAlmostEqual(
+            receipt["l2_sufficient_relative_channel_sum"],
+            0.046390507527336665)
+        self.assertEqual(receipt["linf_certified_targets"], ())
+        self.assertEqual(receipt["l2_certified_targets"], ())
+        self.assertEqual(
+            receipt["bound_failure_but_dominant_floor_pass_targets"],
+            (1242118, 1240888))
+        rows = receipt["target_rows"]
+        self.assertGreater(rows[1222142]["linf_budget_utilization"], 3.0)
+        self.assertGreater(rows[1222142]["l2_budget_utilization"], 2.0)
+        self.assertGreater(rows[1242118]["linf_budget_utilization"], 2.0)
+        self.assertGreater(rows[1240888]["l2_budget_utilization"], 1.5)
+        self.assertFalse(rows[1222142]["dominant_floor_passes"])
+        self.assertTrue(rows[1242118]["dominant_floor_passes"])
+        self.assertTrue(rows[1240888]["dominant_floor_passes"])
+        self.assertTrue(receipt[
+            "dominant_mode_channel_norm_budget_measured"])
+        self.assertTrue(receipt[
+            "generic_independent_channel_norm_bound_sufficient"])
+        self.assertTrue(receipt[
+            "generic_independent_channel_norm_bound_demoted_on_samples"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

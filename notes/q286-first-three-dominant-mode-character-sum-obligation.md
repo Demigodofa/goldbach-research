@@ -39,6 +39,12 @@ The dominant real-channel `L1` coefficient size is about
 the full `99`-character product space, but it is not a tiny single-character
 proof route.
 
+The companion norm-budget note
+`q286-first-three-dominant-mode-channel-norm-budget.md` shows that plain
+independent `Linf`/`L2` smallness of these channels is sufficient but too
+blunt on the current near-boundary samples.  The surviving theorem should use
+signed channel structure, not only channel size.
+
 ## Sample Reconstruction
 
 The receipt reconstructs the prior residue-obligation dominant-mode ratios on

@@ -11163,6 +11163,18 @@ control of those `25` real binary-prime character channels, or a separate
 rescue theorem showing that complement/lower-support terms absorb their
 deficits.
 
+The first generic norm budget for those channels is recorded in
+`notes/q286-first-three-dominant-mode-channel-norm-budget.md` and
+`evidence/q286-first-three-dominant-mode-channel-norm-budget.json`.  The
+sufficient independent bounds are `max |S_chi|/T <=
+0.009312260360507715` and `L2 <= 0.046390507527336665`.  No current
+near-boundary sample row is certified by either bound.  More importantly, the
+clear rows `1242118` and `1240888` fail both generic channel-norm budgets
+while their signed dominant sums still clear the `-.3` floor.  Therefore
+plain independent channel smallness is too blunt at the active scale; the
+remaining route needs signed channel cancellation, structured channel
+correlation, a stronger arithmetic input, or complement/lower-support rescue.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression
