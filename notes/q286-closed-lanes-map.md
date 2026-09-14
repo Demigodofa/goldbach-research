@@ -1034,6 +1034,21 @@ current comparison set.
    demotes scalar offset floors and global scalar ratio floors; the live scalar
    target is coupled pressure/offset curve control or a split theorem implying
    it.
+104. `q286_first_three_dominant_mode_signed_channel_profile_receipt`, reused
+   by `tools/build_q286_first_three_dominant_mode_pairwise_channel_swing.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pairwise-channel-swing.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-pairwise-channel-swing.json`,
+   compares the tail `1222142` against clear rows `1242118` and `1240888`
+   channel by channel.  For `1222142 -> 1242118`, the net swing is about
+   `0.0253620930`, built from positive swing about `0.2115579838` and negative
+   drag about `-0.1861958908`; the largest helpful channel carries only about
+   `0.1798138641` of the helpful swing and the top three carry about
+   `0.4209404597`.  For `1222142 -> 1240888`, the largest helpful channel
+   carries about `0.2027927818` and the top three about `0.4963203849`.  This
+   demotes a one-channel tail-to-clear swing theorem; the live route remains a
+   coupled aggregate, pressure-subregion, or lower-support/complement theorem.
 
 ## Still open
 
@@ -1072,6 +1087,7 @@ current comparison set.
   threshold scan.  The simple-selector audit further says this theorem cannot
   be just q286 residue membership, one scalar residual interval, a scalar
   positive-offset floor, or a global scalar positive/negative pressure ratio
-  floor on the checked rows.
+  floor on the checked rows.  The pairwise channel-swing diagnostic further
+  demotes a one-channel rescue swing on the named tail-to-clear pairs.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

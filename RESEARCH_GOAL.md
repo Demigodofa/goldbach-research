@@ -11686,3 +11686,40 @@ arithmetic theorem that implies it, possibly after splitting into pressure
 subregions or invoking lower-support/complement rescue.  This is finite
 falsifier evidence only; it proves no scalar theorem, coupled curve theorem,
 pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: dominant-mode pairwise channel swing
+
+The scalar falsifier was then sharpened into a channel-by-channel tail-to-clear
+swing diagnostic.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pairwise-channel-swing.json
+```
+
+Pairs:
+
+```text
+1222142 -> 1242118
+1222142 -> 1240888
+```
+
+For `1222142 -> 1242118`, the net dominant swing is about
+`0.0253620930`.  It decomposes into positive swing about `0.2115579838` and
+negative drag about `-0.1861958908` across `14` helpful and `11` harmful
+channels.  The largest helpful channel `(2,6)` carries only about `17.98%`
+of the helpful swing; the top three carry about `42.09%`, and the top five
+about `63.70%`.
+
+For `1222142 -> 1240888`, the net dominant swing is about
+`0.0360197529`.  It decomposes into positive swing about `0.2145114520` and
+negative drag about `-0.1784916991` across the same `14` helpful and `11`
+harmful channel counts.  The largest helpful channel `(4,8)` carries about
+`20.28%`; the top three carry about `49.63%`, and the top five about
+`68.52%`.
+
+This demotes a one-channel tail-to-clear swing theorem on current evidence.
+The exact coupled curve remains algebraic, and its proof burden remains a
+multi-channel aggregate theorem, pressure-subregion theorem, or
+lower-support/complement rescue.  This is finite diagnostic evidence only; it
+proves no pairwise recurrence theorem, one-channel swing theorem, coupled
+curve theorem, pointwise character-sum estimate, or Goldbach.
