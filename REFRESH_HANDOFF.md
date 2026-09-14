@@ -20024,6 +20024,34 @@ complement/lower-support rescue, the pointwise binary-prime residue-correlation
 input, and finite/endpoint/outer assembly.  Do not collapse this into a proof
 or a clean theorem statement until those tacks are actually proved.
 
+Residue-pair correlation obligation:
+
+- `q286_first_three_residue_pair_correlation_obligation_receipt`
+- `tools/build_q286_first_three_residue_pair_correlation_obligation.py`
+- `notes/q286-residue-pair-correlation-obligation.md`
+- `evidence/q286-first-three-residue-pair-correlation-obligation.json`
+- focused regression:
+  `test_q286_first_three_residue_pair_correlation_obligation`
+
+This is the literal residual ledger under the signed-projection tack.  For
+`M=286`, `A_a={u in U : a-u in U}`, centered coefficient `gamma_a(u)`,
+strict-central binary-prime residue weights `W_N(u)`, and `T_N=sum_u W_N(u)`,
+the missing theorem is:
+
+```text
+sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N.
+```
+
+The receipt verifies the algebra on the holdout samples and matches the prior
+signed-projection receipt below `5.6e-17`.  For tail `1222142`, the signed
+projection is about `-0.30758776037087937`, leaving threshold slack about
+`-0.007587760370879382`; the largest negative residual residues are `133`
+and `153`.  Clear rows `1242118` and `1240888` still have large named
+negative residuals but enough offsetting mass elsewhere to clear.  Therefore
+the precise theorem backing this lane is a one-sided fixed-modulus
+binary-prime residue-discrepancy theorem.  No such theorem, strict-central
+existence theorem, or Goldbach proof is established here.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

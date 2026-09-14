@@ -1,0 +1,742 @@
+{
+  "even_target_residue_count": 143,
+  "exact_residue_pair_discrepancy_obligation": "For M=286, U=(Z/MZ)^*, A_a={u in U: a-u in U}, gamma_a(u) equal to the q286 first-three coefficient centered on A_a and divided by the principal mean, and strict-central binary-prime weights W_N(u), prove for every sufficiently large even N==a mod M with T_N=sum_u W_N(u)>0 that sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N.",
+  "external_theorem_strength_warning": "Such an AP asymptotic, if stated with a positive main term rather than normalized by T_N, is Goldbach-strength for the central window.  This receipt identifies that backing theorem; it does not prove or cite it.",
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "next_action": "Either prove a signed one-sided version of this discrepancy bound for the q286 coefficient family, or cite a sufficiently strong fixed-modulus strict-central binary Goldbach/AP theorem and then handle finite endpoints separately.",
+    "what_changed": "The signed-projection joint is now reduced to a precise fixed-modulus weighted binary-prime residue discrepancy inequality with complete q286 coefficients.",
+    "why_this_is_not_circular": "The receipt identifies the missing arithmetic theorem; it does not verify it by finite data or assume Goldbach."
+  },
+  "maximum_l2_relative_error_sufficient": 0.017908306132142508,
+  "maximum_local_coefficient_mean_error": 2.3092638912203256e-14,
+  "maximum_pointwise_linf_relative_error_sufficient": 0.002451362294448365,
+  "maximum_prior_signed_projection_receipt_error": 5.551115123125783e-17,
+  "maximum_projection_identity_error": 5.551115123125783e-17,
+  "minimum_l2_relative_error_sufficient": 0.0059551615239434134,
+  "minimum_pointwise_linf_relative_error_sufficient": 0.0012438599030454016,
+  "residue_pair_correlation_obligation_formalized": true,
+  "sample_rows": {
+    "1222142": {
+      "admissible_residue_count": 99,
+      "has_strict_central_prime_pairs": true,
+      "prior_signed_projection_receipt_error": 5.551115123125783e-17,
+      "projection_identity_error": 0.0,
+      "required_unnormalized_lower_bound": -160806.58839960812,
+      "signed_projection_to_principal_ratio": -0.30758776037087937,
+      "tail_target": true,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "threshold_slack": -0.007587760370879382,
+      "top_absolute_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.919147296029347,
+          "partner_residue": 217,
+          "relative_discrepancy": -0.004816580540928847,
+          "residue": 133,
+          "signed_projection_contribution": -0.1537411437490966,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.005284429560081254
+        },
+        {
+          "gamma_to_principal_ratio": 31.919147296029166,
+          "partner_residue": 197,
+          "relative_discrepancy": -0.0025166653782801225,
+          "residue": 153,
+          "signed_projection_contribution": -0.0803298129041402,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007584344722729978
+        },
+        {
+          "gamma_to_principal_ratio": -6.797783434832393,
+          "partner_residue": 41,
+          "relative_discrepancy": 0.0027750857609231817,
+          "residue": 23,
+          "signed_projection_contribution": -0.018864432015842852,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012876095861933282
+        },
+        {
+          "gamma_to_principal_ratio": -5.156176723468769,
+          "partner_residue": 191,
+          "relative_discrepancy": 0.0021163819090473344,
+          "residue": 159,
+          "signed_projection_contribution": -0.010912439137400263,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012217392010057435
+        },
+        {
+          "gamma_to_principal_ratio": -5.144325538732751,
+          "partner_residue": 139,
+          "relative_discrepancy": 0.00211845373529134,
+          "residue": 211,
+          "signed_projection_contribution": -0.010898015653083033,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012219463836301441
+        },
+        {
+          "gamma_to_principal_ratio": -3.1909061830606995,
+          "partner_residue": 67,
+          "relative_discrepancy": 0.003104744518194116,
+          "residue": 283,
+          "signed_projection_contribution": -0.009906948479929418,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013205754619204218
+        },
+        {
+          "gamma_to_principal_ratio": -6.797783434832394,
+          "partner_residue": 87,
+          "relative_discrepancy": 0.001448003357857742,
+          "residue": 263,
+          "signed_projection_contribution": -0.00984321323962704,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.011549013458867843
+        },
+        {
+          "gamma_to_principal_ratio": -3.0441235694589697,
+          "partner_residue": 19,
+          "relative_discrepancy": -0.0028391643429442255,
+          "residue": 45,
+          "signed_projection_contribution": 0.008642767093924007,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007261845758065875
+        }
+      ],
+      "top_negative_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.919147296029347,
+          "partner_residue": 217,
+          "relative_discrepancy": -0.004816580540928847,
+          "residue": 133,
+          "signed_projection_contribution": -0.1537411437490966,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.005284429560081254
+        },
+        {
+          "gamma_to_principal_ratio": 31.919147296029166,
+          "partner_residue": 197,
+          "relative_discrepancy": -0.0025166653782801225,
+          "residue": 153,
+          "signed_projection_contribution": -0.0803298129041402,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007584344722729978
+        },
+        {
+          "gamma_to_principal_ratio": -6.797783434832393,
+          "partner_residue": 41,
+          "relative_discrepancy": 0.0027750857609231817,
+          "residue": 23,
+          "signed_projection_contribution": -0.018864432015842852,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012876095861933282
+        },
+        {
+          "gamma_to_principal_ratio": -5.156176723468769,
+          "partner_residue": 191,
+          "relative_discrepancy": 0.0021163819090473344,
+          "residue": 159,
+          "signed_projection_contribution": -0.010912439137400263,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012217392010057435
+        },
+        {
+          "gamma_to_principal_ratio": -5.144325538732751,
+          "partner_residue": 139,
+          "relative_discrepancy": 0.00211845373529134,
+          "residue": 211,
+          "signed_projection_contribution": -0.010898015653083033,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012219463836301441
+        },
+        {
+          "gamma_to_principal_ratio": -3.1909061830606995,
+          "partner_residue": 67,
+          "relative_discrepancy": 0.003104744518194116,
+          "residue": 283,
+          "signed_projection_contribution": -0.009906948479929418,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013205754619204218
+        },
+        {
+          "gamma_to_principal_ratio": -6.797783434832394,
+          "partner_residue": 87,
+          "relative_discrepancy": 0.001448003357857742,
+          "residue": 263,
+          "signed_projection_contribution": -0.00984321323962704,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.011549013458867843
+        },
+        {
+          "gamma_to_principal_ratio": -2.7028429241626317,
+          "partner_residue": 113,
+          "relative_discrepancy": 0.003105629298569618,
+          "residue": 237,
+          "signed_projection_contribution": -0.008394028174711049,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.01320663939957972
+        }
+      ],
+      "top_positive_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": -3.0441235694589697,
+          "partner_residue": 19,
+          "relative_discrepancy": -0.0028391643429442255,
+          "residue": 45,
+          "signed_projection_contribution": 0.008642767093924007,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007261845758065875
+        },
+        {
+          "gamma_to_principal_ratio": -3.681920050462747,
+          "partner_residue": 171,
+          "relative_discrepancy": -0.002178271878706651,
+          "residue": 179,
+          "signed_projection_contribution": 0.008020222905569176,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.00792273822230345
+        },
+        {
+          "gamma_to_principal_ratio": -3.1909061830609398,
+          "partner_residue": 61,
+          "relative_discrepancy": -0.0018460267892173247,
+          "residue": 3,
+          "signed_projection_contribution": 0.005890498295809695,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008254983311792776
+        },
+        {
+          "gamma_to_principal_ratio": -2.1762797851224014,
+          "partner_residue": 153,
+          "relative_discrepancy": -0.002516665378280125,
+          "residue": 197,
+          "signed_projection_contribution": 0.005476967988668458,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.0075843447227299755
+        },
+        {
+          "gamma_to_principal_ratio": -2.702842924162607,
+          "partner_residue": 15,
+          "relative_discrepancy": -0.0018438433040269128,
+          "residue": 49,
+          "signed_projection_contribution": 0.004983618827553744,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008257166796983188
+        },
+        {
+          "gamma_to_principal_ratio": -2.406271898210812,
+          "partner_residue": 145,
+          "relative_discrepancy": -0.0018446238020673469,
+          "residue": 205,
+          "signed_projection_contribution": 0.00443866641768544,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008256386298942753
+        },
+        {
+          "gamma_to_principal_ratio": -2.2233602798217182,
+          "partner_residue": 205,
+          "relative_discrepancy": -0.0018446238020673454,
+          "residue": 145,
+          "signed_projection_contribution": 0.004101263292730255,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008256386298942755
+        },
+        {
+          "gamma_to_principal_ratio": -2.400265446627507,
+          "partner_residue": 131,
+          "relative_discrepancy": -0.001518084696194674,
+          "residue": 219,
+          "signed_projection_contribution": 0.0036438062413300925,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008582925404815426
+        }
+      ],
+      "total_strict_central_prime_pair_weight": 536021.9613320271,
+      "unnormalized_signed_discrepancy_sum": -164873.79459572432
+    },
+    "1240888": {
+      "admissible_residue_count": 110,
+      "has_strict_central_prime_pairs": true,
+      "prior_signed_projection_receipt_error": 0.0,
+      "projection_identity_error": 0.0,
+      "required_unnormalized_lower_bound": -186437.3266082163,
+      "signed_projection_to_principal_ratio": -0.27468410150061684,
+      "tail_target": false,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "threshold_slack": 0.02531589849938315,
+      "top_absolute_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.920809440314958,
+          "partner_residue": 67,
+          "relative_discrepancy": -0.003956914523173052,
+          "residue": 153,
+          "signed_projection_contribution": -0.12630791446582174,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.005133994567736039
+        },
+        {
+          "gamma_to_principal_ratio": 31.92080944031514,
+          "partner_residue": 87,
+          "relative_discrepancy": -0.002236225016637711,
+          "residue": 133,
+          "signed_projection_contribution": -0.07138211262175792,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.006854684074271381
+        },
+        {
+          "gamma_to_principal_ratio": -6.796121290546607,
+          "partner_residue": 243,
+          "relative_discrepancy": 0.0023186019803453045,
+          "residue": 263,
+          "signed_projection_contribution": -0.015757500282928247,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011409511071254395
+        },
+        {
+          "gamma_to_principal_ratio": -5.1545145791829805,
+          "partner_residue": 61,
+          "relative_discrepancy": 0.0026057591142496154,
+          "residue": 159,
+          "signed_projection_contribution": -0.013431423344238573,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011696668205158706
+        },
+        {
+          "gamma_to_principal_ratio": -3.0244551105195643,
+          "partner_residue": 219,
+          "relative_discrepancy": 0.0037499929522827407,
+          "residue": 1,
+          "signed_projection_contribution": -0.011341685348943883,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.012840902043191832
+        },
+        {
+          "gamma_to_principal_ratio": -2.398603302341885,
+          "partner_residue": 153,
+          "relative_discrepancy": -0.003956914523173052,
+          "residue": 67,
+          "signed_projection_contribution": 0.009491068242367449,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.005133994567736039
+        },
+        {
+          "gamma_to_principal_ratio": -5.142663394446996,
+          "partner_residue": 145,
+          "relative_discrepancy": 0.0017494799104003818,
+          "residue": 75,
+          "signed_projection_contribution": -0.008996986294536453,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.010840389001309474
+        },
+        {
+          "gamma_to_principal_ratio": -2.398603302341719,
+          "partner_residue": 1,
+          "relative_discrepancy": 0.0037499929522827394,
+          "residue": 219,
+          "signed_projection_contribution": -0.00899474547910355,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.012840902043191832
+        }
+      ],
+      "top_negative_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.920809440314958,
+          "partner_residue": 67,
+          "relative_discrepancy": -0.003956914523173052,
+          "residue": 153,
+          "signed_projection_contribution": -0.12630791446582174,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.005133994567736039
+        },
+        {
+          "gamma_to_principal_ratio": 31.92080944031514,
+          "partner_residue": 87,
+          "relative_discrepancy": -0.002236225016637711,
+          "residue": 133,
+          "signed_projection_contribution": -0.07138211262175792,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.006854684074271381
+        },
+        {
+          "gamma_to_principal_ratio": -6.796121290546607,
+          "partner_residue": 243,
+          "relative_discrepancy": 0.0023186019803453045,
+          "residue": 263,
+          "signed_projection_contribution": -0.015757500282928247,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011409511071254395
+        },
+        {
+          "gamma_to_principal_ratio": -5.1545145791829805,
+          "partner_residue": 61,
+          "relative_discrepancy": 0.0026057591142496154,
+          "residue": 159,
+          "signed_projection_contribution": -0.013431423344238573,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011696668205158706
+        },
+        {
+          "gamma_to_principal_ratio": -3.0244551105195643,
+          "partner_residue": 219,
+          "relative_discrepancy": 0.0037499929522827407,
+          "residue": 1,
+          "signed_projection_contribution": -0.011341685348943883,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.012840902043191832
+        },
+        {
+          "gamma_to_principal_ratio": -5.142663394446996,
+          "partner_residue": 145,
+          "relative_discrepancy": 0.0017494799104003818,
+          "residue": 75,
+          "signed_projection_contribution": -0.008996986294536453,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.010840389001309474
+        },
+        {
+          "gamma_to_principal_ratio": -2.398603302341719,
+          "partner_residue": 1,
+          "relative_discrepancy": 0.0037499929522827394,
+          "residue": 219,
+          "signed_projection_contribution": -0.00899474547910355,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.012840902043191832
+        },
+        {
+          "gamma_to_principal_ratio": -3.7128670827284993,
+          "partner_residue": 263,
+          "relative_discrepancy": 0.0023186019803453045,
+          "residue": 243,
+          "signed_projection_contribution": -0.008608660970773192,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011409511071254395
+        }
+      ],
+      "top_positive_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": -2.398603302341885,
+          "partner_residue": 153,
+          "relative_discrepancy": -0.003956914523173052,
+          "residue": 67,
+          "signed_projection_contribution": 0.009491068242367449,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.005133994567736039
+        },
+        {
+          "gamma_to_principal_ratio": -3.042461425173388,
+          "partner_residue": 265,
+          "relative_discrepancy": -0.0013850660634943247,
+          "residue": 241,
+          "signed_projection_contribution": 0.004214010069498238,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.007705843027414767
+        },
+        {
+          "gamma_to_principal_ratio": -2.2216981355321144,
+          "partner_residue": 79,
+          "relative_discrepancy": -0.0016732316520183268,
+          "residue": 141,
+          "signed_projection_contribution": 0.003717415641602436,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.007417677438890765
+        },
+        {
+          "gamma_to_principal_ratio": -1.622283503328178,
+          "partner_residue": 133,
+          "relative_discrepancy": -0.002236225016637712,
+          "residue": 87,
+          "signed_projection_contribution": 0.0036277909542211406,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.00685468407427138
+        },
+        {
+          "gamma_to_principal_ratio": 3.0037544115800694,
+          "partner_residue": 101,
+          "relative_discrepancy": 0.0011802397388367373,
+          "residue": 119,
+          "signed_projection_contribution": 0.0035451503222529586,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.010271148829745828
+        },
+        {
+          "gamma_to_principal_ratio": -2.404609753925024,
+          "partner_residue": 15,
+          "relative_discrepancy": -0.0013844354351011561,
+          "residue": 205,
+          "signed_projection_contribution": 0.0033290269509236746,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.007706473655807936
+        },
+        {
+          "gamma_to_principal_ratio": -2.3604483717367324,
+          "partner_residue": 241,
+          "relative_discrepancy": -0.0013850660634943278,
+          "residue": 265,
+          "signed_projection_contribution": 0.0032693769343229914,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.007705843027414764
+        },
+        {
+          "gamma_to_principal_ratio": 1.0226622472592208,
+          "partner_residue": 57,
+          "relative_discrepancy": 0.0026094177213775317,
+          "residue": 163,
+          "signed_projection_contribution": 0.002668552990981982,
+          "uniform_weight_fraction": 0.00909090909090909,
+          "weight_fraction": 0.011700326812286624
+        }
+      ],
+      "total_strict_central_prime_pair_weight": 621457.755360721,
+      "unnormalized_signed_discrepancy_sum": -170704.5651518498
+    },
+    "1242118": {
+      "admissible_residue_count": 99,
+      "has_strict_central_prime_pairs": true,
+      "prior_signed_projection_receipt_error": 5.551115123125783e-17,
+      "projection_identity_error": 5.551115123125783e-17,
+      "required_unnormalized_lower_bound": -164277.79284223638,
+      "signed_projection_to_principal_ratio": -0.28642674326843226,
+      "tail_target": false,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "threshold_slack": 0.013573256731567729,
+      "top_absolute_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.91047951862547,
+          "partner_residue": 153,
+          "relative_discrepancy": -0.005884507925896916,
+          "residue": 153,
+          "signed_projection_contribution": -0.18777746964652278,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.004216502175113186
+        },
+        {
+          "gamma_to_principal_ratio": 31.91047951862565,
+          "partner_residue": 173,
+          "relative_discrepancy": -0.002649544276423501,
+          "residue": 133,
+          "signed_projection_contribution": -0.08454822836650394,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007451465824586601
+        },
+        {
+          "gamma_to_principal_ratio": -6.806451212236093,
+          "partner_residue": 43,
+          "relative_discrepancy": 0.003176826019458956,
+          "residue": 263,
+          "signed_projection_contribution": -0.02162291131120957,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013277836120469058
+        },
+        {
+          "gamma_to_principal_ratio": -3.0527913468626684,
+          "partner_residue": 261,
+          "relative_discrepancy": -0.003950859798030752,
+          "residue": 45,
+          "signed_projection_contribution": 0.012061150604095868,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.00615015030297935
+        },
+        {
+          "gamma_to_principal_ratio": -3.723197004417654,
+          "partner_residue": 263,
+          "relative_discrepancy": 0.0031768260194589525,
+          "residue": 43,
+          "signed_projection_contribution": -0.011827949119205632,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013277836120469054
+        },
+        {
+          "gamma_to_principal_ratio": -5.164844500872272,
+          "partner_residue": 179,
+          "relative_discrepancy": -0.0016785088637534232,
+          "residue": 127,
+          "signed_projection_contribution": 0.008669237274622233,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008422501237256678
+        },
+        {
+          "gamma_to_principal_ratio": -3.7086943362472886,
+          "partner_residue": 49,
+          "relative_discrepancy": 0.002208645062661852,
+          "residue": 257,
+          "signed_projection_contribution": -0.008191189434674548,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012309655163671954
+        },
+        {
+          "gamma_to_principal_ratio": -3.690587827866446,
+          "partner_residue": 127,
+          "relative_discrepancy": -0.0016785088637534182,
+          "residue": 179,
+          "signed_projection_contribution": 0.006194684381534304,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008422501237256684
+        }
+      ],
+      "top_negative_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": 31.91047951862547,
+          "partner_residue": 153,
+          "relative_discrepancy": -0.005884507925896916,
+          "residue": 153,
+          "signed_projection_contribution": -0.18777746964652278,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.004216502175113186
+        },
+        {
+          "gamma_to_principal_ratio": 31.91047951862565,
+          "partner_residue": 173,
+          "relative_discrepancy": -0.002649544276423501,
+          "residue": 133,
+          "signed_projection_contribution": -0.08454822836650394,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.007451465824586601
+        },
+        {
+          "gamma_to_principal_ratio": -6.806451212236093,
+          "partner_residue": 43,
+          "relative_discrepancy": 0.003176826019458956,
+          "residue": 263,
+          "signed_projection_contribution": -0.02162291131120957,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013277836120469058
+        },
+        {
+          "gamma_to_principal_ratio": -3.723197004417654,
+          "partner_residue": 263,
+          "relative_discrepancy": 0.0031768260194589525,
+          "residue": 43,
+          "signed_projection_contribution": -0.011827949119205632,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.013277836120469054
+        },
+        {
+          "gamma_to_principal_ratio": -3.7086943362472886,
+          "partner_residue": 49,
+          "relative_discrepancy": 0.002208645062661852,
+          "residue": 257,
+          "signed_projection_contribution": -0.008191189434674548,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012309655163671954
+        },
+        {
+          "gamma_to_principal_ratio": -2.7115107015663056,
+          "partner_residue": 257,
+          "relative_discrepancy": 0.0022086450626618553,
+          "residue": 49,
+          "signed_projection_contribution": -0.0059887647233692045,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.012309655163671957
+        },
+        {
+          "gamma_to_principal_ratio": -3.0347850322090513,
+          "partner_residue": 19,
+          "relative_discrepancy": 0.0015540726393505203,
+          "residue": 1,
+          "signed_projection_contribution": -0.0047162763848665745,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.011655082740360622
+        },
+        {
+          "gamma_to_principal_ratio": -3.458759167988859,
+          "partner_residue": 197,
+          "relative_discrepancy": 0.0012434723083282007,
+          "residue": 109,
+          "signed_projection_contribution": -0.004300871246570433,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.011344482409338302
+        }
+      ],
+      "top_positive_contribution_rows": [
+        {
+          "gamma_to_principal_ratio": -3.0527913468626684,
+          "partner_residue": 261,
+          "relative_discrepancy": -0.003950859798030752,
+          "residue": 45,
+          "signed_projection_contribution": 0.012061150604095868,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.00615015030297935
+        },
+        {
+          "gamma_to_principal_ratio": -5.164844500872272,
+          "partner_residue": 179,
+          "relative_discrepancy": -0.0016785088637534232,
+          "residue": 127,
+          "signed_projection_contribution": 0.008669237274622233,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008422501237256678
+        },
+        {
+          "gamma_to_principal_ratio": -3.690587827866446,
+          "partner_residue": 127,
+          "relative_discrepancy": -0.0016785088637534182,
+          "residue": 179,
+          "signed_projection_contribution": 0.006194684381534304,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008422501237256684
+        },
+        {
+          "gamma_to_principal_ratio": -5.15299331613645,
+          "partner_residue": 95,
+          "relative_discrepancy": -0.0010318355927804387,
+          "residue": 211,
+          "signed_projection_contribution": 0.005317041912949292,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.009069174508229663
+        },
+        {
+          "gamma_to_principal_ratio": -3.458759167988765,
+          "partner_residue": 129,
+          "relative_discrepancy": -0.0013548545539711144,
+          "residue": 177,
+          "signed_projection_contribution": 0.004686115609838921,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008746155547038987
+        },
+        {
+          "gamma_to_principal_ratio": -3.7231970044179863,
+          "partner_residue": 63,
+          "relative_discrepancy": -0.0010311778451073037,
+          "residue": 243,
+          "signed_projection_contribution": 0.0038392782639257075,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.009069832255902799
+        },
+        {
+          "gamma_to_principal_ratio": -2.711510701566331,
+          "partner_residue": 69,
+          "relative_discrepancy": -0.001355597489675097,
+          "residue": 237,
+          "signed_projection_contribution": 0.003675717100270479,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008745412611335004
+        },
+        {
+          "gamma_to_principal_ratio": -2.184947562526519,
+          "partner_residue": 217,
+          "relative_discrepancy": -0.001677589274155309,
+          "residue": 89,
+          "signed_projection_contribution": 0.0036654445954862748,
+          "uniform_weight_fraction": 0.010101010101010102,
+          "weight_fraction": 0.008423420826854792
+        }
+      ],
+      "total_strict_central_prime_pair_weight": 547592.6428074546,
+      "unnormalized_signed_discrepancy_sum": -156845.17731709313
+    }
+  },
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "d8d05e83b59fe3dc6022270ff7534b66e1078ffa",
+  "status_boundary": "exact q286 first-three residue-pair correlation theorem obligation and finite algebra checks only; no fixed-modulus binary AP theorem, signed-projection theorem, strict-central existence theorem, or Goldbach proof is established",
+  "strict_central_prime_pair_existence_proved": false,
+  "tail_threshold": 0.3,
+  "uniform_ap_asymptotic_conditional_theorem": "A fixed-modulus strict-central binary-prime AP theorem giving W_N(u)=T_N/|A_a|+o(T_N) uniformly in u for every even residue a would imply this q286 first-three signed-projection bound for every fixed tau>0 and all sufficiently large N with T_N>0."
+}

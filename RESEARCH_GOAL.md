@@ -11069,6 +11069,19 @@ and finite/endpoint/outer assembly.  Do not condense this into a Goldbach
 proof until those tacks are proved; use the fixture to keep future work
 attached to the actual q286 frame.
 
+The pointwise residue-correlation input is now made explicit in
+`notes/q286-residue-pair-correlation-obligation.md` and
+`evidence/q286-first-three-residue-pair-correlation-obligation.json`.  For
+`M=286`, `A_a={u in U : a-u in U}`, centered coefficient `gamma_a(u)`,
+strict-central binary-prime weights `W_N(u)`, and `T_N=sum_u W_N(u)`, the
+missing theorem behind signed projection is exactly
+`sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N`.  The finite
+sample algebra matches the prior signed-projection receipt below `5.6e-17`.
+The tail residual at `1222142` is dominated by named residue hits such as
+`133` and `153`, so the next proof target is a one-sided fixed-modulus
+residue-discrepancy theorem, not another threshold scan.  No such theorem is
+proved here.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

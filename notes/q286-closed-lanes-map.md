@@ -660,11 +660,26 @@ current comparison set.
    conditioned complement/lower-support rescue, the required pointwise
    binary-prime residue-correlation input, and finite/endpoint/outer assembly.
    This is navigation discipline, not proof evidence.
+74. `q286_first_three_residue_pair_correlation_obligation_receipt`, with
+   note `notes/q286-residue-pair-correlation-obligation.md` and evidence in
+   `evidence/q286-first-three-residue-pair-correlation-obligation.json`,
+   identifies the exact fixed-modulus arithmetic theorem backing the
+   signed-projection tack.  For `M=286`, admissible residues
+   `A_a={u in U : a-u in U}`, centered coefficient `gamma_a(u)`,
+   strict-central binary-prime weights `W_N(u)`, and
+   `T_N=sum_u W_N(u)`, the missing theorem is
+   `sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N`.
+   The receipt verifies the algebra against the prior signed-projection
+   sample rows below `5.6e-17` and records the residual ledger: tail
+   `1222142` is dominated by named residues such as `133` and `153`.
+   This closes only the ambiguity of the required residue-correlation input;
+   it does not prove that input.
 
 ## Still open
 
 - q286 signed-projection anti-alignment theorem.
 - Conditioned complement or lower-support rescue theorem.
-- Pointwise binary-prime residue-correlation input backing those estimates.
+- Pointwise binary-prime residue-correlation theorem backing those estimates.
+  Its exact q286 form is now identified, but not proved.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

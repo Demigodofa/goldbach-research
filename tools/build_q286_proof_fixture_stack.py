@@ -32,6 +32,8 @@ def load_json(relative):
 def main():
     signed_projection = load_json(
         "evidence/q286-first-three-signed-projection-obligation.json")
+    residue_pair = load_json(
+        "evidence/q286-first-three-residue-pair-correlation-obligation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -81,6 +83,23 @@ def main():
                     "maximum projection identity error "
                     f"{signed_projection['maximum_projection_identity_error']}."),
                 "proved_scope": "exact finite algebraic identity",
+            },
+            {
+                "id": "anchor.residue_pair_discrepancy_identity",
+                "source": (
+                    "evidence/q286-first-three-residue-pair-correlation-obligation.json"),
+                "statement": (
+                    "The signed-projection tack is exactly "
+                    "sum(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N "
+                    "on q286 strict-central binary-prime residue weights."),
+                "validation": (
+                    "sample rows match the signed-projection receipt below "
+                    f"{residue_pair['maximum_prior_signed_projection_receipt_error']}"
+                    " and local centered coefficient sums are below "
+                    f"{residue_pair['maximum_local_coefficient_mean_error']}."),
+                "proved_scope": (
+                    "exact finite algebraic identification of the missing "
+                    "arithmetic theorem"),
             },
             {
                 "id": "anchor.generic_uniformity_is_too_blunt",
@@ -154,13 +173,17 @@ def main():
             {
                 "id": "joint.external_prime_correlation_input",
                 "statement": (
-                    "Identify or prove the pointwise binary-prime residue "
-                    "correlation theorem that forces the signed projection or "
-                    "component-pair estimates."),
+                    "Prove the q286 pointwise binary-prime residue "
+                    "correlation theorem "
+                    "sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) "
+                    ">= -tau*T_N, or cite an external theorem strong enough "
+                    "to imply it."),
                 "why_it_is_needed": (
                     "The surviving tacks are arithmetic distribution claims "
                     "about actual prime-pair weights, not geometry-only "
                     "claims."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-residue-pair-correlation-obligation.json"),
                 "proved": False,
             },
         ],
@@ -179,10 +202,10 @@ def main():
             "current_status": "not ready to condense into a proof",
         },
         "next_non_circular_action": (
-            "Attack joint.q286_first_three_signed_projection directly: seek "
-            "a pointwise anti-alignment theorem for actual binary-prime "
-            "orbit-mass deviations, or prove that this joint requires an "
-            "external fixed-modulus binary Goldbach-in-progressions theorem."),
+            "Attack the residue-pair discrepancy inequality directly: seek "
+            "a one-sided fixed-modulus theorem for actual strict-central "
+            "binary-prime residue weights, or prove/cite that this joint "
+            "requires an external fixed-modulus binary Goldbach/AP theorem."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

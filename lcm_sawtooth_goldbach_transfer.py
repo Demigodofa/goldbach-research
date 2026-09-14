@@ -20229,6 +20229,255 @@ def q286_first_three_signed_projection_obligation_receipt(
     }
 
 
+def q286_first_three_residue_pair_correlation_obligation_receipt(
+        sample_targets=(1222142, 1242118, 1240888), tail_threshold=.3,
+        tolerance=1e-9, include_residue_rows=True,
+        include_sample_rows=True, top_contribution_count=8):
+    """State the fixed-modulus prime-pair theorem behind signed projection.
+
+    This sits one layer below the reflection-orbit formulation.  For each
+    even target residue ``a`` modulo 286, let
+
+    ``A_a = {u in U_286 : a-u in U_286}``
+
+    and let ``gamma_a(u)`` be the q286 first-three coefficient centered on
+    ``A_a`` and divided by the principal mean.  For a strict-central even
+    target ``N == a (mod 286)``, let ``W_N(u)`` be the weighted binary-prime
+    mass with first prime residue ``u`` and let ``T_N=sum_u W_N(u)``.  The
+    missing pointwise theorem is exactly
+
+    ``sum_u (W_N(u)-T_N/|A_a|) gamma_a(u) >= -tau*T_N``.
+
+    This receipt verifies the algebra on selected finite targets and records
+    the precise external theorem obligation.  It proves no prime-correlation
+    estimate and no Goldbach statement.
+    """
+    sample_targets = tuple(sample_targets)
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_residue_rows) is not bool:
+        raise ValueError("include_residue_rows must be boolean")
+    if type(include_sample_rows) is not bool:
+        raise ValueError("include_sample_rows must be boolean")
+    if (type(top_contribution_count) is not int
+            or top_contribution_count < 1):
+        raise ValueError("top_contribution_count must be a positive integer")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    units = data["units"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+    unit_count = len(units)
+
+    centered_coefficients_by_residue = {}
+    residue_rows = []
+    maximum_local_mean_error = 0.0
+    for target_residue in range(0, modulus, 2):
+        admissible_mask = admissible_masks[target_residue]
+        centered = np.zeros(unit_count, dtype=np.float64)
+        local_mean = float(np.mean(linear_coefficients[admissible_mask]))
+        centered[admissible_mask] = (
+            linear_coefficients[admissible_mask] - local_mean
+        ) / principal_mean
+        local_mean_error = abs(float(np.sum(centered[admissible_mask])))
+        maximum_local_mean_error = max(
+            maximum_local_mean_error, local_mean_error)
+        l1_norm = float(np.sum(np.abs(centered[admissible_mask])))
+        l2_norm = float(np.linalg.norm(centered[admissible_mask]))
+        linf_norm = float(np.max(np.abs(centered[admissible_mask])))
+        centered_coefficients_by_residue[target_residue] = centered
+        residue_rows.append({
+            "target_mod_286": target_residue,
+            "admissible_residue_count": admissible_counts[target_residue],
+            "coefficient_sum_on_admissible_residues": float(
+                np.sum(centered[admissible_mask])),
+            "gamma_l1_to_principal_ratio": l1_norm,
+            "gamma_l2_to_principal_ratio": l2_norm,
+            "gamma_linf_to_principal_ratio": linf_norm,
+            "pointwise_linf_relative_error_sufficient": (
+                tail_threshold / l1_norm if l1_norm > tolerance
+                else math.inf),
+            "l2_relative_error_sufficient": (
+                tail_threshold / l2_norm if l2_norm > tolerance
+                else math.inf),
+        })
+
+    maximum_target = max(sample_targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    signed_projection = q286_first_three_signed_projection_obligation_receipt(
+        sample_targets=sample_targets, tail_threshold=tail_threshold,
+        tolerance=tolerance, include_sample_rows=True)
+    sample_rows = {}
+    maximum_projection_identity_error = 0.0
+    maximum_prior_receipt_error = 0.0
+    for target in sample_targets:
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        target_residue = target % modulus
+        admissible_mask = admissible_masks[target_residue]
+        gamma = centered_coefficients_by_residue[target_residue]
+        if len(selected_primes) == 0:
+            sample_rows[target] = {
+                "target": target,
+                "target_mod_286": target_residue,
+                "has_strict_central_prime_pairs": False,
+            }
+            continue
+        residue_weights = np.bincount(
+            unit_index_by_residue[selected_primes % modulus],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=unit_count)
+        total_weight = float(np.sum(residue_weights))
+        uniform_weight = total_weight / admissible_counts[target_residue]
+        discrepancy = np.zeros(unit_count, dtype=np.float64)
+        discrepancy[admissible_mask] = (
+            residue_weights[admissible_mask] - uniform_weight)
+        normalized_discrepancy = discrepancy / total_weight
+        signed_projection_ratio = float(np.dot(discrepancy, gamma)
+                                        / total_weight)
+        normalized_signed_projection = float(
+            np.dot(normalized_discrepancy, gamma))
+        projection_identity_error = abs(
+            signed_projection_ratio - normalized_signed_projection)
+        prior_row = signed_projection["sample_rows"][target]
+        prior_receipt_error = abs(
+            signed_projection_ratio
+            - prior_row["signed_projection_to_principal_ratio"])
+        maximum_projection_identity_error = max(
+            maximum_projection_identity_error, projection_identity_error)
+        maximum_prior_receipt_error = max(
+            maximum_prior_receipt_error, prior_receipt_error)
+        contribution_rows = []
+        for index in np.nonzero(admissible_mask)[0]:
+            contribution = float(normalized_discrepancy[index] * gamma[index])
+            contribution_rows.append({
+                "residue": units[index],
+                "partner_residue": (target_residue - units[index]) % modulus,
+                "weight_fraction": float(
+                    residue_weights[index] / total_weight),
+                "uniform_weight_fraction": float(
+                    1.0 / admissible_counts[target_residue]),
+                "relative_discrepancy": float(normalized_discrepancy[index]),
+                "gamma_to_principal_ratio": float(gamma[index]),
+                "signed_projection_contribution": contribution,
+            })
+        by_abs = sorted(
+            contribution_rows,
+            key=lambda row: abs(row["signed_projection_contribution"]),
+            reverse=True)
+        negative_rows = sorted(
+            (row for row in contribution_rows
+             if row["signed_projection_contribution"] < -tolerance),
+            key=lambda row: row["signed_projection_contribution"])
+        positive_rows = sorted(
+            (row for row in contribution_rows
+             if row["signed_projection_contribution"] > tolerance),
+            key=lambda row: row["signed_projection_contribution"],
+            reverse=True)
+        sample_rows[target] = {
+            "target": target,
+            "target_mod_286": target_residue,
+            "has_strict_central_prime_pairs": True,
+            "admissible_residue_count": admissible_counts[target_residue],
+            "total_strict_central_prime_pair_weight": total_weight,
+            "signed_projection_to_principal_ratio": (
+                signed_projection_ratio),
+            "threshold_slack": signed_projection_ratio + tail_threshold,
+            "tail_target": bool(
+                signed_projection_ratio < -tail_threshold - tolerance),
+            "unnormalized_signed_discrepancy_sum": float(
+                np.dot(discrepancy, gamma)),
+            "required_unnormalized_lower_bound": (
+                -tail_threshold * total_weight),
+            "projection_identity_error": projection_identity_error,
+            "prior_signed_projection_receipt_error": prior_receipt_error,
+            "top_absolute_contribution_rows": tuple(
+                by_abs[:top_contribution_count]),
+            "top_negative_contribution_rows": tuple(
+                negative_rows[:top_contribution_count]),
+            "top_positive_contribution_rows": tuple(
+                positive_rows[:top_contribution_count]),
+        }
+
+    finite_linf = tuple(
+        row["pointwise_linf_relative_error_sufficient"]
+        for row in residue_rows
+        if math.isfinite(row["pointwise_linf_relative_error_sufficient"]))
+    finite_l2 = tuple(
+        row["l2_relative_error_sufficient"] for row in residue_rows
+        if math.isfinite(row["l2_relative_error_sufficient"]))
+    return {
+        "arithmetic_modulus": modulus,
+        "arithmetic_period": 10010,
+        "tail_threshold": tail_threshold,
+        "sample_targets": sample_targets,
+        "even_target_residue_count": len(residue_rows),
+        "residue_rows_included": include_residue_rows,
+        "residue_rows": tuple(residue_rows) if include_residue_rows else (),
+        "sample_rows_included": include_sample_rows,
+        "sample_rows": sample_rows if include_sample_rows else {},
+        "maximum_local_coefficient_mean_error": maximum_local_mean_error,
+        "maximum_projection_identity_error": (
+            maximum_projection_identity_error),
+        "maximum_prior_signed_projection_receipt_error": (
+            maximum_prior_receipt_error),
+        "minimum_pointwise_linf_relative_error_sufficient": (
+            min(finite_linf)),
+        "maximum_pointwise_linf_relative_error_sufficient": (
+            max(finite_linf)),
+        "minimum_l2_relative_error_sufficient": min(finite_l2),
+        "maximum_l2_relative_error_sufficient": max(finite_l2),
+        "exact_residue_pair_discrepancy_obligation": (
+            "For M=286, U=(Z/MZ)^*, A_a={u in U: a-u in U}, "
+            "gamma_a(u) equal to the q286 first-three coefficient centered "
+            "on A_a and divided by the principal mean, and strict-central "
+            "binary-prime weights W_N(u), prove for every sufficiently large "
+            "even N==a mod M with T_N=sum_u W_N(u)>0 that "
+            "sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N."),
+        "uniform_ap_asymptotic_conditional_theorem": (
+            "A fixed-modulus strict-central binary-prime AP theorem giving "
+            "W_N(u)=T_N/|A_a|+o(T_N) uniformly in u for every even residue "
+            "a would imply this q286 first-three signed-projection bound for "
+            "every fixed tau>0 and all sufficiently large N with T_N>0."),
+        "external_theorem_strength_warning": (
+            "Such an AP asymptotic, if stated with a positive main term rather "
+            "than normalized by T_N, is Goldbach-strength for the central "
+            "window.  This receipt identifies that backing theorem; it does "
+            "not prove or cite it."),
+        "residue_pair_correlation_obligation_formalized": True,
+        "signed_projection_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "strict_central_prime_pair_existence_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

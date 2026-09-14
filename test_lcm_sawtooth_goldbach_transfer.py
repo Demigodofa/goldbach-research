@@ -117,6 +117,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_mass_landing_obligation_receipt,
     q286_first_three_orbit_uniformity_budget_receipt,
     q286_first_three_signed_projection_obligation_receipt,
+    q286_first_three_residue_pair_correlation_obligation_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4186,6 +4187,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "signed_projection_is_weaker_than_generic_uniformity_on_samples"])
         self.assertTrue(receipt["signed_projection_obligation_measured"])
         self.assertFalse(receipt["signed_projection_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_residue_pair_correlation_obligation(self):
+        receipt = (
+            q286_first_three_residue_pair_correlation_obligation_receipt(
+                include_residue_rows=True))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["even_target_residue_count"], 143)
+        self.assertLess(
+            receipt["maximum_local_coefficient_mean_error"], 1e-9)
+        self.assertLess(
+            receipt["maximum_projection_identity_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_prior_signed_projection_receipt_error"], 1e-9)
+        rows = receipt["sample_rows"]
+        self.assertTrue(rows[1222142]["tail_target"])
+        self.assertFalse(rows[1242118]["tail_target"])
+        self.assertFalse(rows[1240888]["tail_target"])
+        self.assertLess(rows[1222142]["threshold_slack"], 0)
+        self.assertGreater(rows[1242118]["threshold_slack"], 0)
+        self.assertGreater(rows[1240888]["threshold_slack"], 0)
+        self.assertLess(
+            rows[1222142]["unnormalized_signed_discrepancy_sum"],
+            rows[1222142]["required_unnormalized_lower_bound"])
+        self.assertTrue(
+            rows[1222142]["top_negative_contribution_rows"])
+        for row in receipt["residue_rows"]:
+            self.assertLess(
+                abs(row["coefficient_sum_on_admissible_residues"]), 1e-9)
+            self.assertGreater(
+                row["pointwise_linf_relative_error_sufficient"], 0)
+        self.assertTrue(receipt[
+            "residue_pair_correlation_obligation_formalized"])
+        self.assertFalse(receipt["signed_projection_theorem_proved"])
+        self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

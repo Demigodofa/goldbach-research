@@ -14,6 +14,9 @@ frame.
   `first_three = P-B = m_plus*ell_plus - m_minus*ell_minus`.
 - `evidence/q286-first-three-signed-projection-obligation.json`:
   with `delta_N=mu_N-u_a`, `first_three(N)=<delta_N,c_a>`.
+- `evidence/q286-first-three-residue-pair-correlation-obligation.json`:
+  the signed-projection tack is exactly the fixed-modulus residue-pair
+  discrepancy inequality against centered coefficients `gamma_a(u)`.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -29,8 +32,11 @@ frame.
 2. Prove the conditioned complement or lower-support rescue needed after the
    first-three lane is controlled.
 3. Prove or cite the required pointwise binary-prime residue-correlation
-   theorem, or record that this is the precise external theorem backing the
-   route.
+   theorem:
+   `sum_{u in A_a}(W_N(u)-T_N/|A_a|)*gamma_a(u) >= -tau*T_N`.
+   The current residual ledger shows the largest local deficits are not
+   anonymous noise; residues such as `133` and `153` dominate the sample
+   tail/near-clear rows.
 4. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -41,6 +47,6 @@ signed projection controls q286 first-three; complement/lower support rescues
 the remaining strict-central action; finite and endpoint assembly close the
 global statement.
 
-Current next non-circular action: attack the signed-projection joint directly,
-or prove that it requires an external fixed-modulus binary Goldbach in
-progressions theorem.
+Current next non-circular action: attack the residue-pair discrepancy
+inequality directly, or prove/cite that an external fixed-modulus
+strict-central binary Goldbach/AP theorem supplies it.
