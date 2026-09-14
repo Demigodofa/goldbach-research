@@ -1476,6 +1476,16 @@ measures positive strict margins `0.5506633762515991`,
 channel-margin contribution dominates the driver-margin contribution, so the
 currently observed strict slack is channel-carried.
 
+`evidence/q286-active-lane-sampling-denominator-map.json` records the current
+sample posture explicitly: the strict closure margin has only been stressed on
+the three selected late active rows, while the `150`-target neutral selector
+grid and the `30`-target same-residue holdout selected zero active tail
+targets.  Those zero-hit scans are useful denominator evidence, but no
+fixed-inequality or strict-closure row was stressed there.  Thus the next
+obligation is not another tuned threshold receipt; it is a larger predeclared
+selector holdout with separate scanned, selected, applicable, stressed,
+passed, failed, and not-applicable counts.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

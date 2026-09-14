@@ -10689,6 +10689,18 @@ which points the next theorem pressure toward fixed-conductor channel slack.
 This is finite selected-fixture evidence only; the universal active-lane
 strict-margin theorem remains open.
 
+`evidence/q286-active-lane-sampling-denominator-map.json` now makes the
+sample/cherry-pick posture explicit.  Across the current recorded receipts,
+the strict closure margin has been stressed only on the three selected late
+active targets.  The broader neutral selector grid scanned `150` predeclared
+targets and found zero active tail targets, while the same-residue holdout
+after `1379072` scanned `30` targets and also found zero active tail targets.
+Those zero-hit selector windows are denominator evidence, not closure-margin
+support.  Therefore the sample-size concern and cherry-picking risk remain
+open; the next non-circular test is a larger predeclared selector holdout with
+scanned, selected, applicable, stressed, passed, failed, and not-applicable
+counts reported separately before any constants are changed.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

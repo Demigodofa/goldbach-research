@@ -571,6 +571,14 @@
       "status_boundary": "finite selected-fixture strict-margin evidence only; no universal active-lane theorem and no Goldbach proof"
     },
     {
+      "id": "evidence.active_lane_sampling_denominator_map",
+      "type": "evidence_map",
+      "label": "q286 active-lane sampling denominator map",
+      "status": "sample_size_open",
+      "validation": "evidence/q286-active-lane-sampling-denominator-map.json separates selected strict-closure stress rows from neutral selector-only zero-hit windows and same-residue holdouts",
+      "status_boundary": "bookkeeping evidence only; sample-size and cherry-picking risk remain open, no uniform theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1052,6 +1060,21 @@
       "from": "receipt.active_lane_strict_closure_margin_census",
       "to": "receipt.component_pair_closure_margin_profile",
       "type": "tests"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "receipt.component_pair_tail_selector_grid",
+      "type": "classifies"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "receipt.component_pair_tail_selector_active_residue_holdout",
+      "type": "classifies"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "receipt.active_lane_strict_closure_margin_census",
+      "type": "bounds_claim_scope"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

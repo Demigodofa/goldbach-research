@@ -147,3 +147,12 @@ scanned selected late windows starting at `1222142`, `1323632`, and
 `0.5506633762515991`, `0.546820393849208`, and `0.48379401372791037`.
 In all three measured rows, the channel-margin contribution dominates the
 driver-margin contribution, so the selected strict slack is channel-carried.
+
+The sampling posture is now tracked separately in
+`evidence/q286-active-lane-sampling-denominator-map.json`.  The key warning is
+that strict closure has only been stressed on selected active fixtures; the
+broader neutral and same-residue holdout windows found zero active tail
+targets and therefore supply denominator evidence only.  They do not support
+the strict closure inequality.  The sample-size/cherry-pick question remains
+open until a larger predeclared selector holdout produces either stressed
+active rows or a meaningful zero-hit denominator result under unchanged rules.

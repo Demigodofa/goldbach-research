@@ -19393,6 +19393,28 @@ dominates the driver-margin contribution, so the selected strict slack is
 channel-carried.  This is finite selected-fixture evidence only; the
 strict-margin theorem over the full active lane remains open.
 
+New sampling-denominator map:
+
+- `evidence/q286-active-lane-sampling-denominator-map.json`
+
+This evidence map separates selected stress fixtures from neutral
+selector-denominator scans.  It records that the strict closure margin has
+only been stressed on the three selected late active rows.  The broader
+neutral selector grid scanned `150` predeclared targets and selected zero
+active tail targets; the same-residue holdout after `1379072` scanned `30`
+targets and also selected zero.  These zero-hit windows are denominator
+evidence only and must not be counted as fixed-inequality or strict-closure
+successes.  The sample-size/cherry-pick concern is still open.  A larger
+predeclared selector holdout should report scanned, selected, applicable,
+stressed, passed, failed, and not-applicable counts separately before any
+constants are changed.
+
+Do not count the interrupted `12x25` broad strict-closure probe from
+2026-09-13 as mathematical evidence.  It was interrupted after more than
+seven minutes with no receipt.  Treat it only as a performance finding: broad
+sampling should run selector-first and stress selected rows in a separate
+bounded pass.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

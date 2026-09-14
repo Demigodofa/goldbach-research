@@ -427,6 +427,13 @@ current comparison set.
    `0.48379401372791037`.  In all three rows, the channel-margin contribution
    dominates the driver-margin contribution, so this selected strict slack is
    channel-carried.
+51. `evidence/q286-active-lane-sampling-denominator-map.json` now records the
+   sampling posture explicitly.  The strict closure margin has only been
+   stressed on the three selected late active rows.  The broader neutral
+   selector grid scanned `150` targets and found zero active tail rows; the
+   same-residue holdout scanned `30` targets and found zero active tail rows.
+   These are denominator facts, not strict-closure successes.  The
+   sample-size/cherry-pick concern remains open.
 
 ## Still open
 
