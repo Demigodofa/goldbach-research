@@ -990,6 +990,20 @@ current comparison set.
    about `0.2349931112`, and the tightest slack row is `1244094`, with
    positive offset slack about `0.0341459076`.  This is finite sampled
    pressure-horizon evidence only, not a pressure-branch theorem.
+101. `q286_first_three_dominant_mode_signed_channel_profile_receipt`, reused
+   by `tools/build_q286_first_three_dominant_mode_pressure_channel_autopsy.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-pressure-channel-autopsy.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-pressure-channel-autopsy.json`,
+   compares named near-boundary and post-stress pressure rows.  Only
+   `1222142` fails among the named rows, with pressure about `0.3719670025`;
+   the post-stress maximum pressure is `1243018` at about `0.2586239309`.
+   Across the top-three negative real channels of the seven named rows, there
+   are `15` distinct labels; `(1,11)` is the most common and appears in three
+   rows.  This demotes a one-channel pressure theorem on current evidence and
+   sharpens the pressure route to a multi-channel or residue-dependent
+   negative-channel envelope.
 
 ## Still open
 

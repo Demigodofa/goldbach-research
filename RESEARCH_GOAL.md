@@ -11566,3 +11566,34 @@ This strengthens the finite pressure-easy-region posture after the known
 stress neighborhoods.  It remains finite sampled evidence only: no
 pressure-branch theorem, pointwise character-sum estimate, signed-projection
 theorem, or Goldbach proof is established.
+
+### 2026-09-14 continuation: dominant-mode pressure-channel autopsy
+
+The pressure-horizon mechanism was then checked against a one-channel
+explanation.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-pressure-channel-autopsy.json
+```
+
+Named rows:
+
+```text
+1222142, 1242118, 1240888, 1243018, 1243130, 1244072, 1244094
+```
+
+Only `1222142` fails the dominant floor in this named set, with negative
+pressure about `0.3719670025`.  Among the post-stress rows, the maximum
+negative pressure is `1243018`, with pressure about `0.2586239309`, still
+below the `0.3` pressure branch threshold.
+
+The top-three negative real channels are not dominated by a single recurring
+label.  Across the seven named rows, there are `15` distinct labels in the
+top-three negative slots.  The most common is `(1,11)`, appearing in three
+rows; the other repeated labels appear only twice.
+
+This demotes a one-channel pressure theorem on current evidence.  The live
+pressure-route target is now a multi-channel or residue-dependent envelope
+for the negative real q286 channel ledger, or a separate classification/rescue
+of pressure failures.  This is finite theorem-shaping evidence only; it proves
+no pressure envelope theorem, pointwise character-sum estimate, or Goldbach.

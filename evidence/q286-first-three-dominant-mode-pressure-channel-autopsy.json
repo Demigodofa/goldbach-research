@@ -1,0 +1,889 @@
+{
+  "active_real_channel_count": 25,
+  "arithmetic_modulus": 286,
+  "common_top_negative_labels": [
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.03778293121185615,
+          "target": 1222142
+        },
+        {
+          "contribution_to_principal_ratio": -0.02491541765855402,
+          "target": 1240888
+        },
+        {
+          "contribution_to_principal_ratio": -0.04426574618295745,
+          "target": 1244072
+        }
+      ],
+      "representative_label": [
+        1,
+        11
+      ],
+      "top_three_occurrence_count": 3
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.044796070869832366,
+          "target": 1222142
+        },
+        {
+          "contribution_to_principal_ratio": -0.031814648338309645,
+          "target": 1244072
+        }
+      ],
+      "representative_label": [
+        5,
+        5
+      ],
+      "top_three_occurrence_count": 2
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.035799297014520975,
+          "target": 1242118
+        },
+        {
+          "contribution_to_principal_ratio": -0.02903523919288895,
+          "target": 1243018
+        }
+      ],
+      "representative_label": [
+        5,
+        1
+      ],
+      "top_three_occurrence_count": 2
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.035956798584303756,
+          "target": 1240888
+        },
+        {
+          "contribution_to_principal_ratio": -0.017675683554441646,
+          "target": 1244094
+        }
+      ],
+      "representative_label": [
+        1,
+        7
+      ],
+      "top_three_occurrence_count": 2
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.013046288822055378,
+          "target": 1243130
+        },
+        {
+          "contribution_to_principal_ratio": -0.020943535996781806,
+          "target": 1244094
+        }
+      ],
+      "representative_label": [
+        3,
+        7
+      ],
+      "top_three_occurrence_count": 2
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.04172119298516034,
+          "target": 1222142
+        }
+      ],
+      "representative_label": [
+        4,
+        8
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.029793911186253248,
+          "target": 1242118
+        }
+      ],
+      "representative_label": [
+        3,
+        3
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.028000803701620967,
+          "target": 1242118
+        }
+      ],
+      "representative_label": [
+        1,
+        5
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.02694243143722148,
+          "target": 1240888
+        }
+      ],
+      "representative_label": [
+        4,
+        10
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.03392293750635168,
+          "target": 1243018
+        }
+      ],
+      "representative_label": [
+        3,
+        9
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.028429511266152015,
+          "target": 1243018
+        }
+      ],
+      "representative_label": [
+        2,
+        2
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.017235085899097603,
+          "target": 1243130
+        }
+      ],
+      "representative_label": [
+        2,
+        4
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.015467691079902696,
+          "target": 1243130
+        }
+      ],
+      "representative_label": [
+        4,
+        4
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.028581405123616198,
+          "target": 1244072
+        }
+      ],
+      "representative_label": [
+        2,
+        6
+      ],
+      "top_three_occurrence_count": 1
+    },
+    {
+      "examples": [
+        {
+          "contribution_to_principal_ratio": -0.01853069774492278,
+          "target": 1244094
+        }
+      ],
+      "representative_label": [
+        2,
+        8
+      ],
+      "top_three_occurrence_count": 1
+    }
+  ],
+  "distinct_top_three_negative_label_count": 15,
+  "dominant_floor_failure_targets": [
+    1222142
+  ],
+  "dominant_floor_pass_targets": [
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "dominant_mode_pressure_channel_autopsy_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "A stable dominant top-negative label across the named rows would support a one-channel pressure route; rotating top labels demote that route and point to a multi-channel or residue-dependent pressure envelope.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "observed_shape": "The top-three negative channels rotate across the named rows; no single label dominates the pressure ledger across the sample.  The post-stress high-pressure rows are below 0.3, but they still use nontrivial negative-channel ledgers.",
+    "remaining_theorem": "A pressure proof should target a multi-channel or residue-dependent pressure envelope, not a one-channel bound.  The finite autopsy does not identify an external theorem proving that envelope."
+  },
+  "maximum_pressure_row": {
+    "dominant_floor_passes": false,
+    "dominant_sum_to_principal": -0.3088331795605278,
+    "negative_pressure_to_principal": 0.37196700245556,
+    "negative_real_channel_count": 17,
+    "positive_offset_slack_to_floor": -0.00883317956053016,
+    "positive_offset_to_principal": 0.06313382289502988,
+    "positive_real_channel_count": 8,
+    "required_positive_offset_for_floor": 0.07196700245556004,
+    "target": 1222142,
+    "target_mod_286": 64,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          1,
+          11
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          4,
+          4
+        ]
+      }
+    ]
+  },
+  "maximum_real_channel_identity_error": 2.3314683517128287e-15,
+  "mechanism": "Check whether the post-stress pressure-easy rows are explained by disappearance of the same top negative channels seen in near-boundary rows, or whether top negative channels rotate by target residue.",
+  "minimum_pressure_row": {
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.07231331638447305,
+    "negative_pressure_to_principal": 0.10636440408776447,
+    "negative_real_channel_count": 17,
+    "positive_offset_slack_to_floor": 0.03405108770329006,
+    "positive_offset_to_principal": 0.03405108770329006,
+    "positive_real_channel_count": 8,
+    "required_positive_offset_for_floor": 0.0,
+    "target": 1243130,
+    "target_mod_286": 174,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.017235085899097603,
+        "contribution_to_principal_ratio": -0.017235085899097603,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          2,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.015467691079902696,
+        "contribution_to_principal_ratio": -0.015467691079902696,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.013046288822055378,
+        "contribution_to_principal_ratio": -0.013046288822055378,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          3,
+          7
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.008059267935737578,
+        "contribution_to_principal_ratio": 0.008059267935737578,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0070839821233772676,
+        "contribution_to_principal_ratio": 0.0070839821233772676,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          1,
+          7
+        ]
+      }
+    ]
+  },
+  "multi_channel_pressure_envelope_proved": false,
+  "one_channel_pressure_theorem_proved": false,
+  "pointwise_character_sum_estimate_proved": false,
+  "post_stress_maximum_pressure_row": {
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.1375691011170794,
+    "negative_pressure_to_principal": 0.25862393092943253,
+    "negative_real_channel_count": 14,
+    "positive_offset_slack_to_floor": 0.12105482981235356,
+    "positive_offset_to_principal": 0.12105482981235356,
+    "positive_real_channel_count": 11,
+    "required_positive_offset_for_floor": 0.0,
+    "target": 1243018,
+    "target_mod_286": 62,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.03392293750635168,
+        "contribution_to_principal_ratio": -0.03392293750635168,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02903523919288895,
+        "contribution_to_principal_ratio": -0.02903523919288895,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.028429511266152015,
+        "contribution_to_principal_ratio": -0.028429511266152015,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          2,
+          2
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.02184404911134035,
+        "contribution_to_principal_ratio": 0.02184404911134035,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.020754915799617274,
+        "contribution_to_principal_ratio": 0.020754915799617274,
+        "real_formula_multiplier": 2.0,
+        "representative_label": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  "post_stress_targets": [
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888,
+    1243018,
+    1243130,
+    1244072,
+    1244094
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "ab377b1235b2a80eb735d573ed1a6a3d4a2bd4a9",
+  "status_boundary": "finite named-row pressure-channel autopsy only; no one-channel pressure theorem, multi-channel envelope theorem, pointwise character-sum estimate, signed-projection theorem, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "target_rows": {
+    "1222142": {
+      "dominant_floor_passes": false,
+      "dominant_sum_to_principal": -0.3088331795605278,
+      "negative_pressure_to_principal": 0.37196700245556,
+      "negative_real_channel_count": 17,
+      "positive_offset_slack_to_floor": -0.00883317956053016,
+      "positive_offset_to_principal": 0.06313382289502988,
+      "positive_real_channel_count": 8,
+      "required_positive_offset_for_floor": 0.07196700245556004,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+          "contribution_to_principal_ratio": -0.044796070869832366,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+          "contribution_to_principal_ratio": -0.04172119298516034,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+          "contribution_to_principal_ratio": -0.03778293121185615,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            11
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+          "contribution_to_principal_ratio": 0.01762390682755845,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+          "contribution_to_principal_ratio": 0.011405528117525765,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    "1240888": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.27281342661908214,
+      "negative_pressure_to_principal": 0.2865251752684196,
+      "negative_real_channel_count": 22,
+      "positive_offset_slack_to_floor": 0.013711748649337881,
+      "positive_offset_to_principal": 0.013711748649337881,
+      "positive_real_channel_count": 3,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.035956798584303756,
+          "contribution_to_principal_ratio": -0.035956798584303756,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02694243143722148,
+          "contribution_to_principal_ratio": -0.02694243143722148,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            10
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02491541765855402,
+          "contribution_to_principal_ratio": -0.02491541765855402,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            11
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.010214162454081212,
+          "contribution_to_principal_ratio": 0.010214162454081212,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0017801811024599687,
+          "contribution_to_principal_ratio": 0.0017801811024599687,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    "1242118": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.2834710865332539,
+      "negative_pressure_to_principal": 0.34343932670896016,
+      "negative_real_channel_count": 20,
+      "positive_offset_slack_to_floor": 0.01652891346674458,
+      "positive_offset_to_principal": 0.05996824017570475,
+      "positive_real_channel_count": 5,
+      "required_positive_offset_for_floor": 0.04343932670896017,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.035799297014520975,
+          "contribution_to_principal_ratio": -0.035799297014520975,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.029793911186253248,
+          "contribution_to_principal_ratio": -0.029793911186253248,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            3
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028000803701620967,
+          "contribution_to_principal_ratio": -0.028000803701620967,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            5
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.026391984717824533,
+          "contribution_to_principal_ratio": 0.026391984717824533,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            6
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.015373178249955429,
+          "contribution_to_principal_ratio": 0.015373178249955429,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            4
+          ]
+        }
+      ]
+    },
+    "1243018": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.1375691011170794,
+      "negative_pressure_to_principal": 0.25862393092943253,
+      "negative_real_channel_count": 14,
+      "positive_offset_slack_to_floor": 0.12105482981235356,
+      "positive_offset_to_principal": 0.12105482981235356,
+      "positive_real_channel_count": 11,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1243018,
+      "target_mod_286": 62,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.03392293750635168,
+          "contribution_to_principal_ratio": -0.03392293750635168,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            9
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.02903523919288895,
+          "contribution_to_principal_ratio": -0.02903523919288895,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            5,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028429511266152015,
+          "contribution_to_principal_ratio": -0.028429511266152015,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            2
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.02184404911134035,
+          "contribution_to_principal_ratio": 0.02184404911134035,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            1
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.020754915799617274,
+          "contribution_to_principal_ratio": 0.020754915799617274,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    "1243130": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.07231331638447305,
+      "negative_pressure_to_principal": 0.10636440408776447,
+      "negative_real_channel_count": 17,
+      "positive_offset_slack_to_floor": 0.03405108770329006,
+      "positive_offset_to_principal": 0.03405108770329006,
+      "positive_real_channel_count": 8,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1243130,
+      "target_mod_286": 174,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.017235085899097603,
+          "contribution_to_principal_ratio": -0.017235085899097603,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.015467691079902696,
+          "contribution_to_principal_ratio": -0.015467691079902696,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            4,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.013046288822055378,
+          "contribution_to_principal_ratio": -0.013046288822055378,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            7
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.008059267935737578,
+          "contribution_to_principal_ratio": 0.008059267935737578,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.0070839821233772676,
+          "contribution_to_principal_ratio": 0.0070839821233772676,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            7
+          ]
+        }
+      ]
+    },
+    "1244072": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.11518488645319175,
+      "negative_pressure_to_principal": 0.23499311116993596,
+      "negative_real_channel_count": 15,
+      "positive_offset_slack_to_floor": 0.1198082247167448,
+      "positive_offset_to_principal": 0.1198082247167448,
+      "positive_real_channel_count": 10,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1244072,
+      "target_mod_286": 258,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.04426574618295745,
+          "contribution_to_principal_ratio": -0.04426574618295745,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.031814648338309645,
+          "contribution_to_principal_ratio": -0.031814648338309645,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            5,
+            5
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.028581405123616198,
+          "contribution_to_principal_ratio": -0.028581405123616198,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            6
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.028930383696902772,
+          "contribution_to_principal_ratio": 0.028930383696902772,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            4
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01900097837001073,
+          "contribution_to_principal_ratio": 0.01900097837001073,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            7
+          ]
+        }
+      ]
+    },
+    "1244094": {
+      "dominant_floor_passes": true,
+      "dominant_sum_to_principal": -0.15128938620082624,
+      "negative_pressure_to_principal": 0.18543529382629267,
+      "negative_real_channel_count": 20,
+      "positive_offset_slack_to_floor": 0.034145907625464274,
+      "positive_offset_to_principal": 0.034145907625464274,
+      "positive_real_channel_count": 5,
+      "required_positive_offset_for_floor": 0.0,
+      "target": 1244094,
+      "target_mod_286": 280,
+      "top_negative_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.020943535996781806,
+          "contribution_to_principal_ratio": -0.020943535996781806,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            3,
+            7
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.01853069774492278,
+          "contribution_to_principal_ratio": -0.01853069774492278,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            2,
+            8
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.017675683554441646,
+          "contribution_to_principal_ratio": -0.017675683554441646,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            7
+          ]
+        }
+      ],
+      "top_positive_real_channels": [
+        {
+          "absolute_contribution_to_principal_ratio": 0.019830537202681554,
+          "contribution_to_principal_ratio": 0.019830537202681554,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            11
+          ]
+        },
+        {
+          "absolute_contribution_to_principal_ratio": 0.010985543256449778,
+          "contribution_to_principal_ratio": 0.010985543256449778,
+          "real_formula_multiplier": 2.0,
+          "representative_label": [
+            1,
+            3
+          ]
+        }
+      ]
+    }
+  }
+}
