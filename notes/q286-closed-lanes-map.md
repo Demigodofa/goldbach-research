@@ -926,6 +926,18 @@ current comparison set.
    form, but the support side remains inherited from the finite classification
    and must be defined arithmetically before it can become a non-circular
    theorem.
+96. `q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-staircase-above-floor-threshold.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json`,
+   replaces the post-hoc support side with the arithmetically defined
+   above-floor orbit set.  At the full stage, above-floor signed surplus is
+   positive on selected passes and negative on selected deficits; pass surplus
+   ranges about `0.0034397689..0.0186843046`, deficit surplus about
+   `-0.0330812983..-0.0028592222`, and the maximum reconstruction error is
+   about `5.41e-16`.  The empty stage has ten sign errors, so this is a
+   full-stage target, not an all-prefix theorem.
 
 ## Still open
 
@@ -955,6 +967,8 @@ current comparison set.
   possible, then prove the mixed hinge-balance inequality, or replace both
   with a signed aggregate theorem.  The current narrowest formulation is a
   positive support-mass surplus over the landing-dependent hinge threshold,
-  plus a non-circular arithmetic definition of the intended support side.
+  plus a non-circular arithmetic definition of the intended support side.  The
+  non-post-hoc version uses the full-stage above-floor signed surplus; prefix
+  failures remain open and must not be hidden.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

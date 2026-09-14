@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "72126526c9430200123ad4710c24e5b5fd870b66",
+  "generated_from_commit": "54b8cae48f14ff444f535514f91a4783e0eb9941",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -140,6 +140,14 @@
       "boundary": "Finite threshold-obligation form; support side not yet non-circular."
     },
     {
+      "id": "staircase-above-floor-threshold",
+      "label": "Above-floor signed threshold gives non-post-hoc full-stage side",
+      "kind": "exact_obligation",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json",
+      "default_weight": 2.0,
+      "boundary": "Finite full-stage formulation; prefix sign errors remain."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -151,7 +159,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 48.5,
+      "stack_weight": 50.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -399,14 +407,26 @@
             "relative_surplus": 0.005764705723949747,
             "identity_error": 4.336808689942018e-17
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.5011532319770281,
+            "threshold": 0.5040124542211871,
+            "signed_surplus": -0.002859222244159021,
+            "predicts_pass": false,
+            "identity_error": 1.3183898417423734e-16
+          }
         }
       ],
-      "layer_count": 24,
+      "layer_count": 25,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 44.5,
+      "stack_weight": 46.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -642,14 +662,26 @@
             "relative_surplus": 0.03639172232721411,
             "identity_error": 2.220446049250313e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.49396258301453205,
+            "threshold": 0.5117315141719171,
+            "signed_surplus": -0.017768931157385037,
+            "predicts_pass": false,
+            "identity_error": 3.469446951953614e-16
+          }
         }
       ],
-      "layer_count": 22,
-      "glow": 0.917526
+      "layer_count": 23,
+      "glow": 0.920792
     },
     {
       "id": "164598",
-      "stack_weight": 44.5,
+      "stack_weight": 46.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -885,14 +917,26 @@
             "relative_surplus": 0.01064961254708504,
             "identity_error": 2.185751579730777e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.44278359726713723,
+            "threshold": 0.44865520570621836,
+            "signed_surplus": -0.005871608439081133,
+            "predicts_pass": false,
+            "identity_error": 8.673617379884035e-17
+          }
         }
       ],
-      "layer_count": 22,
-      "glow": 0.917526
+      "layer_count": 23,
+      "glow": 0.920792
     },
     {
       "id": "24424",
-      "stack_weight": 44.5,
+      "stack_weight": 46.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1128,14 +1172,26 @@
             "relative_surplus": 0.009869542118260306,
             "identity_error": 1.7867651802561113e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.5544238154222809,
+            "threshold": 0.5587784698971144,
+            "signed_surplus": -0.004354654474833519,
+            "predicts_pass": false,
+            "identity_error": 3.365363543395006e-16
+          }
         }
       ],
-      "layer_count": 22,
-      "glow": 0.917526
+      "layer_count": 23,
+      "glow": 0.920792
     },
     {
       "id": "55864",
-      "stack_weight": 44.5,
+      "stack_weight": 46.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1371,14 +1427,26 @@
             "relative_surplus": 0.06544321111690678,
             "identity_error": 3.191891195797325e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.46142244348928174,
+            "threshold": 0.4945037418314147,
+            "signed_surplus": -0.03308129834213297,
+            "predicts_pass": false,
+            "identity_error": 2.914335439641036e-16
+          }
         }
       ],
-      "layer_count": 22,
-      "glow": 0.917526
+      "layer_count": 23,
+      "glow": 0.920792
     },
     {
       "id": "129706",
-      "stack_weight": 28.5,
+      "stack_weight": 30.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1526,14 +1594,26 @@
             "relative_surplus": 0.03995448552758692,
             "identity_error": 2.1510571102112408e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.486324029599814,
+            "threshold": 0.4676397249761305,
+            "signed_surplus": 0.018684304623683534,
+            "predicts_pass": true,
+            "identity_error": 2.1510571102112408e-16
+          }
         }
       ],
-      "layer_count": 14,
-      "glow": 0.587629
+      "layer_count": 15,
+      "glow": 0.60396
     },
     {
       "id": "13556",
-      "stack_weight": 26.5,
+      "stack_weight": 28.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1670,14 +1750,26 @@
             "relative_surplus": 0.006558008217027238,
             "identity_error": 2.896988204881268e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.5279540327909489,
+            "threshold": 0.5245142639380949,
+            "signed_surplus": 0.0034397688528540193,
+            "predicts_pass": true,
+            "identity_error": 4.2847669856627135e-16
+          }
         }
       ],
-      "layer_count": 13,
-      "glow": 0.546392
+      "layer_count": 14,
+      "glow": 0.564356
     },
     {
       "id": "1240888",
-      "stack_weight": 20.5,
+      "stack_weight": 22.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1781,14 +1873,26 @@
             "relative_surplus": 0.01674786120662481,
             "identity_error": 8.673617379884035e-17
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.5747545980822478,
+            "threshold": 0.5652872457485755,
+            "signed_surplus": 0.009467352333672352,
+            "predicts_pass": true,
+            "identity_error": 3.5041414214731503e-16
+          }
         }
       ],
-      "layer_count": 10,
-      "glow": 0.42268
+      "layer_count": 11,
+      "glow": 0.445545
     },
     {
       "id": "1242118",
-      "stack_weight": 20.5,
+      "stack_weight": 22.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1892,14 +1996,26 @@
             "relative_surplus": 0.009952902085936449,
             "identity_error": 1.2836953722228372e-16
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "signed_surplus": 0.004797981282350594,
+            "predicts_pass": true,
+            "identity_error": 1.8388068845354155e-16
+          }
         }
       ],
-      "layer_count": 10,
-      "glow": 0.42268
+      "layer_count": 11,
+      "glow": 0.445545
     },
     {
       "id": "40420",
-      "stack_weight": 20.5,
+      "stack_weight": 22.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -2003,10 +2119,22 @@
             "relative_surplus": 0.033436057351707855,
             "identity_error": 5.551115123125783e-17
           }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.515510182552706,
+            "threshold": 0.49883123284255904,
+            "signed_surplus": 0.01667894971014694,
+            "predicts_pass": true,
+            "identity_error": 4.85722573273506e-17
+          }
         }
       ],
-      "layer_count": 10,
-      "glow": 0.42268
+      "layer_count": 11,
+      "glow": 0.445545
     },
     {
       "id": "1379072",
@@ -2032,7 +2160,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.123711
+      "glow": 0.118812
     },
     {
       "id": "1323632",
@@ -2052,7 +2180,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.082474
+      "glow": 0.079208
     },
     {
       "id": "10664",
@@ -2066,7 +2194,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020619
+      "glow": 0.019802
     },
     {
       "id": "14138",
@@ -2080,7 +2208,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020619
+      "glow": 0.019802
     }
   ],
   "mechanism_stacks": [
@@ -2246,6 +2374,34 @@
               1222142,
               1242118
             ]
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
+      "id": "nonposthoc-above-floor-sign-surplus",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "full stage is classified by the arithmetically defined above-floor signed surplus",
+          "value": {
+            "pass_surplus_summary": {
+              "count": 5,
+              "maximum": 0.018684304623683534,
+              "mean": 0.010613671360541487,
+              "minimum": 0.0034397688528540193
+            },
+            "deficit_surplus_summary": {
+              "count": 5,
+              "maximum": -0.002859222244159021,
+              "mean": -0.012787142931518336,
+              "minimum": -0.03308129834213297
+            },
+            "maximum_stage_sign_error_count": 10
           }
         }
       ],
@@ -2493,6 +2649,19 @@
           "layer": "staircase-orbit-mass-gap",
           "weight": 2.0,
           "reason": "prove actual mass cannot concentrate on weak breaker orbits"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.121212
+    },
+    {
+      "id": "dominant-staircase-above-floor-threshold-sign",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "prove full-stage above-floor surplus sign; prefix failures remain"
         }
       ],
       "layer_count": 1,

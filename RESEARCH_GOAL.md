@@ -11387,6 +11387,20 @@ side is inherited from the selected pass/deficit row type.  A non-circular
 theorem must define that intended side arithmetically or replace the
 threshold inequality with a signed aggregate theorem.
 
+The non-post-hoc above-floor version is now recorded in
+`notes/q286-first-three-dominant-mode-staircase-above-floor-threshold.md` and
+`evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json`.
+It defines the side arithmetically as the reflected q286 orbits whose stage
+action is above the row floor.  At the full eleven-channel stage, the signed
+surplus `above_mass - below_landing/(above_landing+below_landing)`
+classifies every selected row: pass surplus ranges from about `0.0034397689`
+to `0.0186843046`, deficit surplus ranges from about `-0.0330812983` to
+`-0.0028592222`, and the maximum reconstruction error is about `5.41e-16`.
+The empty stage has ten sign errors, so this is a full-stage obligation, not
+an all-prefix theorem.  This is the current narrowest non-circular formulation
+of the q286 dominant staircase sign target, but it remains finite evidence
+and not a signed prime-correlation theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

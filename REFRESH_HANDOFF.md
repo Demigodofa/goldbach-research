@@ -20503,6 +20503,25 @@ is inherited from the selected pass/deficit classification.  The next theorem
 must define the intended side arithmetically or replace the threshold with a
 signed aggregate theorem.
 
+Dominant-mode staircase above-floor threshold:
+
+- `q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_above_floor_threshold.py`
+- `notes/q286-first-three-dominant-mode-staircase-above-floor-threshold.md`
+- `evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_above_floor_threshold`
+
+This removes the post-hoc support-side choice.  The side is now defined as
+the reflected q286 orbits whose stage action is at least the row's required
+floor.  At the full eleven-channel stage, the signed surplus
+`above_mass - below_landing/(above_landing+below_landing)` classifies every
+selected row: pass surplus range about `0.0034397689..0.0186843046`, deficit
+surplus range about `-0.0330812983..-0.0028592222`, and maximum reconstruction
+error about `5.41e-16`.  The empty stage has ten sign errors, so this is a
+full-stage target, not an all-prefix theorem.  It is not a proof of the sign
+theorem or Goldbach.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

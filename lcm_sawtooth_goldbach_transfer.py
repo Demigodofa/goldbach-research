@@ -12020,6 +12020,206 @@ def q286_first_three_dominant_mode_staircase_hinge_threshold_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Use the arithmetically defined above-floor side as the classifier.
+
+    Unlike the support-side threshold, this does not choose the side from the
+    pass/deficit label.  It always uses the above-floor reflected orbit set.
+    The signed surplus
+
+        above_mass - below_landing/(above_landing + below_landing)
+
+    reconstructs the stage slack up to multiplication by the positive landing
+    denominator, so its sign is the pass/fail sign.
+
+    This is an exact finite reformulation and theorem target, not a proof.
+    """
+    hinge_receipt = (
+        q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    stage_rows = []
+    maximum_identity_error = 0.0
+    maximum_sign_error = 0
+    for stage in hinge_receipt["stage_rows"]:
+        target_rows = []
+        signed_surpluses = []
+        pass_surpluses = []
+        deficit_surpluses = []
+        identity_errors = []
+        sign_errors = []
+        for row in stage["target_rows"]:
+            above_mass = row["above_floor_mass_fraction"]
+            below_mass = row["below_floor_mass_fraction"]
+            above_hinge = row["above_floor_positive_hinge_to_principal"]
+            below_hinge = row["below_floor_negative_hinge_to_principal"]
+            above_landing = (
+                above_hinge / above_mass
+                if above_mass > tolerance else None)
+            below_landing = (
+                below_hinge / below_mass
+                if below_mass > tolerance else None)
+            denominator = (
+                None if above_landing is None or below_landing is None
+                else above_landing + below_landing)
+            threshold = (
+                None if denominator is None or denominator <= tolerance
+                else below_landing / denominator)
+            signed_surplus = (
+                None if threshold is None else above_mass - threshold)
+            reconstructed_slack = (
+                None if signed_surplus is None or denominator is None
+                else signed_surplus * denominator)
+            actual_slack = row["actual_stage_slack_to_floor"]
+            identity_error = (
+                None if reconstructed_slack is None
+                else abs(reconstructed_slack - actual_slack))
+            predicted_pass = (
+                None if signed_surplus is None
+                else signed_surplus >= -tolerance)
+            stage_passes = actual_slack >= -tolerance
+            expected_pass = row["dominant_floor_passes"]
+            sign_matches = (
+                predicted_pass is not None
+                and predicted_pass == stage_passes)
+            sign_matches_full_classification = (
+                predicted_pass is not None
+                and predicted_pass == expected_pass)
+            if signed_surplus is not None:
+                signed_surpluses.append(signed_surplus)
+                if expected_pass:
+                    pass_surpluses.append(signed_surplus)
+                else:
+                    deficit_surpluses.append(signed_surplus)
+            if identity_error is not None:
+                identity_errors.append(identity_error)
+                maximum_identity_error = max(
+                    maximum_identity_error, identity_error)
+            if not sign_matches:
+                sign_errors.append(row["target"])
+            compact = dict(row)
+            compact.update({
+                "above_floor_landing_mean": above_landing,
+                "below_floor_landing_mean": below_landing,
+                "above_floor_mass_threshold": threshold,
+                "above_floor_signed_surplus_to_threshold": (
+                    signed_surplus),
+                "above_floor_landing_denominator": denominator,
+                "actual_slack_reconstructed_from_above_floor_threshold": (
+                    reconstructed_slack),
+                "above_floor_threshold_identity_error": identity_error,
+                "actual_stage_floor_passes": stage_passes,
+                "above_floor_threshold_predicts_pass": predicted_pass,
+                "above_floor_threshold_sign_matches_stage": sign_matches,
+                "above_floor_threshold_sign_matches_full_classification": (
+                    sign_matches_full_classification),
+            })
+            target_rows.append(compact)
+        maximum_sign_error = max(maximum_sign_error, len(sign_errors))
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": tuple(target_rows),
+            "above_floor_signed_surplus_summary": summarize(
+                signed_surpluses),
+            "above_floor_pass_surplus_summary": summarize(
+                pass_surpluses),
+            "above_floor_deficit_surplus_summary": summarize(
+                deficit_surpluses),
+            "above_floor_threshold_identity_error_summary": summarize(
+                identity_errors),
+            "above_floor_threshold_sign_error_targets": tuple(
+                sign_errors),
+            "above_floor_threshold_sign_error_count": len(sign_errors),
+            "above_floor_threshold_classifies_selected_rows": (
+                not sign_errors),
+        })
+
+    prefix_stage = stage_rows[
+        hinge_receipt["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        hinge_receipt["full_stage"]["stage_index"]]
+    full_rows = full_stage["target_rows"]
+    tightest_pass_row = min(
+        (row for row in full_rows if row["dominant_floor_passes"]),
+        key=lambda row: row[
+            "above_floor_signed_surplus_to_threshold"])
+    tightest_deficit_row = max(
+        (row for row in full_rows if not row["dominant_floor_passes"]),
+        key=lambda row: row[
+            "above_floor_signed_surplus_to_threshold"])
+    smallest_absolute_surplus_row = min(
+        full_rows,
+        key=lambda row: abs(row[
+            "above_floor_signed_surplus_to_threshold"]))
+
+    return {
+        "arithmetic_modulus": hinge_receipt["arithmetic_modulus"],
+        "support": hinge_receipt["support"],
+        "dominant_modes": hinge_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": hinge_receipt["sample_targets"],
+        "pair_targets": hinge_receipt["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": hinge_receipt["prefix_channel_labels"],
+        "tail_channel_labels": hinge_receipt["tail_channel_labels"],
+        "ordered_channel_labels": hinge_receipt["ordered_channel_labels"],
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_tightest_pass_row": tightest_pass_row,
+        "full_stage_tightest_deficit_row": tightest_deficit_row,
+        "full_stage_smallest_absolute_surplus_row": (
+            smallest_absolute_surplus_row),
+        "maximum_above_floor_threshold_identity_error": (
+            maximum_identity_error),
+        "maximum_stage_sign_error_count": maximum_sign_error,
+        "above_floor_threshold_obligation_measured": True,
+        "above_floor_threshold_theorem_proved": False,
+        "hinge_threshold_theorem_proved": False,
+        "hinge_balance_theorem_proved": False,
+        "orbit_mass_theorem_proved": False,
+        "arithmetic_gap_theorem_proved": False,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

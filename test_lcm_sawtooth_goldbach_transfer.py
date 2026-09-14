@@ -60,6 +60,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_staircase_orbit_mass_gap_receipt,
     q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt,
     q286_first_three_dominant_mode_staircase_hinge_threshold_receipt,
+    q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4985,6 +4986,43 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt["hinge_threshold_obligation_measured"])
         self.assertFalse(receipt["hinge_threshold_theorem_proved"])
         self.assertFalse(receipt["hinge_balance_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_staircase_above_floor_threshold(self):
+        receipt = (
+            q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertLessEqual(
+            receipt["maximum_above_floor_threshold_identity_error"],
+            1e-8)
+        self.assertGreaterEqual(receipt["maximum_stage_sign_error_count"], 0)
+        self.assertTrue(
+            receipt["full_stage"][
+                "above_floor_threshold_classifies_selected_rows"])
+        for row in receipt["full_stage"]["target_rows"]:
+            self.assertLessEqual(
+                row["above_floor_threshold_identity_error"], 1e-8)
+            self.assertEqual(
+                row["above_floor_threshold_predicts_pass"],
+                row["actual_stage_floor_passes"])
+            self.assertEqual(
+                row["above_floor_threshold_predicts_pass"],
+                row["dominant_floor_passes"])
+            if row["dominant_floor_passes"]:
+                self.assertGreaterEqual(
+                    row["above_floor_signed_surplus_to_threshold"],
+                    -1e-8)
+            else:
+                self.assertLessEqual(
+                    row["above_floor_signed_surplus_to_threshold"],
+                    1e-8)
+        self.assertTrue(receipt["above_floor_threshold_obligation_measured"])
+        self.assertFalse(receipt["above_floor_threshold_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

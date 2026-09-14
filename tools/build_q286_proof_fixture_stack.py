@@ -76,6 +76,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-hinge-decomposition.json")
     dominant_mode_staircase_hinge_threshold = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json")
+    dominant_mode_staircase_above_floor = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -568,6 +570,30 @@ def main():
                     "still inherited from finite classification"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_above_floor_threshold",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json"),
+                "statement": (
+                    "The support side can be replaced by the arithmetically "
+                    "defined above-floor orbit set at the full staircase "
+                    "stage; the signed above-floor surplus classifies the "
+                    "selected full-stage rows."),
+                "validation": (
+                    "full-stage pass surplus range "
+                    f"{dominant_mode_staircase_above_floor['full_stage']['above_floor_pass_surplus_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_above_floor['full_stage']['above_floor_pass_surplus_summary']['maximum']}; "
+                    "deficit surplus range "
+                    f"{dominant_mode_staircase_above_floor['full_stage']['above_floor_deficit_surplus_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_above_floor['full_stage']['above_floor_deficit_surplus_summary']['maximum']}; "
+                    "maximum identity error "
+                    f"{dominant_mode_staircase_above_floor['maximum_above_floor_threshold_identity_error']}; "
+                    "maximum stage sign-error count "
+                    f"{dominant_mode_staircase_above_floor['maximum_stage_sign_error_count']}."),
+                "proved_scope": (
+                    "finite full-stage sign formulation; not an all-prefix "
+                    "theorem and not a sign theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -741,6 +767,22 @@ def main():
                     "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json"),
                 "proved": False,
             },
+            {
+                "id": "joint.dominant_staircase_above_floor_threshold_sign",
+                "statement": (
+                    "Prove the full-stage sign of "
+                    "above_mass - below_landing / "
+                    "(above_landing + below_landing) for the q286 dominant "
+                    "staircase, with the above-floor orbit set defined by "
+                    "stage action and required floor."),
+                "why_it_is_needed": (
+                    "This removes the post-hoc support-side choice.  The "
+                    "empty stage has sign errors, so the theorem must be "
+                    "full-stage or must separately handle prefix failures."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json"),
+                "proved": False,
+            },
         ],
         "condensation_target": {
             "short_statement": (
@@ -757,6 +799,7 @@ def main():
                 "joint.dangerous_reflection_orbit_mass_bound",
                 "joint.dominant_staircase_hinge_balance",
                 "joint.dominant_staircase_hinge_threshold_surplus",
+                "joint.dominant_staircase_above_floor_threshold_sign",
             ],
             "current_status": "not ready to condense into a proof",
         },
@@ -773,7 +816,8 @@ def main():
             "the mixed hinge-balance inequality left after that localization. "
             "The narrowest current form is a positive support-mass surplus "
             "over the landing-dependent threshold, with the support side "
-            "defined arithmetically rather than post hoc."),
+            "defined arithmetically rather than post hoc; the above-floor "
+            "full-stage sign formulation is the current non-circular version."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

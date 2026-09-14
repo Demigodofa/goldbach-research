@@ -126,6 +126,12 @@ frame.
   Full-stage surplus ranges from about `0.0028592222` to `0.0330812983`,
   with tightest row `1222142`.  The support side is still inherited from the
   finite classification, so this is an obligation form, not a theorem.
+- `evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json`:
+  the post-hoc support side is replaced by the arithmetically defined
+  above-floor orbit set.  At the full stage, the above-floor signed surplus is
+  positive on selected passes and negative on selected deficits, with tightest
+  absolute surplus about `0.0028592222`.  The empty stage has ten sign errors,
+  so the formulation is a full-stage target, not an all-prefix theorem.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -195,7 +201,13 @@ frame.
    `supporting_mass - opposing_landing/(supporting_landing+opposing_landing)
    > 0`, including a non-circular arithmetic definition of the intended
    support side.
-8. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
+8. Prove the non-post-hoc full-stage above-floor threshold sign theorem:
+   the sign of
+   `above_mass - below_landing/(above_landing+below_landing)` matches the
+   required q286 dominant staircase side.  Do not promote this to an
+   all-prefix theorem unless the empty-stage and other prefix failures are
+   separately handled.
+9. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
 
@@ -220,3 +232,5 @@ weak-geometry interval, not shrinking that interval by geometry alone.  The
 newest sharpened subtarget is actual mass control on the dangerous reflected
 breaker orbits used by the synthetic weak-geometry witnesses, now refined by
 the mixed hinge-balance decomposition and its tiny positive threshold surplus.
+The current non-post-hoc version is the full-stage above-floor signed surplus;
+prefix-stage failures must remain visible.

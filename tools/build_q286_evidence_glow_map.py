@@ -80,6 +80,9 @@ def main():
     staircase_hinge_threshold = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-hinge-threshold.json")
+    staircase_above_floor = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-above-floor-threshold.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -703,6 +706,54 @@ def main():
         "staircase-hinge-threshold",
         2.0,
         "prove positive surplus with non-circular support-side definition")
+
+    layer(
+        "staircase-above-floor-threshold",
+        "Above-floor signed threshold gives non-post-hoc full-stage side",
+        "exact_obligation",
+        "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json",
+        2.0,
+        "Finite full-stage formulation; prefix sign errors remain.")
+    for row in staircase_above_floor["full_stage"]["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "staircase-above-floor-threshold",
+            2.0,
+            "above-floor signed surplus measured",
+            {
+                "above_mass": row["above_floor_mass_fraction"],
+                "threshold": row["above_floor_mass_threshold"],
+                "signed_surplus": (
+                    row["above_floor_signed_surplus_to_threshold"]),
+                "predicts_pass": (
+                    row["above_floor_threshold_predicts_pass"]),
+                "identity_error": (
+                    row["above_floor_threshold_identity_error"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "nonposthoc-above-floor-sign-surplus",
+        "staircase-above-floor-threshold",
+        2.0,
+        "full stage is classified by the arithmetically defined above-floor "
+        "signed surplus",
+        {
+            "pass_surplus_summary": (
+                staircase_above_floor["full_stage"][
+                    "above_floor_pass_surplus_summary"]),
+            "deficit_surplus_summary": (
+                staircase_above_floor["full_stage"][
+                    "above_floor_deficit_surplus_summary"]),
+            "maximum_stage_sign_error_count": (
+                staircase_above_floor["maximum_stage_sign_error_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "dominant-staircase-above-floor-threshold-sign",
+        "staircase-above-floor-threshold",
+        2.0,
+        "prove full-stage above-floor surplus sign; prefix failures remain")
 
     layer(
         "conditional-proof-stack",
