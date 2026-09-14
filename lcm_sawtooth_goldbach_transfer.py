@@ -15892,6 +15892,120 @@ def q286_lower_support_component_pair_tail_selector_grid_receipt(
     }
 
 
+def q286_active_lane_strict_closure_margin_census_receipt(
+        starts=(1379072,), targets_per_window=5,
+        first_two_threshold=.2, tail_threshold=.3,
+        component_pair=((5, 7), (7, 11)),
+        calibration_targets=(14138, 1222142, 1323632, 1379072),
+        tolerance=1e-9):
+    """Apply the fixed strict-closure scalar to selected active targets.
+
+    The selector decides which targets enter the active lane.  The closure
+    constants are frozen from ``calibration_targets`` so a new target window
+    cannot silently change the theorem being tested.
+    """
+    component_pair = tuple(tuple(support) for support in component_pair)
+    if len(component_pair) != 2:
+        raise ValueError("component_pair must contain exactly two supports")
+    calibration_targets = tuple(dict.fromkeys(calibration_targets))
+    if (not calibration_targets
+            or any(type(target) is not int or target < 40
+                   or target % 2 for target in calibration_targets)):
+        raise ValueError(
+            "calibration_targets must be nonempty even integers at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0.0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    selector = q286_lower_support_component_pair_tail_selector_grid_receipt(
+        starts=starts, targets_per_window=targets_per_window,
+        first_two_threshold=first_two_threshold,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    calibration = q286_lower_support_component_pair_closure_margin_profile_receipt(
+        targets=calibration_targets, component_pair=component_pair,
+        tolerance=tolerance)
+    driver_floor = calibration["combined_floor_driver_floor"]
+    channel_bound = calibration["normalized_real_channel_linf_bound"]
+    channel_l1_to_principal = calibration[
+        "real_channel_l1_to_principal_mean"]
+
+    tail_targets = selector["tail_targets"]
+    target_rows = {}
+    positive_margin_targets = []
+    nonpositive_margin_targets = []
+    if tail_targets:
+        identity = q286_lower_support_component_pair_action_identity_receipt(
+            targets=tail_targets, component_pair=component_pair,
+            tolerance=tolerance)
+        for target in tail_targets:
+            identity_row = identity["rows"][target]
+            closure_row = identity_row["source_closure_row"]
+            driver = identity_row[
+                "combined_floor_driver_to_principal_ratio"]
+            max_channel = closure_row[
+                "maximum_normalized_real_channel_sum"]
+            driver_margin = driver - driver_floor
+            channel_margin = channel_bound - max_channel
+            strict_margin = (
+                driver_margin
+                + channel_l1_to_principal * channel_margin)
+            positive = strict_margin > tolerance
+            if positive:
+                positive_margin_targets.append(target)
+            else:
+                nonpositive_margin_targets.append(target)
+            target_rows[target] = {
+                "target": target,
+                "target_residue": identity_row["target_residue"],
+                "combined_floor_driver_to_principal_ratio": driver,
+                "maximum_normalized_real_channel_sum": max_channel,
+                "driver_margin_to_calibrated_floor": driver_margin,
+                "channel_margin_to_calibrated_linf_bound": channel_margin,
+                "strict_closure_margin_to_calibrated_endpoint": (
+                    strict_margin),
+                "strict_closure_margin_positive": bool(positive),
+                "full_action_to_principal_ratio": identity_row[
+                    "full_action_to_principal_ratio"],
+                "positive_by_reconstructed_identity": identity_row[
+                    "positive_by_reconstructed_identity"],
+                "source_action_identity_row": identity_row,
+            }
+    else:
+        identity = None
+
+    return {
+        "arithmetic_period": selector["arithmetic_period"],
+        "starts": selector["starts"],
+        "targets_per_window": selector["targets_per_window"],
+        "window_count": selector["window_count"],
+        "first_two_threshold": first_two_threshold,
+        "tail_threshold": tail_threshold,
+        "component_pair": component_pair,
+        "calibration_targets": calibration_targets,
+        "calibrated_combined_floor_driver_floor": driver_floor,
+        "calibrated_normalized_real_channel_linf_bound": channel_bound,
+        "calibrated_real_channel_l1_to_principal_mean": (
+            channel_l1_to_principal),
+        "scanned_target_count": selector["scanned_target_count"],
+        "tail_target_count": selector["tail_target_count"],
+        "tail_targets": tail_targets,
+        "target_rows": target_rows,
+        "positive_strict_margin_targets": tuple(positive_margin_targets),
+        "nonpositive_strict_margin_targets": tuple(
+            nonpositive_margin_targets),
+        "all_tail_targets_have_positive_strict_margin": (
+            bool(tail_targets) and not nonpositive_margin_targets),
+        "source_tail_selector_grid_receipt": selector,
+        "source_calibration_closure_margin_receipt": calibration,
+        "source_action_identity_receipt": identity,
+        "strict_closure_margin_census_measured": True,
+        "strict_closure_margin_theorem_proved": False,
+        "combined_floor_driver_theorem_proved": False,
+        "pointwise_real_channel_norm_estimate_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_removed_support_gram_receipt(
         start=10000, cycle_count=1, targets_per_cycle=501,
         tolerance=1e-9, selected_targets=None):

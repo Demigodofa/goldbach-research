@@ -10673,6 +10673,18 @@ This suggests the known active row is not trivially periodic in the next six
 same-residue windows, but no fixed-inequality rows were stressed and no
 theorem is proved.
 
+`q286_active_lane_strict_closure_margin_census_receipt` now applies the fixed
+strict closure scalar to targets selected by a predeclared active-lane window,
+while keeping the closure constants calibrated from
+`14138,1222142,1323632,1379072`.  Focused regression
+`test_q286_active_lane_strict_closure_margin_census` passed in `259.586s`.
+The evidence file
+`evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`
+records the compact active window `1379072,1379074,1379076,1379078,1379080`:
+one selected tail target, `1379072`, with calibrated strict closure margin
+`0.48379401372791037`.  This is finite selected-window evidence only; the
+universal active-lane strict-margin theorem remains open.
+
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to
 zeros of Dirichlet L-functions/RH-type statements, not a ready-made pointwise

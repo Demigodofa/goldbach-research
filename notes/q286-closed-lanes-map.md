@@ -415,6 +415,14 @@ current comparison set.
    five targets per window.  It found zero active tail targets across `30`
    scanned targets.  This falsifies simple immediate same-residue repetition
    of the known local active row, but no fixed-inequality rows were stressed.
+50. The active-lane strict closure-margin census regression passed in
+   `259.586s`.  It freezes the closure constants from
+   `14138,1222142,1323632,1379072` and applies
+   `driver_margin + L * channel_margin` to selected active-window targets.
+   The compact evidence file
+   `evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`
+   scanned five targets around `1379072`, selected exactly `1379072`, and
+   measured strict margin `0.48379401372791037`.
 
 ## Still open
 

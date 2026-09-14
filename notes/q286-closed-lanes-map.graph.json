@@ -563,6 +563,14 @@
       "status_boundary": "selector-only recurrence check; no fixed-inequality rows were stressed, no uniform theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.active_lane_strict_closure_margin_census",
+      "type": "receipt",
+      "label": "q286_active_lane_strict_closure_margin_census_receipt",
+      "status": "validated_selected_active_window",
+      "validation": "test_q286_active_lane_strict_closure_margin_census passed in 259.586s; evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json selected 1379072 from a five-target window and measured calibrated strict closure margin 0.48379401372791037",
+      "status_boundary": "finite selected-window strict-margin evidence only; no universal active-lane theorem and no Goldbach proof"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1034,6 +1042,16 @@
       "from": "receipt.component_pair_tail_selector_active_residue_holdout",
       "to": "structure.active_subcone",
       "type": "profiles"
+    },
+    {
+      "from": "receipt.active_lane_strict_closure_margin_census",
+      "to": "receipt.component_pair_tail_selector_grid",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.active_lane_strict_closure_margin_census",
+      "to": "receipt.component_pair_closure_margin_profile",
+      "type": "tests"
     },
     {
       "from": "receipt.component_pair_real_channel_action",

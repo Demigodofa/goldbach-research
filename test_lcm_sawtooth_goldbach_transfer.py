@@ -94,6 +94,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_lower_support_component_pair_fixed_inequality_stress_receipt,
     q286_lower_support_component_pair_fixed_inequality_target_census_receipt,
     q286_lower_support_component_pair_tail_selector_grid_receipt,
+    q286_active_lane_strict_closure_margin_census_receipt,
     q286_first_three_removed_support_gram_receipt,
     q286_first_three_removed_vector_stress_receipt,
     q286_first_three_removed_low_tail_lift_receipt,
@@ -3462,6 +3463,45 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_fixed_conductor_twisted_goldbach_estimate_proved"])
+        self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_active_lane_strict_closure_margin_census(self):
+        receipt = q286_active_lane_strict_closure_margin_census_receipt(
+            starts=(1379072,), targets_per_window=5)
+        self.assertEqual(receipt["arithmetic_period"], 10010)
+        self.assertEqual(receipt["starts"], (1379072,))
+        self.assertEqual(receipt["scanned_target_count"], 5)
+        self.assertEqual(receipt["tail_target_count"], 1)
+        self.assertEqual(receipt["tail_targets"], (1379072,))
+        self.assertEqual(receipt["calibration_targets"], (
+            14138, 1222142, 1323632, 1379072))
+        self.assertAlmostEqual(
+            receipt["calibrated_combined_floor_driver_floor"],
+            -0.1017253843274695)
+        self.assertAlmostEqual(
+            receipt["calibrated_normalized_real_channel_linf_bound"],
+            0.05885324711081062)
+        self.assertAlmostEqual(
+            receipt["calibrated_real_channel_l1_to_principal_mean"],
+            15.262957606760978)
+        self.assertEqual(receipt["positive_strict_margin_targets"],
+                         (1379072,))
+        self.assertEqual(receipt["nonpositive_strict_margin_targets"], ())
+        self.assertTrue(receipt[
+            "all_tail_targets_have_positive_strict_margin"])
+        row = receipt["target_rows"][1379072]
+        self.assertAlmostEqual(
+            row["strict_closure_margin_to_calibrated_endpoint"],
+            0.48379401372791037)
+        self.assertTrue(row["strict_closure_margin_positive"])
+        self.assertTrue(row["positive_by_reconstructed_identity"])
+        self.assertTrue(receipt["strict_closure_margin_census_measured"])
+        self.assertFalse(receipt[
+            "strict_closure_margin_theorem_proved"])
+        self.assertFalse(receipt["combined_floor_driver_theorem_proved"])
+        self.assertFalse(receipt[
+            "pointwise_real_channel_norm_estimate_proved"])
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

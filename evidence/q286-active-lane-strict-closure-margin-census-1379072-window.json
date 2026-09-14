@@ -1,0 +1,45 @@
+{
+  "receipt": "q286-active-lane-strict-closure-margin-census-1379072-window",
+  "generated_on": "2026-09-13",
+  "purpose": "Apply the fixed q286 strict conditional closure scalar to targets selected by a predeclared active-lane window.",
+  "selector": {
+    "starts": [
+      1379072
+    ],
+    "targets_per_window": 5,
+    "first_two_modes_to_principal_ratio": "< -0.2",
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "scanned_target_count": 5,
+  "tail_target_count": 1,
+  "tail_targets": [
+    1379072
+  ],
+  "calibration_targets": [
+    14138,
+    1222142,
+    1323632,
+    1379072
+  ],
+  "calibrated_combined_floor_driver_floor": -0.10172538432746947,
+  "calibrated_normalized_real_channel_linf_bound": 0.05885324711081062,
+  "calibrated_real_channel_l1_to_principal_mean": 15.262957606760978,
+  "positive_strict_margin_targets": [
+    1379072
+  ],
+  "nonpositive_strict_margin_targets": [],
+  "all_tail_targets_have_positive_strict_margin": true,
+  "target_rows": {
+    "1379072": {
+      "driver_margin_to_calibrated_floor": 5.551115123125783e-17,
+      "channel_margin_to_calibrated_linf_bound": 0.031697265116795305,
+      "strict_closure_margin_to_calibrated_endpoint": 0.48379401372791037,
+      "full_action_to_principal_ratio": 0.944998867177687
+    }
+  },
+  "validation": {
+    "focused_unittest": "test_q286_active_lane_strict_closure_margin_census passed in 259.586s",
+    "direct_probe": "q286_active_lane_strict_closure_margin_census_receipt(starts=(1379072,), targets_per_window=5)"
+  },
+  "boundary": "Finite selected-window evidence only. The closure constants are frozen from the calibration targets, but this does not prove the strict closure margin is positive on the whole active lane or prove Goldbach."
+}

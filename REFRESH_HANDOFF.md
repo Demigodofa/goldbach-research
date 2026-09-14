@@ -19371,6 +19371,24 @@ active tail targets.  This is still selector-only evidence: no
 fixed-inequality stress rows were generated, so it is not support for the
 inequality.
 
+New strict closure-margin census:
+
+- `q286_active_lane_strict_closure_margin_census_receipt`
+
+Focused regression
+`test_q286_active_lane_strict_closure_margin_census` passed in `259.586s`.
+The receipt freezes the closure constants from calibration targets
+`14138,1222142,1323632,1379072`, then applies
+`driver_margin + L * channel_margin` only to targets selected by a
+predeclared active-lane window.
+
+Evidence is recorded in
+`evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`.
+It scanned `1379072,1379074,1379076,1379078,1379080`, selected exactly
+`1379072`, and measured calibrated strict closure margin
+`0.48379401372791037`.  This is finite selected-window evidence only; the
+strict-margin theorem over the full active lane remains open.
+
 External-source context checked on 2026-09-13: public arXiv sources around
 Goldbach representations in arithmetic progressions emphasize average
 asymptotics, short-interval/AP mean-value theorems, and relations with zeros

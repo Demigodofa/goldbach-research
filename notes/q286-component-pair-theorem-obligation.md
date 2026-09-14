@@ -1456,6 +1456,22 @@ idea that the known active row simply repeats in the immediate next six
 same-residue windows.  It still generates no fixed-inequality stress row and
 therefore gives no direct support for the inequality.
 
+`q286_active_lane_strict_closure_margin_census_receipt` now closes the loop
+between selector windows and the conditional theorem target.  It freezes
+`d0`, `B`, and `L` from the calibration targets
+`14138,1222142,1323632,1379072`, then computes
+
+```text
+driver_margin + L * channel_margin
+```
+
+for every target selected by the predeclared active-lane selector.  Focused
+regression `test_q286_active_lane_strict_closure_margin_census` passed in
+`259.586s`.  The compact evidence file
+`evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`
+scans the same five-target window around `1379072`, selects exactly
+`1379072`, and measures strict margin `0.48379401372791037`.
+
 ## External source context
 
 Fresh public-source check on 2026-09-13 confirms the route is close to known

@@ -135,3 +135,12 @@ This scalar is the conditional closure margin.  A negative value falsifies the
 current constants.  A positive value on more predeclared active targets would
 not prove the theorem, but it would identify which of the two universal
 assumptions is actually carrying the slack.
+
+`q286_active_lane_strict_closure_margin_census_receipt` now implements this
+audit with calibration constants frozen from
+`14138,1222142,1323632,1379072`.  The focused regression
+`test_q286_active_lane_strict_closure_margin_census` passed in `259.586s`.
+The compact active-window evidence in
+`evidence/q286-active-lane-strict-closure-margin-census-1379072-window.json`
+scanned `1379072,1379074,1379076,1379078,1379080`, selected `1379072`, and
+measured strict closure margin `0.48379401372791037`.
