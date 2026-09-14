@@ -110,6 +110,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_selected_alignment_complement_certificate_receipt,
     q286_first_three_tail_alignment_complement_window_receipt,
     q286_first_three_tail_hit_residue_profile_receipt,
+    q286_active_selector_necessary_condition_scout_receipt,
     q286_first_three_tail_threshold_ladder_receipt,
     q286_first_three_complement_cooccurrence_receipt,
     q286_nonrescued_first_three_tail_classification_receipt,
@@ -3675,6 +3676,37 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["global_minimum_first_three_to_principal_ratio"], -.3)
         self.assertTrue(receipt[
             "first_three_tail_mode_only_fast_horizon_measured"])
+
+    def test_q286_active_selector_necessary_condition_scout(self):
+        receipt = q286_active_selector_necessary_condition_scout_receipt()
+        self.assertEqual(receipt["starts"], (
+            1120120, 1240240, 1500500, 2001000))
+        self.assertEqual(receipt["cycle_count_per_start"], 12)
+        self.assertEqual(receipt["targets_per_cycle"], 25)
+        self.assertEqual(receipt["tested_target_count"], 1200)
+        self.assertEqual(receipt["first_three_tail_target_count"], 0)
+        self.assertEqual(receipt["first_three_tail_targets"], ())
+        self.assertTrue(receipt[
+            "active_selector_rows_excluded_by_first_three_condition"])
+        self.assertEqual(
+            receipt["global_minimum_first_three_row"][
+                "minimum_first_three_target"],
+            1240258)
+        self.assertAlmostEqual(
+            receipt["global_minimum_first_three_row"][
+                "minimum_first_three_to_principal_ratio"],
+            -0.23248485272080724)
+        self.assertEqual(
+            [row["first_three_tail_count_below_threshold"]
+             for row in receipt["block_rows"]],
+            [0, 0, 0, 0])
+        self.assertTrue(receipt[
+            "active_selector_necessary_condition_scout_measured"])
+        self.assertFalse(receipt["first_two_selector_condition_measured"])
+        self.assertFalse(receipt["strict_closure_stress_run"])
+        self.assertFalse(receipt["fixed_inequality_stress_run"])
+        self.assertFalse(receipt["active_selector_rarity_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_weighted_discrepancy_norm(self):
         receipt = q286_first_three_weighted_discrepancy_norm_receipt(

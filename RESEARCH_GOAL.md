@@ -10673,10 +10673,12 @@ its minimum first-two/first-three row at target `1010026`, where first-two was
 stronger denominator evidence than the earlier `6x25` grid, but it is still
 selector-only and supplies no strict-closure stress row.
 
-`evidence/q286-first-three-tail-scout-4x12x25.json` adds a cheaper
-necessary-condition scout on new windows.  It scanned starts `1120120`,
-`1240240`, `1500500`, and `2001000`, with `12` cycles and `25` targets per
-cycle at each start, for `1200` targets total.  No target had
+`q286_active_selector_necessary_condition_scout_receipt` adds a cheaper
+necessary-condition scout on new windows.  Focused regression
+`test_q286_active_selector_necessary_condition_scout` passed in `33.894s`.
+The evidence file `evidence/q286-first-three-tail-scout-4x12x25.json` scans
+starts `1120120`, `1240240`, `1500500`, and `2001000`, with `12` cycles and
+`25` targets per cycle at each start, for `1200` targets total.  No target had
 `first_three < -0.3`; the block minima were `-0.20254699412387317`,
 `-0.23248485272080724`, `-0.13253981209348936`, and
 `-0.12131202314480176`.  Since the active selector requires

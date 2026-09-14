@@ -19373,14 +19373,16 @@ strict-closure stress rows were generated.
 
 Fast necessary-condition scout evidence is recorded in
 `evidence/q286-first-three-tail-scout-4x12x25.json`.  It used
-`q286_first_three_tail_hit_residue_profile_receipt` on starts `1120120`,
+`q286_active_selector_necessary_condition_scout_receipt` on starts `1120120`,
 `1240240`, `1500500`, and `2001000`, with `12` cycles and `25` targets per
 cycle at each start.  It scanned `1200` new targets and found zero
 first-three hits below `-0.3`; block minima were `-0.20254699412387317`,
 `-0.23248485272080724`, `-0.13253981209348936`, and
 `-0.12131202314480176`.  Since the active selector requires
 `first_three < -0.3`, these windows contain no active-selector rows.  This is
-only a necessary-condition exclusion and not strict-closure support.
+only a necessary-condition exclusion and not strict-closure support.  Focused
+regression `test_q286_active_selector_necessary_condition_scout` passed in
+`33.894s`.
 
 Additional active-residue holdout evidence is recorded in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json`.  This used

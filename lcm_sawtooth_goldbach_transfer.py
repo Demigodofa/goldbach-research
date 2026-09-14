@@ -18022,6 +18022,101 @@ def q286_first_three_tail_hit_residue_profile_receipt(
     }
 
 
+def q286_active_selector_necessary_condition_scout_receipt(
+        starts=(1120120, 1240240, 1500500, 2001000),
+        cycle_count=12, targets_per_cycle=25, tail_threshold=.3,
+        tolerance=1e-9):
+    """Scout predeclared windows for the active selector's tail condition.
+
+    The active q286 lane currently requires ``first_three < -tail_threshold``.
+    This receipt runs the fast first-three scanner only.  A zero-hit block
+    proves that no target in that finite block can enter the active selector,
+    but it does not measure first-two, complement rescue, fixed inequalities,
+    or strict closure margins.
+    """
+    starts = tuple(dict.fromkeys(starts))
+    if (not starts or any(type(start) is not int or start < 40
+                          or start % 2 for start in starts)):
+        raise ValueError("starts must be nonempty even integers at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    block_rows = []
+    tail_targets = []
+    global_minimum_row = None
+    arithmetic_period = None
+    for start in starts:
+        receipt = q286_first_three_tail_hit_residue_profile_receipt(
+            start=start, cycle_count=cycle_count,
+            targets_per_cycle=targets_per_cycle,
+            negative_tail_thresholds=(tail_threshold,),
+            tolerance=tolerance)
+        arithmetic_period = receipt["arithmetic_period"]
+        profile = receipt["threshold_profiles"][tail_threshold]
+        block_tail_targets = tuple(profile["tail_targets"])
+        block_minimum_row = {
+            "start": start,
+            "minimum_first_three_target": (
+                receipt["global_minimum_first_three_target"]),
+            "minimum_first_three_to_principal_ratio": (
+                receipt["global_minimum_first_three_to_principal_ratio"]),
+        }
+        if (global_minimum_row is None
+                or block_minimum_row[
+                    "minimum_first_three_to_principal_ratio"]
+                < global_minimum_row[
+                    "minimum_first_three_to_principal_ratio"]):
+            global_minimum_row = block_minimum_row
+        tail_targets.extend(block_tail_targets)
+        block_rows.append({
+            "start": start,
+            "cycle_count": cycle_count,
+            "targets_per_cycle": targets_per_cycle,
+            "tested_target_count": receipt["tested_target_count"],
+            "first_three_tail_count_below_threshold": len(
+                block_tail_targets),
+            "tail_targets": block_tail_targets,
+            "minimum_first_three_target": block_minimum_row[
+                "minimum_first_three_target"],
+            "minimum_first_three_to_principal_ratio": block_minimum_row[
+                "minimum_first_three_to_principal_ratio"],
+            "source_first_three_tail_hit_residue_profile_receipt": (
+                receipt),
+        })
+
+    tail_targets = tuple(tail_targets)
+    return {
+        "arithmetic_period": arithmetic_period,
+        "starts": starts,
+        "cycle_count_per_start": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": len(starts) * cycle_count * targets_per_cycle,
+        "block_rows": tuple(block_rows),
+        "first_three_tail_target_count": len(tail_targets),
+        "first_three_tail_targets": tail_targets,
+        "global_minimum_first_three_row": global_minimum_row,
+        "active_selector_rows_excluded_by_first_three_condition": (
+            not tail_targets),
+        "active_selector_necessary_condition_scout_measured": True,
+        "first_two_selector_condition_measured": False,
+        "strict_closure_stress_run": False,
+        "fixed_inequality_stress_run": False,
+        "eventual_first_three_tail_bound_proved": False,
+        "active_selector_rarity_theorem_proved": False,
+        "strict_closure_margin_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_three_tail_threshold_ladder_receipt(
         start=10000, cycle_count=32, targets_per_cycle=5005,
         negative_tail_thresholds=(.2, .25, .275, .3), block_size=32,
