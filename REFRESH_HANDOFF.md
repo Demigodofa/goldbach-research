@@ -19971,6 +19971,43 @@ Therefore generic local orbit-uniformity is a valid sufficient conditional
 theorem but too blunt for the observed active-scale mechanism.  Stay on the
 coefficient-sensitive mass/landing theorem target.
 
+Signed-projection theorem obligation:
+
+- `q286_first_three_signed_projection_obligation_receipt`
+- `tools/build_q286_first_three_signed_projection_obligation.py`
+- `evidence/q286-first-three-signed-projection-obligation.json`
+- focused regression:
+  `test_q286_first_three_signed_projection_obligation`
+
+This is the sharper backward theorem after generic orbit uniformity is
+demoted.  With `delta_N = mu_N-u_a` and q286 coefficient vector `c_a`,
+
+```text
+first_three(N) = <delta_N, c_a>.
+```
+
+The coefficient-sensitive sufficient theorem is therefore:
+
+```text
+<delta_N, c_a> >= -tau
+```
+
+or, for nonzero norms,
+
+```text
+cos(delta_N,c_a) >= -tau/(||delta_N||_2 ||c_a||_2).
+```
+
+On the holdout samples, tail `1222142` is the only signed-projection failure,
+with cosine margin about `-0.012059483057299869`.  Clear `1242118` fails the
+generic L2 uniformity budget by about `2.9097499848440553` but passes the
+signed-projection floor with margin about `0.01554916722773031`; its deviation
+is about `0.9446350171767286` orthogonal by L2 fraction.  Clear `1240888`
+also fails generic uniformity but passes signed projection with margin about
+`0.0462017717385812`.  This is still an unproved pointwise signed
+prime-correlation estimate, but it is the currently sharpest q286 first-three
+theorem target.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

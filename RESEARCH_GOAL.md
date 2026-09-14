@@ -11039,6 +11039,26 @@ still clearing the first-three threshold.  Thus a generic local-uniformity
 proof is sufficient but much too blunt at the active scale; the viable theorem
 target remains coefficient-sensitive mass/landing control.
 
+The next backward theorem target is now recorded in
+`evidence/q286-first-three-signed-projection-obligation.json`.  Let
+`delta_N = mu_N-u_a` be the actual reflection-orbit mass deviation from local
+uniformity, and let `c_a` be the q286 first-three coefficient vector.  Then:
+
+```text
+first_three(N) = <delta_N, c_a>.
+```
+
+Thus the exact coefficient-sensitive theorem is the signed projection bound
+`<delta_N,c_a> >= -tau`, equivalently the cosine floor
+`cos(delta_N,c_a) >= -tau/(||delta_N||_2||c_a||_2)` when the norms are
+nonzero.  On the holdout samples, tail `1222142` fails this floor with cosine
+margin about `-0.012059483057299869`; clear `1242118` passes with margin
+about `0.01554916722773031` despite failing generic L2 uniformity by about
+`2.9097499848440553`; clear `1240888` passes with margin about
+`0.0462017717385812`.  This preserves the sharper theorem route: prove a
+pointwise anti-alignment bound for actual prime-pair orbit deviations, not a
+full uniformity bound.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

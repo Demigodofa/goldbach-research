@@ -116,6 +116,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_mass_matched_pair_decomposition_receipt,
     q286_first_three_mass_landing_obligation_receipt,
     q286_first_three_orbit_uniformity_budget_receipt,
+    q286_first_three_signed_projection_obligation_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4162,6 +4163,29 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "generic_uniformity_budget_too_strong_for_clear_samples"])
         self.assertTrue(receipt["orbit_uniformity_budget_measured"])
         self.assertFalse(receipt["orbit_uniformity_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_signed_projection_obligation(self):
+        receipt = q286_first_three_signed_projection_obligation_receipt()
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(
+            receipt["signed_projection_failure_targets"], (1222142,))
+        self.assertEqual(
+            set(receipt[
+                "generic_uniformity_fail_signed_projection_pass_targets"]),
+            {1242118, 1240888})
+        rows = receipt["sample_rows"]
+        self.assertLess(rows[1222142]["cosine_margin_to_threshold"], 0)
+        self.assertGreater(rows[1242118]["cosine_margin_to_threshold"], 0)
+        self.assertGreater(rows[1240888]["cosine_margin_to_threshold"], 0)
+        self.assertGreater(
+            rows[1242118]["orthogonal_delta_l2_fraction"], .9)
+        self.assertLess(
+            receipt["maximum_projection_identity_error"], 1e-9)
+        self.assertTrue(receipt[
+            "signed_projection_is_weaker_than_generic_uniformity_on_samples"])
+        self.assertTrue(receipt["signed_projection_obligation_measured"])
+        self.assertFalse(receipt["signed_projection_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

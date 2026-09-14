@@ -645,6 +645,35 @@ generic orbit-uniformity theorem would be sufficient but far stronger than
 the observed active-scale rescue mechanism requires.  The live target remains
 coefficient-sensitive mass/landing control.
 
+The coefficient-sensitive signed-projection obligation is recorded in:
+
+```text
+evidence/q286-first-three-signed-projection-obligation.json
+```
+
+With `delta_N = mu_N-u_a` and coefficient vector `c_a`, the exact identity is
+`first_three(N)=<delta_N,c_a>`.  The weaker backward theorem is therefore the
+anti-alignment bound:
+
+```text
+<delta_N,c_a> >= -tau
+```
+
+or equivalently, for nonzero norms,
+
+```text
+cos(delta_N,c_a) >= -tau/(||delta_N||_2||c_a||_2).
+```
+
+On the holdout samples, tail `1222142` fails this floor with cosine margin
+about `-0.012059483057299869`.  Clear rows `1242118` and `1240888` both fail
+generic uniformity but pass signed projection, with cosine margins about
+`0.01554916722773031` and `0.0462017717385812`.  For `1242118`, the deviation
+is about `0.9446350171767286` orthogonal by L2 fraction, explaining how it can
+fail uniformity yet clear the first-three threshold.  This is the sharpened
+theorem obligation: prove pointwise anti-alignment control for actual
+prime-pair orbit deviations.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

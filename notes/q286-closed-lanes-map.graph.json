@@ -45,6 +45,14 @@
       "goldbach_proved": false
     },
     {
+      "id": "theorem.first_three_signed_projection",
+      "type": "theorem_target",
+      "label": "Control q286 first-three anti-alignment",
+      "status": "open",
+      "statement": "For actual q286 reflection-orbit mass deviation delta_N=mu_N-u_a and coefficient vector c_a, prove the pointwise anti-alignment bound <delta_N,c_a> >= -0.3, equivalently the corresponding cosine floor when norms are nonzero.",
+      "goldbach_proved": false
+    },
+    {
       "id": "lane.threshold_ladders",
       "type": "closed_lane",
       "label": "Whole-tail threshold ladders",
@@ -185,6 +193,14 @@
       "status": "conditional_theorem_and_demoted_route",
       "validation": "q286_first_three_orbit_uniformity_budget_receipt and tools/build_q286_first_three_orbit_uniformity_budget.py generated evidence/q286-first-three-orbit-uniformity-budget.json; the conditional theorem uses L1 budget tau/||c_a||_infinity or L2 budget tau/||c_a||_2, but clear rows 1242118 and 1240888 fail the sufficient budgets while clearing first_three >= -.3",
       "status_boundary": "finite conditional-theorem budget and stress diagnostic only; no orbit-uniformity theorem, no mass/landing theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_signed_projection_obligation",
+      "type": "receipt",
+      "label": "q286 first-three signed-projection obligation",
+      "status": "theorem_obligation_formalized",
+      "validation": "q286_first_three_signed_projection_obligation_receipt and tools/build_q286_first_three_signed_projection_obligation.py generated evidence/q286-first-three-signed-projection-obligation.json; tail 1222142 fails the cosine floor with margin about -0.012059483057299869, while clear rows 1242118 and 1240888 fail generic uniformity but pass signed projection",
+      "status_boundary": "finite signed-projection theorem-obligation evidence only; no anti-alignment theorem, no signed prime-correlation estimate, and no Goldbach proof"
     },
     {
       "id": "lane.support_mass_projection",
@@ -1636,6 +1652,21 @@
     },
     {
       "from": "receipt.q286_first_three_orbit_uniformity_budget",
+      "to": "obligation.active_selector_rarity",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_signed_projection_obligation",
+      "to": "receipt.q286_first_three_orbit_uniformity_budget",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_signed_projection_obligation",
+      "to": "theorem.first_three_signed_projection",
+      "type": "supports"
+    },
+    {
+      "from": "theorem.first_three_signed_projection",
       "to": "obligation.active_selector_rarity",
       "type": "requires"
     },

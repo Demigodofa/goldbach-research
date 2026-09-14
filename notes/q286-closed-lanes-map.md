@@ -640,6 +640,18 @@ current comparison set.
    sufficient budgets while still clearing the threshold.  This demotes
    generic orbit uniformity as the main proof engine and preserves the
    coefficient-sensitive mass/landing target.
+72. `q286_first_three_signed_projection_obligation_receipt`, with evidence in
+   `evidence/q286-first-three-signed-projection-obligation.json`, states the
+   sharper backward theorem target.  With orbit-mass deviation
+   `delta_N=mu_N-u_a` and q286 coefficient vector `c_a`, the exact identity is
+   `first_three(N)=<delta_N,c_a>`.  Thus the target theorem is the
+   anti-alignment bound `<delta_N,c_a> >= -tau`, or equivalently the cosine
+   floor `cos(delta_N,c_a) >= -tau/(||delta_N||_2||c_a||_2)`.  On the holdout
+   samples, tail `1222142` fails this condition with cosine margin about
+   `-0.012059483057299869`, while clear rows `1242118` and `1240888` pass it
+   despite failing generic uniformity budgets.  This is now the sharpest
+   q286 first-three theorem target, but it remains an unproved pointwise
+   signed prime-correlation estimate.
 
 ## Still open
 

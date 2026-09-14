@@ -20081,6 +20081,154 @@ def q286_first_three_orbit_uniformity_budget_receipt(
     }
 
 
+def q286_first_three_signed_projection_obligation_receipt(
+        sample_targets=(1222142, 1242118, 1240888), tail_threshold=.3,
+        tolerance=1e-9, include_sample_rows=True):
+    """Quantify the coefficient-sensitive signed-projection theorem target.
+
+    The generic orbit-uniformity budget is sufficient but too strong for
+    observed clear rows.  This receipt works backward to the exact weaker
+    direction.  With local orbit-mass deviation ``delta_N = mu_N-u_a`` and
+    q286 first-three coefficient vector ``c_a``,
+
+    ``first_three(N) = <delta_N, c_a>``.
+
+    Therefore a coefficient-sensitive theorem only needs to control the
+    anti-aligned projection of ``delta_N`` onto ``c_a``:
+
+    ``<delta_N, c_a> >= -tau``.
+
+    Equivalently, for nonzero ``delta_N`` and ``c_a``, it suffices to prove
+    the cosine floor
+
+    ``cos(delta_N,c_a) >= -tau/(||delta_N||_2 ||c_a||_2)``.
+
+    This is still an unproved pointwise signed prime-correlation estimate, but
+    it is strictly more targeted than generic orbit uniformity.
+    """
+    sample_targets = tuple(sample_targets)
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_sample_rows) is not bool:
+        raise ValueError("include_sample_rows must be boolean")
+
+    uniformity = q286_first_three_orbit_uniformity_budget_receipt(
+        sample_targets=sample_targets, tail_threshold=tail_threshold,
+        tolerance=tolerance, include_residue_rows=False,
+        include_sample_rows=True)
+
+    sample_rows = {}
+    signed_projection_failure_targets = []
+    generic_uniformity_fail_signed_projection_pass_targets = []
+    maximum_projection_identity_error = 0.0
+    for target, base_row in uniformity["sample_rows"].items():
+        if not base_row.get("has_strict_central_prime_pairs"):
+            sample_rows[target] = base_row
+            continue
+        first_three = base_row["first_three_to_principal_ratio"]
+        delta_l2 = base_row["orbit_l2_distance_to_local_uniform"]
+        coefficient_l2 = base_row["coefficient_l2_to_principal_ratio"]
+        product = delta_l2 * coefficient_l2
+        if product > tolerance:
+            signed_cosine = first_three / product
+            required_cosine_floor = -tail_threshold / product
+            cosine_margin = signed_cosine - required_cosine_floor
+        else:
+            signed_cosine = math.nan
+            required_cosine_floor = -math.inf
+            cosine_margin = math.inf
+        projected_delta_l2 = (
+            abs(first_three) / coefficient_l2
+            if coefficient_l2 > tolerance else math.nan)
+        orthogonal_delta_l2 = (
+            math.sqrt(max(0.0, delta_l2 * delta_l2
+                          - projected_delta_l2 * projected_delta_l2))
+            if math.isfinite(projected_delta_l2) else math.nan)
+        projection_identity_error = abs(
+            cosine_margin * product
+            - (first_three + tail_threshold)) if product > tolerance else 0.0
+        maximum_projection_identity_error = max(
+            maximum_projection_identity_error, projection_identity_error)
+        signed_projection_holds = bool(
+            first_three >= -tail_threshold - tolerance)
+        generic_uniformity_holds = bool(
+            base_row["l1_uniformity_certificate_holds"]
+            or base_row["l2_uniformity_certificate_holds"])
+        if not signed_projection_holds:
+            signed_projection_failure_targets.append(target)
+        if signed_projection_holds and not generic_uniformity_holds:
+            generic_uniformity_fail_signed_projection_pass_targets.append(
+                target)
+
+        sample_rows[target] = {
+            "target": target,
+            "target_mod_286": base_row["target_mod_286"],
+            "first_three_to_principal_ratio": first_three,
+            "tail_target": base_row["tail_target"],
+            "threshold_slack": base_row["threshold_slack"],
+            "orbit_l2_distance_to_local_uniform": delta_l2,
+            "coefficient_l2_to_principal_ratio": coefficient_l2,
+            "signed_projection_to_principal_ratio": first_three,
+            "signed_projection_certificate_holds": (
+                signed_projection_holds),
+            "signed_projection_failure_margin": (
+                -tail_threshold - first_three
+                if not signed_projection_holds else 0.0),
+            "signed_projection_cosine": signed_cosine,
+            "required_cosine_floor_for_threshold": (
+                required_cosine_floor),
+            "cosine_margin_to_threshold": cosine_margin,
+            "projected_delta_l2_norm": projected_delta_l2,
+            "orthogonal_delta_l2_norm": orthogonal_delta_l2,
+            "orthogonal_delta_l2_fraction": (
+                orthogonal_delta_l2 / delta_l2
+                if delta_l2 > tolerance else math.nan),
+            "generic_l1_uniformity_certificate_holds": (
+                base_row["l1_uniformity_certificate_holds"]),
+            "generic_l2_uniformity_certificate_holds": (
+                base_row["l2_uniformity_certificate_holds"]),
+            "generic_uniformity_certificate_holds": (
+                generic_uniformity_holds),
+            "l1_budget_utilization": base_row["l1_budget_utilization"],
+            "l2_budget_utilization": base_row["l2_budget_utilization"],
+            "projection_identity_error": projection_identity_error,
+        }
+
+    return {
+        "arithmetic_modulus": uniformity["arithmetic_modulus"],
+        "arithmetic_period": uniformity["arithmetic_period"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": sample_targets,
+        "sample_rows_included": include_sample_rows,
+        "sample_rows": sample_rows if include_sample_rows else {},
+        "signed_projection_failure_targets": tuple(
+            sorted(signed_projection_failure_targets)),
+        "generic_uniformity_fail_signed_projection_pass_targets": tuple(
+            sorted(generic_uniformity_fail_signed_projection_pass_targets)),
+        "maximum_projection_identity_error": (
+            maximum_projection_identity_error),
+        "signed_projection_conditional_theorem": (
+            "For every sufficiently large even N in this q286 lane, if "
+            "<mu_N-u_a,c_a> >= -tau, equivalently cos(delta_N,c_a) >= "
+            "-tau/(||delta_N||_2||c_a||_2) when the norms are nonzero, then "
+            "first_three(N) >= -tau."),
+        "signed_projection_is_weaker_than_generic_uniformity_on_samples": bool(
+            len(generic_uniformity_fail_signed_projection_pass_targets) > 0),
+        "signed_projection_obligation_measured": True,
+        "signed_projection_theorem_proved": False,
+        "mass_landing_inequality_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),
