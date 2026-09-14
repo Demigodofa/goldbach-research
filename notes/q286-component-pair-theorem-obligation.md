@@ -1447,6 +1447,13 @@ This is useful denominator evidence for the sampling question, but no
 fixed-inequality row was tested in those windows.  It must not be counted as
 support for the antipodal thin-large-side inequality.
 
+The larger selector-only holdout in
+`evidence/q286-tail-selector-grid-12x25.json` extends this to starts
+`1000000 + 10010*k` for `k=0..11`, with `25` targets per window.  It scanned
+`300` targets total, selected `0` active tail targets, and found the minimum
+first-two/first-three row at target `1010026`.  This broadens the denominator
+record but still supplies no fixed-inequality or strict-closure stress row.
+
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json` records a
 second selector-only check: the next six same-residue q286-period shifts after
 the known hit `1379072`, with five even targets per window.  It scanned
@@ -1478,13 +1485,14 @@ currently observed strict slack is channel-carried.
 
 `evidence/q286-active-lane-sampling-denominator-map.json` records the current
 sample posture explicitly: the strict closure margin has only been stressed on
-the three selected late active rows, while the `150`-target neutral selector
-grid and the `30`-target same-residue holdout selected zero active tail
+the three selected late active rows, while the `300`-target neutral selector
+holdout and the `30`-target same-residue holdout selected zero active tail
 targets.  Those zero-hit scans are useful denominator evidence, but no
 fixed-inequality or strict-closure row was stressed there.  Thus the next
-obligation is not another tuned threshold receipt; it is a larger predeclared
-selector holdout with separate scanned, selected, applicable, stressed,
-passed, failed, and not-applicable counts.
+obligation is not another tuned threshold receipt; it is either a larger
+predeclared selector holdout on new windows or a stress pass on active rows
+found by an unchanged selector, with scanned, selected, applicable, stressed,
+passed, failed, and not-applicable counts kept separate.
 
 ## External source context
 

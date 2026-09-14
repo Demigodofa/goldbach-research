@@ -10664,6 +10664,15 @@ zero targets satisfying the active `first_two < -0.2` and `first_three < -0.3`
 predicate.  This is denominator evidence only: no fixed-inequality stress rows
 were generated, so it is not support for the inequality.
 
+The larger selector-only holdout in
+`evidence/q286-tail-selector-grid-12x25.json` extends the same unchanged
+selector to starts `1000000 + 10010*k` for `k=0..11`, with `25` targets per
+window.  It scanned `300` targets, selected zero active tail targets, and had
+its minimum first-two/first-three row at target `1010026`, where first-two was
+`-0.20990264929935676` and first-three was `-0.21213063260679105`.  This is
+stronger denominator evidence than the earlier `6x25` grid, but it is still
+selector-only and supplies no strict-closure stress row.
+
 The active-residue holdout in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json` then scanned
 the six same-residue q286-period shifts immediately after the known
@@ -10692,14 +10701,14 @@ strict-margin theorem remains open.
 `evidence/q286-active-lane-sampling-denominator-map.json` now makes the
 sample/cherry-pick posture explicit.  Across the current recorded receipts,
 the strict closure margin has been stressed only on the three selected late
-active targets.  The broader neutral selector grid scanned `150` predeclared
-targets and found zero active tail targets, while the same-residue holdout
-after `1379072` scanned `30` targets and also found zero active tail targets.
-Those zero-hit selector windows are denominator evidence, not closure-margin
-support.  Therefore the sample-size concern and cherry-picking risk remain
-open; the next non-circular test is a larger predeclared selector holdout with
-scanned, selected, applicable, stressed, passed, failed, and not-applicable
-counts reported separately before any constants are changed.
+active targets.  The broader neutral selector holdout now scans `300`
+predeclared targets and finds zero active tail targets, while the same-residue
+holdout after `1379072` scans `30` targets and also finds zero active tail
+targets.  Those zero-hit selector windows are denominator evidence, not
+closure-margin support.  Therefore the sample-size concern and cherry-picking
+risk remain open; the next non-circular test is either a larger predeclared
+selector holdout on new windows or a strict-closure stress pass only if an
+unchanged selector holdout actually produces active rows.
 
 Public-source check on 2026-09-13: the closest visible literature remains
 Goldbach representations in arithmetic progressions and their relation to

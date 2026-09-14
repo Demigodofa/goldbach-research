@@ -19362,6 +19362,15 @@ no target entered the active lane, this is not reinforcement of the fixed
 inequality; it is denominator evidence showing those neutral windows produced
 no stressable rows.
 
+Larger selector-only evidence is recorded in
+`evidence/q286-tail-selector-grid-12x25.json`.  It used starts
+`1000000 + 10010*k` for `k=0..11`, with `25` targets per window, scanned
+`300` targets total, and found `0` active tail targets.  The minimum
+first-two and first-three row was target `1010026`, with first-two
+`-0.20990264929935676` and first-three `-0.21213063260679105`.  This broadens
+the denominator record, but it remains selector-only: no fixed-inequality or
+strict-closure stress rows were generated.
+
 Additional active-residue holdout evidence is recorded in
 `evidence/q286-tail-selector-active-residue-holdout-6x5.json`.  This used
 starts `1379072 + 10010*k` for `k=1..6`, with five even targets per window,
@@ -19400,14 +19409,13 @@ New sampling-denominator map:
 This evidence map separates selected stress fixtures from neutral
 selector-denominator scans.  It records that the strict closure margin has
 only been stressed on the three selected late active rows.  The broader
-neutral selector grid scanned `150` predeclared targets and selected zero
-active tail targets; the same-residue holdout after `1379072` scanned `30`
-targets and also selected zero.  These zero-hit windows are denominator
+neutral selector holdout now scans `300` predeclared targets and selects zero
+active tail targets; the same-residue holdout after `1379072` scans `30`
+targets and also selects zero.  These zero-hit windows are denominator
 evidence only and must not be counted as fixed-inequality or strict-closure
-successes.  The sample-size/cherry-pick concern is still open.  A larger
-predeclared selector holdout should report scanned, selected, applicable,
-stressed, passed, failed, and not-applicable counts separately before any
-constants are changed.
+successes.  The sample-size/cherry-pick concern is still open.  Future
+holdouts should report scanned, selected, applicable, stressed, passed,
+failed, and not-applicable counts separately before any constants are changed.
 
 Do not count the interrupted `12x25` broad strict-closure probe from
 2026-09-13 as mathematical evidence.  It was interrupted after more than

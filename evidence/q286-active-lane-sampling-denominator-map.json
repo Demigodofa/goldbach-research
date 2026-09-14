@@ -1,7 +1,7 @@
 {
   "receipt": "q286-active-lane-sampling-denominator-map",
   "generated_on": "2026-09-13",
-  "source_commit": "3a14abcf75224d030adc0cbd8fbb42ce68490e55",
+  "source_commit": "464cb8afa6d5246f604c9f57a9cbaff2c9fa2255",
   "purpose": "Separate selected stress fixtures, neutral selector-denominator scans, same-residue holdouts, and closure-stressed rows for the q286 active lane.",
   "active_selector": {
     "first_two_modes_to_principal_ratio": "< -0.2",
@@ -38,6 +38,32 @@
       "strict_closure_stressed_target_count": 0,
       "failure_count": 0,
       "boundary": "Selector-only evidence. Because no target entered the active lane, this is denominator evidence only, not support for the fixed inequality or strict closure margin."
+    },
+    {
+      "source": "evidence/q286-tail-selector-grid-12x25.json",
+      "role": "larger neutral selector denominator",
+      "sample_posture": "predeclared neutral windows; includes the earlier 6x25 starts and extends them by six more q286-period shifts",
+      "starts": [
+        1000000,
+        1010010,
+        1020020,
+        1030030,
+        1040040,
+        1050050,
+        1060060,
+        1070070,
+        1080080,
+        1090090,
+        1100100,
+        1110110
+      ],
+      "targets_per_window": 25,
+      "scanned_target_count": 300,
+      "selected_tail_target_count": 0,
+      "fixed_inequality_stressed_target_count": 0,
+      "strict_closure_stressed_target_count": 0,
+      "failure_count": 0,
+      "boundary": "Selector-only evidence. Because no target entered the active lane, this larger holdout broadens the denominator record but still gives no direct strict-closure support."
     },
     {
       "source": "evidence/q286-tail-selector-active-residue-holdout-6x5.json",
@@ -79,19 +105,21 @@
       "boundary": "Finite selected-fixture strict-margin evidence only; no broad active-lane theorem."
     }
   ],
-  "raw_scanned_target_count_across_recorded_receipts": 200,
+  "raw_scanned_target_count_across_recorded_receipts_including_overlaps": 500,
   "known_overlap": [
-    "Target 1379072 appears in both the local fixed-inequality window and the selected strict-closure window."
+    "Target 1379072 appears in both the local fixed-inequality window and the selected strict-closure window.",
+    "The 12x25 neutral selector holdout includes the earlier 6x25 neutral selector grid."
   ],
-  "broad_neutral_selector_scanned_target_count": 150,
+  "largest_broad_neutral_selector_scanned_target_count": 300,
+  "broad_neutral_selector_scanned_target_count": 300,
   "broad_neutral_selector_selected_tail_target_count": 0,
   "broad_neutral_strict_closure_stressed_target_count": 0,
   "selected_fixture_strict_closure_stressed_target_count": 3,
   "sample_size_concern_closed": false,
   "cherry_picking_risk_closed": false,
   "large_enough_sample_claim_supported": false,
-  "interpretation": "The current record is not a large broad sample. It combines narrow stress fixtures, which are useful for locating theorem obligations, with small selector-denominator scans, which have not yet produced broad active rows to stress.",
-  "next_non_circular_test": "Predeclare a larger selector-denominator holdout, record scanned/selected/applicable/stressed counts separately, and only then run the expensive strict-closure stress pass on selected active rows without changing constants.",
+  "interpretation": "The current record is not a large broad sample. It combines narrow stress fixtures, which are useful for locating theorem obligations, with finite selector-denominator scans, which have not yet produced broad active rows to stress.",
+  "next_non_circular_test": "Predeclare additional selector-denominator holdouts on new windows, or run the expensive strict-closure stress pass only when an unchanged selector produces active rows; keep scanned/selected/applicable/stressed counts separate and do not change constants midstream.",
   "do_not_count_as_evidence": [
     "An attempted 12-window by 25-target strict-closure probe on starts 1000000 + 10010*k for k=0..11 was interrupted after more than seven minutes with no receipt. It is a performance finding only, not mathematical evidence."
   ],

@@ -1,0 +1,45 @@
+{
+  "receipt": "q286-tail-selector-grid-12x25",
+  "generated_on": "2026-09-13",
+  "source_commit": "464cb8afa6d5246f604c9f57a9cbaff2c9fa2255",
+  "purpose": "Larger selector-denominator holdout for predeclared neutral q286 windows before running strict-closure or fixed-inequality stress receipts.",
+  "selector": {
+    "first_two_modes_to_principal_ratio": "< -0.2",
+    "first_three_modes_to_principal_ratio": "< -0.3"
+  },
+  "starts": [
+    1000000,
+    1010010,
+    1020020,
+    1030030,
+    1040040,
+    1050050,
+    1060060,
+    1070070,
+    1080080,
+    1090090,
+    1100100,
+    1110110
+  ],
+  "targets_per_window": 25,
+  "window_count": 12,
+  "scanned_target_count": 300,
+  "tail_target_count": 0,
+  "tail_targets": [],
+  "windows_with_hits": [],
+  "minimum_first_two_row": {
+    "target": 1010026,
+    "first_two_modes_to_principal_ratio": -0.20990264929935676,
+    "first_three_modes_to_principal_ratio": -0.21213063260679105
+  },
+  "minimum_first_three_row": {
+    "target": 1010026,
+    "first_two_modes_to_principal_ratio": -0.20990264929935676,
+    "first_three_modes_to_principal_ratio": -0.21213063260679105
+  },
+  "validation": {
+    "direct_selector_probe": "q286_lower_support_component_pair_tail_selector_grid_receipt(starts=tuple(1000000+10010*k for k in range(12)), targets_per_window=25)",
+    "probe_output_summary": "scanned 300; tail_count 0; tails (); windows_with_hits (); minimum first_two and first_three at target 1010026"
+  },
+  "boundary": "Selector-only evidence. No fixed-inequality or strict-closure stress rows were generated because no target entered the active tail lane. This broadens the denominator record but does not prove a uniform theorem or Goldbach."
+}

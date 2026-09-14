@@ -555,6 +555,14 @@
       "status_boundary": "selector-denominator evidence only; no fixed-inequality rows were stressed, no uniform theorem and no Goldbach proof"
     },
     {
+      "id": "receipt.component_pair_tail_selector_grid_12x25",
+      "type": "receipt",
+      "label": "q286 tail selector grid 12x25",
+      "status": "selector_only_holdout",
+      "validation": "evidence/q286-tail-selector-grid-12x25.json scanned 300 predeclared targets across twelve windows, found zero active tail targets, and measured the minimum first-two/first-three row at target 1010026",
+      "status_boundary": "selector-denominator evidence only; no fixed-inequality or strict-closure rows were stressed, no uniform theorem and no Goldbach proof"
+    },
+    {
       "id": "receipt.component_pair_tail_selector_active_residue_holdout",
       "type": "receipt",
       "label": "q286 tail selector active-residue holdout 6x5",
@@ -575,7 +583,7 @@
       "type": "evidence_map",
       "label": "q286 active-lane sampling denominator map",
       "status": "sample_size_open",
-      "validation": "evidence/q286-active-lane-sampling-denominator-map.json separates selected strict-closure stress rows from neutral selector-only zero-hit windows and same-residue holdouts",
+      "validation": "evidence/q286-active-lane-sampling-denominator-map.json separates selected strict-closure stress rows from neutral selector-only zero-hit windows and same-residue holdouts, including the 300-target 12x25 selector holdout",
       "status_boundary": "bookkeeping evidence only; sample-size and cherry-picking risk remain open, no uniform theorem and no Goldbach proof"
     },
     {
@@ -1064,6 +1072,11 @@
     {
       "from": "evidence.active_lane_sampling_denominator_map",
       "to": "receipt.component_pair_tail_selector_grid",
+      "type": "classifies"
+    },
+    {
+      "from": "evidence.active_lane_sampling_denominator_map",
+      "to": "receipt.component_pair_tail_selector_grid_12x25",
       "type": "classifies"
     },
     {

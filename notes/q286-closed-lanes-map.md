@@ -409,6 +409,13 @@ current comparison set.
    and found zero active tail targets.  This is not support for the fixed
    inequality; it shows only that these neutral windows had no stressable
    active-lane rows.
+48a. The larger selector-only holdout
+   `evidence/q286-tail-selector-grid-12x25.json` scanned `300` predeclared
+   targets across starts `1000000 + 10010*k` for `k=0..11` and found zero
+   active tail targets.  Its minimum first-two/first-three row was target
+   `1010026`, with first-two `-0.20990264929935676` and first-three
+   `-0.21213063260679105`.  This broadens the denominator evidence but still
+   creates no fixed-inequality or strict-closure stress row.
 49. The active-residue selector holdout
    `evidence/q286-tail-selector-active-residue-holdout-6x5.json` scanned the
    next six same-residue q286-period shifts after the known `1379072` hit,
@@ -430,7 +437,7 @@ current comparison set.
 51. `evidence/q286-active-lane-sampling-denominator-map.json` now records the
    sampling posture explicitly.  The strict closure margin has only been
    stressed on the three selected late active rows.  The broader neutral
-   selector grid scanned `150` targets and found zero active tail rows; the
+   selector holdout scanned `300` targets and found zero active tail rows; the
    same-residue holdout scanned `30` targets and found zero active tail rows.
    These are denominator facts, not strict-closure successes.  The
    sample-size/cherry-pick concern remains open.
