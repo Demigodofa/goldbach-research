@@ -12101,3 +12101,50 @@ a full-package aggregate arithmetic-placement theorem.  This is finite
 attribution evidence only; it proves no volatile-rim theorem, stable-core
 theorem, selected-fixture classifier theorem, pointwise character-sum
 estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile minimal-clause structure
+
+The row-attributed volatile obligations were then rewritten as inclusion-
+minimal clause families.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-minimal-clause-structure.json
+```
+
+For hard deficit row `13822`, there are exactly two minimal satisfying clauses,
+both of size `6`.  They share the five-channel core
+
+```text
+(1,1), (1,3), (1,7), (2,4), (3,3)
+```
+
+and require either `(4,4)` or `(4,10)`.  Their margins to the floor are about
+`-0.0448533087` and `-0.0045101475`.
+
+For hard deficit row `164598`, there are also exactly two minimal satisfying
+clauses, both of size `3`.  They share the two-channel core
+
+```text
+(1,5), (4,4)
+```
+
+and require either `(1,7)` or `(2,4)`.  Their margins to the floor are about
+`-0.0101101721` and `-0.0049525021`.
+
+Hard deficit row `1222142` is more disjunctive: it has `10` minimal satisfying
+clauses, all of size `4`, and no individually necessary volatile channel.  The
+nearest minimal clause is
+
+```text
+(1,1), (1,3), (3,3), (4,10)
+```
+
+with margin about `-0.0001305906`.
+
+This gives the current narrowest finite volatile theorem target: prove these
+exact clause families from actual binary-prime residue arithmetic, explain why
+the `1222142` alternatives are forced in the combined setting, or replace the
+clause view with a stronger signed aggregate theorem.  This is finite minimal-
+clause evidence only; it proves no volatile-rim theorem, stable-core theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.

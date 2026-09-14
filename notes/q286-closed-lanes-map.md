@@ -1198,6 +1198,19 @@ current comparison set.
    volatile theorem target to a five-channel `13822` obligation, a two-channel
    `164598` obligation, and a `(4,10)` combination hinge for `1222142`, or a
    replacement aggregate arithmetic-placement theorem.
+116. `tools/build_q286_first_three_dominant_mode_volatile_minimal_clause_structure.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-minimal-clause-structure.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-minimal-clause-structure.json`,
+   extracts the inclusion-minimal satisfying volatile subsets for each
+   selected deficit row.  Row `13822` has exactly two six-channel clauses:
+   its five-channel core plus either `(4,4)` or `(4,10)`.  Row `164598` has
+   exactly two three-channel clauses: `(1,5),(4,4)` plus either `(1,7)` or
+   `(2,4)`.  Row `1222142` has ten four-channel clauses and no individually
+   necessary volatile channel; its nearest minimal clause has margin about
+   `-0.0001305906`.  This makes the narrowest volatile target an exact
+   finite clause-family theorem, or a replacement signed aggregate theorem.
 
 ## Still open
 
@@ -1265,6 +1278,9 @@ current comparison set.
   the full eight-channel rim.  The forced-channel attribution further splits
   that rim into a five-channel `13822` obligation, a two-channel `164598`
   obligation, and a `(4,10)` combination hinge needed to stop `1222142` from
-  remaining over-rescued after the seven row-forced channels are fixed.
+  remaining over-rescued after the seven row-forced channels are fixed.  The
+  minimal-clause receipt then makes the target explicit: `13822` and `164598`
+  each have two compact clauses, while `1222142` has ten four-channel clauses
+  and no individually necessary volatile channel.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
