@@ -20681,6 +20681,29 @@ This is the current narrowed theorem target: signed volatile
 repair-versus-adverse magnitude control from actual binary-prime residue
 weights, or a replacement signed aggregate arithmetic-placement theorem.
 
+Dominant-mode volatile critical-margin ledger:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_critical_margin_ledger.py`
+- `notes/q286-first-three-dominant-mode-volatile-critical-margin-ledger.md`
+- `evidence/q286-first-three-dominant-mode-volatile-critical-margin-ledger.json`
+
+This compares each repair and adverse channel magnitude with the row's signed
+magnitude surplus.  Across the selected fixture, `18/39` repair channels are
+individually critical and `19/41` adverse channels are individually
+intolerable.
+
+The stress row `1222142` is all-critical: all six repair channels are
+load-bearing, and both adverse channels are individually intolerable.  Row
+`13556` has one of two repair channels critical and all six adverse channels
+intolerable.  Row `1242118` has no critical repair channel but four of six
+intolerable adverse channels.  Row `1240888` has no repair channels; one of
+eight adverse channels exceeds its surplus, but the actual full volatile
+package still clears.
+
+The live theorem target is now named critical repair/adverse channel magnitude
+control from actual binary-prime residue weights, or a replacement signed
+aggregate theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

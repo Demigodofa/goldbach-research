@@ -1,0 +1,1620 @@
+{
+  "aggregates": {
+    "clear": {
+      "adverse_channel_count": 28,
+      "critical_repair_channel_count": 2,
+      "intolerable_adverse_channel_count": 14,
+      "repair_channel_count": 12,
+      "target_count": 5
+    },
+    "deficit": {
+      "adverse_channel_count": 13,
+      "critical_repair_channel_count": 16,
+      "intolerable_adverse_channel_count": 5,
+      "repair_channel_count": 27,
+      "target_count": 5
+    },
+    "hard_deficit": {
+      "adverse_channel_count": 6,
+      "critical_repair_channel_count": 14,
+      "intolerable_adverse_channel_count": 2,
+      "repair_channel_count": 18,
+      "target_count": 3
+    },
+    "selected": {
+      "adverse_channel_count": 41,
+      "critical_repair_channel_count": 18,
+      "intolerable_adverse_channel_count": 19,
+      "repair_channel_count": 39,
+      "target_count": 10
+    }
+  },
+  "arithmetic_modulus": 286,
+  "candidate": "The quantitative signed-margin target may be sharpened by separating load-bearing repair channels from tolerable channels using each row's remaining surplus.",
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "If 1222142 is not all-critical on both repair and adverse sides, or if selected critical counts drift from the magnitude ledger, this critical-margin compression is invalid.",
+  "goldbach_proved": false,
+  "hard_deficit_targets": [
+    13822,
+    1222142,
+    164598
+  ],
+  "hard_rows": [
+    {
+      "adverse_channel_count": 1,
+      "critical_repair_channel_count": 6,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.05398792710903812,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.05398792710903812,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.01724358108474562,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.05489223962692793,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.05489223962692793,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.018147893602635433,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.08202130544146466,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.08202130544146466,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.04527695941717216,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.059241998640124714,
+          "exceeds_surplus": true,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.059241998640124714,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.02249765261583222,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.05187010753344486,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.05187010753344486,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.015125761509152368,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.045206799023096586,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.045206799023096586,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.00846245299880409,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 0,
+      "intolerable_adverse_channels": [],
+      "repair_channel_count": 7,
+      "repair_to_required_ratio": 1.1165230689948842,
+      "signed_magnitude_surplus": 0.036744346024292496,
+      "target": 13822,
+      "target_mod_286": 94,
+      "tolerable_adverse_channel_count": 1,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.012972600503990475,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.012972600503990475,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.02377174552030202,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ],
+      "tolerable_repair_channel_count": 1,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -0.0048636377924981275,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.0048636377924981275,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.03188070823179437,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 3,
+      "critical_repair_channel_count": 2,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.03791778393469892,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.03791778393469892,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.01876599147952312,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.03092342912870403,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.03092342912870403,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.011771636673528228,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 0,
+      "intolerable_adverse_channels": [],
+      "repair_channel_count": 5,
+      "repair_to_required_ratio": 1.233582762109137,
+      "signed_magnitude_surplus": 0.0191517924551758,
+      "target": 164598,
+      "target_mod_286": 148,
+      "tolerable_adverse_channel_count": 3,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.002027930783131995,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.002027930783131995,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.017123861672043807,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": 0.004250864291460111,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.004250864291460111,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.01490092816371569,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "exceeds_surplus": false,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 2.6662978313450717e-05,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.01912512947686235,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ],
+      "tolerable_repair_channel_count": 3,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -0.016954964227732676,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.016954964227732676,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0021968282274431247,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.011797294263576466,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.011797294263576466,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.007354498191599335,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.003549784149911439,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.003549784149911439,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.015602008305264361,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 2,
+      "critical_repair_channel_count": 6,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.010938875282588398,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.010938875282588398,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.002105695722058251,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.01454886268634833,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.01454886268634833,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.005715683125818183,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.018474432503645177,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.018474432503645177,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.00964125294311503,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.011851048833984464,
+          "exceeds_surplus": true,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.011851048833984464,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.0030178692734543176,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.017169791918250164,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.017169791918250164,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.008336612357720017,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.014046772444381602,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.014046772444381602,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.005213592883851455,
+          "signed_magnitude_surplus": 0.008833179560530147
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 2,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.01021736429315472,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.01021736429315472,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.001384184732624574,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": 0.011405528117525765,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.011405528117525765,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.0025723485569956184,
+          "signed_magnitude_surplus": 0.008833179560530147
+        }
+      ],
+      "repair_channel_count": 6,
+      "repair_to_required_ratio": 1.1129611657848324,
+      "signed_magnitude_surplus": 0.008833179560530147,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "tolerable_adverse_channel_count": 0,
+      "tolerable_adverse_channels": [],
+      "tolerable_repair_channel_count": 0,
+      "tolerable_repair_channels": []
+    }
+  ],
+  "interpretation": {
+    "hole_status": "The finite q286 loop tightens to named critical channels: 1222142 is an all-critical stress row, not a broad-reserve case.",
+    "remaining_theorem": "Prove the critical repair/adverse channel magnitude bounds from actual binary-prime residue weights uniformly, or replace this with a full signed aggregate arithmetic-placement theorem.",
+    "route_status": "A proof must control individual load-bearing repair magnitudes as well as aggregate repair-versus-adverse balance, unless a stronger signed aggregate theorem replaces the channel ledger."
+  },
+  "mechanism": "For each row, compare every repair-channel magnitude and every adverse-channel magnitude with the row's signed magnitude surplus.  A repair channel whose magnitude exceeds surplus is individually load-bearing under removal; an adverse channel whose magnitude exceeds surplus is individually intolerable under addition.",
+  "novelty_label": "new-to-this-task",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If tight rows are all-critical, the theorem target needs named channel magnitudes, not just aggregate sign balance.  If tight rows have tolerable slack, the aggregate inequality may be the right level.",
+  "rows": [
+    {
+      "adverse_channel_count": 6,
+      "critical_repair_channel_count": 1,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": 0.06050184284993354,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.06050184284993354,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.050937752504274514,
+          "signed_magnitude_surplus": 0.009564090345659026
+        }
+      ],
+      "dominant_floor_passes": true,
+      "intolerable_adverse_channel_count": 6,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.03315009592129518,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.03315009592129518,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.023586005575636157,
+          "signed_magnitude_surplus": 0.009564090345659026
+        },
+        {
+          "contribution_to_principal": -0.036708874354922455,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.036708874354922455,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.02714478400926343,
+          "signed_magnitude_surplus": 0.009564090345659026
+        },
+        {
+          "contribution_to_principal": -0.15706315156427392,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.15706315156427392,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.1474990612186149,
+          "signed_magnitude_surplus": 0.009564090345659026
+        },
+        {
+          "contribution_to_principal": -0.06099947139326837,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.06099947139326837,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.05143538104760934,
+          "signed_magnitude_surplus": 0.009564090345659026
+        },
+        {
+          "contribution_to_principal": -0.05299037239421609,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.05299037239421609,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.043426282048557065,
+          "signed_magnitude_surplus": 0.009564090345659026
+        },
+        {
+          "contribution_to_principal": -0.016793247965261587,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.016793247965261587,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.00722915761960256,
+          "signed_magnitude_surplus": 0.009564090345659026
+        }
+      ],
+      "repair_channel_count": 2,
+      "repair_to_required_ratio": 1.179967773341343,
+      "signed_magnitude_surplus": 0.009564090345659026,
+      "target": 13556,
+      "target_mod_286": 114,
+      "tolerable_adverse_channel_count": 0,
+      "tolerable_adverse_channels": [],
+      "tolerable_repair_channel_count": 1,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": 0.0022055973749225363,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.0022055973749225363,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.007358492970736491,
+          "signed_magnitude_surplus": 0.009564090345659026
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 1,
+      "critical_repair_channel_count": 6,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.05398792710903812,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.05398792710903812,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.01724358108474562,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.05489223962692793,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.05489223962692793,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.018147893602635433,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.08202130544146466,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.08202130544146466,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.04527695941717216,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.059241998640124714,
+          "exceeds_surplus": true,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.059241998640124714,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.02249765261583222,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.05187010753344486,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.05187010753344486,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.015125761509152368,
+          "signed_magnitude_surplus": 0.036744346024292496
+        },
+        {
+          "contribution_to_principal": -0.045206799023096586,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.045206799023096586,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.00846245299880409,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 0,
+      "intolerable_adverse_channels": [],
+      "repair_channel_count": 7,
+      "repair_to_required_ratio": 1.1165230689948842,
+      "signed_magnitude_surplus": 0.036744346024292496,
+      "target": 13822,
+      "target_mod_286": 94,
+      "tolerable_adverse_channel_count": 1,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.012972600503990475,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.012972600503990475,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.02377174552030202,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ],
+      "tolerable_repair_channel_count": 1,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -0.0048636377924981275,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.0048636377924981275,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.03188070823179437,
+          "signed_magnitude_surplus": 0.036744346024292496
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 3,
+      "critical_repair_channel_count": 2,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.015720834414845876,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.015720834414845876,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.002262161720666657,
+          "signed_magnitude_surplus": 0.013458672694179219
+        },
+        {
+          "contribution_to_principal": -0.07385852197790685,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.07385852197790685,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.06039984928372763,
+          "signed_magnitude_surplus": 0.013458672694179219
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 3,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.027023602682221284,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.027023602682221284,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.013564929988042065,
+          "signed_magnitude_surplus": 0.013458672694179219
+        },
+        {
+          "contribution_to_principal": 0.04909814967859022,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.04909814967859022,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.035639476984411,
+          "signed_magnitude_surplus": 0.013458672694179219
+        },
+        {
+          "contribution_to_principal": 0.01627919261308177,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.01627919261308177,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.0028205199189025518,
+          "signed_magnitude_surplus": 0.013458672694179219
+        }
+      ],
+      "repair_channel_count": 5,
+      "repair_to_required_ratio": 1.1470532124922728,
+      "signed_magnitude_surplus": 0.013458672694179219,
+      "target": 24424,
+      "target_mod_286": 114,
+      "tolerable_adverse_channel_count": 0,
+      "tolerable_adverse_channels": [],
+      "tolerable_repair_channel_count": 3,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -6.027718732478987e-05,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 6.027718732478987e-05,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.013398395506854429,
+          "signed_magnitude_surplus": 0.013458672694179219
+        },
+        {
+          "contribution_to_principal": -0.006802976476864048,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.006802976476864048,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.006655696217315171,
+          "signed_magnitude_surplus": 0.013458672694179219
+        },
+        {
+          "contribution_to_principal": -0.008538529002169584,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.008538529002169584,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0049201436920096354,
+          "signed_magnitude_surplus": 0.013458672694179219
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 5,
+      "critical_repair_channel_count": 1,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": 0.05750789877276248,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.05750789877276248,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.008569495269287492,
+          "signed_magnitude_surplus": 0.04893840350347499
+        }
+      ],
+      "dominant_floor_passes": true,
+      "intolerable_adverse_channel_count": 2,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.07573268993869196,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.07573268993869196,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.026794286435216974,
+          "signed_magnitude_surplus": 0.04893840350347499
+        },
+        {
+          "contribution_to_principal": -0.09676684778153875,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.09676684778153875,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.047828444278063764,
+          "signed_magnitude_surplus": 0.04893840350347499
+        }
+      ],
+      "repair_channel_count": 3,
+      "repair_to_required_ratio": 1.9812446263808232,
+      "signed_magnitude_surplus": 0.04893840350347499,
+      "target": 40420,
+      "target_mod_286": 94,
+      "tolerable_adverse_channel_count": 3,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.001979788920348253,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.001979788920348253,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.04695861458312674,
+          "signed_magnitude_surplus": 0.04893840350347499
+        },
+        {
+          "contribution_to_principal": -0.010566116512437034,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.010566116512437034,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.03837228699103795,
+          "signed_magnitude_surplus": 0.04893840350347499
+        },
+        {
+          "contribution_to_principal": -0.025975564983685705,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.025975564983685705,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.022962838519789284,
+          "signed_magnitude_surplus": 0.04893840350347499
+        }
+      ],
+      "tolerable_repair_channel_count": 2,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": 0.030886114797656437,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.030886114797656437,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.018052288705818553,
+          "signed_magnitude_surplus": 0.04893840350347499
+        },
+        {
+          "contribution_to_principal": 0.010418195289807024,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.010418195289807024,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.038520208213667965,
+          "signed_magnitude_surplus": 0.04893840350347499
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 4,
+      "critical_repair_channel_count": 0,
+      "critical_repair_channels": [],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 0,
+      "intolerable_adverse_channels": [],
+      "repair_channel_count": 4,
+      "repair_to_required_ratio": 2.338005673575729,
+      "signed_magnitude_surplus": 0.09922857579168903,
+      "target": 55864,
+      "target_mod_286": 94,
+      "tolerable_adverse_channel_count": 4,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.08817081509299234,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.08817081509299234,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.011057760698696698,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": 0.02355545798098456,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.02355545798098456,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.07567311781070447,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": 0.03744869252439023,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.03744869252439023,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.0617798832672988,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": 0.09494956682281891,
+          "exceeds_surplus": false,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.09494956682281891,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.004279008968870124,
+          "signed_magnitude_surplus": 0.09922857579168903
+        }
+      ],
+      "tolerable_repair_channel_count": 4,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -0.05223406662381161,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.05223406662381161,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.046994509167877424,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": -0.011691757478417861,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.011691757478417861,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.08753681831327118,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": -0.08955057308993251,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.08955057308993251,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.009678002701756519,
+          "signed_magnitude_surplus": 0.09922857579168903
+        },
+        {
+          "contribution_to_principal": -0.01991372944445541,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.01991372944445541,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.07931484634723363,
+          "signed_magnitude_surplus": 0.09922857579168903
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 3,
+      "critical_repair_channel_count": 0,
+      "critical_repair_channels": [],
+      "dominant_floor_passes": true,
+      "intolerable_adverse_channel_count": 1,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.09717824084358448,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.09717824084358448,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.03874931456673539,
+          "signed_magnitude_surplus": 0.05842892627684909
+        }
+      ],
+      "repair_channel_count": 5,
+      "repair_to_required_ratio": 1.6115333309671631,
+      "signed_magnitude_surplus": 0.05842892627684909,
+      "target": 129706,
+      "target_mod_286": 148,
+      "tolerable_adverse_channel_count": 2,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.024027728028209676,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.024027728028209676,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.034401198248639416,
+          "signed_magnitude_surplus": 0.05842892627684909
+        },
+        {
+          "contribution_to_principal": -0.010910779398457072,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.010910779398457072,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.04751814687839202,
+          "signed_magnitude_surplus": 0.05842892627684909
+        }
+      ],
+      "tolerable_repair_channel_count": 5,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": 0.03312336907121687,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.03312336907121687,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.02530555720563222,
+          "signed_magnitude_surplus": 0.05842892627684909
+        },
+        {
+          "contribution_to_principal": 0.04331158147838401,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.04331158147838401,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.015117344798465084,
+          "signed_magnitude_surplus": 0.05842892627684909
+        },
+        {
+          "contribution_to_principal": 0.014080539007662048,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.014080539007662048,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.044348387269187044,
+          "signed_magnitude_surplus": 0.05842892627684909
+        },
+        {
+          "contribution_to_principal": 0.056801848808468926,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.056801848808468926,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0016270774683801656,
+          "signed_magnitude_surplus": 0.05842892627684909
+        },
+        {
+          "contribution_to_principal": 0.006656545672359012,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.006656545672359012,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.051772380604490076,
+          "signed_magnitude_surplus": 0.05842892627684909
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 3,
+      "critical_repair_channel_count": 2,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.03791778393469892,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.03791778393469892,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.01876599147952312,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.03092342912870403,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.03092342912870403,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.011771636673528228,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 0,
+      "intolerable_adverse_channels": [],
+      "repair_channel_count": 5,
+      "repair_to_required_ratio": 1.233582762109137,
+      "signed_magnitude_surplus": 0.0191517924551758,
+      "target": 164598,
+      "target_mod_286": 148,
+      "tolerable_adverse_channel_count": 3,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.002027930783131995,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.002027930783131995,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.017123861672043807,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": 0.004250864291460111,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.004250864291460111,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.01490092816371569,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": 2.6662978313450717e-05,
+          "exceeds_surplus": false,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 2.6662978313450717e-05,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.01912512947686235,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ],
+      "tolerable_repair_channel_count": 3,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": -0.016954964227732676,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.016954964227732676,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0021968282274431247,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.011797294263576466,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.011797294263576466,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.007354498191599335,
+          "signed_magnitude_surplus": 0.0191517924551758
+        },
+        {
+          "contribution_to_principal": -0.003549784149911439,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.003549784149911439,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.015602008305264361,
+          "signed_magnitude_surplus": 0.0191517924551758
+        }
+      ]
+    },
+    {
+      "adverse_channel_count": 2,
+      "critical_repair_channel_count": 6,
+      "critical_repair_channels": [
+        {
+          "contribution_to_principal": -0.010938875282588398,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.010938875282588398,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.002105695722058251,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.01454886268634833,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.01454886268634833,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.005715683125818183,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.018474432503645177,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.018474432503645177,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.00964125294311503,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.011851048833984464,
+          "exceeds_surplus": true,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.011851048833984464,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.0030178692734543176,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.017169791918250164,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.017169791918250164,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.008336612357720017,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": -0.014046772444381602,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.014046772444381602,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": -0.005213592883851455,
+          "signed_magnitude_surplus": 0.008833179560530147
+        }
+      ],
+      "dominant_floor_passes": false,
+      "intolerable_adverse_channel_count": 2,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": 0.01021736429315472,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.01021736429315472,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.001384184732624574,
+          "signed_magnitude_surplus": 0.008833179560530147
+        },
+        {
+          "contribution_to_principal": 0.011405528117525765,
+          "exceeds_surplus": true,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.011405528117525765,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.0025723485569956184,
+          "signed_magnitude_surplus": 0.008833179560530147
+        }
+      ],
+      "repair_channel_count": 6,
+      "repair_to_required_ratio": 1.1129611657848324,
+      "signed_magnitude_surplus": 0.008833179560530147,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "tolerable_adverse_channel_count": 0,
+      "tolerable_adverse_channels": [],
+      "tolerable_repair_channel_count": 0,
+      "tolerable_repair_channels": []
+    },
+    {
+      "adverse_channel_count": 8,
+      "critical_repair_channel_count": 0,
+      "critical_repair_channels": [],
+      "dominant_floor_passes": true,
+      "intolerable_adverse_channel_count": 1,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.035956798584303756,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.035956798584303756,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.008770225203385495,
+          "signed_magnitude_surplus": 0.02718657338091826
+        }
+      ],
+      "repair_channel_count": 0,
+      "repair_to_required_ratio": null,
+      "signed_magnitude_surplus": 0.02718657338091826,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "tolerable_adverse_channel_count": 7,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.02407910288083677,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.02407910288083677,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.003107470500081491,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.001931166614128453,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.001931166614128453,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.025255406766789806,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.017710726808205953,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.017710726808205953,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.009475846572712308,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.011215651894444517,
+          "exceeds_surplus": false,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.011215651894444517,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.015970921486473742,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.008006736357364156,
+          "exceeds_surplus": false,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.008006736357364156,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.019179837023554105,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.019152098159140953,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.019152098159140953,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.008034475221777308,
+          "signed_magnitude_surplus": 0.02718657338091826
+        },
+        {
+          "contribution_to_principal": -0.02694243143722148,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.02694243143722148,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.00024414194369678024,
+          "signed_magnitude_surplus": 0.02718657338091826
+        }
+      ],
+      "tolerable_repair_channel_count": 0,
+      "tolerable_repair_channels": []
+    },
+    {
+      "adverse_channel_count": 6,
+      "critical_repair_channel_count": 0,
+      "critical_repair_channels": [],
+      "dominant_floor_passes": true,
+      "intolerable_adverse_channel_count": 4,
+      "intolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.017034981960262735,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            3
+          ],
+          "magnitude_to_principal": 0.017034981960262735,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.0005060684935181345,
+          "signed_magnitude_surplus": 0.0165289134667446
+        },
+        {
+          "contribution_to_principal": -0.028000803701620967,
+          "exceeds_surplus": true,
+          "label": [
+            1,
+            5
+          ],
+          "magnitude_to_principal": 0.028000803701620967,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.011471890234876367,
+          "signed_magnitude_surplus": 0.0165289134667446
+        },
+        {
+          "contribution_to_principal": -0.01863359219696881,
+          "exceeds_surplus": true,
+          "label": [
+            2,
+            4
+          ],
+          "magnitude_to_principal": 0.01863359219696881,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.0021046787302242097,
+          "signed_magnitude_surplus": 0.0165289134667446
+        },
+        {
+          "contribution_to_principal": -0.029793911186253248,
+          "exceeds_surplus": true,
+          "label": [
+            3,
+            3
+          ],
+          "magnitude_to_principal": 0.029793911186253248,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": -0.013264997719508648,
+          "signed_magnitude_surplus": 0.0165289134667446
+        }
+      ],
+      "repair_channel_count": 2,
+      "repair_to_required_ratio": 2.3522112653157228,
+      "signed_magnitude_surplus": 0.0165289134667446,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "tolerable_adverse_channel_count": 2,
+      "tolerable_adverse_channels": [
+        {
+          "contribution_to_principal": -0.004455966448924407,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            1
+          ],
+          "magnitude_to_principal": 0.004455966448924407,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.012072947017820194,
+          "signed_magnitude_surplus": 0.0165289134667446
+        },
+        {
+          "contribution_to_principal": -0.010702262477167376,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            10
+          ],
+          "magnitude_to_principal": 0.010702262477167376,
+          "mode": "adverse",
+          "remaining_surplus_after_single_channel_loss": 0.005826650989577225,
+          "signed_magnitude_surplus": 0.0165289134667446
+        }
+      ],
+      "tolerable_repair_channel_count": 2,
+      "tolerable_repair_channels": [
+        {
+          "contribution_to_principal": 0.013379352850151611,
+          "exceeds_surplus": false,
+          "label": [
+            1,
+            7
+          ],
+          "magnitude_to_principal": 0.013379352850151611,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0031495606165929894,
+          "signed_magnitude_surplus": 0.0165289134667446
+        },
+        {
+          "contribution_to_principal": 0.015373178249955429,
+          "exceeds_surplus": false,
+          "label": [
+            4,
+            4
+          ],
+          "magnitude_to_principal": 0.015373178249955429,
+          "mode": "repair",
+          "remaining_surplus_after_single_channel_loss": 0.0011557352167891714,
+          "signed_magnitude_surplus": 0.0165289134667446
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "8a0d13e4fb3b620e42a21365389beecbc8dc9e0b",
+  "source_polarity_magnitude_ledger": "evidence\\q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite volatile critical-margin ledger only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "summary": {
+    "selected_fixture": "18 of 39 repair channels are individually critical and 19 of 41 adverse channels are individually intolerable.",
+    "target_1222142": "all six repair channels are individually load-bearing and both adverse channels are individually intolerable.",
+    "target_1240888": "there are no repair channels; one of eight adverse channels is individually larger than the surplus, but the row remains clear under the actual full volatile package.",
+    "target_1242118": "neither repair channel is individually critical, but four of six adverse channels are individually intolerable.",
+    "target_13556": "one of two repair channels is individually critical, and all six adverse channels are individually intolerable."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "volatile_channel_count": 8,
+  "volatile_critical_margin_ledger_measured": true,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}

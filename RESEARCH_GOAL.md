@@ -12387,3 +12387,42 @@ aggregate arithmetic-placement theorem.  This is finite magnitude-ledger
 evidence only; it proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: volatile critical-margin ledger
+
+The magnitude ledger was then refined to individual load-bearing channels.  The
+new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-critical-margin-ledger.json
+```
+
+For each row, the receipt compares every repair-channel magnitude and every
+adverse-channel magnitude with the row's signed magnitude surplus.  A repair
+channel whose magnitude exceeds surplus is individually load-bearing under
+removal.  An adverse channel whose magnitude exceeds surplus is individually
+intolerable under addition.
+
+Across the selected fixture:
+
+```text
+repair channels individually critical:      18 / 39
+adverse channels individually intolerable:  19 / 41
+```
+
+The stress row `1222142` is all-critical: all six repair channels are
+individually load-bearing, and both adverse channels are individually
+intolerable.  Clear row `13556` has one of two repair channels individually
+critical and all six adverse channels individually intolerable.  Tight clear
+row `1242118` has no individually critical repair channel, but four of six
+adverse channels are individually intolerable.  Clear row `1240888` has no
+repair channels; one of eight adverse channels exceeds its surplus, though the
+actual full volatile package still clears.
+
+This tightens the loop to named critical channel magnitudes.  The remaining
+theorem is to control those load-bearing repair and intolerable adverse
+channel magnitudes from actual binary-prime residue weights, or replace the
+channel ledger with a full signed aggregate arithmetic-placement theorem.
+This is finite critical-margin evidence only; it proves no volatile-rim
+theorem, stable-core theorem, selected-fixture classifier theorem, pointwise
+character-sum estimate, or Goldbach.

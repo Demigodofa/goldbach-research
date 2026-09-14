@@ -1293,6 +1293,18 @@ current comparison set.
    `(1,7),(4,4)`, but `1242118` has repair-to-required ratio about `2.352211`.
    This confirms the loop is tightening into signed repair-versus-adverse
    magnitude control rather than another raw threshold scan.
+123. `tools/build_q286_first_three_dominant_mode_volatile_critical_margin_ledger.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-critical-margin-ledger.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-critical-margin-ledger.json`,
+   compares each repair/adverse channel magnitude with row surplus.  Across
+   the selected fixture, `18/39` repair channels are individually critical and
+   `19/41` adverse channels are individually intolerable.  Stress row
+   `1222142` is all-critical: all six repair channels are load-bearing and
+   both adverse channels are individually intolerable.  This sharpens the live
+   route from aggregate signed margin to named critical channel magnitudes,
+   unless a stronger signed aggregate theorem replaces the channel ledger.
 
 ## Still open
 
@@ -1387,5 +1399,8 @@ current comparison set.
   has the smallest selected signed surplus, about `0.0088331796`, so the
   current theorem target is a quantitative repair-versus-adverse magnitude
   inequality from the prime-pair residue weights.
+  The critical-margin ledger then shows this hinge is genuinely load-bearing:
+  every `1222142` repair channel is individually critical and both adverse
+  channels are individually intolerable.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
