@@ -86,6 +86,9 @@ def main():
     above_floor_holdout = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-above-floor-holdout-census.json")
+    selector_audit = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-near-boundary-selector-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -823,6 +826,66 @@ def main():
         "above-floor-holdout-census",
         1.5,
         "prove arithmetic selector/placement theorem for sparse tiny margins")
+
+    layer(
+        "near-boundary-selector-audit",
+        "Simple selector audit for sparse above-floor margins",
+        "finite_falsifier",
+        "evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json",
+        2.0,
+        "Finite falsifier for simple selector families only.")
+    for row in selector_audit["closest_overall_rows"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "near-boundary-selector-audit",
+            2.0,
+            "selector-audit closest margin row",
+            {
+                "window_start": row["window_start"],
+                "target_mod_286": row["target_mod_286"],
+                "target_mod_10010": row["target_mod_10010"],
+                "signed_surplus": (
+                    row["above_floor_signed_surplus_to_threshold"]),
+            })
+    for threshold, threshold_row in selector_audit[
+            "threshold_rows"].items():
+        residue_audit = threshold_row[
+            "residue_mod_286_selector_audit"]
+        for row in residue_audit["false_positive_examples"][:4]:
+            add_hit(
+                target_stacks,
+                str(row["target"]),
+                "near-boundary-selector-audit",
+                1.0,
+                "q286-residue selector false positive",
+                {
+                    "threshold": threshold,
+                    "target_mod_286": row["target_mod_286"],
+                    "abs_surplus": (
+                        row["absolute_above_floor_signed_surplus"]),
+                })
+    add_hit(
+        mechanism_stacks,
+        "simple-near-boundary-selectors-refuted",
+        "near-boundary-selector-audit",
+        2.0,
+        "q286 residue-only and scalar interval selectors have false positives",
+        {
+            "evaluated_target_count": (
+                selector_audit["evaluated_target_count"]),
+            "residue_only_refuted_thresholds": (
+                selector_audit["residue_only_refuted_thresholds"]),
+            "scalar_interval_refuted_thresholds": (
+                selector_audit["scalar_interval_refuted_thresholds"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "near-boundary-selector-theorem",
+        "near-boundary-selector-audit",
+        2.0,
+        "selector must use finer prime-pair distribution than q286 residue or "
+        "one scalar interval")
 
     layer(
         "conditional-proof-stack",

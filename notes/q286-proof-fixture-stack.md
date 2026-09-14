@@ -139,6 +139,12 @@ frame.
   `0.0436374645..0.1602111239` and no absolute surplus below `.03`.  Separate
   stress-neighborhood comparisons recover the known deficit `1222142` and
   known tight clear `1242118`, while adjacent small windows are clean.
+- `evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json`:
+  simple selectors for the sparse near-boundary rows are falsified on the
+  checked windows.  q286 residue-only selection fails at `.005`, `.01`, `.03`,
+  and `.05` bands; at `.005`, residues `20` and `64` contain two near rows but
+  also `8` safer false positives.  Scalar residual/floor/mass interval
+  selectors also have false positives at every checked band.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -244,4 +250,6 @@ prefix-stage failures must remain visible.  The holdout census says the frozen
 full-stage surplus is comfortably positive on one fresh contiguous block and
 sparse in the checked stress neighborhoods, so the next useful question is a
 selector or arithmetic-placement theorem for the near-boundary rows rather
-than another unqualified threshold scan.
+than another unqualified threshold scan.  The simple-selector audit says this
+theorem cannot be just q286 residue membership or one scalar residual interval
+on the checked rows.

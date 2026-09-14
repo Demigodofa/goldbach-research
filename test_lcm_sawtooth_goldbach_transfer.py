@@ -62,6 +62,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_staircase_hinge_threshold_receipt,
     q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt,
     q286_first_three_dominant_mode_above_floor_holdout_census_receipt,
+    q286_first_three_dominant_mode_near_boundary_selector_audit_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -5055,6 +5056,31 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(
             receipt["frozen_portfolio_uniform_margin_theorem_proved"])
         self.assertFalse(receipt["above_floor_threshold_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_near_boundary_selector_audit(self):
+        receipt = (
+            q286_first_three_dominant_mode_near_boundary_selector_audit_receipt(
+                window_specs=((1222128, 17), (1240144, 17),
+                              (1242106, 17)),
+                near_thresholds=(.005, .01, .03)))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["evaluated_target_count"], 51)
+        self.assertGreaterEqual(receipt["deficit_count"], 1)
+        self.assertLessEqual(
+            receipt["absolute_surplus_summary"]["minimum"], .005)
+        threshold_rows = receipt["threshold_rows"][.005]
+        self.assertGreaterEqual(threshold_rows["near_count"], 1)
+        residue_audit = threshold_rows["residue_mod_286_selector_audit"]
+        self.assertGreaterEqual(residue_audit["false_positive_count"], 1)
+        self.assertFalse(residue_audit[
+            "selector_suffices_on_checked_rows"])
+        self.assertIn(.005, receipt["residue_only_refuted_thresholds"])
+        self.assertTrue(receipt["near_boundary_selector_audit_measured"])
+        self.assertFalse(
+            receipt["q286_residue_only_selector_theorem_proved"])
+        self.assertFalse(receipt["near_boundary_selector_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_two_mode_sign_window(self):

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "5ced16c006b99ecf6721aa2c081087b6d76058a0",
+  "generated_from_commit": "6488ac1b909beef2764c014fc2b69e68f25c7f34",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -156,6 +156,14 @@
       "boundary": "Finite margin census only; not a uniform margin theorem."
     },
     {
+      "id": "near-boundary-selector-audit",
+      "label": "Simple selector audit for sparse above-floor margins",
+      "kind": "finite_falsifier",
+      "source": "evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json",
+      "default_weight": 2.0,
+      "boundary": "Finite falsifier for simple selector families only."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -167,7 +175,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 52.0,
+      "stack_weight": 54.0,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -437,9 +445,20 @@
             "target_mod_286": 64,
             "signed_surplus": -0.002859222244159798
           }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 64,
+            "target_mod_10010": 922,
+            "signed_surplus": -0.002859222244159798
+          }
         }
       ],
-      "layer_count": 26,
+      "layer_count": 27,
       "glow": 1.0
     },
     {
@@ -695,7 +714,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.894231
+      "glow": 0.861111
     },
     {
       "id": "164598",
@@ -950,7 +969,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.894231
+      "glow": 0.861111
     },
     {
       "id": "24424",
@@ -1205,7 +1224,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.894231
+      "glow": 0.861111
     },
     {
       "id": "55864",
@@ -1460,7 +1479,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.894231
+      "glow": 0.861111
     },
     {
       "id": "129706",
@@ -1627,7 +1646,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.586538
+      "glow": 0.564815
     },
     {
       "id": "13556",
@@ -1783,11 +1802,11 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.548077
+      "glow": 0.527778
     },
     {
       "id": "1242118",
-      "stack_weight": 24.0,
+      "stack_weight": 26.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1913,10 +1932,21 @@
             "target_mod_286": 20,
             "signed_surplus": 0.0047979812823502055
           }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 20,
+            "target_mod_10010": 878,
+            "signed_surplus": 0.0047979812823502055
+          }
         }
       ],
-      "layer_count": 12,
-      "glow": 0.461538
+      "layer_count": 13,
+      "glow": 0.481481
     },
     {
       "id": "1240888",
@@ -2039,7 +2069,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.432692
+      "glow": 0.416667
     },
     {
       "id": "40420",
@@ -2162,7 +2192,145 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.432692
+      "glow": 0.416667
+    },
+    {
+      "id": "1240160",
+      "stack_weight": 7.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 64,
+            "signed_surplus": 0.0525379332055963
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 64,
+            "target_mod_10010": 8930,
+            "signed_surplus": 0.0525379332055963
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.005",
+            "target_mod_286": 64,
+            "abs_surplus": 0.0525379332055963
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.01",
+            "target_mod_286": 64,
+            "abs_surplus": 0.0525379332055963
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.03",
+            "target_mod_286": 64,
+            "abs_surplus": 0.0525379332055963
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.05",
+            "target_mod_286": 64,
+            "abs_surplus": 0.0525379332055963
+          }
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.138889
+    },
+    {
+      "id": "1242162",
+      "stack_weight": 7.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 64,
+            "signed_surplus": 0.052833147281108384
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 64,
+            "target_mod_10010": 922,
+            "signed_surplus": 0.052833147281108384
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.005",
+            "target_mod_286": 64,
+            "abs_surplus": 0.052833147281108384
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.01",
+            "target_mod_286": 64,
+            "abs_surplus": 0.052833147281108384
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.03",
+            "target_mod_286": 64,
+            "abs_surplus": 0.052833147281108384
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.05",
+            "target_mod_286": 64,
+            "abs_surplus": 0.052833147281108384
+          }
+        }
+      ],
+      "layer_count": 6,
+      "glow": 0.138889
     },
     {
       "id": "1379072",
@@ -2188,7 +2356,65 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.115385
+      "glow": 0.111111
+    },
+    {
+      "id": "1200362",
+      "stack_weight": 5.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 20,
+            "signed_surplus": 0.05675540221763353,
+            "dominant_sum": -0.09068924231140818
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.005",
+            "target_mod_286": 20,
+            "abs_surplus": 0.05675540221763353
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.01",
+            "target_mod_286": 20,
+            "abs_surplus": 0.05675540221763353
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.03",
+            "target_mod_286": 20,
+            "abs_surplus": 0.05675540221763353
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.05",
+            "target_mod_286": 20,
+            "abs_surplus": 0.05675540221763353
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.101852
     },
     {
       "id": "1323632",
@@ -2208,11 +2434,11 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076923
+      "glow": 0.074074
     },
     {
       "id": "1200208",
-      "stack_weight": 1.5,
+      "stack_weight": 3.5,
       "layers": [
         {
           "layer": "above-floor-holdout-census",
@@ -2223,10 +2449,290 @@
             "signed_surplus": 0.05081609192466835,
             "dominant_sum": -0.12308946319950455
           }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1200200,
+            "target_mod_286": 152,
+            "target_mod_10010": 9018,
+            "signed_surplus": 0.05081609192466835
+          }
         }
       ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1200224",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 168,
+            "signed_surplus": 0.043637464512128576,
+            "dominant_sum": -0.15028340975129342
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1200200,
+            "target_mod_286": 168,
+            "target_mod_10010": 9034,
+            "signed_surplus": 0.043637464512128576
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1200598",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 256,
+            "signed_surplus": 0.0582260136883489,
+            "dominant_sum": -0.12018266067624403
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.03",
+            "target_mod_286": 256,
+            "abs_surplus": 0.0582260136883489
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.05",
+            "target_mod_286": 256,
+            "abs_surplus": 0.0582260136883489
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.064815
+    },
+    {
+      "id": "1220056",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 266,
+            "signed_surplus": 0.042368787096773886
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 266,
+            "target_mod_10010": 8846,
+            "signed_surplus": 0.042368787096773886
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1220098",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 22,
+            "signed_surplus": 0.04023311644888955
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 22,
+            "target_mod_10010": 8888,
+            "signed_surplus": 0.04023311644888955
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1221042",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 108,
+            "signed_surplus": 0.044915700209767595
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 108,
+            "target_mod_10010": 9832,
+            "signed_surplus": 0.044915700209767595
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1221052",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 118,
+            "signed_surplus": 0.05237494786232505
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 118,
+            "target_mod_10010": 9842,
+            "signed_surplus": 0.05237494786232505
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1222048",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 256,
+            "signed_surplus": 0.021280120300458616
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 256,
+            "target_mod_10010": 828,
+            "signed_surplus": 0.021280120300458616
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1242136",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 38,
+            "signed_surplus": 0.04873418761757481
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 38,
+            "target_mod_10010": 896,
+            "signed_surplus": 0.04873418761757481
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.064815
+    },
+    {
+      "id": "1240116",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.005",
+            "target_mod_286": 20,
+            "abs_surplus": 0.06930264401165631
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 1.0,
+          "reason": "q286-residue selector false positive",
+          "value": {
+            "threshold": "0.01",
+            "target_mod_286": 20,
+            "abs_surplus": 0.06930264401165631
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.037037
     },
     {
       "id": "1200210",
@@ -2244,25 +2750,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1200224",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 168,
-            "signed_surplus": 0.043637464512128576,
-            "dominant_sum": -0.15028340975129342
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200262",
@@ -2280,7 +2768,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200302",
@@ -2298,7 +2786,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200328",
@@ -2316,7 +2804,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200342",
@@ -2334,25 +2822,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1200362",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 20,
-            "signed_surplus": 0.05675540221763353,
-            "dominant_sum": -0.09068924231140818
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200400",
@@ -2370,7 +2840,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200432",
@@ -2388,7 +2858,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1200526",
@@ -2406,25 +2876,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1200598",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 256,
-            "signed_surplus": 0.0582260136883489,
-            "dominant_sum": -0.12018266067624403
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1220038",
@@ -2442,25 +2894,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1220056",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1220000,
-            "target_mod_286": 266,
-            "signed_surplus": 0.042368787096773886
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1220076",
@@ -2478,25 +2912,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1220098",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1220000,
-            "target_mod_286": 22,
-            "signed_surplus": 0.04023311644888955
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1220124",
@@ -2514,7 +2930,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1221016",
@@ -2532,43 +2948,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1221042",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 108,
-            "signed_surplus": 0.044915700209767595
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1221052",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1221000,
-            "target_mod_286": 118,
-            "signed_surplus": 0.05237494786232505
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1221092",
@@ -2586,7 +2966,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1221118",
@@ -2604,7 +2984,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1222018",
@@ -2622,25 +3002,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1222048",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1222000,
-            "target_mod_286": 256,
-            "signed_surplus": 0.021280120300458616
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1222078",
@@ -2658,7 +3020,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1222168",
@@ -2676,7 +3038,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1240046",
@@ -2694,7 +3056,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1240098",
@@ -2712,7 +3074,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1240104",
@@ -2730,7 +3092,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1240144",
@@ -2748,25 +3110,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1240160",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1240000,
-            "target_mod_286": 64,
-            "signed_surplus": 0.0525379332055963
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1242044",
@@ -2784,7 +3128,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "1242106",
@@ -2802,43 +3146,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1242136",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1242000,
-            "target_mod_286": 38,
-            "signed_surplus": 0.04873418761757481
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
-    },
-    {
-      "id": "1242162",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "stress-neighborhood closest above-floor margin",
-          "value": {
-            "window_start": 1242000,
-            "target_mod_286": 64,
-            "signed_surplus": 0.052833147281108384
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.028846
+      "glow": 0.027778
     },
     {
       "id": "10664",
@@ -2852,7 +3160,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.019231
+      "glow": 0.018519
     },
     {
       "id": "14138",
@@ -2866,7 +3174,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.019231
+      "glow": 0.018519
     }
   ],
   "mechanism_stacks": [
@@ -3109,6 +3417,34 @@
       "glow": 0.222222
     },
     {
+      "id": "simple-near-boundary-selectors-refuted",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "q286 residue-only and scalar interval selectors have false positives",
+          "value": {
+            "evaluated_target_count": 716,
+            "residue_only_refuted_thresholds": [
+              0.005,
+              0.01,
+              0.03,
+              0.05
+            ],
+            "scalar_interval_refuted_thresholds": [
+              0.005,
+              0.01,
+              0.03,
+              0.05
+            ]
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "small-residual-channel-classifier-demoted",
       "stack_weight": 2.0,
       "layers": [
@@ -3331,6 +3667,24 @@
       "glow": 0.30303
     },
     {
+      "id": "near-boundary-selector-theorem",
+      "stack_weight": 3.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "prove arithmetic selector/placement theorem for sparse tiny margins"
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector must use finer prime-pair distribution than q286 residue or one scalar interval"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.212121
+    },
+    {
       "id": "alignment-plus-complement-tail",
       "stack_weight": 2.0,
       "layers": [
@@ -3407,19 +3761,6 @@
       ],
       "layer_count": 1,
       "glow": 0.121212
-    },
-    {
-      "id": "near-boundary-selector-theorem",
-      "stack_weight": 1.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "prove arithmetic selector/placement theorem for sparse tiny margins"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.090909
     },
     {
       "id": "sample-size-cherry-pick-risk",

@@ -950,6 +950,17 @@ current comparison set.
    stress-neighborhood checks recover known near-boundary rows `1222142` and
    `1242118`.  This turns the next question into a selector or arithmetic
    placement theorem for sparse tiny margins, not another raw threshold scan.
+98. `q286_first_three_dominant_mode_near_boundary_selector_audit_receipt`,
+   with note
+   `notes/q286-first-three-dominant-mode-near-boundary-selector-audit.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json`,
+   falsifies q286 residue-only and one-scalar interval selectors on the checked
+   near-boundary rows.  At the `.005` band, residues `20` and `64` contain the
+   two near rows but also `8` safer false positives; residual/floor/mass
+   scalar intervals also have false positives at every checked band.  The
+   selector theorem must use finer actual prime-pair distribution or be
+   replaced by a signed aggregate or rescue theorem.
 
 ## Still open
 
@@ -985,6 +996,8 @@ current comparison set.
   frozen full-stage surplus is comfortably positive on one fresh block and
   sparse in the checked stress neighborhoods, so the next useful target is a
   near-boundary selector/arithmetic-placement theorem rather than another raw
-  threshold scan.
+  threshold scan.  The simple-selector audit further says this theorem cannot
+  be just q286 residue membership or one scalar residual interval on the
+  checked rows.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

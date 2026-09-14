@@ -80,6 +80,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json")
     dominant_mode_above_floor_holdout = load_json(
         "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json")
+    dominant_mode_selector_audit = load_json(
+        "evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -619,6 +621,26 @@ def main():
                     "uniform margin theorem and not an independent sign proof"),
             },
             {
+                "id": "anchor.dominant_mode_near_boundary_selector_audit",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json"),
+                "statement": (
+                    "Simple selectors for the sparse near-boundary "
+                    "above-floor rows fail on the checked windows: q286 "
+                    "residue membership and single scalar residual/floor/mass "
+                    "intervals all have safer false positives."),
+                "validation": (
+                    "evaluated targets "
+                    f"{dominant_mode_selector_audit['evaluated_target_count']}; "
+                    "residue-only refuted thresholds "
+                    f"{dominant_mode_selector_audit['residue_only_refuted_thresholds']}; "
+                    "scalar interval refuted thresholds "
+                    f"{dominant_mode_selector_audit['scalar_interval_refuted_thresholds']}."),
+                "proved_scope": (
+                    "finite falsifier for these selector families only; not "
+                    "a proof that no finer selector exists"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -816,7 +838,10 @@ def main():
                     "above-floor threshold surplus under the frozen q286 "
                     "dominant staircase, and then handle those near-boundary "
                     "rows by signed aggregate, complement/lower-support "
-                    "rescue, or a fixed-modulus binary-prime theorem."),
+                    "rescue, or a fixed-modulus binary-prime theorem.  The "
+                    "selector cannot be just q286 residue membership or a "
+                    "single scalar residual/floor/mass interval on the "
+                    "checked evidence."),
                 "why_it_is_needed": (
                     "The primary holdout block is comfortably positive, while "
                     "stress-neighborhood checks recover sparse known tiny "

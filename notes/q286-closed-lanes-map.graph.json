@@ -1165,6 +1165,14 @@
       "status": "open_precisely_stated",
       "statement": "Prove an arithmetic selector or placement theorem explaining which targets can have tiny full-stage above-floor threshold surplus under the frozen q286 dominant staircase, then handle those rows by signed aggregate, complement/lower-support rescue, or a fixed-modulus binary-prime theorem.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "type": "receipt",
+      "label": "q286 near-boundary selector audit",
+      "status": "simple_selectors_refuted",
+      "validation": "q286_first_three_dominant_mode_near_boundary_selector_audit_receipt and tools/build_q286_first_three_dominant_mode_near_boundary_selector_audit.py generated evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json; across 716 checked rows, q286 residue-only selection is refuted for near-boundary bands .005, .01, .03, and .05, and scalar residual/floor/mass interval selectors also have false positives at every checked band",
+      "status_boundary": "finite falsifier for these simple selector families only; not a proof that no finer arithmetic selector exists and not a Goldbach proof"
     }
   ],
   "edges": [
@@ -2462,6 +2470,21 @@
       "from": "obligation.dominant_staircase_near_boundary_selector",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "to": "obligation.dominant_staircase_near_boundary_selector",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_above_floor_holdout_census",
+      "to": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "to": "structure.q286_proof_fixture_stack",
+      "type": "refines"
     }
   ]
 }

@@ -11416,6 +11416,19 @@ clear `1242118` with surplus about `0.0047979813`.  This makes the next
 non-circular question a selector/arithmetic-placement theorem for sparse
 near-boundary rows, not another unqualified threshold scan.
 
+The simple-selector audit is now recorded in
+`notes/q286-first-three-dominant-mode-near-boundary-selector-audit.md` and
+`evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json`.
+Across the same `716` checked rows, q286 residue-only selection is falsified
+for near-boundary bands `.005`, `.01`, `.03`, and `.05`.  At the `.005` band,
+the near rows have residues `20` and `64`, but those same residues produce
+`8` safer false positives; scalar interval selectors from nonportfolio
+residual, required portfolio floor, above-floor mass, and above-floor
+threshold also all have false positives.  Therefore the near-boundary selector
+cannot be just `N mod 286` or one scalar residual interval on the checked
+windows.  A viable theorem must use finer actual prime-pair distribution, a
+signed aggregate theorem, or complement/lower-support rescue.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

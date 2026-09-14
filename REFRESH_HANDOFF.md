@@ -20546,6 +20546,28 @@ evidence only.  The next non-circular task is a selector or arithmetic
 placement theorem for those sparse near-boundary rows, not more threshold
 receipts without a new mechanism.
 
+Dominant-mode near-boundary selector audit:
+
+- `q286_first_three_dominant_mode_near_boundary_selector_audit_receipt`
+- `tools/build_q286_first_three_dominant_mode_near_boundary_selector_audit.py`
+- `notes/q286-first-three-dominant-mode-near-boundary-selector-audit.md`
+- `evidence/q286-first-three-dominant-mode-near-boundary-selector-audit.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_near_boundary_selector_audit`
+
+This audits simple selectors for the sparse full-stage above-floor
+near-boundary rows across the same `716` checked targets.  It falsifies q286
+residue-only selection for near-boundary bands `.005`, `.01`, `.03`, and
+`.05`.  At `.005`, the near rows are `1222142` (residue `64`, surplus about
+`-0.0028592222`) and `1242118` (residue `20`, surplus about
+`0.0047979813`), but residues `64` and `20` also select `8` safer false
+positives.  Scalar interval selectors from nonportfolio residual, required
+portfolio floor, above-floor mass, and above-floor threshold also all have
+false positives at every checked band.  The next theorem must use finer
+actual prime-pair distribution, a signed aggregate theorem, or
+complement/lower-support rescue; it cannot be just `N mod 286` or one scalar
+residual interval on this evidence.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

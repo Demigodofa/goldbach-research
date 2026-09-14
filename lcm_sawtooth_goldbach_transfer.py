@@ -12226,7 +12226,7 @@ def q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
                                 (3, 11), (5, 5), (4, 4), (1, 3),
                                 (5, 3), (2, 4), (4, 6)),
         dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
-        closest_count=12):
+        closest_count=12, include_rows=False):
     """Census fresh rows for the fixed q286 above-floor threshold margin.
 
     The previous staircase receipts chose the eleven-channel portfolio from a
@@ -12259,6 +12259,8 @@ def q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
         raise ValueError("tolerance must be finite and nonnegative")
     if type(closest_count) is not int or closest_count < 1:
         raise ValueError("closest_count must be a positive integer")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
 
     targets = tuple(start + target_step * index
                     for index in range(target_count))
@@ -12616,8 +12618,254 @@ def q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
         "most_negative_surplus_rows": most_negative_rows,
         "most_positive_surplus_rows": most_positive_rows,
         "residue_bucket_rows_by_closest_margin": residue_rows,
+        "target_rows_included": include_rows,
+        "target_rows": tuple(target_rows) if include_rows else (),
         "holdout_census_measured": True,
         "frozen_portfolio_uniform_margin_theorem_proved": False,
+        "above_floor_threshold_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_dominant_mode_near_boundary_selector_audit_receipt(
+        window_specs=((1200200, 211), (1220000, 101), (1221000, 101),
+                      (1222000, 101), (1240000, 101), (1242000, 101)),
+        target_step=2, near_thresholds=(.005, .01, .03, .05),
+        tolerance=1e-9):
+    """Audit simple selectors for tiny above-floor full-stage margins.
+
+    This receipt does not look for another threshold success.  It asks whether
+    near-boundary rows from the frozen eleven-channel q286 staircase are
+    explained by simple selectors such as ``N mod 286`` or scalar residual
+    intervals.  Falsifying those simple selectors narrows the theorem target to
+    finer actual prime-pair distribution.
+
+    It proves no selector theorem and no Goldbach theorem.
+    """
+    window_specs = tuple((int(start), int(count))
+                         for start, count in window_specs)
+    if (not window_specs
+            or any(start < 40 or start % 2 or count < 1
+                   for start, count in window_specs)):
+        raise ValueError(
+            "window_specs must contain (even_start>=40, positive_count)")
+    if type(target_step) is not int or target_step < 2 or target_step % 2:
+        raise ValueError("target_step must be a positive even integer")
+    near_thresholds = tuple(near_thresholds)
+    if (not near_thresholds
+            or any(not math.isfinite(item) or item <= 0
+                   for item in near_thresholds)):
+        raise ValueError("near_thresholds must be positive finite numbers")
+    if len(set(near_thresholds)) != len(near_thresholds):
+        raise ValueError("near_thresholds must be unique")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    census_rows = []
+    window_rows = []
+    for window_index, (start, count) in enumerate(window_specs):
+        census = q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
+            start=start, target_count=count, target_step=target_step,
+            closest_count=min(12, count), tolerance=tolerance,
+            include_rows=True)
+        role = "primary" if window_index == 0 else "stress"
+        compact_census = {
+            "window_index": window_index,
+            "window_role": role,
+            "start": start,
+            "target_count": count,
+            "evaluated_target_count": census["evaluated_target_count"],
+            "dominant_floor_pass_count": census["dominant_floor_pass_count"],
+            "dominant_floor_deficit_count": (
+                census["dominant_floor_deficit_count"]),
+            "absolute_surplus_summary": (
+                census["absolute_above_floor_signed_surplus_summary"]),
+            "signed_surplus_summary": (
+                census["above_floor_signed_surplus_summary"]),
+            "closest_margin_rows": census["closest_margin_rows"],
+        }
+        window_rows.append(compact_census)
+        for row in census["target_rows"]:
+            compact = dict(row)
+            compact.update({
+                "window_index": window_index,
+                "window_role": role,
+                "window_start": start,
+                "target_mod_10010": row["target"] % 10010,
+            })
+            census_rows.append(compact)
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def compact_row(row):
+        return {
+            "target": row["target"],
+            "window_start": row["window_start"],
+            "window_role": row["window_role"],
+            "target_mod_286": row["target_mod_286"],
+            "target_mod_10010": row["target_mod_10010"],
+            "above_floor_signed_surplus_to_threshold": (
+                row["above_floor_signed_surplus_to_threshold"]),
+            "absolute_above_floor_signed_surplus": (
+                row["absolute_above_floor_signed_surplus"]),
+            "dominant_sum_to_principal": (
+                row["dominant_sum_to_principal"]),
+            "nonportfolio_residual_sum_to_principal": (
+                row["nonportfolio_residual_sum_to_principal"]),
+            "required_portfolio_for_floor": (
+                row["required_portfolio_for_floor"]),
+            "above_floor_mass_fraction": (
+                row["above_floor_mass_fraction"]),
+            "above_floor_mass_threshold": (
+                row["above_floor_mass_threshold"]),
+        }
+
+    def categorical_selector_audit(near_rows, feature):
+        values = tuple(sorted({row[feature] for row in near_rows}))
+        selected = [
+            row for row in census_rows
+            if row[feature] in values]
+        near_targets = {row["target"] for row in near_rows}
+        false_positive_rows = [
+            row for row in selected if row["target"] not in near_targets]
+        return {
+            "feature": feature,
+            "selected_values": values,
+            "selected_count": len(selected),
+            "near_count": len(near_rows),
+            "false_positive_count": len(false_positive_rows),
+            "false_positive_examples": tuple(
+                compact_row(row) for row in sorted(
+                    false_positive_rows,
+                    key=lambda item: (
+                        item["absolute_above_floor_signed_surplus"],
+                        item["target"]))[:8]),
+            "selector_suffices_on_checked_rows": bool(
+                near_rows and not false_positive_rows),
+        }
+
+    def numeric_interval_audit(near_rows, feature):
+        values = [row[feature] for row in near_rows]
+        if not values:
+            return {
+                "feature": feature,
+                "interval": None,
+                "selected_count": 0,
+                "near_count": 0,
+                "false_positive_count": 0,
+                "selector_suffices_on_checked_rows": False,
+            }
+        lower = min(values)
+        upper = max(values)
+        selected = [
+            row for row in census_rows
+            if lower - tolerance <= row[feature] <= upper + tolerance]
+        near_targets = {row["target"] for row in near_rows}
+        false_positive_rows = [
+            row for row in selected if row["target"] not in near_targets]
+        return {
+            "feature": feature,
+            "interval": (lower, upper),
+            "selected_count": len(selected),
+            "near_count": len(near_rows),
+            "false_positive_count": len(false_positive_rows),
+            "false_positive_examples": tuple(
+                compact_row(row) for row in sorted(
+                    false_positive_rows,
+                    key=lambda item: (
+                        item["absolute_above_floor_signed_surplus"],
+                        item["target"]))[:8]),
+            "selector_suffices_on_checked_rows": bool(
+                near_rows and not false_positive_rows),
+        }
+
+    threshold_rows = {}
+    residue_only_refuted_thresholds = []
+    scalar_interval_refuted_thresholds = []
+    closest_overall_rows = tuple(
+        compact_row(row) for row in sorted(
+            census_rows,
+            key=lambda item: (
+                item["absolute_above_floor_signed_surplus"],
+                item["target"]))[:20])
+    for threshold in near_thresholds:
+        near_rows = [
+            row for row in census_rows
+            if row["absolute_above_floor_signed_surplus"]
+            <= threshold + tolerance]
+        near_rows = sorted(near_rows, key=lambda row: (
+            row["absolute_above_floor_signed_surplus"], row["target"]))
+        residue_audit = categorical_selector_audit(
+            near_rows, "target_mod_286")
+        mod10010_audit = categorical_selector_audit(
+            near_rows, "target_mod_10010")
+        scalar_audits = tuple(
+            numeric_interval_audit(near_rows, feature)
+            for feature in (
+                "nonportfolio_residual_sum_to_principal",
+                "required_portfolio_for_floor",
+                "above_floor_mass_fraction",
+                "above_floor_mass_threshold"))
+        if (near_rows and not residue_audit[
+                "selector_suffices_on_checked_rows"]):
+            residue_only_refuted_thresholds.append(threshold)
+        if (near_rows and any(not audit[
+                "selector_suffices_on_checked_rows"]
+                for audit in scalar_audits)):
+            scalar_interval_refuted_thresholds.append(threshold)
+        threshold_rows[threshold] = {
+            "near_threshold": threshold,
+            "near_count": len(near_rows),
+            "near_rows": tuple(compact_row(row) for row in near_rows),
+            "near_residue_mod_286_values": tuple(sorted({
+                row["target_mod_286"] for row in near_rows})),
+            "residue_mod_286_selector_audit": residue_audit,
+            "residue_mod_10010_selector_audit": mod10010_audit,
+            "scalar_interval_selector_audits": scalar_audits,
+        }
+
+    return {
+        "arithmetic_modulus": 286,
+        "support": (11, 13),
+        "window_specs": window_specs,
+        "target_step": target_step,
+        "near_thresholds": near_thresholds,
+        "evaluated_target_count": len(census_rows),
+        "window_rows": tuple(window_rows),
+        "absolute_surplus_summary": summarize([
+            row["absolute_above_floor_signed_surplus"]
+            for row in census_rows]),
+        "signed_surplus_summary": summarize([
+            row["above_floor_signed_surplus_to_threshold"]
+            for row in census_rows]),
+        "deficit_count": sum(
+            1 for row in census_rows
+            if row["above_floor_signed_surplus_to_threshold"] < -tolerance),
+        "closest_overall_rows": closest_overall_rows,
+        "threshold_rows": threshold_rows,
+        "residue_only_refuted_thresholds": tuple(
+            residue_only_refuted_thresholds),
+        "scalar_interval_refuted_thresholds": tuple(
+            scalar_interval_refuted_thresholds),
+        "near_boundary_selector_audit_measured": True,
+        "q286_residue_only_selector_theorem_proved": False,
+        "scalar_residual_selector_theorem_proved": False,
+        "near_boundary_selector_theorem_proved": False,
         "above_floor_threshold_theorem_proved": False,
         "fixed_modulus_binary_ap_theorem_proved": False,
         "signed_projection_theorem_proved": False,
