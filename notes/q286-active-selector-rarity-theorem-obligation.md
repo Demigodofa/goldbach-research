@@ -620,6 +620,31 @@ This is theorem-obligation bookkeeping, not a proof: the missing input is a
 pointwise arithmetic estimate for actual binary-prime residue weights forcing
 that inequality.
 
+The backward orbit-uniformity budget is recorded in:
+
+```text
+evidence/q286-first-three-orbit-uniformity-budget.json
+```
+
+For each target residue `a`, local uniform reflection-orbit mass gives
+`first_three=0`, so
+`first_three(N)=<mu_N-u_a,c_a>`.  Therefore either
+`||mu_N-u_a||_1 <= tau/||c_a||_infinity` or
+`||mu_N-u_a||_2 <= tau/||c_a||_2` is a rigorous sufficient condition for
+`first_three(N) >= -tau`.  With `tau=.3`, the q286 even-residue budgets range
+from about `0.0093982579157629` to `0.07455426391330403` in L1 and from about
+`0.007916843497532824` to `0.03539182086849026` in L2.
+
+The stress rows show why this backward theorem is too blunt as the main proof
+route.  Tail `1222142` fails the budget, but clear rows `1242118` and
+`1240888` fail it as well.  The clear row `1242118` has L1 budget utilization
+about `14.291145699121145` and L2 utilization about
+`2.9097499848440553`; `1240888` has L1 utilization about
+`6.505901726697682` and L2 utilization about `1.82647385924401`.  Thus a
+generic orbit-uniformity theorem would be sufficient but far stronger than
+the observed active-scale rescue mechanism requires.  The live target remains
+coefficient-sensitive mass/landing control.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

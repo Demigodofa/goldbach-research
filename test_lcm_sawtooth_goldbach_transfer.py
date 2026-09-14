@@ -115,6 +115,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_positive_mass_threshold_falsifier_receipt,
     q286_first_three_mass_matched_pair_decomposition_receipt,
     q286_first_three_mass_landing_obligation_receipt,
+    q286_first_three_orbit_uniformity_budget_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4132,6 +4133,35 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                 row["first_three_plus_threshold"])
         self.assertTrue(receipt["mass_landing_obligation_formalized"])
         self.assertFalse(receipt["mass_landing_inequality_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_orbit_uniformity_budget(self):
+        receipt = q286_first_three_orbit_uniformity_budget_receipt(
+            sample_targets=(1222142, 1242118, 1240888),
+            include_residue_rows=False)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["even_target_residue_count"], 143)
+        self.assertGreater(
+            receipt["minimum_sufficient_l1_distance_to_uniform"], 0)
+        self.assertGreater(
+            receipt["minimum_sufficient_l2_distance_to_uniform"], 0)
+        self.assertLess(
+            receipt["maximum_uniform_reconstruction_error"], 1e-9)
+        rows = receipt["sample_rows"]
+        self.assertTrue(rows[1222142]["tail_target"])
+        self.assertFalse(rows[1242118]["tail_target"])
+        self.assertFalse(rows[1240888]["tail_target"])
+        self.assertIn(
+            1222142,
+            receipt["tail_sample_uniformity_budget_failure_targets"])
+        self.assertEqual(
+            set(receipt[
+                "clear_sample_uniformity_budget_failure_targets"]),
+            {1242118, 1240888})
+        self.assertTrue(receipt[
+            "generic_uniformity_budget_too_strong_for_clear_samples"])
+        self.assertTrue(receipt["orbit_uniformity_budget_measured"])
+        self.assertFalse(receipt["orbit_uniformity_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

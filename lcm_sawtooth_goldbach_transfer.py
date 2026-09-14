@@ -19255,6 +19255,61 @@ def _q286_first_three_reflection_orbit_sign_mask_rows(tolerance=1e-9):
     return rows
 
 
+def _q286_first_three_reflection_orbit_coefficient_rows(tolerance=1e-9):
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    units = data["units"]
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+
+    rows_by_residue = {}
+    for target_residue in range(0, modulus, 2):
+        admissible_mask = admissible_masks[target_residue]
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        seen = set()
+        orbit_rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected)
+            if reflected == index:
+                orbit = (unit,)
+                indices = (index,)
+                average = centered[index]
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                indices = (index, reflected)
+                average = 0.5 * (centered[index] + centered[reflected])
+            coefficient = float(average / principal_mean)
+            if coefficient < -tolerance:
+                sign = -1
+            elif coefficient > tolerance:
+                sign = 1
+            else:
+                sign = 0
+            orbit_rows.append({
+                "orbit": orbit,
+                "indices": indices,
+                "orbit_size": len(indices),
+                "uniform_mass_fraction": (
+                    len(indices) / admissible_counts[target_residue]),
+                "orbit_average_to_principal_ratio": coefficient,
+                "coefficient_sign": sign,
+            })
+        rows_by_residue[target_residue] = tuple(orbit_rows)
+    return rows_by_residue
+
+
 def q286_first_three_mass_matched_pair_decomposition_receipt(
         windows=((10000, 16), (90080, 8), (1120120, 8), (1200200, 8)),
         targets_per_cycle=5005, tail_threshold=.3,
@@ -19809,6 +19864,218 @@ def q286_first_three_mass_landing_obligation_receipt(
         "mass_landing_obligation_formalized": True,
         "mass_landing_inequality_proved": False,
         "eventual_exact_curve_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_orbit_uniformity_budget_receipt(
+        sample_targets=(1222142, 1242118, 1240888), tail_threshold=.3,
+        tolerance=1e-9, include_residue_rows=True,
+        include_sample_rows=True):
+    """Quantify a generic orbit-uniformity route to the mass/landing bound.
+
+    Local uniform mass on q286 reflection orbits gives first_three equal to
+    zero.  If the actual orbit-mass vector ``mu_N`` is close to the local
+    uniform vector ``u_a`` for ``a=N mod 286``, then
+
+    ``first_three(N) = <mu_N - u_a, c_a>``.
+
+    Thus ``||mu_N-u_a||_1 <= tau / ||c_a||_infinity`` or
+    ``||mu_N-u_a||_2 <= tau / ||c_a||_2`` is a sufficient condition for
+    ``first_three >= -tau``.  This receipt records those exact budgets and
+    compares selected actual targets against them.
+
+    The result is a conditional proof route and a finite stress diagnostic.
+    It does not prove actual prime-pair orbit uniformity, the mass/landing
+    inequality, or Goldbach.
+    """
+    sample_targets = tuple(sample_targets)
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_residue_rows) is not bool:
+        raise ValueError("include_residue_rows must be boolean")
+    if type(include_sample_rows) is not bool:
+        raise ValueError("include_sample_rows must be boolean")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    unit_index_by_residue = data["unit_index_by_residue"]
+    orbit_rows_by_residue = (
+        _q286_first_three_reflection_orbit_coefficient_rows(tolerance))
+
+    residue_rows = []
+    for target_residue in range(0, modulus, 2):
+        orbit_rows = orbit_rows_by_residue[target_residue]
+        coefficients = np.asarray([
+            row["orbit_average_to_principal_ratio"]
+            for row in orbit_rows], dtype=np.float64)
+        uniform_masses = np.asarray([
+            row["uniform_mass_fraction"] for row in orbit_rows],
+            dtype=np.float64)
+        coefficient_linf = float(np.max(np.abs(coefficients)))
+        coefficient_l2 = float(np.linalg.norm(coefficients))
+        uniform_recombined = float(np.dot(uniform_masses, coefficients))
+        residue_rows.append({
+            "target_mod_286": target_residue,
+            "reflection_orbit_count": len(orbit_rows),
+            "coefficient_linf_to_principal_ratio": coefficient_linf,
+            "coefficient_l2_to_principal_ratio": coefficient_l2,
+            "sufficient_l1_distance_to_uniform": (
+                tail_threshold / coefficient_linf
+                if coefficient_linf > tolerance else math.inf),
+            "sufficient_l2_distance_to_uniform": (
+                tail_threshold / coefficient_l2
+                if coefficient_l2 > tolerance else math.inf),
+            "uniform_recombined_first_three_to_principal_ratio": (
+                uniform_recombined),
+            "uniform_reconstruction_error": abs(uniform_recombined),
+        })
+
+    maximum_target = max(sample_targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    sample_rows = {}
+    for target in sample_targets:
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        if len(selected_primes) == 0:
+            sample_rows[target] = {
+                "target": target,
+                "has_strict_central_prime_pairs": False,
+            }
+            continue
+        residue_weights = np.bincount(
+            unit_index_by_residue[selected_primes % modulus],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=len(data["units"]))
+        total_weight = float(np.sum(residue_weights))
+        target_residue = target % modulus
+        orbit_rows = orbit_rows_by_residue[target_residue]
+        actual_masses = []
+        uniform_masses = []
+        coefficients = []
+        for orbit_row in orbit_rows:
+            orbit_mass = float(sum(
+                residue_weights[index] for index in orbit_row["indices"]))
+            actual_masses.append(orbit_mass / total_weight)
+            uniform_masses.append(orbit_row["uniform_mass_fraction"])
+            coefficients.append(
+                orbit_row["orbit_average_to_principal_ratio"])
+        actual_masses = np.asarray(actual_masses, dtype=np.float64)
+        uniform_masses = np.asarray(uniform_masses, dtype=np.float64)
+        coefficients = np.asarray(coefficients, dtype=np.float64)
+        delta = actual_masses - uniform_masses
+        first_three = float(np.dot(actual_masses, coefficients))
+        l1_distance = float(np.sum(np.abs(delta)))
+        l2_distance = float(np.linalg.norm(delta))
+        coefficient_linf = float(np.max(np.abs(coefficients)))
+        coefficient_l2 = float(np.linalg.norm(coefficients))
+        l1_budget = (
+            tail_threshold / coefficient_linf
+            if coefficient_linf > tolerance else math.inf)
+        l2_budget = (
+            tail_threshold / coefficient_l2
+            if coefficient_l2 > tolerance else math.inf)
+        sample_rows[target] = {
+            "target": target,
+            "has_strict_central_prime_pairs": True,
+            "target_mod_286": target_residue,
+            "first_three_to_principal_ratio": first_three,
+            "tail_target": bool(first_three < -tail_threshold - tolerance),
+            "threshold_slack": first_three + tail_threshold,
+            "orbit_l1_distance_to_local_uniform": l1_distance,
+            "orbit_l2_distance_to_local_uniform": l2_distance,
+            "sufficient_l1_distance_to_uniform": l1_budget,
+            "sufficient_l2_distance_to_uniform": l2_budget,
+            "l1_uniformity_certificate_holds": bool(
+                l1_distance <= l1_budget + tolerance),
+            "l2_uniformity_certificate_holds": bool(
+                l2_distance <= l2_budget + tolerance),
+            "l1_budget_utilization": l1_distance / l1_budget,
+            "l2_budget_utilization": l2_distance / l2_budget,
+            "coefficient_linf_to_principal_ratio": coefficient_linf,
+            "coefficient_l2_to_principal_ratio": coefficient_l2,
+            "uniform_recombined_first_three_to_principal_ratio": float(
+                np.dot(uniform_masses, coefficients)),
+            "actual_reconstruction_error": abs(
+                first_three - float(np.dot(delta, coefficients))),
+        }
+
+    finite_l1_budgets = [
+        row["sufficient_l1_distance_to_uniform"] for row in residue_rows
+        if math.isfinite(row["sufficient_l1_distance_to_uniform"])]
+    finite_l2_budgets = [
+        row["sufficient_l2_distance_to_uniform"] for row in residue_rows
+        if math.isfinite(row["sufficient_l2_distance_to_uniform"])]
+    clear_sample_budget_failures = tuple(
+        target for target, row in sorted(sample_rows.items())
+        if row.get("has_strict_central_prime_pairs")
+        and not row["tail_target"]
+        and (not row["l1_uniformity_certificate_holds"]
+             or not row["l2_uniformity_certificate_holds"]))
+    tail_sample_budget_failures = tuple(
+        target for target, row in sorted(sample_rows.items())
+        if row.get("has_strict_central_prime_pairs")
+        and row["tail_target"]
+        and (not row["l1_uniformity_certificate_holds"]
+             or not row["l2_uniformity_certificate_holds"]))
+
+    return {
+        "arithmetic_modulus": modulus,
+        "arithmetic_period": 10010,
+        "tail_threshold": tail_threshold,
+        "sample_targets": sample_targets,
+        "even_target_residue_count": len(residue_rows),
+        "minimum_sufficient_l1_distance_to_uniform": min(
+            finite_l1_budgets),
+        "maximum_sufficient_l1_distance_to_uniform": max(
+            finite_l1_budgets),
+        "minimum_sufficient_l2_distance_to_uniform": min(
+            finite_l2_budgets),
+        "maximum_sufficient_l2_distance_to_uniform": max(
+            finite_l2_budgets),
+        "maximum_uniform_reconstruction_error": max(
+            row["uniform_reconstruction_error"] for row in residue_rows),
+        "residue_rows_included": include_residue_rows,
+        "residue_rows": tuple(residue_rows) if include_residue_rows else (),
+        "sample_rows_included": include_sample_rows,
+        "sample_rows": sample_rows if include_sample_rows else {},
+        "clear_sample_uniformity_budget_failure_targets": (
+            clear_sample_budget_failures),
+        "tail_sample_uniformity_budget_failure_targets": (
+            tail_sample_budget_failures),
+        "generic_orbit_uniformity_conditional_theorem": (
+            "If every sufficiently large target has q286 reflection-orbit "
+            "mass L1 distance at most tau/||c_a||_infinity, or L2 distance "
+            "at most tau/||c_a||_2, from the local uniform orbit mass vector, "
+            "then first_three(N) >= -tau."),
+        "generic_uniformity_budget_too_strong_for_clear_samples": bool(
+            len(clear_sample_budget_failures) > 0),
+        "coefficient_sensitive_estimate_still_required": True,
+        "orbit_uniformity_budget_measured": True,
+        "orbit_uniformity_theorem_proved": False,
+        "mass_landing_inequality_proved": False,
         "signed_prime_correlation_estimate_proved": False,
         "goldbach_proved": False,
     }

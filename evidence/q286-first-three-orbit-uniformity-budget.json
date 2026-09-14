@@ -1,0 +1,1530 @@
+{
+  "clear_sample_uniformity_budget_failure_targets": [
+    1240888,
+    1242118
+  ],
+  "coefficient_sensitive_estimate_still_required": true,
+  "even_target_residue_count": 143,
+  "generic_orbit_uniformity_conditional_theorem": "If every sufficiently large target has q286 reflection-orbit mass L1 distance at most tau/||c_a||_infinity, or L2 distance at most tau/||c_a||_2, from the local uniform orbit mass vector, then first_three(N) >= -tau.",
+  "generic_uniformity_budget_too_strong_for_clear_samples": true,
+  "goldbach_proved": false,
+  "interpretation": {
+    "backward_theorem": "A pointwise L1 or L2 orbit-uniformity estimate with the recorded residue-dependent constants would imply the first-three mass/landing inequality.",
+    "stress_result": "If clear samples also fail the sufficient uniformity budget, then generic orbit-uniformity is too strong as a practical route and the proof should stay coefficient-sensitive."
+  },
+  "mass_landing_inequality_proved": false,
+  "maximum_sufficient_l1_distance_to_uniform": 0.07455426391330403,
+  "maximum_sufficient_l2_distance_to_uniform": 0.03539182086849026,
+  "maximum_uniform_reconstruction_error": 2.463307335887066e-16,
+  "minimum_sufficient_l1_distance_to_uniform": 0.0093982579157629,
+  "minimum_sufficient_l2_distance_to_uniform": 0.007916843497532824,
+  "orbit_uniformity_budget_measured": true,
+  "orbit_uniformity_theorem_proved": false,
+  "residue_rows": [
+    {
+      "coefficient_l2_to_principal_ratio": 35.62154166651281,
+      "coefficient_linf_to_principal_ratio": 31.920809440315047,
+      "reflection_orbit_count": 60,
+      "sufficient_l1_distance_to_uniform": 0.0093982579157629,
+      "sufficient_l2_distance_to_uniform": 0.008421870193283205,
+      "target_mod_286": 0,
+      "uniform_recombined_first_three_to_principal_ratio": -9.020562075079397e-17,
+      "uniform_reconstruction_error": 9.020562075079397e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.037577626577928,
+      "coefficient_linf_to_principal_ratio": 16.383248634527977,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01831138662986197,
+      "sufficient_l2_distance_to_uniform": 0.011981989810449695,
+      "target_mod_286": 2,
+      "uniform_recombined_first_three_to_principal_ratio": -2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.329205711727024,
+      "coefficient_linf_to_principal_ratio": 16.319229915862298,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018383220381520567,
+      "sufficient_l2_distance_to_uniform": 0.011844035040589713,
+      "target_mod_286": 4,
+      "uniform_recombined_first_three_to_principal_ratio": 1.249000902703301e-16,
+      "uniform_reconstruction_error": 1.249000902703301e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.723334609431305,
+      "coefficient_linf_to_principal_ratio": 16.29357699046773,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018412163282225242,
+      "sufficient_l2_distance_to_uniform": 0.012645777035102553,
+      "target_mod_286": 6,
+      "uniform_recombined_first_three_to_principal_ratio": -2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.07127289793404,
+      "coefficient_linf_to_principal_ratio": 16.296042704428093,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01840937738328837,
+      "sufficient_l2_distance_to_uniform": 0.012462988611863065,
+      "target_mod_286": 8,
+      "uniform_recombined_first_three_to_principal_ratio": 2.463307335887066e-16,
+      "uniform_reconstruction_error": 2.463307335887066e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.78404344254822,
+      "coefficient_linf_to_principal_ratio": 16.14930342519814,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018576652633320572,
+      "sufficient_l2_distance_to_uniform": 0.016869054608933967,
+      "target_mod_286": 10,
+      "uniform_recombined_first_three_to_principal_ratio": 5.4643789493269423e-17,
+      "uniform_reconstruction_error": 5.4643789493269423e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.162013649780132,
+      "coefficient_linf_to_principal_ratio": 14.86442381841915,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.020182417002148244,
+      "sufficient_l2_distance_to_uniform": 0.01748046622744898,
+      "target_mod_286": 12,
+      "uniform_recombined_first_three_to_principal_ratio": 1.734723475976807e-18,
+      "uniform_reconstruction_error": 1.734723475976807e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 26.2021311399428,
+      "coefficient_linf_to_principal_ratio": 17.45609506543525,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01718597423280702,
+      "sufficient_l2_distance_to_uniform": 0.011449450367137385,
+      "target_mod_286": 14,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5785983631388945e-16,
+      "uniform_reconstruction_error": 1.5785983631388945e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.511872782946007,
+      "coefficient_linf_to_principal_ratio": 16.37817572482705,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018317058324465372,
+      "sufficient_l2_distance_to_uniform": 0.01620581577658495,
+      "target_mod_286": 16,
+      "uniform_recombined_first_three_to_principal_ratio": -8.500145032286355e-17,
+      "uniform_reconstruction_error": 8.500145032286355e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.529410649151497,
+      "coefficient_linf_to_principal_ratio": 16.353863260955908,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01834428937144388,
+      "sufficient_l2_distance_to_uniform": 0.011751152587220844,
+      "target_mod_286": 18,
+      "uniform_recombined_first_three_to_principal_ratio": 1.6653345369377348e-16,
+      "uniform_reconstruction_error": 1.6653345369377348e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 37.893890424067365,
+      "coefficient_linf_to_principal_ratio": 31.91047951862547,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.009401300278953702,
+      "sufficient_l2_distance_to_uniform": 0.007916843497532848,
+      "target_mod_286": 20,
+      "uniform_recombined_first_three_to_principal_ratio": -5.551115123125783e-17,
+      "uniform_reconstruction_error": 5.551115123125783e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.597833577445297,
+      "coefficient_linf_to_principal_ratio": 15.224430501690557,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.019705170578741008,
+      "sufficient_l2_distance_to_uniform": 0.01219619602090005,
+      "target_mod_286": 22,
+      "uniform_recombined_first_three_to_principal_ratio": 5.551115123125783e-17,
+      "uniform_reconstruction_error": 5.551115123125783e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.17502213760586,
+      "coefficient_linf_to_principal_ratio": 16.23631336186615,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01847710088575914,
+      "sufficient_l2_distance_to_uniform": 0.01240950259703506,
+      "target_mod_286": 24,
+      "uniform_recombined_first_three_to_principal_ratio": 2.7755575615628914e-17,
+      "uniform_reconstruction_error": 2.7755575615628914e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.414103614266896,
+      "coefficient_linf_to_principal_ratio": 14.120275767069089,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.021246043983053898,
+      "sufficient_l2_distance_to_uniform": 0.013384429962617185,
+      "target_mod_286": 26,
+      "uniform_recombined_first_three_to_principal_ratio": -3.2959746043559335e-17,
+      "uniform_reconstruction_error": 3.2959746043559335e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.165570490750454,
+      "coefficient_linf_to_principal_ratio": 16.297025184358976,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01840826755842067,
+      "sufficient_l2_distance_to_uniform": 0.011921049042391638,
+      "target_mod_286": 28,
+      "uniform_recombined_first_three_to_principal_ratio": -8.673617379884035e-18,
+      "uniform_reconstruction_error": 8.673617379884035e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.424677072693306,
+      "coefficient_linf_to_principal_ratio": 16.46447068964983,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018221053421935453,
+      "sufficient_l2_distance_to_uniform": 0.011799559897742298,
+      "target_mod_286": 30,
+      "uniform_recombined_first_three_to_principal_ratio": 1.3877787807814457e-16,
+      "uniform_reconstruction_error": 1.3877787807814457e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 20.11623188411466,
+      "coefficient_linf_to_principal_ratio": 16.40235256389424,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018290059235793802,
+      "sufficient_l2_distance_to_uniform": 0.014913329779067782,
+      "target_mod_286": 32,
+      "uniform_recombined_first_three_to_principal_ratio": 6.938893903907228e-18,
+      "uniform_reconstruction_error": 6.938893903907228e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.934449155196685,
+      "coefficient_linf_to_principal_ratio": 17.497114544596986,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.017145684177545625,
+      "sufficient_l2_distance_to_uniform": 0.01504932479771047,
+      "target_mod_286": 34,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3877787807814457e-16,
+      "uniform_reconstruction_error": 1.3877787807814457e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.214664384468822,
+      "coefficient_linf_to_principal_ratio": 15.90616050856277,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018860616918740438,
+      "sufficient_l2_distance_to_uniform": 0.01647024582323912,
+      "target_mod_286": 36,
+      "uniform_recombined_first_three_to_principal_ratio": -1.9949319973733282e-17,
+      "uniform_reconstruction_error": 1.9949319973733282e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.267746499489228,
+      "coefficient_linf_to_principal_ratio": 16.305576544933743,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018398613454316162,
+      "sufficient_l2_distance_to_uniform": 0.011872843508465004,
+      "target_mod_286": 38,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5959455978986625e-16,
+      "uniform_reconstruction_error": 1.5959455978986625e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.17955443215509,
+      "coefficient_linf_to_principal_ratio": 16.317851259465797,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01838477353603609,
+      "sufficient_l2_distance_to_uniform": 0.011914428462518402,
+      "target_mod_286": 40,
+      "uniform_recombined_first_three_to_principal_ratio": 1.700029006457271e-16,
+      "uniform_reconstruction_error": 1.700029006457271e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.72163265622739,
+      "coefficient_linf_to_principal_ratio": 15.017570768684998,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.019976599719148138,
+      "sufficient_l2_distance_to_uniform": 0.016928462846484964,
+      "target_mod_286": 42,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.631749681033014,
+      "coefficient_linf_to_principal_ratio": 14.873095899739262,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020170649205943685,
+      "sufficient_l2_distance_to_uniform": 0.012694785788154393,
+      "target_mod_286": 44,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.484187230599257,
+      "coefficient_linf_to_principal_ratio": 15.151109807561763,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.019800529717649666,
+      "sufficient_l2_distance_to_uniform": 0.012252806155030264,
+      "target_mod_286": 46,
+      "uniform_recombined_first_three_to_principal_ratio": -2.2551405187698492e-17,
+      "uniform_reconstruction_error": 2.2551405187698492e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.39842872164927,
+      "coefficient_linf_to_principal_ratio": 16.2807922589895,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018426621704134446,
+      "sufficient_l2_distance_to_uniform": 0.011811754313143163,
+      "target_mod_286": 48,
+      "uniform_recombined_first_three_to_principal_ratio": 3.122502256758253e-17,
+      "uniform_reconstruction_error": 3.122502256758253e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.28079595958803,
+      "coefficient_linf_to_principal_ratio": 16.424373879118203,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018265536464766988,
+      "sufficient_l2_distance_to_uniform": 0.01186671497525463,
+      "target_mod_286": 50,
+      "uniform_recombined_first_three_to_principal_ratio": 4.5102810375396984e-17,
+      "uniform_reconstruction_error": 4.5102810375396984e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.59363646234595,
+      "coefficient_linf_to_principal_ratio": 16.38347807874394,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.018311130186039217,
+      "sufficient_l2_distance_to_uniform": 0.01172166372064275,
+      "target_mod_286": 52,
+      "uniform_recombined_first_three_to_principal_ratio": 6.938893903907228e-17,
+      "uniform_reconstruction_error": 6.938893903907228e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.456252199349276,
+      "coefficient_linf_to_principal_ratio": 16.064646697060017,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018674547013530204,
+      "sufficient_l2_distance_to_uniform": 0.016254654344752466,
+      "target_mod_286": 54,
+      "uniform_recombined_first_three_to_principal_ratio": -6.245004513516506e-17,
+      "uniform_reconstruction_error": 6.245004513516506e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.19405118708014,
+      "coefficient_linf_to_principal_ratio": 15.885372888331887,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01888529794729312,
+      "sufficient_l2_distance_to_uniform": 0.016488906011929566,
+      "target_mod_286": 56,
+      "uniform_recombined_first_three_to_principal_ratio": 2.862293735361732e-17,
+      "uniform_reconstruction_error": 2.862293735361732e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.60224136179813,
+      "coefficient_linf_to_principal_ratio": 16.26122832655171,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018448790827821603,
+      "sufficient_l2_distance_to_uniform": 0.012710657238069384,
+      "target_mod_286": 58,
+      "uniform_recombined_first_three_to_principal_ratio": -6.591949208711867e-17,
+      "uniform_reconstruction_error": 6.591949208711867e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.221755584568587,
+      "coefficient_linf_to_principal_ratio": 16.314064396545156,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01838904105733034,
+      "sufficient_l2_distance_to_uniform": 0.01189449318839442,
+      "target_mod_286": 60,
+      "uniform_recombined_first_three_to_principal_ratio": -4.683753385137379e-17,
+      "uniform_reconstruction_error": 4.683753385137379e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.465713852266067,
+      "coefficient_linf_to_principal_ratio": 16.386751238797935,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01830747264227139,
+      "sufficient_l2_distance_to_uniform": 0.01624632561731074,
+      "target_mod_286": 62,
+      "uniform_recombined_first_three_to_principal_ratio": -1.0581813203458523e-16,
+      "uniform_reconstruction_error": 1.0581813203458523e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.79485446122091,
+      "coefficient_linf_to_principal_ratio": 16.328476296405395,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018372810454215068,
+      "sufficient_l2_distance_to_uniform": 0.012099284570078812,
+      "target_mod_286": 64,
+      "uniform_recombined_first_three_to_principal_ratio": -7.28583859910259e-17,
+      "uniform_reconstruction_error": 7.28583859910259e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.659783645527412,
+      "coefficient_linf_to_principal_ratio": 15.149262968493401,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.019802943590320095,
+      "sufficient_l2_distance_to_uniform": 0.012165556856149121,
+      "target_mod_286": 66,
+      "uniform_recombined_first_three_to_principal_ratio": -6.245004513516506e-17,
+      "uniform_reconstruction_error": 6.245004513516506e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.323957875599646,
+      "coefficient_linf_to_principal_ratio": 16.33855961761983,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018361471697693227,
+      "sufficient_l2_distance_to_uniform": 0.015524769921942847,
+      "target_mod_286": 68,
+      "uniform_recombined_first_three_to_principal_ratio": 0.0,
+      "uniform_reconstruction_error": 0.0
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.443661358134353,
+      "coefficient_linf_to_principal_ratio": 16.42440212324928,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018265505054539558,
+      "sufficient_l2_distance_to_uniform": 0.011790755889151535,
+      "target_mod_286": 70,
+      "uniform_recombined_first_three_to_principal_ratio": -6.938893903907228e-17,
+      "uniform_reconstruction_error": 6.938893903907228e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.783065882365538,
+      "coefficient_linf_to_principal_ratio": 16.336082843119325,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01836425554895851,
+      "sufficient_l2_distance_to_uniform": 0.012105039845512651,
+      "target_mod_286": 72,
+      "uniform_recombined_first_three_to_principal_ratio": 1.1102230246251565e-16,
+      "uniform_reconstruction_error": 1.1102230246251565e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.08773049743274,
+      "coefficient_linf_to_principal_ratio": 16.264234781992364,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01844538055563227,
+      "sufficient_l2_distance_to_uniform": 0.011958036619960477,
+      "target_mod_286": 74,
+      "uniform_recombined_first_three_to_principal_ratio": -2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.378203460264253,
+      "coefficient_linf_to_principal_ratio": 16.195682868186125,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018523454826921984,
+      "sufficient_l2_distance_to_uniform": 0.016323684774120266,
+      "target_mod_286": 76,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3010426069826053e-16,
+      "uniform_reconstruction_error": 1.3010426069826053e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.42281623329404,
+      "coefficient_linf_to_principal_ratio": 13.389073022933998,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.022406330855476945,
+      "sufficient_l2_distance_to_uniform": 0.017218800679692448,
+      "target_mod_286": 78,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5612511283791264e-17,
+      "uniform_reconstruction_error": 1.5612511283791264e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.152878780876357,
+      "coefficient_linf_to_principal_ratio": 16.31528921909311,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01838766055393749,
+      "sufficient_l2_distance_to_uniform": 0.011927064198635144,
+      "target_mod_286": 80,
+      "uniform_recombined_first_three_to_principal_ratio": 3.9898639947466563e-17,
+      "uniform_reconstruction_error": 3.9898639947466563e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.236491185753675,
+      "coefficient_linf_to_principal_ratio": 16.354708705983857,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018343341076459286,
+      "sufficient_l2_distance_to_uniform": 0.011887547987231833,
+      "target_mod_286": 82,
+      "uniform_recombined_first_three_to_principal_ratio": -3.8163916471489756e-17,
+      "uniform_reconstruction_error": 3.8163916471489756e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.86125788776256,
+      "coefficient_linf_to_principal_ratio": 16.32384956331885,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01837801793237098,
+      "sufficient_l2_distance_to_uniform": 0.012066967864392285,
+      "target_mod_286": 84,
+      "uniform_recombined_first_three_to_principal_ratio": 5.204170427930421e-17,
+      "uniform_reconstruction_error": 5.204170427930421e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.66555107064471,
+      "coefficient_linf_to_principal_ratio": 16.349859789797847,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018348781204056384,
+      "sufficient_l2_distance_to_uniform": 0.012162712243516016,
+      "target_mod_286": 86,
+      "uniform_recombined_first_three_to_principal_ratio": -2.8189256484623115e-17,
+      "uniform_reconstruction_error": 2.8189256484623115e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.031176078162808,
+      "coefficient_linf_to_principal_ratio": 14.439174007570875,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020776811737478983,
+      "sufficient_l2_distance_to_uniform": 0.016637849838498548,
+      "target_mod_286": 88,
+      "uniform_recombined_first_three_to_principal_ratio": 1.734723475976807e-18,
+      "uniform_reconstruction_error": 1.734723475976807e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.074771515139002,
+      "coefficient_linf_to_principal_ratio": 16.295772247303866,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018409682919423163,
+      "sufficient_l2_distance_to_uniform": 0.012461177453391415,
+      "target_mod_286": 90,
+      "uniform_recombined_first_three_to_principal_ratio": 1.3010426069826053e-16,
+      "uniform_reconstruction_error": 1.3010426069826053e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.24062104604421,
+      "coefficient_linf_to_principal_ratio": 16.33890726704935,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01836108101335574,
+      "sufficient_l2_distance_to_uniform": 0.011885602951398731,
+      "target_mod_286": 92,
+      "uniform_recombined_first_three_to_principal_ratio": 1.8539857149502126e-16,
+      "uniform_reconstruction_error": 1.8539857149502126e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.201616654411243,
+      "coefficient_linf_to_principal_ratio": 16.298988804426052,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018406049823074536,
+      "sufficient_l2_distance_to_uniform": 0.016482052429518324,
+      "target_mod_286": 94,
+      "uniform_recombined_first_three_to_principal_ratio": 2.949029909160572e-17,
+      "uniform_reconstruction_error": 2.949029909160572e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.112704902757347,
+      "coefficient_linf_to_principal_ratio": 16.215286536233318,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018501060670722356,
+      "sufficient_l2_distance_to_uniform": 0.011946144438111098,
+      "target_mod_286": 96,
+      "uniform_recombined_first_three_to_principal_ratio": -9.367506770274758e-17,
+      "uniform_reconstruction_error": 9.367506770274758e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.668218218532534,
+      "coefficient_linf_to_principal_ratio": 16.230104417936236,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01848416943445315,
+      "sufficient_l2_distance_to_uniform": 0.015253033938647407,
+      "target_mod_286": 98,
+      "uniform_recombined_first_three_to_principal_ratio": 2.2551405187698492e-17,
+      "uniform_reconstruction_error": 2.2551405187698492e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.71606043088108,
+      "coefficient_linf_to_principal_ratio": 16.300092238499275,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.0184048038262893,
+      "sufficient_l2_distance_to_uniform": 0.016029014284705274,
+      "target_mod_286": 100,
+      "uniform_recombined_first_three_to_principal_ratio": 2.5153490401663703e-17,
+      "uniform_reconstruction_error": 2.5153490401663703e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.2537082786909,
+      "coefficient_linf_to_principal_ratio": 16.240304657832244,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018472559863913537,
+      "sufficient_l2_distance_to_uniform": 0.011879443473778471,
+      "target_mod_286": 102,
+      "uniform_recombined_first_three_to_principal_ratio": -5.551115123125783e-17,
+      "uniform_reconstruction_error": 5.551115123125783e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.60232016354981,
+      "coefficient_linf_to_principal_ratio": 14.609814330219058,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.0205341418596592,
+      "sufficient_l2_distance_to_uniform": 0.012710614800628978,
+      "target_mod_286": 104,
+      "uniform_recombined_first_three_to_principal_ratio": -9.367506770274758e-17,
+      "uniform_reconstruction_error": 9.367506770274758e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.328126838410434,
+      "coefficient_linf_to_principal_ratio": 16.348813610051973,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018349955364072825,
+      "sufficient_l2_distance_to_uniform": 0.011844539547434913,
+      "target_mod_286": 106,
+      "uniform_recombined_first_three_to_principal_ratio": 2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.323988861009376,
+      "coefficient_linf_to_principal_ratio": 16.264022742952637,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018445621033701086,
+      "sufficient_l2_distance_to_uniform": 0.0123335034280044,
+      "target_mod_286": 108,
+      "uniform_recombined_first_three_to_principal_ratio": -3.469446951953614e-18,
+      "uniform_reconstruction_error": 3.469446951953614e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.48402587600445,
+      "coefficient_linf_to_principal_ratio": 14.10397117879323,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.02127060500882764,
+      "sufficient_l2_distance_to_uniform": 0.013342806206257217,
+      "target_mod_286": 110,
+      "uniform_recombined_first_three_to_principal_ratio": 6.938893903907228e-17,
+      "uniform_reconstruction_error": 6.938893903907228e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.6196378982852,
+      "coefficient_linf_to_principal_ratio": 16.238358949141038,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018474773278482622,
+      "sufficient_l2_distance_to_uniform": 0.012185394490342828,
+      "target_mod_286": 112,
+      "uniform_recombined_first_three_to_principal_ratio": 3.122502256758253e-17,
+      "uniform_reconstruction_error": 3.122502256758253e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.532057198673744,
+      "coefficient_linf_to_principal_ratio": 16.34293196672199,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01835655931327804,
+      "sufficient_l2_distance_to_uniform": 0.016188165015024323,
+      "target_mod_286": 114,
+      "uniform_recombined_first_three_to_principal_ratio": 7.45931094670027e-17,
+      "uniform_reconstruction_error": 7.45931094670027e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.314452462689122,
+      "coefficient_linf_to_principal_ratio": 16.403067746322645,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018289261779538532,
+      "sufficient_l2_distance_to_uniform": 0.011850937737727841,
+      "target_mod_286": 116,
+      "uniform_recombined_first_three_to_principal_ratio": -8.673617379884035e-19,
+      "uniform_reconstruction_error": 8.673617379884035e-19
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.239493236812205,
+      "coefficient_linf_to_principal_ratio": 16.246772506012025,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018465205928684402,
+      "sufficient_l2_distance_to_uniform": 0.011886134051314674,
+      "target_mod_286": 118,
+      "uniform_recombined_first_three_to_principal_ratio": 4.85722573273506e-17,
+      "uniform_reconstruction_error": 4.85722573273506e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 8.47653476532747,
+      "coefficient_linf_to_principal_ratio": 4.023914720006587,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.07455426391330403,
+      "sufficient_l2_distance_to_uniform": 0.03539182086849026,
+      "target_mod_286": 120,
+      "uniform_recombined_first_three_to_principal_ratio": 2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.585645191234068,
+      "coefficient_linf_to_principal_ratio": 16.269879380118567,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01843898119899975,
+      "sufficient_l2_distance_to_uniform": 0.016141489677285736,
+      "target_mod_286": 122,
+      "uniform_recombined_first_three_to_principal_ratio": -2.2551405187698492e-17,
+      "uniform_reconstruction_error": 2.2551405187698492e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.09499432390733,
+      "coefficient_linf_to_principal_ratio": 16.170639903365412,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018552141522708968,
+      "sufficient_l2_distance_to_uniform": 0.01245071884919834,
+      "target_mod_286": 124,
+      "uniform_recombined_first_three_to_principal_ratio": -4.5102810375396984e-17,
+      "uniform_reconstruction_error": 4.5102810375396984e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.213161928418998,
+      "coefficient_linf_to_principal_ratio": 16.32765211265246,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018373737873036075,
+      "sufficient_l2_distance_to_uniform": 0.01189854730841415,
+      "target_mod_286": 126,
+      "uniform_recombined_first_three_to_principal_ratio": 2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.301261129471296,
+      "coefficient_linf_to_principal_ratio": 16.391313636006082,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01830237689680973,
+      "sufficient_l2_distance_to_uniform": 0.01185711646802283,
+      "target_mod_286": 128,
+      "uniform_recombined_first_three_to_principal_ratio": 7.155734338404329e-17,
+      "uniform_reconstruction_error": 7.155734338404329e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.79776635108259,
+      "coefficient_linf_to_principal_ratio": 14.365782700770115,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.02088295543993699,
+      "sufficient_l2_distance_to_uniform": 0.013159183903371919,
+      "target_mod_286": 130,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.873895937996632,
+      "coefficient_linf_to_principal_ratio": 14.780180534289112,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020297451665358106,
+      "sufficient_l2_distance_to_uniform": 0.012566026122386388,
+      "target_mod_286": 132,
+      "uniform_recombined_first_three_to_principal_ratio": -2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.38086089797011,
+      "coefficient_linf_to_principal_ratio": 16.30118670364289,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018403568123844492,
+      "sufficient_l2_distance_to_uniform": 0.012304733670211673,
+      "target_mod_286": 134,
+      "uniform_recombined_first_three_to_principal_ratio": 9.71445146547012e-17,
+      "uniform_reconstruction_error": 9.71445146547012e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.938319006562974,
+      "coefficient_linf_to_principal_ratio": 16.404909757048376,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01828720818601912,
+      "sufficient_l2_distance_to_uniform": 0.012029680104783707,
+      "target_mod_286": 136,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3877787807814457e-16,
+      "uniform_reconstruction_error": 1.3877787807814457e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.271682726621425,
+      "coefficient_linf_to_principal_ratio": 16.388400080535607,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01830563072208055,
+      "sufficient_l2_distance_to_uniform": 0.011870994236722401,
+      "target_mod_286": 138,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.305883307807598,
+      "coefficient_linf_to_principal_ratio": 16.27778344936189,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018430027708211116,
+      "sufficient_l2_distance_to_uniform": 0.0163881739523625,
+      "target_mod_286": 140,
+      "uniform_recombined_first_three_to_principal_ratio": -9.020562075079397e-17,
+      "uniform_reconstruction_error": 9.020562075079397e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.61812369636506,
+      "coefficient_linf_to_principal_ratio": 16.208163086910762,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018509191843107207,
+      "sufficient_l2_distance_to_uniform": 0.01611333155223214,
+      "target_mod_286": 142,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5959455978986625e-16,
+      "uniform_reconstruction_error": 1.5959455978986625e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.618123696365405,
+      "coefficient_linf_to_principal_ratio": 16.208163086911092,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01850919184310683,
+      "sufficient_l2_distance_to_uniform": 0.01611333155223184,
+      "target_mod_286": 144,
+      "uniform_recombined_first_three_to_principal_ratio": 7.979727989493313e-17,
+      "uniform_reconstruction_error": 7.979727989493313e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.305883307807534,
+      "coefficient_linf_to_principal_ratio": 16.27778344936175,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01843002770821128,
+      "sufficient_l2_distance_to_uniform": 0.01638817395236256,
+      "target_mod_286": 146,
+      "uniform_recombined_first_three_to_principal_ratio": 1.4224732503009818e-16,
+      "uniform_reconstruction_error": 1.4224732503009818e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.271682726621638,
+      "coefficient_linf_to_principal_ratio": 16.38840008053553,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018305630722080638,
+      "sufficient_l2_distance_to_uniform": 0.0118709942367223,
+      "target_mod_286": 148,
+      "uniform_recombined_first_three_to_principal_ratio": -7.806255641895632e-17,
+      "uniform_reconstruction_error": 7.806255641895632e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.938319006562967,
+      "coefficient_linf_to_principal_ratio": 16.40490975704841,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01828720818601908,
+      "sufficient_l2_distance_to_uniform": 0.01202968010478371,
+      "target_mod_286": 150,
+      "uniform_recombined_first_three_to_principal_ratio": 1.249000902703301e-16,
+      "uniform_reconstruction_error": 1.249000902703301e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.38086089797012,
+      "coefficient_linf_to_principal_ratio": 16.3011867036429,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018403568123844482,
+      "sufficient_l2_distance_to_uniform": 0.012304733670211667,
+      "target_mod_286": 152,
+      "uniform_recombined_first_three_to_principal_ratio": -7.632783294297951e-17,
+      "uniform_reconstruction_error": 7.632783294297951e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.873895937996704,
+      "coefficient_linf_to_principal_ratio": 14.780180534289089,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020297451665358138,
+      "sufficient_l2_distance_to_uniform": 0.012566026122386352,
+      "target_mod_286": 154,
+      "uniform_recombined_first_three_to_principal_ratio": -2.7755575615628914e-17,
+      "uniform_reconstruction_error": 2.7755575615628914e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.797766351082327,
+      "coefficient_linf_to_principal_ratio": 14.365782700769902,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.0208829554399373,
+      "sufficient_l2_distance_to_uniform": 0.013159183903372071,
+      "target_mod_286": 156,
+      "uniform_recombined_first_three_to_principal_ratio": 9.020562075079397e-17,
+      "uniform_reconstruction_error": 9.020562075079397e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.30126112947128,
+      "coefficient_linf_to_principal_ratio": 16.391313636005975,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018302376896809847,
+      "sufficient_l2_distance_to_uniform": 0.011857116468022837,
+      "target_mod_286": 158,
+      "uniform_recombined_first_three_to_principal_ratio": -1.491862189340054e-16,
+      "uniform_reconstruction_error": 1.491862189340054e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.213161928419108,
+      "coefficient_linf_to_principal_ratio": 16.327652112652576,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018373737873035943,
+      "sufficient_l2_distance_to_uniform": 0.011898547308414099,
+      "target_mod_286": 160,
+      "uniform_recombined_first_three_to_principal_ratio": 2.862293735361732e-17,
+      "uniform_reconstruction_error": 2.862293735361732e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.09499432390698,
+      "coefficient_linf_to_principal_ratio": 16.1706399033649,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018552141522709554,
+      "sufficient_l2_distance_to_uniform": 0.01245071884919852,
+      "target_mod_286": 162,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3877787807814457e-17,
+      "uniform_reconstruction_error": 1.3877787807814457e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.585645191233713,
+      "coefficient_linf_to_principal_ratio": 16.269879380118294,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01843898119900006,
+      "sufficient_l2_distance_to_uniform": 0.016141489677286045,
+      "target_mod_286": 164,
+      "uniform_recombined_first_three_to_principal_ratio": -1.214306433183765e-16,
+      "uniform_reconstruction_error": 1.214306433183765e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 8.47653476532756,
+      "coefficient_linf_to_principal_ratio": 4.023914720006675,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.0745542639133024,
+      "sufficient_l2_distance_to_uniform": 0.03539182086848989,
+      "target_mod_286": 166,
+      "uniform_recombined_first_three_to_principal_ratio": -1.734723475976807e-17,
+      "uniform_reconstruction_error": 1.734723475976807e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.2394932368127,
+      "coefficient_linf_to_principal_ratio": 16.246772506012192,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01846520592868421,
+      "sufficient_l2_distance_to_uniform": 0.011886134051314442,
+      "target_mod_286": 168,
+      "uniform_recombined_first_three_to_principal_ratio": -1.7520707107365752e-16,
+      "uniform_reconstruction_error": 1.7520707107365752e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.314452462688816,
+      "coefficient_linf_to_principal_ratio": 16.4030677463225,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018289261779538695,
+      "sufficient_l2_distance_to_uniform": 0.011850937737727983,
+      "target_mod_286": 170,
+      "uniform_recombined_first_three_to_principal_ratio": -1.734723475976807e-18,
+      "uniform_reconstruction_error": 1.734723475976807e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.532057198673566,
+      "coefficient_linf_to_principal_ratio": 16.342931966721817,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018356559313278238,
+      "sufficient_l2_distance_to_uniform": 0.01618816501502448,
+      "target_mod_286": 172,
+      "uniform_recombined_first_three_to_principal_ratio": 2.6020852139652106e-18,
+      "uniform_reconstruction_error": 2.6020852139652106e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.61963789828548,
+      "coefficient_linf_to_principal_ratio": 16.2383589491415,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018474773278482095,
+      "sufficient_l2_distance_to_uniform": 0.01218539449034269,
+      "target_mod_286": 174,
+      "uniform_recombined_first_three_to_principal_ratio": 1.6653345369377348e-16,
+      "uniform_reconstruction_error": 1.6653345369377348e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.484025876004633,
+      "coefficient_linf_to_principal_ratio": 14.103971178793484,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.02127060500882726,
+      "sufficient_l2_distance_to_uniform": 0.013342806206257106,
+      "target_mod_286": 176,
+      "uniform_recombined_first_three_to_principal_ratio": -6.938893903907228e-18,
+      "uniform_reconstruction_error": 6.938893903907228e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.323988861009383,
+      "coefficient_linf_to_principal_ratio": 16.264022742952513,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018445621033701228,
+      "sufficient_l2_distance_to_uniform": 0.012333503428004397,
+      "target_mod_286": 178,
+      "uniform_recombined_first_three_to_principal_ratio": 2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.328126838410494,
+      "coefficient_linf_to_principal_ratio": 16.348813610052087,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018349955364072697,
+      "sufficient_l2_distance_to_uniform": 0.011844539547434885,
+      "target_mod_286": 180,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3791051634015616e-16,
+      "uniform_reconstruction_error": 1.3791051634015616e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.602320163549816,
+      "coefficient_linf_to_principal_ratio": 14.609814330219159,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.020534141859659058,
+      "sufficient_l2_distance_to_uniform": 0.012710614800628975,
+      "target_mod_286": 182,
+      "uniform_recombined_first_three_to_principal_ratio": 5.0306980803327406e-17,
+      "uniform_reconstruction_error": 5.0306980803327406e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.25370827869048,
+      "coefficient_linf_to_principal_ratio": 16.24030465783178,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018472559863914068,
+      "sufficient_l2_distance_to_uniform": 0.01187944347377867,
+      "target_mod_286": 184,
+      "uniform_recombined_first_three_to_principal_ratio": -1.2750217548429532e-16,
+      "uniform_reconstruction_error": 1.2750217548429532e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.716060430880983,
+      "coefficient_linf_to_principal_ratio": 16.30009223849925,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01840480382628933,
+      "sufficient_l2_distance_to_uniform": 0.016029014284705358,
+      "target_mod_286": 186,
+      "uniform_recombined_first_three_to_principal_ratio": 2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.668218218532857,
+      "coefficient_linf_to_principal_ratio": 16.230104417936495,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018484169434452854,
+      "sufficient_l2_distance_to_uniform": 0.015253033938647157,
+      "target_mod_286": 188,
+      "uniform_recombined_first_three_to_principal_ratio": 6.938893903907228e-17,
+      "uniform_reconstruction_error": 6.938893903907228e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.11270490275745,
+      "coefficient_linf_to_principal_ratio": 16.215286536232963,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018501060670722762,
+      "sufficient_l2_distance_to_uniform": 0.01194614443811105,
+      "target_mod_286": 190,
+      "uniform_recombined_first_three_to_principal_ratio": 7.632783294297951e-17,
+      "uniform_reconstruction_error": 7.632783294297951e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.201616654411367,
+      "coefficient_linf_to_principal_ratio": 16.298988804426177,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018406049823074394,
+      "sufficient_l2_distance_to_uniform": 0.01648205242951821,
+      "target_mod_286": 192,
+      "uniform_recombined_first_three_to_principal_ratio": -8.326672684688674e-17,
+      "uniform_reconstruction_error": 8.326672684688674e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.240621046044463,
+      "coefficient_linf_to_principal_ratio": 16.338907267049468,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01836108101335561,
+      "sufficient_l2_distance_to_uniform": 0.011885602951398611,
+      "target_mod_286": 194,
+      "uniform_recombined_first_three_to_principal_ratio": -1.2836953722228372e-16,
+      "uniform_reconstruction_error": 1.2836953722228372e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.074771515139084,
+      "coefficient_linf_to_principal_ratio": 16.295772247303532,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01840968291942354,
+      "sufficient_l2_distance_to_uniform": 0.012461177453391372,
+      "target_mod_286": 196,
+      "uniform_recombined_first_three_to_principal_ratio": -1.457167719820518e-16,
+      "uniform_reconstruction_error": 1.457167719820518e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.031176078162773,
+      "coefficient_linf_to_principal_ratio": 14.439174007570887,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020776811737478966,
+      "sufficient_l2_distance_to_uniform": 0.016637849838498583,
+      "target_mod_286": 198,
+      "uniform_recombined_first_three_to_principal_ratio": -2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.6655510706445,
+      "coefficient_linf_to_principal_ratio": 16.349859789797772,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018348781204056468,
+      "sufficient_l2_distance_to_uniform": 0.01216271224351612,
+      "target_mod_286": 200,
+      "uniform_recombined_first_three_to_principal_ratio": 1.734723475976807e-16,
+      "uniform_reconstruction_error": 1.734723475976807e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.86125788776253,
+      "coefficient_linf_to_principal_ratio": 16.323849563318895,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018378017932370927,
+      "sufficient_l2_distance_to_uniform": 0.012066967864392297,
+      "target_mod_286": 202,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5265566588595902e-16,
+      "uniform_reconstruction_error": 1.5265566588595902e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.23649118575364,
+      "coefficient_linf_to_principal_ratio": 16.354708705983906,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01834334107645923,
+      "sufficient_l2_distance_to_uniform": 0.01188754798723185,
+      "target_mod_286": 204,
+      "uniform_recombined_first_three_to_principal_ratio": 1.0148132334464322e-16,
+      "uniform_reconstruction_error": 1.0148132334464322e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.1528787808765,
+      "coefficient_linf_to_principal_ratio": 16.31528921909323,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018387660553937354,
+      "sufficient_l2_distance_to_uniform": 0.011927064198635077,
+      "target_mod_286": 206,
+      "uniform_recombined_first_three_to_principal_ratio": -6.938893903907228e-18,
+      "uniform_reconstruction_error": 6.938893903907228e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.42281623329416,
+      "coefficient_linf_to_principal_ratio": 13.38907302293407,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.022406330855476823,
+      "sufficient_l2_distance_to_uniform": 0.017218800679692326,
+      "target_mod_286": 208,
+      "uniform_recombined_first_three_to_principal_ratio": 5.724587470723463e-17,
+      "uniform_reconstruction_error": 5.724587470723463e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.378203460264267,
+      "coefficient_linf_to_principal_ratio": 16.195682868186402,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018523454826921668,
+      "sufficient_l2_distance_to_uniform": 0.016323684774120256,
+      "target_mod_286": 210,
+      "uniform_recombined_first_three_to_principal_ratio": -6.938893903907228e-18,
+      "uniform_reconstruction_error": 6.938893903907228e-18
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.087730497432734,
+      "coefficient_linf_to_principal_ratio": 16.26423478199231,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01844538055563233,
+      "sufficient_l2_distance_to_uniform": 0.01195803661996048,
+      "target_mod_286": 212,
+      "uniform_recombined_first_three_to_principal_ratio": -1.214306433183765e-16,
+      "uniform_reconstruction_error": 1.214306433183765e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.783065882365612,
+      "coefficient_linf_to_principal_ratio": 16.336082843119264,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01836425554895858,
+      "sufficient_l2_distance_to_uniform": 0.012105039845512615,
+      "target_mod_286": 214,
+      "uniform_recombined_first_three_to_principal_ratio": 1.0581813203458523e-16,
+      "uniform_reconstruction_error": 1.0581813203458523e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.443661358133877,
+      "coefficient_linf_to_principal_ratio": 16.424402123249354,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018265505054539475,
+      "sufficient_l2_distance_to_uniform": 0.011790755889151757,
+      "target_mod_286": 216,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3877787807814457e-17,
+      "uniform_reconstruction_error": 1.3877787807814457e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.32395787559988,
+      "coefficient_linf_to_principal_ratio": 16.338559617619982,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018361471697693057,
+      "sufficient_l2_distance_to_uniform": 0.015524769921942658,
+      "target_mod_286": 218,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5612511283791264e-17,
+      "uniform_reconstruction_error": 1.5612511283791264e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.659783645527426,
+      "coefficient_linf_to_principal_ratio": 15.14926296849348,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.019802943590319994,
+      "sufficient_l2_distance_to_uniform": 0.012165556856149114,
+      "target_mod_286": 220,
+      "uniform_recombined_first_three_to_principal_ratio": 2.0816681711721685e-17,
+      "uniform_reconstruction_error": 2.0816681711721685e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.794854461220652,
+      "coefficient_linf_to_principal_ratio": 16.328476296405267,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018372810454215214,
+      "sufficient_l2_distance_to_uniform": 0.012099284570078939,
+      "target_mod_286": 222,
+      "uniform_recombined_first_three_to_principal_ratio": 1.1796119636642288e-16,
+      "uniform_reconstruction_error": 1.1796119636642288e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.465713852266028,
+      "coefficient_linf_to_principal_ratio": 16.386751238797803,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018307472642271536,
+      "sufficient_l2_distance_to_uniform": 0.016246325617310774,
+      "target_mod_286": 224,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5092094240998222e-16,
+      "uniform_reconstruction_error": 1.5092094240998222e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.221755584568793,
+      "coefficient_linf_to_principal_ratio": 16.314064396545493,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01838904105732996,
+      "sufficient_l2_distance_to_uniform": 0.011894493188394323,
+      "target_mod_286": 226,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5265566588595902e-16,
+      "uniform_reconstruction_error": 1.5265566588595902e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.602241361798175,
+      "coefficient_linf_to_principal_ratio": 16.261228326551787,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018448790827821512,
+      "sufficient_l2_distance_to_uniform": 0.01271065723806936,
+      "target_mod_286": 228,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.194051187080145,
+      "coefficient_linf_to_principal_ratio": 15.885372888331963,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01888529794729303,
+      "sufficient_l2_distance_to_uniform": 0.016488906011929563,
+      "target_mod_286": 230,
+      "uniform_recombined_first_three_to_principal_ratio": -1.1102230246251565e-16,
+      "uniform_reconstruction_error": 1.1102230246251565e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.456252199349148,
+      "coefficient_linf_to_principal_ratio": 16.064646697059786,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01867454701353047,
+      "sufficient_l2_distance_to_uniform": 0.01625465434475258,
+      "target_mod_286": 232,
+      "uniform_recombined_first_three_to_principal_ratio": 4.5102810375396984e-17,
+      "uniform_reconstruction_error": 4.5102810375396984e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.59363646234598,
+      "coefficient_linf_to_principal_ratio": 16.383478078744055,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.01831113018603909,
+      "sufficient_l2_distance_to_uniform": 0.011721663720642737,
+      "target_mod_286": 234,
+      "uniform_recombined_first_three_to_principal_ratio": 8.153200337090993e-17,
+      "uniform_reconstruction_error": 8.153200337090993e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.2807959595879,
+      "coefficient_linf_to_principal_ratio": 16.42437387911809,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018265536464767116,
+      "sufficient_l2_distance_to_uniform": 0.01186671497525469,
+      "target_mod_286": 236,
+      "uniform_recombined_first_three_to_principal_ratio": 1.0755285551056204e-16,
+      "uniform_reconstruction_error": 1.0755285551056204e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.398428721649296,
+      "coefficient_linf_to_principal_ratio": 16.2807922589896,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01842662170413433,
+      "sufficient_l2_distance_to_uniform": 0.011811754313143153,
+      "target_mod_286": 238,
+      "uniform_recombined_first_three_to_principal_ratio": 1.1102230246251565e-16,
+      "uniform_reconstruction_error": 1.1102230246251565e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.484187230599336,
+      "coefficient_linf_to_principal_ratio": 15.151109807561664,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.019800529717649794,
+      "sufficient_l2_distance_to_uniform": 0.012252806155030226,
+      "target_mod_286": 240,
+      "uniform_recombined_first_three_to_principal_ratio": 4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.63174968103307,
+      "coefficient_linf_to_principal_ratio": 14.873095899738964,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.020170649205944087,
+      "sufficient_l2_distance_to_uniform": 0.012694785788154361,
+      "target_mod_286": 242,
+      "uniform_recombined_first_three_to_principal_ratio": -4.163336342344337e-17,
+      "uniform_reconstruction_error": 4.163336342344337e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.721632656227516,
+      "coefficient_linf_to_principal_ratio": 15.017570768685246,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.019976599719147805,
+      "sufficient_l2_distance_to_uniform": 0.016928462846484842,
+      "target_mod_286": 244,
+      "uniform_recombined_first_three_to_principal_ratio": -3.469446951953614e-17,
+      "uniform_reconstruction_error": 3.469446951953614e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.17955443215517,
+      "coefficient_linf_to_principal_ratio": 16.31785125946595,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01838477353603592,
+      "sufficient_l2_distance_to_uniform": 0.011914428462518363,
+      "target_mod_286": 246,
+      "uniform_recombined_first_three_to_principal_ratio": -8.326672684688674e-17,
+      "uniform_reconstruction_error": 8.326672684688674e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.26774649948902,
+      "coefficient_linf_to_principal_ratio": 16.305576544933622,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018398613454316298,
+      "sufficient_l2_distance_to_uniform": 0.0118728435084651,
+      "target_mod_286": 248,
+      "uniform_recombined_first_three_to_principal_ratio": 1.3877787807814457e-17,
+      "uniform_reconstruction_error": 1.3877787807814457e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.214664384468655,
+      "coefficient_linf_to_principal_ratio": 15.906160508562667,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01886061691874056,
+      "sufficient_l2_distance_to_uniform": 0.016470245823239273,
+      "target_mod_286": 250,
+      "uniform_recombined_first_three_to_principal_ratio": 3.8163916471489756e-17,
+      "uniform_reconstruction_error": 3.8163916471489756e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 19.934449155196805,
+      "coefficient_linf_to_principal_ratio": 17.497114544597093,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01714568417754552,
+      "sufficient_l2_distance_to_uniform": 0.015049324797710378,
+      "target_mod_286": 252,
+      "uniform_recombined_first_three_to_principal_ratio": 1.5612511283791264e-17,
+      "uniform_reconstruction_error": 1.5612511283791264e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 20.116231884114605,
+      "coefficient_linf_to_principal_ratio": 16.40235256389417,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018290059235793882,
+      "sufficient_l2_distance_to_uniform": 0.014913329779067825,
+      "target_mod_286": 254,
+      "uniform_recombined_first_three_to_principal_ratio": 3.9898639947466563e-17,
+      "uniform_reconstruction_error": 3.9898639947466563e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.42467707269352,
+      "coefficient_linf_to_principal_ratio": 16.464470689650305,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018221053421934925,
+      "sufficient_l2_distance_to_uniform": 0.0117995598977422,
+      "target_mod_286": 256,
+      "uniform_recombined_first_three_to_principal_ratio": 3.122502256758253e-17,
+      "uniform_reconstruction_error": 3.122502256758253e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.165570490750508,
+      "coefficient_linf_to_principal_ratio": 16.29702518435906,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018408267558420576,
+      "sufficient_l2_distance_to_uniform": 0.011921049042391614,
+      "target_mod_286": 258,
+      "uniform_recombined_first_three_to_principal_ratio": 1.214306433183765e-17,
+      "uniform_reconstruction_error": 1.214306433183765e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 22.41410361426712,
+      "coefficient_linf_to_principal_ratio": 14.120275767069039,
+      "reflection_orbit_count": 54,
+      "sufficient_l1_distance_to_uniform": 0.021246043983053974,
+      "sufficient_l2_distance_to_uniform": 0.013384429962617052,
+      "target_mod_286": 260,
+      "uniform_recombined_first_three_to_principal_ratio": 3.2959746043559335e-17,
+      "uniform_reconstruction_error": 3.2959746043559335e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.17502213760579,
+      "coefficient_linf_to_principal_ratio": 16.236313361866184,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.0184771008857591,
+      "sufficient_l2_distance_to_uniform": 0.012409502597035096,
+      "target_mod_286": 262,
+      "uniform_recombined_first_three_to_principal_ratio": 9.540979117872439e-17,
+      "uniform_reconstruction_error": 9.540979117872439e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.597833577445392,
+      "coefficient_linf_to_principal_ratio": 15.224430501690765,
+      "reflection_orbit_count": 55,
+      "sufficient_l1_distance_to_uniform": 0.01970517057874074,
+      "sufficient_l2_distance_to_uniform": 0.012196196020900003,
+      "target_mod_286": 264,
+      "uniform_recombined_first_three_to_principal_ratio": 3.9898639947466563e-17,
+      "uniform_reconstruction_error": 3.9898639947466563e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 37.89389042406748,
+      "coefficient_linf_to_principal_ratio": 31.910479518625646,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.00940130027895365,
+      "sufficient_l2_distance_to_uniform": 0.007916843497532824,
+      "target_mod_286": 266,
+      "uniform_recombined_first_three_to_principal_ratio": -2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.529410649151203,
+      "coefficient_linf_to_principal_ratio": 16.353863260955997,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018344289371443778,
+      "sufficient_l2_distance_to_uniform": 0.01175115258722098,
+      "target_mod_286": 268,
+      "uniform_recombined_first_three_to_principal_ratio": 2.7755575615628914e-17,
+      "uniform_reconstruction_error": 2.7755575615628914e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 18.51187278294613,
+      "coefficient_linf_to_principal_ratio": 16.378175724827173,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018317058324465233,
+      "sufficient_l2_distance_to_uniform": 0.016205815776584843,
+      "target_mod_286": 270,
+      "uniform_recombined_first_three_to_principal_ratio": -1.3183898417423734e-16,
+      "uniform_reconstruction_error": 1.3183898417423734e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 26.202131139943024,
+      "coefficient_linf_to_principal_ratio": 17.45609506543517,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.0171859742328071,
+      "sufficient_l2_distance_to_uniform": 0.011449450367137287,
+      "target_mod_286": 272,
+      "uniform_recombined_first_three_to_principal_ratio": -8.586881206085195e-17,
+      "uniform_reconstruction_error": 8.586881206085195e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.16201364978238,
+      "coefficient_linf_to_principal_ratio": 14.864423818421145,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.02018241700214554,
+      "sufficient_l2_distance_to_uniform": 0.01748046622744669,
+      "target_mod_286": 274,
+      "uniform_recombined_first_three_to_principal_ratio": -2.6020852139652106e-17,
+      "uniform_reconstruction_error": 2.6020852139652106e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 17.78404344254845,
+      "coefficient_linf_to_principal_ratio": 16.149303425198433,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018576652633320236,
+      "sufficient_l2_distance_to_uniform": 0.01686905460893375,
+      "target_mod_286": 276,
+      "uniform_recombined_first_three_to_principal_ratio": 6.938893903907228e-17,
+      "uniform_reconstruction_error": 6.938893903907228e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 24.071272897932573,
+      "coefficient_linf_to_principal_ratio": 16.29604270442799,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01840937738328849,
+      "sufficient_l2_distance_to_uniform": 0.012462988611863825,
+      "target_mod_286": 278,
+      "uniform_recombined_first_three_to_principal_ratio": 2.42861286636753e-17,
+      "uniform_reconstruction_error": 2.42861286636753e-17
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 23.72333460943133,
+      "coefficient_linf_to_principal_ratio": 16.293576990467766,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.0184121632822252,
+      "sufficient_l2_distance_to_uniform": 0.01264577703510254,
+      "target_mod_286": 280,
+      "uniform_recombined_first_three_to_principal_ratio": 1.249000902703301e-16,
+      "uniform_reconstruction_error": 1.249000902703301e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.32920571172661,
+      "coefficient_linf_to_principal_ratio": 16.319229915862348,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.018383220381520512,
+      "sufficient_l2_distance_to_uniform": 0.011844035040589907,
+      "target_mod_286": 282,
+      "uniform_recombined_first_three_to_principal_ratio": -1.5265566588595902e-16,
+      "uniform_reconstruction_error": 1.5265566588595902e-16
+    },
+    {
+      "coefficient_l2_to_principal_ratio": 25.03757762657809,
+      "coefficient_linf_to_principal_ratio": 16.38324863452803,
+      "reflection_orbit_count": 50,
+      "sufficient_l1_distance_to_uniform": 0.01831138662986191,
+      "sufficient_l2_distance_to_uniform": 0.011981989810449617,
+      "target_mod_286": 284,
+      "uniform_recombined_first_three_to_principal_ratio": 7.632783294297951e-17,
+      "uniform_reconstruction_error": 7.632783294297951e-17
+    }
+  ],
+  "sample_rows": {
+    "1222142": {
+      "actual_reconstruction_error": 5.551115123125783e-17,
+      "coefficient_l2_to_principal_ratio": 24.79485446122091,
+      "coefficient_linf_to_principal_ratio": 16.328476296405395,
+      "first_three_to_principal_ratio": -0.3075877603708794,
+      "has_strict_central_prime_pairs": true,
+      "l1_budget_utilization": 7.843792802911439,
+      "l1_uniformity_certificate_holds": false,
+      "l2_budget_utilization": 2.0973149884967834,
+      "l2_uniformity_certificate_holds": false,
+      "orbit_l1_distance_to_local_uniform": 0.1441125184100282,
+      "orbit_l2_distance_to_local_uniform": 0.025376010878914154,
+      "sufficient_l1_distance_to_uniform": 0.018372810454215068,
+      "sufficient_l2_distance_to_uniform": 0.012099284570078812,
+      "tail_target": true,
+      "target": 1222142,
+      "target_mod_286": 64,
+      "threshold_slack": -0.007587760370879437,
+      "uniform_recombined_first_three_to_principal_ratio": -7.28583859910259e-17
+    },
+    "1240888": {
+      "actual_reconstruction_error": 0.0,
+      "coefficient_l2_to_principal_ratio": 24.659783645527426,
+      "coefficient_linf_to_principal_ratio": 15.14926296849348,
+      "first_three_to_principal_ratio": -0.27468410150061684,
+      "has_strict_central_prime_pairs": true,
+      "l1_budget_utilization": 6.505901726697682,
+      "l1_uniformity_certificate_holds": false,
+      "l2_budget_utilization": 1.82647385924401,
+      "l2_uniformity_certificate_holds": false,
+      "orbit_l1_distance_to_local_uniform": 0.12883600489795966,
+      "orbit_l2_distance_to_local_uniform": 0.022220071580903097,
+      "sufficient_l1_distance_to_uniform": 0.019802943590319994,
+      "sufficient_l2_distance_to_uniform": 0.012165556856149114,
+      "tail_target": false,
+      "target": 1240888,
+      "target_mod_286": 220,
+      "threshold_slack": 0.02531589849938315,
+      "uniform_recombined_first_three_to_principal_ratio": 2.0816681711721685e-17
+    },
+    "1242118": {
+      "actual_reconstruction_error": 0.0,
+      "coefficient_l2_to_principal_ratio": 37.893890424067365,
+      "coefficient_linf_to_principal_ratio": 31.91047951862547,
+      "first_three_to_principal_ratio": -0.2864267432684322,
+      "has_strict_central_prime_pairs": true,
+      "l1_budget_utilization": 14.291145699121145,
+      "l1_uniformity_certificate_holds": false,
+      "l2_budget_utilization": 2.9097499848440553,
+      "l2_uniformity_certificate_holds": false,
+      "orbit_l1_distance_to_local_uniform": 0.13435535204771562,
+      "orbit_l2_distance_to_local_uniform": 0.023036035246958964,
+      "sufficient_l1_distance_to_uniform": 0.009401300278953702,
+      "sufficient_l2_distance_to_uniform": 0.007916843497532848,
+      "tail_target": false,
+      "target": 1242118,
+      "target_mod_286": 20,
+      "threshold_slack": 0.013573256731567784,
+      "uniform_recombined_first_three_to_principal_ratio": -5.551115123125783e-17
+    }
+  },
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "eb5d6c0f845e1a2423c3b1485f0ef0ab83eb1316",
+  "status_boundary": "conditional orbit-uniformity theorem budget and finite stress diagnostic only; no orbit-uniformity theorem, mass/landing inequality, signed prime-correlation estimate, or Goldbach proof is established",
+  "tail_sample_uniformity_budget_failure_targets": [
+    1222142
+  ],
+  "tail_threshold": 0.3
+}

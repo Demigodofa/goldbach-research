@@ -11020,6 +11020,25 @@ formalized theorem obligation.  The missing ingredient remains a pointwise
 arithmetic estimate for actual binary-prime residue weights forcing the
 mass/landing inequality.
 
+The backward generic-uniformity route is now quantified in
+`evidence/q286-first-three-orbit-uniformity-budget.json`.  For each even
+target residue modulo `286`, local uniform reflection-orbit mass gives
+`first_three=0`; hence the conditional theorem
+`||mu_N-u_a||_1 <= tau/||c_a||_infinity` or
+`||mu_N-u_a||_2 <= tau/||c_a||_2` would imply
+`first_three(N) >= -tau`.  The residue budgets are explicit:
+L1 sufficient distances range from about `0.0093982579157629` to
+`0.07455426391330403`; L2 sufficient distances range from about
+`0.007916843497532824` to `0.03539182086849026`.
+
+Finite stress demotes that theorem as the main route: the tail `1222142`
+fails the sufficient budgets, as expected, but the clear rows `1242118` and
+`1240888` fail them too.  For example, `1242118` has L1 utilization about
+`14.291145699121145` and L2 utilization about `2.9097499848440553` while
+still clearing the first-three threshold.  Thus a generic local-uniformity
+proof is sufficient but much too blunt at the active scale; the viable theorem
+target remains coefficient-sensitive mass/landing control.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

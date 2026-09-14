@@ -19940,6 +19940,37 @@ does not prove it.  The missing input is still a pointwise arithmetic estimate
 for actual binary-prime residue weights, not support geometry, mass share
 alone, or an unconstrained threshold fit.
 
+Backward orbit-uniformity budget:
+
+- `q286_first_three_orbit_uniformity_budget_receipt`
+- `tools/build_q286_first_three_orbit_uniformity_budget.py`
+- `evidence/q286-first-three-orbit-uniformity-budget.json`
+- focused regression:
+  `test_q286_first_three_orbit_uniformity_budget`
+
+This works backward from the mass/landing inequality.  If the actual q286
+reflection-orbit mass vector `mu_N` is close enough to the local uniform orbit
+mass vector `u_a`, then
+
+```text
+first_three(N) = <mu_N - u_a, c_a>
+```
+
+and either `||mu_N-u_a||_1 <= tau/||c_a||_infinity` or
+`||mu_N-u_a||_2 <= tau/||c_a||_2` is sufficient for
+`first_three(N) >= -tau`.  For `tau=.3`, the even-residue L1 budgets range
+from about `0.0093982579157629` to `0.07455426391330403`, and the L2 budgets
+range from about `0.007916843497532824` to `0.03539182086849026`.
+
+Finite stress demotes generic orbit uniformity as the main proof route.  The
+tail `1222142` fails the budget, but so do the clear rows `1242118` and
+`1240888`.  `1242118` has L1 budget utilization about `14.291145699121145`
+and L2 utilization about `2.9097499848440553`; `1240888` has L1 utilization
+about `6.505901726697682` and L2 utilization about `1.82647385924401`.
+Therefore generic local orbit-uniformity is a valid sufficient conditional
+theorem but too blunt for the observed active-scale mechanism.  Stay on the
+coefficient-sensitive mass/landing theorem target.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

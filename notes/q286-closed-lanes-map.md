@@ -629,6 +629,17 @@ current comparison set.
    is an exact theorem-obligation artifact only.  The missing proof input is
    a pointwise arithmetic estimate for actual binary-prime residue weights on
    q286 reflection-orbit sign classes.
+71. `q286_first_three_orbit_uniformity_budget_receipt`, with evidence in
+   `evidence/q286-first-three-orbit-uniformity-budget.json`, works backward to
+   a valid conditional theorem: if `||mu_N-u_a||_1 <= tau/||c_a||_infinity`
+   or `||mu_N-u_a||_2 <= tau/||c_a||_2`, then `first_three(N) >= -tau`.
+   For `tau=.3`, sufficient L1 budgets range from about
+   `0.0093982579157629` to `0.07455426391330403`; sufficient L2 budgets range
+   from about `0.007916843497532824` to `0.03539182086849026`.  The route is
+   too blunt at the active scale: clear rows `1242118` and `1240888` fail the
+   sufficient budgets while still clearing the threshold.  This demotes
+   generic orbit uniformity as the main proof engine and preserves the
+   coefficient-sensitive mass/landing target.
 
 ## Still open
 
