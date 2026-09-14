@@ -35,6 +35,10 @@ frame.
   support, nonnegativity, total mass, and ordered-pair reflection symmetry
   alone do not force the dominant `mode_1+mode_2` sum above `-.3`; every even
   q286 residue has a positive reflected synthetic witness below the floor.
+- `evidence/q286-first-three-dominant-mode-character-sum-obligation.json`:
+  the surviving dominant `mode_1+mode_2` residual is now an exact q286
+  character-sum obligation with `50` active complex products collapsing to
+  `25` real conjugacy channels.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -60,7 +64,8 @@ frame.
    simultaneous strong negativity in those two coordinates.  The
    support/reflection-only version of this tack is now obstructed, so the
    surviving proof must use actual prime-pair arithmetic or a stronger
-   residue-weight constraint.
+   residue-weight constraint.  The current exact arithmetic formulation is
+   pointwise signed control of `25` real q286 binary-prime character channels.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

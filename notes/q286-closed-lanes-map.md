@@ -70,6 +70,7 @@ Current executable receipts:
 - `q286_first_three_positive_mass_threshold_falsifier_receipt`
 - `q286_first_three_singular_mode_residue_obligation_receipt`
 - `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`
+- `q286_first_three_dominant_mode_character_sum_obligation_receipt`
 
 ## Closed or falsified lanes
 
@@ -723,6 +724,16 @@ current comparison set.
    Therefore the dominant two-mode lower bound requires actual prime-pair
    arithmetic, a stronger residue-weight constraint, complement/lower-support
    rescue, or a fixed-modulus character-sum theorem.
+79. `q286_first_three_dominant_mode_character_sum_obligation_receipt`, with
+   note `notes/q286-first-three-dominant-mode-character-sum-obligation.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-character-sum-obligation.json`,
+   states that fixed-modulus theorem exactly.  The dominant `mode_1+mode_2`
+   residual uses `50` active complex q286 character products, which reduce by
+   conjugacy to `25` real channels and no active self-conjugate channel.  The
+   focused regression reconstructs the prior residue-obligation sample ratios
+   below `1e-9`; this is narrower than the full `99`-character product space,
+   but it is not a single-character or tiny-channel proof.
 
 ## Still open
 
@@ -730,7 +741,8 @@ current comparison set.
 - Conditioned complement or lower-support rescue theorem.
 - Pointwise binary-prime residue-correlation theorem backing those estimates.
   Its exact q286 form is now identified, but not proved.
-- Pointwise lower bounds or structural exclusion for simultaneous strong
-  negativity in the first two q286 first-three singular character coordinates.
+- Pointwise lower bounds or structural exclusion for the `25` real q286
+  character channels that make up the first two dominant first-three singular
+  coordinates.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

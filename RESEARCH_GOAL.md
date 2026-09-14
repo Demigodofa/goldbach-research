@@ -11147,6 +11147,22 @@ lower bound.  The remaining theorem must use actual prime-pair arithmetic, a
 stronger residue-weight constraint, complement/lower-support rescue, or an
 external fixed-modulus binary-prime character-sum input.
 
+That arithmetic object is now stated in
+`notes/q286-first-three-dominant-mode-character-sum-obligation.md` and
+`evidence/q286-first-three-dominant-mode-character-sum-obligation.json`.
+The dominant `mode_1+mode_2` projection uses `50` active complex q286
+character products, which collapse by conjugacy to `25` real channels with no
+self-conjugate active channel.  The real-channel `L1` coefficient size is
+about `32.215594107770805` relative to the principal mean.  The focused
+regression reconstructs the prior residue-obligation ratios on samples
+`1222142`, `1242118`, and `1240888` below `1e-9`; tail `1222142` remains below
+`-.3`, while the two near-clear rows remain above it.  This is a genuine
+narrowing from the full `99`-character product space, but it is not a
+single-character or tiny-channel proof.  The next theorem is pointwise signed
+control of those `25` real binary-prime character channels, or a separate
+rescue theorem showing that complement/lower-support terms absorb their
+deficits.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -42,6 +42,8 @@ def main():
         "evidence/q286-first-three-singular-mode-residue-obligation.json")
     dominant_mode_obstruction = load_json(
         "evidence/q286-first-three-dominant-mode-reflection-support-obstruction.json")
+    dominant_mode_character_sum = load_json(
+        "evidence/q286-first-three-dominant-mode-character-sum-obligation.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -187,6 +189,24 @@ def main():
                     "mode proof"),
             },
             {
+                "id": "anchor.dominant_mode_character_sum_obligation",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-character-sum-obligation.json"),
+                "statement": (
+                    "The surviving dominant singular mode-1/mode-2 residual "
+                    "is an exact fixed-modulus q286 character-sum obligation."),
+                "validation": (
+                    "active complex characters "
+                    f"{dominant_mode_character_sum['active_complex_character_count']}; "
+                    "real channels "
+                    f"{dominant_mode_character_sum['active_real_channel_count']}; "
+                    "maximum real-channel identity error "
+                    f"{dominant_mode_character_sum['maximum_real_channel_identity_error']}."),
+                "proved_scope": (
+                    "exact finite character-sum identity and theorem "
+                    "obligation, not a pointwise estimate"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -276,14 +296,17 @@ def main():
                 "statement": (
                     "Prove a pointwise lower bound for the combined q286 "
                     "singular-mode-1 and singular-mode-2 residue projection, "
-                    "or classify the arithmetic conditions that prevent "
-                    "simultaneous strong negativity in those two modes."),
+                    "equivalently control the 25 real q286 character channels "
+                    "now identified for that projection, or classify the "
+                    "arithmetic conditions that prevent simultaneous strong "
+                    "negativity in those two modes."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
-                    "in modes 1+2, while the near-clear rows stay above it."),
+                    "in modes 1+2, while the near-clear rows stay above it. "
+                    "Support/reflection geometry alone is obstructed."),
                 "exact_obligation_source": (
-                    "evidence/q286-first-three-singular-mode-residue-obligation.json"),
+                    "evidence/q286-first-three-dominant-mode-character-sum-obligation.json"),
                 "proved": False,
             },
         ],

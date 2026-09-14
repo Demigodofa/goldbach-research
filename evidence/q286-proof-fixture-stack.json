@@ -50,6 +50,13 @@
       "validation": "positive reflected synthetic witnesses exist for 143 of 143 even target residues modulo 286; least-negative extremal row 276 has ratio about -2.5799705631335383."
     },
     {
+      "id": "anchor.dominant_mode_character_sum_obligation",
+      "proved_scope": "exact finite character-sum identity and theorem obligation, not a pointwise estimate",
+      "source": "evidence/q286-first-three-dominant-mode-character-sum-obligation.json",
+      "statement": "The surviving dominant singular mode-1/mode-2 residual is an exact fixed-modulus q286 character-sum obligation.",
+      "validation": "active complex characters 50; real channels 25; maximum real-channel identity error 2.3314683517128287e-15."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -78,7 +85,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek pointwise lower bounds or a structural exclusion of simultaneous strong negativity, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "4667f878a23304b9ff28daca1e3db61ae3957580",
+  "source_commit": "313c034354734fa5d59ac8e1f801f4329f07b1ad",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -116,11 +123,11 @@
       "why_it_is_needed": "The surviving tacks are arithmetic distribution claims about actual prime-pair weights, not geometry-only claims."
     },
     {
-      "exact_obligation_source": "evidence/q286-first-three-singular-mode-residue-obligation.json",
+      "exact_obligation_source": "evidence/q286-first-three-dominant-mode-character-sum-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, or classify the arithmetic conditions that prevent simultaneous strong negativity in those two modes.",
-      "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it."
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection, or classify the arithmetic conditions that prevent simultaneous strong negativity in those two modes.",
+      "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed."
     }
   ],
   "workshop_rule": "Do not fabricate the whole theorem from free-space measurements. Bolt exact identities to the actual q286 frame, tack only named unresolved theorem joints, validate each tack unchanged, then condense the assembly only after the joints are proved."

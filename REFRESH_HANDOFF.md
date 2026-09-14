@@ -20142,6 +20142,29 @@ mode-1/mode-2 lower bound.  The remaining route must use actual prime-pair
 arithmetic, a stronger residue-weight structural constraint, a pointwise
 fixed-modulus character-sum estimate, or complement/lower-support rescue.
 
+Dominant-mode character-sum obligation:
+
+- `q286_first_three_dominant_mode_character_sum_obligation_receipt`
+- `tools/build_q286_first_three_dominant_mode_character_sum_obligation.py`
+- `notes/q286-first-three-dominant-mode-character-sum-obligation.md`
+- `evidence/q286-first-three-dominant-mode-character-sum-obligation.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_character_sum_obligation`
+
+This names the arithmetic object left after the support/reflection shortcut is
+closed.  The dominant `mode_1+mode_2` projection is an exact fixed-modulus
+q286 character-sum obligation.  It uses `50` active complex character products,
+collapsing by conjugacy to `25` real channels and `0` self-conjugate active
+channels.  The real-channel `L1` coefficient size is about
+`32.215594107770805` relative to the principal mean.  The focused regression
+reconstructs the residue-obligation ratios on samples `1222142`, `1242118`,
+and `1240888` below `1e-9`; the tail row remains below `-.3`, while the two
+near-clear rows remain above the floor.  This is narrower than the full
+`99`-character product space, but not a single-character or tiny-channel proof.
+The next non-circular theorem is pointwise control of these `25` real
+binary-prime character channels, a stronger residue-weight arithmetic
+constraint, or complement/lower-support rescue.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

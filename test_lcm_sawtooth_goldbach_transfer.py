@@ -43,6 +43,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_character_mode_coordinate_receipt,
     q286_first_three_singular_mode_residue_obligation_receipt,
     q286_first_three_dominant_mode_reflection_support_obstruction_receipt,
+    q286_first_three_dominant_mode_character_sum_obligation_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4357,6 +4358,41 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             receipt["maximum_constructed_reconstruction_error"], 1e-12)
         self.assertTrue(receipt[
             "dominant_mode_reflection_support_obstruction_measured"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_character_sum_obligation(self):
+        receipt = q286_first_three_dominant_mode_character_sum_obligation_receipt(
+            sample_targets=(1222142, 1242118, 1240888),
+            top_channel_count=3)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["active_complex_character_count"], 50)
+        self.assertEqual(receipt["active_real_channel_count"], 25)
+        self.assertEqual(receipt["active_self_conjugate_channel_count"], 0)
+        self.assertGreater(
+            receipt["dominant_real_channel_l1_to_principal_mean"], 30)
+        self.assertLess(
+            receipt["maximum_conjugate_coefficient_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_complex_character_identity_error"], 1e-9)
+        self.assertLess(
+            receipt["maximum_real_channel_identity_error"], 1e-9)
+        rows = receipt["target_rows"]
+        self.assertLess(rows[1222142]["threshold_slack"], 0)
+        self.assertGreater(rows[1242118]["threshold_slack"], 0)
+        self.assertGreater(rows[1240888]["threshold_slack"], 0)
+        self.assertEqual(
+            rows[1222142]["top_negative_real_channels"][0][
+                "representative_label"],
+            (5, 5))
+        self.assertTrue(receipt[
+            "dominant_mode_character_sum_obligation_formalized"])
+        self.assertFalse(receipt[
+            "single_character_or_tiny_channel_proof_found"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["fixed_modulus_binary_ap_theorem_proved"])

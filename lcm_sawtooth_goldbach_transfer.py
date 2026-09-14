@@ -8143,6 +8143,281 @@ def q286_first_three_dominant_mode_reflection_support_obstruction_receipt(
     }
 
 
+def q286_first_three_dominant_mode_character_sum_obligation_receipt(
+        sample_targets=(1222142, 1242118, 1240888),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6):
+    """State the dominant q286 two-mode character-sum obligation.
+
+    After support/reflection geometry is obstructed, the dominant
+    ``mode_1+mode_2`` projection must be controlled through actual prime-pair
+    arithmetic.  This receipt writes that projection as an exact fixed-modulus
+    character sum and reduces conjugate complex character pairs to real
+    channels.
+
+    This proves only a finite algebraic identity and a theorem obligation.  It
+    proves no pointwise character-sum estimate and no Goldbach theorem.
+    """
+    sample_targets = tuple(dict.fromkeys(sample_targets))
+    if (not sample_targets
+            or any(type(target) is not int or target < 40 or target % 2
+                   for target in sample_targets)):
+        raise ValueError(
+            "sample_targets must be nonempty even integers at least 40")
+    dominant_modes = tuple(dominant_modes)
+    if (not dominant_modes
+            or any(type(index) is not int or index < 1 or index > 3
+                   for index in dominant_modes)):
+        raise ValueError("dominant_modes must contain mode indices 1..3")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(top_channel_count) is not int or top_channel_count < 1:
+        raise ValueError("top_channel_count must be a positive integer")
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    dominant_matrix = np.zeros_like(coefficient_matrix)
+    for mode_index in dominant_modes:
+        index = mode_index - 1
+        dominant_matrix += (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    _, labels, character_table = _unit_character_table(modulus, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    factor_orders = (10, 12)
+    dominant_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            dominant_coefficients[index] = dominant_matrix[
+                first - 1, second - 1]
+    active_indices = tuple(
+        index for index, coefficient in enumerate(dominant_coefficients)
+        if abs(coefficient) > tolerance)
+
+    def conjugate_label(label):
+        return tuple((-exponent) % order
+                     for exponent, order in zip(label, factor_orders))
+
+    def conjugacy_orbit_rows(indices):
+        remaining = set(indices)
+        rows = []
+        for index in sorted(indices):
+            if index not in remaining:
+                continue
+            conjugate_index = label_to_index[conjugate_label(labels[index])]
+            orbit = tuple(sorted({index, conjugate_index}))
+            remaining.difference_update(orbit)
+            representative = orbit[0]
+            rows.append({
+                "indices": orbit,
+                "labels": tuple(labels[orbit_index]
+                                for orbit_index in orbit),
+                "size": len(orbit),
+                "self_conjugate": bool(len(orbit) == 1),
+                "real_formula_multiplier": 1.0 if len(orbit) == 1 else 2.0,
+                "real_formula": (
+                    "Re(c*S_chi)" if len(orbit) == 1
+                    else "2*Re(c*S_chi)"),
+                "representative_index": representative,
+                "representative_label": labels[representative],
+                "representative_coefficient": complex(
+                    dominant_coefficients[representative]),
+                "representative_coefficient_abs": float(
+                    abs(dominant_coefficients[representative])),
+            })
+        return tuple(rows)
+
+    real_channel_rows = conjugacy_orbit_rows(active_indices)
+    conjugate_coefficient_error = 0.0
+    for index, label in enumerate(labels):
+        conjugate_index = label_to_index[conjugate_label(label)]
+        conjugate_coefficient_error = max(
+            conjugate_coefficient_error,
+            abs(dominant_coefficients[conjugate_index]
+                - np.conjugate(dominant_coefficients[index])))
+    conjugate_coefficient_error /= max(
+        1.0, float(np.linalg.norm(dominant_coefficients)))
+
+    principal_mean = float(
+        character_receipt["rows"][10424]["principal_contribution"].real
+        / character_receipt["rows"][10424]["total_prime_pair_weight"])
+    coefficient_l1 = float(np.sum(np.abs(dominant_coefficients)))
+    coefficient_l2 = float(np.linalg.norm(dominant_coefficients))
+    coefficient_linf = float(np.max(np.abs(dominant_coefficients)))
+    real_channel_l1 = float(math.fsum(
+        row["real_formula_multiplier"]
+        * row["representative_coefficient_abs"]
+        for row in real_channel_rows))
+
+    residue_receipt = q286_first_three_singular_mode_residue_obligation_receipt(
+        sample_targets=sample_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    maximum_target = max(sample_targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    target_rows = {}
+    maximum_complex_identity_error = 0.0
+    maximum_real_channel_identity_error = 0.0
+    for target in sample_targets:
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        target_residue = target % modulus
+        admissible_mask = residue_receipt["target_rows"][target][
+            "has_strict_central_prime_pairs"]
+        if not admissible_mask:
+            target_rows[target] = {
+                "target": target,
+                "target_mod_286": target_residue,
+                "has_strict_central_prime_pairs": False,
+            }
+            continue
+        residue_weights = np.bincount(
+            [unit_index[prime % modulus] for prime in selected_primes],
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=len(units))
+        total_weight = float(np.sum(residue_weights))
+        local_admissible_mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        local_mean = total_weight / int(np.sum(local_admissible_mask))
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[local_admissible_mask] = (
+            residue_weights[local_admissible_mask] - local_mean)
+        character_sums = character_table @ delta
+        principal = principal_mean * total_weight
+        complex_sum = complex(np.sum(dominant_coefficients * character_sums))
+        real_channel_contributions = []
+        real_channel_sum = 0.0
+        for channel in real_channel_rows:
+            representative = channel["representative_index"]
+            contribution = float((
+                channel["real_formula_multiplier"]
+                * dominant_coefficients[representative]
+                * character_sums[representative]).real / principal)
+            real_channel_sum += contribution
+            real_channel_contributions.append({
+                "representative_label": channel["representative_label"],
+                "real_formula_multiplier": (
+                    channel["real_formula_multiplier"]),
+                "representative_coefficient": complex(
+                    dominant_coefficients[representative]),
+                "representative_character_sum": complex(
+                    character_sums[representative]),
+                "contribution_to_principal_ratio": contribution,
+                "absolute_contribution_to_principal_ratio": abs(
+                    contribution),
+            })
+        expected = residue_receipt["target_rows"][target][
+            "dominant_mode_sum_to_principal_ratio"]
+        complex_ratio = float(complex_sum.real / principal)
+        complex_identity_error = abs(complex_ratio - expected)
+        real_channel_identity_error = abs(real_channel_sum - expected)
+        maximum_complex_identity_error = max(
+            maximum_complex_identity_error, complex_identity_error)
+        maximum_real_channel_identity_error = max(
+            maximum_real_channel_identity_error,
+            real_channel_identity_error)
+        negative_channels = tuple(sorted(
+            (row for row in real_channel_contributions
+             if row["contribution_to_principal_ratio"] < -tolerance),
+            key=lambda row: row["contribution_to_principal_ratio"]
+        )[:top_channel_count])
+        positive_channels = tuple(sorted(
+            (row for row in real_channel_contributions
+             if row["contribution_to_principal_ratio"] > tolerance),
+            key=lambda row: row["contribution_to_principal_ratio"],
+            reverse=True)[:top_channel_count])
+        target_rows[target] = {
+            "target": target,
+            "target_mod_286": target_residue,
+            "has_strict_central_prime_pairs": True,
+            "total_strict_central_prime_pair_weight": total_weight,
+            "dominant_modes": dominant_modes,
+            "dominant_character_sum_to_principal_ratio": complex_ratio,
+            "dominant_real_channel_sum_to_principal_ratio": (
+                real_channel_sum),
+            "expected_residue_obligation_ratio": expected,
+            "complex_character_identity_error": complex_identity_error,
+            "real_channel_identity_error": real_channel_identity_error,
+            "threshold_slack": complex_ratio + tail_threshold,
+            "top_negative_real_channels": negative_channels,
+            "top_positive_real_channels": positive_channels,
+        }
+
+    return {
+        "arithmetic_modulus": modulus,
+        "support": (11, 13),
+        "factor_orders": factor_orders,
+        "sample_targets": sample_targets,
+        "dominant_modes": dominant_modes,
+        "tail_threshold": tail_threshold,
+        "dominant_singular_values": tuple(
+            float(singular_values[mode_index - 1])
+            for mode_index in dominant_modes),
+        "active_complex_character_count": len(active_indices),
+        "active_real_channel_count": len(real_channel_rows),
+        "active_self_conjugate_channel_count": sum(
+            row["self_conjugate"] for row in real_channel_rows),
+        "dominant_character_coefficient_l1_to_principal_mean": (
+            coefficient_l1 / principal_mean),
+        "dominant_character_coefficient_l2_to_principal_mean": (
+            coefficient_l2 / principal_mean),
+        "dominant_character_coefficient_linf_to_principal_mean": (
+            coefficient_linf / principal_mean),
+        "dominant_real_channel_l1_to_principal_mean": (
+            real_channel_l1 / principal_mean),
+        "maximum_conjugate_coefficient_error": (
+            conjugate_coefficient_error),
+        "real_channel_rows": real_channel_rows,
+        "target_rows": target_rows,
+        "maximum_complex_character_identity_error": (
+            maximum_complex_identity_error),
+        "maximum_real_channel_identity_error": (
+            maximum_real_channel_identity_error),
+        "dominant_mode_character_sum_obligation": (
+            "For q286 strict-central binary-prime weights, control the "
+            "real part of sum c_chi S_chi(N)/P over the active dominant "
+            "mode-1/mode-2 character channels.  Support/reflection geometry "
+            "alone is already obstructed; this is a pointwise arithmetic "
+            "character-sum obligation."),
+        "dominant_mode_character_sum_obligation_formalized": True,
+        "single_character_or_tiny_channel_proof_found": bool(
+            len(real_channel_rows) <= 6),
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

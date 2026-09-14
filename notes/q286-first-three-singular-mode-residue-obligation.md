@@ -72,6 +72,12 @@ any successful proof of the dominant two-mode lower bound must use actual
 prime-pair arithmetic or a stronger residue-weight constraint than support,
 total mass, nonnegativity, and ordered-pair reflection symmetry.
 
+The exact arithmetic form is now recorded in
+`notes/q286-first-three-dominant-mode-character-sum-obligation.md`: the
+dominant two-mode projection uses `50` active complex q286 character products,
+or `25` real conjugacy channels after pairing complex conjugates.  This is the
+current analytic target beneath the residue-discrepancy identity.
+
 ## Boundary
 
 This is not a proof of the q286 first-three theorem.  It proves only exact
