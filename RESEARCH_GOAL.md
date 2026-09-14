@@ -13043,3 +13043,75 @@ Decision: demote simple target-residue phase features alone.  The next lift
 should use actual row-dependent character-sum magnitudes, splitting/correlation
 data, or a larger signed cone with explicit arithmetic coefficients.  Static
 `full_low_frequency_lift` remains the better finite q286 hole-tightening tool.
+
+### 2026-09-14 continuation: low-frequency lift horizon holdout
+
+The frozen low-frequency lift was then replayed on a second, farther
+denominator:
+
+```text
+evidence/q286-low-frequency-lift-horizon-holdout.json
+```
+
+The six windows include neighborhoods of previously named stress-marker
+targets:
+
+```text
+(1426162, 101), (1500000, 101), (2200000, 101),
+(3305100, 101), (4304218, 101), (5000000, 101)
+```
+
+All `606` horizon targets are dominant-floor clears.  Exact outside deltas,
+frozen rank-`1` reconstructed deltas, and frozen low-frequency reconstructed
+deltas are all positive.  Both the frozen rank-`1` replay and the frozen
+low-frequency replay have zero `0.75` residual-drag cap failures.
+
+The low-frequency matrix cosine to the frozen rank-`1` reference is about
+`0.8311579645`, and high-drag overlap is `2/3`.  The tight row is marker
+target `1426262`: it has the minimum full outside delta, about
+`0.0446379337`, the maximum rank-`1` drag ratio, about `0.6778685566`, and the
+maximum low-frequency drag ratio, about `0.6419474570`.
+
+Decision: the static low-frequency lift survives another predeclared horizon
+denominator and remains the best finite q286 hole-tightening tool.  This does
+not prove a theorem.  The cap is still materially stressed, and the next proof
+route should use actual character-sum magnitudes, row-dependent signed cones,
+or a stronger signed aggregate theorem rather than another coarse
+target-residue phase tensor.
+
+### 2026-09-14 continuation: Frobenius/common-divisor claim audit
+
+Kevin pasted a new candidate explanation claiming that the observed q286
+rank-`1` direction is forced by Frobenius coin structure, `gcd(17,120)=1`,
+parity/conjugacy, and ray-class or cyclotomic unit structure.  The audit is:
+
+```text
+evidence/q286-frobenius-lattice-claim-audit.json
+```
+
+Decision: reject that explanation as stated.  The true part is the ambient
+character group:
+
+```text
+q = 286 = 2*11*13, phi(q)=120, (Z/286Z)^* ~= C10 x C12
+```
+
+The false/unsupported parts are decisive:
+
+```text
+286*(1/2 - 1/17) = 126.17647058823529 is not a Frobenius number formula
+g(2,17) = 15
+g(17,286) = 4559
+gcd(17,120)=1 does not define a rank-1 projection or coefficient vector
+all 25 current labels have even parity, so parity cannot split 17 outside from 8 volatile labels
+Q(zeta_286) has Dirichlet unit rank 59, not 119
+```
+
+The existing dictionary audit also rejects constant/parity-like axes as the
+rank-`1` explanation: constant-sum cosine is about `0.5129804485`,
+edge/parity-lift cosine about `0.5798423118`, and the Legendre-sign vector
+has cosine about `0.3552346438` with `11/17` sign mismatches.
+
+This closes a tempting shortcut while preserving the useful character-lattice
+setting.  The live route remains actual character-sum magnitudes,
+row-dependent signed cones, or a stronger signed aggregate theorem.

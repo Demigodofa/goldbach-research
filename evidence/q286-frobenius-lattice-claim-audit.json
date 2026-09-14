@@ -1,0 +1,198 @@
+{
+  "accepted_arithmetic_parts": {
+    "factorization": [
+      2,
+      11,
+      13
+    ],
+    "outside_label_count": 17,
+    "phi_q": 120,
+    "q": 286,
+    "unit_group_structure": "C10 x C12, with the mod-2 unit factor trivial",
+    "volatile_label_count": 8
+  },
+  "candidate_claim_summary": "The q286 rank-1 direction is claimed to be mathematically forced by a Frobenius coin/lattice common-divisor structure, gcd(17,120), and a parity/conjugacy axis on C10 x C12.",
+  "candidate_source": "manual external-model style claim pasted by Kevin",
+  "decision": "Reject the Frobenius/common-divisor/parity explanation as stated. The true C10 x C12 character-lattice setting remains relevant, but these claims do not produce a non-post-hoc rank-1 vector or a proof of the residual-drag cap.",
+  "frobenius_claim_check": {
+    "claim_formula_is_standard_two_coin_frobenius_number": false,
+    "claim_value_q_times_half_minus_inverse_17": 126.17647058823529,
+    "claim_value_rounded": 126,
+    "frobenius_formula_supports_q286_rank1_direction": false,
+    "frobenius_number_for_denominations_17_and_286": 4559,
+    "frobenius_number_for_denominations_2_and_17": 15,
+    "frobenius_number_for_single_denominator_286": null,
+    "valid_frobenius_input_requires_two_or_more_coprime_denominations": true
+  },
+  "frobenius_lattice_claim_audit_measured": true,
+  "frobenius_lattice_rank1_claim_accepted": false,
+  "gcd_rank_claim_check": {
+    "coprimality_implies_one_dimensional_projection": false,
+    "coprime_count_to_group_order": true,
+    "gcd_17_120": 1,
+    "reason": "gcd(17,120)=1 says the selected count has no common divisor with the character-group order.  It supplies no linear map, no coefficient vector, and no theorem forcing a singular vector or a one-dimensional projection on the chosen labels."
+  },
+  "goldbach_proved": false,
+  "label_semantics_check": {
+    "active_real_channel_count_in_rank1_source": null,
+    "actual_role": "The 17 labels are folded real Dirichlet-character channel labels from the q286 dominant-mode outside-channel audit, not a complete set of residue classes modulo 286.",
+    "outside_labels": [
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        6
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "outside_labels_are_residue_classes_mod_286": false,
+    "unit_residue_class_count_mod_286": 120,
+    "volatile_labels_removed": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        4,
+        10
+      ]
+    ]
+  },
+  "low_frequency_lift_theorem_proved": false,
+  "next_action": "Preserve low-frequency label-lattice structure as finite evidence, but require actual character-sum magnitudes, row-dependent signed cones, or a stronger signed aggregate theorem for any promoted rank-1 explanation.",
+  "parity_axis_check": {
+    "all_25_even_parity_count": 25,
+    "constant_sum_rank1_cosine": 0.5129804484842019,
+    "edge_and_parity_lift_rank1_cosine": 0.5798423118379537,
+    "gemini_legendre_sign_mismatches": 11,
+    "gemini_legendre_sign_rank1_cosine": 0.3552346438331256,
+    "outside_all_even_parity": true,
+    "outside_even_parity_count": 17,
+    "parity_axis_forces_rank1_direction": false,
+    "parity_separates_outside_from_volatile": false,
+    "volatile_all_even_parity": true,
+    "volatile_even_parity_count": 8
+  },
+  "rank1_residual_bound_theorem_proved": false,
+  "ray_class_unit_claim_check": {
+    "cyclotomic_field_degree_phi_286": 120,
+    "unit_group_rank_forces_observed_17_channel_rank1": false,
+    "unit_rank_for_Q_zeta_286": 59,
+    "unit_rank_note": "For a cyclotomic field with phi(286)=120 and no real embeddings, Dirichlet unit rank is r1+r2-1=0+60-1=59, not 119."
+  },
+  "related_prior_numeric_falsifiers": {
+    "claude_order_weight": {
+      "outside_all_even_parity": true,
+      "pearson_rank1_vs_order_weight": -0.16946033864474794,
+      "spearman_rank1_vs_order_weight": -0.09477753388662703,
+      "volatile_all_even_parity": true
+    },
+    "constant_sum": {
+      "cap_failure_count": 0,
+      "high_drag_overlap_count_at_reference_k": 0,
+      "rank1_direction_cosine": 0.5129804484842019
+    },
+    "edge_and_parity_lift": {
+      "cap_failure_count": 0,
+      "high_drag_overlap_count_at_reference_k": 3,
+      "rank1_direction_cosine": 0.5798423118379537
+    },
+    "gemini_legendre_product_sign": {
+      "cap_failure_count": 1,
+      "high_drag_overlap_count_at_reference_k": 1,
+      "nonpositive_delta_count": 1,
+      "rank1_direction_cosine": 0.3552346438331256
+    }
+  },
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "d49fa539df39442f0ba64b092d327b597f30fb05",
+  "source_lift_project_dictionary_audit": "evidence\\q286-lift-project-dictionary-audit.json",
+  "source_octave_rank1_audit": "evidence\\q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json",
+  "status_boundary": "finite audit of a pasted Frobenius/common-divisor rank-1 claim only; this proves no replacement rank-1 explanation, residual-drag theorem, signed projection theorem, or Goldbach theorem."
+}

@@ -143,6 +143,18 @@ drops from about `0.8302450384` to `0.8259350681`, and high-drag overlap
 drops from `8/10` to `7/10`, while positivity and the `0.75` cap still
 survive.  That demotes coarse `N mod 11/13` phase features alone.
 
+A second, farther horizon holdout is now recorded in:
+
+```text
+notes/q286-low-frequency-lift-horizon-holdout.md
+```
+
+It replays the same frozen low-frequency vector on six later windows,
+including stress-marker neighborhoods.  All `606` horizon targets clear,
+positivity and the `0.75` cap survive, and the low-frequency matrix cosine to
+the frozen rank-`1` reference is about `0.8311579645`.  The tight row is
+`1426262`, with low-frequency residual-drag ratio about `0.6419474570`.
+
 ## Boundary
 
 This holdout tightens the method-transfer lane by preserving a partial

@@ -107,6 +107,10 @@ def main():
         EVIDENCE / "q286-low-frequency-lift-holdout.json")
     target_residue_lift_holdout = load_json(
         EVIDENCE / "q286-target-residue-lift-holdout.json")
+    low_frequency_lift_horizon = load_json(
+        EVIDENCE / "q286-low-frequency-lift-horizon-holdout.json")
+    frobenius_lattice_claim = load_json(
+        EVIDENCE / "q286-frobenius-lattice-claim-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1215,6 +1219,95 @@ def main():
         "target-residue-lift-holdout",
         2.5,
         "coarse target residues alone do not explain the rank-1 shadow")
+
+    layer(
+        "low-frequency-lift-horizon-holdout",
+        "Frozen low-frequency q286 lift survives farther stress-marker horizon",
+        "finite_horizon_holdout_diagnostic",
+        "evidence/q286-low-frequency-lift-horizon-holdout.json",
+        3.0,
+        "Finite horizon diagnostic only; no low-frequency theorem.")
+    for row in low_frequency_lift_horizon[
+            "rows_by_low_frequency_residual_drag_ratio"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "low-frequency-lift-horizon-holdout",
+            3.0,
+            "horizon high residual-drag row under frozen low-frequency lift",
+            {
+                "low_frequency_ratio": (
+                    row[
+                        "low_frequency_residual_drag_to_low_frequency_ratio"]),
+                "rank1_ratio": (
+                    row["rank1_residual_drag_to_rank1_ratio"]),
+                "full_outside_delta": (
+                    row["full_outside_delta_to_stress"]),
+                "window_start": row["window_start"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "low-frequency-label-lattice-horizon-survives",
+        "low-frequency-lift-horizon-holdout",
+        3.0,
+        "frozen low-frequency lift has zero deficits, zero positivity/cap failures, and 2/3 high-drag overlap on farther stress-marker windows",
+        {
+            "horizon_clear_count": low_frequency_lift_horizon[
+                "horizon_clear_count"],
+            "high_drag_overlap": low_frequency_lift_horizon[
+                "high_drag_overlap_count_at_reference_k"],
+            "reference_high_drag_count": low_frequency_lift_horizon[
+                "reference_rank1_high_drag_count"],
+            "matrix_cosine": low_frequency_lift_horizon[
+                "matrix_cosine_low_frequency_to_rank1_reference"],
+            "maximum_low_frequency_ratio": (
+                low_frequency_lift_horizon[
+                    "maximum_low_frequency_residual_drag_ratio"]["value"]),
+            "tight_target": (
+                low_frequency_lift_horizon[
+                    "maximum_low_frequency_residual_drag_ratio"]["target"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "low-frequency-lift-horizon-holdout",
+        3.0,
+        "low-frequency label-lattice signal survives farther horizon but still needs arithmetic theorem")
+
+    layer(
+        "frobenius-lattice-claim-audit",
+        "Frobenius/GCD/parity rank-1 explanation rejected as stated",
+        "finite_claim_falsifier",
+        "evidence/q286-frobenius-lattice-claim-audit.json",
+        2.5,
+        "Finite claim audit only; richer character-lattice lifts remain open.")
+    add_hit(
+        mechanism_stacks,
+        "frobenius-gcd-parity-rank1-shortcut-refuted",
+        "frobenius-lattice-claim-audit",
+        2.5,
+        "Frobenius formula, gcd(17,120) projection, parity split, and unit-rank bridge do not force the observed rank-1 vector",
+        {
+            "claimed_formula_value": (
+                frobenius_lattice_claim["frobenius_claim_check"][
+                    "claim_value_q_times_half_minus_inverse_17"]),
+            "g_2_17": frobenius_lattice_claim["frobenius_claim_check"][
+                "frobenius_number_for_denominations_2_and_17"],
+            "g_17_286": frobenius_lattice_claim["frobenius_claim_check"][
+                "frobenius_number_for_denominations_17_and_286"],
+            "gcd_17_120": frobenius_lattice_claim[
+                "gcd_rank_claim_check"]["gcd_17_120"],
+            "all_25_even_parity_count": frobenius_lattice_claim[
+                "parity_axis_check"]["all_25_even_parity_count"],
+            "unit_rank_Q_zeta_286": frobenius_lattice_claim[
+                "ray_class_unit_claim_check"]["unit_rank_for_Q_zeta_286"],
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "frobenius-lattice-claim-audit",
+        2.5,
+        "closed one arithmetic-sounding shortcut; actual character-sum mechanism still open")
 
     layer(
         "conditional-proof-stack",

@@ -77,10 +77,18 @@ Demote the simple target-residue phase tensor as the next explanation for the
 q286 rank-`1` shadow.  The static `full_low_frequency_lift` remains the better
 finite local tool.
 
-The next representation shift should not merely add coarse `N mod 11/13`
-phase features.  It should use actual row-dependent character-sum magnitudes,
-splitting/correlation data, or a larger signed cone with explicit arithmetic
-coefficients.
+A farther horizon replay is now recorded in:
+
+```text
+notes/q286-low-frequency-lift-horizon-holdout.md
+```
+
+It keeps the static low-frequency lift alive on six later windows, including
+stress-marker neighborhoods, with no new deficits, no positivity failures, and
+no `0.75` cap failures.  The next representation shift should therefore not
+merely add coarse `N mod 11/13` phase features.  It should use actual
+row-dependent character-sum magnitudes, splitting/correlation data, or a
+larger signed cone with explicit arithmetic coefficients.
 
 ## Boundary
 

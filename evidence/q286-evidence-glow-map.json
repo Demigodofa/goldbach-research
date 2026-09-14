@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "ed4a3d9a1ce23f902de8d82a89c58036bf620863",
+  "generated_from_commit": "d49fa539df39442f0ba64b092d327b597f30fb05",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -218,6 +218,22 @@
       "source": "evidence/q286-target-residue-lift-holdout.json",
       "default_weight": 2.5,
       "boundary": "Finite falsifier for one residue-augmented lift only."
+    },
+    {
+      "id": "low-frequency-lift-horizon-holdout",
+      "label": "Frozen low-frequency q286 lift survives farther stress-marker horizon",
+      "kind": "finite_horizon_holdout_diagnostic",
+      "source": "evidence/q286-low-frequency-lift-horizon-holdout.json",
+      "default_weight": 3.0,
+      "boundary": "Finite horizon diagnostic only; no low-frequency theorem."
+    },
+    {
+      "id": "frobenius-lattice-claim-audit",
+      "label": "Frobenius/GCD/parity rank-1 explanation rejected as stated",
+      "kind": "finite_claim_falsifier",
+      "source": "evidence/q286-frobenius-lattice-claim-audit.json",
+      "default_weight": 2.5,
+      "boundary": "Finite claim audit only; richer character-lattice lifts remain open."
     },
     {
       "id": "conditional-proof-stack",
@@ -4063,6 +4079,234 @@
       "glow": 0.055556
     },
     {
+      "id": "1426162",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.1725416513673862,
+            "rank1_ratio": 0.20627768097038965,
+            "full_outside_delta": 0.1940180886135212,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426196",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.16412353267894958,
+            "rank1_ratio": 0.013730727258235972,
+            "full_outside_delta": 0.1890033940807873,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426262",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.6419474569885669,
+            "rank1_ratio": 0.6778685566389991,
+            "full_outside_delta": 0.04463793369291936,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1426264",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.20191067274797475,
+            "rank1_ratio": 0.16845928281628705,
+            "full_outside_delta": 0.16574328069233002,
+            "window_start": 1426162
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1500044",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.23018859142400372,
+            "rank1_ratio": 0.12459134074167855,
+            "full_outside_delta": 0.17144087348381898,
+            "window_start": 1500000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "2200064",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.2688692816653441,
+            "rank1_ratio": 0.22554260217877725,
+            "full_outside_delta": 0.17293277944711713,
+            "window_start": 2200000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "2200190",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.22912344191849734,
+            "rank1_ratio": 0.18357854573991347,
+            "full_outside_delta": 0.19258530766465404,
+            "window_start": 2200000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "3305164",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.19521550830413165,
+            "rank1_ratio": 0.02677633232220238,
+            "full_outside_delta": 0.19234528555904437,
+            "window_start": 3305100
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "3305176",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.21275575894915807,
+            "rank1_ratio": 0.12911324094342802,
+            "full_outside_delta": 0.17860915389743934,
+            "window_start": 3305100
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "3305206",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.2537841613890008,
+            "rank1_ratio": 0.17883237321359874,
+            "full_outside_delta": 0.16140474091662865,
+            "window_start": 3305100
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "4304280",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.19703808673797935,
+            "rank1_ratio": 0.14878392725746442,
+            "full_outside_delta": 0.1611988202118271,
+            "window_start": 4304218
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "5000152",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "horizon high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "low_frequency_ratio": 0.22911343425705175,
+            "rank1_ratio": 0.17258295788385353,
+            "full_outside_delta": 0.16818672960387082,
+            "window_start": 5000000
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
       "id": "1220188",
       "stack_weight": 2.5,
       "layers": [
@@ -4562,6 +4806,27 @@
       "glow": 0.333333
     },
     {
+      "id": "low-frequency-label-lattice-horizon-survives",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "frozen low-frequency lift has zero deficits, zero positivity/cap failures, and 2/3 high-drag overlap on farther stress-marker windows",
+          "value": {
+            "horizon_clear_count": 606,
+            "high_drag_overlap": 2,
+            "reference_high_drag_count": 3,
+            "matrix_cosine": 0.8311579645183356,
+            "maximum_low_frequency_ratio": 0.6419474569885669,
+            "tight_target": 1426262
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
       "id": "rank1-cap-survives-full-window",
       "stack_weight": 3.0,
       "layers": [
@@ -4634,6 +4899,27 @@
             "tensor_heldout_cosine": 0.8259350681493004,
             "static_high_drag_overlap": 8,
             "tensor_high_drag_overlap": 7
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.277778
+    },
+    {
+      "id": "frobenius-gcd-parity-rank1-shortcut-refuted",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "frobenius-lattice-claim-audit",
+          "weight": 2.5,
+          "reason": "Frobenius formula, gcd(17,120) projection, parity split, and unit-rank bridge do not force the observed rank-1 vector",
+          "value": {
+            "claimed_formula_value": 126.17647058823529,
+            "g_2_17": 15,
+            "g_17_286": 4559,
+            "gcd_17_120": 1,
+            "all_25_even_parity_count": 25,
+            "unit_rank_Q_zeta_286": 59
           }
         }
       ],
@@ -5156,7 +5442,7 @@
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
-      "stack_weight": 10.5,
+      "stack_weight": 16.0,
       "layers": [
         {
           "layer": "outside-rank1-separator",
@@ -5177,10 +5463,20 @@
           "layer": "target-residue-lift-holdout",
           "weight": 2.5,
           "reason": "coarse target residues alone do not explain the rank-1 shadow"
+        },
+        {
+          "layer": "low-frequency-lift-horizon-holdout",
+          "weight": 3.0,
+          "reason": "low-frequency label-lattice signal survives farther horizon but still needs arithmetic theorem"
+        },
+        {
+          "layer": "frobenius-lattice-claim-audit",
+          "weight": 2.5,
+          "reason": "closed one arithmetic-sounding shortcut; actual character-sum mechanism still open"
         }
       ],
-      "layer_count": 4,
-      "glow": 0.636364
+      "layer_count": 6,
+      "glow": 0.969697
     },
     {
       "id": "rank1-residual-drag-bound",

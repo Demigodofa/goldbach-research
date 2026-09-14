@@ -1341,6 +1341,22 @@
       "status": "finite_falsifier",
       "validation": "tools/build_q286_target_residue_lift_holdout.py generated evidence/q286-target-residue-lift-holdout.json; tensoring N mod 11/13 features with low-frequency channel features fails to improve the static lift, with heldout cosine dropping from about 0.8302450384 to 0.8259350681 and high-drag overlap dropping from 8/10 to 7/10 while retaining zero positivity/cap failures",
       "status_boundary": "finite falsifier for one residue-augmented lift only; no universal no-go, no lifted dictionary theorem, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_low_frequency_lift_horizon_holdout",
+      "type": "receipt",
+      "label": "q286 low-frequency lift horizon holdout",
+      "status": "finite_holdout_diagnostic",
+      "validation": "tools/build_q286_low_frequency_lift_horizon_holdout.py generated evidence/q286-low-frequency-lift-horizon-holdout.json; frozen full_low_frequency_lift replayed on 606 farther horizon targets has zero deficits, zero nonpositive exact/rank1/low-frequency deltas, zero 0.75 cap failures, matrix cosine about 0.8311579645, and 2/3 high-drag overlap, with tight row 1426262",
+      "status_boundary": "finite horizon holdout only; low-frequency lift survives as a local tool but no low-frequency theorem, residual-bound theorem, signed projection theorem, or Goldbach proof is established"
+    },
+    {
+      "id": "receipt.q286_frobenius_lattice_claim_audit",
+      "type": "receipt",
+      "label": "q286 Frobenius lattice claim audit",
+      "status": "finite_falsifier",
+      "validation": "tools/build_q286_frobenius_lattice_claim_audit.py generated evidence/q286-frobenius-lattice-claim-audit.json; the true C10 x C12 character setting is preserved, but the Frobenius formula, gcd(17,120) rank claim, parity-axis split, and cyclotomic unit-rank bridge are rejected as explanations of the observed 17-channel rank-1 direction",
+      "status_boundary": "finite claim audit only; no universal no-go, no replacement rank-1 theorem, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
     }
   ],
   "edges": [
@@ -2921,6 +2937,36 @@
     },
     {
       "from": "receipt.q286_target_residue_lift_holdout",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_horizon_holdout",
+      "to": "receipt.q286_low_frequency_lift_holdout",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_horizon_holdout",
+      "to": "receipt.q286_target_residue_lift_holdout",
+      "type": "responds_to_falsifier"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_horizon_holdout",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_frobenius_lattice_claim_audit",
+      "to": "receipt.q286_lift_project_dictionary_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_frobenius_lattice_claim_audit",
+      "to": "receipt.q286_target_residue_lift_holdout",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_frobenius_lattice_claim_audit",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

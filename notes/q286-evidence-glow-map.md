@@ -238,6 +238,32 @@ heldout cosine drops from about `0.8302450384` to `0.8259350681`, and
 high-drag overlap drops from `8/10` to `7/10`, while positivity and the
 `0.75` cap remain intact.
 
+The second low-frequency horizon layer is:
+
+```text
+evidence/q286-low-frequency-lift-horizon-holdout.json
+```
+
+It keeps the frozen static low-frequency lift on six farther windows,
+including stress-marker neighborhoods.  All `606` horizon targets clear,
+exact/rank-`1`/low-frequency outside deltas stay positive, both `0.75` caps
+survive, and the matrix cosine to the frozen rank-`1` reference is about
+`0.8311579645`.  The tight horizon row is `1426262`, which now glows as the
+farther stress edge with low-frequency residual-drag ratio about
+`0.6419474570`.
+
+The Frobenius/common-divisor claim audit is:
+
+```text
+evidence/q286-frobenius-lattice-claim-audit.json
+```
+
+It closes one arithmetic-sounding shortcut.  The true `C10 x C12` character
+setting is preserved, but the claimed Frobenius formula, `gcd(17,120)` rank
+projection, parity-axis split, and cyclotomic unit-rank bridge do not force
+the observed rank-`1` vector.  This should glow as a closed shortcut, not as
+negative evidence against richer character-sum lifts.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

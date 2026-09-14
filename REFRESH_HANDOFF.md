@@ -21195,6 +21195,69 @@ lift should use actual row-dependent character-sum magnitudes,
 splitting/correlation data, or a larger signed cone with explicit arithmetic
 coefficients.
 
+Low-frequency lift horizon holdout:
+
+- `tools/build_q286_low_frequency_lift_horizon_holdout.py`
+- `notes/q286-low-frequency-lift-horizon-holdout.md`
+- `evidence/q286-low-frequency-lift-horizon-holdout.json`
+
+This second holdout freezes the same `full_low_frequency_lift` vector and
+replays it without refitting on six later windows:
+
+```text
+(1426162, 101), (1500000, 101), (2200000, 101),
+(3305100, 101), (4304218, 101), (5000000, 101)
+```
+
+Those windows include marker targets `1426262`, `3305200`, and `4304318`.
+All `606` horizon targets are dominant-floor clears.  Exact outside deltas,
+frozen rank-`1` reconstructed deltas, and frozen low-frequency reconstructed
+deltas are all positive.  The frozen rank-`1` replay and frozen low-frequency
+replay both have zero `0.75` residual-drag cap failures.
+
+The low-frequency matrix cosine to the frozen rank-`1` reference is
+`0.8311579645183356`, and high-drag overlap is `2/3`.  The tight row is
+`1426262`, with full outside delta `0.04463793369291936`, rank-`1` drag ratio
+`0.6778685566389991`, and low-frequency drag ratio
+`0.6419474569885669`.
+
+Decision: the static low-frequency lift survives another predeclared
+horizon denominator and remains the best finite q286 hole-tightening tool.
+The cap is still stressed enough that this is not a proof shortcut.  The next
+proof route should use actual character-sum magnitudes, row-dependent signed
+cones, or a stronger signed aggregate theorem rather than another coarse
+target-residue phase tensor.
+
+Frobenius/common-divisor claim audit:
+
+- `tools/build_q286_frobenius_lattice_claim_audit.py`
+- `notes/q286-frobenius-lattice-claim-audit.md`
+- `evidence/q286-frobenius-lattice-claim-audit.json`
+
+Kevin pasted a candidate claiming the q286 rank-`1` direction is forced by a
+Frobenius coin/lattice common-divisor structure, `gcd(17,120)=1`, parity, and
+ray-class/cyclotomic unit-group language.  The audit accepts only the ambient
+arithmetic setting:
+
+```text
+q = 286 = 2*11*13, phi(q)=120, (Z/286Z)^* ~= C10 x C12
+```
+
+The explanation is rejected as stated.  The claimed value
+`286*(1/2 - 1/17) = 126.17647058823529` is not a standard Frobenius number;
+`g(2,17)=15`, `g(17,286)=4559`, and a one-denomination `g(286)` is not the
+claimed object.  `gcd(17,120)=1` supplies no projection or coefficient vector.
+Parity also cannot distinguish the split because all `17` outside labels and
+all `8` volatile labels have even `a+b` parity.  The cyclotomic unit-rank
+statement is wrong for `Q(zeta_286)`: the Dirichlet unit rank is `59`, not
+`119`.
+
+The existing numeric dictionary audit agrees with the rejection:
+constant-sum cosine is about `0.5129804485`, edge/parity-lift cosine is about
+`0.5798423118`, and the Legendre-sign vector has cosine about
+`0.3552346438` with `11/17` sign mismatches.  The true `C10 x C12` lattice
+still matters, but this Frobenius/GCD/parity shortcut is closed.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
