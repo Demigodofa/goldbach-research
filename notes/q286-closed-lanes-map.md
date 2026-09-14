@@ -975,6 +975,21 @@ current comparison set.
    maximum-pressure clear row is `1243018`, with negative pressure about
    `0.2586239309`.  This is finite branch-denominator evidence only; it does
    not prove the eventual branch theorem or the pointwise character-sum input.
+100. `q286_first_three_dominant_mode_signed_channel_branch_holdout_receipt`,
+   reused by
+   `tools/build_q286_first_three_dominant_mode_signed_channel_pressure_horizon.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-signed-channel-pressure-horizon.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-signed-channel-pressure-horizon.json`,
+   checks sparse post-`1243000` pressure-horizon windows
+   `(1244000,51)`, `(1245000,51)`, and `(1246000,51)`.  All `153`
+   checked targets pass the dominant floor, all `153` clear the direct
+   pressure branch and also have offset slack, and no unresolved deficit is
+   found.  The maximum-pressure row is `1244072`, with negative pressure
+   about `0.2349931112`, and the tightest slack row is `1244094`, with
+   positive offset slack about `0.0341459076`.  This is finite sampled
+   pressure-horizon evidence only, not a pressure-branch theorem.
 
 ## Still open
 

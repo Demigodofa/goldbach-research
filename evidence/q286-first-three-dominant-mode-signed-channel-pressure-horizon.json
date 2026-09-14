@@ -1,0 +1,221 @@
+{
+  "active_real_channel_count": 25,
+  "all_checked_targets_pass_dominant_floor": true,
+  "all_checked_targets_pass_pressure_branch": true,
+  "arithmetic_modulus": 286,
+  "dominant_floor_failure_target_count": 0,
+  "dominant_floor_failure_targets": [],
+  "dominant_floor_pass_target_count": 153,
+  "dominant_mode_signed_channel_pressure_horizon_measured": true,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "eventual_pressure_branch_theorem_proved": false,
+  "eventual_signed_channel_branch_theorem_proved": false,
+  "exact_branch_floor_mismatch_targets": [],
+  "falsifier": "Any checked row with negative_pressure > 0.3, or any unresolved dominant-floor deficit, falsifies this finite pressure-horizon scout.",
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "global_maximum_pressure_clear_row": {
+    "dominant_floor_deficit_to_threshold": 0.0,
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.11518488645319175,
+    "negative_pressure_to_principal": 0.23499311116993596,
+    "negative_real_channel_count": 15,
+    "positive_offset_slack_to_floor": 0.1198082247167448,
+    "positive_offset_to_principal": 0.1198082247167448,
+    "positive_real_channel_count": 10,
+    "required_positive_offset_for_floor": 0.0,
+    "signed_channel_branch_label": "pressure_and_offset",
+    "signed_to_absolute_real_channel_ratio": -0.3246461464563928,
+    "target": 1244072,
+    "target_mod_286": 258
+  },
+  "global_tightest_slack_clear_row": {
+    "dominant_floor_deficit_to_threshold": 0.0,
+    "dominant_floor_passes": true,
+    "dominant_sum_to_principal": -0.15128938620082624,
+    "negative_pressure_to_principal": 0.18543529382629267,
+    "negative_real_channel_count": 20,
+    "positive_offset_slack_to_floor": 0.034145907625464274,
+    "positive_offset_to_principal": 0.034145907625464274,
+    "positive_real_channel_count": 5,
+    "required_positive_offset_for_floor": 0.0,
+    "signed_channel_branch_label": "pressure_and_offset",
+    "signed_to_absolute_real_channel_ratio": -0.6889906112207306,
+    "target": 1244094,
+    "target_mod_286": 280
+  },
+  "goldbach_proved": false,
+  "interpretation": {
+    "observed_shape": "All checked targets in the three sparse post-1243000 windows clear the pressure branch directly and also have positive offset slack; no unresolved deficit appears.",
+    "remaining_theorem": "The evidence suggests a pressure-easy region in these sampled windows, but a proof still needs an arithmetic bound on negative dominant-channel pressure or a finite classification of pressure failures."
+  },
+  "maximum_real_channel_identity_error": 4.163336342344337e-15,
+  "mechanism": "After the 1243000 holdout, test whether the direct pressure branch negative_pressure <= 0.3 continues to clear deterministic post-stress windows without needing an offset-only rescue.",
+  "offset_branch_target_count": 0,
+  "pointwise_character_sum_estimate_proved": false,
+  "pressure_and_offset_branch_target_count": 153,
+  "pressure_branch_target_count": 0,
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "6a1f0e562b4503729ff0b8a16df3791cfb239276",
+  "status_boundary": "finite deterministic pressure-horizon scout only; the unchanged dominant two-mode branch split is checked on sparse post-1243000 windows but no pressure-branch theorem, pointwise character-sum estimate, fixed-modulus AP theorem, signed-projection theorem, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "tested_target_count": 153,
+  "tested_targets_with_prime_pairs": 153,
+  "unresolved_deficit_target_count": 0,
+  "unresolved_deficit_targets": [],
+  "window_summaries": [
+    {
+      "branch_counts": {
+        "offset": 0,
+        "pressure": 0,
+        "pressure_and_offset": 51,
+        "unresolved_deficit": 0
+      },
+      "dominant_floor_failure_target_count": 0,
+      "dominant_floor_pass_target_count": 51,
+      "maximum_deficit_row": null,
+      "maximum_pressure_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.11518488645319175,
+        "negative_pressure_to_principal": 0.23499311116993596,
+        "negative_real_channel_count": 15,
+        "positive_offset_slack_to_floor": 0.1198082247167448,
+        "positive_offset_to_principal": 0.1198082247167448,
+        "positive_real_channel_count": 10,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.3246461464563928,
+        "target": 1244072,
+        "target_mod_286": 258
+      },
+      "minimum_slack_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.15128938620082624,
+        "negative_pressure_to_principal": 0.18543529382629267,
+        "negative_real_channel_count": 20,
+        "positive_offset_slack_to_floor": 0.034145907625464274,
+        "positive_offset_to_principal": 0.034145907625464274,
+        "positive_real_channel_count": 5,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.6889906112207306,
+        "target": 1244094,
+        "target_mod_286": 280
+      },
+      "start": 1244000,
+      "target_count": 51,
+      "tested_targets_with_prime_pairs": 51
+    },
+    {
+      "branch_counts": {
+        "offset": 0,
+        "pressure": 0,
+        "pressure_and_offset": 51,
+        "unresolved_deficit": 0
+      },
+      "dominant_floor_failure_target_count": 0,
+      "dominant_floor_pass_target_count": 51,
+      "maximum_deficit_row": null,
+      "maximum_pressure_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.07941008596681016,
+        "negative_pressure_to_principal": 0.17832961838468844,
+        "negative_real_channel_count": 15,
+        "positive_offset_slack_to_floor": 0.09891953241787889,
+        "positive_offset_to_principal": 0.09891953241787889,
+        "positive_real_channel_count": 10,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.28642138573531095,
+        "target": 1245082,
+        "target_mod_286": 124
+      },
+      "minimum_slack_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.043859147285203896,
+        "negative_pressure_to_principal": 0.08256370929388764,
+        "negative_real_channel_count": 14,
+        "positive_offset_slack_to_floor": 0.03870456200868239,
+        "positive_offset_to_principal": 0.03870456200868239,
+        "positive_real_channel_count": 11,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.3616704255293176,
+        "target": 1245012,
+        "target_mod_286": 54
+      },
+      "start": 1245000,
+      "target_count": 51,
+      "tested_targets_with_prime_pairs": 51
+    },
+    {
+      "branch_counts": {
+        "offset": 0,
+        "pressure": 0,
+        "pressure_and_offset": 51,
+        "unresolved_deficit": 0
+      },
+      "dominant_floor_failure_target_count": 0,
+      "dominant_floor_pass_target_count": 51,
+      "maximum_deficit_row": null,
+      "maximum_pressure_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.024250661912907926,
+        "negative_pressure_to_principal": 0.18841862142751664,
+        "negative_real_channel_count": 13,
+        "positive_offset_slack_to_floor": 0.1641679595146086,
+        "positive_offset_to_principal": 0.1641679595146086,
+        "positive_real_channel_count": 12,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.06877931045506415,
+        "target": 1246072,
+        "target_mod_286": 256
+      },
+      "minimum_slack_clear_row": {
+        "dominant_floor_deficit_to_threshold": 0.0,
+        "dominant_floor_passes": true,
+        "dominant_sum_to_principal": -0.022026634625903766,
+        "negative_pressure_to_principal": 0.06387328991682645,
+        "negative_real_channel_count": 13,
+        "positive_offset_slack_to_floor": 0.04184665529092121,
+        "positive_offset_to_principal": 0.04184665529092121,
+        "positive_real_channel_count": 12,
+        "required_positive_offset_for_floor": 0.0,
+        "signed_channel_branch_label": "pressure_and_offset",
+        "signed_to_absolute_real_channel_ratio": -0.20834890315750024,
+        "target": 1246044,
+        "target_mod_286": 228
+      },
+      "start": 1246000,
+      "target_count": 51,
+      "tested_targets_with_prime_pairs": 51
+    }
+  ],
+  "windows": [
+    [
+      1244000,
+      51
+    ],
+    [
+      1245000,
+      51
+    ],
+    [
+      1246000,
+      51
+    ]
+  ]
+}

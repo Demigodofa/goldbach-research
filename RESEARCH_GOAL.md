@@ -11520,3 +11520,49 @@ the pointwise character-sum estimate, the signed-projection theorem, or
 Goldbach.  The missing proof input remains an arithmetic estimate forcing low
 negative pressure or enough positive offset for actual binary-prime q286
 character channels, or a separate classification/rescue of all true deficits.
+
+### 2026-09-14 continuation: dominant-mode pressure horizon
+
+The signed-channel branch split was then reused unchanged as a pressure
+horizon scout.  The mechanism tested was whether the direct pressure branch
+
+```text
+negative_pressure <= 0.3
+```
+
+keeps clearing sparse deterministic post-`1243000` windows without needing an
+offset-only rescue.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-signed-channel-pressure-horizon.json
+```
+
+Checked windows:
+
+```text
+(1244000, 51)
+(1245000, 51)
+(1246000, 51)
+```
+
+Counts:
+
+```text
+tested targets with prime pairs: 153
+dominant floor passes:           153
+dominant floor failures:           0
+pressure branch only:              0
+offset branch only:                0
+pressure and offset branches:    153
+unresolved deficits:               0
+```
+
+Every checked target clears the direct pressure branch.  The maximum-pressure
+row is `1244072`, with negative pressure about `0.2349931112`, still below
+the `0.3` branch threshold.  The tightest positive offset slack row is
+`1244094`, with slack about `0.0341459076`.
+
+This strengthens the finite pressure-easy-region posture after the known
+stress neighborhoods.  It remains finite sampled evidence only: no
+pressure-branch theorem, pointwise character-sum estimate, signed-projection
+theorem, or Goldbach proof is established.
