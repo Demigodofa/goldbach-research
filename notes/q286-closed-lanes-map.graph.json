@@ -1285,6 +1285,14 @@
       "status": "finite_ratio_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_ledger.py generated evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-ledger.json; residual drag is below 0.75 times rank-1 outside delta on all 71 checked clear rows, with worst ratio about 0.7421344693 at 1242118, while the 0.7 and half-drag caps fail",
       "status_boundary": "finite residual-drag ledger only; no residual-bound theorem, rank-1 theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout",
+      "type": "receipt",
+      "label": "q286 outside-plane rank-1 residual-drag expanded holdout",
+      "status": "finite_holdout_diagnostic",
+      "validation": "tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout.py generated evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.json; on the closest-20 expansion, the frozen rank-1 direction remains positive on all 119 checked clears and the 0.75 residual-drag cap survives with worst ratio about 0.7421344693 at 1242118",
+      "status_boundary": "finite expanded-holdout residual-drag audit only; no residual-bound theorem, rank-1 theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2765,6 +2773,21 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_ledger",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_ledger",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

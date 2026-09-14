@@ -1467,6 +1467,19 @@ current comparison set.
    `0.7421344693`.  Lower caps fail, including `0.7` at `1242118` and the
    half-drag cap at `1242118` and `1222048`, so residual control is a real
    theorem obligation rather than harmless numerical dust.
+136. `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.json`,
+   widens the same six near-boundary windows from the closest `12` rows per
+   window to the closest `20` rows per window.  The expanded denominator has
+   `120` targets, still with lone deficit `1222142`.  The frozen Octave
+   rank-`1` outside direction stays positive on all `119` checked clears, and
+   the `0.75` residual-drag cap survives with the same worst row `1242118`
+   at ratio about `0.7421344693`.  This is a finite stability check only, but
+   it keeps the rank-`1` plus residual-drag theorem target alive under a
+   no-refit denominator expansion.
 
 ## Still open
 
@@ -1604,6 +1617,9 @@ current comparison set.
   meaning for that rank-1 outside direction plus a residual-drag bound, or a
   stronger signed aggregate theorem.  The residual-drag ledger then makes that
   bound near-sharp on the checked denominator: `0.75 * rank1` survives, while
-  `0.7 * rank1` already fails at the closest clear `1242118`.
+  `0.7 * rank1` already fails at the closest clear `1242118`.  The closest-20
+  expanded holdout preserves the same worst row and keeps the frozen rank-`1`
+  direction positive on all `119` expanded clears, so the live finite target
+  is no longer just a 72-row artifact.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

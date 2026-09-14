@@ -12807,3 +12807,36 @@ plus a near-sharp residual-drag inequality, or a stronger signed aggregate
 theorem that removes the SVD proxy.  This is finite ledger evidence only and
 proves no residual-bound theorem, rank-`1` theorem, signed projection theorem,
 or Goldbach.
+
+### 2026-09-14 continuation: rank-1 residual-drag expanded holdout
+
+The next receipt tests whether that near-sharp cap survives a wider
+deterministic denominator.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.json
+```
+
+The builder reuses the same six near-boundary windows, widens each retained
+set from the closest `12` rows to the closest `20` rows, and applies the
+frozen Octave rank-`1` outside direction without refitting it.
+
+The expanded denominator has `120` targets.  The lone deficit remains stress
+row `1222142`; the other `119` checked rows are clears.  The frozen rank-`1`
+outside direction stays positive on every expanded clear-minus-stress outside
+vector.  The three-quarter residual-drag cap also survives:
+
+```text
+residual drag <= 0.75 * rank-1 reconstructed outside delta
+```
+
+The worst row is still `1242118`, with drag/rank-`1` about `0.7421344693`.
+Lower caps remain refuted: `0.7` fails at `1242118`, the half-drag cap fails
+at `1242118` and `1222048`, the quarter cap also fails at `1220056`, and a
+`0.2` cap fails at nine checked rows.
+
+This strengthens the finite stability of the rank-`1` plus residual-drag
+shape, but it does not prove the cap.  The proof target remains a
+non-post-hoc arithmetic meaning for the frozen rank-`1` outside direction and
+a residual-drag inequality, or a stronger signed aggregate theorem that
+removes the SVD proxy.

@@ -21007,6 +21007,30 @@ is a positive arithmetic rank-`1` outside direction plus a near-sharp
 residual-drag inequality, or a stronger signed aggregate theorem that removes
 the SVD proxy.
 
+Dominant-mode outside-plane rank-1 residual-drag expanded holdout:
+
+- `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_rank1_residual_drag_expanded_holdout.py`
+- `notes/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.md`
+- `evidence/q286-first-three-dominant-mode-outside-plane-remainder-rank1-residual-drag-expanded-holdout.json`
+
+This widens the same six near-boundary windows from the closest `12` rows per
+window to the closest `20` rows per window, giving `120` checked targets.  It
+then applies the frozen Octave rank-`1` outside direction without refitting it.
+
+The expanded denominator still has exactly one deficit, stress row `1222142`,
+and `119` checked clears.  The frozen rank-`1` outside direction remains
+positive on every expanded clear-minus-stress outside vector.  The `0.75`
+residual-drag cap also survives.  The worst row is unchanged: `1242118`, with
+drag/rank-`1` about `0.7421344693`.
+
+Lower caps remain refuted: `0.7` fails at `1242118`, the half-drag cap fails
+at `1242118` and `1222048`, the quarter cap also fails at `1220056`, and a
+`0.2` cap fails at nine checked rows.  This strengthens the finite stability
+of the rank-`1` plus residual-drag shape, but the theorem obligation remains
+the same: identify the arithmetic meaning of the frozen rank-`1` outside
+direction and prove a residual-drag inequality, or replace the SVD proxy with
+a stronger signed aggregate theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
