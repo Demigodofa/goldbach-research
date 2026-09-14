@@ -19829,6 +19829,32 @@ layer has support `(11,13)` on natural modulus `286`; conductor `77` is not
 native to this first-three receipt and should only be tested through a
 separate lower-support/component-pair overlay.
 
+Positive-orbit landing profile:
+
+- `q286_first_three_positive_orbit_landing_profile_receipt`
+- `tools/build_q286_first_three_positive_orbit_landing_profile.py`
+- `evidence/q286-first-three-positive-orbit-landing-profile.json`
+- focused regression:
+  `test_q286_first_three_positive_orbit_landing_profile`
+
+This receipt factors near-boundary rows as
+`first_three = -B + P`, with `B` and `P` further split into orbit-class mass
+fractions and conditional landing means.  On the holdout from start `1200200`,
+cycles `0..7`, it confirms the same three near-boundary rows:
+`1222142`, `1242118`, and `1240888`.  It classifies `1242118` as balanced
+reduced-pressure plus increased-positive-compensation rescue, and `1240888`
+as positive-compensation-over-worse-pressure rescue.
+
+Important correction: the clear-row compensation improvement is driven by more
+mass on positive orbit classes, not by higher positive landing means.  Relative
+to tail `1222142`, `1242118` increases positive mass fraction by about
+`0.039081854763197754` while decreasing positive landing mean by about
+`0.10041285646025777`; `1240888` increases positive mass fraction by about
+`0.08474552493215814` while decreasing positive landing mean by about
+`0.17154941547522462`.  Next theorem target: a mass-transfer or
+positive-class occupancy estimate near the exact curve, not a pressure-only
+or positive-average-only bound.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

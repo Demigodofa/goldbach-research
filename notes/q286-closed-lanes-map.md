@@ -66,6 +66,7 @@ Current executable receipts:
 - `q286_first_three_reflection_orbit_dual_rectangle_receipt`
 - `tools/build_q286_first_three_reflection_orbit_refined_staircase.py`
 - `tools/build_q286_first_three_boundary_pair_autopsy.py`
+- `q286_first_three_positive_orbit_landing_profile_receipt`
 
 ## Closed or falsified lanes
 
@@ -584,6 +585,15 @@ current comparison set.
    landing near the exact curve.  The q286 first-three character layer has
    support `(11,13)` on modulus `286`; conductor `77` is not native to this
    receipt.
+67. `q286_first_three_positive_orbit_landing_profile_receipt`, with evidence
+   in `evidence/q286-first-three-positive-orbit-landing-profile.json`,
+   refines the boundary autopsy by writing `first_three=-B+P` and splitting
+   `B` and `P` into orbit-class mass fractions and landing means.  On the
+   same holdout near-boundary rows, both clear rows improve positive
+   compensation because more mass sits on positive orbit classes; their
+   positive landing means actually decrease relative to tail `1222142`.
+   Thus the live mechanism is positive-class mass allocation near the exact
+   curve, not higher positive-orbit average coefficients.
 
 ## Still open
 

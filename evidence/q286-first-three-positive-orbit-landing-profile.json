@@ -1,0 +1,260 @@
+{
+  "eventual_exact_curve_theorem_proved": false,
+  "goldbach_proved": false,
+  "interpretation": {
+    "changed_under_evidence": "Near the -.3 boundary, clear rows split into different rescue types: 1242118 improves through both lower negative pressure and higher positive compensation, while 1240888 has worse negative pressure but is rescued by higher positive compensation.",
+    "remaining_theorem": "A possible next theorem target is a positive-orbit landing or mass-allocation estimate near the exact curve R>=1-.3/B.  A pressure-only theorem is too crude for the observed boundary rows."
+  },
+  "landing_classification_recurrence_proved": false,
+  "positive_orbit_landing_profile_measured": true,
+  "profile_rows": {
+    "holdout_start_1200200_cycles_0_7": {
+      "balanced_pressure_and_compensation_targets": [
+        1242118
+      ],
+      "cycle_count": 8,
+      "lower_pressure_only_targets": [],
+      "near_boundary_clear_target_count": 2,
+      "near_boundary_tail_target_count": 1,
+      "near_boundary_target_count": 3,
+      "near_boundary_targets": [
+        1222142,
+        1242118,
+        1240888
+      ],
+      "near_window": [
+        -0.33,
+        -0.27
+      ],
+      "pair_rows": [
+        {
+          "classification": [
+            "worse_negative_pressure",
+            "increased_positive_compensation",
+            "positive_compensation_overcomes_worse_pressure"
+          ],
+          "first_three_swing_to_principal_ratio": 0.03290365887026253,
+          "negative_landing_mean_abs_change": 0.35434877778771345,
+          "negative_mass_fraction_change": -0.08474552493215814,
+          "positive_compensation_increase_component": 0.03755294143301424,
+          "positive_landing_mean_change": -0.17154941547522462,
+          "positive_mass_fraction_change": 0.08474552493215814,
+          "pressure_reduction_component": -0.0046492825627517664,
+          "reconstruction_error": 5.551115123125783e-17,
+          "reference_target": 1222142,
+          "row": {
+            "exact_curve_margin": 0.02492487982172953,
+            "exact_required_ratio_for_threshold": 0.704633673313984,
+            "first_three_to_principal_ratio": -0.27468410150061684,
+            "local_cycle": 4,
+            "near_boundary_target": true,
+            "negative_landing_mean_abs_to_principal_ratio": 2.2159832758144367,
+            "negative_orbit_mass_fraction": 0.45834636807225515,
+            "negative_pressure_B": 1.0156878861784056,
+            "positive_compensation_P": 0.7410037846777888,
+            "positive_compensation_surplus_to_threshold": 0.025315898499383316,
+            "positive_landing_mean_to_principal_ratio": 1.3680399077922858,
+            "positive_minus_negative_mass_fraction": 0.0833072638554897,
+            "positive_orbit_mass_fraction": 0.5416536319277448,
+            "positive_to_negative_pressure_ratio_R": 0.7295585531357135,
+            "tail_target": false,
+            "target": 1240888,
+            "target_mod_286": 220,
+            "target_offset": 324
+          },
+          "target": 1240888
+        },
+        {
+          "classification": [
+            "reduced_negative_pressure",
+            "increased_positive_compensation",
+            "balanced_pressure_and_compensation"
+          ],
+          "first_three_swing_to_principal_ratio": 0.02116101710244711,
+          "negative_landing_mean_abs_change": 0.12293673689299545,
+          "negative_mass_fraction_change": -0.03908185476319759,
+          "positive_compensation_increase_component": 0.010366237491097219,
+          "positive_landing_mean_change": -0.10041285646025777,
+          "positive_mass_fraction_change": 0.039081854763197754,
+          "pressure_reduction_component": 0.01079477961134967,
+          "reconstruction_error": 2.220446049250313e-16,
+          "reference_target": 1222142,
+          "row": {
+            "exact_curve_margin": 0.01356994805249534,
+            "exact_required_ratio_for_threshold": 0.7000731293705953,
+            "first_three_to_principal_ratio": -0.28642674326843226,
+            "local_cycle": 4,
+            "near_boundary_target": true,
+            "negative_landing_mean_abs_to_principal_ratio": 1.9845712349197187,
+            "negative_orbit_mass_fraction": 0.5040100382412157,
+            "negative_pressure_B": 1.0002438240043041,
+            "positive_compensation_P": 0.7138170807358718,
+            "positive_compensation_surplus_to_threshold": 0.013573256731567729,
+            "positive_landing_mean_to_principal_ratio": 1.4391764668072526,
+            "positive_minus_negative_mass_fraction": -0.008020076482431249,
+            "positive_orbit_mass_fraction": 0.49598996175878446,
+            "positive_to_negative_pressure_ratio_R": 0.7136430774230906,
+            "tail_target": false,
+            "target": 1242118,
+            "target_mod_286": 20,
+            "target_offset": 939
+          },
+          "target": 1242118
+        }
+      ],
+      "positive_compensation_overcomes_worse_pressure_targets": [
+        1240888
+      ],
+      "reference_row": {
+        "exact_curve_margin": -0.007504916571675957,
+        "exact_required_ratio_for_threshold": 0.7032754249668147,
+        "first_three_to_principal_ratio": -0.30758776037087937,
+        "local_cycle": 2,
+        "near_boundary_target": true,
+        "negative_landing_mean_abs_to_principal_ratio": 1.8616344980267232,
+        "negative_orbit_mass_fraction": 0.5430918930044133,
+        "negative_pressure_B": 1.0110386036156538,
+        "positive_compensation_P": 0.7034508432447746,
+        "positive_compensation_surplus_to_threshold": -0.00758776037087916,
+        "positive_landing_mean_to_principal_ratio": 1.5395893232675104,
+        "positive_minus_negative_mass_fraction": -0.08618378600882659,
+        "positive_orbit_mass_fraction": 0.4569081069955867,
+        "positive_to_negative_pressure_ratio_R": 0.6957705083951388,
+        "tail_target": true,
+        "target": 1222142,
+        "target_mod_286": 64,
+        "target_offset": 961
+      },
+      "reference_target": 1222142,
+      "start": 1200200,
+      "targets_per_cycle": 5005,
+      "tested_targets_with_prime_pairs": 40040
+    },
+    "witness_start_1222142_cycles_0_1": {
+      "balanced_pressure_and_compensation_targets": [
+        1242118
+      ],
+      "cycle_count": 2,
+      "lower_pressure_only_targets": [],
+      "near_boundary_clear_target_count": 2,
+      "near_boundary_tail_target_count": 1,
+      "near_boundary_target_count": 3,
+      "near_boundary_targets": [
+        1222142,
+        1242118,
+        1240888
+      ],
+      "near_window": [
+        -0.33,
+        -0.27
+      ],
+      "pair_rows": [
+        {
+          "classification": [
+            "worse_negative_pressure",
+            "increased_positive_compensation",
+            "positive_compensation_overcomes_worse_pressure"
+          ],
+          "first_three_swing_to_principal_ratio": 0.03290365887026253,
+          "negative_landing_mean_abs_change": 0.35434877778771345,
+          "negative_mass_fraction_change": -0.08474552493215814,
+          "positive_compensation_increase_component": 0.03755294143301424,
+          "positive_landing_mean_change": -0.17154941547522462,
+          "positive_mass_fraction_change": 0.08474552493215814,
+          "pressure_reduction_component": -0.0046492825627517664,
+          "reconstruction_error": 5.551115123125783e-17,
+          "reference_target": 1222142,
+          "row": {
+            "exact_curve_margin": 0.02492487982172953,
+            "exact_required_ratio_for_threshold": 0.704633673313984,
+            "first_three_to_principal_ratio": -0.27468410150061684,
+            "local_cycle": 1,
+            "near_boundary_target": true,
+            "negative_landing_mean_abs_to_principal_ratio": 2.2159832758144367,
+            "negative_orbit_mass_fraction": 0.45834636807225515,
+            "negative_pressure_B": 1.0156878861784056,
+            "positive_compensation_P": 0.7410037846777888,
+            "positive_compensation_surplus_to_threshold": 0.025315898499383316,
+            "positive_landing_mean_to_principal_ratio": 1.3680399077922858,
+            "positive_minus_negative_mass_fraction": 0.0833072638554897,
+            "positive_orbit_mass_fraction": 0.5416536319277448,
+            "positive_to_negative_pressure_ratio_R": 0.7295585531357135,
+            "tail_target": false,
+            "target": 1240888,
+            "target_mod_286": 220,
+            "target_offset": 4368
+          },
+          "target": 1240888
+        },
+        {
+          "classification": [
+            "reduced_negative_pressure",
+            "increased_positive_compensation",
+            "balanced_pressure_and_compensation"
+          ],
+          "first_three_swing_to_principal_ratio": 0.02116101710244711,
+          "negative_landing_mean_abs_change": 0.12293673689299545,
+          "negative_mass_fraction_change": -0.03908185476319759,
+          "positive_compensation_increase_component": 0.010366237491097219,
+          "positive_landing_mean_change": -0.10041285646025777,
+          "positive_mass_fraction_change": 0.039081854763197754,
+          "pressure_reduction_component": 0.01079477961134967,
+          "reconstruction_error": 2.220446049250313e-16,
+          "reference_target": 1222142,
+          "row": {
+            "exact_curve_margin": 0.01356994805249534,
+            "exact_required_ratio_for_threshold": 0.7000731293705953,
+            "first_three_to_principal_ratio": -0.28642674326843226,
+            "local_cycle": 1,
+            "near_boundary_target": true,
+            "negative_landing_mean_abs_to_principal_ratio": 1.9845712349197187,
+            "negative_orbit_mass_fraction": 0.5040100382412157,
+            "negative_pressure_B": 1.0002438240043041,
+            "positive_compensation_P": 0.7138170807358718,
+            "positive_compensation_surplus_to_threshold": 0.013573256731567729,
+            "positive_landing_mean_to_principal_ratio": 1.4391764668072526,
+            "positive_minus_negative_mass_fraction": -0.008020076482431249,
+            "positive_orbit_mass_fraction": 0.49598996175878446,
+            "positive_to_negative_pressure_ratio_R": 0.7136430774230906,
+            "tail_target": false,
+            "target": 1242118,
+            "target_mod_286": 20,
+            "target_offset": 4983
+          },
+          "target": 1242118
+        }
+      ],
+      "positive_compensation_overcomes_worse_pressure_targets": [
+        1240888
+      ],
+      "reference_row": {
+        "exact_curve_margin": -0.007504916571675957,
+        "exact_required_ratio_for_threshold": 0.7032754249668147,
+        "first_three_to_principal_ratio": -0.30758776037087937,
+        "local_cycle": 0,
+        "near_boundary_target": true,
+        "negative_landing_mean_abs_to_principal_ratio": 1.8616344980267232,
+        "negative_orbit_mass_fraction": 0.5430918930044133,
+        "negative_pressure_B": 1.0110386036156538,
+        "positive_compensation_P": 0.7034508432447746,
+        "positive_compensation_surplus_to_threshold": -0.00758776037087916,
+        "positive_landing_mean_to_principal_ratio": 1.5395893232675104,
+        "positive_minus_negative_mass_fraction": -0.08618378600882659,
+        "positive_orbit_mass_fraction": 0.4569081069955867,
+        "positive_to_negative_pressure_ratio_R": 0.6957705083951388,
+        "tail_target": true,
+        "target": 1222142,
+        "target_mod_286": 64,
+        "target_offset": 0
+      },
+      "reference_target": 1222142,
+      "start": 1222142,
+      "targets_per_cycle": 5005,
+      "tested_targets_with_prime_pairs": 10010
+    }
+  },
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "source_commit": "32a78e78184cf4b22600278a65a9cec097007726",
+  "status_boundary": "finite positive-orbit landing diagnostic only; no recurrence classification, exact-curve theorem, signed prime-correlation estimate, or Goldbach proof is established"
+}

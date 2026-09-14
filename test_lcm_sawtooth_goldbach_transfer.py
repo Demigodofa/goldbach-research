@@ -111,6 +111,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_reflection_orbit_ratio_certificate_receipt,
     q286_first_three_reflection_orbit_ratio_cycle_horizon_receipt,
     q286_first_three_reflection_orbit_dual_rectangle_receipt,
+    q286_first_three_positive_orbit_landing_profile_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -4011,6 +4012,39 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(clear_receipt[
             "eventual_dual_rectangle_bounds_proved"])
         self.assertFalse(clear_receipt["goldbach_proved"])
+
+    def test_q286_first_three_positive_orbit_landing_profile(self):
+        receipt = q286_first_three_positive_orbit_landing_profile_receipt(
+            start=1222142, cycle_count=2, targets_per_cycle=5005,
+            reference_target=1222142)
+        self.assertEqual(receipt["tested_target_count"], 10010)
+        self.assertEqual(receipt["near_boundary_target_count"], 3)
+        self.assertEqual(receipt["near_boundary_tail_target_count"], 1)
+        self.assertEqual(receipt["near_boundary_clear_target_count"], 2)
+        self.assertEqual(receipt["reference_target"], 1222142)
+        self.assertIn(
+            1242118, receipt[
+                "balanced_pressure_and_compensation_targets"])
+        self.assertIn(
+            1240888, receipt[
+                "positive_compensation_overcomes_worse_pressure_targets"])
+        rows = {row["target"]: row for row in receipt["pair_rows"]}
+        self.assertGreater(
+            rows[1242118]["pressure_reduction_component"], 0)
+        self.assertGreater(
+            rows[1242118][
+                "positive_compensation_increase_component"], 0)
+        self.assertLess(
+            rows[1240888]["pressure_reduction_component"], 0)
+        self.assertGreater(
+            rows[1240888][
+                "positive_compensation_increase_component"],
+            -rows[1240888]["pressure_reduction_component"])
+        self.assertLess(rows[1240888]["reconstruction_error"], 1e-9)
+        self.assertTrue(receipt["positive_orbit_landing_profile_measured"])
+        self.assertFalse(receipt[
+            "landing_classification_recurrence_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):
         receipt = q286_first_three_character_mixture_norm_receipt(

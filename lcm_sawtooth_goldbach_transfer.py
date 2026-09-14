@@ -18862,6 +18862,227 @@ def q286_first_three_reflection_orbit_dual_rectangle_receipt(
     }
 
 
+def q286_first_three_positive_orbit_landing_profile_receipt(
+        start=1200200, cycle_count=8, targets_per_cycle=5005,
+        tail_threshold=.3, near_window=(-.33, -.27),
+        reference_target=None, tolerance=1e-9, include_rows=False):
+    """Profile whether near-boundary rescue is pressure or landing driven.
+
+    In the signed reflection-orbit decomposition, write
+
+    ``B = -negative_contribution``
+    ``P = positive_contribution``
+    ``first_three = -B + P``.
+
+    This receipt decomposes ``B`` and ``P`` into orbit-class mass fractions and
+    conditional landing means for rows near the ``first_three=-tail_threshold``
+    boundary.  Relative to a reference tail row, clear rows can then be
+    classified as lower-pressure rescues, positive-compensation rescues, or a
+    mixture.  This is finite diagnostic evidence only.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    near_low, near_high = tuple(near_window)
+    if (not math.isfinite(near_low) or not math.isfinite(near_high)
+            or near_low >= near_high):
+        raise ValueError("near_window must be a finite increasing pair")
+    if reference_target is not None and (
+            type(reference_target) is not int or reference_target < 40
+            or reference_target % 2):
+        raise ValueError(
+            "reference_target must be an even integer at least 40")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    signed = q286_first_three_reflection_orbit_signed_cancellation_receipt(
+        start=start, cycle_count=cycle_count,
+        targets_per_cycle=targets_per_cycle, tail_threshold=tail_threshold,
+        tolerance=tolerance, include_rows=True, include_orbit_rows=False)
+
+    rows = {}
+    near_rows = []
+    tail_near_targets = []
+    clear_near_targets = []
+    for target, signed_row in signed["target_rows"].items():
+        first_three = signed_row["first_three_to_principal_ratio"]
+        pressure = -signed_row[
+            "negative_orbit_contribution_to_principal_ratio"]
+        positive = signed_row[
+            "positive_orbit_contribution_to_principal_ratio"]
+        negative_mass = signed_row["negative_orbit_mass_fraction"]
+        positive_mass = signed_row["positive_orbit_mass_fraction"]
+        positive_landing_mean = (
+            positive / positive_mass
+            if positive_mass > tolerance else math.nan)
+        negative_landing_mean_abs = (
+            pressure / negative_mass
+            if negative_mass > tolerance else math.nan)
+        exact_required_ratio = (
+            1.0 - tail_threshold / pressure
+            if pressure > tolerance else -math.inf)
+        tail = bool(first_three < -tail_threshold - tolerance)
+        near = bool(near_low <= first_three <= near_high)
+        compact = {
+            "target": target,
+            "local_cycle": signed_row["local_cycle"],
+            "target_offset": signed_row["target_offset"],
+            "target_mod_286": signed_row["target_mod_286"],
+            "first_three_to_principal_ratio": first_three,
+            "negative_pressure_B": pressure,
+            "positive_compensation_P": positive,
+            "positive_to_negative_pressure_ratio_R": (
+                signed_row["positive_to_negative_pressure_ratio"]),
+            "exact_required_ratio_for_threshold": exact_required_ratio,
+            "exact_curve_margin": (
+                signed_row["positive_to_negative_pressure_ratio"]
+                - exact_required_ratio),
+            "negative_orbit_mass_fraction": negative_mass,
+            "positive_orbit_mass_fraction": positive_mass,
+            "positive_minus_negative_mass_fraction": (
+                positive_mass - negative_mass),
+            "positive_landing_mean_to_principal_ratio": (
+                positive_landing_mean),
+            "negative_landing_mean_abs_to_principal_ratio": (
+                negative_landing_mean_abs),
+            "tail_target": tail,
+            "near_boundary_target": near,
+            "positive_compensation_surplus_to_threshold": (
+                signed_row["positive_compensation_surplus_to_threshold"]),
+        }
+        rows[target] = compact
+        if near:
+            near_rows.append(compact)
+            if tail:
+                tail_near_targets.append(target)
+            else:
+                clear_near_targets.append(target)
+
+    near_rows.sort(key=lambda row: abs(
+        row["first_three_to_principal_ratio"] + tail_threshold))
+    if reference_target is None and tail_near_targets:
+        reference_target = min(
+            tail_near_targets,
+            key=lambda target: abs(
+                rows[target]["first_three_to_principal_ratio"]
+                + tail_threshold))
+    reference_row = rows.get(reference_target)
+
+    pair_rows = []
+    balanced_rescue_targets = []
+    compensation_over_worse_pressure_targets = []
+    lower_pressure_only_targets = []
+    if reference_row is not None:
+        for target in clear_near_targets:
+            row = rows[target]
+            first_swing = (
+                row["first_three_to_principal_ratio"]
+                - reference_row["first_three_to_principal_ratio"])
+            pressure_reduction = (
+                reference_row["negative_pressure_B"]
+                - row["negative_pressure_B"])
+            compensation_increase = (
+                row["positive_compensation_P"]
+                - reference_row["positive_compensation_P"])
+            landing_mean_change = (
+                row["positive_landing_mean_to_principal_ratio"]
+                - reference_row[
+                    "positive_landing_mean_to_principal_ratio"])
+            positive_mass_change = (
+                row["positive_orbit_mass_fraction"]
+                - reference_row["positive_orbit_mass_fraction"])
+            negative_landing_change = (
+                row["negative_landing_mean_abs_to_principal_ratio"]
+                - reference_row[
+                    "negative_landing_mean_abs_to_principal_ratio"])
+            negative_mass_change = (
+                row["negative_orbit_mass_fraction"]
+                - reference_row["negative_orbit_mass_fraction"])
+            classification = []
+            if pressure_reduction > tolerance:
+                classification.append("reduced_negative_pressure")
+            elif pressure_reduction < -tolerance:
+                classification.append("worse_negative_pressure")
+            if compensation_increase > tolerance:
+                classification.append("increased_positive_compensation")
+            elif compensation_increase < -tolerance:
+                classification.append("reduced_positive_compensation")
+            if (pressure_reduction < -tolerance
+                    and compensation_increase > -pressure_reduction
+                    + tolerance):
+                classification.append(
+                    "positive_compensation_overcomes_worse_pressure")
+                compensation_over_worse_pressure_targets.append(target)
+            if (pressure_reduction > tolerance
+                    and compensation_increase > tolerance):
+                classification.append("balanced_pressure_and_compensation")
+                balanced_rescue_targets.append(target)
+            if (pressure_reduction > tolerance
+                    and abs(compensation_increase) <= tolerance):
+                classification.append("lower_pressure_only")
+                lower_pressure_only_targets.append(target)
+            pair_rows.append({
+                "target": target,
+                "reference_target": reference_row["target"],
+                "classification": tuple(classification),
+                "first_three_swing_to_principal_ratio": first_swing,
+                "pressure_reduction_component": pressure_reduction,
+                "positive_compensation_increase_component": (
+                    compensation_increase),
+                "reconstruction_error": abs(
+                    first_swing - pressure_reduction
+                    - compensation_increase),
+                "positive_mass_fraction_change": positive_mass_change,
+                "positive_landing_mean_change": landing_mean_change,
+                "negative_mass_fraction_change": negative_mass_change,
+                "negative_landing_mean_abs_change": negative_landing_change,
+                "row": row,
+            })
+        pair_rows.sort(
+            key=lambda row: row["first_three_swing_to_principal_ratio"],
+            reverse=True)
+
+    return {
+        "arithmetic_modulus": signed["arithmetic_modulus"],
+        "arithmetic_period": signed["arithmetic_period"],
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "near_window": (near_low, near_high),
+        "tested_target_count": signed["tested_target_count"],
+        "tested_targets_with_prime_pairs": (
+            signed["tested_targets_with_prime_pairs"]),
+        "near_boundary_target_count": len(near_rows),
+        "near_boundary_tail_target_count": len(tail_near_targets),
+        "near_boundary_clear_target_count": len(clear_near_targets),
+        "near_boundary_targets": tuple(row["target"] for row in near_rows),
+        "reference_target": reference_target,
+        "reference_row": reference_row,
+        "pair_rows": tuple(pair_rows),
+        "balanced_pressure_and_compensation_targets": tuple(
+            balanced_rescue_targets),
+        "positive_compensation_overcomes_worse_pressure_targets": tuple(
+            compensation_over_worse_pressure_targets),
+        "lower_pressure_only_targets": tuple(lower_pressure_only_targets),
+        "target_rows_included": include_rows,
+        "target_rows": rows if include_rows else {},
+        "positive_orbit_landing_profile_measured": True,
+        "landing_classification_recurrence_proved": False,
+        "eventual_exact_curve_theorem_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),

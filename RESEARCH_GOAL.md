@@ -10959,6 +10959,20 @@ autopsy also records that conductor `77` is not native to the q286 first-three
 character layer, whose support is `(11,13)` on modulus `286`; a conductor-77
 claim would require a separate lower-support overlay.
 
+The follow-up positive-orbit landing profile
+`evidence/q286-first-three-positive-orbit-landing-profile.json` factors the
+near-boundary rescue into mass share and conditional landing means.  It
+confirms the same three holdout near-boundary rows and adds an important
+correction: both clear rows have increased positive orbit mass fraction but
+lower positive landing mean relative to tail `1222142`.  For `1242118`, the
+positive mass fraction increases by about `0.039081854763197754`, while the
+positive landing mean drops by about `0.10041285646025777`.  For `1240888`,
+the positive mass fraction increases by about `0.08474552493215814`, while
+the positive landing mean drops by about `0.17154941547522462`.  Therefore the
+live mechanism is "more mass on positive orbit classes near the exact curve,"
+not "positive mass lands on higher-average positive classes."  This is still
+finite profile evidence only.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

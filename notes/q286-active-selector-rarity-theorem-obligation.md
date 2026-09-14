@@ -520,6 +520,31 @@ not native to this receipt; conductor `77` belongs to the separate
 lower-support/component-pair lanes and needs an explicit overlay test before
 being claimed relevant here.
 
+The positive-orbit landing profile is recorded in:
+
+```text
+evidence/q286-first-three-positive-orbit-landing-profile.json
+```
+
+It converts the autopsy into the explicit factorization
+`first_three = -B + P`, with
+`B = negative_mass * negative_landing_mean_abs` and
+`P = positive_mass * positive_landing_mean`.  On the holdout from start
+`1200200`, cycles `0..7`, it finds the same three near-boundary rows and
+classifies clear `1242118` as a balanced reduced-pressure plus increased
+positive-compensation row, while clear `1240888` is a
+positive-compensation-over-worse-pressure row.
+
+The useful correction is that "positive compensation" here is primarily a
+mass-allocation statement, not a higher positive-landing-mean statement.  For
+`1242118`, positive mass fraction rises by about `0.039081854763197754`
+relative to tail `1222142`, while its positive landing mean decreases by about
+`0.10041285646025777`.  For `1240888`, positive mass fraction rises by about
+`0.08474552493215814`, while positive landing mean decreases by about
+`0.17154941547522462`.  Thus the next theorem mechanism should classify
+mass transfer between negative and positive orbit classes near the exact
+curve, not merely search for stronger positive-orbit average coefficients.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

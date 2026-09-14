@@ -138,6 +138,14 @@
       "status_boundary": "finite boundary-row autopsy only; no recurrence theorem, no pointwise signed prime-correlation estimate, and no Goldbach proof"
     },
     {
+      "id": "receipt.q286_first_three_positive_orbit_landing_profile",
+      "type": "receipt",
+      "label": "q286 first-three positive-orbit landing profile",
+      "status": "finite_diagnostic",
+      "validation": "q286_first_three_positive_orbit_landing_profile_receipt and tools/build_q286_first_three_positive_orbit_landing_profile.py generated evidence/q286-first-three-positive-orbit-landing-profile.json; the clear near-boundary rows 1242118 and 1240888 improve positive compensation through higher positive-orbit mass fraction even though their positive landing means decrease relative to tail 1222142",
+      "status_boundary": "finite mass-allocation diagnostic only; no recurrence theorem, no exact-curve theorem, no signed prime-correlation estimate, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1527,6 +1535,16 @@
     },
     {
       "from": "receipt.q286_first_three_boundary_pair_autopsy",
+      "to": "obligation.active_selector_rarity",
+      "type": "profiles"
+    },
+    {
+      "from": "receipt.q286_first_three_positive_orbit_landing_profile",
+      "to": "receipt.q286_first_three_boundary_pair_autopsy",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_positive_orbit_landing_profile",
       "to": "obligation.active_selector_rarity",
       "type": "profiles"
     },
