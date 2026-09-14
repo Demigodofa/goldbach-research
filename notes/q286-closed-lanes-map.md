@@ -96,6 +96,7 @@ prediction, and falsifier.
 | Dominant tail as monotone reserve | Demoted | The residual staircase shows an intermediate tail channel can knock clear target `13556` below the floor before later repair; tail control is signed cumulative bookkeeping, not a simple positive add-on. |
 | Dominant staircase from weak reflected geometry | Falsified as sufficient route | Synthetic nonnegative reflected weights with the same local admissible support and total mass can break every selected full-stage pass and over-rescue every selected full-stage deficit. |
 | Sign-quadrant exclusion | Falsified as theorem route | Both-negative mode-1/mode-2 quadrant is a strong tail selector but too common to exclude wholesale. |
+| Fixed rank-5 SVD template selector | Falsified on checked top-20 near-boundary rows | The two tightest rows have opposite template-increment signs, and the sign catching deficit `1222142` also catches nine clear rows. |
 | q70-only rescue | Demoted | Late targets remain rescued after removing q70; boundary cases show q70 alone is not the mechanism. |
 | Component-pair support geometry | Falsified as sufficient route | Artificial same-mass nonnegative admissible weights make both `(5,7)` and `(7,11)` actions negative for every even residue modulo `10010`; this remains true with reflection symmetry `w(r)=w(N-r)`. |
 
@@ -1364,6 +1365,20 @@ current comparison set.
    cancels in signed rank-`5` contribution, while the repair side supplies
    almost all of the net rescue.  This keeps Octave useful diagnostically but
    demotes the rank-`5` mode as a clean two-channel theorem route.
+128. `tools/build_q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json`,
+   tests the fixed selected-fixture rank-`5` template on the `20` closest
+   rows from the near-boundary audit.  The set has one deficit, `1222142`,
+   and nineteen clears.  The template gives `10` positive and `10`
+   nonpositive estimated row-sum increments; the positive sign catches
+   `1222142` but also `9` clear rows.  The two tightest rows already split:
+   `1222142` has positive estimated increment about `0.0226021079`, while
+   clear row `1242118` has negative estimated increment about
+   `-0.0276644469`.  This falsifies the fixed rank-`5` template as a simple
+   checked near-boundary selector.
 
 ## Still open
 
@@ -1473,5 +1488,8 @@ current comparison set.
   all-pass truncation.  The rank-`5` autopsy then shows that this fifth mode
   rescues exactly those rank-`4` failures, but its stress-row action is a
   mixed channel balance rather than a clean adverse-pair-only theorem route.
+  The fixed rank-`5` template near-boundary falsifier then closes the simple
+  selector version of that idea: on the top-`20` tight rows it has mixed signs
+  and selects many clears along with the lone deficit.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

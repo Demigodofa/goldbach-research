@@ -20819,6 +20819,31 @@ arithmetic-placement theorem.  This is finite rank-`5` autopsy evidence only;
 it proves no rank-`5` theorem, low-rank theorem, pointwise character-sum
 estimate, or Goldbach.
 
+Dominant-mode rank-5 template near-boundary falsifier:
+
+- `tools/build_q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier.py`
+- `notes/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.md`
+- `evidence/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json`
+
+This tests whether the fixed rank-`5` right singular vector from the selected
+volatile matrix can act as a simple near-boundary selector.  It replays the
+template over the `20` closest rows from the near-boundary audit, using exact
+signed q286 channel rows and Octave projection/correlation checks.
+
+The top-`20` set has one deficit, `1222142`, and nineteen clears.  The fixed
+template does not classify them: `10` rows have positive estimated row-sum
+increments and `10` have nonpositive increments.  The positive sign catches
+`1222142` but also `9` clear rows.  The two tightest rows already split:
+`1222142` has estimated increment about `0.0226021079`, while clear row
+`1242118` has estimated increment about `-0.0276644469`.
+
+Every checked near-boundary band through `.05` has mixed rank-`5` increment
+signs.  This closes the fixed rank-`5` template as a simple checked selector.
+Do not reopen it without a changed mechanism such as row-dependent arithmetic
+weights or a proven signed aggregate.  The live theorem target remains signed
+adverse-pair absorption from actual binary-prime residue weights, or a
+stronger signed aggregate arithmetic-placement theorem.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

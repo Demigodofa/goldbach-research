@@ -115,6 +115,14 @@
       "nuance": "Does not refute signed channel cancellation, structured channel correlations, stronger prime-pair input, or complement/lower-support rescue."
     },
     {
+      "id": "lane.fixed_rank5_svd_template_selector",
+      "type": "closed_lane",
+      "label": "Fixed rank-5 SVD template near-boundary selector",
+      "status": "falsified_on_checked_top20",
+      "reason": "The two tightest checked rows have opposite rank-5 template increment signs, and the sign selecting deficit 1222142 also selects nine nearby clear rows.",
+      "nuance": "Does not refute row-dependent rank structure, arithmetic weights, a different aggregate theorem, or the signed adverse-pair absorption target."
+    },
+    {
       "id": "receipt.q286_first_three_reflection_orbit_cap",
       "type": "receipt",
       "label": "q286 first-three reflection-orbit cap diagnostic",
@@ -1205,6 +1213,14 @@
       "status": "finite_svd_component_diagnostic",
       "validation": "tools/build_q286_first_three_dominant_mode_volatile_octave_rank5_autopsy.py generated evidence/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.json; the fifth Octave SVD mode rescues exactly the five rank-4 failures, and at stress row 1222142 its row-sum increment is about 0.0226021079 against rank-4 margin about -0.0170305252",
       "status_boundary": "finite Octave rank-5 component audit only; no rank-5 theorem, low-rank theorem, pointwise prime-correlation estimate, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "type": "receipt",
+      "label": "q286 rank-5 template near-boundary falsifier",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier.py generated evidence/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json; on the top-20 closest near-boundary rows, the fixed rank-5 template gives 10 positive and 10 nonpositive estimated increments, and the positive sign catches deficit 1222142 plus nine clear rows",
+      "status_boundary": "finite rank-5 template selector falsifier only; no selector theorem, rank-5 theorem, pointwise prime-correlation estimate, or Goldbach proof"
     }
   ],
   "edges": [
@@ -2555,6 +2571,26 @@
     },
     {
       "from": "receipt.q286_first_three_dominant_mode_volatile_octave_rank5_autopsy",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "to": "lane.fixed_rank5_svd_template_selector",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_volatile_octave_rank5_autopsy",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
+      "to": "receipt.q286_first_three_dominant_mode_near_boundary_selector_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_dominant_mode_rank5_template_near_boundary_falsifier",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

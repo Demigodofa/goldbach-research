@@ -12557,3 +12557,36 @@ arithmetic-placement theorem.  This is finite rank-`5` mode evidence only and
 proves no rank-`5` theorem, low-rank theorem, volatile-rim theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: rank-5 template near-boundary falsifier
+
+The selected-fixture rank-`5` SVD template was then tested as a possible
+near-boundary selector on the existing closest-margin rows.  The new evidence
+is:
+
+```text
+evidence/q286-first-three-dominant-mode-rank5-template-near-boundary-falsifier.json
+```
+
+The test takes the `20` closest rows from the near-boundary selector audit,
+recomputes their exact signed q286 channel profile, extracts the eight
+volatile channels, orients each row by its actual finite dominant-floor
+classification, and uses Octave to project each row onto the fixed rank-`5`
+right singular vector.
+
+The top-`20` set contains one dominant-floor deficit, `1222142`, and nineteen
+clears.  The fixed rank-`5` template does not separate them: it has `10`
+positive estimated row-sum increments and `10` nonpositive increments.  The
+positive sign catches the deficit but also `9` clear rows.  The two tightest
+rows already have opposite signs:
+
+```text
+1222142   deficit   abs surplus 0.0028592222   rank-5 increment  0.0226021079
+1242118   clear     abs surplus 0.0047979813   rank-5 increment -0.0276644469
+```
+
+Every checked near-boundary band through `.05` has mixed rank-`5` increment
+signs.  This refutes the fixed rank-`5` template as a simple checked
+near-boundary selector.  It does not refute row-dependent rank structure,
+arithmetic weights, a different aggregate theorem, or the surviving signed
+adverse-pair absorption target.  Goldbach remains open.

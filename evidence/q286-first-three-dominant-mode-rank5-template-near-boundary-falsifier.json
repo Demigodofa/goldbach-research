@@ -1,0 +1,2165 @@
+{
+  "absolute_increment_summary": {
+    "count": 20,
+    "maximum": 0.027664446863882093,
+    "mean": 0.011278038403341495,
+    "minimum": 0.0007438119318009778
+  },
+  "alignment_cosine_summary": {
+    "count": 20,
+    "maximum": 0.4487312859254668,
+    "mean": -0.025407438010314677,
+    "minimum": -0.5452102200512097
+  },
+  "arithmetic_modulus": 286,
+  "candidate": "The selected-fixture rank-5 volatile SVD template might act as a near-boundary selector or tail/clear separator on nearby q286 rows.",
+  "closest_row_count": 20,
+  "correlations": {
+    "pearson_abs_surplus_vs_abs_cosine": -0.279848262035211,
+    "pearson_abs_surplus_vs_abs_increment": -0.6279456651299166,
+    "pearson_signed_surplus_vs_cosine": 0.07618980509133873,
+    "pearson_signed_surplus_vs_increment": -0.11041165216141044
+  },
+  "falsifier": "The template is refuted as a simple selector if tight rows have mixed increment signs or if the sign that selects the deficit also selects nearby clear rows.",
+  "goldbach_proved": false,
+  "increment_summary": {
+    "count": 20,
+    "maximum": 0.022602107905146045,
+    "mean": -0.0002523019933438974,
+    "minimum": -0.027664446863882093
+  },
+  "interpretation": {
+    "hole_status": "The q286 hole is still tightening, but the rank-5 mode is now bounded as a local diagnostic rather than a reusable selector theorem.",
+    "remaining_theorem": "The live route remains signed adverse-pair absorption from actual binary-prime residue weights, or a stronger signed aggregate arithmetic-placement theorem.",
+    "route_status": "Do not reopen the fixed rank-5 template as a simple near-boundary selector without a changed mechanism, such as row-dependent arithmetic weights or a proven aggregate inequality."
+  },
+  "mechanism": "Replay the fixed rank-5 right singular vector against the eight volatile-channel contributions of the 20 closest rows from the near-boundary audit.  Each row is oriented by its actual finite dominant-floor classification, and Octave computes the row projection, estimated row-sum increment, cosine, and simple correlations.",
+  "novelty_label": "new-to-this-task",
+  "octave": {
+    "operation": "fixed rank-5 template projection, estimated row-sum increment, cosine, and Pearson correlations",
+    "used": true,
+    "version": "11.3.0"
+  },
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If the rank-5 mode is a reusable theorem handle, its fixed template should give a coherent sign or magnitude pattern on the tight near-boundary rows, especially separating the known deficit 1222142 from nearby clears.",
+  "rank5_low_rank_theorem_proved": false,
+  "rank5_template_near_boundary_falsifier_measured": true,
+  "rank5_template_selector_theorem_proved": false,
+  "rank5_template_simple_selector_refuted": true,
+  "rank5_template_sum": -1.367649344499153,
+  "rank5_template_vector": [
+    -0.2544685687762269,
+    -0.2819158794525237,
+    -0.05488553952630999,
+    0.477402585211417,
+    -0.6021754534713533,
+    -0.06417908830079169,
+    -0.5005636773943238,
+    -0.08686372278904059
+  ],
+  "row_records": [
+    {
+      "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+      "dominant_floor_passes": false,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5011532319770281,
+        "above_floor_mass_threshold": 0.5040124542211879,
+        "above_floor_signed_surplus_to_threshold": -0.002859222244159798,
+        "absolute_above_floor_signed_surplus": 0.002859222244159798,
+        "dominant_sum_to_principal": -0.30883317956053014,
+        "nonportfolio_residual_sum_to_principal": -0.11190099321184102,
+        "required_portfolio_for_floor": -0.18809900678815897,
+        "target": 1222142,
+        "target_mod_10010": 922,
+        "target_mod_286": 64,
+        "window_role": "stress",
+        "window_start": 1222000
+      },
+      "orientation": -1,
+      "rank5_template_alignment_cosine": -0.4211722136163767,
+      "rank5_template_estimated_row_sum_increment": 0.022602107905146045,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.016526244827341444,
+      "target": 1222142,
+      "threshold_slack": -0.008833179560527815,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.010938875282588398,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.010938875282588398
+        },
+        {
+          "contribution_to_principal_ratio": -0.01454886268634833,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.01454886268634833
+        },
+        {
+          "contribution_to_principal_ratio": -0.018474432503645177,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": 0.018474432503645177
+        },
+        {
+          "contribution_to_principal_ratio": 0.01021736429315472,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01021736429315472
+        },
+        {
+          "contribution_to_principal_ratio": -0.011851048833984464,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.011851048833984464
+        },
+        {
+          "contribution_to_principal_ratio": -0.017169791918250164,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.017169791918250164
+        },
+        {
+          "contribution_to_principal_ratio": 0.011405528117525765,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.011405528117525765
+        },
+        {
+          "contribution_to_principal_ratio": -0.014046772444381602,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": 0.014046772444381602
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.2834710865332539,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.48686655192871414,
+        "above_floor_mass_threshold": 0.48206857064636394,
+        "above_floor_signed_surplus_to_threshold": 0.0047979812823502055,
+        "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+        "dominant_sum_to_principal": -0.28347108653325537,
+        "nonportfolio_residual_sum_to_principal": -0.22038568263372166,
+        "required_portfolio_for_floor": -0.07961431736627833,
+        "target": 1242118,
+        "target_mod_10010": 878,
+        "target_mod_286": 20,
+        "window_role": "stress",
+        "window_start": 1242000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.3783126301783739,
+      "rank5_template_estimated_row_sum_increment": -0.027664446863882093,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.020227733793864458,
+      "target": 1242118,
+      "threshold_slack": 0.016528913466746065,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.004455966448924407,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.004455966448924407
+        },
+        {
+          "contribution_to_principal_ratio": -0.017034981960262735,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.017034981960262735
+        },
+        {
+          "contribution_to_principal_ratio": -0.028000803701620967,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.028000803701620967
+        },
+        {
+          "contribution_to_principal_ratio": 0.013379352850151611,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": 0.013379352850151611
+        },
+        {
+          "contribution_to_principal_ratio": -0.01863359219696881,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01863359219696881
+        },
+        {
+          "contribution_to_principal_ratio": -0.029793911186253248,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.029793911186253248
+        },
+        {
+          "contribution_to_principal_ratio": 0.015373178249955429,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.015373178249955429
+        },
+        {
+          "contribution_to_principal_ratio": -0.010702262477167376,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.010702262477167376
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.23622267798144497,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.47178155338491046,
+        "above_floor_mass_threshold": 0.45050143308445184,
+        "above_floor_signed_surplus_to_threshold": 0.021280120300458616,
+        "absolute_above_floor_signed_surplus": 0.021280120300458616,
+        "dominant_sum_to_principal": -0.23622267798144572,
+        "nonportfolio_residual_sum_to_principal": -0.16318084675378705,
+        "required_portfolio_for_floor": -0.13681915324621294,
+        "target": 1222048,
+        "target_mod_10010": 828,
+        "target_mod_286": 256,
+        "window_role": "stress",
+        "window_start": 1222000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.2582604861762402,
+      "rank5_template_estimated_row_sum_increment": 0.01715621465050794,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.012544308027135943,
+      "target": 1222048,
+      "threshold_slack": 0.06377732201855502,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.017936530761669886,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.017936530761669886
+        },
+        {
+          "contribution_to_principal_ratio": 0.0048490213495854355,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0048490213495854355
+        },
+        {
+          "contribution_to_principal_ratio": -0.02913046396676056,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.02913046396676056
+        },
+        {
+          "contribution_to_principal_ratio": -0.012641505967513329,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.012641505967513329
+        },
+        {
+          "contribution_to_principal_ratio": 0.0018719557041944885,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0018719557041944885
+        },
+        {
+          "contribution_to_principal_ratio": -0.020924368828855917,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.020924368828855917
+        },
+        {
+          "contribution_to_principal_ratio": 0.023552917876957808,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.023552917876957808
+        },
+        {
+          "contribution_to_principal_ratio": -0.003093871818364781,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.003093871818364781
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.16816036526231182,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5360944507775801,
+        "above_floor_mass_threshold": 0.49586133432869056,
+        "above_floor_signed_surplus_to_threshold": 0.04023311644888955,
+        "absolute_above_floor_signed_surplus": 0.04023311644888955,
+        "dominant_sum_to_principal": -0.1681603652623105,
+        "nonportfolio_residual_sum_to_principal": -0.11309989567001726,
+        "required_portfolio_for_floor": -0.18690010432998272,
+        "target": 1220098,
+        "target_mod_10010": 8888,
+        "target_mod_286": 22,
+        "window_role": "stress",
+        "window_start": 1220000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.1582045475756812,
+      "rank5_template_estimated_row_sum_increment": 0.011126875190704705,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.008135766112460266,
+      "target": 1220098,
+      "threshold_slack": 0.13183963473768817,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.009981784027036839,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.009981784027036839
+        },
+        {
+          "contribution_to_principal_ratio": -0.013215558262880065,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.013215558262880065
+        },
+        {
+          "contribution_to_principal_ratio": -0.015197951529108555,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.015197951529108555
+        },
+        {
+          "contribution_to_principal_ratio": -0.03402500271293634,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.03402500271293634
+        },
+        {
+          "contribution_to_principal_ratio": -0.005828979205252207,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.005828979205252207
+        },
+        {
+          "contribution_to_principal_ratio": -0.007576953663069458,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.007576953663069458
+        },
+        {
+          "contribution_to_principal_ratio": 0.0009960085675324013,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0009960085675324013
+        },
+        {
+          "contribution_to_principal_ratio": -0.02982027932867806,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.02982027932867806
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.14976871279170478,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5050445076736698,
+        "above_floor_mass_threshold": 0.46267572057689593,
+        "above_floor_signed_surplus_to_threshold": 0.042368787096773886,
+        "absolute_above_floor_signed_surplus": 0.042368787096773886,
+        "dominant_sum_to_principal": -0.14976871279170298,
+        "nonportfolio_residual_sum_to_principal": -0.12720125131694243,
+        "required_portfolio_for_floor": -0.17279874868305756,
+        "target": 1220056,
+        "target_mod_10010": 8846,
+        "target_mod_286": 266,
+        "window_role": "stress",
+        "window_start": 1220000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.1665427876315075,
+      "rank5_template_estimated_row_sum_increment": -0.007654399190173893,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.005596755645707571,
+      "target": 1220056,
+      "threshold_slack": 0.1502312872082952,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.015921910381643957,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.015921910381643957
+        },
+        {
+          "contribution_to_principal_ratio": -0.008284997112654834,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008284997112654834
+        },
+        {
+          "contribution_to_principal_ratio": -0.005629463637783745,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.005629463637783745
+        },
+        {
+          "contribution_to_principal_ratio": 0.0049068633196809545,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0049068633196809545
+        },
+        {
+          "contribution_to_principal_ratio": -0.013238182981618338,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.013238182981618338
+        },
+        {
+          "contribution_to_principal_ratio": -0.0048892016255625975,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0048892016255625975
+        },
+        {
+          "contribution_to_principal_ratio": 0.023496926296815997,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.023496926296815997
+        },
+        {
+          "contribution_to_principal_ratio": -0.0003931072592147131,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0003931072592147131
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.1502834097512938,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5700628879943774,
+        "above_floor_mass_threshold": 0.5264254234822489,
+        "above_floor_signed_surplus_to_threshold": 0.043637464512128576,
+        "absolute_above_floor_signed_surplus": 0.043637464512128576,
+        "dominant_sum_to_principal": -0.15028340975129342,
+        "nonportfolio_residual_sum_to_principal": -0.09810936623750449,
+        "required_portfolio_for_floor": -0.2018906337624955,
+        "target": 1200224,
+        "target_mod_10010": 9034,
+        "target_mod_286": 168,
+        "window_role": "primary",
+        "window_start": 1200200
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.23179501319838375,
+      "rank5_template_estimated_row_sum_increment": -0.012344294284632564,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.009025920521428078,
+      "target": 1200224,
+      "threshold_slack": 0.14971659024870618,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.010200643318917726,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.010200643318917726
+        },
+        {
+          "contribution_to_principal_ratio": -0.003435416016592969,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.003435416016592969
+        },
+        {
+          "contribution_to_principal_ratio": -0.01874237547124946,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01874237547124946
+        },
+        {
+          "contribution_to_principal_ratio": -0.013599682750088991,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.013599682750088991
+        },
+        {
+          "contribution_to_principal_ratio": -0.01905391683349851,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01905391683349851
+        },
+        {
+          "contribution_to_principal_ratio": -0.01271968801630243,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01271968801630243
+        },
+        {
+          "contribution_to_principal_ratio": -0.0004694468056726088,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0004694468056726088
+        },
+        {
+          "contribution_to_principal_ratio": 0.018415162934945377,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": 0.018415162934945377
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.17472695697080923,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.4601675650930683,
+        "above_floor_mass_threshold": 0.4152518648833007,
+        "above_floor_signed_surplus_to_threshold": 0.044915700209767595,
+        "absolute_above_floor_signed_surplus": 0.044915700209767595,
+        "dominant_sum_to_principal": -0.17472695697081017,
+        "nonportfolio_residual_sum_to_principal": -0.11217211432243303,
+        "required_portfolio_for_floor": -0.18782788567756697,
+        "target": 1221042,
+        "target_mod_10010": 9832,
+        "target_mod_286": 108,
+        "window_role": "stress",
+        "window_start": 1221000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.16037615582099912,
+      "rank5_template_estimated_row_sum_increment": 0.007948523691367936,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.005811814061358517,
+      "target": 1221042,
+      "threshold_slack": 0.12527304302919076,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.0004434808417506552,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0004434808417506552
+        },
+        {
+          "contribution_to_principal_ratio": -0.0015988083723699348,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0015988083723699348
+        },
+        {
+          "contribution_to_principal_ratio": -0.010260423514267591,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.010260423514267591
+        },
+        {
+          "contribution_to_principal_ratio": -0.029872364989276683,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.029872364989276683
+        },
+        {
+          "contribution_to_principal_ratio": -0.0040298330627945265,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0040298330627945265
+        },
+        {
+          "contribution_to_principal_ratio": 0.0017699613734374503,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0017699613734374503
+        },
+        {
+          "contribution_to_principal_ratio": -0.00781303242246208,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.00781303242246208
+        },
+        {
+          "contribution_to_principal_ratio": -0.015245852572536633,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.015245852572536633
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.15009213962633375,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.49628238768803634,
+        "above_floor_mass_threshold": 0.44754820007046153,
+        "above_floor_signed_surplus_to_threshold": 0.04873418761757481,
+        "absolute_above_floor_signed_surplus": 0.04873418761757481,
+        "dominant_sum_to_principal": -0.15009213962633342,
+        "nonportfolio_residual_sum_to_principal": -0.12692722567002918,
+        "required_portfolio_for_floor": -0.1730727743299708,
+        "target": 1242136,
+        "target_mod_10010": 896,
+        "target_mod_286": 38,
+        "window_role": "stress",
+        "window_start": 1242000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.1693099376844266,
+      "rank5_template_estimated_row_sum_increment": -0.012016301316231524,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.008786098106625433,
+      "target": 1242136,
+      "threshold_slack": 0.14990786037366624,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.013631187957680375,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.013631187957680375
+        },
+        {
+          "contribution_to_principal_ratio": -0.0037633781322682514,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0037633781322682514
+        },
+        {
+          "contribution_to_principal_ratio": -0.022855026119222153,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.022855026119222153
+        },
+        {
+          "contribution_to_principal_ratio": 0.010092438027402261,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": 0.010092438027402261
+        },
+        {
+          "contribution_to_principal_ratio": 0.022960530871680464,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.022960530871680464
+        },
+        {
+          "contribution_to_principal_ratio": -0.019964005134984576,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.019964005134984576
+        },
+        {
+          "contribution_to_principal_ratio": -0.016995154416249228,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.016995154416249228
+        },
+        {
+          "contribution_to_principal_ratio": -0.02557691626629739,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.02557691626629739
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.12308946319950646,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.4863757586836736,
+        "above_floor_mass_threshold": 0.43555966675900526,
+        "above_floor_signed_surplus_to_threshold": 0.05081609192466835,
+        "absolute_above_floor_signed_surplus": 0.05081609192466835,
+        "dominant_sum_to_principal": -0.12308946319950455,
+        "nonportfolio_residual_sum_to_principal": -0.06408127744611374,
+        "required_portfolio_for_floor": -0.23591872255388624,
+        "target": 1200208,
+        "target_mod_10010": 9018,
+        "target_mod_286": 152,
+        "window_role": "primary",
+        "window_start": 1200200
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.21170031258110783,
+      "rank5_template_estimated_row_sum_increment": -0.007724648320575142,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.005648120515426405,
+      "target": 1200208,
+      "threshold_slack": 0.1769105368004935,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.01775080815811557,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01775080815811557
+        },
+        {
+          "contribution_to_principal_ratio": -0.010035510764004371,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.010035510764004371
+        },
+        {
+          "contribution_to_principal_ratio": -0.005275754705204194,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.005275754705204194
+        },
+        {
+          "contribution_to_principal_ratio": -0.0010473049156434968,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0010473049156434968
+        },
+        {
+          "contribution_to_principal_ratio": 0.0023175580614169483,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0023175580614169483
+        },
+        {
+          "contribution_to_principal_ratio": -0.0012952359244559895,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0012952359244559895
+        },
+        {
+          "contribution_to_principal_ratio": 0.0030962125240759364,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0030962125240759364
+        },
+        {
+          "contribution_to_principal_ratio": -0.0158253912631316,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0158253912631316
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.11354488790949954,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.551041176916207,
+        "above_floor_mass_threshold": 0.49866622905388197,
+        "above_floor_signed_surplus_to_threshold": 0.05237494786232505,
+        "absolute_above_floor_signed_surplus": 0.05237494786232505,
+        "dominant_sum_to_principal": -0.11354488790949976,
+        "nonportfolio_residual_sum_to_principal": -0.08073089947056737,
+        "required_portfolio_for_floor": -0.2192691005294326,
+        "target": 1221052,
+        "target_mod_10010": 9842,
+        "target_mod_286": 118,
+        "window_role": "stress",
+        "window_start": 1221000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.22693771423737694,
+      "rank5_template_estimated_row_sum_increment": 0.008095572505233307,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.005919333444493396,
+      "target": 1221052,
+      "threshold_slack": 0.18645511209050045,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.001826462100293851,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.001826462100293851
+        },
+        {
+          "contribution_to_principal_ratio": 0.005283925277484239,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.005283925277484239
+        },
+        {
+          "contribution_to_principal_ratio": -0.016673777745748974,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.016673777745748974
+        },
+        {
+          "contribution_to_principal_ratio": -0.010892122362565076,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.010892122362565076
+        },
+        {
+          "contribution_to_principal_ratio": 0.005732083792615879,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.005732083792615879
+        },
+        {
+          "contribution_to_principal_ratio": -0.014104973608570616,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.014104973608570616
+        },
+        {
+          "contribution_to_principal_ratio": -0.004178372981054312,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.004178372981054312
+        },
+        {
+          "contribution_to_principal_ratio": 0.0017818260858265907,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0017818260858265907
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.13756505391411228,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5581011993891518,
+        "above_floor_mass_threshold": 0.5055632661835555,
+        "above_floor_signed_surplus_to_threshold": 0.0525379332055963,
+        "absolute_above_floor_signed_surplus": 0.0525379332055963,
+        "dominant_sum_to_principal": -0.1375650539141141,
+        "nonportfolio_residual_sum_to_principal": -0.03559435404136505,
+        "required_portfolio_for_floor": -0.2644056459586349,
+        "target": 1240160,
+        "target_mod_10010": 8930,
+        "target_mod_286": 64,
+        "window_role": "stress",
+        "window_start": 1240000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.5452102200512097,
+      "rank5_template_estimated_row_sum_increment": 0.013979687558650332,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.010221689949165905,
+      "target": 1240160,
+      "threshold_slack": 0.1624349460858877,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.009797438740924343,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.009797438740924343
+        },
+        {
+          "contribution_to_principal_ratio": -0.00693111259052552,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.00693111259052552
+        },
+        {
+          "contribution_to_principal_ratio": -0.0032384163208972723,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0032384163208972723
+        },
+        {
+          "contribution_to_principal_ratio": -0.011026995085448878,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.011026995085448878
+        },
+        {
+          "contribution_to_principal_ratio": 0.006297458671645316,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.006297458671645316
+        },
+        {
+          "contribution_to_principal_ratio": -0.0039206695780677125,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0039206695780677125
+        },
+        {
+          "contribution_to_principal_ratio": 0.0027315005334691863,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0027315005334691863
+        },
+        {
+          "contribution_to_principal_ratio": -0.0035903743401885387,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0035903743401885387
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.1398868933811361,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5263536034207125,
+        "above_floor_mass_threshold": 0.4735204561396041,
+        "above_floor_signed_surplus_to_threshold": 0.052833147281108384,
+        "absolute_above_floor_signed_surplus": 0.052833147281108384,
+        "dominant_sum_to_principal": -0.13988689338113589,
+        "nonportfolio_residual_sum_to_principal": -0.10051776127344901,
+        "required_portfolio_for_floor": -0.19948223872655096,
+        "target": 1242162,
+        "target_mod_10010": 922,
+        "target_mod_286": 64,
+        "window_role": "stress",
+        "window_start": 1242000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.048089563007670914,
+      "rank5_template_estimated_row_sum_increment": -0.0018530356328626055,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.0013549055101848536,
+      "target": 1242162,
+      "threshold_slack": 0.16011310661886388,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.00840779606133449,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.00840779606133449
+        },
+        {
+          "contribution_to_principal_ratio": -0.0008758605922950465,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0008758605922950465
+        },
+        {
+          "contribution_to_principal_ratio": -0.023477938169999442,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.023477938169999442
+        },
+        {
+          "contribution_to_principal_ratio": -0.008501544468388375,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008501544468388375
+        },
+        {
+          "contribution_to_principal_ratio": 0.0007766894074245497,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0007766894074245497
+        },
+        {
+          "contribution_to_principal_ratio": -0.006747395002344465,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.006747395002344465
+        },
+        {
+          "contribution_to_principal_ratio": -0.0023500772923668012,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0023500772923668012
+        },
+        {
+          "contribution_to_principal_ratio": -0.006870819721837146,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.006870819721837146
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.15182213768220146,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.46982101935732506,
+        "above_floor_mass_threshold": 0.4166912134347545,
+        "above_floor_signed_surplus_to_threshold": 0.05312980592257055,
+        "absolute_above_floor_signed_surplus": 0.05312980592257055,
+        "dominant_sum_to_principal": -0.15182213768220096,
+        "nonportfolio_residual_sum_to_principal": -0.084194848400621,
+        "required_portfolio_for_floor": -0.215805151599379,
+        "target": 1222018,
+        "target_mod_10010": 798,
+        "target_mod_286": 226,
+        "window_role": "stress",
+        "window_start": 1222000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.020483685681015957,
+      "rank5_template_estimated_row_sum_increment": -0.0011547228776734942,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.0008443120909010235,
+      "target": 1222018,
+      "threshold_slack": 0.14817786231779853,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.012028023923168416,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.012028023923168416
+        },
+        {
+          "contribution_to_principal_ratio": 0.011070958771177374,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.011070958771177374
+        },
+        {
+          "contribution_to_principal_ratio": -0.029675584073987665,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.029675584073987665
+        },
+        {
+          "contribution_to_principal_ratio": 0.003392715276478308,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": 0.003392715276478308
+        },
+        {
+          "contribution_to_principal_ratio": -0.002009395619305777,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.002009395619305777
+        },
+        {
+          "contribution_to_principal_ratio": 0.013494800171888496,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.013494800171888496
+        },
+        {
+          "contribution_to_principal_ratio": 0.00829696770486181,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.00829696770486181
+        },
+        {
+          "contribution_to_principal_ratio": -0.01687035187853894,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01687035187853894
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.08402726728738903,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.49406501598635455,
+        "above_floor_mass_threshold": 0.4407553048830942,
+        "above_floor_signed_surplus_to_threshold": 0.05330971110326033,
+        "absolute_above_floor_signed_surplus": 0.05330971110326033,
+        "dominant_sum_to_principal": -0.08402726728738842,
+        "nonportfolio_residual_sum_to_principal": -0.09511414809557556,
+        "required_portfolio_for_floor": -0.20488585190442443,
+        "target": 1222078,
+        "target_mod_10010": 858,
+        "target_mod_286": 0,
+        "window_role": "stress",
+        "window_start": 1222000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.15996758542285514,
+      "rank5_template_estimated_row_sum_increment": 0.010495489184745617,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.007674108299002015,
+      "target": 1222078,
+      "threshold_slack": 0.21597273271261097,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.0039047460162931974,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0039047460162931974
+        },
+        {
+          "contribution_to_principal_ratio": 0.015273884343408359,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.015273884343408359
+        },
+        {
+          "contribution_to_principal_ratio": -0.020785653288744012,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.020785653288744012
+        },
+        {
+          "contribution_to_principal_ratio": -0.01870503072959457,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01870503072959457
+        },
+        {
+          "contribution_to_principal_ratio": -0.0109860463095973,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0109860463095973
+        },
+        {
+          "contribution_to_principal_ratio": -0.03230573942631546,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.03230573942631546
+        },
+        {
+          "contribution_to_principal_ratio": 0.004971273978764745,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.004971273978764745
+        },
+        {
+          "contribution_to_principal_ratio": 0.009048259872901504,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": 0.009048259872901504
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.12275230443749884,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5761460426989368,
+        "above_floor_mass_threshold": 0.5225506184368007,
+        "above_floor_signed_surplus_to_threshold": 0.05359542426213604,
+        "absolute_above_floor_signed_surplus": 0.05359542426213604,
+        "dominant_sum_to_principal": -0.1227523044374992,
+        "nonportfolio_residual_sum_to_principal": -0.0569788844482005,
+        "required_portfolio_for_floor": -0.2430211155517995,
+        "target": 1222168,
+        "target_mod_10010": 948,
+        "target_mod_286": 90,
+        "window_role": "stress",
+        "window_start": 1222000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.03241720674544756,
+      "rank5_template_estimated_row_sum_increment": -0.001558691498715972,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.0011396865029659926,
+      "target": 1222168,
+      "threshold_slack": 0.17724769556250114,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.0034356705589914383,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0034356705589914383
+        },
+        {
+          "contribution_to_principal_ratio": 0.0016316043633138116,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0016316043633138116
+        },
+        {
+          "contribution_to_principal_ratio": 0.0029311380771330606,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0029311380771330606
+        },
+        {
+          "contribution_to_principal_ratio": -0.013341650586130013,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.013341650586130013
+        },
+        {
+          "contribution_to_principal_ratio": -0.01577894823008511,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01577894823008511
+        },
+        {
+          "contribution_to_principal_ratio": 0.01787641905214149,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.01787641905214149
+        },
+        {
+          "contribution_to_principal_ratio": 0.002425918234062862,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.002425918234062862
+        },
+        {
+          "contribution_to_principal_ratio": -0.021459717486679797,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.021459717486679797
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.07955331294831905,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.535522473637709,
+        "above_floor_mass_threshold": 0.4809032254760342,
+        "above_floor_signed_surplus_to_threshold": 0.054619248161674794,
+        "absolute_above_floor_signed_surplus": 0.054619248161674794,
+        "dominant_sum_to_principal": -0.07955331294831826,
+        "nonportfolio_residual_sum_to_principal": -0.05613122611028436,
+        "required_portfolio_for_floor": -0.24386877388971562,
+        "target": 1220076,
+        "target_mod_10010": 8866,
+        "target_mod_286": 0,
+        "window_role": "stress",
+        "window_start": 1220000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.4487312859254668,
+      "rank5_template_estimated_row_sum_increment": -0.02174922904733142,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.015902635521897027,
+      "target": 1220076,
+      "threshold_slack": 0.22044668705168094,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.012007832932939043,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.012007832932939043
+        },
+        {
+          "contribution_to_principal_ratio": -0.0019418440771389945,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0019418440771389945
+        },
+        {
+          "contribution_to_principal_ratio": -0.024123668585288624,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.024123668585288624
+        },
+        {
+          "contribution_to_principal_ratio": -0.0014358206340760722,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0014358206340760722
+        },
+        {
+          "contribution_to_principal_ratio": -0.014951989385762922,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.014951989385762922
+        },
+        {
+          "contribution_to_principal_ratio": -0.0024418269341926905,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0024418269341926905
+        },
+        {
+          "contribution_to_principal_ratio": -0.01715691242101109,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01715691242101109
+        },
+        {
+          "contribution_to_principal_ratio": -0.0002725698206429678,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0002725698206429678
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.11638288033906233,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5146745242011858,
+        "above_floor_mass_threshold": 0.4579254404776065,
+        "above_floor_signed_surplus_to_threshold": 0.05674908372357923,
+        "absolute_above_floor_signed_surplus": 0.05674908372357923,
+        "dominant_sum_to_principal": -0.11638288033906258,
+        "nonportfolio_residual_sum_to_principal": -0.050624819556737734,
+        "required_portfolio_for_floor": -0.24937518044326226,
+        "target": 1240144,
+        "target_mod_10010": 8914,
+        "target_mod_286": 48,
+        "window_role": "stress",
+        "window_start": 1240000
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.23530477227106328,
+      "rank5_template_estimated_row_sum_increment": 0.007014594162570131,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.005128941998754034,
+      "target": 1240144,
+      "threshold_slack": 0.18361711966093766,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.008392388633298128,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008392388633298128
+        },
+        {
+          "contribution_to_principal_ratio": 0.0010320453088039935,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0010320453088039935
+        },
+        {
+          "contribution_to_principal_ratio": -0.007520577423184479,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.007520577423184479
+        },
+        {
+          "contribution_to_principal_ratio": -0.01486198368073546,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.01486198368073546
+        },
+        {
+          "contribution_to_principal_ratio": 0.0007862172579197399,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0007862172579197399
+        },
+        {
+          "contribution_to_principal_ratio": 0.0066737929231266225,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0066737929231266225
+        },
+        {
+          "contribution_to_principal_ratio": 0.0003411143798371969,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0003411143798371969
+        },
+        {
+          "contribution_to_principal_ratio": -0.008994496684483683,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008994496684483683
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.09068924231140663,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.4955906234640652,
+        "above_floor_mass_threshold": 0.43883522124643165,
+        "above_floor_signed_surplus_to_threshold": 0.05675540221763353,
+        "absolute_above_floor_signed_surplus": 0.05675540221763353,
+        "dominant_sum_to_principal": -0.09068924231140818,
+        "nonportfolio_residual_sum_to_principal": -0.058635410238123874,
+        "required_portfolio_for_floor": -0.2413645897618761,
+        "target": 1200362,
+        "target_mod_10010": 9172,
+        "target_mod_286": 20,
+        "window_role": "primary",
+        "window_start": 1200200
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": 0.40092811267979284,
+      "rank5_template_estimated_row_sum_increment": -0.02158363493477521,
+      "rank5_template_increment_sign": "negative",
+      "rank5_template_projection": 0.015781556158080384,
+      "target": 1200362,
+      "threshold_slack": 0.20931075768859336,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.007046935444057351,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.007046935444057351
+        },
+        {
+          "contribution_to_principal_ratio": 0.01293348095128948,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.01293348095128948
+        },
+        {
+          "contribution_to_principal_ratio": -0.008593792147851567,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008593792147851567
+        },
+        {
+          "contribution_to_principal_ratio": 0.019684625471606362,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": 0.019684625471606362
+        },
+        {
+          "contribution_to_principal_ratio": -0.022249963538346424,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.022249963538346424
+        },
+        {
+          "contribution_to_principal_ratio": -0.011874822104817969,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.011874822104817969
+        },
+        {
+          "contribution_to_principal_ratio": 0.013899013506005161,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.013899013506005161
+        },
+        {
+          "contribution_to_principal_ratio": -0.006471797262260582,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.006471797262260582
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.06799527292317305,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5340119773265652,
+        "above_floor_mass_threshold": 0.4764895136900548,
+        "above_floor_signed_surplus_to_threshold": 0.057522463636510424,
+        "absolute_above_floor_signed_surplus": 0.057522463636510424,
+        "dominant_sum_to_principal": -0.06799527292317352,
+        "nonportfolio_residual_sum_to_principal": -0.059502356847915897,
+        "required_portfolio_for_floor": -0.2404976431520841,
+        "target": 1200342,
+        "target_mod_10010": 9152,
+        "target_mod_286": 0,
+        "window_role": "primary",
+        "window_start": 1200200
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.4372611589682909,
+      "rank5_template_estimated_row_sum_increment": 0.01109448731924898,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.008112084697640017,
+      "target": 1200342,
+      "threshold_slack": 0.23200472707682696,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": 0.004986307998126821,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": 0.004986307998126821
+        },
+        {
+          "contribution_to_principal_ratio": -0.0036527457379032686,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0036527457379032686
+        },
+        {
+          "contribution_to_principal_ratio": -0.00579955105717552,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.00579955105717552
+        },
+        {
+          "contribution_to_principal_ratio": -0.014494558848572925,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.014494558848572925
+        },
+        {
+          "contribution_to_principal_ratio": 0.005240847370799676,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.005240847370799676
+        },
+        {
+          "contribution_to_principal_ratio": -0.004699848447909711,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.004699848447909711
+        },
+        {
+          "contribution_to_principal_ratio": -0.0027740311280860233,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0027740311280860233
+        },
+        {
+          "contribution_to_principal_ratio": -0.0022349231262480643,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.0022349231262480643
+        }
+      ]
+    },
+    {
+      "dominant_character_sum_to_principal_ratio": -0.12078081510410404,
+      "dominant_floor_passes": true,
+      "near_boundary_row": {
+        "above_floor_mass_fraction": 0.5321814930536745,
+        "above_floor_mass_threshold": 0.4741197965006402,
+        "above_floor_signed_surplus_to_threshold": 0.05806169655303428,
+        "absolute_above_floor_signed_surplus": 0.05806169655303428,
+        "dominant_sum_to_principal": -0.12078081510410221,
+        "nonportfolio_residual_sum_to_principal": -0.07879838515785471,
+        "required_portfolio_for_floor": -0.2212016148421453,
+        "target": 1200526,
+        "target_mod_10010": 9336,
+        "target_mod_286": 184,
+        "window_role": "primary",
+        "window_start": 1200200
+      },
+      "orientation": 1,
+      "rank5_template_alignment_cosine": -0.013764441379394017,
+      "rank5_template_estimated_row_sum_increment": 0.0007438119318009778,
+      "rank5_template_increment_sign": "positive",
+      "rank5_template_projection": -0.000543861578841592,
+      "target": 1200526,
+      "threshold_slack": 0.17921918489589594,
+      "volatile_channel_vector": [
+        {
+          "contribution_to_principal_ratio": -0.004375729512686333,
+          "label": [
+            1,
+            1
+          ],
+          "oriented_contribution_to_principal_ratio": -0.004375729512686333
+        },
+        {
+          "contribution_to_principal_ratio": -0.014075072600843152,
+          "label": [
+            1,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": -0.014075072600843152
+        },
+        {
+          "contribution_to_principal_ratio": -0.025235246565582417,
+          "label": [
+            1,
+            5
+          ],
+          "oriented_contribution_to_principal_ratio": -0.025235246565582417
+        },
+        {
+          "contribution_to_principal_ratio": -0.014690048590734911,
+          "label": [
+            1,
+            7
+          ],
+          "oriented_contribution_to_principal_ratio": -0.014690048590734911
+        },
+        {
+          "contribution_to_principal_ratio": 0.0134385390543607,
+          "label": [
+            2,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": 0.0134385390543607
+        },
+        {
+          "contribution_to_principal_ratio": 0.003333232406760797,
+          "label": [
+            3,
+            3
+          ],
+          "oriented_contribution_to_principal_ratio": 0.003333232406760797
+        },
+        {
+          "contribution_to_principal_ratio": -0.015144523528123325,
+          "label": [
+            4,
+            4
+          ],
+          "oriented_contribution_to_principal_ratio": -0.015144523528123325
+        },
+        {
+          "contribution_to_principal_ratio": -0.008382868340953,
+          "label": [
+            4,
+            10
+          ],
+          "oriented_contribution_to_principal_ratio": -0.008382868340953
+        }
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "sign_summary": {
+    "clear_count": 19,
+    "deficit_count": 1,
+    "nonpositive_increment_clear_count": 10,
+    "nonpositive_increment_count": 10,
+    "nonpositive_increment_targets": [
+      1242118,
+      1220056,
+      1200224,
+      1242136,
+      1200208,
+      1242162,
+      1222018,
+      1222168,
+      1220076,
+      1200362
+    ],
+    "positive_increment_clear_false_positive_count": 9,
+    "positive_increment_count": 10,
+    "positive_increment_targets": [
+      1222142,
+      1222048,
+      1220098,
+      1221042,
+      1221052,
+      1240160,
+      1222078,
+      1240144,
+      1200342,
+      1200526
+    ]
+  },
+  "signed_projection_theorem_proved": false,
+  "source_commit": "fd8351bfd6926e57b0401b718c91197a8dcea103",
+  "source_near_boundary_selector_audit": "evidence\\q286-first-three-dominant-mode-near-boundary-selector-audit.json",
+  "source_rank5_autopsy": "evidence\\q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.json",
+  "status_boundary": "finite rank-5 template near-boundary falsifier only; it refutes this simple fixed-template selector on the checked rows and proves no selector theorem, rank-5 theorem, pointwise character-sum estimate, or Goldbach proof",
+  "summary": {
+    "false_positive_result": "The sign selecting the deficit also selects nearby clear rows, so rank-5 sign alone cannot classify the checked near-boundary rows.",
+    "selector_result": "The fixed rank-5 template is not a simple near-boundary selector on the checked top-20 rows.",
+    "tightest_rows": "The two tightest rows, deficit 1222142 and clear 1242118, have opposite rank-5 template increment signs."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "target_order": [
+    1222142,
+    1242118,
+    1222048,
+    1220098,
+    1220056,
+    1200224,
+    1221042,
+    1242136,
+    1200208,
+    1221052,
+    1240160,
+    1242162,
+    1222018,
+    1222078,
+    1222168,
+    1220076,
+    1240144,
+    1200362,
+    1200342,
+    1200526
+  ],
+  "threshold_sign_audits": {
+    "0.005": {
+      "mixed_signs_on_near_rows": true,
+      "near_targets": [
+        1222142,
+        1242118
+      ],
+      "near_threshold": 0.005,
+      "rank5_template_increment_signs": [
+        "positive",
+        "negative"
+      ],
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "dominant_floor_passes": false,
+          "rank5_template_estimated_row_sum_increment": 0.022602107905146045,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.027664446863882093,
+          "rank5_template_increment_sign": "negative",
+          "target": 1242118
+        }
+      ]
+    },
+    "0.01": {
+      "mixed_signs_on_near_rows": true,
+      "near_targets": [
+        1222142,
+        1242118
+      ],
+      "near_threshold": 0.01,
+      "rank5_template_increment_signs": [
+        "positive",
+        "negative"
+      ],
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "dominant_floor_passes": false,
+          "rank5_template_estimated_row_sum_increment": 0.022602107905146045,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.027664446863882093,
+          "rank5_template_increment_sign": "negative",
+          "target": 1242118
+        }
+      ]
+    },
+    "0.03": {
+      "mixed_signs_on_near_rows": true,
+      "near_targets": [
+        1222142,
+        1242118,
+        1222048
+      ],
+      "near_threshold": 0.03,
+      "rank5_template_increment_signs": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "dominant_floor_passes": false,
+          "rank5_template_estimated_row_sum_increment": 0.022602107905146045,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.027664446863882093,
+          "rank5_template_increment_sign": "negative",
+          "target": 1242118
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.021280120300458616,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": 0.01715621465050794,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222048
+        }
+      ]
+    },
+    "0.05": {
+      "mixed_signs_on_near_rows": true,
+      "near_targets": [
+        1222142,
+        1242118,
+        1222048,
+        1220098,
+        1220056,
+        1200224,
+        1221042,
+        1242136
+      ],
+      "near_threshold": 0.05,
+      "rank5_template_increment_signs": [
+        "positive",
+        "negative",
+        "positive",
+        "positive",
+        "negative",
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "rows": [
+        {
+          "absolute_above_floor_signed_surplus": 0.002859222244159798,
+          "dominant_floor_passes": false,
+          "rank5_template_estimated_row_sum_increment": 0.022602107905146045,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222142
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.0047979812823502055,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.027664446863882093,
+          "rank5_template_increment_sign": "negative",
+          "target": 1242118
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.021280120300458616,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": 0.01715621465050794,
+          "rank5_template_increment_sign": "positive",
+          "target": 1222048
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.04023311644888955,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": 0.011126875190704705,
+          "rank5_template_increment_sign": "positive",
+          "target": 1220098
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.042368787096773886,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.007654399190173893,
+          "rank5_template_increment_sign": "negative",
+          "target": 1220056
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.043637464512128576,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.012344294284632564,
+          "rank5_template_increment_sign": "negative",
+          "target": 1200224
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.044915700209767595,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": 0.007948523691367936,
+          "rank5_template_increment_sign": "positive",
+          "target": 1221042
+        },
+        {
+          "absolute_above_floor_signed_surplus": 0.04873418761757481,
+          "dominant_floor_passes": true,
+          "rank5_template_estimated_row_sum_increment": -0.012016301316231524,
+          "rank5_template_increment_sign": "negative",
+          "target": 1242136
+        }
+      ]
+    }
+  },
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}
