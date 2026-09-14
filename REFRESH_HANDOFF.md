@@ -20960,6 +20960,30 @@ the relevant pair/complement placement conditions, or a stronger signed
 aggregate estimate.  This is finite separator evidence only; no three-part
 balance theorem or Goldbach proof is established.
 
+Dominant-mode outside-plane Octave rank-1 audit:
+
+- `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit.py`
+- `notes/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.md`
+- `evidence/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json`
+
+This asks whether the outside-remainder separator has a low-dimensional
+linear-algebra shadow.  For each of the `71` clear rows in the predeclared
+denominator, the builder subtracts stress row `1222142` on the `17` outside
+channels left after removing the eight volatile pair/complement channels.
+Octave `11.3.0` then SVDs the resulting `71 by 17` clear-minus-stress matrix.
+
+Rank `1` is already all-positive on the reconstructed outside-delta row sums,
+with first-mode energy fraction about `0.7471393937`.  Its minimum
+reconstructed outside delta is about `0.1016883950` at clear row `1240160`.
+The exact outside-remainder minimum remains clear row `1242118`, with exact
+outside delta about `0.0398241886`.
+
+The result tightens the hole again but does not close it.  Rank `1` overshoots
+the exact outside delta on `36` checked clear rows, and the residual row-sum
+ranges from about `-0.1146136245` to `0.1032801744`.  The remaining theorem
+target is now a positive rank-`1` outside direction plus a residual-drag
+bound, or a stronger signed aggregate theorem that removes the SVD proxy.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

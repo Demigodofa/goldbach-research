@@ -1443,6 +1443,18 @@ current comparison set.
    outside delta about `0.0398241886`.  This keeps the loop tightening around
    a conditional outside-remainder floor, while preserving the theorem
    obligation as arithmetic rather than finite geometry.
+134. `tools/build_q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json`,
+   uses Octave `11.3.0` to SVD the `71 by 17` clear-minus-stress outside-channel
+   delta matrix.  Rank `1` is already all-positive on reconstructed
+   outside-delta row sums and carries about `0.7471393937` of the matrix
+   energy.  This gives a finite one-dimensional handle, but not a theorem:
+   rank `1` overshoots exact outside delta on `36` checked clear rows and the
+   residual row-sum can be negative, so the remaining target is a positive
+   rank-`1` outside direction plus residual-drag control.
 
 ## Still open
 
@@ -1573,6 +1585,11 @@ current comparison set.
   predeclared 72-row denominator: all checked clears sit above the stress row
   on the omitted dominant remainder, so the next theorem target is a
   non-post-hoc outside-remainder lower bound under the relevant
-  pair/complement placement conditions.
+  pair/complement placement conditions.  The Octave rank-1 audit then shows
+  this finite floor has a one-dimensional SVD shadow on the checked
+  clear-minus-stress outside-channel matrix, but the residual row-sum is not
+  automatically harmless.  The sharpened target is a positive arithmetic
+  meaning for that rank-1 outside direction plus a residual-drag bound, or a
+  stronger signed aggregate theorem.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

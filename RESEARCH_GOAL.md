@@ -12745,3 +12745,31 @@ pair/complement placement conditions, or replace the decomposition with a
 stronger signed aggregate estimate.  This is finite separator evidence only
 and proves no three-part balance theorem, arithmetic placement theorem,
 signed projection theorem, or Goldbach.
+
+### 2026-09-14 continuation: outside-plane Octave rank-1 audit
+
+The next receipt uses Octave on the outside-channel delta matrix named by the
+separator.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-outside-plane-remainder-octave-rank1-audit.json
+```
+
+For each of the `71` clear rows in the predeclared denominator, the builder
+subtracts the stress row `1222142` on the `17` outside channels left after
+removing the eight volatile pair/complement channels.  Octave `11.3.0` then
+computes the SVD of that `71 by 17` clear-minus-stress matrix.
+
+Rank `1` is already all-positive on the reconstructed outside-delta row sums.
+The first singular mode carries about `0.7471393937` of the outside-delta
+matrix energy, and its minimum reconstructed outside delta is about
+`0.1016883950` at clear row `1240160`.
+
+This is a genuine tightening, but not a theorem.  The exact outside-remainder
+minimum remains clear row `1242118`, with exact outside delta about
+`0.0398241886`.  Rank `1` overshoots the exact outside delta on `36` checked
+clear rows, and the residual row-sum ranges from about `-0.1146136245` to
+`0.1032801744`.  Therefore the live theorem target is now a positive rank-`1`
+outside direction plus a residual-drag bound, or a stronger arithmetic
+aggregate that replaces the SVD language.  This proves no rank-`1` theorem,
+residual-bound theorem, signed projection theorem, or Goldbach.
