@@ -68,6 +68,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-residual-staircase.json")
     dominant_mode_staircase_geometry = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-geometry-obstruction.json")
+    dominant_mode_staircase_arithmetic_gap = load_json(
+        "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -472,6 +474,29 @@ def main():
                     "reflected weights, not prime-pair weights"),
             },
             {
+                "id": "anchor.dominant_mode_staircase_arithmetic_gap",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json"),
+                "statement": (
+                    "Actual strict-central prime-pair rows are placed inside "
+                    "the weak-geometry intervals; the remaining theorem is "
+                    "one-sided arithmetic placement, not interval shrinkage."),
+                "validation": (
+                    "full-stage pass position range "
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage']['pass_actual_position_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage']['pass_actual_position_summary']['maximum']}; "
+                    "full-stage fail position range "
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage']['fail_actual_position_summary']['minimum']}.."
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage']['fail_actual_position_summary']['maximum']}; "
+                    "tightest pass target "
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage_tightest_pass_row']['target']}; "
+                    "tightest fail target "
+                    f"{dominant_mode_staircase_arithmetic_gap['full_stage_tightest_fail_row']['target']}."),
+                "proved_scope": (
+                    "finite arithmetic-gap diagnostic, not a pointwise "
+                    "prime-correlation theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -573,7 +598,9 @@ def main():
                     "is signed rather than a monotone-positive reserve, and "
                     "the weak-geometry staircase obstruction shows support/"
                     "reflection constraints alone do not force the selected "
-                    "classifications."),
+                    "classifications.  The arithmetic-gap receipt then shows "
+                    "the remaining task is one-sided placement of actual "
+                    "prime-pair rows inside a broad weak interval."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

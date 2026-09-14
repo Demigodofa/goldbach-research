@@ -11328,6 +11328,19 @@ staircase; the missing theorem must use actual prime-pair arithmetic, stronger
 residue-weight constraints, complement/lower-support rescue, or an external
 fixed-modulus pointwise prime-pair theorem.
 
+The actual arithmetic gap left by that obstruction is now recorded in
+`notes/q286-first-three-dominant-mode-staircase-arithmetic-gap.md` and
+`evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json`.
+On the full eleven-channel stage, the selected actual prime-pair rows sit
+inside the weak-geometry intervals, but those intervals are much too wide:
+pass rows occupy positions about `0.2166..0.3528`, deficit rows about
+`0.2887..0.4044`, while the actual one-sided classification margins are only
+about `0.008833..0.099229`.  The missing weak-geometry margins range from
+about `3.313` to `9.972`.  Thus the next theorem is a pointwise arithmetic
+placement theorem inside a broad weak cone: pass rows need lower bounds,
+deficit rows need upper bounds/exclusion or complement rescue, and a blunt
+geometry/norm squeeze is not the visible route.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -141,6 +141,13 @@
       "validation": "full-stage pass breakable targets [13556, 40420, 129706, 1242118, 1240888]; full-stage fail breakable targets [24424, 13822, 55864, 164598, 1222142]; full-stage forced targets []."
     },
     {
+      "id": "anchor.dominant_mode_staircase_arithmetic_gap",
+      "proved_scope": "finite arithmetic-gap diagnostic, not a pointwise prime-correlation theorem",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json",
+      "statement": "Actual strict-central prime-pair rows are placed inside the weak-geometry intervals; the remaining theorem is one-sided arithmetic placement, not interval shrinkage.",
+      "validation": "full-stage pass position range 0.2166023339897376..0.35282401171174227; full-stage fail position range 0.28872863339506805..0.40439174026522345; tightest pass target 13556; tightest fail target 1222142."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -169,7 +176,7 @@
   "goldbach_proved": false,
   "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "dd2b91d907d986de429aa212c4ec6e8b831c5da7",
+  "source_commit": "f18ee8e5648579fc425d723fff459d18a477114d",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -210,7 +217,7 @@
       "exact_obligation_source": "evidence/q286-first-three-dominant-mode-portfolio-residual-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently prove the recurrent helpful-channel portfolio or its clear-side prefix lower bound against the rowwise residual requirement, plus a tail classification package or separate exclusion/complement theorem for prefix-overrescued deficits. The norm budget, tiny-channel, small residual-channel classifier, and geometry-only routes are demoted on the current evidence; the residual staircase shows the tail is signed rather than a monotone-positive reserve, and the weak-geometry staircase obstruction shows support/reflection constraints alone do not force the selected classifications.",
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently prove the recurrent helpful-channel portfolio or its clear-side prefix lower bound against the rowwise residual requirement, plus a tail classification package or separate exclusion/complement theorem for prefix-overrescued deficits. The norm budget, tiny-channel, small residual-channel classifier, and geometry-only routes are demoted on the current evidence; the residual staircase shows the tail is signed rather than a monotone-positive reserve, and the weak-geometry staircase obstruction shows support/reflection constraints alone do not force the selected classifications.  The arithmetic-gap receipt then shows the remaining task is one-sided placement of actual prime-pair rows inside a broad weak interval.",
       "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed, and selected clear rows can have large negative pressure."
     }
   ],

@@ -11066,6 +11066,188 @@ def q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt(
     }
 
 
+def q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        portfolio_name="recurrent_helpful",
+        prefix_channel_count=None,
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Quantify the actual arithmetic gap left by weak geometry.
+
+    The geometry obstruction gives, for each stage and selected target, the
+    weak-reflection interval [min,max] of possible stage actions.  This
+    receipt records where the actual prime-pair row sits inside that interval
+    and how far the desired pass/fail inequality is from the uniform action
+    zero, the weak extrema, and the measured actual action.
+
+    It proves no pointwise arithmetic theorem.
+    """
+    obstruction = (
+        q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt(
+            pair_targets=pair_targets,
+            portfolio_name=portfolio_name,
+            prefix_channel_count=prefix_channel_count,
+            dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold,
+            tolerance=tolerance,
+            top_channel_count=top_channel_count,
+            recurrent_min_pair_count=recurrent_min_pair_count))
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def enrich_row(row):
+        actual = row["actual_stage_sum_to_principal"]
+        required = row["required_portfolio_for_floor"]
+        weak_min = row["weak_geometry_min_stage_sum_to_principal"]
+        weak_max = row["weak_geometry_max_stage_sum_to_principal"]
+        interval_width = weak_max - weak_min
+        actual_position = (
+            (actual - weak_min) / interval_width
+            if interval_width > tolerance
+            else 0.0 if abs(actual - weak_min) <= tolerance else math.nan)
+        uniform_slack = -required
+        actual_slack = actual - required
+        weak_min_slack = weak_min - required
+        weak_max_slack = weak_max - required
+        if row["dominant_floor_passes"]:
+            theorem_need = "one_sided_lower_bound"
+            arithmetic_gap = actual_slack
+            missing_from_weak_geometry = max(0.0, required - weak_min)
+        else:
+            theorem_need = "one_sided_upper_bound"
+            arithmetic_gap = required - actual
+            missing_from_weak_geometry = max(0.0, weak_max - required)
+        compact = dict(row)
+        compact.update({
+            "uniform_stage_sum_to_principal": 0.0,
+            "uniform_slack_to_floor": uniform_slack,
+            "actual_slack_to_floor": actual_slack,
+            "weak_geometry_min_slack_to_floor": weak_min_slack,
+            "weak_geometry_max_slack_to_floor": weak_max_slack,
+            "weak_geometry_interval_width": interval_width,
+            "actual_position_in_weak_interval": actual_position,
+            "actual_distance_above_weak_min": actual - weak_min,
+            "actual_distance_below_weak_max": weak_max - actual,
+            "theorem_need": theorem_need,
+            "actual_one_sided_arithmetic_gap": arithmetic_gap,
+            "missing_margin_not_supplied_by_weak_geometry": (
+                missing_from_weak_geometry),
+            "uniform_already_has_correct_sign": (
+                uniform_slack >= -tolerance
+                if row["dominant_floor_passes"]
+                else uniform_slack < -tolerance),
+        })
+        return compact
+
+    stage_rows = []
+    for stage in obstruction["stage_rows"]:
+        enriched_rows = tuple(enrich_row(row)
+                              for row in stage["target_rows"])
+        pass_positions = [
+            row["actual_position_in_weak_interval"]
+            for row in enriched_rows
+            if row["dominant_floor_passes"]]
+        fail_positions = [
+            row["actual_position_in_weak_interval"]
+            for row in enriched_rows
+            if not row["dominant_floor_passes"]]
+        pass_gaps = [
+            row["actual_one_sided_arithmetic_gap"]
+            for row in enriched_rows
+            if row["dominant_floor_passes"]]
+        fail_gaps = [
+            row["actual_one_sided_arithmetic_gap"]
+            for row in enriched_rows
+            if not row["dominant_floor_passes"]]
+        missing_margins = [
+            row["missing_margin_not_supplied_by_weak_geometry"]
+            for row in enriched_rows]
+        uniform_correct_targets = tuple(
+            row["target"] for row in enriched_rows
+            if row["uniform_already_has_correct_sign"])
+        stage_rows.append({
+            "stage_index": stage["stage_index"],
+            "stage_name": stage["stage_name"],
+            "stage_role": stage["stage_role"],
+            "channel_labels": stage["channel_labels"],
+            "channel_count": stage["channel_count"],
+            "target_rows": enriched_rows,
+            "pass_actual_position_summary": summarize(pass_positions),
+            "fail_actual_position_summary": summarize(fail_positions),
+            "pass_actual_gap_summary": summarize(pass_gaps),
+            "fail_actual_gap_summary": summarize(fail_gaps),
+            "missing_margin_not_supplied_by_weak_geometry_summary": (
+                summarize(missing_margins)),
+            "uniform_correct_sign_targets": uniform_correct_targets,
+            "uniform_correct_sign_count": len(uniform_correct_targets),
+            "all_actual_rows_inside_weak_interval": all(
+                -tolerance <= row["actual_position_in_weak_interval"]
+                <= 1.0 + tolerance
+                for row in enriched_rows),
+        })
+
+    prefix_stage = stage_rows[
+        obstruction["prefix_stage"]["stage_index"]]
+    full_stage = stage_rows[
+        obstruction["full_stage"]["stage_index"]]
+    full_rows = full_stage["target_rows"]
+    tightest_pass_row = min(
+        (row for row in full_rows if row["dominant_floor_passes"]),
+        key=lambda row: row["actual_one_sided_arithmetic_gap"])
+    tightest_fail_row = min(
+        (row for row in full_rows if not row["dominant_floor_passes"]),
+        key=lambda row: row["actual_one_sided_arithmetic_gap"])
+    widest_missing_margin_row = max(
+        full_rows,
+        key=lambda row: row[
+            "missing_margin_not_supplied_by_weak_geometry"])
+
+    return {
+        "arithmetic_modulus": obstruction["arithmetic_modulus"],
+        "support": obstruction["support"],
+        "dominant_modes": obstruction["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "sample_targets": obstruction["sample_targets"],
+        "pair_targets": obstruction["pair_targets"],
+        "portfolio_name": portfolio_name,
+        "prefix_channel_labels": obstruction["prefix_channel_labels"],
+        "tail_channel_labels": obstruction["tail_channel_labels"],
+        "ordered_channel_labels": obstruction["ordered_channel_labels"],
+        "stage_rows": tuple(stage_rows),
+        "prefix_stage": prefix_stage,
+        "full_stage": full_stage,
+        "full_stage_tightest_pass_row": tightest_pass_row,
+        "full_stage_tightest_fail_row": tightest_fail_row,
+        "full_stage_widest_missing_geometry_margin_row": (
+            widest_missing_margin_row),
+        "actual_prime_pair_rows_inside_weak_geometry_intervals": all(
+            stage["all_actual_rows_inside_weak_interval"]
+            for stage in stage_rows),
+        "staircase_arithmetic_gap_measured": True,
+        "arithmetic_gap_theorem_proved": False,
+        "prefix_lower_bound_theorem_proved": False,
+        "tail_classification_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

@@ -875,6 +875,19 @@ current comparison set.
    `24424,13822,55864,164598,1222142` can be over-rescued.  This closes the
    weak-geometry staircase shortcut while leaving actual prime-pair arithmetic
    and stronger residue-weight constraints open.
+92. `q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt`, with
+   note
+   `notes/q286-first-three-dominant-mode-staircase-arithmetic-gap.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json`,
+   measures where actual strict-central prime-pair rows sit inside those weak
+   geometry intervals.  Full-stage pass rows lie around
+   `0.2166..0.3528` through the weak interval and deficit rows around
+   `0.2887..0.4044`, while actual one-sided margins are only
+   `0.008833..0.099229` and weak-geometry missing margins are
+   `3.313..9.972`.  This sharpens the surviving theorem target to one-sided
+   arithmetic placement of actual prime-pair residue weights inside a broad
+   weak cone.
 
 ## Still open
 
@@ -896,6 +909,9 @@ current comparison set.
   tested tail-classification package is not visibly compressible, and its
   cumulative action is not monotone-positive under the frozen channel order.
   Weak support/nonnegative/total/reflection geometry also does not force the
-  frozen staircase classifications.
+  frozen staircase classifications.  The current sharpened target is
+  pointwise arithmetic placement inside that broad weak cone: lower bounds for
+  pass rows and upper bounds, exclusion, or complement/lower-support rescue
+  for deficit rows.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

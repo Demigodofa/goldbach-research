@@ -20422,6 +20422,26 @@ is a proof-strategy obstruction showing that actual prime-pair arithmetic,
 stronger residue-weight constraints, complement/lower-support rescue, or an
 external fixed-modulus theorem is required.
 
+Dominant-mode staircase arithmetic gap:
+
+- `q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt`
+- `tools/build_q286_first_three_dominant_mode_staircase_arithmetic_gap.py`
+- `notes/q286-first-three-dominant-mode-staircase-arithmetic-gap.md`
+- `evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_staircase_arithmetic_gap`
+
+This records where actual strict-central prime-pair rows sit inside the weak
+reflected-geometry intervals.  On the full eleven-channel stage, all selected
+actual rows lie inside the weak intervals, but the intervals are far too wide:
+pass-row positions are about `0.2166..0.3528`, deficit-row positions about
+`0.2887..0.4044`, while actual one-sided margins are only about
+`0.008833..0.099229`.  The weak-geometry missing margins are about
+`3.313..9.972`.  Therefore the next theorem target is pointwise arithmetic
+placement of actual binary-prime residue weights inside a broad weak cone:
+lower bounds for pass rows, upper bounds or exclusion/complement rescue for
+deficit rows.  This is not a pointwise theorem or Goldbach proof.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

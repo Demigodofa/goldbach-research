@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "dd2b91d907d986de429aa212c4ec6e8b831c5da7",
+  "generated_from_commit": "f18ee8e5648579fc425d723fff459d18a477114d",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -108,6 +108,14 @@
       "boundary": "Synthetic reflected weights only; not actual prime-pair weights."
     },
     {
+      "id": "staircase-arithmetic-gap",
+      "label": "Actual prime-pair rows inside weak-geometry intervals",
+      "kind": "selected_stress",
+      "source": "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json",
+      "default_weight": 2.0,
+      "boundary": "Finite arithmetic-gap diagnostic only; no pointwise theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -119,7 +127,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 40.5,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -313,14 +321,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.008833179560527815,
+            "position": 0.40439174026522345,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 20,
+      "layer_count": 21,
       "glow": 1.0
     },
     {
       "id": "13822",
-      "stack_weight": 36.5,
+      "stack_weight": 38.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -502,14 +520,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.03674434602428933,
+            "position": 0.2891037596522249,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 18,
-      "glow": 0.901235
+      "layer_count": 19,
+      "glow": 0.905882
     },
     {
       "id": "164598",
-      "stack_weight": 36.5,
+      "stack_weight": 38.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -691,14 +719,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.01915179245517605,
+            "position": 0.30166603875804077,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 18,
-      "glow": 0.901235
+      "layer_count": 19,
+      "glow": 0.905882
     },
     {
       "id": "24424",
-      "stack_weight": 36.5,
+      "stack_weight": 38.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -880,14 +918,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.01345867269417178,
+            "position": 0.2994188131547786,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 18,
-      "glow": 0.901235
+      "layer_count": 19,
+      "glow": 0.905882
     },
     {
       "id": "55864",
-      "stack_weight": 36.5,
+      "stack_weight": 38.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1069,14 +1117,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_upper_bound",
+          "value": {
+            "actual_gap": 0.09922857579168887,
+            "position": 0.28872863339506805,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 18,
-      "glow": 0.901235
+      "layer_count": 19,
+      "glow": 0.905882
     },
     {
       "id": "129706",
-      "stack_weight": 20.5,
+      "stack_weight": 22.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1170,14 +1228,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.05842892627684948,
+            "position": 0.32274909536449176,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 10,
-      "glow": 0.506173
+      "layer_count": 11,
+      "glow": 0.529412
     },
     {
       "id": "13556",
-      "stack_weight": 18.5,
+      "stack_weight": 20.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1260,14 +1328,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.00956409034565811,
+            "position": 0.3432410778523935,
+            "uniform_correct": false
+          }
         }
       ],
-      "layer_count": 9,
-      "glow": 0.45679
+      "layer_count": 10,
+      "glow": 0.482353
     },
     {
       "id": "1240888",
-      "stack_weight": 12.5,
+      "stack_weight": 14.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1317,14 +1395,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.02718657338091786,
+            "position": 0.35282401171174227,
+            "uniform_correct": true
+          }
         }
       ],
-      "layer_count": 6,
-      "glow": 0.308642
+      "layer_count": 7,
+      "glow": 0.341176
     },
     {
       "id": "1242118",
-      "stack_weight": 12.5,
+      "stack_weight": 14.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1374,14 +1462,24 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.016528913466746065,
+            "position": 0.2166023339897376,
+            "uniform_correct": true
+          }
         }
       ],
-      "layer_count": 6,
-      "glow": 0.308642
+      "layer_count": 7,
+      "glow": 0.341176
     },
     {
       "id": "40420",
-      "stack_weight": 12.5,
+      "stack_weight": 14.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1431,10 +1529,20 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.04893840350347566,
+            "position": 0.3130190137611612,
+            "uniform_correct": true
+          }
         }
       ],
-      "layer_count": 6,
-      "glow": 0.308642
+      "layer_count": 7,
+      "glow": 0.341176
     },
     {
       "id": "1379072",
@@ -1460,7 +1568,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.148148
+      "glow": 0.141176
     },
     {
       "id": "1323632",
@@ -1480,7 +1588,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.098765
+      "glow": 0.094118
     },
     {
       "id": "10664",
@@ -1494,7 +1602,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024691
+      "glow": 0.023529
     },
     {
       "id": "14138",
@@ -1508,7 +1616,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024691
+      "glow": 0.023529
     }
   ],
   "mechanism_stacks": [
@@ -1556,6 +1664,39 @@
       ],
       "layer_count": 1,
       "glow": 0.277778
+    },
+    {
+      "id": "actual-arithmetic-placement-inside-weak-cone",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "actual margins are tiny relative to weak-geometry missing margins",
+          "value": {
+            "pass_position_summary": {
+              "count": 5,
+              "maximum": 0.35282401171174227,
+              "mean": 0.30968710653590525,
+              "minimum": 0.2166023339897376
+            },
+            "fail_position_summary": {
+              "count": 5,
+              "maximum": 0.40439174026522345,
+              "mean": 0.31666179704506714,
+              "minimum": 0.28872863339506805
+            },
+            "missing_margin_summary": {
+              "count": 10,
+              "maximum": 9.971758040736969,
+              "mean": 6.3372494787869,
+              "minimum": 3.3131828970142148
+            }
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
     },
     {
       "id": "clear-side-prefix-versus-deficit-classification",
@@ -1720,7 +1861,7 @@
   "theorem_gap_stacks": [
     {
       "id": "portfolio-residual-lower-bound",
-      "stack_weight": 14.5,
+      "stack_weight": 16.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1756,9 +1897,14 @@
           "layer": "staircase-geometry-obstruction",
           "weight": 2.0,
           "reason": "actual prime-pair arithmetic or stronger residue constraints required"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "prove one-sided arithmetic placement inside broad weak interval"
         }
       ],
-      "layer_count": 7,
+      "layer_count": 8,
       "glow": 1.0
     },
     {
@@ -1777,7 +1923,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.344828
+      "glow": 0.30303
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -1790,7 +1936,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.137931
+      "glow": 0.121212
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -1803,7 +1949,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.137931
+      "glow": 0.121212
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -1820,7 +1966,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.103448
+      "glow": 0.090909
     },
     {
       "id": "alignment-complement-route",
@@ -1833,7 +1979,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.068966
+      "glow": 0.060606
     }
   ],
   "goldbach_proved": false,

@@ -68,6 +68,9 @@ def main():
     staircase_geometry = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-geometry-obstruction.json")
+    staircase_arithmetic_gap = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-staircase-arithmetic-gap.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -500,6 +503,49 @@ def main():
         "staircase-geometry-obstruction",
         2.0,
         "actual prime-pair arithmetic or stronger residue constraints required")
+
+    layer(
+        "staircase-arithmetic-gap",
+        "Actual prime-pair rows inside weak-geometry intervals",
+        "selected_stress",
+        "evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json",
+        2.0,
+        "Finite arithmetic-gap diagnostic only; no pointwise theorem.")
+    for row in staircase_arithmetic_gap["full_stage"]["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "staircase-arithmetic-gap",
+            2.0,
+            row["theorem_need"],
+            {
+                "actual_gap": row["actual_one_sided_arithmetic_gap"],
+                "position": row["actual_position_in_weak_interval"],
+                "uniform_correct": row["uniform_already_has_correct_sign"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "actual-arithmetic-placement-inside-weak-cone",
+        "staircase-arithmetic-gap",
+        2.0,
+        "actual margins are tiny relative to weak-geometry missing margins",
+        {
+            "pass_position_summary": (
+                staircase_arithmetic_gap["full_stage"][
+                    "pass_actual_position_summary"]),
+            "fail_position_summary": (
+                staircase_arithmetic_gap["full_stage"][
+                    "fail_actual_position_summary"]),
+            "missing_margin_summary": (
+                staircase_arithmetic_gap["full_stage"][
+                    "missing_margin_not_supplied_by_weak_geometry_summary"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "portfolio-residual-lower-bound",
+        "staircase-arithmetic-gap",
+        2.0,
+        "prove one-sided arithmetic placement inside broad weak interval")
 
     layer(
         "conditional-proof-stack",

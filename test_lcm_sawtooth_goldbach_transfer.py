@@ -56,6 +56,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_tail_ablation_receipt,
     q286_first_three_dominant_mode_residual_staircase_receipt,
     q286_first_three_dominant_mode_staircase_geometry_obstruction_receipt,
+    q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4827,6 +4828,47 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                 len(stage["target_rows"]),
                 len(receipt["sample_targets"]))
         self.assertTrue(receipt["staircase_geometry_obstruction_measured"])
+        self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
+        self.assertFalse(receipt["tail_classification_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_staircase_arithmetic_gap(self):
+        receipt = (
+            q286_first_three_dominant_mode_staircase_arithmetic_gap_receipt(
+                pair_targets=((24424, 13556), (1222142, 1242118)),
+                recurrent_min_pair_count=2,
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertTrue(
+            receipt["actual_prime_pair_rows_inside_weak_geometry_intervals"])
+        self.assertEqual(
+            receipt["full_stage_tightest_pass_row"]["target"], 13556)
+        self.assertEqual(
+            receipt["full_stage_tightest_fail_row"]["target"], 1222142)
+        self.assertGreater(
+            receipt["full_stage_tightest_pass_row"][
+                "actual_one_sided_arithmetic_gap"],
+            0)
+        self.assertGreater(
+            receipt["full_stage_tightest_fail_row"][
+                "actual_one_sided_arithmetic_gap"],
+            0)
+        self.assertEqual(
+            receipt["full_stage_tightest_pass_row"]["theorem_need"],
+            "one_sided_lower_bound")
+        self.assertEqual(
+            receipt["full_stage_tightest_fail_row"]["theorem_need"],
+            "one_sided_upper_bound")
+        self.assertLessEqual(
+            receipt["full_stage"]["pass_actual_position_summary"]["minimum"],
+            receipt["full_stage"]["pass_actual_position_summary"]["maximum"])
+        self.assertLessEqual(
+            receipt["full_stage"]["fail_actual_position_summary"]["minimum"],
+            receipt["full_stage"]["fail_actual_position_summary"]["maximum"])
+        self.assertTrue(receipt["staircase_arithmetic_gap_measured"])
+        self.assertFalse(receipt["arithmetic_gap_theorem_proved"])
         self.assertFalse(receipt["prefix_lower_bound_theorem_proved"])
         self.assertFalse(receipt["tail_classification_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])

@@ -102,6 +102,11 @@ frame.
   staircase.  At the full stage every selected pass can be made to fail
   synthetically, every selected deficit can be over-rescued synthetically, and
   no selected classification is geometry-forced.
+- `evidence/q286-first-three-dominant-mode-staircase-arithmetic-gap.json`:
+  actual strict-central prime-pair rows sit inside those weak-geometry
+  intervals, but the intervals are far too wide.  Full-stage pass positions
+  are about `0.2166..0.3528`, deficit positions about `0.2887..0.4044`, while
+  actual one-sided margins are only about `0.008833..0.099229`.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -154,6 +159,9 @@ frame.
    matches the selected classification.  The staircase-geometry obstruction
    closes the weak-geometry proof shortcut under that load path: actual
    prime-pair arithmetic or stronger residue-weight structure is required.
+   The arithmetic-gap receipt quantifies this requirement as pointwise
+   placement inside a broad weak cone: lower bounds for selected pass rows and
+   upper bounds/exclusion or complement rescue for selected deficits.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule
@@ -173,4 +181,6 @@ Current finite evidence says the dominant projection is a prefix/tail
 portfolio arithmetic problem, not a geometry-only, tiny-channel, or one-piece
 classifier problem; the tested tail itself is also not visibly compressible
 and not monotone-positive under the frozen channel order.  Weak reflected
-geometry also does not force the frozen staircase classifications.
+geometry also does not force the frozen staircase classifications.  The
+current quantitative target is actual arithmetic placement inside the broad
+weak-geometry interval, not shrinking that interval by geometry alone.
