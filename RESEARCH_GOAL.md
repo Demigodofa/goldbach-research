@@ -10849,6 +10849,17 @@ mechanism, prediction, falsifier, and stop condition, and records the result as
 finite diagnostic, falsifier, aha-candidate, or dormant.  Side lanes must not
 replace validation, theorem quantifiers, or source-backed handoff updates.
 
+New first-three rarity obstruction:
+`q286_first_three_reflection_support_obstruction_receipt` and
+`evidence/q286-first-three-reflection-support-obstruction.json` show that
+admissible support, nonnegative weights, fixed total mass, and ordered
+prime-pair reflection symmetry `w(u)=w(N-u)` do not imply
+`first_three >= -0.3`.  Every even target residue modulo `286` has a strictly
+positive reflected synthetic witness below the threshold.  Thus the active
+rarity route cannot be closed by q286 geometry alone; it needs actual
+binary-prime residue distribution, a stronger arithmetic structural constraint,
+or a finite-boundary plus pointwise discrepancy theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

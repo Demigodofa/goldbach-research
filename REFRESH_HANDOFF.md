@@ -19622,6 +19622,26 @@ holdout-minus-baseline deltas were approximately `-0.118606` for
 `delta_l2` was about `0.171722`.  Interpretation: the holdout shift is mainly
 selector thinning, not an unchanged selector profile with fewer failures.
 
+New first-three rarity obstruction:
+
+- `q286_first_three_reflection_support_obstruction_receipt`
+- `tools/build_q286_first_three_reflection_support_obstruction.py`
+- `evidence/q286-first-three-reflection-support-obstruction.json`
+
+This receipt tests a tempting geometric shortcut for the active-selector rarity
+route.  It asks whether admissible q286 support, nonnegative weights, fixed
+total mass, and ordered prime-pair reflection symmetry `w(u)=w(N-u)` are
+enough to force `first_three >= -0.3`.  They are not.  For all `143/143` even
+target residues modulo `286`, the receipt constructs a strictly positive
+reflected synthetic residue-weight vector with first-three ratio below `-0.3`.
+The worst extremal residue is `0 mod 286`, orbit `23,263`, with minimum
+extremal first-three/principal about `-6.796121290546607`; the least-negative
+extremal residue is `10 mod 286`, orbit `85,211`, still about
+`-2.5675553132435125`.  Therefore the remaining rarity theorem must use actual
+binary-prime residue distribution, a stronger arithmetic structural constraint,
+or finite-boundary plus pointwise discrepancy control.  This is a falsifier of
+that geometric shortcut, not a proof of Goldbach.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

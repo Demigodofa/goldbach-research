@@ -107,6 +107,53 @@ worst target residue class.  The finite scout receipts do not prove that
 estimate; they only say the checked windows did not produce active-selector
 rows.
 
+## Reflection-Support Obstruction
+
+The receipt
+`q286_first_three_reflection_support_obstruction_receipt` checks whether the
+rarity theorem could follow from only:
+
+- admissible q286 residue support;
+- nonnegative weights;
+- fixed total mass;
+- ordered prime-pair reflection symmetry `w(u)=w(N-u)`.
+
+For each even target residue modulo `286`, it minimizes the centered
+first-three coefficient over reflection orbits, then mixes the extremal orbit
+with the uniform admissible distribution so every admissible residue still has
+strictly positive weight.  With `tail_threshold=.3` and `slack_factor=1.25`,
+all `143/143` even target residues have such a positive reflected witness with
+constructed first-three ratio below `-0.3`.
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-support-obstruction.json
+```
+
+Worst extremal row:
+
+```text
+target residue 0 mod 286
+extremal orbit: 23, 263
+minimum extremal first-three/principal: about -6.796121290546607
+```
+
+Least-negative extremal row:
+
+```text
+target residue 10 mod 286
+extremal orbit: 85, 211
+minimum extremal first-three/principal: about -2.5675553132435125
+```
+
+This refutes only a support/nonnegativity/total/reflection-only rarity proof.
+It does not refute a proof using actual prime-pair distribution, character
+cancellation, local congruence constraints beyond reflection, finite boundary
+verification, or a sharper pointwise discrepancy theorem.  It sharpens the
+remaining obligation: the proof must use arithmetic distribution of binary
+prime-pair residues, not merely q286 geometry.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

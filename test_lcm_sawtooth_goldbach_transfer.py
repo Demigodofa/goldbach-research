@@ -105,6 +105,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_mode_only_horizon_receipt,
     q286_first_three_tail_mode_only_fast_horizon_receipt,
     q286_first_three_weighted_discrepancy_norm_receipt,
+    q286_first_three_reflection_support_obstruction_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3746,6 +3747,46 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "first_three_weighted_discrepancy_norm_measured"])
         self.assertFalse(receipt[
             "eventual_weighted_discrepancy_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_support_obstruction(self):
+        receipt = q286_first_three_reflection_support_obstruction_receipt(
+            tail_threshold=.3, slack_factor=1.25)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["even_target_residue_count"], 143)
+        self.assertEqual(
+            receipt["obstructed_even_target_residue_count"], 143)
+        self.assertEqual(
+            receipt["positive_witness_even_target_residue_count"], 143)
+        self.assertTrue(receipt[
+            "all_even_target_residues_have_extremal_obstruction"])
+        self.assertTrue(receipt[
+            "all_even_target_residues_have_positive_reflection_witness"])
+        self.assertTrue(receipt[
+            "support_reflection_rarity_theorem_refuted"])
+        self.assertEqual(
+            receipt["worst_extremal_row"]["target_residue"], 0)
+        self.assertLess(
+            receipt["worst_extremal_row"][
+                "minimum_extremal_first_three_to_principal_ratio"],
+            -6.7)
+        self.assertEqual(
+            receipt["least_negative_extremal_row"]["target_residue"], 10)
+        self.assertLess(
+            receipt["least_negative_extremal_row"][
+                "minimum_extremal_first_three_to_principal_ratio"],
+            -2.5)
+        self.assertLess(
+            receipt["least_negative_positive_witness_row"][
+                "constructed_first_three_to_principal_ratio"],
+            -.3)
+        self.assertLess(
+            receipt["maximum_reflection_weight_error"], 1e-12)
+        self.assertLess(
+            receipt["maximum_constructed_reconstruction_error"], 1e-12)
+        self.assertTrue(receipt[
+            "first_three_reflection_support_obstruction_measured"])
+        self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

@@ -526,6 +526,15 @@ current comparison set.
    holdout has no stress rows it does not prove active-selector rarity,
    strict closure, complement floor, signed prime-correlation control, or
    Goldbach.
+62. `q286_first_three_reflection_support_obstruction_receipt`, with compact
+   evidence in
+   `evidence/q286-first-three-reflection-support-obstruction.json`, refutes a
+   support/nonnegativity/total/reflection-only proof of the first-three rarity
+   bound.  For all `143` even target residues modulo `286`, there is a
+   strictly positive reflected synthetic residue-weight vector with
+   first-three ratio below `-0.3`.  The least-negative extremal residue is
+   still about `-2.5675553132435125`, so the missing rarity theorem must use
+   actual binary prime-pair distribution or a stronger arithmetic constraint.
 
 ## Still open
 

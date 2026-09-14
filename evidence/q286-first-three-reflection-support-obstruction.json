@@ -1,0 +1,77 @@
+{
+  "all_even_target_residues_have_positive_reflection_witness": true,
+  "arithmetic_modulus": 286,
+  "even_target_residue_count": 143,
+  "eventual_first_three_tail_bound_proved": false,
+  "first_three_reflection_support_obstruction_measured": true,
+  "goldbach_proved": false,
+  "interpretation": {
+    "changed_under_evidence": "The active-selector rarity proof cannot be obtained from q286 support, nonnegativity, total mass, and ordered prime-pair reflection symmetry alone.  Every even target residue modulo 286 admits a strictly positive reflected synthetic weight vector with first_three < -0.3.",
+    "remaining_theorem": "A successful rarity proof must use arithmetic distribution of binary prime-pair residue weights, a stronger structural constraint, or a finite-boundary plus pointwise discrepancy estimate."
+  },
+  "least_negative_extremal_row": {
+    "admissible_count": 99,
+    "constructed_expected_ratio": -0.375,
+    "constructed_first_three_to_principal_ratio": -0.37500000000000006,
+    "constructed_reconstruction_error": 5.551115123125783e-17,
+    "extremal_reflection_orbit": [
+      85,
+      211
+    ],
+    "maximum_weight": 0.08165238827951697,
+    "minimum_extremal_first_three_to_principal_ratio": -2.5675553132435125,
+    "minimum_weight": 0.00862572395299965,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_rarity": true,
+    "target_residue": 10,
+    "uniform_mixture_alpha": 0.14605332865303464
+  },
+  "least_negative_positive_witness_row": {
+    "admissible_count": 99,
+    "constructed_expected_ratio": -0.375,
+    "constructed_first_three_to_principal_ratio": -0.3749999999999997,
+    "constructed_reconstruction_error": 2.7755575615628914e-16,
+    "extremal_reflection_orbit": [
+      67,
+      159
+    ],
+    "maximum_weight": 0.05862404917202494,
+    "minimum_extremal_first_three_to_principal_ratio": -3.7860802771082276,
+    "minimum_weight": 0.009100535068618043,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_rarity": true,
+    "target_residue": 226,
+    "uniform_mixture_alpha": 0.0990470282068138
+  },
+  "maximum_constructed_reconstruction_error": 2.7755575615628914e-16,
+  "maximum_reflection_weight_error": 0.0,
+  "obstructed_even_target_residue_count": 143,
+  "positive_witness_even_target_residue_count": 143,
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "slack_factor": 1.25,
+  "source_commit": "b16cfc4a48193a6540caebf3016b9b4c4c1ba6f1",
+  "status_boundary": "finite-vector obstruction only; this refutes a support/nonnegativity/total/reflection-only rarity proof, not arithmetic q286 rarity and not Goldbach",
+  "support_reflection_rarity_theorem_refuted": true,
+  "tail_threshold": 0.3,
+  "worst_extremal_row": {
+    "admissible_count": 120,
+    "constructed_expected_ratio": -0.375,
+    "constructed_first_three_to_principal_ratio": -0.3750000000000001,
+    "constructed_reconstruction_error": 1.1102230246251565e-16,
+    "extremal_reflection_orbit": [
+      23,
+      263
+    ],
+    "maximum_weight": 0.03546277851502326,
+    "minimum_extremal_first_three_to_principal_ratio": -6.796121290546607,
+    "minimum_weight": 0.007873512228558928,
+    "reflection_weight_error": 0.0,
+    "strictly_positive_reflection_witness": true,
+    "support_nonnegativity_total_reflection_obstructs_rarity": true,
+    "target_residue": 0,
+    "uniform_mixture_alpha": 0.05517853257292867
+  }
+}

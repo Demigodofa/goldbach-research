@@ -17414,6 +17414,185 @@ def q286_first_three_weighted_discrepancy_norm_receipt(
     }
 
 
+def q286_first_three_reflection_support_obstruction_receipt(
+        tail_threshold=.3, slack_factor=1.25, tolerance=1e-9):
+    """Show reflection-symmetric support geometry does not prove rarity.
+
+    Actual ordered prime-pair residue weights satisfy ``w(u)=w(N-u)`` on
+    admissible q286 unit residues.  This finite-vector receipt minimizes the
+    first-three linear functional over nonnegative reflection-symmetric
+    probability weights for every even target residue modulo 286, then builds
+    a strictly positive reflected witness by mixing the extremal orbit with
+    the uniform admissible distribution.
+
+    The result is an obstruction only: it proves that support, total mass,
+    nonnegativity, and reflection symmetry are insufficient to force
+    ``first_three >= -tail_threshold``.  It does not describe actual prime
+    weights and does not prove any eventual theorem.
+    """
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(slack_factor) or slack_factor <= 1.0:
+        raise ValueError("slack_factor must be finite and greater than 1")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    units = data["units"]
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+
+    rows = {}
+    obstructed_residues = []
+    positive_witness_residues = []
+    worst_extremal_row = None
+    least_negative_extremal_row = None
+    least_negative_witness_row = None
+    maximum_reflection_error = 0.0
+    maximum_reconstruction_error = 0.0
+
+    for target_residue in range(0, modulus, 2):
+        admissible_mask = admissible_masks[target_residue]
+        admissible_count = admissible_counts[target_residue]
+        if admissible_count == 0:
+            continue
+        centered_coefficients = np.zeros(len(units), dtype=np.float64)
+        centered_coefficients[admissible_mask] = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+
+        seen = set()
+        orbit_rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected)
+            if reflected == index:
+                orbit_average = centered_coefficients[index]
+                orbit = (unit,)
+            else:
+                orbit_average = 0.5 * (
+                    centered_coefficients[index]
+                    + centered_coefficients[reflected])
+                orbit = tuple(sorted((unit, reflected_unit)))
+            orbit_rows.append({
+                "orbit": orbit,
+                "orbit_average_to_principal_ratio": (
+                    float(orbit_average / principal_mean)),
+            })
+
+        extremal = min(
+            orbit_rows,
+            key=lambda row: row["orbit_average_to_principal_ratio"])
+        extremal_ratio = extremal["orbit_average_to_principal_ratio"]
+        obstructed = bool(extremal_ratio < -tail_threshold - tolerance)
+
+        if obstructed:
+            alpha = min(
+                0.5,
+                slack_factor * tail_threshold / (-extremal_ratio))
+        else:
+            alpha = 0.0
+        weights = np.zeros(len(units), dtype=np.float64)
+        weights[admissible_mask] = (1.0 - alpha) / admissible_count
+        orbit_mass = alpha / len(extremal["orbit"]) if extremal["orbit"] else 0
+        for unit in extremal["orbit"]:
+            weights[unit_index[unit]] += orbit_mass
+        total_weight = float(np.sum(weights[admissible_mask]))
+        action = float(
+            np.dot(centered_coefficients, weights)
+            / (principal_mean * total_weight))
+        expected_action = float(alpha * extremal_ratio)
+        reconstruction_error = abs(action - expected_action)
+        maximum_reconstruction_error = max(
+            maximum_reconstruction_error, reconstruction_error)
+        reflection_error = max(
+            abs(weights[index] - weights[unit_index[
+                (target_residue - unit) % modulus]])
+            for index, unit in enumerate(units)
+            if admissible_mask[index])
+        maximum_reflection_error = max(
+            maximum_reflection_error, reflection_error)
+        strictly_positive = bool(
+            np.min(weights[admissible_mask]) > tolerance)
+
+        row = {
+            "target_residue": target_residue,
+            "admissible_count": admissible_count,
+            "extremal_reflection_orbit": extremal["orbit"],
+            "minimum_extremal_first_three_to_principal_ratio": (
+                extremal_ratio),
+            "uniform_mixture_alpha": alpha,
+            "strictly_positive_reflection_witness": strictly_positive,
+            "constructed_first_three_to_principal_ratio": action,
+            "constructed_expected_ratio": expected_action,
+            "constructed_reconstruction_error": reconstruction_error,
+            "minimum_weight": float(np.min(weights[admissible_mask])),
+            "maximum_weight": float(np.max(weights[admissible_mask])),
+            "reflection_weight_error": reflection_error,
+            "support_nonnegativity_total_reflection_obstructs_rarity": bool(
+                action < -tail_threshold - tolerance
+                and strictly_positive
+                and reflection_error <= tolerance),
+        }
+        rows[target_residue] = row
+        if obstructed:
+            obstructed_residues.append(target_residue)
+        if row["support_nonnegativity_total_reflection_obstructs_rarity"]:
+            positive_witness_residues.append(target_residue)
+        if (worst_extremal_row is None
+                or extremal_ratio < worst_extremal_row[
+                    "minimum_extremal_first_three_to_principal_ratio"]):
+            worst_extremal_row = row
+        if (least_negative_extremal_row is None
+                or extremal_ratio > least_negative_extremal_row[
+                    "minimum_extremal_first_three_to_principal_ratio"]):
+            least_negative_extremal_row = row
+        if (least_negative_witness_row is None
+                or action > least_negative_witness_row[
+                    "constructed_first_three_to_principal_ratio"]):
+            least_negative_witness_row = row
+
+    return {
+        "arithmetic_modulus": modulus,
+        "unit_residue_count": len(units),
+        "even_target_residue_count": len(rows),
+        "tail_threshold": tail_threshold,
+        "slack_factor": slack_factor,
+        "obstructed_even_target_residue_count": len(obstructed_residues),
+        "positive_witness_even_target_residue_count": (
+            len(positive_witness_residues)),
+        "all_even_target_residues_have_extremal_obstruction": bool(
+            len(obstructed_residues) == len(rows)),
+        "all_even_target_residues_have_positive_reflection_witness": bool(
+            len(positive_witness_residues) == len(rows)),
+        "obstructed_even_target_residues": tuple(obstructed_residues),
+        "positive_witness_even_target_residues": tuple(
+            positive_witness_residues),
+        "worst_extremal_row": worst_extremal_row,
+        "least_negative_extremal_row": least_negative_extremal_row,
+        "least_negative_positive_witness_row": least_negative_witness_row,
+        "maximum_reflection_weight_error": maximum_reflection_error,
+        "maximum_constructed_reconstruction_error": (
+            maximum_reconstruction_error),
+        "rows": rows,
+        "first_three_reflection_support_obstruction_measured": True,
+        "support_reflection_rarity_theorem_refuted": bool(
+            len(positive_witness_residues) == len(rows)),
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),
