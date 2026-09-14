@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "54b8cae48f14ff444f535514f91a4783e0eb9941",
+  "generated_from_commit": "5ced16c006b99ecf6721aa2c081087b6d76058a0",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -148,6 +148,14 @@
       "boundary": "Finite full-stage formulation; prefix sign errors remain."
     },
     {
+      "id": "above-floor-holdout-census",
+      "label": "Frozen above-floor staircase holdout and stress-neighborhood census",
+      "kind": "holdout_census",
+      "source": "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json",
+      "default_weight": 1.5,
+      "boundary": "Finite margin census only; not a uniform margin theorem."
+    },
+    {
       "id": "conditional-proof-stack",
       "label": "Three explicit q286 conditional theorem branches",
       "kind": "theorem_map",
@@ -159,7 +167,7 @@
   "target_stacks": [
     {
       "id": "1222142",
-      "stack_weight": 50.5,
+      "stack_weight": 52.0,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -419,9 +427,19 @@
             "predicts_pass": false,
             "identity_error": 1.3183898417423734e-16
           }
+        },
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 64,
+            "signed_surplus": -0.002859222244159798
+          }
         }
       ],
-      "layer_count": 25,
+      "layer_count": 26,
       "glow": 1.0
     },
     {
@@ -677,7 +695,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.920792
+      "glow": 0.894231
     },
     {
       "id": "164598",
@@ -932,7 +950,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.920792
+      "glow": 0.894231
     },
     {
       "id": "24424",
@@ -1187,7 +1205,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.920792
+      "glow": 0.894231
     },
     {
       "id": "55864",
@@ -1442,7 +1460,7 @@
         }
       ],
       "layer_count": 23,
-      "glow": 0.920792
+      "glow": 0.894231
     },
     {
       "id": "129706",
@@ -1609,7 +1627,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.60396
+      "glow": 0.586538
     },
     {
       "id": "13556",
@@ -1765,7 +1783,140 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.564356
+      "glow": 0.548077
+    },
+    {
+      "id": "1242118",
+      "stack_weight": 24.0,
+      "layers": [
+        {
+          "layer": "portfolio-residual-obligation",
+          "weight": 2.5,
+          "reason": "portfolio/residual floor passed",
+          "value": 0.016528913466746065
+        },
+        {
+          "layer": "residual-channel-profile",
+          "weight": 2.0,
+          "reason": "residual signed pressure profiled",
+          "value": {
+            "residual_sum": -0.22038568263372166,
+            "residual_negative_pressure": 0.23376503548387326,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "portfolio-ablation",
+          "weight": 2.0,
+          "reason": "portfolio ablation baseline row",
+          "value": {
+            "full_portfolio_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "prefix-tail-classification",
+          "weight": 2.0,
+          "reason": "prefix/tail floor obligation",
+          "value": {
+            "prefix_slack": 0.08280908010396126,
+            "tail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "tail-ablation",
+          "weight": 2.0,
+          "reason": "tail ablation slack row",
+          "value": {
+            "subtail_slack": 0.016528913466746065,
+            "dominant_floor_passes": true
+          }
+        },
+        {
+          "layer": "staircase-geometry-obstruction",
+          "weight": 2.0,
+          "reason": "full-stage classification breakable by weak geometry"
+        },
+        {
+          "layer": "staircase-arithmetic-gap",
+          "weight": 2.0,
+          "reason": "one_sided_lower_bound",
+          "value": {
+            "actual_gap": 0.016528913466746065,
+            "position": 0.2166023339897376,
+            "uniform_correct": true
+          }
+        },
+        {
+          "layer": "staircase-orbit-mass-gap",
+          "weight": 2.0,
+          "reason": "actual breaker-orbit mass measured",
+          "value": {
+            "breaking_orbit": [
+              49,
+              257
+            ],
+            "breaking_mass": 0.02461931032734391,
+            "top_actual_orbit": [
+              57,
+              249
+            ],
+            "top_actual_mass": 0.027196371750000652,
+            "breaking_orbit_is_top": false
+          }
+        },
+        {
+          "layer": "staircase-hinge-decomposition",
+          "weight": 2.0,
+          "reason": "above-floor/below-floor hinge balance measured",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "opposing_mass": 0.5131334480712859,
+            "supporting_hinge": 0.8686962800128225,
+            "opposing_hinge": 0.8521673665460764,
+            "hinge_margin": 0.01652891346674612,
+            "mass_driven": false,
+            "landing_driven": true
+          }
+        },
+        {
+          "layer": "staircase-hinge-threshold",
+          "weight": 2.0,
+          "reason": "support-mass surplus over landing-dependent threshold",
+          "value": {
+            "supporting_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "surplus": 0.004797981282350594,
+            "relative_surplus": 0.009952902085936449,
+            "identity_error": 1.2836953722228372e-16
+          }
+        },
+        {
+          "layer": "staircase-above-floor-threshold",
+          "weight": 2.0,
+          "reason": "above-floor signed surplus measured",
+          "value": {
+            "above_mass": 0.48686655192871414,
+            "threshold": 0.48206857064636355,
+            "signed_surplus": 0.004797981282350594,
+            "predicts_pass": true,
+            "identity_error": 1.8388068845354155e-16
+          }
+        },
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 20,
+            "signed_surplus": 0.0047979812823502055
+          }
+        }
+      ],
+      "layer_count": 12,
+      "glow": 0.461538
     },
     {
       "id": "1240888",
@@ -1888,130 +2039,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.445545
-    },
-    {
-      "id": "1242118",
-      "stack_weight": 22.5,
-      "layers": [
-        {
-          "layer": "portfolio-residual-obligation",
-          "weight": 2.5,
-          "reason": "portfolio/residual floor passed",
-          "value": 0.016528913466746065
-        },
-        {
-          "layer": "residual-channel-profile",
-          "weight": 2.0,
-          "reason": "residual signed pressure profiled",
-          "value": {
-            "residual_sum": -0.22038568263372166,
-            "residual_negative_pressure": 0.23376503548387326,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "portfolio-ablation",
-          "weight": 2.0,
-          "reason": "portfolio ablation baseline row",
-          "value": {
-            "full_portfolio_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "prefix-tail-classification",
-          "weight": 2.0,
-          "reason": "prefix/tail floor obligation",
-          "value": {
-            "prefix_slack": 0.08280908010396126,
-            "tail_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "tail-ablation",
-          "weight": 2.0,
-          "reason": "tail ablation slack row",
-          "value": {
-            "subtail_slack": 0.016528913466746065,
-            "dominant_floor_passes": true
-          }
-        },
-        {
-          "layer": "staircase-geometry-obstruction",
-          "weight": 2.0,
-          "reason": "full-stage classification breakable by weak geometry"
-        },
-        {
-          "layer": "staircase-arithmetic-gap",
-          "weight": 2.0,
-          "reason": "one_sided_lower_bound",
-          "value": {
-            "actual_gap": 0.016528913466746065,
-            "position": 0.2166023339897376,
-            "uniform_correct": true
-          }
-        },
-        {
-          "layer": "staircase-orbit-mass-gap",
-          "weight": 2.0,
-          "reason": "actual breaker-orbit mass measured",
-          "value": {
-            "breaking_orbit": [
-              49,
-              257
-            ],
-            "breaking_mass": 0.02461931032734391,
-            "top_actual_orbit": [
-              57,
-              249
-            ],
-            "top_actual_mass": 0.027196371750000652,
-            "breaking_orbit_is_top": false
-          }
-        },
-        {
-          "layer": "staircase-hinge-decomposition",
-          "weight": 2.0,
-          "reason": "above-floor/below-floor hinge balance measured",
-          "value": {
-            "supporting_mass": 0.48686655192871414,
-            "opposing_mass": 0.5131334480712859,
-            "supporting_hinge": 0.8686962800128225,
-            "opposing_hinge": 0.8521673665460764,
-            "hinge_margin": 0.01652891346674612,
-            "mass_driven": false,
-            "landing_driven": true
-          }
-        },
-        {
-          "layer": "staircase-hinge-threshold",
-          "weight": 2.0,
-          "reason": "support-mass surplus over landing-dependent threshold",
-          "value": {
-            "supporting_mass": 0.48686655192871414,
-            "threshold": 0.48206857064636355,
-            "surplus": 0.004797981282350594,
-            "relative_surplus": 0.009952902085936449,
-            "identity_error": 1.2836953722228372e-16
-          }
-        },
-        {
-          "layer": "staircase-above-floor-threshold",
-          "weight": 2.0,
-          "reason": "above-floor signed surplus measured",
-          "value": {
-            "above_mass": 0.48686655192871414,
-            "threshold": 0.48206857064636355,
-            "signed_surplus": 0.004797981282350594,
-            "predicts_pass": true,
-            "identity_error": 1.8388068845354155e-16
-          }
-        }
-      ],
-      "layer_count": 11,
-      "glow": 0.445545
+      "glow": 0.432692
     },
     {
       "id": "40420",
@@ -2134,7 +2162,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.445545
+      "glow": 0.432692
     },
     {
       "id": "1379072",
@@ -2160,7 +2188,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.118812
+      "glow": 0.115385
     },
     {
       "id": "1323632",
@@ -2180,7 +2208,637 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.079208
+      "glow": 0.076923
+    },
+    {
+      "id": "1200208",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 152,
+            "signed_surplus": 0.05081609192466835,
+            "dominant_sum": -0.12308946319950455
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200210",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 154,
+            "signed_surplus": 0.06303603705071159,
+            "dominant_sum": -0.0740811038580045
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200224",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 168,
+            "signed_surplus": 0.043637464512128576,
+            "dominant_sum": -0.15028340975129342
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200262",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 206,
+            "signed_surplus": 0.06193250948006862,
+            "dominant_sum": -0.12164090941396052
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200302",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 246,
+            "signed_surplus": 0.06483969727427547,
+            "dominant_sum": -0.09648467137300669
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200328",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 272,
+            "signed_surplus": 0.06321541412667314,
+            "dominant_sum": -0.10672383123017264
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200342",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 0,
+            "signed_surplus": 0.057522463636510424,
+            "dominant_sum": -0.06799527292317352
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200362",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 20,
+            "signed_surplus": 0.05675540221763353,
+            "dominant_sum": -0.09068924231140818
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200400",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 58,
+            "signed_surplus": 0.05968608819821214,
+            "dominant_sum": -0.13520665229257683
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200432",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 90,
+            "signed_surplus": 0.06502295744901265,
+            "dominant_sum": -0.08729199182827382
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200526",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 184,
+            "signed_surplus": 0.05806169655303428,
+            "dominant_sum": -0.12078081510410221
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1200598",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 256,
+            "signed_surplus": 0.0582260136883489,
+            "dominant_sum": -0.12018266067624403
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1220038",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 248,
+            "signed_surplus": 0.05842268486612612
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1220056",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 266,
+            "signed_surplus": 0.042368787096773886
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1220076",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 0,
+            "signed_surplus": 0.054619248161674794
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1220098",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 22,
+            "signed_surplus": 0.04023311644888955
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1220124",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1220000,
+            "target_mod_286": 48,
+            "signed_surplus": 0.06243712430917403
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1221016",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 82,
+            "signed_surplus": 0.05914668444187582
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1221042",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 108,
+            "signed_surplus": 0.044915700209767595
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1221052",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 118,
+            "signed_surplus": 0.05237494786232505
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1221092",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 158,
+            "signed_surplus": 0.06005485039849434
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1221118",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1221000,
+            "target_mod_286": 184,
+            "signed_surplus": 0.059682810649436036
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1222018",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 226,
+            "signed_surplus": 0.05312980592257055
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1222048",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 256,
+            "signed_surplus": 0.021280120300458616
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1222078",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 0,
+            "signed_surplus": 0.05330971110326033
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1222168",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1222000,
+            "target_mod_286": 90,
+            "signed_surplus": 0.05359542426213604
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1240046",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 236,
+            "signed_surplus": 0.06926173059892327
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1240098",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 2,
+            "signed_surplus": 0.06583305392355382
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1240104",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 8,
+            "signed_surplus": 0.06855341518489311
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1240144",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 48,
+            "signed_surplus": 0.05674908372357923
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1240160",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1240000,
+            "target_mod_286": 64,
+            "signed_surplus": 0.0525379332055963
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1242044",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 232,
+            "signed_surplus": 0.0680776923866061
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1242106",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 8,
+            "signed_surplus": 0.058816980845934785
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1242136",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 38,
+            "signed_surplus": 0.04873418761757481
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
+    },
+    {
+      "id": "1242162",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "stress-neighborhood closest above-floor margin",
+          "value": {
+            "window_start": 1242000,
+            "target_mod_286": 64,
+            "signed_surplus": 0.052833147281108384
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.028846
     },
     {
       "id": "10664",
@@ -2194,7 +2852,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.019802
+      "glow": 0.019231
     },
     {
       "id": "14138",
@@ -2208,7 +2866,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.019802
+      "glow": 0.019231
     }
   ],
   "mechanism_stacks": [
@@ -2559,6 +3217,50 @@
       ],
       "layer_count": 1,
       "glow": 0.166667
+    },
+    {
+      "id": "sparse-near-boundary-above-floor-margins",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout is comfortably positive; stress neighborhoods recover known sparse tiny rows",
+          "value": {
+            "primary_min_abs_surplus": 0.043637464512128576,
+            "primary_deficit_count": 0,
+            "stress_windows": [
+              {
+                "start": 1220000,
+                "deficit_count": 0,
+                "min_abs_surplus": 0.04023311644888955
+              },
+              {
+                "start": 1221000,
+                "deficit_count": 0,
+                "min_abs_surplus": 0.044915700209767595
+              },
+              {
+                "start": 1222000,
+                "deficit_count": 1,
+                "min_abs_surplus": 0.002859222244159798
+              },
+              {
+                "start": 1240000,
+                "deficit_count": 0,
+                "min_abs_surplus": 0.0525379332055963
+              },
+              {
+                "start": 1242000,
+                "deficit_count": 0,
+                "min_abs_surplus": 0.0047979812823502055
+              }
+            ]
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
     }
   ],
   "theorem_gap_stacks": [
@@ -2705,6 +3407,19 @@
       ],
       "layer_count": 1,
       "glow": 0.121212
+    },
+    {
+      "id": "near-boundary-selector-theorem",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "prove arithmetic selector/placement theorem for sparse tiny margins"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.090909
     },
     {
       "id": "sample-size-cherry-pick-risk",

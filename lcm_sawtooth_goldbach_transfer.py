@@ -12220,6 +12220,411 @@ def q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt(
     }
 
 
+def q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
+        start=1200200, target_count=211, target_step=2,
+        ordered_channel_labels=((2, 6), (3, 1), (4, 8), (4, 2),
+                                (3, 11), (5, 5), (4, 4), (1, 3),
+                                (5, 3), (2, 4), (4, 6)),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        closest_count=12):
+    """Census fresh rows for the fixed q286 above-floor threshold margin.
+
+    The previous staircase receipts chose the eleven-channel portfolio from a
+    small stress fixture.  This holdout receipt freezes that portfolio and
+    evaluates a deterministic contiguous block of targets not used to choose it.
+    The above-floor threshold identity remains algebraic; the useful evidence is
+    the distribution of residual margins and any fresh near-zero rows.
+
+    It proves no uniform margin theorem, no signed prime-correlation theorem,
+    and no Goldbach theorem.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(target_count) is not int or target_count < 1:
+        raise ValueError("target_count must be a positive integer")
+    if type(target_step) is not int or target_step < 2 or target_step % 2:
+        raise ValueError("target_step must be a positive even integer")
+    ordered_channel_labels = tuple(
+        tuple(label) for label in ordered_channel_labels)
+    if not ordered_channel_labels:
+        raise ValueError("ordered_channel_labels must be nonempty")
+    dominant_modes = tuple(dominant_modes)
+    if (not dominant_modes
+            or any(type(index) is not int or index < 1 or index > 3
+                   for index in dominant_modes)):
+        raise ValueError("dominant_modes must contain mode indices 1..3")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(closest_count) is not int or closest_count < 1:
+        raise ValueError("closest_count must be a positive integer")
+
+    targets = tuple(start + target_step * index
+                    for index in range(target_count))
+    modulus = 286
+    units = tuple(unit for unit in range(modulus)
+                  if math.gcd(unit, modulus) == 1)
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    unit_index_by_residue = np.full(modulus, -1, dtype=np.int16)
+    for index, unit in enumerate(units):
+        unit_index_by_residue[unit] = index
+
+    character_receipt = q286_character_imbalance_receipt(
+        targets=(10424,), top_count=120, tolerance=tolerance)
+    matrix = np.zeros((10, 12), dtype=np.complex128)
+    for row in character_receipt["top_coefficient_character_rows"]:
+        first, second = row["label"]
+        matrix[first, second] = row["coefficient"]
+    coefficient_matrix = matrix[1:, 1:]
+    left, singular_values, right = np.linalg.svd(
+        coefficient_matrix, full_matrices=False)
+    dominant_matrix = np.zeros_like(coefficient_matrix)
+    for mode_index in dominant_modes:
+        index = mode_index - 1
+        dominant_matrix += (
+            singular_values[index]
+            * np.outer(left[:, index], right[index, :]))
+
+    _, labels, character_table = _unit_character_table(modulus, units)
+    label_to_index = {label: index for index, label in enumerate(labels)}
+    factor_orders = (10, 12)
+    dominant_coefficients = np.zeros(len(labels), dtype=np.complex128)
+    for index, label in enumerate(labels):
+        first, second = label
+        if first and second:
+            dominant_coefficients[index] = dominant_matrix[first - 1,
+                                                           second - 1]
+
+    def conjugate_label(label):
+        return tuple((-exponent) % order
+                     for exponent, order in zip(label, factor_orders))
+
+    principal_mean = float(
+        character_receipt["rows"][10424]["principal_contribution"].real
+        / character_receipt["rows"][10424]["total_prime_pair_weight"])
+    remaining = {
+        index for index, coefficient in enumerate(dominant_coefficients)
+        if abs(coefficient) > tolerance}
+    channel_coefficients = {}
+    active_labels = []
+    for index in sorted(tuple(remaining)):
+        if index not in remaining:
+            continue
+        conjugate_index = label_to_index[conjugate_label(labels[index])]
+        orbit = tuple(sorted({index, conjugate_index}))
+        remaining.difference_update(orbit)
+        representative = orbit[0]
+        label = labels[representative]
+        multiplier = 1.0 if len(orbit) == 1 else 2.0
+        channel_coefficients[label] = np.asarray(
+            multiplier * np.real(
+                dominant_coefficients[representative]
+                * character_table[representative])
+            / principal_mean, dtype=np.float64)
+        active_labels.append(label)
+    missing_labels = tuple(
+        label for label in ordered_channel_labels
+        if label not in channel_coefficients)
+    if missing_labels:
+        raise ValueError(
+            "ordered_channel_labels contains inactive labels: %r"
+            % (missing_labels,))
+
+    maximum_target = max(targets)
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    stage_coefficients = np.zeros(len(units), dtype=np.float64)
+    for label in ordered_channel_labels:
+        stage_coefficients += channel_coefficients[label]
+    residual_labels = tuple(
+        label for label in active_labels
+        if label not in set(ordered_channel_labels))
+
+    def summarize(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    def orbit_rows(target, residue_weights, total_weight):
+        target_residue = target % modulus
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            stage_coefficients[admissible_mask]
+            - float(np.mean(stage_coefficients[admissible_mask])))
+        seen = set()
+        rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected_index = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected_index)
+            if reflected_index == index:
+                orbit = (unit,)
+                action = float(centered[index])
+                actual_weight = float(residue_weights[index])
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                action = float(0.5 * (
+                    centered[index] + centered[reflected_index]))
+                actual_weight = float(
+                    residue_weights[index] + residue_weights[reflected_index])
+            rows.append({
+                "orbit": orbit,
+                "stage_action_to_principal": action,
+                "actual_mass_fraction": (
+                    actual_weight / total_weight
+                    if total_weight > tolerance else 0.0),
+            })
+        return rows
+
+    target_rows = []
+    skipped_targets = []
+    signed_surpluses = []
+    pass_surpluses = []
+    deficit_surpluses = []
+    identity_errors = []
+    first_three_values = []
+    residual_values = []
+    absolute_surpluses = []
+    residue_buckets = {}
+    margin_band_counts = {
+        "abs_lt_0.001": 0,
+        "abs_lt_0.003": 0,
+        "abs_lt_0.01": 0,
+        "abs_lt_0.03": 0,
+    }
+
+    for target in targets:
+        lower = target // 3
+        upper = target - lower
+        left_index = int(np.searchsorted(
+            prime_indices, max(2, lower + 1), side="left"))
+        right_index = int(np.searchsorted(
+            prime_indices, min(target, upper), side="left"))
+        prime_values = prime_indices[left_index:right_index]
+        partner_values = target - prime_values
+        pair_mask = primes[partner_values]
+        selected_primes = prime_values[pair_mask]
+        selected_partners = partner_values[pair_mask]
+        if not len(selected_primes):
+            skipped_targets.append(target)
+            continue
+        residue_indices = unit_index_by_residue[selected_primes % modulus]
+        residue_weights = np.bincount(
+            residue_indices,
+            weights=(log_values[selected_primes]
+                     * log_values[selected_partners]),
+            minlength=len(units))
+        total_weight = float(np.sum(residue_weights))
+        if total_weight <= tolerance:
+            skipped_targets.append(target)
+            continue
+
+        target_residue = target % modulus
+        admissible_mask = np.asarray(tuple(
+            math.gcd((target_residue - unit) % modulus, modulus) == 1
+            for unit in units), dtype=bool)
+        admissible_count = int(np.sum(admissible_mask))
+        mean_weight = total_weight / admissible_count
+        delta = np.zeros(len(units), dtype=np.float64)
+        delta[admissible_mask] = (
+            residue_weights[admissible_mask] - mean_weight)
+        character_sums = character_table @ delta
+        principal = principal_mean * total_weight
+
+        contribution_by_label = {}
+        for label in active_labels:
+            index = label_to_index[label]
+            conjugate_index = label_to_index[conjugate_label(label)]
+            multiplier = 1.0 if conjugate_index == index else 2.0
+            contribution_by_label[label] = float((
+                multiplier * dominant_coefficients[index]
+                * character_sums[index]).real / principal)
+        stage_sum = math.fsum(
+            contribution_by_label[label] for label in ordered_channel_labels)
+        dominant_sum = math.fsum(
+            contribution_by_label[label] for label in active_labels)
+        residual_sum = math.fsum(
+            contribution_by_label[label] for label in residual_labels)
+        required = -tail_threshold - residual_sum
+        actual_slack = stage_sum - required
+
+        below_mass = 0.0
+        above_mass = 0.0
+        positive_hinge = 0.0
+        negative_hinge = 0.0
+        for orbit_row in orbit_rows(target, residue_weights, total_weight):
+            action = orbit_row["stage_action_to_principal"]
+            mass = orbit_row["actual_mass_fraction"]
+            if action >= required - tolerance:
+                above_mass += mass
+                positive_hinge += mass * max(0.0, action - required)
+            else:
+                below_mass += mass
+                negative_hinge += mass * max(0.0, required - action)
+        above_landing = (
+            positive_hinge / above_mass if above_mass > tolerance else None)
+        below_landing = (
+            negative_hinge / below_mass if below_mass > tolerance else None)
+        denominator = (
+            None if above_landing is None or below_landing is None
+            else above_landing + below_landing)
+        threshold = (
+            None if denominator is None or denominator <= tolerance
+            else below_landing / denominator)
+        signed_surplus = (
+            None if threshold is None else above_mass - threshold)
+        reconstructed_slack = (
+            None if signed_surplus is None or denominator is None
+            else signed_surplus * denominator)
+        identity_error = (
+            None if reconstructed_slack is None
+            else abs(reconstructed_slack - actual_slack))
+        if signed_surplus is None:
+            skipped_targets.append(target)
+            continue
+
+        passes = actual_slack >= -tolerance
+        abs_surplus = abs(signed_surplus)
+        signed_surpluses.append(signed_surplus)
+        absolute_surpluses.append(abs_surplus)
+        first_three_values.append(dominant_sum)
+        residual_values.append(residual_sum)
+        if identity_error is not None:
+            identity_errors.append(identity_error)
+        if passes:
+            pass_surpluses.append(signed_surplus)
+        else:
+            deficit_surpluses.append(signed_surplus)
+        if abs_surplus < .001:
+            margin_band_counts["abs_lt_0.001"] += 1
+        if abs_surplus < .003:
+            margin_band_counts["abs_lt_0.003"] += 1
+        if abs_surplus < .01:
+            margin_band_counts["abs_lt_0.01"] += 1
+        if abs_surplus < .03:
+            margin_band_counts["abs_lt_0.03"] += 1
+
+        row = {
+            "target": target,
+            "target_mod_286": target_residue,
+            "dominant_sum_to_principal": dominant_sum,
+            "stage_sum_to_principal": stage_sum,
+            "nonportfolio_residual_sum_to_principal": residual_sum,
+            "required_portfolio_for_floor": required,
+            "actual_stage_slack_to_floor": actual_slack,
+            "above_floor_mass_fraction": above_mass,
+            "below_floor_mass_fraction": below_mass,
+            "above_floor_landing_mean": above_landing,
+            "below_floor_landing_mean": below_landing,
+            "above_floor_mass_threshold": threshold,
+            "above_floor_signed_surplus_to_threshold": signed_surplus,
+            "absolute_above_floor_signed_surplus": abs_surplus,
+            "actual_slack_reconstructed_from_above_floor_threshold": (
+                reconstructed_slack),
+            "above_floor_threshold_identity_error": identity_error,
+            "dominant_floor_passes": passes,
+        }
+        target_rows.append(row)
+        bucket = residue_buckets.setdefault(target_residue, {
+            "target_mod_286": target_residue,
+            "count": 0,
+            "pass_count": 0,
+            "deficit_count": 0,
+            "minimum_abs_surplus": None,
+            "closest_target": None,
+        })
+        bucket["count"] += 1
+        if passes:
+            bucket["pass_count"] += 1
+        else:
+            bucket["deficit_count"] += 1
+        if (bucket["minimum_abs_surplus"] is None
+                or abs_surplus < bucket["minimum_abs_surplus"]):
+            bucket["minimum_abs_surplus"] = abs_surplus
+            bucket["closest_target"] = target
+
+    closest_rows = tuple(sorted(
+        target_rows,
+        key=lambda row: (
+            row["absolute_above_floor_signed_surplus"], row["target"])
+    )[:closest_count])
+    most_negative_rows = tuple(sorted(
+        target_rows,
+        key=lambda row: row["above_floor_signed_surplus_to_threshold"]
+    )[:closest_count])
+    most_positive_rows = tuple(sorted(
+        target_rows,
+        key=lambda row: row["above_floor_signed_surplus_to_threshold"],
+        reverse=True)[:closest_count])
+    residue_rows = tuple(sorted(
+        residue_buckets.values(),
+        key=lambda row: (
+            row["minimum_abs_surplus"]
+            if row["minimum_abs_surplus"] is not None else math.inf,
+            row["target_mod_286"])))
+
+    return {
+        "arithmetic_modulus": modulus,
+        "support": (11, 13),
+        "start": start,
+        "target_count": target_count,
+        "target_step": target_step,
+        "tested_targets": targets,
+        "evaluated_target_count": len(target_rows),
+        "skipped_targets": tuple(skipped_targets),
+        "dominant_modes": dominant_modes,
+        "tail_threshold": tail_threshold,
+        "ordered_channel_labels": ordered_channel_labels,
+        "ordered_channel_count": len(ordered_channel_labels),
+        "active_real_channel_count": len(active_labels),
+        "residual_channel_count": len(residual_labels),
+        "above_floor_signed_surplus_summary": summarize(signed_surpluses),
+        "above_floor_pass_surplus_summary": summarize(pass_surpluses),
+        "above_floor_deficit_surplus_summary": summarize(deficit_surpluses),
+        "absolute_above_floor_signed_surplus_summary": summarize(
+            absolute_surpluses),
+        "dominant_sum_summary": summarize(first_three_values),
+        "nonportfolio_residual_sum_summary": summarize(residual_values),
+        "above_floor_threshold_identity_error_summary": summarize(
+            identity_errors),
+        "maximum_above_floor_threshold_identity_error": (
+            max(identity_errors) if identity_errors else None),
+        "dominant_floor_pass_count": len(pass_surpluses),
+        "dominant_floor_deficit_count": len(deficit_surpluses),
+        "margin_band_counts": margin_band_counts,
+        "closest_margin_rows": closest_rows,
+        "most_negative_surplus_rows": most_negative_rows,
+        "most_positive_surplus_rows": most_positive_rows,
+        "residue_bucket_rows_by_closest_margin": residue_rows,
+        "holdout_census_measured": True,
+        "frozen_portfolio_uniform_margin_theorem_proved": False,
+        "above_floor_threshold_theorem_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_first_two_mode_sign_window_receipt(
         start=10000, cycle_count=1, targets_per_cycle=5005,
         tail_threshold=.3, tolerance=1e-9, include_rows=False):

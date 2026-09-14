@@ -20522,6 +20522,30 @@ error about `5.41e-16`.  The empty stage has ten sign errors, so this is a
 full-stage target, not an all-prefix theorem.  It is not a proof of the sign
 theorem or Goldbach.
 
+Dominant-mode above-floor holdout census:
+
+- `q286_first_three_dominant_mode_above_floor_holdout_census_receipt`
+- `tools/build_q286_first_three_dominant_mode_above_floor_holdout_census.py`
+- `notes/q286-first-three-dominant-mode-above-floor-holdout-census.md`
+- `evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_above_floor_holdout_census`
+
+This freezes the same eleven-channel q286 dominant staircase and applies it
+unchanged to a contiguous primary holdout block beginning at `1200200`.  All
+`211` primary holdout rows pass, with above-floor signed surplus range about
+`0.0436374645..0.1602111239`, mean about `0.0966994966`, and no absolute
+surplus below `.03`; the maximum threshold reconstruction error is about
+`7.77e-16`.  Five deterministic `101`-row stress-neighborhood comparisons are
+recorded separately.  Starts `1220000`, `1221000`, and `1240000` have no
+deficits; start `1222000` has exactly one deficit, known selected target
+`1222142`, with surplus about `-0.0028592222`; start `1242000` recovers known
+tight clear `1242118` with surplus about `0.0047979813`.  This suggests the
+near-zero rows are sparse in the checked neighborhoods, but it is finite
+evidence only.  The next non-circular task is a selector or arithmetic
+placement theorem for those sparse near-boundary rows, not more threshold
+receipts without a new mechanism.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

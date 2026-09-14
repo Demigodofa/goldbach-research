@@ -61,6 +61,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_staircase_hinge_decomposition_receipt,
     q286_first_three_dominant_mode_staircase_hinge_threshold_receipt,
     q286_first_three_dominant_mode_staircase_above_floor_threshold_receipt,
+    q286_first_three_dominant_mode_above_floor_holdout_census_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -5022,6 +5023,37 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
                     row["above_floor_signed_surplus_to_threshold"],
                     1e-8)
         self.assertTrue(receipt["above_floor_threshold_obligation_measured"])
+        self.assertFalse(receipt["above_floor_threshold_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_above_floor_holdout_census(self):
+        receipt = (
+            q286_first_three_dominant_mode_above_floor_holdout_census_receipt(
+                start=1200200, target_count=17, closest_count=5))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["target_count"], 17)
+        self.assertEqual(receipt["evaluated_target_count"], 17)
+        self.assertEqual(receipt["ordered_channel_count"], 11)
+        self.assertLessEqual(
+            receipt["maximum_above_floor_threshold_identity_error"], 1e-8)
+        self.assertEqual(
+            receipt["above_floor_signed_surplus_summary"]["count"], 17)
+        self.assertLessEqual(len(receipt["closest_margin_rows"]), 5)
+        self.assertGreater(
+            receipt["absolute_above_floor_signed_surplus_summary"]["minimum"],
+            0)
+        for row in receipt["closest_margin_rows"]:
+            self.assertLessEqual(
+                row["above_floor_threshold_identity_error"], 1e-8)
+            self.assertAlmostEqual(
+                row["actual_slack_reconstructed_from_above_floor_threshold"],
+                row["actual_stage_slack_to_floor"],
+                places=8)
+        self.assertTrue(receipt["holdout_census_measured"])
+        self.assertFalse(
+            receipt["frozen_portfolio_uniform_margin_theorem_proved"])
         self.assertFalse(receipt["above_floor_threshold_theorem_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 

@@ -11401,6 +11401,21 @@ an all-prefix theorem.  This is the current narrowest non-circular formulation
 of the q286 dominant staircase sign target, but it remains finite evidence
 and not a signed prime-correlation theorem.
 
+The frozen-staircase holdout census is now recorded in
+`notes/q286-first-three-dominant-mode-above-floor-holdout-census.md` and
+`evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json`.
+It applies the same eleven-channel full-stage q286 dominant staircase to the
+fresh contiguous block beginning at `1200200` without changing the channels.
+All `211` primary holdout rows pass, with above-floor signed surplus ranging
+from about `0.0436374645` to `0.1602111239` and no absolute surplus below
+`.03`.  Deterministic `101`-row stress-neighborhood comparisons are labelled
+separately: windows at `1220000`, `1221000`, and `1240000` have no deficits;
+the `1222000` window has exactly the known selected deficit `1222142` with
+surplus about `-0.0028592222`; and the `1242000` window recovers known tight
+clear `1242118` with surplus about `0.0047979813`.  This makes the next
+non-circular question a selector/arithmetic-placement theorem for sparse
+near-boundary rows, not another unqualified threshold scan.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

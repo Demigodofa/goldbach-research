@@ -938,6 +938,18 @@ current comparison set.
    `-0.0330812983..-0.0028592222`, and the maximum reconstruction error is
    about `5.41e-16`.  The empty stage has ten sign errors, so this is a
    full-stage target, not an all-prefix theorem.
+97. `q286_first_three_dominant_mode_above_floor_holdout_census_receipt`, with
+   note
+   `notes/q286-first-three-dominant-mode-above-floor-holdout-census.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json`,
+   freezes the same eleven-channel full-stage q286 dominant staircase and
+   applies it unchanged to deterministic target blocks.  The fresh primary
+   holdout block beginning at `1200200` has `211` passes, no deficits, and
+   minimum absolute surplus about `0.0436374645`.  Separate
+   stress-neighborhood checks recover known near-boundary rows `1222142` and
+   `1242118`.  This turns the next question into a selector or arithmetic
+   placement theorem for sparse tiny margins, not another raw threshold scan.
 
 ## Still open
 
@@ -969,6 +981,10 @@ current comparison set.
   positive support-mass surplus over the landing-dependent hinge threshold,
   plus a non-circular arithmetic definition of the intended support side.  The
   non-post-hoc version uses the full-stage above-floor signed surplus; prefix
-  failures remain open and must not be hidden.
+  failures remain open and must not be hidden.  The holdout census says the
+  frozen full-stage surplus is comfortably positive on one fresh block and
+  sparse in the checked stress neighborhoods, so the next useful target is a
+  near-boundary selector/arithmetic-placement theorem rather than another raw
+  threshold scan.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

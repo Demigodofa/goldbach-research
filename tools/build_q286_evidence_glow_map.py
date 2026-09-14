@@ -83,6 +83,9 @@ def main():
     staircase_above_floor = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-staircase-above-floor-threshold.json")
+    above_floor_holdout = load_json(
+        EVIDENCE
+        / "q286-first-three-dominant-mode-above-floor-holdout-census.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -754,6 +757,72 @@ def main():
         "staircase-above-floor-threshold",
         2.0,
         "prove full-stage above-floor surplus sign; prefix failures remain")
+
+    layer(
+        "above-floor-holdout-census",
+        "Frozen above-floor staircase holdout and stress-neighborhood census",
+        "holdout_census",
+        "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json",
+        1.5,
+        "Finite margin census only; not a uniform margin theorem.")
+    for row in above_floor_holdout["closest_margin_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "above-floor-holdout-census",
+            1.5,
+            "primary holdout closest above-floor margin",
+            {
+                "target_mod_286": row["target_mod_286"],
+                "signed_surplus": (
+                    row["above_floor_signed_surplus_to_threshold"]),
+                "dominant_sum": row["dominant_sum_to_principal"],
+            })
+    for census in above_floor_holdout["stress_neighborhood_censuses"]:
+        for row in census["closest_margin_rows"]:
+            add_hit(
+                target_stacks,
+                str(row["target"]),
+                "above-floor-holdout-census",
+                1.5,
+                "stress-neighborhood closest above-floor margin",
+                {
+                    "window_start": census["start"],
+                    "target_mod_286": row["target_mod_286"],
+                    "signed_surplus": (
+                        row["above_floor_signed_surplus_to_threshold"]),
+                })
+    add_hit(
+        mechanism_stacks,
+        "sparse-near-boundary-above-floor-margins",
+        "above-floor-holdout-census",
+        1.5,
+        "primary holdout is comfortably positive; stress neighborhoods recover "
+        "known sparse tiny rows",
+        {
+            "primary_min_abs_surplus": (
+                above_floor_holdout[
+                    "absolute_above_floor_signed_surplus_summary"][
+                    "minimum"]),
+            "primary_deficit_count": (
+                above_floor_holdout["dominant_floor_deficit_count"]),
+            "stress_windows": tuple(
+                {
+                    "start": census["start"],
+                    "deficit_count": census["dominant_floor_deficit_count"],
+                    "min_abs_surplus": census[
+                        "absolute_above_floor_signed_surplus_summary"][
+                        "minimum"],
+                }
+                for census in above_floor_holdout[
+                    "stress_neighborhood_censuses"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "near-boundary-selector-theorem",
+        "above-floor-holdout-census",
+        1.5,
+        "prove arithmetic selector/placement theorem for sparse tiny margins")
 
     layer(
         "conditional-proof-stack",

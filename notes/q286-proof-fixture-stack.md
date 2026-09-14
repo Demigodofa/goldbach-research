@@ -132,6 +132,13 @@ frame.
   positive on selected passes and negative on selected deficits, with tightest
   absolute surplus about `0.0028592222`.  The empty stage has ten sign errors,
   so the formulation is a full-stage target, not an all-prefix theorem.
+- `evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json`:
+  the frozen eleven-channel full-stage staircase is applied unchanged to a
+  fresh contiguous primary holdout block.  All `211` primary holdout rows
+  beginning at `1200200` pass, with surplus range about
+  `0.0436374645..0.1602111239` and no absolute surplus below `.03`.  Separate
+  stress-neighborhood comparisons recover the known deficit `1222142` and
+  known tight clear `1242118`, while adjacent small windows are clean.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -233,4 +240,8 @@ newest sharpened subtarget is actual mass control on the dangerous reflected
 breaker orbits used by the synthetic weak-geometry witnesses, now refined by
 the mixed hinge-balance decomposition and its tiny positive threshold surplus.
 The current non-post-hoc version is the full-stage above-floor signed surplus;
-prefix-stage failures must remain visible.
+prefix-stage failures must remain visible.  The holdout census says the frozen
+full-stage surplus is comfortably positive on one fresh contiguous block and
+sparse in the checked stress neighborhoods, so the next useful question is a
+selector or arithmetic-placement theorem for the near-boundary rows rather
+than another unqualified threshold scan.

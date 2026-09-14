@@ -78,6 +78,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-staircase-hinge-threshold.json")
     dominant_mode_staircase_above_floor = load_json(
         "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json")
+    dominant_mode_above_floor_holdout = load_json(
+        "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -594,6 +596,29 @@ def main():
                     "theorem and not a sign theorem"),
             },
             {
+                "id": "anchor.dominant_mode_above_floor_holdout_census",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json"),
+                "statement": (
+                    "The frozen eleven-channel full-stage q286 dominant "
+                    "staircase can be applied unchanged to fresh deterministic "
+                    "target blocks, turning the residual question into a "
+                    "margin census and sparse near-boundary selector problem."),
+                "validation": (
+                    "primary holdout start "
+                    f"{dominant_mode_above_floor_holdout['start']} with "
+                    f"{dominant_mode_above_floor_holdout['evaluated_target_count']} "
+                    "rows has pass/deficit counts "
+                    f"{dominant_mode_above_floor_holdout['dominant_floor_pass_count']}/"
+                    f"{dominant_mode_above_floor_holdout['dominant_floor_deficit_count']} "
+                    "and absolute surplus minimum "
+                    f"{dominant_mode_above_floor_holdout['absolute_above_floor_signed_surplus_summary']['minimum']}; "
+                    "stress neighborhoods are recorded separately."),
+                "proved_scope": (
+                    "finite holdout and stress-neighborhood census; not a "
+                    "uniform margin theorem and not an independent sign proof"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -783,6 +808,24 @@ def main():
                     "evidence/q286-first-three-dominant-mode-staircase-above-floor-threshold.json"),
                 "proved": False,
             },
+            {
+                "id": "joint.dominant_staircase_near_boundary_selector",
+                "statement": (
+                    "Prove a selector or arithmetic-placement theorem that "
+                    "explains which targets can have tiny full-stage "
+                    "above-floor threshold surplus under the frozen q286 "
+                    "dominant staircase, and then handle those near-boundary "
+                    "rows by signed aggregate, complement/lower-support "
+                    "rescue, or a fixed-modulus binary-prime theorem."),
+                "why_it_is_needed": (
+                    "The primary holdout block is comfortably positive, while "
+                    "stress-neighborhood checks recover sparse known tiny "
+                    "rows.  More threshold scans are not a proof unless they "
+                    "identify the arithmetic selector behind those rows."),
+                "exact_obligation_source": (
+                    "evidence/q286-first-three-dominant-mode-above-floor-holdout-census.json"),
+                "proved": False,
+            },
         ],
         "condensation_target": {
             "short_statement": (
@@ -800,6 +843,7 @@ def main():
                 "joint.dominant_staircase_hinge_balance",
                 "joint.dominant_staircase_hinge_threshold_surplus",
                 "joint.dominant_staircase_above_floor_threshold_sign",
+                "joint.dominant_staircase_near_boundary_selector",
             ],
             "current_status": "not ready to condense into a proof",
         },
@@ -817,7 +861,9 @@ def main():
             "The narrowest current form is a positive support-mass surplus "
             "over the landing-dependent threshold, with the support side "
             "defined arithmetically rather than post hoc; the above-floor "
-            "full-stage sign formulation is the current non-circular version."),
+            "full-stage sign formulation is the current non-circular version. "
+            "The holdout census now points to a sparse near-boundary selector "
+            "or arithmetic-placement theorem as the next non-circular move."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",
