@@ -11850,3 +11850,29 @@ sums, a richer structured partition, pressure subregions, or
 lower-support/complement rescue.  This is finite label-rule audit evidence
 only; it proves no label-geometry theorem, stable-core theorem, volatile-rim
 bound, pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: stable-core rectangle falsifier
+
+The stable-core named holdout was then tested against the simplest independent
+budget shape: one allowance `A` such that every named clear row has
+stable-core margin at least `A` and volatile drag at most `A`.  The new
+derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-stable-core-rectangle-falsifier.json
+```
+
+No such one-parameter rectangle budget exists on the named fixture.  The
+tightest stable-core margin is target `1242118` at about `0.0309910091`, but
+the largest volatile drag is target `1240888` at about `0.0795878215`, leaving
+an obstruction gap of about `0.0485968124`.
+
+The coupled rowwise budget still passes all six named clear rows.  This
+falsifies only the shortcut that would replace it with an independent uniform
+surplus floor plus an independent uniform rim cap using the same allowance.
+The surviving target must control volatile drag as a function of available
+stable-core margin, split pressure subregions, use a richer arithmetic
+partition, or replace the route with lower-support/complement rescue.  This
+is finite derivative evidence only; it proves no stable-core theorem,
+volatile-rim theorem, one-parameter budget theorem, pointwise character-sum
+estimate, or Goldbach.

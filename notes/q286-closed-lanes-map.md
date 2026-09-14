@@ -1097,6 +1097,21 @@ current comparison set.
    about `0.67` for stable helpful, `0.67` for stable harmful, and `0.71` for
    volatile.  This demotes a simple label-geometry theorem for the current
    stable-core / volatile-rim partition.
+109. `tools/build_q286_first_three_dominant_mode_stable_core_rectangle_falsifier.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-stable-core-rectangle-falsifier.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-stable-core-rectangle-falsifier.json`,
+   tests whether the named stable-core / volatile-rim budget can be reduced
+   to a single row-independent allowance `A` where every named clear row has
+   stable-core margin at least `A` and volatile drag at most `A`.  The answer
+   is no on the named fixture: the minimum stable-core margin is about
+   `0.0309910091` at `1242118`, while the maximum volatile drag is about
+   `0.0795878215` at `1240888`, leaving an obstruction gap of about
+   `0.0485968124`.  The coupled rowwise budget still passes all six named
+   clears, so this demotes only the one-parameter rectangle shortcut and keeps
+   the row-dependent coupled-budget, pressure-subregion, richer-partition, or
+   lower-support/complement routes alive.
 
 ## Still open
 
@@ -1143,5 +1158,8 @@ current comparison set.
   fixture, or a pressure-subregion / lower-support-complement replacement.
   The simple label-rule audit says the current partition is not explained by
   coordinate, parity, threshold, small-modular, or rectangle label geometry.
+  The stable-core rectangle falsifier further says the coupled rowwise budget
+  cannot be simplified to a single independent stable-surplus allowance and
+  volatile-drag cap on the named fixture.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

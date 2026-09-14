@@ -1,0 +1,119 @@
+{
+  "all_coupled_rows_still_pass": true,
+  "coupled_budget_still_alive_on_named_rows": true,
+  "falsifier": "The simplification is falsified on the named fixture when the largest observed volatile drag is larger than the smallest observed stable-core margin.",
+  "goldbach_proved": false,
+  "holdout_target_count": 6,
+  "interpretation": {
+    "closed_shortcut": "The named fixture does not support replacing the coupled row-dependent inequality by one shared surplus/drag allowance.",
+    "surviving_target": "A proof must control volatile drag as a function of the available stable-core margin, split pressure subregions, or replace the route with lower-support/complement rescue."
+  },
+  "maximum_volatile_drag": 0.0795878214771284,
+  "maximum_volatile_drag_row": {
+    "actual_volatile_drag": 0.0795878214771284,
+    "clear_dominant_floor_passes": true,
+    "clear_floor_margin": 0.027186573380917844,
+    "clear_floor_margin_reconstruction_error": 2.7755575615628914e-15,
+    "clear_target": 1240888,
+    "clear_target_mod_286": 220,
+    "final_floor_margin_reconstructed": 0.02718657338092062,
+    "reference_floor_margin": -0.008833179560527815,
+    "reference_target": 1222142,
+    "stable_core_alone_clears_reference": true,
+    "stable_core_margin_to_floor": 0.10677439485804902,
+    "stable_core_net_swing": 0.11560757441857683,
+    "stable_negative_swing_sum": -0.07572402333725031,
+    "stable_positive_swing_sum": 0.19133159775582714,
+    "volatile_drag_budget": 0.10677439485804902,
+    "volatile_drag_budget_used_fraction": 0.7453830254241782,
+    "volatile_rim_net_swing": -0.0795878214771284,
+    "volatile_rim_within_budget": true
+  },
+  "mechanism": "Attempt to simplify the surviving coupled stable-core / volatile-rim budget to one independent allowance A.",
+  "minimum_stable_core_margin": 0.030991009079319787,
+  "minimum_stable_core_margin_row": {
+    "actual_volatile_drag": 0.014462095612572855,
+    "clear_dominant_floor_passes": true,
+    "clear_floor_margin": 0.016528913466746065,
+    "clear_floor_margin_reconstruction_error": 8.673617379884035e-16,
+    "clear_target": 1242118,
+    "clear_target_mod_286": 20,
+    "final_floor_margin_reconstructed": 0.016528913466746932,
+    "reference_floor_margin": -0.008833179560527815,
+    "reference_target": 1222142,
+    "stable_core_alone_clears_reference": true,
+    "stable_core_margin_to_floor": 0.030991009079319787,
+    "stable_core_net_swing": 0.0398241886398476,
+    "stable_negative_swing_sum": -0.15477673770371755,
+    "stable_positive_swing_sum": 0.19460092634356516,
+    "volatile_drag_budget": 0.030991009079319787,
+    "volatile_drag_budget_used_fraction": 0.46665455698967123,
+    "volatile_rim_net_swing": -0.014462095612572855,
+    "volatile_rim_within_budget": true
+  },
+  "one_parameter_obstruction_gap": 0.04859681239780861,
+  "one_parameter_rectangle_budget_exists_on_named_rows": false,
+  "one_parameter_rectangle_budget_falsified_on_named_rows": true,
+  "one_parameter_rectangle_budget_theorem_proved": false,
+  "pointwise_character_sum_estimate_proved": false,
+  "reference_target": 1222142,
+  "row_summaries": [
+    {
+      "actual_volatile_drag": 0.0795878214771284,
+      "clear_target": 1240888,
+      "clear_target_mod_286": 220,
+      "coupled_budget_slack": 0.02718657338092062,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.10677439485804902
+    },
+    {
+      "actual_volatile_drag": 0.014462095612572855,
+      "clear_target": 1242118,
+      "clear_target_mod_286": 20,
+      "coupled_budget_slack": 0.016528913466746932,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.030991009079319787
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_target": 1243018,
+      "clear_target_mod_286": 62,
+      "coupled_budget_slack": 0.13447969041717747,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.13447969041717747
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_target": 1243130,
+      "clear_target_mod_286": 174,
+      "coupled_budget_slack": 0.19285064985400277,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.19285064985400277
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_target": 1244072,
+      "clear_target_mod_286": 258,
+      "coupled_budget_slack": 0.09950312955133506,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.09950312955133506
+    },
+    {
+      "actual_volatile_drag": 0.0,
+      "clear_target": 1244094,
+      "clear_target_mod_286": 280,
+      "coupled_budget_slack": 0.11609723970413371,
+      "passes_coupled_budget": true,
+      "stable_core_margin_to_floor": 0.11609723970413371
+    }
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "d840ccfc57c7960cbd1a48113537a739e13e7dd3",
+  "source_evidence": "evidence\\q286-first-three-dominant-mode-stable-core-named-holdout.json",
+  "stable_core_rectangle_falsifier_measured": true,
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite derivative falsifier only; no stable-core theorem, volatile-rim theorem, one-parameter budget theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "tested_simplification": "Find A such that every named clear row has stable-core margin at least A and volatile drag at most A; such an A would make a row-independent rectangle budget certify the coupled floor.",
+  "volatile_rim_bound_proved": false
+}
