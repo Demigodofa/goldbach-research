@@ -19594,14 +19594,20 @@ pointwise signed prime-correlation estimate, endpoint/noncentral control,
 outer assembly, or Goldbach.
 
 Local deterministic math-worker stack now verified for this machine:
-`numpy`, `scipy`, `sympy 1.14.0`, `z3-solver 5.1.0.0`, `pulp 3.3.2`, and
-`cvxpy 1.9.2`; `oct2py 6.1.1` is also installed.  Direct Oct2Py works with
-`C:\Program Files\GNU Octave\Octave-11.3.0\mingw64\bin\octave.exe`, and the
-local queue worker at `C:\Users\benja\math_worker\mathcli.ps1` passed
-`.\mathcli.ps1 run -Code "disp(1+1);" -Wait` on 2026-09-13 after local
-quote/launcher fixes.  Future agents should use the `python-math-toolchain`
-capability in `codex-agent-ops`, run its cold test, and rerun the worker smoke
-in the current shell before relying on these packages or the Octave queue.
+`py -3` resolves to Python 3.14 at `C:\Program Files\Python314\python.exe`.
+Installed imports include `numpy`, `scipy`, `sympy 1.14.0`,
+`z3-solver 5.1.0.0`, `pulp 3.3.2`, `cvxpy 1.9.2`, `oct2py 6.1.1`,
+`pandas 3.0.5`, `gmpy2 2.3.1`, `ortools 9.15.6755`, `numba 0.67.0`,
+`mpmath`, `networkx`, and `matplotlib`.  GNU Octave 11.3.0 is installed at
+`C:\Users\KevinPenfield\AppData\Local\Programs\GNU Octave\Octave-11.3.0\mingw64\bin\octave.exe`;
+direct Oct2Py evaluated `1+1` successfully after refreshing PATH from the user
+environment.  The historical queue worker path
+`C:\Users\benja\math_worker\mathcli.ps1` is not present in the current
+`KevinPenfield` profile.  Future agents should use the `python-math-toolchain`
+capability in `codex-agent-ops` and run
+`scripts/test_python_math_toolchain.ps1` before relying on these packages or
+Octave.  No PyPI package named `numbayes` was found on 2026-09-14; use `numba`
+unless a future task identifies another exact package.
 
 Curiosity/tool side-lane instruction for future agents: when a long q286
 receipt is running and CPU/memory allow it, use one bounded side lane with the

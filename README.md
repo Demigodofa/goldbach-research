@@ -113,11 +113,33 @@ Root alone edits files. Both return bounded reports, not further agents; their
 review checkpoints are 10 and 15 minutes respectively. Public sources only,
 no browser/account ownership or GUI input, no spending or publication.
 
-## Startup exceptions
+## Local math and startup tools
 
-The `py` launcher is absent; Python 3.11 is available as `python`.
-The compiled startup receipt had no Goldbach capability route. Use the direct
-bounded Academy capsule and the task's exact mathematical sources instead.
+On the current Windows workstation, use `py -3`; it resolves to Python 3.14.
+The local math stack is registered in `codex-agent-ops` as capability
+`python-math-toolchain` and includes NumPy, SciPy, SymPy, Z3, PuLP, CVXPY,
+Oct2Py, pandas, GMPY2, OR-Tools, Numba, and Octave 11.3.0. Before relying on
+it, run:
+
+```powershell
+cd C:\Users\KevinPenfield\source\repos\Demigodofa\codex-agent-ops
+powershell -ExecutionPolicy Bypass -File .\scripts\test_python_math_toolchain.ps1
+```
+
+Use the tools for finite diagnostics, solver counterexample search, linear or
+convex optimization probes, JIT-accelerated checks, and reproducible
+calculations tied to a named mechanism and falsifier. They do not establish
+Goldbach, novelty, or graph promotion by themselves.
+
+For archive extraction into an agent-readable local folder, use:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\extract_archive_for_agents.ps1 -ArchivePath "<archive.zip>"
+```
+
+The compiled startup receipt now has a Goldbach capability route through
+`codex-agent-ops`. Use it when available; otherwise use the direct bounded
+Academy capsule and the task's exact mathematical sources.
 The local Qwen default runtime manifest is absent at
 `C:\Users\benja\tools\qwen-cmd-assistant\runtime.json`; strict runtime validation
 therefore cannot pass. Record the exception and do not install a multi-gigabyte

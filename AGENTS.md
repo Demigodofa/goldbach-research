@@ -36,10 +36,20 @@ Use curiosity as a disciplined research lane:
 ## Local Math Tools
 
 This Windows machine has a local deterministic math stack recorded in
-`REFRESH_HANDOFF.md`: `numpy`, `scipy`, `sympy`, `z3-solver`, `pulp`, `cvxpy`,
-Octave via `oct2py`, and Kevin's queue helper at
-`C:\Users\benja\math_worker\mathcli.ps1`. Before relying on them, rerun the
-current shell smoke checks because PATH and worker state can drift.
+`REFRESH_HANDOFF.md` and `codex-agent-ops/knowledge/python_math_toolchain.md`:
+`numpy`, `scipy`, `sympy`, `z3-solver`, `pulp`, `cvxpy`, `oct2py`, `pandas`,
+`gmpy2`, `ortools`, `numba`, and Octave 11.3.0. Before relying on them, rerun
+the current shell smoke check because long-lived agent processes can inherit a
+stale PATH:
+
+```powershell
+cd C:\Users\KevinPenfield\source\repos\Demigodofa\codex-agent-ops
+powershell -ExecutionPolicy Bypass -File .\scripts\test_python_math_toolchain.ps1
+```
+
+The historical queue helper path `C:\Users\benja\math_worker\mathcli.ps1` is
+not present in the current Windows profile; use direct Python, `oct2py`, or
+`octave` unless a current worker is installed and verified.
 
 When long q286 receipts are running and CPU/RAM permit, one bounded local
 side-lane is appropriate for exact symbolic checks, solver counterexample
