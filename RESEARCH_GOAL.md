@@ -11980,3 +11980,36 @@ breaking true clears, or replace the stable/volatile split with a stronger
 arithmetic-placement theorem.  This is finite derivative evidence only; it
 proves no volatile-rim theorem, stable-core theorem, selected-fixture
 classifier theorem, pointwise character-sum estimate, or Goldbach.
+
+### 2026-09-14 continuation: volatile row thresholds
+
+The volatile channel map was then rewritten as explicit rowwise threshold
+inequalities.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-row-thresholds.json
+```
+
+For each selected row, the receipt enumerates all `256` volatile subsets and
+checks the exact inequality:
+
+```text
+margin to floor = stable-core margin + volatile-subset sum
+```
+
+The hardest selected row by satisfying-subset count is deficit target
+`13822`.  It has stable-core margin about `0.3023670686`, so the volatile
+subset must sum below about `-0.3023670686`; only `5` of `256` subsets do, and
+the minimum satisfying subset size is `6`.
+
+The next hardest selected deficit rows are `1222142`, with `32` satisfying
+subsets and minimum satisfying size `4`, and `164598`, with `46` satisfying
+subsets and minimum satisfying size `3`.  Row `1222142` has a size-four
+satisfying subset whose margin is only about `0.0001305906` below the floor.
+
+This makes the volatile/exclusion proof target more concrete: prove the
+signed row-threshold inequalities from actual binary-prime residue arithmetic,
+or replace them with a stronger non-circular arithmetic-placement theorem.
+This is finite threshold evidence only; it proves no volatile-rim theorem,
+stable-core theorem, selected-fixture classifier theorem, pointwise
+character-sum estimate, or Goldbach.

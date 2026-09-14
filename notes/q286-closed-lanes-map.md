@@ -1153,6 +1153,21 @@ current comparison set.
    deficit blockers under leave-one-out deletion.  This demotes a uniform
    negative-cap view of the volatile rim and sharpens the missing theorem to
    row-specific signed volatile action.
+113. `tools/build_q286_first_three_dominant_mode_volatile_row_thresholds.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-row-thresholds.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-row-thresholds.json`,
+   rewrites the selected volatile problem as explicit rowwise inequalities
+   `stable-core margin + volatile-subset sum` against the zero floor.  It
+   enumerates all `256` volatile subsets for every selected row.  The hardest
+   selected row is deficit `13822`: stable-core margin is about
+   `0.3023670686`, so the volatile subset must sum below about
+   `-0.3023670686`; only `5` subsets satisfy that row, and the minimum
+   satisfying size is `6`.  The next hardest rows are `1222142` with `32`
+   satisfying subsets and `164598` with `46`.  This sharpens the missing
+   theorem to signed row-threshold inequalities rather than a vague volatile
+   correction term.
 
 ## Still open
 
@@ -1212,5 +1227,8 @@ current comparison set.
   selected-row witness, and two channels also support true selected clears, so
   the missing volatile theorem is signed and row-specific rather than a pure
   deficit cap.
+  The volatile row-threshold ledger makes that obligation explicit: each
+  selected row is a finite threshold inequality, with `13822`, `1222142`, and
+  `164598` carrying the tightest subset constraints.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
