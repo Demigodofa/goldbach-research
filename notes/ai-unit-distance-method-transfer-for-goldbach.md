@@ -108,6 +108,38 @@ tools/build_q286_lift_project_dictionary_audit.py
 evidence/q286-lift-project-dictionary-audit.json
 ```
 
+## First audit outcome
+
+The first finite audit is now recorded in:
+
+```text
+notes/q286-lift-project-dictionary-audit.md
+```
+
+The simple label-only dictionary family did not pass the local
+hole-tightening gate.  The best real candidate was
+`full_low_frequency_lift`, with rank-`1` cosine about `0.8324697829`, no
+`0.75` residual-drag cap failures, no nonpositive reconstructed outside
+deltas, and `6` of `10` rank-`1` high-drag rows recovered at `k=10`.
+
+This is a partial signal rather than a proof route.  Retire the simplest
+static label-only family as the immediate explanation for the q286 rank-`1`
+direction, but preserve low-frequency label-lattice structure as a useful
+feature family for a richer row-dependent or number-field/ray-class lift.
+
+After Kevin pasted Claude's explicit order-weight proposal, the audit added
+that formula:
+
+```text
+v(a,b) = gcd(a,10)/10 * gcd(b,12)/12
+```
+
+The parity observation in Claude's response is valid for the outside labels,
+but not separating: the actual volatile labels are also all even parity.  The
+order-weight vector itself has rank-`1` cosine about `0.304375`, Spearman
+correlation about `-0.094778`, and `0/10` high-drag overlap, so it is
+falsified as the simple explanation for the frozen Octave rank-`1` direction.
+
 First local holes to target:
 
 - the arithmetic meaning of the frozen q286 rank-`1` outside direction;

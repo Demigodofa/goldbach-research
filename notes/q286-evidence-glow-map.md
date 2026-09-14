@@ -200,6 +200,20 @@ targets globally and `86` inside the first-three tail.  This is an
 separator in this fixture, while the nonrescued/full-nonpositive minority is
 where proof pressure remains.
 
+The lift-project dictionary audit adds the first method-transfer layer:
+
+```text
+evidence/q286-lift-project-dictionary-audit.json
+```
+
+It demotes simple static label-only lifts as the immediate explanation for
+the q286 rank-`1` outside direction.  The best low-frequency lift has cosine
+about `0.8324697829` with the frozen Octave rank-`1` direction and recovers
+`6/10` high-drag rows, which is a partial signal but below the predeclared
+hole-tightening gate.  Claude's order-weight proposal is also scored there:
+the parity observation is real but not separating, and the order-weight vector
+has cosine about `0.304375` with `0/10` high-drag overlap.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

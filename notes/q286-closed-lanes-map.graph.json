@@ -1317,6 +1317,14 @@
       "status": "aha_candidate_unvalidated",
       "validation": "notes/ai-unit-distance-method-transfer-for-goldbach.md preserves a source-backed strategy from the 2026 OpenAI unit-distance counterexample: change representation, use mature lifted structure, then prove projection loss; proposed q286 test is a predeclared lifted-dictionary audit against the frozen 17 outside channels",
       "status_boundary": "strategy note only; no lifted dictionary has been validated, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_lift_project_dictionary_audit",
+      "type": "receipt",
+      "label": "q286 lift-project dictionary audit",
+      "status": "finite_partial_falsifier",
+      "validation": "tools/build_q286_lift_project_dictionary_audit.py generated evidence/q286-lift-project-dictionary-audit.json; no simple label-only dictionary passes the local hole-tightening gate, full_low_frequency_lift is a partial signal with rank1 cosine about 0.8324697829 and 6/10 high-drag overlap, and Claude's order-weight vector is falsified as a rank1 explanation with cosine about 0.304375 and 0/10 high-drag overlap",
+      "status_boundary": "finite dictionary audit only; simple label-only family demoted as immediate explanation, but no universal no-go, no lifted dictionary theorem, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
     }
   ],
   "edges": [
@@ -2852,6 +2860,21 @@
     },
     {
       "from": "strategy.ai_unit_distance_lift_project_transfer",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_lift_project_dictionary_audit",
+      "to": "strategy.ai_unit_distance_lift_project_transfer",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.q286_lift_project_dictionary_audit",
+      "to": "receipt.q286_first_three_dominant_mode_outside_plane_remainder_octave_rank1_audit",
+      "type": "compares_with"
+    },
+    {
+      "from": "receipt.q286_lift_project_dictionary_audit",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

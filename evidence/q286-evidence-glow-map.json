@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "5d9f2b09262ce6d20deb6008fd4aa913a719167f",
+  "generated_from_commit": "7a11b4813070c6432a39438c7073fcd2c703627b",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -194,6 +194,14 @@
       "source": "evidence/q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json",
       "default_weight": 3.0,
       "boundary": "Finite falsifier for one sparse proof shortcut only."
+    },
+    {
+      "id": "lift-project-dictionary-audit",
+      "label": "Simple q286 lift-project dictionaries are demoted with one partial low-frequency signal",
+      "kind": "finite_partial_falsifier",
+      "source": "evidence/q286-lift-project-dictionary-audit.json",
+      "default_weight": 2.5,
+      "boundary": "Finite dictionary audit only; no lifted dictionary theorem."
     },
     {
       "id": "conditional-proof-stack",
@@ -1515,7 +1523,7 @@
     },
     {
       "id": "1242118",
-      "stack_weight": 37.0,
+      "stack_weight": 39.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1713,10 +1721,20 @@
               }
             ]
           }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.7019514025426515,
+            "reference_rank1_ratio": 0.7421344693153628,
+            "dictionary_delta_to_full_ratio": 3.355157543202675
+          }
         }
       ],
-      "layer_count": 17,
-      "glow": 0.685185
+      "layer_count": 18,
+      "glow": 0.731481
     },
     {
       "id": "129706",
@@ -2289,7 +2307,7 @@
     },
     {
       "id": "1220056",
-      "stack_weight": 14.5,
+      "stack_weight": 17.0,
       "layers": [
         {
           "layer": "above-floor-holdout-census",
@@ -2372,14 +2390,24 @@
               }
             ]
           }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.36873686300563885,
+            "reference_rank1_ratio": 0.4536962688479574,
+            "dictionary_delta_to_full_ratio": 1.584125448479867
+          }
         }
       ],
-      "layer_count": 6,
-      "glow": 0.268519
+      "layer_count": 7,
+      "glow": 0.314815
     },
     {
       "id": "1222048",
-      "stack_weight": 14.5,
+      "stack_weight": 17.0,
       "layers": [
         {
           "layer": "above-floor-holdout-census",
@@ -2462,10 +2490,168 @@
               }
             ]
           }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.25425625907233507,
+            "reference_rank1_ratio": 0.5116595150114096,
+            "dictionary_delta_to_full_ratio": 1.3409432022266174
+          }
+        }
+      ],
+      "layer_count": 7,
+      "glow": 0.314815
+    },
+    {
+      "id": "1200224",
+      "stack_weight": 14.0,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 168,
+            "signed_surplus": 0.043637464512128576,
+            "dominant_sum": -0.15028340975129342
+          }
+        },
+        {
+          "layer": "near-boundary-selector-audit",
+          "weight": 2.0,
+          "reason": "selector-audit closest margin row",
+          "value": {
+            "window_start": 1200200,
+            "target_mod_286": 168,
+            "target_mod_10010": 9034,
+            "signed_surplus": 0.043637464512128576
+          }
+        },
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1529488848280964,
+            "rank1_reconstructed_delta": 0.1870237800461432,
+            "residual_after_rank1": -0.0340748952180468
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.18219552192581986,
+            "residual_drag": 0.0340748952180468,
+            "rank1_reconstructed_delta": 0.1870237800461432
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.18219552192581986,
+            "full_outside_delta": 0.1529488848280964,
+            "window_start": 1200200
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.23190978951140742,
+            "reference_rank1_ratio": 0.1821955219258194,
+            "dictionary_delta_to_full_ratio": 1.3019304065389488
+          }
         }
       ],
       "layer_count": 6,
-      "glow": 0.268519
+      "glow": 0.259259
+    },
+    {
+      "id": "1222072",
+      "stack_weight": 13.5,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "small exact outside delta with positive rank-1 reconstruction",
+          "value": {
+            "full_outside_delta": 0.1285171257570954,
+            "rank1_reconstructed_delta": 0.16548373043330353,
+            "residual_after_rank1": -0.03696660467620813
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.22338513024461418,
+            "residual_drag": 0.03696660467620813,
+            "rank1_reconstructed_delta": 0.16548373043330353
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.2233851302446151,
+            "full_outside_delta": 0.1285171257570954,
+            "window_start": 1222000
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.22338513024461495,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.020512992020977797
+              },
+              {
+                "label": [
+                  3,
+                  5
+                ],
+                "negative_residual": 0.019866730853160833
+              },
+              {
+                "label": [
+                  3,
+                  7
+                ],
+                "negative_residual": 0.017736877090817924
+              }
+            ]
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.26505047730410447,
+            "reference_rank1_ratio": 0.22338513024461457,
+            "dictionary_delta_to_full_ratio": 1.3606376616612568
+          }
+        }
+      ],
+      "layer_count": 5,
+      "glow": 0.25
     },
     {
       "id": "1220124",
@@ -2627,65 +2813,6 @@
       "glow": 0.222222
     },
     {
-      "id": "1200224",
-      "stack_weight": 11.5,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 168,
-            "signed_surplus": 0.043637464512128576,
-            "dominant_sum": -0.15028340975129342
-          }
-        },
-        {
-          "layer": "near-boundary-selector-audit",
-          "weight": 2.0,
-          "reason": "selector-audit closest margin row",
-          "value": {
-            "window_start": 1200200,
-            "target_mod_286": 168,
-            "target_mod_10010": 9034,
-            "signed_surplus": 0.043637464512128576
-          }
-        },
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "small exact outside delta with positive rank-1 reconstruction",
-          "value": {
-            "full_outside_delta": 0.1529488848280964,
-            "rank1_reconstructed_delta": 0.1870237800461432,
-            "residual_after_rank1": -0.0340748952180468
-          }
-        },
-        {
-          "layer": "rank1-residual-drag-ledger",
-          "weight": 2.5,
-          "reason": "high residual-drag ratio on original checked denominator",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.18219552192581986,
-            "residual_drag": 0.0340748952180468,
-            "rank1_reconstructed_delta": 0.1870237800461432
-          }
-        },
-        {
-          "layer": "rank1-residual-drag-full-window",
-          "weight": 3.0,
-          "reason": "full-window high residual-drag row",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.18219552192581986,
-            "full_outside_delta": 0.1529488848280964,
-            "window_start": 1200200
-          }
-        }
-      ],
-      "layer_count": 5,
-      "glow": 0.212963
-    },
-    {
       "id": "1221042",
       "stack_weight": 11.5,
       "layers": [
@@ -2745,27 +2872,17 @@
       "glow": 0.212963
     },
     {
-      "id": "1222072",
+      "id": "1242070",
       "stack_weight": 11.0,
       "layers": [
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "small exact outside delta with positive rank-1 reconstruction",
-          "value": {
-            "full_outside_delta": 0.1285171257570954,
-            "rank1_reconstructed_delta": 0.16548373043330353,
-            "residual_after_rank1": -0.03696660467620813
-          }
-        },
         {
           "layer": "rank1-residual-drag-ledger",
           "weight": 2.5,
           "reason": "high residual-drag ratio on original checked denominator",
           "value": {
-            "residual_drag_to_rank1_ratio": 0.22338513024461418,
-            "residual_drag": 0.03696660467620813,
-            "rank1_reconstructed_delta": 0.16548373043330353
+            "residual_drag_to_rank1_ratio": 0.20093221854607793,
+            "residual_drag": 0.041528438735169565,
+            "rank1_reconstructed_delta": 0.20667884441661222
           }
         },
         {
@@ -2773,9 +2890,9 @@
           "weight": 3.0,
           "reason": "full-window high residual-drag row",
           "value": {
-            "residual_drag_to_rank1_ratio": 0.2233851302446151,
-            "full_outside_delta": 0.1285171257570954,
-            "window_start": 1222000
+            "residual_drag_to_rank1_ratio": 0.20093221854607846,
+            "full_outside_delta": 0.16515040568144265,
+            "window_start": 1242000
           }
         },
         {
@@ -2783,30 +2900,40 @@
           "weight": 3.0,
           "reason": "high-drag row resists one fixed five-channel certificate",
           "value": {
-            "residual_drag_to_rank1_ratio": 0.22338513024461495,
+            "residual_drag_to_rank1_ratio": 0.20093221854607832,
             "top_negative_residual_channels": [
               {
                 "label": [
+                  1,
+                  11
+                ],
+                "negative_residual": 0.024875733519317236
+              },
+              {
+                "label": [
                   2,
-                  2
+                  10
                 ],
-                "negative_residual": 0.020512992020977797
+                "negative_residual": 0.020062242081042746
               },
               {
                 "label": [
-                  3,
-                  5
+                  2,
+                  8
                 ],
-                "negative_residual": 0.019866730853160833
-              },
-              {
-                "label": [
-                  3,
-                  7
-                ],
-                "negative_residual": 0.017736877090817924
+                "negative_residual": 0.014596900099563357
               }
             ]
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.30411149730065706,
+            "reference_rank1_ratio": 0.20093221854607793,
+            "dictionary_delta_to_full_ratio": 1.4370118145665753
           }
         }
       ],
@@ -2893,6 +3020,54 @@
       "glow": 0.185185
     },
     {
+      "id": "1200262",
+      "stack_weight": 9.5,
+      "layers": [
+        {
+          "layer": "above-floor-holdout-census",
+          "weight": 1.5,
+          "reason": "primary holdout closest above-floor margin",
+          "value": {
+            "target_mod_286": 206,
+            "signed_surplus": 0.06193250948006862,
+            "dominant_sum": -0.12164090941396052
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-ledger",
+          "weight": 2.5,
+          "reason": "high residual-drag ratio on original checked denominator",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.17375666404960405,
+            "residual_drag": 0.03677795433218739,
+            "rank1_reconstructed_delta": 0.21166356141418566
+          }
+        },
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.17375666404960435,
+            "full_outside_delta": 0.17488560708199827,
+            "window_start": 1200200
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.2191649463115888,
+            "reference_rank1_ratio": 0.1737566640496036,
+            "dictionary_delta_to_full_ratio": 1.2806802093173517
+          }
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.175926
+    },
+    {
       "id": "1222018",
       "stack_weight": 9.5,
       "layers": [
@@ -2939,6 +3114,65 @@
       ],
       "layer_count": 4,
       "glow": 0.175926
+    },
+    {
+      "id": "1200254",
+      "stack_weight": 8.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.33596888551359766,
+            "full_outside_delta": 0.14488035491514292,
+            "window_start": 1200200
+          }
+        },
+        {
+          "layer": "residual-drag-channel-certificate-falsifier",
+          "weight": 3.0,
+          "reason": "high-drag row resists one fixed five-channel certificate",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.33596888551359755,
+            "top_negative_residual_channels": [
+              {
+                "label": [
+                  2,
+                  8
+                ],
+                "negative_residual": 0.026598324434939584
+              },
+              {
+                "label": [
+                  3,
+                  7
+                ],
+                "negative_residual": 0.0210670641037737
+              },
+              {
+                "label": [
+                  2,
+                  2
+                ],
+                "negative_residual": 0.019279462764980042
+              }
+            ]
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.3244963396230058,
+            "reference_rank1_ratio": 0.3359688855135973,
+            "dictionary_delta_to_full_ratio": 1.4803768782568942
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.157407
     },
     {
       "id": "1222030",
@@ -2991,65 +3225,6 @@
                   8
                 ],
                 "negative_residual": 0.016621600695248477
-              }
-            ]
-          }
-        }
-      ],
-      "layer_count": 3,
-      "glow": 0.157407
-    },
-    {
-      "id": "1242070",
-      "stack_weight": 8.5,
-      "layers": [
-        {
-          "layer": "rank1-residual-drag-ledger",
-          "weight": 2.5,
-          "reason": "high residual-drag ratio on original checked denominator",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.20093221854607793,
-            "residual_drag": 0.041528438735169565,
-            "rank1_reconstructed_delta": 0.20667884441661222
-          }
-        },
-        {
-          "layer": "rank1-residual-drag-full-window",
-          "weight": 3.0,
-          "reason": "full-window high residual-drag row",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.20093221854607846,
-            "full_outside_delta": 0.16515040568144265,
-            "window_start": 1242000
-          }
-        },
-        {
-          "layer": "residual-drag-channel-certificate-falsifier",
-          "weight": 3.0,
-          "reason": "high-drag row resists one fixed five-channel certificate",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.20093221854607832,
-            "top_negative_residual_channels": [
-              {
-                "label": [
-                  1,
-                  11
-                ],
-                "negative_residual": 0.024875733519317236
-              },
-              {
-                "label": [
-                  2,
-                  10
-                ],
-                "negative_residual": 0.020062242081042746
-              },
-              {
-                "label": [
-                  2,
-                  8
-                ],
-                "negative_residual": 0.014596900099563357
               }
             ]
           }
@@ -3128,44 +3303,6 @@
       "glow": 0.138889
     },
     {
-      "id": "1200262",
-      "stack_weight": 7.0,
-      "layers": [
-        {
-          "layer": "above-floor-holdout-census",
-          "weight": 1.5,
-          "reason": "primary holdout closest above-floor margin",
-          "value": {
-            "target_mod_286": 206,
-            "signed_surplus": 0.06193250948006862,
-            "dominant_sum": -0.12164090941396052
-          }
-        },
-        {
-          "layer": "rank1-residual-drag-ledger",
-          "weight": 2.5,
-          "reason": "high residual-drag ratio on original checked denominator",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.17375666404960405,
-            "residual_drag": 0.03677795433218739,
-            "rank1_reconstructed_delta": 0.21166356141418566
-          }
-        },
-        {
-          "layer": "rank1-residual-drag-full-window",
-          "weight": 3.0,
-          "reason": "full-window high residual-drag row",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.17375666404960435,
-            "full_outside_delta": 0.17488560708199827,
-            "window_start": 1200200
-          }
-        }
-      ],
-      "layer_count": 3,
-      "glow": 0.12963
-    },
-    {
       "id": "1240144",
       "stack_weight": 7.0,
       "layers": [
@@ -3202,55 +3339,6 @@
       ],
       "layer_count": 3,
       "glow": 0.12963
-    },
-    {
-      "id": "1200254",
-      "stack_weight": 6.0,
-      "layers": [
-        {
-          "layer": "rank1-residual-drag-full-window",
-          "weight": 3.0,
-          "reason": "full-window high residual-drag row",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.33596888551359766,
-            "full_outside_delta": 0.14488035491514292,
-            "window_start": 1200200
-          }
-        },
-        {
-          "layer": "residual-drag-channel-certificate-falsifier",
-          "weight": 3.0,
-          "reason": "high-drag row resists one fixed five-channel certificate",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.33596888551359755,
-            "top_negative_residual_channels": [
-              {
-                "label": [
-                  2,
-                  8
-                ],
-                "negative_residual": 0.026598324434939584
-              },
-              {
-                "label": [
-                  3,
-                  7
-                ],
-                "negative_residual": 0.0210670641037737
-              },
-              {
-                "label": [
-                  2,
-                  2
-                ],
-                "negative_residual": 0.019279462764980042
-              }
-            ]
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.111111
     },
     {
       "id": "1200482",
@@ -3383,6 +3471,34 @@
         }
       ],
       "layer_count": 5,
+      "glow": 0.101852
+    },
+    {
+      "id": "1221148",
+      "stack_weight": 5.5,
+      "layers": [
+        {
+          "layer": "rank1-residual-drag-full-window",
+          "weight": 3.0,
+          "reason": "full-window high residual-drag row",
+          "value": {
+            "residual_drag_to_rank1_ratio": 0.1850388088775552,
+            "full_outside_delta": 0.18587200484612396,
+            "window_start": 1221000
+          }
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.2578843939919464,
+            "reference_rank1_ratio": 0.1850388088775547,
+            "dictionary_delta_to_full_ratio": 1.347498950169157
+          }
+        }
+      ],
+      "layer_count": 2,
       "glow": 0.101852
     },
     {
@@ -3697,24 +3813,6 @@
       "glow": 0.055556
     },
     {
-      "id": "1221148",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "rank1-residual-drag-full-window",
-          "weight": 3.0,
-          "reason": "full-window high residual-drag row",
-          "value": {
-            "residual_drag_to_rank1_ratio": 0.1850388088775552,
-            "full_outside_delta": 0.18587200484612396,
-            "window_start": 1221000
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.055556
-    },
-    {
       "id": "1221154",
       "stack_weight": 3.0,
       "layers": [
@@ -3798,6 +3896,24 @@
             "full_outside_delta": 0.1572128871373991,
             "rank1_reconstructed_delta": 0.16162576947302487,
             "residual_after_rank1": -0.004412882335625784
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.046296
+    },
+    {
+      "id": "1240138",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "high residual-drag row under best simple low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.2755458382503054,
+            "reference_rank1_ratio": 0.11573123240410073,
+            "dictionary_delta_to_full_ratio": 1.3803495828981225
           }
         }
       ],
@@ -4310,6 +4426,27 @@
       "glow": 0.277778
     },
     {
+      "id": "simple-label-only-lift-demoted",
+      "stack_weight": 2.5,
+      "layers": [
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "no simple label-only dictionary passes the local hole-tightening gate",
+          "value": {
+            "passing_dictionary_count": 0,
+            "best_dictionary": "full_low_frequency_lift",
+            "best_rank1_cosine": 0.8324697828558575,
+            "best_high_drag_overlap": 6,
+            "claude_order_weight_cosine": 0.30437452908871226,
+            "claude_order_weight_high_drag_overlap": 0
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.277778
+    },
+    {
       "id": "actual-arithmetic-placement-inside-weak-cone",
       "stack_weight": 2.0,
       "layers": [
@@ -4395,6 +4532,19 @@
           "layer": "fixed-inequality-target-window",
           "weight": 2.0,
           "reason": "active component pair stress path passed on tiny window"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
+      "id": "low-frequency-label-lattice-partial-signal",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.0,
+          "reason": "full_low_frequency_lift keeps positivity and the 0.75 cap but misses the explanation gate"
         }
       ],
       "layer_count": 1,
@@ -4776,6 +4926,24 @@
       "glow": 0.30303
     },
     {
+      "id": "rank1-outside-direction-arithmetic-meaning",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.30303
+    },
+    {
       "id": "near-boundary-selector-theorem",
       "stack_weight": 3.5,
       "layers": [
@@ -4792,19 +4960,6 @@
       ],
       "layer_count": 2,
       "glow": 0.212121
-    },
-    {
-      "id": "rank1-outside-direction-arithmetic-meaning",
-      "stack_weight": 2.5,
-      "layers": [
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.151515
     },
     {
       "id": "alignment-plus-complement-tail",

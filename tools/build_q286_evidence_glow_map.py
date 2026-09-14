@@ -101,6 +101,8 @@ def main():
     residual_drag_channel_certificate = load_json(
         EVIDENCE
         / "q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json")
+    lift_project_dictionary = load_json(
+        EVIDENCE / "q286-lift-project-dictionary-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1069,6 +1071,65 @@ def main():
         "residual-drag-channel-certificate-falsifier",
         3.0,
         "tiny static bad-channel proof route is closed; use row-dependent balance or larger cone")
+
+    layer(
+        "lift-project-dictionary-audit",
+        "Simple q286 lift-project dictionaries are demoted with one partial low-frequency signal",
+        "finite_partial_falsifier",
+        "evidence/q286-lift-project-dictionary-audit.json",
+        2.5,
+        "Finite dictionary audit only; no lifted dictionary theorem.")
+    best_lift = lift_project_dictionary["best_dictionary_by_rank1_cosine"]
+    for row in lift_project_dictionary["dictionary_rows"][0][
+            "rows_by_residual_drag_ratio"][:10]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "lift-project-dictionary-audit",
+            2.5,
+            "high residual-drag row under best simple low-frequency lift",
+            {
+                "dictionary_ratio": (
+                    row["residual_drag_to_dictionary_ratio"]),
+                "reference_rank1_ratio": (
+                    row["reference_rank1_residual_drag_to_rank1_ratio"]),
+                "dictionary_delta_to_full_ratio": (
+                    row["dictionary_delta_to_full_delta_ratio"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "simple-label-only-lift-demoted",
+        "lift-project-dictionary-audit",
+        2.5,
+        "no simple label-only dictionary passes the local hole-tightening gate",
+        {
+            "passing_dictionary_count": lift_project_dictionary[
+                "passing_dictionary_count"],
+            "best_dictionary": best_lift["id"],
+            "best_rank1_cosine": best_lift["rank1_direction_cosine"],
+            "best_high_drag_overlap": best_lift[
+                "high_drag_overlap_count_at_reference_k"],
+            "claude_order_weight_cosine": next(
+                row["rank1_direction_cosine"]
+                for row in lift_project_dictionary["dictionary_rows"]
+                if row["id"] == "claude_order_weight_lift"),
+            "claude_order_weight_high_drag_overlap": next(
+                row["high_drag_overlap_count_at_reference_k"]
+                for row in lift_project_dictionary["dictionary_rows"]
+                if row["id"] == "claude_order_weight_lift"),
+        })
+    add_hit(
+        mechanism_stacks,
+        "low-frequency-label-lattice-partial-signal",
+        "lift-project-dictionary-audit",
+        2.0,
+        "full_low_frequency_lift keeps positivity and the 0.75 cap but misses the explanation gate")
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "lift-project-dictionary-audit",
+        2.5,
+        "simple label-only lifted dictionaries do not fully explain rank-1")
 
     layer(
         "conditional-proof-stack",

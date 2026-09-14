@@ -12929,3 +12929,50 @@ This is an `aha-candidate`, not proof progress by itself.  It is retired if
 candidate lifts only work after tuning to the rows, if they collapse to the
 already-refuted fixed small-channel certificate, or if they merely rename an
 unproved pointwise Goldbach-in-progressions theorem.
+
+### 2026-09-14 continuation: q286 lift-project dictionary audit
+
+The first executable audit for the method-transfer lane is:
+
+```text
+evidence/q286-lift-project-dictionary-audit.json
+```
+
+It tests simple, predeclared label-only dictionaries on the `17` outside q286
+real channels: all-ones, low-degree label polynomials, separate and coupled
+low-frequency character phases on the `C10 x C12` label lattice, and
+parity/edge classes.  Each nontrivial dictionary is projected once onto the
+frozen Octave rank-`1` right singular vector, then replayed across all `715`
+full-window clear-minus-stress outside-channel rows.  No row-specific fitting
+is allowed.
+
+Result: the simple family does not pass the local hole-tightening gate.  The
+best real candidate, `full_low_frequency_lift`, has rank-`1` cosine about
+`0.8324697829`, no nonpositive reconstructed outside deltas, no `0.75`
+residual-drag cap failures, and `6/10` overlap with the rank-`1` high-drag
+targets at `k=10`.  That is a partial signal, not a rank-`1` explanation.
+The all-ones vector is a tautological outside-sum baseline and has no
+high-drag overlap.
+
+External critique: Grok, used as a sequential-adversarial critic through
+Kevin's manual paste route, argued that no simple label-only arithmetic
+dictionary should explain the rank-`1` direction.  The audit supports the
+cautious version of that criticism but does not prove a universal no-go.
+
+Claude, also via Kevin's manual paste route, proposed an explicit parity plus
+order-weight dictionary.  The follow-up audit keeps the useful correction:
+the `17` outside labels are indeed all even parity, but the actual `8`
+volatile labels are also all even parity, so parity does not separate the
+outside family from the removed pair/complement channels.  Claude's proposed
+order-weight vector `gcd(a,10)/10 * gcd(b,12)/12` is falsified as a rank-`1`
+explanation: cosine about `0.304375`, Spearman about `-0.094778`, Pearson
+about `-0.169460`, and `0/10` high-drag overlap.  The vector has no `0.75`
+cap failures only because it under-reconstructs the exact outside delta, with
+mean dictionary/full ratio about `0.497819`.
+
+Decision: demote the simple static label-only dictionary family as the
+immediate explanation for q286 rank-`1`.  Preserve low-frequency label-lattice
+features as a useful partial component.  The next lift, if pursued, should
+include target residue or splitting data before fitting and should be tested
+on a held-out denominator; otherwise return to row-dependent residual balance
+or a larger signed cone.

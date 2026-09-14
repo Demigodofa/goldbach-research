@@ -21104,6 +21104,42 @@ the lift requires post-hoc fitting, collapses to the already-refuted fixed
 small-channel certificate, or merely restates an unproved pointwise
 Goldbach-in-progressions theorem.
 
+Lift-project dictionary audit:
+
+- `tools/build_q286_lift_project_dictionary_audit.py`
+- `notes/q286-lift-project-dictionary-audit.md`
+- `evidence/q286-lift-project-dictionary-audit.json`
+
+The first executable method-transfer audit tests simple predeclared
+label-only dictionaries on the `17` outside q286 real channels.  It compares
+them to the frozen Octave rank-`1` outside direction and scores positivity,
+`0.75` residual-drag cap survival, and recovery of the `10` rank-`1`
+high-drag rows.
+
+No candidate passes the full local hole-tightening gate.  The best real
+candidate is `full_low_frequency_lift`, with cosine about `0.8324697829`
+against the frozen rank-`1` direction, zero nonpositive reconstructed outside
+deltas, zero `0.75` cap failures, and `6/10` high-drag overlap at `k=10`.
+The all-ones vector is only a tautological outside-sum baseline, not an
+explanation of rank-`1`.
+
+Interpretation: the simple static label-only dictionary family is now
+demoted as the immediate explanation for q286 rank-`1`, but low-frequency
+label-lattice structure survives as a partial signal.  The next representation
+shift should include target residue or splitting data up front and be tested
+on a held-out denominator, or else move back to row-dependent residual balance
+and larger signed cones.
+
+Claude candidate update: Kevin pasted Claude's proposed parity/order-weight
+dictionary.  The parity claim is half-right but not separating: all `17`
+outside labels and all `8` actual volatile labels have even `a+b` parity in
+this pipeline.  The order-weight vector
+`gcd(a,10)/10 * gcd(b,12)/12` is falsified as a simple rank-`1` explanation:
+rank-`1` cosine about `0.304375`, Spearman about `-0.094778`, Pearson about
+`-0.169460`, and `0/10` high-drag overlap.  Its zero cap failures come from
+under-reconstruction, with mean dictionary/full delta ratio about `0.497819`,
+not from explaining residual drag.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
