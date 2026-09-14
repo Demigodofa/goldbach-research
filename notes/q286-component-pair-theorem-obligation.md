@@ -1543,3 +1543,38 @@ sources do not supply the pointwise fixed-modulus channel estimate above.
 These sources support the caution that the missing channel theorem may brush
 against RH/GRH-type terrain, but they are not an importable proof of the
 selected q286 conditional closure.
+
+## 2026-09-14: late active rows are premise-empty for the fixed inequality
+
+`q286-fixed-inequality-target-window-census-late-122-132.json` records a
+predeclared target-denominator check on the two known late active starts not
+covered by the prior fixed-inequality target-window file:
+
+```text
+starts: 1222142, 1323632
+targets per window: 5
+scanned targets: 10
+tail targets: 2
+stress-tested targets: 2
+evaluated targets: 0
+not-applicable targets: 2
+error targets: 0
+residual polygon rows: 0
+```
+
+Both starts satisfy the unchanged active selector, but the residual-polygon
+premise for the active fixed inequality is empty on both targets.  Therefore
+these rows are denominator evidence for the target census and active-selector
+posture; they are not support for the phase-antipodal thin-large-side
+inequality and not counterexamples to it.
+
+The run also exposed a tool-boundary bug: Python 3.14 reports the empty
+`max()` case as `max() iterable argument is empty`, while the stress receipt
+only recognized the older empty-sequence wording.  The classifier now treats
+both empty `min()`/`max()` wordings as
+`not_applicable_no_residual_polygons`, and the target-census wrapper preserves
+the lower stress row's `error_type` and `error` fields for auditability.
+
+Status: finite diagnostic and tooling repair only.  Goldbach, the fixed
+inequality uniform theorem, and the pointwise fixed-conductor twisted
+binary-prime estimate remain open.

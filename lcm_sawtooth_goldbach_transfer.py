@@ -20582,8 +20582,11 @@ def q286_lower_support_component_pair_fixed_inequality_stress_receipt(
                     thin_side_ratio_threshold=thin_side_ratio_threshold,
                     tolerance=tolerance))
         except ValueError as exc:
-            if ("min() arg is an empty sequence" in str(exc)
-                    or "max() arg is an empty sequence" in str(exc)):
+            empty_sequence_error = str(exc)
+            if ("min() arg is an empty sequence" in empty_sequence_error
+                    or "max() arg is an empty sequence" in empty_sequence_error
+                    or "min() iterable argument is empty" in empty_sequence_error
+                    or "max() iterable argument is empty" in empty_sequence_error):
                 row = {
                     "component_pair": pair,
                     "targets": targets,
@@ -20854,6 +20857,8 @@ def q286_lower_support_component_pair_fixed_inequality_target_census_receipt(
                 "worst_margin": stress_row.get("worst_margin"),
                 "worst_representative_label": stress_row.get(
                     "worst_representative_label"),
+                "error_type": stress_row.get("error_type"),
+                "error": stress_row.get("error"),
                 "first_two_modes_to_principal_ratio": lower_row[
                     "first_two_modes_to_principal_ratio"],
                 "first_three_modes_to_principal_ratio": lower_row[

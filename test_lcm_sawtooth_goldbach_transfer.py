@@ -3481,6 +3481,30 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertFalse(receipt["signed_prime_correlation_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])
 
+    def test_q286_fixed_inequality_target_census_premise_empty_active_row(
+            self):
+        _q286_first_two_mode_lower_tail_selected_cached.cache_clear()
+        receipt = (
+            q286_lower_support_component_pair_fixed_inequality_target_census_receipt(
+                start=1222142, targets_per_cycle=5))
+        self.assertTrue(receipt["target_census_is_neutral_window_sample"])
+        self.assertEqual(receipt["tail_targets"], (1222142,))
+        self.assertEqual(receipt["stress_tested_targets"], (1222142,))
+        self.assertEqual(receipt["evaluated_target_count"], 0)
+        self.assertEqual(receipt["passing_target_count"], 0)
+        self.assertEqual(receipt["failing_target_count"], 0)
+        self.assertEqual(receipt["not_applicable_target_count"], 1)
+        self.assertEqual(receipt["not_applicable_targets"], (1222142,))
+        self.assertEqual(receipt["error_target_count"], 0)
+        self.assertEqual(receipt["total_residual_polygon_row_count"], 0)
+        row = receipt["target_rows"][1222142]
+        self.assertEqual(row["status"], "not_applicable_no_residual_polygons")
+        self.assertFalse(row["evaluated"])
+        self.assertEqual(row["error_type"], "ValueError")
+        self.assertIn("iterable argument is empty", row["error"])
+        self.assertFalse(receipt["fixed_inequality_uniform_theorem_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
     def test_q286_lower_support_component_pair_tail_selector_grid(self):
         receipt = q286_lower_support_component_pair_tail_selector_grid_receipt(
             starts=(1379072,), targets_per_window=5)

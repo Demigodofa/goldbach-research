@@ -11437,3 +11437,42 @@ in `34.893s`.  All `5005` even residues modulo `10010` remain obstructed, with
 maximum reflection weight error `0`.  Therefore pair-swap symmetry alone does
 not prove the component-pair exclusion; the missing theorem must use sharper
 prime-pair arithmetic.
+
+### 2026-09-14 continuation: late active fixed-inequality premise-empty audit
+
+The fixed-inequality target census was extended to the two known late active
+starts not covered by `q286-fixed-inequality-target-window-census.json`.
+The new evidence file is
+`evidence/q286-fixed-inequality-target-window-census-late-122-132.json`.
+
+It scans predeclared windows starting at `1222142` and `1323632`, with five
+even targets per window.  The unchanged active selector finds exactly those
+two starts as tail targets.  Both are stress-tested by the fixed-inequality
+target-census route, but both are classified
+`not_applicable_no_residual_polygons`: no residual polygon row is generated,
+so there is no fixed-inequality evaluation, no pass, no failure, and no
+counterexample.
+
+Counts:
+
+```text
+scanned_target_count 10
+tail_target_count 2
+stress_tested_target_count 2
+evaluated_target_count 0
+passing_target_count 0
+failing_target_count 0
+not_applicable_target_count 2
+error_target_count 0
+total_residual_polygon_row_count 0
+```
+
+This is denominator evidence only.  It narrows the active fixed-inequality
+premise to the previously identified residual-polygon row rather than
+reinforcing the inequality on these two late active rows.
+
+The run also repaired a receipt classification bug: Python 3.14 emits
+`max() iterable argument is empty` for this premise-empty path.  The stress
+receipt now treats both the old empty-sequence wording and the Python 3.14
+wording as `not_applicable_no_residual_polygons`, and the target-census row
+preserves the lower stress row's error fields.  Goldbach remains open.
