@@ -11876,3 +11876,38 @@ partition, or replace the route with lower-support/complement rescue.  This
 is finite derivative evidence only; it proves no stable-core theorem,
 volatile-rim theorem, one-parameter budget theorem, pointwise character-sum
 estimate, or Goldbach.
+
+### 2026-09-14 continuation: stable-core selected classification
+
+The same frozen stable/volatile partition was then applied absolutely to the
+older ten-row selected q286 fixture containing five dominant-floor deficits
+and five clears.  The new evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-stable-core-selected-classification.json
+```
+
+The `17`-channel stable core preserves every selected clear row:
+
+```text
+stable-core missed clears: 0
+selected clear rows:       13556, 40420, 129706, 1242118, 1240888
+```
+
+But stable core alone is not a selected-fixture classifier.  It over-rescues
+three selected deficit rows:
+
+```text
+stable-core false positives: 13822, 164598, 1222142
+stable-core false negatives: 0
+```
+
+Restoring the volatile rim restores exactly those three stable-core false
+positives, with reconstruction error below `8e-15`.  This keeps a finite
+clear-side stable-core lower-bound target alive, but it also says the
+volatile rim carries real row-dependent classification/exclusion work.  The
+next theorem target is therefore stable-core clear preservation plus a
+non-circular volatile/exclusion theorem, or a stronger arithmetic-placement
+replacement.  This is finite selected-fixture evidence only; it proves no
+stable-core theorem, volatile-rim theorem, coupled budget theorem, pointwise
+character-sum estimate, or Goldbach.

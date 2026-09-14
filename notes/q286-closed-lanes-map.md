@@ -1112,6 +1112,20 @@ current comparison set.
    clears, so this demotes only the one-parameter rectangle shortcut and keeps
    the row-dependent coupled-budget, pressure-subregion, richer-partition, or
    lower-support/complement routes alive.
+110. `tools/build_q286_first_three_dominant_mode_stable_core_selected_classification.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-stable-core-selected-classification.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-stable-core-selected-classification.json`,
+   applies the same frozen stable/volatile partition absolutely to the older
+   ten-row selected q286 deficit/clear fixture.  The `17`-channel stable core
+   preserves all five selected clears and misses no clear row, but over-rescues
+   three selected deficits: `13822`, `164598`, and `1222142`.  Restoring the
+   volatile rim restores exactly those three stable-core false positives, with
+   reconstruction error below `8e-15`.  This demotes stable core as a standalone
+   selected-fixture classifier while keeping a finite clear-side stable-core
+   lower-bound target alive; the volatile rim carries row-dependent
+   classification/exclusion work and cannot be treated as disposable noise.
 
 ## Still open
 
@@ -1161,5 +1175,8 @@ current comparison set.
   The stable-core rectangle falsifier further says the coupled rowwise budget
   cannot be simplified to a single independent stable-surplus allowance and
   volatile-drag cap on the named fixture.
+  The selected-classification receipt further says stable core alone preserves
+  selected clears but over-rescues selected deficits; volatile/exclusion
+  control is part of the theorem, not an optional cleanup.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
