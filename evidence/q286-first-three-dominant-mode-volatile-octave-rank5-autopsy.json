@@ -1,0 +1,1213 @@
+{
+  "arithmetic_modulus": 286,
+  "candidate": "The fifth SVD mode might be the linear shadow of the named adverse-pair absorption hinge at stress row 1222142.",
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "falsifier": "If the fifth vector is mixed across several volatile labels and the stress-row rescue is not concentrated on the adverse pair, then rank 5 remains diagnostic and not a direct proof route.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "hole_status": "The finite q286 loop is still tightening: rank 5 names the first SVD correction that closes the selected fixture, but the correction is a mixed channel balance rather than an obvious two-channel theorem.",
+    "remaining_theorem": "Prove the signed adverse-pair absorption balance from actual binary-prime residue weights, or find a stronger signed aggregate arithmetic-placement theorem.",
+    "route_status": "Octave remains useful for exposing the shape of the hole, but the fifth mode does not replace the explicit six-versus-two adverse-absorption obligation."
+  },
+  "mechanism": "Use Octave to isolate the rank-5 increment C5 = sigma_5 u_5 v_5^T.  Compare rank-4 and rank-5 reconstructed oriented margins, then inspect the fifth right singular vector and the stress-row channel contributions.",
+  "novelty_label": "new-to-this-task",
+  "octave": {
+    "operation": "svd(M, 'econ') plus explicit sigma_5*u_5*v_5' component audit",
+    "reported_singular_vectors_canonicalized": "u5 and v5 signs are flipped if needed so the stress-row rank-5 row-sum increment is positive; the rank-5 component matrix is sign-invariant",
+    "used": true,
+    "version": "11.3.0"
+  },
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If rank 5 is a theorem-shaped correction, its stress-row increment should rescue the rank-4 failure through a named channel pattern rather than diffuse numerical cleanup.",
+  "rank4_energy_fraction": 0.9315947381283046,
+  "rank4_failing_targets": [
+    13556,
+    13822,
+    24424,
+    164598,
+    1222142
+  ],
+  "rank5_energy_fraction": 0.9781980271728825,
+  "rank5_left_singular_vector_by_target": [
+    {
+      "absolute_loading": 0.35153700179219,
+      "left_singular_vector_loading": -0.35153700179219,
+      "target": 13556
+    },
+    {
+      "absolute_loading": 0.6241683688011816,
+      "left_singular_vector_loading": -0.6241683688011816,
+      "target": 13822
+    },
+    {
+      "absolute_loading": 0.25811044733150074,
+      "left_singular_vector_loading": -0.25811044733150074,
+      "target": 24424
+    },
+    {
+      "absolute_loading": 0.36808310517822923,
+      "left_singular_vector_loading": -0.36808310517822923,
+      "target": 40420
+    },
+    {
+      "absolute_loading": 0.2682200965228732,
+      "left_singular_vector_loading": -0.2682200965228732,
+      "target": 55864
+    },
+    {
+      "absolute_loading": 0.2539132431669224,
+      "left_singular_vector_loading": 0.2539132431669224,
+      "target": 129706
+    },
+    {
+      "absolute_loading": 0.18412536737426588,
+      "left_singular_vector_loading": -0.18412536737426588,
+      "target": 164598
+    },
+    {
+      "absolute_loading": 0.2006901159100047,
+      "left_singular_vector_loading": -0.2006901159100047,
+      "target": 1222142
+    },
+    {
+      "absolute_loading": 0.11746397785949775,
+      "left_singular_vector_loading": 0.11746397785949775,
+      "target": 1240888
+    },
+    {
+      "absolute_loading": 0.24563996734280646,
+      "left_singular_vector_loading": 0.24563996734280646,
+      "target": 1242118
+    }
+  ],
+  "rank5_low_rank_theorem_proved": false,
+  "rank5_mode_autopsy_measured": true,
+  "rank5_named_adverse_pair_theorem_proved": false,
+  "rank5_rescued_targets": [
+    13556,
+    13822,
+    24424,
+    164598,
+    1222142
+  ],
+  "rank5_right_singular_vector_by_channel": [
+    {
+      "absolute_loading": 0.2544685687762269,
+      "label": [
+        1,
+        1
+      ],
+      "right_singular_vector_loading": -0.2544685687762269
+    },
+    {
+      "absolute_loading": 0.2819158794525237,
+      "label": [
+        1,
+        3
+      ],
+      "right_singular_vector_loading": -0.2819158794525237
+    },
+    {
+      "absolute_loading": 0.05488553952630999,
+      "label": [
+        1,
+        5
+      ],
+      "right_singular_vector_loading": -0.05488553952630999
+    },
+    {
+      "absolute_loading": 0.477402585211417,
+      "label": [
+        1,
+        7
+      ],
+      "right_singular_vector_loading": 0.477402585211417
+    },
+    {
+      "absolute_loading": 0.6021754534713533,
+      "label": [
+        2,
+        4
+      ],
+      "right_singular_vector_loading": -0.6021754534713533
+    },
+    {
+      "absolute_loading": 0.06417908830079169,
+      "label": [
+        3,
+        3
+      ],
+      "right_singular_vector_loading": -0.06417908830079169
+    },
+    {
+      "absolute_loading": 0.5005636773943238,
+      "label": [
+        4,
+        4
+      ],
+      "right_singular_vector_loading": -0.5005636773943238
+    },
+    {
+      "absolute_loading": 0.08686372278904059,
+      "label": [
+        4,
+        10
+      ],
+      "right_singular_vector_loading": -0.08686372278904059
+    }
+  ],
+  "rank5_right_singular_vector_top_abs_channels": [
+    {
+      "absolute_loading": 0.6021754534713533,
+      "label": [
+        2,
+        4
+      ],
+      "right_singular_vector_loading": -0.6021754534713533
+    },
+    {
+      "absolute_loading": 0.5005636773943238,
+      "label": [
+        4,
+        4
+      ],
+      "right_singular_vector_loading": -0.5005636773943238
+    },
+    {
+      "absolute_loading": 0.477402585211417,
+      "label": [
+        1,
+        7
+      ],
+      "right_singular_vector_loading": 0.477402585211417
+    },
+    {
+      "absolute_loading": 0.2819158794525237,
+      "label": [
+        1,
+        3
+      ],
+      "right_singular_vector_loading": -0.2819158794525237
+    },
+    {
+      "absolute_loading": 0.2544685687762269,
+      "label": [
+        1,
+        1
+      ],
+      "right_singular_vector_loading": -0.2544685687762269
+    },
+    {
+      "absolute_loading": 0.08686372278904059,
+      "label": [
+        4,
+        10
+      ],
+      "right_singular_vector_loading": -0.08686372278904059
+    },
+    {
+      "absolute_loading": 0.06417908830079169,
+      "label": [
+        3,
+        3
+      ],
+      "right_singular_vector_loading": -0.06417908830079169
+    },
+    {
+      "absolute_loading": 0.05488553952630999,
+      "label": [
+        1,
+        5
+      ],
+      "right_singular_vector_loading": -0.05488553952630999
+    }
+  ],
+  "rank5_row_effects": [
+    {
+      "dominant_floor_passes": true,
+      "full_oriented_margin": 0.009564090345658804,
+      "rank4_oriented_margin": -0.027864022216966655,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.017431802278218674,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.017431802278218674,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.014490339985953933,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.014490339985953933,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.013819871641300234,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.013819871641300234,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.008160913636344873,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.008160913636344873,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.007366367644773984,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.007366367644773984,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.002514534978268732,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.002514534978268732,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0018578591525218319,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.0018578591525218319,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0015888290820235277,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0015888290820235277,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.011726752899838655,
+      "rank5_rescues_rank4_failure": true,
+      "rank5_row_sum_increment": 0.039590775116805324,
+      "target": 13556
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_oriented_margin": 0.03674434602429272,
+      "rank4_oriented_margin": -0.025318214990508514,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.030950880100218795,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.030950880100218795,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.02572819312418776,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.02572819312418776,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.024537749071693073,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.024537749071693073,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.014490036970093616,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.014490036970093616,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.013079287965101286,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.013079287965101286,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004464660014957146,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.004464660014957146,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.003298705145631871,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.003298705145631871,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.002821031218263455,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.002821031218263455,
+          "stress_or_row_side": "adverse"
+        }
+      ],
+      "rank5_oriented_margin": 0.04497683047625234,
+      "rank5_rescues_rank4_failure": true,
+      "rank5_row_sum_increment": 0.07029504546676085,
+      "target": 13822
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_oriented_margin": 0.013458672694179202,
+      "rank4_oriented_margin": -0.02129265797989976,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.012799023320125658,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.012799023320125658,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.010639301458146516,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.010639301458146516,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.010147020749493042,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.010147020749493042,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005992020921188607,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.005992020921188607,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005408638175519501,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.005408638175519501,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0018462572780754344,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.0018462572780754344,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0013641035068615826,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.0013641035068615826,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0011665724603773452,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0011665724603773452,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.0077762383909018426,
+      "rank5_rescues_rank4_failure": true,
+      "rank5_row_sum_increment": 0.0290688963708016,
+      "target": 24424
+    },
+    {
+      "dominant_floor_passes": true,
+      "full_oriented_margin": 0.048938403503474975,
+      "rank4_oriented_margin": 0.003882151675120127,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.018252280353726936,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.018252280353726936,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.015172369650780466,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.015172369650780466,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.014470343778779293,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.014470343778779293,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.008545030585807061,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.008545030585807061,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.007713086994397544,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.007713086994397544,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.002632888822973937,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.002632888822973937,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.001945304654581662,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.001945304654581662,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0016636119075010222,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0016636119075010222,
+          "stress_or_row_side": "adverse"
+        }
+      ],
+      "rank5_oriented_margin": 0.045336380866109444,
+      "rank5_rescues_rank4_failure": false,
+      "rank5_row_sum_increment": 0.04145422919098933,
+      "target": 40420
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_oriented_margin": 0.099228575791689,
+      "rank4_oriented_margin": 0.06838279469965038,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.013300334433629256,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.013300334433629256,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.011056020759883947,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.011056020759883947,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.010544458440123214,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.010544458440123214,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.006226715913533415,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.006226715913533415,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005620483279516165,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.005620483279516165,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.001918571334291798,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.001918571334291798,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0014175326030398546,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.0014175326030398546,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0012122646764525212,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0012122646764525212,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.09859025925987414,
+      "rank5_rescues_rank4_failure": false,
+      "rank5_row_sum_increment": 0.03020746456022374,
+      "target": 55864
+    },
+    {
+      "dominant_floor_passes": true,
+      "full_oriented_margin": 0.05842892627684915,
+      "rank4_oriented_margin": 0.08721844472121007,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.012590894921848266,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": -0.012590894921848266,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.010466292884297568,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": -0.010466292884297568,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.009982017286099185,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": 0.009982017286099185,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005894583039751934,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": -0.005894583039751934,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005320686839532579,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": -0.005320686839532579,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0018162347864772203,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": -0.0018162347864772203,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0013419214488352292,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": -0.0013419214488352292,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0011476025084067858,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": -0.0011476025084067858,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.05862224557815966,
+      "rank5_rescues_rank4_failure": false,
+      "rank5_row_sum_increment": -0.028596199143050397,
+      "target": 129706
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_oriented_margin": 0.0191517924551758,
+      "rank4_oriented_margin": -0.005993933314972083,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.009130296333271753,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.009130296333271753,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.00758963966720347,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.00758963966720347,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.007238466875597437,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.007238466875597437,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004274461048882506,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.004274461048882506,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.003858299814509167,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.003858299814509167,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0013170439364527176,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.0013170439364527176,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0009730952851157998,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.0009730952851157998,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0008321847684057906,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0008321847684057906,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.014742620663271672,
+      "rank5_rescues_rank4_failure": true,
+      "rank5_row_sum_increment": 0.02073655397824377,
+      "target": 164598
+    },
+    {
+      "dominant_floor_passes": false,
+      "full_oriented_margin": 0.008833179560530174,
+      "rank4_oriented_margin": -0.017030525209106265,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.009951698973082932,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": 0.009951698973082932,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.008272437884292948,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": 0.008272437884292948,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.007889672004409607,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": -0.007889672004409607,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004659010844547681,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": 0.004659010844547681,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004205409868459097,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": 0.004205409868459097,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0014355311494260018,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": 0.0014355311494260018,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0010606393260544477,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": 0.0010606393260544477,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0009070518636925242,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": 0.0009070518636925242,
+          "stress_or_row_side": "repair"
+        }
+      ],
+      "rank5_oriented_margin": 0.005571582696039752,
+      "rank5_rescues_rank4_failure": true,
+      "rank5_row_sum_increment": 0.022602107905146027,
+      "target": 1222142
+    },
+    {
+      "dominant_floor_passes": true,
+      "full_oriented_margin": 0.027186573380918205,
+      "rank4_oriented_margin": 0.05842450720012213,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.005824732037938522,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": -0.005824732037938522,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004841860079050439,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": -0.004841860079050439,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.004617827108437427,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": 0.004617827108437427,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.002726920278109354,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": -0.002726920278109354,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0024614275069745318,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": -0.0024614275069745318,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0008402167609909138,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": -0.0008402167609909138,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0006207924777343824,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": -0.0006207924777343824,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0005308976954399344,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": -0.0005308976954399344,
+          "stress_or_row_side": "adverse"
+        }
+      ],
+      "rank5_oriented_margin": 0.045195487472321494,
+      "rank5_rescues_rank4_failure": false,
+      "rank5_row_sum_increment": -0.013229019727800651,
+      "target": 1240888
+    },
+    {
+      "dominant_floor_passes": true,
+      "full_oriented_margin": 0.01652891346674465,
+      "rank4_oriented_margin": 0.041360222016660286,
+      "rank5_component_by_channel": [
+        {
+          "absolute_rank5_component_contribution": 0.012180644770018135,
+          "label": [
+            2,
+            4
+          ],
+          "rank5_component_contribution": -0.012180644770018135,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.010125268813210221,
+          "label": [
+            4,
+            4
+          ],
+          "rank5_component_contribution": -0.010125268813210221,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.009656772406159225,
+          "label": [
+            1,
+            7
+          ],
+          "rank5_component_contribution": 0.009656772406159225,
+          "stress_or_row_side": "repair"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005702519361828827,
+          "label": [
+            1,
+            3
+          ],
+          "rank5_component_contribution": -0.005702519361828827,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.005147322468111202,
+          "label": [
+            1,
+            1
+          ],
+          "rank5_component_contribution": -0.005147322468111202,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.0017570562609207487,
+          "label": [
+            4,
+            10
+          ],
+          "rank5_component_contribution": -0.0017570562609207487,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.001298197513281334,
+          "label": [
+            3,
+            3
+          ],
+          "rank5_component_contribution": -0.001298197513281334,
+          "stress_or_row_side": "adverse"
+        },
+        {
+          "absolute_rank5_component_contribution": 0.001110210082670823,
+          "label": [
+            1,
+            5
+          ],
+          "rank5_component_contribution": -0.001110210082670823,
+          "stress_or_row_side": "adverse"
+        }
+      ],
+      "rank5_oriented_margin": 0.013695775152778228,
+      "rank5_rescues_rank4_failure": false,
+      "rank5_row_sum_increment": -0.02766444686388207,
+      "target": 1242118
+    }
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "singular_value_5": 0.08234707898994029,
+  "source_commit": "9061f658f04dd27ca3a978aebac98ce6a9688065",
+  "source_octave_svd_rank_audit": "evidence\\q286-first-three-dominant-mode-volatile-octave-svd-rank-audit.json",
+  "source_polarity_magnitude_ledger": "evidence\\q286-first-three-dominant-mode-volatile-polarity-magnitude-ledger.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite Octave rank-5 mode autopsy only; no low-rank theorem, rank-5 theorem, volatile-rim theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "stress_target_1222142": {
+    "full_oriented_margin": 0.008833179560530174,
+    "rank4_oriented_margin": -0.017030525209106265,
+    "rank5_abs_adverse_side_component_sum": 0.016162109888702557,
+    "rank5_abs_repair_side_component_sum": 0.022219342025262684,
+    "rank5_adverse_pair_component_sum": 0.0003827658798833417,
+    "rank5_adverse_side_component_sum": 0.0003827658798833417,
+    "rank5_increment_to_rank4_deficit_ratio": 1.3271527229859372,
+    "rank5_oriented_margin": 0.005571582696039752,
+    "rank5_repair_side_component_sum": 0.022219342025262684,
+    "rank5_row_sum_increment": 0.022602107905146027,
+    "rank5_top_abs_component_channels": [
+      {
+        "absolute_rank5_component_contribution": 0.009951698973082932,
+        "label": [
+          2,
+          4
+        ],
+        "rank5_component_contribution": 0.009951698973082932,
+        "stress_or_row_side": "repair"
+      },
+      {
+        "absolute_rank5_component_contribution": 0.008272437884292948,
+        "label": [
+          4,
+          4
+        ],
+        "rank5_component_contribution": 0.008272437884292948,
+        "stress_or_row_side": "adverse"
+      },
+      {
+        "absolute_rank5_component_contribution": 0.007889672004409607,
+        "label": [
+          1,
+          7
+        ],
+        "rank5_component_contribution": -0.007889672004409607,
+        "stress_or_row_side": "adverse"
+      },
+      {
+        "absolute_rank5_component_contribution": 0.004659010844547681,
+        "label": [
+          1,
+          3
+        ],
+        "rank5_component_contribution": 0.004659010844547681,
+        "stress_or_row_side": "repair"
+      }
+    ],
+    "stress_row_expected_adverse_channels": [
+      [
+        1,
+        7
+      ],
+      [
+        4,
+        4
+      ]
+    ],
+    "stress_row_expected_repair_channels": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        10
+      ]
+    ]
+  },
+  "summary": {
+    "mode_shape": "The fifth right singular vector is mixed across volatile labels; the stress-row rank-5 increment is not concentrated as a clean adverse-pair-only correction.",
+    "rank5_rescue": "The fifth Octave SVD mode rescues exactly the five selected rows that failed at rank 4.",
+    "stress_row": "At 1222142, rank 4 has negative oriented margin, while the rank-5 row-sum increment is larger than that deficit and moves the rank-5 reconstruction positive."
+  },
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "target_order": [
+    13556,
+    13822,
+    24424,
+    40420,
+    55864,
+    129706,
+    164598,
+    1222142,
+    1240888,
+    1242118
+  ],
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_rim_theorem_proved": false,
+  "volatile_threshold_theorem_proved": false
+}

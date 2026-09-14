@@ -12525,3 +12525,35 @@ Low-rank structure remains useful diagnostically, but it is too blunt here to
 replace the critical adverse-pair absorption balance.  The live theorem target
 remains actual binary-prime residue-weight control, or a stronger signed
 aggregate arithmetic-placement theorem.
+
+### 2026-09-14 continuation: volatile Octave rank-5 autopsy
+
+The rank-`5` SVD correction was then isolated using Octave, rather than only
+noting that rank `5` is the first all-pass truncation.  The new derivative
+evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.json
+```
+
+The fifth component rescues exactly the five selected rows that failed at
+rank `4`: `13556,13822,24424,164598,1222142`.  For the stress row `1222142`,
+rank `4` has oriented margin about `-0.0170305252`; the rank-`5` row-sum
+increment is about `0.0226021079`, moving the rank-`5` reconstructed margin
+to about `0.0055715827`.  This increment is about `1.327153` times the
+rank-`4` deficit.
+
+The fifth right singular vector is mixed across volatile channels rather than
+a clean adverse-pair-only direction.  Its largest absolute loadings are led by
+`(2,4)`, `(4,4)`, `(1,7)`, `(1,3)`, and `(1,1)`.  At `1222142`, the adverse
+pair `(1,7),(4,4)` nearly cancels in signed rank-`5` contribution, with net
+about `0.0003827659`, while the repair side contributes about `0.0222193420`.
+
+This keeps Octave useful as a diagnostic microscope, but it demotes the idea
+that the rank-`5` mode itself is a clean two-channel theorem route.  The live
+target remains the explicit six-versus-two adverse-pair absorption balance
+from actual binary-prime residue weights, or a stronger signed aggregate
+arithmetic-placement theorem.  This is finite rank-`5` mode evidence only and
+proves no rank-`5` theorem, low-rank theorem, volatile-rim theorem,
+selected-fixture classifier theorem, pointwise character-sum estimate, or
+Goldbach.

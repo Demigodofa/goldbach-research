@@ -1348,6 +1348,22 @@ current comparison set.
    minimum reconstructed oriented margin about `0.0055715827`.  This demotes
    a rank-`<=4` low-rank shortcut for the current fixture while preserving
    low-rank linear algebra as a diagnostic.
+127. `tools/build_q286_first_three_dominant_mode_volatile_octave_rank5_autopsy.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.md`
+   and evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.json`,
+   isolates the fifth Octave SVD component
+   `C_5 = sigma_5 u_5 v_5^T`.  It rescues exactly the five selected rows that
+   failed at rank `4`.  At stress row `1222142`, rank `4` has oriented margin
+   about `-0.0170305252`, and the fifth row-sum increment is about
+   `0.0226021079`, moving the rank-`5` reconstruction to about
+   `0.0055715827`.  The fifth right singular vector is mixed across volatile
+   channels: its largest absolute loadings are on `(2,4)`, `(4,4)`, `(1,7)`,
+   `(1,3)`, and `(1,1)`.  At `1222142`, the adverse pair `(1,7),(4,4)` nearly
+   cancels in signed rank-`5` contribution, while the repair side supplies
+   almost all of the net rescue.  This keeps Octave useful diagnostically but
+   demotes the rank-`5` mode as a clean two-channel theorem route.
 
 ## Still open
 
@@ -1454,6 +1470,8 @@ current comparison set.
   six.  The Octave SVD rank audit then demotes a rank-`<=4` low-rank
   explanation: rank `4` captures more than `93%` of oriented volatile-channel
   energy but still fails five selected rows, and rank `5` is the first
-  all-pass truncation.
+  all-pass truncation.  The rank-`5` autopsy then shows that this fifth mode
+  rescues exactly those rank-`4` failures, but its stress-row action is a
+  mixed channel balance rather than a clean adverse-pair-only theorem route.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

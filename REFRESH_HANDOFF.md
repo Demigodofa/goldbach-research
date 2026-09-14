@@ -20789,6 +20789,36 @@ arithmetic-placement theorem.  This is finite Octave/SVD evidence only; it
 proves no low-rank theorem, volatile-rim theorem, selected-fixture classifier
 theorem, pointwise character-sum estimate, or Goldbach.
 
+Dominant-mode volatile Octave rank-5 autopsy:
+
+- `tools/build_q286_first_three_dominant_mode_volatile_octave_rank5_autopsy.py`
+- `notes/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.md`
+- `evidence/q286-first-three-dominant-mode-volatile-octave-rank5-autopsy.json`
+
+This isolates the fifth Octave SVD component
+`C_5 = sigma_5 u_5 v_5^T` from the oriented `10 by 8` volatile-channel
+matrix.  It confirms that the fifth mode rescues exactly the five rows that
+failed at rank `4`: `13556,13822,24424,164598,1222142`.
+
+For stress row `1222142`, rank `4` has oriented margin about
+`-0.0170305252`; the rank-`5` row-sum increment is about `0.0226021079`, so
+the rank-`5` reconstructed margin is about `0.0055715827`.  The increment is
+about `1.327153` times the rank-`4` deficit.
+
+The fifth right singular vector is not a clean two-channel adverse-pair mode.
+Its largest absolute loadings are on `(2,4)`, `(4,4)`, `(1,7)`, `(1,3)`, and
+`(1,1)`.  At `1222142`, the adverse pair `(1,7),(4,4)` nearly cancels in
+signed rank-`5` contribution, with net about `0.0003827659`; the repair side
+contributes about `0.0222193420`.
+
+So Octave is actively useful as a diagnostic microscope, but the rank-`5`
+mode does not replace the explicit six-versus-two adverse-absorption
+obligation.  The live theorem target remains signed adverse-pair absorption
+from actual binary-prime residue weights, or a stronger signed aggregate
+arithmetic-placement theorem.  This is finite rank-`5` autopsy evidence only;
+it proves no rank-`5` theorem, low-rank theorem, pointwise character-sum
+estimate, or Goldbach.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.
