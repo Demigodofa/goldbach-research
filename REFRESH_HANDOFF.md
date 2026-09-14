@@ -20249,6 +20249,26 @@ reaching `80%` of positive delta takes between `5` and `9` helpful channels.
 The next theorem target is therefore a portfolio-level offset estimate under
 pressure, not a tiny-channel offset lemma.
 
+Dominant-mode helpful channel portfolio:
+
+- `q286_first_three_dominant_mode_helpful_portfolio_receipt`
+- `tools/build_q286_first_three_dominant_mode_helpful_portfolio.py`
+- `notes/q286-first-three-dominant-mode-helpful-portfolio.md`
+- `evidence/q286-first-three-dominant-mode-helpful-portfolio.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_helpful_portfolio`
+
+This freezes the helpful channels from the swing pairs into fixed portfolios
+and measures their contribution on the selected branch rows.  The universal
+two-channel portfolio `(2,6),(3,1)` separates clear rows from deficit rows on
+the selected sample, but captures only about `0.053365192147409486` of the
+positive delta on pair `(164598,129706)`.  The `11`-channel recurrent
+portfolio also separates clear rows from deficits and captures at least about
+`0.4917301271872004` of positive delta on every selected pair, but leaves a
+nonportfolio residual.  The next target is a recurrent-portfolio lower bound
+under high negative pressure, or a reduction showing that such a lower bound
+is a fixed-modulus binary-prime character-sum theorem.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -85,6 +85,13 @@
       "validation": "universal helpful channels [{'absolute_delta_sum': 0.5758302749811214, 'harmful_pair_count': 0, 'helpful_pair_count': 6, 'negative_delta_sum': 0.0, 'net_delta_sum': 0.5758302749811214, 'positive_delta_sum': 0.5758302749811214, 'representative_label': [2, 6]}, {'absolute_delta_sum': 0.4003828170751664, 'harmful_pair_count': 0, 'helpful_pair_count': 6, 'negative_delta_sum': 0.0, 'net_delta_sum': 0.4003828170751664, 'positive_delta_sum': 0.4003828170751664, 'representative_label': [3, 1]}]; maximum channels needed for 80 percent helpful delta 9; maximum reconstruction error 8.1601392309949e-15."
     },
     {
+      "id": "anchor.dominant_mode_helpful_portfolio",
+      "proved_scope": "finite fixed-portfolio diagnostic, not a portfolio lower-bound theorem",
+      "source": "evidence/q286-first-three-dominant-mode-helpful-portfolio.json",
+      "statement": "Fixed helpful-channel portfolios separate the selected clear rows from selected deficits, while preserving the nonportfolio residual.",
+      "validation": "universal separates True; recurrent separates True; recurrent channel count 11."
+    },
+    {
       "id": "anchor.generic_uniformity_is_too_blunt",
       "proved_scope": "finite demotion of this sufficient route",
       "source": "evidence/q286-first-three-orbit-uniformity-budget.json",
@@ -111,9 +118,9 @@
     "short_statement": "If the q286 signed-projection anti-alignment theorem, the conditioned lower-support/complement rescue, and the finite/endpoint/outer assembly joints are proved, condense the route into a single conditional Goldbach theorem stack."
   },
   "goldbach_proved": false,
-  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing a helpful-channel portfolio under large negative pressure, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
+  "next_non_circular_action": "Attack the first two dominant q286 first-three singular character coordinates directly: seek an arithmetic mechanism forcing the recurrent helpful-channel portfolio under large negative pressure while controlling the nonportfolio residual, classify the true deficit rows, or prove/cite that this joint requires an external fixed-modulus binary Goldbach/AP theorem.",
   "schema_version": 1,
-  "source_commit": "2b6b2d8acbb5bca12f00327e3a7494c982dca494",
+  "source_commit": "28d080a8dc98dbe6ba46d6be01e0f98f0ed8d2ae",
   "status_boundary": "proof-navigation fixture only; records exact anchors, unresolved tacks, and condensation target.  It proves no q286 signed projection theorem, no full outer assembly, and no Goldbach theorem.",
   "tacked_unresolved_joints": [
     {
@@ -154,7 +161,7 @@
       "exact_obligation_source": "evidence/q286-first-three-dominant-mode-character-sum-obligation.json",
       "id": "joint.dominant_singular_mode_projection",
       "proved": false,
-      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection.  After the norm budget demotion, either control negative-channel pressure below 0.3 or prove enough positive offset when that pressure exceeds 0.3; the wider branch sample currently points toward the offset-under-pressure side, and the swing-pair autopsy points to a recurrent helpful-channel portfolio rather than one or two channels.",
+      "statement": "Prove a pointwise lower bound for the combined q286 singular-mode-1 and singular-mode-2 residue projection, equivalently control the 25 real q286 character channels now identified for that projection.  After the norm budget demotion, either control negative-channel pressure below 0.3 or prove enough positive offset when that pressure exceeds 0.3; the wider branch sample currently points toward the offset-under-pressure side, and the swing-pair autopsy points to a recurrent helpful-channel portfolio rather than one or two channels; the fixed-portfolio diagnostic keeps the nonportfolio residual explicit.",
       "why_it_is_needed": "The current samples are not saved by cancellation among the leading modes; the tail row is already below -0.3 in modes 1+2, while the near-clear rows stay above it. Support/reflection geometry alone is obstructed, and selected clear rows can have large negative pressure."
     }
   ],

@@ -9070,6 +9070,7 @@ def q286_first_three_dominant_mode_channel_swing_pair_receipt(
         "pair_count": len(pair_rows),
         "deficit_to_clear_pair_count": deficit_to_clear_count,
         "pair_rows": tuple(pair_rows),
+        "sample_target_rows": sample_rows,
         "channel_frequency_rows": channel_frequency_rows,
         "recurrent_helpful_channel_rows": recurrent_helpful_rows,
         "universally_helpful_channel_rows": universally_helpful_rows,
@@ -9085,6 +9086,208 @@ def q286_first_three_dominant_mode_channel_swing_pair_receipt(
             maximum_channel_count_for_80_row is not None
             and maximum_channel_count_for_80_row[
                 "helpful_channel_count_for_80_percent"] > 2),
+        "eventual_signed_channel_offset_theorem_proved": False,
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_dominant_mode_helpful_portfolio_receipt(
+        pair_targets=((24424, 13556), (13822, 40420),
+                      (55864, 40420), (164598, 129706),
+                      (1222142, 1242118), (1222142, 1240888)),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6, recurrent_min_pair_count=4):
+    """Test fixed helpful-channel portfolios on selected branch rows.
+
+    The swing-pair receipt found recurrent helpful deltas.  This receipt turns
+    those recurrent labels into fixed portfolios and asks how much of each
+    selected row and each deficit-to-clear swing they explain.
+
+    It proves no portfolio theorem and no Goldbach theorem.
+    """
+    if (type(recurrent_min_pair_count) is not int
+            or recurrent_min_pair_count < 1):
+        raise ValueError(
+            "recurrent_min_pair_count must be a positive integer")
+    swing_receipt = q286_first_three_dominant_mode_channel_swing_pair_receipt(
+        pair_targets=pair_targets, dominant_modes=dominant_modes,
+        tail_threshold=tail_threshold, tolerance=tolerance,
+        top_channel_count=top_channel_count)
+    sample_rows = swing_receipt["sample_target_rows"]
+
+    universal_labels = tuple(
+        tuple(row["representative_label"])
+        for row in swing_receipt["universally_helpful_channel_rows"])
+    recurrent_labels = tuple(
+        tuple(row["representative_label"])
+        for row in swing_receipt["channel_frequency_rows"]
+        if row["helpful_pair_count"] >= recurrent_min_pair_count)
+    portfolios = {
+        "universal_helpful": universal_labels,
+        "recurrent_helpful": recurrent_labels,
+    }
+
+    def contribution_by_label(row):
+        return {
+            tuple(channel["representative_label"]): channel[
+                "contribution_to_principal_ratio"]
+            for channel in row["real_channel_contribution_rows"]
+        }
+
+    def summarize_values(values):
+        if not values:
+            return {
+                "count": 0,
+                "minimum": None,
+                "maximum": None,
+                "mean": None,
+            }
+        return {
+            "count": len(values),
+            "minimum": min(values),
+            "maximum": max(values),
+            "mean": float(math.fsum(values) / len(values)),
+        }
+
+    portfolio_rows = {}
+    maximum_row_reconstruction_error = 0.0
+    for name, labels in portfolios.items():
+        labels = tuple(labels)
+        label_set = set(labels)
+        target_rows = {}
+        deficit_values = []
+        clear_values = []
+        deficit_residuals = []
+        clear_residuals = []
+        for target, row in sample_rows.items():
+            if not row["has_strict_central_prime_pairs"]:
+                continue
+            contributions = contribution_by_label(row)
+            portfolio_sum = math.fsum(
+                contributions.get(label, 0.0) for label in labels)
+            dominant_sum = row[
+                "dominant_character_sum_to_principal_ratio"]
+            residual_sum = dominant_sum - portfolio_sum
+            reconstruction_error = abs(
+                dominant_sum - portfolio_sum - residual_sum)
+            maximum_row_reconstruction_error = max(
+                maximum_row_reconstruction_error, reconstruction_error)
+            required_residual = -tail_threshold - portfolio_sum
+            tail = not row["dominant_floor_passes"]
+            if tail:
+                deficit_values.append(portfolio_sum)
+                deficit_residuals.append(residual_sum)
+            else:
+                clear_values.append(portfolio_sum)
+                clear_residuals.append(residual_sum)
+            target_rows[target] = {
+                "target": target,
+                "target_mod_286": row["target_mod_286"],
+                "dominant_sum_to_principal": dominant_sum,
+                "portfolio_sum_to_principal": portfolio_sum,
+                "nonportfolio_sum_to_principal": residual_sum,
+                "required_nonportfolio_for_floor": required_residual,
+                "nonportfolio_slack_to_floor": (
+                    residual_sum - required_residual),
+                "portfolio_fraction_of_dominant_sum": (
+                    portfolio_sum / dominant_sum
+                    if abs(dominant_sum) > tolerance else math.nan),
+                "dominant_floor_passes": row["dominant_floor_passes"],
+                "branch_label": row["signed_channel_branch_label"],
+            }
+
+        pair_rows = []
+        minimum_positive_delta_share_row = None
+        for pair in swing_receipt["pair_rows"]:
+            left_contributions = contribution_by_label(
+                sample_rows[pair["left_target"]])
+            right_contributions = contribution_by_label(
+                sample_rows[pair["right_target"]])
+            portfolio_delta = math.fsum(
+                right_contributions.get(label, 0.0)
+                - left_contributions.get(label, 0.0)
+                for label in labels)
+            nonportfolio_delta = (
+                pair["dominant_swing_to_principal"] - portfolio_delta)
+            positive_portfolio_delta = math.fsum(
+                max(0.0, right_contributions.get(label, 0.0)
+                    - left_contributions.get(label, 0.0))
+                for label in labels)
+            compact = {
+                "left_target": pair["left_target"],
+                "right_target": pair["right_target"],
+                "dominant_swing_to_principal": (
+                    pair["dominant_swing_to_principal"]),
+                "positive_channel_delta_sum": (
+                    pair["positive_channel_delta_sum"]),
+                "portfolio_delta_to_principal": portfolio_delta,
+                "nonportfolio_delta_to_principal": nonportfolio_delta,
+                "positive_portfolio_delta_to_principal": (
+                    positive_portfolio_delta),
+                "portfolio_delta_share_of_positive_delta": (
+                    portfolio_delta / pair["positive_channel_delta_sum"]
+                    if pair["positive_channel_delta_sum"] > tolerance
+                    else math.nan),
+                "positive_portfolio_share_of_positive_delta": (
+                    positive_portfolio_delta
+                    / pair["positive_channel_delta_sum"]
+                    if pair["positive_channel_delta_sum"] > tolerance
+                    else math.nan),
+                "portfolio_reconstructs_swing_error": abs(
+                    pair["dominant_swing_to_principal"]
+                    - portfolio_delta - nonportfolio_delta),
+            }
+            pair_rows.append(compact)
+            share = compact[
+                "positive_portfolio_share_of_positive_delta"]
+            if (minimum_positive_delta_share_row is None
+                    or share < minimum_positive_delta_share_row[
+                        "positive_portfolio_share_of_positive_delta"]):
+                minimum_positive_delta_share_row = compact
+
+        portfolio_rows[name] = {
+            "name": name,
+            "channel_labels": labels,
+            "channel_count": len(labels),
+            "target_rows": target_rows,
+            "pair_rows": tuple(pair_rows),
+            "deficit_portfolio_summary": summarize_values(deficit_values),
+            "clear_portfolio_summary": summarize_values(clear_values),
+            "deficit_nonportfolio_summary": summarize_values(
+                deficit_residuals),
+            "clear_nonportfolio_summary": summarize_values(clear_residuals),
+            "minimum_positive_delta_share_row": (
+                minimum_positive_delta_share_row),
+            "clear_min_exceeds_deficit_max_on_samples": bool(
+                clear_values and deficit_values
+                and min(clear_values) > max(deficit_values)),
+        }
+
+    recurrent_row = portfolio_rows["recurrent_helpful"]
+    universal_row = portfolio_rows["universal_helpful"]
+    return {
+        "arithmetic_modulus": swing_receipt["arithmetic_modulus"],
+        "support": swing_receipt["support"],
+        "dominant_modes": swing_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            swing_receipt["active_real_channel_count"]),
+        "pair_targets": swing_receipt["pair_targets"],
+        "sample_targets": swing_receipt["sample_targets"],
+        "recurrent_min_pair_count": recurrent_min_pair_count,
+        "portfolio_rows": portfolio_rows,
+        "maximum_row_reconstruction_error": maximum_row_reconstruction_error,
+        "maximum_swing_reconstruction_error": (
+            swing_receipt["maximum_swing_reconstruction_error"]),
+        "helpful_portfolio_contribution_measured": True,
+        "universal_portfolio_separates_clear_from_deficit_on_samples": (
+            universal_row["clear_min_exceeds_deficit_max_on_samples"]),
+        "recurrent_portfolio_separates_clear_from_deficit_on_samples": (
+            recurrent_row["clear_min_exceeds_deficit_max_on_samples"]),
+        "fixed_portfolio_theorem_proved": False,
         "eventual_signed_channel_offset_theorem_proved": False,
         "pointwise_character_sum_estimate_proved": False,
         "fixed_modulus_binary_ap_theorem_proved": False,

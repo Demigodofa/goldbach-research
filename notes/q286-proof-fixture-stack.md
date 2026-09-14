@@ -57,6 +57,11 @@ frame.
   `(3,1)`, but the helpful swing is portfolio-level: reaching `80%` of
   positive delta takes `5` to `9` helpful channels across the checked pairs.
   This demotes a one- or two-channel offset lemma.
+- `evidence/q286-first-three-dominant-mode-helpful-portfolio.json`:
+  freezing the helpful labels into fixed portfolios separates the selected
+  clear rows from selected deficits, but the universal two-channel portfolio
+  captures as little as `0.0534` of a positive swing delta and the recurrent
+  portfolio still leaves a nonportfolio residual.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -89,7 +94,9 @@ frame.
    pressure versus positive-channel offset, and the wider branch sample points
    toward offset forcing under pressure rather than a pressure ceiling alone.
    The swing-pair decomposition further sharpens this to a helpful-channel
-   portfolio estimate, not a tiny-channel lemma.
+   portfolio estimate, not a tiny-channel lemma.  The fixed-portfolio
+   diagnostic preserves the recurrent portfolio as a finite candidate while
+   keeping the nonportfolio residual explicit.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

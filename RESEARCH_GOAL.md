@@ -11219,6 +11219,18 @@ a portfolio-level arithmetic estimate for helpful channel deltas under high
 negative pressure, or a classification of the true deficit rows as finite or
 boundary phenomena.
 
+The fixed-portfolio follow-up is now recorded in
+`notes/q286-first-three-dominant-mode-helpful-portfolio.md` and
+`evidence/q286-first-three-dominant-mode-helpful-portfolio.json`.  The two
+universal helpful channels `(2,6)` and `(3,1)` separate clear rows from
+deficit rows by portfolio contribution on the selected ten rows, but they
+capture only about `0.053365192147409486` of the positive delta on pair
+`(164598,129706)`.  The `11`-channel recurrent portfolio also separates clear
+from deficit rows and captures at least about `0.4917301271872004` of positive
+delta on every selected pair, but still leaves a nonportfolio residual.  Thus
+the live target is a recurrent-portfolio lower bound under high negative
+pressure, not a two-channel theorem and not a finished signed-channel theorem.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

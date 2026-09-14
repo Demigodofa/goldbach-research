@@ -75,6 +75,7 @@ Current executable receipts:
 - `q286_first_three_dominant_mode_signed_channel_profile_receipt`
 - `q286_first_three_dominant_mode_signed_channel_branch_sample_receipt`
 - `q286_first_three_dominant_mode_channel_swing_pair_receipt`
+- `q286_first_three_dominant_mode_helpful_portfolio_receipt`
 
 ## Closed or falsified lanes
 
@@ -780,6 +781,16 @@ current comparison set.
    `80%` of positive delta takes `5` to `9` helpful channels.  The live target
    is now a portfolio-level offset estimate under pressure or a classification
    of true deficit rows.
+84. `q286_first_three_dominant_mode_helpful_portfolio_receipt`, with note
+   `notes/q286-first-three-dominant-mode-helpful-portfolio.md` and evidence in
+   `evidence/q286-first-three-dominant-mode-helpful-portfolio.json`, freezes
+   those helpful labels into fixed portfolios.  The universal two-channel
+   portfolio and the `11`-channel recurrent portfolio both separate selected
+   clear rows from selected deficits by portfolio contribution, but the
+   two-channel portfolio captures only about `0.053365192147409486` of the
+   positive delta on pair `(164598,129706)`, and the recurrent portfolio still
+   leaves a nonportfolio residual.  The surviving target is a recurrent
+   portfolio lower bound under pressure plus residual control.
 
 ## Still open
 
@@ -794,6 +805,8 @@ current comparison set.
   below `.3`, or enough positive offset when pressure exceeds `.3`; the wider
   selected sample currently points more strongly at offset forcing under
   pressure than at a pressure ceiling alone, and the swing-pair autopsy says
-  that offset forcing is portfolio-level rather than one- or two-channel.
+  that offset forcing is portfolio-level rather than one- or two-channel.  The
+  fixed-portfolio diagnostic preserves the recurrent portfolio candidate but
+  keeps residual control open.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

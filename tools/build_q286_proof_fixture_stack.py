@@ -52,6 +52,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-signed-channel-branch-sample.json")
     dominant_mode_swing_pairs = load_json(
         "evidence/q286-first-three-dominant-mode-channel-swing-pairs.json")
+    dominant_mode_helpful_portfolio = load_json(
+        "evidence/q286-first-three-dominant-mode-helpful-portfolio.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -290,6 +292,25 @@ def main():
                     "offset theorem"),
             },
             {
+                "id": "anchor.dominant_mode_helpful_portfolio",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-helpful-portfolio.json"),
+                "statement": (
+                    "Fixed helpful-channel portfolios separate the selected "
+                    "clear rows from selected deficits, while preserving the "
+                    "nonportfolio residual."),
+                "validation": (
+                    "universal separates "
+                    f"{dominant_mode_helpful_portfolio['universal_portfolio_separates_clear_from_deficit_on_samples']}; "
+                    "recurrent separates "
+                    f"{dominant_mode_helpful_portfolio['recurrent_portfolio_separates_clear_from_deficit_on_samples']}; "
+                    "recurrent channel count "
+                    f"{dominant_mode_helpful_portfolio['portfolio_rows']['recurrent_helpful']['channel_count']}."),
+                "proved_scope": (
+                    "finite fixed-portfolio diagnostic, not a portfolio "
+                    "lower-bound theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -387,7 +408,8 @@ def main():
                     "currently points toward the offset-under-pressure side, "
                     "and the swing-pair autopsy points to a recurrent "
                     "helpful-channel portfolio rather than one or two "
-                    "channels."),
+                    "channels; the fixed-portfolio diagnostic keeps the "
+                    "nonportfolio residual explicit."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "
@@ -417,10 +439,10 @@ def main():
         "next_non_circular_action": (
             "Attack the first two dominant q286 first-three singular "
             "character coordinates directly: seek an arithmetic mechanism "
-            "forcing a helpful-channel portfolio under large negative "
-            "pressure, classify the true deficit rows, or prove/cite that "
-            "this joint requires an external fixed-modulus binary "
-            "Goldbach/AP theorem."),
+            "forcing the recurrent helpful-channel portfolio under large "
+            "negative pressure while controlling the nonportfolio residual, "
+            "classify the true deficit rows, or prove/cite that this joint "
+            "requires an external fixed-modulus binary Goldbach/AP theorem."),
         "goldbach_proved": False,
     }
     OUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n",

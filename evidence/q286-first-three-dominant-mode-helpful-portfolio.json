@@ -1,0 +1,583 @@
+{
+  "active_real_channel_count": 25,
+  "arithmetic_modulus": 286,
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "eventual_signed_channel_offset_theorem_proved": false,
+  "fixed_modulus_binary_ap_theorem_proved": false,
+  "fixed_portfolio_theorem_proved": false,
+  "goldbach_proved": false,
+  "helpful_portfolio_contribution_measured": true,
+  "interpretation": {
+    "boundary": "A separating finite sample is not a theorem; it only names a candidate arithmetic portfolio whose recurrence must be proved or falsified outside the selected fixture.",
+    "mechanism_tested": "Use fixed helpful-channel labels learned from the selected swing pairs, then measure whether their contribution separates clear rows from deficits.",
+    "remaining_theorem": "Prove a portfolio-level lower bound under pressure, classify the true deficits as finite/boundary rows, or reduce the claim to a fixed-modulus binary-prime character-sum theorem."
+  },
+  "maximum_row_reconstruction_error": 0.0,
+  "maximum_swing_reconstruction_error": 8.1601392309949e-15,
+  "pair_targets": [
+    [
+      24424,
+      13556
+    ],
+    [
+      13822,
+      40420
+    ],
+    [
+      55864,
+      40420
+    ],
+    [
+      164598,
+      129706
+    ],
+    [
+      1222142,
+      1242118
+    ],
+    [
+      1222142,
+      1240888
+    ]
+  ],
+  "pointwise_character_sum_estimate_proved": false,
+  "portfolio_rows": {
+    "recurrent_helpful": {
+      "channel_count": 11,
+      "channel_labels": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          5,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "clear_min_exceeds_deficit_max_on_samples": true,
+      "clear_nonportfolio_summary": {
+        "count": 5,
+        "maximum": -0.18626287256333884,
+        "mean": -0.3013041829416282,
+        "minimum": -0.48297017290081545
+      },
+      "clear_portfolio_summary": {
+        "count": 5,
+        "maximum": 0.19253426324647357,
+        "mean": 0.03343356433635762,
+        "minimum": -0.08655055405574329
+      },
+      "deficit_nonportfolio_summary": {
+        "count": 5,
+        "maximum": 0.057771086728015786,
+        "mean": -0.06917335289148617,
+        "minimum": -0.2119154555492978
+      },
+      "deficit_portfolio_summary": {
+        "count": 5,
+        "maximum": -0.10723633690587824,
+        "mean": -0.2663099604136846,
+        "minimum": -0.37122975942218756
+      },
+      "minimum_positive_delta_share_row": {
+        "dominant_swing_to_principal": 0.07758071873202554,
+        "left_target": 164598,
+        "nonportfolio_delta_to_principal": -0.14266430734666108,
+        "portfolio_delta_share_of_positive_delta": 0.43336015112032167,
+        "portfolio_delta_to_principal": 0.22024502607868662,
+        "portfolio_reconstructs_swing_error": 0.0,
+        "positive_channel_delta_sum": 0.5082262997862395,
+        "positive_portfolio_delta_to_principal": 0.24991018303376775,
+        "positive_portfolio_share_of_positive_delta": 0.4917301271872004,
+        "right_target": 129706
+      },
+      "name": "recurrent_helpful",
+      "pair_rows": [
+        {
+          "dominant_swing_to_principal": 0.02302276303982992,
+          "left_target": 24424,
+          "nonportfolio_delta_to_principal": -0.5407412596288312,
+          "portfolio_delta_share_of_positive_delta": 0.5258628842413278,
+          "portfolio_delta_to_principal": 0.5637640226686611,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 1.072074184284776,
+          "positive_portfolio_delta_to_principal": 0.7422674239978445,
+          "positive_portfolio_share_of_positive_delta": 0.6923657288632885,
+          "right_target": 13556
+        },
+        {
+          "dominant_swing_to_principal": 0.085682749527765,
+          "left_target": 13822,
+          "nonportfolio_delta_to_principal": -0.25101319039195724,
+          "portfolio_delta_share_of_positive_delta": 0.26915645102847896,
+          "portfolio_delta_to_principal": 0.33669593991972224,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 1.2509302252766628,
+          "positive_portfolio_delta_to_principal": 0.7162901614626503,
+          "positive_portfolio_share_of_positive_delta": 0.5726060071050179,
+          "right_target": 40420
+        },
+        {
+          "dominant_swing_to_principal": 0.14816697929516454,
+          "left_target": 55864,
+          "nonportfolio_delta_to_principal": -0.19381025461234763,
+          "portfolio_delta_share_of_positive_delta": 0.42106247415883213,
+          "portfolio_delta_to_principal": 0.34197723390751217,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.8121769449787453,
+          "positive_portfolio_delta_to_principal": 0.4798927792935564,
+          "positive_portfolio_share_of_positive_delta": 0.590872201261654,
+          "right_target": 40420
+        },
+        {
+          "dominant_swing_to_principal": 0.07758071873202554,
+          "left_target": 164598,
+          "nonportfolio_delta_to_principal": -0.14266430734666108,
+          "portfolio_delta_share_of_positive_delta": 0.43336015112032167,
+          "portfolio_delta_to_principal": 0.22024502607868662,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.5082262997862395,
+          "positive_portfolio_delta_to_principal": 0.24991018303376775,
+          "positive_portfolio_share_of_positive_delta": 0.4917301271872004,
+          "right_target": 129706
+        },
+        {
+          "dominant_swing_to_principal": 0.02536209302727388,
+          "left_target": 1222142,
+          "nonportfolio_delta_to_principal": -0.10848468942188152,
+          "portfolio_delta_share_of_positive_delta": 0.6326718567816435,
+          "portfolio_delta_to_principal": 0.1338467824491554,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.21155798383386992,
+          "positive_portfolio_delta_to_principal": 0.14355267171865774,
+          "positive_portfolio_share_of_positive_delta": 0.6785500084524595,
+          "right_target": 1242118
+        },
+        {
+          "dominant_swing_to_principal": 0.03601975294144566,
+          "left_target": 1222142,
+          "nonportfolio_delta_to_principal": -0.07436187935150018,
+          "portfolio_delta_share_of_positive_delta": 0.5145722116534893,
+          "portfolio_delta_to_principal": 0.11038163229294584,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.21451145202391217,
+          "positive_portfolio_delta_to_principal": 0.14798747855687164,
+          "positive_portfolio_share_of_positive_delta": 0.6898814825997033,
+          "right_target": 1240888
+        }
+      ],
+      "target_rows": {
+        "1222142": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.3088331795605278,
+          "nonportfolio_slack_to_floor": -0.008833179560527815,
+          "nonportfolio_sum_to_principal": -0.11190099321183866,
+          "portfolio_sum_to_principal": -0.19693218634868914,
+          "required_nonportfolio_for_floor": -0.10306781365131085,
+          "target": 1222142,
+          "target_mod_286": 64
+        },
+        "1240888": {
+          "branch_label": "pressure_and_offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.27281342661908214,
+          "nonportfolio_slack_to_floor": 0.027186573380917844,
+          "nonportfolio_sum_to_principal": -0.18626287256333884,
+          "portfolio_sum_to_principal": -0.08655055405574329,
+          "required_nonportfolio_for_floor": -0.2134494459442567,
+          "target": 1240888,
+          "target_mod_286": 220
+        },
+        "1242118": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2834710865332539,
+          "nonportfolio_slack_to_floor": 0.016528913466746065,
+          "nonportfolio_sum_to_principal": -0.2203856826337202,
+          "portfolio_sum_to_principal": -0.06308540389953374,
+          "required_nonportfolio_for_floor": -0.23691459610046625,
+          "target": 1242118,
+          "target_mod_286": 20
+        },
+        "129706": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2415710737231505,
+          "nonportfolio_slack_to_floor": 0.05842892627684948,
+          "nonportfolio_sum_to_principal": -0.3545797628959589,
+          "portfolio_sum_to_principal": 0.11300868917280837,
+          "required_nonportfolio_for_floor": -0.41300868917280836,
+          "target": 129706,
+          "target_mod_286": 148
+        },
+        "13556": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.29043590965434185,
+          "nonportfolio_slack_to_floor": 0.009564090345658083,
+          "nonportfolio_sum_to_principal": -0.48297017290081545,
+          "portfolio_sum_to_principal": 0.19253426324647357,
+          "required_nonportfolio_for_floor": -0.49253426324647354,
+          "target": 13556,
+          "target_mod_286": 114
+        },
+        "13822": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.3367443460242893,
+          "nonportfolio_slack_to_floor": -0.03674434602428933,
+          "nonportfolio_sum_to_principal": -0.011309233322350287,
+          "portfolio_sum_to_principal": -0.32543511270193903,
+          "required_nonportfolio_for_floor": 0.025435112701939044,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        "164598": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.31915179245517605,
+          "nonportfolio_slack_to_floor": -0.019151792455176064,
+          "nonportfolio_sum_to_principal": -0.2119154555492978,
+          "portfolio_sum_to_principal": -0.10723633690587824,
+          "required_nonportfolio_for_floor": -0.19276366309412174,
+          "target": 164598,
+          "target_mod_286": 148
+        },
+        "24424": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.31345867269417177,
+          "nonportfolio_slack_to_floor": -0.01345867269417178,
+          "nonportfolio_sum_to_principal": 0.057771086728015786,
+          "portfolio_sum_to_principal": -0.37122975942218756,
+          "required_nonportfolio_for_floor": 0.07122975942218757,
+          "target": 24424,
+          "target_mod_286": 114
+        },
+        "40420": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2510615964965243,
+          "nonportfolio_slack_to_floor": 0.04893840350347567,
+          "nonportfolio_sum_to_principal": -0.26232242371430753,
+          "portfolio_sum_to_principal": 0.011260827217783202,
+          "required_nonportfolio_for_floor": -0.3112608272177832,
+          "target": 40420,
+          "target_mod_286": 94
+        },
+        "55864": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.39922857579168886,
+          "nonportfolio_slack_to_floor": -0.09922857579168887,
+          "nonportfolio_sum_to_principal": -0.0685121691019599,
+          "portfolio_sum_to_principal": -0.33071640668972896,
+          "required_nonportfolio_for_floor": 0.03071640668972897,
+          "target": 55864,
+          "target_mod_286": 94
+        }
+      }
+    },
+    "universal_helpful": {
+      "channel_count": 2,
+      "channel_labels": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "clear_min_exceeds_deficit_max_on_samples": true,
+      "clear_nonportfolio_summary": {
+        "count": 5,
+        "maximum": -0.24292932754877214,
+        "mean": -0.36364503730916586,
+        "minimum": -0.582202697916127
+      },
+      "clear_portfolio_summary": {
+        "count": 5,
+        "maximum": 0.29176678826178515,
+        "mean": 0.09577441870389529,
+        "minimum": -0.006651837884822224
+      },
+      "deficit_nonportfolio_summary": {
+        "count": 5,
+        "maximum": -0.2642102726622314,
+        "mean": -0.2798100728887203,
+        "minimum": -0.2933884521383381
+      },
+      "deficit_portfolio_summary": {
+        "count": 5,
+        "maximum": -0.025763340316837968,
+        "mean": -0.05567324041645048,
+        "minimum": -0.1091989843768742
+      },
+      "minimum_positive_delta_share_row": {
+        "dominant_swing_to_principal": 0.07758071873202554,
+        "left_target": 164598,
+        "nonportfolio_delta_to_principal": 0.05045912458956594,
+        "portfolio_delta_share_of_positive_delta": 0.053365192147409486,
+        "portfolio_delta_to_principal": 0.027121594142459605,
+        "portfolio_reconstructs_swing_error": 0.0,
+        "positive_channel_delta_sum": 0.5082262997862395,
+        "positive_portfolio_delta_to_principal": 0.027121594142459605,
+        "positive_portfolio_share_of_positive_delta": 0.053365192147409486,
+        "right_target": 129706
+      },
+      "name": "universal_helpful",
+      "pair_rows": [
+        {
+          "dominant_swing_to_principal": 0.02302276303982992,
+          "left_target": 24424,
+          "nonportfolio_delta_to_principal": -0.3179924252538956,
+          "portfolio_delta_share_of_positive_delta": 0.3180891707799405,
+          "portfolio_delta_to_principal": 0.3410151882937255,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 1.072074184284776,
+          "positive_portfolio_delta_to_principal": 0.3410151882937255,
+          "positive_portfolio_share_of_positive_delta": 0.3180891707799405,
+          "right_target": 13556
+        },
+        {
+          "dominant_swing_to_principal": 0.085682749527765,
+          "left_target": 13822,
+          "nonportfolio_delta_to_principal": -0.13861201282911947,
+          "portfolio_delta_share_of_positive_delta": 0.17930237660320197,
+          "portfolio_delta_to_principal": 0.22429476235688448,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 1.2509302252766628,
+          "positive_portfolio_delta_to_principal": 0.22429476235688448,
+          "positive_portfolio_share_of_positive_delta": 0.17930237660320197,
+          "right_target": 40420
+        },
+        {
+          "dominant_swing_to_principal": 0.14816697929516454,
+          "left_target": 55864,
+          "nonportfolio_delta_to_principal": -0.1355890458091314,
+          "portfolio_delta_share_of_positive_delta": 0.3493770992375582,
+          "portfolio_delta_to_principal": 0.28375602510429593,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.8121769449787453,
+          "positive_portfolio_delta_to_principal": 0.28375602510429593,
+          "positive_portfolio_share_of_positive_delta": 0.3493770992375582,
+          "right_target": 40420
+        },
+        {
+          "dominant_swing_to_principal": 0.07758071873202554,
+          "left_target": 164598,
+          "nonportfolio_delta_to_principal": 0.05045912458956594,
+          "portfolio_delta_share_of_positive_delta": 0.053365192147409486,
+          "portfolio_delta_to_principal": 0.027121594142459605,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.5082262997862395,
+          "positive_portfolio_delta_to_principal": 0.027121594142459605,
+          "positive_portfolio_share_of_positive_delta": 0.053365192147409486,
+          "right_target": 129706
+        },
+        {
+          "dominant_swing_to_principal": 0.02536209302727388,
+          "left_target": 1222142,
+          "nonportfolio_delta_to_principal": -0.0368975112893334,
+          "portfolio_delta_share_of_positive_delta": 0.29429097020274997,
+          "portfolio_delta_to_principal": 0.06225960431660728,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.21155798383386992,
+          "positive_portfolio_delta_to_principal": 0.06225960431660728,
+          "positive_portfolio_share_of_positive_delta": 0.29429097020274997,
+          "right_target": 1242118
+        },
+        {
+          "dominant_swing_to_principal": 0.03601975294144566,
+          "left_target": 1222142,
+          "nonportfolio_delta_to_principal": -0.0017461649008692279,
+          "portfolio_delta_share_of_positive_delta": 0.17605548555097664,
+          "portfolio_delta_to_principal": 0.03776591784231489,
+          "portfolio_reconstructs_swing_error": 0.0,
+          "positive_channel_delta_sum": 0.21451145202391217,
+          "positive_portfolio_delta_to_principal": 0.03776591784231489,
+          "positive_portfolio_share_of_positive_delta": 0.17605548555097664,
+          "right_target": 1240888
+        }
+      ],
+      "target_rows": {
+        "1222142": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.3088331795605278,
+          "nonportfolio_slack_to_floor": -0.008833179560527815,
+          "nonportfolio_sum_to_principal": -0.2644154238333907,
+          "portfolio_sum_to_principal": -0.04441775572713711,
+          "required_nonportfolio_for_floor": -0.25558224427286286,
+          "target": 1222142,
+          "target_mod_286": 64
+        },
+        "1240888": {
+          "branch_label": "pressure_and_offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.27281342661908214,
+          "nonportfolio_slack_to_floor": 0.027186573380917844,
+          "nonportfolio_sum_to_principal": -0.26616158873425994,
+          "portfolio_sum_to_principal": -0.006651837884822224,
+          "required_nonportfolio_for_floor": -0.2933481621151778,
+          "target": 1240888,
+          "target_mod_286": 220
+        },
+        "1242118": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2834710865332539,
+          "nonportfolio_slack_to_floor": 0.016528913466746065,
+          "nonportfolio_sum_to_principal": -0.3013129351227241,
+          "portfolio_sum_to_principal": 0.017841848589470164,
+          "required_nonportfolio_for_floor": -0.3178418485894702,
+          "target": 1242118,
+          "target_mod_286": 20
+        },
+        "129706": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2415710737231505,
+          "nonportfolio_slack_to_floor": 0.05842892627684951,
+          "nonportfolio_sum_to_principal": -0.24292932754877214,
+          "portfolio_sum_to_principal": 0.0013582538256216355,
+          "required_nonportfolio_for_floor": -0.30135825382562165,
+          "target": 129706,
+          "target_mod_286": 148
+        },
+        "13556": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.29043590965434185,
+          "nonportfolio_slack_to_floor": 0.009564090345658194,
+          "nonportfolio_sum_to_principal": -0.582202697916127,
+          "portfolio_sum_to_principal": 0.29176678826178515,
+          "required_nonportfolio_for_floor": -0.5917667882617852,
+          "target": 13556,
+          "target_mod_286": 114
+        },
+        "13822": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.3367443460242893,
+          "nonportfolio_slack_to_floor": -0.03674434602428933,
+          "nonportfolio_sum_to_principal": -0.2870066243948266,
+          "portfolio_sum_to_principal": -0.049737721629462744,
+          "required_nonportfolio_for_floor": -0.25026227837053727,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        "164598": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.31915179245517605,
+          "nonportfolio_slack_to_floor": -0.019151792455176064,
+          "nonportfolio_sum_to_principal": -0.2933884521383381,
+          "portfolio_sum_to_principal": -0.025763340316837968,
+          "required_nonportfolio_for_floor": -0.274236659683162,
+          "target": 164598,
+          "target_mod_286": 148
+        },
+        "24424": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.31345867269417177,
+          "nonportfolio_slack_to_floor": -0.01345867269417178,
+          "nonportfolio_sum_to_principal": -0.2642102726622314,
+          "portfolio_sum_to_principal": -0.049248400031940386,
+          "required_nonportfolio_for_floor": -0.2507515999680596,
+          "target": 24424,
+          "target_mod_286": 114
+        },
+        "40420": {
+          "branch_label": "offset",
+          "dominant_floor_passes": true,
+          "dominant_sum_to_principal": -0.2510615964965243,
+          "nonportfolio_slack_to_floor": 0.04893840350347567,
+          "nonportfolio_sum_to_principal": -0.42561863722394605,
+          "portfolio_sum_to_principal": 0.17455704072742173,
+          "required_nonportfolio_for_floor": -0.4745570407274217,
+          "target": 40420,
+          "target_mod_286": 94
+        },
+        "55864": {
+          "branch_label": "unresolved_deficit",
+          "dominant_floor_passes": false,
+          "dominant_sum_to_principal": -0.39922857579168886,
+          "nonportfolio_slack_to_floor": -0.09922857579168887,
+          "nonportfolio_sum_to_principal": -0.29002959141481466,
+          "portfolio_sum_to_principal": -0.1091989843768742,
+          "required_nonportfolio_for_floor": -0.1908010156231258,
+          "target": 55864,
+          "target_mod_286": 94
+        }
+      }
+    }
+  },
+  "recurrent_min_pair_count": 4,
+  "recurrent_portfolio_separates_clear_from_deficit_on_samples": true,
+  "sample_targets": [
+    24424,
+    13556,
+    13822,
+    40420,
+    55864,
+    164598,
+    129706,
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "28d080a8dc98dbe6ba46d6be01e0f98f0ed8d2ae",
+  "status_boundary": "finite fixed-portfolio diagnostic only; selected rows and pairs are measured exactly, but no portfolio theorem, signed-channel offset theorem, pointwise character-sum estimate, fixed-modulus AP theorem, signed projection theorem, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "universal_portfolio_separates_clear_from_deficit_on_samples": true
+}
