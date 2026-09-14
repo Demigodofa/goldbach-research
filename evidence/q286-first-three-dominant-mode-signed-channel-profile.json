@@ -1,791 +1,1990 @@
 {
-  "active_complex_character_count": 50,
   "active_real_channel_count": 25,
-  "active_self_conjugate_channel_count": 0,
   "arithmetic_modulus": 286,
-  "dominant_character_coefficient_l1_to_principal_mean": 32.21559410777112,
-  "dominant_character_coefficient_l2_to_principal_mean": 4.572746573875277,
-  "dominant_character_coefficient_linf_to_principal_mean": 0.8079022122683025,
-  "dominant_mode_character_sum_obligation": "For q286 strict-central binary-prime weights, control the real part of sum c_chi S_chi(N)/P over the active dominant mode-1/mode-2 character channels.  Support/reflection geometry alone is already obstructed; this is a pointwise arithmetic character-sum obligation.",
-  "dominant_mode_character_sum_obligation_formalized": true,
+  "dominant_floor_failure_targets": [
+    1222142
+  ],
+  "dominant_floor_pass_targets": [
+    1242118,
+    1240888
+  ],
+  "dominant_mode_signed_channel_profile_measured": true,
   "dominant_modes": [
     1,
     2
   ],
-  "dominant_real_channel_l1_to_principal_mean": 32.215594107770805,
-  "dominant_real_channel_l2_to_principal_mean": 6.466840222069529,
-  "dominant_singular_values": [
-    158279.09383760378,
-    124234.1882436279
-  ],
   "fixed_modulus_binary_ap_theorem_proved": false,
   "goldbach_proved": false,
   "interpretation": {
-    "next_action": "Seek pointwise control of these 25 real channels, a stronger arithmetic residue-weight constraint, or a theorem showing that complement/lower-support terms rescue the remaining dominant-mode deficits.",
-    "sample_fact": "The character-channel identity reproduces the residue obligation on 1222142, 1242118, and 1240888; the tail row is below -0.3 while the two near-clear rows remain above it.",
-    "what_changed": "After support/reflection geometry was obstructed, the dominant mode-1/mode-2 residual is now an exact q286 character-sum obligation with 50 active complex characters collapsing to 25 real conjugacy channels."
+    "route_effect": "The next theorem target should control signed channel balance or negative-pressure regimes, not just independent channel size.",
+    "sample_fact": "Tail 1222142 has the largest negative channel pressure and insufficient positive offset.  Clear 1242118 has enough positive offset against its negative pressure, while clear 1240888 clears mostly because its negative pressure is below the 0.3 floor even with little positive offset.",
+    "what_changed": "The active samples now split into an exact signed ledger over 25 real channels instead of only norm budgets."
   },
-  "maximum_complex_character_identity_error": 0.0,
-  "maximum_conjugate_coefficient_error": 7.399288316253503e-15,
+  "maximum_negative_pressure_row": {
+    "absolute_real_channel_contribution_to_principal": 0.4351008253505899,
+    "channel_cancellation_fraction": 0.2902031860967339,
+    "complex_character_identity_error": 0.0,
+    "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+    "dominant_floor_passes": false,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "dominant_real_channel_sum_to_principal_ratio": -0.30883317956053014,
+    "expected_residue_obligation_ratio": -0.3088331795605278,
+    "has_strict_central_prime_pairs": true,
+    "l2_channel_bound_to_principal": 0.6279224835082714,
+    "linf_channel_bound_to_principal": 1.09843921412509,
+    "negative_channel_pressure_to_principal": 0.37196700245556,
+    "negative_real_channel_contribution_to_principal": -0.37196700245556,
+    "negative_real_channel_count": 17,
+    "positive_channel_offset_to_principal": 0.06313382289502988,
+    "positive_offset_slack_to_floor": -0.00883317956053016,
+    "positive_real_channel_contribution_to_principal": 0.06313382289502988,
+    "positive_real_channel_count": 8,
+    "positive_to_negative_pressure_ratio": 0.16972963321544268,
+    "real_channel_contribution_rows": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.010938875282588398,
+        "contribution_to_principal_ratio": -0.010938875282588398,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3737.5777487120454,
+          "real": 3738.531014457916
+        },
+        "representative_coefficient": {
+          "imag": -24751.84461428807,
+          "real": -9761.03304337016
+        },
+        "representative_label": [
+          1,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01454886268634833,
+        "contribution_to_principal_ratio": -0.01454886268634833,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -6415.47537120221,
+          "real": -7756.42417627871
+        },
+        "representative_coefficient": {
+          "imag": 2599.3861417488292,
+          "real": 24270.631471747987
+        },
+        "representative_label": [
+          1,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.018474432503645177,
+        "contribution_to_principal_ratio": -0.018474432503645177,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4673.13354535661,
+          "real": 6079.310634281428
+        },
+        "representative_coefficient": {
+          "imag": 23584.373797486896,
+          "real": -17709.071373101906
+        },
+        "representative_label": [
+          1,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011851048833984464,
+        "contribution_to_principal_ratio": -0.011851048833984464,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -9.059432028654555,
+          "real": 8037.0849770632185
+        },
+        "representative_coefficient": {
+          "imag": -23076.681120213303,
+          "real": -17363.53574476855
+        },
+        "representative_label": [
+          2,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01164907384453154,
+        "contribution_to_principal_ratio": -0.01164907384453154,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4260.593267439539,
+          "real": -5341.921461520307
+        },
+        "representative_coefficient": {
+          "imag": -3424.347648638145,
+          "real": 28448.397243153933
+        },
+        "representative_label": [
+          2,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0006665459027448693,
+        "contribution_to_principal_ratio": 0.0006665459027448693,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -1055.669105502526,
+          "real": -2083.086591494723
+        },
+        "representative_coefficient": {
+          "imag": -22771.326639904662,
+          "real": -15313.653459597166
+        },
+        "representative_label": [
+          2,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.017169791918250164,
+        "contribution_to_principal_ratio": -0.017169791918250164,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -529.8865783244548,
+          "real": -8005.44304620703
+        },
+        "representative_coefficient": {
+          "imag": 5472.635445840942,
+          "real": 25655.784259715267
+        },
+        "representative_label": [
+          3,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.021124614674965642,
+        "contribution_to_principal_ratio": -0.021124614674965642,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5414.683475107805,
+          "real": 8900.396419771732
+        },
+        "representative_coefficient": {
+          "imag": -30202.268645847682,
+          "real": -9616.44385800672
+        },
+        "representative_label": [
+          3,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01971808029035685,
+        "contribution_to_principal_ratio": -0.01971808029035685,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -2354.769909355245,
+          "real": 15186.61456362384
+        },
+        "representative_coefficient": {
+          "imag": 21658.18933937734,
+          "real": -18670.287484655437
+        },
+        "representative_label": [
+          3,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.009751943414016263,
+        "contribution_to_principal_ratio": -0.009751943414016263,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3399.8722271326137,
+          "real": -4012.6811001738206
+        },
+        "representative_coefficient": {
+          "imag": -1216.8995818123246,
+          "real": 27629.629483061668
+        },
+        "representative_label": [
+          4,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.014046772444381602,
+        "contribution_to_principal_ratio": -0.014046772444381602,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5190.517407544102,
+          "real": 3525.5483421422805
+        },
+        "representative_coefficient": {
+          "imag": -23034.65517085884,
+          "real": -13074.280372827448
+        },
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011300721417063436,
+        "contribution_to_principal_ratio": -0.011300721417063436,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3397.7294728720744,
+          "real": 2457.4586458359663
+        },
+        "representative_coefficient": {
+          "imag": -28270.10031983778,
+          "real": -15144.516691478673
+        },
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0011403388875531792,
+        "contribution_to_principal_ratio": 0.0011403388875531792,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -177.4759222679395,
+          "real": 458.7787878968529
+        },
+        "representative_coefficient": {
+          "imag": -278.90826179376955,
+          "real": 29420.921044507166
+        },
+        "representative_label": [
+          5,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      }
+    ],
+    "real_channel_identity_error": 2.3314683517128287e-15,
+    "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
+    "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
+    "required_positive_offset_for_floor": 0.07196700245556004,
+    "signed_to_absolute_real_channel_ratio": -0.7097968139032661,
+    "target": 1222142,
+    "target_mod_286": 64,
+    "threshold_slack": -0.008833179560527815,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      }
+    ],
+    "total_strict_central_prime_pair_weight": 536021.9613320271
+  },
   "maximum_real_channel_identity_error": 2.3314683517128287e-15,
+  "minimum_positive_offset_slack_row": {
+    "absolute_real_channel_contribution_to_principal": 0.4351008253505899,
+    "channel_cancellation_fraction": 0.2902031860967339,
+    "complex_character_identity_error": 0.0,
+    "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+    "dominant_floor_passes": false,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "dominant_real_channel_sum_to_principal_ratio": -0.30883317956053014,
+    "expected_residue_obligation_ratio": -0.3088331795605278,
+    "has_strict_central_prime_pairs": true,
+    "l2_channel_bound_to_principal": 0.6279224835082714,
+    "linf_channel_bound_to_principal": 1.09843921412509,
+    "negative_channel_pressure_to_principal": 0.37196700245556,
+    "negative_real_channel_contribution_to_principal": -0.37196700245556,
+    "negative_real_channel_count": 17,
+    "positive_channel_offset_to_principal": 0.06313382289502988,
+    "positive_offset_slack_to_floor": -0.00883317956053016,
+    "positive_real_channel_contribution_to_principal": 0.06313382289502988,
+    "positive_real_channel_count": 8,
+    "positive_to_negative_pressure_ratio": 0.16972963321544268,
+    "real_channel_contribution_rows": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.010938875282588398,
+        "contribution_to_principal_ratio": -0.010938875282588398,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3737.5777487120454,
+          "real": 3738.531014457916
+        },
+        "representative_coefficient": {
+          "imag": -24751.84461428807,
+          "real": -9761.03304337016
+        },
+        "representative_label": [
+          1,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01454886268634833,
+        "contribution_to_principal_ratio": -0.01454886268634833,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -6415.47537120221,
+          "real": -7756.42417627871
+        },
+        "representative_coefficient": {
+          "imag": 2599.3861417488292,
+          "real": 24270.631471747987
+        },
+        "representative_label": [
+          1,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.018474432503645177,
+        "contribution_to_principal_ratio": -0.018474432503645177,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4673.13354535661,
+          "real": 6079.310634281428
+        },
+        "representative_coefficient": {
+          "imag": 23584.373797486896,
+          "real": -17709.071373101906
+        },
+        "representative_label": [
+          1,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011851048833984464,
+        "contribution_to_principal_ratio": -0.011851048833984464,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -9.059432028654555,
+          "real": 8037.0849770632185
+        },
+        "representative_coefficient": {
+          "imag": -23076.681120213303,
+          "real": -17363.53574476855
+        },
+        "representative_label": [
+          2,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01164907384453154,
+        "contribution_to_principal_ratio": -0.01164907384453154,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4260.593267439539,
+          "real": -5341.921461520307
+        },
+        "representative_coefficient": {
+          "imag": -3424.347648638145,
+          "real": 28448.397243153933
+        },
+        "representative_label": [
+          2,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0006665459027448693,
+        "contribution_to_principal_ratio": 0.0006665459027448693,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -1055.669105502526,
+          "real": -2083.086591494723
+        },
+        "representative_coefficient": {
+          "imag": -22771.326639904662,
+          "real": -15313.653459597166
+        },
+        "representative_label": [
+          2,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.017169791918250164,
+        "contribution_to_principal_ratio": -0.017169791918250164,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -529.8865783244548,
+          "real": -8005.44304620703
+        },
+        "representative_coefficient": {
+          "imag": 5472.635445840942,
+          "real": 25655.784259715267
+        },
+        "representative_label": [
+          3,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.021124614674965642,
+        "contribution_to_principal_ratio": -0.021124614674965642,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5414.683475107805,
+          "real": 8900.396419771732
+        },
+        "representative_coefficient": {
+          "imag": -30202.268645847682,
+          "real": -9616.44385800672
+        },
+        "representative_label": [
+          3,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01971808029035685,
+        "contribution_to_principal_ratio": -0.01971808029035685,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -2354.769909355245,
+          "real": 15186.61456362384
+        },
+        "representative_coefficient": {
+          "imag": 21658.18933937734,
+          "real": -18670.287484655437
+        },
+        "representative_label": [
+          3,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.009751943414016263,
+        "contribution_to_principal_ratio": -0.009751943414016263,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3399.8722271326137,
+          "real": -4012.6811001738206
+        },
+        "representative_coefficient": {
+          "imag": -1216.8995818123246,
+          "real": 27629.629483061668
+        },
+        "representative_label": [
+          4,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.014046772444381602,
+        "contribution_to_principal_ratio": -0.014046772444381602,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5190.517407544102,
+          "real": 3525.5483421422805
+        },
+        "representative_coefficient": {
+          "imag": -23034.65517085884,
+          "real": -13074.280372827448
+        },
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011300721417063436,
+        "contribution_to_principal_ratio": -0.011300721417063436,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3397.7294728720744,
+          "real": 2457.4586458359663
+        },
+        "representative_coefficient": {
+          "imag": -28270.10031983778,
+          "real": -15144.516691478673
+        },
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0011403388875531792,
+        "contribution_to_principal_ratio": 0.0011403388875531792,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -177.4759222679395,
+          "real": 458.7787878968529
+        },
+        "representative_coefficient": {
+          "imag": -278.90826179376955,
+          "real": 29420.921044507166
+        },
+        "representative_label": [
+          5,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      }
+    ],
+    "real_channel_identity_error": 2.3314683517128287e-15,
+    "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
+    "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
+    "required_positive_offset_for_floor": 0.07196700245556004,
+    "signed_to_absolute_real_channel_ratio": -0.7097968139032661,
+    "target": 1222142,
+    "target_mod_286": 64,
+    "threshold_slack": -0.008833179560527815,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.044796070869832366,
+        "contribution_to_principal_ratio": -0.044796070869832366,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 18096.648436928648,
+          "real": -1533.9195752709898
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.04172119298516034,
+        "contribution_to_principal_ratio": -0.04172119298516034,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13453.348805896032,
+          "real": 12370.812082359736
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03778293121185615,
+        "contribution_to_principal_ratio": -0.03778293121185615,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11359.515952237933,
+          "real": 12994.878811808994
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03276868188260557,
+        "contribution_to_principal_ratio": -0.03276868188260557,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -11260.556564850804,
+          "real": 9926.9834566086
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.03165080964904138,
+        "contribution_to_principal_ratio": -0.03165080964904138,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 11783.008723834386,
+          "real": -11862.618957214107
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.022673098546932353,
+        "contribution_to_principal_ratio": -0.022673098546932353,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 10513.483759231294,
+          "real": 1278.9013480019414
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.01762390682755845,
+        "contribution_to_principal_ratio": 0.01762390682755845,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4104.638210229474,
+          "real": -5217.581603754133
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011405528117525765,
+        "contribution_to_principal_ratio": 0.011405528117525765,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2888.5815737860034,
+          "real": -4438.529935778556
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010288650684891465,
+        "contribution_to_principal_ratio": 0.010288650684891465,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 1274.7733461977632,
+          "real": -13621.284385096875
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01021736429315472,
+        "contribution_to_principal_ratio": 0.01021736429315472,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5460.971135680025,
+          "real": 2296.6075065208042
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.007440534325935918,
+        "contribution_to_principal_ratio": 0.007440534325935918,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3458.1209726236243,
+          "real": 138.92889625216458
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.004350953855665503,
+        "contribution_to_principal_ratio": 0.004350953855665503,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4759.31784922987,
+          "real": 1517.6333089711202
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      }
+    ],
+    "total_strict_central_prime_pair_weight": 536021.9613320271
+  },
+  "minimum_signed_to_absolute_real_channel_row": {
+    "absolute_real_channel_contribution_to_principal": 0.30023692391775747,
+    "channel_cancellation_fraction": 0.09133952260378131,
+    "complex_character_identity_error": 0.0,
+    "dominant_character_sum_to_principal_ratio": -0.27281342661908214,
+    "dominant_floor_passes": true,
+    "dominant_modes": [
+      1,
+      2
+    ],
+    "dominant_real_channel_sum_to_principal_ratio": -0.2728134266190817,
+    "expected_residue_obligation_ratio": -0.27281342661908214,
+    "has_strict_central_prime_pairs": true,
+    "l2_channel_bound_to_principal": 0.5108253279540851,
+    "linf_channel_bound_to_principal": 0.8850741151940063,
+    "negative_channel_pressure_to_principal": 0.2865251752684196,
+    "negative_real_channel_contribution_to_principal": -0.2865251752684196,
+    "negative_real_channel_count": 22,
+    "positive_channel_offset_to_principal": 0.013711748649337881,
+    "positive_offset_slack_to_floor": 0.013711748649337881,
+    "positive_real_channel_contribution_to_principal": 0.013711748649337881,
+    "positive_real_channel_count": 3,
+    "positive_to_negative_pressure_ratio": 0.047855301498350294,
+    "real_channel_contribution_rows": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.02407910288083677,
+        "contribution_to_principal_ratio": -0.02407910288083677,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -14263.74440414198,
+          "real": -2440.7243877374385
+        },
+        "representative_coefficient": {
+          "imag": -24751.84461428807,
+          "real": -9761.03304337016
+        },
+        "representative_label": [
+          1,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.001931166614128453,
+        "contribution_to_principal_ratio": -0.001931166614128453,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 3337.1999134793155,
+          "real": -730.5076841783275
+        },
+        "representative_coefficient": {
+          "imag": 2599.3861417488292,
+          "real": 24270.631471747987
+        },
+        "representative_label": [
+          1,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.017710726808205953,
+        "contribution_to_principal_ratio": -0.017710726808205953,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 8014.882523402592,
+          "real": 3000.1657341938453
+        },
+        "representative_coefficient": {
+          "imag": 23584.373797486896,
+          "real": -17709.071373101906
+        },
+        "representative_label": [
+          1,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.035956798584303756,
+        "contribution_to_principal_ratio": -0.035956798584303756,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -13798.694435636562,
+          "real": 10055.041250710612
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.00695084698711403,
+        "contribution_to_principal_ratio": -0.00695084698711403,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4545.627250661497,
+          "real": -3350.235416901124
+        },
+        "representative_coefficient": {
+          "imag": 3059.045381706526,
+          "real": 24216.989938965864
+        },
+        "representative_label": [
+          1,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02491541765855402,
+        "contribution_to_principal_ratio": -0.02491541765855402,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13066.733537925289,
+          "real": 3638.5047083183954
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.016671721712498113,
+        "contribution_to_principal_ratio": -0.016671721712498113,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4561.476087655881,
+          "real": 11662.121022994383
+        },
+        "representative_coefficient": {
+          "imag": 25754.85220203842,
+          "real": -9472.533308098818
+        },
+        "representative_label": [
+          2,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.011215651894444517,
+        "contribution_to_principal_ratio": -0.011215651894444517,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -456.68642152531856,
+          "real": 8224.77265200641
+        },
+        "representative_coefficient": {
+          "imag": -23076.681120213303,
+          "real": -17363.53574476855
+        },
+        "representative_label": [
+          2,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0006201673835403827,
+        "contribution_to_principal_ratio": -0.0006201673835403827,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -8334.923944365975,
+          "real": 705.2144487332864
+        },
+        "representative_coefficient": {
+          "imag": -3424.347648638145,
+          "real": 28448.397243153933
+        },
+        "representative_label": [
+          2,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010214162454081212,
+        "contribution_to_principal_ratio": 0.010214162454081212,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5422.936674503375,
+          "real": 373.68303874900766
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.005164394843740592,
+        "contribution_to_principal_ratio": -0.005164394843740592,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5031.153099804942,
+          "real": -2870.2509070649094
+        },
+        "representative_coefficient": {
+          "imag": -22771.326639904662,
+          "real": -15313.653459597166
+        },
+        "representative_label": [
+          2,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.006031670501281841,
+        "contribution_to_principal_ratio": -0.006031670501281841,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -2667.076012346403,
+          "real": 1172.550472934316
+        },
+        "representative_coefficient": {
+          "imag": -27542.16653352562,
+          "real": -7686.732911943688
+        },
+        "representative_label": [
+          3,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008006736357364156,
+        "contribution_to_principal_ratio": -0.008006736357364156,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -8463.467243142784,
+          "real": -6072.407885062998
+        },
+        "representative_coefficient": {
+          "imag": 5472.635445840942,
+          "real": 25655.784259715267
+        },
+        "representative_label": [
+          3,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0073561207101152885,
+        "contribution_to_principal_ratio": -0.0073561207101152885,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 5986.8968829126825,
+          "real": -1790.7194502371112
+        },
+        "representative_coefficient": {
+          "imag": 23245.054004854956,
+          "real": -21548.09708864169
+        },
+        "representative_label": [
+          3,
+          5
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010763130759390534,
+        "contribution_to_principal_ratio": -0.010763130759390534,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -6163.440530235524,
+          "real": -4054.222184005034
+        },
+        "representative_coefficient": {
+          "imag": -30202.268645847682,
+          "real": -9616.44385800672
+        },
+        "representative_label": [
+          3,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0017174050927967002,
+        "contribution_to_principal_ratio": 0.0017174050927967002,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 12908.885144020845,
+          "real": 3929.690234663174
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.010154066626900262,
+        "contribution_to_principal_ratio": -0.010154066626900262,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 2011.161682819663,
+          "real": 5103.130998156217
+        },
+        "representative_coefficient": {
+          "imag": 21658.18933937734,
+          "real": -18670.287484655437
+        },
+        "representative_label": [
+          3,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.008890727300290047,
+        "contribution_to_principal_ratio": -0.008890727300290047,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -2337.7125099234395,
+          "real": 16173.832575298296
+        },
+        "representative_coefficient": {
+          "imag": 24094.90120351043,
+          "real": -10998.539998598271
+        },
+        "representative_label": [
+          4,
+          2
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.019152098159140953,
+        "contribution_to_principal_ratio": -0.019152098159140953,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3832.7963532057884,
+          "real": 11439.479981182496
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.009228052305590486,
+        "contribution_to_principal_ratio": -0.009228052305590486,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -2334.5992680526606,
+          "real": -4463.788209294389
+        },
+        "representative_coefficient": {
+          "imag": -1216.8995818123246,
+          "real": 27629.629483061668
+        },
+        "representative_label": [
+          4,
+          6
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0017801811024599687,
+        "contribution_to_principal_ratio": 0.0017801811024599687,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4037.552162588247,
+          "real": 5845.448887547481
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02694243143722148,
+        "contribution_to_principal_ratio": -0.02694243143722148,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -10526.422496208557,
+          "real": 9630.155035792288
+        },
+        "representative_coefficient": {
+          "imag": -23034.65517085884,
+          "real": -13074.280372827448
+        },
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.01367701137087164,
+        "contribution_to_principal_ratio": -0.01367701137087164,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4695.8149245112745,
+          "real": 3582.3252164315895
+        },
+        "representative_coefficient": {
+          "imag": -28270.10031983778,
+          "real": -15144.516691478673
+        },
+        "representative_label": [
+          5,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.005907881099705902,
+        "contribution_to_principal_ratio": -0.005907881099705902,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -7640.798594629724,
+          "real": -2673.148741463672
+        },
+        "representative_coefficient": {
+          "imag": -278.90826179376955,
+          "real": 29420.921044507166
+        },
+        "representative_label": [
+          5,
+          3
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.015199253273180417,
+        "contribution_to_principal_ratio": -0.015199253273180417,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 4506.491109630668,
+          "real": 3876.7853779390994
+        },
+        "representative_coefficient": {
+          "imag": 30710.370816530212,
+          "real": -17906.876553074882
+        },
+        "representative_label": [
+          5,
+          5
+        ]
+      }
+    ],
+    "real_channel_identity_error": 4.440892098500626e-16,
+    "representative_character_sum_l2_to_total_weight": 0.07899148740536067,
+    "representative_character_sum_linf_to_total_weight": 0.027473468663441948,
+    "required_positive_offset_for_floor": 0.0,
+    "signed_to_absolute_real_channel_ratio": -0.9086604773962187,
+    "target": 1240888,
+    "target_mod_286": 220,
+    "threshold_slack": 0.027186573380917844,
+    "top_negative_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.035956798584303756,
+        "contribution_to_principal_ratio": -0.035956798584303756,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -13798.694435636562,
+          "real": 10055.041250710612
+        },
+        "representative_coefficient": {
+          "imag": -27028.346017841817,
+          "real": -11802.644104479989
+        },
+        "representative_label": [
+          1,
+          7
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02694243143722148,
+        "contribution_to_principal_ratio": -0.02694243143722148,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -10526.422496208557,
+          "real": 9630.155035792288
+        },
+        "representative_coefficient": {
+          "imag": -23034.65517085884,
+          "real": -13074.280372827448
+        },
+        "representative_label": [
+          4,
+          10
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02491541765855402,
+        "contribution_to_principal_ratio": -0.02491541765855402,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 13066.733537925289,
+          "real": 3638.5047083183954
+        },
+        "representative_coefficient": {
+          "imag": 21839.148219605817,
+          "real": -15198.130902374098
+        },
+        "representative_label": [
+          1,
+          11
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.02407910288083677,
+        "contribution_to_principal_ratio": -0.02407910288083677,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -14263.74440414198,
+          "real": -2440.7243877374385
+        },
+        "representative_coefficient": {
+          "imag": -24751.84461428807,
+          "real": -9761.03304337016
+        },
+        "representative_label": [
+          1,
+          1
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.019152098159140953,
+        "contribution_to_principal_ratio": -0.019152098159140953,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -3832.7963532057884,
+          "real": 11439.479981182496
+        },
+        "representative_coefficient": {
+          "imag": -23478.32391436858,
+          "real": -15024.822516543854
+        },
+        "representative_label": [
+          4,
+          4
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.017710726808205953,
+        "contribution_to_principal_ratio": -0.017710726808205953,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 8014.882523402592,
+          "real": 3000.1657341938453
+        },
+        "representative_coefficient": {
+          "imag": 23584.373797486896,
+          "real": -17709.071373101906
+        },
+        "representative_label": [
+          1,
+          5
+        ]
+      }
+    ],
+    "top_positive_real_channels": [
+      {
+        "absolute_contribution_to_principal_ratio": 0.010214162454081212,
+        "contribution_to_principal_ratio": 0.010214162454081212,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -5422.936674503375,
+          "real": 373.68303874900766
+        },
+        "representative_coefficient": {
+          "imag": 26537.927058104648,
+          "real": -11391.400815640603
+        },
+        "representative_label": [
+          2,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0017801811024599687,
+        "contribution_to_principal_ratio": 0.0017801811024599687,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": -4037.552162588247,
+          "real": 5845.448887547481
+        },
+        "representative_coefficient": {
+          "imag": 24708.33592440658,
+          "real": -12902.523835604039
+        },
+        "representative_label": [
+          4,
+          8
+        ]
+      },
+      {
+        "absolute_contribution_to_principal_ratio": 0.0017174050927967002,
+        "contribution_to_principal_ratio": 0.0017174050927967002,
+        "real_formula_multiplier": 2.0,
+        "representative_character_sum": {
+          "imag": 12908.885144020845,
+          "real": 3929.690234663174
+        },
+        "representative_coefficient": {
+          "imag": 5958.03824175934,
+          "real": 25547.42227728376
+        },
+        "representative_label": [
+          3,
+          9
+        ]
+      }
+    ],
+    "total_strict_central_prime_pair_weight": 621457.755360721
+  },
   "pointwise_character_sum_estimate_proved": false,
-  "real_channel_rows": [
-    {
-      "indices": [
-        13,
-        119
-      ],
-      "labels": [
-        [
-          1,
-          1
-        ],
-        [
-          9,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -24751.84461428807,
-        "real": -9761.03304337016
-      },
-      "representative_coefficient_abs": 26606.983629934934,
-      "representative_index": 13,
-      "representative_label": [
-        1,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        15,
-        117
-      ],
-      "labels": [
-        [
-          1,
-          3
-        ],
-        [
-          9,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 2599.3861417488292,
-        "real": 24270.631471747987
-      },
-      "representative_coefficient_abs": 24409.431790832816,
-      "representative_index": 15,
-      "representative_label": [
-        1,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        17,
-        115
-      ],
-      "labels": [
-        [
-          1,
-          5
-        ],
-        [
-          9,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 23584.373797486896,
-        "real": -17709.071373101906
-      },
-      "representative_coefficient_abs": 29492.94655196737,
-      "representative_index": 17,
-      "representative_label": [
-        1,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        19,
-        113
-      ],
-      "labels": [
-        [
-          1,
-          7
-        ],
-        [
-          9,
-          5
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -27028.346017841817,
-        "real": -11802.644104479989
-      },
-      "representative_coefficient_abs": 29492.946551967332,
-      "representative_index": 19,
-      "representative_label": [
-        1,
-        7
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        21,
-        111
-      ],
-      "labels": [
-        [
-          1,
-          9
-        ],
-        [
-          9,
-          3
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 3059.045381706526,
-        "real": 24216.989938965864
-      },
-      "representative_coefficient_abs": 24409.431790832696,
-      "representative_index": 21,
-      "representative_label": [
-        1,
-        9
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        23,
-        109
-      ],
-      "labels": [
-        [
-          1,
-          11
-        ],
-        [
-          9,
-          1
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 21839.148219605817,
-        "real": -15198.130902374098
-      },
-      "representative_coefficient_abs": 26606.98362993465,
-      "representative_index": 23,
-      "representative_label": [
-        1,
-        11
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        26,
-        106
-      ],
-      "labels": [
-        [
-          2,
-          2
-        ],
-        [
-          8,
-          10
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 25754.85220203842,
-        "real": -9472.533308098818
-      },
-      "representative_coefficient_abs": 27441.59797136247,
-      "representative_index": 26,
-      "representative_label": [
-        2,
-        2
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        28,
-        104
-      ],
-      "labels": [
-        [
-          2,
-          4
-        ],
-        [
-          8,
-          8
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23076.681120213303,
-        "real": -17363.53574476855
-      },
-      "representative_coefficient_abs": 28879.50112248936,
-      "representative_index": 28,
-      "representative_label": [
-        2,
-        4
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        30,
-        102
-      ],
-      "labels": [
-        [
-          2,
-          6
-        ],
-        [
-          8,
-          6
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -3424.347648638145,
-        "real": 28448.397243153933
-      },
-      "representative_coefficient_abs": 28653.75128186573,
-      "representative_index": 30,
-      "representative_label": [
-        2,
-        6
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        32,
-        100
-      ],
-      "labels": [
-        [
-          2,
-          8
-        ],
-        [
-          8,
-          4
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 26537.927058104648,
-        "real": -11391.400815640603
-      },
-      "representative_coefficient_abs": 28879.50112248929,
-      "representative_index": 32,
-      "representative_label": [
-        2,
-        8
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        34,
-        98
-      ],
-      "labels": [
-        [
-          2,
-          10
-        ],
-        [
-          8,
-          2
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -22771.326639904662,
-        "real": -15313.653459597166
-      },
-      "representative_coefficient_abs": 27441.59797136209,
-      "representative_index": 34,
-      "representative_label": [
-        2,
-        10
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        37,
-        95
-      ],
-      "labels": [
-        [
-          3,
-          1
-        ],
-        [
-          7,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -27542.16653352562,
-        "real": -7686.732911943688
-      },
-      "representative_coefficient_abs": 28594.69881324189,
-      "representative_index": 37,
-      "representative_label": [
-        3,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        39,
-        93
-      ],
-      "labels": [
-        [
-          3,
-          3
-        ],
-        [
-          7,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 5472.635445840942,
-        "real": 25655.784259715267
-      },
-      "representative_coefficient_abs": 26232.975521357243,
-      "representative_index": 39,
-      "representative_label": [
-        3,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        41,
-        91
-      ],
-      "labels": [
-        [
-          3,
-          5
-        ],
-        [
-          7,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 23245.054004854956,
-        "real": -21548.09708864169
-      },
-      "representative_coefficient_abs": 31696.26198513244,
-      "representative_index": 41,
-      "representative_label": [
-        3,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        43,
-        89
-      ],
-      "labels": [
-        [
-          3,
-          7
-        ],
-        [
-          7,
-          5
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -30202.268645847682,
-        "real": -9616.44385800672
-      },
-      "representative_coefficient_abs": 31696.261985132394,
-      "representative_index": 43,
-      "representative_label": [
-        3,
-        7
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        45,
-        87
-      ],
-      "labels": [
-        [
-          3,
-          9
-        ],
-        [
-          7,
-          3
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 5958.03824175934,
-        "real": 25547.42227728376
-      },
-      "representative_coefficient_abs": 26232.975521357108,
-      "representative_index": 45,
-      "representative_label": [
-        3,
-        9
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        47,
-        85
-      ],
-      "labels": [
-        [
-          3,
-          11
-        ],
-        [
-          7,
-          1
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 21658.18933937734,
-        "real": -18670.287484655437
-      },
-      "representative_coefficient_abs": 28594.698813241583,
-      "representative_index": 47,
-      "representative_label": [
-        3,
-        11
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        50,
-        82
-      ],
-      "labels": [
-        [
-          4,
-          2
-        ],
-        [
-          6,
-          10
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 24094.90120351043,
-        "real": -10998.539998598271
-      },
-      "representative_coefficient_abs": 26486.45212382539,
-      "representative_index": 50,
-      "representative_label": [
-        4,
-        2
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        52,
-        80
-      ],
-      "labels": [
-        [
-          4,
-          4
-        ],
-        [
-          6,
-          8
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23478.32391436858,
-        "real": -15024.822516543854
-      },
-      "representative_coefficient_abs": 27874.30690585247,
-      "representative_index": 52,
-      "representative_label": [
-        4,
-        4
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        54,
-        78
-      ],
-      "labels": [
-        [
-          4,
-          6
-        ],
-        [
-          6,
-          6
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -1216.8995818123246,
-        "real": 27629.629483061668
-      },
-      "representative_coefficient_abs": 27656.414625968522,
-      "representative_index": 54,
-      "representative_label": [
-        4,
-        6
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        56,
-        76
-      ],
-      "labels": [
-        [
-          4,
-          8
-        ],
-        [
-          6,
-          4
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 24708.33592440658,
-        "real": -12902.523835604039
-      },
-      "representative_coefficient_abs": 27874.306905852405,
-      "representative_index": 56,
-      "representative_label": [
-        4,
-        8
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        58,
-        74
-      ],
-      "labels": [
-        [
-          4,
-          10
-        ],
-        [
-          6,
-          2
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -23034.65517085884,
-        "real": -13074.280372827448
-      },
-      "representative_coefficient_abs": 26486.45212382502,
-      "representative_index": 58,
-      "representative_label": [
-        4,
-        10
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        61,
-        71
-      ],
-      "labels": [
-        [
-          5,
-          1
-        ],
-        [
-          5,
-          11
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -28270.10031983778,
-        "real": -15144.516691478673
-      },
-      "representative_coefficient_abs": 32071.092246946755,
-      "representative_index": 61,
-      "representative_label": [
-        5,
-        1
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        63,
-        69
-      ],
-      "labels": [
-        [
-          5,
-          3
-        ],
-        [
-          5,
-          9
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": -278.90826179376955,
-        "real": 29420.921044507166
-      },
-      "representative_coefficient_abs": 29422.243030156988,
-      "representative_index": 63,
-      "representative_label": [
-        5,
-        3
-      ],
-      "self_conjugate": false,
-      "size": 2
-    },
-    {
-      "indices": [
-        65,
-        67
-      ],
-      "labels": [
-        [
-          5,
-          5
-        ],
-        [
-          5,
-          7
-        ]
-      ],
-      "real_formula": "2*Re(c*S_chi)",
-      "real_formula_multiplier": 2.0,
-      "representative_coefficient": {
-        "imag": 30710.370816530212,
-        "real": -17906.876553074882
-      },
-      "representative_coefficient_abs": 35549.727194112944,
-      "representative_index": 65,
-      "representative_label": [
-        5,
-        5
-      ],
-      "self_conjugate": false,
-      "size": 2
-    }
+  "sample_targets": [
+    1222142,
+    1242118,
+    1240888
   ],
   "schema_version": 1,
+  "signed_channel_cancellation_theorem_proved": false,
   "signed_projection_theorem_proved": false,
-  "single_character_or_tiny_channel_proof_found": false,
   "source_commit": "9fbd6fa1c4fc48dac4bdbd6e168bbe3575651832",
-  "status_boundary": "exact q286 dominant-mode character-sum obligation and finite sample checks only; no pointwise character-sum estimate, fixed-modulus AP theorem, q286 signed-projection theorem, or Goldbach proof is established",
+  "status_boundary": "finite signed-channel profile only; records exact positive and negative channel contribution ledgers on selected samples.  It proves no signed channel cancellation theorem, pointwise character-sum estimate, fixed-modulus AP theorem, q286 signed-projection theorem, or Goldbach proof.",
   "support": [
     11,
     13
@@ -794,8 +1993,10 @@
   "target_rows": {
     "1222142": {
       "absolute_real_channel_contribution_to_principal": 0.4351008253505899,
+      "channel_cancellation_fraction": 0.2902031860967339,
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.3088331795605278,
+      "dominant_floor_passes": false,
       "dominant_modes": [
         1,
         2
@@ -805,10 +2006,14 @@
       "has_strict_central_prime_pairs": true,
       "l2_channel_bound_to_principal": 0.6279224835082714,
       "linf_channel_bound_to_principal": 1.09843921412509,
+      "negative_channel_pressure_to_principal": 0.37196700245556,
       "negative_real_channel_contribution_to_principal": -0.37196700245556,
       "negative_real_channel_count": 17,
+      "positive_channel_offset_to_principal": 0.06313382289502988,
+      "positive_offset_slack_to_floor": -0.00883317956053016,
       "positive_real_channel_contribution_to_principal": 0.06313382289502988,
       "positive_real_channel_count": 8,
+      "positive_to_negative_pressure_ratio": 0.16972963321544268,
       "real_channel_contribution_rows": [
         {
           "absolute_contribution_to_principal_ratio": 0.010938875282588398,
@@ -1239,6 +2444,7 @@
       "real_channel_identity_error": 2.3314683517128287e-15,
       "representative_character_sum_l2_to_total_weight": 0.09709880899258132,
       "representative_character_sum_linf_to_total_weight": 0.03409650650708108,
+      "required_positive_offset_for_floor": 0.07196700245556004,
       "signed_to_absolute_real_channel_ratio": -0.7097968139032661,
       "target": 1222142,
       "target_mod_286": 64,
@@ -1455,8 +2661,10 @@
     },
     "1240888": {
       "absolute_real_channel_contribution_to_principal": 0.30023692391775747,
+      "channel_cancellation_fraction": 0.09133952260378131,
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.27281342661908214,
+      "dominant_floor_passes": true,
       "dominant_modes": [
         1,
         2
@@ -1466,10 +2674,14 @@
       "has_strict_central_prime_pairs": true,
       "l2_channel_bound_to_principal": 0.5108253279540851,
       "linf_channel_bound_to_principal": 0.8850741151940063,
+      "negative_channel_pressure_to_principal": 0.2865251752684196,
       "negative_real_channel_contribution_to_principal": -0.2865251752684196,
       "negative_real_channel_count": 22,
+      "positive_channel_offset_to_principal": 0.013711748649337881,
+      "positive_offset_slack_to_floor": 0.013711748649337881,
       "positive_real_channel_contribution_to_principal": 0.013711748649337881,
       "positive_real_channel_count": 3,
+      "positive_to_negative_pressure_ratio": 0.047855301498350294,
       "real_channel_contribution_rows": [
         {
           "absolute_contribution_to_principal_ratio": 0.02407910288083677,
@@ -1900,6 +3112,7 @@
       "real_channel_identity_error": 4.440892098500626e-16,
       "representative_character_sum_l2_to_total_weight": 0.07899148740536067,
       "representative_character_sum_linf_to_total_weight": 0.027473468663441948,
+      "required_positive_offset_for_floor": 0.0,
       "signed_to_absolute_real_channel_ratio": -0.9086604773962187,
       "target": 1240888,
       "target_mod_286": 220,
@@ -2065,8 +3278,10 @@
     },
     "1242118": {
       "absolute_real_channel_contribution_to_principal": 0.4034075668846649,
+      "channel_cancellation_fraction": 0.2973084547660445,
       "complex_character_identity_error": 0.0,
       "dominant_character_sum_to_principal_ratio": -0.2834710865332539,
+      "dominant_floor_passes": true,
       "dominant_modes": [
         1,
         2
@@ -2076,10 +3291,14 @@
       "has_strict_central_prime_pairs": true,
       "l2_channel_bound_to_principal": 0.6165520637070668,
       "linf_channel_bound_to_principal": 0.8761058895564644,
+      "negative_channel_pressure_to_principal": 0.34343932670896016,
       "negative_real_channel_contribution_to_principal": -0.34343932670896016,
       "negative_real_channel_count": 20,
+      "positive_channel_offset_to_principal": 0.05996824017570475,
+      "positive_offset_slack_to_floor": 0.01652891346674458,
       "positive_real_channel_contribution_to_principal": 0.05996824017570475,
       "positive_real_channel_count": 5,
+      "positive_to_negative_pressure_ratio": 0.17461087159224334,
       "real_channel_contribution_rows": [
         {
           "absolute_contribution_to_principal_ratio": 0.004455966448924407,
@@ -2510,6 +3729,7 @@
       "real_channel_identity_error": 1.4988010832439613e-15,
       "representative_character_sum_l2_to_total_weight": 0.09534054384132545,
       "representative_character_sum_linf_to_total_weight": 0.027195087156413382,
+      "required_positive_offset_for_floor": 0.04343932670896017,
       "signed_to_absolute_real_channel_ratio": -0.7026915452339555,
       "target": 1242118,
       "target_mod_286": 20,

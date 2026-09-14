@@ -45,6 +45,11 @@ The two near-clear rows fail both independent channel-norm budgets while their
 signed dominant sums still clear the `-.3` floor.  Therefore independent
 channel smallness is too blunt at the active scale.
 
+The companion signed profile
+`q286-first-three-dominant-mode-signed-channel-profile.md` shows what the norm
+budget hides: one clear row is rescued by enough positive offset, and the
+other clears because its negative channel pressure is already below `.3`.
+
 ## Remaining Route
 
 The next theorem cannot merely make every real channel small enough by a

@@ -72,6 +72,7 @@ Current executable receipts:
 - `q286_first_three_dominant_mode_reflection_support_obstruction_receipt`
 - `q286_first_three_dominant_mode_character_sum_obligation_receipt`
 - `q286_first_three_dominant_mode_channel_norm_budget_receipt`
+- `q286_first_three_dominant_mode_signed_channel_profile_receipt`
 
 ## Closed or falsified lanes
 
@@ -745,6 +746,16 @@ current comparison set.
    certified; clear rows `1242118` and `1240888` fail both budgets while
    passing the signed dominant floor.  Thus generic channel smallness is too
    blunt at the active scale.
+81. `q286_first_three_dominant_mode_signed_channel_profile_receipt`, with
+   note `notes/q286-first-three-dominant-mode-signed-channel-profile.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-signed-channel-profile.json`,
+   splits the `25` real-channel sum into positive offset and negative
+   pressure.  Tail `1222142` has the largest negative pressure and not enough
+   positive offset.  Clear `1242118` has pressure above `.3` but enough
+   positive offset, while clear `1240888` clears because its negative pressure
+   is already below `.3`.  This points to a two-branch signed-channel theorem
+   target rather than independent channel smallness.
 
 ## Still open
 
@@ -755,6 +766,7 @@ current comparison set.
 - Pointwise lower bounds or structural exclusion for the `25` real q286
   character channels that make up the first two dominant first-three singular
   coordinates, using signed channel structure rather than only independent
-  `Linf`/`L2` smallness.
+  `Linf`/`L2` smallness.  The current split is negative-channel pressure
+  below `.3`, or enough positive offset when pressure exceeds `.3`.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.

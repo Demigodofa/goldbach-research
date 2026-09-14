@@ -20190,6 +20190,28 @@ signed channel cancellation, structured channel correlations, stronger
 prime-pair input, or complement/lower-support rescue rather than reopening
 plain `Linf`/`L2` channel smallness as if it were untested.
 
+Dominant-mode signed channel profile:
+
+- `q286_first_three_dominant_mode_signed_channel_profile_receipt`
+- `tools/build_q286_first_three_dominant_mode_signed_channel_profile.py`
+- `notes/q286-first-three-dominant-mode-signed-channel-profile.md`
+- `evidence/q286-first-three-dominant-mode-signed-channel-profile.json`
+- focused regression:
+  `test_q286_first_three_dominant_mode_signed_channel_profile`
+
+This is the exact positive/negative channel ledger behind the failed norm
+budget.  Across the `25` real channels, write
+`dominant_sum = positive_offset - negative_pressure`.  Tail `1222142` has
+negative pressure about `0.37196700245556`, positive offset about
+`0.06313382289502988`, and misses the floor by about
+`-0.00883317956053016`.  Clear `1242118` has pressure about
+`0.34343932670896016` but enough positive offset, clearing by about
+`0.01652891346674458`.  Clear `1240888` has pressure about
+`0.2865251752684196`, already below `.3`, so it clears even with small
+positive offset.  The next theorem target is a two-branch signed-channel
+claim: control negative pressure below `.3`, or prove enough positive offset
+when pressure exceeds `.3`.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

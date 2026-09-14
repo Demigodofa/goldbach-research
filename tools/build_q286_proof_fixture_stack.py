@@ -46,6 +46,8 @@ def main():
         "evidence/q286-first-three-dominant-mode-character-sum-obligation.json")
     dominant_mode_channel_budget = load_json(
         "evidence/q286-first-three-dominant-mode-channel-norm-budget.json")
+    dominant_mode_signed_profile = load_json(
+        "evidence/q286-first-three-dominant-mode-signed-channel-profile.json")
     orbit_uniformity = load_json(
         "evidence/q286-first-three-orbit-uniformity-budget.json")
     mass_landing = load_json(
@@ -228,6 +230,24 @@ def main():
                     "not a pointwise theorem"),
             },
             {
+                "id": "anchor.dominant_mode_signed_channel_profile",
+                "source": (
+                    "evidence/q286-first-three-dominant-mode-signed-channel-profile.json"),
+                "statement": (
+                    "The 25 real dominant channels split into exact positive "
+                    "offset and negative pressure ledgers."),
+                "validation": (
+                    "floor failures "
+                    f"{dominant_mode_signed_profile['dominant_floor_failure_targets']}; "
+                    "floor passes "
+                    f"{dominant_mode_signed_profile['dominant_floor_pass_targets']}; "
+                    "maximum real-channel identity error "
+                    f"{dominant_mode_signed_profile['maximum_real_channel_identity_error']}."),
+                "proved_scope": (
+                    "finite signed-channel profile, not a cancellation "
+                    "theorem"),
+            },
+            {
                 "id": "anchor.generic_uniformity_is_too_blunt",
                 "source": (
                     "evidence/q286-first-three-orbit-uniformity-budget.json"),
@@ -318,9 +338,10 @@ def main():
                     "Prove a pointwise lower bound for the combined q286 "
                     "singular-mode-1 and singular-mode-2 residue projection, "
                     "equivalently control the 25 real q286 character channels "
-                    "now identified for that projection, or classify the "
-                    "arithmetic conditions that prevent simultaneous strong "
-                    "negativity in those two modes."),
+                    "now identified for that projection.  After the norm "
+                    "budget demotion, either control negative-channel "
+                    "pressure below 0.3 or prove enough positive offset when "
+                    "that pressure exceeds 0.3."),
                 "why_it_is_needed": (
                     "The current samples are not saved by cancellation among "
                     "the leading modes; the tail row is already below -0.3 "

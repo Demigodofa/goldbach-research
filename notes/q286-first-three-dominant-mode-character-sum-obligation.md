@@ -45,6 +45,10 @@ independent `Linf`/`L2` smallness of these channels is sufficient but too
 blunt on the current near-boundary samples.  The surviving theorem should use
 signed channel structure, not only channel size.
 
+The next signed-structure layer is recorded in
+`q286-first-three-dominant-mode-signed-channel-profile.md`, which splits the
+dominant channel sum into positive offset and negative pressure.
+
 ## Sample Reconstruction
 
 The receipt reconstructs the prior residue-obligation dominant-mode ratios on

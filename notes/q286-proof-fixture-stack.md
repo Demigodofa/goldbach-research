@@ -43,6 +43,10 @@ frame.
   independent `Linf`/`L2` smallness of the `25` real channels is sufficient
   but too blunt on the current near-boundary samples; clear rows fail the
   budgets while passing by signed structure.
+- `evidence/q286-first-three-dominant-mode-signed-channel-profile.json`:
+  the signed structure is now split exactly into positive offset and negative
+  pressure; active samples suggest two theorem branches, pressure below `.3`
+  or enough positive offset above pressure.
 - `evidence/q286-first-three-orbit-uniformity-budget.json`:
   generic orbit uniformity is a valid sufficient theorem but too blunt, since
   clear rows `1242118` and `1240888` fail the sufficient budgets.
@@ -71,7 +75,8 @@ frame.
    residue-weight constraint.  The current exact arithmetic formulation is
    pointwise signed control of `25` real q286 binary-prime character channels;
    plain independent channel `Linf`/`L2` control is sufficient but already too
-   blunt on the active samples.
+   blunt on the active samples.  The sharper split is negative-channel
+   pressure versus positive-channel offset.
 5. Finish the finite boundary, endpoint, noncentral, and outer-assembly work.
 
 ## Condensation rule

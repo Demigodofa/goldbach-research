@@ -11175,6 +11175,20 @@ plain independent channel smallness is too blunt at the active scale; the
 remaining route needs signed channel cancellation, structured channel
 correlation, a stronger arithmetic input, or complement/lower-support rescue.
 
+The signed balance hidden by that norm budget is now recorded in
+`notes/q286-first-three-dominant-mode-signed-channel-profile.md` and
+`evidence/q286-first-three-dominant-mode-signed-channel-profile.json`.  Across
+the `25` real channels, write `dominant_sum = positive_offset -
+negative_pressure`.  Tail `1222142` has negative pressure about
+`0.37196700245556`, positive offset about `0.06313382289502988`, and misses
+the floor by about `-0.00883317956053016`.  Clear `1242118` has negative
+pressure about `0.34343932670896016` but enough positive offset, clearing by
+about `0.01652891346674458`.  Clear `1240888` has only about
+`0.2865251752684196` negative pressure, so it clears even with small positive
+offset.  The next theorem target is therefore a two-branch signed-channel
+claim: either control negative-channel pressure below `.3`, or prove enough
+positive-channel offset when the pressure exceeds `.3`.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

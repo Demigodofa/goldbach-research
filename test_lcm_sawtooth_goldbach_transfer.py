@@ -45,6 +45,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_dominant_mode_reflection_support_obstruction_receipt,
     q286_first_three_dominant_mode_character_sum_obligation_receipt,
     q286_first_three_dominant_mode_channel_norm_budget_receipt,
+    q286_first_three_dominant_mode_signed_channel_profile_receipt,
     q286_first_two_mode_sign_window_receipt,
     q286_first_two_mode_subcone_magnitude_window_receipt,
     q286_first_two_mode_subcone_complement_window_receipt,
@@ -4431,6 +4432,45 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
             "generic_independent_channel_norm_bound_sufficient"])
         self.assertTrue(receipt[
             "generic_independent_channel_norm_bound_demoted_on_samples"])
+        self.assertFalse(receipt[
+            "pointwise_character_sum_estimate_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_dominant_mode_signed_channel_profile(self):
+        receipt = (
+            q286_first_three_dominant_mode_signed_channel_profile_receipt(
+                sample_targets=(1222142, 1242118, 1240888),
+                top_channel_count=4))
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["support"], (11, 13))
+        self.assertEqual(receipt["dominant_modes"], (1, 2))
+        self.assertEqual(receipt["active_real_channel_count"], 25)
+        self.assertEqual(receipt["dominant_floor_failure_targets"], (1222142,))
+        self.assertEqual(
+            receipt["dominant_floor_pass_targets"],
+            (1242118, 1240888))
+        self.assertEqual(
+            receipt["maximum_negative_pressure_row"]["target"], 1222142)
+        self.assertEqual(
+            receipt["minimum_positive_offset_slack_row"]["target"], 1222142)
+        self.assertLess(
+            receipt["maximum_real_channel_identity_error"], 1e-9)
+        rows = receipt["target_rows"]
+        self.assertLess(rows[1222142]["positive_offset_slack_to_floor"], 0)
+        self.assertGreater(
+            rows[1242118]["positive_offset_slack_to_floor"], 0)
+        self.assertAlmostEqual(
+            rows[1240888]["required_positive_offset_for_floor"], 0.0)
+        self.assertGreater(
+            rows[1240888]["signed_to_absolute_real_channel_ratio"], -.92)
+        self.assertEqual(rows[1222142]["positive_real_channel_count"], 8)
+        self.assertEqual(rows[1222142]["negative_real_channel_count"], 17)
+        self.assertEqual(rows[1240888]["positive_real_channel_count"], 3)
+        self.assertEqual(rows[1240888]["negative_real_channel_count"], 22)
+        self.assertTrue(receipt[
+            "dominant_mode_signed_channel_profile_measured"])
+        self.assertFalse(receipt[
+            "signed_channel_cancellation_theorem_proved"])
         self.assertFalse(receipt[
             "pointwise_character_sum_estimate_proved"])
         self.assertFalse(receipt["goldbach_proved"])

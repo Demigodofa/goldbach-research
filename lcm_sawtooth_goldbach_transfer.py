@@ -8364,6 +8364,17 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
              if row["contribution_to_principal_ratio"] > tolerance),
             key=lambda row: row["contribution_to_principal_ratio"],
             reverse=True)[:top_channel_count])
+        positive_channel_sum = math.fsum(
+            row["contribution_to_principal_ratio"]
+            for row in real_channel_contributions
+            if row["contribution_to_principal_ratio"] > tolerance)
+        negative_channel_sum = math.fsum(
+            row["contribution_to_principal_ratio"]
+            for row in real_channel_contributions
+            if row["contribution_to_principal_ratio"] < -tolerance)
+        absolute_channel_sum = math.fsum(
+            abs(row["contribution_to_principal_ratio"])
+            for row in real_channel_contributions)
         target_rows[target] = {
             "target": target,
             "target_mod_286": target_residue,
@@ -8393,6 +8404,23 @@ def q286_first_three_dominant_mode_character_sum_obligation_receipt(
                 * math.sqrt(math.fsum(
                     abs(value) ** 2
                     for value in normalized_representative_character_sums))),
+            "positive_real_channel_contribution_to_principal": float(
+                positive_channel_sum),
+            "negative_real_channel_contribution_to_principal": float(
+                negative_channel_sum),
+            "absolute_real_channel_contribution_to_principal": float(
+                absolute_channel_sum),
+            "signed_to_absolute_real_channel_ratio": float(
+                real_channel_sum / absolute_channel_sum
+                if absolute_channel_sum > tolerance else math.nan),
+            "positive_real_channel_count": sum(
+                1 for row in real_channel_contributions
+                if row["contribution_to_principal_ratio"] > tolerance),
+            "negative_real_channel_count": sum(
+                1 for row in real_channel_contributions
+                if row["contribution_to_principal_ratio"] < -tolerance),
+            "real_channel_contribution_rows": tuple(
+                real_channel_contributions),
             "top_negative_real_channels": negative_channels,
             "top_positive_real_channels": positive_channels,
         }
@@ -8554,6 +8582,111 @@ def q286_first_three_dominant_mode_channel_norm_budget_receipt(
         "generic_independent_channel_norm_bound_sufficient": True,
         "generic_independent_channel_norm_bound_demoted_on_samples": bool(
             bound_failure_but_floor_pass_targets),
+        "pointwise_character_sum_estimate_proved": False,
+        "fixed_modulus_binary_ap_theorem_proved": False,
+        "signed_projection_theorem_proved": False,
+        "goldbach_proved": False,
+    }
+
+
+def q286_first_three_dominant_mode_signed_channel_profile_receipt(
+        sample_targets=(1222142, 1242118, 1240888),
+        dominant_modes=(1, 2), tail_threshold=.3, tolerance=1e-9,
+        top_channel_count=6):
+    """Profile signed balance across dominant q286 real channels.
+
+    The independent norm budget is too blunt on the active samples.  This
+    receipt keeps the exact 25-channel character identity and records how much
+    negative channel pressure is offset by positive channel contribution.
+
+    It is finite theorem-shaping evidence only.  It proves no eventual signed
+    cancellation theorem and no Goldbach theorem.
+    """
+    character_receipt = (
+        q286_first_three_dominant_mode_character_sum_obligation_receipt(
+            sample_targets=sample_targets, dominant_modes=dominant_modes,
+            tail_threshold=tail_threshold, tolerance=tolerance,
+            top_channel_count=top_channel_count))
+
+    rows = {}
+    floor_failure_targets = []
+    floor_pass_targets = []
+    maximum_negative_pressure_row = None
+    minimum_positive_offset_slack_row = None
+    minimum_signed_to_absolute_row = None
+    for target, row in character_receipt["target_rows"].items():
+        if not row["has_strict_central_prime_pairs"]:
+            rows[target] = row
+            continue
+        negative_pressure = -row[
+            "negative_real_channel_contribution_to_principal"]
+        positive_offset = row[
+            "positive_real_channel_contribution_to_principal"]
+        required_positive_offset = max(
+            0.0,
+            -tail_threshold
+            - row["negative_real_channel_contribution_to_principal"])
+        positive_offset_slack = positive_offset - required_positive_offset
+        signed_to_absolute = row[
+            "signed_to_absolute_real_channel_ratio"]
+        floor_passes = row["dominant_character_sum_to_principal_ratio"] >= (
+            -tail_threshold - tolerance)
+        row = dict(row)
+        row.update({
+            "negative_channel_pressure_to_principal": negative_pressure,
+            "positive_channel_offset_to_principal": positive_offset,
+            "positive_to_negative_pressure_ratio": (
+                positive_offset / negative_pressure
+                if negative_pressure > tolerance else math.inf),
+            "required_positive_offset_for_floor": (
+                required_positive_offset),
+            "positive_offset_slack_to_floor": positive_offset_slack,
+            "dominant_floor_passes": bool(floor_passes),
+            "channel_cancellation_fraction": float(
+                1.0 - abs(row[
+                    "dominant_real_channel_sum_to_principal_ratio"])
+                / row["absolute_real_channel_contribution_to_principal"]
+                if row["absolute_real_channel_contribution_to_principal"]
+                > tolerance else math.nan),
+        })
+        rows[target] = row
+        if floor_passes:
+            floor_pass_targets.append(target)
+        else:
+            floor_failure_targets.append(target)
+        if (maximum_negative_pressure_row is None
+                or negative_pressure > maximum_negative_pressure_row[
+                    "negative_channel_pressure_to_principal"]):
+            maximum_negative_pressure_row = row
+        if (minimum_positive_offset_slack_row is None
+                or positive_offset_slack < minimum_positive_offset_slack_row[
+                    "positive_offset_slack_to_floor"]):
+            minimum_positive_offset_slack_row = row
+        if (minimum_signed_to_absolute_row is None
+                or signed_to_absolute < minimum_signed_to_absolute_row[
+                    "signed_to_absolute_real_channel_ratio"]):
+            minimum_signed_to_absolute_row = row
+
+    return {
+        "arithmetic_modulus": character_receipt["arithmetic_modulus"],
+        "support": character_receipt["support"],
+        "sample_targets": character_receipt["sample_targets"],
+        "dominant_modes": character_receipt["dominant_modes"],
+        "tail_threshold": tail_threshold,
+        "active_real_channel_count": (
+            character_receipt["active_real_channel_count"]),
+        "target_rows": rows,
+        "dominant_floor_failure_targets": tuple(floor_failure_targets),
+        "dominant_floor_pass_targets": tuple(floor_pass_targets),
+        "maximum_negative_pressure_row": maximum_negative_pressure_row,
+        "minimum_positive_offset_slack_row": (
+            minimum_positive_offset_slack_row),
+        "minimum_signed_to_absolute_real_channel_row": (
+            minimum_signed_to_absolute_row),
+        "maximum_real_channel_identity_error": (
+            character_receipt["maximum_real_channel_identity_error"]),
+        "dominant_mode_signed_channel_profile_measured": True,
+        "signed_channel_cancellation_theorem_proved": False,
         "pointwise_character_sum_estimate_proved": False,
         "fixed_modulus_binary_ap_theorem_proved": False,
         "signed_projection_theorem_proved": False,
