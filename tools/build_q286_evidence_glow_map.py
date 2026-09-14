@@ -103,6 +103,8 @@ def main():
         / "q286-first-three-dominant-mode-residual-drag-channel-certificate-falsifier.json")
     lift_project_dictionary = load_json(
         EVIDENCE / "q286-lift-project-dictionary-audit.json")
+    low_frequency_lift_holdout = load_json(
+        EVIDENCE / "q286-low-frequency-lift-holdout.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1130,6 +1132,53 @@ def main():
         "lift-project-dictionary-audit",
         2.5,
         "simple label-only lifted dictionaries do not fully explain rank-1")
+
+    layer(
+        "low-frequency-lift-holdout",
+        "Frozen low-frequency q286 lift survives fresh-window holdout",
+        "finite_holdout_diagnostic",
+        "evidence/q286-low-frequency-lift-holdout.json",
+        3.0,
+        "Finite heldout diagnostic only; no lifted dictionary theorem.")
+    for row in low_frequency_lift_holdout[
+            "rows_by_dictionary_residual_drag_ratio"][:12]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "low-frequency-lift-holdout",
+            3.0,
+            "heldout high residual-drag row under frozen low-frequency lift",
+            {
+                "dictionary_ratio": (
+                    row["dictionary_residual_drag_to_dictionary_ratio"]),
+                "rank1_ratio": (
+                    row["rank1_residual_drag_to_rank1_ratio"]),
+                "dictionary_delta_to_full_ratio": (
+                    row["dictionary_delta_to_full_delta_ratio"]),
+            })
+    add_hit(
+        mechanism_stacks,
+        "low-frequency-label-lattice-heldout-survives",
+        "low-frequency-lift-holdout",
+        3.0,
+        "frozen low-frequency lift has zero positivity/cap failures and 8/10 high-drag overlap on fresh rows",
+        {
+            "heldout_clear_count": low_frequency_lift_holdout[
+                "heldout_clear_count"],
+            "high_drag_overlap": low_frequency_lift_holdout[
+                "high_drag_overlap_count_at_reference_k"],
+            "reference_high_drag_count": low_frequency_lift_holdout[
+                "reference_rank1_high_drag_count"],
+            "maximum_dictionary_ratio": (
+                low_frequency_lift_holdout[
+                    "maximum_dictionary_residual_drag_ratio"]["value"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "rank1-outside-direction-arithmetic-meaning",
+        "low-frequency-lift-holdout",
+        3.0,
+        "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem")
 
     layer(
         "conditional-proof-stack",

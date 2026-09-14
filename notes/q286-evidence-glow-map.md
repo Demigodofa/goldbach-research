@@ -214,6 +214,17 @@ hole-tightening gate.  Claude's order-weight proposal is also scored there:
 the parity observation is real but not separating, and the order-weight vector
 has cosine about `0.304375` with `0/10` high-drag overlap.
 
+The next heldout layer is:
+
+```text
+evidence/q286-low-frequency-lift-holdout.json
+```
+
+It freezes `full_low_frequency_lift` and replays it on `606` fresh targets
+around `1260000` and `1280000`.  The lift survives this heldout with no
+nonpositive reconstructed deltas, no `0.75` cap failures, and `8/10` overlap
+with the heldout frozen-rank1 high-drag rows.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

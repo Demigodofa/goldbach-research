@@ -12976,3 +12976,43 @@ features as a useful partial component.  The next lift, if pursued, should
 include target residue or splitting data before fitting and should be tested
 on a held-out denominator; otherwise return to row-dependent residual balance
 or a larger signed cone.
+
+Gemini, via Kevin's manual paste route, proposed a Legendre-product sign
+vector `(-1)^(floor(a/5)+floor(b/6))`.  The same audit falsifies it as a
+simple rank-`1` explanation: cosine about `0.355235`, `11/17` sign
+mismatches, one nonpositive reconstructed delta, one `0.75` cap failure, and
+`1/10` high-drag overlap.  The useful part is the fallback suggestion:
+target-residue or conductor-`11`/conductor-`13` interference should be
+included explicitly if another lift is tried.
+
+### 2026-09-14 continuation: low-frequency lift heldout
+
+The heldout receipt is:
+
+```text
+evidence/q286-low-frequency-lift-holdout.json
+```
+
+It freezes the `full_low_frequency_lift` vector from the dictionary audit and
+replays it on six fresh q286 windows:
+
+```text
+(1260000, 101), (1261000, 101), (1262000, 101),
+(1280000, 101), (1281000, 101), (1282000, 101)
+```
+
+No refitting or heldout projection is allowed.  All `606` heldout targets are
+dominant-floor clears.  Exact outside deltas, frozen rank-`1` reconstructed
+deltas, and frozen low-frequency reconstructed deltas are all positive.  Both
+rank-`1` and low-frequency replay have zero `0.75` residual-drag cap failures.
+
+The frozen low-frequency lift recovers `8/10` heldout rank-`1` high-drag rows
+at `k=10`.  Its maximum heldout residual-drag ratio is about
+`0.4597212508`, its mean residual-drag ratio is about `0.0116775085`, and
+its mean dictionary/full delta ratio is about `0.8368536837`.
+
+Decision: the low-frequency label-lattice lift survives as a finite heldout
+tool for tightening the q286 residual-drag hole.  It still is not a
+rank-`1` theorem or a Goldbach proof.  The next lift should add target residue
+or splitting data before fitting and should be tested on another fresh
+denominator.

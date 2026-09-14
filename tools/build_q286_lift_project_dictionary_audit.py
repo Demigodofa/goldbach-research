@@ -184,6 +184,9 @@ def named_features(labels):
              * (math.gcd(label[1], 12) / 12.0)
              for label in labels], dtype=np.float64),
         "primitive_root_2_realpart": np.cos(phase_a + phase_b),
+        "gemini_legendre_product_sign": np.asarray(
+            [(-1.0) ** (int(label[0] // 5) + int(label[1] // 6))
+             for label in labels], dtype=np.float64),
     }
 
 
@@ -265,6 +268,12 @@ def dictionary_specs():
             "kind": "single_predeclared_feature",
             "feature_names": ("primitive_root_2_realpart",),
             "mechanism": "Real part of the primitive-root-2 phase heuristic cos(2*pi*a/10 + 2*pi*b/12), included as a negative-control version of Claude's discarded candidate.",
+        },
+        {
+            "id": "gemini_legendre_product_sign",
+            "kind": "single_predeclared_feature",
+            "feature_names": ("gemini_legendre_product_sign",),
+            "mechanism": "Gemini-proposed Legendre-product sign vector (-1)^(floor(a/5)+floor(b/6)) on the folded C10 x C12 labels.",
         },
     )
 

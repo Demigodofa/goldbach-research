@@ -1323,8 +1323,16 @@
       "type": "receipt",
       "label": "q286 lift-project dictionary audit",
       "status": "finite_partial_falsifier",
-      "validation": "tools/build_q286_lift_project_dictionary_audit.py generated evidence/q286-lift-project-dictionary-audit.json; no simple label-only dictionary passes the local hole-tightening gate, full_low_frequency_lift is a partial signal with rank1 cosine about 0.8324697829 and 6/10 high-drag overlap, and Claude's order-weight vector is falsified as a rank1 explanation with cosine about 0.304375 and 0/10 high-drag overlap",
+      "validation": "tools/build_q286_lift_project_dictionary_audit.py generated evidence/q286-lift-project-dictionary-audit.json; no simple label-only dictionary passes the local hole-tightening gate, full_low_frequency_lift is a partial signal with rank1 cosine about 0.8324697829 and 6/10 high-drag overlap, Claude's order-weight vector is falsified with cosine about 0.304375 and 0/10 high-drag overlap, and Gemini's Legendre-product sign vector is falsified with cosine about 0.355235, 11/17 sign mismatches, and 1/10 high-drag overlap",
       "status_boundary": "finite dictionary audit only; simple label-only family demoted as immediate explanation, but no universal no-go, no lifted dictionary theorem, no residual-bound theorem, no signed projection theorem, and no Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_low_frequency_lift_holdout",
+      "type": "receipt",
+      "label": "q286 low-frequency lift holdout",
+      "status": "finite_holdout_diagnostic",
+      "validation": "tools/build_q286_low_frequency_lift_holdout.py generated evidence/q286-low-frequency-lift-holdout.json; frozen full_low_frequency_lift replayed on 606 fresh heldout targets has zero nonpositive reconstructed deltas, zero 0.75 cap failures, and 8/10 overlap with heldout rank1 high-drag rows",
+      "status_boundary": "finite heldout diagnostic only; low-frequency lift survives as a local tool but no lifted dictionary theorem, residual-bound theorem, signed projection theorem, or Goldbach proof is established"
     }
   ],
   "edges": [
@@ -2875,6 +2883,21 @@
     },
     {
       "from": "receipt.q286_lift_project_dictionary_audit",
+      "to": "theorem.first_three_signed_projection",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_holdout",
+      "to": "receipt.q286_lift_project_dictionary_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_holdout",
+      "to": "strategy.ai_unit_distance_lift_project_transfer",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_low_frequency_lift_holdout",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
     }

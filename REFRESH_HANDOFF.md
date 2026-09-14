@@ -21140,6 +21140,36 @@ rank-`1` cosine about `0.304375`, Spearman about `-0.094778`, Pearson about
 under-reconstruction, with mean dictionary/full delta ratio about `0.497819`,
 not from explaining residual drag.
 
+Gemini candidate update: Kevin pasted Gemini's Legendre-product sign vector
+`(-1)^(floor(a/5)+floor(b/6))`.  The audit falsifies it as a simple
+rank-`1` explanation: cosine about `0.355235`, `11/17` sign mismatches
+against the frozen rank-`1` vector, one nonpositive reconstructed delta, one
+`0.75` cap failure, and `1/10` high-drag overlap.
+
+Low-frequency lift heldout:
+
+- `tools/build_q286_low_frequency_lift_holdout.py`
+- `notes/q286-low-frequency-lift-holdout.md`
+- `evidence/q286-low-frequency-lift-holdout.json`
+
+The heldout freezes `full_low_frequency_lift` from the prior audit and
+replays it on six fresh q286 windows around `1260000` and `1280000`, without
+re-projecting.  All `606` heldout targets are dominant-floor clears.  Exact
+outside deltas, frozen Octave rank-`1` reconstructed deltas, and frozen
+low-frequency reconstructed deltas are positive on all `606` rows.  Both
+rank-`1` and low-frequency replay have zero `0.75` residual-drag cap failures.
+
+The low-frequency lift recovers `8/10` heldout rank-`1` high-drag rows at
+`k=10`, improving over the `6/10` training-window overlap.  Its heldout
+maximum residual-drag ratio is about `0.4597212508` at `1282052`, and its
+mean dictionary/full delta ratio is about `0.8368536837`.
+
+Interpretation: simple label-only dictionaries remain demoted as complete
+rank-`1` explanations, but the low-frequency label-lattice lift is no longer
+just a training-window curiosity.  The next stronger lift should include
+target residue or conductor-`11`/conductor-`13` splitting data up front, then
+face a new heldout denominator.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

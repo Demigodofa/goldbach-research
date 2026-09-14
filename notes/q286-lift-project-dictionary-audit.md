@@ -121,6 +121,31 @@ This is not a residual-drag explanation.
 The primitive-root-`2` realpart negative control also fails the positivity
 screen, with `5` nonpositive reconstructed deltas and `5` cap failures.
 
+## Gemini Legendre-Product Candidate
+
+Kevin also pasted a Gemini proposal for a Legendre-product sign vector:
+
+```text
+v(a,b) = (-1)^(floor(a/5) + floor(b/6))
+```
+
+The quick sign screen and full replay both falsify this vector as a simple
+rank-`1` explanation:
+
+```text
+rank1 cosine:             0.3552346438331256
+rank1 sign mismatches:    11/17
+cap failures:             1
+nonpositive deltas:       1
+high-drag overlap:        1/10
+mean dictionary/full:     0.36548550936506535
+minimum dictionary/full: -0.4444751901115947
+```
+
+The useful part of Gemini's answer is the fallback diagnosis: if static
+label-only vectors fail, the next dictionary should include conductor-`11`
+and conductor-`13` interference or target-residue/splitting data explicitly.
+
 ## Interpretation
 
 Grok returned a useful sequential-adversarial no-go intuition: simple
@@ -134,6 +159,12 @@ promote it.
 The stronger no-go claim is not proved.  The low-frequency lift is not random:
 it preserves positivity, has no `0.75` cap failures, and identifies `6` of the
 `10` high-drag rows.  That is a partial signal, not a theorem engine.
+
+The follow-up heldout check is recorded in
+`notes/q286-low-frequency-lift-holdout.md`.  On `606` fresh targets the
+frozen `full_low_frequency_lift` keeps every reconstructed outside delta
+positive, has no `0.75` cap failures, and overlaps `8/10` of the heldout
+rank-`1` high-drag set.
 
 ## Next Decision
 

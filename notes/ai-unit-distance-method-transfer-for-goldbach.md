@@ -140,6 +140,23 @@ order-weight vector itself has rank-`1` cosine about `0.304375`, Spearman
 correlation about `-0.094778`, and `0/10` high-drag overlap, so it is
 falsified as the simple explanation for the frozen Octave rank-`1` direction.
 
+Gemini's Legendre-product sign vector
+`(-1)^(floor(a/5)+floor(b/6))` was also scored and falsified as a simple
+rank-`1` explanation: cosine about `0.355235`, `11/17` sign mismatches, one
+nonpositive reconstructed delta, one `0.75` cap failure, and `1/10`
+high-drag overlap.
+
+The low-frequency lift itself survived the first fresh-window holdout:
+
+```text
+notes/q286-low-frequency-lift-holdout.md
+```
+
+On `606` held-out targets it has no nonpositive reconstructed deltas, no
+`0.75` cap failures, and `8/10` overlap with the frozen rank-`1` high-drag
+set.  This keeps the representation-shift idea alive as a local
+hole-tightening tool while still falling far short of a theorem.
+
 First local holes to target:
 
 - the arithmetic meaning of the frozen q286 rank-`1` outside direction;

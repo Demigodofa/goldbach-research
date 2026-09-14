@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "7a11b4813070c6432a39438c7073fcd2c703627b",
+  "generated_from_commit": "c15e2c940b3dfbdb3203ea2564fb73b2810b6e31",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -202,6 +202,14 @@
       "source": "evidence/q286-lift-project-dictionary-audit.json",
       "default_weight": 2.5,
       "boundary": "Finite dictionary audit only; no lifted dictionary theorem."
+    },
+    {
+      "id": "low-frequency-lift-holdout",
+      "label": "Frozen low-frequency q286 lift survives fresh-window holdout",
+      "kind": "finite_holdout_diagnostic",
+      "source": "evidence/q286-low-frequency-lift-holdout.json",
+      "default_weight": 3.0,
+      "boundary": "Finite heldout diagnostic only; no lifted dictionary theorem."
     },
     {
       "id": "conditional-proof-stack",
@@ -3831,6 +3839,222 @@
       "glow": 0.055556
     },
     {
+      "id": "1260058",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.27150907589362994,
+            "rank1_ratio": 0.18417415482440716,
+            "dictionary_delta_to_full_ratio": 1.3727006979897334
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1261180",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.19842358723904457,
+            "rank1_ratio": 0.18614092925079403,
+            "dictionary_delta_to_full_ratio": 1.2475416991819819
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1261196",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.24550061192011707,
+            "rank1_ratio": 0.2723843903410373,
+            "dictionary_delta_to_full_ratio": 1.3253821219721447
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1262014",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.18563625133636963,
+            "rank1_ratio": 0.14534776262763577,
+            "dictionary_delta_to_full_ratio": 1.2279524986727348
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1262162",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.21181031637280046,
+            "rank1_ratio": 0.29716399088561934,
+            "dictionary_delta_to_full_ratio": 1.2687301302880072
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1280026",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.23798360283605502,
+            "rank1_ratio": 0.24405840788969255,
+            "dictionary_delta_to_full_ratio": 1.3123077189963062
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1280086",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.30605454930507,
+            "rank1_ratio": 0.25923825186536115,
+            "dictionary_delta_to_full_ratio": 1.4410354574679916
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1281148",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.2917708608670854,
+            "rank1_ratio": 0.22965793076653385,
+            "dictionary_delta_to_full_ratio": 1.4119724037679398
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1282052",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.459721250831413,
+            "rank1_ratio": 0.46358681124703777,
+            "dictionary_delta_to_full_ratio": 1.8508964151169363
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1282108",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.18951069482399707,
+            "rank1_ratio": 0.24389461691800335,
+            "dictionary_delta_to_full_ratio": 1.2338225731218546
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1282142",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.2213503553909506,
+            "rank1_ratio": 0.2586301478375578,
+            "dictionary_delta_to_full_ratio": 1.284274650253116
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
+      "id": "1282186",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "heldout high residual-drag row under frozen low-frequency lift",
+          "value": {
+            "dictionary_ratio": 0.40811761276876735,
+            "rank1_ratio": 0.39607896230400297,
+            "dictionary_delta_to_full_ratio": 1.6895248474581264
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055556
+    },
+    {
       "id": "1220188",
       "stack_weight": 2.5,
       "layers": [
@@ -4309,6 +4533,25 @@
       ],
       "layer_count": 3,
       "glow": 1.0
+    },
+    {
+      "id": "low-frequency-label-lattice-heldout-survives",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "frozen low-frequency lift has zero positivity/cap failures and 8/10 high-drag overlap on fresh rows",
+          "value": {
+            "heldout_clear_count": 606,
+            "high_drag_overlap": 8,
+            "reference_high_drag_count": 10,
+            "maximum_dictionary_ratio": 0.459721250831413
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
     },
     {
       "id": "rank1-cap-survives-full-window",
@@ -4908,6 +5151,29 @@
       "glow": 0.515152
     },
     {
+      "id": "rank1-outside-direction-arithmetic-meaning",
+      "stack_weight": 8.0,
+      "layers": [
+        {
+          "layer": "outside-rank1-separator",
+          "weight": 2.5,
+          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
+        },
+        {
+          "layer": "lift-project-dictionary-audit",
+          "weight": 2.5,
+          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
+        },
+        {
+          "layer": "low-frequency-lift-holdout",
+          "weight": 3.0,
+          "reason": "low-frequency label-lattice signal survives heldout but still needs arithmetic theorem"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.484848
+    },
+    {
       "id": "active-lane-strict-closure",
       "stack_weight": 5.0,
       "layers": [
@@ -4920,24 +5186,6 @@
           "layer": "conditional-proof-stack",
           "weight": 2.0,
           "reason": "named conditional branch"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.30303
-    },
-    {
-      "id": "rank1-outside-direction-arithmetic-meaning",
-      "stack_weight": 5.0,
-      "layers": [
-        {
-          "layer": "outside-rank1-separator",
-          "weight": 2.5,
-          "reason": "identify the frozen rank-1 vector as a non-post-hoc arithmetic object"
-        },
-        {
-          "layer": "lift-project-dictionary-audit",
-          "weight": 2.5,
-          "reason": "simple label-only lifted dictionaries do not fully explain rank-1"
         }
       ],
       "layer_count": 2,
