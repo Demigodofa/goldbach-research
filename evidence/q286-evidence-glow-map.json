@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "receipt": "q286-evidence-glow-map",
+  "generated_from_commit": "623f0fb33e21de72240d98a609035ac7824825ec",
+  "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
+  "visual_encoding": {
+    "target_shape": "circle",
+    "mechanism_shape": "hexagon",
+    "theorem_gap_shape": "diamond",
+    "brightness": "stack_weight normalized within each stack family",
+    "suggested_use": "Render target/mechanism/theorem stacks together; repeated hits glow brighter while status_boundary text prevents mistaking finite evidence for proof."
+  },
+  "layers": [
+    {
+      "id": "graph-target-roles",
+      "label": "Closed-lanes graph target roles",
+      "kind": "graph_metadata",
+      "source": "notes/q286-closed-lanes-map.graph.json",
+      "default_weight": 1.0,
+      "boundary": "Graph role only; not a new computation."
+    },
+    {
+      "id": "strict-closure-selected-late",
+      "label": "Selected late active rows have positive strict closure margin",
+      "kind": "selected_stress",
+      "source": "evidence/q286-active-lane-strict-closure-margin-census-selected-late.json",
+      "default_weight": 3.0,
+      "boundary": "Finite selected-fixture evidence only."
+    },
+    {
+      "id": "fixed-inequality-target-window",
+      "label": "Tiny active target window passes fixed inequality",
+      "kind": "selected_local_window",
+      "source": "evidence/q286-fixed-inequality-target-window-census.json",
+      "default_weight": 2.0,
+      "boundary": "Tiny local window; not broad population evidence."
+    },
+    {
+      "id": "sampling-denominator-map",
+      "label": "Selector denominator map separates zero-hit scans from stress rows",
+      "kind": "denominator_map",
+      "source": "evidence/q286-active-lane-sampling-denominator-map.json",
+      "default_weight": 1.5,
+      "boundary": "Denominator bookkeeping only; sample-size risk remains open."
+    },
+    {
+      "id": "post-232-zero-tail-window",
+      "label": "Cycles 233..264 have zero .2/.3 first-three tail rows",
+      "kind": "large_zero_tail_window",
+      "source": "evidence/q286-tail-alignment-complement-window-233-264.json",
+      "default_weight": 2.0,
+      "boundary": "Large finite denominator window only; no stress rows."
+    },
+    {
+      "id": "conditional-proof-stack",
+      "label": "Three explicit q286 conditional theorem branches",
+      "kind": "theorem_map",
+      "source": "notes/q286-conditional-proof-stack.md",
+      "default_weight": 2.0,
+      "boundary": "Conditional map only; all pointwise hypotheses remain open."
+    }
+  ],
+  "target_stacks": [
+    {
+      "id": "1379072",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "graph-target-roles",
+          "weight": 1.0,
+          "reason": "late_success",
+          "value": "tail-subcone target led by positive (7,11) despite mildly negative (5,7)"
+        },
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "positive strict closure margin",
+          "value": 0.48379401372791037
+        },
+        {
+          "layer": "fixed-inequality-target-window",
+          "weight": 2.0,
+          "reason": "fixed inequality stressed and passed",
+          "value": 0.006933239211847554
+        }
+      ],
+      "layer_count": 3,
+      "glow": 1.0
+    },
+    {
+      "id": "1222142",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "graph-target-roles",
+          "weight": 1.0,
+          "reason": "late_success",
+          "value": "tail-subcone target led by positive (7,11) centered action"
+        },
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "positive strict closure margin",
+          "value": 0.5506633762515991
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.666667
+    },
+    {
+      "id": "1323632",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "graph-target-roles",
+          "weight": 1.0,
+          "reason": "late_success",
+          "value": "tail-subcone target led by positive (5,7) centered action"
+        },
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "positive strict closure margin",
+          "value": 0.546820393849208
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.666667
+    },
+    {
+      "id": "10664",
+      "stack_weight": 1.0,
+      "layers": [
+        {
+          "layer": "graph-target-roles",
+          "weight": 1.0,
+          "reason": "boundary_failure",
+          "value": "finite witness against weak support/nonnegative/mass and raw lower-support rescue"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
+    },
+    {
+      "id": "14138",
+      "stack_weight": 1.0,
+      "layers": [
+        {
+          "layer": "graph-target-roles",
+          "weight": 1.0,
+          "reason": "boundary_failure",
+          "value": "strong boundary witness with simultaneous negative (5,7)/(7,11) centered action"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
+    }
+  ],
+  "mechanism_stacks": [
+    {
+      "id": "channel-carried-strict-slack",
+      "stack_weight": 9.0,
+      "layers": [
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "dominant margin source",
+          "value": "channel"
+        },
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "dominant margin source",
+          "value": "channel"
+        },
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "dominant margin source",
+          "value": "channel"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 1.0
+    },
+    {
+      "id": "fixed-component-pair-((5,7),(7,11))",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "fixed-inequality-target-window",
+          "weight": 2.0,
+          "reason": "active component pair stress path passed on tiny window"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
+      "id": "tail-thinning-after-cycle-232",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "post-232-zero-tail-window",
+          "weight": 2.0,
+          "reason": "zero .2 near-tail and zero .3 deep-tail rows",
+          "value": {
+            "tested_target_count": 160160,
+            "near_tail_count": 0,
+            "deep_tail_count": 0
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
+      "id": "active-selector-rarity",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "sampling-denominator-map",
+          "weight": 1.5,
+          "reason": "zero active rows in broad selector and scout windows",
+          "value": {
+            "necessary_condition_scout_scanned_target_count": 3600,
+            "large_contiguous_tail_window_scanned_target_count": 160160
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.166667
+    }
+  ],
+  "theorem_gap_stacks": [
+    {
+      "id": "active-lane-strict-closure",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "strict-closure-selected-late",
+          "weight": 3.0,
+          "reason": "selected active rows pass calibrated strict closure"
+        },
+        {
+          "layer": "conditional-proof-stack",
+          "weight": 2.0,
+          "reason": "named conditional branch"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 1.0
+    },
+    {
+      "id": "alignment-plus-complement-tail",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "conditional-proof-stack",
+          "weight": 2.0,
+          "reason": "named conditional branch"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.4
+    },
+    {
+      "id": "rarity-plus-complement-floor",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "conditional-proof-stack",
+          "weight": 2.0,
+          "reason": "named conditional branch"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.4
+    },
+    {
+      "id": "sample-size-cherry-pick-risk",
+      "stack_weight": 1.5,
+      "layers": [
+        {
+          "layer": "sampling-denominator-map",
+          "weight": 1.5,
+          "reason": "risk explicitly left open",
+          "value": {
+            "sample_size_concern_closed": false,
+            "cherry_picking_risk_closed": false
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.3
+    },
+    {
+      "id": "alignment-complement-route",
+      "stack_weight": 1.0,
+      "layers": [
+        {
+          "layer": "post-232-zero-tail-window",
+          "weight": 1.0,
+          "reason": "no falsifier rows in adjacent post-232 window"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.2
+    }
+  ],
+  "goldbach_proved": false,
+  "status_boundary": "Glow is a navigation and hypothesis-generation layer only.  It does not prove rarity, strict closure, pointwise signed prime correlation, outer assembly, or Goldbach."
+}

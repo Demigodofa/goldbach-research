@@ -19511,6 +19511,21 @@ the finite boundary, endpoint/noncentral, outer assembly, and pointwise
 prime-correlation gaps.  Treat it as a map of what must be proved, not as a
 new theorem.
 
+New evidence glow-map layer:
+
+- `tools/build_q286_evidence_glow_map.py`
+- `evidence/q286-evidence-glow-map.json`
+- `notes/q286-evidence-glow-map.md`
+
+This is the first repo-backed version of Kevin's stacked
+numbers/vectors/shapes idea.  It overlays existing graph roles and structured
+q286 evidence receipts into target, mechanism, and theorem-gap stacks.  Glow
+means repeated evidence layers overlap; it explicitly does not mean proved.
+Current brightest target is `1379072`, because graph role, strict closure, and
+fixed-inequality stress all hit it.  Current brightest mechanism is
+`channel-carried-strict-slack`, because all three selected late active rows
+share it.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

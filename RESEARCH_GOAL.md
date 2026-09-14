@@ -10777,6 +10777,14 @@ exact finite boundary and outer-assembly obligations.  This is a theorem map,
 not a proof: all pointwise residue-correlation hypotheses, endpoint/noncentral
 terms, and the final Goldbach assembly remain open.
 
+Kevin's proposed "stacked vectors/shapes that glow brighter" view now has a
+first generated data layer: `evidence/q286-evidence-glow-map.json`, produced
+by `tools/build_q286_evidence_glow_map.py` and documented in
+`notes/q286-evidence-glow-map.md`.  The map overlays existing q286 graph roles
+and structured evidence receipts into target, mechanism, and theorem-gap
+stacks.  Brightness means repeated repo-backed evidence layers overlap; it is
+not a proof score.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

@@ -11,6 +11,7 @@
     "demoted_lane",
     "surviving_structure",
     "conditional_theorem",
+    "visualization_layer",
     "receipt",
     "test",
     "optimization",
@@ -628,6 +629,14 @@
       "status_boundary": "conditional theorem map only; pointwise residue-correlation hypotheses, finite boundary checks, endpoint/noncentral terms, outer assembly, and Goldbach remain open"
     },
     {
+      "id": "visualization.q286_evidence_glow_map",
+      "type": "visualization_layer",
+      "label": "q286 evidence glow map",
+      "status": "generated_navigation_layer",
+      "validation": "tools/build_q286_evidence_glow_map.py generated evidence/q286-evidence-glow-map.json from structured graph and evidence files; notes/q286-evidence-glow-map.md defines the reading rule",
+      "status_boundary": "glow means overlapping evidence layers, not proof; no rarity, strict closure, pointwise signed prime-correlation, outer assembly, or Goldbach theorem is proved"
+    },
+    {
       "id": "target.10664",
       "type": "target",
       "label": "10664",
@@ -1239,6 +1248,16 @@
       "from": "conditional.q286_proof_stack",
       "to": "obligation.goldbach",
       "type": "supports"
+    },
+    {
+      "from": "visualization.q286_evidence_glow_map",
+      "to": "conditional.q286_proof_stack",
+      "type": "profiles"
+    },
+    {
+      "from": "visualization.q286_evidence_glow_map",
+      "to": "evidence.active_lane_sampling_denominator_map",
+      "type": "profiles"
     }
   ]
 }
