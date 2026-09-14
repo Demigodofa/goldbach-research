@@ -1,0 +1,595 @@
+{
+  "active_real_channel_count": 25,
+  "all_volatile_channels_leave_one_out_critical": true,
+  "arithmetic_modulus": 286,
+  "channels_with_clear_false_negative_on_deletion": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      5
+    ]
+  ],
+  "clear_targets": [
+    13556,
+    40420,
+    129706,
+    1240888,
+    1242118
+  ],
+  "dominant_modes": [
+    1,
+    2
+  ],
+  "failure_targets": [
+    13822,
+    24424,
+    55864,
+    164598,
+    1222142
+  ],
+  "falsifier": "A volatile channel whose leave-one-out deletion still gives exact selected-fixture classification falsifies leave-one-out criticality for the full rim.",
+  "goldbach_proved": false,
+  "interpretation": {
+    "criticality": "If all_volatile_channels_leave_one_out_critical is true, every volatile channel has at least one selected-row witness against deletion.",
+    "mixed_role": "Channels with clear false negatives on deletion cannot be treated as pure deficit blockers on this fixture.",
+    "remaining_theorem": "A proof route must explain signed row-specific volatile action, not just a uniform negative volatile cap."
+  },
+  "leave_one_out_exact_channel_count": 0,
+  "leave_one_out_rows": [
+    {
+      "changed_row_count": 4,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.01724358108474562,
+          "removed_channel_contribution": -0.05398792710903812,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.013458672694179219,
+          "margin_without_channel": 0.002262161720666657,
+          "removed_channel_contribution": -0.015720834414845876,
+          "target": 24424,
+          "target_mod_286": 114
+        },
+        {
+          "dominant_floor_passes": true,
+          "error_type": "false_negative",
+          "full_margin_to_floor": 0.048938403503475,
+          "margin_without_channel": -0.008569495269287478,
+          "removed_channel_contribution": 0.05750789877276248,
+          "target": 40420,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.002105695722058251,
+          "removed_channel_contribution": -0.010938875282588398,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 1,
+      "false_negative_targets": [
+        40420
+      ],
+      "false_positive_count": 3,
+      "false_positive_targets": [
+        13822,
+        24424,
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        1,
+        1
+      ]
+    },
+    {
+      "changed_row_count": 2,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.018147893602635433,
+          "removed_channel_contribution": -0.05489223962692793,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.005715683125818183,
+          "removed_channel_contribution": -0.01454886268634833,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        1,
+        3
+      ]
+    },
+    {
+      "changed_row_count": 3,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": true,
+          "error_type": "false_negative",
+          "full_margin_to_floor": 0.009564090345659026,
+          "margin_without_channel": -0.050937752504274514,
+          "removed_channel_contribution": 0.06050184284993354,
+          "target": 13556,
+          "target_mod_286": 114
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.019151792455175787,
+          "margin_without_channel": 0.018765991479523132,
+          "removed_channel_contribution": -0.03791778393469892,
+          "target": 164598,
+          "target_mod_286": 148
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.00964125294311503,
+          "removed_channel_contribution": -0.018474432503645177,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 1,
+      "false_negative_targets": [
+        13556
+      ],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        164598,
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        1,
+        5
+      ]
+    },
+    {
+      "changed_row_count": 1,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.04527695941717216,
+          "removed_channel_contribution": -0.08202130544146466,
+          "target": 13822,
+          "target_mod_286": 94
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 1,
+      "false_positive_targets": [
+        13822
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        1,
+        7
+      ]
+    },
+    {
+      "changed_row_count": 2,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.02249765261583222,
+          "removed_channel_contribution": -0.059241998640124714,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.0030178692734543176,
+          "removed_channel_contribution": -0.011851048833984464,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        2,
+        4
+      ]
+    },
+    {
+      "changed_row_count": 3,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.015125761509152368,
+          "removed_channel_contribution": -0.05187010753344486,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.013458672694179219,
+          "margin_without_channel": 0.06039984928372763,
+          "removed_channel_contribution": -0.07385852197790685,
+          "target": 24424,
+          "target_mod_286": 114
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.008336612357720017,
+          "removed_channel_contribution": -0.017169791918250164,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 3,
+      "false_positive_targets": [
+        13822,
+        24424,
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        3,
+        3
+      ]
+    },
+    {
+      "changed_row_count": 2,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.036744346024292496,
+          "margin_without_channel": 0.00846245299880409,
+          "removed_channel_contribution": -0.045206799023096586,
+          "target": 13822,
+          "target_mod_286": 94
+        },
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.019151792455175787,
+          "margin_without_channel": 0.011771636673528242,
+          "removed_channel_contribution": -0.03092342912870403,
+          "target": 164598,
+          "target_mod_286": 148
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 2,
+      "false_positive_targets": [
+        13822,
+        164598
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        4,
+        4
+      ]
+    },
+    {
+      "changed_row_count": 1,
+      "changed_rows": [
+        {
+          "dominant_floor_passes": false,
+          "error_type": "false_positive",
+          "full_margin_to_floor": -0.008833179560530147,
+          "margin_without_channel": 0.005213592883851455,
+          "removed_channel_contribution": -0.014046772444381602,
+          "target": 1222142,
+          "target_mod_286": 64
+        }
+      ],
+      "false_negative_count": 0,
+      "false_negative_targets": [],
+      "false_positive_count": 1,
+      "false_positive_targets": [
+        1222142
+      ],
+      "leave_one_out_exact_classification": false,
+      "removed_channel_label": [
+        4,
+        10
+      ]
+    }
+  ],
+  "mechanism": "Delete each volatile channel from the full volatile rim while holding the stable core and the other volatile channels fixed.",
+  "pointwise_character_sum_estimate_proved": false,
+  "prediction": "If every volatile channel has a selected-row witness, the full volatile package is leave-one-out critical on this fixture.  False negatives identify channels that also support selected clears, not only block selected deficits.",
+  "pure_deficit_blocker_channels_on_deletion": [
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "row_criticality": [
+    {
+      "critical_volatile_channel_count": 1,
+      "critical_volatile_channels": [
+        [
+          1,
+          5
+        ]
+      ],
+      "dominant_floor_passes": true,
+      "target": 13556,
+      "target_mod_286": 114
+    },
+    {
+      "critical_volatile_channel_count": 6,
+      "critical_volatile_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "dominant_floor_passes": false,
+      "target": 13822,
+      "target_mod_286": 94
+    },
+    {
+      "critical_volatile_channel_count": 2,
+      "critical_volatile_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "dominant_floor_passes": false,
+      "target": 24424,
+      "target_mod_286": 114
+    },
+    {
+      "critical_volatile_channel_count": 1,
+      "critical_volatile_channels": [
+        [
+          1,
+          1
+        ]
+      ],
+      "dominant_floor_passes": true,
+      "target": 40420,
+      "target_mod_286": 94
+    },
+    {
+      "critical_volatile_channel_count": 0,
+      "critical_volatile_channels": [],
+      "dominant_floor_passes": false,
+      "target": 55864,
+      "target_mod_286": 94
+    },
+    {
+      "critical_volatile_channel_count": 0,
+      "critical_volatile_channels": [],
+      "dominant_floor_passes": true,
+      "target": 129706,
+      "target_mod_286": 148
+    },
+    {
+      "critical_volatile_channel_count": 2,
+      "critical_volatile_channels": [
+        [
+          1,
+          5
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "dominant_floor_passes": false,
+      "target": 164598,
+      "target_mod_286": 148
+    },
+    {
+      "critical_volatile_channel_count": 6,
+      "critical_volatile_channels": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "dominant_floor_passes": false,
+      "target": 1222142,
+      "target_mod_286": 64
+    },
+    {
+      "critical_volatile_channel_count": 0,
+      "critical_volatile_channels": [],
+      "dominant_floor_passes": true,
+      "target": 1240888,
+      "target_mod_286": 220
+    },
+    {
+      "critical_volatile_channel_count": 0,
+      "critical_volatile_channels": [],
+      "dominant_floor_passes": true,
+      "target": 1242118,
+      "target_mod_286": 20
+    }
+  ],
+  "sample_targets": [
+    24424,
+    13556,
+    13822,
+    40420,
+    55864,
+    164598,
+    129706,
+    1222142,
+    1242118,
+    1240888
+  ],
+  "schema_version": 1,
+  "selected_fixture_classifier_theorem_proved": false,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "3f6a276cd21bbf825d3317840a75868d04abe95f",
+  "source_evidence": "evidence\\q286-first-three-dominant-mode-volatile-subset-ablation.json",
+  "stable_core_theorem_proved": false,
+  "status_boundary": "finite leave-one-out volatile-channel criticality diagnostic only; no volatile-rim theorem, stable-core theorem, selected-fixture classifier theorem, pointwise character-sum estimate, or Goldbach proof is established",
+  "support": [
+    11,
+    13
+  ],
+  "tail_threshold": 0.3,
+  "targets_hit_by_any_leave_one_out_error": [
+    13556,
+    13822,
+    24424,
+    40420,
+    164598,
+    1222142
+  ],
+  "total_leave_one_out_changed_rows": 18,
+  "volatile_channel_count": 8,
+  "volatile_channel_criticality_measured": true,
+  "volatile_labels": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      3
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      10
+    ]
+  ],
+  "volatile_leave_one_out_criticality_theorem_proved": false,
+  "volatile_rim_theorem_proved": false
+}

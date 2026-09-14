@@ -11943,3 +11943,40 @@ full volatile/exclusion package live unless a new arithmetic structure
 replaces it.  This proves no volatile-rim theorem, stable-core theorem,
 selected-fixture classifier theorem, pointwise character-sum estimate, or
 Goldbach.
+
+### 2026-09-14 continuation: volatile channel criticality
+
+The volatile-subset ablation was then refined into a leave-one-out channel
+criticality map.  The new derivative evidence is:
+
+```text
+evidence/q286-first-three-dominant-mode-volatile-channel-criticality.json
+```
+
+Every volatile channel is leave-one-out critical on the selected fixture:
+
+```text
+volatile channels:             8
+exact leave-one-out deletions:  0
+changed rows across deletions:  18
+```
+
+The channels `(1,1)` and `(1,5)` have mixed roles: deleting either creates
+at least one selected clear false negative as well as selected deficit false
+positives.  The other six volatile channels act as pure deficit blockers under
+leave-one-out deletion on this fixture:
+
+```text
+(1,3), (1,7), (2,4), (3,3), (4,4), (4,10)
+```
+
+The smallest witness deletions are `(1,7)`, which makes `13822` a false
+positive, and `(4,10)`, which makes `1222142` a false positive.
+
+This sharpens the theorem target again: the volatile package is not a uniform
+negative cap or disposable error term.  A proof must explain row-specific
+signed volatile action that blocks stable-core false positives without
+breaking true clears, or replace the stable/volatile split with a stronger
+arithmetic-placement theorem.  This is finite derivative evidence only; it
+proves no volatile-rim theorem, stable-core theorem, selected-fixture
+classifier theorem, pointwise character-sum estimate, or Goldbach.

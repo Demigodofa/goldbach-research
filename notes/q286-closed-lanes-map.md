@@ -1139,6 +1139,20 @@ current comparison set.
    seven-channel subsets still leave one selected deficit over-rescued
    (`1222142` or `13822`).  This demotes arbitrary subset deletion as a
    compression route for the volatile package on the selected fixture.
+112. `tools/build_q286_first_three_dominant_mode_volatile_channel_criticality.py`,
+   with note
+   `notes/q286-first-three-dominant-mode-volatile-channel-criticality.md` and
+   evidence in
+   `evidence/q286-first-three-dominant-mode-volatile-channel-criticality.json`,
+   refines the subset ablation into leave-one-out channel witnesses.  All
+   eight volatile channels are leave-one-out critical on the selected fixture:
+   zero one-channel deletions retain exact classification, and the deletions
+   produce `18` changed selected rows.  Channels `(1,1)` and `(1,5)` have
+   mixed roles because their deletion creates selected-clear false negatives
+   as well as deficit false positives.  The other six channels act as pure
+   deficit blockers under leave-one-out deletion.  This demotes a uniform
+   negative-cap view of the volatile rim and sharpens the missing theorem to
+   row-specific signed volatile action.
 
 ## Still open
 
@@ -1194,5 +1208,9 @@ current comparison set.
   The volatile-subset ablation says arbitrary deletion does not compress the
   volatile restoration package on the selected fixture: the only exact subset
   among all `256` tested subsets is the full eight-channel rim.
+  The leave-one-out criticality map further says every volatile channel has a
+  selected-row witness, and two channels also support true selected clears, so
+  the missing volatile theorem is signed and row-specific rather than a pure
+  deficit cap.
 - Boundary finite check, endpoint/noncentral terms, and outer assembly.
 - Goldbach.
