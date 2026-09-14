@@ -106,6 +106,7 @@ from lcm_sawtooth_goldbach_transfer import (
     q286_first_three_tail_mode_only_fast_horizon_receipt,
     q286_first_three_weighted_discrepancy_norm_receipt,
     q286_first_three_reflection_support_obstruction_receipt,
+    q286_first_three_reflection_orbit_cap_receipt,
     q286_selected_first_three_alignment_receipt,
     q286_first_three_tail_alignment_window_receipt,
     q286_selected_alignment_complement_certificate_receipt,
@@ -3787,6 +3788,43 @@ class EvenEvenGoldbachTransferTests(unittest.TestCase):
         self.assertTrue(receipt[
             "first_three_reflection_support_obstruction_measured"])
         self.assertFalse(receipt["eventual_first_three_tail_bound_proved"])
+        self.assertFalse(receipt["goldbach_proved"])
+
+    def test_q286_first_three_reflection_orbit_cap(self):
+        receipt = q286_first_three_reflection_orbit_cap_receipt(
+            start=10000, cycle_count=1, targets_per_cycle=501,
+            tail_threshold=.3)
+        self.assertEqual(receipt["arithmetic_modulus"], 286)
+        self.assertEqual(receipt["tested_target_count"], 501)
+        self.assertEqual(
+            receipt["minimum_sufficient_max_orbit_mass_row"][
+                "target_residue"],
+            0)
+        self.assertAlmostEqual(
+            receipt["minimum_sufficient_max_orbit_mass_row"][
+                "sufficient_max_orbit_mass"],
+            0.016823304298596065)
+        self.assertGreater(
+            receipt["maximum_sufficient_max_orbit_mass_row"][
+                "sufficient_max_orbit_mass"],
+            0.026)
+        self.assertEqual(receipt["cap_certified_target_count"], 0)
+        self.assertEqual(
+            receipt["cap_violation_target_count"],
+            receipt["tested_targets_with_prime_pairs"])
+        self.assertGreater(
+            receipt["maximum_orbit_mass_row"][
+                "maximum_reflection_orbit_mass_fraction"],
+            .07)
+        self.assertGreater(
+            receipt["worst_cap_ratio_row"][
+                "max_orbit_to_sufficient_ratio"],
+            3.0)
+        self.assertTrue(receipt[
+            "first_three_reflection_orbit_cap_measured"])
+        self.assertFalse(receipt[
+            "reflection_orbit_cap_rarity_theorem_proved"])
+        self.assertTrue(receipt["signed_orbit_cancellation_required"])
         self.assertFalse(receipt["goldbach_proved"])
 
     def test_q286_first_three_character_mixture_norm(self):

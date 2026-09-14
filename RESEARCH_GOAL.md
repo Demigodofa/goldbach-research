@@ -10860,6 +10860,16 @@ rarity route cannot be closed by q286 geometry alone; it needs actual
 binary-prime residue distribution, a stronger arithmetic structural constraint,
 or a finite-boundary plus pointwise discrepancy theorem.
 
+The follow-up reflection-orbit cap diagnostic,
+`q286_first_three_reflection_orbit_cap_receipt`, is now recorded in
+`evidence/q286-first-three-reflection-orbit-cap.json`.  A uniform
+reflection-orbit mass cap sufficient to force `first_three >= -0.3` would need
+each orbit to carry only about `1.68%..2.68%` of the mass depending on target
+residue.  Actual first-period prime-pair weights violate that sufficient cap
+on all `5005` tested targets.  This makes the surviving theorem target still
+sharper: prove signed cancellation or arithmetic distribution across
+reflection orbits, not merely a maximum-orbit-mass bound.
+
 Additional closure: `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`
 enforces the ordered prime-pair symmetry `w(r)=w(N-r)` on the artificial
 support obstruction.  Focused regression

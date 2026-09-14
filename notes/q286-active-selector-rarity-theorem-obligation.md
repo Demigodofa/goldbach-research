@@ -154,6 +154,45 @@ verification, or a sharper pointwise discrepancy theorem.  It sharpens the
 remaining obligation: the proof must use arithmetic distribution of binary
 prime-pair residues, not merely q286 geometry.
 
+## Reflection-Orbit Cap Diagnostic
+
+After the reflection-support obstruction, the next natural geometric
+strengthening is to bound concentration on each reflection orbit.  The receipt
+`q286_first_three_reflection_orbit_cap_receipt` computes, for every even
+target residue modulo `286`, the largest uniform cap `rho` such that every
+reflection-symmetric probability distribution with each orbit mass at most
+`rho` would force `first_three >= -0.3`.
+
+Compact evidence:
+
+```text
+evidence/q286-first-three-reflection-orbit-cap.json
+```
+
+On the exact coefficient geometry, the sufficient caps are small:
+
+```text
+minimum sufficient max orbit mass: 0.016823304298596065
+maximum sufficient max orbit mass: 0.026762977396728494
+```
+
+The one-period prime-pair window starting at `10000` violates this sufficient
+cap on every tested target with prime pairs:
+
+```text
+tested targets:            5005
+cap certified targets:     0
+cap violation targets:     5005
+maximum actual orbit mass: 0.12026969709166307
+worst actual/cap ratio:    about 5.923169478623975
+```
+
+This does not show the first-three rarity theorem is false; the cap is only a
+sufficient worst-case geometric condition.  It does show that a standalone
+uniform reflection-orbit mass cap is far too strong for actual prime weights.
+The surviving target is signed cancellation or arithmetic distribution across
+orbits, not merely small maximum orbit mass.
+
 ## Current Evidence
 
 Finite denominator evidence so far:

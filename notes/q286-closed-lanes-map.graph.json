@@ -74,6 +74,22 @@
       "status_boundary": "finite-vector obstruction only; refutes support/nonnegativity/total/reflection-only rarity proof, not arithmetic q286 rarity, pointwise prime-correlation control, or Goldbach"
     },
     {
+      "id": "lane.first_three_reflection_orbit_cap",
+      "type": "demoted_lane",
+      "label": "First-three rarity from maximum reflection-orbit mass cap",
+      "status": "demoted_as_too_strong_at_measured_scale",
+      "reason": "A sufficient uniform reflection-orbit mass cap would need every orbit to carry only about 1.68%..2.68% of the mass, but actual first-period prime-pair weights violate that cap on every tested target.",
+      "nuance": "The cap is sufficient but not necessary; this does not refute signed orbit cancellation or arithmetic distribution proofs."
+    },
+    {
+      "id": "receipt.q286_first_three_reflection_orbit_cap",
+      "type": "receipt",
+      "label": "q286 first-three reflection-orbit cap diagnostic",
+      "status": "validated_finite_diagnostic",
+      "validation": "q286_first_three_reflection_orbit_cap_receipt and tools/build_q286_first_three_reflection_orbit_cap.py generated evidence/q286-first-three-reflection-orbit-cap.json; sufficient caps range 0.016823304298596065..0.026762977396728494, while actual first-period weights violate the cap on all 5005 tested targets with maximum orbit mass 0.12026969709166307 and worst actual/cap ratio about 5.923169478623975",
+      "status_boundary": "finite sufficient-condition diagnostic only; no rarity theorem, no signed orbit-cancellation theorem, and no Goldbach proof"
+    },
+    {
       "id": "lane.support_mass_projection",
       "type": "closed_lane",
       "label": "Support, nonnegativity, total-mass implication",
@@ -1389,6 +1405,26 @@
     {
       "from": "lane.first_three_reflection_geometry",
       "to": "lane.first_three_independent_envelope",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_cap",
+      "to": "lane.first_three_reflection_orbit_cap",
+      "type": "demotes"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_cap",
+      "to": "receipt.q286_first_three_reflection_support_obstruction",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_first_three_reflection_orbit_cap",
+      "to": "obligation.active_selector_rarity",
+      "type": "refines"
+    },
+    {
+      "from": "lane.first_three_reflection_orbit_cap",
+      "to": "lane.first_three_reflection_geometry",
       "type": "refines"
     }
   ]

@@ -19642,6 +19642,25 @@ binary-prime residue distribution, a stronger arithmetic structural constraint,
 or finite-boundary plus pointwise discrepancy control.  This is a falsifier of
 that geometric shortcut, not a proof of Goldbach.
 
+Follow-up reflection-orbit cap diagnostic:
+
+- `q286_first_three_reflection_orbit_cap_receipt`
+- `tools/build_q286_first_three_reflection_orbit_cap.py`
+- `evidence/q286-first-three-reflection-orbit-cap.json`
+
+This receipt asks whether a stronger but still geometric condition could close
+active-selector rarity: cap the total mass on each ordered-pair reflection
+orbit.  The exact q286 coefficient geometry says a cap sufficient to force
+`first_three >= -0.3` would need to lie between
+`0.016823304298596065` and `0.026762977396728494` across even target
+residues.  On the first q286 period starting at `10000`, actual
+strict-central prime-pair weights violate the sufficient cap on all `5005`
+tested targets; the maximum reflection-orbit mass is `0.12026969709166307`,
+and the worst actual/cap ratio is about `5.923169478623975`.  This does not
+disprove rarity, because the cap is only sufficient.  It does rule out a
+plain maximum-orbit-mass proof at the measured scale and points to signed
+cancellation or arithmetic distribution across reflection orbits.
+
 Additional closure:
 
 - `q286_lower_support_component_pair_reflection_support_geometry_obstruction_receipt`

@@ -535,6 +535,16 @@ current comparison set.
    first-three ratio below `-0.3`.  The least-negative extremal residue is
    still about `-2.5675553132435125`, so the missing rarity theorem must use
    actual binary prime-pair distribution or a stronger arithmetic constraint.
+63. `q286_first_three_reflection_orbit_cap_receipt`, with compact evidence in
+   `evidence/q286-first-three-reflection-orbit-cap.json`, quantifies the
+   next stronger geometric sufficient condition.  To force
+   `first_three >= -0.3` from a uniform reflection-orbit mass cap alone, the
+   cap would need to be only `0.016823304298596065..0.026762977396728494`
+   across even q286 target residues.  Actual first-period strict-central
+   prime-pair weights violate that sufficient cap on all `5005` tested
+   targets, with maximum orbit mass `0.12026969709166307` and worst
+   actual/cap ratio about `5.923169478623975`.  The remaining route is signed
+   orbit cancellation or arithmetic distribution, not a pure orbit-cap proof.
 
 ## Still open
 

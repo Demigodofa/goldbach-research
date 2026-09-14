@@ -17593,6 +17593,283 @@ def q286_first_three_reflection_support_obstruction_receipt(
     }
 
 
+def q286_first_three_reflection_orbit_cap_receipt(
+        start=10000, cycle_count=1, targets_per_cycle=5005,
+        tail_threshold=.3, tolerance=1e-9, include_rows=False):
+    """Quantify the orbit-mass cap needed for q286 first-three rarity.
+
+    Reflection-symmetric weights reduce the first-three functional to a
+    probability distribution over reflection orbits.  This receipt computes,
+    for every even target residue modulo 286, the largest uniform cap ``rho``
+    on every reflection-orbit mass that would force the worst possible
+    reflected distribution to satisfy ``first_three >= -tail_threshold``.
+
+    It then measures actual strict-central prime-pair orbit concentrations on
+    a finite target window.  This tests whether a simple reflection-orbit mass
+    cap is a plausible standalone theorem route.  The result is finite
+    diagnostic evidence only.
+    """
+    if type(start) is not int or start < 40 or start % 2:
+        raise ValueError("start must be an even integer at least 40")
+    if type(cycle_count) is not int or cycle_count < 1:
+        raise ValueError("cycle_count must be a positive integer")
+    if (type(targets_per_cycle) is not int or targets_per_cycle < 1
+            or targets_per_cycle > 5005):
+        raise ValueError("targets_per_cycle must lie between 1 and 5005")
+    if not math.isfinite(tail_threshold) or tail_threshold <= 0:
+        raise ValueError("tail_threshold must be positive and finite")
+    if not math.isfinite(tolerance) or tolerance < 0:
+        raise ValueError("tolerance must be finite and nonnegative")
+    if type(include_rows) is not bool:
+        raise ValueError("include_rows must be boolean")
+
+    data = _q286_first_three_mode_linear_data(tolerance)
+    modulus = data["modulus"]
+    period = 10010
+    units = data["units"]
+    unit_index = {unit: index for index, unit in enumerate(units)}
+    unit_index_by_residue = data["unit_index_by_residue"]
+    linear_coefficients = np.asarray(
+        data["linear_coefficients"].real, dtype=np.float64)
+    principal_mean = float(data["principal_mean"].real)
+    admissible_masks = data["admissible_masks"]
+    admissible_counts = data["admissible_counts"]
+
+    def reflection_orbit_coefficients(target_residue):
+        admissible_mask = admissible_masks[target_residue]
+        centered = np.zeros(len(units), dtype=np.float64)
+        centered[admissible_mask] = (
+            linear_coefficients[admissible_mask]
+            - float(np.mean(linear_coefficients[admissible_mask])))
+        seen = set()
+        orbit_rows = []
+        for index, unit in enumerate(units):
+            if not admissible_mask[index] or index in seen:
+                continue
+            reflected_unit = (target_residue - unit) % modulus
+            reflected = unit_index[reflected_unit]
+            seen.add(index)
+            seen.add(reflected)
+            if reflected == index:
+                orbit = (unit,)
+                average = centered[index]
+            else:
+                orbit = tuple(sorted((unit, reflected_unit)))
+                average = 0.5 * (centered[index] + centered[reflected])
+            orbit_rows.append({
+                "orbit": orbit,
+                "orbit_average_to_principal_ratio": float(
+                    average / principal_mean),
+            })
+        return tuple(orbit_rows)
+
+    def worst_case_under_cap(sorted_averages, cap):
+        remaining = 1.0
+        total = 0.0
+        for average in sorted_averages:
+            taken = min(cap, remaining)
+            total += taken * average
+            remaining -= taken
+            if remaining <= tolerance:
+                break
+        return total
+
+    cap_rows = {}
+    for target_residue in range(0, modulus, 2):
+        orbit_rows = reflection_orbit_coefficients(target_residue)
+        averages = tuple(sorted(
+            row["orbit_average_to_principal_ratio"]
+            for row in orbit_rows))
+        minimum_feasible_cap = 1.0 / len(averages)
+        minimum_feasible_worst = worst_case_under_cap(
+            averages, minimum_feasible_cap)
+        if minimum_feasible_worst < -tail_threshold - tolerance:
+            sufficient_cap = None
+            worst_at_cap = minimum_feasible_worst
+        else:
+            low = minimum_feasible_cap
+            high = 1.0
+            for _ in range(80):
+                mid = 0.5 * (low + high)
+                if worst_case_under_cap(averages, mid) >= -tail_threshold:
+                    low = mid
+                else:
+                    high = mid
+            sufficient_cap = low
+            worst_at_cap = worst_case_under_cap(averages, low)
+        cap_rows[target_residue] = {
+            "target_residue": target_residue,
+            "admissible_count": admissible_counts[target_residue],
+            "reflection_orbit_count": len(averages),
+            "minimum_feasible_orbit_cap": minimum_feasible_cap,
+            "minimum_feasible_worst_case_to_principal_ratio": (
+                minimum_feasible_worst),
+            "sufficient_max_orbit_mass": sufficient_cap,
+            "worst_case_at_sufficient_cap_to_principal_ratio": worst_at_cap,
+            "minimum_orbit_average_to_principal_ratio": averages[0],
+            "maximum_orbit_average_to_principal_ratio": averages[-1],
+            "top_negative_orbit_rows": tuple(
+                sorted(
+                    orbit_rows,
+                    key=lambda row: row[
+                        "orbit_average_to_principal_ratio"])[:5]),
+        }
+
+    finite_cap_rows = tuple(
+        row for row in cap_rows.values()
+        if row["sufficient_max_orbit_mass"] is not None)
+    maximum_target = (
+        start + (cycle_count - 1) * period
+        + 2 * (targets_per_cycle - 1))
+    primes = np.asarray(_prime_table(maximum_target), dtype=bool)
+    log_values = np.zeros(maximum_target + 1, dtype=np.float64)
+    prime_indices = np.nonzero(primes)[0]
+    log_values[prime_indices] = np.log(prime_indices)
+
+    target_rows = {} if include_rows else None
+    tested_with_pairs = 0
+    cap_certified_targets = []
+    cap_violation_targets = []
+    tail_targets = []
+    worst_cap_ratio_row = None
+    maximum_orbit_mass_row = None
+    minimum_first_three_row = None
+
+    for cycle in range(cycle_count):
+        cycle_start = start + cycle * period
+        for target_offset in range(targets_per_cycle):
+            target = cycle_start + 2 * target_offset
+            lower = target // 3
+            upper = target - lower
+            left_index = int(np.searchsorted(
+                prime_indices, max(2, lower + 1), side="left"))
+            right_index = int(np.searchsorted(
+                prime_indices, min(target, upper), side="left"))
+            prime_values = prime_indices[left_index:right_index]
+            partner_values = target - prime_values
+            pair_mask = primes[partner_values]
+            selected_primes = prime_values[pair_mask]
+            selected_partners = partner_values[pair_mask]
+            if len(selected_primes) == 0:
+                continue
+            residue_weights = np.bincount(
+                unit_index_by_residue[selected_primes % modulus],
+                weights=(log_values[selected_primes]
+                         * log_values[selected_partners]),
+                minlength=len(units))
+            total_weight = float(np.sum(residue_weights))
+            if total_weight <= tolerance:
+                continue
+            tested_with_pairs += 1
+            target_residue = target % modulus
+            admissible_mask = admissible_masks[target_residue]
+            mean_weight = total_weight / admissible_counts[target_residue]
+            weight_delta = np.zeros(len(units), dtype=np.float64)
+            weight_delta[admissible_mask] = (
+                residue_weights[admissible_mask] - mean_weight)
+            first_three = float(
+                (linear_coefficients @ weight_delta)
+                / (principal_mean * total_weight))
+            seen = set()
+            maximum_orbit_mass = 0.0
+            maximum_orbit = None
+            for index, unit in enumerate(units):
+                if not admissible_mask[index] or index in seen:
+                    continue
+                reflected_unit = (target_residue - unit) % modulus
+                reflected = unit_index[reflected_unit]
+                seen.add(index)
+                seen.add(reflected)
+                orbit_mass = residue_weights[index]
+                if reflected != index:
+                    orbit_mass += residue_weights[reflected]
+                    orbit = tuple(sorted((unit, reflected_unit)))
+                else:
+                    orbit = (unit,)
+                orbit_fraction = float(orbit_mass / total_weight)
+                if orbit_fraction > maximum_orbit_mass:
+                    maximum_orbit_mass = orbit_fraction
+                    maximum_orbit = orbit
+            cap_row = cap_rows[target_residue]
+            sufficient_cap = cap_row["sufficient_max_orbit_mass"]
+            cap_certifies = bool(
+                sufficient_cap is not None
+                and maximum_orbit_mass <= sufficient_cap + tolerance)
+            if cap_certifies:
+                cap_certified_targets.append(target)
+            else:
+                cap_violation_targets.append(target)
+            if first_three < -tail_threshold:
+                tail_targets.append(target)
+            cap_ratio = (
+                maximum_orbit_mass / sufficient_cap
+                if sufficient_cap is not None and sufficient_cap > tolerance
+                else math.inf)
+            row = {
+                "target": target,
+                "local_cycle": cycle,
+                "target_offset": target_offset,
+                "target_mod_286": target_residue,
+                "first_three_to_principal_ratio": first_three,
+                "maximum_reflection_orbit_mass_fraction": (
+                    maximum_orbit_mass),
+                "maximum_reflection_orbit": maximum_orbit,
+                "sufficient_max_orbit_mass": sufficient_cap,
+                "max_orbit_to_sufficient_ratio": cap_ratio,
+                "cap_certifies_first_three_bound": cap_certifies,
+            }
+            if include_rows:
+                target_rows[target] = row
+            if (worst_cap_ratio_row is None
+                    or cap_ratio > worst_cap_ratio_row[
+                        "max_orbit_to_sufficient_ratio"]):
+                worst_cap_ratio_row = row
+            if (maximum_orbit_mass_row is None
+                    or maximum_orbit_mass > maximum_orbit_mass_row[
+                        "maximum_reflection_orbit_mass_fraction"]):
+                maximum_orbit_mass_row = row
+            if (minimum_first_three_row is None
+                    or first_three < minimum_first_three_row[
+                        "first_three_to_principal_ratio"]):
+                minimum_first_three_row = row
+
+    return {
+        "arithmetic_modulus": modulus,
+        "arithmetic_period": period,
+        "start": start,
+        "cycle_count": cycle_count,
+        "targets_per_cycle": targets_per_cycle,
+        "tail_threshold": tail_threshold,
+        "tested_target_count": cycle_count * targets_per_cycle,
+        "tested_targets_with_prime_pairs": tested_with_pairs,
+        "target_rows_included": include_rows,
+        "target_rows": target_rows if include_rows else {},
+        "cap_rows": cap_rows,
+        "minimum_sufficient_max_orbit_mass_row": min(
+            finite_cap_rows,
+            key=lambda row: row["sufficient_max_orbit_mass"]),
+        "maximum_sufficient_max_orbit_mass_row": max(
+            finite_cap_rows,
+            key=lambda row: row["sufficient_max_orbit_mass"]),
+        "cap_certified_target_count": len(cap_certified_targets),
+        "cap_violation_target_count": len(cap_violation_targets),
+        "cap_certified_targets": tuple(cap_certified_targets),
+        "first_cap_violation_targets": tuple(cap_violation_targets[:20]),
+        "tail_target_count": len(tail_targets),
+        "tail_targets": tuple(tail_targets),
+        "worst_cap_ratio_row": worst_cap_ratio_row,
+        "maximum_orbit_mass_row": maximum_orbit_mass_row,
+        "minimum_first_three_row": minimum_first_three_row,
+        "first_three_reflection_orbit_cap_measured": True,
+        "reflection_orbit_cap_rarity_theorem_proved": False,
+        "signed_orbit_cancellation_required": bool(
+            len(cap_certified_targets) < tested_with_pairs),
+        "eventual_first_three_tail_bound_proved": False,
+        "signed_prime_correlation_estimate_proved": False,
+        "goldbach_proved": False,
+    }
+
+
 def q286_selected_first_three_alignment_receipt(
         targets=(10424, 10664, 10814, 14138, 14732, 58736, 88346,
                  125504, 448346, 1222142, 3304702, 3305200),
