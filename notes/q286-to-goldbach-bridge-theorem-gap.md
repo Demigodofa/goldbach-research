@@ -18,8 +18,8 @@ by the current q286 evidence.
 Novelty label: `new-to-this-task`.
 
 Creative-tools status: `aha-candidate`.  The useful pivot is to move the live
-question from normalized residue geometry to an unnormalized minorant/action
-whose positivity itself creates a strict-central prime pair.
+question from normalized residue geometry to an unnormalized action whose
+strict positivity itself creates a strict-central prime pair.
 
 ## Objects
 
@@ -73,8 +73,8 @@ Candidate, not proved:
 There are explicit finite data `N0` and a finite exceptional set `E`, and for
 each even residue `a mod M` there are q286 coefficient functions
 `gamma_F3_a`, `gamma_full_a`, and an orthogonal residual `h_a` such that every
-even `N>=N0` with `N mod M=a` satisfies an unnormalized lower-bound identity or
-minorant
+even `N>=N0` with `N mod M=a` satisfies an unnormalized signed-witness
+inequality
 
 ```text
 L_N =
@@ -85,14 +85,23 @@ L_N =
   )
 ```
 
-and
+with
+
+```text
+L_N > 0.
+```
+
+Since every `W_N(r)` is nonnegative, `L_N>0` implies at least one
+`W_N(r)>0`, hence `T_N>0`.  A stronger sufficient form would be an
+ordinary minorant
 
 ```text
 0 < L_N <= T_N
 ```
 
-or, more generally, `L_N` is a nonnegative-weight lower-bound certificate whose
-positivity implies `T_N>0`.
+or another nonnegative-weight lower-bound certificate, but coefficientwise
+minorant structure is not logically necessary for existence.  A strictly
+positive signed prime-pair sum is already an existence witness.
 
 Then, after checking every even `N<N0` and every `N in E`, Goldbach follows.
 
@@ -198,12 +207,14 @@ places:
    behavior after an explicit threshold.
 3. Normalization gap.  `mu_N` and `nu_N` are only defined when `T_N>0`.
    Positivity of a normalized q286 action cannot be the first existence
-   theorem.  The bridge must be unnormalized, or must be paired with an
-   independent lower bound for `T_N`.
-4. Minorant gap.  It is not yet proved that positive q286 full action is a
-   rigorous lower bound for the actual Goldbach count or weighted count.  The
-   action may be an exact diagnostic of existing prime pairs rather than a
-   positive-count certificate.
+   theorem.  The bridge must be stated as an unnormalized signed action, an
+   unnormalized minorant, or must be paired with an independent lower bound
+   for `T_N`.
+4. Minorant gap.  A coefficientwise nonnegative minorant would be especially
+   useful, but it is stronger than necessary.  The current q286 full action may
+   instead be a signed witness: direct proof of its strict positivity would
+   imply existence, but the proof would have to be a pointwise signed
+   prime-correlation theorem.
 5. Analytic gap.  The required lower-tail estimate
    `<nu_N,h_a> > -uniform_full_a-alpha_a*first_three(N)` is a pointwise signed
    binary-prime correlation theorem.  Existing AP upper bounds, marginal lower
@@ -229,15 +240,17 @@ and `first_three(N)<-0.3` satisfies
 
 If this is proved only after proving `T_N>0`, it is a rescue theorem inside an
 already-proved Goldbach-strength statement.  To act as a bridge toward
-Goldbach, it must be reformulated as an unnormalized inequality, for example
+Goldbach, it must be reformulated as an unnormalized signed-witness inequality,
+for example
 
 ```text
 sum_{r in A_a} W_N(r) * h_a(r)
   >= -T_N*(uniform_full_a + alpha_a*first_three(N)) + eta'_a(N),
 ```
 
-together with a lower-bound/minorant step proving the resulting positive action
-forces `T_N>0`.
+where the resulting full unnormalized action is strictly positive.  A
+coefficientwise lower-bound/minorant step would be a stronger alternative, but
+not the only bridge.
 
 ## Falsifier
 
@@ -256,13 +269,38 @@ following happens:
 ## Decision
 
 The next strategy should not be another broad q286 audit.  The next useful
-step is to build or reject an unnormalized q286 minorant:
+step is to build or reject an unnormalized q286 witness:
 
 ```text
-positive q286 lower-bound action => T_N>0.
+positive raw q286 signed action => T_N>0.
 ```
 
-If that minorant cannot be proved, then q286 remains a diagnostic and theorem
-generator, not a direct Goldbach bridge.  The surviving mathematical target is
-the complement rescue inequality above, explicitly understood as a pointwise
-signed binary-prime correlation theorem.
+If that witness cannot be proved directly, and no nonnegative minorant can be
+extracted, then q286 remains a diagnostic and theorem generator rather than a
+direct Goldbach bridge.  The surviving mathematical target is the complement
+rescue inequality above, explicitly understood as a pointwise signed
+binary-prime correlation theorem.
+
+## Coefficientwise Minorant Audit
+
+`tools/build_q286_unnormalized_witness_minorant_audit.py` generated
+`evidence/q286-unnormalized-witness-minorant-audit.json`.
+
+Result: the existing q286 aggregate coefficient is sign-indefinite:
+
+```text
+negative unit coefficients: 1228 / 2880
+positive unit coefficients: 1652 / 2880
+minimum coefficient: -516900.46805732243
+maximum coefficient: 1770168.728092706
+```
+
+Every even target residue modulo `10010` has both positive and negative
+coefficient values in its admissible support.  Therefore positive scalar
+multiples of the existing q286 full-action coefficient cannot be a
+coefficientwise nonnegative minorant for `T_N`.
+
+Decision: demote the nonnegative-minorant shortcut for this coefficient, but
+preserve the signed-witness route.  A direct proof that the unnormalized q286
+full action is strictly positive would still imply a Goldbach pair; it is just
+not a nonnegative sieve lower bound.

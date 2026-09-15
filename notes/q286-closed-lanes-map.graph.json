@@ -1844,7 +1844,7 @@
       "type": "theorem_target",
       "label": "Unnormalized q286 bridge from action positivity to Goldbach",
       "status": "open",
-      "statement": "For every even residue modulo M=10010 after explicit finite boundary exceptions, prove an unnormalized q286 minorant or lower-bound action L_N with 0 < L_N <= T_N, where T_N is the strict-central weighted binary-prime mass. Then T_N>0 gives a strict-central Goldbach representation.",
+      "statement": "For every even residue modulo M=10010 after explicit finite boundary exceptions, prove an unnormalized q286 signed action L_N>0. Since all strict-central pair weights W_N(r) are nonnegative, L_N>0 implies some W_N(r)>0 and hence T_N>0, giving a strict-central Goldbach representation.",
       "goldbach_proved": false
     },
     {
@@ -1852,7 +1852,31 @@
       "type": "open_obligation",
       "label": "Normalization gap for mu_N=W_N/T_N",
       "status": "open",
-      "statement": "The normalized strict-central measure mu_N and discrepancy nu_N are defined only when T_N>0, so normalized q286 row positivity cannot by itself be the first existence theorem. A proof must use an unnormalized minorant or an independent lower bound for T_N.",
+      "statement": "The normalized strict-central measure mu_N and discrepancy nu_N are defined only when T_N>0, so normalized q286 row positivity cannot by itself be the first existence theorem. A proof must use an unnormalized signed witness, a nonnegative minorant, or an independent lower bound for T_N.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_unnormalized_witness_minorant_audit",
+      "type": "receipt",
+      "label": "q286 unnormalized witness/minorant audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_unnormalized_witness_minorant_audit.py generated evidence/q286-unnormalized-witness-minorant-audit.json; the existing q286 aggregate coefficient has 1228 negative and 1652 positive unit coefficients, and every one of the 5005 even target residue supports has both signs.",
+      "status_boundary": "finite coefficient audit only; demotes the coefficientwise nonnegative minorant shortcut, but preserves the signed-witness route; no signed prime-correlation theorem and no Goldbach proof"
+    },
+    {
+      "id": "lane.q286_existing_coefficient_nonnegative_minorant",
+      "type": "demoted_lane",
+      "label": "Existing q286 coefficient as nonnegative count minorant",
+      "status": "falsified_as_stated",
+      "reason": "The aggregate coefficient is sign-indefinite globally and on every even target residue support, so positive scalar multiples cannot be coefficientwise nonnegative lower-bound minorants for T_N.",
+      "nuance": "This does not refute a signed positive raw action theorem, because any strictly positive unnormalized signed prime-pair sum still implies at least one prime pair."
+    },
+    {
+      "id": "theorem.q286_positive_signed_witness",
+      "type": "theorem_target",
+      "label": "Positive unnormalized q286 signed witness",
+      "status": "open",
+      "statement": "Prove the raw unnormalized q286 full action is strictly positive for all sufficiently large covered even targets; this would imply T_N>0 without coefficientwise nonnegativity, but requires a pointwise signed binary-prime correlation estimate.",
       "goldbach_proved": false
     }
   ],
@@ -4276,6 +4300,26 @@
       "from": "theorem.q286_to_goldbach_unnormalized_bridge",
       "to": "theorem.first_three_signed_projection",
       "type": "requires"
+    },
+    {
+      "from": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_unnormalized_witness_minorant_audit",
+      "to": "theorem.q286_to_goldbach_unnormalized_bridge",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_unnormalized_witness_minorant_audit",
+      "to": "lane.q286_existing_coefficient_nonnegative_minorant",
+      "type": "falsifies"
+    },
+    {
+      "from": "lane.q286_existing_coefficient_nonnegative_minorant",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "scope_guard"
     }
   ]
 }

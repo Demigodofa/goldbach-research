@@ -6,6 +6,35 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 bridge pivot now has a coefficient-side minorant audit.
+
+`tools/build_q286_unnormalized_witness_minorant_audit.py` generated
+`evidence/q286-unnormalized-witness-minorant-audit.json`, and the correction is
+recorded in `notes/q286-to-goldbach-bridge-theorem-gap.md`.
+
+Question: can the existing q286 full-action coefficient become an ordinary
+coefficientwise nonnegative lower-bound/minorant for the strict-central count
+`T_N`?
+
+Result: no, for this coefficient.  The coefficient is sign-indefinite:
+
+```text
+negative unit coefficients: 1228 / 2880
+positive unit coefficients: 1652 / 2880
+coefficient real range: -516900.46805732243 .. 1770168.728092706
+even target residues checked: 5005 / 5005
+every support has both signs: true
+```
+
+Decision: demote the nonnegative-minorant shortcut for the existing q286
+full-action coefficient.  Preserve the signed-witness route: if the raw
+unnormalized q286 action itself is proved strictly positive, then `T_N>0`
+follows immediately, because no prime pairs would make every weighted signed
+sum equal zero.  The needed proof is therefore a pointwise signed
+binary-prime correlation theorem, not an ordinary nonnegative sieve minorant.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 work has been pivoted from more normalized audits to an explicit
 Goldbach-bridge theorem gap.
 

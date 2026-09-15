@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-to-Goldbach bridge now has a finite coefficient audit separating the
+signed-witness route from the stronger nonnegative-minorant shortcut:
+`tools/build_q286_unnormalized_witness_minorant_audit.py` generated
+`evidence/q286-unnormalized-witness-minorant-audit.json`, with the conclusion
+folded into `notes/q286-to-goldbach-bridge-theorem-gap.md`.
+
+Result: the existing q286 aggregate coefficient on `U_10010` is
+sign-indefinite, with `1228/2880` negative unit coefficients and `1652/2880`
+positive unit coefficients.  Its real coefficient range is
+`-516900.46805732243..1770168.728092706`.  Every one of the `5005` even target
+residues modulo `10010` has both positive and negative coefficient values in
+its admissible support.
+
+Decision: positive scalar multiples of the existing q286 full-action
+coefficient cannot be a coefficientwise nonnegative minorant for the
+strict-central weighted count `T_N`.  This demotes the ordinary lower-bound
+sieve shortcut, but does not kill the bridge: a direct proof that the
+unnormalized signed q286 action is strictly positive would still imply
+`T_N>0`, because if there are no prime pairs then every `W_N(r)` and every
+signed sum is zero.  The surviving bridge is therefore a pointwise signed
+binary-prime correlation theorem for the raw action, not a nonnegative
+coefficient minorant.
+
+No signed-witness positivity theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-to-Goldbach implication has been reframed as an explicit bridge
 theorem gap:
 `notes/q286-to-goldbach-bridge-theorem-gap.md`.

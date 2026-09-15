@@ -1,0 +1,141 @@
+{
+  "admissible_support_size_summary": {
+    "count": 5005,
+    "maximum": 2880.0,
+    "mean": 1657.2227772227773,
+    "minimum": 1485.0
+  },
+  "arithmetic_period": 10010,
+  "assembled_quotients": [
+    35,
+    55,
+    65,
+    77,
+    143
+  ],
+  "coefficient_imag_abs_summary": {
+    "count": 2880,
+    "maximum": 3.355800157655546e-08,
+    "mean": 4.219779455982334e-09,
+    "minimum": 1.510829608595819e-12
+  },
+  "coefficient_real_summary": {
+    "count": 2880,
+    "maximum": 1770168.728092706,
+    "mean": 44002.512499999146,
+    "minimum": -516900.46805732243
+  },
+  "decision": "Demote the coefficientwise nonnegative minorant shortcut for the existing q286 full-action coefficient. Preserve the signed witness route: a direct proof of positive unnormalized q286 action would imply a Goldbach pair, but it is a pointwise signed binary-prime correlation theorem, not a nonnegative sieve minorant.",
+  "even_target_residue_count": 5005,
+  "every_even_target_support_sign_indefinite": true,
+  "global_maximum_unit": 3851,
+  "global_minimum_unit": 4261,
+  "goldbach_proved": false,
+  "minorant_failure": "The existing q286 aggregate coefficient is sign-indefinite on every even target residue support, so positive scalar multiples of it are not coefficientwise nonnegative minorants of T_N.",
+  "minorant_shortcut_falsified": true,
+  "negative_unit_count": 1228,
+  "negative_unit_fraction": 0.4263888888888889,
+  "positive_raw_action_implication": "If the unnormalized signed action sum_r W_N(r)c(r) is proved strictly positive, then T_N>0, because all W_N(r) are nonnegative and W_N(r)=0 for every r would make the signed action zero.",
+  "positive_scalar_multiple_can_be_nonnegative_minorant": false,
+  "positive_scalar_to_unit_interval_if_available": null,
+  "positive_unit_count": 1652,
+  "principal_mean": {
+    "imag": 3.1825777568883487e-10,
+    "real": 44002.512499999146
+  },
+  "raw_coefficient_is_nonnegative": false,
+  "raw_coefficient_is_unit_interval_minorant": false,
+  "schema_version": 1,
+  "selected_target_rows": [
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092706,
+      "minimum_coefficient": -516900.46805732243,
+      "negative_coefficient_count": 683,
+      "positive_coefficient_count": 802,
+      "target_residue": 878
+    },
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092706,
+      "minimum_coefficient": -516900.4680573209,
+      "negative_coefficient_count": 670,
+      "positive_coefficient_count": 815,
+      "target_residue": 922
+    },
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092706,
+      "minimum_coefficient": -516900.4680573209,
+      "negative_coefficient_count": 672,
+      "positive_coefficient_count": 813,
+      "target_residue": 4128
+    },
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1608418.8096340327,
+      "minimum_coefficient": -516900.4680573209,
+      "negative_coefficient_count": 680,
+      "positive_coefficient_count": 805,
+      "target_residue": 4766
+    },
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092704,
+      "minimum_coefficient": -433631.43989802286,
+      "negative_coefficient_count": 641,
+      "positive_coefficient_count": 844,
+      "target_residue": 4986
+    },
+    {
+      "admissible_support_size": 1485,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092706,
+      "minimum_coefficient": -516900.46805732243,
+      "negative_coefficient_count": 669,
+      "positive_coefficient_count": 816,
+      "target_residue": 7702
+    },
+    {
+      "admissible_support_size": 1650,
+      "has_negative_coefficient": true,
+      "has_positive_coefficient": true,
+      "maximum_coefficient": 1770168.728092706,
+      "minimum_coefficient": -516900.4680573209,
+      "negative_coefficient_count": 721,
+      "positive_coefficient_count": 929,
+      "target_residue": 9658
+    }
+  ],
+  "signed_prime_correlation_estimate_proved": false,
+  "signed_witness_route_preserved": true,
+  "source_commit": "faa64604a266dd5d198f65ff12c5e704a5a4efbd",
+  "status_boundary": "finite coefficient audit only; no q286 threshold theorem, no signed prime-correlation theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "support_maximum_coefficient_summary": {
+    "count": 5005,
+    "maximum": 1770168.728092706,
+    "mean": 1739618.687332968,
+    "minimum": 389032.7438570806
+  },
+  "support_minimum_coefficient_summary": {
+    "count": 5005,
+    "maximum": -333949.39401351777,
+    "mean": -506479.85926437035,
+    "minimum": -516900.46805732243
+  },
+  "target_residue_supports_with_no_negative_coefficients": [],
+  "target_residue_supports_with_no_positive_coefficients": [],
+  "unit_group_order": 2880,
+  "zero_unit_count": 0
+}
