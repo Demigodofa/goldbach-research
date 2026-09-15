@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 dual-edge route now has an unnormalized witness audit.
+
+`tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated
+`evidence/q286-unnormalized-dual-edge-witness-audit.json`, with explanation in
+`notes/q286-unnormalized-dual-edge-witness-audit.md`.
+
+Question: can the normalized edge rescue be multiplied back into a raw
+signed prime-pair witness?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+observed strict-central pair rows:           196 / 196
+positive raw signed witness rows:            196 / 196
+pair count:                                  318..2454
+total log-weight T_N:                        36745.77894545931..418330.55338799115
+raw margin after rescue:                     490.7620118705381..361940.33348482125
+raw identity error:                          0.0..2.3283064365386963e-10
+```
+
+Decision: the raw form is the right bridge language, but the finite receipt
+still used rows where `T_N>0` was already observed.  The next proof must
+prove a raw signed witness directly, construct a nonnegative minorant, or
+supply an independent `T_N>0` lower bound.  The normalized q286 geometry
+alone still cannot imply Goldbach.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 lower-face route now has a dual-edge audit.
 
 `tools/build_q286_lower_face_dual_edge_audit.py` generated

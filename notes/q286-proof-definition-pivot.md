@@ -253,3 +253,26 @@ E_mu_N[g_a,t] / max(0,-ell_a,t(t))
 ranges from `1.0021652272515458` to `1.3070973629998075`.  Thus the next
 definition is a near-sharp dual-edge gap theorem, not a looser channel,
 residue, max-density, or L1-uniformity theorem.
+
+## Unnormalized edge-witness refinement
+
+`tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated
+`evidence/q286-unnormalized-dual-edge-witness-audit.json`.
+
+Multiplying the dual-edge identity by the strict-central pair mass `T_N`
+gives:
+
+```text
+raw_edge_gap - raw_required_edge_gap = T_N * Full(mu_N).
+```
+
+On post-discovery rows, the raw margin after rescue is
+`490.7620118705381..361940.33348482125`, with identity error at most
+`2.3283064365386963e-10`.  This gives the right theorem language:
+
+```text
+prove raw_full_signed_witness > 0 directly.
+```
+
+It does not close the normalization gap, because the receipt is computed on
+rows where strict-central pair mass was already observed.

@@ -727,3 +727,27 @@ sum_orbits W_N(orbit) * g_a,t(orbit)
 
 plus a route around the normalization gap, or an independent proof that
 `T_N>0` before this normalized geometry is invoked.
+
+## Unnormalized Dual-Edge Witness Audit
+
+`tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated
+`evidence/q286-unnormalized-dual-edge-witness-audit.json`.
+
+This audit multiplies the normalized edge inequality by the observed
+strict-central pair mass `T_N`.  For the checked post-discovery rows:
+
+```text
+raw_edge_gap - raw_required_edge_gap
+  = raw_full_signed_witness
+  = T_N * Full(mu_N)
+  > 0.
+```
+
+The smallest checked raw margin is `490.7620118705381` at target `94856`.
+
+The bridge significance is logical, not just numerical.  A future proof of a
+strictly positive raw signed prime-pair sum would imply at least one
+strict-central prime pair, since all pair weights vanish when no such pair
+exists.  But this receipt itself still assumes no theorem of that kind; it is
+computed from observed pair weights and therefore cannot be used as the first
+existence step.

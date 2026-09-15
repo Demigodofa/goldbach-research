@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 dual-edge route now has an unnormalized witness audit:
+`tools/build_q286_unnormalized_dual_edge_witness_audit.py` generated
+`evidence/q286-unnormalized-dual-edge-witness-audit.json`, with explanation in
+`notes/q286-unnormalized-dual-edge-witness-audit.md`.
+
+Question: can normalized edge rescue be restated as a raw signed prime-pair
+sum, moving closer to an existence theorem?
+
+Result: yes as an identity, but not yet as a theorem.  On the `196`
+post-discovery rows, all raw signed witnesses are positive, the raw margin
+after rescue ranges from `490.7620118705381` to `361940.33348482125`, and the
+identity error is at most `2.3283064365386963e-10`.  The tightest row remains
+`94856`, with `338` observed strict-central pairs and total log-weight
+`39022.250002965484`.
+
+Decision: the normalization gap is now sharply located.  To bridge q286 to
+Goldbach, prove `raw_full_signed_witness > 0` directly as a signed
+binary-prime correlation estimate, produce a coefficientwise nonnegative
+minorant, or separately prove `T_N>0` before using normalized q286 geometry.
+The finite receipt itself remains downstream of observed pairs; Goldbach is
+not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 lower-face route now has a dual-edge audit:
 `tools/build_q286_lower_face_dual_edge_audit.py` generated
 `evidence/q286-lower-face-dual-edge-audit.json`, with explanation in
