@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a multiplicative character-payment audit.
+
+```text
+tools/build_q286_wbss_multiplicative_character_payment_audit.py
+notes/q286-wbss-multiplicative-character-payment-audit.md
+evidence/q286-wbss-multiplicative-character-payment-audit.json
+```
+
+Result:
+
+```text
+active nonzero character coefficients:          122
+active real conjugacy channels:                  64
+self-conjugate active channels:                   6
+total character L1:              49.153988812629684
+minimum local main:               0.6039353780830684
+equal active character-moment cap: 0.012286599575574883
+residue equal cap:                0.0016192946592982506
+cap relaxation factor:             7.58762434311955
+```
+
+Decision: `HOLD_character_moment_payment_bound_required`.  The full active
+multiplicative-character package improves the theorem-facing payment geometry:
+the equal character-moment cap is about `7.59` times looser than the equal
+per-residue cap.  This may be the more promising analytic target, but it is
+still a universal pointwise fixed-modulus twisted binary-prime correlation
+theorem, not finite evidence.  The required unnormalized target remains:
+
+```text
+AdverseDrag(N) < LocalMain(N)
+```
+
+for every sufficiently large eligible even `N`, followed by finite
+initial-range verification.  No character-moment estimate, residual character
+theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a multiplicative residual schedule audit.
 
 ```text

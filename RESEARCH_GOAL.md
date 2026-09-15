@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a multiplicative character-payment audit:
+`tools/build_q286_wbss_multiplicative_character_payment_audit.py` generated
+`evidence/q286-wbss-multiplicative-character-payment-audit.json`, with
+explanation in
+`notes/q286-wbss-multiplicative-character-payment-audit.md`.
+
+Question: if coefficient-energy truncation fails, does the full active
+multiplicative-character package at least give a better theorem-facing payment
+budget than per-residue L1 control?
+
+Answer: yes, but only as a sharper analytic theorem target.  In the exact
+finite coefficient algebra, the active package has:
+
+```text
+active nonzero character coefficients:          122
+active real conjugacy channels:                  64
+self-conjugate active channels:                   6
+total character L1:              49.153988812629684
+minimum local main:               0.6039353780830684
+equal active character-moment cap: 0.012286599575574883
+residue equal cap:                0.0016192946592982506
+cap relaxation factor:             7.58762434311955
+```
+
+Decision: `HOLD_character_moment_payment_bound_required`.  The full active
+multiplicative-character package is a better analytic target than per-residue
+L1 control, because the equal character-moment cap is about `7.59` times
+looser than the equal residue cap.  But it remains a universal, pointwise,
+unnormalized theorem obligation: prove fixed-modulus twisted binary-prime
+character-moment bounds strong enough that
+`sum_{d,chi}|c_hat_{d,chi}|*theta_{d,chi}(N) < LocalMain(N)`, hence
+`AdverseDrag(N) < LocalMain(N)`, for every sufficiently large eligible even
+`N`, followed by finite initial-range verification.  No character-moment
+estimate, residual character theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a multiplicative residual schedule audit:
 `tools/build_q286_wbss_multiplicative_residual_schedule_audit.py` generated
 `evidence/q286-wbss-multiplicative-residual-schedule-audit.json`, with

@@ -1,0 +1,735 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "required_acceptance_condition": "a universal pointwise unnormalized analytic estimate",
+    "sufficient_character_moment_statement": "For every sufficiently large eligible even N, prove active multiplicative-character moment bounds strong enough that sum_{d,chi} |c_hat_{d,chi}| * theta_{d,chi}(N) < LocalMain(N).",
+    "target": "AdverseDrag(N) < LocalMain(N)"
+  },
+  "candidate": {
+    "falsifier": "If the character L1 payment is no better than residue L1, or if no source-backed pointwise character-moment theorem can pay the displayed cap, this route remains a HOLD.",
+    "mechanism": "Use the full active nonzero multiplicative-character package so coefficient residual is zero, then prove pointwise bounds for the resulting fixed finite set of twisted binary-prime character moments.",
+    "name": "full active multiplicative-character payment theorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Character coordinates should give a looser analytic cap than per-residue L1 control, but still require a genuine pointwise theorem.",
+    "smallest_test": "Compute the full active character L1 payment cap and compare it to the existing per-residue discrepancy cap."
+  },
+  "character_budget": {
+    "active_character_count": 122,
+    "active_real_channel_count": 64,
+    "cap_relaxation_factor_vs_residue_cap": 7.58762434311955,
+    "equal_character_moment_cap": 0.012286599575574883,
+    "per_modulus": {
+      "130": {
+        "active_character_count": 23,
+        "character_l1": 0.818791486578005,
+        "character_l2": 0.18221772146455884,
+        "equal_cap_if_this_modulus_paid_alone": 0.7375936217987684,
+        "real_channel_count": 13,
+        "self_conjugate_count": 3,
+        "top_abs_characters": [
+          {
+            "abs_coefficient": 0.057499086810788164,
+            "coefficient_imag": 0.053266295107706564,
+            "coefficient_real": -0.02165287023868357,
+            "conjugate_frequency": [
+              0,
+              10
+            ],
+            "energy": 0.003306144984074553,
+            "frequency": [
+              0,
+              2
+            ],
+            "self_conjugate": false,
+            "zero_axis": true
+          },
+          {
+            "abs_coefficient": 0.05749908681078814,
+            "coefficient_imag": -0.05326629510770654,
+            "coefficient_real": -0.021652870238683578,
+            "conjugate_frequency": [
+              0,
+              2
+            ],
+            "energy": 0.003306144984074551,
+            "frequency": [
+              0,
+              10
+            ],
+            "self_conjugate": false,
+            "zero_axis": true
+          },
+          {
+            "abs_coefficient": 0.05339243549886681,
+            "coefficient_imag": -6.3606527452482924e-18,
+            "coefficient_real": 0.05339243549886681,
+            "conjugate_frequency": [
+              0,
+              6
+            ],
+            "energy": 0.002850752168500653,
+            "frequency": [
+              0,
+              6
+            ],
+            "self_conjugate": true,
+            "zero_axis": true
+          },
+          {
+            "abs_coefficient": 0.04851277226879666,
+            "coefficient_imag": -0.009478625415613328,
+            "coefficient_real": 0.047577775625123706,
+            "conjugate_frequency": [
+              3,
+              9
+            ],
+            "energy": 0.002353489073204126,
+            "frequency": [
+              1,
+              3
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.04851277226879666,
+            "coefficient_imag": 0.009478625415613328,
+            "coefficient_real": 0.047577775625123706,
+            "conjugate_frequency": [
+              1,
+              3
+            ],
+            "energy": 0.002353489073204126,
+            "frequency": [
+              3,
+              9
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.0467148254485688,
+            "coefficient_imag": -0.03465237733110543,
+            "coefficient_real": 0.03132870348407258,
+            "conjugate_frequency": [
+              3,
+              3
+            ],
+            "energy": 0.002182274916690251,
+            "frequency": [
+              1,
+              9
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.0467148254485688,
+            "coefficient_imag": 0.03465237733110543,
+            "coefficient_real": 0.03132870348407258,
+            "conjugate_frequency": [
+              1,
+              9
+            ],
+            "energy": 0.002182274916690251,
+            "frequency": [
+              3,
+              3
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.04318268893233755,
+            "coefficient_imag": 0.01981450374109691,
+            "coefficient_real": 0.03836834717473617,
+            "conjugate_frequency": [
+              3,
+              7
+            ],
+            "energy": 0.001864744623427028,
+            "frequency": [
+              1,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.04318268893233755,
+            "coefficient_imag": -0.019814503741096903,
+            "coefficient_real": 0.03836834717473617,
+            "conjugate_frequency": [
+              1,
+              5
+            ],
+            "energy": 0.001864744623427028,
+            "frequency": [
+              3,
+              7
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.04048543094161504,
+            "coefficient_imag": 0.03908478801577659,
+            "coefficient_real": -0.010556962834550813,
+            "conjugate_frequency": [
+              1,
+              7
+            ],
+            "energy": 0.0016390701185282804,
+            "frequency": [
+              3,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          }
+        ]
+      },
+      "154": {
+        "active_character_count": 29,
+        "character_l1": 9.734847733726912,
+        "character_l2": 2.205804783828344,
+        "equal_cap_if_this_modulus_paid_alone": 0.0620385027688416,
+        "real_channel_count": 15,
+        "self_conjugate_count": 1,
+        "top_abs_characters": [
+          {
+            "abs_coefficient": 0.8243242710545519,
+            "coefficient_imag": 0.0,
+            "coefficient_real": 0.8243242710545519,
+            "conjugate_frequency": [
+              3,
+              5
+            ],
+            "energy": 0.6795105038496183,
+            "frequency": [
+              3,
+              5
+            ],
+            "self_conjugate": true,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.8091996050168483,
+            "coefficient_imag": 0.6000499421916569,
+            "coefficient_real": 0.5429033685981443,
+            "conjugate_frequency": [
+              3,
+              1
+            ],
+            "energy": 0.6548040007594232,
+            "frequency": [
+              3,
+              9
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.8091996050168482,
+            "coefficient_imag": -0.6000499421916567,
+            "coefficient_real": 0.5429033685981444,
+            "conjugate_frequency": [
+              3,
+              9
+            ],
+            "energy": 0.6548040007594231,
+            "frequency": [
+              3,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.6187853804618566,
+            "coefficient_imag": -0.5860614594377194,
+            "coefficient_real": -0.19856312053111733,
+            "conjugate_frequency": [
+              5,
+              1
+            ],
+            "energy": 0.3828953470733246,
+            "frequency": [
+              1,
+              9
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.6187853804618566,
+            "coefficient_imag": 0.5860614594377194,
+            "coefficient_real": -0.1985631205311175,
+            "conjugate_frequency": [
+              1,
+              9
+            ],
+            "energy": 0.3828953470733246,
+            "frequency": [
+              5,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.5787036196388298,
+            "coefficient_imag": 0.21690274773690355,
+            "coefficient_real": -0.5365175462249716,
+            "conjugate_frequency": [
+              3,
+              7
+            ],
+            "energy": 0.33489787938308335,
+            "frequency": [
+              3,
+              3
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.5787036196388298,
+            "coefficient_imag": -0.2169027477369036,
+            "coefficient_real": -0.5365175462249715,
+            "conjugate_frequency": [
+              3,
+              3
+            ],
+            "energy": 0.33489787938308335,
+            "frequency": [
+              3,
+              7
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.36773540545940264,
+            "coefficient_imag": -0.22280226941657302,
+            "coefficient_real": -0.29255508399481983,
+            "conjugate_frequency": [
+              4,
+              4
+            ],
+            "energy": 0.13522932842839125,
+            "frequency": [
+              2,
+              6
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.36773540545940264,
+            "coefficient_imag": 0.22280226941657302,
+            "coefficient_real": -0.29255508399481983,
+            "conjugate_frequency": [
+              2,
+              6
+            ],
+            "energy": 0.13522932842839125,
+            "frequency": [
+              4,
+              4
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.32888489547547023,
+            "coefficient_imag": 0.21751828796570158,
+            "coefficient_real": 0.24668009419566286,
+            "conjugate_frequency": [
+              5,
+              3
+            ],
+            "energy": 0.10816527447191097,
+            "frequency": [
+              1,
+              7
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          }
+        ]
+      },
+      "286": {
+        "active_character_count": 59,
+        "character_l1": 32.56739289271501,
+        "character_l2": 4.628792495952571,
+        "equal_cap_if_this_modulus_paid_alone": 0.0185441733107891,
+        "real_channel_count": 30,
+        "self_conjugate_count": 1,
+        "top_abs_characters": [
+          {
+            "abs_coefficient": 0.8166661291234231,
+            "coefficient_imag": -0.7774356624444773,
+            "coefficient_real": -0.2500747032727469,
+            "conjugate_frequency": [
+              7,
+              5
+            ],
+            "energy": 0.6669435664574355,
+            "frequency": [
+              3,
+              7
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.8166661291234231,
+            "coefficient_imag": 0.7774356624444773,
+            "coefficient_real": -0.25007470327274695,
+            "conjugate_frequency": [
+              3,
+              7
+            ],
+            "energy": 0.6669435664574355,
+            "frequency": [
+              7,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7901095344040819,
+            "coefficient_imag": 0.6229813010622007,
+            "coefficient_real": -0.48597054939891454,
+            "conjugate_frequency": [
+              5,
+              7
+            ],
+            "energy": 0.6242730763562352,
+            "frequency": [
+              5,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7901095344040819,
+            "coefficient_imag": -0.6229813010622007,
+            "coefficient_real": -0.48597054939891454,
+            "conjugate_frequency": [
+              5,
+              5
+            ],
+            "energy": 0.6242730763562352,
+            "frequency": [
+              5,
+              7
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.755410206092165,
+            "coefficient_imag": 0.6269771490859084,
+            "coefficient_real": -0.4213599814793923,
+            "conjugate_frequency": [
+              6,
+              4
+            ],
+            "energy": 0.5706445794682072,
+            "frequency": [
+              4,
+              8
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.755410206092165,
+            "coefficient_imag": -0.6269771490859084,
+            "coefficient_real": -0.4213599814793923,
+            "conjugate_frequency": [
+              4,
+              8
+            ],
+            "energy": 0.5706445794682072,
+            "frequency": [
+              6,
+              4
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7232176250526492,
+            "coefficient_imag": 0.5871160050958634,
+            "coefficient_real": -0.42230146784858374,
+            "conjugate_frequency": [
+              7,
+              1
+            ],
+            "energy": 0.5230437331867943,
+            "frequency": [
+              3,
+              11
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7232176250526492,
+            "coefficient_imag": -0.5871160050958634,
+            "coefficient_real": -0.4223014678485837,
+            "conjugate_frequency": [
+              3,
+              11
+            ],
+            "energy": 0.5230437331867943,
+            "frequency": [
+              7,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.720145821673876,
+            "coefficient_imag": -0.5294003892950281,
+            "coefficient_real": -0.48820613708618477,
+            "conjugate_frequency": [
+              1,
+              11
+            ],
+            "energy": 0.518610004474342,
+            "frequency": [
+              9,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7201458216738759,
+            "coefficient_imag": 0.529400389295028,
+            "coefficient_real": -0.4882061370861848,
+            "conjugate_frequency": [
+              9,
+              1
+            ],
+            "energy": 0.5186100044743418,
+            "frequency": [
+              1,
+              11
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          }
+        ]
+      },
+      "70": {
+        "active_character_count": 11,
+        "character_l1": 6.032956699609752,
+        "character_l2": 2.0499520132192397,
+        "equal_cap_if_this_modulus_paid_alone": 0.10010603558983518,
+        "real_channel_count": 6,
+        "self_conjugate_count": 1,
+        "top_abs_characters": [
+          {
+            "abs_coefficient": 0.8524668270719894,
+            "coefficient_imag": 0.048629183523433164,
+            "coefficient_real": 0.8510786648530377,
+            "conjugate_frequency": [
+              3,
+              3
+            ],
+            "energy": 0.7266996912581851,
+            "frequency": [
+              1,
+              3
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.8524668270719894,
+            "coefficient_imag": -0.04862918352343315,
+            "coefficient_real": 0.8510786648530377,
+            "conjugate_frequency": [
+              1,
+              3
+            ],
+            "energy": 0.7266996912581851,
+            "frequency": [
+              3,
+              3
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7442982757749641,
+            "coefficient_imag": -0.29140214244671553,
+            "coefficient_real": 0.6848829934368706,
+            "conjugate_frequency": [
+              2,
+              4
+            ],
+            "energy": 0.5539799233215845,
+            "frequency": [
+              2,
+              2
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.7442982757749641,
+            "coefficient_imag": 0.29140214244671553,
+            "coefficient_real": 0.6848829934368706,
+            "conjugate_frequency": [
+              2,
+              2
+            ],
+            "energy": 0.5539799233215845,
+            "frequency": [
+              2,
+              4
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.688120178931432,
+            "coefficient_imag": 0.029887630947811,
+            "coefficient_real": 0.6874708067757884,
+            "conjugate_frequency": [
+              3,
+              1
+            ],
+            "energy": 0.47350938065262593,
+            "frequency": [
+              1,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.688120178931432,
+            "coefficient_imag": -0.02988763094781105,
+            "coefficient_real": 0.6874708067757884,
+            "conjugate_frequency": [
+              1,
+              5
+            ],
+            "energy": 0.47350938065262593,
+            "frequency": [
+              3,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.5732550081739843,
+            "coefficient_imag": -0.15405081775686408,
+            "coefficient_real": 0.5521681355755657,
+            "conjugate_frequency": [
+              3,
+              5
+            ],
+            "energy": 0.32862130439655485,
+            "frequency": [
+              1,
+              1
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.5732550081739843,
+            "coefficient_imag": 0.15405081775686405,
+            "coefficient_real": 0.5521681355755657,
+            "conjugate_frequency": [
+              1,
+              1
+            ],
+            "energy": 0.32862130439655485,
+            "frequency": [
+              3,
+              5
+            ],
+            "self_conjugate": false,
+            "zero_axis": false
+          },
+          {
+            "abs_coefficient": 0.1288493901369975,
+            "coefficient_imag": -0.0373080083150236,
+            "coefficient_real": 0.12332995521868284,
+            "conjugate_frequency": [
+              0,
+              4
+            ],
+            "energy": 0.01660216533867619,
+            "frequency": [
+              0,
+              2
+            ],
+            "self_conjugate": false,
+            "zero_axis": true
+          },
+          {
+            "abs_coefficient": 0.1288493901369975,
+            "coefficient_imag": 0.0373080083150236,
+            "coefficient_real": 0.12332995521868284,
+            "conjugate_frequency": [
+              0,
+              2
+            ],
+            "energy": 0.01660216533867619,
+            "frequency": [
+              0,
+              4
+            ],
+            "self_conjugate": false,
+            "zero_axis": true
+          }
+        ]
+      }
+    },
+    "self_conjugate_channel_count": 6,
+    "total_character_l1": 49.153988812629684
+  },
+  "character_moment_bound_proved": false,
+  "decision": "The full active multiplicative-character package improves the payment geometry but does not prove the theorem.  The active package has 122 nonzero character coefficients, collapsing to 64 real conjugacy channels, with total character L1 about 49.154.  A uniform active character-moment cap below about 0.0122866 would pay the minimum local main, about 7.59 times looser than the per-residue cap 0.0016193.  This may be a better analytic target, but it is still a universal pointwise fixed-modulus twisted binary-prime correlation theorem, not finite evidence or a Goldbach proof.",
+  "fixed_modulus_binary_prime_discrepancy_theorem_proved": false,
+  "goldbach_proved": false,
+  "method": {
+    "character_moment_normalization": "With c_d(s)=sum_chi c_hat_{d,chi} chi(s), write the projected error as E_d(N)=sum_chi c_hat_{d,chi} D_{d,chi}(N), where D_{d,chi}(N)=sum_s chi(s) Delta_{d,s}(N) in the same unnormalized residue-mass scale.",
+    "interpretation_boundary": "The cap is a payment target for an analytic theorem.  It is not inferred from the finite checked rows.",
+    "sufficient_uniform_cap": "If every active |D_{d,chi}(N)| is at most theta(N), then adverse_drag(N) <= total_character_l1 * theta(N)."
+  },
+  "minimum_local_main": 0.6039353780830684,
+  "pointwise_adverse_drag_theorem_proved": false,
+  "residual_character_bound_proved": false,
+  "residue_budget": {
+    "equal_residue_error_cap": 0.0016192946592982506,
+    "total_residue_l1": 372.962002076135
+  },
+  "schema_version": 1,
+  "source_commit": "203ee8fe8e29162544f373b3816ad9f5683a5a96",
+  "sources": {
+    "coefficient_discrepancy_budget_hold": "evidence\\q286-wbss-coefficient-discrepancy-budget-hold.json",
+    "coefficient_discrepancy_hold_status": "HOLD_for_pointwise_prime_pair_correlation_estimate",
+    "multiplicative_character_burden_audit": "evidence\\q286-wbss-multiplicative-character-burden-audit.json",
+    "multiplicative_character_burden_status": "HOLD_multiplicative_character_burden_broad",
+    "multiplicative_residual_schedule_audit": "evidence\\q286-wbss-multiplicative-residual-schedule-audit.json",
+    "multiplicative_residual_schedule_status": "HOLD_residual_character_bound_required"
+  },
+  "status": "HOLD_character_moment_payment_bound_required",
+  "status_boundary": "finite character-coordinate coefficient payment audit only; it proves no character-moment estimate, residual character theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true
+}
