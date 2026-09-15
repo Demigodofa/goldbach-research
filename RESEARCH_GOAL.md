@@ -6,6 +6,29 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The broad centered `(3,1)` stress-classifier version has been falsified on a
+predeclared q286 stress class.  `tools/build_q286_centered_3_1_stress_class_audit.py`
+generated `evidence/q286-centered-3-1-stress-class-audit.json`, with
+explanation in `notes/q286-centered-3-1-stress-class-audit.md`.
+
+The tested class is `full_nonpositive` from the baseline filter-order fixture:
+`start=10000`, `cycle_count=8`, `targets_per_cycle=5005`.  It is independent
+of `(3,1)` and contains `89` rows.  Centered `(3,1)` fails to put that class
+below the frozen fresh-window minimum: `56/89` full-nonpositive rows are at or
+above the fresh minimum, with maximum row `11902` at
+`0.23016925898905402`.  The narrower `nonrescued_first_three_tail` and
+`active_nonrescued` subclasses also fail, each with `54/86` rows at or above
+the fresh minimum.
+
+Interpretation: `(3,1)` remains a finite separator for the five selected
+deficit references, but it is not a classifier for the whole
+`full_nonpositive` stress predicate.  The selected references are not members
+of that baseline class, so a future stress-class theorem needs either a new
+non-post-hoc class containing those references or a non-scalar signed
+correlation argument.
+
+## Previous continuation evidence, 2026-09-15
+
 The `(3,1)` singleton has been reduced to a centered scalar-order gate:
 `tools/build_q286_centered_channel_scalar_order_audit.py` generated
 `evidence/q286-centered-channel-scalar-order-audit.json`, with explanation in

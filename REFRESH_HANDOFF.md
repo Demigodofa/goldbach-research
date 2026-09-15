@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The broad centered `(3,1)` stress-classifier reading has now been tested and
+falsified on a predeclared stress class.  `tools/build_q286_centered_3_1_stress_class_audit.py`
+generated `evidence/q286-centered-3-1-stress-class-audit.json`, with the
+human note `notes/q286-centered-3-1-stress-class-audit.md`.
+
+Stress class: `full_nonpositive` from
+`q286_first_three_filter_order_audit_receipt(start=10000, cycle_count=8,
+targets_per_cycle=5005)`.  This class is independent of `(3,1)` and contains
+`89` rows in the baseline `40040`-target fixture.  The next contiguous
+eight-period holdout beginning at `90080` has `0` `full_nonpositive` rows.
+
+Falsifier result: centered `(3,1)` does not keep the whole `full_nonpositive`
+class below the fresh-window minimum.  Only `33/89` rows are below the frozen
+fresh minimum `-0.017835394356714915`; `56/89` are at or above it, with worst
+target `11902` at `0.23016925898905402`.  The narrower
+`nonrescued_first_three_tail` and `active_nonrescued` subclasses also fail
+with `54/86` rows at or above the fresh minimum.
+
+Comparison: `(5,5)` also fails the same broad class, with `49/89`
+`full_nonpositive` rows at or above its fresh minimum.  The five previously
+selected deficit references are not members of this baseline
+`full_nonpositive` class, so the selected-deficit separator and this
+predeclared stress class are distinct populations.
+
+Decision: keep the selected-deficit `(3,1)` separator as finite evidence, but
+do not promote it to a universal stress-classifier lemma for
+`full_nonpositive` q286 rows.  The next branch needs either a different
+non-post-hoc class that actually contains the selected references, or a return
+to signed/correlation estimates.
+
+## Previous active checkpoint note, 2026-09-15
+
 The `(3,1)` stress-classifier hunch now has a centered scalar-order audit.
 `tools/build_q286_centered_channel_scalar_order_audit.py` generated
 `evidence/q286-centered-channel-scalar-order-audit.json`, with the human note

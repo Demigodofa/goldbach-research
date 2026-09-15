@@ -129,6 +129,8 @@ def main():
         EVIDENCE / "q286-alternate-reference-channel-audit.json")
     centered_channel_scalar_order = load_json(
         EVIDENCE / "q286-centered-channel-scalar-order-audit.json")
+    centered_3_1_stress_class = load_json(
+        EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1711,6 +1713,40 @@ def main():
         "centered-channel-scalar-order-audit",
         3.0,
         "next gate is a non-post-hoc stress/deficit class, not selected references")
+
+    layer(
+        "centered-3-1-stress-class-audit",
+        "Centered (3,1) fails the full-nonpositive stress class",
+        "finite_stress_class_falsifier",
+        "evidence/q286-centered-3-1-stress-class-audit.json",
+        3.0,
+        "Finite stress-class falsifier only; no universal stress-classifier theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-full-nonpositive-classifier-falsified",
+        "centered-3-1-stress-class-audit",
+        3.0,
+        "predeclared full_nonpositive rows are not uniformly low in centered (3,1)",
+        {
+            "full_nonpositive_count":
+                centered_3_1_stress_class["baseline_filter_window"][
+                    "predicate_counts"]["full_nonpositive"],
+            "channel_3_1_fail_count":
+                centered_3_1_stress_class[
+                    "channel_3_1_full_nonpositive_at_or_above_fresh_min_count"],
+            "channel_3_1_separator_passes":
+                centered_3_1_stress_class[
+                    "channel_3_1_full_nonpositive_separator_passes"],
+            "holdout_full_nonpositive_count":
+                centered_3_1_stress_class["holdout_class_counts"][
+                    "full_nonpositive"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-stress-class-audit",
+        3.0,
+        "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed")
 
     layer(
         "ap-count-bridge-gap-audit",

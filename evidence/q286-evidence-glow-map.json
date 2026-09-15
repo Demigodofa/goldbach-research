@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "949a5b0acd575dfc901dce0d37ab805e65477eed",
+  "generated_from_commit": "5924b0a27c945eb6271ad8bc8c633422651d6ef0",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -306,6 +306,14 @@
       "source": "evidence/q286-centered-channel-scalar-order-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite selected-reference scalar-order audit only; no stress-classifier theorem."
+    },
+    {
+      "id": "centered-3-1-stress-class-audit",
+      "label": "Centered (3,1) fails the full-nonpositive stress class",
+      "kind": "finite_stress_class_falsifier",
+      "source": "evidence/q286-centered-3-1-stress-class-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite stress-class falsifier only; no universal stress-classifier theorem."
     },
     {
       "id": "ap-count-bridge-gap-audit",
@@ -5884,6 +5892,25 @@
       "glow": 0.555556
     },
     {
+      "id": "centered-3-1-full-nonpositive-classifier-falsified",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "centered-3-1-stress-class-audit",
+          "weight": 3.0,
+          "reason": "predeclared full_nonpositive rows are not uniformly low in centered (3,1)",
+          "value": {
+            "full_nonpositive_count": 89,
+            "channel_3_1_fail_count": 56,
+            "channel_3_1_separator_passes": false,
+            "holdout_full_nonpositive_count": 0
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
       "id": "centered-3-1-selected-deficit-separator",
       "stack_weight": 3.0,
       "layers": [
@@ -6741,6 +6768,24 @@
       "glow": 0.342857
     },
     {
+      "id": "centered-3-1-stress-class-theorem",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "centered-channel-scalar-order-audit",
+          "weight": 3.0,
+          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
+        },
+        {
+          "layer": "centered-3-1-stress-class-audit",
+          "weight": 3.0,
+          "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.342857
+    },
+    {
       "id": "active-lane-strict-closure",
       "stack_weight": 5.0,
       "layers": [
@@ -6775,19 +6820,6 @@
       ],
       "layer_count": 2,
       "glow": 0.2
-    },
-    {
-      "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "centered-channel-scalar-order-audit",
-          "weight": 3.0,
-          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.171429
     },
     {
       "id": "distributed-cone-correlation-theorem",

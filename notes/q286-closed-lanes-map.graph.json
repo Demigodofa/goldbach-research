@@ -1447,6 +1447,14 @@
       "status_boundary": "finite selected-reference scalar-order audit only; no universal stress-classifier theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_stress_class_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) full-nonpositive stress-class audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_centered_3_1_stress_class_audit.py generated evidence/q286-centered-3-1-stress-class-audit.json; the predeclared baseline full_nonpositive class has 89 rows, and centered (3,1) fails to keep 56 of them below the fresh-window minimum; the active_nonrescued subclass also fails with 54 of 86 rows at or above the fresh minimum",
+      "status_boundary": "finite stress-class falsifier only; refutes centered (3,1) as a classifier for the baseline full_nonpositive class, not the selected-deficit separator or every possible stress class"
+    },
+    {
       "id": "obligation.centered_3_1_stress_class",
       "type": "open_obligation",
       "label": "Define and prove the centered (3,1) stress class",
@@ -1465,6 +1473,16 @@
       "from": "receipt.q286_centered_channel_scalar_order_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_class_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_class_audit",
+      "to": "receipt.q286_centered_channel_scalar_order_audit",
+      "type": "refines"
     },
     {
       "from": "receipt.q286_alternate_reference_channel_audit",

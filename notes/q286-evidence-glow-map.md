@@ -418,6 +418,31 @@ selected-deficit scalar separator after local subtraction.  It is not yet a
 stress-classifier theorem because the selected deficit references are not a
 proved complete or predeclared stress population.
 
+The centered `(3,1)` stress-class audit is:
+
+```text
+evidence/q286-centered-3-1-stress-class-audit.json
+```
+
+It tests the predeclared `full_nonpositive` class from the baseline
+filter-order fixture, independent of `(3,1)`.  That class contains `89` rows.
+Centered `(3,1)` fails to classify it: `56/89` rows are at or above the frozen
+fresh-window minimum, and the active/nonrescued subclass also fails with
+`54/86` rows at or above the fresh minimum.  The next contiguous eight-period
+holdout has `0` full-nonpositive rows, so this is a baseline-class falsifier,
+not a populated holdout confirmation.
+
+This closes the broad version:
+
+```text
+centered (3,1) classifies full_nonpositive q286 stress rows
+```
+
+The selected-deficit separator remains a narrower finite fact.  The next
+useful class must be defined without `(3,1)` and must actually contain the
+selected deficit references, or the route should return to signed/correlation
+estimates instead of scalar classification.
+
 The AP-count bridge-gap audit is:
 
 ```text
