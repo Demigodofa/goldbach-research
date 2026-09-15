@@ -362,6 +362,28 @@ with `(5,5)` the best singleton by minimum target margin.  Thus these rows
 remain non-local/correlation-sourced, but they do not support the stronger
 claim that no small fixed subset works under the LP-weighted positivity metric.
 
+The same-window singleton stability audit is:
+
+```text
+evidence/q286-far-singleton-channel-stability-audit.json
+```
+
+It separates `12` zero-local seed targets from the other `594` non-seed far
+targets.  Kevin's watchlist was `(5,5), (3,1), (3,11), (3,7)`.  All four pass
+on the seed targets; only `(5,5)` and `(3,1)` pass on the other `594` targets.
+
+The fresh-window watchlist audit is:
+
+```text
+evidence/q286-fresh-window-channel-watchlist-audit.json
+```
+
+It replays the watchlist on `606` fresh predeclared targets from starts
+`24M,28M,32M,36M,40M,44M`.  Under the same stress reference `1222142`,
+`(5,5)`, `(3,1)`, and `(3,7)` pass everywhere; `(3,11)` fails once at
+`28000004`.  The remaining glow-map obligation is an alternate-stress or
+alternate-deficit reference audit.
+
 The AP-count bridge-gap audit is:
 
 ```text

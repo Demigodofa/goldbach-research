@@ -121,6 +121,10 @@ def main():
         EVIDENCE / "q286-zero-local-target-channel-decomposition.json")
     zero_local_margin_audit = load_json(
         EVIDENCE / "q286-zero-local-channel-margin-audit.json")
+    far_singleton_channel_stability = load_json(
+        EVIDENCE / "q286-far-singleton-channel-stability-audit.json")
+    fresh_window_channel_watchlist = load_json(
+        EVIDENCE / "q286-fresh-window-channel-watchlist-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1561,6 +1565,72 @@ def main():
         "zero-local-channel-margin-audit",
         3.0,
         "smallest-subset test rejects the claim that these 12 LP-positive rows require a distributed fixed channel subset")
+
+    layer(
+        "far-singleton-channel-stability",
+        "Same-window non-seed singleton channel stability",
+        "finite_channel_holdout",
+        "evidence/q286-far-singleton-channel-stability-audit.json",
+        3.0,
+        "Finite same-stress holdout only; no stress-independent theorem.")
+    add_hit(
+        mechanism_stacks,
+        "same-stress-singleton-channel-candidates",
+        "far-singleton-channel-stability",
+        3.0,
+        "seed/non-seed split leaves (5,5) and (3,1) as all-far same-stress singleton candidates",
+        {
+            "target_count": far_singleton_channel_stability["target_count"],
+            "all_far_singleton_passing_count":
+                far_singleton_channel_stability[
+                    "all_far_singleton_passing_count"],
+            "watchlist_passing":
+                far_singleton_channel_stability[
+                    "watchlist_all_far_passing_singletons"],
+            "watchlist_failing":
+                far_singleton_channel_stability[
+                    "watchlist_all_far_failing_singletons"],
+        })
+    add_hit(
+        theorem_stacks,
+        "alternate-stress-channel-reference-gate",
+        "far-singleton-channel-stability",
+        2.0,
+        "same stress reference can make channels look positive if the reference row is unusually low")
+
+    layer(
+        "fresh-window-channel-watchlist",
+        "Fresh predeclared window watchlist replay",
+        "finite_selection_bias_gate",
+        "evidence/q286-fresh-window-channel-watchlist-audit.json",
+        3.0,
+        "Finite fresh-window same-stress audit only; no stress-independent theorem.")
+    add_hit(
+        mechanism_stacks,
+        "same-stress-singleton-channel-candidates",
+        "fresh-window-channel-watchlist",
+        3.0,
+        "fresh predeclared windows preserve (5,5), (3,1), and (3,7), while (3,11) fails once",
+        {
+            "target_count": fresh_window_channel_watchlist["target_count"],
+            "predeclared_windows":
+                fresh_window_channel_watchlist[
+                    "predeclared_window_specs"],
+            "watchlist_passes":
+                fresh_window_channel_watchlist["watchlist_passes"],
+            "surviving_watchlist_singletons":
+                fresh_window_channel_watchlist[
+                    "surviving_watchlist_singletons"],
+            "failing_watchlist_singletons":
+                fresh_window_channel_watchlist[
+                    "failing_watchlist_singletons"],
+        })
+    add_hit(
+        theorem_stacks,
+        "alternate-stress-channel-reference-gate",
+        "fresh-window-channel-watchlist",
+        3.0,
+        "fresh-window selection-bias gate passes under same stress but alternate stress references remain required")
 
     layer(
         "ap-count-bridge-gap-audit",

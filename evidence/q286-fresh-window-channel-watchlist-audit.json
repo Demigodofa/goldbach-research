@@ -1,0 +1,1693 @@
+{
+  "all_watchlist_passes": false,
+  "alternate_stress_reference_test_still_required": true,
+  "candidate": "The channels surviving the seed/non-seed split, especially (5,5) and (3,1), may generalize to fresh q286 windows that were not used to select the watchlist.",
+  "decision": "On the fresh predeclared windows, (5,5), (3,1), and (3,7) remain positive singleton channels after subtracting each residue's local vector. Channel (3,11) fails once, at target 28000004. The smallest positive fixed subset on the fresh windows still has size 1, with six passing singleton channels. The stress reference remains fixed at 1222142, so a future alternate-stress audit is still required before promoting a stress-independent channel theorem.",
+  "deficit_count": 0,
+  "failing_watchlist_singletons": [
+    [
+      3,
+      11
+    ]
+  ],
+  "falsifier": "Any nonpositive weighted contribution for (5,5) or (3,1) on a fresh target falsifies their same-stress singleton-stability claim on this fresh-window gate.",
+  "goldbach_proved": false,
+  "predeclared_window_specs": [
+    [
+      24000000,
+      101
+    ],
+    [
+      28000000,
+      101
+    ],
+    [
+      32000000,
+      101
+    ],
+    [
+      36000000,
+      101
+    ],
+    [
+      40000000,
+      101
+    ],
+    [
+      44000000,
+      101
+    ]
+  ],
+  "prediction": "(5,5) and (3,1) should remain positive singleton channels on all fresh targets after subtracting each target residue's local vector. (3,11) and (3,7) were already falsified as all-far singletons and are expected to be weaker.",
+  "schema_version": 1,
+  "scope": {
+    "after_local_full_delta_summary": {
+      "count": 606,
+      "maximum": 0.2857219127875909,
+      "mean": 0.20382403865617937,
+      "minimum": 0.014069312835632071
+    },
+    "after_local_lp_delta_summary": {
+      "count": 606,
+      "maximum": 0.16637917002595426,
+      "mean": 0.12352164422695738,
+      "minimum": 0.048689165033814194
+    },
+    "any_single_channel_removal_fails_target": false,
+    "channel_summary_rows": [
+      {
+        "label": [
+          5,
+          5
+        ],
+        "label_key": "5,5",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.2309872783940365,
+        "net_weighted_sum": 17.29034862418125,
+        "positive_count": 606,
+        "positive_margin_share": 0.21392155146673034,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 17.29034862418125,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.04455391508046535,
+          "mean": 0.028531928422741333,
+          "minimum": 0.012921749098867666
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          3,
+          1
+        ],
+        "label_key": "3,1",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.20679592900616256,
+        "net_weighted_sum": 15.479526541191102,
+        "positive_count": 606,
+        "positive_margin_share": 0.1915174994812365,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 15.479526541191102,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.03804449731755662,
+          "mean": 0.025543773170282346,
+          "minimum": 0.010444173018028542
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          3,
+          7
+        ],
+        "label_key": "3,7",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.11276885902503812,
+        "net_weighted_sum": 8.441213299928627,
+        "positive_count": 606,
+        "positive_margin_share": 0.10443730688326931,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 8.441213299928627,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.030362005722900622,
+          "mean": 0.013929394884370672,
+          "minimum": 0.002106132049589744
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          1,
+          11
+        ],
+        "label_key": "1,11",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.08154482822574699,
+        "net_weighted_sum": 6.1039660639533375,
+        "positive_count": 606,
+        "positive_margin_share": 0.07552015976560458,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 6.1039660639533375,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.013062157454826993,
+          "mean": 0.010072551260649073,
+          "minimum": 0.006600794648121877
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          4,
+          8
+        ],
+        "label_key": "4,8",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.06741946126820698,
+        "net_weighted_sum": 5.046624201499226,
+        "positive_count": 606,
+        "positive_margin_share": 0.062438398572509116,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 5.046624201499226,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.01229216293746776,
+          "mean": 0.008327762708744597,
+          "minimum": 0.00422142284499645
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          3,
+          9
+        ],
+        "label_key": "3,9",
+        "negative_count": 0,
+        "negative_targets_first_20": [],
+        "negative_weighted_sum": 0.0,
+        "net_margin_share_vs_total_net_lp_margin": 0.023291763155188522,
+        "net_weighted_sum": 1.743484350415493,
+        "positive_count": 606,
+        "positive_margin_share": 0.021570928690080593,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 1.743484350415493,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": true,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.004321730966395132,
+          "mean": 0.002877036881873751,
+          "minimum": 0.0011302748782277391
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          3,
+          11
+        ],
+        "label_key": "3,11",
+        "negative_count": 1,
+        "negative_targets_first_20": [
+          28000004
+        ],
+        "negative_weighted_sum": -0.0001323024131169232,
+        "net_margin_share_vs_total_net_lp_margin": 0.12734550498910208,
+        "net_weighted_sum": 9.532335253666652,
+        "positive_count": 605,
+        "positive_margin_share": 0.11793864272065352,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 9.53246755607977,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.031428737777273986,
+          "mean": 0.015729926161166093,
+          "minimum": -0.0001323024131169232
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          2,
+          6
+        ],
+        "label_key": "2,6",
+        "negative_count": 4,
+        "negative_targets_first_20": [
+          32000198,
+          36000064,
+          36000194,
+          44000056
+        ],
+        "negative_weighted_sum": -0.0015202809159253325,
+        "net_margin_share_vs_total_net_lp_margin": 0.06194727184178744,
+        "net_weighted_sum": 4.637008297202761,
+        "positive_count": 602,
+        "positive_margin_share": 0.05738931305099139,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 4.638528578118686,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.016789337295001636,
+          "mean": 0.007651828873271883,
+          "minimum": -0.0008799031799032175
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          4,
+          2
+        ],
+        "label_key": "4,2",
+        "negative_count": 2,
+        "negative_targets_first_20": [
+          24000118,
+          44000062
+        ],
+        "negative_weighted_sum": -0.0004840479923978294,
+        "net_margin_share_vs_total_net_lp_margin": 0.046217901542436914,
+        "net_weighted_sum": 3.459600181892311,
+        "positive_count": 604,
+        "positive_margin_share": 0.0428092343741018,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "positive_weighted_sum": 3.4600842298847088,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.01223077540258034,
+          "mean": 0.005708911191241437,
+          "minimum": -0.0002910340135588562
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          2,
+          2
+        ],
+        "label_key": "2,2",
+        "negative_count": 175,
+        "negative_targets_first_20": [
+          24000000,
+          24000010,
+          24000016,
+          24000032,
+          24000034,
+          24000048,
+          24000056,
+          24000068,
+          24000070,
+          24000082,
+          24000084,
+          24000094,
+          24000096,
+          24000098,
+          24000100,
+          24000104,
+          24000110,
+          24000114,
+          24000128,
+          24000134
+        ],
+        "negative_weighted_sum": -0.6908659182907341,
+        "net_margin_share_vs_total_net_lp_margin": 0.029839276638029523,
+        "net_weighted_sum": 2.233592686800701,
+        "positive_count": 431,
+        "positive_margin_share": 0.03618230815348954,
+        "positive_targets_first_20": [
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000012,
+          24000014,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000036,
+          24000038,
+          24000040,
+          24000042,
+          24000044,
+          24000046,
+          24000050
+        ],
+        "positive_weighted_sum": 2.924458605091435,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.01696251031617966,
+          "mean": 0.003685796512872444,
+          "minimum": -0.01216766639076947
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          4,
+          6
+        ],
+        "label_key": "4,6",
+        "negative_count": 227,
+        "negative_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000022,
+          24000026,
+          24000032,
+          24000036,
+          24000046,
+          24000048,
+          24000050,
+          24000054,
+          24000062,
+          24000076,
+          24000088,
+          24000090,
+          24000094,
+          24000096,
+          24000114,
+          24000118
+        ],
+        "negative_weighted_sum": -1.257338062741668,
+        "net_margin_share_vs_total_net_lp_margin": 0.017419620825604245,
+        "net_weighted_sum": 1.303930324950404,
+        "positive_count": 379,
+        "positive_margin_share": 0.03168880623098045,
+        "positive_targets_first_20": [
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000024,
+          24000028,
+          24000030,
+          24000034,
+          24000038,
+          24000040,
+          24000042,
+          24000044,
+          24000052,
+          24000056,
+          24000058,
+          24000060,
+          24000064
+        ],
+        "positive_weighted_sum": 2.561268387692072,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.019224870675188584,
+          "mean": 0.0021517002061887855,
+          "minimum": -0.015766264994630234
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          5,
+          1
+        ],
+        "label_key": "5,1",
+        "negative_count": 270,
+        "negative_targets_first_20": [
+          24000000,
+          24000008,
+          24000012,
+          24000026,
+          24000032,
+          24000044,
+          24000046,
+          24000050,
+          24000052,
+          24000054,
+          24000056,
+          24000058,
+          24000060,
+          24000062,
+          24000066,
+          24000068,
+          24000070,
+          24000072,
+          24000084,
+          24000090
+        ],
+        "negative_weighted_sum": -0.8966550886310406,
+        "net_margin_share_vs_total_net_lp_margin": 0.004903927794655878,
+        "net_weighted_sum": 0.36707918196589967,
+        "positive_count": 336,
+        "positive_margin_share": 0.015635312027757087,
+        "positive_targets_first_20": [
+          24000002,
+          24000004,
+          24000006,
+          24000010,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000028,
+          24000030,
+          24000034,
+          24000036,
+          24000038,
+          24000040,
+          24000042,
+          24000048,
+          24000064,
+          24000074
+        ],
+        "positive_weighted_sum": 1.2637342705969403,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.012639373965944735,
+          "mean": 0.0006057412243661711,
+          "minimum": -0.009792740795912955
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          5,
+          3
+        ],
+        "label_key": "5,3",
+        "negative_count": 47,
+        "negative_targets_first_20": [
+          24000014,
+          24000016,
+          24000044,
+          24000050,
+          24000070,
+          24000084,
+          24000090,
+          24000094,
+          24000096,
+          24000148,
+          24000194,
+          28000010,
+          28000028,
+          28000046,
+          28000080,
+          28000086,
+          28000092,
+          28000150,
+          28000176,
+          28000194
+        ],
+        "negative_weighted_sum": -0.010691982563159558,
+        "net_margin_share_vs_total_net_lp_margin": 0.012297492858782127,
+        "net_weighted_sum": 0.9205179618983372,
+        "positive_count": 559,
+        "positive_margin_share": 0.011521218015341447,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038,
+          24000040,
+          24000042
+        ],
+        "positive_weighted_sum": 0.9312099444614969,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.003903865917344333,
+          "mean": 0.001519006537786035,
+          "minimum": -0.0006302189620302255
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          2,
+          10
+        ],
+        "label_key": "2,10",
+        "negative_count": 176,
+        "negative_targets_first_20": [
+          24000000,
+          24000008,
+          24000012,
+          24000024,
+          24000030,
+          24000040,
+          24000046,
+          24000048,
+          24000052,
+          24000066,
+          24000070,
+          24000072,
+          24000074,
+          24000086,
+          24000108,
+          24000110,
+          24000116,
+          24000118,
+          24000120,
+          24000122
+        ],
+        "negative_weighted_sum": -0.17307310715495022,
+        "net_margin_share_vs_total_net_lp_margin": 0.006301938493661832,
+        "net_weighted_sum": 0.4717260375598843,
+        "positive_count": 430,
+        "positive_margin_share": 0.007977654842014494,
+        "positive_targets_first_20": [
+          24000002,
+          24000004,
+          24000006,
+          24000010,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000026,
+          24000028,
+          24000032,
+          24000034,
+          24000036,
+          24000038,
+          24000042,
+          24000044,
+          24000050,
+          24000054,
+          24000056
+        ],
+        "positive_weighted_sum": 0.6447991447148346,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.0038517178367461196,
+          "mean": 0.0007784258045542645,
+          "minimum": -0.0033651549649058115
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          1,
+          9
+        ],
+        "label_key": "1,9",
+        "negative_count": 222,
+        "negative_targets_first_20": [
+          24000010,
+          24000014,
+          24000024,
+          24000026,
+          24000040,
+          24000044,
+          24000046,
+          24000058,
+          24000062,
+          24000070,
+          24000072,
+          24000076,
+          24000078,
+          24000080,
+          24000084,
+          24000098,
+          24000100,
+          24000104,
+          24000112,
+          24000114
+        ],
+        "negative_weighted_sum": -0.21759806117220742,
+        "net_margin_share_vs_total_net_lp_margin": 0.005434442414659974,
+        "net_weighted_sum": 0.406790385084403,
+        "positive_count": 384,
+        "positive_margin_share": 0.007725127355402889,
+        "positive_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000012,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038,
+          24000042,
+          24000048,
+          24000050,
+          24000052
+        ],
+        "positive_weighted_sum": 0.6243884462566104,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.00415753591482403,
+          "mean": 0.0006712712625155166,
+          "minimum": -0.002433190327178594
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          2,
+          8
+        ],
+        "label_key": "2,8",
+        "negative_count": 500,
+        "negative_targets_first_20": [
+          24000000,
+          24000002,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000024,
+          24000028,
+          24000032,
+          24000034,
+          24000036,
+          24000038,
+          24000040,
+          24000042,
+          24000044,
+          24000048
+        ],
+        "negative_weighted_sum": -2.067016991975134,
+        "net_margin_share_vs_total_net_lp_margin": -0.02574966477739317,
+        "net_weighted_sum": -1.9274684045475243,
+        "positive_count": 106,
+        "positive_margin_share": 0.0017265383698368622,
+        "positive_targets_first_20": [
+          24000004,
+          24000022,
+          24000026,
+          24000030,
+          24000046,
+          24000068,
+          24000070,
+          24000072,
+          24000094,
+          24000110,
+          24000128,
+          24000144,
+          24000154,
+          24000168,
+          24000170,
+          24000192,
+          24000196,
+          28000000,
+          28000004,
+          28000012
+        ],
+        "positive_weighted_sum": 0.1395485874276097,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": 0.00458539039338795,
+          "mean": -0.003180640931596575,
+          "minimum": -0.010236675764290923
+        },
+        "zero_count": 0
+      },
+      {
+        "label": [
+          3,
+          5
+        ],
+        "label_key": "3,5",
+        "negative_count": 606,
+        "negative_targets_first_20": [
+          24000000,
+          24000002,
+          24000004,
+          24000006,
+          24000008,
+          24000010,
+          24000012,
+          24000014,
+          24000016,
+          24000018,
+          24000020,
+          24000022,
+          24000024,
+          24000026,
+          24000028,
+          24000030,
+          24000032,
+          24000034,
+          24000036,
+          24000038
+        ],
+        "negative_weighted_sum": -0.6561585861066929,
+        "net_margin_share_vs_total_net_lp_margin": -0.008765831695706544,
+        "net_weighted_sum": -0.6561585861066929,
+        "positive_count": 0,
+        "positive_margin_share": 0.0,
+        "positive_targets_first_20": [],
+        "positive_weighted_sum": 0.0,
+        "removal_failure_count": 0,
+        "removal_failure_targets_first_20": [],
+        "removing_channel_makes_any_target_fail": false,
+        "singleton_passes_scope": false,
+        "weighted_contribution_summary": {
+          "count": 606,
+          "maximum": -0.00025517638008674455,
+          "mean": -0.0010827699440704502,
+          "minimum": -0.0019415776497544166
+        },
+        "zero_count": 0
+      }
+    ],
+    "channels_whose_removal_fails_target": [],
+    "scope": "fresh_predeclared_windows",
+    "singleton_passing_channels": [
+      [
+        5,
+        5
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        3,
+        9
+      ]
+    ],
+    "singleton_passing_count": 6,
+    "smallest_fixed_subset": {
+      "best_subsets_by_minimum_margin": [
+        {
+          "average_target_margin": 0.028531928422741333,
+          "labels": [
+            [
+              5,
+              5
+            ]
+          ],
+          "minimum_target_margin": 0.012921749098867666,
+          "total_margin": 17.29034862418125,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.012921749098867666,
+              "target": 24000146,
+              "target_mod_143": 27
+            },
+            {
+              "subset_lp_margin": 0.013996228795235951,
+              "target": 40000102,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.015414351360222131,
+              "target": 32000104,
+              "target_mod_143": 136
+            },
+            {
+              "subset_lp_margin": 0.015808033204818956,
+              "target": 24000074,
+              "target_mod_143": 98
+            },
+            {
+              "subset_lp_margin": 0.01639145142831307,
+              "target": 44000152,
+              "target_mod_143": 53
+            },
+            {
+              "subset_lp_margin": 0.016437858384212415,
+              "target": 28000018,
+              "target_mod_143": 46
+            },
+            {
+              "subset_lp_margin": 0.016534924434046923,
+              "target": 32000164,
+              "target_mod_143": 53
+            },
+            {
+              "subset_lp_margin": 0.016740333432915387,
+              "target": 40000018,
+              "target_mod_143": 58
+            },
+            {
+              "subset_lp_margin": 0.0169109385838631,
+              "target": 32000026,
+              "target_mod_143": 58
+            },
+            {
+              "subset_lp_margin": 0.01691964969462008,
+              "target": 44000054,
+              "target_mod_143": 98
+            }
+          ]
+        },
+        {
+          "average_target_margin": 0.025543773170282346,
+          "labels": [
+            [
+              3,
+              1
+            ]
+          ],
+          "minimum_target_margin": 0.010444173018028542,
+          "total_margin": 15.479526541191102,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.010444173018028542,
+              "target": 24000008,
+              "target_mod_143": 32
+            },
+            {
+              "subset_lp_margin": 0.010482972845944034,
+              "target": 24000112,
+              "target_mod_143": 136
+            },
+            {
+              "subset_lp_margin": 0.010518609245896742,
+              "target": 40000160,
+              "target_mod_143": 57
+            },
+            {
+              "subset_lp_margin": 0.011114615926928717,
+              "target": 28000066,
+              "target_mod_143": 94
+            },
+            {
+              "subset_lp_margin": 0.011337732326730332,
+              "target": 28000108,
+              "target_mod_143": 136
+            },
+            {
+              "subset_lp_margin": 0.012948459749829595,
+              "target": 28000058,
+              "target_mod_143": 86
+            },
+            {
+              "subset_lp_margin": 0.013031786119338879,
+              "target": 28000078,
+              "target_mod_143": 106
+            },
+            {
+              "subset_lp_margin": 0.013076486134355157,
+              "target": 44000156,
+              "target_mod_143": 57
+            },
+            {
+              "subset_lp_margin": 0.013630566574703021,
+              "target": 24000038,
+              "target_mod_143": 62
+            },
+            {
+              "subset_lp_margin": 0.013706492819283177,
+              "target": 28000080,
+              "target_mod_143": 108
+            }
+          ]
+        },
+        {
+          "average_target_margin": 0.010072551260649073,
+          "labels": [
+            [
+              1,
+              11
+            ]
+          ],
+          "minimum_target_margin": 0.006600794648121877,
+          "total_margin": 6.1039660639533375,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.006600794648121877,
+              "target": 28000004,
+              "target_mod_143": 32
+            },
+            {
+              "subset_lp_margin": 0.0067160703683455236,
+              "target": 36000178,
+              "target_mod_143": 71
+            },
+            {
+              "subset_lp_margin": 0.006828154067747927,
+              "target": 36000116,
+              "target_mod_143": 9
+            },
+            {
+              "subset_lp_margin": 0.006992677773340436,
+              "target": 40000154,
+              "target_mod_143": 51
+            },
+            {
+              "subset_lp_margin": 0.007104290100601965,
+              "target": 36000002,
+              "target_mod_143": 38
+            },
+            {
+              "subset_lp_margin": 0.0071663162451675,
+              "target": 32000006,
+              "target_mod_143": 38
+            },
+            {
+              "subset_lp_margin": 0.0073318351431375765,
+              "target": 28000048,
+              "target_mod_143": 76
+            },
+            {
+              "subset_lp_margin": 0.007342838719496175,
+              "target": 32000040,
+              "target_mod_143": 72
+            },
+            {
+              "subset_lp_margin": 0.0074158128641715676,
+              "target": 40000036,
+              "target_mod_143": 76
+            },
+            {
+              "subset_lp_margin": 0.007431888233976121,
+              "target": 28000044,
+              "target_mod_143": 72
+            }
+          ]
+        },
+        {
+          "average_target_margin": 0.008327762708744597,
+          "labels": [
+            [
+              4,
+              8
+            ]
+          ],
+          "minimum_target_margin": 0.00422142284499645,
+          "total_margin": 5.046624201499226,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.00422142284499645,
+              "target": 32000172,
+              "target_mod_143": 61
+            },
+            {
+              "subset_lp_margin": 0.004546191636727029,
+              "target": 36000086,
+              "target_mod_143": 122
+            },
+            {
+              "subset_lp_margin": 0.004663308947833163,
+              "target": 28000006,
+              "target_mod_143": 34
+            },
+            {
+              "subset_lp_margin": 0.004715038703709163,
+              "target": 36000108,
+              "target_mod_143": 1
+            },
+            {
+              "subset_lp_margin": 0.004716948650157927,
+              "target": 40000042,
+              "target_mod_143": 82
+            },
+            {
+              "subset_lp_margin": 0.004866735534355221,
+              "target": 32000112,
+              "target_mod_143": 1
+            },
+            {
+              "subset_lp_margin": 0.004896917484379735,
+              "target": 36000178,
+              "target_mod_143": 71
+            },
+            {
+              "subset_lp_margin": 0.00501873385006532,
+              "target": 24000194,
+              "target_mod_143": 75
+            },
+            {
+              "subset_lp_margin": 0.0050249480051017485,
+              "target": 28000098,
+              "target_mod_143": 126
+            },
+            {
+              "subset_lp_margin": 0.005088123246135609,
+              "target": 36000124,
+              "target_mod_143": 17
+            }
+          ]
+        },
+        {
+          "average_target_margin": 0.013929394884370672,
+          "labels": [
+            [
+              3,
+              7
+            ]
+          ],
+          "minimum_target_margin": 0.002106132049589744,
+          "total_margin": 8.441213299928627,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.002106132049589744,
+              "target": 40000102,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.0027361232812755953,
+              "target": 28000114,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.0028855056505951377,
+              "target": 24000036,
+              "target_mod_143": 60
+            },
+            {
+              "subset_lp_margin": 0.0030730552349356737,
+              "target": 32000110,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.0033690793811074907,
+              "target": 36000026,
+              "target_mod_143": 62
+            },
+            {
+              "subset_lp_margin": 0.0034387702736028425,
+              "target": 28000056,
+              "target_mod_143": 84
+            },
+            {
+              "subset_lp_margin": 0.0035652858228413208,
+              "target": 36000106,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.003678997928415592,
+              "target": 44000182,
+              "target_mod_143": 83
+            },
+            {
+              "subset_lp_margin": 0.0037775668402678687,
+              "target": 36000196,
+              "target_mod_143": 89
+            },
+            {
+              "subset_lp_margin": 0.00403805040256554,
+              "target": 32000086,
+              "target_mod_143": 118
+            }
+          ]
+        },
+        {
+          "average_target_margin": 0.002877036881873751,
+          "labels": [
+            [
+              3,
+              9
+            ]
+          ],
+          "minimum_target_margin": 0.0011302748782277391,
+          "total_margin": 1.743484350415493,
+          "worst_targets": [
+            {
+              "subset_lp_margin": 0.0011302748782277391,
+              "target": 32000116,
+              "target_mod_143": 5
+            },
+            {
+              "subset_lp_margin": 0.001255131939573788,
+              "target": 24000124,
+              "target_mod_143": 5
+            },
+            {
+              "subset_lp_margin": 0.0013015338418346182,
+              "target": 44000104,
+              "target_mod_143": 5
+            },
+            {
+              "subset_lp_margin": 0.001355659912114124,
+              "target": 40000108,
+              "target_mod_143": 5
+            },
+            {
+              "subset_lp_margin": 0.0013569714456419352,
+              "target": 36000064,
+              "target_mod_143": 100
+            },
+            {
+              "subset_lp_margin": 0.0014846243150536287,
+              "target": 44000098,
+              "target_mod_143": 142
+            },
+            {
+              "subset_lp_margin": 0.0015026515626500052,
+              "target": 40000160,
+              "target_mod_143": 57
+            },
+            {
+              "subset_lp_margin": 0.0015362321802369868,
+              "target": 24000082,
+              "target_mod_143": 106
+            },
+            {
+              "subset_lp_margin": 0.0015590557765538628,
+              "target": 44000168,
+              "target_mod_143": 69
+            },
+            {
+              "subset_lp_margin": 0.00158159592193322,
+              "target": 44000170,
+              "target_mod_143": 71
+            }
+          ]
+        }
+      ],
+      "checked_subset_count_at_minimum_size": 17,
+      "minimum_size": 1,
+      "passing_subset_count_at_minimum_size": 6,
+      "small_fixed_subset_exists": true
+    },
+    "target_count": 606,
+    "target_mod_143_count": 111,
+    "total_negative_weighted_margin": -5.9715344299570265,
+    "total_net_lp_margin": 74.85411640153617,
+    "total_positive_weighted_margin": 80.8256508314932
+  },
+  "source_commit": "294570e4ebe62c0f4e4d0ef62d6121439c8658ee",
+  "source_local_singular_audit": "evidence\\q286-lp-cone-local-singular-audit.json",
+  "source_low_frequency_lp_cone_audit": "evidence\\q286-low-frequency-lp-cone-audit.json",
+  "status_boundary": "finite fresh-window watchlist replay using the same stress reference 1222142; no alternate-stress theorem, channel theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach theorem.",
+  "stress_target": 1222142,
+  "surviving_watchlist_singletons": [
+    [
+      5,
+      5
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "target_count": 606,
+  "watchlist_labels": [
+    [
+      5,
+      5
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "watchlist_passes": {
+    "3,1": true,
+    "3,11": false,
+    "3,7": true,
+    "5,5": true
+  },
+  "watchlist_summary": [
+    {
+      "label": [
+        5,
+        5
+      ],
+      "label_key": "5,5",
+      "negative_count": 0,
+      "negative_targets_first_20": [],
+      "negative_weighted_sum": 0.0,
+      "net_margin_share_vs_total_net_lp_margin": 0.2309872783940365,
+      "net_weighted_sum": 17.29034862418125,
+      "positive_count": 606,
+      "positive_margin_share": 0.21392155146673034,
+      "positive_targets_first_20": [
+        24000000,
+        24000002,
+        24000004,
+        24000006,
+        24000008,
+        24000010,
+        24000012,
+        24000014,
+        24000016,
+        24000018,
+        24000020,
+        24000022,
+        24000024,
+        24000026,
+        24000028,
+        24000030,
+        24000032,
+        24000034,
+        24000036,
+        24000038
+      ],
+      "positive_weighted_sum": 17.29034862418125,
+      "removal_failure_count": 0,
+      "removal_failure_targets_first_20": [],
+      "removing_channel_makes_any_target_fail": false,
+      "singleton_passes_scope": true,
+      "weighted_contribution_summary": {
+        "count": 606,
+        "maximum": 0.04455391508046535,
+        "mean": 0.028531928422741333,
+        "minimum": 0.012921749098867666
+      },
+      "zero_count": 0
+    },
+    {
+      "label": [
+        3,
+        1
+      ],
+      "label_key": "3,1",
+      "negative_count": 0,
+      "negative_targets_first_20": [],
+      "negative_weighted_sum": 0.0,
+      "net_margin_share_vs_total_net_lp_margin": 0.20679592900616256,
+      "net_weighted_sum": 15.479526541191102,
+      "positive_count": 606,
+      "positive_margin_share": 0.1915174994812365,
+      "positive_targets_first_20": [
+        24000000,
+        24000002,
+        24000004,
+        24000006,
+        24000008,
+        24000010,
+        24000012,
+        24000014,
+        24000016,
+        24000018,
+        24000020,
+        24000022,
+        24000024,
+        24000026,
+        24000028,
+        24000030,
+        24000032,
+        24000034,
+        24000036,
+        24000038
+      ],
+      "positive_weighted_sum": 15.479526541191102,
+      "removal_failure_count": 0,
+      "removal_failure_targets_first_20": [],
+      "removing_channel_makes_any_target_fail": false,
+      "singleton_passes_scope": true,
+      "weighted_contribution_summary": {
+        "count": 606,
+        "maximum": 0.03804449731755662,
+        "mean": 0.025543773170282346,
+        "minimum": 0.010444173018028542
+      },
+      "zero_count": 0
+    },
+    {
+      "label": [
+        3,
+        11
+      ],
+      "label_key": "3,11",
+      "negative_count": 1,
+      "negative_targets_first_20": [
+        28000004
+      ],
+      "negative_weighted_sum": -0.0001323024131169232,
+      "net_margin_share_vs_total_net_lp_margin": 0.12734550498910208,
+      "net_weighted_sum": 9.532335253666652,
+      "positive_count": 605,
+      "positive_margin_share": 0.11793864272065352,
+      "positive_targets_first_20": [
+        24000000,
+        24000002,
+        24000004,
+        24000006,
+        24000008,
+        24000010,
+        24000012,
+        24000014,
+        24000016,
+        24000018,
+        24000020,
+        24000022,
+        24000024,
+        24000026,
+        24000028,
+        24000030,
+        24000032,
+        24000034,
+        24000036,
+        24000038
+      ],
+      "positive_weighted_sum": 9.53246755607977,
+      "removal_failure_count": 0,
+      "removal_failure_targets_first_20": [],
+      "removing_channel_makes_any_target_fail": false,
+      "singleton_passes_scope": false,
+      "weighted_contribution_summary": {
+        "count": 606,
+        "maximum": 0.031428737777273986,
+        "mean": 0.015729926161166093,
+        "minimum": -0.0001323024131169232
+      },
+      "zero_count": 0
+    },
+    {
+      "label": [
+        3,
+        7
+      ],
+      "label_key": "3,7",
+      "negative_count": 0,
+      "negative_targets_first_20": [],
+      "negative_weighted_sum": 0.0,
+      "net_margin_share_vs_total_net_lp_margin": 0.11276885902503812,
+      "net_weighted_sum": 8.441213299928627,
+      "positive_count": 606,
+      "positive_margin_share": 0.10443730688326931,
+      "positive_targets_first_20": [
+        24000000,
+        24000002,
+        24000004,
+        24000006,
+        24000008,
+        24000010,
+        24000012,
+        24000014,
+        24000016,
+        24000018,
+        24000020,
+        24000022,
+        24000024,
+        24000026,
+        24000028,
+        24000030,
+        24000032,
+        24000034,
+        24000036,
+        24000038
+      ],
+      "positive_weighted_sum": 8.441213299928627,
+      "removal_failure_count": 0,
+      "removal_failure_targets_first_20": [],
+      "removing_channel_makes_any_target_fail": false,
+      "singleton_passes_scope": true,
+      "weighted_contribution_summary": {
+        "count": 606,
+        "maximum": 0.030362005722900622,
+        "mean": 0.013929394884370672,
+        "minimum": 0.002106132049589744
+      },
+      "zero_count": 0
+    }
+  ]
+}

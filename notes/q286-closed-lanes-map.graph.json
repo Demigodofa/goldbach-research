@@ -1413,9 +1413,40 @@
       "status": "finite_subset_falsifier",
       "validation": "tools/build_q286_zero_local_channel_margin_audit.py generated evidence/q286-zero-local-channel-margin-audit.json; after subtracting the zero local vectors, no single channel removal makes any target fail, and the smallest fixed LP-weighted subset keeping all 12 targets positive has size 1, with 12 passing one-channel subsets",
       "status_boundary": "finite 12-target LP-weighted subset audit only; it rejects the no-small-subset reading for these rows but proves no distributed cone theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_far_singleton_channel_stability_audit",
+      "type": "receipt",
+      "label": "q286 same-window singleton channel stability audit",
+      "status": "finite_same_stress_holdout",
+      "validation": "tools/build_q286_far_singleton_channel_stability_audit.py generated evidence/q286-far-singleton-channel-stability-audit.json; on the 12 zero-local seed targets all four watchlist channels (5,5),(3,1),(3,11),(3,7) pass, while on the other 594 non-seed targets only (5,5) and (3,1) remain positive everywhere",
+      "status_boundary": "finite same-stress seed/non-seed audit only; no stress-independent channel theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_fresh_window_channel_watchlist_audit",
+      "type": "receipt",
+      "label": "q286 fresh-window channel watchlist audit",
+      "status": "finite_selection_bias_gate",
+      "validation": "tools/build_q286_fresh_window_channel_watchlist_audit.py generated evidence/q286-fresh-window-channel-watchlist-audit.json; on 606 fresh predeclared targets from starts 24M,28M,32M,36M,40M,44M, channels (5,5),(3,1),(3,7) remain positive singleton channels and (3,11) fails once at 28000004",
+      "status_boundary": "finite fresh-window same-stress audit only; alternate stress/deficit references remain required before any stress-independent channel theorem"
     }
   ],
   "edges": [
+    {
+      "from": "receipt.q286_fresh_window_channel_watchlist_audit",
+      "to": "receipt.q286_far_singleton_channel_stability_audit",
+      "type": "holdout_checks"
+    },
+    {
+      "from": "receipt.q286_far_singleton_channel_stability_audit",
+      "to": "receipt.q286_zero_local_channel_margin_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_fresh_window_channel_watchlist_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "narrows"
+    },
     {
       "from": "receipt.q286_zero_local_channel_margin_audit",
       "to": "receipt.q286_zero_local_target_channel_decomposition",

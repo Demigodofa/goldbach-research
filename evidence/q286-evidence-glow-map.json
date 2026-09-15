@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "d0703082f713865b3894ccbc07ba071f19b9326f",
+  "generated_from_commit": "294570e4ebe62c0f4e4d0ef62d6121439c8658ee",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -274,6 +274,22 @@
       "source": "evidence/q286-zero-local-channel-margin-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite 12-target subset audit only; no distributed cone theorem."
+    },
+    {
+      "id": "far-singleton-channel-stability",
+      "label": "Same-window non-seed singleton channel stability",
+      "kind": "finite_channel_holdout",
+      "source": "evidence/q286-far-singleton-channel-stability-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite same-stress holdout only; no stress-independent theorem."
+    },
+    {
+      "id": "fresh-window-channel-watchlist",
+      "label": "Fresh predeclared window watchlist replay",
+      "kind": "finite_selection_bias_gate",
+      "source": "evidence/q286-fresh-window-channel-watchlist-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite fresh-window same-stress audit only; no stress-independent theorem."
     },
     {
       "id": "ap-count-bridge-gap-audit",
@@ -5609,6 +5625,103 @@
       "glow": 0.722222
     },
     {
+      "id": "same-stress-singleton-channel-candidates",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "far-singleton-channel-stability",
+          "weight": 3.0,
+          "reason": "seed/non-seed split leaves (5,5) and (3,1) as all-far same-stress singleton candidates",
+          "value": {
+            "target_count": 606,
+            "all_far_singleton_passing_count": 5,
+            "watchlist_passing": [
+              [
+                5,
+                5
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "watchlist_failing": [
+              [
+                3,
+                11
+              ],
+              [
+                3,
+                7
+              ]
+            ]
+          }
+        },
+        {
+          "layer": "fresh-window-channel-watchlist",
+          "weight": 3.0,
+          "reason": "fresh predeclared windows preserve (5,5), (3,1), and (3,7), while (3,11) fails once",
+          "value": {
+            "target_count": 606,
+            "predeclared_windows": [
+              [
+                24000000,
+                101
+              ],
+              [
+                28000000,
+                101
+              ],
+              [
+                32000000,
+                101
+              ],
+              [
+                36000000,
+                101
+              ],
+              [
+                40000000,
+                101
+              ],
+              [
+                44000000,
+                101
+              ]
+            ],
+            "watchlist_passes": {
+              "3,1": true,
+              "3,11": false,
+              "3,7": true,
+              "5,5": true
+            },
+            "surviving_watchlist_singletons": [
+              [
+                5,
+                5
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                7
+              ]
+            ],
+            "failing_watchlist_singletons": [
+              [
+                3,
+                11
+              ]
+            ]
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.666667
+    },
+    {
       "id": "zero-local-target-correlation-decomposition",
       "stack_weight": 5.0,
       "layers": [
@@ -6477,6 +6590,24 @@
           "layer": "conditional-proof-stack",
           "weight": 2.0,
           "reason": "named conditional branch"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.285714
+    },
+    {
+      "id": "alternate-stress-channel-reference-gate",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "far-singleton-channel-stability",
+          "weight": 2.0,
+          "reason": "same stress reference can make channels look positive if the reference row is unusually low"
+        },
+        {
+          "layer": "fresh-window-channel-watchlist",
+          "weight": 3.0,
+          "reason": "fresh-window selection-bias gate passes under same stress but alternate stress references remain required"
         }
       ],
       "layer_count": 2,

@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-14
 
+The singleton-channel route now has seed, non-seed, and fresh-window checks.
+`tools/build_q286_far_singleton_channel_stability_audit.py` generated
+`evidence/q286-far-singleton-channel-stability-audit.json`, with explanation
+in `notes/q286-far-singleton-channel-stability-audit.md`.
+`tools/build_q286_fresh_window_channel_watchlist_audit.py` generated
+`evidence/q286-fresh-window-channel-watchlist-audit.json`, with explanation
+in `notes/q286-fresh-window-channel-watchlist-audit.md`.
+
+Kevin's active watchlist was `(5,5), (3,1), (3,11), (3,7)`.  On the `12`
+zero-local seed targets, all four are positive singleton channels under the
+LP-weighted after-local metric.  On the other `594` non-seed same-window far
+targets, only `(5,5)` and `(3,1)` stay positive everywhere; `(3,11)` has `10`
+negative targets and `(3,7)` has `7`.  On `606` fresh predeclared targets from
+windows starting `24M,28M,32M,36M,40M,44M`, `(5,5)`, `(3,1)`, and `(3,7)`
+stay positive everywhere, while `(3,11)` fails once at `28000004`.
+
+Interpretation: `(5,5)` and `(3,1)` are the live same-stress singleton
+candidates.  `(3,7)` is interesting but mixed; `(3,11)` is weakened.  All
+these checks still subtract local vectors but compare against the same stress
+reference `1222142`, so an alternate-stress/deficit audit is required before
+promoting a stress-independent channel theorem.
+
+## Previous continuation evidence, 2026-09-14
+
 The zero-local target rows now have a fixed-channel margin audit:
 `tools/build_q286_zero_local_channel_margin_audit.py` generated
 `evidence/q286-zero-local-channel-margin-audit.json`, with explanation in

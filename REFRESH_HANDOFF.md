@@ -6,6 +6,32 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-14
 
+The singleton-channel question now has same-window and fresh-window scope
+separation.  `tools/build_q286_far_singleton_channel_stability_audit.py`
+generated `evidence/q286-far-singleton-channel-stability-audit.json`, and
+`tools/build_q286_fresh_window_channel_watchlist_audit.py` generated
+`evidence/q286-fresh-window-channel-watchlist-audit.json`.
+
+Scopes:
+`12` zero-local seed targets; `594` other non-seed targets in the same far
+fixture; and `606` fresh targets from predeclared windows starting at
+`24M,28M,32M,36M,40M,44M`.
+
+Watchlist: `(5,5), (3,1), (3,11), (3,7)`.  On the `12` seed targets all four
+are positive singletons.  On the `594` non-seed same-window targets only
+`(5,5)` and `(3,1)` stay positive everywhere; `(3,11)` fails on `10` targets
+and `(3,7)` fails on `7`.  On the `606` fresh-window targets, `(5,5)`,
+`(3,1)`, and `(3,7)` stay positive everywhere, while `(3,11)` fails once at
+`28000004`.
+
+Decision: `(5,5)` and `(3,1)` are the live same-stress singleton candidates.
+`(3,7)` has mixed evidence and `(3,11)` is weakened.  This still uses the same
+stress reference `1222142`; a channel can look consistently positive partly
+because the reference row is low in that channel.  The next gate is alternate
+stress/deficit references, not promotion to a stress-independent theorem.
+
+## Previous active checkpoint note, 2026-09-14
+
 The zero-local target rows now have a channel-margin and smallest-fixed-subset
 audit.  `tools/build_q286_zero_local_channel_margin_audit.py` generated
 `evidence/q286-zero-local-channel-margin-audit.json`, with the human note
