@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "26417f35593fb53be2e43d61d9f4e5d7084aa379",
+  "generated_from_commit": "5e4d6aac554cfa0b8af91b197c0f1affc17eac17",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -458,6 +458,14 @@
       "source": "evidence/q286-low-3-1-independent-descriptor-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite independent-descriptor audit only; no stress theorem."
+    },
+    {
+      "id": "mod13-4-prospective-descriptor-audit",
+      "label": "Frozen mod-13 pocket found no prospective stress support",
+      "kind": "validated_no_support",
+      "source": "evidence/q286-mod13-4-prospective-descriptor-audit.json",
+      "default_weight": 2.0,
+      "boundary": "Finite no-support prospective audit only; no stress theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -6863,6 +6871,40 @@
       "glow": 0.172414
     },
     {
+      "id": "mod-13-4-low-3-1-candidate-pocket",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "low-3-1-independent-descriptor-audit",
+          "weight": 2.5,
+          "reason": "target_mod_13==4 gives a small independent low-33 pocket but low recall and no holdout support",
+          "value": {
+            "descriptor": "target_mod_13==4",
+            "reference_count": 6,
+            "low_count": 6,
+            "above_threshold_count": 0,
+            "recall": 0.18181818181818182,
+            "holdout_supported_zero_descriptor_count": 0
+          }
+        },
+        {
+          "layer": "mod13-4-prospective-descriptor-audit",
+          "weight": 1.5,
+          "reason": "immediate prospective block had no full_nonpositive support for the frozen descriptor",
+          "value": {
+            "prospective_start": 90080,
+            "full_nonpositive_count": 0,
+            "active_selector_count": 891,
+            "rescued_first_three_tail_count": 891,
+            "descriptor_test_status": "untested_no_prospective_full_nonpositive_support",
+            "descriptor_support_count": 0
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.137931
+    },
+    {
       "id": "selected-reference-scope-fork",
       "stack_weight": 3.5,
       "layers": [
@@ -7371,27 +7413,6 @@
             "gcd_17_120": 1,
             "all_25_even_parity_count": 25,
             "unit_rank_Q_zeta_286": 59
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.086207
-    },
-    {
-      "id": "mod-13-4-low-3-1-candidate-pocket",
-      "stack_weight": 2.5,
-      "layers": [
-        {
-          "layer": "low-3-1-independent-descriptor-audit",
-          "weight": 2.5,
-          "reason": "target_mod_13==4 gives a small independent low-33 pocket but low recall and no holdout support",
-          "value": {
-            "descriptor": "target_mod_13==4",
-            "reference_count": 6,
-            "low_count": 6,
-            "above_threshold_count": 0,
-            "recall": 0.18181818181818182,
-            "holdout_supported_zero_descriptor_count": 0
           }
         }
       ],
@@ -7937,7 +7958,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 66.5,
+      "stack_weight": 68.5,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -8040,6 +8061,11 @@
           "reason": "small independent mod-13 pocket is not enough to define the broad or strict low-(3,1) stress family"
         },
         {
+          "layer": "mod13-4-prospective-descriptor-audit",
+          "weight": 2.0,
+          "reason": "immediate prospective no-support result leaves the mod-13 pocket unconfirmed"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -8050,7 +8076,7 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 22,
+      "layer_count": 23,
       "glow": 1.0
     },
     {
@@ -8149,7 +8175,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.699248
+      "glow": 0.678832
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -8192,7 +8218,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.263158
+      "glow": 0.255474
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -8240,7 +8266,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.24812
+      "glow": 0.240876
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -8273,7 +8299,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.225564
+      "glow": 0.218978
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8296,7 +8322,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.120301
+      "glow": 0.116788
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -8319,7 +8345,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.120301
+      "glow": 0.116788
     },
     {
       "id": "active-lane-strict-closure",
@@ -8337,7 +8363,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.075188
+      "glow": 0.072993
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -8355,7 +8381,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.052632
+      "glow": 0.051095
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -8368,7 +8394,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.045113
+      "glow": 0.043796
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -8381,7 +8407,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -8394,7 +8420,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -8407,7 +8433,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -8420,7 +8446,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -8433,7 +8459,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -8446,7 +8472,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -8459,7 +8485,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.030075
+      "glow": 0.029197
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -8476,7 +8502,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.022556
+      "glow": 0.021898
     },
     {
       "id": "alignment-complement-route",
@@ -8489,7 +8515,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.015038
+      "glow": 0.014599
     }
   ],
   "goldbach_proved": false,

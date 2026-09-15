@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The frozen `target_mod_13 == 4` low-`(3,1)` pocket now has a prospective
+no-support audit:
+`tools/build_q286_mod13_4_prospective_descriptor_audit.py` generated
+`evidence/q286-mod13-4-prospective-descriptor-audit.json`, with explanation in
+`notes/q286-mod13-4-prospective-descriptor-audit.md`.
+
+Mechanism: freeze the prior best independent descriptor
+`target_mod_13 == 4` before testing, derive the next prospective start
+`90080` from the q286 arithmetic period `10010`, then test the next eight
+unused q286 cycles against the same weighted centered `(3,1)` thresholds.
+
+Result: the prospective block tested `40040` targets and produced `891`
+`first_three_tail` / `active_selector` rows, but all `891` were rescued.
+`full_nonpositive` count was `0`, so the frozen `mod 13 == 4` descriptor had
+`0` eligible prospective stress rows.  Its test status is
+`untested_no_prospective_full_nonpositive_support`, not pass and not falsifier.
+
+Interpretation: `(3,1)` remains a finite selected-reference
+stress-classifier coordinate, and `13822` remains a strong selected witness
+with weighted centered `(3,1)` value `-0.028592853507378977`.  But the
+independent `mod 13 == 4` pocket did not face a real fresh stress population
+in the immediate next block.  The next branch must either predeclare a broader
+support-seeking schedule or move from classifier language to a signed
+correlation/cone estimate.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 low-`(3,1)` broad pocket now has an independent descriptor audit:
 `tools/build_q286_low_3_1_independent_descriptor_audit.py` generated
 `evidence/q286-low-3-1-independent-descriptor-audit.json`, with explanation in

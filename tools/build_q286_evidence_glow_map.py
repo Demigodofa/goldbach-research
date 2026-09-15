@@ -172,6 +172,8 @@ def main():
         EVIDENCE / "q286-centered-3-1-reference-sensitivity-audit.json")
     low_3_1_independent_descriptor = load_json(
         EVIDENCE / "q286-low-3-1-independent-descriptor-audit.json")
+    mod13_4_prospective_descriptor = load_json(
+        EVIDENCE / "q286-mod13-4-prospective-descriptor-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2903,6 +2905,48 @@ def main():
         "low-3-1-independent-descriptor-audit",
         2.0,
         "an arithmetic/correlation bridge still has to explain the remaining low-(3,1) references")
+
+    layer(
+        "mod13-4-prospective-descriptor-audit",
+        "Frozen mod-13 pocket found no prospective stress support",
+        "validated_no_support",
+        "evidence/q286-mod13-4-prospective-descriptor-audit.json",
+        2.0,
+        "Finite no-support prospective audit only; no stress theorem.")
+    prospective_metrics = mod13_4_prospective_descriptor["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "mod-13-4-low-3-1-candidate-pocket",
+        "mod13-4-prospective-descriptor-audit",
+        1.5,
+        "immediate prospective block had no full_nonpositive support for the frozen descriptor",
+        {
+            "prospective_start": (
+                mod13_4_prospective_descriptor[
+                    "prospective_window"]["start"]),
+            "full_nonpositive_count": (
+                mod13_4_prospective_descriptor[
+                    "prospective_window"]["predicate_counts"][
+                        "full_nonpositive"]),
+            "active_selector_count": (
+                mod13_4_prospective_descriptor[
+                    "prospective_window"]["predicate_counts"][
+                        "active_selector"]),
+            "rescued_first_three_tail_count": (
+                mod13_4_prospective_descriptor[
+                    "prospective_window"]["predicate_counts"][
+                        "rescued_first_three_tail"]),
+            "descriptor_test_status": (
+                prospective_metrics["descriptor_test_status"]),
+            "descriptor_support_count": (
+                prospective_metrics["descriptor_support_count"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "mod13-4-prospective-descriptor-audit",
+        2.0,
+        "immediate prospective no-support result leaves the mod-13 pocket unconfirmed")
 
     layer(
         "centered-3-1-stress-class-audit",

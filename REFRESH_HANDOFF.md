@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The frozen q286 `target_mod_13 == 4` low-`(3,1)` pocket now has an immediate
+prospective no-support audit.
+
+`tools/build_q286_mod13_4_prospective_descriptor_audit.py` generated
+`evidence/q286-mod13-4-prospective-descriptor-audit.json`, with the human note
+`notes/q286-mod13-4-prospective-descriptor-audit.md`.
+
+Question: does the independent `target_mod_13 == 4` descriptor select low
+weighted centered `(3,1)` rows in the next unused q286 cycle block?
+
+Result: no eligible stress rows appeared in that block.
+
+```text
+prospective start:                       90080
+prospective targets:                     40040
+first_three_tail / active_selector:        891
+rescued_first_three_tail:                  891
+full_nonpositive:                            0
+
+descriptor support:                         0
+descriptor test status:                     untested_no_prospective_full_nonpositive_support
+```
+
+Decision: this does not confirm or falsify the `mod 13 == 4` pocket; the
+immediate prospective block was fully rescued.  Preserve `(3,1)` as a finite
+selected-reference stress-classifier coordinate, with `13822` still a strong
+selected witness, but do not promote the pocket to a stress theorem.  The next
+branch needs a predeclared broader support schedule or a signed
+correlation/cone formulation.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 low-`(3,1)` scalar-selected pocket now has an independent descriptor
 audit.
 
