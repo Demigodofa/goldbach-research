@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 component-pair route now has a phase/sparsity audit derived from the
+source-summary coupled-slack receipt.
+
+```text
+tools/build_q286_active_lane_phase_sparsity_audit.py
+notes/q286-active-lane-phase-sparsity-audit.md
+evidence/q286-active-lane-phase-sparsity-audit.json
+```
+
+Result:
+
+```text
+rows:                         226
+positive rows:                 83
+nonpositive rows:             143
+target-order sign changes:     77
+pass-only suffix after:    647392
+first suffix target:       650476
+pass-only suffix rows:         11
+blocks 8+ all positive:       yes
+blocks 8+ row count:           10
+block 7 mixed:                yes
+mixed mod-286 classes:         34
+corr(log N, strict margin):     0.7494686331045737
+```
+
+Decision:
+`HOLD_phase_transition_supported_only_as_sparse_finite_candidate`.
+The source-summary fixture contains an all-positive suffix after target
+`647392`, but the suffix has only `11` rows and blocks `8+` contain only `10`
+rows.  Before that suffix the signs change `77` times, block `7` is mixed,
+and residue classes do not separate the signs.  Treat phase transition as a
+sparse finite candidate only.  The next action should either prove
+active-selector rarity, run a predeclared fresh active-row search beyond
+`647392`, or bypass the phase story with a direct unnormalized pointwise
+signed estimate.  This proves no phase transition theorem, active-lane
+theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 component-pair route now has a broadened source-summary coupled-slack
 audit.  It replays the frozen selected-late constants on every unique active
 row already present in the principal-rescue source summaries.

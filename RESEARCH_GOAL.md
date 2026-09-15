@@ -6,6 +6,46 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 component-pair route now has a phase/sparsity audit derived from the
+source-summary coupled-slack receipt:
+`tools/build_q286_active_lane_phase_sparsity_audit.py` generated
+`evidence/q286-active-lane-phase-sparsity-audit.json`, with explanation in
+`notes/q286-active-lane-phase-sparsity-audit.md`.
+
+Question: do the `143` source-summary coupled-slack failures support a
+phase/scale theorem target, or does the apparent later success mostly reflect
+sparse later source-summary rows?
+
+Answer: there is a finite pass-only suffix, but it is too sparse and too
+mixed before the suffix to promote to a phase theorem.
+
+```text
+rows:                         226
+positive rows:                 83
+nonpositive rows:             143
+target-order sign changes:     77
+pass-only suffix after:    647392
+first suffix target:       650476
+pass-only suffix rows:         11
+blocks 8+ all positive:       yes
+blocks 8+ row count:           10
+block 7 mixed:                yes
+mixed mod-286 classes:         34
+corr(log N, strict margin):     0.7494686331045737
+```
+
+Decision: `HOLD_phase_transition_supported_only_as_sparse_finite_candidate`.
+The finite fixture has all source-summary rows above `647392` positive, but
+there are only `11` such rows, target-ordered signs change `77` times before
+the suffix, block `7` is mixed, and many residue classes are mixed-sign.  The
+next action should either prove active-selector rarity, run a predeclared
+fresh active-row search beyond `647392`, or bypass the phase story with a
+direct unnormalized pointwise signed estimate.  No phase transition theorem,
+active-lane theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 component-pair route now has a broadened source-summary
 coupled-slack audit:
 `tools/build_q286_active_lane_source_summary_coupled_slack_audit.py`
