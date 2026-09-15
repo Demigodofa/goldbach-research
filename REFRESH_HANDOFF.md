@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 signed pair-correlation target now has an orthogonal-rescue
+decomposition.
+
+`tools/build_q286_orthogonal_rescue_decomposition.py` generated
+`evidence/q286-orthogonal-rescue-decomposition.json`, with the human note
+`notes/q286-orthogonal-rescue-decomposition.md`.
+
+Question: is q286 failure caused by first-three pressure itself, or by a
+perpendicular residual erasing the otherwise positive full-action baseline?
+
+Result: the perpendicular residual is the culprit on the selected failures.
+
+```text
+alpha_a range:             0.9958093998571658 .. 1.0202017493335502
+uniform full baseline:     0.7110192034986899 .. 1.2391609565397612
+orthogonality error max:   4.309053114326389e-15
+aligned-only positive:     7 / 7 selected targets
+actual full positive:      5 / 7 selected targets
+residual overturn targets: 14138, 14996
+```
+
+Compact decomposition:
+
+```text
+full = uniform_full_a + alpha_a*first_three + <nu_N,h_a>
+```
+
+Decision: stop asking generic uniformity to close this.  The next theorem is a
+one-residual signed moment lower bound:
+
+```text
+<nu_N,h_a> > -uniform_full_a - alpha_a*first_three(N)
+```
+
+after an explicit finite boundary split, or via a predeclared residual cone
+that survives LP falsification.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 pivot now has the exact coefficient-sensitive signed pair-correlation
 definition.
 

@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 signed pair-correlation object now has an orthogonal-rescue
+decomposition:
+`tools/build_q286_orthogonal_rescue_decomposition.py` generated
+`evidence/q286-orthogonal-rescue-decomposition.json`, with explanation in
+`notes/q286-orthogonal-rescue-decomposition.md`.
+
+Mechanism: in the uniform-weighted reflection-orbit inner product, decompose
+the centered full-action coefficient as
+`gamma_full_centered = alpha_a*gamma_F3_a + h_a` with
+`<h_a,gamma_F3_a>_u=0`.  Then every actual row satisfies
+`full = uniform_full_a + alpha_a*first_three + <nu_N,h_a>`.
+
+Result: across the seven frozen selected targets, `alpha_a` is
+`0.9958093998571658..1.0202017493335502`, the uniform full baseline is
+`0.7110192034986899..1.2391609565397612`, and orthogonality error is at most
+`4.309053114326389e-15`.  The aligned-only full action is positive for all
+seven selected targets.  The only two actual bad-branch rows, `14138` and
+`14996`, are exactly the rows where the orthogonal residual erases that
+positive aligned margin.
+
+Decision: the proof target is now smaller and sharper.  The q286 hole is not
+caused by the first-three aligned component alone; even the failing boundary
+rows have positive aligned-only margin.  The missing theorem is a lower bound
+on one perpendicular signed moment `<nu_N,h_a>`, after a finite boundary split
+or with an explicit residual cone.  Generic L1 and generic variance cones stay
+demoted unless they control this residual functional.  No orthogonal residual
+bound, signed pair-correlation theorem, threshold theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 pivot now has a coefficient-sensitive signed pair-correlation
 definition:
 `tools/build_q286_signed_pair_correlation_definition.py` generated
