@@ -370,3 +370,25 @@ inside the full or edge-beta sufficient L1 budget.
 
 So a future `Q286*` definition should not demand ordinary total-L1 closeness
 to local uniform.  It must be signed/coefficient-sensitive or unnormalized.
+
+## Coefficient-aligned replacement
+
+`tools/build_q286_wbss_signed_discrepancy_problem.py` generated
+`evidence/q286-wbss-signed-discrepancy-problem.json`.
+
+The replacement problem is exact:
+
+```text
+lambda_phi(N) = -<mu_N-u_a, phi_a-m_a> / m_a < 1.
+```
+
+This is equivalent to positive signed expectation because the checked local
+means are positive.  It is still useful because it names the one signed
+projection that must be controlled; all orthogonal distributional mess can be
+ignored for this bridge.  The finite post-discovery rows all pass the scalar
+threshold, while none pass the old L1 budget.
+
+Next work should seek a real theorem for `lambda_phi(N)<=1-eta(N)`, or move
+directly to the unnormalized signed witness `B_Phi(N)>0`.  A scan that only
+adds more passing lambda rows without proposing a source-backed bound should
+be treated as low-value.

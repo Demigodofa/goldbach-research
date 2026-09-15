@@ -220,3 +220,24 @@ and `0.026797640365636533..0.18715353351948102` for edge beta.
 
 Thus the new problem is narrower: prove signed non-alignment with `Phi_a`, not
 ordinary distributional closeness to uniform.
+
+## Signed-discrepancy problem extraction
+
+`tools/build_q286_wbss_signed_discrepancy_problem.py` generated
+`evidence/q286-wbss-signed-discrepancy-problem.json`.
+
+For `m_a=<u_a,Phi_a> > 0`, the exact scalar obstruction is:
+
+```text
+lambda_phi(N) = -<mu_N-u_a, Phi_a-m_a> / m_a.
+```
+
+The positivity bridge is equivalent to `lambda_phi(N)<1`.  On the `196`
+post-discovery rows, the threshold passes for both full and edge beta; the L1
+budget passes no rows.  The tight row remains `94856`, with full lambda about
+`.982312` and edge-beta lambda about `.951160`.
+
+This is the current theorem-shaped problem, not a solved theorem.  It becomes
+proof progress only when a source-backed binary-prime correlation estimate
+implies a uniform `lambda_phi(N)<=1-eta(N)` or proves the raw signed witness
+directly.

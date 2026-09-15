@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a signed-discrepancy problem extraction:
+`tools/build_q286_wbss_signed_discrepancy_problem.py` generated
+`evidence/q286-wbss-signed-discrepancy-problem.json`, with explanation in
+`notes/q286-wbss-signed-discrepancy-problem.md`.
+
+Question: after ordinary L1-uniformity failed, what is the exact scalar
+inequality that the q286 evidence needs a theorem to prove?
+
+Result: for each coefficient family with positive local mean `m_a`, define
+
+```text
+lambda_phi(N) = -<mu_N-u_a, phi_a-m_a> / m_a.
+```
+
+Then `<mu_N,phi_a> > 0` is equivalent to `lambda_phi(N)<1`.  On the `196`
+post-discovery rows, this signed threshold passes for both full and edge beta
+while the L1 budget passes `0/196` rows.  The tightest row is again `94856`:
+full `lambda=0.9823120581948911` and edge beta
+`lambda=0.9511600258401234`.  The L1 worst-case loads reach
+`58.85757007200199` and `55.73635115717084`, respectively, so L1 is dozens
+of times too pessimistic relative to the actual anti-alignment.
+
+Decision: the answer has become the problem.  The next theorem target is a
+coefficient-aligned signed discrepancy estimate
+`lambda_phi(N)<=1-eta(N)` or a direct raw `B_Phi(N)>0` estimate.  This is an
+exact formulation, not a proof; the missing implication is still a
+source-backed binary-prime correlation bound.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an L1-budget obstruction audit:
 `tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
 `evidence/q286-wbss-l1-budget-obstruction-audit.json`, with explanation in

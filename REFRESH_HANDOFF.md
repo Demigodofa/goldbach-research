@@ -23529,6 +23529,37 @@ Only after a cone survives this theorem-form test should another fresh q286
 scan be treated as progress.  No cone theorem, signed prime-correlation
 theorem, threshold theorem, or Goldbach proof is established.
 
+Signed-discrepancy problem extraction:
+
+- `tools/build_q286_wbss_signed_discrepancy_problem.py`
+- `notes/q286-wbss-signed-discrepancy-problem.md`
+- `evidence/q286-wbss-signed-discrepancy-problem.json`
+
+This turns the L1 obstruction into the exact theorem problem.  For coefficient
+family `phi_a` with positive local mean `m_a`, define
+
+```text
+lambda_phi(N) = -<mu_N-u_a, phi_a-m_a> / m_a.
+```
+
+Then `<mu_N,phi_a> > 0` is equivalent to `lambda_phi(N)<1`.  On the `196`
+post-discovery q286-WBSS rows, the signed threshold passes for both full and
+edge beta while the L1 budget passes `0/196` rows.  The tightest row is
+`94856`: full `lambda=0.9823120581948911`, edge beta
+`lambda=0.9511600258401234`.  The L1 worst-case loads reach `58.85757007200199`
+and `55.73635115717084`.
+
+Decision: the created mathematical problem is now explicit:
+
+```text
+prove lambda_phi(N) <= 1 - eta(N)
+```
+
+for a source-backed positive margin on every sufficiently large covered even
+target, with finite verification below threshold; equivalently prove the raw
+signed sum `B_Phi(N)>0` directly.  This receipt is a problem definition and
+finite evidence only, not a signed-discrepancy theorem or a Goldbach proof.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

@@ -2229,6 +2229,23 @@
       "validation": "tools/build_q286_wbss_l1_budget_obstruction_audit.py generated evidence/q286-wbss-l1-budget-obstruction-audit.json; on 196 post-discovery rows, actual L1 distance from local uniform is 0.5533526980785324..1.574410774410774, and 0/196 rows fall inside the full or edge-beta sufficient L1 budget.",
       "status_boundary": "finite q286-WBSS L1-budget obstruction audit only; no binary distribution theorem, signed correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_wbss_signed_discrepancy",
+      "type": "open_obligation",
+      "label": "q286-WBSS coefficient-aligned signed discrepancy problem",
+      "status": "open_precisely_stated",
+      "statement": "For each admissible target residue a with local uniform orbit measure u_a, strict-central binary-prime orbit measure mu_N, q286-WBSS coefficient phi_a, and positive local mean m_a=<u_a,phi_a>, prove an explicit threshold N0 and margin eta(N)>0 such that lambda_phi(N)=-<mu_N-u_a,phi_a-m_a>/m_a <= 1-eta(N) for every covered even N>=N0; equivalently prove <mu_N,phi_a> > 0 or the raw B_Phi(N)>0 directly.",
+      "source_boundary": "The finite receipt shows this scalar threshold passes checked post-discovery rows while L1 budgets fail, but the missing source-backed binary-prime correlation estimate remains unproved.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_wbss_signed_discrepancy_problem",
+      "type": "receipt",
+      "label": "q286-WBSS signed discrepancy problem extraction",
+      "status": "problem_obligation_formalized",
+      "validation": "tools/build_q286_wbss_signed_discrepancy_problem.py generated evidence/q286-wbss-signed-discrepancy-problem.json; on 196 post-discovery rows both full and edge-beta families pass lambda_phi<1 while the L1 budget passes 0/196 rows; tight row 94856 has full lambda about .982312 and edge-beta lambda about .951160",
+      "status_boundary": "finite problem-definition receipt only; no signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -5011,6 +5028,31 @@
       "from": "lane.q286_blunt_l1_uniformity_bridge",
       "to": "problem.q286_weighted_binary_prime_sign_sum",
       "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_wbss_signed_discrepancy_problem",
+      "to": "receipt.q286_wbss_l1_budget_obstruction_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_signed_discrepancy_problem",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_wbss_signed_discrepancy",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_wbss_signed_discrepancy",
+      "to": "obligation.q286_binary_orbit_l1_distribution",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "problem.q286_weighted_binary_prime_sign_sum",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "requires"
     }
   ]
 }
