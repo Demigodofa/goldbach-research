@@ -2194,6 +2194,23 @@
       "status": "continue_only_through_raw_signed_theorem",
       "validation": "notes/q286-source-backed-theorem-pivot.md defines q286-WBSS, states the complement rescue inequality M+*A+ > M-*A-, records BMOR as one-dimensional AP input only, and gives abandon/sleep gates for further row-only audits.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_wbss_main_term_sign_audit",
+      "type": "receipt",
+      "label": "q286-WBSS main-term sign audit",
+      "status": "validated_orientation_check",
+      "validation": "tools/build_q286_wbss_main_term_sign_audit.py generated evidence/q286-wbss-main-term-sign-audit.json; the frozen full coefficient has positive local-uniform mean on all 230 valid rows and all 196 post-discovery rows, while edge beta has positive local-uniform mean on all 196 post-discovery rows.",
+      "status_boundary": "finite q286-WBSS main-term sign audit only; no binary distribution theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+      "goldbach_proved": false
+    },
+    {
+      "id": "obligation.q286_binary_orbit_l1_distribution",
+      "type": "open_obligation",
+      "label": "Pointwise q286 binary-prime orbit L1 distribution theorem",
+      "status": "open_precisely_stated",
+      "statement": "For every sufficiently large covered even N, prove ||mu_N-u_a||_1 is below the coefficient-specific budget mean_u(Phi_a)/||Phi_a-mean_u(Phi_a)||_infty; checked post-discovery full-coefficient budgets range from 0.020711496156757627 to 0.06441548422792709.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4941,6 +4958,21 @@
       "from": "problem.q286_coefficient_weighted_anti_landing",
       "to": "problem.q286_weighted_binary_prime_sign_sum",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_main_term_sign_audit",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_wbss_main_term_sign_audit",
+      "to": "obligation.q286_binary_orbit_l1_distribution",
+      "type": "defines"
+    },
+    {
+      "from": "obligation.q286_binary_orbit_l1_distribution",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "requires"
     }
   ]
 }

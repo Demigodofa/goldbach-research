@@ -827,3 +827,25 @@ but the known gap is binary and signed: AP marginals do not force the
 convolution or the q286 functional.  This note therefore promotes `q286-WBSS`
 as the current standalone mathematical problem and demotes further row-only
 audits as recycling unless a new theorem implication is predeclared.
+
+## Main-Term Sign Audit
+
+`tools/build_q286_wbss_main_term_sign_audit.py` generated
+`evidence/q286-wbss-main-term-sign-audit.json`.
+
+The audit checks whether the q286-WBSS problem has favorable local-uniform
+orientation.  It does: the frozen full signed coefficient has positive
+uniform mean on all `230` valid rows, and the edge `beta=gap-required`
+coefficient has positive uniform mean on all `196` post-discovery rows.
+
+The finite sufficient L1 budgets are:
+
+```text
+full coefficient, post rows: 0.020711496156757627..0.06441548422792709
+edge beta, post rows:        0.026797640365636533..0.18715353351948102
+```
+
+Thus the implication gap is now sharper: prove a pointwise binary-prime
+orbit-distribution theorem at this scale, or prove the raw signed sum
+directly.  The missing theorem is not AP counting in one coordinate and not
+another q286 row pattern.

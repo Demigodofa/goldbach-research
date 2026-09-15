@@ -183,3 +183,25 @@ B_Phi(N) > 0.
 Then verify every even `N<N0` computationally.  This would imply Goldbach for
 the covered target class.  It is not yet known to be easier than Goldbach; its
 value is that it names exactly what the q286 evidence would have to prove.
+
+## Main-term sign refinement
+
+`tools/build_q286_wbss_main_term_sign_audit.py` generated
+`evidence/q286-wbss-main-term-sign-audit.json`.
+
+The extracted problem is not blocked by a bad local-uniform mean.  On the
+`196` post-discovery rows, the frozen full coefficient and the edge
+`beta=gap-required` coefficient both have positive local-uniform mean on
+`196/196` rows.
+
+The sufficient L1 budgets are:
+
+```text
+full coefficient: 0.020711496156757627..0.06441548422792709
+edge beta:        0.026797640365636533..0.18715353351948102
+```
+
+So a main-term-plus-error proof route is logically coherent: prove actual
+binary-prime orbit mass stays within the relevant L1 budget, or prove
+`B_Phi(N)>0` directly.  The hard missing input remains pointwise binary-prime
+distribution, not q286 coefficient orientation.

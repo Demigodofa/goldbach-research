@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a main-term sign audit:
+`tools/build_q286_wbss_main_term_sign_audit.py` generated
+`evidence/q286-wbss-main-term-sign-audit.json`, with explanation in
+`notes/q286-wbss-main-term-sign-audit.md`.
+
+Question: does the extracted signed q286 witness have a favorable
+local-uniform main term, or is it relying entirely on nonlocal bias?
+
+Result: the frozen full q286 coefficient has positive local-uniform mean on
+all `230` valid rows and all `196` post-discovery rows.  On the
+post-discovery rows, the sufficient L1 budget for positivity ranges from
+`0.020711496156757627` to `0.06441548422792709`.  The edge coefficient
+`beta=gap-required` has positive local-uniform mean on all `196`
+post-discovery rows, with sufficient L1 budget
+`0.026797640365636533..0.18715353351948102`.
+
+Decision: q286-WBSS is not blocked by a bad main term.  The live problem is
+now explicit: prove a pointwise binary-prime orbit-distribution theorem strong
+enough to keep `mu_N` inside the recorded L1 budgets, or prove the raw signed
+sum `B_Phi(N)>0` directly.  AP marginals alone remain insufficient.
+Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 route now has a source-backed theorem pivot:
 `notes/q286-source-backed-theorem-pivot.md`.
 

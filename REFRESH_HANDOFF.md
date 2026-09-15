@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a main-term sign audit.
+
+`tools/build_q286_wbss_main_term_sign_audit.py` generated
+`evidence/q286-wbss-main-term-sign-audit.json`, with explanation in
+`notes/q286-wbss-main-term-sign-audit.md`.
+
+Question: does the q286 signed witness have a favorable local-uniform main
+term?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+full coefficient positive uniform mean:      196 / 196
+full uniform mean range:                     0.6176511908339223..1.30728332102425
+full sufficient L1 budget:                   0.020711496156757627..0.06441548422792709
+edge beta positive uniform mean:             196 / 196
+edge beta uniform mean range:                0.17657405569313075..1.0628616001581876
+edge beta sufficient L1 budget:              0.026797640365636533..0.18715353351948102
+```
+
+Decision: the q286-WBSS witness is not killed by its main term.  A future
+proof can aim for a main-term-plus-error theorem, but the required error is a
+pointwise binary-prime orbit-distribution or signed-correlation estimate, not
+one-dimensional AP marginals.  More row-only audits remain asleep as proof
+progress.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 route now has a source-backed theorem pivot:
 `notes/q286-source-backed-theorem-pivot.md`.
 

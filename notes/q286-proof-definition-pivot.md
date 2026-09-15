@@ -336,3 +336,24 @@ B_Phi(N) > 0
 for all sufficiently large covered even `N`, plus finite verification below
 the threshold.  Otherwise the q286 lane should be treated as finite structure
 and put to sleep as a Goldbach proof engine.
+
+## q286-WBSS main-term sign
+
+`tools/build_q286_wbss_main_term_sign_audit.py` generated
+`evidence/q286-wbss-main-term-sign-audit.json`.
+
+This confirms that the current proof target is not doomed by sign of the
+local-uniform main term.  On the checked `196` post-discovery rows, both the
+frozen full q286 coefficient and the target-dependent edge beta coefficient
+have positive local-uniform means.  The tightest sufficient L1 budgets are
+about `0.020711496156757627` for the full coefficient and
+`0.026797640365636533` for edge beta.
+
+Therefore a valid `Q286*` definition could be a source-backed pointwise
+binary-prime orbit-distribution class:
+
+```text
+||mu_N-u_a||_1 < mean_u(Phi_a)/||Phi_a-mean_u(Phi_a)||_infty.
+```
+
+No such theorem is currently proved here.
