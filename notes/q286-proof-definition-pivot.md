@@ -145,6 +145,7 @@ The latest receipts supporting this definition layer are:
 evidence/q286-principal-rescue-obstruction-audit.json
 evidence/q286-nonprincipal-drag-envelope-audit.json
 evidence/q286-convex-envelope-obstruction-audit.json
+evidence/q286-max-density-anti-extremality-audit.json
 ```
 
 They prove only checked finite statements.  They do not prove Goldbach.
@@ -166,3 +167,23 @@ Therefore `Q286*` cannot be defined by support, reflection, and q286
 coefficient geometry alone.  A viable definition must add arithmetic
 anti-extremality: actual strict-central prime-pair measures avoid the lower
 convex face of the coefficient hull.
+
+## Max-density demotion
+
+`tools/build_q286_max_density_anti_extremality_audit.py` generated
+`evidence/q286-max-density-anti-extremality-audit.json`.
+
+This tests the first simple anti-extremality cone:
+
+```text
+mu(orbit) <= lambda*u_a(orbit).
+```
+
+Result: every actual row fails the sufficient max-density certificate.  The
+minimum bad max-density multiple is only `1.0357032987728947..1.2007521303394815`,
+while actual rows have maximum orbit-density multiple
+`3.3411693332118935..25.29622421615252`.
+
+Thus the lower-face avoidance is not explained by small atoms.  The next
+definition must control signed landing relative to the coefficient face, not
+only absolute concentration relative to uniform.

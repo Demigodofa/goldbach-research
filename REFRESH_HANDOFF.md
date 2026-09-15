@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 anti-extremality lane now has a maximum-density cone falsifier.
+
+`tools/build_q286_max_density_anti_extremality_audit.py` generated
+`evidence/q286-max-density-anti-extremality-audit.json`, with explanation in
+`notes/q286-max-density-anti-extremality-audit.md`.
+
+Question: can we prove anti-extremality by bounding every reflection orbit's
+mass by a fixed multiple of uniform mass?
+
+Result:
+
+```text
+target rows checked:                  230
+target residues checked:              204
+minimum bad max-density multiple:     1.0357032987728947..1.2007521303394815
+actual max orbit-density multiple:    3.3411693332118935..25.29622421615252
+actual certificate pass count:        0
+post-discovery certificate pass count: 0 / 196
+```
+
+Decision: the bad branch does not require high atom concentration.  A
+max-density/AP-cell upper-bound theorem alone is too crude.  The next cone
+must be coefficient-sensitive or lower-face-relative: signed moments, top-k
+signed landing, entropy/transport against the lower-envelope optimizer, or an
+exact signed binary prime-pair functional estimate.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 landing-cone route now has a convex-envelope obstruction audit.
 
 `tools/build_q286_convex_envelope_obstruction_audit.py` generated

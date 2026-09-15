@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 anti-extremality lane now has a maximum-density cone falsifier:
+`tools/build_q286_max_density_anti_extremality_audit.py` generated
+`evidence/q286-max-density-anti-extremality-audit.json`, with explanation in
+`notes/q286-max-density-anti-extremality-audit.md`.
+
+Question: can the lower-envelope bad branch be excluded by proving that no
+reflection orbit carries too much actual prime-pair mass?
+
+Result: no, not as a standalone cone.  The LP can reach the bad branch with
+only a mild max-density tilt:
+
+```text
+minimum bad max-density multiple: 1.0357032987728947..1.2007521303394815
+actual max orbit-density multiple: 3.3411693332118935..25.29622421615252
+actual certificate pass count: 0 / 230
+post-discovery pass count:     0 / 196
+```
+
+Decision: max orbit mass is the wrong standalone theorem hook.  Actual rows
+are more concentrated than the cheapest bad measures, but their concentration
+lands in a favorable signed pattern.  The anti-extremality theorem must be
+coefficient-sensitive or lower-face-relative: signed moments, top-k signed
+landing, entropy/transport against the lower-envelope optimizer, or a sourced
+binary prime-pair AP estimate for the exact signed functional.  No
+maximum-density theorem, signed prime-correlation theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 landing-cone route now has a convex-envelope obstruction audit:
 `tools/build_q286_convex_envelope_obstruction_audit.py` generated
 `evidence/q286-convex-envelope-obstruction-audit.json`, with explanation in

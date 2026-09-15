@@ -611,3 +611,25 @@ Full(mu_N) >= L_a(F3(mu_N)) + eta_a(N),
 with enough positive margin to force `Full(mu_N)>0` after the finite boundary
 split.  This remains a pointwise signed binary-prime correlation/transport
 problem, not a consequence of q286 coefficient geometry alone.
+
+## Maximum-Density Anti-Extremality Audit
+
+`tools/build_q286_max_density_anti_extremality_audit.py` generated
+`evidence/q286-max-density-anti-extremality-audit.json`.
+
+This tests whether the anti-extremality theorem can be reduced to a simple
+maximum orbit-mass bound:
+
+```text
+mu(orbit) <= lambda*u_a(orbit).
+```
+
+Result: no.  LP bad measures exist with maximum density only about
+`1.0357032987728947..1.2007521303394815` times uniform, while actual checked
+rows have maximum orbit-density `3.3411693332118935..25.29622421615252` times
+uniform.  No actual row passes the sufficient max-density certificate.
+
+Decision: an AP-cell upper-bound theorem alone is too blunt.  The q286 bridge
+needs a signed, coefficient-relative anti-extremality theorem: actual mass may
+be concentrated, but it must not concentrate in the bad signed arrangement
+defined by the lower convex face.
