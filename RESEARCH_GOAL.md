@@ -6,6 +6,40 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 bridge now has a precise signed support-tail control definition:
+`tools/build_q286_signed_support_tail_control_definition.py` generated
+`evidence/q286-signed-support-tail-control-definition.json`, with explanation
+in `notes/q286-signed-support-tail-control-definition.md`.
+
+Question: after the pure three-support simplification failed, what exact
+support-action inequalities remain Goldbach-relevant?
+
+Result: the support-action theorem target is now the principal-scaled pair of
+inequalities
+
+```text
+A_N = P_N + D_N + R_N
+D_N = E_286(N)+E_154(N)+E_70(N)
+R_N = E_14(N)+E_26(N)+E_130(N)+E_10(N)+E_22(N)
+
+1+d_N >= eta_a(N) > 0
+r_N > -eta_a(N).
+```
+
+The `16` known-extremal tail flips are all negative-tail kills of positive
+principal-plus-top-three partial sums; there are `0` positive-tail rescue
+flips in that receipt.  This corrects the language from "tail rescue" to
+"signed tail control."
+
+Decision: preserve the frequency-stress skeleton as a compression, but do not
+promote a pure three-support theorem.  The next useful falsifier is a
+predeclared later-window support-tail kill scan: recurrent negative-tail kills
+would refute a clean later tail-stable threshold and keep the tail in the main
+analytic correlation theorem.  No signed tail-control theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 three-dominant-support target now has a known-extremals audit:
 `tools/build_q286_three_support_known_extremals_audit.py` generated
 `evidence/q286-three-support-known-extremals-audit.json`, with explanation in
@@ -32,9 +66,10 @@ The tail/principal ratio ranges from `-0.12674411748961492` to
 
 Decision: the stronger simplification that the small-energy tail can be
 demoted for all known extremals is falsified.  Preserve the useful spectral
-compression, but state the proof target as a signed support-rescue inequality
-including `E_tail`.  A plausible split is early/boundary rows needing full
-tail rescue and later rows possibly admitting a tail-stable threshold.  No
+compression, but state the proof target as a signed support-tail control
+inequality including `E_tail`.  A plausible split is early/boundary rows
+needing full tail control and later rows possibly admitting a tail-stable
+threshold.  No
 pointwise signed-prime correlation theorem, q286 threshold theorem, or
 Goldbach proof is established.
 

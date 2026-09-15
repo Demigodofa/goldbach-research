@@ -1960,11 +1960,20 @@
       "status_boundary": "finite known-extremal support-action audit only; no pointwise signed-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof"
     },
     {
-      "id": "problem.q286_signed_support_tail_rescue",
+      "id": "problem.q286_signed_support_tail_control",
       "type": "theorem_target",
-      "label": "q286 signed support tail rescue",
+      "label": "q286 signed support tail control",
       "status": "open",
-      "statement": "Prove LocalMain_a(N)+E_286(N)+E_154(N)+E_70(N)+E_tail(N)>0 for all sufficiently large even N in each residue modulo 10010, possibly with a boundary/tail-rescue split and a later tail-stable threshold.",
+      "statement": "Prove A_N/P_N=1+d_N+r_N>0 for all sufficiently large even N in each residue modulo 10010 by showing 1+d_N>=eta_a(N)>0 and r_N>-eta_a(N), with finite boundary verification and possible later tail-stable threshold.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_signed_support_tail_control_definition",
+      "type": "receipt",
+      "label": "q286 signed support-tail control definition",
+      "status": "theorem_definition",
+      "validation": "tools/build_q286_signed_support_tail_control_definition.py generated evidence/q286-signed-support-tail-control-definition.json; it defines A_N=P_N+D_N+R_N with D_N=E_286+E_154+E_70 and R_N on supports 14,26,130,10,22, and records that all 16 known-extremal tail flips are negative-tail kills, not positive-tail rescues.",
+      "status_boundary": "theorem-definition and evidence-synthesis receipt only; no signed tail-control theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
       "goldbach_proved": false
     }
   ],
@@ -4486,11 +4495,21 @@
     },
     {
       "from": "receipt.q286_three_support_known_extremals_audit",
-      "to": "problem.q286_signed_support_tail_rescue",
+      "to": "problem.q286_signed_support_tail_control",
       "type": "defines"
     },
     {
-      "from": "problem.q286_signed_support_tail_rescue",
+      "from": "problem.q286_signed_support_tail_control",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_signed_support_tail_control_definition",
+      "to": "problem.q286_signed_support_tail_control",
+      "type": "defines"
+    },
+    {
+      "from": "receipt.q286_signed_support_tail_control_definition",
       "to": "theorem.q286_positive_signed_witness",
       "type": "refines"
     }

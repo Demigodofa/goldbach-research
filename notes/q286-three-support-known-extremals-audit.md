@@ -58,9 +58,13 @@ demoted to a harmless secondary term for all known q286 extremals.  The three
 dominant supports remain a real spectral compression of the fixed coefficient,
 and they still preserve the selected hard fixture and the fresh holdout
 minima.  But on the early raw-action failures the tail is decisive often
-enough that it must remain inside the proof-facing rescue inequality.
+enough that it must remain inside the proof-facing tail-control inequality.
 
-The theorem target should therefore be stated as a signed support-rescue
+The direction of the flip matters: all `16` sign changes are negative-tail
+kills of rows where `Principal+E_286+E_154+E_70` was positive.  This receipt
+does not show positive-tail rescue of top-three-negative rows.
+
+The theorem target should therefore be stated as a signed support-tail control
 problem, not as a pure three-support theorem:
 
 ```text
@@ -70,7 +74,7 @@ LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0.
 A possible next candidate is to split the problem by range:
 
 ```text
-early/boundary rows:  dominant supports plus signed tail rescue;
+early/boundary rows:  dominant supports plus signed tail control;
 later rows:           prove a tail-stable threshold, then control top supports.
 ```
 

@@ -476,12 +476,40 @@ changes `16` sign decisions.  All `16` occur inside the census raw-action
 failure source; fresh holdout cycle minima have `0` tail sign changes.
 
 Decision: a pure three-support theorem is too narrow for the current bridge.
-The useful object is the full signed support-rescue inequality
+The useful object is the full signed support-tail control inequality
 
 ```text
 LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0,
 ```
 
-possibly split into an early/boundary tail-rescue regime and a later
+possibly split into an early/boundary tail-control regime and a later
 tail-stable threshold regime.  This is still a pointwise signed binary-prime
 correlation obligation, not a consequence of the finite q286 evidence.
+
+## Signed Support-Tail Control Definition
+
+`tools/build_q286_signed_support_tail_control_definition.py` generated
+`evidence/q286-signed-support-tail-control-definition.json`.
+
+This receipt turns the known-extremals falsifier into the exact
+principal-scaled proof obligation:
+
+```text
+A_N = P_N + D_N + R_N
+D_N = E_286(N)+E_154(N)+E_70(N)
+R_N = E_14(N)+E_26(N)+E_130(N)+E_10(N)+E_22(N)
+A_N/P_N = 1+d_N+r_N.
+```
+
+The sufficient inequalities are:
+
+```text
+1+d_N >= eta_a(N) > 0
+r_N > -eta_a(N).
+```
+
+The support tail is small in coefficient energy but decisive on the known
+boundary failures: all `16` observed support-tail flips are negative-tail
+kills of positive principal-plus-top-three partial sums, not positive-tail
+rescues.  Therefore the next theorem is tail lower-control, not tail
+discarding.

@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 bridge now has a precise signed support-tail control definition.
+
+`tools/build_q286_signed_support_tail_control_definition.py` generated
+`evidence/q286-signed-support-tail-control-definition.json`, with explanation
+in `notes/q286-signed-support-tail-control-definition.md`.
+
+The fixed support-action identity is:
+
+```text
+A_N = P_N + D_N + R_N
+D_N = E_286(N)+E_154(N)+E_70(N)
+R_N = E_14(N)+E_26(N)+E_130(N)+E_10(N)+E_22(N)
+A_N/P_N = 1+d_N+r_N.
+```
+
+The sufficient Goldbach-facing inequalities are:
+
+```text
+1+d_N >= eta_a(N) > 0
+r_N > -eta_a(N).
+```
+
+This receipt corrects the prior wording: on the known-extremals fixture, the
+`16` support-tail sign flips are all negative-tail kills of positive
+principal-plus-top-three partial sums.  There are `0` positive-tail rescue
+flips.  The next falsifier is a predeclared later-window support-tail kill
+scan; recurrent negative-tail kills would refute a clean later tail-stable
+threshold.
+
+No signed tail-control theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 three-support reduction has now been tested on the stronger
 known-extremals fixture.
 
@@ -28,10 +62,10 @@ tail/principal ratio range:              -0.12674411748961492..0.093632939033667
 top-three centered/principal range:      -1.9465152681346343..0.288029587486139
 ```
 
-All `16` tail sign changes occur in the recorded census raw-action failures;
-the fresh holdout cycle minima have `0` tail sign changes.  The live theorem
-target is therefore not a pure three-support theorem.  It is the full signed
-support-rescue inequality:
+All `16` tail sign changes occur in the recorded census raw-action failures
+and are negative-tail kills; the fresh holdout cycle minima have `0` tail sign
+changes.  The live theorem target is therefore not a pure three-support
+theorem.  It is the full signed support-tail control inequality:
 
 ```text
 LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0.
@@ -39,7 +73,7 @@ LocalMain_a(N) + E_286(N) + E_154(N) + E_70(N) + E_tail(N) > 0.
 
 Decision: demote the "tail is harmless for known extremals" simplification.
 Preserve the frequency-stress skeleton as a useful compression and split the
-next theory question into early/boundary tail rescue versus possible later
+next theory question into early/boundary tail control versus possible later
 tail-stable threshold behavior.  This is finite evidence only; Goldbach is not
 proved.
 
