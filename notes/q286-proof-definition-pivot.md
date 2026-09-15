@@ -321,3 +321,18 @@ The checked coefficient-lift surplus range is
 `0.01681775158832699..1.568503471168754`.  Thus `Q286*` cannot be defined by
 unweighted support mass alone; it must include signed landing quality,
 prime-pair correlation, or an equivalent fixed-modulus binary-prime theorem.
+
+## Source-backed stop/go rule
+
+`notes/q286-source-backed-theorem-pivot.md` turns this into a stop/go rule.
+The next proof-relevant object is the raw weighted binary-prime sign sum
+`B_Phi(N)`.  A finite q286 audit now counts as progress only if it changes a
+predeclared implication toward:
+
+```text
+B_Phi(N) > 0
+```
+
+for all sufficiently large covered even `N`, plus finite verification below
+the threshold.  Otherwise the q286 lane should be treated as finite structure
+and put to sleep as a Goldbach proof engine.

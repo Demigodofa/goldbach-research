@@ -800,3 +800,30 @@ good side."  It must prove a weighted anti-landing theorem for the actual
 binary-prime measure, or bypass the normalized geometry by proving a positive
 unnormalized signed witness directly.  This remains the gap between q286
 finite structure and a Goldbach implication.
+
+## Source-Backed Theorem Pivot
+
+`notes/q286-source-backed-theorem-pivot.md` records the current continuation
+gate.  The q286 lane is no longer advanced by another finite pattern audit
+unless that audit feeds an implication for the raw weighted binary-prime sign
+sum:
+
+```text
+B_Phi(N) =
+  sum_{r in A_a} Phi_a(r)
+    sum_{N/3 < p < 2N/3, p == r mod M, N-p prime}
+      log(p)log(N-p).
+```
+
+The necessary theorem is:
+
+```text
+B_Phi(N) > 0
+```
+
+for every covered sufficiently large even `N`, followed by a finite remainder
+check.  BMOR-style AP estimates are useful external one-dimensional inputs,
+but the known gap is binary and signed: AP marginals do not force the
+convolution or the q286 functional.  This note therefore promotes `q286-WBSS`
+as the current standalone mathematical problem and demotes further row-only
+audits as recycling unless a new theorem implication is predeclared.

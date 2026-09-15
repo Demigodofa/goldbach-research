@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 route now has a source-backed theorem pivot:
+`notes/q286-source-backed-theorem-pivot.md`.
+
+Question: are we advancing, or are we recycling q286 finite audits?
+
+Answer: only the raw signed binary-prime problem is still a proof-engine
+candidate.  The extracted problem is `q286-WBSS`: prove, for the explicit
+q286 signed coefficient functions `Phi_a`, that every covered sufficiently
+large even target has positive strict-central weighted sign sum:
+
+```text
+B_Phi(N) > 0.
+```
+
+BMOR AP estimates remain source-backed one-dimensional inputs, but the
+existing q286 AP-count bridge audit already demoted AP marginals plus
+pigeonhole as insufficient.  More q286 rows, heat maps, static labels, or
+unweighted cones are not progress unless they feed a predeclared theorem
+implication for `B_Phi(N)>0` or a fixed-modulus binary
+Goldbach-in-progressions estimate.
+
+Decision: the q286 lane should sleep as a Goldbach proof engine if the next
+step is another finite pattern audit.  Continue only through a raw signed
+prime-correlation theorem, Farkas certificate fed by source-backed binary
+prime inequalities, or an independent `T_N>0` theorem.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 edge-rescue route now has an anti-landing mass-balance audit.
 
 `tools/build_q286_anti_landing_mass_balance_audit.py` generated

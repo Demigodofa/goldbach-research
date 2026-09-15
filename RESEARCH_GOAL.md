@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 route now has a source-backed theorem pivot:
+`notes/q286-source-backed-theorem-pivot.md`.
+
+Question: after static dictionaries, coefficientwise minorants, and
+unweighted mass-majority cones all failed as sufficient proof shapes, is the
+work still advancing or recycling?
+
+Result: the path is advancing only if the next move attacks the raw signed
+binary-prime sum.  The extracted problem is `q286-WBSS`: for the explicit
+q286 signed coefficient functions `Phi_a`, prove an explicit threshold `N0`
+such that every covered even `N>=N0` has
+
+```text
+B_Phi(N) > 0.
+```
+
+where `B_Phi` is the strict-central weighted binary-prime sign sum.  BMOR
+arithmetic-progression estimates are source-backed one-dimensional inputs,
+but previous q286 work showed AP marginals and pigeonhole alone do not imply
+the required binary signed functional.
+
+Decision: no more q286 finite audits should be treated as proof progress
+unless they feed a predeclared theorem implication for `B_Phi(N)>0`, a
+fixed-modulus binary Goldbach-in-progressions estimate, or an equivalent raw
+signed prime-correlation inequality.  Otherwise the q286 lane should sleep as
+finite structure, not run as a proof engine.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 edge-rescue route now has an anti-landing mass-balance audit:
 `tools/build_q286_anti_landing_mass_balance_audit.py` generated
 `evidence/q286-anti-landing-mass-balance-audit.json`, with explanation in

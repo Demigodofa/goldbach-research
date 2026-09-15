@@ -2177,6 +2177,23 @@
       "validation": "tools/build_q286_anti_landing_mass_balance_audit.py generated evidence/q286-anti-landing-mass-balance-audit.json; on 196 post-discovery rows, mass majority passes on 178/196 and fails on 18/196, while weighted landing passes on 196/196 with coefficient-lift surplus 0.01681775158832699..1.568503471168754.",
       "status_boundary": "finite anti-landing mass-balance diagnostic only; no mass-balance theorem, coefficient-weighted anti-landing theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "open_obligation",
+      "label": "q286-WBSS weighted binary-prime sign-sum problem",
+      "status": "open_precisely_stated",
+      "statement": "For the explicit q286 signed coefficient functions Phi_a, prove an explicit threshold N0 such that every covered even N>=N0 has B_Phi(N)>0, where B_Phi is the strict-central weighted binary-prime sign sum over residue-pair classes.",
+      "source_boundary": "BMOR gives source-backed one-dimensional AP inputs, but previous q286 AP-count bridge work shows AP marginals plus pigeonhole do not imply the needed signed binary convolution.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "strategy.q286_source_backed_theorem_pivot",
+      "type": "open_obligation",
+      "label": "q286 source-backed theorem pivot",
+      "status": "continue_only_through_raw_signed_theorem",
+      "validation": "notes/q286-source-backed-theorem-pivot.md defines q286-WBSS, states the complement rescue inequality M+*A+ > M-*A-, records BMOR as one-dimensional AP input only, and gives abandon/sleep gates for further row-only audits.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4903,6 +4920,26 @@
     {
       "from": "problem.q286_coefficient_weighted_anti_landing",
       "to": "problem.q286_raw_signed_edge_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_anti_landing_mass_balance_audit",
+      "to": "strategy.q286_source_backed_theorem_pivot",
+      "type": "supports"
+    },
+    {
+      "from": "strategy.q286_source_backed_theorem_pivot",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_weighted_binary_prime_sign_sum",
+      "to": "problem.q286_to_goldbach_bridge_gap",
+      "type": "requires"
+    },
+    {
+      "from": "problem.q286_coefficient_weighted_anti_landing",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
       "type": "refines"
     }
   ]
