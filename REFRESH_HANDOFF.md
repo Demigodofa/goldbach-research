@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a mod-286 interaction audit.
+
+```text
+tools/build_q286_wbss_mod286_interaction_audit.py
+notes/q286-wbss-mod286-interaction-audit.md
+evidence/q286-wbss-mod286-interaction-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+mod-286 coefficient residues:                   120
+additive one-factor variance share:             0.000113371596254086
+interaction variance share:                     0.999886628403746
+total mod-286 signed error count:               196 / 196 negative
+total mod-286 signed error range:               -0.7066366026664204..-0.27555447095822444
+interaction component count:                    196 / 196 negative
+interaction component range:                    -0.70682602570542..-0.2760993456913682
+interaction / total ratio range:                0.9901149848469164..1.0113712816733669
+additive marginal component range:              -0.003264936681970069..0.0032405528357605058
+```
+
+Decision: the recurring mod-286 drag is not explained by simple modulo `11`
+or modulo `13` one-factor AP marginals. In this finite fixture it is a
+mod-11-by-mod-13 interaction/covariance object. The next theorem target is
+therefore signed interaction control for the mod-286 projection, or a direct
+raw q286-WBSS signed-witness estimate. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a projected-uniformity obstruction audit.
 
 ```text

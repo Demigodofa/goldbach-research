@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a mod-286 interaction audit:
+`tools/build_q286_wbss_mod286_interaction_audit.py` generated
+`evidence/q286-wbss-mod286-interaction-audit.json`, with explanation in
+`notes/q286-wbss-mod286-interaction-audit.md`.
+
+Question: is the persistent negative mod-286 signed projection drag explained
+by simpler one-dimensional modulo `11` or modulo `13` marginal bias, or by a
+true two-factor interaction on the unit grid modulo `11 x 13`?
+
+Result: in this finite fixture, the drag is overwhelmingly the interaction.
+The mod-286 coefficient has `120` residues, total centered sum of squares
+`2571.08639647042`, additive one-factor variance share
+`0.000113371596254086`, and interaction variance share
+`0.999886628403746`. Replaying all `196` post-discovery rows, the total
+mod-286 signed error is negative on `196/196` rows, ranging from
+`-0.7066366026664204` to `-0.27555447095822444`; the interaction component is
+also negative on `196/196` rows, ranging from `-0.70682602570542` to
+`-0.2760993456913682`. The interaction-to-total ratio stays near one
+(`0.9901149848469164..1.0113712816733669`), while the additive marginal
+component is tiny and mixed-sign
+(`-0.003264936681970069..0.0032405528357605058`).
+
+Decision: demote simple one-dimensional AP marginals as the explanation for
+the mod-286 drag. The surviving theorem target is now a signed
+mod-11-by-mod-13 covariance bound for the projection, or a direct raw
+q286-WBSS witness estimate. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a projected-uniformity obstruction audit:
 `tools/build_q286_wbss_projection_uniformity_obstruction_audit.py` generated
 `evidence/q286-wbss-projection-uniformity-obstruction-audit.json`, with

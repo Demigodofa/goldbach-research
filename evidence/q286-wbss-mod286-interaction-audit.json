@@ -1,0 +1,281 @@
+{
+  "candidate": {
+    "falsifier": "Large or consistently signed one-factor marginal components would demote the interaction target and return the proof route to simpler AP marginal estimates.",
+    "mechanism": "ANOVA-decompose the mod-286 coefficient on the balanced unit grid modulo 11 x 13.  If the one-factor components are tiny and the actual drag is carried by the interaction component, the theorem target becomes a two-factor covariance rather than ordinary AP marginal bias.",
+    "name": "mod-286 equals mod-11 x mod-13 interaction",
+    "prediction": "The mod-286 coefficient variance and actual signed drag are dominated by the interaction component, while mod-11 and mod-13 marginal components are small and mixed-sign.",
+    "smallest_test": "Decompose the coefficient once, then replay the actual post-discovery projection errors from the validated strict-central row machinery."
+  },
+  "coefficient_decomposition_summary": {
+    "additive_variance_share": 0.00011337159625408568,
+    "interaction_sum_squares": 2570.7949083015465,
+    "interaction_variance_share": 0.9998866284037458,
+    "largest_abs_coefficients": [
+      {
+        "coefficient": 32.05493349137047,
+        "interaction": 31.915741987139914,
+        "mod11": 1,
+        "mod13": 3,
+        "residue": 133
+      },
+      {
+        "coefficient": 32.0549334913704,
+        "interaction": 31.915741987139818,
+        "mod11": 10,
+        "mod13": 10,
+        "residue": 153
+      },
+      {
+        "coefficient": -6.6589485631442455,
+        "interaction": -6.798140067374798,
+        "mod11": 1,
+        "mod13": 10,
+        "residue": 23
+      },
+      {
+        "coefficient": -6.658948563144211,
+        "interaction": -6.7981400673747965,
+        "mod11": 10,
+        "mod13": 3,
+        "residue": 263
+      },
+      {
+        "coefficient": -5.080348925029562,
+        "interaction": -5.16798072889693,
+        "mod11": 5,
+        "mod13": 3,
+        "residue": 159
+      },
+      {
+        "coefficient": -5.080348925029402,
+        "interaction": -5.167980728896778,
+        "mod11": 6,
+        "mod13": 10,
+        "residue": 127
+      },
+      {
+        "coefficient": -4.986106078859036,
+        "interaction": -5.096890112374123,
+        "mod11": 2,
+        "mod13": 3,
+        "residue": 211
+      },
+      {
+        "coefficient": -4.986106078859018,
+        "interaction": -5.096890112374098,
+        "mod11": 9,
+        "mod13": 10,
+        "residue": 75
+      },
+      {
+        "coefficient": -4.229084503916235,
+        "interaction": -4.20602434927528,
+        "mod11": 2,
+        "mod13": 2,
+        "residue": 145
+      },
+      {
+        "coefficient": -4.229084503916043,
+        "interaction": -4.206024349275075,
+        "mod11": 9,
+        "mod13": 11,
+        "residue": 141
+      },
+      {
+        "coefficient": -3.7389253981464337,
+        "interaction": -3.7608704588833928,
+        "mod11": 1,
+        "mod13": 9,
+        "residue": 243
+      },
+      {
+        "coefficient": -3.738925398146059,
+        "interaction": -3.7608704588830344,
+        "mod11": 10,
+        "mod13": 4,
+        "residue": 43
+      }
+    ],
+    "max_abs_decomposition_residual": 0.0,
+    "max_abs_interaction_coefficient": 31.915741987139914,
+    "mod11_sum_squares": 0.05816393789555494,
+    "mod11_variance_share": 2.2622319489303118e-05,
+    "mod13_sum_squares": 0.23332423097946178,
+    "mod13_variance_share": 9.074927676478257e-05,
+    "residue_count": 120,
+    "total_centered_sum_squares": 2571.0863964704217
+  },
+  "decision": "The mod-286 drag is an interaction object in this finite fixture. The coefficient's mod-11 and mod-13 one-factor variance shares sum to only 0.00011337159625408568, while the interaction share is 0.9998866284037458. On all 196 post-discovery rows, the total mod-286 signed error and the interaction component are negative; the interaction-to-total ratio ranges from the recorded summary near one.  Therefore simple one-dimensional AP marginals are not the right theorem object for this drag.  The surviving target is a signed mod-11-by-mod-13 covariance or raw q286-WBSS witness estimate.",
+  "goldbach_proved": false,
+  "interaction_theorem_proved": false,
+  "novelty_label": "new-to-this-task",
+  "row_summary": {
+    "additive_marginal_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 101,
+      "positive_count": 95,
+      "summary": {
+        "count": 196,
+        "maximum": 0.0032405528357605058,
+        "mean": -7.066153056477837e-05,
+        "minimum": -0.003264936681970069
+      }
+    },
+    "component_reconstruction_abs_error_summary": {
+      "count": 196,
+      "maximum": 1.1102230246251565e-16,
+      "mean": 2.1241511950736412e-17,
+      "minimum": 0.0
+    },
+    "interaction_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 196,
+      "positive_count": 0,
+      "summary": {
+        "count": 196,
+        "maximum": -0.2760993456913682,
+        "mean": -0.3610713894438725,
+        "minimum": -0.70682602570542
+      }
+    },
+    "interaction_to_total_ratio_summary": {
+      "count": 196,
+      "maximum": 1.0113712816733669,
+      "mean": 0.9998353407043449,
+      "minimum": 0.9901149848469164
+    },
+    "largest_additive_marginal_rows": [
+      {
+        "additive_marginal_component": -0.003264936681970069,
+        "interaction_component": -0.3270265835036668,
+        "target": 181348,
+        "target_mod_286": 24,
+        "total_mod286_signed_error": -0.33029152018563684
+      },
+      {
+        "additive_marginal_component": 0.0032405528357605058,
+        "interaction_component": -0.2882174735420935,
+        "target": 262228,
+        "target_mod_286": 252,
+        "total_mod286_signed_error": -0.284976920706333
+      },
+      {
+        "additive_marginal_component": -0.0028867767809686406,
+        "interaction_component": -0.3325958241344547,
+        "target": 264944,
+        "target_mod_286": 108,
+        "total_mod286_signed_error": -0.33548260091542337
+      },
+      {
+        "additive_marginal_component": -0.0028656557038349325,
+        "interaction_component": -0.3410478882653978,
+        "target": 111488,
+        "target_mod_286": 234,
+        "total_mod286_signed_error": -0.34391354396923274
+      },
+      {
+        "additive_marginal_component": 0.0027486807280034504,
+        "interaction_component": -0.37226940888462734,
+        "target": 118376,
+        "target_mod_286": 258,
+        "total_mod286_signed_error": -0.36952072815662385
+      },
+      {
+        "additive_marginal_component": 0.002622655627801524,
+        "interaction_component": -0.3781075086811442,
+        "target": 125252,
+        "target_mod_286": 270,
+        "total_mod286_signed_error": -0.37548485305334267
+      },
+      {
+        "additive_marginal_component": -0.0025728872446321204,
+        "interaction_component": -0.30729056498360013,
+        "target": 426418,
+        "target_mod_286": 278,
+        "total_mod286_signed_error": -0.30986345222823225
+      },
+      {
+        "additive_marginal_component": -0.002562942990124892,
+        "interaction_component": -0.5073607758055422,
+        "target": 91286,
+        "target_mod_286": 52,
+        "total_mod286_signed_error": -0.5099237187956671
+      },
+      {
+        "additive_marginal_component": -0.0025585292260001313,
+        "interaction_component": -0.4545798346936782,
+        "target": 112706,
+        "target_mod_286": 22,
+        "total_mod286_signed_error": -0.4571383639196783
+      },
+      {
+        "additive_marginal_component": 0.0025423566789984234,
+        "interaction_component": -0.4020578327843528,
+        "target": 196918,
+        "target_mod_286": 150,
+        "total_mod286_signed_error": -0.39951547610535443
+      },
+      {
+        "additive_marginal_component": -0.002530016303415613,
+        "interaction_component": -0.40030182546358134,
+        "target": 357838,
+        "target_mod_286": 52,
+        "total_mod286_signed_error": -0.40283184176699693
+      },
+      {
+        "additive_marginal_component": -0.002519566104488046,
+        "interaction_component": -0.49710057793624707,
+        "target": 110522,
+        "target_mod_286": 126,
+        "total_mod286_signed_error": -0.4996201440407351
+      }
+    ],
+    "mod11_marginal_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 97,
+      "positive_count": 99,
+      "summary": {
+        "count": 196,
+        "maximum": 0.0024058340896744115,
+        "mean": 2.2812453028299398e-05,
+        "minimum": -0.0016410202438457175
+      }
+    },
+    "mod13_marginal_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 108,
+      "positive_count": 88,
+      "summary": {
+        "count": 196,
+        "maximum": 0.003103157122204108,
+        "mean": -9.347398359307777e-05,
+        "minimum": -0.0028522972005577494
+      }
+    },
+    "row_count": 196,
+    "total_mod286_signed_error": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 196,
+      "positive_count": 0,
+      "summary": {
+        "count": 196,
+        "maximum": -0.27555447095822444,
+        "mean": -0.3611420509744373,
+        "minimum": -0.7066366026664204
+      }
+    }
+  },
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "b7c5400dadaffd94f72984e91c45f1e3b4a0af7a",
+  "sources": {
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "lower_face_dual_edge_audit": "evidence\\q286-lower-face-dual-edge-audit.json"
+  },
+  "status_boundary": "finite mod-286 coefficient-interaction diagnostic only; no interaction theorem, signed projection theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+}
