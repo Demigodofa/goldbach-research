@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 edge-rescue route now has an anti-landing mass-balance audit:
+`tools/build_q286_anti_landing_mass_balance_audit.py` generated
+`evidence/q286-anti-landing-mass-balance-audit.json`, with explanation in
+`notes/q286-anti-landing-mass-balance-audit.md`.
+
+Question: after coefficientwise nonnegative minorants failed, can the
+remaining rescue be reduced to the simple cone condition that actual pair
+mass lands more on positive rescue coefficients than negative ones?
+
+Result: no.  On the `196` post-discovery rows, mass majority holds on
+`178/196` rows but fails on `18/196` rows.  All `196/196` rows still pass the
+coefficient-weighted landing inequality.  The positive mass range is
+`0.42889930876228677..0.672699487987144`, the negative mass range is
+`0.32730051201285604..0.5711006912377132`, and the coefficient-lift surplus
+range is `0.01681775158832699..1.568503471168754`.
+
+Decision: demote the unweighted mass-majority cone.  The live q286 bridge is
+now a coefficient-sensitive anti-landing theorem:
+
+```text
+average positive rescue strength / average negative drag
+  >
+negative mass / positive mass.
+```
+
+This remains finite evidence only.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 raw-witness route now has an edge-minorant obstruction audit:
 `tools/build_q286_edge_minorant_obstruction_audit.py` generated
 `evidence/q286-edge-minorant-obstruction-audit.json`, with explanation in

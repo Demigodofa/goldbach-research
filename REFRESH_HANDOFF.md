@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 edge-rescue route now has an anti-landing mass-balance audit.
+
+`tools/build_q286_anti_landing_mass_balance_audit.py` generated
+`evidence/q286-anti-landing-mass-balance-audit.json`, with explanation in
+`notes/q286-anti-landing-mass-balance-audit.md`.
+
+Question: after coefficientwise minorant failed, can the remaining rescue be
+proved by the simple condition that more actual pair mass lands on positive
+rescue coefficients than negative rescue coefficients?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+mass-majority pass count:                    178 / 196
+mass-majority fail count:                     18 / 196
+weighted-landing pass count:                 196 / 196
+rescued without mass majority:                18 / 196
+positive mass range:                         0.42889930876228677..0.672699487987144
+negative mass range:                         0.32730051201285604..0.5711006912377132
+coefficient lift surplus range:              0.01681775158832699..1.568503471168754
+positive/negative rescue ratio:              1.0191444227555964..3.167398344085266
+```
+
+Decision: mass majority is falsified as a sufficient theorem shape.  The
+remaining bridge is coefficient-sensitive anti-landing: the average positive
+rescue strength must beat average negative drag by more than the negative to
+positive mass ratio.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 raw-witness route now has an edge-minorant obstruction audit.
 
 `tools/build_q286_edge_minorant_obstruction_audit.py` generated

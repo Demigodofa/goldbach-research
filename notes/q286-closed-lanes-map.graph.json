@@ -2152,6 +2152,31 @@
       "validation": "tools/build_q286_edge_minorant_obstruction_audit.py generated evidence/q286-edge-minorant-obstruction-audit.json; on 196 post-discovery rows, pointwise minorant pass count is 0, support orbits are negative on 196/196 rows, positive/negative rescue ratio is 1.0191444227555964..3.167398344085266, and signed-part identity error is at most 8.881784197001252e-16.",
       "status_boundary": "finite edge-minorant obstruction audit only; no coefficientwise minorant theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "lane.q286_unweighted_mass_majority_cone",
+      "type": "closed_lane",
+      "label": "q286 unweighted mass-majority cone",
+      "status": "falsified_as_sufficient_route",
+      "reason": "On the edge-rescue anti-landing audit, 18/196 post-discovery rows rescue despite having more actual pair mass on negative rescue coefficients than positive rescue coefficients.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_coefficient_weighted_anti_landing",
+      "type": "open_obligation",
+      "label": "q286 coefficient-weighted anti-landing theorem",
+      "status": "open_precisely_stated",
+      "statement": "For actual strict-central binary-prime orbit mass, prove average positive rescue strength divided by average negative drag exceeds negative rescue mass divided by positive rescue mass, or prove the equivalent unnormalized signed prime-pair inequality.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_anti_landing_mass_balance_audit",
+      "type": "receipt",
+      "label": "q286 anti-landing mass-balance audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_anti_landing_mass_balance_audit.py generated evidence/q286-anti-landing-mass-balance-audit.json; on 196 post-discovery rows, mass majority passes on 178/196 and fails on 18/196, while weighted landing passes on 196/196 with coefficient-lift surplus 0.01681775158832699..1.568503471168754.",
+      "status_boundary": "finite anti-landing mass-balance diagnostic only; no mass-balance theorem, coefficient-weighted anti-landing theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4857,6 +4882,26 @@
     },
     {
       "from": "problem.q286_signed_edge_anti_landing",
+      "to": "problem.q286_raw_signed_edge_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_anti_landing_mass_balance_audit",
+      "to": "lane.q286_unweighted_mass_majority_cone",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_anti_landing_mass_balance_audit",
+      "to": "problem.q286_coefficient_weighted_anti_landing",
+      "type": "defines"
+    },
+    {
+      "from": "lane.q286_unweighted_mass_majority_cone",
+      "to": "problem.q286_signed_edge_anti_landing",
+      "type": "scope_guard"
+    },
+    {
+      "from": "problem.q286_coefficient_weighted_anti_landing",
       "to": "problem.q286_raw_signed_edge_witness",
       "type": "refines"
     }

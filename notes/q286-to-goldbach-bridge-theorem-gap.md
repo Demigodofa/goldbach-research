@@ -777,3 +777,26 @@ sum_{gap<required} W_N(orbit)(required-gap).
 ```
 
 This is the current sharp signed-correlation theorem target.
+
+## Anti-Landing Mass-Balance Audit
+
+`tools/build_q286_anti_landing_mass_balance_audit.py` generated
+`evidence/q286-anti-landing-mass-balance-audit.json`.
+
+This audit checks whether the signed-correlation target above can be replaced
+by an unweighted mass-majority theorem.  On the `196` post-discovery rows,
+`178` rows place more mass on positive rescue coefficients, but `18` rows
+rescue while placing more mass on negative rescue coefficients.  All `196`
+rows still satisfy the coefficient-weighted landing inequality:
+
+```text
+average_positive_rescue_coefficient / average_negative_rescue_coefficient
+  >
+mass_negative / mass_positive.
+```
+
+Therefore the current bridge cannot be a plain cone saying "more mass on the
+good side."  It must prove a weighted anti-landing theorem for the actual
+binary-prime measure, or bypass the normalized geometry by proving a positive
+unnormalized signed witness directly.  This remains the gap between q286
+finite structure and a Goldbach implication.

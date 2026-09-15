@@ -298,3 +298,26 @@ Actual rows rescue by distributional landing.  Their positive/negative rescue
 ratio is `1.0191444227555964..3.167398344085266`.  Therefore the next
 definition must control signed landing against the negative rescue coefficient
 set; it cannot be only a coefficientwise nonnegative minorant.
+
+## Anti-landing mass-balance refinement
+
+`tools/build_q286_anti_landing_mass_balance_audit.py` generated
+`evidence/q286-anti-landing-mass-balance-audit.json`.
+
+This tests whether signed landing can be weakened to a simple mass-majority
+condition.  It cannot.  On the `196` post-discovery rows, actual pair mass
+lands more on positive rescue coefficients in `178` rows, but `18` rows
+rescue despite having more mass on negative rescue coefficients.
+
+All `196` rows satisfy the sharper coefficient-weighted inequality:
+
+```text
+average_positive_rescue_coefficient / average_negative_rescue_coefficient
+  >
+mass_negative / mass_positive.
+```
+
+The checked coefficient-lift surplus range is
+`0.01681775158832699..1.568503471168754`.  Thus `Q286*` cannot be defined by
+unweighted support mass alone; it must include signed landing quality,
+prime-pair correlation, or an equivalent fixed-modulus binary-prime theorem.
