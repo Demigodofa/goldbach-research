@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus variance-scale route now has a farther targeted
+residue-lift holdout:
+`tools/build_q286_wbss_four_modulus_variance_scale_far_lift_holdout.py`
+generated
+`evidence/q286-wbss-four-modulus-variance-scale-far-lift-holdout.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-variance-scale-far-lift-holdout.md`.
+
+Question: does the variance-scale story survive the same stressed source
+residue classes when the target values are lifted beyond the previous
+variance-scale holdout, and does the finite `adverse z < 3` observation port?
+
+Result: the direct four-modulus witness remains positive on `116/116` farther
+lifted rows, with minimum full action `0.599253251700727`. The maximum
+`lambda_phi` rises to `0.29444884696114`, and the maximum adverse iid-scale
+z-score rises to `3.51075580409302` at target `1002478`. The tightest
+positivity row is `1001554`. Formula reconstruction error remains numerical
+zero, with maximum about `4.11e-15`.
+
+Decision: preserve direct four-modulus positivity on this farther finite
+holdout, but demote the narrower finite subclaim that adverse iid-scale z
+stays below `3`. The live theorem target is a looser signed concentration or
+fixed-modulus equidistribution estimate strong enough to keep aggregate error
+below the local main term. Residual absorption constants still fit finite data
+only; no universal lambda bound or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a variance-scale audit on the same
 targeted fresh residue-lift holdout:
 `tools/build_q286_wbss_four_modulus_variance_scale_audit.py` generated

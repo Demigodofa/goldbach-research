@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus variance-scale route now has a farther targeted
+residue-lift holdout.
+
+```text
+tools/build_q286_wbss_four_modulus_variance_scale_far_lift_holdout.py
+notes/q286-wbss-four-modulus-variance-scale-far-lift-holdout.md
+evidence/q286-wbss-four-modulus-variance-scale-far-lift-holdout.json
+```
+
+Result:
+
+```text
+far lifted rows checked:                    116
+target range:                           996208..1035742
+direct witness positive rows:               116 / 116
+positive local variance-scale rows:         116 / 116
+minimum full action:             0.599253251700727
+maximum lambda_phi:              0.29444884696114
+maximum adverse iid-scale z-score: 3.51075580409302
+largest adverse z target:                1002478
+tightest positivity target:              1001554
+maximum formula reconstruction error: 4.11e-15
+```
+
+Decision: direct four-modulus positivity survives this farther targeted
+finite holdout, but the narrower finite subclaim `adverse z < 3` fails. The
+live theorem target is now a looser source-backed signed concentration or
+fixed-modulus equidistribution estimate strong enough to keep aggregate error
+below the local main term. Residual absorption constants still fit finite data
+only; no universal lambda bound or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a variance-scale audit on the same
 targeted fresh residue-lift holdout.
 
