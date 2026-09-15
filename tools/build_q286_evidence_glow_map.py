@@ -188,6 +188,8 @@ def main():
         EVIDENCE / "q286-prime-indexed-row-filter-order-audit.json")
     prime_indexed_later_full_block_scan = load_json(
         EVIDENCE / "q286-prime-indexed-later-full-block-scan.json")
+    later_tail_complement_source = load_json(
+        EVIDENCE / "q286-later-tail-complement-source-decomposition.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3303,6 +3305,46 @@ def main():
         "prime-indexed-later-full-block-scan",
         3.0,
         "rescued finite window still needs a non-circular complement lower bound")
+
+    layer(
+        "later-tail-complement-source-decomposition",
+        "Later q286 rescue is principal baseline plus nonprincipal drag control",
+        "finite_component_decomposition",
+        "evidence/q286-later-tail-complement-source-decomposition.json",
+        5.0,
+        "Finite later-tail component diagnostic only; no eventual theorem.")
+    source_metrics = later_tail_complement_source["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "principal-baseline-supplies-later-tail-rescue",
+        "later-tail-complement-source-decomposition",
+        5.0,
+        "principal baseline alone keeps all later tail rows positive",
+        {
+            "target_count": source_metrics["target_count"],
+            "principal_only_minimum_margin": (
+                source_metrics["principal_only_minimum_margin"]),
+            "principal_only_keeps_all_tail_rows_positive": (
+                source_metrics[
+                    "principal_only_keeps_all_tail_rows_positive"]),
+            "nonprincipal_only_minimum_margin": (
+                source_metrics["nonprincipal_only_minimum_margin"]),
+            "smallest_subset_without_principal_size": (
+                source_metrics[
+                    "smallest_subset_without_principal_size"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-greater-than-negative-one",
+        "later-tail-complement-source-decomposition",
+        5.0,
+        "principal-only rescue reframes the first proof target as first_three > -1")
+    add_hit(
+        theorem_stacks,
+        "nonprincipal-drag-control",
+        "later-tail-complement-source-decomposition",
+        4.0,
+        "nonprincipal components can erase principal surplus and need signed-correlation control")
 
     layer(
         "centered-3-1-stress-class-audit",

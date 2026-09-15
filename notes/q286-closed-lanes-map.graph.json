@@ -1664,6 +1664,14 @@
       "status_boundary": "finite predeclared later full-block scan only; upgrades the sampled support-starved holdout to rescued-with-tail-support in this window but proves no eventual threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_later_tail_complement_source_decomposition",
+      "type": "receipt",
+      "label": "q286 later-tail complement source decomposition",
+      "status": "validated_principal_baseline_source",
+      "validation": "tools/build_q286_later_tail_complement_source_decomposition.py generated evidence/q286-later-tail-complement-source-decomposition.json; on the 73 later full-block first-three-tail rows, principal baseline alone keeps all rows positive with minimum margin 0.557444316517158, removing principal makes 72 of 73 rows fail, no principal-excluded subset keeps all rows positive after checking 4095 subsets, and maximum identity error is 4.44089209850063e-16",
+      "status_boundary": "finite later-tail component diagnostic only; reframes the later-window theorem route but proves no first_three > -1 theorem, nonprincipal drag bound, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3919,6 +3927,21 @@
     },
     {
       "from": "receipt.q286_prime_indexed_later_full_block_scan",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_later_tail_complement_source_decomposition",
+      "to": "receipt.q286_prime_indexed_later_full_block_scan",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_later_tail_complement_source_decomposition",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_later_tail_complement_source_decomposition",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }

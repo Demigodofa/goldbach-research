@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 later-tail complement rescue now has a component-source
+decomposition:
+`tools/build_q286_later_tail_complement_source_decomposition.py` generated
+`evidence/q286-later-tail-complement-source-decomposition.json`, with
+explanation in
+`notes/q286-later-tail-complement-source-decomposition.md`.
+
+Mechanism: re-evaluate the `73` later full-block first-three-tail rows with
+the validated optimized row action, then split
+`full/principal = first_three_modes + complement` into the principal baseline,
+lower CRT-support terms, q286 local action, q286 modes `4..6`, and q286
+residual tail.
+
+Result: the rescue is not a small positive nonprincipal cone.  The principal
+baseline alone keeps all `73` tail rows positive with minimum margin
+`0.557444316517158`.  Removing the principal baseline makes `72` of `73` rows
+fail, and no subset excluding the principal baseline keeps all `73` rows
+positive, even after checking all `4095` nonprincipal subsets.  The
+nonprincipal-only margin minimum is `-0.656649759138451`.  The component
+identity error is at floating precision (`4.44089209850063e-16`).
+
+Interpretation: the next proof target narrows.  For these later q286 rows, the
+first theorem shape is not "many lower channels supply positivity"; it is
+`first_three_modes_to_principal_ratio > -1` plus a bound that keeps the
+nonprincipal correction from erasing the principal-only surplus.  The
+nonprincipal correction still needs a signed prime-pair correlation bound, but
+as drag control rather than the primary positive source.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 post-discovery threshold candidate now has a full later-block scan
 using the validated prime-indexed row verifier:
 `tools/build_q286_prime_indexed_later_full_block_scan.py` generated

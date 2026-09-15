@@ -1,0 +1,2350 @@
+{
+  "component_removal_results": [
+    {
+      "failure_count": 72,
+      "first_failure_targets": [
+        548666,
+        492056,
+        518162,
+        594112,
+        564082,
+        510152,
+        508348,
+        549998,
+        560468,
+        588232,
+        632458,
+        581132
+      ],
+      "minimum_margin_after_removal": -0.6566497591384506,
+      "removed_component": "principal_baseline",
+      "removing_component_makes_any_tail_fail": true
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3387600503586723,
+      "removed_component": "q286_local",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3449493282941984,
+      "removed_component": "q286_mode_4",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3443285205777007,
+      "removed_component": "q286_mode_5",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.34384399552668743,
+      "removed_component": "q286_mode_6",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3438339041281331,
+      "removed_component": "q286_tail_residual",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3318338424811342,
+      "removed_component": "support_11",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.341131454773028,
+      "removed_component": "support_13",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3742031567456958,
+      "removed_component": "support_5",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.334486517574825,
+      "removed_component": "support_5_13",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.49617847664143383,
+      "removed_component": "support_5_7",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3318333813866015,
+      "removed_component": "support_7",
+      "removing_component_makes_any_tail_fail": false
+    },
+    {
+      "failure_count": 0,
+      "first_failure_targets": [],
+      "minimum_margin_after_removal": 0.3764028245212847,
+      "removed_component": "support_7_11",
+      "removing_component_makes_any_tail_fail": false
+    }
+  ],
+  "component_summary_rows": [
+    {
+      "average": 1.0,
+      "component": "principal_baseline",
+      "maximum": 1.0,
+      "minimum": 1.0,
+      "negative_count": 0,
+      "net_sum": 73.0,
+      "positive_component_mass_share": 0.901933728995542,
+      "positive_count": 73,
+      "positive_sum": 73.0,
+      "zero_count": 0
+    },
+    {
+      "average": -0.01744115112152609,
+      "component": "support_7_11",
+      "maximum": 0.12501523394223477,
+      "minimum": -0.16502735213199934,
+      "negative_count": 47,
+      "net_sum": -1.2732040318714046,
+      "positive_component_mass_share": 0.01375820143963467,
+      "positive_count": 26,
+      "positive_sum": 1.1135504447891593,
+      "zero_count": 0
+    },
+    {
+      "average": -0.016931225332038898,
+      "component": "support_5_7",
+      "maximum": 0.42166329733307084,
+      "minimum": -0.2008793648706388,
+      "negative_count": 50,
+      "net_sum": -1.2359794492388396,
+      "positive_component_mass_share": 0.030272749790159165,
+      "positive_count": 23,
+      "positive_sum": 2.450191919469221,
+      "zero_count": 0
+    },
+    {
+      "average": -0.010074512267434936,
+      "component": "support_7",
+      "maximum": 0.06577727333141521,
+      "minimum": -0.0727636715495665,
+      "negative_count": 31,
+      "net_sum": -0.7354393955227504,
+      "positive_component_mass_share": 0.01662458918354765,
+      "positive_count": 42,
+      "positive_sum": 1.3455478727361987,
+      "zero_count": 0
+    },
+    {
+      "average": 0.0083162536872946,
+      "component": "q286_local",
+      "maximum": 0.015773145984545423,
+      "minimum": -0.007383908909138878,
+      "negative_count": 3,
+      "net_sum": 0.6070865191725059,
+      "positive_component_mass_share": 0.007606870521498339,
+      "positive_count": 68,
+      "positive_sum": 0.6156788799636115,
+      "zero_count": 2
+    },
+    {
+      "average": 0.008041570817199776,
+      "component": "support_5",
+      "maximum": 0.03124029944314933,
+      "minimum": -0.03085291588414632,
+      "negative_count": 27,
+      "net_sum": 0.5870346696555837,
+      "positive_component_mass_share": 0.01636604527213258,
+      "positive_count": 46,
+      "positive_sum": 1.3246220497776544,
+      "zero_count": 0
+    },
+    {
+      "average": 0.004393375576421413,
+      "component": "support_13",
+      "maximum": 0.017020080186488724,
+      "minimum": -0.005456573839848094,
+      "negative_count": 9,
+      "net_sum": 0.32071641707876314,
+      "positive_component_mass_share": 0.004144626431042196,
+      "positive_count": 64,
+      "positive_sum": 0.3354545015220024,
+      "zero_count": 0
+    },
+    {
+      "average": 0.0024739754094890943,
+      "component": "support_11",
+      "maximum": 0.011737355944620664,
+      "minimum": -0.004362597325270203,
+      "negative_count": 37,
+      "net_sum": 0.1806002048927039,
+      "positive_component_mass_share": 0.0030218998261882014,
+      "positive_count": 36,
+      "positive_sum": 0.24458414207151694,
+      "zero_count": 0
+    },
+    {
+      "average": -0.0008896596956960807,
+      "component": "q286_mode_4",
+      "maximum": 0.031081384129580187,
+      "minimum": -0.024494869094235865,
+      "negative_count": 43,
+      "net_sum": -0.06494515778581389,
+      "positive_component_mass_share": 0.002481748307243905,
+      "positive_count": 30,
+      "positive_sum": 0.20086578492919466,
+      "zero_count": 0
+    },
+    {
+      "average": -0.0005785944908081838,
+      "component": "q286_tail_residual",
+      "maximum": 0.003007975544978182,
+      "minimum": -0.005299756572431545,
+      "negative_count": 42,
+      "net_sum": -0.042237397828997415,
+      "positive_component_mass_share": 0.0005009150804742448,
+      "positive_count": 31,
+      "positive_sum": 0.04054266926611479,
+      "zero_count": 0
+    },
+    {
+      "average": -0.00029547109982860963,
+      "component": "q286_mode_5",
+      "maximum": 0.006880151819624886,
+      "minimum": -0.012117026015595648,
+      "negative_count": 41,
+      "net_sum": -0.021569390287488503,
+      "positive_component_mass_share": 0.0010568511711422286,
+      "positive_count": 32,
+      "positive_sum": 0.08553858561127613,
+      "zero_count": 0
+    },
+    {
+      "average": -0.0002246102503722218,
+      "component": "support_5_13",
+      "maximum": 0.009048065516483024,
+      "minimum": -0.00831556042006712,
+      "negative_count": 38,
+      "net_sum": -0.016396548277172192,
+      "positive_component_mass_share": 0.001432550866844319,
+      "positive_count": 35,
+      "positive_sum": 0.11594667093346077,
+      "zero_count": 0
+    },
+    {
+      "average": 3.960915212712925e-05,
+      "component": "q286_mode_6",
+      "maximum": 0.009593338696985495,
+      "minimum": -0.005253053583402729,
+      "negative_count": 34,
+      "net_sum": 0.0028914681052804353,
+      "positive_component_mass_share": 0.0007992231145504226,
+      "positive_count": 39,
+      "positive_sum": 0.06468688938726808,
+      "zero_count": 0
+    }
+  ],
+  "decision": "Read the smallest-subset and principal-only metrics. If the principal baseline alone keeps all later tail rows positive, the next theorem target is a first-three lower bound plus a bound on nonprincipal drag, not merely a positive cone over many lower support channels. If principal-excluded subsets fail or need many components, the nonprincipal correction still points toward a signed correlation/cone estimate.",
+  "decision_metrics": {
+    "elapsed_seconds": 0.07828679999511223,
+    "goldbach_proved": false,
+    "maximum_identity_error": 4.440892098500626e-16,
+    "nonprincipal_only_keeps_all_tail_rows_positive": false,
+    "nonprincipal_only_minimum_margin": -0.6566497591384506,
+    "principal_only_keeps_all_tail_rows_positive": true,
+    "principal_only_minimum_margin": 0.5574443165171575,
+    "smallest_subset_size": 1,
+    "smallest_subset_without_principal_size": null,
+    "target_count": 73
+  },
+  "deficit_mode_summary_rows": [
+    {
+      "average": -0.18180120641018016,
+      "component": "q286_mode_1",
+      "maximum": -0.04541684763540159,
+      "minimum": -0.31516394466406067,
+      "negative_count": 73,
+      "net_sum": -13.271488067943151,
+      "positive_component_mass_share": 0.0,
+      "positive_count": 0,
+      "positive_sum": 0.0,
+      "zero_count": 0
+    },
+    {
+      "average": -0.14678720523946973,
+      "component": "q286_mode_2",
+      "maximum": -0.022697587570696044,
+      "minimum": -0.2813758884693702,
+      "negative_count": 73,
+      "net_sum": -10.71546598248129,
+      "positive_component_mass_share": 0.0,
+      "positive_count": 0,
+      "positive_sum": 0.0,
+      "zero_count": 0
+    },
+    {
+      "average": -0.001345234813972712,
+      "component": "q286_mode_3",
+      "maximum": 0.02002851626716122,
+      "minimum": -0.01947702541576176,
+      "negative_count": 40,
+      "net_sum": -0.09820214142000798,
+      "positive_component_mass_share": 1.0,
+      "positive_count": 33,
+      "positive_sum": 0.24942479991467958,
+      "zero_count": 0
+    }
+  ],
+  "falsifier": "A component claimed essential is falsified by removal producing no failing row. A distributed-cone interpretation is weakened if a one- or two-component fixed subset keeps all tail rows positive under this finite decomposition.",
+  "goldbach_proved": false,
+  "identity_error_summary": {
+    "count": 73,
+    "maximum": 4.440892098500626e-16,
+    "mean": 1.3003297069239847e-16,
+    "minimum": 0.0
+  },
+  "mechanism": "Re-evaluate the 73 later first-three-tail targets with the validated optimized row action, then split full/principal into first-three deficit modes plus principal baseline, lower CRT-support terms, q286 local action, q286 modes 4-6, and q286 residual tail.",
+  "next_obligation": "Formulate the non-circular inequality as either first_three > -1 plus bounded nonprincipal drag on the later q286 class, or as a support-component signed correlation estimate if principal-only margin does not survive stronger holdouts.",
+  "nonprincipal_only_margin_summary": {
+    "count": 73,
+    "maximum": 0.05518220467474866,
+    "mean": -0.35310408607879556,
+    "minimum": -0.6566497591384506
+  },
+  "prediction": "If rescue is narrow, a small component subset keeps all 73 rows positive. If rescue is genuinely distributed, no tiny fixed subset should pass after principal is excluded.",
+  "principal_only_margin_summary": {
+    "count": 73,
+    "maximum": 0.6998914413673674,
+    "mean": 0.6700663535363774,
+    "minimum": 0.5574443165171575
+  },
+  "question": "Which arithmetic support components supply the positive complement rescue on the 73 later full-block q286 tail rows?",
+  "schema_version": 1,
+  "smallest_rescue_subset": {
+    "allow_principal": true,
+    "best_subsets_by_minimum_margin": [
+      {
+        "average_margin": 0.6700663535363774,
+        "components": [
+          "principal_baseline"
+        ],
+        "maximum_margin": 0.6998914413673674,
+        "minimum_margin": 0.5574443165171575
+      }
+    ],
+    "checked_subset_count_until_first_pass": 13,
+    "minimum_size": 1,
+    "passing_subset_count_at_minimum_size": 1
+  },
+  "smallest_rescue_subset_without_principal": {
+    "allow_principal": false,
+    "best_subsets_by_minimum_margin": [],
+    "checked_subset_count_until_first_pass": 4095,
+    "minimum_size": null,
+    "passing_subset_count_at_minimum_size": 0
+  },
+  "source_commit": "e36fcb9e0018a7d042fafecd973cb7b1d41093f2",
+  "sources": {
+    "later_full_block_scan": "evidence\\q286-prime-indexed-later-full-block-scan.json",
+    "row_verifier": "evidence\\q286-prime-indexed-row-filter-order-audit.json"
+  },
+  "status_boundary": "finite later-tail complement-source diagnostic only; it proves no eventual threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach.",
+  "target_count": 73,
+  "target_rows": [
+    {
+      "complement_to_principal_ratio": 0.6776643969822952,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.13425226559162848,
+        "q286_mode_2": -0.15076652411289884,
+        "q286_mode_3": -0.01724857515525626
+      },
+      "first_three_modes_to_principal_ratio": -0.30226736485978356,
+      "full_action_to_principal_ratio": 0.37539703212251163,
+      "identity_error": 1.6653345369377348e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004097153057345004,
+        "q286_mode_4": -0.007373081001776332,
+        "q286_mode_5": -0.0017454947391098027,
+        "q286_mode_6": 0.0004807025245247298,
+        "q286_tail_residual": -0.002601166989008689,
+        "support_11": -0.001266184783242371,
+        "support_13": 0.0004884912846493464,
+        "support_5": -0.028027956071453964,
+        "support_5_13": 5.9216144420123264e-05,
+        "support_5_7": -0.1649835810479636,
+        "support_7": 0.0435636507359101,
+        "support_7_11": -0.16502735213199934
+      },
+      "target": 492056
+    },
+    {
+      "complement_to_principal_ratio": 1.1916010897967966,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.14171275675212291,
+        "q286_mode_2": -0.17964328792219747,
+        "q286_mode_3": -0.010593927380845995
+      },
+      "first_three_modes_to_principal_ratio": -0.33194997205516635,
+      "full_action_to_principal_ratio": 0.8596511177416302,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012412216315794283,
+        "q286_mode_4": -0.00862371937566522,
+        "q286_mode_5": 0.000836150078219632,
+        "q286_mode_6": -0.00017689545896790537,
+        "q286_tail_residual": 0.0014339739080352853,
+        "support_11": 0.010409510682586885,
+        "support_13": 0.017020080186488724,
+        "support_5": -0.029362446756566477,
+        "support_5_13": -0.005143994735688883,
+        "support_5_7": 0.3230434560365716,
+        "support_7": -0.06816103990923908,
+        "support_7_11": -0.06208620117477234
+      },
+      "target": 494024
+    },
+    {
+      "complement_to_principal_ratio": 1.1758389940214387,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.08951194780856012,
+        "q286_mode_2": -0.2559270879611668,
+        "q286_mode_3": 0.014486282273172712
+      },
+      "first_three_modes_to_principal_ratio": -0.33095275349655423,
+      "full_action_to_principal_ratio": 0.8448862405248845,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.006168638788967971,
+        "q286_mode_4": 0.001611971079943753,
+        "q286_mode_5": 0.0017463069602659488,
+        "q286_mode_6": 0.0023787538772564744,
+        "q286_tail_residual": -0.004936897973036472,
+        "support_11": -0.0011201106281169318,
+        "support_13": 0.007643633635516768,
+        "support_5": 0.027951842072114062,
+        "support_5_13": -0.006640834070950673,
+        "support_5_7": 0.020122730858518862,
+        "support_7": 0.021706937666438827,
+        "support_7_11": 0.09920602175452016
+      },
+      "target": 494798
+    },
+    {
+      "complement_to_principal_ratio": 0.9350055461932836,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.21495270231278732,
+        "q286_mode_2": -0.16459064851908586,
+        "q286_mode_3": 0.02002851626716122
+      },
+      "first_three_modes_to_principal_ratio": -0.35951483456471195,
+      "full_action_to_principal_ratio": 0.5754907116285717,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.0029473744519458427,
+        "q286_mode_5": -0.004652907443345662,
+        "q286_mode_6": -0.004952049715706817,
+        "q286_tail_residual": -0.001985414033023847,
+        "support_11": -0.002395827075294883,
+        "support_13": 0.01010036961781584,
+        "support_5": -0.03031792625291537,
+        "support_5_13": 0.009048065516483024,
+        "support_5_7": -0.0301275307521111,
+        "support_7": 0.01699646596306695,
+        "support_7_11": -0.039533471164284094
+      },
+      "target": 495086
+    },
+    {
+      "complement_to_principal_ratio": 1.087149077813261,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1562105317519893,
+        "q286_mode_2": -0.1547879071870592,
+        "q286_mode_3": 0.009915812189450084
+      },
+      "first_three_modes_to_principal_ratio": -0.3010826267495984,
+      "full_action_to_principal_ratio": 0.7860664510636627,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009426315029129889,
+        "q286_mode_4": -0.00039685387184633836,
+        "q286_mode_5": -0.006122423690997381,
+        "q286_mode_6": 0.0022906436681244193,
+        "q286_tail_residual": -0.004507036467779644,
+        "support_11": 0.01149160795570389,
+        "support_13": 0.004140833356947197,
+        "support_5": 0.029362499278249785,
+        "support_5_13": 0.000759222730683936,
+        "support_5_7": 0.005825760171245736,
+        "support_7": 0.05043129637509261,
+        "support_7_11": -0.015552786721293026
+      },
+      "target": 495542
+    },
+    {
+      "complement_to_principal_ratio": 0.9014119671447602,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.14998904507514801,
+        "q286_mode_2": -0.1773256586593162,
+        "q286_mode_3": -0.009582310344791822
+      },
+      "first_three_modes_to_principal_ratio": -0.33689701407925604,
+      "full_action_to_principal_ratio": 0.5645149530655043,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012412216315794283,
+        "q286_mode_4": -0.007878889132412243,
+        "q286_mode_5": 0.0012987218940071412,
+        "q286_mode_6": 0.00024127806293330046,
+        "q286_tail_residual": -0.0006266386991389174,
+        "support_11": 0.007616249878042291,
+        "support_13": 0.012526101722669786,
+        "support_5": -0.0006968614827477826,
+        "support_5_13": 0.001119999274669344,
+        "support_5_7": -0.053093642801877027,
+        "support_7": -0.004317517369084616,
+        "support_7_11": -0.06718905051809534
+      },
+      "target": 495740
+    },
+    {
+      "complement_to_principal_ratio": 1.1226021727644508,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1278058771634621,
+        "q286_mode_2": -0.16927827214636254,
+        "q286_mode_3": -0.018168805033622226
+      },
+      "first_three_modes_to_principal_ratio": -0.31525295434344686,
+      "full_action_to_principal_ratio": 0.807349218421004,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.002653302446054901,
+        "q286_mode_4": 0.0044695653637886025,
+        "q286_mode_5": 0.0021018778807778893,
+        "q286_mode_6": 0.0005581692058169737,
+        "q286_tail_residual": -0.001272451855738404,
+        "support_11": -0.001856563440305581,
+        "support_13": 0.005731388401657696,
+        "support_5": 0.02990786310623023,
+        "support_5_13": -0.008129607706518605,
+        "support_5_7": -0.0024817492027928412,
+        "support_7": 0.024050998459959266,
+        "support_7_11": 0.06686938010552071
+      },
+      "target": 497108
+    },
+    {
+      "complement_to_principal_ratio": 0.9159539093880572,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.09518262373590232,
+        "q286_mode_2": -0.2577761924728027,
+        "q286_mode_3": 0.004390309180092909
+      },
+      "first_three_modes_to_principal_ratio": -0.3485685070286121,
+      "full_action_to_principal_ratio": 0.5673854023594451,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.003750301307472221,
+        "q286_mode_5": -2.5176274897747792e-05,
+        "q286_mode_6": 0.0014375870017692138,
+        "q286_tail_residual": 0.001344063518543441,
+        "support_11": -0.001854858012693109,
+        "support_13": 0.0050286404421725625,
+        "support_5": 0.028453432000786136,
+        "support_5_13": -0.0045931062379777135,
+        "support_5_7": -0.06576353750587242,
+        "support_7": -0.07121346701509314,
+        "support_7_11": 0.011117486794246836
+      },
+      "target": 498518
+    },
+    {
+      "complement_to_principal_ratio": 0.9381633420611346,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1747694300038162,
+        "q286_mode_2": -0.1485067895247126,
+        "q286_mode_3": -0.017723979668547895
+      },
+      "first_three_modes_to_principal_ratio": -0.3410001991970767,
+      "full_action_to_principal_ratio": 0.5971631428640579,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004464068329951795,
+        "q286_mode_4": -0.010937103072960825,
+        "q286_mode_5": -0.0011975163070028238,
+        "q286_mode_6": -0.00470941891062602,
+        "q286_tail_residual": -0.004731656950283822,
+        "support_11": 0.011259488754094618,
+        "support_13": 0.0019516028155767225,
+        "support_5": 0.027829643482698452,
+        "support_5_13": 0.0005292676344738675,
+        "support_5_7": -0.004882570911981199,
+        "support_7": -0.07182193759362793,
+        "support_7_11": -0.009590525209178257
+      },
+      "target": 507592
+    },
+    {
+      "complement_to_principal_ratio": 0.8368015445516388,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20859600904740475,
+        "q286_mode_2": -0.14343419951018702,
+        "q286_mode_3": -0.01566809442587295
+      },
+      "first_three_modes_to_principal_ratio": -0.36769830298346473,
+      "full_action_to_principal_ratio": 0.46910324156817407,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.007060021681799982,
+        "q286_mode_4": 0.003343901752864297,
+        "q286_mode_5": 0.0024720981400787206,
+        "q286_mode_6": 0.0004539020474239506,
+        "q286_tail_residual": 0.0005379226926315338,
+        "support_11": 0.0044507554722564265,
+        "support_13": 0.006084506059117467,
+        "support_5": 0.028261808329681913,
+        "support_5_13": -0.00017723462431539812,
+        "support_5_7": -0.1233436363209857,
+        "support_7": -0.06793312243497703,
+        "support_7_11": -0.02440937824393731
+      },
+      "target": 508348
+    },
+    {
+      "complement_to_principal_ratio": 0.8600267682790682,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20712461082516775,
+        "q286_mode_2": -0.10401959349814241,
+        "q286_mode_3": -0.016671418940280028
+      },
+      "first_three_modes_to_principal_ratio": -0.3278156232635902,
+      "full_action_to_principal_ratio": 0.5322111450154781,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009931331132228197,
+        "q286_mode_4": 0.008533212408529486,
+        "q286_mode_5": -0.00014553740259166492,
+        "q286_mode_6": 0.003591629371597233,
+        "q286_tail_residual": -0.0012412370076694487,
+        "support_11": 0.010675883672607826,
+        "support_13": 0.0013393049338761732,
+        "support_5": -0.029453087393531696,
+        "support_5_13": -0.006467387513224154,
+        "support_5_7": -0.11676094989904545,
+        "support_7": 0.052279980041912776,
+        "support_7_11": -0.07225637406562112
+      },
+      "target": 509066
+    },
+    {
+      "complement_to_principal_ratio": 1.1571844096510169,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.31516394466406067,
+        "q286_mode_2": -0.129907589115319,
+        "q286_mode_3": 0.0025158502965371816
+      },
+      "first_three_modes_to_principal_ratio": -0.44255568348284247,
+      "full_action_to_principal_ratio": 0.7146287261681744,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.01043849912207818,
+        "q286_mode_5": 0.0017745954128547605,
+        "q286_mode_6": -0.005253053583402729,
+        "q286_tail_residual": 0.0021178018450509106,
+        "support_11": -0.0026256959729398753,
+        "support_13": 0.005334459640318558,
+        "support_5": 0.03036010959643308,
+        "support_5_13": -0.005627755656513488,
+        "support_5_7": 0.08124015569237471,
+        "support_7": 0.04987510980522299,
+        "support_7_11": -0.005345963990849349
+      },
+      "target": 509672
+    },
+    {
+      "complement_to_principal_ratio": 0.8580520590005936,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1819761396958275,
+        "q286_mode_2": -0.21398387922620213,
+        "q286_mode_3": -0.0013101710536820353
+      },
+      "first_three_modes_to_principal_ratio": -0.3972701899757117,
+      "full_action_to_principal_ratio": 0.4607818690248819,
+      "identity_error": 5.551115123125783e-17,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00501567323004846,
+        "q286_mode_4": 0.0037753890570882158,
+        "q286_mode_5": -0.002263351277283446,
+        "q286_mode_6": -0.00016028039675354566,
+        "q286_tail_residual": -0.0014218711378533074,
+        "support_11": 0.005763584064620286,
+        "support_13": -0.00018820675957184816,
+        "support_5": 0.029453700299781733,
+        "support_5_13": -0.00041690749995601154,
+        "support_5_7": -0.08105418880959488,
+        "support_7": -0.06576346231120242,
+        "support_7_11": -0.03468801945872965
+      },
+      "target": 510152
+    },
+    {
+      "complement_to_principal_ratio": 1.255210711393631,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.11754737427722456,
+        "q286_mode_2": -0.1893229624829802,
+        "q286_mode_3": 0.006133796846953585
+      },
+      "first_three_modes_to_principal_ratio": -0.30073653991325117,
+      "full_action_to_principal_ratio": 0.9544741714803799,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.006168638788967971,
+        "q286_mode_4": -0.01392852723655664,
+        "q286_mode_5": 0.003924388604687529,
+        "q286_mode_6": 0.0021018978623383996,
+        "q286_tail_residual": -0.0015601006120296323,
+        "support_11": -0.0007475915302878675,
+        "support_13": 0.009463323285021141,
+        "support_5": 0.02801315135770464,
+        "support_5_13": 8.131194512669252e-05,
+        "support_5_7": 0.09206244073257673,
+        "support_7": 0.05180550211852021,
+        "support_7_11": 0.07782627607756186
+      },
+      "target": 510242
+    },
+    {
+      "complement_to_principal_ratio": 0.8897505592456373,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.24745861025294677,
+        "q286_mode_2": -0.12348620627207586,
+        "q286_mode_3": 0.0005926691595072159
+      },
+      "first_three_modes_to_principal_ratio": -0.3703521473655154,
+      "full_action_to_principal_ratio": 0.5193984118801218,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00476142446134364,
+        "q286_mode_4": -0.006236810362517663,
+        "q286_mode_5": 0.001003797125898177,
+        "q286_mode_6": 0.009593338696985495,
+        "q286_tail_residual": -0.002096655263824062,
+        "support_11": -0.002000726392885432,
+        "support_13": 0.013721925992790906,
+        "support_5": 0.029207840808451336,
+        "support_5_13": -0.003986859072993615,
+        "support_5_7": -0.1089554906841422,
+        "support_7": -0.06830254090825863,
+        "support_7_11": 0.02304131484478934
+      },
+      "target": 514562
+    },
+    {
+      "complement_to_principal_ratio": 0.9146270898212376,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.10797792476762695,
+        "q286_mode_2": -0.19638109405804388,
+        "q286_mode_3": 0.0006094445746071208
+      },
+      "first_three_modes_to_principal_ratio": -0.3037495742510637,
+      "full_action_to_principal_ratio": 0.610877515570174,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230048461,
+        "q286_mode_4": 0.00446415524634294,
+        "q286_mode_5": 0.0036593513747341716,
+        "q286_mode_6": 0.0004801818786523879,
+        "q286_tail_residual": -0.0034897674703232877,
+        "support_11": 0.003949435147894835,
+        "support_13": 0.004865968847749425,
+        "support_5": 0.028435773529793644,
+        "support_5_13": 0.0004820289590208319,
+        "support_5_7": -0.09670496120634828,
+        "support_7": -0.07268400454988402,
+        "support_7_11": 0.03615325483355649
+      },
+      "target": 516158
+    },
+    {
+      "complement_to_principal_ratio": 0.753882478314861,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.12151236968464808,
+        "q286_mode_2": -0.19361813072305004,
+        "q286_mode_3": 0.0024730354797923948
+      },
+      "first_three_modes_to_principal_ratio": -0.31265746492790575,
+      "full_action_to_principal_ratio": 0.44122501338695524,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009982921773694878,
+        "q286_mode_4": -0.008595815970362701,
+        "q286_mode_5": -0.0035060024165301505,
+        "q286_mode_6": 0.0036109286624605038,
+        "q286_tail_residual": -0.0015303579114643512,
+        "support_11": -0.00227181964552821,
+        "support_13": 0.0066030810844843225,
+        "support_5": 0.030984870224454474,
+        "support_5_13": -0.003932137236833168,
+        "support_5_7": -0.1454235729215305,
+        "support_7": -0.06925763647445067,
+        "support_7_11": -0.0627819808535334
+      },
+      "target": 518162
+    },
+    {
+      "complement_to_principal_ratio": 0.898963219857544,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2120231198681651,
+        "q286_mode_2": -0.12282765027809951,
+        "q286_mode_3": 0.008648580179766273
+      },
+      "first_three_modes_to_principal_ratio": -0.32620218996649836,
+      "full_action_to_principal_ratio": 0.5727610298910457,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.004408449075491656,
+        "q286_mode_5": -0.0004671893036099223,
+        "q286_mode_6": 0.00036295636270291707,
+        "q286_tail_residual": -0.00017598101731569108,
+        "support_11": -0.0016964322533590608,
+        "support_13": 0.0029159882964069875,
+        "support_5": 0.030426106986520856,
+        "support_5_13": 0.003942283204166143,
+        "support_5_7": -0.08892570261949026,
+        "support_7": -0.06721554448620437,
+        "support_7_11": 0.008432037778672644
+      },
+      "target": 523972
+    },
+    {
+      "complement_to_principal_ratio": 1.1981622536977656,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1597597213505563,
+        "q286_mode_2": -0.178239910225413,
+        "q286_mode_3": -0.01947702541576176
+      },
+      "first_three_modes_to_principal_ratio": -0.35747665699173103,
+      "full_action_to_principal_ratio": 0.8406855967060346,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004097153057343106,
+        "q286_mode_4": -0.024494869094235865,
+        "q286_mode_5": 0.004802362508636871,
+        "q286_mode_6": -0.0005379711063313967,
+        "q286_tail_residual": 0.0014343567373236504,
+        "support_11": -0.0004970472120658221,
+        "support_13": -0.0005929906574730514,
+        "support_5": 0.029689832718544674,
+        "support_5_13": 0.0024173852202668414,
+        "support_5_7": 0.040753415596559636,
+        "support_7": 0.05688182064565473,
+        "support_7_11": 0.08420880528354223
+      },
+      "target": 524102
+    },
+    {
+      "complement_to_principal_ratio": 1.0367625860374032,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.16867973860069527,
+        "q286_mode_2": -0.166670245713046,
+        "q286_mode_3": 0.0083585202437338
+      },
+      "first_three_modes_to_principal_ratio": -0.32699146407000745,
+      "full_action_to_principal_ratio": 0.7097711219673958,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": -0.0006042259409836849,
+        "q286_mode_4": -0.00467712450958255,
+        "q286_mode_5": 0.0042110547218974365,
+        "q286_mode_6": -0.0012190029008899656,
+        "q286_tail_residual": 0.0022759061943719975,
+        "support_11": -0.0018286121157129896,
+        "support_13": 0.007200493178586386,
+        "support_5": 0.03124029944314933,
+        "support_5_13": -0.002780798803012985,
+        "support_5_7": 0.052468721874681455,
+        "support_7": 0.06577727333141521,
+        "support_7_11": -0.11530139843651643
+      },
+      "target": 524242
+    },
+    {
+      "complement_to_principal_ratio": 1.1453137667315947,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.09748469391944006,
+        "q286_mode_2": -0.2813758884693702,
+        "q286_mode_3": -0.010015067409468082
+      },
+      "first_three_modes_to_principal_ratio": -0.3888756497982783,
+      "full_action_to_principal_ratio": 0.7564381169333163,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009426315029126314,
+        "q286_mode_4": -0.011424574603827418,
+        "q286_mode_5": 0.003054439160124784,
+        "q286_mode_6": -0.000749209870228146,
+        "q286_tail_residual": 0.0006709886948385069,
+        "support_11": 0.008579125455217596,
+        "support_13": 0.004861068460501991,
+        "support_5": 0.03042545480827756,
+        "support_5_13": -0.005132735555627486,
+        "support_5_7": 0.051604717404613844,
+        "support_7": 0.05649920678820366,
+        "support_7_11": -0.002501029039626523
+      },
+      "target": 532628
+    },
+    {
+      "complement_to_principal_ratio": 1.041017374277089,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.13178699095570134,
+        "q286_mode_2": -0.17951553227202807,
+        "q286_mode_3": -0.007697760186556001
+      },
+      "first_three_modes_to_principal_ratio": -0.31900028341428543,
+      "full_action_to_principal_ratio": 0.7220170908628035,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009426315029126315,
+        "q286_mode_4": -0.000541990117699656,
+        "q286_mode_5": -0.003164328252960037,
+        "q286_mode_6": 0.000997565656005078,
+        "q286_tail_residual": 0.0011331687397872325,
+        "support_11": 0.011737355944620664,
+        "support_13": 0.006181839722365205,
+        "support_5": -0.0291529033058572,
+        "support_5_13": 0.007596279708371726,
+        "support_5_7": -0.002106434897332775,
+        "support_7": 0.04887890221288874,
+        "support_7_11": -0.009968396162226275
+      },
+      "target": 533486
+    },
+    {
+      "complement_to_principal_ratio": 0.848064234089231,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20619101281011903,
+        "q286_mode_2": -0.08525148856199494,
+        "q286_mode_3": -0.013246230808631963
+      },
+      "first_three_modes_to_principal_ratio": -0.30468873218074594,
+      "full_action_to_principal_ratio": 0.5433755019084852,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.008753986831070348,
+        "q286_mode_4": 0.0034586082534299703,
+        "q286_mode_5": 0.0018644613714710137,
+        "q286_mode_6": 0.0019425506176748654,
+        "q286_tail_residual": -0.0024485377255434176,
+        "support_11": -0.0026268177396000267,
+        "support_13": 0.002774507154560664,
+        "support_5": 0.03104487550579693,
+        "support_5_13": 0.0010456039340821688,
+        "support_5_7": -0.15844886138792472,
+        "support_7": -0.07172880755211114,
+        "support_7_11": 0.03243266482632437
+      },
+      "target": 534052
+    },
+    {
+      "complement_to_principal_ratio": 1.1357350833252007,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.046467370651326584,
+        "q286_mode_2": -0.2767686807353028,
+        "q286_mode_3": 0.00633556446874995
+      },
+      "first_three_modes_to_principal_ratio": -0.3169004869178794,
+      "full_action_to_principal_ratio": 0.8188345964073213,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005350767247788113,
+        "q286_mode_4": 0.00027147129461221783,
+        "q286_mode_5": 0.00417191483384572,
+        "q286_mode_6": -0.002821552900476765,
+        "q286_tail_residual": 0.0010886495393540843,
+        "support_11": -0.0009673877897946141,
+        "support_13": 0.0071396376198070086,
+        "support_5": 0.028756937754039036,
+        "support_5_13": -0.00831556042006712,
+        "support_5_7": 0.016839753714876747,
+        "support_7": 0.016922753314203225,
+        "support_7_11": 0.06729769911701294
+      },
+      "target": 537302
+    },
+    {
+      "complement_to_principal_ratio": 1.1864612648042274,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.13612806394102142,
+        "q286_mode_2": -0.17450035739856215,
+        "q286_mode_3": 0.005144355318610439
+      },
+      "first_three_modes_to_principal_ratio": -0.3054840660209731,
+      "full_action_to_principal_ratio": 0.8809771987832543,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009426315029126314,
+        "q286_mode_4": -0.006549978075664886,
+        "q286_mode_5": 0.00016491902869310765,
+        "q286_mode_6": -0.0009776838544242423,
+        "q286_tail_residual": -0.00036583671557465495,
+        "support_11": 0.010244616725916793,
+        "support_13": 0.004847889265588615,
+        "support_5": -0.02935513817781955,
+        "support_5_13": 0.006855924693484657,
+        "support_5_7": 0.3599307831800747,
+        "support_7": -0.06731744202876858,
+        "support_7_11": -0.1004431042664048
+      },
+      "target": 537776
+    },
+    {
+      "complement_to_principal_ratio": 1.0503066555883633,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.17837967181553172,
+        "q286_mode_2": -0.13226811618587836,
+        "q286_mode_3": 0.0015167135130274344
+      },
+      "first_three_modes_to_principal_ratio": -0.3091310744883826,
+      "full_action_to_principal_ratio": 0.7411755810999807,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230048461,
+        "q286_mode_4": -0.0033275027618058046,
+        "q286_mode_5": -0.0002455520162181648,
+        "q286_mode_6": -0.0031123024856866506,
+        "q286_tail_residual": -0.0009877015686734628,
+        "support_11": 0.0027166480296914805,
+        "support_13": -0.002816242379762351,
+        "support_5": 0.0009798221436027087,
+        "support_5_13": -0.0021801161978708262,
+        "support_5_7": 0.007714060788495476,
+        "support_7": 0.01429019607505333,
+        "support_7_11": 0.032259672731489136
+      },
+      "target": 541040
+    },
+    {
+      "complement_to_principal_ratio": 0.915924146276999,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.13949009208217134,
+        "q286_mode_2": -0.1781732067860789,
+        "q286_mode_3": 0.009777689531734782
+      },
+      "first_three_modes_to_principal_ratio": -0.30788560933651543,
+      "full_action_to_principal_ratio": 0.6080385369404836,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.015773145984545423,
+        "q286_mode_4": -0.012698116113405556,
+        "q286_mode_5": 0.004495963711109559,
+        "q286_mode_6": 0.00022787975758937852,
+        "q286_tail_residual": -0.000641469994626658,
+        "support_11": -0.000805761635261786,
+        "support_13": 0.00204640538830648,
+        "support_5": 0.028160173951702117,
+        "support_5_13": -0.0073012821151505775,
+        "support_5_7": -0.07404392908257294,
+        "support_7": 0.023518851529009333,
+        "support_7_11": -0.06280771510424579
+      },
+      "target": 541418
+    },
+    {
+      "complement_to_principal_ratio": 1.2815631784474444,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.10137982397438475,
+        "q286_mode_2": -0.22417297600206773,
+        "q286_mode_3": 0.013591680184236234
+      },
+      "first_three_modes_to_principal_ratio": -0.31196111979221625,
+      "full_action_to_principal_ratio": 0.9696020586552281,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.010337076655653645,
+        "q286_mode_4": 0.004553955362443488,
+        "q286_mode_5": -0.003904152113678213,
+        "q286_mode_6": -6.551656314001054e-05,
+        "q286_tail_residual": -0.002294542933939816,
+        "support_11": -0.0029419526031132666,
+        "support_13": 0.0061213352081711395,
+        "support_5": -0.02991975544436783,
+        "support_5_13": -0.001199840367208613,
+        "support_5_7": 0.35300017412435236,
+        "support_7": -0.07089096567618329,
+        "support_7_11": 0.018767362798454767
+      },
+      "target": 541484
+    },
+    {
+      "complement_to_principal_ratio": 1.1771677897670676,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20192724383103974,
+        "q286_mode_2": -0.09484145667959806,
+        "q286_mode_3": -0.006970041502352495
+      },
+      "first_three_modes_to_principal_ratio": -0.3037387420129903,
+      "full_action_to_principal_ratio": 0.8734290477540774,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012412216315794283,
+        "q286_mode_4": -0.0030003555791407823,
+        "q286_mode_5": 0.0028128169175651685,
+        "q286_mode_6": 0.002005990167170628,
+        "q286_tail_residual": -0.0008065498422389713,
+        "support_11": 0.010099699396366584,
+        "support_13": 0.012907973510624454,
+        "support_5": 0.028911080917649455,
+        "support_5_13": 3.564038007228881e-05,
+        "support_5_7": 0.08148573030487534,
+        "support_7": 0.06548279411354883,
+        "support_7_11": -0.03517924683521966
+      },
+      "target": 546362
+    },
+    {
+      "complement_to_principal_ratio": 0.9100963230937292,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2104147570602836,
+        "q286_mode_2": -0.09088182900172584,
+        "q286_mode_3": -0.013498625361592116
+      },
+      "first_three_modes_to_principal_ratio": -0.31479521142360156,
+      "full_action_to_principal_ratio": 0.5953011116701277,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004097153057343106,
+        "q286_mode_4": 0.0034617687931910134,
+        "q286_mode_5": -0.0017030971133204773,
+        "q286_mode_6": -0.0026554943471462705,
+        "q286_tail_residual": -0.000303298813561185,
+        "support_11": -0.00046767200364414643,
+        "support_13": 7.440336938249451e-05,
+        "support_5": -0.029667350778429354,
+        "support_5_13": 0.0004532217523702164,
+        "support_5_7": -0.13975660994186076,
+        "support_7": 0.04991458346790189,
+        "support_7_11": 0.026648715651502716
+      },
+      "target": 548126
+    },
+    {
+      "complement_to_principal_ratio": 0.6899144617707721,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2018413696178274,
+        "q286_mode_2": -0.12613655275513938,
+        "q286_mode_3": -0.01858629853625587
+      },
+      "first_three_modes_to_principal_ratio": -0.3465642209092226,
+      "full_action_to_principal_ratio": 0.34335024086154947,
+      "identity_error": 5.551115123125783e-17,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004590190502877202,
+        "q286_mode_4": -0.0015990874326489114,
+        "q286_mode_5": -0.0009782797161512135,
+        "q286_mode_6": -0.000493754665137974,
+        "q286_tail_residual": -0.00048366326658361543,
+        "support_11": 0.011516398380415273,
+        "support_13": 0.002218786088521493,
+        "support_5": -0.03085291588414632,
+        "support_5_13": 0.008863723286724462,
+        "support_5_7": -0.2008793648706388,
+        "support_7": -0.06893498699272427,
+        "support_7_11": -0.03305258365973524
+      },
+      "target": 548666
+    },
+    {
+      "complement_to_principal_ratio": 1.0322447523387026,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1557744350891369,
+        "q286_mode_2": -0.18895200023152545,
+        "q286_mode_3": 0.01769457358417247
+      },
+      "first_three_modes_to_principal_ratio": -0.3270318617364899,
+      "full_action_to_principal_ratio": 0.7052128906022127,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 8.81883898689778e-17,
+        "q286_mode_4": -0.009814274870548438,
+        "q286_mode_5": 0.0025684269268669998,
+        "q286_mode_6": -0.0014971863554135037,
+        "q286_tail_residual": -0.0020990107720034617,
+        "support_11": 0.00022209626300896703,
+        "support_13": 0.0013271115051352673,
+        "support_5": 0.03086331252653644,
+        "support_5_13": -0.0014731769500548153,
+        "support_5_7": 0.07323594881511217,
+        "support_7": 0.017909867670602733,
+        "support_7_11": -0.07899836242053986
+      },
+      "target": 549692
+    },
+    {
+      "complement_to_principal_ratio": 0.7957481611962797,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.14010105459429806,
+        "q286_mode_2": -0.1695934815503062,
+        "q286_mode_3": 0.009585977511971572
+      },
+      "first_three_modes_to_principal_ratio": -0.3001085586326327,
+      "full_action_to_principal_ratio": 0.495639602563647,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.0016808315250815696,
+        "q286_mode_5": -0.00018656589754674385,
+        "q286_mode_6": -0.001490593033661455,
+        "q286_tail_residual": 0.000232154594389384,
+        "support_11": -0.004362597325270203,
+        "support_13": 0.002496328378917542,
+        "support_5": 0.03085756058398744,
+        "support_5_13": -0.0030260304337568285,
+        "support_5_7": -0.08702154664584187,
+        "support_7": -0.06509927832645551,
+        "support_7_11": -0.09074358515794595
+      },
+      "target": 549998
+    },
+    {
+      "complement_to_principal_ratio": 0.8726717218291637,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1716299919322605,
+        "q286_mode_2": -0.15856766030010697,
+        "q286_mode_3": -0.009910918120337727
+      },
+      "first_three_modes_to_principal_ratio": -0.3401085703527052,
+      "full_action_to_principal_ratio": 0.5325631514764586,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.0063142933826409505,
+        "q286_mode_4": -0.008034861715557184,
+        "q286_mode_5": 0.006880151819624886,
+        "q286_mode_6": -0.001920317799570557,
+        "q286_tail_residual": -0.005299756572431545,
+        "support_11": 0.0043633672016671005,
+        "support_13": 0.0016570600785641464,
+        "support_5": 0.03066671067366927,
+        "support_5_13": 0.007829744407335302,
+        "support_5_7": -0.11842101252949644,
+        "support_7": -0.06999303997071689,
+        "support_7_11": 0.018629382853434694
+      },
+      "target": 553372
+    },
+    {
+      "complement_to_principal_ratio": 1.03085586551809,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1513104348332308,
+        "q286_mode_2": -0.18715104491118065,
+        "q286_mode_3": 0.007380870044973278
+      },
+      "first_three_modes_to_principal_ratio": -0.3310806096994382,
+      "full_action_to_principal_ratio": 0.6997752558186517,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.003848084043498889,
+        "q286_mode_4": -0.0016589457599626989,
+        "q286_mode_5": -0.00010517388170709476,
+        "q286_mode_6": -0.0007345629793509809,
+        "q286_tail_residual": -0.0018108724226046998,
+        "support_11": 0.005656234847235566,
+        "support_13": 0.0017105691253443563,
+        "support_5": 0.030406236105606558,
+        "support_5_13": 0.00490918151689644,
+        "support_5_7": -0.04188403386677001,
+        "support_7": -0.06758091004056532,
+        "support_7_11": 0.09810005883046896
+      },
+      "target": 557012
+    },
+    {
+      "complement_to_principal_ratio": 0.8794652053786578,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20200241938266938,
+        "q286_mode_2": -0.10560402283156202,
+        "q286_mode_3": -0.00015021673128839206
+      },
+      "first_three_modes_to_principal_ratio": -0.3077566589455198,
+      "full_action_to_principal_ratio": 0.571708546433138,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005350767247788114,
+        "q286_mode_4": -0.012923648150136264,
+        "q286_mode_5": -0.008704058005115181,
+        "q286_mode_6": -0.0003865246508573874,
+        "q286_tail_residual": 0.0007759222859103059,
+        "support_11": -0.0022799510706154585,
+        "support_13": 0.0024480415377026634,
+        "support_5": -0.029370421132818417,
+        "support_5_13": -0.007533858798195293,
+        "support_5_7": -0.014679878848101114,
+        "support_7": 0.013895090469412768,
+        "support_7_11": -0.06712627550631697
+      },
+      "target": 557036
+    },
+    {
+      "complement_to_principal_ratio": 0.8780414706958783,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.187858844931435,
+        "q286_mode_2": -0.14758551071174889,
+        "q286_mode_3": 0.012951785872097261
+      },
+      "first_three_modes_to_principal_ratio": -0.32249256977108665,
+      "full_action_to_principal_ratio": 0.5555489009247917,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.015773145984545423,
+        "q286_mode_4": 0.0034050585783204994,
+        "q286_mode_5": 0.00033294878605781716,
+        "q286_mode_6": -0.0010702877799389,
+        "q286_tail_residual": 0.0018973853012318397,
+        "support_11": 0.00012999886749406447,
+        "support_13": 0.0011973578441196336,
+        "support_5": 0.030041938907926707,
+        "support_5_13": -0.0018076563591935837,
+        "support_5_7": -0.04826503597081964,
+        "support_7": -0.06987266236514238,
+        "support_7_11": -0.05372072109872316
+      },
+      "target": 558578
+    },
+    {
+      "complement_to_principal_ratio": 0.8113292463070155,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.06470145360634004,
+        "q286_mode_2": -0.23824142088828532,
+        "q286_mode_3": -0.012622158295470818
+      },
+      "first_three_modes_to_principal_ratio": -0.3155650327900962,
+      "full_action_to_principal_ratio": 0.49576421351691935,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005350767247788113,
+        "q286_mode_4": 0.006111876557016693,
+        "q286_mode_5": -0.00110926157469609,
+        "q286_mode_6": -0.0022527254161613507,
+        "q286_tail_residual": 0.0008480973288352857,
+        "support_11": -0.0018976065882721313,
+        "support_13": 0.006116307687418985,
+        "support_5": 0.02803162669772694,
+        "support_5_13": 0.004185282195442237,
+        "support_5_7": -0.11383475751007682,
+        "support_7": -0.06931650736577843,
+        "support_7_11": -0.050903852952227845
+      },
+      "target": 560468
+    },
+    {
+      "complement_to_principal_ratio": 0.8149656630592115,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20289633512361827,
+        "q286_mode_2": -0.16017554951499524,
+        "q286_mode_3": -0.003434020410485992
+      },
+      "first_three_modes_to_principal_ratio": -0.3665059050490995,
+      "full_action_to_principal_ratio": 0.44845975801011195,
+      "identity_error": 5.551115123125783e-17,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.008753986831070348,
+        "q286_mode_4": -0.0009573481087587839,
+        "q286_mode_5": -0.0032584029197901313,
+        "q286_mode_6": -0.003384027040509813,
+        "q286_tail_residual": -0.0019902078919067615,
+        "support_11": -0.002082378509295133,
+        "support_13": 0.0023030498692146657,
+        "support_5": 0.030288847656217272,
+        "support_5_13": 0.0035761541324767663,
+        "support_5_7": -0.12554825357444246,
+        "support_7": -0.06839768937925522,
+        "support_7_11": -0.02433806800580931
+      },
+      "target": 564082
+    },
+    {
+      "complement_to_principal_ratio": 0.8318326958212735,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.15839995150895614,
+        "q286_mode_2": -0.15463320092452587,
+        "q286_mode_3": 0.0065544171318335
+      },
+      "first_three_modes_to_principal_ratio": -0.3064787353016485,
+      "full_action_to_principal_ratio": 0.525353960519625,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": -0.007383908909138878,
+        "q286_mode_4": 0.031081384129580187,
+        "q286_mode_5": -0.004640831306445406,
+        "q286_mode_6": -0.004633016730965106,
+        "q286_tail_residual": -5.210109965658522e-05,
+        "support_11": 0.009709520084624168,
+        "support_13": 0.007071667882986872,
+        "support_5": 0.03071900854587833,
+        "support_5_13": -0.0012923639595655058,
+        "support_5_7": -0.10133739085539552,
+        "support_7": -0.07236497106808998,
+        "support_7_11": -0.05504430089253906
+      },
+      "target": 566558
+    },
+    {
+      "complement_to_principal_ratio": 0.8780515326284768,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1945173921287401,
+        "q286_mode_2": -0.11088146474737608,
+        "q286_mode_3": -0.005260721668947266
+      },
+      "first_three_modes_to_principal_ratio": -0.31065957854506343,
+      "full_action_to_principal_ratio": 0.5673919540834134,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005350767247788113,
+        "q286_mode_4": 0.002158412265584175,
+        "q286_mode_5": -0.00010969204522225796,
+        "q286_mode_6": 0.004741193068022008,
+        "q286_tail_residual": -0.002183511829269974,
+        "support_11": -0.0028275978256129355,
+        "support_13": 0.004650113805164533,
+        "support_5": -0.02782451518530375,
+        "support_5_13": -0.00638865143745044,
+        "support_5_7": 0.0066402099363854425,
+        "support_7": 0.016460737511314404,
+        "support_7_11": -0.1226159328829225
+      },
+      "target": 567046
+    },
+    {
+      "complement_to_principal_ratio": 0.9692807831459659,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.13046822089781013,
+        "q286_mode_2": -0.17164581243927096,
+        "q286_mode_3": -0.00597821523925964
+      },
+      "first_three_modes_to_principal_ratio": -0.3080922485763407,
+      "full_action_to_principal_ratio": 0.6611885345696251,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004405689982813905,
+        "q286_mode_4": 0.010497459971430086,
+        "q286_mode_5": -0.0009747786672272968,
+        "q286_mode_6": 0.0011006796626129513,
+        "q286_tail_residual": 0.00023819841600360376,
+        "support_11": 0.0069738619520918355,
+        "support_13": 0.00670948976603414,
+        "support_5": -0.028380203922865402,
+        "support_5_13": 0.003057308224554327,
+        "support_5_7": 0.007650948487381827,
+        "support_7": 0.0009686759327357869,
+        "support_7_11": -0.04296654665959989
+      },
+      "target": 567056
+    },
+    {
+      "complement_to_principal_ratio": 1.2309448900581634,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.17552300076139987,
+        "q286_mode_2": -0.1804333485848185,
+        "q286_mode_3": 0.010450291259820312
+      },
+      "first_three_modes_to_principal_ratio": -0.34550605808639806,
+      "full_action_to_principal_ratio": 0.8854388319717654,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009982921773694878,
+        "q286_mode_4": -0.00577090925749748,
+        "q286_mode_5": 0.0037799087123713718,
+        "q286_mode_6": 0.0012113433411898562,
+        "q286_tail_residual": 8.251355456226268e-05,
+        "support_11": -0.0003365105042271676,
+        "support_13": 0.00829916695340826,
+        "support_5": 0.029761182815261807,
+        "support_5_13": 0.0008207531191190947,
+        "support_5_7": 0.03156119382398044,
+        "support_7": 0.05063594845011668,
+        "support_7_11": 0.10091737727618337
+      },
+      "target": 567068
+    },
+    {
+      "complement_to_principal_ratio": 0.9067347939784932,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2051770320974005,
+        "q286_mode_2": -0.10404741718277348,
+        "q286_mode_3": -0.0009416885448213281
+      },
+      "first_three_modes_to_principal_ratio": -0.3101661378249953,
+      "full_action_to_principal_ratio": 0.596568656153498,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 8.818838986897779e-17,
+        "q286_mode_4": -0.006800570770784564,
+        "q286_mode_5": -0.0014590379822072043,
+        "q286_mode_6": -0.001233192209560548,
+        "q286_tail_residual": -0.0036295238803928957,
+        "support_11": 0.00099190522157216,
+        "support_13": -0.005456573839848094,
+        "support_5": 0.028361606516953058,
+        "support_5_13": -0.0011120299855540982,
+        "support_5_7": -0.03134923247177508,
+        "support_7": -0.07090797157082687,
+        "support_7_11": -0.000670585049082703
+      },
+      "target": 568282
+    },
+    {
+      "complement_to_principal_ratio": 0.8245004216244894,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.21406140093129364,
+        "q286_mode_2": -0.08389458502628314,
+        "q286_mode_3": -0.0027795788330018424
+      },
+      "first_three_modes_to_principal_ratio": -0.3007355647905786,
+      "full_action_to_principal_ratio": 0.5237648568339108,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00501567323004846,
+        "q286_mode_4": 0.011640915971696435,
+        "q286_mode_5": 0.004078090796448146,
+        "q286_mode_6": 0.0026056005803840572,
+        "q286_tail_residual": -0.0016874912644441725,
+        "support_11": 0.0053379733343539,
+        "support_13": 0.0073630169317057586,
+        "support_5": -0.02826193406579787,
+        "support_5_13": -0.0018119030958766156,
+        "support_5_7": -0.14766889754119789,
+        "support_7": 0.052157591833380625,
+        "support_7_11": -0.08426821508621145
+      },
+      "target": 568496
+    },
+    {
+      "complement_to_principal_ratio": 0.8961647569134699,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.16767378298716723,
+        "q286_mode_2": -0.15526178952042297,
+        "q286_mode_3": 0.0025099245735879403
+      },
+      "first_three_modes_to_principal_ratio": -0.32042564793400224,
+      "full_action_to_principal_ratio": 0.5757391089794677,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230048461,
+        "q286_mode_4": -0.004413318302866636,
+        "q286_mode_5": -0.0010951206523691886,
+        "q286_mode_6": -0.00027965239777556826,
+        "q286_tail_residual": 0.0014134183353221475,
+        "support_11": 0.00693479683311265,
+        "support_13": 0.00565534167439534,
+        "support_5": 0.028670674519189573,
+        "support_5_13": 0.001746079080904684,
+        "support_5_7": -0.09437070453218444,
+        "support_7": -0.0727636715495665,
+        "support_7_11": 0.019651240675259286
+      },
+      "target": 570212
+    },
+    {
+      "complement_to_principal_ratio": 1.0040353287276937,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2101850872645681,
+        "q286_mode_2": -0.14198503255321,
+        "q286_mode_3": -0.002030584313911126
+      },
+      "first_three_modes_to_principal_ratio": -0.35420070413168925,
+      "full_action_to_principal_ratio": 0.6498346245960045,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.007060021681800222,
+        "q286_mode_4": 0.013096225462150885,
+        "q286_mode_5": 0.001794218931723814,
+        "q286_mode_6": 0.0004170468065516738,
+        "q286_tail_residual": 0.00233012684596678,
+        "support_11": 0.007019338175648724,
+        "support_13": 0.0038230231111631577,
+        "support_5": -0.029707356791335012,
+        "support_5_13": 0.006238903240713375,
+        "support_5_7": -0.05855515534387362,
+        "support_7": 0.018682769726274587,
+        "support_7_11": 0.03183616688090909
+      },
+      "target": 573304
+    },
+    {
+      "complement_to_principal_ratio": 0.8825192218246325,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.12430449867355718,
+        "q286_mode_2": -0.2060173884940648,
+        "q286_mode_3": -0.0018733620522409045
+      },
+      "first_three_modes_to_principal_ratio": -0.3321952492198629,
+      "full_action_to_principal_ratio": 0.5503239726047696,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230048461,
+        "q286_mode_4": 0.015713746265026845,
+        "q286_mode_5": 0.0032540539695875585,
+        "q286_mode_6": 0.0006555344427479375,
+        "q286_tail_residual": -0.0019764885251698297,
+        "support_11": 0.005267708070646603,
+        "support_13": 0.003662224488782065,
+        "support_5": 0.029449803152265665,
+        "support_5_13": 0.005014614333431,
+        "support_5_7": -0.05033383882503952,
+        "support_7": -0.0698754331463999,
+        "support_7_11": -0.06332837563129437
+      },
+      "target": 576218
+    },
+    {
+      "complement_to_principal_ratio": 0.9678659233370063,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.17672347667933896,
+        "q286_mode_2": -0.13557697713724906,
+        "q286_mode_3": 0.006924150387882532
+      },
+      "first_three_modes_to_principal_ratio": -0.3053763034287055,
+      "full_action_to_principal_ratio": 0.6624896199083008,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.007060021681799982,
+        "q286_mode_4": -0.007106468760276502,
+        "q286_mode_5": -0.00031436345640130066,
+        "q286_mode_6": 0.0013621273392077056,
+        "q286_tail_residual": 0.0015419383478649995,
+        "support_11": 0.006401768869976151,
+        "support_13": -0.0003272417343895329,
+        "support_5": -0.030410439617780366,
+        "support_5_13": -0.0030459289878687953,
+        "support_5_7": -0.027009852994951962,
+        "support_7": 0.01872871331869781,
+        "support_7_11": 0.000985649331128131
+      },
+      "target": 577846
+    },
+    {
+      "complement_to_principal_ratio": 0.8932382700904097,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.24076212605155256,
+        "q286_mode_2": -0.07852302925247033,
+        "q286_mode_3": 0.00343626715925574
+      },
+      "first_three_modes_to_principal_ratio": -0.31584888814476714,
+      "full_action_to_principal_ratio": 0.5773893819456426,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009982921773694257,
+        "q286_mode_4": 0.002072623813396709,
+        "q286_mode_5": 0.002034883462746379,
+        "q286_mode_6": -0.0010965987548417883,
+        "q286_tail_residual": -0.000941653389076816,
+        "support_11": -0.0003458001009492454,
+        "support_13": 0.004702176120645438,
+        "support_5": 0.030396960121315143,
+        "support_5_13": 0.0005131943590083946,
+        "support_5_7": -0.11030415432488104,
+        "support_7": -0.06565171378570034,
+        "support_7_11": 0.021875430795052563
+      },
+      "target": 578362
+    },
+    {
+      "complement_to_principal_ratio": 0.8255419257636373,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.18119497705011756,
+        "q286_mode_2": -0.11542465293736798,
+        "q286_mode_3": -0.010129302750381527
+      },
+      "first_three_modes_to_principal_ratio": -0.3067489327378671,
+      "full_action_to_principal_ratio": 0.5187929930257702,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.015773145984544178,
+        "q286_mode_4": 0.003530518784794551,
+        "q286_mode_5": -0.00751149175117133,
+        "q286_mode_6": 0.0011456012015297538,
+        "q286_tail_residual": -0.0028104108589199024,
+        "support_11": -0.003232857627931359,
+        "support_13": 0.003373686436113546,
+        "support_5": 0.02952949365350323,
+        "support_5_13": -0.0021920754057016202,
+        "support_5_7": -0.1233325134723902,
+        "support_7": -0.06965983112747699,
+        "support_7_11": -0.019071340053256555
+      },
+      "target": 581132
+    },
+    {
+      "complement_to_principal_ratio": 0.9464454333142637,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.22834991281985498,
+        "q286_mode_2": -0.12294063016525641,
+        "q286_mode_3": -0.0035769381452080535
+      },
+      "first_three_modes_to_principal_ratio": -0.35486748113031946,
+      "full_action_to_principal_ratio": 0.5915779521839442,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.015773145984545423,
+        "q286_mode_4": -0.005632606870116629,
+        "q286_mode_5": -0.003759797965781468,
+        "q286_mode_6": -0.0018064735021824131,
+        "q286_tail_residual": 0.002280614185271951,
+        "support_11": -0.000944359958465887,
+        "support_13": 0.002783693472852396,
+        "support_5": -0.030215468976670188,
+        "support_5_13": -0.002589104284042856,
+        "support_5_7": 0.004243899505448155,
+        "support_7": 0.01853632229769136,
+        "support_7_11": -0.052224430574286176
+      },
+      "target": 587464
+    },
+    {
+      "complement_to_principal_ratio": 0.819055394049191,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.22459359055454647,
+        "q286_mode_2": -0.09555141888064966,
+        "q286_mode_3": 0.007153230642304409
+      },
+      "first_three_modes_to_principal_ratio": -0.31299177879289175,
+      "full_action_to_principal_ratio": 0.5060636152562993,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00998292177369488,
+        "q286_mode_4": -0.0030625730676509828,
+        "q286_mode_5": -0.0009027427086039926,
+        "q286_mode_6": -6.966535511582599e-05,
+        "q286_tail_residual": 0.0017052341513604206,
+        "support_11": 0.0001624397326699685,
+        "support_13": 0.006337221356386797,
+        "support_5": 0.029956808613152815,
+        "support_5_13": -0.004791623804233836,
+        "support_5_7": -0.09413385349161803,
+        "support_7": -0.06959159468052577,
+        "support_7_11": -0.05653717847032538
+      },
+      "target": 588232
+    },
+    {
+      "complement_to_principal_ratio": 0.8358976413272555,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.22123625710433537,
+        "q286_mode_2": -0.17209840637038099,
+        "q286_mode_3": 0.005694164023251109
+      },
+      "first_three_modes_to_principal_ratio": -0.3876404994514652,
+      "full_action_to_principal_ratio": 0.4482571418757903,
+      "identity_error": 5.551115123125783e-17,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00875398683107035,
+        "q286_mode_4": -0.0004762965217931264,
+        "q286_mode_5": -0.008312653421253782,
+        "q286_mode_6": 0.0015481017572947493,
+        "q286_tail_residual": -0.0012820699237904613,
+        "support_11": -0.0019504248187440477,
+        "support_13": 0.0032339014354727863,
+        "support_5": 0.028626451424928905,
+        "support_5_13": -0.0010294524021200388,
+        "support_5_7": -0.047921334765643524,
+        "support_7": -0.06981770622287073,
+        "support_7_11": -0.07547486204529553
+      },
+      "target": 594112
+    },
+    {
+      "complement_to_principal_ratio": 0.9710569609849098,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2570285233649964,
+        "q286_mode_2": -0.051250166259310774,
+        "q286_mode_3": -0.006856542828190361
+      },
+      "first_three_modes_to_principal_ratio": -0.3151352324524975,
+      "full_action_to_principal_ratio": 0.6559217285324123,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012372765988951514,
+        "q286_mode_4": 0.003288534886716201,
+        "q286_mode_5": -0.0029806971384367525,
+        "q286_mode_6": 0.0037830263052129032,
+        "q286_tail_residual": 0.0017811500059257423,
+        "support_11": -0.0005376388672457458,
+        "support_13": 0.010020135603400248,
+        "support_5": -0.030411646870139405,
+        "support_5_13": 0.003658743463096555,
+        "support_5_7": -0.03340023810255377,
+        "support_7": 0.018970909993268913,
+        "support_7_11": -0.01548808428328666
+      },
+      "target": 605356
+    },
+    {
+      "complement_to_principal_ratio": 0.956743068650221,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2872779187899491,
+        "q286_mode_2": -0.022697587570696044,
+        "q286_mode_3": -0.004284873513572542
+      },
+      "first_three_modes_to_principal_ratio": -0.31426037987421773,
+      "full_action_to_principal_ratio": 0.6424826887760032,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01404964547431524,
+        "q286_mode_4": 0.002277774612013116,
+        "q286_mode_5": -0.0010245635209267892,
+        "q286_mode_6": 0.00030163260943771885,
+        "q286_tail_residual": -0.0031537374882607792,
+        "support_11": 0.00877025722815662,
+        "support_13": 0.004868355690622475,
+        "support_5": -0.028959055014963656,
+        "support_5_13": -0.002056964842709251,
+        "support_5_7": -0.002000788786797396,
+        "support_7": 0.019041679745087046,
+        "support_7_11": -0.05537116705575336
+      },
+      "target": 612356
+    },
+    {
+      "complement_to_principal_ratio": 1.00299911236294,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.22055075058201948,
+        "q286_mode_2": -0.11378701364995349,
+        "q286_mode_3": -0.009824594771221195
+      },
+      "first_three_modes_to_principal_ratio": -0.34416235900319414,
+      "full_action_to_principal_ratio": 0.6588367533597459,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.009931331132228896,
+        "q286_mode_4": 0.021316442507923524,
+        "q286_mode_5": -0.000590858209181742,
+        "q286_mode_6": 0.0007489079774479835,
+        "q286_tail_residual": 0.0005140591124757053,
+        "support_11": 0.010674318228802111,
+        "support_13": 0.0036098573691679455,
+        "support_5": -0.001304750304745994,
+        "support_5_13": 0.0013836588258658374,
+        "support_5_7": -0.03729133280628346,
+        "support_7": 0.056489032585048705,
+        "support_7_11": -0.062481554055809546
+      },
+      "target": 615200
+    },
+    {
+      "complement_to_principal_ratio": 1.0015547050635785,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20082034327318934,
+        "q286_mode_2": -0.1091062352288931,
+        "q286_mode_3": 0.006513439952507182
+      },
+      "first_three_modes_to_principal_ratio": -0.30341313854957525,
+      "full_action_to_principal_ratio": 0.6981415665140032,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.015773145984544178,
+        "q286_mode_4": 0.001323353849496067,
+        "q286_mode_5": -0.005206687543400908,
+        "q286_mode_6": -0.002091634010160292,
+        "q286_tail_residual": 0.001371375438425485,
+        "support_11": -0.0027456341664665197,
+        "support_13": -0.001132037096122866,
+        "support_5": -0.030241441906488337,
+        "support_5_13": 0.009035936289994656,
+        "support_5_7": 0.038238084743939735,
+        "support_7": 0.016925665577794076,
+        "support_7_11": -0.0396954220979768
+      },
+      "target": 616024
+    },
+    {
+      "complement_to_principal_ratio": 0.9805886600331073,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2537100754536703,
+        "q286_mode_2": -0.1059186542450486,
+        "q286_mode_3": 0.004926348432823898
+      },
+      "first_three_modes_to_principal_ratio": -0.354702381265895,
+      "full_action_to_principal_ratio": 0.6258862787672124,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230048461,
+        "q286_mode_4": 0.011717267683974898,
+        "q286_mode_5": 0.0017267548483419304,
+        "q286_mode_6": 0.00094882416170288,
+        "q286_tail_residual": -0.004757664694099318,
+        "support_11": 0.007156556534751763,
+        "support_13": 0.002040868633700443,
+        "support_5": 0.028152100553731418,
+        "support_5_13": 0.0015983352993361847,
+        "support_5_7": -0.03262096792557371,
+        "support_7": 0.019115990077789382,
+        "support_7_11": -0.059505078370597014
+      },
+      "target": 619118
+    },
+    {
+      "complement_to_principal_ratio": 0.8108005830373729,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20689341849653767,
+        "q286_mode_2": -0.09314530616677003,
+        "q286_mode_3": -0.0005961592036712668
+      },
+      "first_three_modes_to_principal_ratio": -0.30063488386697895,
+      "full_action_to_principal_ratio": 0.510165699170394,
+      "identity_error": 4.440892098500626e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012183599690236939,
+        "q286_mode_4": -0.001738488869067112,
+        "q286_mode_5": -0.0006024934291413526,
+        "q286_mode_6": -1.1420558130385429e-05,
+        "q286_tail_residual": -0.001175164153350403,
+        "support_11": -0.002080936924064024,
+        "support_13": 0.005497872322757435,
+        "support_5": 0.028579006176656183,
+        "support_5_13": -0.000422634501796659,
+        "support_5_7": -0.13938123820017465,
+        "support_7": -0.07133195340730421,
+        "support_7_11": -0.01871556510924892
+      },
+      "target": 632458
+    },
+    {
+      "complement_to_principal_ratio": 0.9498491799195604,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.15326675555583064,
+        "q286_mode_2": -0.17281987981459251,
+        "q286_mode_3": -0.006209912322543042
+      },
+      "first_three_modes_to_principal_ratio": -0.3322965476929662,
+      "full_action_to_principal_ratio": 0.6175526322265943,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.00359849031813717,
+        "q286_mode_4": 0.007586185296980242,
+        "q286_mode_5": 0.004468608861901362,
+        "q286_mode_6": 7.381390648722768e-05,
+        "q286_tail_residual": -0.0006823621938708912,
+        "support_11": -0.0003114486584736296,
+        "support_13": 0.0006092780716959937,
+        "support_5": -0.028226433610828352,
+        "support_5_13": -0.0027426335348580315,
+        "support_5_7": -0.11528922554393786,
+        "support_7": 0.051097802985983085,
+        "support_7_11": 0.02966710402034406
+      },
+      "target": 634016
+    },
+    {
+      "complement_to_principal_ratio": 1.1103018790146257,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.23479129618696282,
+        "q286_mode_2": -0.11324549960491126,
+        "q286_mode_3": 0.01685254515079762
+      },
+      "first_three_modes_to_principal_ratio": -0.3311842506410765,
+      "full_action_to_principal_ratio": 0.7791176283735493,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012183599690238045,
+        "q286_mode_4": -0.005572336801552516,
+        "q286_mode_5": -0.002427990808448725,
+        "q286_mode_6": 0.0007433667204356411,
+        "q286_tail_residual": -0.002406875700921365,
+        "support_11": -0.0015711394933506041,
+        "support_13": 0.004369079671019181,
+        "support_5": 0.028948504793515357,
+        "support_5_13": -0.0029233949594964495,
+        "support_5_7": 0.023572602256601693,
+        "support_7": 0.020476160481428626,
+        "support_7_11": 0.034910303165156746
+      },
+      "target": 647392
+    },
+    {
+      "complement_to_principal_ratio": 1.1890715230815438,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.20328953006275255,
+        "q286_mode_2": -0.13750914475756426,
+        "q286_mode_3": 0.0020750351787791367
+      },
+      "first_three_modes_to_principal_ratio": -0.3387236396415377,
+      "full_action_to_principal_ratio": 0.8503478834400062,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012183599690236939,
+        "q286_mode_4": -0.012937771585952327,
+        "q286_mode_5": 0.001367850174888794,
+        "q286_mode_6": -0.0020493655901571485,
+        "q286_tail_residual": 0.0008175614558412069,
+        "support_11": -0.0004972495081422018,
+        "support_13": 0.005997907229156302,
+        "support_5": -0.02825672681736225,
+        "support_5_13": -0.0016001454119538682,
+        "support_5_7": 0.3525993489560384,
+        "support_7": -0.06622217828923169,
+        "support_7_11": -0.07233130722181837
+      },
+      "target": 650476
+    },
+    {
+      "complement_to_principal_ratio": 1.0477337101487414,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.18511495713665677,
+        "q286_mode_2": -0.24286650866171783,
+        "q286_mode_3": 0.013555715238233058
+      },
+      "first_three_modes_to_principal_ratio": -0.4144257505601415,
+      "full_action_to_principal_ratio": 0.6333079595885999,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.010619982023437606,
+        "q286_mode_4": 0.007136950637280609,
+        "q286_mode_5": -0.0009745551054332847,
+        "q286_mode_6": 0.000535085052391082,
+        "q286_tail_residual": -0.001363967898148526,
+        "support_11": 0.005511651423097571,
+        "support_13": 0.004281992366187688,
+        "support_5": 0.030229495965959523,
+        "support_5_13": -0.0056323480178247865,
+        "support_5_7": -0.003740643530901744,
+        "support_7": 0.01904584837534118,
+        "support_7_11": -0.01791578114264555
+      },
+      "target": 658598
+    },
+    {
+      "complement_to_principal_ratio": 1.0285334831447541,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2582430141872671,
+        "q286_mode_2": -0.05683271560426489,
+        "q286_mode_3": -0.006473560005243775
+      },
+      "first_three_modes_to_principal_ratio": -0.3215492897967758,
+      "full_action_to_principal_ratio": 0.7069841933479784,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.010129852491820688,
+        "q286_mode_4": -0.004259229538961274,
+        "q286_mode_5": -0.003009771473084917,
+        "q286_mode_6": -0.0012825934430880578,
+        "q286_tail_residual": 0.002412497954617328,
+        "support_11": -0.0030331275074919,
+        "support_13": 0.007361778005102236,
+        "support_5": -0.029728679334080316,
+        "support_5_13": -0.0014039263384847684,
+        "support_5_7": -0.025568933989512526,
+        "support_7": 0.05997310891504929,
+        "support_7_11": 0.01694250740286843
+      },
+      "target": 733126
+    },
+    {
+      "complement_to_principal_ratio": 1.117224177855126,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.25288384151571497,
+        "q286_mode_2": -0.06320588359726088,
+        "q286_mode_3": -0.0022381528069002326
+      },
+      "first_three_modes_to_principal_ratio": -0.3183278779198761,
+      "full_action_to_principal_ratio": 0.7988962999352498,
+      "identity_error": 3.3306690738754696e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005350767247784826,
+        "q286_mode_4": -0.00882410411081466,
+        "q286_mode_5": 0.0026578866639577975,
+        "q286_mode_6": -0.0044921139166431215,
+        "q286_tail_residual": -0.00034525481953526986,
+        "support_11": 4.343585224029152e-05,
+        "support_13": 0.004386241485744615,
+        "support_5": -0.02983393735829421,
+        "support_5_13": 0.005645465160892183,
+        "support_5_7": 0.004694485131444992,
+        "support_7": 0.012926072576113716,
+        "support_7_11": 0.12501523394223477
+      },
+      "target": 741976
+    },
+    {
+      "complement_to_principal_ratio": 1.3662358768256586,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.2759240759135773,
+        "q286_mode_2": -0.02455566250381187,
+        "q286_mode_3": -0.01057393373352079
+      },
+      "first_three_modes_to_principal_ratio": -0.31105367215090995,
+      "full_action_to_principal_ratio": 1.0551822046747485,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.012411271074318875,
+        "q286_mode_4": 0.0011574615811042674,
+        "q286_mode_5": -0.0019779904451878686,
+        "q286_mode_6": -0.0021292829989850047,
+        "q286_tail_residual": 0.0008875254541624149,
+        "support_11": 0.01010107825557011,
+        "support_13": 0.008770160115362139,
+        "support_5": -0.03056763969472197,
+        "support_5_13": -0.003622924847530318,
+        "support_5_7": 0.42166329733307084,
+        "support_7": -0.06699768066123321,
+        "support_7_11": 0.016540601659728347
+      },
+      "target": 775426
+    },
+    {
+      "complement_to_principal_ratio": 0.9955200042901747,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.21007074379056523,
+        "q286_mode_2": -0.12192333620456863,
+        "q286_mode_3": -0.0031665747087641968
+      },
+      "first_three_modes_to_principal_ratio": -0.33516065470389805,
+      "full_action_to_principal_ratio": 0.6603593495862767,
+      "identity_error": 2.220446049250313e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.007060021681799982,
+        "q286_mode_4": 0.0028778554316947797,
+        "q286_mode_5": -0.012117026015595648,
+        "q286_mode_6": 0.0020693475965595136,
+        "q286_tail_residual": 0.002186549604604907,
+        "support_11": 0.004904659357393573,
+        "support_13": 0.007641702089843019,
+        "support_5": -0.02908038797003963,
+        "support_5_13": 0.0030457867033854146,
+        "support_5_7": -0.03582576005509439,
+        "support_7": 0.05085752530514285,
+        "support_7_11": -0.00810026943951968
+      },
+      "target": 782336
+    },
+    {
+      "complement_to_principal_ratio": 0.9842009544848699,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.1943179764718058,
+        "q286_mode_2": -0.12541395124717536,
+        "q286_mode_3": -0.010109759392617126
+      },
+      "first_three_modes_to_principal_ratio": -0.3298416871115983,
+      "full_action_to_principal_ratio": 0.6543592673732717,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": -0.0025701660995851826,
+        "q286_mode_5": -0.001788935437792576,
+        "q286_mode_6": 0.0007876761203541246,
+        "q286_tail_residual": 0.001366518885064209,
+        "support_11": -0.0013762371714683855,
+        "support_13": 0.0016886641076182005,
+        "support_5": 0.028413389480674334,
+        "support_5_13": 0.003080905858471461,
+        "support_5_7": -0.025411230595487784,
+        "support_7": 0.016639014421979674,
+        "support_7_11": -0.05240179106950359
+      },
+      "target": 805682
+    },
+    {
+      "complement_to_principal_ratio": 0.9952438997675462,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.04541684763540159,
+        "q286_mode_2": -0.2649624097728645,
+        "q286_mode_3": 0.0006472440632552335
+      },
+      "first_three_modes_to_principal_ratio": -0.3097320133450109,
+      "full_action_to_principal_ratio": 0.6855118864225354,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": -0.000604225940983244,
+        "q286_mode_4": -0.002295872664330368,
+        "q286_mode_5": 0.001304420126563568,
+        "q286_mode_6": 0.001970579176601555,
+        "q286_tail_residual": 0.0002468866540081629,
+        "support_11": -0.0009735956616430207,
+        "support_13": 0.006056020729420593,
+        "support_5": 0.028075350888009828,
+        "support_5_13": -0.0018182330384551872,
+        "support_5_7": -0.010803748834386603,
+        "support_7": 0.015228119684086527,
+        "support_7_11": -0.04114180135134552
+      },
+      "target": 818528
+    },
+    {
+      "complement_to_principal_ratio": 1.0101301471453272,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.22125224031017682,
+        "q286_mode_2": -0.08893590374230625,
+        "q286_mode_3": -0.016598844964435214
+      },
+      "first_three_modes_to_principal_ratio": -0.3267869890169183,
+      "full_action_to_principal_ratio": 0.683343158128409,
+      "identity_error": 0.0,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.004547927429711038,
+        "q286_mode_4": -0.001193895495883507,
+        "q286_mode_5": 0.0024629184388866064,
+        "q286_mode_6": 0.0023238626199212297,
+        "q286_tail_residual": 0.0005681339393558277,
+        "support_11": 0.0103762045383689,
+        "support_13": -0.0024057430200132017,
+        "support_5": 0.028803577038972458,
+        "support_5_13": 0.0021941740636632115,
+        "support_5_7": -0.07235945783495311,
+        "support_7": 0.020593750068101057,
+        "support_7_11": 0.014218695359196742
+      },
+      "target": 828418
+    },
+    {
+      "complement_to_principal_ratio": 0.9592810149486168,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.25354571554594574,
+        "q286_mode_2": -0.06113953358416854,
+        "q286_mode_3": -0.010993769649770483
+      },
+      "first_three_modes_to_principal_ratio": -0.32567901877988475,
+      "full_action_to_principal_ratio": 0.633601996168732,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.005015673230047386,
+        "q286_mode_4": -0.004257401598733448,
+        "q286_mode_5": -0.001841426468898885,
+        "q286_mode_6": 0.0011234267597207718,
+        "q286_tail_residual": -0.002623107468027198,
+        "support_11": 0.0073646116389986865,
+        "support_13": -0.0010798475058469538,
+        "support_5": 0.029012670137242548,
+        "support_5_13": 0.00013087755567930818,
+        "support_5_7": -0.03561138984483786,
+        "support_7": 0.011786576421792816,
+        "support_7_11": -0.049739647908520306
+      },
+      "target": 846632
+    },
+    {
+      "complement_to_principal_ratio": 1.0176794142186818,
+      "deficit_mode_components": {
+        "q286_mode_1": -0.24394653277791611,
+        "q286_mode_2": -0.096984830653671,
+        "q286_mode_3": -0.004554227105365224
+      },
+      "first_three_modes_to_principal_ratio": -0.3454855905369523,
+      "full_action_to_principal_ratio": 0.6721938236817295,
+      "identity_error": 1.1102230246251565e-16,
+      "rescue_components": {
+        "principal_baseline": 1.0,
+        "q286_local": 0.01577314598454542,
+        "q286_mode_4": 0.004931738030779898,
+        "q286_mode_5": 0.0024322433664414607,
+        "q286_mode_6": 0.0017341567604288084,
+        "q286_tail_residual": 0.003007975544978182,
+        "support_11": -0.00262578405723747,
+        "support_13": -0.0007392014502113984,
+        "support_5": 0.02992261391311144,
+        "support_5_13": 0.004992398718778015,
+        "support_5_7": -0.02315865022900097,
+        "support_7": 0.0195285756679623,
+        "support_7_11": -0.038119798031893956
+      },
+      "target": 955832
+    }
+  ],
+  "upstream_validation": {
+    "later_candidate_status": "rescued_with_tail_support",
+    "later_tail_count": 73,
+    "optimized_row_verifier_validated": true
+  }
+}

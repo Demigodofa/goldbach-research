@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "9e3f8e42758fb2ba667916f38d772a6e066af711",
+  "generated_from_commit": "e36fcb9e0018a7d042fafecd973cb7b1d41093f2",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -522,6 +522,14 @@
       "source": "evidence/q286-prime-indexed-later-full-block-scan.json",
       "default_weight": 5.0,
       "boundary": "Finite predeclared later full-block scan only; no eventual theorem."
+    },
+    {
+      "id": "later-tail-complement-source-decomposition",
+      "label": "Later q286 rescue is principal baseline plus nonprincipal drag control",
+      "kind": "finite_component_decomposition",
+      "source": "evidence/q286-later-tail-complement-source-decomposition.json",
+      "default_weight": 5.0,
+      "boundary": "Finite later-tail component diagnostic only; no eventual theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -7041,6 +7049,26 @@
       "glow": 0.172414
     },
     {
+      "id": "principal-baseline-supplies-later-tail-rescue",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "later-tail-complement-source-decomposition",
+          "weight": 5.0,
+          "reason": "principal baseline alone keeps all later tail rows positive",
+          "value": {
+            "target_count": 73,
+            "principal_only_minimum_margin": 0.5574443165171575,
+            "principal_only_keeps_all_tail_rows_positive": true,
+            "nonprincipal_only_minimum_margin": -0.6566497591384506,
+            "smallest_subset_without_principal_size": null
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.172414
+    },
+    {
       "id": "zero-local-target-correlation-decomposition",
       "stack_weight": 5.0,
       "layers": [
@@ -8698,6 +8726,32 @@
       ],
       "layer_count": 2,
       "glow": 0.068966
+    },
+    {
+      "id": "first-three-greater-than-negative-one",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "later-tail-complement-source-decomposition",
+          "weight": 5.0,
+          "reason": "principal-only rescue reframes the first proof target as first_three > -1"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.068966
+    },
+    {
+      "id": "nonprincipal-drag-control",
+      "stack_weight": 4.0,
+      "layers": [
+        {
+          "layer": "later-tail-complement-source-decomposition",
+          "weight": 4.0,
+          "reason": "nonprincipal components can erase principal surplus and need signed-correlation control"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.055172
     },
     {
       "id": "near-boundary-selector-theorem",

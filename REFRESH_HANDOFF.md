@@ -22334,6 +22334,28 @@ interpolation route between crude `L1`/triangle control and measured
 `L2`/Fourier control, but that remains a theorem-shaping analogy until the
 operator and endpoint bounds are defined from actual prime-pair arithmetic.
 
+q286 later-tail complement source decomposition:
+
+- `tools/build_q286_later_tail_complement_source_decomposition.py`
+- `notes/q286-later-tail-complement-source-decomposition.md`
+- `evidence/q286-later-tail-complement-source-decomposition.json`
+
+This receipt decomposes the `73` later full-block first-three-tail rows into
+first-three deficit modes plus principal baseline, lower CRT-support terms,
+q286 local action, q286 modes `4..6`, and q286 residual tail.
+
+Result: the principal baseline alone keeps all `73` tail rows positive with
+minimum margin `0.557444316517158`.  Removing the principal baseline makes
+`72` of `73` tail rows fail.  No subset excluding the principal baseline keeps
+all `73` rows positive, even after checking all `4095` nonprincipal subsets.
+The nonprincipal-only margin minimum is `-0.656649759138451`; maximum component
+identity error is `4.44089209850063e-16`.
+
+Decision: the immediate theorem shape is now `first_three > -1` plus bounded
+nonprincipal drag on the later q286 class.  The nonprincipal correction still
+needs a signed correlation or cone estimate, but it is not the primary source
+of later-block positivity in this finite window.
+
 Prime-indexed q286 later full-block scan:
 
 - `tools/build_q286_prime_indexed_later_full_block_scan.py`
