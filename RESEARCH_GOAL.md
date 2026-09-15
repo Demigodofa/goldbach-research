@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected-stress classifier question now has a subclass audit:
+`tools/build_q286_selected_stress_subclass_audit.py` generated
+`evidence/q286-selected-stress-subclass-audit.json`, with explanation in
+`notes/q286-selected-stress-subclass-audit.md`.
+
+Mechanism: apply the frozen stable/volatile decomposition to the pre-existing
+five selected deficit references.  The non-post-hoc candidate predicate is
+volatile-overturn: the stable core clears the floor, but the volatile rim is
+negative enough to make the dominant margin negative.
+
+Result: volatile-overturn is real but not the whole selected-stress class.  It
+captures `13822`, `164598`, and `1222142`; the remaining selected references
+`24424` and `55864` are stable-core deficits.  Both subclasses still pass
+scalar `(3,1)` and Kevin's four-channel watchlist on fresh unseen
+selected-reference comparisons.  Stable-core-deficit rows have scalar
+`(3,1)` minimum `0.010958653794473812` across `1212` comparisons; volatile
+overturn rows have scalar minimum `0.0035109555591320892` across `1818`.
+The watchlist without `(3,1)` and the frozen full 17 LP fail both subclasses.
+
+Interpretation: selected stress has at least two mechanisms in the checked
+fixture.  The next theorem branch should split stable-core-deficit from
+volatile-overturn, or move directly to a signed empirical/correlation estimate
+that explains why `(3,1)` and the four-channel watchlist separate both
+subclasses from fresh clear rows.
+
+## Previous continuation evidence, 2026-09-15
+
 Kevin's `(3,1)` stress-classifier hunch now has an explicit boundary receipt:
 `tools/build_q286_centered_3_1_stress_classifier_boundary.py` generated
 `evidence/q286-centered-3-1-stress-classifier-boundary.json`, with explanation

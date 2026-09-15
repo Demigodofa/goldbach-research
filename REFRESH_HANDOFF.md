@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected-stress classifier question now has a subclass audit.
+
+`tools/build_q286_selected_stress_subclass_audit.py` generated
+`evidence/q286-selected-stress-subclass-audit.json`, with the human note
+`notes/q286-selected-stress-subclass-audit.md`.
+
+Question: can the selected deficit references be captured by one natural
+non-post-hoc volatile-overturn predicate?
+
+Result: no.  Volatile-overturn is real, but it captures only a strict
+subclass.
+
+```text
+volatile_overturn:    13822, 164598, 1222142
+stable_core_deficit:  24424, 55864
+```
+
+Both subclasses preserve the finite `(3,1)`/watchlist signal on fresh unseen
+selected-reference rows:
+
+```text
+stable_core_deficit:  scalar (3,1) 0 failures / 1212, min 0.010958653794
+volatile_overturn:   scalar (3,1) 0 failures / 1818, min 0.003510955559
+stable_core_deficit:  watchlist    0 failures / 1212, min 0.005033538595
+volatile_overturn:   watchlist    0 failures / 1818, min 0.002034556533
+```
+
+The watchlist without `(3,1)` fails both subclasses, and the frozen full
+17-channel LP fails both subclasses.
+
+Decision: selected stress should no longer be treated as one mechanism.  Split
+the selected references into stable-core-deficit and volatile-overturn
+subclasses, or replace the classifier route with a signed empirical/correlation
+estimate that explains why `(3,1)` and the four-channel watchlist separate
+both subclasses from fresh clear rows.
+
+## Previous active checkpoint note, 2026-09-15
+
 Kevin asked whether `(3,1)` might be a stress classifier, especially because
 reference `13822` is a large negative stress witness.  The boundary is now
 explicit.

@@ -1528,6 +1528,14 @@
       "status_boundary": "finite derived boundary receipt only; supports selected-reference classifier wording and rejects broad full_nonpositive classifier wording, but proves no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_selected_stress_subclass_audit",
+      "type": "receipt",
+      "label": "q286 selected-stress subclass audit",
+      "status": "finite_subclass_falsifier",
+      "validation": "tools/build_q286_selected_stress_subclass_audit.py generated evidence/q286-selected-stress-subclass-audit.json; the natural volatile-overturn predicate captures 13822,164598,1222142 but misses stable-core-deficit references 24424,55864, while scalar (3,1) and Kevin's watchlist pass fresh unseen comparisons on both subclasses",
+      "status_boundary": "finite selected-stress subclass audit only; falsifies volatile-overturn as the whole selected-stress predicate but proves no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1710,6 +1718,26 @@
     },
     {
       "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_selected_stress_subclass_audit",
+      "to": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_stress_subclass_audit",
+      "to": "receipt.q286_selected_deficit_provenance_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_stress_subclass_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_selected_stress_subclass_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     },

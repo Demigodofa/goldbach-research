@@ -151,6 +151,8 @@ def main():
         EVIDENCE / "q286-watchlist-fresh-unseen-window-audit.json")
     centered_3_1_stress_classifier_boundary = load_json(
         EVIDENCE / "q286-centered-3-1-stress-classifier-boundary.json")
+    selected_stress_subclass = load_json(
+        EVIDENCE / "q286-selected-stress-subclass-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2318,6 +2320,72 @@ def main():
         "centered-3-1-stress-classifier-boundary",
         2.0,
         "next bridge must use a non-post-hoc selected stress predicate or signed correlation estimate")
+
+    layer(
+        "selected-stress-subclass-audit",
+        "Selected stress splits into stable-core and volatile-overturn subclasses",
+        "finite_subclass_falsifier",
+        "evidence/q286-selected-stress-subclass-audit.json",
+        3.5,
+        "Finite selected-stress subclass audit only; no selected-stress theorem.")
+    add_hit(
+        mechanism_stacks,
+        "selected-stress-two-subclass-split",
+        "selected-stress-subclass-audit",
+        3.5,
+        "volatile-overturn is real but does not capture all selected deficit references",
+        {
+            "subclass_counts":
+                selected_stress_subclass["subclass_counts"],
+            "volatile_overturn_captures_all":
+                selected_stress_subclass[
+                    "volatile_overturn_captures_all_selected_deficits"],
+        })
+    for subclass in selected_stress_subclass["subclass_results"]:
+        add_hit(
+            mechanism_stacks,
+            "centered-3-1-selected-stress-fresh-window-classifier",
+            "selected-stress-subclass-audit",
+            2.5,
+            f"scalar (3,1) and watchlist remain positive on {subclass['subclass']} fresh unseen comparisons",
+            {
+                "subclass": subclass["subclass"],
+                "references": subclass["references"],
+                "scalar_3_1":
+                    next(
+                        row for row in subclass["subset_results"]
+                        if row["name"] == "scalar_3_1"),
+                "kevin_watchlist_4":
+                    next(
+                        row for row in subclass["subset_results"]
+                        if row["name"] == "kevin_watchlist_4"),
+            })
+    for target in (13822, 164598, 1222142):
+        add_hit(
+            target_stacks,
+            str(target),
+            "selected-stress-subclass-audit",
+            2.5,
+            "selected deficit belongs to volatile-overturn subclass")
+    for target in (24424, 55864):
+        add_hit(
+            target_stacks,
+            str(target),
+            "selected-stress-subclass-audit",
+            2.5,
+            "selected deficit belongs to stable-core-deficit subclass")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "selected-stress-subclass-audit",
+        3.5,
+        "one volatile-overturn predicate is falsified as the whole selected-stress class")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "selected-stress-subclass-audit",
+        2.5,
+        "signed correlation bridge must explain both stable-core-deficit and volatile-overturn subclasses")
 
     layer(
         "centered-3-1-stress-class-audit",
