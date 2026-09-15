@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a finite Fourier-burden audit for the proposed
+signed-character shortcut.
+
+```text
+tools/build_q286_wbss_fourier_burden_audit.py
+notes/q286-wbss-fourier-burden-audit.md
+evidence/q286-wbss-fourier-burden-audit.json
+```
+
+Result:
+
+```text
+global nonprincipal additive modes: 636
+modes for 90 percent energy:       187
+modes for 95 percent energy:       232
+modes for 99 percent energy:       308
+modulus 286 energy fraction:       0.8669957368249142
+modulus 286 modes for 99 percent:  188 / 285
+mod-286 conductor 143 energy:      0.49994752357905275
+mod-286 conductor 286 energy:      0.49994752357905076
+```
+
+Decision: `HOLD_fourier_burden_diffuse_high_conductor`.  The few-mode
+signed-character shortcut is not supported by the coefficient geometry.  The
+surviving theorem target is a broad high-conductor signed binary-prime
+correlation estimate, not a small character-mode lemma.  This is a finite
+coefficient diagnostic only; no signed character estimate, fixed-modulus
+binary-prime discrepancy theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS coefficient-discrepancy budget now has a known-theorem adequacy
 audit.
 

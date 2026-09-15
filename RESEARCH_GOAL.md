@@ -6,6 +6,45 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a finite Fourier-burden audit for the proposed
+signed-character shortcut:
+`tools/build_q286_wbss_fourier_burden_audit.py` generated
+`evidence/q286-wbss-fourier-burden-audit.json`, with explanation in
+`notes/q286-wbss-fourier-burden-audit.md`.
+
+Question: is the adverse WBSS coefficient burden concentrated in a few
+character/Fourier modes, so a small signed-character theorem might replace
+full fixed-modulus AP uniformity?
+
+Answer: no.  After centering the four projected coefficient vectors and
+discarding principal additive modes, the nonprincipal burden is diffuse:
+
+```text
+global nonprincipal modes: 636
+modes for 90 percent energy: 187
+modes for 95 percent energy: 232
+modes for 99 percent energy: 308
+modulus 286 energy fraction: 0.8669957368249142
+modulus 286 modes for 99 percent energy: 188 / 285
+```
+
+The dominant `286` energy is almost entirely high conductor:
+
+```text
+conductor 143: 0.49994752357905275 of mod-286 energy
+conductor 286: 0.49994752357905076 of mod-286 energy
+```
+
+Decision: `HOLD_fourier_burden_diffuse_high_conductor`.  The few-mode
+signed-character shortcut does not earn its keep as a small theorem.  The
+surviving theorem target is a broad high-conductor signed binary-prime
+correlation estimate.  This is a finite coefficient diagnostic only; no
+signed character estimate, fixed-modulus binary-prime discrepancy theorem,
+pointwise adverse-drag theorem, q286 threshold theorem, strict-central
+Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS coefficient-discrepancy budget now has a known-theorem adequacy
 audit:
 `tools/build_q286_wbss_known_theorem_adequacy_audit.py` generated

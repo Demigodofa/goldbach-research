@@ -1,0 +1,762 @@
+{
+  "candidate": {
+    "falsifier": "If energy is spread over many nonprincipal high-conductor modes, the route does not earn its keep as a small theorem.",
+    "mechanism": "Try to replace full per-residue AP uniformity with a pointwise signed estimate for only the Fourier modes that carry adverse WBSS coefficient energy.",
+    "name": "small signed-character WBSS theorem",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If a few modes carry most coefficient energy, a narrower signed character theorem might be meaningfully smaller than full fixed-modulus Goldbach in progressions.",
+    "smallest_test": "Count nonprincipal modes needed to cover 90, 95, and 99 percent of centered coefficient energy."
+  },
+  "decision": "The few-mode signed-character shortcut is not supported by the coefficient geometry.  Globally, 90 percent of centered Fourier energy needs 187 nonprincipal modes and 99 percent needs 308; modulus 286 alone carries about 86.7 percent of total energy and requires 188 of its 285 nonprincipal modes for 99 percent.  The surviving theorem target is therefore a broad high-conductor signed binary-prime correlation estimate, not a small character-mode lemma.",
+  "fixed_modulus_binary_prime_discrepancy_theorem_proved": false,
+  "global_summary": {
+    "effective_mode_count": {
+      "entropy_effective_count": 224.13139575733524,
+      "inverse_participation_count": 178.34764500742546,
+      "largest_mode_fraction": 0.010409512100877517
+    },
+    "energy_by_modulus": {
+      "130": 1.6048697546301376,
+      "154": 291.94308662026276,
+      "286": 2571.0904862723733,
+      "70": 100.87843023626579
+    },
+    "energy_cover_counts": {
+      "0.5": {
+        "energy_fraction": 0.5047619316612973,
+        "mode_count": 64
+      },
+      "0.75": {
+        "energy_fraction": 0.751240932233936,
+        "mode_count": 123
+      },
+      "0.9": {
+        "energy_fraction": 0.9007079317882241,
+        "mode_count": 187
+      },
+      "0.95": {
+        "energy_fraction": 0.9505017295594647,
+        "mode_count": 232
+      },
+      "0.99": {
+        "energy_fraction": 0.9902466293551626,
+        "mode_count": 308
+      }
+    },
+    "energy_fraction_by_modulus": {
+      "130": 0.00054117707752903,
+      "154": 0.09844593679090781,
+      "286": 0.8669957368249143,
+      "70": 0.034017149306648946
+    },
+    "nonprincipal_mode_count": 636,
+    "top_modes": [
+      {
+        "conductor": 143,
+        "energy": 30.86958377363758,
+        "mode": 126,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 30.869583773636645,
+        "mode": 17,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 30.869583773636545,
+        "mode": 269,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 30.86958377363641,
+        "mode": 160,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 29.8602344249568,
+        "mode": 87,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 29.86023442495676,
+        "mode": 199,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 29.860234424955763,
+        "mode": 56,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 29.86023442495535,
+        "mode": 230,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 28.323273382079382,
+        "mode": 257,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 28.32327338207907,
+        "mode": 114,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 28.323273382078156,
+        "mode": 29,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 28.323273382077627,
+        "mode": 172,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 25.886838102565864,
+        "mode": 116,
+        "modulus": 286
+      },
+      {
+        "conductor": 143,
+        "energy": 25.886838102565676,
+        "mode": 170,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 25.886838102565246,
+        "mode": 259,
+        "modulus": 286
+      },
+      {
+        "conductor": 286,
+        "energy": 25.88683810256496,
+        "mode": 27,
+        "modulus": 286
+      }
+    ],
+    "total_nonprincipal_energy": 2965.516872883532
+  },
+  "goldbach_proved": false,
+  "method": {
+    "interpretation_boundary": "Additive Fourier concentration is coefficient-side evidence only.  A prime-pair theorem would still need to bound the corresponding binary-prime sums pointwise in N.",
+    "transform": "center each projected coefficient vector modulo d, discard the principal additive mode, and compute finite additive Fourier energy |hat c_d(k)|^2/d",
+    "why_centered": "The discrepancy Delta_{d,s}(N) has zero total mass in the coefficient-discrepancy budget, so constant modes do not pay adverse drag."
+  },
+  "per_modulus": {
+    "130": {
+      "centered_mean_removed": 0.007073386383731759,
+      "coefficient_sum": 0.9195402298851287,
+      "conductor_energy": {
+        "10": {
+          "energy": 0.02089064374134225,
+          "energy_fraction": 0.0130170337381408,
+          "mode_count": 4
+        },
+        "13": {
+          "energy": 0.23386625292457502,
+          "energy_fraction": 0.14572288638991296,
+          "mode_count": 12
+        },
+        "130": {
+          "energy": 0.5444258489784684,
+          "energy_fraction": 0.33923366516676495,
+          "mode_count": 48
+        },
+        "2": {
+          "energy": 0.006504263341363057,
+          "energy_fraction": 0.004052829410360498,
+          "mode_count": 1
+        },
+        "26": {
+          "energy": 0.23386625292457616,
+          "energy_fraction": 0.14572288638991365,
+          "mode_count": 12
+        },
+        "5": {
+          "energy": 0.020890643741342474,
+          "energy_fraction": 0.01301703373814094,
+          "mode_count": 4
+        },
+        "65": {
+          "energy": 0.5444258489784698,
+          "energy_fraction": 0.3392336651667659,
+          "mode_count": 48
+        }
+      },
+      "effective_mode_count": {
+        "entropy_effective_count": 40.44510728450793,
+        "inverse_participation_count": 27.981424110435043,
+        "largest_mode_fraction": 0.07124573017130253
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "energy_fraction": 0.5216312437179228,
+          "mode_count": 11
+        },
+        "0.75": {
+          "energy_fraction": 0.7517605021173536,
+          "mode_count": 21
+        },
+        "0.9": {
+          "energy_fraction": 0.9006636765223663,
+          "mode_count": 36
+        },
+        "0.95": {
+          "energy_fraction": 0.9526453754660972,
+          "mode_count": 48
+        },
+        "0.99": {
+          "energy_fraction": 0.9901925120656888,
+          "mode_count": 71
+        }
+      },
+      "modulus": 130,
+      "nonprincipal_mode_count": 129,
+      "parseval_centered_l2_squared": 1.604869754630135,
+      "support_count": 48,
+      "top_modes": [
+        {
+          "amplitude_per_residue": 0.029657028937046182,
+          "conductor": 130,
+          "energy": 0.11434011749846329,
+          "mode": 31
+        },
+        {
+          "amplitude_per_residue": 0.02965702893704617,
+          "conductor": 65,
+          "energy": 0.11434011749846319,
+          "mode": 34
+        },
+        {
+          "amplitude_per_residue": 0.029657028937046102,
+          "conductor": 130,
+          "energy": 0.11434011749846268,
+          "mode": 99
+        },
+        {
+          "amplitude_per_residue": 0.029657028937046005,
+          "conductor": 65,
+          "energy": 0.11434011749846194,
+          "mode": 96
+        },
+        {
+          "amplitude_per_residue": 0.021225358479682484,
+          "conductor": 65,
+          "energy": 0.05856705953683378,
+          "mode": 64
+        },
+        {
+          "amplitude_per_residue": 0.021225358479682384,
+          "conductor": 130,
+          "energy": 0.058567059536833235,
+          "mode": 129
+        },
+        {
+          "amplitude_per_residue": 0.021225358479682335,
+          "conductor": 65,
+          "energy": 0.05856705953683296,
+          "mode": 66
+        },
+        {
+          "amplitude_per_residue": 0.021225358479682318,
+          "conductor": 130,
+          "energy": 0.05856705953683288,
+          "mode": 1
+        },
+        {
+          "amplitude_per_residue": 0.019316626156800062,
+          "conductor": 26,
+          "energy": 0.048507165990604395,
+          "mode": 25
+        },
+        {
+          "amplitude_per_residue": 0.019316626156800056,
+          "conductor": 13,
+          "energy": 0.04850716599060436,
+          "mode": 90
+        },
+        {
+          "amplitude_per_residue": 0.019316626156799892,
+          "conductor": 13,
+          "energy": 0.04850716599060356,
+          "mode": 40
+        },
+        {
+          "amplitude_per_residue": 0.01931662615679987,
+          "conductor": 26,
+          "energy": 0.048507165990603444,
+          "mode": 105
+        }
+      ],
+      "total_nonprincipal_energy": 1.6048697546301376
+    },
+    "154": {
+      "centered_mean_removed": 0.005971040453799548,
+      "coefficient_sum": 0.9195402298851304,
+      "conductor_energy": {
+        "11": {
+          "energy": 0.05040386510161681,
+          "energy_fraction": 0.0001726496273130739,
+          "mode_count": 10
+        },
+        "14": {
+          "energy": 0.14580672675916687,
+          "energy_fraction": 0.0004994354497211338,
+          "mode_count": 6
+        },
+        "154": {
+          "energy": 145.77258741231435,
+          "energy_fraction": 0.4993185113574009,
+          "mode_count": 60
+        },
+        "2": {
+          "energy": 0.005490611911540133,
+          "energy_fraction": 1.8807131126492132e-05,
+          "mode_count": 1
+        },
+        "22": {
+          "energy": 0.05040386510162971,
+          "energy_fraction": 0.00017264962731311807,
+          "mode_count": 10
+        },
+        "7": {
+          "energy": 0.14580672675913803,
+          "energy_fraction": 0.000499435449721035,
+          "mode_count": 6
+        },
+        "77": {
+          "energy": 145.77258741231546,
+          "energy_fraction": 0.49931851135740474,
+          "mode_count": 60
+        }
+      },
+      "effective_mode_count": {
+        "entropy_effective_count": 65.72008049469538,
+        "inverse_participation_count": 51.60065741885624,
+        "largest_mode_fraction": 0.03228770453301587
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "energy_fraction": 0.5195696943081819,
+          "mode_count": 19
+        },
+        "0.75": {
+          "energy_fraction": 0.7501995866272583,
+          "mode_count": 35
+        },
+        "0.9": {
+          "energy_fraction": 0.9001751270786884,
+          "mode_count": 59
+        },
+        "0.95": {
+          "energy_fraction": 0.9508571643246746,
+          "mode_count": 70
+        },
+        "0.99": {
+          "energy_fraction": 0.9905509549950966,
+          "mode_count": 93
+        }
+      },
+      "modulus": 154,
+      "nonprincipal_mode_count": 153,
+      "parseval_centered_l2_squared": 291.94308662026197,
+      "support_count": 60,
+      "top_modes": [
+        {
+          "amplitude_per_residue": 0.2474043449057793,
+          "conductor": 77,
+          "energy": 9.426172121251703,
+          "mode": 80
+        },
+        {
+          "amplitude_per_residue": 0.247404344905779,
+          "conductor": 77,
+          "energy": 9.426172121251678,
+          "mode": 74
+        },
+        {
+          "amplitude_per_residue": 0.24740434490577856,
+          "conductor": 154,
+          "energy": 9.426172121251646,
+          "mode": 3
+        },
+        {
+          "amplitude_per_residue": 0.24740434490577695,
+          "conductor": 154,
+          "energy": 9.426172121251524,
+          "mode": 151
+        },
+        {
+          "amplitude_per_residue": 0.24286194555694635,
+          "conductor": 154,
+          "energy": 9.083216388354597,
+          "mode": 81
+        },
+        {
+          "amplitude_per_residue": 0.24286194555694418,
+          "conductor": 77,
+          "energy": 9.083216388354435,
+          "mode": 4
+        },
+        {
+          "amplitude_per_residue": 0.24286194555694268,
+          "conductor": 154,
+          "energy": 9.083216388354323,
+          "mode": 73
+        },
+        {
+          "amplitude_per_residue": 0.24286194555694243,
+          "conductor": 77,
+          "energy": 9.083216388354304,
+          "mode": 150
+        },
+        {
+          "amplitude_per_residue": 0.22490666263241876,
+          "conductor": 154,
+          "energy": 7.789783062053706,
+          "mode": 85
+        },
+        {
+          "amplitude_per_residue": 0.22490666263241785,
+          "conductor": 154,
+          "energy": 7.789783062053641,
+          "mode": 69
+        },
+        {
+          "amplitude_per_residue": 0.2249066626324174,
+          "conductor": 77,
+          "energy": 7.78978306205361,
+          "mode": 146
+        },
+        {
+          "amplitude_per_residue": 0.22490666263241724,
+          "conductor": 77,
+          "energy": 7.7897830620536,
+          "mode": 8
+        }
+      ],
+      "total_nonprincipal_energy": 291.94308662026276
+    },
+    "286": {
+      "centered_mean_removed": 0.003215175628969025,
+      "coefficient_sum": 0.9195402298851412,
+      "conductor_energy": {
+        "11": {
+          "energy": 0.02714054274704752,
+          "energy_fraction": 1.0556043395577459e-05,
+          "mode_count": 10
+        },
+        "13": {
+          "energy": 0.10630284223839484,
+          "energy_fraction": 4.134543020013083e-05,
+          "mode_count": 12
+        },
+        "143": {
+          "energy": 1285.4103215095358,
+          "energy_fraction": 0.49994752357905287,
+          "mode_count": 120
+        },
+        "2": {
+          "energy": 0.0029564833369835064,
+          "energy_fraction": 1.1498947052889938e-06,
+          "mode_count": 1
+        },
+        "22": {
+          "energy": 0.02714054274704368,
+          "energy_fraction": 1.0556043395575965e-05,
+          "mode_count": 10
+        },
+        "26": {
+          "energy": 0.10630284223832301,
+          "energy_fraction": 4.134543020010289e-05,
+          "mode_count": 12
+        },
+        "286": {
+          "energy": 1285.41032150953,
+          "energy_fraction": 0.4999475235790506,
+          "mode_count": 120
+        }
+      },
+      "effective_mode_count": {
+        "entropy_effective_count": 160.96658784196438,
+        "inverse_participation_count": 139.7181902735022,
+        "largest_mode_fraction": 0.012006416708574509
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "energy_fraction": 0.5063252553337131,
+          "mode_count": 53
+        },
+        "0.75": {
+          "energy_fraction": 0.7512926494689698,
+          "mode_count": 93
+        },
+        "0.9": {
+          "energy_fraction": 0.9008313233380787,
+          "mode_count": 135
+        },
+        "0.95": {
+          "energy_fraction": 0.9520877491476951,
+          "mode_count": 155
+        },
+        "0.99": {
+          "energy_fraction": 0.9901270712027118,
+          "mode_count": 188
+        }
+      },
+      "modulus": 286,
+      "nonprincipal_mode_count": 285,
+      "parseval_centered_l2_squared": 2571.0904862723714,
+      "support_count": 120,
+      "top_modes": [
+        {
+          "amplitude_per_residue": 0.3285355499791939,
+          "conductor": 143,
+          "energy": 30.86958377363758,
+          "mode": 126
+        },
+        {
+          "amplitude_per_residue": 0.3285355499791889,
+          "conductor": 286,
+          "energy": 30.869583773636645,
+          "mode": 17
+        },
+        {
+          "amplitude_per_residue": 0.3285355499791884,
+          "conductor": 286,
+          "energy": 30.869583773636545,
+          "mode": 269
+        },
+        {
+          "amplitude_per_residue": 0.32853554997918766,
+          "conductor": 143,
+          "energy": 30.86958377363641,
+          "mode": 160
+        },
+        {
+          "amplitude_per_residue": 0.3231198138048416,
+          "conductor": 286,
+          "energy": 29.8602344249568,
+          "mode": 87
+        },
+        {
+          "amplitude_per_residue": 0.3231198138048414,
+          "conductor": 286,
+          "energy": 29.86023442495676,
+          "mode": 199
+        },
+        {
+          "amplitude_per_residue": 0.323119813804836,
+          "conductor": 143,
+          "energy": 29.860234424955763,
+          "mode": 56
+        },
+        {
+          "amplitude_per_residue": 0.3231198138048338,
+          "conductor": 143,
+          "energy": 29.86023442495535,
+          "mode": 230
+        },
+        {
+          "amplitude_per_residue": 0.3146941760072229,
+          "conductor": 286,
+          "energy": 28.323273382079382,
+          "mode": 257
+        },
+        {
+          "amplitude_per_residue": 0.31469417600722116,
+          "conductor": 143,
+          "energy": 28.32327338207907,
+          "mode": 114
+        },
+        {
+          "amplitude_per_residue": 0.31469417600721605,
+          "conductor": 286,
+          "energy": 28.323273382078156,
+          "mode": 29
+        },
+        {
+          "amplitude_per_residue": 0.3146941760072131,
+          "conductor": 143,
+          "energy": 28.323273382077627,
+          "mode": 172
+        }
+      ],
+      "total_nonprincipal_energy": 2571.0904862723733
+    },
+    "70": {
+      "centered_mean_removed": 0.01313628899835908,
+      "coefficient_sum": 0.9195402298851356,
+      "conductor_energy": {
+        "10": {
+          "energy": 0.03879690980534974,
+          "energy_fraction": 0.0003845907367361299,
+          "mode_count": 4
+        },
+        "14": {
+          "energy": 0.3207747988701559,
+          "energy_fraction": 0.003179815527649214,
+          "mode_count": 6
+        },
+        "2": {
+          "energy": 0.012079346205388706,
+          "energy_fraction": 0.00011974161549795985,
+          "mode_count": 1
+        },
+        "35": {
+          "energy": 50.073603736354585,
+          "energy_fraction": 0.4963757229278646,
+          "mode_count": 24
+        },
+        "5": {
+          "energy": 0.03879690980535473,
+          "energy_fraction": 0.00038459073673617936,
+          "mode_count": 4
+        },
+        "7": {
+          "energy": 0.3207747988701769,
+          "energy_fraction": 0.003179815527649422,
+          "mode_count": 6
+        },
+        "70": {
+          "energy": 50.073603736354784,
+          "energy_fraction": 0.4963757229278666,
+          "mode_count": 24
+        }
+      },
+      "effective_mode_count": {
+        "entropy_effective_count": 35.87046190894216,
+        "inverse_participation_count": 29.50978235085009,
+        "largest_mode_fraction": 0.0624926375206123
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "energy_fraction": 0.523440905272075,
+          "mode_count": 12
+        },
+        "0.75": {
+          "energy_fraction": 0.7536788310525077,
+          "mode_count": 22
+        },
+        "0.9": {
+          "energy_fraction": 0.9136524200841386,
+          "mode_count": 32
+        },
+        "0.95": {
+          "energy_fraction": 0.9583319867230109,
+          "mode_count": 36
+        },
+        "0.99": {
+          "energy_fraction": 0.9904299295154948,
+          "mode_count": 44
+        }
+      },
+      "modulus": 70,
+      "nonprincipal_mode_count": 69,
+      "parseval_centered_l2_squared": 100.87843023626577,
+      "support_count": 24,
+      "top_modes": [
+        {
+          "amplitude_per_residue": 0.3000990116231483,
+          "conductor": 70,
+          "energy": 6.304159174403334,
+          "mode": 31
+        },
+        {
+          "amplitude_per_residue": 0.30009901162314767,
+          "conductor": 35,
+          "energy": 6.30415917440331,
+          "mode": 66
+        },
+        {
+          "amplitude_per_residue": 0.3000990116231474,
+          "conductor": 35,
+          "energy": 6.304159174403296,
+          "mode": 4
+        },
+        {
+          "amplitude_per_residue": 0.30009901162314645,
+          "conductor": 70,
+          "energy": 6.304159174403258,
+          "mode": 39
+        },
+        {
+          "amplitude_per_residue": 0.24029844909845177,
+          "conductor": 35,
+          "energy": 4.0420341247384854,
+          "mode": 64
+        },
+        {
+          "amplitude_per_residue": 0.24029844909845102,
+          "conductor": 35,
+          "energy": 4.04203412473846,
+          "mode": 6
+        },
+        {
+          "amplitude_per_residue": 0.24029844909845097,
+          "conductor": 70,
+          "energy": 4.042034124738458,
+          "mode": 29
+        },
+        {
+          "amplitude_per_residue": 0.24029844909844966,
+          "conductor": 70,
+          "energy": 4.042034124738414,
+          "mode": 41
+        },
+        {
+          "amplitude_per_residue": 0.2019469842799086,
+          "conductor": 70,
+          "energy": 2.854780912182475,
+          "mode": 67
+        },
+        {
+          "amplitude_per_residue": 0.20194698427990798,
+          "conductor": 70,
+          "energy": 2.8547809121824583,
+          "mode": 3
+        },
+        {
+          "amplitude_per_residue": 0.2019469842799074,
+          "conductor": 35,
+          "energy": 2.8547809121824415,
+          "mode": 32
+        },
+        {
+          "amplitude_per_residue": 0.20194698427990707,
+          "conductor": 35,
+          "energy": 2.854780912182432,
+          "mode": 38
+        }
+      ],
+      "total_nonprincipal_energy": 100.87843023626579
+    }
+  },
+  "pointwise_adverse_drag_theorem_proved": false,
+  "schema_version": 1,
+  "signed_character_theorem_proved": false,
+  "source_commit": "42800fabee891a6f4d373533abaa276c375f9c5e",
+  "sources": {
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "four_modulus_projection_formula_source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292",
+    "known_theorem_adequacy_audit": "evidence\\q286-wbss-known-theorem-adequacy-audit.json",
+    "known_theorem_adequacy_status": "HOLD_external_known_theorems_do_not_pay_budget"
+  },
+  "status": "HOLD_fourier_burden_diffuse_high_conductor",
+  "status_boundary": "finite additive Fourier coefficient diagnostic only; it proves no signed character estimate, fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true
+}
