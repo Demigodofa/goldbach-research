@@ -6,6 +6,29 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-14
 
+The zero-local target rows now have a fixed-channel margin audit:
+`tools/build_q286_zero_local_channel_margin_audit.py` generated
+`evidence/q286-zero-local-channel-margin-audit.json`, with explanation in
+`notes/q286-zero-local-channel-margin-audit.md`.
+
+Using the LP-weighted after-local contribution
+`lp_effective_weight * after_local_delta`, no single outside channel is
+required for positivity: removing any one channel leaves every target positive.
+The smallest fixed subset that keeps all `12` targets positive has size `1`.
+The best singleton is `(5,5)`, with minimum target margin
+`0.02385103114358947`; `(3,1)`, `(3,11)`, `(3,7)`, and several others also
+work as singletons.  Residue `38` and residue `64` separately also have
+passing singleton subsets.
+
+Interpretation: the local singular layer remains insufficient because it has
+already been subtracted and is numerical zero, but this smallest-subset test
+does not support the stronger claim that the `12` rows require a genuinely
+distributed fixed channel subset.  The narrowed theorem target is to explain
+stable positive LP-weighted channels over the zero-local residues, not to prove
+"no small subset works" from this evidence.
+
+## Previous continuation evidence, 2026-09-14
+
 Kevin corrected that the `12` zero-local cases are target integers, not
 neutral channels.  `tools/build_q286_zero_local_target_channel_decomposition.py`
 generated `evidence/q286-zero-local-target-channel-decomposition.json`, with

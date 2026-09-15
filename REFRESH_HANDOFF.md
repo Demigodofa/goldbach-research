@@ -6,6 +6,31 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-14
 
+The zero-local target rows now have a channel-margin and smallest-fixed-subset
+audit.  `tools/build_q286_zero_local_channel_margin_audit.py` generated
+`evidence/q286-zero-local-channel-margin-audit.json`, with the human note
+`notes/q286-zero-local-channel-margin-audit.md`.
+
+Metric: after subtracting the zero local vector, each channel contribution is
+`lp_effective_weight * after_local_delta`.  For all `12` targets, total
+positive weighted margin is `1.971706133290348`, total negative weighted
+margin is `-0.09699556098007175`, and total net LP margin is
+`1.8747105723102762`.
+
+Result: no single channel removal makes any target fail.  The smallest fixed
+subset size is `1`, not large: `(5,5)` alone keeps all `12` targets positive
+with minimum target margin `0.02385103114358947`, and there are `12`
+one-channel subsets that pass.  Separately, residue `38` has `13` passing
+one-channel subsets and residue `64` has `12`.
+
+Decision: this confirms non-local/correlation sourcing after the local layer
+is removed, but it falsifies the stronger reading that these `12` rows require
+a distributed fixed channel subset under the LP-weighted positivity criterion.
+The next theorem target is stable positive LP-weighted channels over zero-local
+residues, not "no small subset works."
+
+## Previous active checkpoint note, 2026-09-14
+
 Kevin corrected an important wording error: the `12` zero-local cases are
 target integers, not `12` neutral channels.  The intended audit is now
 `evidence/q286-zero-local-target-channel-decomposition.json`, built by

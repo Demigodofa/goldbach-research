@@ -119,6 +119,8 @@ def main():
         EVIDENCE / "q286-lp-cone-local-singular-audit.json")
     zero_local_decomposition = load_json(
         EVIDENCE / "q286-zero-local-target-channel-decomposition.json")
+    zero_local_margin_audit = load_json(
+        EVIDENCE / "q286-zero-local-channel-margin-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1525,6 +1527,40 @@ def main():
         "zero-local-target-channel-decomposition",
         3.0,
         "zero local contribution rows are carried by signed empirical 17-channel correlation")
+
+    layer(
+        "zero-local-channel-margin-audit",
+        "Zero-local channel margins admit one-channel positive subsets",
+        "finite_subset_audit",
+        "evidence/q286-zero-local-channel-margin-audit.json",
+        3.0,
+        "Finite 12-target subset audit only; no distributed cone theorem.")
+    all_scope = zero_local_margin_audit["scopes"]["all_12_targets"]
+    add_hit(
+        mechanism_stacks,
+        "zero-local-target-correlation-decomposition",
+        "zero-local-channel-margin-audit",
+        2.0,
+        "after-local LP margin is correlation-sourced but not forced to use a large fixed subset on these 12 targets",
+        {
+            "smallest_fixed_subset_size": zero_local_margin_audit[
+                "smallest_all_target_subset_size"],
+            "smallest_fixed_subset_count": zero_local_margin_audit[
+                "smallest_all_target_subset_count"],
+            "any_single_channel_removal_fails": all_scope[
+                "any_single_channel_removal_fails_target"],
+            "top_singleton": all_scope["smallest_fixed_subset"][
+                "best_subsets_by_minimum_margin"][0]["labels"],
+            "top_singleton_min_margin": all_scope["smallest_fixed_subset"][
+                "best_subsets_by_minimum_margin"][0][
+                    "minimum_target_margin"],
+        })
+    add_hit(
+        theorem_stacks,
+        "distributed-cone-correlation-theorem",
+        "zero-local-channel-margin-audit",
+        3.0,
+        "smallest-subset test rejects the claim that these 12 LP-positive rows require a distributed fixed channel subset")
 
     layer(
         "ap-count-bridge-gap-audit",

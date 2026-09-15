@@ -1405,9 +1405,27 @@
       "status": "finite_channel_decomposition",
       "validation": "tools/build_q286_zero_local_target_channel_decomposition.py generated evidence/q286-zero-local-target-channel-decomposition.json; the 12 zero-local cases are target integers in residues 38 and 64 mod 143, and after subtracting the zero local vectors all 12 have positive full and LP-weighted outside deltas, with 138 positive and 66 negative channel entries across all 17 labels",
       "status_boundary": "finite 12-target decomposition only; no binary-prime correlation theorem, residual-bound theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_zero_local_channel_margin_audit",
+      "type": "receipt",
+      "label": "q286 zero-local channel margin and subset audit",
+      "status": "finite_subset_falsifier",
+      "validation": "tools/build_q286_zero_local_channel_margin_audit.py generated evidence/q286-zero-local-channel-margin-audit.json; after subtracting the zero local vectors, no single channel removal makes any target fail, and the smallest fixed LP-weighted subset keeping all 12 targets positive has size 1, with 12 passing one-channel subsets",
+      "status_boundary": "finite 12-target LP-weighted subset audit only; it rejects the no-small-subset reading for these rows but proves no distributed cone theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
+    {
+      "from": "receipt.q286_zero_local_channel_margin_audit",
+      "to": "receipt.q286_zero_local_target_channel_decomposition",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_zero_local_channel_margin_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "narrows"
+    },
     {
       "from": "receipt.support_only_obstruction",
       "to": "lane.support_mass_projection",

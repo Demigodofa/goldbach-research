@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "66f3f00e61ae98ddcbad2c3c0b38f7c5b59e9d21",
+  "generated_from_commit": "d0703082f713865b3894ccbc07ba071f19b9326f",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -266,6 +266,14 @@
       "source": "evidence/q286-zero-local-target-channel-decomposition.json",
       "default_weight": 3.0,
       "boundary": "Finite 12-target decomposition only; no correlation theorem."
+    },
+    {
+      "id": "zero-local-channel-margin-audit",
+      "label": "Zero-local channel margins admit one-channel positive subsets",
+      "kind": "finite_subset_audit",
+      "source": "evidence/q286-zero-local-channel-margin-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite 12-target subset audit only; no distributed cone theorem."
     },
     {
       "id": "ap-count-bridge-gap-audit",
@@ -5601,6 +5609,47 @@
       "glow": 0.722222
     },
     {
+      "id": "zero-local-target-correlation-decomposition",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 3.0,
+          "reason": "12 target integers with zero local action remain positive after subtracting the local vector across all 17 outside channels",
+          "value": {
+            "zero_local_target_count": 12,
+            "zero_local_residues": [
+              38,
+              64
+            ],
+            "after_local_full_minimum": 0.18333335176659665,
+            "after_local_lp_minimum": 0.13448939889450512,
+            "positive_entry_count": 138,
+            "negative_entry_count": 66
+          }
+        },
+        {
+          "layer": "zero-local-channel-margin-audit",
+          "weight": 2.0,
+          "reason": "after-local LP margin is correlation-sourced but not forced to use a large fixed subset on these 12 targets",
+          "value": {
+            "smallest_fixed_subset_size": 1,
+            "smallest_fixed_subset_count": 12,
+            "any_single_channel_removal_fails": false,
+            "top_singleton": [
+              [
+                5,
+                5
+              ]
+            ],
+            "top_singleton_min_margin": 0.02385103114358947
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.555556
+    },
+    {
       "id": "local-singular-cone-orientation-floor",
       "stack_weight": 3.0,
       "layers": [
@@ -5738,30 +5787,6 @@
               ]
             ],
             "best_five_minimum_share": 0.3570706201967922
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.333333
-    },
-    {
-      "id": "zero-local-target-correlation-decomposition",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "zero-local-target-channel-decomposition",
-          "weight": 3.0,
-          "reason": "12 target integers with zero local action remain positive after subtracting the local vector across all 17 outside channels",
-          "value": {
-            "zero_local_target_count": 12,
-            "zero_local_residues": [
-              38,
-              64
-            ],
-            "after_local_full_minimum": 0.18333335176659665,
-            "after_local_lp_minimum": 0.13448939889450512,
-            "positive_entry_count": 138,
-            "negative_entry_count": 66
           }
         }
       ],
@@ -6474,6 +6499,19 @@
       ],
       "layer_count": 2,
       "glow": 0.2
+    },
+    {
+      "id": "distributed-cone-correlation-theorem",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "zero-local-channel-margin-audit",
+          "weight": 3.0,
+          "reason": "smallest-subset test rejects the claim that these 12 LP-positive rows require a distributed fixed channel subset"
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.171429
     },
     {
       "id": "alignment-plus-complement-tail",

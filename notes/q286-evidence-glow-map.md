@@ -349,6 +349,19 @@ outside and LP-weighted deltas.  Across the `204` channel entries, `138` are
 positive and `66` are negative, so the after-local positivity is a signed
 17-channel balance rather than all-channel positivity.
 
+The zero-local channel margin audit is:
+
+```text
+evidence/q286-zero-local-channel-margin-audit.json
+```
+
+It summarizes one row per outside channel for all `12` zero-local targets and
+separately for residues `38` and `64`.  Its smallest-subset test is a useful
+falsifier: one-channel fixed subsets already keep all `12` targets positive,
+with `(5,5)` the best singleton by minimum target margin.  Thus these rows
+remain non-local/correlation-sourced, but they do not support the stronger
+claim that no small fixed subset works under the LP-weighted positivity metric.
+
 The AP-count bridge-gap audit is:
 
 ```text
