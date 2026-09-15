@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a targeted fresh residue-lift residual absorption
+holdout:
+`tools/build_q286_wbss_residual_absorption_residue_lift_holdout.py` generated
+`evidence/q286-wbss-residual-absorption-residue-lift-holdout.json`, with
+explanation in
+`notes/q286-wbss-residual-absorption-residue-lift-holdout.md`.
+
+Question: do the `.126` and `.13` residual absorption fits survive when the
+positive-pushback residue classes from the full dual-edge population are lifted
+to fresh later target values?
+
+Result: no. The holdout tests `116` lifted rows: the `29` positive-pushback
+source residue classes, each lifted to the next four period-shifted targets
+beyond the old maximum target. The top-20 Fourier component loses its required
+negative sign on `70/116` rows. Even where top-20 drag remains negative, the
+maximum positive residual pushback/top20-drag ratio is
+`3.69343889977089`, at target `971524` with target mod `286` equal to `268`.
+Thus `.126` and `.13` fail this targeted fresh holdout.
+
+Decision: demote the top-20 Fourier plus five-group residual absorption split
+as a portable theorem skeleton. It remains a diagnostic for the original
+dual-edge fixture, but no longer looks like the next theorem route. Switch to a
+direct raw q286-WBSS signed-witness estimate or a different aggregate
+inequality that does not require pointwise top-20 sign stability. Goldbach is
+not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a full dual-edge residual absorption population
 audit: `tools/build_q286_wbss_residual_absorption_population_audit.py`
 generated `evidence/q286-wbss-residual-absorption-population-audit.json`,

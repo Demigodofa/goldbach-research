@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a targeted fresh residue-lift residual absorption
+holdout.
+
+```text
+tools/build_q286_wbss_residual_absorption_residue_lift_holdout.py
+notes/q286-wbss-residual-absorption-residue-lift-holdout.md
+evidence/q286-wbss-residual-absorption-residue-lift-holdout.json
+```
+
+Result:
+
+```text
+source dual-edge rows:                         230
+source positive-pushback rows:                  29
+fresh lifts per source residue:                  4
+fresh lifted targets tested:                   116
+target range:                              955902..995618
+positive pushback rows:                         69 / 116
+top-20 nonnegative rows:                        70 / 116
+maximum defined pushback/top20-drag ratio:       3.69343889977089
+worst ratio target:                         971524
+worst ratio target mod 286:                    268
+theta = 0.126 survives holdout:                 no
+theta = 0.13 survives holdout:                  no
+```
+
+Decision: demote the top-20 Fourier plus five-group residual absorption split
+as a portable theorem skeleton. On targeted fresh residue lifts, the top-20
+component loses its required negative sign on `70/116` rows, and the residual
+pushback ratio reaches `3.69343889977089` where that ratio is defined. The
+Fourier split remains a diagnostic of the original dual-edge fixture, but the
+next theorem route should switch to a direct raw q286-WBSS signed-witness
+estimate or a different aggregate inequality that does not require pointwise
+top-20 sign stability. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a full dual-edge residual absorption population
 audit.
 

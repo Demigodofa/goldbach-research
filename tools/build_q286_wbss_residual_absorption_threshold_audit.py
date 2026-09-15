@@ -76,7 +76,7 @@ def source_payload():
     return json.loads(BANDLIMITED_SOURCE.read_text(encoding="utf-8"))
 
 
-def absorption_rows(include_discovery=False):
+def absorption_rows_for_edge_rows(edge_rows, require_top20_negative=True):
     formula = load_json(FORMULA_SOURCE)
     dual = load_json(DUAL_SOURCE)
     _, by_modulus = coefficient_lookup(formula)
@@ -91,12 +91,6 @@ def absorption_rows(include_discovery=False):
     context["coefficient"] = combined_fixed_strict_central_coefficient_receipt()
     full_coefficients = period_full_unit_coefficients(context)
     first_three_coefficients = q286_first_three_unit_coefficients(context)
-    edge_rows = [row for row in dual["target_rows"] if row["edge_success"]]
-    if not include_discovery:
-        edge_rows = [
-            row for row in edge_rows
-            if row["block_index_after_discovery"] >= 1
-        ]
     maximum_target = max(row["target"] for row in edge_rows)
     primes = np.asarray(_prime_table(maximum_target), dtype=bool)
     prime_values = np.flatnonzero(primes)
@@ -117,7 +111,7 @@ def absorption_rows(include_discovery=False):
         bandlimited = signed_contribution(top, row["error_grid"])
         residual_value = signed_contribution(residual, row["error_grid"])
         main_drag = -bandlimited
-        if main_drag <= TOLERANCE:
+        if require_top20_negative and main_drag <= TOLERANCE:
             raise ValueError("top-20 bandlimited contribution lost sign")
         pushback = max(0.0, residual_value)
         rows.append({
@@ -131,9 +125,22 @@ def absorption_rows(include_discovery=False):
             "residual_five_group_component": float(residual_value),
             "main_drag": float(main_drag),
             "positive_residual_pushback": float(pushback),
-            "pushback_to_main_drag_ratio": float(pushback / main_drag),
+            "pushback_to_main_drag_ratio": (
+                float(pushback / main_drag)
+                if main_drag > TOLERANCE else None),
         })
     return rows
+
+
+def absorption_rows(include_discovery=False):
+    dual = load_json(DUAL_SOURCE)
+    edge_rows = [row for row in dual["target_rows"] if row["edge_success"]]
+    if not include_discovery:
+        edge_rows = [
+            row for row in edge_rows
+            if row["block_index_after_discovery"] >= 1
+        ]
+    return absorption_rows_for_edge_rows(edge_rows)
 
 
 def post_discovery_rows():
