@@ -206,3 +206,21 @@ lower-face optimizer support, total variation from the optimizer at least
 This preserves a real candidate for `Q286*`: not small absolute
 concentration, but small overlap with the bad lower face and positive signed
 transport away from it.
+
+## Lower-face support signature refinement
+
+`tools/build_q286_lower_face_support_signature_audit.py` generated
+`evidence/q286-lower-face-support-signature-audit.json`.
+
+This checks whether the bad lower-face support is itself a simple residue
+dictionary.  Result: no fixed residue selector is visible at this scale.  The
+`196` post-discovery rows all have two complement-closed lower-face support
+orbits, and the negative-Full lower-mass fraction is at least
+`0.932438665145394`, but there are `126` distinct support signatures modulo
+`286`; the most common one covers only `14` rows.
+
+Thus the current `Q286*` definition should not be "avoid this fixed residue
+set."  It should be face-relative: for the target residue `a` and observed
+`t=F3(mu_N)`, actual prime-pair mass must avoid the LP-defined bad support
+`B_a(t)` and carry positive signed transport away from the corresponding
+optimizer.

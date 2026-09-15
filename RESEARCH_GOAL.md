@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 lower-face route now has a support-signature audit:
+`tools/build_q286_lower_face_support_signature_audit.py` generated
+`evidence/q286-lower-face-support-signature-audit.json`, with explanation in
+`notes/q286-lower-face-support-signature-audit.md`.
+
+Question: is the bad lower-face optimizer support a fixed residue dictionary,
+or is the stable object the moving LP-defined lower face itself?
+
+Result: on the `196` checked post-discovery rows, every lower-face optimizer
+has two complement-closed support orbits, the negative-Full lower-mass
+fraction is at least `0.932438665145394`, and actual mass on the extracted
+support is at most `0.012172473138011076`.  But residue signatures are
+dispersed: there are `126` distinct support signatures modulo `286`, and the
+most common signature covers only `0.07142857142857142` of the post-discovery
+rows.
+
+Decision: do not chase a static residue selector for the lower face.  The
+surviving candidate is coefficient-face-relative: prove actual prime-pair
+measures avoid the two-orbit negative-Full lower face selected by the target
+residue and observed `F3` value.  This remains an unproved pointwise signed
+binary-prime correlation problem, not a Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 anti-extremality lane now has a lower-face overlap audit:
 `tools/build_q286_lower_face_overlap_audit.py` generated
 `evidence/q286-lower-face-overlap-audit.json`, with explanation in

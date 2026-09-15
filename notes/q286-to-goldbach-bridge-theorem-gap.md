@@ -660,3 +660,31 @@ and transport_positive(mu_N-lambda_a)
 If promoted to an unnormalized version with enough surplus over
 `-L_a(F3(mu_N))`, this would force positive q286 signed action and hence a
 strict-central prime pair.  It remains unproved.
+
+## Lower-Face Support Signature Audit
+
+`tools/build_q286_lower_face_support_signature_audit.py` generated
+`evidence/q286-lower-face-support-signature-audit.json`.
+
+This audit checks the bridge problem Kevin flagged: whether the remaining
+hole is a fixed local/residue obstruction or a distributed
+correlation/transport phenomenon.  On the `196` post-discovery rows, the bad
+lower-face support is always two complement-closed orbits and always carries
+at least `0.932438665145394` of its lower-face mass on negative-Full
+coefficients.  Actual prime-pair mass on that support remains at most
+`0.012172473138011076`.
+
+However, the lower-face support is not a simple static residue dictionary:
+there are `126` distinct support signatures modulo `286`, and the largest
+signature class has only `14` rows.  This strengthens the bridge gap rather
+than closing it.  A Goldbach implication needs an unnormalized theorem saying
+that actual binary-prime mass avoids the target-dependent negative-Full lower
+face, or otherwise supplies enough complement rescue:
+
+```text
+T_N * (Full(mu_N) - L_a(F3(mu_N))) > -T_N * L_a(F3(mu_N)).
+```
+
+The right side is still existence-dependent when stated through `mu_N`, so a
+complete proof must restate the inequality as an unnormalized signed
+prime-pair correlation or provide an independent lower bound for `T_N`.

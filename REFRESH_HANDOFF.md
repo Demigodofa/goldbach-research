@@ -6,6 +6,38 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 lower-face route now has a support-signature audit.
+
+`tools/build_q286_lower_face_support_signature_audit.py` generated
+`evidence/q286-lower-face-support-signature-audit.json`, with explanation in
+`notes/q286-lower-face-support-signature-audit.md`.
+
+Question: is the bad lower-face support a fixed arithmetic residue selector,
+or a moving coefficient-face object?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+support size:                                2 on 196 / 196 rows
+complement-closed supports:                  196 / 196 rows
+negative-Full lower mass fraction:           0.932438665145394..1.0
+actual mass on extracted support:            0.0..0.012172473138011076
+unique support signatures mod 286:           126
+top support signature share mod 286:         0.07142857142857142
+```
+
+Decision: the static residue-dictionary explanation is not supported.  The
+useful candidate is geometric and row-dependent: actual prime-pair mass
+appears to avoid the two-orbit negative-Full lower face selected by the
+target's coefficient geometry.  The next theorem target is a face-relative
+signed binary-prime correlation/transport inequality, not another broad q286
+scan.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 anti-extremality lane now has a lower-face overlap audit.
 
 `tools/build_q286_lower_face_overlap_audit.py` generated
