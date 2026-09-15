@@ -60,4 +60,3 @@ or prove the raw q286-WBSS signed witness B_Phi(N)>0 directly.
 This audit proves no binary-prime projection theorem, no signed discrepancy
 theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no
 Goldbach proof. It only blocks one too-strong uniform projection route.
-

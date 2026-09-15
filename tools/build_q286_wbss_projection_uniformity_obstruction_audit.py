@@ -374,7 +374,11 @@ def build_receipt():
             "error or raw witness directly, not every projected residue cell "
             "in absolute value."
         ),
-        "target_rows": rows,
+        "target_rows_boundary": (
+            "Full per-cell projection tables are intentionally not serialized; "
+            "the receipt keeps summaries and worst-row examples only. Rerun "
+            "the builder for exact row-level reconstruction."
+        ),
     }
 
 
