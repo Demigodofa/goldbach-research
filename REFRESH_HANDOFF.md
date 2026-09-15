@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a farther aggregate four-modulus lambda horizon
+holdout.
+
+```text
+tools/build_q286_wbss_four_modulus_lambda_horizon_holdout.py
+notes/q286-wbss-four-modulus-lambda-horizon-holdout.md
+evidence/q286-wbss-four-modulus-lambda-horizon-holdout.json
+```
+
+Result:
+
+```text
+source positive-pushback residues:          29
+lift count per residue:                      8
+holdout targets:                           232
+target range:                  1036248..1115822
+direct witness positive rows:              232 / 232
+direct witness nonpositive rows:             0 / 232
+lambda_phi >= 1 failures:                    0
+maximum lambda_phi:          0.18121406011311555
+largest lambda target:                 1059514
+maximum adverse iid-scale z:  1.9123648886316162
+largest adverse z target:              1113078
+tightest expectation target:           1059514
+tightest expectation:         0.609620382302563
+```
+
+Decision: the farther finite horizon preserves the aggregate four-modulus
+lambda target on every checked row. This is the live theorem-shaped direction:
+prove a signed concentration or fixed-modulus equidistribution estimate strong
+enough to force `lambda_phi < 1`. It is not a proof, and it does not revive
+decimal residual absorption constants or rowwise `11,13` negativity as theorem
+targets. No signed concentration theorem, fixed-modulus equidistribution
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach
+proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a targeted `11,13` residual-budget residue-lift
 holdout.
 

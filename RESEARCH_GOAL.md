@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a farther aggregate four-modulus lambda horizon
+holdout:
+`tools/build_q286_wbss_four_modulus_lambda_horizon_holdout.py` generated
+`evidence/q286-wbss-four-modulus-lambda-horizon-holdout.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-lambda-horizon-holdout.md`.
+
+Question: after residual absorption constants and the `11,13`-led split
+failed on fresh lifts, does the surviving unsplit aggregate condition
+`lambda_phi < 1` persist farther past the previous far-lift maximum without
+requiring rowwise edge negativity?
+
+Result: the holdout reuses the same `29` stressed source residues and tests
+eight fresh period-lifts of each residue after target `1035742`, for `232`
+fresh targets from `1036248` through `1115822`. The direct q286-WBSS witness
+is positive on all `232/232` rows, and no row has `lambda_phi >= 1`. The
+maximum `lambda_phi` is `0.18121406011311555` at target `1059514`, below the
+previous far-lift maximum `0.29444884696113977`. The maximum adverse iid-scale
+z-score is `1.9123648886316162` at target `1113078`, below the previous
+far-lift maximum `3.5107558040930176`. The tightest expectation is
+`0.609620382302563` at target `1059514`.
+
+Decision: this farther finite horizon preserves the aggregate four-modulus
+lambda target, unlike the failed residual and `11,13`-led decompositions. It
+is finite holdout evidence only, not a theorem. The next theorem target is a
+source-backed signed concentration or fixed-modulus equidistribution estimate
+proving `lambda_phi < 1`; do not revive decimal residual absorption constants
+or rowwise `11,13` negativity as theorem targets. This proves no signed
+concentration theorem, fixed-modulus equidistribution theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a targeted `11,13` residual-budget residue-lift
 holdout: `tools/build_q286_wbss_1113_residual_budget_residue_lift_holdout.py`
 generated
