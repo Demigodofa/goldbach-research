@@ -1389,6 +1389,22 @@
       "status": "open_precisely_stated",
       "statement": "Use explicit AP prime-count or character-sum control for q=286, such as BMOR c_pi=0.0008772 and x_pi=86891851, to bound the actual binary Goldbach convolution after projection through the frozen 17-channel LP/rank-1 functional.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_ap_count_bridge_gap_audit",
+      "type": "receipt",
+      "label": "q286 AP-count pigeonhole bridge gap audit",
+      "status": "finite_combinatorial_falsifier",
+      "validation": "tools/build_q286_ap_count_bridge_gap_audit.py generated evidence/q286-ap-count-bridge-gap-audit.json; BMOR/AP marginal count floors are too sparse to force a reflected residue-pair intersection by pigeonhole, with Corollary 1.6 ratio exceeding 1 only below x about 117.53 while valid range starts at 4089800, and q-specific BMOR pi ratio about 0.249469 at x_pi=86891851",
+      "status_boundary": "finite falsifier of raw AP-count plus pigeonhole marginals only; BMOR AP bounds, binary convolution methods, character sums, dispersion, signed projection, and Goldbach remain open"
+    },
+    {
+      "id": "receipt.q286_zero_local_target_channel_decomposition",
+      "type": "receipt",
+      "label": "q286 zero-local target 17-channel decomposition",
+      "status": "finite_channel_decomposition",
+      "validation": "tools/build_q286_zero_local_target_channel_decomposition.py generated evidence/q286-zero-local-target-channel-decomposition.json; the 12 zero-local cases are target integers in residues 38 and 64 mod 143, and after subtracting the zero local vectors all 12 have positive full and LP-weighted outside deltas, with 138 positive and 66 negative channel entries across all 17 labels",
+      "status_boundary": "finite 12-target decomposition only; no binary-prime correlation theorem, residual-bound theorem, signed projection theorem, or Goldbach proof"
     }
   ],
   "edges": [
@@ -3050,6 +3066,36 @@
     {
       "from": "receipt.q286_lp_cone_local_singular_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_ap_count_bridge_gap_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_ap_count_bridge_gap_audit",
+      "to": "receipt.q286_lp_cone_local_singular_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_ap_count_bridge_gap_audit",
+      "to": "obligation.fixed_modulus_binary_goldbach_progressions",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_zero_local_target_channel_decomposition",
+      "to": "receipt.q286_lp_cone_local_singular_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_zero_local_target_channel_decomposition",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_zero_local_target_channel_decomposition",
+      "to": "obligation.fixed_modulus_binary_goldbach_progressions",
       "type": "requires"
     }
   ]

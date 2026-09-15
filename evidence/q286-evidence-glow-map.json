@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "467225d58c9eb9b57bd94a2633f593f248c20ac1",
+  "generated_from_commit": "66f3f00e61ae98ddcbad2c3c0b38f7c5b59e9d21",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -258,6 +258,22 @@
       "source": "evidence/q286-lp-cone-local-singular-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite local/admissibility audit only; no prime-pair theorem."
+    },
+    {
+      "id": "zero-local-target-channel-decomposition",
+      "label": "Zero-local target rows decompose into signed 17-channel correlation",
+      "kind": "finite_channel_decomposition",
+      "source": "evidence/q286-zero-local-target-channel-decomposition.json",
+      "default_weight": 3.0,
+      "boundary": "Finite 12-target decomposition only; no correlation theorem."
+    },
+    {
+      "id": "ap-count-bridge-gap-audit",
+      "label": "Raw AP-count pigeonhole bridge is too sparse",
+      "kind": "finite_combinatorial_falsifier",
+      "source": "evidence/q286-ap-count-bridge-gap-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite bridge-gap audit only; no binary convolution theorem."
     },
     {
       "id": "conditional-proof-stack",
@@ -3618,6 +3634,306 @@
       "glow": 0.101852
     },
     {
+      "id": "10000028",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.24490441918291322,
+            "after_local_lp": 0.17220213497057843,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "10000054",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.24441085834372384,
+            "after_local_lp": 0.1701180706643422,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "12000026",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.24780336187728835,
+            "after_local_lp": 0.16129380270031346,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "12000052",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.22197889820833983,
+            "after_local_lp": 0.14498183174596324,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "16000022",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.2575414423783381,
+            "after_local_lp": 0.15364810230216805,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "16000048",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.24594402214344255,
+            "after_local_lp": 0.1538031267470284,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "20000018",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.249149582132505,
+            "after_local_lp": 0.1534025513184042,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "20000044",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.2442539495549327,
+            "after_local_lp": 0.15251579580892496,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "6000032",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.21061730299747022,
+            "after_local_lp": 0.13448939889450512,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "6000058",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.2617891466329198,
+            "after_local_lp": 0.17633423957084604,
+            "positive_channel_count": 11,
+            "negative_channel_count": 6
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "8000030",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 38,
+            "after_local_full": 0.18333335176659665,
+            "after_local_lp": 0.13790669978309292,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
+      "id": "8000056",
+      "stack_weight": 4.5,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 2.0,
+          "reason": "positive empirical LP delta despite zero local LP action"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 2.5,
+          "reason": "zero local action but positive after-local full and LP deltas",
+          "value": {
+            "target_mod_143": 64,
+            "after_local_full": 0.23999665431527037,
+            "after_local_lp": 0.16401481780410915,
+            "positive_channel_count": 12,
+            "negative_channel_count": 5
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.083333
+    },
+    {
       "id": "1221092",
       "stack_weight": 4.0,
       "layers": [
@@ -4897,58 +5213,6 @@
       "glow": 0.046296
     },
     {
-      "id": "10000028",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "10000054",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "12000026",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "12000052",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
       "id": "1240116",
       "stack_weight": 2.0,
       "layers": [
@@ -4974,110 +5238,6 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.037037
-    },
-    {
-      "id": "16000022",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "16000048",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "20000018",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "20000044",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "6000032",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "6000058",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "8000030",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.037037
-    },
-    {
-      "id": "8000056",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 2.0,
-          "reason": "positive empirical LP delta despite zero local LP action"
-        }
-      ],
-      "layer_count": 1,
       "glow": 0.037037
     },
     {
@@ -5527,6 +5687,25 @@
       "glow": 0.333333
     },
     {
+      "id": "raw-ap-count-pigeonhole-bridge-falsified",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 3.0,
+          "reason": "BMOR/AP marginal floors can be satisfied by disjoint reflected residue-slot subsets",
+          "value": {
+            "corollary_threshold": 4089800,
+            "ratio_exceeds_one_only_below": 117.52683220041116,
+            "max_sampled_bmor_ratio": 0.24946901227920162,
+            "max_sampled_bmor_ratio_x": 86891850
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
       "id": "small-fixed-channel-certificate-refuted",
       "stack_weight": 3.0,
       "layers": [
@@ -5559,6 +5738,30 @@
               ]
             ],
             "best_five_minimum_share": 0.3570706201967922
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.333333
+    },
+    {
+      "id": "zero-local-target-correlation-decomposition",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 3.0,
+          "reason": "12 target integers with zero local action remain positive after subtracting the local vector across all 17 outside channels",
+          "value": {
+            "zero_local_target_count": 12,
+            "zero_local_residues": [
+              38,
+              64
+            ],
+            "after_local_full_minimum": 0.18333335176659665,
+            "after_local_lp_minimum": 0.13448939889450512,
+            "positive_entry_count": 138,
+            "negative_entry_count": 66
           }
         }
       ],
@@ -6196,6 +6399,47 @@
       "glow": 0.857143
     },
     {
+      "id": "fixed-modulus-binary-prime-discrepancy",
+      "stack_weight": 8.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "local cone orientation survives but empirical/local correlation is flat; quantitative binary-prime discrepancy remains"
+        },
+        {
+          "layer": "zero-local-target-channel-decomposition",
+          "weight": 3.0,
+          "reason": "zero local contribution rows are carried by signed empirical 17-channel correlation"
+        },
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 2.0,
+          "reason": "count-only countermodels preserve the need for fixed-modulus pair correlation"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.457143
+    },
+    {
+      "id": "ap-count-to-17-channel-bridge",
+      "stack_weight": 6.0,
+      "layers": [
+        {
+          "layer": "lp-cone-local-singular-audit",
+          "weight": 3.0,
+          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
+        },
+        {
+          "layer": "ap-count-bridge-gap-audit",
+          "weight": 3.0,
+          "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.342857
+    },
+    {
       "id": "active-lane-strict-closure",
       "stack_weight": 5.0,
       "layers": [
@@ -6230,32 +6474,6 @@
       ],
       "layer_count": 2,
       "glow": 0.2
-    },
-    {
-      "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 3.0,
-          "reason": "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.171429
-    },
-    {
-      "id": "fixed-modulus-binary-prime-discrepancy",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "lp-cone-local-singular-audit",
-          "weight": 3.0,
-          "reason": "local cone orientation survives but empirical/local correlation is flat; quantitative binary-prime discrepancy remains"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.171429
     },
     {
       "id": "alignment-plus-complement-tail",

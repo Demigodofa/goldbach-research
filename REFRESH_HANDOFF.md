@@ -6,6 +6,60 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-14
 
+Kevin corrected an important wording error: the `12` zero-local cases are
+target integers, not `12` neutral channels.  The intended audit is now
+`evidence/q286-zero-local-target-channel-decomposition.json`, built by
+`tools/build_q286_zero_local_target_channel_decomposition.py`, with the human
+note `notes/q286-zero-local-target-channel-decomposition.md`.
+
+Targets:
+`6000032,6000058,8000030,8000056,10000028,10000054,12000026,12000052,16000022,16000048,20000018,20000044`.
+They lie in zero-local residues `38` and `64` modulo `143`.  For each target,
+the stored local stress-relative delta vector is numerical zero; after
+subtracting it, the empirical `17`-channel vector remains positive in both
+full outside sum and LP-weighted sum.
+
+Result: all `12/12` after-local full sums and all `12/12` after-local LP sums
+are positive.  Minimum after-local full sum is `0.183333351766597`; minimum
+after-local LP sum is `0.134489398894505`.  The channel entries are signed:
+`138` positive, `66` negative, `0` zero across `204` entries.  The common
+worst negative channel is usually `(3,5)`, while the largest LP-weighted
+positive contributor is often `(5,5)`.
+
+Decision: the local singular layer is insufficient in exactly the intended
+sense.  The zero-local rows are carried by signed empirical prime-pair
+correlation across the `17` outside channels, not by local admissible support
+or by every channel individually staying positive.
+
+## Previous active checkpoint note, 2026-09-14
+
+The raw AP-count-to-prime-pair pigeonhole bridge is now explicitly falsified
+as a sufficient route.  The audit is
+`evidence/q286-ap-count-bridge-gap-audit.json`, built by
+`tools/build_q286_ap_count_bridge_gap_audit.py`, with the human note
+`notes/q286-ap-count-bridge-gap-audit.md`.
+
+Mechanism tested: use BMOR/AP prime-count lower bounds in individual reduced
+residue classes modulo `286` as marginal floors, then try to force an
+intersection between primes `p == r mod 286` and reflected primes `N-p` in
+the complementary class by pigeonhole.
+
+Result: the marginal sets are far too sparse.  BMOR Corollary 1.6 gives a
+count-only ratio `2q/(phi(q)*log x)`, which exceeds `1` only below
+`x = 117.526832200411...`; its valid range starts at `4,089,800`.  At that
+valid threshold the ratio is about `0.313102`.  At the q-specific BMOR
+`pi` threshold `86,891,851`, the q-specific ratio is about `0.249469`, and
+two disjoint reflected subsets can still satisfy the AP marginal floors with
+`228024` slots of unused capacity.
+
+Decision: preserve BMOR constants as source-backed endpoint data, but demote
+`AP counts + pigeonhole marginals alone` as the bridge to the q286
+`17`-channel functional.  The remaining bridge must use binary convolution,
+character-sum correlation, dispersion, circle-method input, or another
+coefficient-specific signed estimate.
+
+## Previous active checkpoint note, 2026-09-14
+
 The q286 LP cone now has a local singular/admissible-cone audit and a
 source-backed AP-count threshold lookup.  The audit is
 `evidence/q286-lp-cone-local-singular-audit.json`, built by

@@ -335,6 +335,35 @@ The simpler BMOR Corollary 1.6 threshold for raw AP counts is
 `50*286^2 = 4,089,800`.  These are AP prime-count inputs, not direct
 certificates for the signed `17`-channel LP/rank-`1` object.
 
+The zero-local target channel decomposition is:
+
+```text
+evidence/q286-zero-local-target-channel-decomposition.json
+```
+
+This corrects the "12 cases" wording: the `12` cases are target integers, not
+neutral channels.  They are the far rows with zero local LP action but positive
+empirical LP delta.  After subtracting the corresponding zero local vectors for
+residues `38` and `64` modulo `143`, all `12` targets still have positive full
+outside and LP-weighted deltas.  Across the `204` channel entries, `138` are
+positive and `66` are negative, so the after-local positivity is a signed
+17-channel balance rather than all-channel positivity.
+
+The AP-count bridge-gap audit is:
+
+```text
+evidence/q286-ap-count-bridge-gap-audit.json
+```
+
+It closes the simplest pigeonhole bridge from AP marginals to residue-pair
+existence.  For BMOR Corollary 1.6, the count-only ratio
+`2q/(phi(q)*log x)` exceeds `1` only below `x = 117.526832200411...`, while
+the theorem starts at `4,089,800`.  At the q-specific BMOR `pi` threshold
+`86,891,851`, the marginal-pigeonhole ratio is only about `0.249469`, leaving
+enough residue-slot room for disjoint reflected sets satisfying the same
+counts.  The glow map should therefore treat `raw-ap-count-pigeonhole-bridge`
+as a closed shortcut and keep `ap-count-to-17-channel-bridge` open.
+
 ## Boundary
 
 This artifact helps navigate hypotheses.  It does not prove rarity, strict

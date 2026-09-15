@@ -6,6 +6,49 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-14
 
+Kevin corrected that the `12` zero-local cases are target integers, not
+neutral channels.  `tools/build_q286_zero_local_target_channel_decomposition.py`
+generated `evidence/q286-zero-local-target-channel-decomposition.json`, with
+explanation in `notes/q286-zero-local-target-channel-decomposition.md`.
+
+The `12` targets lie in zero-local residues `38` and `64` modulo `143`.
+Subtracting the corresponding stored local delta vector leaves all `12`
+after-local full outside sums positive and all `12` after-local LP-weighted
+sums positive.  The minimum after-local full sum is `0.183333351766597`; the
+minimum after-local LP sum is `0.134489398894505`.
+
+The decomposition is not all-positive channelwise: across `204` outside-channel
+entries, `138` are positive and `66` are negative.  The result therefore
+supports the intended boundary: local admissible support contributes zero on
+these rows, while the empirical positivity is a signed balance from actual
+prime-pair/correlation deltas across the `17` channels.
+
+## Previous continuation evidence, 2026-09-14
+
+The first AP-count bridge attempt is now closed as a shortcut:
+`tools/build_q286_ap_count_bridge_gap_audit.py` generated
+`evidence/q286-ap-count-bridge-gap-audit.json`, with explanation in
+`notes/q286-ap-count-bridge-gap-audit.md`.
+
+It tests the count-only pigeonhole route from AP marginals to q286 residue-pair
+existence.  For one residue pair, AP lower bounds provide only marginal counts
+for primes `p == r mod 286` and reflected primes `N-p`; pigeonhole would need
+their two lower floors to exceed the residue-slot count.
+
+Result: BMOR Corollary 1.6 has ratio `2q/(phi(q)*log x)`, which exceeds `1`
+only for `x < 117.526832200411...`, while its valid q286 range begins at
+`4,089,800`.  At `4,089,800` the ratio is about `0.313102`.  At the q-specific
+BMOR `pi` threshold `86,891,851`, the ratio is about `0.249469`; the integer
+countermodel still has `228024` unused residue slots after placing two
+disjoint marginal floors.
+
+Interpretation: BMOR AP counts remain valid endpoint data, but raw AP
+occupancy plus pigeonhole cannot prove the binary reflected intersection, much
+less the signed `17`-channel LP/rank-`1` functional.  A viable bridge must use
+binary convolution/correlation rather than marginal counts alone.
+
+## Previous continuation evidence, 2026-09-14
+
 The q286 LP/cone route now has a local singular/admissible boundary audit:
 `tools/build_q286_lp_cone_local_singular_audit.py` generated
 `evidence/q286-lp-cone-local-singular-audit.json`, with the explanation in

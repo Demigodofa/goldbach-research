@@ -117,6 +117,10 @@ def main():
         EVIDENCE / "q286-low-frequency-lp-cone-stress-holdout.json")
     lp_cone_local_singular = load_json(
         EVIDENCE / "q286-lp-cone-local-singular-audit.json")
+    zero_local_decomposition = load_json(
+        EVIDENCE / "q286-zero-local-target-channel-decomposition.json")
+    ap_count_bridge_gap = load_json(
+        EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
     target_stacks = {}
     mechanism_stacks = {}
@@ -1471,6 +1475,93 @@ def main():
         "lp-cone-local-singular-audit",
         3.0,
         "BMOR q286 AP-count constants are useful input but do not directly prove the signed 17-channel functional")
+
+    layer(
+        "zero-local-target-channel-decomposition",
+        "Zero-local target rows decompose into signed 17-channel correlation",
+        "finite_channel_decomposition",
+        "evidence/q286-zero-local-target-channel-decomposition.json",
+        3.0,
+        "Finite 12-target decomposition only; no correlation theorem.")
+    for row in zero_local_decomposition["target_rows"]:
+        add_hit(
+            target_stacks,
+            str(row["target"]),
+            "zero-local-target-channel-decomposition",
+            2.5,
+            "zero local action but positive after-local full and LP deltas",
+            {
+                "target_mod_143": row["target_mod_143"],
+                "after_local_full": row["after_local_full_outside_delta"],
+                "after_local_lp": row["after_local_lp_delta"],
+                "positive_channel_count": row[
+                    "after_local_vector_summary"]["positive_count"],
+                "negative_channel_count": row[
+                    "after_local_vector_summary"]["negative_count"],
+            })
+    add_hit(
+        mechanism_stacks,
+        "zero-local-target-correlation-decomposition",
+        "zero-local-target-channel-decomposition",
+        3.0,
+        "12 target integers with zero local action remain positive after subtracting the local vector across all 17 outside channels",
+        {
+            "zero_local_target_count": zero_local_decomposition[
+                "zero_local_target_count"],
+            "zero_local_residues": zero_local_decomposition[
+                "zero_local_target_residues_mod_143"],
+            "after_local_full_minimum": zero_local_decomposition[
+                "after_local_full_delta_summary"]["minimum"],
+            "after_local_lp_minimum": zero_local_decomposition[
+                "after_local_lp_delta_summary"]["minimum"],
+            "positive_entry_count": zero_local_decomposition[
+                "after_local_positive_entry_count"],
+            "negative_entry_count": zero_local_decomposition[
+                "after_local_negative_entry_count"],
+        })
+    add_hit(
+        theorem_stacks,
+        "fixed-modulus-binary-prime-discrepancy",
+        "zero-local-target-channel-decomposition",
+        3.0,
+        "zero local contribution rows are carried by signed empirical 17-channel correlation")
+
+    layer(
+        "ap-count-bridge-gap-audit",
+        "Raw AP-count pigeonhole bridge is too sparse",
+        "finite_combinatorial_falsifier",
+        "evidence/q286-ap-count-bridge-gap-audit.json",
+        3.0,
+        "Finite bridge-gap audit only; no binary convolution theorem.")
+    add_hit(
+        mechanism_stacks,
+        "raw-ap-count-pigeonhole-bridge-falsified",
+        "ap-count-bridge-gap-audit",
+        3.0,
+        "BMOR/AP marginal floors can be satisfied by disjoint reflected residue-slot subsets",
+        {
+            "corollary_threshold": ap_count_bridge_gap[
+                "corollary_1_6"]["simple_pi_lower_valid_from"],
+            "ratio_exceeds_one_only_below": ap_count_bridge_gap[
+                "corollary_1_6"]["ratio_exceeds_1_only_for_x_less_than"],
+            "max_sampled_bmor_ratio": ap_count_bridge_gap[
+                "bmor_logspace_sample"]["maximum_sampled_ratio_row"][
+                    "two_lower_bounds_to_slot_ratio"],
+            "max_sampled_bmor_ratio_x": ap_count_bridge_gap[
+                "bmor_logspace_sample"]["maximum_sampled_ratio_row"]["x"],
+        })
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "ap-count-bridge-gap-audit",
+        3.0,
+        "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation")
+    add_hit(
+        theorem_stacks,
+        "fixed-modulus-binary-prime-discrepancy",
+        "ap-count-bridge-gap-audit",
+        2.0,
+        "count-only countermodels preserve the need for fixed-modulus pair correlation")
 
     layer(
         "conditional-proof-stack",
