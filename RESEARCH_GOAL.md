@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an observed aggregate character `L2` moment audit:
+`tools/build_q286_wbss_multiplicative_character_l2_observed_moment_audit.py`
+generated
+`evidence/q286-wbss-multiplicative-character-l2-observed-moment-audit.json`,
+with explanation in
+`notes/q286-wbss-multiplicative-character-l2-observed-moment-audit.md`.
+
+Question: does the aggregate character `L2` cap already hold on the checked
+rows, and are any failures caused by zero strict-central mass?
+
+Answer: no, the cap does not already hold; and no, the failures are not a
+zero-mass normalization artifact.
+
+```text
+checked rows:                           348
+zero strict-central pair rows:            0
+zero actual-mass rows:                    0
+nonunit actual-mass rows:                 0
+nonunit uniform-mass rows:                0
+rows exceeding global minimum cap:      301
+rows exceeding row-local cap:           120
+largest target exceeding row-local cap: 1155862
+worst target:                       1089544
+worst observed aggregate L2:        0.20982859176041493
+worst row-local L2 cap:             0.13475610600578378
+worst row-local ratio:              1.5570989543984672
+```
+
+Decision: `HOLD_l2_cap_requires_boundary_or_stronger_theorem`.  The aggregate
+`L2` formulation remains useful as a possible asymptotic theorem shape, but
+the checked population falsifies any claim that the displayed cap already
+holds at this scale.  The zero-mass check passes, so the finite failures are
+real finite arithmetic obstructions rather than missing-mass artifacts.  The
+route now requires an explicit threshold beyond the observed violations, a
+stronger structured signed moment theorem than plain aggregate `L2`, or a
+different signed estimate.  This confirms no non-circular analytic bridge,
+aggregate character moment theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a multiplicative character `L2` payment audit:
 `tools/build_q286_wbss_multiplicative_character_l2_payment_audit.py`
 generated
