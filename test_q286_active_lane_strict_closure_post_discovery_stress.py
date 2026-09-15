@@ -7,6 +7,9 @@ from tools.build_q286_active_lane_strict_closure_phase_space_html import (
     build_view_model,
     script_json,
 )
+from tools.build_q286_active_lane_strict_closure_coupled_slack_diagnosis import (
+    OUT as COUPLED_SLACK_OUT,
+)
 from tools.build_q286_active_lane_strict_closure_post_discovery_stress import (
     EVIDENCE,
     OUT,
@@ -68,10 +71,36 @@ class Q286ActiveLaneStrictClosurePostDiscoveryStressTest(unittest.TestCase):
         self.assertEqual(view["rows"][0]["target"], 94856)
         self.assertEqual(view["rows"][0]["detail"]["fixed_conductor_pair"],
                          [35, 77])
+        hinge = next(row for row in view["rows"] if row["target"] == 594112)
+        self.assertAlmostEqual(hinge["paymentRatio"], 1.036015710699683)
+        self.assertAlmostEqual(
+            hinge["detail"][
+                "derived_channel_payment_ratio_to_driver_deficit"],
+            1.036015710699683)
         encoded = script_json(view)
         self.assertIn('"target": 94856', encoded)
+        self.assertIn('"paymentRatio": 1.036015710699683', encoded)
         self.assertNotIn("&quot;", encoded)
         self.assertTrue(HTML_OUT.exists())
+
+    def test_coupled_slack_diagnosis_records_visual_hinge(self):
+        self.assertTrue(COUPLED_SLACK_OUT.exists())
+        receipt = json.loads(COUPLED_SLACK_OUT.read_text(encoding="utf-8"))
+        self.assertEqual(receipt["row_count"], 11)
+        self.assertEqual(receipt["driver_floor_condition_met_count"], 0)
+        self.assertEqual(receipt["channel_linf_condition_met_count"], 8)
+        self.assertEqual(receipt["coupled_slack_positive_count"], 5)
+        self.assertEqual(receipt["channel_pass_but_coupled_fail_count"], 3)
+        self.assertEqual(receipt["first_channel_bound_pass_target"], 383486)
+        self.assertEqual(receipt["first_coupled_slack_pass_target"], 594112)
+        self.assertTrue(receipt["driver_floor_fails_on_every_stress_row"])
+        self.assertEqual(receipt["tightest_passing_row"]["target"], 594112)
+        self.assertEqual(receipt["strongest_failing_row"]["target"], 548666)
+        hinge = next(row for row in receipt["rows"]
+                     if row["target"] == 594112)
+        self.assertAlmostEqual(
+            hinge["channel_payment_ratio_to_driver_deficit"],
+            1.036015710699683)
 
 
 if __name__ == "__main__":

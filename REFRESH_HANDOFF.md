@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 component-pair route now has a coupled driver-channel slack
+diagnosis plus an upgraded linked phase-space viewer with strict-margin and
+payment-ratio z-axis modes.
+
+```text
+tools/build_q286_active_lane_strict_closure_coupled_slack_diagnosis.py
+notes/q286-active-lane-strict-closure-coupled-slack-diagnosis.md
+evidence/q286-active-lane-strict-closure-coupled-slack-diagnosis.json
+tools/build_q286_active_lane_strict_closure_phase_space_html.py
+evidence/q286-active-lane-strict-closure-phase-space.html
+```
+
+Result:
+
+```text
+stress rows:                     11
+driver floor condition met:       0 / 11
+channel Linf condition met:       8 / 11
+coupled strict slack positive:    5 / 11
+channel pass but coupled fail:    3 / 11
+first channel-bound pass target:  383486
+first coupled-slack pass target:  594112
+hinge payment ratio at 594112:    1.036015710699683
+```
+
+Decision:
+`HOLD_independent_driver_floor_falsified_coupled_slack_target_survives`.
+The visual orientation check was useful because it identified a real derived
+coordinate: channel payment divided by driver deficit.  The independent
+driver floor fails on all stress rows, including rows where the coupled strict
+margin is positive.  The surviving theorem-shaped target is therefore a
+coupled pointwise tradeoff, or a direct unnormalized signed estimate, not
+separate finite-fit driver and channel bounds.  The viewer remains a
+falsifier/hypothesis locator only and proves no component-pair theorem,
+fixed-conductor channel theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 component-pair route now has a post-discovery strict-closure stress
 audit plus a linked local phase-space viewer.
 

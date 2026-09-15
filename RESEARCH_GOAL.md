@@ -6,6 +6,56 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 component-pair route now has a coupled driver-channel slack
+diagnosis and an upgraded phase-space viewer with a payment-ratio mode:
+`tools/build_q286_active_lane_strict_closure_coupled_slack_diagnosis.py`
+generated
+`evidence/q286-active-lane-strict-closure-coupled-slack-diagnosis.json`, with
+explanation in
+`notes/q286-active-lane-strict-closure-coupled-slack-diagnosis.md`.
+`tools/build_q286_active_lane_strict_closure_phase_space_html.py` now exposes
+`channel_payment_ratio_to_driver_deficit` in the linked table/detail panel and
+as an alternate z-axis.
+
+Question: in the post-discovery strict-closure stress split, did the selected
+route fail because the driver floor, the channel bound, or only their coupled
+slack failed?
+
+Answer: the independent driver floor fails on every stress row.  The pass/fail
+split is explained by whether channel contribution pays more than `100%` of
+the driver deficit.  The first coupled pass is target `594112`, with payment
+ratio `1.036015710699683`.
+
+```text
+stress rows:                     11
+driver floor condition met:       0 / 11
+channel Linf condition met:       8 / 11
+coupled strict slack positive:    5 / 11
+channel pass but coupled fail:    3 / 11
+first channel-bound pass target:  383486
+first coupled-slack pass target:  594112
+```
+
+Decision: `HOLD_independent_driver_floor_falsified_coupled_slack_target_survives`.
+The selected-late route should not try to prove the frozen driver floor as a
+separate theorem.  The live theorem-shaped target is a coupled pointwise
+tradeoff
+
+```text
+driver_margin(N) + L * channel_margin(N) > 0
+```
+
+or, better, a direct unnormalized pointwise signed estimate.  Visual
+orientations are now accepted only as hypothesis locators: overlaps matter
+when they survive meaningful coordinate changes, and in this case the
+meaningful coordinate is the payment-ratio threshold `1`, not screen overlap
+or residue labels treated as numeric geometry.  No component-pair theorem,
+fixed-conductor channel theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 component-pair route now has a post-discovery strict-closure stress
 audit and a linked local phase-space viewer:
 `tools/build_q286_active_lane_strict_closure_post_discovery_stress.py`

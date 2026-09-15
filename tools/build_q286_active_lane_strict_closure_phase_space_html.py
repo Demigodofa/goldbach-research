@@ -56,11 +56,20 @@ def build_view_model(receipt):
         combined_driver = (
             receipt["calibrated_combined_floor_driver_floor"]
             + row["driver_margin_to_calibrated_floor"])
+        driver_deficit = max(0.0, -row["driver_margin_to_calibrated_floor"])
+        payment_ratio = (
+            row["channel_margin_contribution_to_strict_closure"]
+            / driver_deficit
+            if driver_deficit > 0.0 else None)
         detail = dict(row)
         detail["derived_combined_floor_driver_to_principal_ratio"] = (
             combined_driver)
         detail["derived_maximum_normalized_real_channel_sum"] = (
             maximum_channel)
+        detail["derived_driver_deficit_to_calibrated_floor"] = (
+            driver_deficit)
+        detail["derived_channel_payment_ratio_to_driver_deficit"] = (
+            payment_ratio)
         detail["fixed_conductor_pair"] = point["fixed_conductor_pair"]
         detail["calibrated_constants"] = {
             "combined_floor_driver_floor": receipt[
@@ -80,6 +89,8 @@ def build_view_model(receipt):
             "channelContribution": row[
                 "channel_margin_contribution_to_strict_closure"],
             "channelMargin": row["channel_margin_to_calibrated_linf_bound"],
+            "driverDeficit": driver_deficit,
+            "paymentRatio": payment_ratio,
             "maximumNormalizedChannel": maximum_channel,
             "combinedDriver": combined_driver,
             "fullAction": row["full_action_to_principal_ratio"],
@@ -176,6 +187,27 @@ main {{
   gap: 6px;
 }}
 input[type="range"] {{ width: 115px; }}
+.segmented {{
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f3f5f8;
+}}
+.segmented button {{
+  border: 0;
+  border-right: 1px solid var(--line);
+  padding: 5px 9px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}}
+.segmented button:last-child {{ border-right: 0; }}
+.segmented button.active {{
+  background: var(--accent);
+  color: #fff;
+}}
 #plot {{
   display: block;
   width: 100%;
@@ -274,7 +306,7 @@ pre {{
 <body>
 <header>
   <h1>q286 Strict-Closure Phase Space</h1>
-  <p class="sub">Linked local navigation view. X = log N, Y = driver margin, Z = strict closure margin. Color is pass/fail with residue labels; brightness is distance from the zero boundary. This is a falsifier locator, not proof evidence.</p>
+  <p class="sub">Linked local navigation view. X = log N, Y = driver margin, Z = strict closure margin or channel payment ratio. Color is pass/fail with residue labels; brightness is distance from the zero boundary. This is a falsifier locator, not proof evidence.</p>
 </header>
 <main>
   <section class="panel plot-panel">
@@ -282,6 +314,10 @@ pre {{
       <label>rotate X <input id="rotX" type="range" min="-80" max="80" value="22"></label>
       <label>rotate Y <input id="rotY" type="range" min="-120" max="120" value="-36"></label>
       <label>zoom <input id="zoom" type="range" min="70" max="160" value="108"></label>
+      <div class="segmented" aria-label="z axis mode">
+        <button type="button" class="active" data-mode="strict">strict</button>
+        <button type="button" data-mode="payment">payment</button>
+      </div>
       <span id="selectedLabel"></span>
     </div>
     <canvas id="plot"></canvas>
@@ -293,7 +329,7 @@ pre {{
         <thead>
           <tr>
             <th>N</th><th>block</th><th>status</th><th>mod286</th>
-            <th>driver</th><th>channel</th><th>strict</th><th>full</th>
+            <th>driver</th><th>channel</th><th>ratio</th><th>strict</th><th>full</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -311,6 +347,7 @@ pre {{
 const view = JSON.parse(document.getElementById('view-data').textContent);
 const rows = view.rows;
 let selected = rows[0]?.target;
+let zMode = 'strict';
 let projected = [];
 
 const canvas = document.getElementById('plot');
@@ -326,6 +363,16 @@ function fmt(value, digits = 6) {{
   if (typeof value !== 'number') return value;
   if (Math.abs(value) >= 1000) return value.toFixed(0);
   return value.toPrecision(digits);
+}}
+
+function zValue(row) {{
+  return zMode === 'payment' ? row.paymentRatio : row.strictMargin;
+}}
+
+function zLabel() {{
+  return zMode === 'payment'
+    ? 'payment ratio: red below 1, green above'
+    : 'strict margin: red below zero, green above';
 }}
 
 function norm(value, min, max) {{
@@ -361,7 +408,7 @@ function draw() {{
   const plotH = h - pad * 2;
   const xs = rows.map(r => r.logN);
   const ys = rows.map(r => r.driverMargin);
-  const zs = rows.map(r => r.strictMargin);
+  const zs = rows.map(r => zValue(r));
   const minX = Math.min(...xs), maxX = Math.max(...xs);
   const minY = Math.min(...ys), maxY = Math.max(...ys);
   const minZ = Math.min(...zs), maxZ = Math.max(...zs);
@@ -376,12 +423,12 @@ function draw() {{
   ctx.font = '12px Segoe UI, Arial';
   ctx.fillText('x log(N)', pad + 8, h - pad + 30);
   ctx.fillText('y driver margin', pad + 8, pad - 18);
-  ctx.fillText('z strict margin: red below zero, green above', pad + 8, pad - 2);
+  ctx.fillText(`z ${{zLabel()}}`, pad + 8, pad - 2);
 
   const axes = [
     {{ a: [-1,-1,-1], b: [1,-1,-1], label: 'log N' }},
     {{ a: [-1,-1,-1], b: [-1,1,-1], label: 'driver' }},
-    {{ a: [-1,-1,-1], b: [-1,-1,1], label: 'strict' }},
+    {{ a: [-1,-1,-1], b: [-1,-1,1], label: zMode === 'payment' ? 'payment' : 'strict' }},
   ];
   for (const axis of axes) {{
     const a = rotate(axis.a, ax, ay);
@@ -401,7 +448,7 @@ function draw() {{
     const p = [
       norm(row.logN, minX, maxX),
       norm(row.driverMargin, minY, maxY),
-      norm(row.strictMargin, minZ, maxZ)
+      norm(zValue(row), minZ, maxZ)
     ];
     const r = rotate(p, ax, ay);
     const screen = project(r, w, h, zoom);
@@ -449,6 +496,7 @@ function renderTable() {{
       <td>${{row.residue286}}</td>
       <td>${{fmt(row.driverMargin)}}</td>
       <td>${{fmt(row.channelContribution)}}</td>
+      <td>${{fmt(row.paymentRatio)}}</td>
       <td>${{fmt(row.strictMargin)}}</td>
       <td>${{fmt(row.fullAction)}}</td>`;
     tr.addEventListener('click', () => select(row.target));
@@ -463,7 +511,7 @@ function select(target) {{
   }}
   const row = rows.find(r => r.target === selected);
   if (!row) return;
-  selectedLabel.textContent = `selected N=${{row.target}}, mod286=${{row.residue286}}, strict=${{fmt(row.strictMargin)}}`;
+  selectedLabel.textContent = `selected N=${{row.target}}, mod286=${{row.residue286}}, ratio=${{fmt(row.paymentRatio)}}, strict=${{fmt(row.strictMargin)}}`;
   detailTitle.textContent = `N = ${{row.target}}`;
   const items = [
     ['block', row.block],
@@ -473,7 +521,9 @@ function select(target) {{
     ['first two', fmt(row.firstTwo)],
     ['first three', fmt(row.firstThree)],
     ['driver margin', fmt(row.driverMargin)],
+    ['driver deficit', fmt(row.driverDeficit)],
     ['channel contribution', fmt(row.channelContribution)],
+    ['payment ratio', fmt(row.paymentRatio)],
     ['channel margin', fmt(row.channelMargin)],
     ['max normalized channel', fmt(row.maximumNormalizedChannel)],
     ['strict margin', fmt(row.strictMargin)],
@@ -500,6 +550,15 @@ canvas.addEventListener('click', event => {{
 
 for (const id of ['rotX', 'rotY', 'zoom']) {{
   document.getElementById(id).addEventListener('input', draw);
+}}
+for (const button of document.querySelectorAll('[data-mode]')) {{
+  button.addEventListener('click', () => {{
+    zMode = button.dataset.mode;
+    for (const other of document.querySelectorAll('[data-mode]')) {{
+      other.classList.toggle('active', other === button);
+    }}
+    draw();
+  }});
 }}
 window.addEventListener('resize', draw);
 renderTable();
