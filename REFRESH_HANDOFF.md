@@ -6,6 +6,55 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS coefficient-discrepancy budget now has a known-theorem adequacy
+audit.
+
+```text
+tools/build_q286_wbss_known_theorem_adequacy_audit.py
+notes/q286-wbss-known-theorem-adequacy-audit.md
+evidence/q286-wbss-known-theorem-adequacy-audit.json
+```
+
+Active budget:
+
+```text
+max(0, -E_d(N)) <= B_d(N) for each d
+sum_d max(0, B_d(N)) < local_main(N)
+```
+
+or stronger:
+
+```text
+|Delta_{d,s}(N)| <= eta_d(N)
+sum_d L1_d * eta_d(N) < local_main(N)
+```
+
+Result: the checked source-backed theorem shapes do not pay the budget.
+
+```text
+BMOR explicit AP prime counts:
+  one-dimensional p mod q counts; no binary partner correlation.
+Bhowmik-Halupczok-Matsumoto-Suzuki:
+  average Goldbach-in-progressions information; not every target N.
+Salmensuu:
+  almost-all moduli/residue/target coverage; not every sufficiently large N.
+Lichtman:
+  level-of-distribution and upper-bound improvements; not a positive
+  pointwise one-sided lower discrepancy estimate.
+```
+
+Decision: `HOLD_external_known_theorems_do_not_pay_budget`.  Full pointwise
+fixed-modulus AP asymptotics would imply the WBSS budget, but that is already
+binary Goldbach-in-progressions-strength input rather than a small local q286
+lemma.  Next non-finite action: build a signed-character burden audit for the
+four WBSS projected coefficient families and measure whether the adverse
+budget is concentrated in few modes or spread across many hard channels.  No
+pointwise adverse-drag theorem, fixed-modulus binary-prime discrepancy theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an exact coefficient-discrepancy budget HOLD for
 the pointwise adverse-drag theorem target.
 
