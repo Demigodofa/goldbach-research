@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 lower-face route now has a dual-edge audit:
+`tools/build_q286_lower_face_dual_edge_audit.py` generated
+`evidence/q286-lower-face-dual-edge-audit.json`, with explanation in
+`notes/q286-lower-face-dual-edge-audit.md`.
+
+Question: can the moving lower-face optimizer be restated as an affine lower
+edge in the `(F3, Full)` coefficient plane, making complement rescue one
+edge-gap inequality?
+
+Result: yes, as a finite diagnostic.  On the `196` post-discovery rows, the
+edge formula error is at most `8.881784197001252e-16`, the minimum orbit gap
+is no worse than `-5.329070518200751e-15`, and every row has edge-gap rescue
+ratio above `1`.  The tightest row is `94856`, with rescue ratio
+`1.0021652272515458` and final positive margin
+`0.01257646629380016`.
+
+Decision: the q286 theorem target is now a dual affine edge-gap rescue
+inequality.  For the target-dependent lower edge `ell_a,t`, prove actual
+prime-pair mass supplies
+`E_mu[g_a,t] > -ell_a,t(t)`, or restate this as an unnormalized positive
+signed prime-pair sum.  This is near-sharp and still unproved; Goldbach is
+not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 lower-face route now has a support-signature audit:
 `tools/build_q286_lower_face_support_signature_audit.py` generated
 `evidence/q286-lower-face-support-signature-audit.json`, with explanation in

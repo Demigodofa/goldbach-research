@@ -224,3 +224,32 @@ set."  It should be face-relative: for the target residue `a` and observed
 `t=F3(mu_N)`, actual prime-pair mass must avoid the LP-defined bad support
 `B_a(t)` and carry positive signed transport away from the corresponding
 optimizer.
+
+## Dual-edge rescue refinement
+
+`tools/build_q286_lower_face_dual_edge_audit.py` generated
+`evidence/q286-lower-face-dual-edge-audit.json`.
+
+For each checked row, the two-orbit lower-face optimizer defines an affine
+lower edge
+
+```text
+ell_a,t(x) = slope_a,t * F3(x) + intercept_a,t
+```
+
+and an orbit gap
+
+```text
+g_a,t(x)=Full(x)-ell_a,t(x).
+```
+
+The finite audit verifies `g_a,t>=0` on every coefficient orbit to floating
+precision.  On post-discovery rows, the exact theorem-shaped rescue ratio
+
+```text
+E_mu_N[g_a,t] / max(0,-ell_a,t(t))
+```
+
+ranges from `1.0021652272515458` to `1.3070973629998075`.  Thus the next
+definition is a near-sharp dual-edge gap theorem, not a looser channel,
+residue, max-density, or L1-uniformity theorem.

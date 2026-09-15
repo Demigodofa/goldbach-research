@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 lower-face route now has a dual-edge audit.
+
+`tools/build_q286_lower_face_dual_edge_audit.py` generated
+`evidence/q286-lower-face-dual-edge-audit.json`, with explanation in
+`notes/q286-lower-face-dual-edge-audit.md`.
+
+Question: can the moving lower-face LP optimizer be converted into a dual
+affine edge certificate?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+edge formula error:                          0.0..8.881784197001252e-16
+minimum gap over all coefficient orbits:     -5.329070518200751e-15..4.440892098500626e-16
+actual edge gap:                             3.131031037561594..7.8631684141402225
+required edge gap for positivity:            2.5357299258914665..7.283885499227512
+edge-gap rescue ratio:                       1.0021652272515458..1.3070973629998075
+edge-gap margin after rescue:                0.01257646629380016..1.0551822046747485
+```
+
+Decision: the next theorem target is no longer "find the bad channels."  It
+is the dual affine edge-gap inequality:
+
+```text
+E_mu_N[g_a,t] > -ell_a,t(t).
+```
+
+The weakest checked row is close to equality, so a proof likely needs
+pointwise signed binary-prime correlation input, not a broad uniformity bound.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 lower-face route now has a support-signature audit.
 
 `tools/build_q286_lower_face_support_signature_audit.py` generated

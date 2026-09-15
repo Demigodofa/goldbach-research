@@ -2085,6 +2085,31 @@
       "status": "demoted",
       "reason": "The lower-face bad support has 126 distinct modulo-286 signatures across 196 post-discovery rows, with the largest class only 14 rows; the useful selector is target-dependent coefficient-face geometry, not a fixed residue dictionary.",
       "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_lower_face_dual_edge_rescue",
+      "type": "theorem_target",
+      "label": "q286 lower-face dual-edge rescue",
+      "status": "open",
+      "statement": "For the target-dependent affine lower edge ell_a,t and nonnegative gap g_a,t=Full-ell_a,t(F3), prove actual strict-central prime-pair measures satisfy E_mu_N[g_a,t] > -ell_a,t(t), or prove the corresponding unnormalized signed edge-gap inequality with a route around the normalization gap.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_to_goldbach_bridge_gap",
+      "type": "open_obligation",
+      "label": "q286 normalized geometry to Goldbach bridge gap",
+      "status": "open",
+      "statement": "A normalized q286 action can shape a proof only after an unnormalized positive signed prime-pair sum or an independent T_N>0 lower bound bridges from coefficient geometry to existence of a strict-central prime pair.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_lower_face_dual_edge_audit",
+      "type": "receipt",
+      "label": "q286 lower-face dual-edge audit",
+      "status": "aha_candidate_finite_support",
+      "validation": "tools/build_q286_lower_face_dual_edge_audit.py generated evidence/q286-lower-face-dual-edge-audit.json; on 196 post-discovery rows, edge formula error is at most 8.881784197001252e-16, minimum orbit gap is no worse than -5.329070518200751e-15, edge-gap rescue ratio is 1.0021652272515458..1.3070973629998075, and the tightest row is 94856.",
+      "status_boundary": "finite lower-face dual-edge diagnostic only; no dual-edge theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4732,6 +4757,26 @@
       "from": "lane.q286_static_lower_face_residue_selector",
       "to": "problem.q286_convex_envelope_anti_extremality",
       "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_lower_face_dual_edge_audit",
+      "to": "problem.q286_lower_face_dual_edge_rescue",
+      "type": "defines"
+    },
+    {
+      "from": "receipt.q286_lower_face_dual_edge_audit",
+      "to": "problem.q286_lower_face_overlap_transport",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_lower_face_dual_edge_rescue",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "requires"
+    },
+    {
+      "from": "problem.q286_lower_face_dual_edge_rescue",
+      "to": "problem.q286_to_goldbach_bridge_gap",
+      "type": "requires"
     }
   ]
 }

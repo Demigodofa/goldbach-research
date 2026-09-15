@@ -688,3 +688,42 @@ T_N * (Full(mu_N) - L_a(F3(mu_N))) > -T_N * L_a(F3(mu_N)).
 The right side is still existence-dependent when stated through `mu_N`, so a
 complete proof must restate the inequality as an unnormalized signed
 prime-pair correlation or provide an independent lower bound for `T_N`.
+
+## Lower-Face Dual-Edge Audit
+
+`tools/build_q286_lower_face_dual_edge_audit.py` generated
+`evidence/q286-lower-face-dual-edge-audit.json`.
+
+This audit turns the lower-face optimizer into a dual affine certificate.
+For each checked row, the two support points define an affine lower edge
+`ell_a,t`, and the nonnegative orbit gap is:
+
+```text
+g_a,t(orbit)=Full(orbit)-ell_a,t(F3(orbit)).
+```
+
+For actual normalized mass,
+
+```text
+Full(mu_N)=ell_a,t(t)+E_mu_N[g_a,t].
+```
+
+Therefore the required complement rescue inequality is exactly:
+
+```text
+E_mu_N[g_a,t] > -ell_a,t(t).
+```
+
+The checked post-discovery rows satisfy this with rescue ratio
+`1.0021652272515458..1.3070973629998075`; the weakest row is `94856`.
+Because the lower endpoint is so close to `1`, this audit makes the remaining
+analytic gap sharper, not easier.  A Goldbach bridge needs either an
+unnormalized signed edge-gap lower bound
+
+```text
+sum_orbits W_N(orbit) * g_a,t(orbit)
+  > -T_N * ell_a,t(t)
+```
+
+plus a route around the normalization gap, or an independent proof that
+`T_N>0` before this normalized geometry is invoked.
