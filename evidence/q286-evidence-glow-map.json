@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "8d935ae83fa9b10ad7a5eaefa6b5669a586becce",
+  "generated_from_commit": "307f230bb7a44f92f57e68eca0136d8f915d4dcd",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -474,6 +474,14 @@
       "source": "evidence/q286-mod13-4-support-schedule-audit.json",
       "default_weight": 2.0,
       "boundary": "Finite support-schedule audit only; no infinite closure theorem."
+    },
+    {
+      "id": "complement-rescue-margin-schedule",
+      "label": "Post-discovery tail rows are finitely rescued by complement surplus",
+      "kind": "validated_finite_rescue",
+      "source": "evidence/q286-complement-rescue-margin-schedule.json",
+      "default_weight": 3.0,
+      "boundary": "Finite complement-rescue margin audit only; no eventual theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -6889,6 +6897,59 @@
       "glow": 0.189655
     },
     {
+      "id": "post-discovery-full-nonpositive-hole-closes-finitely",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "mod13-4-support-schedule-audit",
+          "weight": 2.0,
+          "reason": "active tail rows persist on scheduled blocks but all are rescued by the complement",
+          "value": {
+            "block_results": [
+              {
+                "start": 170160,
+                "active_selector": 529,
+                "rescued_first_three_tail": 529,
+                "full_nonpositive": 0
+              },
+              {
+                "start": 250240,
+                "active_selector": 139,
+                "rescued_first_three_tail": 139,
+                "full_nonpositive": 0
+              },
+              {
+                "start": 330320,
+                "active_selector": 63,
+                "rescued_first_three_tail": 63,
+                "full_nonpositive": 0
+              },
+              {
+                "start": 410400,
+                "active_selector": 49,
+                "rescued_first_three_tail": 49,
+                "full_nonpositive": 0
+              }
+            ]
+          }
+        },
+        {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 3.0,
+          "reason": "five post-discovery blocks contain tail pressure but zero full_nonpositive rows",
+          "value": {
+            "post_discovery_first_three_tail_count": 1671,
+            "post_discovery_active_selector_count": 1671,
+            "post_discovery_predicate_full_nonpositive_count": 0,
+            "post_discovery_minimum_rescue_margin": 0.012576466293799509,
+            "post_discovery_minimum_complement_to_required_ratio": 1.0214926472076773
+          }
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.172414
+    },
+    {
       "id": "zero-local-target-correlation-decomposition",
       "stack_weight": 5.0,
       "layers": [
@@ -7197,6 +7258,25 @@
             "selected_deficit_excluding_13822_fresh_failures": 0,
             "reference_13822_required": false,
             "selected_clear_control_fresh_failures": 1518
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.103448
+    },
+    {
+      "id": "discovery-block-complement-rescue-obstruction",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 3.0,
+          "reason": "original discovery block has full_nonpositive failures and blocks an unconditional rescue claim",
+          "value": {
+            "discovery_first_three_tail_count": 4406,
+            "discovery_predicate_full_nonpositive_count": 89,
+            "discovery_first_three_tail_full_nonpositive_count": 86,
+            "minimum_rescue_margin": -0.8769412734408442
           }
         }
       ],
@@ -7716,47 +7796,6 @@
       "glow": 0.068966
     },
     {
-      "id": "post-discovery-full-nonpositive-hole-closes-finitely",
-      "stack_weight": 2.0,
-      "layers": [
-        {
-          "layer": "mod13-4-support-schedule-audit",
-          "weight": 2.0,
-          "reason": "active tail rows persist on scheduled blocks but all are rescued by the complement",
-          "value": {
-            "block_results": [
-              {
-                "start": 170160,
-                "active_selector": 529,
-                "rescued_first_three_tail": 529,
-                "full_nonpositive": 0
-              },
-              {
-                "start": 250240,
-                "active_selector": 139,
-                "rescued_first_three_tail": 139,
-                "full_nonpositive": 0
-              },
-              {
-                "start": 330320,
-                "active_selector": 63,
-                "rescued_first_three_tail": 63,
-                "full_nonpositive": 0
-              },
-              {
-                "start": 410400,
-                "active_selector": 49,
-                "rescued_first_three_tail": 49,
-                "full_nonpositive": 0
-              }
-            ]
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.068966
-    },
-    {
       "id": "prefix-lower-bound-plus-tail-classification",
       "stack_weight": 2.0,
       "layers": [
@@ -8024,7 +8063,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 70.5,
+      "stack_weight": 72.5,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -8137,6 +8176,11 @@
           "reason": "single-residue classifier route is support-starved after discovery"
         },
         {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 2.0,
+          "reason": "route shifts from centered channel classifier to direct complement rescue margin"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -8147,7 +8191,7 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 24,
+      "layer_count": 25,
       "glow": 1.0
     },
     {
@@ -8246,7 +8290,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.659574
+      "glow": 0.641379
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -8289,7 +8333,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.248227
+      "glow": 0.241379
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -8337,7 +8381,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.234043
+      "glow": 0.227586
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -8370,7 +8414,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.212766
+      "glow": 0.206897
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8393,7 +8437,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.113475
+      "glow": 0.110345
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -8416,7 +8460,25 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.113475
+      "glow": 0.110345
+    },
+    {
+      "id": "first-three-complement-rescue-correlation",
+      "stack_weight": 6.5,
+      "layers": [
+        {
+          "layer": "mod13-4-support-schedule-audit",
+          "weight": 2.5,
+          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
+        },
+        {
+          "layer": "complement-rescue-margin-schedule",
+          "weight": 4.0,
+          "reason": "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.089655
     },
     {
       "id": "active-lane-strict-closure",
@@ -8434,7 +8496,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.070922
+      "glow": 0.068966
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -8452,7 +8514,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.049645
+      "glow": 0.048276
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -8465,20 +8527,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.042553
-    },
-    {
-      "id": "first-three-complement-rescue-correlation",
-      "stack_weight": 2.5,
-      "layers": [
-        {
-          "layer": "mod13-4-support-schedule-audit",
-          "weight": 2.5,
-          "reason": "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier"
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.035461
+      "glow": 0.041379
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -8491,7 +8540,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -8504,7 +8553,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -8517,7 +8566,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -8530,7 +8579,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -8543,7 +8592,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -8556,7 +8605,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -8569,7 +8618,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.028369
+      "glow": 0.027586
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -8586,7 +8635,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.021277
+      "glow": 0.02069
     },
     {
       "id": "alignment-complement-route",
@@ -8599,7 +8648,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.014184
+      "glow": 0.013793
     }
   ],
   "goldbach_proved": false,

@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 post-discovery closure now has a direct complement-rescue margin
+audit:
+`tools/build_q286_complement_rescue_margin_schedule.py` generated
+`evidence/q286-complement-rescue-margin-schedule.json`, with explanation in
+`notes/q286-complement-rescue-margin-schedule.md`.
+
+Mechanism: stop using centered `(3,1)` and measure the filter-order identity
+`full_action_to_principal_ratio = first_three_modes_to_principal_ratio +
+complement_to_principal_ratio` on six 8-cycle q286 blocks.  Block `0` is the
+original discovery block at `10000`; blocks `1..5` start at `90080`, `170160`,
+`250240`, `330320`, and `410400`.
+
+Result: the discovery block retains the known stress, with `4406`
+`first_three_tail` rows, `89` full-`full_nonpositive` predicate rows, and `86`
+first-three-tail failures.  Across the five post-discovery blocks there are
+`1671` first-three-tail/active-selector rows and `0` full-nonpositive rows.
+The minimum post-discovery rescue margin is `0.012576466293799509`, and the
+minimum complement/required ratio is `1.0214926472076773`; the identity error
+is at floating precision (`2.220446049250313e-16`).
+
+Interpretation: the later q286 hole closes finitely by complement rescue, not
+by disappearance of tail pressure.  This makes the next theorem target a
+non-circular lower bound or signed cone for
+`complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.  The
+early discovery block remains the obstruction any theorem must exclude, bound,
+or explain.
+
+## Previous continuation evidence, 2026-09-15
+
 The frozen `target_mod_13 == 4` low-`(3,1)` pocket now has a broader
 predeclared support-schedule audit:
 `tools/build_q286_mod13_4_support_schedule_audit.py` generated

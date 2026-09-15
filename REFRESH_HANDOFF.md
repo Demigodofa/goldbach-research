@@ -6,6 +6,48 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 post-discovery closure now has a direct complement-rescue margin
+audit.
+
+`tools/build_q286_complement_rescue_margin_schedule.py` generated
+`evidence/q286-complement-rescue-margin-schedule.json`, with the human note
+`notes/q286-complement-rescue-margin-schedule.md`.
+
+Question: after the `mod13 == 4` classifier became support-starved, are later
+q286 holes closing because tail pressure disappears or because complement
+contribution rescues the active/tail rows?
+
+Result: tail pressure persists, but all post-discovery tail rows are rescued.
+
+```text
+discovery start 10000:
+  first_three_tail rows:             4406
+  active_selector rows:              4405
+  full_nonpositive predicate rows:     89
+  first_three_tail failures:           86
+  minimum rescue margin:       -0.8769412734408442
+
+post-discovery starts:
+  90080:  tail 891, active 891, full_nonpositive 0, min margin 0.012576466293799509
+ 170160:  tail 529, active 529, full_nonpositive 0, min margin 0.17360050532072466
+ 250240:  tail 139, active 139, full_nonpositive 0, min margin 0.2360810314099344
+ 330320:  tail  63, active  63, full_nonpositive 0, min margin 0.31158984534443446
+ 410400:  tail  49, active  49, full_nonpositive 0, min margin 0.3560917899268151
+
+post-discovery tail rows:              1671
+post-discovery full_nonpositive rows:     0
+minimum complement/required ratio:     1.0214926472076773
+```
+
+Decision: the q286 loop is tightening finitely by complement rescue, not by
+tail rows disappearing.  The next proof branch should define a non-circular
+arithmetic condition or signed-correlation cone forcing
+`complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.  The
+original discovery block remains the explicit obstruction to an unconditional
+version.
+
+## Previous active checkpoint note, 2026-09-15
+
 The frozen q286 `target_mod_13 == 4` low-`(3,1)` pocket now has a broader
 predeclared support-schedule audit.
 

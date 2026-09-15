@@ -176,6 +176,8 @@ def main():
         EVIDENCE / "q286-mod13-4-prospective-descriptor-audit.json")
     mod13_4_support_schedule = load_json(
         EVIDENCE / "q286-mod13-4-support-schedule-audit.json")
+    complement_rescue_margin_schedule = load_json(
+        EVIDENCE / "q286-complement-rescue-margin-schedule.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3008,6 +3010,67 @@ def main():
         "mod13-4-support-schedule-audit",
         2.5,
         "predeclared future blocks suggest the next theorem target is complement rescue rather than a single channel classifier")
+
+    layer(
+        "complement-rescue-margin-schedule",
+        "Post-discovery tail rows are finitely rescued by complement surplus",
+        "validated_finite_rescue",
+        "evidence/q286-complement-rescue-margin-schedule.json",
+        3.0,
+        "Finite complement-rescue margin audit only; no eventual theorem.")
+    rescue_metrics = complement_rescue_margin_schedule["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "post-discovery-full-nonpositive-hole-closes-finitely",
+        "complement-rescue-margin-schedule",
+        3.0,
+        "five post-discovery blocks contain tail pressure but zero full_nonpositive rows",
+        {
+            "post_discovery_first_three_tail_count": (
+                rescue_metrics["post_discovery_first_three_tail_count"]),
+            "post_discovery_active_selector_count": (
+                rescue_metrics["post_discovery_active_selector_count"]),
+            "post_discovery_predicate_full_nonpositive_count": (
+                rescue_metrics[
+                    "post_discovery_predicate_full_nonpositive_count"]),
+            "post_discovery_minimum_rescue_margin": (
+                rescue_metrics["post_discovery_minimum_rescue_margin"]),
+            "post_discovery_minimum_complement_to_required_ratio": (
+                rescue_metrics[
+                    "post_discovery_minimum_complement_to_required_ratio"]),
+        })
+    add_hit(
+        mechanism_stacks,
+        "discovery-block-complement-rescue-obstruction",
+        "complement-rescue-margin-schedule",
+        3.0,
+        "original discovery block has full_nonpositive failures and blocks an unconditional rescue claim",
+        {
+            "discovery_first_three_tail_count": (
+                rescue_metrics["discovery_first_three_tail_count"]),
+            "discovery_predicate_full_nonpositive_count": (
+                rescue_metrics[
+                    "discovery_predicate_full_nonpositive_count"]),
+            "discovery_first_three_tail_full_nonpositive_count": (
+                rescue_metrics[
+                    "discovery_first_three_tail_full_nonpositive_count"]),
+            "minimum_rescue_margin": (
+                complement_rescue_margin_schedule["discovery_block"][
+                    "first_three_tail"]["rescue_margin_to_zero_summary"][
+                        "minimum"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "complement-rescue-margin-schedule",
+        4.0,
+        "prove a non-circular lower bound complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the rescued q286 class")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "complement-rescue-margin-schedule",
+        2.0,
+        "route shifts from centered channel classifier to direct complement rescue margin")
 
     layer(
         "centered-3-1-stress-class-audit",

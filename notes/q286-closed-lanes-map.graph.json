@@ -1616,6 +1616,14 @@
       "status_boundary": "finite predeclared no-support schedule only; support-starves the single-residue classifier lane but proves no infinite closure, stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_complement_rescue_margin_schedule",
+      "type": "receipt",
+      "label": "q286 complement rescue margin schedule",
+      "status": "validated_finite_rescue",
+      "validation": "tools/build_q286_complement_rescue_margin_schedule.py generated evidence/q286-complement-rescue-margin-schedule.json; the discovery block at 10000 has 89 full_nonpositive predicate rows and 86 first-three-tail failures, while five post-discovery blocks contain 1671 first-three-tail/active-selector rows with 0 full_nonpositive rows, minimum rescue margin 0.012576466293799509, and minimum complement/required ratio 1.0214926472076773",
+      "status_boundary": "finite complement-rescue margin audit only; identifies a theorem-shaped complement lower-bound target but proves no eventual complement-rescue theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1637,6 +1645,14 @@
       "label": "Define and prove the centered (3,1) stress class",
       "status": "open",
       "statement": "Define a non-post-hoc q286 deficit/stress class and prove, or finitely falsify, that its members lie below fresh clear targets in the locally centered (3,1) scalar order.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "obligation.first_three_complement_rescue_correlation",
+      "type": "open_obligation",
+      "label": "Prove the first-three complement rescue lower bound",
+      "status": "open",
+      "statement": "Define a non-circular arithmetic condition or signed correlation cone that forces complement_to_principal_ratio > -first_three_modes_to_principal_ratio on the q286 target class where post-discovery tail rows are finitely rescued.",
       "goldbach_proved": false
     }
   ],
@@ -3758,6 +3774,26 @@
     },
     {
       "from": "receipt.q286_mod13_4_support_schedule_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_margin_schedule",
+      "to": "receipt.q286_mod13_4_support_schedule_audit",
+      "type": "reframes"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_margin_schedule",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_margin_schedule",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "reframes"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_margin_schedule",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }
