@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a targeted `11,13` residual-budget residue-lift
+holdout: `tools/build_q286_wbss_1113_residual_budget_residue_lift_holdout.py`
+generated
+`evidence/q286-wbss-1113-residual-budget-residue-lift-holdout.json`, with
+explanation in
+`notes/q286-wbss-1113-residual-budget-residue-lift-holdout.md`.
+
+Question: after the source-population audit supported an `11,13` lead edge
+with a one-sided residual theta, does that split survive fresh period-lifts
+of the residue classes where the residual edges previously pushed upward?
+
+Result: the holdout selected `32` unique positive-pushback residues and tested
+their next four period-lifts beyond the old maximum target, for `128` fresh
+targets from `956364` through `995746`. The `11,13` lead edge is negative on
+only `56/128` lifted rows and nonnegative on `72/128`; total edge negativity
+after residual also holds on only `56/128`. Failures occur in all four lift
+buckets. Even among rows where the `11,13` edge is negative, the maximum
+positive-pushback ratio is `16.998115502313933`. The previous finite theta
+`1/2` fails `91` lifted rows, and theta `1` fails `84` lifted rows.
+
+Decision: this fresh targeted holdout falsifies the portable version of the
+`11,13`-led residual-budget route for the current coefficient split. The
+source-population theta is finite diagnostic evidence only, not a theorem
+target. The next plausible route is a more global signed-witness estimate or
+a different aggregate inequality that does not require `11,13` edge negativity
+row by row. This proves no `11,13` edge theorem, residual theorem,
+character-sum bound, binary-prime projection-control theorem, signed
+discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an `11,13` edge residual-budget audit:
 `tools/build_q286_wbss_1113_edge_residual_budget_audit.py` generated
 `evidence/q286-wbss-1113-edge-residual-budget-audit.json`, with explanation

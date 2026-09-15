@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a targeted `11,13` residual-budget residue-lift
+holdout.
+
+```text
+tools/build_q286_wbss_1113_residual_budget_residue_lift_holdout.py
+notes/q286-wbss-1113-residual-budget-residue-lift-holdout.md
+evidence/q286-wbss-1113-residual-budget-residue-lift-holdout.json
+```
+
+Result:
+
+```text
+source positive-pushback residues:          32
+lift count per residue:                      4
+holdout targets:                           128
+target range:                   956364..995746
+11,13 negative rows:                       56 / 128
+11,13 nonnegative rows:                    72 / 128
+total edge negative after residual:        56 / 128
+maximum positive-pushback ratio: 16.998115502313933
+theta 1/2 failures:                        91
+theta 1 failures:                          84
+lift 0: lead negative 12 / 32, total negative  9 / 32
+lift 1: lead negative 10 / 32, total negative 11 / 32
+lift 2: lead negative 16 / 32, total negative 19 / 32
+lift 3: lead negative 18 / 32, total negative 17 / 32
+```
+
+Decision: the targeted fresh holdout falsifies the portable `11,13`-led
+residual-budget route for the current coefficient split. The prior `.5`
+theta is source-population evidence only, not a theorem target. The next
+route should be a more global signed-witness estimate or a different
+aggregate inequality that does not require `11,13` edge negativity row by row.
+No `11,13` edge theorem, residual theorem, character-sum bound, binary-prime
+projection-control theorem, signed discrepancy theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an `11,13` edge residual-budget audit.
 
 ```text
