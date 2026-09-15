@@ -1,0 +1,278 @@
+{
+  "answer_to_user": ".125 is too strict for the current finite fixture: the worst row has ratio 0.12566677703853088.  .126 passes all 196 rows with absolute slack about 0.00033322296146912 over the observed maximum.  .13 is not too strict on this fixture; it passes all 196 rows with absolute slack about 0.00433322296146912.  The theorem should still be stated with a symbolic theta<1, using these decimals only as finite evidence and not as proved universal constants.",
+  "candidate": {
+    "falsifier": "Any row whose positive_residual_pushback/main_drag ratio exceeds a candidate threshold falsifies that finite cap.",
+    "mechanism": "The residual proof target only needs an upper bound on positive five-group pushback relative to the top-20 Fourier drag.  Test the actual slack for simple constants instead of guessing a clean fraction.",
+    "name": "residual absorption threshold sensitivity",
+    "prediction": "The clean 1/8 cap may be too sharp, while a nearby decimal cap such as .13 can survive the finite fixture with small but nonzero slack.",
+    "smallest_test": "Replay the 196 post-discovery rows and rank threshold failures for .125, .126, .127, .13, 2/15, and 1/7."
+  },
+  "decision": "Retire the exact 1/8 residual absorption cap for the present q286-WBSS fixture.  Preserve .13 as a finite working cap and a useful stress target, but do not promote it to a theorem constant without a uniform signed residual estimate or a fresh holdout that materially changes the evidence.",
+  "goldbach_proved": false,
+  "novelty_label": "new-to-this-task",
+  "one_eighth_cap_falsified": true,
+  "point_13_cap_survives_fixture": true,
+  "residual_absorption_theorem_proved": false,
+  "row_summary": {
+    "ceil_to_2_decimal_places": 0.13,
+    "ceil_to_3_decimal_places": 0.126,
+    "largest_positive_pushback_rows": [
+      {
+        "bandlimited_top20_component": -0.3420907424756105,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3420907424756105,
+        "pair_count": 1111,
+        "positive_residual_pushback": 0.04298944106162803,
+        "pushback_to_main_drag_ratio": 0.12566677703853088,
+        "residual_five_group_component": 0.04298944106162803,
+        "target": 365578,
+        "target_mod_286": 70,
+        "target_residue": 5218
+      },
+      {
+        "bandlimited_top20_component": -0.39419441009259065,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.39419441009259065,
+        "pair_count": 810,
+        "positive_residual_pushback": 0.044018446333590144,
+        "pushback_to_main_drag_ratio": 0.1116668456136931,
+        "residual_five_group_component": 0.044018446333590144,
+        "target": 251728,
+        "target_mod_286": 48,
+        "target_residue": 1478
+      },
+      {
+        "bandlimited_top20_component": -0.5259091909380743,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.5259091909380743,
+        "pair_count": 576,
+        "positive_residual_pushback": 0.057893218751199974,
+        "pushback_to_main_drag_ratio": 0.11008215819148308,
+        "residual_five_group_component": 0.057893218751199974,
+        "target": 171058,
+        "target_mod_286": 30,
+        "target_residue": 888
+      },
+      {
+        "bandlimited_top20_component": -0.3838437014257473,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.3838437014257473,
+        "pair_count": 637,
+        "positive_residual_pushback": 0.03929776736818262,
+        "pushback_to_main_drag_ratio": 0.10237960717400121,
+        "residual_five_group_component": 0.03929776736818262,
+        "target": 186302,
+        "target_mod_286": 116,
+        "target_residue": 6122
+      },
+      {
+        "bandlimited_top20_component": -0.37979558520288914,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.37979558520288914,
+        "pair_count": 1284,
+        "positive_residual_pushback": 0.036119776397071736,
+        "pushback_to_main_drag_ratio": 0.0951032023654944,
+        "residual_five_group_component": 0.036119776397071736,
+        "target": 377828,
+        "target_mod_286": 22,
+        "target_residue": 7458
+      },
+      {
+        "bandlimited_top20_component": -0.3400323268804477,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3400323268804477,
+        "pair_count": 1163,
+        "positive_residual_pushback": 0.032157795177545516,
+        "pushback_to_main_drag_ratio": 0.09457275863318697,
+        "residual_five_group_component": 0.032157795177545516,
+        "target": 395102,
+        "target_mod_286": 136,
+        "target_residue": 4712
+      },
+      {
+        "bandlimited_top20_component": -0.5206887136330711,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.5206887136330711,
+        "pair_count": 667,
+        "positive_residual_pushback": 0.04014712285060514,
+        "pushback_to_main_drag_ratio": 0.0771038852954604,
+        "residual_five_group_component": 0.04014712285060514,
+        "target": 201298,
+        "target_mod_286": 240,
+        "target_residue": 1098
+      },
+      {
+        "bandlimited_top20_component": -0.3644049378184233,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.3644049378184233,
+        "pair_count": 876,
+        "positive_residual_pushback": 0.025289488380615534,
+        "pushback_to_main_drag_ratio": 0.06939941190702759,
+        "residual_five_group_component": 0.025289488380615534,
+        "target": 262156,
+        "target_mod_286": 180,
+        "target_residue": 1896
+      },
+      {
+        "bandlimited_top20_component": -0.6546703407835134,
+        "block_index_after_discovery": 1,
+        "main_drag": 0.6546703407835134,
+        "pair_count": 386,
+        "positive_residual_pushback": 0.044688059206494185,
+        "pushback_to_main_drag_ratio": 0.06826039981131762,
+        "residual_five_group_component": 0.044688059206494185,
+        "target": 111494,
+        "target_mod_286": 240,
+        "target_residue": 1384
+      },
+      {
+        "bandlimited_top20_component": -0.31839910730612053,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.31839910730612053,
+        "pair_count": 1128,
+        "positive_residual_pushback": 0.014443051992998276,
+        "pushback_to_main_drag_ratio": 0.04536147137847405,
+        "residual_five_group_component": 0.014443051992998276,
+        "target": 391252,
+        "target_mod_286": 4,
+        "target_residue": 862
+      },
+      {
+        "bandlimited_top20_component": -0.3650340198470721,
+        "block_index_after_discovery": 6,
+        "main_drag": 0.3650340198470721,
+        "pair_count": 1598,
+        "positive_residual_pushback": 0.016550665226432275,
+        "pushback_to_main_drag_ratio": 0.04534006236834045,
+        "residual_five_group_component": 0.016550665226432275,
+        "target": 553372,
+        "target_mod_286": 248,
+        "target_residue": 2822
+      },
+      {
+        "bandlimited_top20_component": -0.3166761734146672,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3166761734146672,
+        "pair_count": 1084,
+        "positive_residual_pushback": 0.010889651409587909,
+        "pushback_to_main_drag_ratio": 0.0343873405193911,
+        "residual_five_group_component": 0.010889651409587909,
+        "target": 349532,
+        "target_mod_286": 40,
+        "target_residue": 9192
+      }
+    ],
+    "observed_minimum_passing_constant": 0.12566677703853088,
+    "positive_pushback_row_count": 24,
+    "pushback_to_main_drag_ratio_summary": {
+      "count": 196,
+      "maximum": 0.12566677703853088,
+      "mean": 0.005886209393918703,
+      "minimum": 0.0
+    },
+    "row_count": 196,
+    "worst_row": {
+      "bandlimited_top20_component": -0.3420907424756105,
+      "block_index_after_discovery": 4,
+      "main_drag": 0.3420907424756105,
+      "pair_count": 1111,
+      "positive_residual_pushback": 0.04298944106162803,
+      "pushback_to_main_drag_ratio": 0.12566677703853088,
+      "residual_five_group_component": 0.04298944106162803,
+      "target": 365578,
+      "target_mod_286": 70,
+      "target_residue": 5218
+    }
+  },
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "bdf17243d3cd8070dec5b52916cffe0572eaa0ac",
+  "sources": {
+    "bandlimited_residual_audit": "evidence\\q286-wbss-mod286-bandlimited-residual-audit.json",
+    "bandlimited_source_commit": "613a74a0ffa4b1a52c3c4ac4a17e3b80742c75a0",
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "lower_face_dual_edge_audit": "evidence\\q286-lower-face-dual-edge-audit.json"
+  },
+  "status_boundary": "finite q286-WBSS residual absorption threshold diagnostic only; no residual absorption theorem, signed projection theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "threshold_profiles": [
+    {
+      "absolute_slack_against_observed_maximum": -0.0006667770385308802,
+      "failing_row_count": 1,
+      "failing_rows": [
+        {
+          "bandlimited_top20_component": -0.3420907424756105,
+          "block_index_after_discovery": 4,
+          "main_drag": 0.3420907424756105,
+          "pair_count": 1111,
+          "positive_residual_pushback": 0.04298944106162803,
+          "pushback_to_main_drag_ratio": 0.12566677703853088,
+          "residual_five_group_component": 0.04298944106162803,
+          "target": 365578,
+          "target_mod_286": 70,
+          "target_residue": 5218
+        }
+      ],
+      "name": "one_eighth",
+      "non_strict_pass_count": 195,
+      "passes_all_rows": false,
+      "relative_slack_against_observed_maximum": -0.005305913418360676,
+      "strict_pass_count": 195,
+      "threshold": 0.125
+    },
+    {
+      "absolute_slack_against_observed_maximum": 0.00033322296146912067,
+      "failing_row_count": 0,
+      "failing_rows": [],
+      "name": "decimal_0_126",
+      "non_strict_pass_count": 196,
+      "passes_all_rows": true,
+      "relative_slack_against_observed_maximum": 0.0026516392742924463,
+      "strict_pass_count": 196,
+      "threshold": 0.126
+    },
+    {
+      "absolute_slack_against_observed_maximum": 0.0013332229614691216,
+      "failing_row_count": 0,
+      "failing_rows": [],
+      "name": "decimal_0_127",
+      "non_strict_pass_count": 196,
+      "passes_all_rows": true,
+      "relative_slack_against_observed_maximum": 0.010609191966945567,
+      "strict_pass_count": 196,
+      "threshold": 0.127
+    },
+    {
+      "absolute_slack_against_observed_maximum": 0.004333222961469124,
+      "failing_row_count": 0,
+      "failing_rows": [],
+      "name": "decimal_0_13",
+      "non_strict_pass_count": 196,
+      "passes_all_rows": true,
+      "relative_slack_against_observed_maximum": 0.034481850044904935,
+      "strict_pass_count": 196,
+      "threshold": 0.13
+    },
+    {
+      "absolute_slack_against_observed_maximum": 0.007666556294802451,
+      "failing_row_count": 0,
+      "failing_rows": [],
+      "name": "two_fifteenths",
+      "non_strict_pass_count": 196,
+      "passes_all_rows": true,
+      "relative_slack_against_observed_maximum": 0.06100702568708193,
+      "strict_pass_count": 196,
+      "threshold": 0.13333333333333333
+    },
+    {
+      "absolute_slack_against_observed_maximum": 0.01719036581861197,
+      "failing_row_count": 0,
+      "failing_rows": [],
+      "name": "one_seventh",
+      "non_strict_pass_count": 196,
+      "passes_all_rows": true,
+      "relative_slack_against_observed_maximum": 0.13679324180758773,
+      "strict_pass_count": 196,
+      "threshold": 0.14285714285714285
+    }
+  ]
+}

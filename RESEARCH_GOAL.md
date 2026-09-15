@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a residual absorption threshold audit:
+`tools/build_q286_wbss_residual_absorption_threshold_audit.py` generated
+`evidence/q286-wbss-residual-absorption-threshold-audit.json`, with
+explanation in `notes/q286-wbss-residual-absorption-threshold-audit.md`.
+
+Question: how strict can the one-sided residual absorption constant be on the
+current post-discovery fixture? In particular, are `.13`, `.126`, or `1/8`
+consistent with the checked rows?
+
+Result: `1/8 = .125` is too strict. The worst row is target `365578`, residue
+`5218`, target mod `286` equal to `70`, with top-20 component
+`-0.3420907424756105`, five-group residual component `0.04298944106162803`,
+and pushback/top20-drag ratio `0.12566677703853088`. Thus `.126` passes all
+`196` rows but with only `0.00033322296146912067` slack, while `.13` passes
+with `0.004333222961469124` slack.
+
+Decision: Fourier sparsification was useful as a diagnostic, but it failed to
+produce a smaller theorem. The exact `1/8` residual absorption cap is demoted
+for this fixture. The live theorem target remains symbolic:
+`positive_residual_pushback <= theta * top20_drag` for a proved `theta < 1`,
+or a replacement direct q286-WBSS signed-witness estimate. Goldbach is not
+proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a residual Fourier group profile audit:
 `tools/build_q286_wbss_mod286_residual_group_profile_audit.py` generated
 `evidence/q286-wbss-mod286-residual-group-profile-audit.json`, with

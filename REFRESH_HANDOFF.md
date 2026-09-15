@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a residual absorption threshold audit.
+
+```text
+tools/build_q286_wbss_residual_absorption_threshold_audit.py
+notes/q286-wbss-residual-absorption-threshold-audit.md
+evidence/q286-wbss-residual-absorption-threshold-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+upward residual-pushback rows:                   24 / 196
+observed maximum pushback/top20-drag ratio:       0.12566677703853088
+worst target:                                365578
+worst target mod 286:                            70
+theta = 1/8 = 0.125 passes:                       no, 1 failing row
+theta = 0.126 passes:                            yes, slack 0.00033322296146912067
+theta = 0.13 passes:                             yes, slack 0.004333222961469124
+```
+
+Decision: Fourier sparsification was a useful diagnostic but failed to produce
+a smaller theorem. The `1/8` residual absorption cap is refuted on the current
+fixture. The three-decimal ceiling is `.126`, and `.13` remains a finite stress
+cap with modest slack. None of these decimals is a theorem constant. The live
+target should stay symbolic, `positive_residual_pushback <= theta * top20_drag`
+for some proved `theta < 1`, unless the q286-WBSS split is replaced by a direct
+raw signed-witness estimate. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a residual Fourier group profile audit.
 
 ```text
