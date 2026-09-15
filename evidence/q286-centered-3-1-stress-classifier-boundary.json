@@ -1,0 +1,339 @@
+{
+  "broad_full_nonpositive_falsifier": {
+    "active_nonrescued": {
+      "at_or_above_fresh_min_count": 54,
+      "below_fresh_min_count": 32,
+      "separator_passes_class": false,
+      "target_count": 86
+    },
+    "baseline_filter_window": {
+      "cycle_count": 8,
+      "predicate_counts": {
+        "active_nonrescued": 86,
+        "active_selector": 4405,
+        "complement_floor": 39976,
+        "complement_positive": 40040,
+        "first_three_tail": 4406,
+        "first_two_active": 7768,
+        "full_nonpositive": 89,
+        "full_positive": 39951,
+        "nonrescued_first_three_tail": 86,
+        "rescued_first_three_tail": 4320
+      },
+      "start": 10000,
+      "targets_per_cycle": 5005,
+      "tested_target_count": 40040
+    },
+    "full_nonpositive": {
+      "at_or_above_fresh_min_count": 56,
+      "below_fresh_min_count": 33,
+      "maximum_counterexample_target": 11902,
+      "maximum_weighted_centered_value": 0.23016925898905402,
+      "separator_passes_class": false,
+      "target_count": 89
+    },
+    "holdout_class_counts": {
+      "active_nonrescued": 0,
+      "full_nonpositive": 0,
+      "full_nonpositive_not_first_three_tail": 0,
+      "nonrescued_first_three_tail": 0
+    }
+  },
+  "channel": [
+    3,
+    1
+  ],
+  "channel_key": "3,1",
+  "claim_falsified_finitely": "Centered (3,1) classifies every row in the independent baseline full_nonpositive q286 stress predicate.",
+  "claim_supported_finitely": "Centered (3,1) is a useful finite selected-stress reference classifier coordinate for the five pre-existing selected dominant-floor deficit references.",
+  "decision": {
+    "broad_full_nonpositive_classifier_finite_status": "falsified",
+    "next_obligation": "Do not promote `(3,1)` to a broad stress theorem. Either define a new non-post-hoc stress predicate that captures the selected references and faces fresh holdout rows, or replace the classifier language with a signed empirical/correlation estimate for the selected family.",
+    "selected_reference_classifier_finite_status": "supported_on_checked_selected_references"
+  },
+  "focus_reference": 13822,
+  "focus_reference_13822": {
+    "centered_3_1_rank_low_to_high": 2,
+    "centered_3_1_weighted_value": -0.028592853507378977,
+    "dominant_margin_to_floor": -0.03674434602428933,
+    "fresh_min_gap_against_13822": 0.010757459150664062,
+    "fresh_negative_count": 0,
+    "fresh_positive_count": 606,
+    "fresh_unseen": {
+      "frozen_full_17_lp": {
+        "average_margin": -0.07407529059382412,
+        "failing_target_count": 606,
+        "maximum_margin": -0.03431320623294096,
+        "minimum_margin": -0.14321442782269148,
+        "name": "frozen_full_17_lp",
+        "passes_all_targets": false
+      },
+      "kevin_watchlist_4": {
+        "average_margin": 0.13631768007544695,
+        "failing_target_count": 0,
+        "maximum_margin": 0.16123138142568982,
+        "minimum_margin": 0.09719361604522675,
+        "name": "kevin_watchlist_4",
+        "passes_all_targets": true
+      },
+      "kevin_watchlist_without_3_1": {
+        "average_margin": 0.1105707081686201,
+        "failing_target_count": 0,
+        "maximum_margin": 0.1376821197421906,
+        "minimum_margin": 0.07806012593996192,
+        "name": "kevin_watchlist_without_3_1",
+        "passes_all_targets": true
+      },
+      "reference": 13822,
+      "reference_mod_143": 94,
+      "scalar_3_1": {
+        "average_margin": 0.025746971906826854,
+        "failing_target_count": 0,
+        "maximum_margin": 0.038304520514422805,
+        "minimum_margin": 0.012455096805020166,
+        "name": "scalar_3_1",
+        "passes_all_targets": true
+      }
+    },
+    "selected_fixture": {
+      "dominant_floor_passes": false,
+      "dominant_margin_to_floor": -0.03674434602428933,
+      "stable_core_margin_to_floor": 0.3023670686383121,
+      "volatile_rim_sum_to_principal": -0.3391114146626045
+    },
+    "stable_core_margin_to_floor": 0.3023670686383121,
+    "target_mod_143": 94,
+    "volatile_rim_sum_to_principal": -0.3391114146626045
+  },
+  "goldbach_proved": false,
+  "mechanism": "Read checked q286 evidence across selected-reference, fresh-unseen, independent full_nonpositive stress-class, and selected-deficit provenance receipts. No channel coefficients are refit and no references are reselected here.",
+  "schema_version": 1,
+  "selected_reference_evidence": {
+    "fresh_unseen_comparison_row_count": 3030,
+    "fresh_unseen_target_count": 606,
+    "frozen_full_17_lp_fresh_unseen": {
+      "average_margin": 0.06063797923522272,
+      "failing_target_count": 611,
+      "maximum_margin": 0.16290661422228792,
+      "minimum_margin": -0.14321442782269148,
+      "name": "frozen_full_17_lp",
+      "passes_all_targets": false
+    },
+    "kevin_watchlist_4_fresh_unseen": {
+      "average_margin": 0.07243795603288658,
+      "failing_target_count": 0,
+      "maximum_margin": 0.16123138142568982,
+      "minimum_margin": 0.0020345565333929026,
+      "name": "kevin_watchlist_4",
+      "passes_all_targets": true
+    },
+    "kevin_watchlist_without_3_1_fresh_unseen": {
+      "average_margin": 0.0454082724358101,
+      "failing_target_count": 67,
+      "maximum_margin": 0.1376821197421906,
+      "minimum_margin": -0.018376824957962043,
+      "name": "kevin_watchlist_without_3_1",
+      "passes_all_targets": false
+    },
+    "original_fresh_target_count_per_reference": 606,
+    "original_selected_deficit_references_all_pass": true,
+    "reference_rows": [
+      {
+        "frozen_full_17_lp": {
+          "average_margin": 0.064358902144499,
+          "failing_target_count": 5,
+          "maximum_margin": 0.10412098650538221,
+          "minimum_margin": -0.0047802350843684175,
+          "name": "frozen_full_17_lp",
+          "passes_all_targets": false
+        },
+        "kevin_watchlist_4": {
+          "average_margin": 0.04415760262479479,
+          "failing_target_count": 0,
+          "maximum_margin": 0.06907130397503766,
+          "minimum_margin": 0.0050335385945745326,
+          "name": "kevin_watchlist_4",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_without_3_1": {
+          "average_margin": 0.019907073728514288,
+          "failing_target_count": 15,
+          "maximum_margin": 0.04701848530208476,
+          "minimum_margin": -0.012603508500143933,
+          "name": "kevin_watchlist_without_3_1",
+          "passes_all_targets": false
+        },
+        "reference": 24424,
+        "reference_mod_143": 114,
+        "scalar_3_1": {
+          "average_margin": 0.024250528896280498,
+          "failing_target_count": 0,
+          "maximum_margin": 0.03680807750387645,
+          "minimum_margin": 0.010958653794473812,
+          "name": "scalar_3_1",
+          "passes_all_targets": true
+        }
+      },
+      {
+        "frozen_full_17_lp": {
+          "average_margin": -0.07407529059382412,
+          "failing_target_count": 606,
+          "maximum_margin": -0.03431320623294096,
+          "minimum_margin": -0.14321442782269148,
+          "name": "frozen_full_17_lp",
+          "passes_all_targets": false
+        },
+        "kevin_watchlist_4": {
+          "average_margin": 0.13631768007544695,
+          "failing_target_count": 0,
+          "maximum_margin": 0.16123138142568982,
+          "minimum_margin": 0.09719361604522675,
+          "name": "kevin_watchlist_4",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_without_3_1": {
+          "average_margin": 0.1105707081686201,
+          "failing_target_count": 0,
+          "maximum_margin": 0.1376821197421906,
+          "minimum_margin": 0.07806012593996192,
+          "name": "kevin_watchlist_without_3_1",
+          "passes_all_targets": true
+        },
+        "reference": 13822,
+        "reference_mod_143": 94,
+        "scalar_3_1": {
+          "average_margin": 0.025746971906826854,
+          "failing_target_count": 0,
+          "maximum_margin": 0.038304520514422805,
+          "minimum_margin": 0.012455096805020166,
+          "name": "scalar_3_1",
+          "passes_all_targets": true
+        }
+      },
+      {
+        "frozen_full_17_lp": {
+          "average_margin": 0.08082538118812584,
+          "failing_target_count": 0,
+          "maximum_margin": 0.12058746554900901,
+          "minimum_margin": 0.011686243959258423,
+          "name": "frozen_full_17_lp",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_4": {
+          "average_margin": 0.05704815801784113,
+          "failing_target_count": 0,
+          "maximum_margin": 0.08196185936808402,
+          "minimum_margin": 0.01792409398762089,
+          "name": "kevin_watchlist_4",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_without_3_1": {
+          "average_margin": 0.014133757270696169,
+          "failing_target_count": 47,
+          "maximum_margin": 0.041245168844266655,
+          "minimum_margin": -0.018376824957962043,
+          "name": "kevin_watchlist_without_3_1",
+          "passes_all_targets": false
+        },
+        "reference": 55864,
+        "reference_mod_143": 94,
+        "scalar_3_1": {
+          "average_margin": 0.04291440074714496,
+          "failing_target_count": 0,
+          "maximum_margin": 0.05547194935474091,
+          "minimum_margin": 0.029622525645338266,
+          "name": "scalar_3_1",
+          "passes_all_targets": true
+        }
+      },
+      {
+        "frozen_full_17_lp": {
+          "average_margin": 0.1089363735759081,
+          "failing_target_count": 0,
+          "maximum_margin": 0.14869845793679126,
+          "minimum_margin": 0.03979723634704069,
+          "name": "frozen_full_17_lp",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_4": {
+          "average_margin": 0.04115862056361315,
+          "failing_target_count": 0,
+          "maximum_margin": 0.06607232191385604,
+          "minimum_margin": 0.0020345565333929026,
+          "name": "kevin_watchlist_4",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_without_3_1": {
+          "average_margin": 0.02435578990267437,
+          "failing_target_count": 5,
+          "maximum_margin": 0.05146720147624485,
+          "minimum_margin": -0.008154792325983845,
+          "name": "kevin_watchlist_without_3_1",
+          "passes_all_targets": false
+        },
+        "reference": 164598,
+        "reference_mod_143": 5,
+        "scalar_3_1": {
+          "average_margin": 0.016802830660938777,
+          "failing_target_count": 0,
+          "maximum_margin": 0.029360379268534725,
+          "minimum_margin": 0.0035109555591320892,
+          "name": "scalar_3_1",
+          "passes_all_targets": true
+        }
+      },
+      {
+        "frozen_full_17_lp": {
+          "average_margin": 0.12314452986140477,
+          "failing_target_count": 0,
+          "maximum_margin": 0.16290661422228792,
+          "minimum_margin": 0.05400539263253735,
+          "name": "frozen_full_17_lp",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_4": {
+          "average_margin": 0.08350771888273692,
+          "failing_target_count": 0,
+          "maximum_margin": 0.10842142023297979,
+          "minimum_margin": 0.04438365485251668,
+          "name": "kevin_watchlist_4",
+          "passes_all_targets": true
+        },
+        "kevin_watchlist_without_3_1": {
+          "average_margin": 0.05807403310854558,
+          "failing_target_count": 0,
+          "maximum_margin": 0.08518544468211606,
+          "minimum_margin": 0.02556345087988737,
+          "name": "kevin_watchlist_without_3_1",
+          "passes_all_targets": true
+        },
+        "reference": 1222142,
+        "reference_mod_143": 64,
+        "scalar_3_1": {
+          "average_margin": 0.025433685774191334,
+          "failing_target_count": 0,
+          "maximum_margin": 0.03799123438178729,
+          "minimum_margin": 0.012141810672384646,
+          "name": "scalar_3_1",
+          "passes_all_targets": true
+        }
+      }
+    ],
+    "scalar_3_1_fresh_unseen": {
+      "average_margin": 0.027029683597076484,
+      "failing_target_count": 0,
+      "maximum_margin": 0.05547194935474091,
+      "minimum_margin": 0.0035109555591320892,
+      "name": "scalar_3_1",
+      "passes_all_targets": true
+    }
+  },
+  "source_commit": "76598bd9342cd22fd0d6710860e9b89ff4a55f80",
+  "sources": {
+    "fresh_unseen_watchlist": "evidence\\q286-watchlist-fresh-unseen-window-audit.json",
+    "reference_lemma": "evidence\\q286-centered-3-1-reference-lemma-audit.json",
+    "selected_deficit_provenance": "evidence\\q286-selected-deficit-provenance-audit.json",
+    "stress_class": "evidence\\q286-centered-3-1-stress-class-audit.json"
+  },
+  "status_boundary": "finite derived boundary receipt only; no selected-stress theorem, broad stress-class theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof."
+}

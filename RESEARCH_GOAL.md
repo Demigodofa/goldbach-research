@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+Kevin's `(3,1)` stress-classifier hunch now has an explicit boundary receipt:
+`tools/build_q286_centered_3_1_stress_classifier_boundary.py` generated
+`evidence/q286-centered-3-1-stress-classifier-boundary.json`, with explanation
+in `notes/q286-centered-3-1-stress-classifier-boundary.md`.
+
+Mechanism: derive no new fitted vector.  Consolidate the selected-reference
+lemma, the fresh unseen watchlist audit, the broad `full_nonpositive`
+stress-class falsifier, and the selected-deficit provenance audit into one
+scope guard.
+
+Result: scalar `(3,1)` remains supported as a finite selected-stress
+reference classifier coordinate: it passes the original `3030/3030`
+selected-reference fresh comparisons and the later `3030/3030` fresh unseen
+selected-reference comparisons.  It is not a broad stress classifier:
+on the independent baseline `full_nonpositive` class it leaves `56/89` rows
+at or above the fresh minimum, and the active_nonrescued subclass leaves
+`54/86` at or above.
+
+Reference `13822` remains the strongest witness for the narrow reading.  It
+has centered `(3,1)` rank `2`, weighted value `-0.028592853507378977`,
+dominant margin `-0.03674434602428933`, and volatile rim
+`-0.3391114146626045`.  On fresh unseen rows, scalar `(3,1)` passes all
+`606/606` comparisons against `13822`; the four-channel watchlist also passes
+all `606/606`, while the frozen full 17 LP fails all `606/606`.
+
+Interpretation: the live theorem branch should not claim that `(3,1)` catches
+all stress.  Either define a new non-post-hoc stress predicate that captures
+the selected references and survives holdout, or replace the classifier
+language with a signed empirical/correlation estimate for the selected family.
+
+## Previous continuation evidence, 2026-09-15
+
 The fixed watchlist now has a fresh unseen window audit:
 `tools/build_q286_watchlist_fresh_unseen_window_audit.py` generated
 `evidence/q286-watchlist-fresh-unseen-window-audit.json`, with explanation in

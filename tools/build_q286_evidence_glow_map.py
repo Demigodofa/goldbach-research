@@ -149,6 +149,8 @@ def main():
         EVIDENCE / "q286-multichannel-selected-reference-horizon-audit.json")
     watchlist_fresh_unseen_window = load_json(
         EVIDENCE / "q286-watchlist-fresh-unseen-window-audit.json")
+    centered_3_1_stress_classifier_boundary = load_json(
+        EVIDENCE / "q286-centered-3-1-stress-classifier-boundary.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2259,6 +2261,63 @@ def main():
         "watchlist-fresh-unseen-window-audit",
         3.0,
         "(3,1) survives as selected-stress fresh-window classifier coordinate")
+
+    layer(
+        "centered-3-1-stress-classifier-boundary",
+        "Centered (3,1) classifier boundary is explicit",
+        "finite_scope_guard",
+        "evidence/q286-centered-3-1-stress-classifier-boundary.json",
+        3.5,
+        "Finite derived boundary receipt only; no broad stress-classifier theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-stress-fresh-window-classifier",
+        "centered-3-1-stress-classifier-boundary",
+        3.5,
+        "selected-reference classifier supported while broad full_nonpositive classifier is falsified",
+        {
+            "selected_reference_status":
+                centered_3_1_stress_classifier_boundary["decision"][
+                    "selected_reference_classifier_finite_status"],
+            "broad_full_nonpositive_status":
+                centered_3_1_stress_classifier_boundary["decision"][
+                    "broad_full_nonpositive_classifier_finite_status"],
+            "scalar_3_1_fresh_unseen_minimum_margin":
+                centered_3_1_stress_classifier_boundary[
+                    "selected_reference_evidence"][
+                        "scalar_3_1_fresh_unseen"]["minimum_margin"],
+            "full_nonpositive_at_or_above":
+                centered_3_1_stress_classifier_boundary[
+                    "broad_full_nonpositive_falsifier"][
+                        "full_nonpositive"]["at_or_above_fresh_min_count"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "full-17-lp-overincluded-for-13822",
+        "centered-3-1-stress-classifier-boundary",
+        3.0,
+        "13822 remains a strong selected stress witness while full 17 LP over-includes harmful channels",
+        centered_3_1_stress_classifier_boundary["focus_reference_13822"][
+            "fresh_unseen"]["frozen_full_17_lp"])
+    add_hit(
+        target_stacks,
+        "13822",
+        "centered-3-1-stress-classifier-boundary",
+        3.5,
+        "boundary witness: low centered (3,1), negative volatile rim, full 17 LP fails every fresh unseen row",
+        centered_3_1_stress_classifier_boundary["focus_reference_13822"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-stress-classifier-boundary",
+        3.5,
+        "scope guard: selected-reference support and full_nonpositive falsifier must remain separate")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "centered-3-1-stress-classifier-boundary",
+        2.0,
+        "next bridge must use a non-post-hoc selected stress predicate or signed correlation estimate")
 
     layer(
         "centered-3-1-stress-class-audit",

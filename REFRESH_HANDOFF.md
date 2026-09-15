@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+Kevin asked whether `(3,1)` might be a stress classifier, especially because
+reference `13822` is a large negative stress witness.  The boundary is now
+explicit.
+
+`tools/build_q286_centered_3_1_stress_classifier_boundary.py` generated
+`evidence/q286-centered-3-1-stress-classifier-boundary.json`, with the human
+note `notes/q286-centered-3-1-stress-classifier-boundary.md`.
+
+Question: is centered `(3,1)` a stress-classifier lemma or only a selected
+stress-reference classifier coordinate?
+
+Result: selected-reference classifier, finitely yes; broad stress classifier,
+finitely no.
+
+```text
+selected-reference fresh comparisons:          3030/3030 pass
+fresh unseen selected-reference comparisons:   3030/3030 pass
+independent full_nonpositive class:              56/89 at-or-above fresh min
+active_nonrescued subclass:                      54/86 at-or-above fresh min
+```
+
+Reference `13822` is still the sharp witness for the narrow reading:
+centered `(3,1)` rank `2`, weighted value `-0.028592853507378977`, dominant
+margin `-0.03674434602428933`, volatile rim `-0.3391114146626045`.  In the
+fresh unseen audit, scalar `(3,1)` passes all `606/606` rows against `13822`,
+Kevin's four-channel watchlist passes all `606/606`, and the frozen full 17 LP
+fails all `606/606`.
+
+Decision: keep `(3,1)` as a useful finite selected-stress reference classifier
+coordinate.  Do not promote it to a theorem for the independent
+`full_nonpositive` stress class.  The next branch needs a new non-post-hoc
+stress predicate that includes the selected references and faces holdout, or a
+signed empirical/correlation estimate for that selected family.
+
+## Previous active checkpoint note, 2026-09-15
+
 The fixed watchlist now has a fresh unseen window audit.
 `tools/build_q286_watchlist_fresh_unseen_window_audit.py` generated
 `evidence/q286-watchlist-fresh-unseen-window-audit.json`, with the human note

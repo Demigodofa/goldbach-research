@@ -1520,6 +1520,14 @@
       "status_boundary": "finite fresh unseen selected-reference audit only; no arbitrary stress-reference theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "type": "receipt",
+      "label": "q286 centered (3,1) stress-classifier boundary",
+      "status": "finite_scope_guard",
+      "validation": "tools/build_q286_centered_3_1_stress_classifier_boundary.py generated evidence/q286-centered-3-1-stress-classifier-boundary.json; scalar (3,1) passes both original and fresh unseen selected-reference comparisons 3030/3030, but the independent full_nonpositive stress class remains falsified with 56/89 rows at or above the fresh minimum; 13822 stays a strong selected witness while the full 17 LP fails all 606 fresh unseen comparisons against it",
+      "status_boundary": "finite derived boundary receipt only; supports selected-reference classifier wording and rejects broad full_nonpositive classifier wording, but proves no selected-stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1678,6 +1686,31 @@
     {
       "from": "receipt.q286_watchlist_fresh_unseen_window_audit",
       "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "receipt.q286_watchlist_fresh_unseen_window_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "receipt.q286_centered_3_1_stress_class_audit",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_stress_classifier_boundary",
+      "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     },
     {
