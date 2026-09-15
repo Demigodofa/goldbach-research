@@ -153,6 +153,9 @@ def main():
         EVIDENCE / "q286-centered-3-1-stress-classifier-boundary.json")
     selected_stress_subclass = load_json(
         EVIDENCE / "q286-selected-stress-subclass-audit.json")
+    selected_stress_subclass_channel_decomposition = load_json(
+        EVIDENCE
+        / "q286-selected-stress-subclass-channel-decomposition.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2386,6 +2389,95 @@ def main():
         "selected-stress-subclass-audit",
         2.5,
         "signed correlation bridge must explain both stable-core-deficit and volatile-overturn subclasses")
+
+    layer(
+        "selected-stress-subclass-channel-decomposition",
+        "Selected stress subclasses decomposed across outside channels",
+        "finite_channel_decomposition",
+        "evidence/q286-selected-stress-subclass-channel-decomposition.json",
+        3.5,
+        "Finite subclass channel-decomposition only; no signed correlation theorem.")
+    for subclass in selected_stress_subclass_channel_decomposition[
+            "subclass_results"]:
+        scalar = next(
+            row for row in subclass["subset_results"]
+            if row["name"] == "scalar_3_1")
+        without_3_1 = next(
+            row for row in subclass["subset_results"]
+            if row["name"] == "kevin_watchlist_without_3_1")
+        channel_3_1 = next(
+            row for row in subclass["channel_summary_rows"]
+            if row["label_key"] == "3,1")
+        add_hit(
+            mechanism_stacks,
+            "centered-3-1-selected-stress-fresh-window-classifier",
+            "selected-stress-subclass-channel-decomposition",
+            3.5,
+            f"scalar (3,1) is positive and load-bearing on {subclass['subclass']}",
+            {
+                "subclass": subclass["subclass"],
+                "references": subclass["references"],
+                "scalar_3_1_minimum": scalar[
+                    "weighted_gap_summary"]["minimum"],
+                "watchlist_without_3_1_failures":
+                    without_3_1["failing_target_count"],
+                "channel_3_1_positive_count":
+                    channel_3_1["positive_count"],
+                "channel_3_1_negative_count":
+                    channel_3_1["negative_count"],
+                "passing_singletons":
+                    subclass["smallest_positive_fixed_subset"][
+                        "passing_subset_count_at_minimum_size"],
+            })
+    seed_scope = next(
+        row for row in selected_stress_subclass_channel_decomposition[
+            "target_scope_results"]
+        if row["scope_id"] == "fresh_unseen_prior_seed_residue_targets")
+    nonseed_scope = next(
+        row for row in selected_stress_subclass_channel_decomposition[
+            "target_scope_results"]
+        if row["scope_id"] == "fresh_unseen_nonseed_targets")
+    add_hit(
+        mechanism_stacks,
+        "fresh-unseen-seed-nonseed-scope-guard",
+        "selected-stress-subclass-channel-decomposition",
+        3.0,
+        "fresh unseen seed-residue rows are not the earlier 12 zero-local seed targets",
+        {
+            "fresh_unseen_prior_seed_residue_target_count":
+                seed_scope["target_count"],
+            "fresh_unseen_nonseed_target_count":
+                nonseed_scope["target_count"],
+            "seed_scope_note":
+                selected_stress_subclass_channel_decomposition[
+                    "fresh_unseen_seed_scope_note"],
+        })
+    for target in (13822, 164598, 1222142):
+        add_hit(
+            target_stacks,
+            str(target),
+            "selected-stress-subclass-channel-decomposition",
+            3.0,
+            "volatile-overturn reference still separated by scalar (3,1) and watchlist")
+    for target in (24424, 55864):
+        add_hit(
+            target_stacks,
+            str(target),
+            "selected-stress-subclass-channel-decomposition",
+            3.0,
+            "stable-core-deficit reference still separated by scalar (3,1) and watchlist")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "selected-stress-subclass-channel-decomposition",
+        3.5,
+        "(3,1) is load-bearing on selected subclasses but broad stress class remains unproved")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "selected-stress-subclass-channel-decomposition",
+        3.0,
+        "channel decomposition narrows the bridge to a signed empirical/correlation estimate")
 
     layer(
         "centered-3-1-stress-class-audit",

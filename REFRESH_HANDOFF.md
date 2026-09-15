@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+Kevin asked whether `(3,1)` might be a stress-classifier lemma, with `13822`
+as a large negative selected reference.  The selected-stress subclass split now
+has a full outside-channel decomposition.
+
+`tools/build_q286_selected_stress_subclass_channel_decomposition.py` generated
+`evidence/q286-selected-stress-subclass-channel-decomposition.json`, with the
+human note
+`notes/q286-selected-stress-subclass-channel-decomposition.md`.
+
+Result: yes, but only with the finite selected-reference qualifier.  Scalar
+`(3,1)` passes both selected-stress subclasses on the later fresh-unseen
+windows:
+
+```text
+stable_core_deficit:  0 failures / 1212, min 0.010958653794
+volatile_overturn:   0 failures / 1818, min 0.003510955559
+```
+
+It is load-bearing in Kevin's watchlist: removing `(3,1)` makes both
+subclasses fail.
+
+```text
+watchlist without (3,1), stable_core_deficit: 62 failures, min -0.018376824958
+watchlist without (3,1), volatile_overturn:   5 failures, min -0.008154792326
+```
+
+Do not overstate it.  Stable-core-deficit has four passing singleton channels,
+with `(4,6)` strongest by singleton minimum; volatile-overturn has two passing
+singletons, `(3,1)` and `(3,11)`.  The later fresh-unseen batch contains only
+`5` targets in the prior seed residues `38/64`, all residue `64`, and `601`
+nonseed targets.  The `12` zero-local seed targets are from the earlier
+same-window audit and remain a separate scope.
+
+Decision: keep `(3,1)` as a finite selected-stress classifier coordinate and
+watchlist load-bearing channel.  The remaining theorem obligation is a signed
+empirical/correlation estimate that explains why this coordinate stays
+positive after local subtraction; it is not a proof of the broad
+`full_nonpositive` stress class or Goldbach.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected-stress classifier question now has a subclass audit.
 
 `tools/build_q286_selected_stress_subclass_audit.py` generated

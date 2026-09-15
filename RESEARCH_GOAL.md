@@ -6,6 +6,39 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected-stress subclass split now has a 17-channel decomposition:
+`tools/build_q286_selected_stress_subclass_channel_decomposition.py`
+generated `evidence/q286-selected-stress-subclass-channel-decomposition.json`,
+with explanation in
+`notes/q286-selected-stress-subclass-channel-decomposition.md`.
+
+Mechanism: replay the later fresh-unseen selected-reference comparisons,
+subtract the full target-reference local q286 vector, apply the frozen LP
+weights, and summarize every outside channel separately by selected-stress
+subclass and by fresh-unseen seed-residue/nonseed scope.
+
+Result: scalar `(3,1)` survives as a finite selected-stress classifier
+coordinate across both subclasses.  Stable-core-deficit rows have `0/1212`
+scalar failures, minimum `0.010958653794473812`; volatile-overturn rows have
+`0/1818` scalar failures, minimum `0.0035109555591320892`.  Removing `(3,1)`
+from Kevin's four-channel watchlist makes both subclasses fail: `62` failures
+for stable-core-deficit and `5` for volatile-overturn.
+
+The result is not a solo theorem.  Stable-core-deficit has four passing
+singleton channels, with `(4,6)` giving the largest singleton minimum; volatile
+overturn has two, `(3,1)` and `(3,11)`.  The later fresh-unseen batch contains
+`5` targets in prior seed residues `38/64`, all residue `64`, and `601`
+nonseed targets; the `12` zero-local seed targets belong to the earlier
+same-window audit, not this fresh-unseen replay.
+
+Interpretation: `(3,1)` is now best described as a passing and load-bearing
+finite selected-stress coordinate, especially because watchlist removal fails
+both subclasses.  The theorem route still needs a signed empirical/correlation
+estimate and must not promote this to the already-falsified broad
+`full_nonpositive` stress class.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected-stress classifier question now has a subclass audit:
 `tools/build_q286_selected_stress_subclass_audit.py` generated
 `evidence/q286-selected-stress-subclass-audit.json`, with explanation in

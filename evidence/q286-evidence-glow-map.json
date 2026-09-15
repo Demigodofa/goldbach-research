@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "538dff1e4b01c88247ec8fe7017d362846c46ca8",
+  "generated_from_commit": "eac8a29d4264dd7d47a9d887548ed0ae2e183b3e",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -396,6 +396,14 @@
       "boundary": "Finite selected-stress subclass audit only; no selected-stress theorem."
     },
     {
+      "id": "selected-stress-subclass-channel-decomposition",
+      "label": "Selected stress subclasses decomposed across outside channels",
+      "kind": "finite_channel_decomposition",
+      "source": "evidence/q286-selected-stress-subclass-channel-decomposition.json",
+      "default_weight": 3.5,
+      "boundary": "Finite subclass channel-decomposition only; no signed correlation theorem."
+    },
+    {
       "id": "centered-3-1-stress-class-audit",
       "label": "Centered (3,1) fails the full-nonpositive stress class",
       "kind": "finite_stress_class_falsifier",
@@ -431,7 +439,7 @@
   "target_stacks": [
     {
       "id": "13822",
-      "stack_weight": 72.0,
+      "stack_weight": 75.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -820,14 +828,19 @@
           "layer": "selected-stress-subclass-audit",
           "weight": 2.5,
           "reason": "selected deficit belongs to volatile-overturn subclass"
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "volatile-overturn reference still separated by scalar (3,1) and watchlist"
         }
       ],
-      "layer_count": 32,
+      "layer_count": 33,
       "glow": 1.0
     },
     {
       "id": "164598",
-      "stack_weight": 62.5,
+      "stack_weight": 65.5,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1133,14 +1146,19 @@
           "layer": "selected-stress-subclass-audit",
           "weight": 2.5,
           "reason": "selected deficit belongs to volatile-overturn subclass"
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "volatile-overturn reference still separated by scalar (3,1) and watchlist"
         }
       ],
-      "layer_count": 29,
-      "glow": 0.868056
+      "layer_count": 30,
+      "glow": 0.873333
     },
     {
       "id": "1222142",
-      "stack_weight": 61.5,
+      "stack_weight": 64.5,
       "layers": [
         {
           "layer": "graph-target-roles",
@@ -1448,14 +1466,19 @@
           "layer": "selected-stress-subclass-audit",
           "weight": 2.5,
           "reason": "selected deficit belongs to volatile-overturn subclass"
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "volatile-overturn reference still separated by scalar (3,1) and watchlist"
         }
       ],
-      "layer_count": 30,
-      "glow": 0.854167
+      "layer_count": 31,
+      "glow": 0.86
     },
     {
       "id": "24424",
-      "stack_weight": 54.0,
+      "stack_weight": 57.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -1730,14 +1753,19 @@
           "layer": "selected-stress-subclass-audit",
           "weight": 2.5,
           "reason": "selected deficit belongs to stable-core-deficit subclass"
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "stable-core-deficit reference still separated by scalar (3,1) and watchlist"
         }
       ],
-      "layer_count": 26,
-      "glow": 0.75
+      "layer_count": 27,
+      "glow": 0.76
     },
     {
       "id": "55864",
-      "stack_weight": 54.0,
+      "stack_weight": 57.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -2012,10 +2040,15 @@
           "layer": "selected-stress-subclass-audit",
           "weight": 2.5,
           "reason": "selected deficit belongs to stable-core-deficit subclass"
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "stable-core-deficit reference still separated by scalar (3,1) and watchlist"
         }
       ],
-      "layer_count": 26,
-      "glow": 0.75
+      "layer_count": 27,
+      "glow": 0.76
     },
     {
       "id": "1242118",
@@ -2230,7 +2263,7 @@
         }
       ],
       "layer_count": 18,
-      "glow": 0.548611
+      "glow": 0.526667
     },
     {
       "id": "129706",
@@ -2397,7 +2430,7 @@
         }
       ],
       "layer_count": 15,
-      "glow": 0.423611
+      "glow": 0.406667
     },
     {
       "id": "13556",
@@ -2553,7 +2586,7 @@
         }
       ],
       "layer_count": 14,
-      "glow": 0.395833
+      "glow": 0.38
     },
     {
       "id": "1240888",
@@ -2676,7 +2709,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.3125
+      "glow": 0.3
     },
     {
       "id": "40420",
@@ -2799,7 +2832,7 @@
         }
       ],
       "layer_count": 11,
-      "glow": 0.3125
+      "glow": 0.3
     },
     {
       "id": "1220056",
@@ -2899,7 +2932,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.236111
+      "glow": 0.226667
     },
     {
       "id": "1222048",
@@ -2999,7 +3032,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.236111
+      "glow": 0.226667
     },
     {
       "id": "1200224",
@@ -3068,7 +3101,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.194444
+      "glow": 0.186667
     },
     {
       "id": "1222072",
@@ -3147,7 +3180,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.1875
+      "glow": 0.18
     },
     {
       "id": "1220124",
@@ -3226,7 +3259,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.173611
+      "glow": 0.166667
     },
     {
       "id": "1221052",
@@ -3306,7 +3339,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.166667
+      "glow": 0.16
     },
     {
       "id": "1221042",
@@ -3365,7 +3398,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.159722
+      "glow": 0.153333
     },
     {
       "id": "1242070",
@@ -3434,7 +3467,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.152778
+      "glow": 0.146667
     },
     {
       "id": "1240160",
@@ -3513,7 +3546,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.138889
+      "glow": 0.133333
     },
     {
       "id": "1200262",
@@ -3561,7 +3594,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.131944
+      "glow": 0.126667
     },
     {
       "id": "1222018",
@@ -3609,7 +3642,7 @@
         }
       ],
       "layer_count": 4,
-      "glow": 0.131944
+      "glow": 0.126667
     },
     {
       "id": "1200254",
@@ -3668,7 +3701,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.118056
+      "glow": 0.113333
     },
     {
       "id": "1222030",
@@ -3727,7 +3760,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.118056
+      "glow": 0.113333
     },
     {
       "id": "1242162",
@@ -3796,7 +3829,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 0.104167
+      "glow": 0.1
     },
     {
       "id": "1240144",
@@ -3834,7 +3867,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.097222
+      "glow": 0.093333
     },
     {
       "id": "1200482",
@@ -3883,7 +3916,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.083333
+      "glow": 0.08
     },
     {
       "id": "1379072",
@@ -3909,7 +3942,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.083333
+      "glow": 0.08
     },
     {
       "id": "1426162",
@@ -3939,7 +3972,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.083333
+      "glow": 0.08
     },
     {
       "id": "1426262",
@@ -3969,7 +4002,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.083333
+      "glow": 0.08
     },
     {
       "id": "1200362",
@@ -4027,7 +4060,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.076389
+      "glow": 0.073333
     },
     {
       "id": "1221148",
@@ -4055,7 +4088,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.076389
+      "glow": 0.073333
     },
     {
       "id": "10000028",
@@ -4080,7 +4113,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "10000054",
@@ -4105,7 +4138,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "12000026",
@@ -4130,7 +4163,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "12000052",
@@ -4155,7 +4188,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "16000022",
@@ -4180,7 +4213,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "16000048",
@@ -4205,7 +4238,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "20000018",
@@ -4230,7 +4263,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "20000044",
@@ -4255,7 +4288,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "6000032",
@@ -4280,7 +4313,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "6000058",
@@ -4305,7 +4338,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "8000030",
@@ -4330,7 +4363,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "8000056",
@@ -4355,7 +4388,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.0625
+      "glow": 0.06
     },
     {
       "id": "1221092",
@@ -4383,7 +4416,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.055556
+      "glow": 0.053333
     },
     {
       "id": "1221118",
@@ -4411,7 +4444,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.055556
+      "glow": 0.053333
     },
     {
       "id": "1222168",
@@ -4439,7 +4472,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.055556
+      "glow": 0.053333
     },
     {
       "id": "1242106",
@@ -4467,7 +4500,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.055556
+      "glow": 0.053333
     },
     {
       "id": "1323632",
@@ -4487,7 +4520,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.055556
+      "glow": 0.053333
     },
     {
       "id": "1200208",
@@ -4516,7 +4549,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "1200598",
@@ -4554,7 +4587,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "1220098",
@@ -4583,7 +4616,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "1242136",
@@ -4612,7 +4645,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000000",
@@ -4631,7 +4664,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000002",
@@ -4650,7 +4683,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000004",
@@ -4669,7 +4702,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000006",
@@ -4688,7 +4721,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000008",
@@ -4707,7 +4740,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000010",
@@ -4726,7 +4759,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000012",
@@ -4745,7 +4778,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000014",
@@ -4764,7 +4797,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000016",
@@ -4783,7 +4816,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000018",
@@ -4802,7 +4835,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000020",
@@ -4821,7 +4854,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "6000022",
@@ -4840,7 +4873,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.048611
+      "glow": 0.046667
     },
     {
       "id": "1200232",
@@ -4858,7 +4891,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1200392",
@@ -4876,7 +4909,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1200520",
@@ -4894,7 +4927,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1221154",
@@ -4912,7 +4945,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1260058",
@@ -4930,7 +4963,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1261180",
@@ -4948,7 +4981,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1261196",
@@ -4966,7 +4999,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1262014",
@@ -4984,7 +5017,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1262162",
@@ -5002,7 +5035,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1280026",
@@ -5020,7 +5053,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1280086",
@@ -5038,7 +5071,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1281148",
@@ -5056,7 +5089,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1282052",
@@ -5074,7 +5107,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1282108",
@@ -5092,7 +5125,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1282142",
@@ -5110,7 +5143,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1282186",
@@ -5128,7 +5161,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426164",
@@ -5147,7 +5180,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426166",
@@ -5166,7 +5199,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426168",
@@ -5185,7 +5218,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426170",
@@ -5204,7 +5237,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426172",
@@ -5223,7 +5256,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426174",
@@ -5242,7 +5275,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426176",
@@ -5261,7 +5294,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426178",
@@ -5280,7 +5313,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426180",
@@ -5299,7 +5332,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426182",
@@ -5318,7 +5351,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426196",
@@ -5337,7 +5370,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1426264",
@@ -5356,7 +5389,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1500044",
@@ -5375,7 +5408,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "2200064",
@@ -5394,7 +5427,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "2200190",
@@ -5413,7 +5446,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "3305164",
@@ -5432,7 +5465,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "3305176",
@@ -5451,7 +5484,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "3305206",
@@ -5470,7 +5503,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "4304280",
@@ -5489,7 +5522,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "5000152",
@@ -5508,7 +5541,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "7988986",
@@ -5538,7 +5571,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.041667
+      "glow": 0.04
     },
     {
       "id": "1220188",
@@ -5556,7 +5589,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1221002",
@@ -5574,7 +5607,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1221156",
@@ -5592,7 +5625,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1221162",
@@ -5610,7 +5643,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1240138",
@@ -5628,7 +5661,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1242062",
@@ -5646,7 +5679,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1242152",
@@ -5664,7 +5697,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034722
+      "glow": 0.033333
     },
     {
       "id": "1240116",
@@ -5692,7 +5725,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.027778
+      "glow": 0.026667
     },
     {
       "id": "1200210",
@@ -5710,7 +5743,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200302",
@@ -5728,7 +5761,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200328",
@@ -5746,7 +5779,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200342",
@@ -5764,7 +5797,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200400",
@@ -5782,7 +5815,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200432",
@@ -5800,7 +5833,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1200526",
@@ -5818,7 +5851,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1220038",
@@ -5836,7 +5869,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1220076",
@@ -5854,7 +5887,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1221016",
@@ -5872,7 +5905,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1222078",
@@ -5890,7 +5923,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1240046",
@@ -5908,7 +5941,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1240098",
@@ -5926,7 +5959,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1240104",
@@ -5944,7 +5977,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "1242044",
@@ -5962,7 +5995,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.020833
+      "glow": 0.02
     },
     {
       "id": "10664",
@@ -5976,7 +6009,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.013889
+      "glow": 0.013333
     },
     {
       "id": "14138",
@@ -5990,10 +6023,139 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.013889
+      "glow": 0.013333
     }
   ],
   "mechanism_stacks": [
+    {
+      "id": "centered-3-1-selected-stress-fresh-window-classifier",
+      "stack_weight": 19.0,
+      "layers": [
+        {
+          "layer": "watchlist-fresh-unseen-window-audit",
+          "weight": 3.5,
+          "reason": "scalar (3,1) passes all fresh unseen comparisons against selected deficit references",
+          "value": {
+            "comparison_row_count": 3030,
+            "scalar_3_1_passes_unseen_windows": true,
+            "scalar_3_1_minimum_margin": 0.0035109555591320892
+          }
+        },
+        {
+          "layer": "centered-3-1-stress-classifier-boundary",
+          "weight": 3.5,
+          "reason": "selected-reference classifier supported while broad full_nonpositive classifier is falsified",
+          "value": {
+            "selected_reference_status": "supported_on_checked_selected_references",
+            "broad_full_nonpositive_status": "falsified",
+            "scalar_3_1_fresh_unseen_minimum_margin": 0.0035109555591320892,
+            "full_nonpositive_at_or_above": 56
+          }
+        },
+        {
+          "layer": "selected-stress-subclass-audit",
+          "weight": 2.5,
+          "reason": "scalar (3,1) and watchlist remain positive on stable_core_deficit fresh unseen comparisons",
+          "value": {
+            "subclass": "stable_core_deficit",
+            "references": [
+              24424,
+              55864
+            ],
+            "scalar_3_1": {
+              "average_margin": 0.03358246482171273,
+              "comparison_count": 1212,
+              "failing_target_count": 0,
+              "maximum_margin": 0.05547194935474091,
+              "minimum_margin": 0.010958653794473812,
+              "name": "scalar_3_1",
+              "passes": true,
+              "reference_count": 2
+            },
+            "kevin_watchlist_4": {
+              "average_margin": 0.05060288032131796,
+              "comparison_count": 1212,
+              "failing_target_count": 0,
+              "maximum_margin": 0.08196185936808402,
+              "minimum_margin": 0.0050335385945745326,
+              "name": "kevin_watchlist_4",
+              "passes": true,
+              "reference_count": 2
+            }
+          }
+        },
+        {
+          "layer": "selected-stress-subclass-audit",
+          "weight": 2.5,
+          "reason": "scalar (3,1) and watchlist remain positive on volatile_overturn fresh unseen comparisons",
+          "value": {
+            "subclass": "volatile_overturn",
+            "references": [
+              13822,
+              164598,
+              1222142
+            ],
+            "scalar_3_1": {
+              "average_margin": 0.022661162780652323,
+              "comparison_count": 1818,
+              "failing_target_count": 0,
+              "maximum_margin": 0.038304520514422805,
+              "minimum_margin": 0.0035109555591320892,
+              "name": "scalar_3_1",
+              "passes": true,
+              "reference_count": 3
+            },
+            "kevin_watchlist_4": {
+              "average_margin": 0.08699467317393234,
+              "comparison_count": 1818,
+              "failing_target_count": 0,
+              "maximum_margin": 0.16123138142568982,
+              "minimum_margin": 0.0020345565333929026,
+              "name": "kevin_watchlist_4",
+              "passes": true,
+              "reference_count": 3
+            }
+          }
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.5,
+          "reason": "scalar (3,1) is positive and load-bearing on stable_core_deficit",
+          "value": {
+            "subclass": "stable_core_deficit",
+            "references": [
+              24424,
+              55864
+            ],
+            "scalar_3_1_minimum": 0.010958653794473812,
+            "watchlist_without_3_1_failures": 62,
+            "channel_3_1_positive_count": 1212,
+            "channel_3_1_negative_count": 0,
+            "passing_singletons": 4
+          }
+        },
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.5,
+          "reason": "scalar (3,1) is positive and load-bearing on volatile_overturn",
+          "value": {
+            "subclass": "volatile_overturn",
+            "references": [
+              13822,
+              164598,
+              1222142
+            ],
+            "scalar_3_1_minimum": 0.0035109555591320892,
+            "watchlist_without_3_1_failures": 5,
+            "channel_3_1_positive_count": 1818,
+            "channel_3_1_negative_count": 0,
+            "passing_singletons": 2
+          }
+        }
+      ],
+      "layer_count": 6,
+      "glow": 1.0
+    },
     {
       "id": "centered-3-1-selected-deficit-separator",
       "stack_weight": 18.0,
@@ -6111,101 +6273,7 @@
         }
       ],
       "layer_count": 6,
-      "glow": 1.0
-    },
-    {
-      "id": "centered-3-1-selected-stress-fresh-window-classifier",
-      "stack_weight": 12.0,
-      "layers": [
-        {
-          "layer": "watchlist-fresh-unseen-window-audit",
-          "weight": 3.5,
-          "reason": "scalar (3,1) passes all fresh unseen comparisons against selected deficit references",
-          "value": {
-            "comparison_row_count": 3030,
-            "scalar_3_1_passes_unseen_windows": true,
-            "scalar_3_1_minimum_margin": 0.0035109555591320892
-          }
-        },
-        {
-          "layer": "centered-3-1-stress-classifier-boundary",
-          "weight": 3.5,
-          "reason": "selected-reference classifier supported while broad full_nonpositive classifier is falsified",
-          "value": {
-            "selected_reference_status": "supported_on_checked_selected_references",
-            "broad_full_nonpositive_status": "falsified",
-            "scalar_3_1_fresh_unseen_minimum_margin": 0.0035109555591320892,
-            "full_nonpositive_at_or_above": 56
-          }
-        },
-        {
-          "layer": "selected-stress-subclass-audit",
-          "weight": 2.5,
-          "reason": "scalar (3,1) and watchlist remain positive on stable_core_deficit fresh unseen comparisons",
-          "value": {
-            "subclass": "stable_core_deficit",
-            "references": [
-              24424,
-              55864
-            ],
-            "scalar_3_1": {
-              "average_margin": 0.03358246482171273,
-              "comparison_count": 1212,
-              "failing_target_count": 0,
-              "maximum_margin": 0.05547194935474091,
-              "minimum_margin": 0.010958653794473812,
-              "name": "scalar_3_1",
-              "passes": true,
-              "reference_count": 2
-            },
-            "kevin_watchlist_4": {
-              "average_margin": 0.05060288032131796,
-              "comparison_count": 1212,
-              "failing_target_count": 0,
-              "maximum_margin": 0.08196185936808402,
-              "minimum_margin": 0.0050335385945745326,
-              "name": "kevin_watchlist_4",
-              "passes": true,
-              "reference_count": 2
-            }
-          }
-        },
-        {
-          "layer": "selected-stress-subclass-audit",
-          "weight": 2.5,
-          "reason": "scalar (3,1) and watchlist remain positive on volatile_overturn fresh unseen comparisons",
-          "value": {
-            "subclass": "volatile_overturn",
-            "references": [
-              13822,
-              164598,
-              1222142
-            ],
-            "scalar_3_1": {
-              "average_margin": 0.022661162780652323,
-              "comparison_count": 1818,
-              "failing_target_count": 0,
-              "maximum_margin": 0.038304520514422805,
-              "minimum_margin": 0.0035109555591320892,
-              "name": "scalar_3_1",
-              "passes": true,
-              "reference_count": 3
-            },
-            "kevin_watchlist_4": {
-              "average_margin": 0.08699467317393234,
-              "comparison_count": 1818,
-              "failing_target_count": 0,
-              "maximum_margin": 0.16123138142568982,
-              "minimum_margin": 0.0020345565333929026,
-              "name": "kevin_watchlist_4",
-              "passes": true,
-              "reference_count": 3
-            }
-          }
-        }
-      ],
-      "layer_count": 4,
-      "glow": 0.666667
+      "glow": 0.947368
     },
     {
       "id": "channel-carried-strict-slack",
@@ -6231,7 +6299,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.5
+      "glow": 0.473684
     },
     {
       "id": "full-17-lp-overincluded-for-13822",
@@ -6271,7 +6339,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.5
+      "glow": 0.473684
     },
     {
       "id": "same-stress-singleton-channel-candidates",
@@ -6468,7 +6536,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.444444
+      "glow": 0.421053
     },
     {
       "id": "kevin-watchlist-distributed-cone",
@@ -6495,7 +6563,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.388889
+      "glow": 0.368421
     },
     {
       "id": "low-frequency-lp-cap-certificate-survives",
@@ -6529,7 +6597,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.361111
+      "glow": 0.342105
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6570,7 +6638,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.277778
+      "glow": 0.263158
     },
     {
       "id": "selected-stress-two-subclass-split",
@@ -6590,7 +6658,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.194444
+      "glow": 0.184211
     },
     {
       "id": "centered-3-1-full-nonpositive-classifier-falsified",
@@ -6609,7 +6677,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "centered-3-1-selected-deficit-separator-clipped",
@@ -6629,7 +6697,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "distributed-channel-rescue-of-scalar-3-1-failure",
@@ -6649,7 +6717,25 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
+    },
+    {
+      "id": "fresh-unseen-seed-nonseed-scope-guard",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "fresh unseen seed-residue rows are not the earlier 12 zero-local seed targets",
+          "value": {
+            "fresh_unseen_prior_seed_residue_target_count": 5,
+            "fresh_unseen_nonseed_target_count": 601,
+            "seed_scope_note": "The 12 zero-local seed targets belong to the earlier same-window population.  These later fresh-unseen windows contain no target with residue 38 mod 143 and five targets with residue 64 mod 143; empty seed-residue scopes are reported rather than silently merged."
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.157895
     },
     {
       "id": "local-singular-cone-orientation-floor",
@@ -6674,7 +6760,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "low-frequency-label-lattice-heldout-survives",
@@ -6693,7 +6779,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "low-frequency-label-lattice-horizon-survives",
@@ -6714,7 +6800,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "rank1-cap-survives-full-window",
@@ -6735,7 +6821,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "raw-ap-count-pigeonhole-bridge-falsified",
@@ -6754,7 +6840,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "small-fixed-channel-certificate-refuted",
@@ -6793,7 +6879,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.166667
+      "glow": 0.157895
     },
     {
       "id": "coarse-target-residue-lift-demoted",
@@ -6812,7 +6898,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "frobenius-gcd-parity-rank1-shortcut-refuted",
@@ -6833,7 +6919,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "near-sharp-rank1-residual-drag-cap",
@@ -6851,7 +6937,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "positive-rank1-outside-direction",
@@ -6869,7 +6955,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "recurrent-portfolio-versus-residual",
@@ -6888,7 +6974,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "simple-label-only-lift-demoted",
@@ -6909,7 +6995,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.138889
+      "glow": 0.131579
     },
     {
       "id": "actual-arithmetic-placement-inside-weak-cone",
@@ -6942,7 +7028,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "actual-mass-avoids-extremal-breaker-orbits",
@@ -6970,7 +7056,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "clear-side-prefix-versus-deficit-classification",
@@ -6987,7 +7073,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "fixed-component-pair-((5,7),(7,11))",
@@ -7000,7 +7086,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "low-frequency-label-lattice-partial-signal",
@@ -7013,7 +7099,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "mixed-mass-landing-hinge-balance",
@@ -7045,7 +7131,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "nonposthoc-above-floor-sign-surplus",
@@ -7073,7 +7159,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "prefix-lower-bound-plus-tail-classification",
@@ -7091,7 +7177,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "selected-deficit-versus-full-nonpositive-scope-guard",
@@ -7118,7 +7204,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "signed-cumulative-portfolio-staircase",
@@ -7142,7 +7228,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "simple-near-boundary-selectors-refuted",
@@ -7170,7 +7256,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "small-residual-channel-classifier-demoted",
@@ -7187,7 +7273,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "tail-package-not-compressed",
@@ -7205,7 +7291,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "tail-thinning-after-cycle-232",
@@ -7223,7 +7309,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "tiny-positive-hinge-threshold-surplus",
@@ -7246,7 +7332,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "weak-geometry-staircase-shortcut-closed",
@@ -7263,7 +7349,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.111111
+      "glow": 0.105263
     },
     {
       "id": "active-selector-rarity",
@@ -7280,7 +7366,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.083333
+      "glow": 0.078947
     },
     {
       "id": "sparse-near-boundary-above-floor-margins",
@@ -7324,13 +7410,13 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.083333
+      "glow": 0.078947
     }
   ],
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 40.5,
+      "stack_weight": 44.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -7393,6 +7479,11 @@
           "reason": "one volatile-overturn predicate is falsified as the whole selected-stress class"
         },
         {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.5,
+          "reason": "(3,1) is load-bearing on selected subclasses but broad stress class remains unproved"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -7403,12 +7494,12 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 14,
+      "layer_count": 15,
       "glow": 1.0
     },
     {
       "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 25.5,
+      "stack_weight": 28.5,
       "layers": [
         {
           "layer": "lp-cone-local-singular-audit",
@@ -7456,13 +7547,18 @@
           "reason": "signed correlation bridge must explain both stable-core-deficit and volatile-overturn subclasses"
         },
         {
+          "layer": "selected-stress-subclass-channel-decomposition",
+          "weight": 3.0,
+          "reason": "channel decomposition narrows the bridge to a signed empirical/correlation estimate"
+        },
+        {
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
         }
       ],
-      "layer_count": 10,
-      "glow": 0.62963
+      "layer_count": 11,
+      "glow": 0.647727
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -7505,7 +7601,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.432099
+      "glow": 0.397727
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -7553,7 +7649,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.407407
+      "glow": 0.375
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -7586,7 +7682,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.37037
+      "glow": 0.340909
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -7609,7 +7705,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.197531
+      "glow": 0.181818
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -7632,7 +7728,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.197531
+      "glow": 0.181818
     },
     {
       "id": "active-lane-strict-closure",
@@ -7650,7 +7746,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.123457
+      "glow": 0.113636
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -7668,7 +7764,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.08642
+      "glow": 0.079545
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -7681,7 +7777,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.074074
+      "glow": 0.068182
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -7694,7 +7790,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -7707,7 +7803,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -7720,7 +7816,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -7733,7 +7829,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -7746,7 +7842,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -7759,7 +7855,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -7772,7 +7868,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.049383
+      "glow": 0.045455
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -7789,7 +7885,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.037037
+      "glow": 0.034091
     },
     {
       "id": "alignment-complement-route",
@@ -7802,7 +7898,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.024691
+      "glow": 0.022727
     }
   ],
   "goldbach_proved": false,
