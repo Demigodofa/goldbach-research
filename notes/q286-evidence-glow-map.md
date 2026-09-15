@@ -399,6 +399,25 @@ preserve the live candidates.  The glow map should therefore treat `(3,1)` as
 the stronger selected-deficit-reference singleton candidate and demote the
 two-channel reference-independent reading.
 
+The centered channel scalar-order audit is:
+
+```text
+evidence/q286-centered-channel-scalar-order-audit.json
+```
+
+It reduces the alternate-reference result to one scalar per row and channel:
+`lp_weight * (empirical channel - local channel)`.  In this centered order,
+`(3,1)` puts all five selected deficit references below every one of the
+`606` fresh predeclared targets.  Reference `13822` is second-lowest overall
+for `(3,1)`, behind only `55864`, with value
+`-0.028592853507378977`.  `(5,5)` fails the same check because `13822` is high
+there, with centered weighted value `0.009715830696077645`.
+
+The glow-map reading is now narrower and cleaner: `(3,1)` is a finite
+selected-deficit scalar separator after local subtraction.  It is not yet a
+stress-classifier theorem because the selected deficit references are not a
+proved complete or predeclared stress population.
+
 The AP-count bridge-gap audit is:
 
 ```text

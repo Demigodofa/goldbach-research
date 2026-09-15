@@ -4,7 +4,36 @@ Owner: Kevin. Purpose: Kevin explicitly requested a copy-and-paste refresh
 handoff at a checked mathematical checkpoint. This file is the entrypoint
 for the next session; the proofs and executable truth remain in the modules.
 
-## Latest active checkpoint note, 2026-09-14
+## Latest active checkpoint note, 2026-09-15
+
+The `(3,1)` stress-classifier hunch now has a centered scalar-order audit.
+`tools/build_q286_centered_channel_scalar_order_audit.py` generated
+`evidence/q286-centered-channel-scalar-order-audit.json`, with the human note
+`notes/q286-centered-channel-scalar-order-audit.md`.
+
+Metric: for channel `L`, compare the weighted locally centered scalar
+`lp_weight[L] * (empirical_L(row) - local_L(row))`.  A positive fresh-target
+margin against reference `R` is exactly the fresh target's centered scalar
+minus the reference's centered scalar.
+
+Result: `(3,1)` orders all five selected deficit references below every one
+of the `606` fresh predeclared targets.  The minimum fresh `(3,1)` value is
+`-0.017835394356714915` at target `24000008`; the highest selected deficit
+reference is `164598` at `-0.0196487122614909`, leaving positive gap
+`0.001813317904775985`.  Reference `13822` ranks second-lowest overall in the
+combined set, with `(3,1)` value `-0.028592853507378977`.
+
+Comparison: `(5,5)` fails the same scalar order.  Its minimum fresh value is
+`-0.023944926855061086`, but reference `13822` is high at
+`0.009715830696077645`.
+
+Decision: `(3,1)` is now the live selected-deficit scalar separator candidate
+after local subtraction.  This is still finite selected-reference evidence,
+not a universal stress-classifier theorem.  The next gate is a non-post-hoc
+stress/deficit class and a replay against all members or a predeclared
+generation rule.
+
+## Previous active checkpoint note, 2026-09-14
 
 The alternate stress/reference gate is now checked.  `tools/build_q286_alternate_reference_channel_audit.py`
 generated `evidence/q286-alternate-reference-channel-audit.json`, with the

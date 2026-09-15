@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "graph_id": "q286-closed-lanes-map",
-  "generated_on": "2026-09-14",
+  "generated_on": "2026-09-15",
   "source_commit_at_start": "8b85d45a002bd5eb0e463cbb991d9580480302b6",
   "scope": "q286 first-three, lower-support, and component-pair theorem route",
   "status_boundary": "finite evidence and proof-strategy map only; Goldbach is not proved",
@@ -1437,9 +1437,35 @@
       "status": "finite_reference_sensitivity_gate",
       "validation": "tools/build_q286_alternate_reference_channel_audit.py generated evidence/q286-alternate-reference-channel-audit.json; on the 606 fresh targets, (3,1) passes all five selected deficit references while (5,5) fails for deficit references 13822,55864,164598; clear-control references do not preserve the live candidates",
       "status_boundary": "finite selected-reference audit only; no reference-independent channel theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_centered_channel_scalar_order_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) scalar order audit",
+      "status": "finite_selected_deficit_separator",
+      "validation": "tools/build_q286_centered_channel_scalar_order_audit.py generated evidence/q286-centered-channel-scalar-order-audit.json; after subtracting local channel action, (3,1) orders all five selected deficit references below every one of the 606 fresh predeclared targets, with 13822 second-lowest overall; (5,5) fails because 13822 is high in that centered scalar",
+      "status_boundary": "finite selected-reference scalar-order audit only; no universal stress-classifier theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
+    },
+    {
+      "id": "obligation.centered_3_1_stress_class",
+      "type": "open_obligation",
+      "label": "Define and prove the centered (3,1) stress class",
+      "status": "open",
+      "statement": "Define a non-post-hoc q286 deficit/stress class and prove, or finitely falsify, that its members lie below fresh clear targets in the locally centered (3,1) scalar order.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
+    {
+      "from": "receipt.q286_centered_channel_scalar_order_audit",
+      "to": "receipt.q286_alternate_reference_channel_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_channel_scalar_order_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "requires"
+    },
     {
       "from": "receipt.q286_alternate_reference_channel_audit",
       "to": "receipt.q286_fresh_window_channel_watchlist_audit",

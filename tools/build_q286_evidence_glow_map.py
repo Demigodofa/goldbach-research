@@ -127,6 +127,8 @@ def main():
         EVIDENCE / "q286-fresh-window-channel-watchlist-audit.json")
     alternate_reference_channel = load_json(
         EVIDENCE / "q286-alternate-reference-channel-audit.json")
+    centered_channel_scalar_order = load_json(
+        EVIDENCE / "q286-centered-channel-scalar-order-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1663,6 +1665,52 @@ def main():
         "alternate-reference-channel-audit",
         3.0,
         "(3,1) survives selected deficit references; (5,5) is reference-sensitive")
+
+    layer(
+        "centered-channel-scalar-order-audit",
+        "Centered (3,1) scalar order separates selected deficit references",
+        "finite_scalar_separator_gate",
+        "evidence/q286-centered-channel-scalar-order-audit.json",
+        3.0,
+        "Finite selected-reference scalar-order audit only; no stress-classifier theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-channel-scalar-order-audit",
+        3.0,
+        "locally centered (3,1) puts selected deficit references below every fresh target",
+        {
+            "channel_3_1_all_deficit_below_fresh_min":
+                centered_channel_scalar_order[
+                    "channel_3_1_all_deficit_references_below_fresh_min"],
+            "channel_5_5_all_deficit_below_fresh_min":
+                centered_channel_scalar_order[
+                    "channel_5_5_all_deficit_references_below_fresh_min"],
+            "channel_3_1_gap":
+                next(
+                    result for result in centered_channel_scalar_order[
+                        "channel_results"]
+                    if result["label_key"] == "3,1")[
+                        "minimum_fresh_minus_max_deficit_weighted_gap"],
+            "channel_5_5_gap":
+                next(
+                    result for result in centered_channel_scalar_order[
+                        "channel_results"]
+                    if result["label_key"] == "5,5")[
+                        "minimum_fresh_minus_max_deficit_weighted_gap"],
+        })
+    add_hit(
+        target_stacks,
+        "13822",
+        "centered-channel-scalar-order-audit",
+        2.0,
+        "second-lowest locally centered (3,1) row in combined scalar order")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-channel-scalar-order-audit",
+        3.0,
+        "next gate is a non-post-hoc stress/deficit class, not selected references")
 
     layer(
         "ap-count-bridge-gap-audit",

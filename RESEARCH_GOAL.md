@@ -4,7 +4,33 @@ Owner: Kevin; lead: Rill (`agent.rill`). Purpose: preserve the self-chosen
 goal and its evidence rules across continuation, instead of reviving an
 expired deadline after a session boundary.
 
-## Latest continuation evidence, 2026-09-14
+## Latest continuation evidence, 2026-09-15
+
+The `(3,1)` singleton has been reduced to a centered scalar-order gate:
+`tools/build_q286_centered_channel_scalar_order_audit.py` generated
+`evidence/q286-centered-channel-scalar-order-audit.json`, with explanation in
+`notes/q286-centered-channel-scalar-order-audit.md`.
+
+For channel `L`, the alternate-reference margin is the difference between the
+weighted locally centered scalar values
+`lp_weight[L] * (empirical_L(row) - local_L(row))`.  Thus a single-channel
+alternate-reference pass is equivalent to the selected deficit reference being
+lower than every fresh target in that scalar order.
+
+Result: `(3,1)` places all five selected deficit references below all `606`
+fresh predeclared targets.  `13822` is second-lowest overall in the combined
+ordered set, with weighted centered `(3,1)` value
+`-0.028592853507378977`, below the fresh minimum by
+`0.010757459150664062`.  `(5,5)` fails the same scalar-order explanation:
+`13822` has weighted centered `(5,5)` value `0.009715830696077645`, above the
+fresh minimum by `0.03366075755113873`.
+
+Interpretation: Kevin's `(3,1)` stress-classifier idea is supported as finite
+selected-deficit-reference evidence after removing local residue action.  It
+is not yet a stress-class theorem, because the selected deficit references are
+not a proved complete or predeclared stress population.
+
+## Previous continuation evidence, 2026-09-14
 
 The singleton-channel route now has an alternate-reference audit:
 `tools/build_q286_alternate_reference_channel_audit.py` generated
