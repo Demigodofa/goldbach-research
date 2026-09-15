@@ -1576,6 +1576,14 @@
       "status_boundary": "finite threshold-subclass audit only; useful scalar-order evidence but no non-post-hoc stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_independent_stress_feature_audit",
+      "type": "receipt",
+      "label": "q286 independent stress feature audit",
+      "status": "validated_falsifier",
+      "validation": "tools/build_q286_independent_stress_feature_audit.py generated evidence/q286-independent-stress-feature-audit.json; no pre-existing q286 filter/residue predicate independently explains the 33-reference low-(3,1) subclass, and even post-hoc one-feature numeric thresholds with support at least 5 found no pure zero-failure subset",
+      "status_boundary": "finite independent-feature audit only; demotes the simple filter-feature wrapper but proves no stress theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3623,6 +3631,26 @@
     },
     {
       "from": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_independent_stress_feature_audit",
+      "to": "receipt.q286_centered_3_1_threshold_subclass_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_independent_stress_feature_audit",
+      "to": "receipt.q286_selected_reference_scope_fork_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_independent_stress_feature_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_independent_stress_feature_audit",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
     }

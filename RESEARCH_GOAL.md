@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The low-`(3,1)` subclass now has an independent stress-feature audit:
+`tools/build_q286_independent_stress_feature_audit.py` generated
+`evidence/q286-independent-stress-feature-audit.json`, with explanation in
+`notes/q286-independent-stress-feature-audit.md`.
+
+Mechanism: use the previous receipt's frozen 33-reference low-`(3,1)` subclass
+as the target label, then test pre-existing q286 filter/residue features that
+do not use centered `(3,1)` itself as a coefficient.
+
+Result: the broad baseline `full_nonpositive` population contains `89`
+references, with `33` below the frozen selected-max `(3,1)` threshold and `24`
+below the stricter selected-min threshold.  No natural pre-existing filter
+predicate selected a nonempty zero-failure family.  `first_two_active` has
+`33` low rows but `55` above-threshold rows; `first_three_tail` and
+`active_selector` have `32` low and `54` above; `complement_floor` has `28`
+low and `47` above.  The prior seed residues `38/64` have only `4` broad rows,
+split `2` low and `2` above.  Even post-hoc one-feature numeric thresholds
+with support at least `5` found no pure zero-failure subset.
+
+Interpretation: demote the simple independent-filter wrapper for `(3,1)`.
+The coordinate remains real and useful, but the stress theorem is not supplied
+by broad `full_nonpositive`, active selector, complement floor, prior seed
+residues, or a one-dimensional filter threshold.  The next proof branch should
+either define a richer independent family or move to a signed correlation
+estimate.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected `(3,1)` stress-reference hunch now has an independent
 threshold-subclass audit:
 `tools/build_q286_centered_3_1_threshold_subclass_audit.py` generated

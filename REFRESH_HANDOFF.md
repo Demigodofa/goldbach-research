@@ -6,6 +6,42 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The low-`(3,1)` subclass now has an independent stress-feature audit.
+
+`tools/build_q286_independent_stress_feature_audit.py` generated
+`evidence/q286-independent-stress-feature-audit.json`, with the human note
+`notes/q286-independent-stress-feature-audit.md`.
+
+Question: can the frozen low-`(3,1)` subclass be explained by pre-existing q286
+filter/residue features that do not use centered `(3,1)` itself?
+
+Result: no simple independent filter feature works.
+
+```text
+broad full_nonpositive references:       89
+low centered (3,1) references:           33
+strict low centered (3,1) refs:          24
+
+first_two_active:                        88 refs, 33 low, 55 above
+first_three_tail:                        86 refs, 32 low, 54 above
+active_selector:                         86 refs, 32 low, 54 above
+complement_floor:                        75 refs, 28 low, 47 above
+prior seed residues 38/64:                4 refs,  2 low,  2 above
+```
+
+Even post-hoc one-feature numeric thresholds with support at least `5` found no
+pure zero-failure subset.  Small residue pockets exist, such as residue
+`124 mod 143` with `4/4` low rows and residue `82 mod 143` with `3/3`, but they
+are too small and post-hoc for the theorem family.
+
+Decision: `(3,1)` remains a useful stress/reference coordinate, but the
+stress family is not yet independently defined by broad `full_nonpositive`,
+active selector, complement floor, prior seed residues, or a one-dimensional
+filter threshold.  The next branch should either define a richer independent
+family or move to a signed correlation estimate.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` stress-reference hunch now has an independent
 threshold-subclass audit.
 

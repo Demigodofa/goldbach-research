@@ -166,6 +166,8 @@ def main():
         / "q286-selected-stable-fixture-family-boundary-audit.json")
     centered_3_1_threshold_subclass = load_json(
         EVIDENCE / "q286-centered-3-1-threshold-subclass-audit.json")
+    independent_stress_feature = load_json(
+        EVIDENCE / "q286-independent-stress-feature-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -2735,6 +2737,52 @@ def main():
         "centered-3-1-threshold-subclass-audit",
         2.5,
         "bridge must explain independent stress rows falling below the scalar threshold")
+
+    layer(
+        "independent-stress-feature-audit",
+        "Pre-existing filter features do not explain the low-(3,1) subclass",
+        "validated_falsifier",
+        "evidence/q286-independent-stress-feature-audit.json",
+        3.0,
+        "Finite independent-feature audit only; no stress theorem.")
+    add_hit(
+        mechanism_stacks,
+        "independent-filter-wrapper-for-centered-3-1-falsified",
+        "independent-stress-feature-audit",
+        3.0,
+        "natural filter predicates include above-threshold rows and do not independently define the low-(3,1) subclass",
+        {
+            "broad_reference_count":
+                independent_stress_feature[
+                    "broad_full_nonpositive_reference_count"],
+            "low_centered_3_1_reference_count":
+                independent_stress_feature[
+                    "low_centered_3_1_reference_count"],
+            "zero_failure_predeclared_predicate_count":
+                len(independent_stress_feature[
+                    "zero_failure_predeclared_predicates"]),
+            "best_predeclared_predicate":
+                independent_stress_feature[
+                    "best_predeclared_predicate"]["name"],
+        })
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-threshold-scalar-subclass",
+        "independent-stress-feature-audit",
+        2.0,
+        "low-(3,1) subclass remains scalar-selected rather than independently stress-defined")
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "independent-stress-feature-audit",
+        3.0,
+        "simple independent filter/residue wrapper is demoted; richer family or signed correlation estimate needed")
+    add_hit(
+        theorem_stacks,
+        "ap-count-to-17-channel-bridge",
+        "independent-stress-feature-audit",
+        2.5,
+        "filter-order features alone do not supply the local-to-channel bridge")
 
     layer(
         "centered-3-1-stress-class-audit",

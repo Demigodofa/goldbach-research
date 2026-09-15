@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "0e0d5d0f0f18fba7c63a1156673a7b3bd64e75f8",
+  "generated_from_commit": "fc0101e2bd6502439b45af7bba97778aaaa11d21",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -434,6 +434,14 @@
       "source": "evidence/q286-centered-3-1-threshold-subclass-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite scalar-threshold subclass only; no non-post-hoc stress theorem."
+    },
+    {
+      "id": "independent-stress-feature-audit",
+      "label": "Pre-existing filter features do not explain the low-(3,1) subclass",
+      "kind": "validated_falsifier",
+      "source": "evidence/q286-independent-stress-feature-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite independent-feature audit only; no stress theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -6764,6 +6772,31 @@
       "glow": 0.224138
     },
     {
+      "id": "centered-3-1-threshold-scalar-subclass",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "centered-3-1-threshold-subclass-audit",
+          "weight": 3.0,
+          "reason": "frozen selected-reference threshold captures 33 independent broad full_nonpositive rows with zero scalar failures",
+          "value": {
+            "selected_max_threshold": -0.0196487122614909,
+            "fresh_min_weighted_centered_3_1": -0.017835394356714915,
+            "threshold_reference_count": 33,
+            "threshold_scalar_failures": 0,
+            "broad_reference_count": 89
+          }
+        },
+        {
+          "layer": "independent-stress-feature-audit",
+          "weight": 2.0,
+          "reason": "low-(3,1) subclass remains scalar-selected rather than independently stress-defined"
+        }
+      ],
+      "layer_count": 2,
+      "glow": 0.172414
+    },
+    {
       "id": "zero-local-target-correlation-decomposition",
       "stack_weight": 5.0,
       "layers": [
@@ -7060,26 +7093,6 @@
       "glow": 0.103448
     },
     {
-      "id": "centered-3-1-threshold-scalar-subclass",
-      "stack_weight": 3.0,
-      "layers": [
-        {
-          "layer": "centered-3-1-threshold-subclass-audit",
-          "weight": 3.0,
-          "reason": "frozen selected-reference threshold captures 33 independent broad full_nonpositive rows with zero scalar failures",
-          "value": {
-            "selected_max_threshold": -0.0196487122614909,
-            "fresh_min_weighted_centered_3_1": -0.017835394356714915,
-            "threshold_reference_count": 33,
-            "threshold_scalar_failures": 0,
-            "broad_reference_count": 89
-          }
-        }
-      ],
-      "layer_count": 1,
-      "glow": 0.103448
-    },
-    {
       "id": "distributed-channel-rescue-of-scalar-3-1-failure",
       "stack_weight": 3.0,
       "layers": [
@@ -7111,6 +7124,25 @@
             "fresh_unseen_prior_seed_residue_target_count": 5,
             "fresh_unseen_nonseed_target_count": 601,
             "seed_scope_note": "The 12 zero-local seed targets belong to the earlier same-window population.  These later fresh-unseen windows contain no target with residue 38 mod 143 and five targets with residue 64 mod 143; empty seed-residue scopes are reported rather than silently merged."
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.103448
+    },
+    {
+      "id": "independent-filter-wrapper-for-centered-3-1-falsified",
+      "stack_weight": 3.0,
+      "layers": [
+        {
+          "layer": "independent-stress-feature-audit",
+          "weight": 3.0,
+          "reason": "natural filter predicates include above-threshold rows and do not independently define the low-(3,1) subclass",
+          "value": {
+            "broad_reference_count": 89,
+            "low_centered_3_1_reference_count": 33,
+            "zero_failure_predeclared_predicate_count": 0,
+            "best_predeclared_predicate": "prior_seed_residue_38_or_64"
           }
         }
       ],
@@ -7809,7 +7841,7 @@
   "theorem_gap_stacks": [
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 57.5,
+      "stack_weight": 60.5,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -7897,6 +7929,11 @@
           "reason": "threshold subclass works only because it is selected by centered (3,1); independent stress definition remains open"
         },
         {
+          "layer": "independent-stress-feature-audit",
+          "weight": 3.0,
+          "reason": "simple independent filter/residue wrapper is demoted; richer family or signed correlation estimate needed"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -7907,12 +7944,12 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 19,
+      "layer_count": 20,
       "glow": 1.0
     },
     {
       "id": "ap-count-to-17-channel-bridge",
-      "stack_weight": 40.0,
+      "stack_weight": 42.5,
       "layers": [
         {
           "layer": "lp-cone-local-singular-audit",
@@ -7985,13 +8022,18 @@
           "reason": "bridge must explain independent stress rows falling below the scalar threshold"
         },
         {
+          "layer": "independent-stress-feature-audit",
+          "weight": 2.5,
+          "reason": "filter-order features alone do not supply the local-to-channel bridge"
+        },
+        {
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
         }
       ],
-      "layer_count": 15,
-      "glow": 0.695652
+      "layer_count": 16,
+      "glow": 0.702479
     },
     {
       "id": "rank1-outside-direction-arithmetic-meaning",
@@ -8034,7 +8076,7 @@
         }
       ],
       "layer_count": 7,
-      "glow": 0.304348
+      "glow": 0.289256
     },
     {
       "id": "portfolio-residual-lower-bound",
@@ -8082,7 +8124,7 @@
         }
       ],
       "layer_count": 8,
-      "glow": 0.286957
+      "glow": 0.272727
     },
     {
       "id": "rank1-residual-drag-bound",
@@ -8115,7 +8157,7 @@
         }
       ],
       "layer_count": 5,
-      "glow": 0.26087
+      "glow": 0.247934
     },
     {
       "id": "alternate-stress-channel-reference-gate",
@@ -8138,7 +8180,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.13913
+      "glow": 0.132231
     },
     {
       "id": "fixed-modulus-binary-prime-discrepancy",
@@ -8161,7 +8203,7 @@
         }
       ],
       "layer_count": 3,
-      "glow": 0.13913
+      "glow": 0.132231
     },
     {
       "id": "active-lane-strict-closure",
@@ -8179,7 +8221,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.086957
+      "glow": 0.082645
     },
     {
       "id": "near-boundary-selector-theorem",
@@ -8197,7 +8239,7 @@
         }
       ],
       "layer_count": 2,
-      "glow": 0.06087
+      "glow": 0.057851
     },
     {
       "id": "distributed-cone-correlation-theorem",
@@ -8210,7 +8252,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.052174
+      "glow": 0.049587
     },
     {
       "id": "alignment-plus-complement-tail",
@@ -8223,7 +8265,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "dangerous-reflection-orbit-mass-bound",
@@ -8236,7 +8278,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "dominant-staircase-above-floor-threshold-sign",
@@ -8249,7 +8291,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "dominant-staircase-hinge-balance",
@@ -8262,7 +8304,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "dominant-staircase-hinge-threshold-surplus",
@@ -8275,7 +8317,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "interpolation-or-cone-endpoint-theorem",
@@ -8288,7 +8330,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "rarity-plus-complement-floor",
@@ -8301,7 +8343,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.034783
+      "glow": 0.033058
     },
     {
       "id": "sample-size-cherry-pick-risk",
@@ -8318,7 +8360,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.026087
+      "glow": 0.024793
     },
     {
       "id": "alignment-complement-route",
@@ -8331,7 +8373,7 @@
         }
       ],
       "layer_count": 1,
-      "glow": 0.017391
+      "glow": 0.016529
     }
   ],
   "goldbach_proved": false,
