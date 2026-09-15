@@ -6,6 +6,35 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` stress-reference signal now has a same-residue
+fresh-population audit.  `tools/build_q286_centered_3_1_same_residue_fresh_population_audit.py`
+generated `evidence/q286-centered-3-1-same-residue-fresh-population-audit.json`,
+with the human note
+`notes/q286-centered-3-1-same-residue-fresh-population-audit.md`.
+
+Question: was the same-residue collision pass only due to the selected
+clear-control rows?  This audit compares the five selected deficit references
+against same-residue fresh targets from the predeclared windows.
+
+Result: every selected deficit reference has six same-residue fresh targets,
+and all five selected deficits are lower than all six corresponding fresh
+targets in weighted centered `(3,1)`:
+
+```text
+13822:   min fresh gap 0.011427902059564236
+24424:   min fresh gap 0.032619830704142684
+55864:   min fresh gap 0.028595330899882337
+164598:  min fresh gap 0.007258334506941435
+1222142: min fresh gap 0.021237988715577156
+```
+
+Interpretation: the selected-deficit `(3,1)` signal is not just local residue
+bookkeeping and not just an artifact of the selected clear-control rows.  The
+gap left after identical local subtraction is empirical/correlation-side.
+The broad `full_nonpositive` classifier remains falsified.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected `(3,1)` stress-reference signal now has a same-residue collision
 audit.  `tools/build_q286_centered_3_1_residue_collision_audit.py` generated
 `evidence/q286-centered-3-1-residue-collision-audit.json`, with the human note

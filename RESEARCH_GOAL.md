@@ -7,6 +7,30 @@ expired deadline after a session boundary.
 ## Latest continuation evidence, 2026-09-15
 
 The selected `(3,1)` stress-reference signal now has a same-residue
+fresh-population audit:
+`tools/build_q286_centered_3_1_same_residue_fresh_population_audit.py`
+generated
+`evidence/q286-centered-3-1-same-residue-fresh-population-audit.json`, with
+explanation in
+`notes/q286-centered-3-1-same-residue-fresh-population-audit.md`.
+
+Result: every selected deficit reference has six same-residue fresh targets
+in the predeclared windows, and every one of those fresh targets lies above
+the selected deficit in weighted centered `(3,1)`.  The minimum same-residue
+fresh gaps are: `13822` gap `0.011427902059564236`, `24424` gap
+`0.032619830704142684`, `55864` gap `0.028595330899882337`, `164598` gap
+`0.007258334506941435`, and `1222142` gap `0.021237988715577156`.
+
+Interpretation: the selected-deficit `(3,1)` separation is not merely a local
+residue effect and not merely an artifact of the selected clear-control rows.
+Within each checked residue, the local vector is identical; the remaining gap
+is empirical/correlation-side.  The open theorem obligation remains a
+non-post-hoc stress family or signed/correlation estimate, not a broad
+`full_nonpositive` classifier.
+
+## Previous continuation evidence, 2026-09-15
+
+The selected `(3,1)` stress-reference signal now has a same-residue
 collision audit: `tools/build_q286_centered_3_1_residue_collision_audit.py`
 generated `evidence/q286-centered-3-1-residue-collision-audit.json`, with
 explanation in `notes/q286-centered-3-1-residue-collision-audit.md`.

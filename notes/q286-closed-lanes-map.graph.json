@@ -1464,6 +1464,14 @@
       "status_boundary": "finite same-residue selected-fixture audit only; refutes local-residue-only explanation on checked collisions, but proves no broad stress-class theorem, signed correlation theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_same_residue_fresh_population_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) same-residue fresh population audit",
+      "status": "finite_fresh_population_local_residue_falsifier",
+      "validation": "tools/build_q286_centered_3_1_same_residue_fresh_population_audit.py generated evidence/q286-centered-3-1-same-residue-fresh-population-audit.json; all five selected deficit references remain below all six same-residue fresh predeclared targets, including 1222142 at residue 64",
+      "status_boundary": "finite same-residue fresh-window audit only; refutes local-residue-only and selected-clear-only explanations on this fixture, but proves no stress-class theorem, signed correlation theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1521,6 +1529,16 @@
     },
     {
       "from": "receipt.q286_centered_3_1_residue_collision_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_same_residue_fresh_population_audit",
+      "to": "receipt.q286_centered_3_1_residue_collision_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_same_residue_fresh_population_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "falsifies_simplification"
     },

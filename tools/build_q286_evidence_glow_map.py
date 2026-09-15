@@ -133,6 +133,9 @@ def main():
         EVIDENCE / "q286-centered-3-1-reference-lemma-audit.json")
     centered_3_1_residue_collision = load_json(
         EVIDENCE / "q286-centered-3-1-residue-collision-audit.json")
+    centered_3_1_same_residue_fresh = load_json(
+        EVIDENCE
+        / "q286-centered-3-1-same-residue-fresh-population-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1806,6 +1809,45 @@ def main():
         "centered-3-1-residue-collision-audit",
         3.0,
         "local-residue-only explanation is falsified on checked selected collisions; signed/correlation explanation still open")
+
+    layer(
+        "centered-3-1-same-residue-fresh-population-audit",
+        "Centered (3,1) selected deficits stay below same-residue fresh targets",
+        "finite_fresh_population_local_residue_falsifier",
+        "evidence/q286-centered-3-1-same-residue-fresh-population-audit.json",
+        3.0,
+        "Finite same-residue fresh-window audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-3-1-same-residue-fresh-population-audit",
+        3.0,
+        "all selected deficits are below all same-residue fresh predeclared targets",
+        {
+            "all_selected_deficits_pass_same_residue_fresh_population":
+                centered_3_1_same_residue_fresh[
+                    "all_selected_deficits_pass_same_residue_fresh_population"],
+            "fresh_population_failures":
+                centered_3_1_same_residue_fresh[
+                    "fresh_population_failures"],
+            "target_role_counts":
+                centered_3_1_same_residue_fresh["target_role_counts"],
+        })
+    for deficit_row in centered_3_1_same_residue_fresh["deficit_rows"]:
+        target = str(deficit_row["deficit"]["target"])
+        add_hit(
+            target_stacks,
+            target,
+            "centered-3-1-same-residue-fresh-population-audit",
+            2.5,
+            "selected deficit below all same-residue fresh predeclared targets",
+            deficit_row["scopes"][0]["weighted_gap_summary"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-same-residue-fresh-population-audit",
+        3.0,
+        "fresh same-residue population rejects local-residue-only and selected-clear-only explanations")
 
     layer(
         "centered-3-1-stress-class-audit",
