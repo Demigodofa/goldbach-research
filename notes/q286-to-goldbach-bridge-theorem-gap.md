@@ -849,3 +849,23 @@ Thus the implication gap is now sharper: prove a pointwise binary-prime
 orbit-distribution theorem at this scale, or prove the raw signed sum
 directly.  The missing theorem is not AP counting in one coordinate and not
 another q286 row pattern.
+
+## L1-Budget Obstruction Audit
+
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`.
+
+The broad L1 version of the distribution theorem is not the right bridge.  On
+the `196` checked post-discovery rows, actual orbit L1 distance from local
+uniform is at least `0.5533526980785324`, while every sufficient positivity
+budget is below `0.18715353351948102`.  No row lies inside the sufficient L1
+ball, yet all checked signed expectations remain positive.
+
+The remaining gap is therefore not "prove uniform distribution modulo the
+orbit partition."  It is:
+
+```text
+<mu_N-u_a, Phi_a> > -mean_u(Phi_a)
+```
+
+or the unnormalized equivalent `B_Phi(N)>0`.

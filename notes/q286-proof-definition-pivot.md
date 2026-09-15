@@ -357,3 +357,16 @@ binary-prime orbit-distribution class:
 ```
 
 No such theorem is currently proved here.
+
+## L1 uniformity demotion
+
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`.
+
+The displayed L1 condition is only a sufficient condition and is too strong
+for the observed q286 rows.  Actual L1 distances are
+`0.5533526980785324..1.574410774410774`, and no checked post-discovery row is
+inside the full or edge-beta sufficient L1 budget.
+
+So a future `Q286*` definition should not demand ordinary total-L1 closeness
+to local uniform.  It must be signed/coefficient-sensitive or unnormalized.

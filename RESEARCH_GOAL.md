@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an L1-budget obstruction audit:
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`, with explanation in
+`notes/q286-wbss-l1-budget-obstruction-audit.md`.
+
+Question: can the favorable q286-WBSS main term be turned into positivity by
+ordinary total-L1 closeness of actual binary-prime orbit mass to local
+uniform?
+
+Result: no as an explanation of the checked rows.  On the `196`
+post-discovery rows, actual L1 distance from local uniform is
+`0.5533526980785324..1.574410774410774`, while the sufficient budgets are
+`0.020711496156757627..0.06441548422792709` for the full coefficient and
+`0.026797640365636533..0.18715353351948102` for edge beta.  No checked
+post-discovery row lies inside either sufficient L1 budget, yet all `196`
+signed expectations remain positive.
+
+Decision: demote blunt L1-uniformity as a proof bridge.  The remaining theorem
+must control the signed direction itself:
+
+```text
+<mu_N-u_a, Phi_a> > -mean_u(Phi_a)
+```
+
+or prove `B_Phi(N)>0` directly.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a main-term sign audit:
 `tools/build_q286_wbss_main_term_sign_audit.py` generated
 `evidence/q286-wbss-main-term-sign-audit.json`, with explanation in

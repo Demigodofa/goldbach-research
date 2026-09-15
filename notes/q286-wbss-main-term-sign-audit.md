@@ -100,3 +100,17 @@ Continue the q286 lane only through this main-term-plus-error route, a direct
 signed binary-prime correlation theorem, or a source-backed fixed-modulus
 binary Goldbach-in-progressions theorem.  More row scans without such a
 predeclared implication are not proof progress.
+
+## L1-budget obstruction refinement
+
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`.
+
+The ordinary total-L1 route is too strong.  On the same `196` post-discovery
+rows, actual L1 distance from local uniform is
+`0.5533526980785324..1.574410774410774`, while no row lies inside either the
+full-coefficient or edge-beta sufficient L1 budget.
+
+The main term remains favorable, but the error theorem cannot be blunt
+uniformity.  It must be a signed discrepancy estimate in the `Phi_a`
+direction, a smaller adapted norm, or a direct raw sign-sum proof.

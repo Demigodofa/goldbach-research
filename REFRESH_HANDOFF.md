@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an L1-budget obstruction audit.
+
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`, with explanation in
+`notes/q286-wbss-l1-budget-obstruction-audit.md`.
+
+Question: can the favorable local-uniform main term be rescued by proving
+ordinary total-L1 closeness of the actual binary-prime orbit measure to local
+uniform?
+
+Result:
+
+```text
+post-discovery rows checked:                 196
+actual L1 distance from local uniform:       0.5533526980785324..1.574410774410774
+full coefficient sufficient L1 budget:       0.020711496156757627..0.06441548422792709
+edge beta sufficient L1 budget:              0.026797640365636533..0.18715353351948102
+full rows inside L1 budget:                  0 / 196
+edge beta rows inside L1 budget:             0 / 196
+actual signed expectations positive:         196 / 196
+```
+
+Decision: blunt L1 uniformity is not the bridge.  The q286-WBSS route now
+requires a signed/correlation norm adapted to `Phi_a`, or a direct proof of
+`B_Phi(N)>0`.  More ordinary uniformity audits should sleep.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a main-term sign audit.
 
 `tools/build_q286_wbss_main_term_sign_audit.py` generated

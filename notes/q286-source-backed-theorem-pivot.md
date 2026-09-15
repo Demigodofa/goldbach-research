@@ -205,3 +205,18 @@ So a main-term-plus-error proof route is logically coherent: prove actual
 binary-prime orbit mass stays within the relevant L1 budget, or prove
 `B_Phi(N)>0` directly.  The hard missing input remains pointwise binary-prime
 distribution, not q286 coefficient orientation.
+
+## L1-budget obstruction refinement
+
+`tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated
+`evidence/q286-wbss-l1-budget-obstruction-audit.json`.
+
+The broad L1 version of that route is empirically incompatible with the
+checked mechanism.  Actual post-discovery orbit measures are far from local
+uniform in total variation: L1 distance ranges from
+`0.5533526980785324` to `1.574410774410774`, while the sufficient L1 budgets
+are only `0.020711496156757627..0.06441548422792709` for the full coefficient
+and `0.026797640365636533..0.18715353351948102` for edge beta.
+
+Thus the new problem is narrower: prove signed non-alignment with `Phi_a`, not
+ordinary distributional closeness to uniform.
