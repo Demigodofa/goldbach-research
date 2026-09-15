@@ -6,6 +6,32 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a residual Fourier group profile audit:
+`tools/build_q286_wbss_mod286_residual_group_profile_audit.py` generated
+`evidence/q286-wbss-mod286-residual-group-profile-audit.json`, with
+explanation in `notes/q286-wbss-mod286-residual-group-profile-audit.md`.
+
+Question: after the top `20` Fourier conjugacy groups are separated, can the
+remaining five-group upward pushback be explained by one residual group or a
+fixed proper subpackage?
+
+Result: no. On the `24` upward-pushback rows, the largest positive residual
+group rotates across all five groups, with argmax counts `0:8, 1:6, 2:2,
+3:2, 4:6`. Individual groups are positive on `11,19,13,13,17` of those `24`
+rows. The best fixed size-1 subset touches `19/24` rows; the best size-2
+subset touches `23/24` and has signed-positive subtotal on `20/24`; the best
+size-3 and size-4 subsets touch every upward row but still have signed-positive
+subtotal on only `17/24` and `20/24`. Only all five residual groups have
+signed-positive subtotal on `24/24` upward rows.
+
+Decision: demote single-group and fixed proper residual-subset explanations.
+The live target remains a one-sided aggregate bound for all five residual
+groups,
+`positive_residual_pushback <= theta * top20_drag`, or a replacement direct
+q286-WBSS witness estimate. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a top-20 Fourier residual audit:
 `tools/build_q286_wbss_mod286_bandlimited_residual_audit.py` generated
 `evidence/q286-wbss-mod286-bandlimited-residual-audit.json`, with explanation

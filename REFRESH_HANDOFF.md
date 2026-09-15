@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a residual Fourier group profile audit.
+
+```text
+tools/build_q286_wbss_mod286_residual_group_profile_audit.py
+notes/q286-wbss-mod286-residual-group-profile-audit.md
+evidence/q286-wbss-mod286-residual-group-profile-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+upward residual-pushback rows:                   24 / 196
+residual group argmax counts on upward rows:     0:8, 1:6, 2:2, 3:2, 4:6
+group positive-on-upward counts:                11, 19, 13, 13, 17
+best size-1 subset touch/signed-positive:       19 / 24, 19 / 24
+best size-2 subset touch/signed-positive:       23 / 24, 20 / 24
+best size-3 subset touch/signed-positive:       24 / 24, 17 / 24
+best size-4 subset touch/signed-positive:       24 / 24, 20 / 24
+all five groups touch/signed-positive:          24 / 24, 24 / 24
+```
+
+Decision: do not try to prove the residual pushback cap by isolating one
+culprit residual character group or any fixed proper subpackage. The upward
+residual is a signed cancellation balance across all five remaining groups.
+The live theorem target remains the aggregate one-sided bound
+`positive_residual_pushback <= theta * top20_drag`, or a direct raw q286-WBSS
+signed-witness estimate. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a top-20 Fourier residual audit.
 
 ```text
