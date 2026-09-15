@@ -6,6 +6,34 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected `(3,1)` stress-reference signal now has a same-residue collision
+audit.  `tools/build_q286_centered_3_1_residue_collision_audit.py` generated
+`evidence/q286-centered-3-1-residue-collision-audit.json`, with the human note
+`notes/q286-centered-3-1-residue-collision-audit.md`.
+
+Question: is the low selected-deficit `(3,1)` signal just a local residue
+effect?  In same-residue selected deficit/clear pairs, the stored local q286
+channel vector is identical, so the local `(3,1)` gap is exactly `0.0`.
+
+Result: all four same-residue selected deficit/clear pairs split the right
+way after local subtraction:
+
+```text
+residue 5:   164598 < 129706, weighted gap 0.0018524288669540291
+residue 94:  13822  < 40420,  weighted gap 0.062296744487251976
+residue 94:  55864  < 40420,  weighted gap 0.07946417332757008
+residue 114: 24424  < 13556,  weighted gap 0.15794445706006727
+```
+
+Interpretation: for these checked collisions, `(3,1)` is not just local
+residue bookkeeping; the separating gap is empirical/correlation-side after
+the identical local vector has been subtracted.  Reference `1222142` has no
+same-residue selected clear in this fixture and remains untested by this
+specific collision check.  The broad `full_nonpositive` classifier falsifier
+still stands.
+
+## Previous active checkpoint note, 2026-09-15
+
 Kevin's `(3,1)` stress-classifier hunch is now captured as a scoped finite
 reference lemma.  `tools/build_q286_centered_3_1_reference_lemma_audit.py`
 generated `evidence/q286-centered-3-1-reference-lemma-audit.json`, with the

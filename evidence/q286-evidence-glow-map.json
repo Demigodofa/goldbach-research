@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "07c8f17ea5ebd288f647b2105214750de7ae3c5e",
+  "generated_from_commit": "8a2fb830d7cd552546db8301b1a37482a64c2c71",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -314,6 +314,14 @@
       "source": "evidence/q286-centered-3-1-reference-lemma-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite selected-reference lemma only; broad promotions are falsified."
+    },
+    {
+      "id": "centered-3-1-residue-collision-audit",
+      "label": "Centered (3,1) same-residue collisions are nonlocal",
+      "kind": "finite_local_residue_artifact_falsifier",
+      "source": "evidence/q286-centered-3-1-residue-collision-audit.json",
+      "default_weight": 3.0,
+      "boundary": "Finite same-residue selected-fixture audit only; no signed correlation theorem."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -639,7 +647,7 @@
     },
     {
       "id": "13822",
-      "stack_weight": 51.5,
+      "stack_weight": 54.0,
       "layers": [
         {
           "layer": "portfolio-residual-obligation",
@@ -908,10 +916,27 @@
             "target_mod_143": 94,
             "volatile_rim_sum_to_principal": -0.3391114146626045
           }
+        },
+        {
+          "layer": "centered-3-1-residue-collision-audit",
+          "weight": 2.5,
+          "reason": "same-residue collision: 13822 stays below clear control 40420 after zero local gap",
+          "value": {
+            "centered_gap_clear_minus_deficit": 0.07218576491548048,
+            "clear_target": 40420,
+            "clear_weighted_centered_value": 0.033703890979873,
+            "deficit_lower_than_clear": true,
+            "deficit_target": 13822,
+            "deficit_weighted_centered_value": -0.028592853507378977,
+            "empirical_gap_clear_minus_deficit": 0.07218576491548048,
+            "residue_mod_143": 94,
+            "same_residue_local_gap": 0.0,
+            "weighted_gap_clear_minus_deficit": 0.062296744487251976
+          }
         }
       ],
-      "layer_count": 25,
-      "glow": 0.953704
+      "layer_count": 26,
+      "glow": 1.0
     },
     {
       "id": "164598",
@@ -5626,6 +5651,78 @@
   ],
   "mechanism_stacks": [
     {
+      "id": "centered-3-1-selected-deficit-separator",
+      "stack_weight": 9.0,
+      "layers": [
+        {
+          "layer": "centered-channel-scalar-order-audit",
+          "weight": 3.0,
+          "reason": "locally centered (3,1) puts selected deficit references below every fresh target",
+          "value": {
+            "channel_3_1_all_deficit_below_fresh_min": true,
+            "channel_5_5_all_deficit_below_fresh_min": false,
+            "channel_3_1_gap": 0.001813317904775985,
+            "channel_5_5_gap": -0.03366075755113873
+          }
+        },
+        {
+          "layer": "centered-3-1-reference-lemma-audit",
+          "weight": 3.0,
+          "reason": "all selected deficit references have 606/606 positive fresh-window (3,1) margins",
+          "value": {
+            "selected_deficit_references_all_pass": true,
+            "clear_control_references_all_fail_singleton": true,
+            "focus_reference_13822": {
+              "centered_3_1_rank_low_to_high": 2,
+              "centered_3_1_weighted_value": -0.028592853507378977,
+              "dominant_margin_to_floor": -0.03674434602428933,
+              "fresh_min_gap_against_13822": 0.010757459150664062,
+              "fresh_negative_count": 0,
+              "fresh_positive_count": 606,
+              "stable_core_margin_to_floor": 0.3023670686383121,
+              "target_mod_143": 94,
+              "volatile_rim_sum_to_principal": -0.3391114146626045
+            },
+            "broad_full_nonpositive_class_falsifier": {
+              "at_or_above_fresh_min_count": 56,
+              "below_fresh_min_count": 33,
+              "class_id": "full_nonpositive",
+              "maximum_target": 11902,
+              "maximum_weighted_centered_value": 0.23016925898905402,
+              "separator_passes_class": false,
+              "target_count": 89
+            }
+          }
+        },
+        {
+          "layer": "centered-3-1-residue-collision-audit",
+          "weight": 3.0,
+          "reason": "same-residue selected deficit/clear pairs split after identical local subtraction",
+          "value": {
+            "same_residue_collision_all_pairs_pass": true,
+            "collision_pair_count": 4,
+            "deficits_with_same_residue_clear": [
+              13822,
+              24424,
+              55864,
+              164598
+            ],
+            "deficits_without_same_residue_clear": [
+              1222142
+            ],
+            "weighted_gap_summary": {
+              "count": 4,
+              "maximum": 0.15794445706006727,
+              "mean": 0.07538945093546084,
+              "minimum": 0.0018524288669540291
+            }
+          }
+        }
+      ],
+      "layer_count": 3,
+      "glow": 1.0
+    },
+    {
       "id": "channel-carried-strict-slack",
       "stack_weight": 9.0,
       "layers": [
@@ -5881,54 +5978,6 @@
       ],
       "layer_count": 2,
       "glow": 0.722222
-    },
-    {
-      "id": "centered-3-1-selected-deficit-separator",
-      "stack_weight": 6.0,
-      "layers": [
-        {
-          "layer": "centered-channel-scalar-order-audit",
-          "weight": 3.0,
-          "reason": "locally centered (3,1) puts selected deficit references below every fresh target",
-          "value": {
-            "channel_3_1_all_deficit_below_fresh_min": true,
-            "channel_5_5_all_deficit_below_fresh_min": false,
-            "channel_3_1_gap": 0.001813317904775985,
-            "channel_5_5_gap": -0.03366075755113873
-          }
-        },
-        {
-          "layer": "centered-3-1-reference-lemma-audit",
-          "weight": 3.0,
-          "reason": "all selected deficit references have 606/606 positive fresh-window (3,1) margins",
-          "value": {
-            "selected_deficit_references_all_pass": true,
-            "clear_control_references_all_fail_singleton": true,
-            "focus_reference_13822": {
-              "centered_3_1_rank_low_to_high": 2,
-              "centered_3_1_weighted_value": -0.028592853507378977,
-              "dominant_margin_to_floor": -0.03674434602428933,
-              "fresh_min_gap_against_13822": 0.010757459150664062,
-              "fresh_negative_count": 0,
-              "fresh_positive_count": 606,
-              "stable_core_margin_to_floor": 0.3023670686383121,
-              "target_mod_143": 94,
-              "volatile_rim_sum_to_principal": -0.3391114146626045
-            },
-            "broad_full_nonpositive_class_falsifier": {
-              "at_or_above_fresh_min_count": 56,
-              "below_fresh_min_count": 33,
-              "class_id": "full_nonpositive",
-              "maximum_target": 11902,
-              "maximum_weighted_centered_value": 0.23016925898905402,
-              "separator_passes_class": false,
-              "target_count": 89
-            }
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.666667
     },
     {
       "id": "zero-local-target-correlation-decomposition",
@@ -6793,7 +6842,7 @@
     },
     {
       "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 11.0,
+      "stack_weight": 14.0,
       "layers": [
         {
           "layer": "centered-channel-scalar-order-audit",
@@ -6806,6 +6855,11 @@
           "reason": "supports only selected stress-reference separation; arbitrary-reference and full_nonpositive promotions remain false"
         },
         {
+          "layer": "centered-3-1-residue-collision-audit",
+          "weight": 3.0,
+          "reason": "local-residue-only explanation is falsified on checked selected collisions; signed/correlation explanation still open"
+        },
+        {
           "layer": "centered-3-1-stress-class-audit",
           "weight": 3.0,
           "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
@@ -6816,8 +6870,8 @@
           "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
         }
       ],
-      "layer_count": 4,
-      "glow": 0.628571
+      "layer_count": 5,
+      "glow": 0.8
     },
     {
       "id": "alternate-stress-channel-reference-gate",

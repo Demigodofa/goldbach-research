@@ -131,6 +131,8 @@ def main():
         EVIDENCE / "q286-centered-channel-scalar-order-audit.json")
     centered_3_1_reference_lemma = load_json(
         EVIDENCE / "q286-centered-3-1-reference-lemma-audit.json")
+    centered_3_1_residue_collision = load_json(
+        EVIDENCE / "q286-centered-3-1-residue-collision-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1757,6 +1759,53 @@ def main():
         "centered-3-1-reference-lemma-audit",
         3.0,
         "supports only selected stress-reference separation; arbitrary-reference and full_nonpositive promotions remain false")
+
+    layer(
+        "centered-3-1-residue-collision-audit",
+        "Centered (3,1) same-residue collisions are nonlocal",
+        "finite_local_residue_artifact_falsifier",
+        "evidence/q286-centered-3-1-residue-collision-audit.json",
+        3.0,
+        "Finite same-residue selected-fixture audit only; no signed correlation theorem.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-3-1-residue-collision-audit",
+        3.0,
+        "same-residue selected deficit/clear pairs split after identical local subtraction",
+        {
+            "same_residue_collision_all_pairs_pass":
+                centered_3_1_residue_collision[
+                    "same_residue_collision_all_pairs_pass"],
+            "collision_pair_count":
+                centered_3_1_residue_collision["collision_pair_count"],
+            "deficits_with_same_residue_clear":
+                centered_3_1_residue_collision[
+                    "deficits_with_same_residue_clear"],
+            "deficits_without_same_residue_clear":
+                centered_3_1_residue_collision[
+                    "deficits_without_same_residue_clear"],
+            "weighted_gap_summary":
+                centered_3_1_residue_collision[
+                    "same_residue_weighted_gap_summary"],
+        })
+    add_hit(
+        target_stacks,
+        "13822",
+        "centered-3-1-residue-collision-audit",
+        2.5,
+        "same-residue collision: 13822 stays below clear control 40420 after zero local gap",
+        next(
+            pair
+            for row in centered_3_1_residue_collision["residue_rows"]
+            for pair in row["pair_rows"]
+            if pair["deficit_target"] == 13822))
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-residue-collision-audit",
+        3.0,
+        "local-residue-only explanation is falsified on checked selected collisions; signed/correlation explanation still open")
 
     layer(
         "centered-3-1-stress-class-audit",

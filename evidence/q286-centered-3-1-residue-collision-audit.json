@@ -1,0 +1,350 @@
+{
+  "channel": [
+    3,
+    1
+  ],
+  "channel_key": "3,1",
+  "collision_pair_count": 4,
+  "collision_residue_count": 3,
+  "decision": "The same-residue selected-fixture collisions support the non-local reading: four of the five selected deficit references have selected clear controls at the same residue, and all such deficit-clear pairs remain separated in centered (3,1) after the identical local contribution is subtracted. Reference 1222142 has no same-residue selected clear in this fixture and therefore remains outside this specific collision check.",
+  "deficits_with_same_residue_clear": [
+    13822,
+    24424,
+    55864,
+    164598
+  ],
+  "deficits_without_same_residue_clear": [
+    1222142
+  ],
+  "falsifier": "A same-residue selected deficit whose centered (3,1) value is not lower than a same-residue selected clear falsifies this finite collision check. A selected deficit with no same-residue clear remains untested by this audit.",
+  "goldbach_proved": false,
+  "largest_same_residue_weighted_gap_pair": {
+    "centered_gap_clear_minus_deficit": 0.18301664943943124,
+    "clear_target": 13556,
+    "clear_weighted_centered_value": 0.13084804656323465,
+    "deficit_lower_than_clear": true,
+    "deficit_target": 24424,
+    "deficit_weighted_centered_value": -0.02709641049683262,
+    "empirical_gap_clear_minus_deficit": 0.18301664943943124,
+    "residue_mod_143": 114,
+    "same_residue_local_gap": 0.0,
+    "weighted_gap_clear_minus_deficit": 0.15794445706006727
+  },
+  "mechanism": "For rows with the same target residue modulo 143, the stored local q286 channel vector is identical. Therefore the centered (3,1) gap between a selected deficit and selected clear at the same residue is not caused by local residue subtraction.",
+  "prediction": "If the selected-deficit (3,1) signal is more than a local residue artifact, selected deficits that collide with selected clear controls at the same residue should remain lower in centered (3,1), with zero local gap and positive empirical gap from clear to deficit.",
+  "reference_lemma_selected_all_pass": true,
+  "residue_rows": [
+    {
+      "all_deficits_lower_than_same_residue_clears": true,
+      "clear_control_count": 1,
+      "deficit_count": 1,
+      "has_deficit_clear_collision": true,
+      "pair_rows": [
+        {
+          "centered_gap_clear_minus_deficit": 0.0021464844722336486,
+          "clear_target": 129706,
+          "clear_weighted_centered_value": -0.01779628339453687,
+          "deficit_lower_than_clear": true,
+          "deficit_target": 164598,
+          "deficit_weighted_centered_value": -0.0196487122614909,
+          "empirical_gap_clear_minus_deficit": 0.0021464844722336503,
+          "residue_mod_143": 5,
+          "same_residue_local_gap": 0.0,
+          "weighted_gap_clear_minus_deficit": 0.0018524288669540291
+        }
+      ],
+      "residue_mod_143": 5,
+      "row_count": 2,
+      "rows": [
+        {
+          "centered_channel_value": -0.02276775995076508,
+          "empirical_channel_value": -0.010039744691471161,
+          "local_channel_delta_relative_to_base": 0.012728015259293918,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 7,
+          "selected_role": "deficit",
+          "target": 164598,
+          "target_mod_143": 5,
+          "target_mod_286": 148,
+          "weighted_centered_channel_value": -0.0196487122614909
+        },
+        {
+          "centered_channel_value": -0.02062127547853143,
+          "empirical_channel_value": -0.007893260219237511,
+          "local_channel_delta_relative_to_base": 0.012728015259293918,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 13,
+          "selected_role": "clear_control",
+          "target": 129706,
+          "target_mod_143": 5,
+          "target_mod_286": 148,
+          "weighted_centered_channel_value": -0.01779628339453687
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 1,
+        "maximum": 0.0018524288669540291,
+        "mean": 0.0018524288669540291,
+        "minimum": 0.0018524288669540291
+      }
+    },
+    {
+      "all_deficits_lower_than_same_residue_clears": false,
+      "clear_control_count": 1,
+      "deficit_count": 0,
+      "has_deficit_clear_collision": false,
+      "pair_rows": [],
+      "residue_mod_143": 20,
+      "row_count": 1,
+      "rows": [
+        {
+          "centered_channel_value": -0.009571401820851217,
+          "empirical_channel_value": -0.008550136128354369,
+          "local_channel_delta_relative_to_base": 0.0010212656924968493,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 289,
+          "selected_role": "clear_control",
+          "target": 1242118,
+          "target_mod_143": 20,
+          "target_mod_286": 20,
+          "weighted_centered_channel_value": -0.008260176702657829
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      }
+    },
+    {
+      "all_deficits_lower_than_same_residue_clears": false,
+      "clear_control_count": 0,
+      "deficit_count": 1,
+      "has_deficit_clear_collision": false,
+      "pair_rows": [],
+      "residue_mod_143": 64,
+      "row_count": 1,
+      "rows": [
+        {
+          "centered_channel_value": -0.03276868188260557,
+          "empirical_channel_value": -0.03276868188260557,
+          "local_channel_delta_relative_to_base": 0.0,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 3,
+          "selected_role": "deficit",
+          "target": 1222142,
+          "target_mod_143": 64,
+          "target_mod_286": 64,
+          "weighted_centered_channel_value": -0.028279567374743457
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      }
+    },
+    {
+      "all_deficits_lower_than_same_residue_clears": false,
+      "clear_control_count": 1,
+      "deficit_count": 0,
+      "has_deficit_clear_collision": false,
+      "pair_rows": [],
+      "residue_mod_143": 77,
+      "row_count": 1,
+      "rows": [
+        {
+          "centered_channel_value": -0.009153054282846953,
+          "empirical_channel_value": -0.006031670501281841,
+          "local_channel_delta_relative_to_base": 0.0031213837815651123,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 311,
+          "selected_role": "clear_control",
+          "target": 1240888,
+          "target_mod_143": 77,
+          "target_mod_286": 220,
+          "weighted_centered_channel_value": -0.007899140289004288
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 0,
+        "maximum": null,
+        "mean": null,
+        "minimum": null
+      }
+    },
+    {
+      "all_deficits_lower_than_same_residue_clears": true,
+      "clear_control_count": 1,
+      "deficit_count": 2,
+      "has_deficit_clear_collision": true,
+      "pair_rows": [
+        {
+          "centered_gap_clear_minus_deficit": 0.07218576491548048,
+          "clear_target": 40420,
+          "clear_weighted_centered_value": 0.033703890979873,
+          "deficit_lower_than_clear": true,
+          "deficit_target": 13822,
+          "deficit_weighted_centered_value": -0.028592853507378977,
+          "empirical_gap_clear_minus_deficit": 0.07218576491548048,
+          "residue_mod_143": 94,
+          "same_residue_local_gap": 0.0,
+          "weighted_gap_clear_minus_deficit": 0.062296744487251976
+        },
+        {
+          "centered_gap_clear_minus_deficit": 0.09207836111244601,
+          "clear_target": 40420,
+          "clear_weighted_centered_value": 0.033703890979873,
+          "deficit_lower_than_clear": true,
+          "deficit_target": 55864,
+          "deficit_weighted_centered_value": -0.04576028234769708,
+          "empirical_gap_clear_minus_deficit": 0.09207836111244602,
+          "residue_mod_143": 94,
+          "same_residue_local_gap": 0.0,
+          "weighted_gap_clear_minus_deficit": 0.07946417332757008
+        }
+      ],
+      "residue_mod_143": 94,
+      "row_count": 3,
+      "rows": [
+        {
+          "centered_channel_value": -0.033131699232995936,
+          "empirical_channel_value": -0.020130036656139837,
+          "local_channel_delta_relative_to_base": 0.013001662576856098,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 2,
+          "selected_role": "deficit",
+          "target": 13822,
+          "target_mod_143": 94,
+          "target_mod_286": 94,
+          "weighted_centered_channel_value": -0.028592853507378977
+        },
+        {
+          "centered_channel_value": -0.05302429542996147,
+          "empirical_channel_value": -0.040022632853105373,
+          "local_channel_delta_relative_to_base": 0.013001662576856098,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 1,
+          "selected_role": "deficit",
+          "target": 55864,
+          "target_mod_143": 94,
+          "target_mod_286": 94,
+          "weighted_centered_channel_value": -0.04576028234769708
+        },
+        {
+          "centered_channel_value": 0.03905406568248454,
+          "empirical_channel_value": 0.05205572825934064,
+          "local_channel_delta_relative_to_base": 0.013001662576856098,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 1221,
+          "selected_role": "clear_control",
+          "target": 40420,
+          "target_mod_143": 94,
+          "target_mod_286": 94,
+          "weighted_centered_channel_value": 0.033703890979873
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 2,
+        "maximum": 0.07946417332757008,
+        "mean": 0.07088045890741103,
+        "minimum": 0.062296744487251976
+      }
+    },
+    {
+      "all_deficits_lower_than_same_residue_clears": true,
+      "clear_control_count": 1,
+      "deficit_count": 1,
+      "has_deficit_clear_collision": true,
+      "pair_rows": [
+        {
+          "centered_gap_clear_minus_deficit": 0.18301664943943124,
+          "clear_target": 13556,
+          "clear_weighted_centered_value": 0.13084804656323465,
+          "deficit_lower_than_clear": true,
+          "deficit_target": 24424,
+          "deficit_weighted_centered_value": -0.02709641049683262,
+          "empirical_gap_clear_minus_deficit": 0.18301664943943124,
+          "residue_mod_143": 114,
+          "same_residue_local_gap": 0.0,
+          "weighted_gap_clear_minus_deficit": 0.15794445706006727
+        }
+      ],
+      "residue_mod_143": 114,
+      "row_count": 2,
+      "rows": [
+        {
+          "centered_channel_value": -0.03139771001320905,
+          "empirical_channel_value": -0.037504058127023746,
+          "local_channel_delta_relative_to_base": -0.0061063481138146965,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 4,
+          "selected_role": "deficit",
+          "target": 24424,
+          "target_mod_143": 114,
+          "target_mod_286": 114,
+          "weighted_centered_channel_value": -0.02709641049683262
+        },
+        {
+          "centered_channel_value": 0.1516189394262222,
+          "empirical_channel_value": 0.1455125913124075,
+          "local_channel_delta_relative_to_base": -0.0061063481138146965,
+          "lp_weight": 0.8630059480590506,
+          "rank_low_to_high": 1222,
+          "selected_role": "clear_control",
+          "target": 13556,
+          "target_mod_143": 114,
+          "target_mod_286": 114,
+          "weighted_centered_channel_value": 0.13084804656323465
+        }
+      ],
+      "weighted_gap_summary": {
+        "count": 1,
+        "maximum": 0.15794445706006727,
+        "mean": 0.15794445706006727,
+        "minimum": 0.15794445706006727
+      }
+    }
+  ],
+  "same_residue_collision_all_pairs_pass": true,
+  "same_residue_weighted_gap_summary": {
+    "count": 4,
+    "maximum": 0.15794445706006727,
+    "mean": 0.07538945093546084,
+    "minimum": 0.0018524288669540291
+  },
+  "schema_version": 1,
+  "selected_clear_control_targets": [
+    13556,
+    40420,
+    129706,
+    1240888,
+    1242118
+  ],
+  "selected_deficit_targets": [
+    24424,
+    13822,
+    55864,
+    164598,
+    1222142
+  ],
+  "smallest_same_residue_weighted_gap_pair": {
+    "centered_gap_clear_minus_deficit": 0.0021464844722336486,
+    "clear_target": 129706,
+    "clear_weighted_centered_value": -0.01779628339453687,
+    "deficit_lower_than_clear": true,
+    "deficit_target": 164598,
+    "deficit_weighted_centered_value": -0.0196487122614909,
+    "empirical_gap_clear_minus_deficit": 0.0021464844722336503,
+    "residue_mod_143": 5,
+    "same_residue_local_gap": 0.0,
+    "weighted_gap_clear_minus_deficit": 0.0018524288669540291
+  },
+  "source_centered_scalar_order_audit": "evidence\\q286-centered-channel-scalar-order-audit.json",
+  "source_commit": "8a2fb830d7cd552546db8301b1a37482a64c2c71",
+  "source_reference_lemma_audit": "evidence\\q286-centered-3-1-reference-lemma-audit.json",
+  "source_selected_deficit_provenance_audit": "evidence\\q286-selected-deficit-provenance-audit.json",
+  "status_boundary": "finite same-residue selected-fixture audit only; no stress-classifier theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof."
+}

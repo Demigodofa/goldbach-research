@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected `(3,1)` stress-reference signal now has a same-residue
+collision audit: `tools/build_q286_centered_3_1_residue_collision_audit.py`
+generated `evidence/q286-centered-3-1-residue-collision-audit.json`, with
+explanation in `notes/q286-centered-3-1-residue-collision-audit.md`.
+
+Mechanism: if a selected deficit and selected clear share the same target
+residue modulo `143`, their stored local q286 channel vector is identical.
+Thus any remaining centered `(3,1)` gap is empirical/correlation-side, not
+local residue bookkeeping.
+
+Result: four selected deficit references have same-residue selected clear
+controls, and all four pairs split the right way after local subtraction:
+`164598` vs `129706` at residue `5`, `13822` and `55864` vs `40420` at
+residue `94`, and `24424` vs `13556` at residue `114`.  The local gap is
+`0.0` for every pair; the weighted centered clear-minus-deficit gaps range
+from `0.0018524288669540291` to `0.15794445706006727`.
+
+Interpretation: for the checked same-residue collisions, the low centered
+`(3,1)` selected-deficit signal is not explained by the local residue vector.
+Reference `1222142` has no same-residue selected clear in this fixture, so it
+remains outside this particular collision check.  The broad
+`full_nonpositive` classifier falsifier remains active.
+
+## Previous continuation evidence, 2026-09-15
+
 Kevin's `(3,1)` stress-classifier hunch now has a scoped reference-lemma
 audit: `tools/build_q286_centered_3_1_reference_lemma_audit.py` generated
 `evidence/q286-centered-3-1-reference-lemma-audit.json`, with explanation in

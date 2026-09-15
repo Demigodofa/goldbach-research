@@ -1456,6 +1456,14 @@
       "status_boundary": "finite selected-reference lemma only; no arbitrary-reference theorem, full stress-class theorem, signed projection theorem, binary-prime correlation theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_residue_collision_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) same-residue collision audit",
+      "status": "finite_local_residue_artifact_falsifier",
+      "validation": "tools/build_q286_centered_3_1_residue_collision_audit.py generated evidence/q286-centered-3-1-residue-collision-audit.json; four same-residue selected deficit/clear pairs have zero local gap and all four remain separated in centered (3,1), including 13822 versus 40420 at residue 94",
+      "status_boundary": "finite same-residue selected-fixture audit only; refutes local-residue-only explanation on checked collisions, but proves no broad stress-class theorem, signed correlation theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1505,6 +1513,16 @@
       "from": "receipt.q286_centered_3_1_reference_lemma_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_residue_collision_audit",
+      "to": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_residue_collision_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "falsifies_simplification"
     },
     {
       "from": "receipt.q286_centered_3_1_stress_class_audit",
