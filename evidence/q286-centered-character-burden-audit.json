@@ -1,0 +1,363 @@
+{
+  "all_nonzero_supports_descend_to_lower_moduli": true,
+  "arithmetic_period": 10010,
+  "assembled_quotients": [
+    35,
+    55,
+    65,
+    77,
+    143
+  ],
+  "candidate_mechanism": "The q286 centered-error burden is character-broad inside a few lower CRT supports rather than genuinely full-modulus 10010.",
+  "centered_character_burden_measured": true,
+  "component_reconstruction_relative_error": 2.0855427932720967e-15,
+  "decision": "Keep the local positive-main-term signed-witness route, but replace a vague q10010 uniformity demand with a lower-modulus character-correlation burden dominated by three CRT supports.",
+  "dominant_99_percent_energy_fraction": 0.9960328792226287,
+  "dominant_99_percent_energy_support_count": 3,
+  "dominant_99_percent_energy_support_rows": [
+    {
+      "character_count": 99,
+      "component_l2": 10929915.675562417,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 8.520857820502405e-17,
+      "energy": 41480228012.11976,
+      "energy_fraction": 0.70082890257693,
+      "natural_modulus": 286,
+      "support": [
+        11,
+        13
+      ],
+      "support_label": "11x13",
+      "unit_residue_count": 120
+    },
+    {
+      "character_count": 45,
+      "component_l2": 5204954.32365196,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 3.3549378511717894e-17,
+      "energy": 9406788024.758085,
+      "energy_fraction": 0.15893232135172436,
+      "natural_modulus": 154,
+      "support": [
+        7,
+        11
+      ],
+      "support_label": "7x11",
+      "unit_residue_count": 60
+    },
+    {
+      "character_count": 15,
+      "component_l2": 4819628.62391906,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 1.2681069171143502e-16,
+      "energy": 8065562525.173622,
+      "energy_fraction": 0.13627165529397434,
+      "natural_modulus": 70,
+      "support": [
+        5,
+        7
+      ],
+      "support_label": "5x7",
+      "unit_residue_count": 24
+    }
+  ],
+  "even_target_residue_count": 5005,
+  "factor_primes": [
+    5,
+    7,
+    11,
+    13
+  ],
+  "falsifier": "Substantial centered-character energy on the full 10010 support or a long tail of many comparable supports would falsify this lower-modulus compression.",
+  "full_local_to_principal_ratio_summary": {
+    "count": 5005,
+    "maximum": 1.571652465508165,
+    "mean": 1.0000000000000004,
+    "minimum": 0.6039353780830683
+  },
+  "full_modulus_10010_support_present": false,
+  "goldbach_proved": false,
+  "largest_support_energy_fraction": 0.70082890257693,
+  "maximum_support_descent_relative_error": 2.8383039592900643e-16,
+  "nonzero_natural_moduli": [
+    10,
+    14,
+    22,
+    26,
+    70,
+    130,
+    154,
+    286
+  ],
+  "pointwise_centered_error_estimate_proved": false,
+  "prediction": "A proof attempt should first seek signed binary-prime correlation estimates for the dominant natural moduli 286, 154, and 70, then bound the small remaining supports as a tail.",
+  "principal_mean": {
+    "imag": 3.1825777568883487e-10,
+    "real": 44002.512499999146
+  },
+  "schema_version": 1,
+  "signed_prime_correlation_estimate_proved": false,
+  "smallest_new_problem": "Prove a three-dominant-support q286 signed-correlation theorem for natural moduli 286, 154, and 70, with an explicit tail bound for the remaining lower supports, strong enough that the total centered error is greater than minus the positive local main term in every even residue modulo 10010.",
+  "source_commit": "ea24f01be0472230594312d1547b13ee30a75d40",
+  "status_boundary": "finite coefficient-spectrum audit only; no binary-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
+  "support_component_removal_nonpositive_counts": {
+    "11": 0,
+    "11x13": 0,
+    "13": 0,
+    "5": 0,
+    "5x13": 0,
+    "5x7": 0,
+    "7": 0,
+    "7x11": 0
+  },
+  "support_rows": [
+    {
+      "character_count": 99,
+      "component_l2": 10929915.675562417,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 8.520857820502405e-17,
+      "energy": 41480228012.11976,
+      "energy_fraction": 0.70082890257693,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.32238123219333403,
+        "mean": 0.017777522969075484,
+        "minimum": 3.592860327995392e-17
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.32238123219333403,
+        "mean": 1.2234551116935078e-16,
+        "minimum": -0.06866808148863456
+      },
+      "natural_modulus": 286,
+      "removing_component_minimum_full_local_ratio": 0.655269606980883,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        11,
+        13
+      ],
+      "support_label": "11x13",
+      "unit_residue_count": 120
+    },
+    {
+      "character_count": 45,
+      "component_l2": 5204954.32365196,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 3.3549378511717894e-17,
+      "energy": 9406788024.758085,
+      "energy_fraction": 0.15893232135172436,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.15445661487268547,
+        "mean": 0.024041905647477442,
+        "minimum": 0.0
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.13823806568251215,
+        "mean": 2.5217275644898034e-17,
+        "minimum": -0.15445661487268547
+      },
+      "natural_modulus": 154,
+      "removing_component_minimum_full_local_ratio": 0.5946485181830963,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        7,
+        11
+      ],
+      "support_label": "7x11",
+      "unit_residue_count": 60
+    },
+    {
+      "character_count": 15,
+      "component_l2": 4819628.62391906,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 1.2681069171143502e-16,
+      "energy": 8065562525.173622,
+      "energy_fraction": 0.13627165529397434,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.3700800800855026,
+        "mean": 0.06526739925729348,
+        "minimum": 2.0042815879313137e-18
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.3700800800855026,
+        "mean": 5.627200691183021e-17,
+        "minimum": -0.18744461516900335
+      },
+      "natural_modulus": 70,
+      "removing_component_minimum_full_local_ratio": 0.7910104254268396,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        5,
+        7
+      ],
+      "support_label": "5x7",
+      "unit_residue_count": 24
+    },
+    {
+      "character_count": 5,
+      "component_l2": 602419.636465146,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 2.8383039592900643e-16,
+      "energy": 126010214.72180517,
+      "energy_fraction": 0.0021290047024612067,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.06906477492246256,
+        "mean": 0.03946558566997852,
+        "minimum": 7.046302457571024e-18
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.052625809921861826,
+        "mean": 1.065666523152147e-17,
+        "minimum": -0.06906477492246256
+      },
+      "natural_modulus": 14,
+      "removing_component_minimum_full_local_ratio": 0.6070035864672685,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        7
+      ],
+      "support_label": "7",
+      "unit_residue_count": 6
+    },
+    {
+      "character_count": 11,
+      "component_l2": 364444.2157411154,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 1.6969850816480363e-16,
+      "energy": 46117911.93998495,
+      "energy_fraction": 0.0007791848589789723,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.030625153461608337,
+        "mean": 0.009423124142033125,
+        "minimum": 6.7366131149913596e-18
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.01196163367895332,
+        "mean": 8.151554892933978e-18,
+        "minimum": -0.030625153461608337
+      },
+      "natural_modulus": 26,
+      "removing_component_minimum_full_local_ratio": 0.6345605315446766,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        13
+      ],
+      "support_label": "13",
+      "unit_residue_count": 12
+    },
+    {
+      "character_count": 33,
+      "component_l2": 335466.76479384553,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 5.422264124029337e-17,
+      "energy": 39075677.18098903,
+      "energy_fraction": 0.0006602028308089682,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.008300791501807714,
+        "mean": 0.002714893182795475,
+        "minimum": 0.0
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.00722647268256465,
+        "mean": 7.025252669708763e-19,
+        "minimum": -0.008300791501807714
+      },
+      "natural_modulus": 130,
+      "removing_component_minimum_full_local_ratio": 0.612236169584876,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        5,
+        13
+      ],
+      "support_label": "5x13",
+      "unit_residue_count": 48
+    },
+    {
+      "character_count": 3,
+      "component_l2": 208905.63502354507,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 2.8298497361537153e-16,
+      "energy": 15153320.95298289,
+      "energy_fraction": 0.0002560228282923629,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.029488669715510164,
+        "mean": 0.023590935772407052,
+        "minimum": 0.0
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.029488669715509307,
+        "mean": -1.3002480615366941e-19,
+        "minimum": -0.029488669715510164
+      },
+      "natural_modulus": 10,
+      "removing_component_minimum_full_local_ratio": 0.6334240477985784,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        5
+      ],
+      "support_label": "5",
+      "unit_residue_count": 4
+    },
+    {
+      "character_count": 9,
+      "component_l2": 155966.47313701588,
+      "descends_to_natural_modulus": true,
+      "descent_relative_error": 8.747021236166003e-17,
+      "energy": 8446368.313472033,
+      "energy_fraction": 0.00014270555682966842,
+      "local_contribution_abs_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.011759395557877042,
+        "mean": 0.005518317457099501,
+        "minimum": 2.1817440201960657e-19
+      },
+      "local_contribution_to_principal_ratio_summary": {
+        "count": 5005,
+        "maximum": 0.009748201777166282,
+        "mean": -8.658689034089196e-19,
+        "minimum": -0.011759395557877042
+      },
+      "natural_modulus": 22,
+      "removing_component_minimum_full_local_ratio": 0.6119281247287133,
+      "removing_component_nonpositive_local_count": 0,
+      "support": [
+        11
+      ],
+      "support_label": "11",
+      "unit_residue_count": 10
+    }
+  ],
+  "three_dominant_support_problem_defined": true,
+  "top_three_support_energy_fraction": 0.9960328792226287,
+  "total_centered_character_energy": 59187382055.160706,
+  "unit_group_order": 2880,
+  "weakest_local_main_row": {
+    "admissible_support_size": 1485,
+    "component_local_to_principal_ratios": {
+      "11": -0.011759395557877037,
+      "11x13": -0.06866808148863453,
+      "13": -0.03062515346160833,
+      "5": -0.02948866971551016,
+      "5x13": -0.00830079150180771,
+      "5x7": -0.18744461516900335,
+      "7": -0.06906477492246253,
+      "7x11": 0.009286859899971984,
+      "principal": 1.0
+    },
+    "full_local_to_principal_ratio": 0.6039353780830683,
+    "target_residue": 4124
+  }
+}

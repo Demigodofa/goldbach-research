@@ -6,6 +6,41 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 centered-error bridge now has a character-burden audit.
+
+`tools/build_q286_centered_character_burden_audit.py` generated
+`evidence/q286-centered-character-burden-audit.json`, with explanation in
+`notes/q286-centered-character-burden-audit.md`.
+
+Question: does the remaining centered-error theorem really require generic
+uniformity on the full `U_10010` residue group?
+
+Result: no, not at the coefficient level.
+
+```text
+full 10010 support present:            false
+nonzero natural moduli:                10, 14, 22, 26, 70, 130, 154, 286
+top-three energy fraction:             0.9960328792226287
+maximum support descent rel. error:    2.8383039592900643e-16
+component reconstruction rel. error:   2.0855427932720967e-15
+```
+
+The three dominant supports are:
+
+```text
+11x13 -> natural modulus 286, energy fraction 0.70082890257693
+7x11  -> natural modulus 154, energy fraction 0.15893232135172436
+5x7   -> natural modulus 70,  energy fraction 0.13627165529397434
+```
+
+Decision: the next proof target is not a broad `q=10010` AP/uniformity theorem.
+It is a three-dominant-support signed binary-prime correlation theorem for
+moduli `286`, `154`, and `70`, plus an explicit tail bound for the remaining
+lower supports.  The audit does not prove the needed correlation estimate or
+Goldbach.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 raw signed-witness bridge now has a coefficient-side local main-term
 audit.
 

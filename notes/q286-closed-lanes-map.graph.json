@@ -1926,6 +1926,22 @@
       "status": "open",
       "statement": "For each even residue a modulo 10010, prove RawFull(N)=LocalMain_a(N)+CenteredError_a(N) with LocalMain_a(N)>0 and CenteredError_a(N)>-LocalMain_a(N) for all sufficiently large N==a mod 10010, then finite-check the remaining targets.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_centered_character_burden_audit",
+      "type": "receipt",
+      "label": "q286 centered character-burden audit",
+      "status": "aha_candidate_finite_diagnostic",
+      "validation": "tools/build_q286_centered_character_burden_audit.py generated evidence/q286-centered-character-burden-audit.json; the centered coefficient has no full 10010 support, all nonzero supports descend to natural moduli 10,14,22,26,70,130,154,286, and the three supports 11x13, 7x11, and 5x7 carry 0.9960328792226287 of centered character energy.",
+      "status_boundary": "finite coefficient-spectrum audit only; no binary-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof"
+    },
+    {
+      "id": "problem.q286_three_dominant_support_signed_correlation",
+      "type": "theorem_target",
+      "label": "q286 three-dominant-support signed correlation",
+      "status": "open",
+      "statement": "Prove the centered q286 error as E_286+E_154+E_70+E_tail stays greater than -LocalMain_a(N) for every sufficiently large even N in each residue modulo 10010, with an explicit tail bound for the remaining lower supports and finite verification below threshold.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4411,6 +4427,21 @@
     },
     {
       "from": "problem.q286_local_positive_main_term_signed_correlation",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_character_burden_audit",
+      "to": "problem.q286_local_positive_main_term_signed_correlation",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_character_burden_audit",
+      "to": "problem.q286_three_dominant_support_signed_correlation",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_three_dominant_support_signed_correlation",
       "to": "theorem.q286_positive_signed_witness",
       "type": "refines"
     }

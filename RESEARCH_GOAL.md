@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 centered-error bridge now has a character-burden audit:
+`tools/build_q286_centered_character_burden_audit.py` generated
+`evidence/q286-centered-character-burden-audit.json`, with explanation in
+`notes/q286-centered-character-burden-audit.md`.
+
+Question: after proving the local main term is positive in every even residue,
+does the remaining centered-error theorem require a full `q=10010` binary
+prime-pair uniformity theorem?
+
+Result: no, not from the fixed coefficient structure.  The centered q286
+coefficient has no full `10010` support.  Every nonzero character support
+descends to a lower natural modulus, with maximum support-descent relative
+error `2.8383039592900643e-16` and reconstruction error
+`2.0855427932720967e-15`.  The nonzero natural moduli are
+`10,14,22,26,70,130,154,286`.  The top three supports carry
+`0.9960328792226287` of centered character energy:
+
+```text
+11x13 -> 286, energy fraction 0.70082890257693
+7x11  -> 154, energy fraction 0.15893232135172436
+5x7   -> 70,  energy fraction 0.13627165529397434
+```
+
+Decision: replace the vague `q=10010` centered-error demand with a sharper
+three-dominant-support signed-correlation problem for moduli `286`, `154`,
+and `70`, plus an explicit tail bound for the remaining small supports.  This
+is theorem-shaping progress only; no signed prime-correlation theorem or
+Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 raw signed-witness bridge now has a local main-term positivity audit:
 `tools/build_q286_local_main_term_positivity_audit.py` generated
 `evidence/q286-local-main-term-positivity-audit.json`, with explanation in

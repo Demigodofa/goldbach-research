@@ -397,3 +397,46 @@ CenteredError_a(N) > -LocalMain_a(N)
 for all sufficiently large even `N == a mod 10010`, then finite-check the
 remaining targets.  This is still a signed binary-prime correlation theorem,
 not a consequence of the finite coefficient audit.
+
+## Centered Character-Burden Audit
+
+`tools/build_q286_centered_character_burden_audit.py` generated
+`evidence/q286-centered-character-burden-audit.json`.
+
+Result: the remaining centered coefficient does not have full `10010`
+character support.  Every nonzero support descends to a lower CRT natural
+modulus:
+
+```text
+10, 14, 22, 26, 70, 130, 154, 286
+```
+
+The top three supports carry `0.9960328792226287` of the centered character
+energy:
+
+```text
+11x13 -> 286, energy fraction 0.70082890257693
+7x11  -> 154, energy fraction 0.15893232135172436
+5x7   -> 70,  energy fraction 0.13627165529397434
+```
+
+Decision: the next theorem should be stated as a lower-modulus character
+correlation problem:
+
+```text
+RawFull(N)
+  = LocalMain_a(N)
+  + E_286(N)
+  + E_154(N)
+  + E_70(N)
+  + E_tail(N),
+```
+
+with
+
+```text
+E_286(N)+E_154(N)+E_70(N)+E_tail(N) > -LocalMain_a(N).
+```
+
+This sharpens the analytic target but does not prove any of the needed
+prime-pair estimates.
