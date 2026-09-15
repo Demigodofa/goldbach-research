@@ -6,6 +6,43 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a CRT factor-ANOVA coefficient audit.
+
+```text
+tools/build_q286_wbss_four_modulus_factor_anova_audit.py
+notes/q286-wbss-four-modulus-factor-anova-audit.md
+evidence/q286-wbss-four-modulus-factor-anova-audit.json
+```
+
+Result:
+
+```text
+nonzero ANOVA supports:
+  empty, 5, 7, 11, 13, 5,7, 5,13, 7,11, 11,13
+nonzero supports by order: 0:1, 1:4, 2:4, 3:0, 4:0
+target edge supports:
+  70 -> 5,7
+  130 -> 5,13
+  154 -> 7,11
+  286 -> 11,13
+maximum ANOVA/span residual mismatch: 3.68036481308434e-16
+best proper family: 70,154,286
+best proper missing support: 5,13
+best proper residual: 0.0252841747236269
+full-family missing supports: none
+```
+
+Decision: the coefficient side is structurally a four-edge CRT interaction
+object. Fourier/projection sparsification has no smaller target unless a
+future changed mechanism replaces the coefficient. The live theorem target
+remains strict-central binary-prime projection control for `70,130,154,286`,
+or direct eventual positivity of the raw q286-WBSS signed witness. No
+binary-prime projection-control theorem, signed discrepancy theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a coefficient-span minimality audit.
 
 ```text

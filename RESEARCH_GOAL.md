@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a CRT factor-ANOVA coefficient audit:
+`tools/build_q286_wbss_four_modulus_factor_anova_audit.py` generated
+`evidence/q286-wbss-four-modulus-factor-anova-audit.json`, with explanation in
+`notes/q286-wbss-four-modulus-factor-anova-audit.md`.
+
+Question: after the coefficient-span minimality audit showed no smaller
+projection family, is there a structural CRT/Fourier reason for the
+four-modulus target?
+
+Result: over the CRT product `(Z/5Z)^* x (Z/7Z)^* x (Z/11Z)^* x (Z/13Z)^*`,
+the q286-WBSS unit coefficient has nonzero factor-ANOVA supports exactly
+`empty`, `5`, `7`, `11`, `13`, `5,7`, `5,13`, `7,11`, and `11,13`. There
+are no nonzero three-factor or four-factor interactions at audit tolerance.
+The four target moduli carry the four nonzero edge interactions:
+`70 -> 5,7`, `130 -> 5,13`, `154 -> 7,11`, and `286 -> 11,13`.
+
+The ANOVA residuals match the prior projection-rowspace minimality residuals
+with maximum absolute error `3.68036481308434e-16`. The best proper family
+`{70,154,286}` misses exactly the `5,13` interaction and has residual
+`0.0252841747236269`; the full family has no missing nonzero support.
+
+Decision: the coefficient side is structurally a four-edge CRT interaction
+object. Fourier/projection sparsification has no smaller target unless a
+future changed mechanism replaces the coefficient itself. The remaining open
+problem is still binary-prime projection control for `70,130,154,286`, or
+direct eventual positivity of the raw q286-WBSS signed witness. This proves
+no binary-prime projection-control theorem, signed discrepancy theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a coefficient-span minimality audit:
 `tools/build_q286_wbss_four_modulus_minimality_audit.py` generated
 `evidence/q286-wbss-four-modulus-minimality-audit.json`, with explanation in

@@ -1,0 +1,1202 @@
+{
+  "anova_matches_span_minimality": true,
+  "candidate": {
+    "falsifier": "A nonzero interaction outside the four allowed edges would falsify the four-modulus coefficient explanation.  Any proper family with zero residual would falsify minimality.",
+    "mechanism": "Decompose the q286-WBSS unit coefficient into orthogonal ANOVA interactions over the CRT factors 5,7,11,13.  A projection to modulus d can carry only interactions whose prime-factor support lies inside d.",
+    "name": "CRT factor interaction certificate",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The nonzero interactions should lie exactly in the four edge supports carried by 70,130,154,286.  Dropping a modulus should expose the corresponding nonzero interaction as the span residual.",
+    "smallest_test": "Use the unit coefficient only, compute the 16 CRT ANOVA components, and compare every subset residual to the prior projection-rowspace minimality audit."
+  },
+  "coefficient_l2_norm": 301.524942020066,
+  "component_rows": [
+    {
+      "l2_norm": 53.66563145999495,
+      "max_abs": 0.9999999999999999,
+      "nonzero": true,
+      "order": 0,
+      "relative_l2_norm": 0.17798073718367077,
+      "support": [],
+      "support_key": "empty"
+    },
+    {
+      "l2_norm": 4.747584243594033,
+      "max_abs": 0.08846600914653047,
+      "nonzero": true,
+      "order": 1,
+      "relative_l2_norm": 0.015745245523596147,
+      "support": [
+        5
+      ],
+      "support_key": "5"
+    },
+    {
+      "l2_norm": 13.69057361133999,
+      "max_abs": 0.34532387461231295,
+      "nonzero": true,
+      "order": 1,
+      "relative_l2_norm": 0.04540444820126655,
+      "support": [
+        7
+      ],
+      "support_key": "7"
+    },
+    {
+      "l2_norm": 3.544490172851348,
+      "max_abs": 0.10583456002089331,
+      "nonzero": true,
+      "order": 1,
+      "relative_l2_norm": 0.011755213844350784,
+      "support": [
+        11
+      ],
+      "support_key": "11"
+    },
+    {
+      "l2_norm": 8.28235014400877,
+      "max_abs": 0.33687668807769267,
+      "nonzero": true,
+      "order": 1,
+      "relative_l2_norm": 0.027468209059327474,
+      "support": [
+        13
+      ],
+      "support_key": "13"
+    },
+    {
+      "l2_norm": 109.53075972466718,
+      "max_abs": 5.551201201282535,
+      "nonzero": true,
+      "order": 2,
+      "relative_l2_norm": 0.36325605102803754,
+      "support": [
+        5,
+        7
+      ],
+      "support_key": "5,7"
+    },
+    {
+      "l2_norm": 1.1614439925919503e-14,
+      "max_abs": 5.551115123125783e-16,
+      "nonzero": false,
+      "order": 2,
+      "relative_l2_norm": 3.851900226929346e-17,
+      "support": [
+        5,
+        11
+      ],
+      "support_key": "5,11"
+    },
+    {
+      "l2_norm": 7.623809317566825,
+      "max_abs": 0.2739261195596544,
+      "nonzero": true,
+      "order": 2,
+      "relative_l2_norm": 0.02528417472362691,
+      "support": [
+        5,
+        13
+      ],
+      "support_key": "5,13"
+    },
+    {
+      "l2_norm": 118.28766195230479,
+      "max_abs": 6.950547669270857,
+      "nonzero": true,
+      "order": 2,
+      "relative_l2_norm": 0.39229810031580375,
+      "support": [
+        7,
+        11
+      ],
+      "support_key": "7,11"
+    },
+    {
+      "l2_norm": 4.356263898253062e-14,
+      "max_abs": 2.3314683517128287e-15,
+      "nonzero": false,
+      "order": 2,
+      "relative_l2_norm": 1.4447441293142372e-16,
+      "support": [
+        7,
+        13
+      ],
+      "support_key": "7,13"
+    },
+    {
+      "l2_norm": 248.39299064031,
+      "max_abs": 31.91574198713992,
+      "nonzero": true,
+      "order": 2,
+      "relative_l2_norm": 0.8237891995806429,
+      "support": [
+        11,
+        13
+      ],
+      "support_key": "11,13"
+    },
+    {
+      "l2_norm": 3.297194163235928e-14,
+      "max_abs": 3.552713678800501e-15,
+      "nonzero": false,
+      "order": 3,
+      "relative_l2_norm": 1.093506275516174e-16,
+      "support": [
+        5,
+        7,
+        11
+      ],
+      "support_key": "5,7,11"
+    },
+    {
+      "l2_norm": 3.4833413267193164e-14,
+      "max_abs": 1.9984014443252818e-15,
+      "nonzero": false,
+      "order": 3,
+      "relative_l2_norm": 1.1552415211102188e-16,
+      "support": [
+        5,
+        7,
+        13
+      ],
+      "support_key": "5,7,13"
+    },
+    {
+      "l2_norm": 7.019261604243602e-14,
+      "max_abs": 1.4210854715202004e-14,
+      "nonzero": false,
+      "order": 3,
+      "relative_l2_norm": 2.327920720991791e-16,
+      "support": [
+        5,
+        11,
+        13
+      ],
+      "support_key": "5,11,13"
+    },
+    {
+      "l2_norm": 7.518726726137544e-14,
+      "max_abs": 2.1316282072803006e-14,
+      "nonzero": false,
+      "order": 3,
+      "relative_l2_norm": 2.49356709125482e-16,
+      "support": [
+        7,
+        11,
+        13
+      ],
+      "support_key": "7,11,13"
+    },
+    {
+      "l2_norm": 9.207062875799122e-14,
+      "max_abs": 2.1760371282653068e-14,
+      "nonzero": false,
+      "order": 4,
+      "relative_l2_norm": 3.0534995924769647e-16,
+      "support": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "support_key": "5,7,11,13"
+    }
+  ],
+  "component_summary": {
+    "component_count": 16,
+    "largest_components": [
+      {
+        "l2_norm": 248.39299064031,
+        "max_abs": 31.91574198713992,
+        "nonzero": true,
+        "order": 2,
+        "relative_l2_norm": 0.8237891995806429,
+        "support": [
+          11,
+          13
+        ],
+        "support_key": "11,13"
+      },
+      {
+        "l2_norm": 118.28766195230479,
+        "max_abs": 6.950547669270857,
+        "nonzero": true,
+        "order": 2,
+        "relative_l2_norm": 0.39229810031580375,
+        "support": [
+          7,
+          11
+        ],
+        "support_key": "7,11"
+      },
+      {
+        "l2_norm": 109.53075972466718,
+        "max_abs": 5.551201201282535,
+        "nonzero": true,
+        "order": 2,
+        "relative_l2_norm": 0.36325605102803754,
+        "support": [
+          5,
+          7
+        ],
+        "support_key": "5,7"
+      },
+      {
+        "l2_norm": 53.66563145999495,
+        "max_abs": 0.9999999999999999,
+        "nonzero": true,
+        "order": 0,
+        "relative_l2_norm": 0.17798073718367077,
+        "support": [],
+        "support_key": "empty"
+      },
+      {
+        "l2_norm": 13.69057361133999,
+        "max_abs": 0.34532387461231295,
+        "nonzero": true,
+        "order": 1,
+        "relative_l2_norm": 0.04540444820126655,
+        "support": [
+          7
+        ],
+        "support_key": "7"
+      },
+      {
+        "l2_norm": 8.28235014400877,
+        "max_abs": 0.33687668807769267,
+        "nonzero": true,
+        "order": 1,
+        "relative_l2_norm": 0.027468209059327474,
+        "support": [
+          13
+        ],
+        "support_key": "13"
+      },
+      {
+        "l2_norm": 7.623809317566825,
+        "max_abs": 0.2739261195596544,
+        "nonzero": true,
+        "order": 2,
+        "relative_l2_norm": 0.02528417472362691,
+        "support": [
+          5,
+          13
+        ],
+        "support_key": "5,13"
+      },
+      {
+        "l2_norm": 4.747584243594033,
+        "max_abs": 0.08846600914653047,
+        "nonzero": true,
+        "order": 1,
+        "relative_l2_norm": 0.015745245523596147,
+        "support": [
+          5
+        ],
+        "support_key": "5"
+      },
+      {
+        "l2_norm": 3.544490172851348,
+        "max_abs": 0.10583456002089331,
+        "nonzero": true,
+        "order": 1,
+        "relative_l2_norm": 0.011755213844350784,
+        "support": [
+          11
+        ],
+        "support_key": "11"
+      }
+    ],
+    "nonzero_by_order": {
+      "0": 1,
+      "1": 4,
+      "2": 4,
+      "3": 0,
+      "4": 0
+    },
+    "nonzero_component_count": 9,
+    "nonzero_relative_l2_summary": {
+      "count": 9,
+      "maximum": 0.8237891995806429,
+      "mean": 0.20922015327336918,
+      "minimum": 0.011755213844350784
+    },
+    "nonzero_support_keys": [
+      "empty",
+      "5",
+      "7",
+      "11",
+      "13",
+      "5,7",
+      "5,13",
+      "7,11",
+      "11,13"
+    ]
+  },
+  "decision": "The CRT factor-ANOVA decomposition explains the previous minimality result: the q286-WBSS unit coefficient has nonzero interaction support exactly inside the four modulus-carried edges, and no proper projection family captures them all.  The best proper family [70, 154, 286] misses ['5,13']. Thus the coefficient-side theorem target is structurally the four-modulus family 70,130,154,286; the remaining open problem is still binary-prime projection control or direct raw signed witness positivity, not another coefficient sparsification.  Goldbach remains open.",
+  "factors": [
+    5,
+    7,
+    11,
+    13
+  ],
+  "four_modulus_projection_theorem_proved": false,
+  "goldbach_proved": false,
+  "no_smaller_projection_family_found": true,
+  "period": 10010,
+  "projection_family_rows": [
+    {
+      "allowed_support_keys": [
+        "empty"
+      ],
+      "anova_l2_residual": 296.71078622153965,
+      "anova_relative_l2_residual": 0.9840339715637652,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 4.747584243594033,
+          "support": [
+            5
+          ],
+          "support_key": "5"
+        },
+        {
+          "l2_norm": 13.69057361133999,
+          "support": [
+            7
+          ],
+          "support_key": "7"
+        },
+        {
+          "l2_norm": 3.544490172851348,
+          "support": [
+            11
+          ],
+          "support_key": "11"
+        },
+        {
+          "l2_norm": 8.28235014400877,
+          "support": [
+            13
+          ],
+          "support_key": "13"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [],
+      "modulus_count": 0,
+      "residual_match_abs_error": 2.220446049250313e-16,
+      "span_max_abs_residual": 39.228810300155935,
+      "span_relative_l2_residual": 0.9840339715637654
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "11",
+        "13",
+        "11,13"
+      ],
+      "anova_l2_residual": 162.04027933348445,
+      "anova_relative_l2_residual": 0.5374025718996769,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 4.747584243594033,
+          "support": [
+            5
+          ],
+          "support_key": "5"
+        },
+        {
+          "l2_norm": 13.69057361133999,
+          "support": [
+            7
+          ],
+          "support_key": "7"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        }
+      ],
+      "moduli": [
+        286
+      ],
+      "modulus_count": 1,
+      "residual_match_abs_error": 0.0,
+      "span_max_abs_residual": 9.369852264858892,
+      "span_relative_l2_residual": 0.5374025718996769
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "7",
+        "11",
+        "7,11"
+      ],
+      "anova_l2_residual": 271.7449621863642,
+      "anova_relative_l2_residual": 0.9012354346735267,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 4.747584243594033,
+          "support": [
+            5
+          ],
+          "support_key": "5"
+        },
+        {
+          "l2_norm": 8.28235014400877,
+          "support": [
+            13
+          ],
+          "support_key": "13"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        154
+      ],
+      "modulus_count": 1,
+      "residual_match_abs_error": 0.0,
+      "span_max_abs_residual": 37.94851136822567,
+      "span_relative_l2_residual": 0.9012354346735267
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "5,7"
+      ],
+      "anova_l2_residual": 275.37307779153696,
+      "anova_relative_l2_residual": 0.913267990192371,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 3.544490172851348,
+          "support": [
+            11
+          ],
+          "support_key": "11"
+        },
+        {
+          "l2_norm": 8.28235014400877,
+          "support": [
+            13
+          ],
+          "support_key": "13"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        70
+      ],
+      "modulus_count": 1,
+      "residual_match_abs_error": 2.220446049250313e-16,
+      "span_max_abs_residual": 34.70194489548506,
+      "span_relative_l2_residual": 0.9132679901923713
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "13",
+        "5,13"
+      ],
+      "anova_l2_residual": 296.4591562283675,
+      "anova_relative_l2_residual": 0.9831994469254836,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 13.69057361133999,
+          "support": [
+            7
+          ],
+          "support_key": "7"
+        },
+        {
+          "l2_norm": 3.544490172851348,
+          "support": [
+            11
+          ],
+          "support_key": "11"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        130
+      ],
+      "modulus_count": 1,
+      "residual_match_abs_error": 2.220446049250313e-16,
+      "span_max_abs_residual": 38.747242120352716,
+      "span_relative_l2_residual": 0.9831994469254838
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "7",
+        "11",
+        "13",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 109.89835918030539,
+      "anova_relative_l2_residual": 0.3644751855154716,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 4.747584243594033,
+          "support": [
+            5
+          ],
+          "support_key": "5"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        }
+      ],
+      "moduli": [
+        154,
+        286
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 5.551115123125783e-17,
+      "span_max_abs_residual": 5.878140808953693,
+      "span_relative_l2_residual": 0.36447518551547164
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "11,13"
+      ],
+      "anova_l2_residual": 118.53309005781193,
+      "anova_relative_l2_residual": 0.3931120565472946,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        }
+      ],
+      "moduli": [
+        70,
+        286
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 5.551115123125783e-17,
+      "span_max_abs_residual": 7.224473788831201,
+      "span_relative_l2_residual": 0.39311205654729464
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "11",
+        "13",
+        "5,13",
+        "11,13"
+      ],
+      "anova_l2_residual": 161.7911929055875,
+      "anova_relative_l2_residual": 0.5365764829326143,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 13.69057361133999,
+          "support": [
+            7
+          ],
+          "support_key": "7"
+        },
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        }
+      ],
+      "moduli": [
+        130,
+        286
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 1.1102230246251565e-16,
+      "span_max_abs_residual": 9.184392154445792,
+      "span_relative_l2_residual": 0.5365764829326144
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "5,7",
+        "7,11"
+      ],
+      "anova_l2_residual": 248.64793904566292,
+      "anova_relative_l2_residual": 0.824634729650709,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 8.28235014400877,
+          "support": [
+            13
+          ],
+          "support_key": "13"
+        },
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        70,
+        154
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 2.220446049250313e-16,
+      "span_max_abs_residual": 32.48813789698933,
+      "span_relative_l2_residual": 0.8246347296507093
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,13",
+        "7,11"
+      ],
+      "anova_l2_residual": 271.4701919642374,
+      "anova_relative_l2_residual": 0.900324166039211,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        130,
+        154
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 1.1102230246251565e-16,
+      "span_max_abs_residual": 37.466943188425724,
+      "span_relative_l2_residual": 0.9003241660392111
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "13",
+        "5,7",
+        "5,13"
+      ],
+      "anova_l2_residual": 275.1428941113423,
+      "anova_relative_l2_residual": 0.912504591719752,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 3.544490172851348,
+          "support": [
+            11
+          ],
+          "support_key": "11"
+        },
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        },
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        70,
+        130
+      ],
+      "modulus_count": 2,
+      "residual_match_abs_error": 2.220446049250313e-16,
+      "span_max_abs_residual": 34.129548985635644,
+      "span_relative_l2_residual": 0.9125045917197522
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 7.623809317566825,
+      "anova_relative_l2_residual": 0.02528417472362691,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        }
+      ],
+      "moduli": [
+        70,
+        154,
+        286
+      ],
+      "modulus_count": 3,
+      "residual_match_abs_error": 1.3877787807814457e-17,
+      "span_max_abs_residual": 0.27392611955966384,
+      "span_relative_l2_residual": 0.025284174723626925
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,13",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 109.53075972466718,
+      "anova_relative_l2_residual": 0.36325605102803754,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 109.53075972466718,
+          "support": [
+            5,
+            7
+          ],
+          "support_key": "5,7"
+        }
+      ],
+      "moduli": [
+        130,
+        154,
+        286
+      ],
+      "modulus_count": 3,
+      "residual_match_abs_error": 5.551115123125783e-17,
+      "span_max_abs_residual": 5.551201201282533,
+      "span_relative_l2_residual": 0.3632560510280376
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "5,13",
+        "11,13"
+      ],
+      "anova_l2_residual": 118.28766195230479,
+      "anova_relative_l2_residual": 0.39229810031580375,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 118.28766195230479,
+          "support": [
+            7,
+            11
+          ],
+          "support_key": "7,11"
+        }
+      ],
+      "moduli": [
+        70,
+        130,
+        286
+      ],
+      "modulus_count": 3,
+      "residual_match_abs_error": 0.0,
+      "span_max_abs_residual": 6.950547669270859,
+      "span_relative_l2_residual": 0.39229810031580375
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "5,13",
+        "7,11"
+      ],
+      "anova_l2_residual": 248.39299064031,
+      "anova_relative_l2_residual": 0.8237891995806429,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 248.39299064031,
+          "support": [
+            11,
+            13
+          ],
+          "support_key": "11,13"
+        }
+      ],
+      "moduli": [
+        70,
+        130,
+        154
+      ],
+      "modulus_count": 3,
+      "residual_match_abs_error": 1.1102230246251565e-16,
+      "span_max_abs_residual": 31.91574198713993,
+      "span_relative_l2_residual": 0.823789199580643
+    },
+    {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "5,13",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 1.529386920624472e-13,
+      "anova_relative_l2_residual": 5.072173832049666e-16,
+      "exact_span": true,
+      "is_full_four_modulus_family": true,
+      "missing_nonzero_supports": [],
+      "moduli": [
+        70,
+        130,
+        154,
+        286
+      ],
+      "modulus_count": 4,
+      "residual_match_abs_error": 3.680364813084342e-16,
+      "span_max_abs_residual": 2.1316282072803006e-14,
+      "span_relative_l2_residual": 8.752538645134008e-16
+    }
+  ],
+  "projection_family_summary": {
+    "best_proper_family": {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 7.623809317566825,
+      "anova_relative_l2_residual": 0.02528417472362691,
+      "exact_span": false,
+      "is_full_four_modulus_family": false,
+      "missing_nonzero_supports": [
+        {
+          "l2_norm": 7.623809317566825,
+          "support": [
+            5,
+            13
+          ],
+          "support_key": "5,13"
+        }
+      ],
+      "moduli": [
+        70,
+        154,
+        286
+      ],
+      "modulus_count": 3,
+      "residual_match_abs_error": 1.3877787807814457e-17,
+      "span_max_abs_residual": 0.27392611955966384,
+      "span_relative_l2_residual": 0.025284174723626925
+    },
+    "family_count": 16,
+    "full_four_modulus_family": {
+      "allowed_support_keys": [
+        "empty",
+        "5",
+        "7",
+        "11",
+        "13",
+        "5,7",
+        "5,13",
+        "7,11",
+        "11,13"
+      ],
+      "anova_l2_residual": 1.529386920624472e-13,
+      "anova_relative_l2_residual": 5.072173832049666e-16,
+      "exact_span": true,
+      "is_full_four_modulus_family": true,
+      "missing_nonzero_supports": [],
+      "moduli": [
+        70,
+        130,
+        154,
+        286
+      ],
+      "modulus_count": 4,
+      "residual_match_abs_error": 3.680364813084342e-16,
+      "span_max_abs_residual": 2.1316282072803006e-14,
+      "span_relative_l2_residual": 8.752538645134008e-16
+    },
+    "maximum_residual_match_abs_error": 3.680364813084342e-16,
+    "proper_exact_span_count": 0,
+    "proper_family_count": 15
+  },
+  "schema_version": 1,
+  "signed_discrepancy_theorem_proved": false,
+  "source_commit": "e787e7c5404ae5566e2b5b1accd86006cf669f0a",
+  "sources": {
+    "four_modulus_minimality_audit": "evidence\\q286-wbss-four-modulus-minimality-audit.json",
+    "minimality_source_commit": "1cfe976877baeaae33bae143bbd377e40bc55148"
+  },
+  "status_boundary": "finite q286-WBSS CRT factor-ANOVA coefficient audit only; no binary-prime projection-control theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "target_moduli": [
+    70,
+    130,
+    154,
+    286
+  ],
+  "target_modulus_factor_supports": {
+    "130": [
+      5,
+      13
+    ],
+    "154": [
+      7,
+      11
+    ],
+    "286": [
+      11,
+      13
+    ],
+    "70": [
+      5,
+      7
+    ]
+  },
+  "unit_count": 2880,
+  "universal_bound_open": true
+}
