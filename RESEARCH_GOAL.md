@@ -6,6 +6,35 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a top-20 Fourier residual audit:
+`tools/build_q286_wbss_mod286_bandlimited_residual_audit.py` generated
+`evidence/q286-wbss-mod286-bandlimited-residual-audit.json`, with explanation
+in `notes/q286-wbss-mod286-bandlimited-residual-audit.md`.
+
+Question: after the top `20` mod-286 Fourier conjugacy groups give a
+sign-stable negative interaction contribution, does the remaining five-group
+residual require symmetric absolute control, or only one-sided pushback
+control?
+
+Result: the top `20` groups carry `0.870213154434473` of coefficient energy,
+leaving residual energy share `0.129786845565527`. On all `196`
+post-discovery rows, the top-20 bandlimited component and the full
+interaction component are both negative. The residual five-group component is
+negative on `172/196` rows and positive on `24/196` rows, with range
+`-0.1967819286124881..0.057893218751199974`. The positive residual
+pushback-to-main-drag ratio is at most `0.12566677703853088`; all rows pass
+the finite `0.13` pushback cap, while the cleaner `1/8` cap already fails on
+one row. Symmetric absolute residual control passes but is near sharp, with
+maximum absolute residual/main-drag ratio `0.9879886701050115`, because large
+residuals are often helpful.
+
+Decision: preserve the top-20 bandlimited route as a one-sided theorem target:
+prove top-20 negative drag and bound positive residual pushback by
+`theta * top20_drag` for some fixed `theta < 1`, or replace the split with a
+direct raw q286-WBSS witness estimate. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a mod-286 Fourier interaction audit:
 `tools/build_q286_wbss_mod286_fourier_interaction_audit.py` generated
 `evidence/q286-wbss-mod286-fourier-interaction-audit.json`, with explanation

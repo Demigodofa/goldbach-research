@@ -1,0 +1,601 @@
+{
+  "bandlimited_character_theorem_proved": false,
+  "candidate": {
+    "falsifier": "A row with nonnegative top-20 contribution, or positive residual pushback at least as large as the top-20 main drag, would falsify this finite absorption target.",
+    "mechanism": "Split the mod-286 interaction into the top twenty Fourier conjugacy groups and the remaining five.  Positivity of the negative interaction drag follows if the top-20 piece is negative and any positive residual pushback is smaller than that main drag.",
+    "name": "top-20 bandlimited residual absorption",
+    "prediction": "Actual post-discovery rows should have sign-stable top-20 main drag and a one-sided residual pushback ratio well below one, even if absolute residual size is too pessimistic.",
+    "smallest_test": "Replay the existing 196 q286-WBSS post-discovery rows and measure residual_five_group_component / main_drag only when the residual pushes upward."
+  },
+  "coefficient_spectrum": {
+    "conjugacy_group_count": 25,
+    "residual_energy_share": 0.12978684556552655,
+    "residual_group_count": 5,
+    "residual_groups": [
+      {
+        "cumulative_energy_share": 0.8982332367231297,
+        "energy_share": 0.028020082288656212,
+        "mode_count": 2,
+        "modes": [
+          {
+            "abs": 0.5478514278443705,
+            "ell_mod_12": 1,
+            "energy_share": 0.014010041144328106,
+            "imag": -0.4783656821383454,
+            "k_mod_10": 1,
+            "real": -0.2670345691917638
+          },
+          {
+            "abs": 0.5478514278443706,
+            "ell_mod_12": 11,
+            "energy_share": 0.014010041144328111,
+            "imag": 0.47836568213834546,
+            "k_mod_10": 9,
+            "real": -0.2670345691917639
+          }
+        ],
+        "representative": {
+          "ell_mod_12": 1,
+          "k_mod_10": 1
+        }
+      },
+      {
+        "cumulative_energy_share": 0.9251846097107123,
+        "energy_share": 0.026951372987582628,
+        "mode_count": 2,
+        "modes": [
+          {
+            "abs": 0.5373021048419178,
+            "ell_mod_12": 9,
+            "energy_share": 0.013475686493791314,
+            "imag": 0.02181533152112032,
+            "k_mod_10": 1,
+            "real": 0.5368590533633375
+          },
+          {
+            "abs": 0.5373021048419178,
+            "ell_mod_12": 3,
+            "energy_share": 0.013475686493791314,
+            "imag": -0.02181533152112029,
+            "k_mod_10": 9,
+            "real": 0.5368590533633375
+          }
+        ],
+        "representative": {
+          "ell_mod_12": 9,
+          "k_mod_10": 1
+        }
+      },
+      {
+        "cumulative_energy_share": 0.9517116704747649,
+        "energy_share": 0.026527060764052666,
+        "mode_count": 2,
+        "modes": [
+          {
+            "abs": 0.5330557848560206,
+            "ell_mod_12": 10,
+            "energy_share": 0.013263530382026338,
+            "imag": -0.4587097895867484,
+            "k_mod_10": 4,
+            "real": -0.2715396816410983
+          },
+          {
+            "abs": 0.5330557848560205,
+            "ell_mod_12": 2,
+            "energy_share": 0.013263530382026333,
+            "imag": 0.4587097895867484,
+            "k_mod_10": 6,
+            "real": -0.2715396816410982
+          }
+        ],
+        "representative": {
+          "ell_mod_12": 10,
+          "k_mod_10": 4
+        }
+      },
+      {
+        "cumulative_energy_share": 0.9780174020127432,
+        "energy_share": 0.02630573153797822,
+        "mode_count": 2,
+        "modes": [
+          {
+            "abs": 0.5308273444075365,
+            "ell_mod_12": 2,
+            "energy_share": 0.013152865768989105,
+            "imag": 0.4995577885861038,
+            "k_mod_10": 4,
+            "real": -0.17949842738508634
+          },
+          {
+            "abs": 0.5308273444075366,
+            "ell_mod_12": 10,
+            "energy_share": 0.01315286576898911,
+            "imag": -0.4995577885861038,
+            "k_mod_10": 6,
+            "real": -0.1794984273850865
+          }
+        ],
+        "representative": {
+          "ell_mod_12": 2,
+          "k_mod_10": 4
+        }
+      },
+      {
+        "cumulative_energy_share": 1.0000000000000002,
+        "energy_share": 0.021982597987256894,
+        "mode_count": 2,
+        "modes": [
+          {
+            "abs": 0.4852523011145845,
+            "ell_mod_12": 9,
+            "energy_share": 0.01099129899362845,
+            "imag": 0.17249905098134874,
+            "k_mod_10": 3,
+            "real": 0.4535569127987506
+          },
+          {
+            "abs": 0.48525230111458434,
+            "ell_mod_12": 3,
+            "energy_share": 0.010991298993628443,
+            "imag": -0.1724990509813487,
+            "k_mod_10": 7,
+            "real": 0.45355691279875043
+          }
+        ],
+        "representative": {
+          "ell_mod_12": 9,
+          "k_mod_10": 3
+        }
+      }
+    ],
+    "top20_energy_share": 0.8702131544344734,
+    "top_group_count": 20,
+    "zero_axis_energy_share": 3.243981252694915e-33
+  },
+  "decision": "The top-20 bandlimited split survives as a sharper finite theorem target.  The top-20 component is negative on every checked row, and the remaining five groups push upward on only 24 of 196 rows.  The maximum upward pushback/main-drag ratio is 0.12566677703853088, so a one-sided 0.13 residual absorption constant passes this fixture while the cleaner 1/8 constant is slightly too strong.  Symmetric absolute residual control is near sharp at 0.9879886701050115 because large residuals are often helpful.  Therefore the next theorem should be one-sided: prove top-20 negative drag plus an upper bound on positive residual pushback, or replace both with a direct raw q286-WBSS signed-witness estimate.",
+  "goldbach_proved": false,
+  "novelty_label": "new-to-this-task",
+  "one_sided_residual_absorption_candidate_supported": true,
+  "row_summary": {
+    "absolute_residual_lt_main_drag_count": 196,
+    "absolute_residual_to_main_drag_ratio_summary": {
+      "count": 196,
+      "maximum": 0.9879886701050115,
+      "mean": 0.18595302814649767,
+      "minimum": 0.0006303342108321785
+    },
+    "bandlimited_plus_residual_error_summary": {
+      "count": 196,
+      "maximum": 1.6653345369377348e-16,
+      "mean": 4.630649605260538e-17,
+      "minimum": 0.0
+    },
+    "bandlimited_top20_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 196,
+      "positive_count": 0,
+      "summary": {
+        "count": 196,
+        "maximum": -0.14726649946909642,
+        "mean": -0.3143268442276414,
+        "minimum": -0.6546703407835134
+      }
+    },
+    "largest_absolute_residual_rows": [
+      {
+        "absolute_residual_to_main_drag_ratio": 0.9879886701050115,
+        "bandlimited_plus_residual_error": 2.7755575615628914e-17,
+        "bandlimited_top20_component": -0.14726649946909642,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.14726649946909642,
+        "pair_count": 782,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.14549763296149296,
+        "target": 250664,
+        "target_mod_286": 128,
+        "target_residue": 414,
+        "total_interaction_component": -0.2927641324305894
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.7808898098626745,
+        "bandlimited_plus_residual_error": 2.7755575615628914e-17,
+        "bandlimited_top20_component": -0.17254527205731157,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.17254527205731157,
+        "pair_count": 803,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.13473884468953748,
+        "target": 254074,
+        "target_mod_286": 106,
+        "target_residue": 3824,
+        "total_interaction_component": -0.3072841167468491
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.6540143312320573,
+        "bandlimited_plus_residual_error": 2.7755575615628914e-17,
+        "bandlimited_top20_component": -0.2607039089192836,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.2607039089192836,
+        "pair_count": 713,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.17050409264142843,
+        "target": 218782,
+        "target_mod_286": 278,
+        "target_residue": 8572,
+        "total_interaction_component": -0.43120800156071204
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.6004619330459325,
+        "bandlimited_plus_residual_error": 2.7755575615628914e-17,
+        "bandlimited_top20_component": -0.20686129623816182,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.20686129623816182,
+        "pair_count": 1182,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.12421233381155394,
+        "target": 382862,
+        "target_mod_286": 194,
+        "target_residue": 2482,
+        "total_interaction_component": -0.33107363004971574
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.5737146813593433,
+        "bandlimited_plus_residual_error": 1.3877787807814457e-17,
+        "bandlimited_top20_component": -0.18824546054583527,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.18824546054583527,
+        "pair_count": 1222,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.10799918441439672,
+        "target": 383486,
+        "target_mod_286": 246,
+        "target_residue": 3106,
+        "total_interaction_component": -0.296244644960232
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.5709608174659248,
+        "bandlimited_plus_residual_error": 5.551115123125783e-17,
+        "bandlimited_top20_component": -0.18602260506752907,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.18602260506752907,
+        "pair_count": 1000,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.10621161865649728,
+        "target": 316604,
+        "target_mod_286": 2,
+        "target_residue": 6294,
+        "total_interaction_component": -0.2922342237240263
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.5470523874790055,
+        "bandlimited_plus_residual_error": 8.326672684688674e-17,
+        "bandlimited_top20_component": -0.2149867883119557,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.2149867883119557,
+        "pair_count": 860,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.11760903582249893,
+        "target": 264944,
+        "target_mod_286": 108,
+        "target_residue": 4684,
+        "total_interaction_component": -0.3325958241344547
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.5344067484255374,
+        "bandlimited_plus_residual_error": 6.938893903907228e-17,
+        "bandlimited_top20_component": -0.200915066113095,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.200915066113095,
+        "pair_count": 942,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.10737036719120098,
+        "target": 304718,
+        "target_mod_286": 128,
+        "target_residue": 4418,
+        "total_interaction_component": -0.3082854333042959
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.5259479471071071,
+        "bandlimited_plus_residual_error": 1.1102230246251565e-16,
+        "bandlimited_top20_component": -0.37414715599681636,
+        "block_index_after_discovery": 1,
+        "main_drag": 0.37414715599681636,
+        "pair_count": 374,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.1967819286124881,
+        "target": 100652,
+        "target_mod_286": 266,
+        "target_residue": 552,
+        "total_interaction_component": -0.5709290846093046
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.4886102623844348,
+        "bandlimited_plus_residual_error": 1.6653345369377348e-16,
+        "bandlimited_top20_component": -0.24366742694535234,
+        "block_index_after_discovery": 1,
+        "main_drag": 0.24366742694535234,
+        "pair_count": 318,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.1190584054143087,
+        "target": 95276,
+        "target_mod_286": 38,
+        "target_residue": 5186,
+        "total_interaction_component": -0.3627258323596609
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.4774168451536398,
+        "bandlimited_plus_residual_error": 1.3877787807814457e-17,
+        "bandlimited_top20_component": -0.21115709281266523,
+        "block_index_after_discovery": 6,
+        "main_drag": 0.21115709281266523,
+        "pair_count": 1572,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.10080995308243694,
+        "target": 560468,
+        "target_mod_286": 194,
+        "target_residue": 9918,
+        "total_interaction_component": -0.31196704589510216
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.4677493228986065,
+        "bandlimited_plus_residual_error": 1.3877787807814457e-17,
+        "bandlimited_top20_component": -0.2107057476152171,
+        "block_index_after_discovery": 7,
+        "main_drag": 0.2107057476152171,
+        "pair_count": 1670,
+        "positive_residual_pushback": 0.0,
+        "pushback_to_main_drag_ratio": 0.0,
+        "residual_five_group_component": -0.09855747077786246,
+        "target": 605356,
+        "target_mod_286": 180,
+        "target_residue": 4756,
+        "total_interaction_component": -0.3092632183930796
+      }
+    ],
+    "largest_positive_pushback_rows": [
+      {
+        "absolute_residual_to_main_drag_ratio": 0.12566677703853088,
+        "bandlimited_plus_residual_error": 3.469446951953614e-17,
+        "bandlimited_top20_component": -0.3420907424756105,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3420907424756105,
+        "pair_count": 1111,
+        "positive_residual_pushback": 0.04298944106162803,
+        "pushback_to_main_drag_ratio": 0.12566677703853088,
+        "residual_five_group_component": 0.04298944106162803,
+        "target": 365578,
+        "target_mod_286": 70,
+        "target_residue": 5218,
+        "total_interaction_component": -0.2991013014139825
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.1116668456136931,
+        "bandlimited_plus_residual_error": 1.1102230246251565e-16,
+        "bandlimited_top20_component": -0.39419441009259065,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.39419441009259065,
+        "pair_count": 810,
+        "positive_residual_pushback": 0.044018446333590144,
+        "pushback_to_main_drag_ratio": 0.1116668456136931,
+        "residual_five_group_component": 0.044018446333590144,
+        "target": 251728,
+        "target_mod_286": 48,
+        "target_residue": 1478,
+        "total_interaction_component": -0.3501759637590006
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.11008215819148308,
+        "bandlimited_plus_residual_error": 1.5265566588595902e-16,
+        "bandlimited_top20_component": -0.5259091909380743,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.5259091909380743,
+        "pair_count": 576,
+        "positive_residual_pushback": 0.057893218751199974,
+        "pushback_to_main_drag_ratio": 0.11008215819148308,
+        "residual_five_group_component": 0.057893218751199974,
+        "target": 171058,
+        "target_mod_286": 30,
+        "target_residue": 888,
+        "total_interaction_component": -0.4680159721868742
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.10237960717400121,
+        "bandlimited_plus_residual_error": 4.163336342344337e-17,
+        "bandlimited_top20_component": -0.3838437014257473,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.3838437014257473,
+        "pair_count": 637,
+        "positive_residual_pushback": 0.03929776736818262,
+        "pushback_to_main_drag_ratio": 0.10237960717400121,
+        "residual_five_group_component": 0.03929776736818262,
+        "target": 186302,
+        "target_mod_286": 116,
+        "target_residue": 6122,
+        "total_interaction_component": -0.34454593405756473
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.0951032023654944,
+        "bandlimited_plus_residual_error": 9.020562075079397e-17,
+        "bandlimited_top20_component": -0.37979558520288914,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.37979558520288914,
+        "pair_count": 1284,
+        "positive_residual_pushback": 0.036119776397071736,
+        "pushback_to_main_drag_ratio": 0.0951032023654944,
+        "residual_five_group_component": 0.036119776397071736,
+        "target": 377828,
+        "target_mod_286": 22,
+        "target_residue": 7458,
+        "total_interaction_component": -0.3436758088058175
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.09457275863318697,
+        "bandlimited_plus_residual_error": 6.245004513516506e-17,
+        "bandlimited_top20_component": -0.3400323268804477,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3400323268804477,
+        "pair_count": 1163,
+        "positive_residual_pushback": 0.032157795177545516,
+        "pushback_to_main_drag_ratio": 0.09457275863318697,
+        "residual_five_group_component": 0.032157795177545516,
+        "target": 395102,
+        "target_mod_286": 136,
+        "target_residue": 4712,
+        "total_interaction_component": -0.30787453170290213
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.0771038852954604,
+        "bandlimited_plus_residual_error": 1.457167719820518e-16,
+        "bandlimited_top20_component": -0.5206887136330711,
+        "block_index_after_discovery": 2,
+        "main_drag": 0.5206887136330711,
+        "pair_count": 667,
+        "positive_residual_pushback": 0.04014712285060514,
+        "pushback_to_main_drag_ratio": 0.0771038852954604,
+        "residual_five_group_component": 0.04014712285060514,
+        "target": 201298,
+        "target_mod_286": 240,
+        "target_residue": 1098,
+        "total_interaction_component": -0.48054159078246583
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.06939941190702759,
+        "bandlimited_plus_residual_error": 7.979727989493313e-17,
+        "bandlimited_top20_component": -0.3644049378184233,
+        "block_index_after_discovery": 3,
+        "main_drag": 0.3644049378184233,
+        "pair_count": 876,
+        "positive_residual_pushback": 0.025289488380615534,
+        "pushback_to_main_drag_ratio": 0.06939941190702759,
+        "residual_five_group_component": 0.025289488380615534,
+        "target": 262156,
+        "target_mod_286": 180,
+        "target_residue": 1896,
+        "total_interaction_component": -0.33911544943780786
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.06826039981131762,
+        "bandlimited_plus_residual_error": 2.7755575615628914e-17,
+        "bandlimited_top20_component": -0.6546703407835134,
+        "block_index_after_discovery": 1,
+        "main_drag": 0.6546703407835134,
+        "pair_count": 386,
+        "positive_residual_pushback": 0.044688059206494185,
+        "pushback_to_main_drag_ratio": 0.06826039981131762,
+        "residual_five_group_component": 0.044688059206494185,
+        "target": 111494,
+        "target_mod_286": 240,
+        "target_residue": 1384,
+        "total_interaction_component": -0.6099822815770192
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.04536147137847405,
+        "bandlimited_plus_residual_error": 5.898059818321144e-17,
+        "bandlimited_top20_component": -0.31839910730612053,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.31839910730612053,
+        "pair_count": 1128,
+        "positive_residual_pushback": 0.014443051992998276,
+        "pushback_to_main_drag_ratio": 0.04536147137847405,
+        "residual_five_group_component": 0.014443051992998276,
+        "target": 391252,
+        "target_mod_286": 4,
+        "target_residue": 862,
+        "total_interaction_component": -0.3039560553131222
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.04534006236834045,
+        "bandlimited_plus_residual_error": 6.245004513516506e-17,
+        "bandlimited_top20_component": -0.3650340198470721,
+        "block_index_after_discovery": 6,
+        "main_drag": 0.3650340198470721,
+        "pair_count": 1598,
+        "positive_residual_pushback": 0.016550665226432275,
+        "pushback_to_main_drag_ratio": 0.04534006236834045,
+        "residual_five_group_component": 0.016550665226432275,
+        "target": 553372,
+        "target_mod_286": 248,
+        "target_residue": 2822,
+        "total_interaction_component": -0.3484833546206398
+      },
+      {
+        "absolute_residual_to_main_drag_ratio": 0.0343873405193911,
+        "bandlimited_plus_residual_error": 1.0408340855860843e-17,
+        "bandlimited_top20_component": -0.3166761734146672,
+        "block_index_after_discovery": 4,
+        "main_drag": 0.3166761734146672,
+        "pair_count": 1084,
+        "positive_residual_pushback": 0.010889651409587909,
+        "pushback_to_main_drag_ratio": 0.0343873405193911,
+        "residual_five_group_component": 0.010889651409587909,
+        "target": 349532,
+        "target_mod_286": 40,
+        "target_residue": 9192,
+        "total_interaction_component": -0.3057865220050793
+      }
+    ],
+    "main_drag_summary": {
+      "count": 196,
+      "maximum": 0.6546703407835134,
+      "mean": 0.3143268442276414,
+      "minimum": 0.14726649946909642
+    },
+    "negative_residual_row_count": 172,
+    "positive_residual_row_count": 24,
+    "pushback_lt_013_count": 196,
+    "pushback_lt_one_count": 196,
+    "pushback_lt_one_eighth_count": 195,
+    "pushback_to_main_drag_ratio_summary": {
+      "count": 196,
+      "maximum": 0.12566677703853088,
+      "mean": 0.005886209393918703,
+      "minimum": 0.0
+    },
+    "residual_five_group_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 172,
+      "positive_count": 24,
+      "summary": {
+        "count": 196,
+        "maximum": 0.057893218751199974,
+        "mean": -0.04674454521623116,
+        "minimum": -0.1967819286124881
+      }
+    },
+    "row_count": 196,
+    "total_interaction_component": {
+      "count": 196,
+      "near_zero_count": 0,
+      "negative_count": 196,
+      "positive_count": 0,
+      "summary": {
+        "count": 196,
+        "maximum": -0.2760993456913682,
+        "mean": -0.3610713894438725,
+        "minimum": -0.70682602570542
+      }
+    }
+  },
+  "schema_version": 1,
+  "signed_projection_theorem_proved": false,
+  "source_commit": "613a74a0ffa4b1a52c3c4ac4a17e3b80742c75a0",
+  "sources": {
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "lower_face_dual_edge_audit": "evidence\\q286-lower-face-dual-edge-audit.json"
+  },
+  "status_boundary": "finite q286-WBSS top-20 Fourier residual diagnostic only; no band-limited character theorem, signed projection theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "symmetric_residual_bound_marked_near_sharp": true
+}

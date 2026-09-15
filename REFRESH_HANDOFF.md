@@ -6,6 +6,40 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a top-20 Fourier residual audit.
+
+```text
+tools/build_q286_wbss_mod286_bandlimited_residual_audit.py
+notes/q286-wbss-mod286-bandlimited-residual-audit.md
+evidence/q286-wbss-mod286-bandlimited-residual-audit.json
+```
+
+Result:
+
+```text
+post-discovery rows checked:                    196
+top-20 coefficient-energy share:                0.870213154434473
+residual five-group energy share:               0.129786845565527
+top-20 bandlimited negative count:              196 / 196
+total interaction negative count:               196 / 196
+residual five-group negative count:             172 / 196
+residual five-group positive count:              24 / 196
+residual component range:                       -0.1967819286124881..0.057893218751199974
+positive pushback / main-drag range:            0.0..0.12566677703853088
+absolute residual / main-drag range:            0.0006303342108321785..0.9879886701050115
+rows passing pushback < 0.13:                   196 / 196
+rows passing pushback <= 1/8:                   195 / 196
+```
+
+Decision: the top-20 bandlimited route survives, but the theorem should be
+one-sided. A symmetric residual bound is nearly sharp because much of the
+large residual is helpful negative drag. The useful target is top-20 negative
+drag plus `positive_residual_pushback <= theta * top20_drag` for a fixed
+`theta < 1`; the finite fixture supports `theta=0.13` but already rejects the
+cleaner `1/8` cap. Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a mod-286 Fourier interaction audit.
 
 ```text
