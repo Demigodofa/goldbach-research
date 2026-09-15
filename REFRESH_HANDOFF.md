@@ -6,6 +6,47 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 component-pair route now has a broadened source-summary coupled-slack
+audit.  It replays the frozen selected-late constants on every unique active
+row already present in the principal-rescue source summaries.
+
+```text
+tools/build_q286_active_lane_source_summary_coupled_slack_audit.py
+notes/q286-active-lane-source-summary-coupled-slack-audit.md
+evidence/q286-active-lane-source-summary-coupled-slack-audit.json
+```
+
+Result:
+
+```text
+unique active source-summary rows:       226
+positive coupled slack rows:              83
+nonpositive coupled slack rows:          143
+driver floor condition met:                9
+driver floor condition failed:           217
+channel Linf condition met:              171
+channel Linf condition failed:            55
+negative-driver rows with payment ratio: 217
+payment ratio above 1:                    74
+payment ratio at or below 1:             143
+nonnegative-driver positive rows:          9
+ratio/sign mismatches on negative-driver rows: 0
+```
+
+Decision:
+`HOLD_source_summary_active_population_falsifies_finite_coupled_slack_pass`.
+The payment-ratio coordinate remains useful: on negative-driver rows, the
+threshold `channel_payment / driver_deficit > 1` has zero sign mismatches
+against strict closure in this fixture.  But the broadened source-summary
+population has `143/226` nonpositive coupled-slack rows, so the finite pass
+claim is falsified.  Keep the coordinate as a theorem-payment diagnostic, not
+as evidence that the frozen endpoint already holds.  This proves no
+component-pair theorem, fixed-conductor channel theorem, pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 component-pair route now has a coupled driver-channel slack
 diagnosis plus an upgraded linked phase-space viewer with strict-margin and
 payment-ratio z-axis modes.

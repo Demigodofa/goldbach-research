@@ -6,6 +6,50 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 component-pair route now has a broadened source-summary
+coupled-slack audit:
+`tools/build_q286_active_lane_source_summary_coupled_slack_audit.py`
+generated
+`evidence/q286-active-lane-source-summary-coupled-slack-audit.json`, with
+explanation in
+`notes/q286-active-lane-source-summary-coupled-slack-audit.md`.
+
+Question: does the payment-ratio hinge found in the 11-row visual stress
+fixture persist as real structure on the broader source-summary active rows,
+or was it only a selected-row restatement?
+
+Answer: it is a real diagnostic coordinate on rows with negative driver
+margin, but the broadened finite fixture mostly fails the frozen endpoint.
+
+```text
+unique active source-summary rows:       226
+positive coupled slack rows:              83
+nonpositive coupled slack rows:          143
+driver floor condition met:                9
+driver floor condition failed:           217
+channel Linf condition met:              171
+channel Linf condition failed:            55
+negative-driver rows with payment ratio: 217
+payment ratio above 1:                    74
+payment ratio at or below 1:             143
+nonnegative-driver positive rows:          9
+ratio/sign mismatches on negative-driver rows: 0
+```
+
+Decision: `HOLD_source_summary_active_population_falsifies_finite_coupled_slack_pass`.
+The payment-ratio threshold `1` exactly explains the strict-margin sign on the
+negative-driver subpopulation in this finite fixture, but only `83/226`
+source-summary active rows pass.  The 11-row viewer hinge was useful
+geometry, not a finite theorem certificate.  The next theorem target remains
+a coupled pointwise tradeoff or direct unnormalized signed estimate, now with
+an explicit finite obstruction population: `143` nonpositive source-summary
+active rows under the frozen selected-late constants.  No component-pair
+theorem, fixed-conductor channel theorem, pointwise adverse-drag theorem,
+q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 component-pair route now has a coupled driver-channel slack
 diagnosis and an upgraded phase-space viewer with a payment-ratio mode:
 `tools/build_q286_active_lane_strict_closure_coupled_slack_diagnosis.py`
