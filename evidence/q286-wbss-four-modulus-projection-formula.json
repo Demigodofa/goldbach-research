@@ -1,0 +1,2346 @@
+{
+  "candidate": {
+    "falsifier": "A reconstruction residual above tolerance, or any even target residue with nonpositive local-uniform main term, would demote this as a global main-term bridge.",
+    "mechanism": "Replace the 10010-unit signed coefficient by four projected residue tables.  The proof obligation becomes control of actual binary-prime projection probabilities at those moduli, not control of every unit residue separately.",
+    "name": "four-modulus projected binary-prime witness",
+    "novelty_label": "new-to-this-task",
+    "prediction": "The formula reconstructs f(u) to numerical zero and every local-uniform main term over admissible residues is positive.",
+    "smallest_test": "Extract one LSQR decomposition, replay all 2880 unit values, and compute all 5005 even-residue local-uniform main terms."
+  },
+  "coefficient_fit": {
+    "l2_residual": 2.639108707502419e-13,
+    "lsqr_condition_estimate": 29.67473507005301,
+    "lsqr_iterations": 10,
+    "lsqr_stop_code": 1,
+    "max_abs_residual": 2.1316282072803006e-14,
+    "relative_l2_residual": 8.752538645134008e-16
+  },
+  "coefficient_table": {
+    "largest_abs_coefficients": [
+      {
+        "coefficient": 32.05493349137047,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 133
+      },
+      {
+        "coefficient": 32.0549334913704,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 153
+      },
+      {
+        "coefficient": -7.003647294453931,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 103
+      },
+      {
+        "coefficient": -7.003647294453898,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 51
+      },
+      {
+        "coefficient": -6.6589485631442455,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 23
+      },
+      {
+        "coefficient": -6.658948563144211,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 263
+      },
+      {
+        "coefficient": 6.219308823274628,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 81
+      },
+      {
+        "coefficient": 6.219308823274624,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 73
+      },
+      {
+        "coefficient": 5.895152627396133,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 69
+      },
+      {
+        "coefficient": 5.8951526273961115,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 1
+      },
+      {
+        "coefficient": -5.080348925029562,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 159
+      },
+      {
+        "coefficient": -5.080348925029402,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 127
+      },
+      {
+        "coefficient": -4.986106078859036,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 211
+      },
+      {
+        "coefficient": -4.986106078859018,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 75
+      },
+      {
+        "coefficient": -4.229084503916235,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 145
+      },
+      {
+        "coefficient": -4.229084503916043,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 141
+      },
+      {
+        "coefficient": 4.215549470080072,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 117
+      },
+      {
+        "coefficient": 4.215549470080044,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 37
+      },
+      {
+        "coefficient": -3.7389253981464337,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 243
+      },
+      {
+        "coefficient": -3.738925398146059,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 43
+      },
+      {
+        "coefficient": -3.689082671567062,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 179
+      },
+      {
+        "coefficient": -3.689082671566997,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 107
+      },
+      {
+        "coefficient": -3.6169326646035884,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 257
+      },
+      {
+        "coefficient": -3.6169326646035844,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 29
+      }
+    ],
+    "modulus_summaries": {
+      "130": {
+        "coefficient_count": 48,
+        "l1_norm": 7.137019529057295,
+        "l2_norm": 1.2693990775053754,
+        "largest_abs_coefficients": [
+          {
+            "coefficient": 0.4658138459485899,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 107
+          },
+          {
+            "coefficient": 0.465813845948581,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 23
+          },
+          {
+            "coefficient": 0.34549744618687195,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 81
+          },
+          {
+            "coefficient": 0.345497446186866,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 49
+          },
+          {
+            "coefficient": 0.2591603600538346,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 1
+          },
+          {
+            "coefficient": 0.2591603600537778,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 129
+          },
+          {
+            "coefficient": -0.24825384725996225,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 51
+          },
+          {
+            "coefficient": -0.24825384725990138,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 79
+          },
+          {
+            "coefficient": -0.24603360607980418,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 63
+          },
+          {
+            "coefficient": -0.24603360607978597,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 67
+          },
+          {
+            "coefficient": 0.2124760393858377,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 3
+          },
+          {
+            "coefficient": 0.21247603938582557,
+            "kind": "residue_projection",
+            "modulus": 130,
+            "residue": 127
+          }
+        ],
+        "linf_norm": 0.4658138459485899,
+        "near_zero_count": 0,
+        "negative_count": 24,
+        "positive_count": 24,
+        "sum": 0.9195402298851287
+      },
+      "154": {
+        "coefficient_count": 60,
+        "l1_norm": 84.29326326706732,
+        "l2_norm": 17.086502779450612,
+        "largest_abs_coefficients": [
+          {
+            "coefficient": -7.003647294453931,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 103
+          },
+          {
+            "coefficient": -7.003647294453898,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 51
+          },
+          {
+            "coefficient": 6.219308823274628,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 81
+          },
+          {
+            "coefficient": 6.219308823274624,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 73
+          },
+          {
+            "coefficient": 4.215549470080072,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 117
+          },
+          {
+            "coefficient": 4.215549470080044,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 37
+          },
+          {
+            "coefficient": -2.960968652975983,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 89
+          },
+          {
+            "coefficient": -2.960968652975966,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 65
+          },
+          {
+            "coefficient": 2.837030365891145,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 75
+          },
+          {
+            "coefficient": 2.8370303658911236,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 79
+          },
+          {
+            "coefficient": -2.483150993790265,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 59
+          },
+          {
+            "coefficient": -2.483150993790208,
+            "kind": "residue_projection",
+            "modulus": 154,
+            "residue": 95
+          }
+        ],
+        "linf_norm": 7.003647294453931,
+        "near_zero_count": 0,
+        "negative_count": 34,
+        "positive_count": 26,
+        "sum": 0.9195402298851304
+      },
+      "286": {
+        "coefficient_count": 120,
+        "l1_norm": 248.78706848859338,
+        "l2_norm": 50.705950762762626,
+        "largest_abs_coefficients": [
+          {
+            "coefficient": 32.05493349137047,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 133
+          },
+          {
+            "coefficient": 32.0549334913704,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 153
+          },
+          {
+            "coefficient": -6.6589485631442455,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 23
+          },
+          {
+            "coefficient": -6.658948563144211,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 263
+          },
+          {
+            "coefficient": -5.080348925029562,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 159
+          },
+          {
+            "coefficient": -5.080348925029402,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 127
+          },
+          {
+            "coefficient": -4.986106078859036,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 211
+          },
+          {
+            "coefficient": -4.986106078859018,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 75
+          },
+          {
+            "coefficient": -4.229084503916235,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 145
+          },
+          {
+            "coefficient": -4.229084503916043,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 141
+          },
+          {
+            "coefficient": -3.7389253981464337,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 243
+          },
+          {
+            "coefficient": -3.738925398146059,
+            "kind": "residue_projection",
+            "modulus": 286,
+            "residue": 43
+          }
+        ],
+        "linf_norm": 32.05493349137047,
+        "near_zero_count": 0,
+        "negative_count": 42,
+        "positive_count": 78,
+        "sum": 0.9195402298851412
+      },
+      "70": {
+        "coefficient_count": 24,
+        "l1_norm": 32.74465079141701,
+        "l2_norm": 10.044426792130606,
+        "largest_abs_coefficients": [
+          {
+            "coefficient": 5.895152627396133,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 69
+          },
+          {
+            "coefficient": 5.8951526273961115,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 1
+          },
+          {
+            "coefficient": -2.467717801421449,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 29
+          },
+          {
+            "coefficient": -2.4677178014214416,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 41
+          },
+          {
+            "coefficient": -2.0613732410389085,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 9
+          },
+          {
+            "coefficient": -2.0613732410388925,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 61
+          },
+          {
+            "coefficient": -1.2948372461934357,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 27
+          },
+          {
+            "coefficient": -1.294837246193402,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 43
+          },
+          {
+            "coefficient": 0.9939233723163683,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 37
+          },
+          {
+            "coefficient": 0.9939233723163295,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 33
+          },
+          {
+            "coefficient": -0.992701233050944,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 57
+          },
+          {
+            "coefficient": -0.9927012330509346,
+            "kind": "residue_projection",
+            "modulus": 70,
+            "residue": 13
+          }
+        ],
+        "linf_norm": 5.895152627396133,
+        "near_zero_count": 0,
+        "negative_count": 14,
+        "positive_count": 10,
+        "sum": 0.9195402298851356
+      }
+    },
+    "rows": [
+      {
+        "coefficient": 0.9195402298850471,
+        "kind": "total_mass",
+        "modulus": null,
+        "residue": null
+      },
+      {
+        "coefficient": 5.8951526273961115,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 1
+      },
+      {
+        "coefficient": -0.35498672996341013,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 3
+      },
+      {
+        "coefficient": -2.0613732410389085,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 9
+      },
+      {
+        "coefficient": 0.0023488978364496317,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 11
+      },
+      {
+        "coefficient": -0.9927012330509346,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 13
+      },
+      {
+        "coefficient": 0.5565585795855698,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 17
+      },
+      {
+        "coefficient": -0.4991549890856502,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 19
+      },
+      {
+        "coefficient": 0.9680642781910425,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 23
+      },
+      {
+        "coefficient": -1.2948372461934357,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 27
+      },
+      {
+        "coefficient": -2.467717801421449,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 29
+      },
+      {
+        "coefficient": -0.285506399629189,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 31
+      },
+      {
+        "coefficient": 0.9939233723163295,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 33
+      },
+      {
+        "coefficient": 0.9939233723163683,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 37
+      },
+      {
+        "coefficient": -0.2855063996291847,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 39
+      },
+      {
+        "coefficient": -2.4677178014214416,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 41
+      },
+      {
+        "coefficient": -1.294837246193402,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 43
+      },
+      {
+        "coefficient": 0.9680642781910448,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 47
+      },
+      {
+        "coefficient": -0.4991549890856691,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 51
+      },
+      {
+        "coefficient": 0.5565585795855588,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 53
+      },
+      {
+        "coefficient": -0.992701233050944,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 57
+      },
+      {
+        "coefficient": 0.0023488978364659976,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 59
+      },
+      {
+        "coefficient": -2.0613732410388925,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 61
+      },
+      {
+        "coefficient": -0.3549867299634268,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 67
+      },
+      {
+        "coefficient": 5.895152627396133,
+        "kind": "residue_projection",
+        "modulus": 70,
+        "residue": 69
+      },
+      {
+        "coefficient": 0.2591603600538346,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 1
+      },
+      {
+        "coefficient": 0.2124760393858377,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 3
+      },
+      {
+        "coefficient": 0.027094651273539785,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 7
+      },
+      {
+        "coefficient": -0.010768465640751065,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 9
+      },
+      {
+        "coefficient": 0.14180279566044285,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 11
+      },
+      {
+        "coefficient": -0.09910492405392737,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 17
+      },
+      {
+        "coefficient": 0.17488794183913994,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 19
+      },
+      {
+        "coefficient": -0.10353608478068484,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 21
+      },
+      {
+        "coefficient": 0.465813845948581,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 23
+      },
+      {
+        "coefficient": 0.1265082503469143,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 27
+      },
+      {
+        "coefficient": 0.01534584404824149,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 29
+      },
+      {
+        "coefficient": 0.13946140314688033,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 31
+      },
+      {
+        "coefficient": -0.12653293987821634,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 33
+      },
+      {
+        "coefficient": -0.037750044999057174,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 37
+      },
+      {
+        "coefficient": -0.15732785057252677,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 41
+      },
+      {
+        "coefficient": -0.1220013438890454,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 43
+      },
+      {
+        "coefficient": -0.1593743989117273,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 47
+      },
+      {
+        "coefficient": 0.345497446186866,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 49
+      },
+      {
+        "coefficient": -0.24825384725996225,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 51
+      },
+      {
+        "coefficient": -0.17262239588607456,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 53
+      },
+      {
+        "coefficient": 0.007547887628188711,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 57
+      },
+      {
+        "coefficient": -0.07106392284128972,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 59
+      },
+      {
+        "coefficient": 0.09854347421723147,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 61
+      },
+      {
+        "coefficient": -0.24603360607980418,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 63
+      },
+      {
+        "coefficient": -0.24603360607978597,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 67
+      },
+      {
+        "coefficient": 0.09854347421719667,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 69
+      },
+      {
+        "coefficient": -0.0710639228413183,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 71
+      },
+      {
+        "coefficient": 0.007547887628167687,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 73
+      },
+      {
+        "coefficient": -0.1726223958861312,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 77
+      },
+      {
+        "coefficient": -0.24825384725990138,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 79
+      },
+      {
+        "coefficient": 0.34549744618687195,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 81
+      },
+      {
+        "coefficient": -0.15937439891170033,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 83
+      },
+      {
+        "coefficient": -0.122001343889012,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 87
+      },
+      {
+        "coefficient": -0.15732785057254395,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 89
+      },
+      {
+        "coefficient": -0.0377500449990362,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 93
+      },
+      {
+        "coefficient": -0.12653293987824585,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 97
+      },
+      {
+        "coefficient": 0.13946140314685582,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 99
+      },
+      {
+        "coefficient": 0.01534584404822852,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 101
+      },
+      {
+        "coefficient": 0.1265082503468585,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 103
+      },
+      {
+        "coefficient": 0.4658138459485899,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 107
+      },
+      {
+        "coefficient": -0.10353608478065904,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 109
+      },
+      {
+        "coefficient": 0.17488794183916645,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 111
+      },
+      {
+        "coefficient": -0.09910492405389412,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 113
+      },
+      {
+        "coefficient": 0.1418027956604627,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 119
+      },
+      {
+        "coefficient": -0.010768465640788021,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 121
+      },
+      {
+        "coefficient": 0.027094651273512363,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 123
+      },
+      {
+        "coefficient": 0.21247603938582557,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 127
+      },
+      {
+        "coefficient": 0.2591603600537778,
+        "kind": "residue_projection",
+        "modulus": 130,
+        "residue": 129
+      },
+      {
+        "coefficient": 1.0136865053174169,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 1
+      },
+      {
+        "coefficient": -0.2899616756186791,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 3
+      },
+      {
+        "coefficient": 0.5299166742459068,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 5
+      },
+      {
+        "coefficient": -0.25846955370586217,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 9
+      },
+      {
+        "coefficient": -0.5617938579678765,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 13
+      },
+      {
+        "coefficient": -0.09569422754909167,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 15
+      },
+      {
+        "coefficient": -0.47243073307746336,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 17
+      },
+      {
+        "coefficient": 1.6852211981591176,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 19
+      },
+      {
+        "coefficient": 2.118674753860403,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 23
+      },
+      {
+        "coefficient": -0.20168601240815626,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 25
+      },
+      {
+        "coefficient": 0.12692370818618431,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 27
+      },
+      {
+        "coefficient": -0.7198851579010247,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 29
+      },
+      {
+        "coefficient": -1.037057459482806,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 31
+      },
+      {
+        "coefficient": 4.215549470080044,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 37
+      },
+      {
+        "coefficient": -0.42994112999011397,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 39
+      },
+      {
+        "coefficient": 0.28181422262521577,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 41
+      },
+      {
+        "coefficient": 0.6024547035190355,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 43
+      },
+      {
+        "coefficient": 0.10487233359022384,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 45
+      },
+      {
+        "coefficient": -0.6590113087586128,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 47
+      },
+      {
+        "coefficient": -7.003647294453898,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 51
+      },
+      {
+        "coefficient": -1.1281114244287431,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 53
+      },
+      {
+        "coefficient": 0.3228045441802544,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 57
+      },
+      {
+        "coefficient": -2.483150993790265,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 59
+      },
+      {
+        "coefficient": -1.1028362319594132,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 61
+      },
+      {
+        "coefficient": -2.960968652975966,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 65
+      },
+      {
+        "coefficient": -0.36342738023927795,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 67
+      },
+      {
+        "coefficient": -1.075357664988236,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 69
+      },
+      {
+        "coefficient": 1.2449435713084462,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 71
+      },
+      {
+        "coefficient": 6.219308823274624,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 73
+      },
+      {
+        "coefficient": 2.837030365891145,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 75
+      },
+      {
+        "coefficient": 2.8370303658911236,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 79
+      },
+      {
+        "coefficient": 6.219308823274628,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 81
+      },
+      {
+        "coefficient": 1.244943571308517,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 83
+      },
+      {
+        "coefficient": -1.0753576649882162,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 85
+      },
+      {
+        "coefficient": -0.3634273802391565,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 87
+      },
+      {
+        "coefficient": -2.960968652975983,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 89
+      },
+      {
+        "coefficient": -1.1028362319593714,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 93
+      },
+      {
+        "coefficient": -2.483150993790208,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 95
+      },
+      {
+        "coefficient": 0.3228045441802502,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 97
+      },
+      {
+        "coefficient": -1.1281114244286898,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 101
+      },
+      {
+        "coefficient": -7.003647294453931,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 103
+      },
+      {
+        "coefficient": -0.6590113087586875,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 107
+      },
+      {
+        "coefficient": 0.10487233359026829,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 109
+      },
+      {
+        "coefficient": 0.6024547035189493,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 111
+      },
+      {
+        "coefficient": 0.28181422262530864,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 113
+      },
+      {
+        "coefficient": -0.42994112999021294,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 115
+      },
+      {
+        "coefficient": 4.215549470080072,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 117
+      },
+      {
+        "coefficient": -1.0370574594827804,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 123
+      },
+      {
+        "coefficient": -0.7198851579010221,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 125
+      },
+      {
+        "coefficient": 0.12692370818613238,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 127
+      },
+      {
+        "coefficient": -0.20168601240814066,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 129
+      },
+      {
+        "coefficient": 2.1186747538604633,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 131
+      },
+      {
+        "coefficient": 1.6852211981591139,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 135
+      },
+      {
+        "coefficient": -0.47243073307746286,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 137
+      },
+      {
+        "coefficient": -0.09569422754912672,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 139
+      },
+      {
+        "coefficient": -0.5617938579679355,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 141
+      },
+      {
+        "coefficient": -0.25846955370592434,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 145
+      },
+      {
+        "coefficient": 0.529916674245931,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 149
+      },
+      {
+        "coefficient": -0.2899616756187573,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 151
+      },
+      {
+        "coefficient": 1.0136865053174469,
+        "kind": "residue_projection",
+        "modulus": 154,
+        "residue": 153
+      },
+      {
+        "coefficient": -3.0352417707956385,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 1
+      },
+      {
+        "coefficient": -3.0822943063995374,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 3
+      },
+      {
+        "coefficient": 0.8008288980597855,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 5
+      },
+      {
+        "coefficient": 0.40943394210560374,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 7
+      },
+      {
+        "coefficient": 0.9254573089768487,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 9
+      },
+      {
+        "coefficient": 1.183490832064785,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 15
+      },
+      {
+        "coefficient": 0.669327506871968,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 17
+      },
+      {
+        "coefficient": 0.421438783249187,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 19
+      },
+      {
+        "coefficient": -2.390275555945225,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 21
+      },
+      {
+        "coefficient": -6.6589485631442455,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 23
+      },
+      {
+        "coefficient": 0.42166349117905827,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 25
+      },
+      {
+        "coefficient": 0.36115804334227813,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 27
+      },
+      {
+        "coefficient": -3.6169326646035844,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 29
+      },
+      {
+        "coefficient": 1.2014569659999612,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 31
+      },
+      {
+        "coefficient": 0.9963929867119965,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 35
+      },
+      {
+        "coefficient": 1.198350178696418,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 37
+      },
+      {
+        "coefficient": 1.169633939333178,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 41
+      },
+      {
+        "coefficient": -3.738925398146059,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 43
+      },
+      {
+        "coefficient": -3.061991133276132,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 45
+      },
+      {
+        "coefficient": 0.8923704632606191,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 47
+      },
+      {
+        "coefficient": -2.6126934510237265,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 49
+      },
+      {
+        "coefficient": 0.5295824106457888,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 51
+      },
+      {
+        "coefficient": 0.869994648959933,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 53
+      },
+      {
+        "coefficient": 1.0186511855764535,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 57
+      },
+      {
+        "coefficient": 0.48087525180502805,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 59
+      },
+      {
+        "coefficient": 0.4065486686723534,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 61
+      },
+      {
+        "coefficient": 1.1695403604267531,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 63
+      },
+      {
+        "coefficient": -2.232040910214554,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 67
+      },
+      {
+        "coefficient": 0.49768008960933413,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 69
+      },
+      {
+        "coefficient": 0.4807087091245144,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 71
+      },
+      {
+        "coefficient": 0.9800963526933664,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 73
+      },
+      {
+        "coefficient": -4.986106078859018,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 75
+      },
+      {
+        "coefficient": 0.44556274002310947,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 79
+      },
+      {
+        "coefficient": -2.2890822506474477,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 81
+      },
+      {
+        "coefficient": 1.0235065873390023,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 83
+      },
+      {
+        "coefficient": 0.4131367323730446,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 85
+      },
+      {
+        "coefficient": -1.6298004271731372,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 87
+      },
+      {
+        "coefficient": -2.009049246051059,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 89
+      },
+      {
+        "coefficient": 1.2174165287155694,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 93
+      },
+      {
+        "coefficient": 0.46142511212590215,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 95
+      },
+      {
+        "coefficient": 0.3635598304930169,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 97
+      },
+      {
+        "coefficient": 0.9996885954731769,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 101
+      },
+      {
+        "coefficient": 0.26253339527418956,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 103
+      },
+      {
+        "coefficient": 0.6053127679173409,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 105
+      },
+      {
+        "coefficient": -3.689082671566997,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 107
+      },
+      {
+        "coefficient": -3.4731767204783526,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 109
+      },
+      {
+        "coefficient": -1.8639817302982662,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 111
+      },
+      {
+        "coefficient": 1.3483371706891445,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 113
+      },
+      {
+        "coefficient": 1.232455921374408,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 115
+      },
+      {
+        "coefficient": 0.9999781935797123,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 119
+      },
+      {
+        "coefficient": 1.568850741467305,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 123
+      },
+      {
+        "coefficient": 0.6024823372054854,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 125
+      },
+      {
+        "coefficient": -5.080348925029402,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 127
+      },
+      {
+        "coefficient": 0.950436413484532,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 129
+      },
+      {
+        "coefficient": -1.4462097727754286,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 131
+      },
+      {
+        "coefficient": 32.05493349137047,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 133
+      },
+      {
+        "coefficient": -0.7718417066279706,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 135
+      },
+      {
+        "coefficient": 0.7923546033497284,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 137
+      },
+      {
+        "coefficient": -0.06977427770466493,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 139
+      },
+      {
+        "coefficient": -4.229084503916043,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 141
+      },
+      {
+        "coefficient": -4.229084503916235,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 145
+      },
+      {
+        "coefficient": -0.06977427770473664,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 147
+      },
+      {
+        "coefficient": 0.7923546033498443,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 149
+      },
+      {
+        "coefficient": -0.7718417066277254,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 151
+      },
+      {
+        "coefficient": 32.0549334913704,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 153
+      },
+      {
+        "coefficient": -1.446209772775717,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 155
+      },
+      {
+        "coefficient": 0.9504364134846435,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 157
+      },
+      {
+        "coefficient": -5.080348925029562,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 159
+      },
+      {
+        "coefficient": 0.6024823372054116,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 161
+      },
+      {
+        "coefficient": 1.5688507414674286,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 163
+      },
+      {
+        "coefficient": 0.9999781935797558,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 167
+      },
+      {
+        "coefficient": 1.2324559213744823,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 171
+      },
+      {
+        "coefficient": 1.3483371706890388,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 173
+      },
+      {
+        "coefficient": -1.8639817302984634,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 175
+      },
+      {
+        "coefficient": -3.4731767204783988,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 177
+      },
+      {
+        "coefficient": -3.689082671567062,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 179
+      },
+      {
+        "coefficient": 0.6053127679172381,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 181
+      },
+      {
+        "coefficient": 0.262533395274232,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 183
+      },
+      {
+        "coefficient": 0.9996885954731592,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 185
+      },
+      {
+        "coefficient": 0.3635598304929629,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 189
+      },
+      {
+        "coefficient": 0.4614251121256757,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 191
+      },
+      {
+        "coefficient": 1.2174165287156207,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 193
+      },
+      {
+        "coefficient": -2.00904924605109,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 197
+      },
+      {
+        "coefficient": -1.6298004271731603,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 199
+      },
+      {
+        "coefficient": 0.4131367323729729,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 201
+      },
+      {
+        "coefficient": 1.0235065873390916,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 203
+      },
+      {
+        "coefficient": -2.289082250647648,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 205
+      },
+      {
+        "coefficient": 0.4455627400232299,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 207
+      },
+      {
+        "coefficient": -4.986106078859036,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 211
+      },
+      {
+        "coefficient": 0.9800963526933001,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 213
+      },
+      {
+        "coefficient": 0.48070870912441765,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 215
+      },
+      {
+        "coefficient": 0.4976800896098277,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 217
+      },
+      {
+        "coefficient": -2.2320409102145304,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 219
+      },
+      {
+        "coefficient": 1.169540360426983,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 223
+      },
+      {
+        "coefficient": 0.4065486686721966,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 225
+      },
+      {
+        "coefficient": 0.48087525180507507,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 227
+      },
+      {
+        "coefficient": 1.0186511855761018,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 229
+      },
+      {
+        "coefficient": 0.8699946489595386,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 233
+      },
+      {
+        "coefficient": 0.5295824106454848,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 235
+      },
+      {
+        "coefficient": -2.612693451023716,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 237
+      },
+      {
+        "coefficient": 0.8923704632602526,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 239
+      },
+      {
+        "coefficient": -3.0619911332762575,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 241
+      },
+      {
+        "coefficient": -3.7389253981464337,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 243
+      },
+      {
+        "coefficient": 1.1696339393330424,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 245
+      },
+      {
+        "coefficient": 1.198350178696286,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 249
+      },
+      {
+        "coefficient": 0.9963929867117173,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 251
+      },
+      {
+        "coefficient": 1.2014569659998424,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 255
+      },
+      {
+        "coefficient": -3.6169326646035884,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 257
+      },
+      {
+        "coefficient": 0.3611580433422253,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 259
+      },
+      {
+        "coefficient": 0.42166349117881863,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 261
+      },
+      {
+        "coefficient": -6.658948563144211,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 263
+      },
+      {
+        "coefficient": -2.390275555945134,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 265
+      },
+      {
+        "coefficient": 0.4214387832495101,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 267
+      },
+      {
+        "coefficient": 0.6693275068719658,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 269
+      },
+      {
+        "coefficient": 1.1834908320646738,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 271
+      },
+      {
+        "coefficient": 0.9254573089772351,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 277
+      },
+      {
+        "coefficient": 0.40943394210576645,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 279
+      },
+      {
+        "coefficient": 0.8008288980594552,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 281
+      },
+      {
+        "coefficient": -3.082294306399374,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 283
+      },
+      {
+        "coefficient": -3.0352417707955417,
+        "kind": "residue_projection",
+        "modulus": 286,
+        "residue": 285
+      }
+    ],
+    "total_mass_coefficient": 0.9195402298850471,
+    "total_nonconstant_l1_norm": 372.962002076135,
+    "total_nonconstant_l2_norm": 54.45680768818829,
+    "total_nonconstant_linf_norm": 32.05493349137047
+  },
+  "decision": "This receipt turns the four-modulus coefficient compression into a concrete projected binary-prime formula and a sufficient error budget.  The next proof step is to source or prove estimates for Pi_{N,d}(s)-U_{a,d}(s) strong enough for this budget, or to replace the pessimistic absolute-error budget with a signed correlation estimate.",
+  "formula": {
+    "identity": "f(u)=alpha_0+sum_{d in {70,130,154,286}} sum_s alpha_{d,s} 1_{u == s mod d}",
+    "moduli": [
+      70,
+      130,
+      154,
+      286
+    ],
+    "normalized_unit_coefficient": "f(u)=full_q286_wbss_unit_coefficient(u)/principal_mean",
+    "normalized_witness": "A(N)=alpha_0+sum_d sum_s alpha_{d,s} Pi_{N,d}(s), where Pi_{N,d}(s) is the strict-central binary-prime residue mass of the left prime modulo d.",
+    "period": 10010,
+    "positivity_condition": "A(N)>0"
+  },
+  "four_modulus_projection_theorem_proved": false,
+  "goldbach_proved": false,
+  "local_main_term_summary": {
+    "formula_abs_error_summary": {
+      "count": 5005,
+      "maximum": 4.6629367034256575e-15,
+      "mean": 3.539204671367999e-15,
+      "minimum": 2.3314683517128287e-15
+    },
+    "largest_formula_error_rows": [
+      {
+        "admissible_unit_count": 1650,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.1708358583458471,
+        "local_uniform_main_term": 1.1708358583458518,
+        "target_mod_286": 66,
+        "target_residue": 352
+      },
+      {
+        "admissible_unit_count": 1800,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.1605595971391234,
+        "local_uniform_main_term": 1.160559597139128,
+        "target_mod_286": 0,
+        "target_residue": 572
+      },
+      {
+        "admissible_unit_count": 1650,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.166263586492716,
+        "local_uniform_main_term": 1.1662635864927207,
+        "target_mod_286": 176,
+        "target_residue": 1892
+      },
+      {
+        "admissible_unit_count": 1650,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.1617712933084912,
+        "local_uniform_main_term": 1.1617712933084958,
+        "target_mod_286": 220,
+        "target_residue": 6512
+      },
+      {
+        "admissible_unit_count": 1620,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.0844870085593454,
+        "local_uniform_main_term": 1.08448700855935,
+        "target_mod_286": 208,
+        "target_residue": 7072
+      },
+      {
+        "admissible_unit_count": 1620,
+        "formula_abs_error": 4.6629367034256575e-15,
+        "formula_local_uniform_main_term": 1.256016666734663,
+        "local_uniform_main_term": 1.2560166667346677,
+        "target_mod_286": 26,
+        "target_residue": 8892
+      },
+      {
+        "admissible_unit_count": 1620,
+        "formula_abs_error": 4.551914400963142e-15,
+        "formula_local_uniform_main_term": 0.8657009107232136,
+        "local_uniform_main_term": 0.8657009107232182,
+        "target_mod_286": 208,
+        "target_residue": 9932
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 4.440892098500626e-15,
+        "formula_local_uniform_main_term": 1.0529949752800087,
+        "local_uniform_main_term": 1.0529949752800132,
+        "target_mod_286": 142,
+        "target_residue": 142
+      },
+      {
+        "admissible_unit_count": 1620,
+        "formula_abs_error": 4.440892098500626e-15,
+        "formula_local_uniform_main_term": 1.197367973155707,
+        "local_uniform_main_term": 1.1973679731557114,
+        "target_mod_286": 208,
+        "target_residue": 208
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 4.440892098500626e-15,
+        "formula_local_uniform_main_term": 1.0981734109583676,
+        "local_uniform_main_term": 1.098173410958372,
+        "target_mod_286": 270,
+        "target_residue": 842
+      },
+      {
+        "admissible_unit_count": 1650,
+        "formula_abs_error": 4.440892098500626e-15,
+        "formula_local_uniform_main_term": 1.16786457168545,
+        "local_uniform_main_term": 1.1678645716854545,
+        "target_mod_286": 264,
+        "target_residue": 1122
+      },
+      {
+        "admissible_unit_count": 1800,
+        "formula_abs_error": 4.440892098500626e-15,
+        "formula_local_uniform_main_term": 1.2715266354475272,
+        "local_uniform_main_term": 1.2715266354475316,
+        "target_mod_286": 0,
+        "target_residue": 1716
+      }
+    ],
+    "local_uniform_main_term_summary": {
+      "count": 5005,
+      "maximum": 1.5716524655081634,
+      "mean": 1.0,
+      "minimum": 0.6039353780830684
+    },
+    "row_count": 5005,
+    "worst_rows": [
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.9976021664879227e-15,
+        "formula_local_uniform_main_term": 0.6039353780830654,
+        "local_uniform_main_term": 0.6039353780830684,
+        "target_mod_286": 120,
+        "target_residue": 4124
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 3.1086244689504383e-15,
+        "formula_local_uniform_main_term": 0.6039353780830797,
+        "local_uniform_main_term": 0.6039353780830828,
+        "target_mod_286": 166,
+        "target_residue": 5886
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 3.1086244689504383e-15,
+        "formula_local_uniform_main_term": 0.6159838359709967,
+        "local_uniform_main_term": 0.6159838359709998,
+        "target_mod_286": 218,
+        "target_residue": 6224
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6159838359709989,
+        "local_uniform_main_term": 0.6159838359710017,
+        "target_mod_286": 68,
+        "target_residue": 3786
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.3314683517128287e-15,
+        "formula_local_uniform_main_term": 0.617651190833912,
+        "local_uniform_main_term": 0.6176511908339143,
+        "target_mod_286": 172,
+        "target_residue": 5034
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 3.219646771412954e-15,
+        "formula_local_uniform_main_term": 0.6176511908339193,
+        "local_uniform_main_term": 0.6176511908339225,
+        "target_mod_286": 114,
+        "target_residue": 4976
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.9976021664879227e-15,
+        "formula_local_uniform_main_term": 0.6216763265058735,
+        "local_uniform_main_term": 0.6216763265058765,
+        "target_mod_286": 36,
+        "target_residue": 8616
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.6645352591003757e-15,
+        "formula_local_uniform_main_term": 0.6216763265058762,
+        "local_uniform_main_term": 0.6216763265058789,
+        "target_mod_286": 250,
+        "target_residue": 1394
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.9976021664879227e-15,
+        "formula_local_uniform_main_term": 0.6230784565716795,
+        "local_uniform_main_term": 0.6230784565716825,
+        "target_mod_286": 120,
+        "target_residue": 4696
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 3.1086244689504383e-15,
+        "formula_local_uniform_main_term": 0.6230784565716873,
+        "local_uniform_main_term": 0.6230784565716904,
+        "target_mod_286": 166,
+        "target_residue": 5314
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.6645352591003757e-15,
+        "formula_local_uniform_main_term": 0.6256369842367525,
+        "local_uniform_main_term": 0.6256369842367552,
+        "target_mod_286": 68,
+        "target_residue": 3214
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.9976021664879227e-15,
+        "formula_local_uniform_main_term": 0.6256369842367595,
+        "local_uniform_main_term": 0.6256369842367625,
+        "target_mod_286": 218,
+        "target_residue": 6796
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6378100959158058,
+        "local_uniform_main_term": 0.6378100959158086,
+        "target_mod_286": 146,
+        "target_residue": 146
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 3.1086244689504383e-15,
+        "formula_local_uniform_main_term": 0.6378100959158118,
+        "local_uniform_main_term": 0.637810095915815,
+        "target_mod_286": 140,
+        "target_residue": 9864
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6393169816057489,
+        "local_uniform_main_term": 0.6393169816057517,
+        "target_mod_286": 270,
+        "target_residue": 7134
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6393169816057542,
+        "local_uniform_main_term": 0.639316981605757,
+        "target_mod_286": 16,
+        "target_residue": 2876
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.6645352591003757e-15,
+        "formula_local_uniform_main_term": 0.6410684152821136,
+        "local_uniform_main_term": 0.6410684152821162,
+        "target_mod_286": 62,
+        "target_residue": 3494
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6410684152821206,
+        "local_uniform_main_term": 0.6410684152821233,
+        "target_mod_286": 224,
+        "target_residue": 6516
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6415266944014921,
+        "local_uniform_main_term": 0.6415266944014949,
+        "target_mod_286": 172,
+        "target_residue": 5606
+      },
+      {
+        "admissible_unit_count": 1485,
+        "formula_abs_error": 2.7755575615628914e-15,
+        "formula_local_uniform_main_term": 0.6415266944014929,
+        "local_uniform_main_term": 0.6415266944014957,
+        "target_mod_286": 114,
+        "target_residue": 4404
+      }
+    ]
+  },
+  "next_obligation": "Compare the required four-modulus projection error budget with published fixed-modulus binary Goldbach-in-progressions or circle-method estimates, using strict-central intervals and log weights if available.",
+  "projection_error_budget": {
+    "all_even_residue_local_main_terms_positive": true,
+    "l1_norm_by_modulus": {
+      "130": 7.137019529057295,
+      "154": 84.29326326706732,
+      "286": 248.78706848859338,
+      "70": 32.74465079141701
+    },
+    "minimum_local_uniform_main_term": 0.6039353780830684,
+    "per_modulus_equal_error_bound": 0.0016192946592982506,
+    "sufficient_bound_meaning": "If every nonconstant projected residue probability error across all four moduli is bounded in absolute value by this epsilon, then the signed expectation is positive for every even residue. This is sufficient and usually pessimistic, not necessary.",
+    "sufficient_uniform_projection_error_bound": 0.0016192946592982506,
+    "worst_local_uniform_row": {
+      "admissible_unit_count": 1485,
+      "formula_abs_error": 2.9976021664879227e-15,
+      "formula_local_uniform_main_term": 0.6039353780830654,
+      "local_uniform_main_term": 0.6039353780830684,
+      "target_mod_286": 120,
+      "target_residue": 4124
+    }
+  },
+  "schema_version": 1,
+  "signed_discrepancy_theorem_proved": false,
+  "source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292",
+  "status_boundary": "finite formula extraction only; it proves no binary-prime projection theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "unit_count": 2880
+}

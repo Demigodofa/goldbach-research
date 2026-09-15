@@ -6,6 +6,37 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an explicit four-modulus projection formula.
+
+```text
+tools/build_q286_wbss_four_modulus_projection_formula.py
+notes/q286-wbss-four-modulus-projection-formula.md
+evidence/q286-wbss-four-modulus-projection-formula.json
+```
+
+Result:
+
+```text
+unit coefficient count:                         2880
+four-modulus formula residual, relative L2:     8.752538645134008e-16
+four-modulus formula residual, max abs:         2.1316282072803006e-14
+even target residues with positive local main:  5005 / 5005
+minimum local-uniform main term:                0.6039353780830684
+worst target residue modulo 10010:              4124
+total nonconstant coefficient L1 norm:          372.962002076135
+blunt sufficient projection-error budget:       0.0016192946592982506
+```
+
+Decision: the coefficient side of q286-WBSS is now an explicit linear
+combination of strict-central binary-prime projections modulo `70`, `130`,
+`154`, and `286`. This is useful because it names the exact quantities a
+future theorem must control. It is not enough by itself: the next proof step
+must source or prove a strict-central binary-prime projection estimate for
+those moduli, or replace the pessimistic absolute-error budget with a signed
+correlation estimate for the same formula. Goldbach is not proved.
+
+## Latest active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an L1-budget obstruction audit.
 
 `tools/build_q286_wbss_l1_budget_obstruction_audit.py` generated

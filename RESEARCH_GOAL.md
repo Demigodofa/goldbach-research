@@ -6,6 +6,31 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an explicit four-modulus projection formula:
+`tools/build_q286_wbss_four_modulus_projection_formula.py` generated
+`evidence/q286-wbss-four-modulus-projection-formula.json`, with explanation
+in `notes/q286-wbss-four-modulus-projection-formula.md`.
+
+Question: after the unit coefficient was shown to descend to moduli
+`70,130,154,286`, can the compression be written as a theorem-facing
+binary-prime projection formula with a concrete error budget?
+
+Result: yes, as a finite formula. The normalized unit coefficient on all
+`2880` units modulo `10010` is reconstructed from total mass plus those four
+residue projections with relative L2 residual `8.752538645134008e-16` and
+maximum absolute residual `2.1316282072803006e-14`. All `5005` even target
+residues have positive local-uniform main term; the minimum is
+`0.6039353780830684` at residue `4124`. The resulting blunt sufficient
+projection-error budget is `0.0016192946592982506`, using total nonconstant
+coefficient L1 norm `372.962002076135`.
+
+Decision: this is a genuine theorem-target compression, not a proof. The
+remaining route is strict-central binary-prime projection control modulo
+`70,130,154,286`, or a signed/correlation estimate for the same formula that
+beats the pessimistic absolute-error budget. Goldbach is not proved.
+
+## Latest continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a four-modulus span identity audit:
 `tools/build_q286_wbss_four_modulus_span_identity_audit.py` generated
 `evidence/q286-wbss-four-modulus-span-identity-audit.json`, with explanation
