@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has an `11,13` edge residual-budget audit:
+`tools/build_q286_wbss_1113_edge_residual_budget_audit.py` generated
+`evidence/q286-wbss-1113-edge-residual-budget-audit.json`, with explanation
+in `notes/q286-wbss-1113-edge-residual-budget-audit.md`.
+
+Question: after the finite edge-character load audit identified `11,13` as
+the dominant stress edge, can the other three edge sums be treated as a
+one-sided residual budget against the `11,13` drag on the current finite rows?
+
+Result: the `11,13` signed edge contribution is negative on all `230/230`
+available dual-edge rows and all `196/196` post-discovery rows. The other
+three edges have positive net pushback on `32` rows and negative net help on
+`198` rows. The observed finite positive-pushback ratio
+`max(0, residual_edge_signed_sum)/(-(11,13 edge))` has minimum `0`, mean
+`0.013928821952078015`, and maximum `0.3895519069948021`. The worst row is
+target `374048`, where the residual edges push back by
+`0.14302279399336443` against `0.3671469486485477` of `11,13` drag, leaving
+margin `0.22412415465518326`. A finite theta `1/4` fails `3` rows; theta
+`1/2` passes all rows. Absolute residual load is not the right budget because
+its maximum ratio is `2.561969334773402`, with many residual edges helping
+negatively.
+
+Decision: the finite rows support a theorem-shaped split with `11,13` as lead
+edge and `5,7`, `5,13`, `7,11` as a signed one-sided residual. The observed
+theta is finite fixture evidence only, not a universal bound, and no residual
+edge can be dropped without theorem-level control. This proves no `11,13`
+edge theorem, residual theorem, character-sum bound, binary-prime
+projection-control theorem, signed discrepancy theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS four-modulus route now has a finite edge-character row-load
 audit: `tools/build_q286_wbss_four_modulus_edge_character_load_audit.py`
 generated `evidence/q286-wbss-four-modulus-edge-character-load-audit.json`,

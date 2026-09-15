@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an `11,13` edge residual-budget audit.
+
+```text
+tools/build_q286_wbss_1113_edge_residual_budget_audit.py
+notes/q286-wbss-1113-edge-residual-budget-audit.md
+evidence/q286-wbss-1113-edge-residual-budget-audit.json
+```
+
+Result:
+
+```text
+all dual-edge rows:                         230
+post-discovery rows:                        196
+11,13 negative rows, all:                   230 / 230
+11,13 negative rows, post:                  196 / 196
+total edge negative after residual, all:    230 / 230
+residual positive-pushback rows:             32
+residual negative-help rows:                198
+positive pushback / 11,13 drag:
+  minimum:                    0
+  mean:                       0.013928821952078015
+  maximum:                    0.3895519069948021
+worst target:                 374048
+worst residual pushback:      0.14302279399336443
+worst 11,13 drag:             0.3671469486485477
+worst remaining margin:       0.22412415465518326
+theta 1/4 failures:                         3
+theta 1/2 failures:                         0
+absolute residual/load max ratio:           2.561969334773402
+```
+
+Decision: the finite rows support `11,13` as the lead analytic edge with
+`5,7`, `5,13`, and `7,11` as a signed one-sided residual budget. The finite
+fixture suggests theta below `1`, with `1/2` passing and `1/4` failing. This
+does not prove a universal theta, permit dropping residual edges, or establish
+any character-sum/projection theorem. Goldbach remains open.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS four-modulus route now has a finite edge-character row-load
 audit.
 
