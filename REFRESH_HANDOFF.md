@@ -22549,6 +22549,40 @@ unseen q286 blocks beyond start `410400`; the next proof obligation is still a
 non-circular arithmetic or signed-correlation condition implying
 `complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.
 
+Cone-duality L1-uniformity candidate:
+
+- `tools/build_q286_cone_duality_l1_uniformity_candidate.py`
+- `notes/q286-cone-duality-l1-uniformity-candidate.md`
+- `evidence/q286-cone-duality-l1-uniformity-candidate.json`
+
+The first executable cone candidate after the pivot has been tested and
+demoted.  The candidate cone was support + ordered-pair reflection + L1
+distance from the local uniform admissible measure on units modulo `10010`.
+For each selected target residue, the LP minimized L1 distance subject to the
+bad branch:
+
+```text
+F3(mu) <= -0.3
+full_action(mu) <= 0
+```
+
+All seven selected residues admitted synthetic reflected admissible bad
+measures.  The nearest-bad L1 radii are only
+`0.05724560696825869..0.11764562474360012`, while actual selected rows have
+L1 distances `0.47982423933735313..1.8989898989898988`.  No actual selected
+target passes the L1-uniformity certificate.  Reconstruction against the
+optimized row verifier is at floating precision, with maximum error
+`5.273559366969494e-16`.
+
+Decision: do not retry a broader L1-uniformity scan unless an external
+fixed-modulus AP theorem supplies a concrete bound in this radius range.
+LP/Farkas remains the certificate language, but the cone must become
+coefficient-sensitive: signed character moments, q286 mass/landing
+inequalities, PSD/covariance constraints, or a binary
+Goldbach-in-progressions bound controlling the actual signed functionals.
+No AP theorem, signed prime-correlation theorem, q286 threshold theorem, or
+Goldbach proof is established.
+
 Cone-duality proof-route pivot:
 
 - `notes/q286-cone-duality-proof-route.md`

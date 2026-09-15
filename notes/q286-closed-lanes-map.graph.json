@@ -1704,6 +1704,14 @@
       "status_boundary": "theorem-shaping route only; no arithmetic cone has been proved sufficient, no dual certificate is established, no signed correlation theorem is proved, and Goldbach is not proved"
     },
     {
+      "id": "receipt.q286_cone_duality_l1_uniformity_candidate",
+      "type": "receipt",
+      "label": "q286 cone-duality L1-uniformity candidate",
+      "status": "demoted_as_too_strong_at_measured_scale",
+      "validation": "tools/build_q286_cone_duality_l1_uniformity_candidate.py generated evidence/q286-cone-duality-l1-uniformity-candidate.json; all seven selected residues admit synthetic reflected admissible bad measures, nearest-bad L1 radii are 0.05724560696825869..0.11764562474360012, actual selected rows have L1 distances 0.47982423933735313..1.8989898989898988, no actual selected target passes the L1-uniformity certificate, and maximum reconstruction error against the optimized row verifier is 5.273559366969494e-16",
+      "status_boundary": "finite cone-definition and LP diagnostic only; demotes a blunt L1/AP-uniformity ball as the main q286 proof mechanism but proves no AP theorem, signed correlation theorem, q286 threshold theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -4041,6 +4049,21 @@
       "from": "strategy.q286_cone_duality_proof_route",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_cone_duality_l1_uniformity_candidate",
+      "to": "strategy.q286_cone_duality_proof_route",
+      "type": "tests"
+    },
+    {
+      "from": "receipt.q286_cone_duality_l1_uniformity_candidate",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_cone_duality_l1_uniformity_candidate",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "falsifies_simplification"
     }
   ]
 }

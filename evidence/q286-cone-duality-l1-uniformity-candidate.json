@@ -1,0 +1,1239 @@
+{
+  "bad_branch": {
+    "equivalent_form": "On a first-three tail, full<=0 is the same failed rescue branch as C<=-F3 because full=F3+C.",
+    "first_three_to_principal_ratio_at_most": -0.3,
+    "full_action_to_principal_ratio_at_most": 0.0
+  },
+  "candidate_cone": "For each target residue a modulo 10010, K_a(rho) consists of nonnegative probability measures on admissible unit residues, symmetric under r -> a-r, with L1 distance at most rho from the local uniform admissible measure.",
+  "decision": "The L1-uniformity cone is a valid theorem target but must be checked against actual-row distances. If actual clear rows do not satisfy the sufficient L1 budgets, this cone is too strong as the main proof mechanism, though it remains a possible analytic sufficient condition after a finite boundary check.",
+  "falsifier": "A feasible LP point gives a synthetic reflected admissible measure in the bad branch, proving support/reflection alone is insufficient and quantifying the required L1 radius.",
+  "goldbach_proved": false,
+  "next_obligation": "Either source an explicit AP/binary-Goldbach-in-progressions bound strong enough for these L1 budgets, or replace the L1 ball with a coefficient-sensitive cone such as signed character moments or q286 mass/landing inequalities.",
+  "prediction": "If a fixed-modulus binary-prime AP theorem proves ||mu_N-uniform||_1 below the computed minimum_bad_l1 for a target residue, then the bad branch is impossible for that residue.",
+  "residue_rows": [
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": 7.676151381197371e-17,
+        "tail_slack": -0.4948051641973776
+      },
+      "bad_first_three_to_principal_ratio": -0.7948051641973776,
+      "bad_full_action_to_principal_ratio": 7.676151381197371e-17,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -3.0644735230321234,
+          "full_coefficient": -6.1394485263910425,
+          "mass": 0.05740024929379091,
+          "orbit": [
+            4839,
+            9299
+          ],
+          "signed_deviation": 0.05605344794698956,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7360964704203611,
+          "full_coefficient": 8.653015291620363,
+          "mass": 0.0,
+          "orbit": [
+            6859,
+            7279
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.72594160134273,
+          "full_coefficient": 8.351571905304132,
+          "mass": 0.0,
+          "orbit": [
+            6509,
+            7629
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 14.761864470398816,
+          "mass": 0.0,
+          "orbit": [
+            6731,
+            7407
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 16.93244978230626,
+          "mass": 0.0,
+          "orbit": [
+            6569,
+            7569
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 21.526091390559667,
+          "mass": 0.0,
+          "orbit": [
+            6159,
+            7979
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7480575845019682,
+          "full_coefficient": 8.693775373024046,
+          "mass": 0.0,
+          "orbit": [
+            6089,
+            8049
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 17.518307752326834,
+          "mass": 0.0,
+          "orbit": [
+            6549,
+            7589
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 13.518074734886255,
+          "mass": 0.0,
+          "orbit": [
+            5977,
+            8161
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6647948146020066,
+          "full_coefficient": 8.054764577120938,
+          "mass": 0.0,
+          "orbit": [
+            5739,
+            8399
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 15.77631121918091,
+          "mass": 0.0,
+          "orbit": [
+            5711,
+            8427
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 18.48674847127226,
+          "mass": 0.0,
+          "orbit": [
+            5567,
+            8571
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.11210689589397355,
+      "minimum_bad_total_variation_from_uniform": 0.05605344794698677,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 124,
+      "target_residue": 4128
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": -5.11526584978661e-16,
+        "tail_slack": -0.47575049602075864
+      },
+      "bad_first_three_to_principal_ratio": -0.7757504960207586,
+      "bad_full_action_to_principal_ratio": -5.11526584978661e-16,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -3.0644735230321234,
+          "full_coefficient": -6.039100870412899,
+          "mass": 0.05302228587401936,
+          "orbit": [
+            719,
+            4267
+          ],
+          "signed_deviation": 0.05167548452721801,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6261861334370059,
+          "full_coefficient": 7.739802153098754,
+          "mass": 0.0,
+          "orbit": [
+            139,
+            4847
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.5881827325517972,
+          "full_coefficient": 7.391514061209231,
+          "mass": 0.0,
+          "orbit": [
+            227,
+            4759
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 14.195778263473454,
+          "mass": 0.0,
+          "orbit": [
+            153,
+            4833
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 18.101726720475565,
+          "mass": 0.0,
+          "orbit": [
+            7017,
+            7979
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 16.78284175550845,
+          "mass": 0.0,
+          "orbit": [
+            6569,
+            8427
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 19.927798113903275,
+          "mass": 0.0,
+          "orbit": [
+            6549,
+            8447
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 16.55266823411131,
+          "mass": 0.0,
+          "orbit": [
+            7283,
+            7713
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 17.398186562364394,
+          "mass": 0.0,
+          "orbit": [
+            5997,
+            8999
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 14.229626942806227,
+          "mass": 0.0,
+          "orbit": [
+            5977,
+            9019
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.170639903365423,
+          "full_coefficient": 16.82838125636274,
+          "mass": 0.0,
+          "orbit": [
+            5853,
+            9143
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.104249380954224,
+          "full_coefficient": 17.90865074530924,
+          "mass": 0.0,
+          "orbit": [
+            6159,
+            8837
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.10335096905443159,
+      "minimum_bad_total_variation_from_uniform": 0.05167548452721579,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 124,
+      "target_residue": 4986
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": -2.4069288229178198e-17,
+        "tail_slack": -0.20660803018879964
+      },
+      "bad_first_three_to_principal_ratio": -0.5066080301887996,
+      "bad_full_action_to_principal_ratio": -2.4069288229178198e-17,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -1.5134091964133571,
+          "full_coefficient": -6.527817197599042,
+          "mass": 0.02996960483093339,
+          "orbit": [
+            5749,
+            9027
+          ],
+          "signed_deviation": 0.028622803484132042,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 16.80040809588437,
+          "mass": 0.0,
+          "orbit": [
+            7207,
+            7569
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.215286536232966,
+          "full_coefficient": 17.835419660865583,
+          "mass": 0.0,
+          "orbit": [
+            6329,
+            8447
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 17.666092956267242,
+          "mass": 0.0,
+          "orbit": [
+            6997,
+            7779
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 19.05878941336625,
+          "mass": 0.0,
+          "orbit": [
+            5777,
+            8999
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 18.532488582474887,
+          "mass": 0.0,
+          "orbit": [
+            5567,
+            9209
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 17.710034927462797,
+          "mass": 0.0,
+          "orbit": [
+            5853,
+            8923
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.215286536232966,
+          "full_coefficient": 20.578594515576302,
+          "mass": 0.0,
+          "orbit": [
+            6043,
+            8733
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 17.095561148387276,
+          "mass": 0.0,
+          "orbit": [
+            1849,
+            2917
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 19.48199631030981,
+          "mass": 0.0,
+          "orbit": [
+            1773,
+            2993
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.215286536232966,
+          "full_coefficient": 18.12104586516052,
+          "mass": 0.0,
+          "orbit": [
+            1467,
+            3299
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.16350063881725,
+          "full_coefficient": 18.7860034646727,
+          "mass": 0.0,
+          "orbit": [
+            1563,
+            3203
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.05724560696825869,
+      "minimum_bad_total_variation_from_uniform": 0.028622803484129346,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 190,
+      "target_residue": 4766
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": -5.316927453868914e-16,
+        "tail_slack": -0.4705590036915443
+      },
+      "bad_first_three_to_principal_ratio": -0.7705590036915443,
+      "bad_full_action_to_principal_ratio": -5.316927453868914e-16,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -2.314816089016266,
+          "full_coefficient": -7.459728791745434,
+          "mass": 0.057971603603297596,
+          "orbit": [
+            4209,
+            6723
+          ],
+          "signed_deviation": 0.05662480225649625,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.637517258855907,
+          "full_coefficient": 8.580652878669358,
+          "mass": 0.0,
+          "orbit": [
+            5461,
+            5471
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.3284762964054,
+          "full_coefficient": 16.748467298635596,
+          "mass": 0.0,
+          "orbit": [
+            5281,
+            5651
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.871433755453388,
+          "full_coefficient": 19.711202875839273,
+          "mass": 0.0,
+          "orbit": [
+            153,
+            769
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.5773290990869093,
+          "full_coefficient": 6.894423272945888,
+          "mass": 0.0,
+          "orbit": [
+            4853,
+            6079
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.3284762964054,
+          "full_coefficient": 16.868391399185782,
+          "mass": 0.0,
+          "orbit": [
+            5079,
+            5853
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6123561648789945,
+          "full_coefficient": 8.681917933659957,
+          "mass": 0.0,
+          "orbit": [
+            4691,
+            6241
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.871433755453388,
+          "full_coefficient": 13.816962638317564,
+          "mass": 0.0,
+          "orbit": [
+            5301,
+            5631
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6842469435604215,
+          "full_coefficient": 7.335744120370935,
+          "mass": 0.0,
+          "orbit": [
+            4539,
+            6393
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7258652770937298,
+          "full_coefficient": 8.047780417520977,
+          "mass": 0.0,
+          "orbit": [
+            4701,
+            6231
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.871433755453388,
+          "full_coefficient": 19.561268255628665,
+          "mass": 0.0,
+          "orbit": [
+            4773,
+            6159
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 14.871433755453388,
+          "full_coefficient": 15.659847748781974,
+          "mass": 0.0,
+          "orbit": [
+            4729,
+            6203
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.11324960451298786,
+      "minimum_bad_total_variation_from_uniform": 0.05662480225649393,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 64,
+      "target_residue": 922
+    },
+    {
+      "admissible_unit_count": 1650,
+      "bad_branch_slack": {
+        "full_slack": -8.131516293641283e-17,
+        "tail_slack": -0.570407501481123
+      },
+      "bad_first_three_to_principal_ratio": -0.8704075014811229,
+      "bad_full_action_to_principal_ratio": -8.131516293641283e-17,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -5.254494186637555,
+          "full_coefficient": -6.73466839285062,
+          "mass": 0.060034933583918385,
+          "orbit": [
+            4819,
+            4839
+          ],
+          "signed_deviation": 0.05882281237179717,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 15.149262968493488,
+          "full_coefficient": 16.478388673913226,
+          "mass": 0.0,
+          "orbit": [
+            9811,
+            9857
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 0.1942132132354834,
+          "full_coefficient": 7.390406594822863,
+          "mass": 0.0,
+          "orbit": [
+            4479,
+            5179
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 14.761103068986543,
+          "full_coefficient": 15.25730396031516,
+          "mass": 0.0,
+          "orbit": [
+            4729,
+            4929
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 15.149262968493488,
+          "full_coefficient": 15.170015139783372,
+          "mass": 0.0,
+          "orbit": [
+            4377,
+            5281
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 15.149262968493488,
+          "full_coefficient": 17.646117595220847,
+          "mass": 0.0,
+          "orbit": [
+            4091,
+            5567
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 14.761103068986543,
+          "full_coefficient": 14.316296275004271,
+          "mass": 0.0,
+          "orbit": [
+            4357,
+            5301
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 1.9249505643765197,
+          "full_coefficient": 7.938681715837484,
+          "mass": 0.0,
+          "orbit": [
+            4409,
+            5249
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 0.4282581469754879,
+          "full_coefficient": 7.786254886346072,
+          "mass": 0.0,
+          "orbit": [
+            3709,
+            5949
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 0.8370113499563214,
+          "full_coefficient": 8.321257088561929,
+          "mass": 0.0,
+          "orbit": [
+            3569,
+            6089
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 14.761103068986543,
+          "full_coefficient": 22.777859873200967,
+          "mass": 0.0,
+          "orbit": [
+            3499,
+            6159
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        },
+        {
+          "first_three_coefficient": 15.149262968493488,
+          "full_coefficient": 13.676835119893376,
+          "mass": 0.0,
+          "orbit": [
+            3279,
+            6379
+          ],
+          "signed_deviation": -0.0012121212121212121,
+          "uniform_mass": 0.0012121212121212121
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.11764562474360012,
+      "minimum_bad_total_variation_from_uniform": 0.05882281237180006,
+      "reflection_orbit_count": 825,
+      "target_mod_286": 220,
+      "target_residue": 9658
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": 5.637851296924623e-18,
+        "tail_slack": -0.5444688060301544
+      },
+      "bad_first_three_to_principal_ratio": -0.8444688060301543,
+      "bad_full_action_to_principal_ratio": 5.637851296924623e-18,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -5.2648241083268745,
+          "full_coefficient": -7.666254587586014,
+          "mass": 0.03719076965550821,
+          "orbit": [
+            4839,
+            6049
+          ],
+          "signed_deviation": 0.03584396830870686,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 16.54109150355345,
+          "mass": 0.0,
+          "orbit": [
+            4709,
+            6179
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 31.91047951862548,
+          "full_coefficient": 36.68407370077964,
+          "mass": 0.0,
+          "orbit": [
+            4729,
+            6159
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 31.91047951862548,
+          "full_coefficient": 33.00141990824783,
+          "mass": 0.0,
+          "orbit": [
+            4157,
+            6731
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 16.396539406569246,
+          "mass": 0.0,
+          "orbit": [
+            3891,
+            6997
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 16.559843613148924,
+          "mass": 0.0,
+          "orbit": [
+            4177,
+            6711
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 21.366247420116885,
+          "mass": 0.0,
+          "orbit": [
+            3851,
+            7037
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 31.91047951862548,
+          "full_coefficient": 29.87616867148366,
+          "mass": 0.0,
+          "orbit": [
+            3299,
+            7589
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7146340192847023,
+          "full_coefficient": 8.118191209667804,
+          "mass": 0.0,
+          "orbit": [
+            2381,
+            8507
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 15.935233243253437,
+          "mass": 0.0,
+          "orbit": [
+            3319,
+            7569
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7190890964903097,
+          "full_coefficient": 8.033198514031373,
+          "mass": 0.0,
+          "orbit": [
+            3151,
+            7737
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826241,
+          "full_coefficient": 16.664170042236357,
+          "mass": 0.0,
+          "orbit": [
+            2707,
+            8181
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.07168793661740815,
+      "minimum_bad_total_variation_from_uniform": 0.03584396830870407,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 20,
+      "target_residue": 878
+    },
+    {
+      "admissible_unit_count": 1485,
+      "bad_branch_slack": {
+        "full_slack": 3.877106968808164e-16,
+        "tail_slack": -0.6438762189730567
+      },
+      "bad_first_three_to_principal_ratio": -0.9438762189730567,
+      "bad_full_action_to_principal_ratio": 3.877106968808164e-16,
+      "largest_bad_orbit_masses": [
+        {
+          "first_three_coefficient": -5.264824108327049,
+          "full_coefficient": -6.914162279836413,
+          "mass": 0.05391728487840743,
+          "orbit": [
+            2531,
+            5171
+          ],
+          "signed_deviation": 0.05257048353160609,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 16.30522876124605,
+          "mass": 0.0,
+          "orbit": [
+            113,
+            7589
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 16.529803131760374,
+          "mass": 0.0,
+          "orbit": [
+            8693,
+            9019
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 17.715384498310886,
+          "mass": 0.0,
+          "orbit": [
+            153,
+            7549
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6599949186307484,
+          "full_coefficient": 7.821832805368561,
+          "mass": 0.0,
+          "orbit": [
+            8399,
+            9313
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 16.66337053437162,
+          "mass": 0.0,
+          "orbit": [
+            8161,
+            9551
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 24.01540731051584,
+          "mass": 0.0,
+          "orbit": [
+            8121,
+            9591
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7027717362379198,
+          "full_coefficient": 8.38598493328619,
+          "mass": 0.0,
+          "orbit": [
+            8543,
+            9169
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.6539761562237724,
+          "full_coefficient": 7.954617099530873,
+          "mass": 0.0,
+          "orbit": [
+            7773,
+            9939
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 31.91047951862566,
+          "full_coefficient": 32.94687201391993,
+          "mass": 0.0,
+          "orbit": [
+            3279,
+            4423
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 16.30969992826237,
+          "full_coefficient": 19.16140110813846,
+          "mass": 0.0,
+          "orbit": [
+            3259,
+            4443
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        },
+        {
+          "first_three_coefficient": 0.7349357396891654,
+          "full_coefficient": 7.7100428866609425,
+          "mass": 0.0,
+          "orbit": [
+            3151,
+            4551
+          ],
+          "signed_deviation": -0.0013468013468013469,
+          "uniform_mass": 0.0013468013468013469
+        }
+      ],
+      "lp_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "lp_status": 0,
+      "lp_success": true,
+      "minimum_bad_l1_from_uniform": 0.10514096706320702,
+      "minimum_bad_total_variation_from_uniform": 0.05257048353160351,
+      "reflection_orbit_count": 743,
+      "target_mod_286": 266,
+      "target_residue": 7702
+    }
+  ],
+  "schema_version": 1,
+  "selected_targets": [
+    14138,
+    14996,
+    94856,
+    1222142,
+    1240888,
+    1242118,
+    1379072
+  ],
+  "source_commit": "1a7c4c18d8da34bd89e0f9953ba75650b4d66512",
+  "status_boundary": "cone-definition and LP-uniformity diagnostic only; it computes how strong an L1 AP-uniformity cone would need to be to exclude the q286 bad branch on selected residues. It proves no AP uniformity theorem, no signed prime-correlation theorem, no q286 threshold theorem, and no Goldbach theorem.",
+  "summary": {
+    "actual_l1_summary": {
+      "count": 7,
+      "maximum": 1.8989898989898988,
+      "mean": 1.0412615462552854,
+      "minimum": 0.47982423933735313
+    },
+    "actual_target_certificate_pass_count": 0,
+    "actual_targets_passing_l1_uniformity_certificate": [],
+    "lp_feasible_bad_residue_count": 7,
+    "lp_infeasible_bad_residue_count": 0,
+    "maximum_reconstruction_error": 5.273559366969494e-16,
+    "minimum_bad_l1_summary": {
+      "count": 7,
+      "maximum": 0.11764562474360012,
+      "mean": 0.09720394355055242,
+      "minimum": 0.05724560696825869
+    },
+    "minimum_bad_total_variation_summary": {
+      "count": 7,
+      "maximum": 0.05882281237180006,
+      "mean": 0.04860197177527621,
+      "minimum": 0.028622803484129346
+    },
+    "selected_residue_count": 7,
+    "selected_target_count": 7
+  },
+  "target_rows": [
+    {
+      "actual_bad_branch": true,
+      "actual_first_three_to_principal_ratio": -0.8950145872346783,
+      "actual_full_action_to_principal_ratio": -0.8769412734408433,
+      "actual_l1_from_uniform": 1.8989898989898988,
+      "actual_l1_over_minimum_bad_l1": 16.93909981046921,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.9494949494949494,
+      "first_three_reconstruction_error": 2.220446049250313e-16,
+      "full_reconstruction_error": 3.3306690738754696e-16,
+      "pair_count": 75,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.8950145872346781,
+      "reference_full_action_to_principal_ratio": -0.8769412734408436,
+      "target": 14138,
+      "target_residue": 4128,
+      "total_weight": 5862.857784907672
+    },
+    {
+      "actual_bad_branch": true,
+      "actual_first_three_to_principal_ratio": -0.9923694214370515,
+      "actual_full_action_to_principal_ratio": -0.20350224619706808,
+      "actual_l1_from_uniform": 1.8734006734006732,
+      "actual_l1_over_minimum_bad_l1": 18.126590302351342,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.9367003367003366,
+      "first_three_reconstruction_error": 0.0,
+      "full_reconstruction_error": 5.273559366969494e-16,
+      "pair_count": 94,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.9923694214370515,
+      "reference_full_action_to_principal_ratio": -0.2035022461970686,
+      "target": 14996,
+      "target_residue": 4986,
+      "total_weight": 7450.406303130736
+    },
+    {
+      "actual_bad_branch": false,
+      "actual_first_three_to_principal_ratio": -0.585152036986263,
+      "actual_full_action_to_principal_ratio": 0.012576466293799767,
+      "actual_l1_from_uniform": 1.5447811447811444,
+      "actual_l1_over_minimum_bad_l1": 26.985147447867714,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.7723905723905722,
+      "first_three_reconstruction_error": 2.220446049250313e-16,
+      "full_reconstruction_error": 1.8908485888147197e-16,
+      "pair_count": 338,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.5851520369862627,
+      "reference_full_action_to_principal_ratio": 0.012576466293799578,
+      "target": 94856,
+      "target_residue": 4766,
+      "total_weight": 39022.250002965484
+    },
+    {
+      "actual_bad_branch": false,
+      "actual_first_three_to_principal_ratio": -0.30758776037087954,
+      "actual_full_action_to_principal_ratio": 0.9457162662139126,
+      "actual_l1_from_uniform": 0.4881118477476226,
+      "actual_l1_over_minimum_bad_l1": 4.3100534420996075,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.2440559238738113,
+      "first_three_reconstruction_error": 1.1102230246251565e-16,
+      "full_reconstruction_error": 2.220446049250313e-16,
+      "pair_count": 3029,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.3075877603708794,
+      "reference_full_action_to_principal_ratio": 0.9457162662139128,
+      "target": 1222142,
+      "target_residue": 922,
+      "total_weight": 536021.9613320271
+    },
+    {
+      "actual_bad_branch": false,
+      "actual_first_three_to_principal_ratio": -0.27468410150061684,
+      "actual_full_action_to_principal_ratio": 0.9341612623447066,
+      "actual_l1_from_uniform": 0.5109796465609575,
+      "actual_l1_over_minimum_bad_l1": 4.343379940177118,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.25548982328047876,
+      "first_three_reconstruction_error": 0.0,
+      "full_reconstruction_error": 2.220446049250313e-16,
+      "pair_count": 3504,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.27468410150061684,
+      "reference_full_action_to_principal_ratio": 0.9341612623447069,
+      "target": 1240888,
+      "target_residue": 9658,
+      "total_weight": 621457.755360721
+    },
+    {
+      "actual_bad_branch": false,
+      "actual_first_three_to_principal_ratio": -0.2864267432684324,
+      "actual_full_action_to_principal_ratio": 0.674104299680743,
+      "actual_l1_from_uniform": 0.47982423933735313,
+      "actual_l1_over_minimum_bad_l1": 6.693235458821063,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.23991211966867657,
+      "first_three_reconstruction_error": 1.1102230246251565e-16,
+      "full_reconstruction_error": 4.440892098500626e-16,
+      "pair_count": 3087,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.2864267432684323,
+      "reference_full_action_to_principal_ratio": 0.6741042996807435,
+      "target": 1242118,
+      "target_residue": 878,
+      "total_weight": 547592.6428074546
+    },
+    {
+      "actual_bad_branch": false,
+      "actual_first_three_to_principal_ratio": -0.33941388421290136,
+      "actual_full_action_to_principal_ratio": 0.9449988671776869,
+      "actual_l1_from_uniform": 0.49274337296934934,
+      "actual_l1_over_minimum_bad_l1": 4.6865021954109425,
+      "actual_measure_available": true,
+      "actual_total_variation_from_uniform": 0.24637168648467467,
+      "first_three_reconstruction_error": 2.220446049250313e-16,
+      "full_reconstruction_error": 0.0,
+      "pair_count": 3286,
+      "passes_l1_uniformity_certificate": false,
+      "reference_first_three_to_principal_ratio": -0.33941388421290114,
+      "reference_full_action_to_principal_ratio": 0.9449988671776869,
+      "target": 1379072,
+      "target_residue": 7702,
+      "total_weight": 592065.586051253
+    }
+  ]
+}

@@ -6,6 +6,36 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The first q286 cone-duality candidate has been tested and demoted:
+`tools/build_q286_cone_duality_l1_uniformity_candidate.py` generated
+`evidence/q286-cone-duality-l1-uniformity-candidate.json`, with explanation in
+`notes/q286-cone-duality-l1-uniformity-candidate.md`.
+
+Mechanism: formulate a target-conditioned cone `K_a(rho)` of normalized
+strict-central residue measures modulo `10010` that have admissible support,
+ordered-pair reflection symmetry, and L1 distance at most `rho` from the local
+uniform admissible measure.  For selected residues, solve the nearest-bad LP
+forcing `F3<=-0.3` and `full_action<=0`.
+
+Result: all seven selected residues admit synthetic reflected admissible bad
+measures.  The nearest-bad L1 radii are only
+`0.05724560696825869..0.11764562474360012`, while actual selected rows have
+L1 distances `0.47982423933735313..1.8989898989898988`.  No actual selected
+target passes the L1-uniformity certificate, although several clear rows pass
+the q286 action by signed complement structure.  Reconstruction against the
+optimized row verifier is at floating precision, with maximum error
+`5.273559366969494e-16`.
+
+Decision: LP/Farkas remains the right certificate language, but a blunt
+AP-uniformity/L1 ball is too strong as the main proof mechanism.  The next
+cone must be coefficient-sensitive: signed character moments, mass/landing
+inequalities, PSD/covariance constraints, or a binary Goldbach-in-progressions
+bound that controls the actual signed functionals.  No AP theorem, q286
+threshold theorem, signed correlation theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 lane has been pivoted from scan expansion to a cone-duality proof
 route:
 `notes/q286-cone-duality-proof-route.md`.
