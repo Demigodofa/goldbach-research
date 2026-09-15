@@ -241,3 +241,19 @@ This is the current theorem-shaped problem, not a solved theorem.  It becomes
 proof progress only when a source-backed binary-prime correlation estimate
 implies a uniform `lambda_phi(N)<=1-eta(N)` or proves the raw signed witness
 directly.
+
+## Lower-modulus marginal cone gap
+
+`tools/build_q286_wbss_marginal_cone_gap_audit.py` generated
+`evidence/q286-wbss-marginal-cone-gap-audit.json`.
+
+The AP-style bridge has now been separated from the signed-correlation hole.
+Exact prime-factor marginals and exact q286-only marginals still allow bad
+synthetic measures on every stress-selected row.  Exact dominant coefficient
+support marginals `[70,154,286]` force positivity on `21/24` rows but fail on
+`90644`, `94856`, and `109178`.  Only the full coefficient-support family
+`[10,14,22,26,70,130,154,286]` forces positivity on all checked stress rows.
+
+Thus AP marginals remain demoted.  The source-backed route must either prove
+the all-support binary-prime projection controls, or prove the dominant
+supports plus an explicit signed tail inequality.

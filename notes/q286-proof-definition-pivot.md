@@ -392,3 +392,23 @@ Next work should seek a real theorem for `lambda_phi(N)<=1-eta(N)`, or move
 directly to the unnormalized signed witness `B_Phi(N)>0`.  A scan that only
 adds more passing lambda rows without proposing a source-backed bound should
 be treated as low-value.
+
+## Marginal-cone gap
+
+`tools/build_q286_wbss_marginal_cone_gap_audit.py` generated
+`evidence/q286-wbss-marginal-cone-gap-audit.json`.
+
+This tests whether lower-modulus marginal information is enough to force the
+signed threshold.  It is not, except at the essentially coefficient-complete
+level:
+
+```text
+prime-factor marginals [5,7,11,13]:      24/24 bad feasible
+q286-only marginal [286]:                24/24 bad feasible
+dominant supports [70,154,286]:           3/24 bad feasible
+all supports [10,14,22,26,70,130,154,286]: 0/24 bad feasible
+```
+
+The dominant supports fail on `90644`, `94856`, and `109178`.  The all-support
+cone is not a theorem by itself; it names the projection data that an analytic
+binary-prime theorem would need to control.

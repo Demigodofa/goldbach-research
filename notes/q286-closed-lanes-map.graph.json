@@ -2246,6 +2246,39 @@
       "status": "problem_obligation_formalized",
       "validation": "tools/build_q286_wbss_signed_discrepancy_problem.py generated evidence/q286-wbss-signed-discrepancy-problem.json; on 196 post-discovery rows both full and edge-beta families pass lambda_phi<1 while the L1 budget passes 0/196 rows; tight row 94856 has full lambda about .982312 and edge-beta lambda about .951160",
       "status_boundary": "finite problem-definition receipt only; no signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+    },
+    {
+      "id": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "type": "receipt",
+      "label": "q286-WBSS marginal cone gap audit",
+      "status": "validated_finite_cone_falsifier",
+      "validation": "tools/build_q286_wbss_marginal_cone_gap_audit.py generated evidence/q286-wbss-marginal-cone-gap-audit.json; on 24 stress-selected post-discovery rows, support/reflection, prime-factor marginals, and q286-only marginals permit bad synthetic measures on 24/24 rows; dominant supports [70,154,286] force 21/24 but fail 90644, 94856, 109178; all coefficient supports force 24/24",
+      "status_boundary": "finite marginal-cone LP falsifier only; no lower-modulus projection theorem, AP theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+    },
+    {
+      "id": "lane.q286_prime_factor_and_q286_marginal_cones",
+      "type": "demoted_lane",
+      "label": "Prime-factor and q286-only marginal cones",
+      "status": "falsified_as_sufficient_route",
+      "reason": "Exact prime-factor marginals [5,7,11,13] and exact q286-only marginals still allow nonpositive synthetic signed expectation on all 24 stress-selected rows for both full and edge-beta q286-WBSS coefficients.",
+      "nuance": "Does not refute binary-prime projection theorems for richer coefficient-support moduli or direct signed correlation estimates."
+    },
+    {
+      "id": "lane.q286_dominant_support_marginal_cone",
+      "type": "demoted_lane",
+      "label": "Dominant support marginal cone [70,154,286]",
+      "status": "near_miss_but_falsified_as_complete_bridge",
+      "reason": "The dominant support cone forces positivity on 21/24 stress-selected rows but fails on 90644, 94856, and 109178, including the tightest signed row 94856.",
+      "nuance": "Preserve as a possible main term if paired with explicit signed tail control."
+    },
+    {
+      "id": "problem.q286_all_support_projection_theorem",
+      "type": "open_obligation",
+      "label": "All coefficient-support binary-prime projection theorem",
+      "status": "open_precisely_stated",
+      "statement": "For the coefficient-support moduli [10,14,22,26,70,130,154,286], prove source-backed strict-central binary-prime projection control strong enough to force <mu_N,phi_a>>0 for every sufficiently large covered even N, or replace it with a direct B_Phi(N)>0 estimate.",
+      "source_boundary": "The LP shows exact all-support projections force the checked signed expectation, but this is not a theorem until actual primes are proved to satisfy usable projection constraints.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -5052,6 +5085,46 @@
     {
       "from": "problem.q286_weighted_binary_prime_sign_sum",
       "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "to": "lane.q286_prime_factor_and_q286_marginal_cones",
+      "type": "falsifies"
+    },
+    {
+      "from": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "to": "lane.q286_dominant_support_marginal_cone",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "to": "problem.q286_all_support_projection_theorem",
+      "type": "defines"
+    },
+    {
+      "from": "lane.q286_prime_factor_and_q286_marginal_cones",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "scope_guard"
+    },
+    {
+      "from": "lane.q286_dominant_support_marginal_cone",
+      "to": "problem.q286_all_support_projection_theorem",
+      "type": "requires"
+    },
+    {
+      "from": "problem.q286_all_support_projection_theorem",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_all_support_projection_theorem",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
       "type": "requires"
     }
   ]

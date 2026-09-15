@@ -6,6 +6,33 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a marginal-cone gap audit:
+`tools/build_q286_wbss_marginal_cone_gap_audit.py` generated
+`evidence/q286-wbss-marginal-cone-gap-audit.json`, with explanation in
+`notes/q286-wbss-marginal-cone-gap-audit.md`.
+
+Question: after the signed-discrepancy problem was extracted, is the remaining
+hole just being renamed, or can lower-modulus/AP-style marginals close it?
+
+Result: on `24` stress-selected post-discovery rows, support/reflection only,
+prime-factor marginals `[5,7,11,13]`, and q286-only marginals all permit bad
+synthetic reflected measures on `24/24` rows for both full and edge-beta
+coefficients.  The dominant coefficient supports `[70,154,286]` force
+positivity on `21/24` rows but still permit bad synthetic measures on
+`90644`, `94856`, and `109178`.  The tight row `94856` remains bad-feasible
+under these dominant supports, with minimum signed expectation about
+`-0.047366411447256`.  The full coefficient-support family
+`[10,14,22,26,70,130,154,286]` forces positivity on `24/24` rows, as expected
+because the coefficient descends to those supports.
+
+Decision: the hole is not closed.  But it is now separated cleanly:
+AP/prime-factor/q286-only marginals are too weak, the three dominant supports
+are a near miss with a real three-row crack, and the all-support cone is only
+useful if a source-backed binary-prime projection theorem supplies those
+lower-modulus constraints.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a signed-discrepancy problem extraction:
 `tools/build_q286_wbss_signed_discrepancy_problem.py` generated
 `evidence/q286-wbss-signed-discrepancy-problem.json`, with explanation in

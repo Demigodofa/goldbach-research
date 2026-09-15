@@ -98,7 +98,7 @@
   "schema_version": 1,
   "signed_prime_correlation_estimate_proved": false,
   "smallest_new_problem": "Prove a three-dominant-support q286 signed-correlation theorem for natural moduli 286, 154, and 70, with an explicit tail bound for the remaining lower supports, strong enough that the total centered error is greater than minus the positive local main term in every even residue modulo 10010.",
-  "source_commit": "ea24f01be0472230594312d1547b13ee30a75d40",
+  "source_commit": "216fd9c64c112a3584e115cdf14f6f807e199cd0",
   "status_boundary": "finite coefficient-spectrum audit only; no binary-prime correlation theorem, no q286 threshold theorem, no strict-central Goldbach theorem, and no Goldbach proof",
   "support_component_removal_nonpositive_counts": {
     "11": 0,

@@ -23529,6 +23529,38 @@ Only after a cone survives this theorem-form test should another fresh q286
 scan be treated as progress.  No cone theorem, signed prime-correlation
 theorem, threshold theorem, or Goldbach proof is established.
 
+Marginal-cone gap audit:
+
+- `tools/build_q286_wbss_marginal_cone_gap_audit.py`
+- `notes/q286-wbss-marginal-cone-gap-audit.md`
+- `evidence/q286-wbss-marginal-cone-gap-audit.json`
+
+This answers the concern that the q286 route may be repeatedly renaming the
+same hole.  The receipt stress-selects `24` rows from the signed-discrepancy
+problem and minimizes the signed expectation over reflected nonnegative
+measures with the same lower-modulus projections as the actual row.
+
+For both full and edge-beta coefficients:
+
+```text
+support/reflection only:          24/24 bad synthetic measures feasible
+prime-factor marginals:           24/24 bad synthetic measures feasible
+q286 joint marginal:              24/24 bad synthetic measures feasible
+dominant support marginals:        3/24 bad synthetic measures feasible
+all coefficient-support marginals: 0/24 bad synthetic measures feasible
+```
+
+The three dominant supports `[70,154,286]` nearly close the stress sample, but
+fail on targets `90644`, `94856`, and `109178`.  The all-support cone
+`[10,14,22,26,70,130,154,286]` forces positivity only because the coefficient
+descends to those supports; it still requires a source-backed binary-prime
+projection theorem before it becomes a Goldbach-relevant bridge.
+
+Decision: the hole is not closed.  Do not keep renaming AP marginals as a
+bridge.  The surviving proof fork is either a theorem for all coefficient
+support projections, or a sharper dominant-support theorem plus signed tail
+control for the three failed rows.
+
 Signed-discrepancy problem extraction:
 
 - `tools/build_q286_wbss_signed_discrepancy_problem.py`
