@@ -1448,6 +1448,14 @@
       "status_boundary": "finite selected-reference scalar-order audit only; no universal stress-classifier theorem, binary-prime correlation theorem, signed projection theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "type": "receipt",
+      "label": "q286 centered (3,1) selected-reference lemma audit",
+      "status": "finite_selected_stress_reference_separator",
+      "validation": "tools/build_q286_centered_3_1_reference_lemma_audit.py generated evidence/q286-centered-3-1-reference-lemma-audit.json; (3,1) gives 606/606 positive fresh-window margins against each selected dominant-floor failure reference, including strong witness 13822, while selected clear controls and the full_nonpositive class falsify broader promotions",
+      "status_boundary": "finite selected-reference lemma only; no arbitrary-reference theorem, full stress-class theorem, signed projection theorem, binary-prime correlation theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -1482,6 +1490,21 @@
       "from": "receipt.q286_centered_channel_scalar_order_audit",
       "to": "obligation.centered_3_1_stress_class",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "to": "receipt.q286_centered_channel_scalar_order_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "to": "receipt.q286_alternate_reference_channel_audit",
+      "type": "supports"
+    },
+    {
+      "from": "receipt.q286_centered_3_1_reference_lemma_audit",
+      "to": "obligation.centered_3_1_stress_class",
+      "type": "scope_guard"
     },
     {
       "from": "receipt.q286_centered_3_1_stress_class_audit",

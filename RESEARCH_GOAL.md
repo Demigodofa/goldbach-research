@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+Kevin's `(3,1)` stress-classifier hunch now has a scoped reference-lemma
+audit: `tools/build_q286_centered_3_1_reference_lemma_audit.py` generated
+`evidence/q286-centered-3-1-reference-lemma-audit.json`, with explanation in
+`notes/q286-centered-3-1-reference-lemma-audit.md`.
+
+Result: centered `(3,1)` passes as a selected-deficit stress-reference
+separator.  Against each of the five selected stable/volatile dominant-floor
+failure references `24424,13822,55864,164598,1222142`, all `606` fresh
+predeclared targets have positive LP-weighted locally centered `(3,1)` margin.
+Reference `13822` is a strong witness: it ranks second-lowest in centered
+`(3,1)` with weighted value `-0.028592853507378977`, has dominant margin
+`-0.03674434602428933`, and has a large negative volatile rim
+`-0.3391114146626045` despite positive stable-core margin
+`0.3023670686383121`.
+
+Falsifier boundary: the arbitrary-reference and broad-class promotions both
+fail.  The five selected clear-control references all fail the same singleton
+reference pass, and the independent `full_nonpositive` baseline class still
+has `56/89` rows at or above the fresh `(3,1)` minimum.  Interpretation:
+`(3,1)` is live only as a finite selected stress-reference separator unless a
+new non-post-hoc class or signed/correlation estimate explains the family.
+
+## Previous continuation evidence, 2026-09-15
+
 The selected deficit references now have a provenance audit:
 `tools/build_q286_selected_deficit_provenance_audit.py` generated
 `evidence/q286-selected-deficit-provenance-audit.json`, with explanation in

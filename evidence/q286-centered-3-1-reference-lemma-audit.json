@@ -1,0 +1,166 @@
+{
+  "broad_full_nonpositive_class_falsifier": {
+    "at_or_above_fresh_min_count": 56,
+    "below_fresh_min_count": 33,
+    "class_id": "full_nonpositive",
+    "maximum_target": 11902,
+    "maximum_weighted_centered_value": 0.23016925898905402,
+    "separator_passes_class": false,
+    "target_count": 89
+  },
+  "candidate_lemma": "Centered (3,1) is a selected-deficit stress-reference separator: fresh predeclared targets have positive (3,1) margin against each selected stable/volatile dominant-floor failure reference.",
+  "centered_scalar_order_summary": {
+    "all_clear_controls_below_fresh_min": false,
+    "all_deficit_references_below_fresh_min": true,
+    "fresh_min_target": 24000008,
+    "fresh_min_weighted_centered_value": -0.017835394356714915,
+    "minimum_fresh_minus_max_clear_control_weighted_gap": -0.14868344091994956,
+    "minimum_fresh_minus_max_deficit_weighted_gap": 0.001813317904775985
+  },
+  "channel": [
+    3,
+    1
+  ],
+  "channel_key": "3,1",
+  "clear_control_reference_rows": [
+    {
+      "average_weighted_margin": -0.13358384076769578,
+      "maximum_weighted_margin": -0.1210831166204215,
+      "minimum_weighted_margin": -0.1486834409199496,
+      "negative_count": 606,
+      "positive_count": 0,
+      "reference": 13556,
+      "reference_mod_143": 114,
+      "reference_role": "selected_clear_control_reference",
+      "singleton_passes_fresh_windows": false
+    },
+    {
+      "average_weighted_margin": -0.03643968518433412,
+      "maximum_weighted_margin": -0.023938961037059843,
+      "minimum_weighted_margin": -0.05153928533658793,
+      "negative_count": 606,
+      "positive_count": 0,
+      "reference": 40420,
+      "reference_mod_143": 94,
+      "reference_role": "selected_clear_control_reference",
+      "singleton_passes_fresh_windows": false
+    },
+    {
+      "average_weighted_margin": 0.01506048919007576,
+      "maximum_weighted_margin": 0.02756121333735003,
+      "minimum_weighted_margin": -3.9110962178047343e-05,
+      "negative_count": 2,
+      "positive_count": 604,
+      "reference": 129706,
+      "reference_mod_143": 5,
+      "reference_role": "selected_clear_control_reference",
+      "singleton_passes_fresh_windows": false
+    },
+    {
+      "average_weighted_margin": 0.0055243824981967195,
+      "maximum_weighted_margin": 0.018025106645470995,
+      "minimum_weighted_margin": -0.009575217654057088,
+      "negative_count": 149,
+      "positive_count": 457,
+      "reference": 1242118,
+      "reference_mod_143": 20,
+      "reference_role": "selected_clear_control_reference",
+      "singleton_passes_fresh_windows": false
+    },
+    {
+      "average_weighted_margin": 0.005163346084543179,
+      "maximum_weighted_margin": 0.017664070231817455,
+      "minimum_weighted_margin": -0.009936254067710626,
+      "negative_count": 155,
+      "positive_count": 451,
+      "reference": 1240888,
+      "reference_mod_143": 77,
+      "reference_role": "selected_clear_control_reference",
+      "singleton_passes_fresh_windows": false
+    }
+  ],
+  "clear_control_references_all_fail_singleton": true,
+  "decision": "The finite selected-reference lemma is supported for centered (3,1), and 13822 is a strong selected stress witness. The broad full_nonpositive classifier and arbitrary-reference promotions are falsified by existing audits, so this receipt must not be promoted beyond selected stable/volatile dominant-floor failure references without a new non-post-hoc class or a new holdout.",
+  "falsifier": "A selected deficit reference with any nonpositive fresh-window (3,1) margin falsifies the finite selected-reference lemma. A passing full_nonpositive class would be new evidence for a broader classifier, but the current broad-class audit fails.",
+  "focus_reference": 13822,
+  "focus_reference_13822": {
+    "centered_3_1_rank_low_to_high": 2,
+    "centered_3_1_weighted_value": -0.028592853507378977,
+    "dominant_margin_to_floor": -0.03674434602428933,
+    "fresh_min_gap_against_13822": 0.010757459150664062,
+    "fresh_negative_count": 0,
+    "fresh_positive_count": 606,
+    "stable_core_margin_to_floor": 0.3023670686383121,
+    "target_mod_143": 94,
+    "volatile_rim_sum_to_principal": -0.3391114146626045
+  },
+  "fresh_target_count_per_reference": 606,
+  "goldbach_proved": false,
+  "mechanism": "Compare fresh predeclared q286 targets against reference rows using the LP-weighted locally centered (3,1) coordinate. This removes the stored local residue vector before testing margins.",
+  "prediction": "If the lemma is only a selected-deficit stress-reference fact, (3,1) should pass all selected deficit references, fail arbitrary clear-control references, and fail a broader independent stress class unless that class has the same source predicate.",
+  "schema_version": 1,
+  "selected_deficit_reference_rows": [
+    {
+      "average_weighted_margin": 0.02436061629237151,
+      "maximum_weighted_margin": 0.036861340439645784,
+      "minimum_weighted_margin": 0.009261016140117704,
+      "negative_count": 0,
+      "positive_count": 606,
+      "reference": 24424,
+      "reference_mod_143": 114,
+      "reference_role": "selected_deficit_reference",
+      "singleton_passes_fresh_windows": true
+    },
+    {
+      "average_weighted_margin": 0.02585705930291787,
+      "maximum_weighted_margin": 0.03835778345019215,
+      "minimum_weighted_margin": 0.010757459150664062,
+      "negative_count": 0,
+      "positive_count": 606,
+      "reference": 13822,
+      "reference_mod_143": 94,
+      "reference_role": "selected_deficit_reference",
+      "singleton_passes_fresh_windows": true
+    },
+    {
+      "average_weighted_margin": 0.04302448814323597,
+      "maximum_weighted_margin": 0.05552521229051025,
+      "minimum_weighted_margin": 0.02792488799098217,
+      "negative_count": 0,
+      "positive_count": 606,
+      "reference": 55864,
+      "reference_mod_143": 94,
+      "reference_role": "selected_deficit_reference",
+      "singleton_passes_fresh_windows": true
+    },
+    {
+      "average_weighted_margin": 0.016912918057029793,
+      "maximum_weighted_margin": 0.029413642204304064,
+      "minimum_weighted_margin": 0.001813317904775985,
+      "negative_count": 0,
+      "positive_count": 606,
+      "reference": 164598,
+      "reference_mod_143": 5,
+      "reference_role": "selected_deficit_reference",
+      "singleton_passes_fresh_windows": true
+    },
+    {
+      "average_weighted_margin": 0.025543773170282346,
+      "maximum_weighted_margin": 0.03804449731755662,
+      "minimum_weighted_margin": 0.010444173018028542,
+      "negative_count": 0,
+      "positive_count": 606,
+      "reference": 1222142,
+      "reference_mod_143": 64,
+      "reference_role": "selected_deficit_reference",
+      "singleton_passes_fresh_windows": true
+    }
+  ],
+  "selected_deficit_references_all_pass": true,
+  "source_alternate_reference_audit": "evidence\\q286-alternate-reference-channel-audit.json",
+  "source_centered_3_1_stress_class_audit": "evidence\\q286-centered-3-1-stress-class-audit.json",
+  "source_centered_scalar_order_audit": "evidence\\q286-centered-channel-scalar-order-audit.json",
+  "source_commit": "07c8f17ea5ebd288f647b2105214750de7ae3c5e",
+  "source_selected_deficit_provenance_audit": "evidence\\q286-selected-deficit-provenance-audit.json",
+  "status_boundary": "finite q286 receipt only; no stress-classifier theorem, selected-deficit classifier theorem, signed projection theorem, binary-prime correlation theorem, or Goldbach proof."
+}

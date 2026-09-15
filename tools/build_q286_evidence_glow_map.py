@@ -129,6 +129,8 @@ def main():
         EVIDENCE / "q286-alternate-reference-channel-audit.json")
     centered_channel_scalar_order = load_json(
         EVIDENCE / "q286-centered-channel-scalar-order-audit.json")
+    centered_3_1_reference_lemma = load_json(
+        EVIDENCE / "q286-centered-3-1-reference-lemma-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -1715,6 +1717,46 @@ def main():
         "centered-channel-scalar-order-audit",
         3.0,
         "next gate is a non-post-hoc stress/deficit class, not selected references")
+
+    layer(
+        "centered-3-1-reference-lemma-audit",
+        "Centered (3,1) selected-reference lemma is scoped",
+        "finite_selected_reference_lemma",
+        "evidence/q286-centered-3-1-reference-lemma-audit.json",
+        3.0,
+        "Finite selected-reference lemma only; broad promotions are falsified.")
+    add_hit(
+        mechanism_stacks,
+        "centered-3-1-selected-deficit-separator",
+        "centered-3-1-reference-lemma-audit",
+        3.0,
+        "all selected deficit references have 606/606 positive fresh-window (3,1) margins",
+        {
+            "selected_deficit_references_all_pass":
+                centered_3_1_reference_lemma[
+                    "selected_deficit_references_all_pass"],
+            "clear_control_references_all_fail_singleton":
+                centered_3_1_reference_lemma[
+                    "clear_control_references_all_fail_singleton"],
+            "focus_reference_13822":
+                centered_3_1_reference_lemma["focus_reference_13822"],
+            "broad_full_nonpositive_class_falsifier":
+                centered_3_1_reference_lemma[
+                    "broad_full_nonpositive_class_falsifier"],
+        })
+    add_hit(
+        target_stacks,
+        "13822",
+        "centered-3-1-reference-lemma-audit",
+        3.0,
+        "strong selected stress witness: low centered (3,1), positive stable core, large negative volatile rim",
+        centered_3_1_reference_lemma["focus_reference_13822"])
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "centered-3-1-reference-lemma-audit",
+        3.0,
+        "supports only selected stress-reference separation; arbitrary-reference and full_nonpositive promotions remain false")
 
     layer(
         "centered-3-1-stress-class-audit",

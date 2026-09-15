@@ -6,6 +6,30 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+Kevin's `(3,1)` stress-classifier hunch is now captured as a scoped finite
+reference lemma.  `tools/build_q286_centered_3_1_reference_lemma_audit.py`
+generated `evidence/q286-centered-3-1-reference-lemma-audit.json`, with the
+human note `notes/q286-centered-3-1-reference-lemma-audit.md`.
+
+Result: centered `(3,1)` passes all five selected stable/volatile
+dominant-floor failure references on all `606` fresh predeclared targets.
+The selected references are `24424,13822,55864,164598,1222142`; for each one
+the fresh-window `(3,1)` margins are `606` positive and `0` negative.
+
+Reference `13822` is a strong witness: centered `(3,1)` rank `2`, weighted
+value `-0.028592853507378977`, fresh-min gap `0.010757459150664062`,
+dominant margin `-0.03674434602428933`, stable-core margin
+`0.3023670686383121`, and volatile rim `-0.3391114146626045`.
+
+Scope boundary: the broad version remains false.  The five selected
+clear-control references all fail the same singleton reference pass, and the
+independent `full_nonpositive` baseline class still has `56/89` rows at or
+above the fresh `(3,1)` minimum.  The live statement is therefore selected
+stress-reference separation, not an arbitrary-reference or full stress-class
+theorem.
+
+## Previous active checkpoint note, 2026-09-15
+
 The selected deficit references now have a provenance audit clarifying which
 "stress" population they belong to.  `tools/build_q286_selected_deficit_provenance_audit.py`
 generated `evidence/q286-selected-deficit-provenance-audit.json`, with the
