@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS four-modulus route now has a variance-scale audit on the same
+targeted fresh residue-lift holdout.
+
+```text
+tools/build_q286_wbss_four_modulus_variance_scale_audit.py
+notes/q286-wbss-four-modulus-variance-scale-audit.md
+evidence/q286-wbss-four-modulus-variance-scale-audit.json
+```
+
+Result:
+
+```text
+lifted rows checked:                         116
+direct witness positive rows:                116 / 116
+positive local variance-scale rows:          116 / 116
+minimum local coefficient standard deviation: 3.30655315466526
+maximum adverse iid-scale z-score:             2.6960506934
+largest adverse z target:                 992374
+tightest positivity target:               965362
+tightest row iid-scale z-score:              -2.31853635660717
+maximum absolute iid-scale z-score:            3.44861444330159
+```
+
+Decision: residual absorption constants fit finite data only, and the
+universal bound is open. The live q286-WBSS theorem target is now a
+source-backed fixed-modulus signed concentration or equidistribution estimate
+for the explicit four-modulus coefficient function. This checkpoint is finite
+variance-scale evidence only; it proves no independence theorem, no
+fixed-modulus equidistribution theorem, no universal lambda bound, and no
+Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The direct q286-WBSS witness now has a four-modulus decomposition on the same
 targeted fresh residue-lift holdout.
 

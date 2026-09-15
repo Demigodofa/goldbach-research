@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS four-modulus route now has a variance-scale audit on the same
+targeted fresh residue-lift holdout:
+`tools/build_q286_wbss_four_modulus_variance_scale_audit.py` generated
+`evidence/q286-wbss-four-modulus-variance-scale-audit.json`, with explanation
+in `notes/q286-wbss-four-modulus-variance-scale-audit.md`.
+
+Question: once residual absorption constants are demoted to finite fits and
+the universal bound remains open, is the surviving four-modulus aggregate load
+variance-sized for the explicit coefficient function, or is it just another
+decimal stress fit?
+
+Result: on the same `116` lifted rows, the direct witness remains positive on
+`116/116` rows and the local variance scale is positive on `116/116` rows. The
+minimum local coefficient standard deviation is `3.30655315466526`. The
+largest adverse iid-scale z-score is `2.6960506934` at target `992374`; the
+tightest positivity row remains `965362`, with iid-scale z-score
+`-2.31853635660717`. The maximum absolute iid-scale z-score is
+`3.44861444330159`, attained on a helpful positive-error row.
+
+Decision: preserve a sharper theorem-shaped target than residual absorption:
+prove a source-backed fixed-modulus signed concentration or equidistribution
+estimate for the explicit four-modulus coefficient function. This is finite
+variance-scale evidence only; it proves no independence theorem, no
+fixed-modulus equidistribution theorem, no universal lambda bound, and no
+Goldbach proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The direct q286-WBSS witness now has a four-modulus decomposition on the same
 targeted fresh residue-lift holdout:
 `tools/build_q286_wbss_four_modulus_direct_holdout_decomposition.py`
