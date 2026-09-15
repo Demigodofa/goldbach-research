@@ -1,0 +1,116 @@
+{
+  "component_pair_closure_theorem_proved": false,
+  "component_pair_route": {
+    "active_conductors_35_77_named_in_note": true,
+    "active_selector": {
+      "first_three_modes_to_principal_ratio": "< -0.3",
+      "first_two_modes_to_principal_ratio": "< -0.2",
+      "starts": [
+        1222142,
+        1323632,
+        1379072
+      ],
+      "targets_per_window": 5
+    },
+    "all_tail_targets_have_positive_strict_margin": true,
+    "calibrated_combined_floor_driver_floor": -0.10172538432746947,
+    "calibrated_normalized_real_channel_linf_bound": 0.05885324711081062,
+    "calibrated_real_channel_l1_to_principal_mean": 15.262957606760978,
+    "decision": "This route has a narrower non-circular theorem obligation than the failed WBSS plain L2 cap: a driver floor plus fixed conductor real-channel control on the active selector.  It is still selected finite evidence and proves no theorem.",
+    "positive_strict_margin_count": 3,
+    "positive_strict_margin_targets": [
+      1222142,
+      1323632,
+      1379072
+    ],
+    "remaining_proof_obligations": [
+      "define or prove eventual active-selector exclusion, or stress every active-selector row found by the unchanged selector",
+      "prove the combined-driver floor on the active lane, not just on the three selected late targets",
+      "prove a pointwise fixed-conductor channel estimate strong enough for normalized Linf <= 0.05885324711081062 on the 16 active real channels",
+      "verify a finite remainder after any eventual threshold is proved"
+    ],
+    "role": "sharper_current_theorem_obligation",
+    "scanned_target_count": 15,
+    "tail_target_count": 3,
+    "tightest_selected_margin": 0.48379401372791037,
+    "tightest_selected_margin_row": {
+      "channel_margin_contribution_to_strict_closure": 0.4837940137279103,
+      "channel_margin_to_calibrated_linf_bound": 0.031697265116795305,
+      "dominant_strict_margin_source": "channel",
+      "driver_margin_to_calibrated_floor": 5.551115123125783e-17,
+      "full_action_to_principal_ratio": 0.944998867177687,
+      "strict_closure_margin_to_calibrated_endpoint": 0.48379401372791037
+    },
+    "tightest_selected_margin_target": 1379072
+  },
+  "fixed_conductor_channel_theorem_proved": false,
+  "goldbach_proved": false,
+  "non_circular_bridge_confirmed": false,
+  "pointwise_adverse_drag_theorem_proved": false,
+  "route_decision": {
+    "next_best_non_circular_target": "component-pair active-lane driver floor plus fixed-conductor real-channel bound",
+    "sleep_or_reservoir": [
+      "plain aggregate WBSS L2 finite cap checks",
+      "more fitted component suprema",
+      "more normalized finite ratios without a theorem object"
+    ],
+    "smallest_next_test": "Either prove/falsify the active-selector rarity statement, or take the unchanged component-pair closure scalar to the next predeclared active rows with scanned, selected, stressed, passed, failed, and not-applicable counts separated.",
+    "why_this_changes_next_action": "The L2 route failed as an already-valid bridge, while the component-pair route localizes the missing theorem to an explicit active selector, a driver floor, and a fixed conductor channel bound."
+  },
+  "schema_version": 1,
+  "source_commit": "e01e66990a698ac1a2a2af298c2dc39a20d54ecc",
+  "sources": {
+    "component_pair_note": "notes\\q286-component-pair-theorem-obligation.md",
+    "component_pair_strict_closure": "evidence\\q286-active-lane-strict-closure-margin-census-selected-late.json",
+    "wbss_l2_observed_moment_audit": "evidence\\q286-wbss-multiplicative-character-l2-observed-moment-audit.json",
+    "wbss_pointwise_target": "evidence\\q286-wbss-pointwise-adverse-drag-theorem-target.json"
+  },
+  "status": "HOLD_component_pair_is_sharper_current_theorem_obligation",
+  "status_boundary": "route-triage receipt only; it chooses a next theorem obligation from existing evidence and proves no fixed-modulus character estimate, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true,
+  "wbss_plain_l2_route": {
+    "changed_conditions_to_reactivate": [
+      "an external pointwise aggregate twisted binary-prime moment theorem with an explicit threshold",
+      "a structured signed moment theorem that explains why the 120 finite row-local violations are below-threshold",
+      "a different unnormalized signed estimate than plain aggregate L2"
+    ],
+    "checked_rows": 348,
+    "decision": "Plain aggregate L2 remains coefficient algebra and a possible asymptotic theorem shape, but it is not the next finite acceptance route: the checked population violates the row-local cap on 120/348 rows.",
+    "global_min_l2_cap_violations": 301,
+    "non_circular_bridge_confirmed": false,
+    "role": "reservoir_until_changed_condition",
+    "row_local_l2_cap_violations": 120,
+    "target": "AdverseDrag(N) < LocalMain(N)",
+    "worst_row": {
+      "actual_mass_sum": 1.0,
+      "aggregate_character_moment_l2": 0.20982859176041493,
+      "character_moment_l2_by_modulus": {
+        "130": 0.11564506916714891,
+        "154": 0.09220349051288765,
+        "286": 0.14559844525779775,
+        "70": 0.030884704519164828
+      },
+      "exceeds_global_min_l2_cap": true,
+      "exceeds_row_local_l2_cap": true,
+      "global_min_l2_cap": 0.10930746469603118,
+      "local_main": 0.7445418302942308,
+      "pair_count": 2714,
+      "ratio_to_global_min_l2_cap": 1.91961813718687,
+      "ratio_to_row_local_l2_cap": 1.5570989543984672,
+      "row_local_l2_cap": 0.13475610600578378,
+      "row_local_l2_margin": -0.07507248575463116,
+      "source": "adverse_drag_horizon",
+      "target": 1089544,
+      "target_mod_286": 170,
+      "target_residue": 8464,
+      "uniform_mass_sum": 0.9999999999999999
+    },
+    "zero_mass_defect_found": false
+  },
+  "wbss_pointwise_route": {
+    "decision": "The unnormalized adverse-drag inequality remains the correct acceptance condition for WBSS, but no current L2 bridge pays it non-circularly.",
+    "normalization_boundary": "The acceptance target is unnormalized and pointwise: adverse_drag(N) and local_main(N) must be compared as actual terms in the q286-WBSS signed expectation, not merely as a fitted decimal or finite normalized ratio.",
+    "required_universal_statement": "There exist an explicit threshold N0 and an explicit covered even-target class such that, for every covered even N>=N0, adverse_drag(N) < local_main(N).",
+    "still_valid_as_definition": true
+  }
+}

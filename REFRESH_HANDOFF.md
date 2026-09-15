@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 route now has a non-circular route-triage audit.
+
+```text
+tools/build_q286_non_circular_route_triage_audit.py
+notes/q286-non-circular-route-triage-audit.md
+evidence/q286-non-circular-route-triage-audit.json
+```
+
+Result:
+
+```text
+WBSS checked rows:                         348
+WBSS row-local L2 cap violations:          120
+WBSS global-minimum L2 cap violations:     301
+WBSS worst target:                     1089544
+component selected late active rows:         3
+component positive strict margins:           3 / 3
+component calibrated driver floor: -0.10172538432746947
+component real-channel Linf cap:    0.05885324711081062
+component tightest selected target:    1379072
+component tightest selected margin: 0.48379401372791037
+```
+
+Decision: `HOLD_component_pair_is_sharper_current_theorem_obligation`.  Plain
+WBSS aggregate `L2` finite cap checks move to reservoir until a changed
+condition appears.  The next best non-circular theorem target is the
+component-pair active-lane driver floor plus fixed-conductor real-channel
+bound.  This proves no component-pair theorem, fixed-conductor channel
+theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an observed aggregate character `L2` moment audit.
 
 ```text

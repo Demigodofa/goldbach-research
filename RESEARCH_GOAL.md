@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 route now has a non-circular route-triage audit:
+`tools/build_q286_non_circular_route_triage_audit.py` generated
+`evidence/q286-non-circular-route-triage-audit.json`, with explanation in
+`notes/q286-non-circular-route-triage-audit.md`.
+
+Question: after the zero-mass check passed but plain WBSS aggregate `L2`
+failed as an already-valid bridge, which q286 theorem obligation should lead
+the next non-circular step?
+
+Answer: put plain WBSS aggregate `L2` finite cap checks in reservoir until a
+changed condition appears, and prefer the component-pair active-lane driver
+floor plus fixed-conductor real-channel bound as the sharper current theorem
+obligation.
+
+```text
+WBSS checked rows:                         348
+WBSS row-local L2 cap violations:          120
+WBSS global-minimum L2 cap violations:     301
+WBSS worst target:                     1089544
+component selected late active rows:         3
+component positive strict margins:           3 / 3
+component calibrated driver floor: -0.10172538432746947
+component real-channel Linf cap:    0.05885324711081062
+component tightest selected target:    1379072
+component tightest selected margin: 0.48379401372791037
+```
+
+Decision: `HOLD_component_pair_is_sharper_current_theorem_obligation`.  This
+is route triage, not proof.  The next best non-circular target is to prove or
+falsify active-selector rarity, or apply the unchanged component-pair closure
+scalar to the next predeclared active rows with scanned, selected, stressed,
+passed, failed, and not-applicable counts separated.  Plain WBSS aggregate
+`L2` should reactivate only after an external pointwise aggregate twisted
+binary-prime moment theorem, a stronger structured signed moment theorem, or
+a different unnormalized signed estimate appears.  No component-pair theorem,
+fixed-conductor channel theorem, pointwise adverse-drag theorem, q286
+threshold theorem, strict-central Goldbach theorem, or Goldbach proof is
+established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has an observed aggregate character `L2` moment audit:
 `tools/build_q286_wbss_multiplicative_character_l2_observed_moment_audit.py`
 generated
