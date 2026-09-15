@@ -443,6 +443,21 @@ useful class must be defined without `(3,1)` and must actually contain the
 selected deficit references, or the route should return to signed/correlation
 estimates instead of scalar classification.
 
+The selected deficit provenance audit is:
+
+```text
+evidence/q286-selected-deficit-provenance-audit.json
+```
+
+It prevents a quiet scope error between two different uses of "stress."  The
+selected deficit references are selected-fixture dominant-floor failures in
+the stable/volatile lane.  The `full_nonpositive` class is a separate
+filter-order population spanning `10000..90078`.  In particular, selected
+references `164598` and `1222142` are outside that baseline span by
+construction.  This layer is a scope guard: it keeps the selected `(3,1)`
+separator alive as a finite fact while blocking promotion to the
+`full_nonpositive` classifier theorem.
+
 The AP-count bridge-gap audit is:
 
 ```text

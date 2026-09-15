@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The selected deficit references now have a provenance audit clarifying which
+"stress" population they belong to.  `tools/build_q286_selected_deficit_provenance_audit.py`
+generated `evidence/q286-selected-deficit-provenance-audit.json`, with the
+human note `notes/q286-selected-deficit-provenance-audit.md`.
+
+Result: the five selected deficit references
+`24424,13822,55864,164598,1222142` are the selected-fixture dominant-floor
+failures from the stable/volatile classification lane.  They are not the same
+population as the `full_nonpositive` baseline filter-order stress class.
+
+Baseline span correction: the baseline filter-order fixture spans targets
+`10000..90078`.  References `24424`, `13822`, and `55864` are inside that
+span; references `164598` and `1222142` are outside it by construction.  Thus
+the previous full-nonpositive falsifier should be read as a falsifier of the
+broad classifier promotion, not as a predicate result for every selected
+reference.
+
+Selected-deficit rows retain their centered `(3,1)` ranks in the combined
+reference/fresh/same-window order: `55864` rank `1`, `13822` rank `2`,
+`1222142` rank `3`, `24424` rank `4`, and `164598` rank `7`.
+
+Decision: the live narrow statement is that centered `(3,1)` separates the
+five selected stable/volatile dominant-floor deficits from the fresh
+predeclared targets.  The invalid promotion is that centered `(3,1)`
+classifies the whole `full_nonpositive` q286 stress class.  Next theorem work
+needs a non-post-hoc class that actually contains the selected references, or
+a return to signed/correlation estimates.
+
+## Previous active checkpoint note, 2026-09-15
+
 The broad centered `(3,1)` stress-classifier reading has now been tested and
 falsified on a predeclared stress class.  `tools/build_q286_centered_3_1_stress_class_audit.py`
 generated `evidence/q286-centered-3-1-stress-class-audit.json`, with the

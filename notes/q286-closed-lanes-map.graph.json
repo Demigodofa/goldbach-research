@@ -32,6 +32,7 @@
     "near_miss",
     "tests",
     "requires",
+    "scope_guard",
     "compares_with",
     "falsifies_simplification"
   ],
@@ -1455,6 +1456,14 @@
       "status_boundary": "finite stress-class falsifier only; refutes centered (3,1) as a classifier for the baseline full_nonpositive class, not the selected-deficit separator or every possible stress class"
     },
     {
+      "id": "receipt.q286_selected_deficit_provenance_audit",
+      "type": "receipt",
+      "label": "q286 selected deficit provenance audit",
+      "status": "validated_scope_guard",
+      "validation": "tools/build_q286_selected_deficit_provenance_audit.py generated evidence/q286-selected-deficit-provenance-audit.json; the five selected deficit references are selected-fixture dominant-floor failures in the stable/volatile lane, while the full_nonpositive stress class is a distinct baseline filter-order population spanning targets 10000..90078",
+      "status_boundary": "finite provenance audit only; separates fixture predicates and prevents promoting the selected-deficit separator to the full_nonpositive stress-class theorem"
+    },
+    {
       "id": "obligation.centered_3_1_stress_class",
       "type": "open_obligation",
       "label": "Define and prove the centered (3,1) stress class",
@@ -1483,6 +1492,16 @@
       "from": "receipt.q286_centered_3_1_stress_class_audit",
       "to": "receipt.q286_centered_channel_scalar_order_audit",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_selected_deficit_provenance_audit",
+      "to": "receipt.q286_centered_channel_scalar_order_audit",
+      "type": "scope_guard"
+    },
+    {
+      "from": "receipt.q286_selected_deficit_provenance_audit",
+      "to": "receipt.q286_centered_3_1_stress_class_audit",
+      "type": "scope_guard"
     },
     {
       "from": "receipt.q286_alternate_reference_channel_audit",

@@ -131,6 +131,8 @@ def main():
         EVIDENCE / "q286-centered-channel-scalar-order-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
+    selected_deficit_provenance = load_json(
+        EVIDENCE / "q286-selected-deficit-provenance-audit.json")
     ap_count_bridge_gap = load_json(
         EVIDENCE / "q286-ap-count-bridge-gap-audit.json")
 
@@ -1747,6 +1749,37 @@ def main():
         "centered-3-1-stress-class-audit",
         3.0,
         "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed")
+
+    layer(
+        "selected-deficit-provenance-audit",
+        "Selected deficit provenance separates fixture populations",
+        "finite_scope_guard",
+        "evidence/q286-selected-deficit-provenance-audit.json",
+        2.0,
+        "Finite provenance audit only; guards against merging distinct stress populations.")
+    add_hit(
+        mechanism_stacks,
+        "selected-deficit-versus-full-nonpositive-scope-guard",
+        "selected-deficit-provenance-audit",
+        2.0,
+        "selected deficit references are stable/volatile dominant-floor failures, not the full_nonpositive population",
+        {
+            "selected_deficit_targets":
+                selected_deficit_provenance["selected_fixture"][
+                    "selected_deficit_targets"],
+            "baseline_span":
+                selected_deficit_provenance[
+                    "baseline_full_nonpositive_fixture"]["target_span"],
+            "deficit_source_predicate":
+                selected_deficit_provenance["selected_fixture"][
+                    "deficit_source_predicate"],
+        })
+    add_hit(
+        theorem_stacks,
+        "centered-3-1-stress-class-theorem",
+        "selected-deficit-provenance-audit",
+        2.0,
+        "scope guard: selected-deficit separation cannot be promoted across fixture predicates")
 
     layer(
         "ap-count-bridge-gap-audit",

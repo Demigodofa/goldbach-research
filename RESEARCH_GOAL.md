@@ -6,6 +6,26 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The selected deficit references now have a provenance audit:
+`tools/build_q286_selected_deficit_provenance_audit.py` generated
+`evidence/q286-selected-deficit-provenance-audit.json`, with explanation in
+`notes/q286-selected-deficit-provenance-audit.md`.
+
+The five selected deficit references
+`24424,13822,55864,164598,1222142` are exactly the selected-fixture
+dominant-floor failures from the stable/volatile classification lane.  They
+are not the same finite population as the `full_nonpositive` baseline
+filter-order stress class.  The baseline filter-order fixture spans
+`10000..90078`, so `164598` and `1222142` are outside that baseline by
+construction.
+
+Interpretation: centered `(3,1)` remains a finite separator for the selected
+stable/volatile dominant-floor deficits.  The full-nonpositive stress-class
+audit remains a valid falsifier of the broad promotion, but it must not be
+read as a predicate result for selected references outside its span.
+
+## Previous continuation evidence, 2026-09-15
+
 The broad centered `(3,1)` stress-classifier version has been falsified on a
 predeclared q286 stress class.  `tools/build_q286_centered_3_1_stress_class_audit.py`
 generated `evidence/q286-centered-3-1-stress-class-audit.json`, with

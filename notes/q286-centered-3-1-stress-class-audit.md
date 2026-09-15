@@ -73,10 +73,11 @@ For `(5,5)`, only `40/89` `full_nonpositive` rows sit below the fresh minimum.
 The other `49/89` are at or above it.  The maximum centered `(5,5)` row is
 target `12032`, with value `0.21405310870173938`.
 
-The five previously selected deficit references are not members of this
-baseline `full_nonpositive` class.  Therefore the selected-deficit separator
-result and the full-action stress-class test are distinct facts, not the same
-population under different names.
+The selected-deficit separator result and the full-action stress-class test
+are distinct facts, not the same population under different names.  A later
+provenance audit records the precise span boundary: the baseline
+`full_nonpositive` fixture covers `10000..90078`, so selected references
+`164598` and `1222142` are outside that baseline window by construction.
 
 ## Interpretation
 

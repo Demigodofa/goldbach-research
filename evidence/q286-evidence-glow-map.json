@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "5924b0a27c945eb6271ad8bc8c633422651d6ef0",
+  "generated_from_commit": "b708769964c98911fbf45d4529f0cd72a84ad054",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -314,6 +314,14 @@
       "source": "evidence/q286-centered-3-1-stress-class-audit.json",
       "default_weight": 3.0,
       "boundary": "Finite stress-class falsifier only; no universal stress-classifier theorem."
+    },
+    {
+      "id": "selected-deficit-provenance-audit",
+      "label": "Selected deficit provenance separates fixture populations",
+      "kind": "finite_scope_guard",
+      "source": "evidence/q286-selected-deficit-provenance-audit.json",
+      "default_weight": 2.0,
+      "boundary": "Finite provenance audit only; guards against merging distinct stress populations."
     },
     {
       "id": "ap-count-bridge-gap-audit",
@@ -6372,6 +6380,33 @@
       "glow": 0.222222
     },
     {
+      "id": "selected-deficit-versus-full-nonpositive-scope-guard",
+      "stack_weight": 2.0,
+      "layers": [
+        {
+          "layer": "selected-deficit-provenance-audit",
+          "weight": 2.0,
+          "reason": "selected deficit references are stable/volatile dominant-floor failures, not the full_nonpositive population",
+          "value": {
+            "selected_deficit_targets": [
+              24424,
+              13822,
+              55864,
+              164598,
+              1222142
+            ],
+            "baseline_span": [
+              10000,
+              90078
+            ],
+            "deficit_source_predicate": "dominant_floor_passes == false in the selected stable-core classification fixture"
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.222222
+    },
+    {
       "id": "signed-cumulative-portfolio-staircase",
       "stack_weight": 2.0,
       "layers": [
@@ -6727,6 +6762,29 @@
       "glow": 0.457143
     },
     {
+      "id": "centered-3-1-stress-class-theorem",
+      "stack_weight": 8.0,
+      "layers": [
+        {
+          "layer": "centered-channel-scalar-order-audit",
+          "weight": 3.0,
+          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
+        },
+        {
+          "layer": "centered-3-1-stress-class-audit",
+          "weight": 3.0,
+          "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
+        },
+        {
+          "layer": "selected-deficit-provenance-audit",
+          "weight": 2.0,
+          "reason": "scope guard: selected-deficit separation cannot be promoted across fixture predicates"
+        }
+      ],
+      "layer_count": 3,
+      "glow": 0.457143
+    },
+    {
       "id": "fixed-modulus-binary-prime-discrepancy",
       "stack_weight": 8.0,
       "layers": [
@@ -6762,24 +6820,6 @@
           "layer": "ap-count-bridge-gap-audit",
           "weight": 3.0,
           "reason": "raw AP counts alone are demoted; bridge needs binary convolution or signed character correlation"
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.342857
-    },
-    {
-      "id": "centered-3-1-stress-class-theorem",
-      "stack_weight": 6.0,
-      "layers": [
-        {
-          "layer": "centered-channel-scalar-order-audit",
-          "weight": 3.0,
-          "reason": "next gate is a non-post-hoc stress/deficit class, not selected references"
-        },
-        {
-          "layer": "centered-3-1-stress-class-audit",
-          "weight": 3.0,
-          "reason": "full_nonpositive classifier version falsified; a different predeclared class or signed estimate is needed"
         }
       ],
       "layer_count": 2,
