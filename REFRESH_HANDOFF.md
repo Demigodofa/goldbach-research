@@ -22381,6 +22381,51 @@ failure mechanism is only `first_three < -1`; state the narrower checked
 suffix result and keep nonprincipal-drag control as a separate theorem
 obligation.
 
+Nonprincipal-drag envelope audit:
+
+- `tools/build_q286_nonprincipal_drag_envelope_audit.py`
+- `notes/q286-nonprincipal-drag-envelope-audit.md`
+- `evidence/q286-nonprincipal-drag-envelope-audit.json`
+
+This receipt reruns the same `480480` checked targets and measures
+`nonprincipal_drag / principal_only_margin` on every first-three-tail row,
+where `nonprincipal_drag=max(0,1-complement_to_principal_ratio)`.
+
+Result: post-discovery blocks `1..11` contain `1744` first-three-tail rows and
+`0` drag-overturn rows.  The maximum post-discovery ratio is
+`0.9696841556062236`, so the checked suffix envelope survives but is
+near-sharp.  The tight row is target `94856`, with margin
+`0.4148479630137373`, drag `0.40227149671993767`, and final surplus
+`0.012576466293799604`.  Later blocks `6..11` have maximum ratio
+`0.47454631067294206`.
+
+Discovery block `0` has `84` drag-overturn rows; the worst is target `14996`
+with ratio `27.66930751295942`.  Next theorem route: prove the checked suffix
+ratio below `1` from a signed nonprincipal-correlation estimate, not from a
+loose mean or absolute drag bound.
+
+Proof-definition pivot:
+
+- `notes/q286-proof-definition-pivot.md`
+
+Kevin flagged that the q286 work risks becoming endless audits.  The pivot is
+to stop expanding scans unless they test a frozen mathematical definition.
+The current definition layer is:
+
+```text
+F3(N) = first_three_modes_to_principal_ratio
+C(N)  = complement_to_principal_ratio
+S(N)  = 1 + F3(N)
+D(N)  = max(0, 1 - C(N))
+```
+
+The checked suffix target is `S(N)>0` and `D(N)/S(N)<1` on first-three-tail
+rows.  However, `post-discovery` is still a schedule phrase, not a theorem
+class.  The next useful move is to define a non-post-hoc q286 suffix class
+`Q286*`, source an analytic threshold, or formulate an operator/cone
+inequality that implies the envelope.  More q286 scanning without that
+definition is low-value.
+
 Prime-indexed q286 later full-block scan:
 
 - `tools/build_q286_prime_indexed_later_full_block_scan.py`

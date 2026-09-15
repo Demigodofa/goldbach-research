@@ -192,6 +192,8 @@ def main():
         EVIDENCE / "q286-later-tail-complement-source-decomposition.json")
     principal_rescue_obstruction = load_json(
         EVIDENCE / "q286-principal-rescue-obstruction-audit.json")
+    nonprincipal_drag_envelope = load_json(
+        EVIDENCE / "q286-nonprincipal-drag-envelope-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3396,6 +3398,68 @@ def main():
         "principal-rescue-obstruction-audit",
         4.0,
         "blocks 1..11 have no first-three-below-minus-one tail rows")
+
+    layer(
+        "nonprincipal-drag-envelope-audit",
+        "q286 suffix drag stays below principal margin, near-sharply",
+        "finite_ratio_envelope",
+        "evidence/q286-nonprincipal-drag-envelope-audit.json",
+        5.0,
+        "Finite checked-block ratio envelope only; no eventual theorem.")
+    envelope_metrics = nonprincipal_drag_envelope["decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "post-discovery-drag-to-margin-envelope",
+        "nonprincipal-drag-envelope-audit",
+        5.0,
+        "post-discovery nonprincipal drag stays below principal-only margin on all checked tail rows",
+        {
+            "post_discovery_tail_count": (
+                envelope_metrics["post_discovery_tail_count"]),
+            "post_discovery_maximum_drag_to_margin_ratio": (
+                envelope_metrics[
+                    "post_discovery_maximum_drag_to_margin_ratio"]),
+            "post_discovery_drag_to_margin_gap_below_one": (
+                envelope_metrics[
+                    "post_discovery_drag_to_margin_gap_below_one"]),
+            "post_discovery_tightest_drag_surplus_margin": (
+                envelope_metrics[
+                    "post_discovery_tightest_drag_surplus_margin"]),
+            "later_maximum_drag_to_margin_ratio": (
+                envelope_metrics["later_maximum_drag_to_margin_ratio"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "nonprincipal-drag-control",
+        "nonprincipal-drag-envelope-audit",
+        5.0,
+        "proof target sharpens to a worst-case drag/principal-margin ratio below one",
+        {
+            "post_discovery_drag_overturn_count": (
+                envelope_metrics["post_discovery_drag_overturn_count"]),
+            "discovery_drag_overturn_count": (
+                envelope_metrics["discovery_drag_overturn_count"]),
+        })
+
+    layer(
+        "q286-proof-definition-pivot",
+        "q286 progress now requires a mathematical suffix definition",
+        "theorem_definition_pivot",
+        "notes/q286-proof-definition-pivot.md",
+        5.0,
+        "Theorem-shaping note only; no new finite scan or proof.")
+    add_hit(
+        theorem_stacks,
+        "q286-suffix-class-definition-required",
+        "q286-proof-definition-pivot",
+        5.0,
+        "post-discovery is a computation schedule phrase and must be replaced by Q286*, an analytic threshold, or an operator/cone inequality")
+    add_hit(
+        theorem_stacks,
+        "nonprincipal-drag-control",
+        "q286-proof-definition-pivot",
+        4.0,
+        "future scans are low-value unless they test a frozen definition of S>0 and D/S<1")
 
     layer(
         "centered-3-1-stress-class-audit",

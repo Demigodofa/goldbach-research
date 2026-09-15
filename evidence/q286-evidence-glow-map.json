@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "receipt": "q286-evidence-glow-map",
-  "generated_from_commit": "cf1b0666dbeaaf0987e96879b406a2738f92e74a",
+  "generated_from_commit": "0389790964b760ebe975355c56a96f3010f01bc5",
   "purpose": "Visualization-ready stacked evidence map.  Brighter means more repo-backed evidence layers overlap; it does not mean proved.",
   "visual_encoding": {
     "target_shape": "circle",
@@ -538,6 +538,22 @@
       "source": "evidence/q286-principal-rescue-obstruction-audit.json",
       "default_weight": 5.0,
       "boundary": "Finite checked-block obstruction audit only; no eventual theorem."
+    },
+    {
+      "id": "nonprincipal-drag-envelope-audit",
+      "label": "q286 suffix drag stays below principal margin, near-sharply",
+      "kind": "finite_ratio_envelope",
+      "source": "evidence/q286-nonprincipal-drag-envelope-audit.json",
+      "default_weight": 5.0,
+      "boundary": "Finite checked-block ratio envelope only; no eventual theorem."
+    },
+    {
+      "id": "q286-proof-definition-pivot",
+      "label": "q286 progress now requires a mathematical suffix definition",
+      "kind": "theorem_definition_pivot",
+      "source": "notes/q286-proof-definition-pivot.md",
+      "default_weight": 5.0,
+      "boundary": "Theorem-shaping note only; no new finite scan or proof."
     },
     {
       "id": "centered-3-1-stress-class-audit",
@@ -7004,6 +7020,26 @@
       "glow": 0.172414
     },
     {
+      "id": "post-discovery-drag-to-margin-envelope",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "nonprincipal-drag-envelope-audit",
+          "weight": 5.0,
+          "reason": "post-discovery nonprincipal drag stays below principal-only margin on all checked tail rows",
+          "value": {
+            "post_discovery_tail_count": 1744,
+            "post_discovery_maximum_drag_to_margin_ratio": 0.9696841556062236,
+            "post_discovery_drag_to_margin_gap_below_one": 0.030315844393776437,
+            "post_discovery_tightest_drag_surplus_margin": 0.012576466293799604,
+            "later_maximum_drag_to_margin_ratio": 0.47454631067294206
+          }
+        }
+      ],
+      "layer_count": 1,
+      "glow": 0.172414
+    },
+    {
       "id": "post-discovery-full-nonpositive-hole-closes-finitely",
       "stack_weight": 5.0,
       "layers": [
@@ -8544,6 +8580,43 @@
       "glow": 0.289655
     },
     {
+      "id": "nonprincipal-drag-control",
+      "stack_weight": 18.0,
+      "layers": [
+        {
+          "layer": "later-tail-complement-source-decomposition",
+          "weight": 4.0,
+          "reason": "nonprincipal components can erase principal surplus and need signed-correlation control"
+        },
+        {
+          "layer": "principal-rescue-obstruction-audit",
+          "weight": 5.0,
+          "reason": "discovery has 84 principal-positive full failures overturned by nonprincipal drag",
+          "value": {
+            "full_nonpositive_tail_count": 86,
+            "principal_positive_full_nonpositive_tail_count": 84,
+            "first_three_below_minus_one_tail_count": 5
+          }
+        },
+        {
+          "layer": "nonprincipal-drag-envelope-audit",
+          "weight": 5.0,
+          "reason": "proof target sharpens to a worst-case drag/principal-margin ratio below one",
+          "value": {
+            "post_discovery_drag_overturn_count": 0,
+            "discovery_drag_overturn_count": 84
+          }
+        },
+        {
+          "layer": "q286-proof-definition-pivot",
+          "weight": 4.0,
+          "reason": "future scans are low-value unless they test a frozen definition of S>0 and D/S<1"
+        }
+      ],
+      "layer_count": 4,
+      "glow": 0.248276
+    },
+    {
       "id": "rank1-outside-direction-arithmetic-meaning",
       "stack_weight": 17.5,
       "layers": [
@@ -8709,29 +8782,6 @@
       "glow": 0.124138
     },
     {
-      "id": "nonprincipal-drag-control",
-      "stack_weight": 9.0,
-      "layers": [
-        {
-          "layer": "later-tail-complement-source-decomposition",
-          "weight": 4.0,
-          "reason": "nonprincipal components can erase principal surplus and need signed-correlation control"
-        },
-        {
-          "layer": "principal-rescue-obstruction-audit",
-          "weight": 5.0,
-          "reason": "discovery has 84 principal-positive full failures overturned by nonprincipal drag",
-          "value": {
-            "full_nonpositive_tail_count": 86,
-            "principal_positive_full_nonpositive_tail_count": 84,
-            "first_three_below_minus_one_tail_count": 5
-          }
-        }
-      ],
-      "layer_count": 2,
-      "glow": 0.124138
-    },
-    {
       "id": "alternate-stress-channel-reference-gate",
       "stack_weight": 8.0,
       "layers": [
@@ -8793,6 +8843,19 @@
         }
       ],
       "layer_count": 2,
+      "glow": 0.068966
+    },
+    {
+      "id": "q286-suffix-class-definition-required",
+      "stack_weight": 5.0,
+      "layers": [
+        {
+          "layer": "q286-proof-definition-pivot",
+          "weight": 5.0,
+          "reason": "post-discovery is a computation schedule phrase and must be replaced by Q286*, an analytic threshold, or an operator/cone inequality"
+        }
+      ],
+      "layer_count": 1,
       "glow": 0.068966
     },
     {

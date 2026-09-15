@@ -14216,3 +14216,72 @@ next theorem target is therefore a two-part statement: post-discovery
 `first_three > -1` plus a nonprincipal-drag bound below the remaining
 principal-only surplus.  This is finite evidence only and does not prove
 Goldbach.
+
+### 2026-09-15 continuation: nonprincipal-drag envelope audit
+
+The drag side of the two-part target was then measured directly:
+
+```text
+tools/build_q286_nonprincipal_drag_envelope_audit.py
+notes/q286-nonprincipal-drag-envelope-audit.md
+evidence/q286-nonprincipal-drag-envelope-audit.json
+```
+
+It reruns the same `480480` checked targets and validates against the
+principal-rescue obstruction audit.  The sharper finite envelope is:
+
+```text
+nonprincipal_drag < principal_only_margin
+```
+
+or equivalently:
+
+```text
+max(0, 1 - complement_to_principal_ratio)
+  / (1 + first_three_modes_to_principal_ratio) < 1.
+```
+
+Result: post-discovery blocks `1..11` have `1744` first-three-tail rows and
+`0` drag-overturn rows.  The maximum post-discovery drag-to-margin ratio is
+`0.9696841556062236`, leaving a gap below `1` of only
+`0.030315844393776437`.  The tightest row is target `94856`, with
+principal-only margin `0.4148479630137373`, nonprincipal drag
+`0.40227149671993767`, and final drag-surplus margin
+`0.012576466293799604`.
+
+Later blocks `6..11` are much safer, with maximum ratio
+`0.47454631067294206`.  Discovery block `0` has `84` drag-overturn rows, and
+the worst ratio is `27.66930751295942` at target `14996`.
+
+Decision: the suffix route survives as a near-sharp finite envelope, not a
+soft average phenomenon.  The proof obligation is now explicit: prove the
+post-discovery first-three principal margin and a worst-case signed
+nonprincipal-drag ratio below `1`, or show that such a ratio bound is still
+equivalent to the hard pointwise signed prime-correlation estimate.
+
+### 2026-09-15 continuation: proof-definition pivot
+
+Kevin flagged that the work risks becoming endless audits.  The pivot note is:
+
+```text
+notes/q286-proof-definition-pivot.md
+```
+
+Decision: stop treating more q286 scans as progress unless they test a frozen
+mathematical definition.  The current finite receipts suggest the right
+objects are:
+
+```text
+F3(N) = first_three_modes_to_principal_ratio
+C(N)  = complement_to_principal_ratio
+S(N)  = 1 + F3(N)
+D(N)  = max(0, 1 - C(N))
+```
+
+The checked suffix target is `S(N)>0` and `D(N)/S(N)<1` on first-three-tail
+rows, but `post-discovery` itself is not yet a mathematical class.  The next
+real proof move is to define the q286 suffix class `Q286*` arithmetically, or
+replace it with a sourced analytic threshold, a convex-cone condition on
+admissible residue measures, or a Fourier/operator inequality that implies the
+ratio envelope.  Another broad scan without such a definition should be
+treated as low-value.
