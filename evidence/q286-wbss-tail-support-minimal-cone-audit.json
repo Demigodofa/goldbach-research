@@ -1,0 +1,3431 @@
+{
+  "all_subset_rows": [
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745500903,
+            "mean": 0.18991238644854755,
+            "minimum": 0.10013471140150454
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.05672543251943609,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090766
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960503,
+            "mean": 0.10262301898806288,
+            "minimum": -0.04736641144725594
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150454,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725594,
+            "synthetic_l1_from_actual": 1.7750994182268738,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745500376,
+            "mean": 0.18991238644854783,
+            "minimum": 0.10013471140151653
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.01050299711839562
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960453,
+            "mean": 0.10262301898806282,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140151653,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291682,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [],
+      "tail_subset_size": 0
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.295396667455031,
+            "mean": 0.18991238644854644,
+            "minimum": 0.10013471140149655
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090773
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960526,
+            "mean": 0.10262301898806288,
+            "minimum": -0.04736641144725588
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140149655,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725588,
+            "synthetic_l1_from_actual": 1.7750994182268736,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550301,
+            "mean": 0.189912386448548,
+            "minimum": 0.10013471140149877
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395621
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960487,
+            "mean": 0.10262301898806281,
+            "minimum": -0.0473664114472561
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140149877,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291677,
+            "minimum_signed_expectation": -0.0473664114472561,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10
+      ],
+      "tail_subset_size": 1
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.295396667455031,
+            "mean": 0.18991238644854694,
+            "minimum": 0.10013471140150276
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090766
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960514,
+            "mean": 0.10262301898806292,
+            "minimum": -0.04736641144725569
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150276,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725569,
+            "synthetic_l1_from_actual": 1.7638279140383233,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745502835,
+            "mean": 0.189912386448549,
+            "minimum": 0.10013471140150187
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.01050299711839562
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960453,
+            "mean": 0.10262301898806285,
+            "minimum": -0.047366411447255966
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150187,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291677,
+            "minimum_signed_expectation": -0.047366411447255966,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        14,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14
+      ],
+      "tail_subset_size": 1
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550177,
+            "mean": 0.18991238644855013,
+            "minimum": 0.10013471140150476
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709076
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960514,
+            "mean": 0.10262301898806288,
+            "minimum": -0.047366411447255966
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150476,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990166,
+            "minimum_signed_expectation": -0.047366411447255966,
+            "synthetic_l1_from_actual": 1.7638279140383235,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550181,
+            "mean": 0.18991238644855832,
+            "minimum": 0.10013471140150676
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358542,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395613
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196045,
+            "mean": 0.10262301898806285,
+            "minimum": -0.0473664114472561
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150676,
+            "coefficient_projection_span_relative_l2_residual": 0.01409520156329168,
+            "minimum_signed_expectation": -0.0473664114472561,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        22,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        22
+      ],
+      "tail_subset_size": 1
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550186,
+            "mean": 0.18991238644854655,
+            "minimum": 0.1001347114015061
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709077
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960514,
+            "mean": 0.10262301898806288,
+            "minimum": -0.047366411447255966
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015061,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.047366411447255966,
+            "synthetic_l1_from_actual": 1.7638279140383235,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550134,
+            "mean": 0.18991238644854877,
+            "minimum": 0.10013471140150942
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395613
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196045,
+            "mean": 0.10262301898806282,
+            "minimum": -0.0473664114472561
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150942,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291684,
+            "minimum_signed_expectation": -0.0473664114472561,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        26
+      ],
+      "tail_subset_size": 1
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 5.395683899678261e-14,
+            "mean": 2.6708380877297582e-14,
+            "minimum": 1.0658141036401503e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 7.69251740102256e-15,
+            "mean": 4.132811242247786e-15,
+            "minimum": 1.7210029775962935e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747556,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799902
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 3.042011087472929e-14,
+            "coefficient_projection_span_relative_l2_residual": 3.9339694557014894e-15,
+            "minimum_signed_expectation": 0.012576466293799902,
+            "synthetic_l1_from_actual": 1.7582070760815665,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.127986593019159e-13,
+            "mean": 5.4366233737113134e-14,
+            "minimum": 1.2878587085651816e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.2625229801710029e-14,
+            "mean": 4.206623116961317e-15,
+            "minimum": 1.2611616511775268e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747506,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799734
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 5.5067062021407764e-14,
+            "coefficient_projection_span_relative_l2_residual": 3.781317255654393e-15,
+            "minimum_signed_expectation": 0.012576466293799734,
+            "synthetic_l1_from_actual": 1.73879557567752,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        130
+      ],
+      "tail_subset_size": 1
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745502924,
+            "mean": 0.18991238644854744,
+            "minimum": 0.1001347114015032
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.04212216238885957,
+            "minimum": 0.018780978597090766
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960514,
+            "mean": 0.10262301898806288,
+            "minimum": -0.047366411447255924
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015032,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.047366411447255924,
+            "synthetic_l1_from_actual": 1.775099418226874,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745502835,
+            "mean": 0.18991238644854877,
+            "minimum": 0.10013471140150854
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358542,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395613
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.1026230189880628,
+            "minimum": -0.04736641144725613
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150854,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291674,
+            "minimum_signed_expectation": -0.04736641144725613,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        14,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550219,
+            "mean": 0.1899123864485496,
+            "minimum": 0.10013471140151164
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090763
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196052,
+            "mean": 0.10262301898806293,
+            "minimum": -0.047366411447255966
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140151164,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.047366411447255966,
+            "synthetic_l1_from_actual": 1.7638279140383233,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745502396,
+            "mean": 0.18991238644855524,
+            "minimum": 0.10013471140152541
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.01050299711839562
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.10262301898806288,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140152541,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291679,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.728752555094317,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        22,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        22
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501264,
+            "mean": 0.18991238644854583,
+            "minimum": 0.10013471140149677
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.05672543251943609,
+            "mean": 0.04212216238885957,
+            "minimum": 0.01878097859709077
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196052,
+            "mean": 0.10262301898806288,
+            "minimum": -0.047366411447255966
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140149677,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.047366411447255966,
+            "synthetic_l1_from_actual": 1.7638279140383233,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745500764,
+            "mean": 0.18991238644855177,
+            "minimum": 0.1001347114014961
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.01050299711839562
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.10262301898806285,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114014961,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291684,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.728752555094317,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        26
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.2989609388114332e-13,
+            "mean": 3.1414107426464e-14,
+            "minimum": 8.992806499463768e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.6002967895005018e-14,
+            "mean": 4.6836395650977854e-15,
+            "minimum": 1.4377568245354415e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474756,
+            "mean": 0.1865609425610647,
+            "minimum": 0.012576466293799916
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.398081733190338e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.7355281964631173e-15,
+            "minimum_signed_expectation": 0.012576466293799916,
+            "synthetic_l1_from_actual": 1.7753479405017225,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.384759056894836e-13,
+            "mean": 6.579690496148298e-14,
+            "minimum": 2.020605904817785e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.6144711558396636e-14,
+            "mean": 5.0244099578877476e-15,
+            "minimum": 1.4171029489354813e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.391876393647475,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799651
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.085620730620576e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.608219760769846e-15,
+            "minimum_signed_expectation": 0.012576466293799651,
+            "synthetic_l1_from_actual": 1.7387955756775195,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        130
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550115,
+            "mean": 0.1899123864485471,
+            "minimum": 0.10013471140150187
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.04212216238885957,
+            "minimum": 0.018780978597090766
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960503,
+            "mean": 0.1026230189880629,
+            "minimum": -0.04736641144725594
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150187,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725594,
+            "synthetic_l1_from_actual": 1.7750994182268738,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.295396667455023,
+            "mean": 0.18991238644855002,
+            "minimum": 0.1001347114015072
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395621
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196045,
+            "mean": 0.10262301898806282,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015072,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291682,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        14,
+        22,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        22
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501264,
+            "mean": 0.18991238644854888,
+            "minimum": 0.10013471140150365
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709077
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960503,
+            "mean": 0.1026230189880629,
+            "minimum": -0.04736641144725594
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150365,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.04736641144725594,
+            "synthetic_l1_from_actual": 1.7750994182268738,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550135,
+            "mean": 0.18991238644856054,
+            "minimum": 0.10013471140151609
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395613
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196045,
+            "mean": 0.10262301898806282,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140151609,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291679,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        14,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        26
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.0347278589506459e-13,
+            "mean": 3.389418375595218e-14,
+            "minimum": 1.1324274851176597e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.9238000665907286e-14,
+            "mean": 5.183877510324152e-15,
+            "minimum": 1.937192903324178e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747573,
+            "mean": 0.18656094256106473,
+            "minimum": 0.012576466293799923
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 3.419486915845482e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.8807385883077385e-15,
+            "minimum_signed_expectation": 0.012576466293799923,
+            "synthetic_l1_from_actual": 1.7582070760815662,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.616484723854228e-13,
+            "mean": 6.558989462668308e-14,
+            "minimum": 1.63202784619898e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.742620300780728e-14,
+            "mean": 5.291618748546353e-15,
+            "minimum": 1.2302388212738158e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474752,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799679
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.618527782440651e-14,
+            "coefficient_projection_span_relative_l2_residual": 3.0060338239374195e-15,
+            "minimum_signed_expectation": 0.012576466293799679,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        14,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        130
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501003,
+            "mean": 0.18991238644854755,
+            "minimum": 0.1001347114015001
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090763
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960514,
+            "mean": 0.10262301898806288,
+            "minimum": -0.047366411447255924
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015001,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.047366411447255924,
+            "synthetic_l1_from_actual": 1.775099418226874,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550106,
+            "mean": 0.1899123864485529,
+            "minimum": 0.10013471140149832
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585418,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395621
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196045,
+            "mean": 0.10262301898806282,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140149832,
+            "coefficient_projection_span_relative_l2_residual": 0.01409520156329168,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.728752555094317,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        22,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        22,
+        26
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.5853984791647235e-13,
+            "mean": 4.3598226880566436e-14,
+            "minimum": 7.549516567451064e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.376592821069319e-14,
+            "mean": 6.138175821384293e-15,
+            "minimum": 1.1955870542857503e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747556,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799902
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 7.926992395823618e-14,
+            "coefficient_projection_span_relative_l2_residual": 1.300720116267914e-14,
+            "minimum_signed_expectation": 0.012576466293799902,
+            "synthetic_l1_from_actual": 1.7582070760815665,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 6.012967901369848e-13,
+            "mean": 1.0399146821438165e-13,
+            "minimum": 1.4432899320127035e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.6311339360089446e-14,
+            "mean": 6.121710318564007e-15,
+            "minimum": 1.1832964973283488e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474751,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799734
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.2470914018413168e-13,
+            "coefficient_projection_span_relative_l2_residual": 1.0407285610002666e-14,
+            "minimum_signed_expectation": 0.012576466293799734,
+            "synthetic_l1_from_actual": 1.73879557567752,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        22,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        22,
+        130
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.0480505352461478e-13,
+            "mean": 3.666974131751507e-14,
+            "minimum": 1.1601830607332886e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.1942190008071982e-14,
+            "mean": 4.773053429792816e-15,
+            "minimum": 1.6458621682940353e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747556,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799902
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.354472090042691e-14,
+            "coefficient_projection_span_relative_l2_residual": 1.939946908344558e-15,
+            "minimum_signed_expectation": 0.012576466293799902,
+            "synthetic_l1_from_actual": 1.7582070760815665,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.9062529332813938e-13,
+            "mean": 7.024011002461823e-14,
+            "minimum": 2.19824158875781e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.3456665405289203e-14,
+            "mean": 4.850561259785769e-15,
+            "minimum": 1.6412069033710557e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474751,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799734
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.263256414560601e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.998944138738079e-15,
+            "minimum_signed_expectation": 0.012576466293799734,
+            "synthetic_l1_from_actual": 1.73879557567752,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        26,
+        130
+      ],
+      "tail_subset_size": 2
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745502013,
+            "mean": 0.18991238644854738,
+            "minimum": 0.10013471140151076
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090763
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960526,
+            "mean": 0.10262301898806288,
+            "minimum": -0.04736641144725595
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140151076,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.04736641144725595,
+            "synthetic_l1_from_actual": 1.7638279140383235,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550119,
+            "mean": 0.18991238644854866,
+            "minimum": 0.10013471140152053
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.01050299711839562
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.1026230189880628,
+            "minimum": -0.047366411447256083
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140152053,
+            "coefficient_projection_span_relative_l2_residual": 0.01409520156329168,
+            "minimum_signed_expectation": -0.047366411447256083,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        14,
+        22,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        22
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501947,
+            "mean": 0.18991238644854713,
+            "minimum": 0.10013471140150831
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.018780978597090763
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960526,
+            "mean": 0.10262301898806296,
+            "minimum": -0.04736641144725595
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150831,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725595,
+            "synthetic_l1_from_actual": 1.7638279140383235,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550175,
+            "mean": 0.18991238644854946,
+            "minimum": 0.1001347114015263
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395625
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.10262301898806285,
+            "minimum": -0.047366411447256083
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015263,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291677,
+            "minimum_signed_expectation": -0.047366411447256083,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        14,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        26
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.3233858453531866e-13,
+            "mean": 4.086777212937894e-14,
+            "minimum": 7.993605777301127e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.247969059214003e-14,
+            "mean": 5.791833750593649e-15,
+            "minimum": 1.4722257033937802e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747534,
+            "mean": 0.18656094256106467,
+            "minimum": 0.0125764662937999
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.241051954068098e-14,
+            "coefficient_projection_span_relative_l2_residual": 7.113378519815902e-15,
+            "minimum_signed_expectation": 0.0125764662937999,
+            "synthetic_l1_from_actual": 1.767839003787382,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.6919798895287386e-13,
+            "mean": 8.11480512415604e-14,
+            "minimum": 2.3092638912203256e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.2669625951320492e-14,
+            "mean": 6.122079110355554e-15,
+            "minimum": 2.1073597365193493e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474749,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799752
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 5.939693181744587e-14,
+            "coefficient_projection_span_relative_l2_residual": 4.526330712404902e-15,
+            "minimum_signed_expectation": 0.012576466293799752,
+            "synthetic_l1_from_actual": 1.7387955756775195,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        14,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.2953966674550195,
+            "mean": 0.1899123864485468,
+            "minimum": 0.10013471140150676
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.05672543251943612,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709076
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196052,
+            "mean": 0.10262301898806293,
+            "minimum": -0.047366411447255924
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150676,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990163,
+            "minimum_signed_expectation": -0.047366411447255924,
+            "synthetic_l1_from_actual": 1.775143976065185,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501425,
+            "mean": 0.18991238644855513,
+            "minimum": 0.1001347114015152
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.03040399464358543,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395616
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.10262301898806292,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114015152,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291677,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.728752555094317,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        22,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        22,
+        26
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.533528942194607e-13,
+            "mean": 5.4263306810871846e-14,
+            "minimum": 1.199040866595169e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.2030952343475403e-14,
+            "mean": 7.288762413063988e-15,
+            "minimum": 1.783956433776586e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747523,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799854
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.942091015256665e-14,
+            "coefficient_projection_span_relative_l2_residual": 4.474740818200474e-15,
+            "minimum_signed_expectation": 0.012576466293799854,
+            "synthetic_l1_from_actual": 1.7700711810457261,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 3.0203617384927384e-13,
+            "mean": 9.314308583678137e-14,
+            "minimum": 2.858824288409778e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 3.24011392419073e-14,
+            "mean": 6.4790101165201866e-15,
+            "minimum": 1.912513352829816e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474748,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799647
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 6.428191312579656e-14,
+            "coefficient_projection_span_relative_l2_residual": 4.909900324637657e-15,
+            "minimum_signed_expectation": 0.012576466293799647,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        22,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        22,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 6.128431095930864e-14,
+            "mean": 3.1750065539644843e-14,
+            "minimum": 1.199040866595169e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.1267475774589316e-14,
+            "mean": 4.746145598703301e-15,
+            "minimum": 1.7686105023008969e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747523,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799854
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.042810365310288e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.9332518615306076e-15,
+            "minimum_signed_expectation": 0.012576466293799854,
+            "synthetic_l1_from_actual": 1.7700711810457261,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.2789769243681803e-13,
+            "mean": 5.360758133695261e-14,
+            "minimum": 1.4210854715202004e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 7.198592173278829e-15,
+            "mean": 3.824477977264827e-15,
+            "minimum": 1.107387571586131e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474748,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799647
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.353672812205332e-14,
+            "coefficient_projection_span_relative_l2_residual": 1.6211138400389488e-15,
+            "minimum_signed_expectation": 0.012576466293799647,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        26,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501236,
+            "mean": 0.18991238644854935,
+            "minimum": 0.1001347114014941
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709077
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960503,
+            "mean": 0.10262301898806292,
+            "minimum": -0.047366411447255896
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114014941,
+            "coefficient_projection_span_relative_l2_residual": 0.027021271292990166,
+            "minimum_signed_expectation": -0.047366411447255896,
+            "synthetic_l1_from_actual": 1.775143976065185,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745500526,
+            "mean": 0.18991238644855865,
+            "minimum": 0.1001347114014961
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395616
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196043,
+            "mean": 0.10262301898806285,
+            "minimum": -0.04736641144725607
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.1001347114014961,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291679,
+            "minimum_signed_expectation": -0.04736641144725607,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        14,
+        22,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        22,
+        26
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.6645352591003757e-13,
+            "mean": 6.443225582704788e-14,
+            "minimum": 1.0658141036401503e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.5769672752402117e-14,
+            "mean": 8.638593207321067e-15,
+            "minimum": 1.5173430458618242e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474755,
+            "mean": 0.18656094256106473,
+            "minimum": 0.012576466293799856
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.092459456231154e-13,
+            "coefficient_projection_span_relative_l2_residual": 1.0431653112268387e-14,
+            "minimum_signed_expectation": 0.012576466293799856,
+            "synthetic_l1_from_actual": 1.7543814051217694,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.544631172440859e-13,
+            "mean": 9.446147567852374e-14,
+            "minimum": 2.930988785010413e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.9154666322037453e-14,
+            "mean": 6.670428461238943e-15,
+            "minimum": 1.9374326839745218e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474752,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799658
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.567634910770721e-13,
+            "coefficient_projection_span_relative_l2_residual": 7.48480571915503e-15,
+            "minimum_signed_expectation": 0.012576466293799658,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        14,
+        22,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        22,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 9.85878045867139e-14,
+            "mean": 3.481590016285452e-14,
+            "minimum": 9.103828801926284e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.2443686928167595e-14,
+            "mean": 5.195140186880359e-15,
+            "minimum": 1.2854614926703807e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474755,
+            "mean": 0.1865609425610647,
+            "minimum": 0.012576466293799856
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 6.128431095930864e-14,
+            "coefficient_projection_span_relative_l2_residual": 6.8121335984740155e-15,
+            "minimum_signed_expectation": 0.012576466293799856,
+            "synthetic_l1_from_actual": 1.7543814051217694,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.4158453015843406e-13,
+            "mean": 8.055361933045901e-14,
+            "minimum": 1.5987211554602254e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.0843953936495444e-14,
+            "mean": 5.349678571167144e-15,
+            "minimum": 1.1370864387836121e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474752,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799658
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.4158453015843406e-13,
+            "coefficient_projection_span_relative_l2_residual": 8.979248850038744e-15,
+            "minimum_signed_expectation": 0.012576466293799658,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        14,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        26,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.2967404927621828e-13,
+            "mean": 3.8257591539192504e-14,
+            "minimum": 1.0436096431476471e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.2831180177002462e-14,
+            "mean": 5.1675043618252084e-15,
+            "minimum": 1.337407899277753e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747556,
+            "mean": 0.18656094256106467,
+            "minimum": 0.01257646629379993
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.2967404927621828e-13,
+            "coefficient_projection_span_relative_l2_residual": 9.567598582343853e-15,
+            "minimum_signed_expectation": 0.01257646629379993,
+            "synthetic_l1_from_actual": 1.7562085332157256,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 5.160316618457728e-13,
+            "mean": 9.484311484323864e-14,
+            "minimum": 1.6653345369377348e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.8450396368579592e-14,
+            "mean": 5.732264720084212e-15,
+            "minimum": 1.251876243220718e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474752,
+            "mean": 0.18656094256106462,
+            "minimum": 0.01257646629379972
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 5.160316618457728e-13,
+            "coefficient_projection_span_relative_l2_residual": 1.7837340461728447e-14,
+            "minimum_signed_expectation": 0.01257646629379972,
+            "synthetic_l1_from_actual": 1.7387955756775195,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        22,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        22,
+        26,
+        130
+      ],
+      "tail_subset_size": 3
+    },
+    {
+      "bad_measure_feasible_count_both_families": 3,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501414,
+            "mean": 0.18991238644855046,
+            "minimum": 0.10013471140150365
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.0567254325194361,
+            "mean": 0.042122162388859574,
+            "minimum": 0.01878097859709076
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.2873521999196052,
+            "mean": 0.10262301898806288,
+            "minimum": -0.04736641144725598
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150365,
+            "coefficient_projection_span_relative_l2_residual": 0.02702127129299016,
+            "minimum_signed_expectation": -0.04736641144725598,
+            "synthetic_l1_from_actual": 1.775099418226874,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 3,
+          "bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 0.29539666745501003,
+            "mean": 0.1899123864485495,
+            "minimum": 0.10013471140150365
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 0.030403994643585425,
+            "mean": 0.021361311273341708,
+            "minimum": 0.010502997118395616
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.28735219991960476,
+            "mean": 0.10262301898806282,
+            "minimum": -0.04736641144725614
+          },
+          "positive_forced_count": 21,
+          "tightest_row": {
+            "bad_measure_feasible": true,
+            "coefficient_projection_span_max_abs_residual": 0.10013471140150365,
+            "coefficient_projection_span_relative_l2_residual": 0.014095201563291679,
+            "minimum_signed_expectation": -0.04736641144725614,
+            "synthetic_l1_from_actual": 1.7287525550943172,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": false,
+      "moduli": [
+        10,
+        14,
+        22,
+        26,
+        70,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        22,
+        26
+      ],
+      "tail_subset_size": 4
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.7711166694643907e-13,
+            "mean": 6.661106851287475e-14,
+            "minimum": 9.992007221626409e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.8807577218838503e-14,
+            "mean": 7.451755698916236e-15,
+            "minimum": 1.7379559179171231e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747545,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799955
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.1316282072803006e-14,
+            "coefficient_projection_span_relative_l2_residual": 3.2746904444337516e-15,
+            "minimum_signed_expectation": 0.012576466293799955,
+            "synthetic_l1_from_actual": 1.7700711810457261,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 3.064215547965432e-13,
+            "mean": 8.928043489693967e-14,
+            "minimum": 1.8207657603852567e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.4561177202657798e-14,
+            "mean": 5.447860108579937e-15,
+            "minimum": 1.7239437785772224e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747523,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799726
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.718447854656915e-14,
+            "coefficient_projection_span_relative_l2_residual": 4.088305763739371e-15,
+            "minimum_signed_expectation": 0.012576466293799726,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        14,
+        22,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        22,
+        130
+      ],
+      "tail_subset_size": 4
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.1679546219056647e-13,
+            "mean": 4.1136076026996683e-14,
+            "minimum": 7.66053886991358e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.3668369291052213e-14,
+            "mean": 5.58311731865203e-15,
+            "minimum": 1.4138643852522616e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747545,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293800003
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.687538997430238e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.474131589473556e-15,
+            "minimum_signed_expectation": 0.012576466293800003,
+            "synthetic_l1_from_actual": 1.7680726381798855,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 3.33288951992472e-13,
+            "mean": 8.440470544712753e-14,
+            "minimum": 2.5757174171303632e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.1465991366760738e-14,
+            "mean": 6.2261458720130306e-15,
+            "minimum": 1.9034731147977396e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747523,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799738
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.930988785010413e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.199415184563246e-15,
+            "minimum_signed_expectation": 0.012576466293799738,
+            "synthetic_l1_from_actual": 1.7387955756775195,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        14,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        26,
+        130
+      ],
+      "tail_subset_size": 4
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.6264767310758543e-13,
+            "mean": 4.886889504174263e-14,
+            "minimum": 1.1546319456101628e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.5024135543767177e-14,
+            "mean": 6.814766725555522e-15,
+            "minimum": 1.527520673459244e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474755,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799854
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 3.197442310920451e-14,
+            "coefficient_projection_span_relative_l2_residual": 5.361694391468747e-15,
+            "minimum_signed_expectation": 0.012576466293799854,
+            "synthetic_l1_from_actual": 1.7700711810457261,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.488009798184976e-13,
+            "mean": 7.75953375627599e-14,
+            "minimum": 1.6986412276764895e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.3161615280086098e-14,
+            "mean": 4.775451551960739e-15,
+            "minimum": 1.55750217762058e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474749,
+            "mean": 0.18656094256106462,
+            "minimum": 0.012576466293799647
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 6.927791673660977e-14,
+            "coefficient_projection_span_relative_l2_residual": 4.229721853616441e-15,
+            "minimum_signed_expectation": 0.012576466293799647,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        22,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        22,
+        26,
+        130
+      ],
+      "tail_subset_size": 4
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.2434497875801753e-13,
+            "mean": 4.393302851142996e-14,
+            "minimum": 9.769962616701378e-15
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.038588249892233e-14,
+            "mean": 7.0769656742668306e-15,
+            "minimum": 1.6029497291900053e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.3918763936474755,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799856
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 1.9539925233402755e-14,
+            "coefficient_projection_span_relative_l2_residual": 2.901343231379498e-15,
+            "minimum_signed_expectation": 0.012576466293799856,
+            "synthetic_l1_from_actual": 1.7543814051217694,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 2.2104540420286867e-13,
+            "mean": 6.49572987991102e-14,
+            "minimum": 1.9317880628477724e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.4128667257981193e-14,
+            "mean": 4.816125760748073e-15,
+            "minimum": 1.3103015613923043e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747495,
+            "mean": 0.1865609425610646,
+            "minimum": 0.012576466293799658
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 2.2648549702353193e-14,
+            "coefficient_projection_span_relative_l2_residual": 1.506945333264709e-15,
+            "minimum_signed_expectation": 0.012576466293799658,
+            "synthetic_l1_from_actual": 1.7387955756775197,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        14,
+        22,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        14,
+        22,
+        26,
+        130
+      ],
+      "tail_subset_size": 4
+    },
+    {
+      "bad_measure_feasible_count_both_families": 0,
+      "families": {
+        "edge_beta": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.3988810110276972e-13,
+            "mean": 4.065497938299245e-14,
+            "minimum": 1.1546319456101628e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 2.045696354670405e-14,
+            "mean": 5.520740829729587e-15,
+            "minimum": 2.3133137058327482e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747545,
+            "mean": 0.18656094256106473,
+            "minimum": 0.01257646629379988
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.39648317751562e-14,
+            "coefficient_projection_span_relative_l2_residual": 6.2157646659513235e-15,
+            "minimum_signed_expectation": 0.01257646629379988,
+            "synthetic_l1_from_actual": 1.7700711810457261,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        },
+        "full": {
+          "bad_measure_feasible_count": 0,
+          "bad_targets": [],
+          "coefficient_projection_span_max_abs_residual_summary": {
+            "count": 24,
+            "maximum": 1.5087930904655877e-13,
+            "mean": 6.350938293782822e-14,
+            "minimum": 1.8207657603852567e-14
+          },
+          "coefficient_projection_span_relative_l2_residual_summary": {
+            "count": 24,
+            "maximum": 1.023976344140784e-14,
+            "mean": 3.974871791194486e-15,
+            "minimum": 1.5121674689323232e-15
+          },
+          "minimum_signed_expectation_summary": {
+            "count": 24,
+            "maximum": 0.39187639364747523,
+            "mean": 0.18656094256106467,
+            "minimum": 0.012576466293799646
+          },
+          "positive_forced_count": 24,
+          "tightest_row": {
+            "bad_measure_feasible": false,
+            "coefficient_projection_span_max_abs_residual": 4.8627768478581856e-14,
+            "coefficient_projection_span_relative_l2_residual": 3.671945420773187e-15,
+            "minimum_signed_expectation": 0.012576466293799646,
+            "synthetic_l1_from_actual": 1.7387955756775195,
+            "target": 94856,
+            "target_mod_286": 190,
+            "target_residue": 4766
+          }
+        }
+      },
+      "forces_both_families_positive": true,
+      "moduli": [
+        10,
+        14,
+        22,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        10,
+        14,
+        22,
+        26,
+        130
+      ],
+      "tail_subset_size": 5
+    }
+  ],
+  "candidate": {
+    "falsifier": "Any remaining bad LP optimum under a proposed subset falsifies that subset as a complete proof bridge.",
+    "mechanism": "The coefficient energy is dominated by moduli 70, 154, and 286, but the prior LP found three stress rows where those marginals alone still permit synthetic bad measures.  Add tail support projections one subset at a time to find the smallest non-renaming repair target.",
+    "name": "minimal tail support closure for q286-WBSS",
+    "prediction": "If a small tail subset closes all stress rows, the next theorem can target dominant supports plus that named tail. If only the complete tail closes, the bridge is close to the full signed-projection problem."
+  },
+  "decision": "The dominant-support crack is now a finite minimal-tail problem. A small closing subset would be a genuine narrowing; requiring every tail support would show the cone is nearly the same as the full coefficient-support projection problem.",
+  "dominant_support_moduli": [
+    70,
+    154,
+    286
+  ],
+  "goldbach_proved": false,
+  "minimal_tail_subsets_for_both_families": [
+    {
+      "edge_beta_minimum_summary": {
+        "count": 24,
+        "maximum": 0.39187639364747556,
+        "mean": 0.18656094256106467,
+        "minimum": 0.012576466293799902
+      },
+      "edge_beta_span_l2_residual_max": 7.69251740102256e-15,
+      "full_minimum_summary": {
+        "count": 24,
+        "maximum": 0.39187639364747506,
+        "mean": 0.18656094256106462,
+        "minimum": 0.012576466293799734
+      },
+      "full_span_l2_residual_max": 1.2625229801710029e-14,
+      "moduli": [
+        70,
+        130,
+        154,
+        286
+      ],
+      "tail_subset": [
+        130
+      ]
+    }
+  ],
+  "minimum_tail_subset_size_for_both_families": 1,
+  "per_target_minimal_closers": {
+    "edge_beta": {
+      "109178": [
+        [
+          130
+        ]
+      ],
+      "90644": [
+        [
+          130
+        ]
+      ],
+      "94856": [
+        [
+          130
+        ]
+      ]
+    },
+    "full": {
+      "109178": [
+        [
+          130
+        ]
+      ],
+      "90644": [
+        [
+          130
+        ]
+      ],
+      "94856": [
+        [
+          130
+        ]
+      ]
+    }
+  },
+  "schema_version": 1,
+  "selected_targets": [
+    90236,
+    90644,
+    91286,
+    93932,
+    94856,
+    95276,
+    98216,
+    100652,
+    109178,
+    110522,
+    111014,
+    111494,
+    113954,
+    118376,
+    125294,
+    125504,
+    151766,
+    152816,
+    179308,
+    186206,
+    189598,
+    194384,
+    255704,
+    279994
+  ],
+  "signed_discrepancy_theorem_proved": false,
+  "source_commit": "0392dd1c8880802c9626ae078cf8c1bf45a6577b",
+  "sources": {
+    "lower_face_dual_edge_audit": "evidence\\q286-lower-face-dual-edge-audit.json",
+    "marginal_cone_gap": "evidence\\q286-wbss-marginal-cone-gap-audit.json"
+  },
+  "status_boundary": "finite tail-support minimal-cone LP audit only; no tail-support projection theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "summary_by_tail_subset_size": {
+    "0": {
+      "best_bad_count_both_families": 3,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.05672543251943609,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358543,
+          "tail_subset": []
+        }
+      ],
+      "both_family_closer_count": 0,
+      "subset_count": 1
+    },
+    "1": {
+      "best_bad_count_both_families": 0,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 7.69251740102256e-15,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.2625229801710029e-14,
+          "tail_subset": [
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358543,
+          "tail_subset": [
+            10
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.030403994643585425,
+          "tail_subset": [
+            14
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358542,
+          "tail_subset": [
+            22
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.030403994643585425,
+          "tail_subset": [
+            26
+          ]
+        }
+      ],
+      "both_family_closer_count": 1,
+      "subset_count": 5
+    },
+    "2": {
+      "best_bad_count_both_families": 0,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.6002967895005018e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.6144711558396636e-14,
+          "tail_subset": [
+            10,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.9238000665907286e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.742620300780728e-14,
+          "tail_subset": [
+            14,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.376592821069319e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 2.6311339360089446e-14,
+          "tail_subset": [
+            22,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.1942190008071982e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.3456665405289203e-14,
+          "tail_subset": [
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358542,
+          "tail_subset": [
+            10,
+            14
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.030403994643585425,
+          "tail_subset": [
+            10,
+            22
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.05672543251943609,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358543,
+          "tail_subset": [
+            10,
+            26
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.030403994643585425,
+          "tail_subset": [
+            14,
+            22
+          ]
+        }
+      ],
+      "both_family_closer_count": 4,
+      "subset_count": 10
+    },
+    "3": {
+      "best_bad_count_both_families": 0,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.247969059214003e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.2669625951320492e-14,
+          "tail_subset": [
+            10,
+            14,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.2030952343475403e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 3.24011392419073e-14,
+          "tail_subset": [
+            10,
+            22,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.1267475774589316e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 7.198592173278829e-15,
+          "tail_subset": [
+            10,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.5769672752402117e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.9154666322037453e-14,
+          "tail_subset": [
+            14,
+            22,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.2443686928167595e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.0843953936495444e-14,
+          "tail_subset": [
+            14,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.2831180177002462e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.8450396368579592e-14,
+          "tail_subset": [
+            22,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358543,
+          "tail_subset": [
+            10,
+            14,
+            22
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.03040399464358543,
+          "tail_subset": [
+            10,
+            14,
+            26
+          ]
+        }
+      ],
+      "both_family_closer_count": 6,
+      "subset_count": 10
+    },
+    "4": {
+      "best_bad_count_both_families": 0,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.8807577218838503e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.4561177202657798e-14,
+          "tail_subset": [
+            10,
+            14,
+            22,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 1.3668369291052213e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 2.1465991366760738e-14,
+          "tail_subset": [
+            10,
+            14,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.5024135543767177e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.3161615280086098e-14,
+          "tail_subset": [
+            10,
+            22,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.038588249892233e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.4128667257981193e-14,
+          "tail_subset": [
+            14,
+            22,
+            26,
+            130
+          ]
+        },
+        {
+          "bad_measure_feasible_count_both_families": 3,
+          "edge_beta_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "edge_beta_span_l2_residual_max": 0.0567254325194361,
+          "full_bad_targets": [
+            90644,
+            94856,
+            109178
+          ],
+          "full_span_l2_residual_max": 0.030403994643585425,
+          "tail_subset": [
+            10,
+            14,
+            22,
+            26
+          ]
+        }
+      ],
+      "both_family_closer_count": 4,
+      "subset_count": 5
+    },
+    "5": {
+      "best_bad_count_both_families": 0,
+      "best_subsets": [
+        {
+          "bad_measure_feasible_count_both_families": 0,
+          "edge_beta_bad_targets": [],
+          "edge_beta_span_l2_residual_max": 2.045696354670405e-14,
+          "full_bad_targets": [],
+          "full_span_l2_residual_max": 1.023976344140784e-14,
+          "tail_subset": [
+            10,
+            14,
+            22,
+            26,
+            130
+          ]
+        }
+      ],
+      "both_family_closer_count": 1,
+      "subset_count": 1
+    }
+  },
+  "tail_support_moduli": [
+    10,
+    14,
+    22,
+    26,
+    130
+  ],
+  "tail_support_projection_theorem_proved": false
+}

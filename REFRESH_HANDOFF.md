@@ -23529,6 +23529,39 @@ Only after a cone survives this theorem-form test should another fresh q286
 scan be treated as progress.  No cone theorem, signed prime-correlation
 theorem, threshold theorem, or Goldbach proof is established.
 
+Tail-support minimal cone audit:
+
+- `tools/build_q286_wbss_tail_support_minimal_cone_audit.py`
+- `notes/q286-wbss-tail-support-minimal-cone-audit.md`
+- `evidence/q286-wbss-tail-support-minimal-cone-audit.json`
+
+This follows the marginal-cone gap audit and tests whether the three-row crack
+left by dominant supports `[70,154,286]` requires the complete tail
+`[10,14,22,26,130]`.  It does not on the stress LP.  The unique minimal tail
+closer is:
+
+```text
+[130]
+```
+
+The resulting four-modulus projection family is:
+
+```text
+[70,130,154,286]
+```
+
+It forces positive signed expectation for both full and edge-beta coefficient
+families on all `24` stress-selected rows.  The coefficient span residual is
+numerical zero: maximum relative L2 residual `1.2625229801710029e-14` for the
+full coefficient and `7.69251740102256e-15` for edge beta.  Every closing tail
+subset contains `130`.
+
+Decision: the hole is still open, but the support target has genuinely
+narrowed.  The next theorem route should not ask for all coefficient supports
+unless this four-modulus projection target fails under a broader or
+source-backed test.  Prove strict-central binary-prime projection control for
+moduli `70,130,154,286`, or prove the raw signed witness directly.
+
 Marginal-cone gap audit:
 
 - `tools/build_q286_wbss_marginal_cone_gap_audit.py`

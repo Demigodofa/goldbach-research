@@ -257,3 +257,25 @@ support marginals `[70,154,286]` force positivity on `21/24` rows but fail on
 Thus AP marginals remain demoted.  The source-backed route must either prove
 the all-support binary-prime projection controls, or prove the dominant
 supports plus an explicit signed tail inequality.
+
+## Four-modulus projection target
+
+`tools/build_q286_wbss_tail_support_minimal_cone_audit.py` generated
+`evidence/q286-wbss-tail-support-minimal-cone-audit.json`.
+
+The explicit signed tail inequality has a smaller candidate form on the stress
+LP.  The unique single-tail repair is modulus `130`; adding it to the
+dominant supports gives:
+
+```text
+70, 130, 154, 286
+```
+
+This four-modulus family forces positive signed expectation on all `24`
+stress-selected rows for both q286-WBSS coefficient families, and reconstructs
+the coefficient action on those reflected supports with maximum relative L2
+span residual about `1.3e-14`.
+
+The source-backed theorem target is therefore narrowed: find or prove
+strict-central binary-prime projection control for these four moduli, or prove
+that such a theorem is still Goldbach-strength for the signed witness.

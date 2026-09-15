@@ -90,6 +90,20 @@ What survives:
 - or a sharper theorem proving the three dominant supports plus an explicit
   signed tail lower bound.
 
+## Tail-support follow-up
+
+`tools/build_q286_wbss_tail_support_minimal_cone_audit.py` generated
+`evidence/q286-wbss-tail-support-minimal-cone-audit.json`.
+
+That follow-up shows the explicit signed tail lower bound can be narrowed, on
+the same stress LP, to the single tail modulus `130`.  The four-modulus family
+`[70,130,154,286]` forces positivity on all `24` stress rows for both full and
+edge beta, with coefficient span residual below `1.3e-14`.
+
+Thus the strongest current non-renaming projection target is not the full
+all-support cone but this smaller four-modulus cone.  It still needs a real
+binary-prime projection theorem before it becomes proof progress.
+
 ## Gap
 
 The remaining implication is still arithmetic and external to the LP:

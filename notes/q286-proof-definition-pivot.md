@@ -412,3 +412,20 @@ all supports [10,14,22,26,70,130,154,286]: 0/24 bad feasible
 The dominant supports fail on `90644`, `94856`, and `109178`.  The all-support
 cone is not a theorem by itself; it names the projection data that an analytic
 binary-prime theorem would need to control.
+
+## Minimal tail repair
+
+`tools/build_q286_wbss_tail_support_minimal_cone_audit.py` generated
+`evidence/q286-wbss-tail-support-minimal-cone-audit.json`.
+
+The all-support cone is stronger than needed on the stress LP.  Adding only
+tail modulus `130` to the dominant supports closes both coefficient families:
+
+```text
+[70,154,286] + [130] = [70,130,154,286].
+```
+
+No other single tail modulus closes the three-row crack, and every closing
+subset contains `130`.  This is now the smallest named projection target:
+prove a strict-central binary-prime theorem for those four moduli, or explain
+why that theorem is still equivalent to the original signed witness.

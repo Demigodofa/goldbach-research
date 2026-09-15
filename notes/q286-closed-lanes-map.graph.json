@@ -2279,6 +2279,31 @@
       "statement": "For the coefficient-support moduli [10,14,22,26,70,130,154,286], prove source-backed strict-central binary-prime projection control strong enough to force <mu_N,phi_a>>0 for every sufficiently large covered even N, or replace it with a direct B_Phi(N)>0 estimate.",
       "source_boundary": "The LP shows exact all-support projections force the checked signed expectation, but this is not a theorem until actual primes are proved to satisfy usable projection constraints.",
       "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "type": "receipt",
+      "label": "q286-WBSS tail support minimal cone audit",
+      "status": "validated_finite_cone_narrowing",
+      "validation": "tools/build_q286_wbss_tail_support_minimal_cone_audit.py generated evidence/q286-wbss-tail-support-minimal-cone-audit.json; adding only tail modulus 130 to dominant supports [70,154,286] closes both full and edge-beta coefficient families on all 24 stress-selected rows; maximum coefficient projection span residual is about 1.3e-14",
+      "status_boundary": "finite tail-support minimal-cone LP audit only; no tail-support projection theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+    },
+    {
+      "id": "problem.q286_four_modulus_projection_theorem",
+      "type": "open_obligation",
+      "label": "Four-modulus q286-WBSS projection theorem",
+      "status": "open_precisely_stated",
+      "statement": "For strict-central binary-prime orbit measures, prove source-backed projection control for moduli [70,130,154,286] strong enough to force positive q286-WBSS signed expectation for every sufficiently large covered even N, with finite verification below threshold; equivalently prove the raw signed witness directly.",
+      "source_boundary": "The LP and coefficient span residual show this four-modulus family suffices on 24 stress-selected rows, but no theorem currently proves actual prime-pair projections satisfy the required control.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "lane.q286_all_support_projection_as_first_target",
+      "type": "demoted_lane",
+      "label": "All coefficient supports as first projection target",
+      "status": "demoted_as_overbroad_after_minimal_tail_audit",
+      "reason": "The stress LP does not need all coefficient-support moduli [10,14,22,26,70,130,154,286]; [70,130,154,286] already forces positivity on the checked stress rows.",
+      "nuance": "The all-support theorem remains sufficient but is no longer the smallest current target."
     }
   ],
   "edges": [
@@ -5126,6 +5151,46 @@
       "from": "problem.q286_all_support_projection_theorem",
       "to": "problem.q286_weighted_binary_prime_sign_sum",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "to": "receipt.q286_wbss_marginal_cone_gap_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "to": "lane.q286_dominant_support_marginal_cone",
+      "type": "falsifies_simplification"
+    },
+    {
+      "from": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "to": "lane.q286_all_support_projection_as_first_target",
+      "type": "demotes"
+    },
+    {
+      "from": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "to": "problem.q286_four_modulus_projection_theorem",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_four_modulus_projection_theorem",
+      "to": "problem.q286_wbss_signed_discrepancy",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_four_modulus_projection_theorem",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "requires"
+    },
+    {
+      "from": "problem.q286_all_support_projection_theorem",
+      "to": "problem.q286_four_modulus_projection_theorem",
+      "type": "demoted_by"
+    },
+    {
+      "from": "problem.q286_four_modulus_projection_theorem",
+      "to": "problem.q286_all_support_projection_theorem",
+      "type": "refines"
     }
   ]
 }

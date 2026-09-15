@@ -6,6 +6,30 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a tail-support minimal cone audit:
+`tools/build_q286_wbss_tail_support_minimal_cone_audit.py` generated
+`evidence/q286-wbss-tail-support-minimal-cone-audit.json`, with explanation
+in `notes/q286-wbss-tail-support-minimal-cone-audit.md`.
+
+Question: after dominant supports `[70,154,286]` failed on three stress rows,
+does closing the crack require all tail supports `[10,14,22,26,130]`, or a
+smaller named tail projection?
+
+Result: a single added tail modulus, `130`, closes the LP for both full and
+edge-beta coefficients on all `24` stress-selected rows.  The unique minimal
+tail closer is `[130]`, giving the four-modulus family
+`[70,130,154,286]`.  The coefficient-projection span residual is at floating
+precision: maximum relative L2 residual `1.2625229801710029e-14` for the full
+coefficient and `7.69251740102256e-15` for edge beta.  Every closing subset
+contains `130`.
+
+Decision: this is a genuine narrowing compared with the all-support bridge,
+but it is still not a proof.  The new theorem target is strict-central
+binary-prime projection control for moduli `70,130,154,286`, or an equivalent
+direct signed witness estimate.  Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a marginal-cone gap audit:
 `tools/build_q286_wbss_marginal_cone_gap_audit.py` generated
 `evidence/q286-wbss-marginal-cone-gap-audit.json`, with explanation in
