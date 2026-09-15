@@ -6,6 +6,52 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has an exact coefficient-discrepancy budget HOLD for
+the pointwise adverse-drag theorem target.
+
+```text
+tools/build_q286_wbss_coefficient_discrepancy_budget_hold.py
+notes/q286-wbss-coefficient-discrepancy-budget-hold.md
+evidence/q286-wbss-coefficient-discrepancy-budget-hold.json
+```
+
+The theorem-shaped payment request is:
+
+```text
+max(0, -E_d(N)) <= B_d(N) for each d
+sum_d max(0, B_d(N)) < local_main(N)
+```
+
+or the stronger per-residue sufficient condition:
+
+```text
+|Delta_{d,s}(N)| <= eta_d(N)
+sum_d L1_d * eta_d(N) < local_main(N)
+```
+
+Exact coefficient budget:
+
+```text
+L1_70:              32.74465079141701
+L1_130:              7.137019529057295
+L1_154:             84.29326326706732
+L1_286:            248.78706848859338
+total L1:          372.962002076135
+minimum local main: 0.6039353780830684
+equal eta cap:       0.0016192946592982506
+```
+
+Decision: `HOLD_for_pointwise_prime_pair_correlation_estimate`.  The repo has
+an exact sufficient inequality and finite calibration, but no source-backed
+fixed-modulus binary-prime residue discrepancy theorem or sharper one-sided
+estimate proving it for all sufficiently large covered even `N`.  More finite
+rows, fitted constants `.125`, `.126`, or `.13`, frozen per-modulus constants,
+and checked-row `lambda_phi<1` are not proof substitutes.  No pointwise
+adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem,
+or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has an explicit pointwise adverse-drag theorem target.
 
 ```text

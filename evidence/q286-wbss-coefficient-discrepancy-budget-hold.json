@@ -1,0 +1,98 @@
+{
+  "acceptance_condition": {
+    "finite_evidence_is_acceptance_condition": false,
+    "normalization_boundary": "The comparison is between raw terms in the q286-WBSS signed expectation scale, not a fitted finite ratio such as .125, .126, or .13.",
+    "required_statement": "For every sufficiently large covered even N, prove the unnormalized pointwise inequality adverse_drag(N) < local_main(N), then verify the finite remainder below the explicit threshold."
+  },
+  "candidate": {
+    "falsifier": "A covered even N with adverse_drag(N)>=local_main(N) falsifies this q286-WBSS sufficient route. A published or proved discrepancy bound weaker than the displayed budget does not close it.",
+    "mechanism": "Translate adverse drag into weighted residue-discrepancy control using the exact four-modulus coefficient L1 norms.",
+    "name": "coefficient-weighted discrepancy budget",
+    "novelty_label": "new-to-this-task",
+    "prediction": "A valid proof must pay either a direct one-sided budget for E_d(N) or a stronger per-residue discrepancy budget; finite fitted constants will continue to drift.",
+    "smallest_test": "Try to source or prove eta_d(N) bounds for d=70,130,154,286 that beat the displayed coefficient budget pointwise."
+  },
+  "coefficient_budget": {
+    "component_bound_template": "Equivalently, any pointwise one-sided bounds max(0,-E_d(N))<=B_d(N) are enough when sum_d max(0,B_d(N)) < local_main(N).",
+    "derivation": "For each modulus d, write Delta_{d,s}(N)=Pi_{N,d}(s)-U_{a,d}(s).  If |Delta_{d,s}(N)|<=eta_d(N) for every projected residue s, then |E_d(N)|<=L1_d*eta_d(N).  Therefore adverse_drag(N)<=sum_d L1_d*eta_d(N).",
+    "direct_sufficient_inequality": "sum_d L1_d*eta_d(N) < local_main(N)",
+    "global_equal_residue_error_cap": 0.0016192946592982506,
+    "l1_norm_by_modulus": {
+      "130": 7.137019529057295,
+      "154": 84.29326326706732,
+      "286": 248.78706848859338,
+      "70": 32.74465079141701
+    },
+    "minimum_local_main_over_even_residues": 0.6039353780830684,
+    "moduli": [
+      "70",
+      "130",
+      "154",
+      "286"
+    ],
+    "source_global_equal_residue_error_cap": 0.0016192946592982506,
+    "strong_uniform_corollary": "The stronger target |Delta_{d,s}(N)| < 0.0016192946592982506 for every d,s and every sufficiently large covered N would imply the coefficient-budget inequality on every even residue, using the current four-modulus formula.",
+    "total_l1_norm": 372.962002076135,
+    "worst_even_residue_local_main_row": {
+      "admissible_unit_count": 1485,
+      "formula_abs_error": 2.9976021664879227e-15,
+      "formula_local_uniform_main_term": 0.6039353780830654,
+      "local_uniform_main_term": 0.6039353780830684,
+      "target_mod_286": 120,
+      "target_residue": 4124
+    }
+  },
+  "decision": "The q286-WBSS bridge now has an exact analytic payment request: prove a pointwise coefficient-discrepancy budget strong enough that sum_d L1_d*eta_d(N) < local_main(N), or prove the sharper one-sided bounds sum_d max(0,B_d(N)) < local_main(N). The current repository does not contain that theorem, so the state is HOLD for a pointwise prime-pair correlation estimate. Goldbach remains open.",
+  "definitions": {
+    "adverse_drag": "A_-(N)=sum_d max(0,-E_d(N)).",
+    "local_main": "M(N)=local_main(N)=<u_a,phi_a>.",
+    "projected_error": "E_d(N)=sum_s c_{d,s}(a)*Delta_{d,s}(N).",
+    "projected_residue_discrepancy": "Delta_{d,s}(N)=Pi_{N,d}(s)-U_{a,d}(s), where a=N mod 10010, Pi is the actual strict-central binary-prime left prime residue mass modulo d, and U is the matching local uniform residue mass."
+  },
+  "finite_context": {
+    "checked_row_count": 348,
+    "checked_rows_with_adverse_drag_below_local_main": 348,
+    "finite_evidence_is_acceptance_condition": false,
+    "frozen_component_constants_rejected": true,
+    "modulus_286_exceeding_row_count": 2,
+    "role": "calibration_and_falsifier_only",
+    "target_maximum": 1155862,
+    "target_minimum": 1036248,
+    "tightest_known_adverse_drag": 0.20589698744441423,
+    "tightest_known_adverse_drag_ratio": 0.23148438379145228,
+    "tightest_known_adverse_drag_target": 1124642,
+    "tightest_known_adverse_only_expectation": 0.6835668462365216,
+    "tightest_known_local_main": 0.8894638336809358
+  },
+  "fixed_modulus_binary_prime_discrepancy_theorem_proved": false,
+  "fixed_modulus_equidistribution_theorem_proved": false,
+  "goldbach_proved": false,
+  "missing_theorem": {
+    "current_source_status": "No source-backed theorem in this repository proves either condition for all sufficiently large covered even N.",
+    "name": "pointwise fixed-modulus binary-prime residue discrepancy estimate",
+    "needed_form": "Prove explicit functions eta_d(N), or sharper one-sided B_d(N), from analytic number theory rather than from the checked rows.",
+    "sufficient_eta_condition": "sum_d L1_d*eta_d(N) < local_main(N) for every sufficiently large covered even N.",
+    "sufficient_one_sided_condition": "sum_d max(0,B_d(N)) < local_main(N), where max(0,-E_d(N)) <= B_d(N) is proved pointwise."
+  },
+  "pointwise_adverse_drag_theorem_proved": false,
+  "q286_threshold_theorem_proved": false,
+  "rejected_acceptance_substitutes": [
+    "more finite q286 rows",
+    "a fitted residual absorption constant",
+    "frozen per-modulus adverse constants copied from checked rows",
+    "lambda_phi<1 on checked rows",
+    "a theorem stated only for average or almost-all N",
+    "a normalized finite ratio without an unnormalized pointwise bound"
+  ],
+  "schema_version": 1,
+  "source_commit": "6ae67b223dcd9444ba3d0f6224fa7b452e5ae7b4",
+  "sources": {
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "four_modulus_projection_formula_source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292",
+    "pointwise_adverse_drag_target": "evidence\\q286-wbss-pointwise-adverse-drag-theorem-target.json",
+    "pointwise_adverse_drag_target_source_commit": "bf30a11a557da46aa6c273d58985c58d0e6cf4dc"
+  },
+  "status": "HOLD_for_pointwise_prime_pair_correlation_estimate",
+  "status_boundary": "coefficient-discrepancy theorem obligation only; current finite rows calibrate and falsify candidate theorem shapes but do not prove a universal pointwise estimate. No fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof is established",
+  "universal_bound_open": true
+}
