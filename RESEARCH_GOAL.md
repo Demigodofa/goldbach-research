@@ -6,6 +6,38 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a fresh holdout for the frozen componentwise
+envelope:
+`tools/build_q286_wbss_four_modulus_component_envelope_fresh_holdout.py`
+generated
+`evidence/q286-wbss-four-modulus-component-envelope-fresh-holdout.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-component-envelope-fresh-holdout.md`.
+
+Question: after fitting component adverse suprema on the `232`-row horizon,
+do those frozen constants survive the next fresh period-lifts?
+
+Result: the frozen sum-envelope still stays positive on all `116/116` fresh
+rows from `1116328` through `1155862`, and all direct witnesses remain
+positive with `0` lambda failures.  However, the literal individual
+per-modulus constants are falsified: modulus `286` exceeds its frozen horizon
+supremum on `2` fresh rows.  The worst row is target `1124642`, where the
+fresh adverse `286` value is `0.12551431368886537` against frozen
+`0.12228599640255161`; the same row has maximum rowwise adverse-drag ratio
+`0.23148438379145228` and lambda `0.18795270138709522`.
+
+Decision: the theorem target should not be a fixed list of per-modulus
+constants copied from the horizon.  The surviving shape is a
+local-main-relative adverse-drag sum bound, or a per-modulus bound with
+explicit slack that can move with the target range.  This is finite targeted
+holdout evidence only.  It proves no per-modulus supremum theorem,
+one-sided signed concentration theorem, fixed-modulus equidistribution
+theorem, q286 threshold theorem, strict-central Goldbach theorem, or
+Goldbach proof.  Residual absorption constants `.125`, `.126`, and `.13`
+remain finite fixture fits only, not universal bounds.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a stricter disconnected componentwise-envelope
 audit on the aggregate lambda horizon:
 `tools/build_q286_wbss_four_modulus_component_envelope_horizon_audit.py`

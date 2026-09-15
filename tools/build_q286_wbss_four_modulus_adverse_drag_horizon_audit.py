@@ -123,8 +123,9 @@ def row_adverse_drag(row, context, full_coefficients,
         "pair_count": int(actual["pair_count"]),
         "local_uniform_main_term": local_main,
         "actual_formula_expectation": actual_expectation,
-        "formula_reconstruction_error": float(
-            abs(actual_expectation - row["actual_formula_expectation"])),
+        "formula_reconstruction_error": (
+            float(abs(actual_expectation - row["actual_formula_expectation"]))
+            if "actual_formula_expectation" in row else None),
         "signed_error_by_modulus": {key: float(value)
                                     for key, value in terms.items()},
         "projection_details_by_modulus": details,

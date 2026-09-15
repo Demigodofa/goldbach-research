@@ -6,6 +6,45 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a fresh holdout for the frozen componentwise
+envelope.
+
+```text
+tools/build_q286_wbss_four_modulus_component_envelope_fresh_holdout.py
+notes/q286-wbss-four-modulus-component-envelope-fresh-holdout.md
+evidence/q286-wbss-four-modulus-component-envelope-fresh-holdout.json
+```
+
+Result:
+
+```text
+fresh targets:                              116
+target range:                    1116328..1155862
+actual positive rows:                       116 / 116
+lambda failures:                              0
+frozen sum-envelope positive rows:          116 / 116
+frozen sum-envelope nonpositive rows:         0 / 116
+rows with any component exceeding frozen A_d: 2
+worst excess target:                    1124642
+fresh A_286(row):             0.12551431368886537
+frozen A_286:                 0.12228599640255161
+maximum adverse-drag ratio:   0.23148438379145228
+lambda at worst row:          0.18795270138709522
+```
+
+Decision: the frozen sum-envelope survives the fresh holdout, but the literal
+individual per-modulus frozen constants do not.  Modulus `286` exceeds its
+fitted horizon value on two fresh rows.  The next theorem target should be a
+local-main-relative adverse-drag sum bound, or a per-modulus bound with
+explicit slack that can move with the target range.  This is finite targeted
+holdout evidence only; no per-modulus supremum theorem, one-sided signed
+concentration theorem, fixed-modulus equidistribution theorem, q286 threshold
+theorem, strict-central Goldbach theorem, or Goldbach proof is established.
+Residual absorption constants `.125`, `.126`, and `.13` remain finite fixture
+fits only, not universal bounds.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a disconnected componentwise-envelope audit on
 the aggregate lambda horizon.
 
