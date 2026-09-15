@@ -6,6 +6,47 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286-WBSS route now has a multiplicative-character burden audit:
+`tools/build_q286_wbss_multiplicative_character_burden_audit.py` generated
+`evidence/q286-wbss-multiplicative-character-burden-audit.json`, with
+explanation in
+`notes/q286-wbss-multiplicative-character-burden-audit.md`.
+
+Question: additive Fourier modes were diffuse, but fixed-modulus prime AP
+theorems naturally use Dirichlet/multiplicative characters on unit groups.
+Does that natural basis make the WBSS adverse budget into a small theorem?
+
+Answer: multiplicative characters compress the finite coefficient burden, but
+not enough to revive a tiny signed-character shortcut.
+
+```text
+global nonprincipal multiplicative characters: 248
+characters for 90 percent energy:               60
+characters for 95 percent energy:               65
+characters for 99 percent energy:               77
+modulus 286 energy fraction:      0.7018658712866479
+modulus 286 characters for 99 percent energy:   50 / 119
+```
+
+Compared with the additive audit:
+
+```text
+additive global modes for 99 percent:              308
+multiplicative global characters for 99 percent:    77
+additive mod-286 modes for 99 percent:             188
+multiplicative mod-286 characters for 99 percent:   50
+```
+
+Decision: `HOLD_multiplicative_character_burden_broad`.  Multiplicative
+characters are the right fixed-modulus theorem language and they compress the
+burden, but the surviving target is still a broad multiplicative-character
+binary-prime correlation package, not a one-character or few-character lemma.
+No multiplicative-character theorem, fixed-modulus binary-prime discrepancy
+theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a finite Fourier-burden audit for the proposed
 signed-character shortcut:
 `tools/build_q286_wbss_fourier_burden_audit.py` generated

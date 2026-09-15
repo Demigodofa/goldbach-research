@@ -1,0 +1,992 @@
+{
+  "candidate": {
+    "falsifier": "If nearly all energy is carried by a few characters, the small signed-character route is alive; if many characters are required, the route remains a broad AP-correlation problem.",
+    "mechanism": "Use Dirichlet-character coordinates rather than additive Fourier coordinates for the fixed-modulus AP theorem target.",
+    "name": "multiplicative-character WBSS theorem package",
+    "novelty_label": "new-to-this-task",
+    "prediction": "Multiplicative characters should compress the coefficient burden relative to additive modes, but the remaining burden may still be too broad for a small theorem.",
+    "smallest_test": "Count characters needed to cover 90, 95, and 99 percent of centered coefficient energy."
+  },
+  "comparison_to_additive_burden": {
+    "additive_global_modes_for_99_percent": 308,
+    "additive_mod286_modes_for_99_percent": 188,
+    "multiplicative_global_characters_for_99_percent": 77,
+    "multiplicative_mod286_characters_for_99_percent": 50
+  },
+  "decision": "Multiplicative characters are the right language and compress the burden relative to additive Fourier modes, but not to a small theorem.  Globally, 99 percent of centered multiplicative energy still needs 77 nonprincipal characters; modulus 286 carries about 70.2 percent of total energy and needs 50 characters for 99 percent.  The next theorem target is therefore a broad multiplicative-character binary-prime correlation package, not a tiny signed-character shortcut.",
+  "fixed_modulus_binary_prime_discrepancy_theorem_proved": false,
+  "global_summary": {
+    "effective_character_count": {
+      "entropy_effective_count": 71.60175734117803,
+      "inverse_participation_count": 65.84916126894225,
+      "largest_character_fraction": 0.023805300949926222
+    },
+    "energy_by_modulus": {
+      "130": 0.033203298015735544,
+      "154": 4.865574744360009,
+      "286": 21.425719970586837,
+      "70": 4.202303256501614
+    },
+    "energy_cover_counts": {
+      "0.5": {
+        "character_count": 27,
+        "energy_fraction": 0.5055609184222466
+      },
+      "0.75": {
+        "character_count": 45,
+        "energy_fraction": 0.7512348643837062
+      },
+      "0.9": {
+        "character_count": 60,
+        "energy_fraction": 0.9072346891245111
+      },
+      "0.95": {
+        "character_count": 65,
+        "energy_fraction": 0.950430941124324
+      },
+      "0.99": {
+        "character_count": 77,
+        "energy_fraction": 0.9907751703358406
+      }
+    },
+    "energy_fraction_by_modulus": {
+      "130": 0.00108767694730429,
+      "154": 0.15938698265209392,
+      "286": 0.7018658712866479,
+      "70": 0.13765946911395385
+    },
+    "nonprincipal_character_count": 248,
+    "top_characters": [
+      {
+        "energy": 0.7266996912581851,
+        "frequency": [
+          1,
+          3
+        ],
+        "modulus": 70,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.7266996912581851,
+        "frequency": [
+          3,
+          3
+        ],
+        "modulus": 70,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6795105038496183,
+        "frequency": [
+          3,
+          5
+        ],
+        "modulus": 154,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6669435664574357,
+        "frequency": [
+          3,
+          7
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6669435664574357,
+        "frequency": [
+          7,
+          5
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6548040007594231,
+        "frequency": [
+          3,
+          1
+        ],
+        "modulus": 154,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6548040007594231,
+        "frequency": [
+          3,
+          9
+        ],
+        "modulus": 154,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6242730763562353,
+        "frequency": [
+          5,
+          5
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.6242730763562353,
+        "frequency": [
+          5,
+          7
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5706445794682072,
+        "frequency": [
+          4,
+          8
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5706445794682072,
+        "frequency": [
+          6,
+          4
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5539799233215845,
+        "frequency": [
+          2,
+          2
+        ],
+        "modulus": 70,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5539799233215845,
+        "frequency": [
+          2,
+          4
+        ],
+        "modulus": 70,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5230437331867943,
+        "frequency": [
+          3,
+          11
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5230437331867943,
+        "frequency": [
+          7,
+          1
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5186100044743418,
+        "frequency": [
+          1,
+          11
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5186100044743418,
+        "frequency": [
+          9,
+          1
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5184246914412083,
+        "frequency": [
+          1,
+          7
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5184246914412083,
+        "frequency": [
+          9,
+          5
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      },
+      {
+        "energy": 0.5150915107360867,
+        "frequency": [
+          5,
+          3
+        ],
+        "modulus": 286,
+        "zero_axis": false
+      }
+    ],
+    "total_nonprincipal_energy": 30.526801269464197
+  },
+  "goldbach_proved": false,
+  "method": {
+    "coordinate_choice": "Use primitive-root exponent coordinates on each odd prime factor of the unit group: 70=(5,7), 130=(5,13), 154=(7,11), and 286=(11,13).",
+    "interpretation_boundary": "This only measures coefficient support in character space. A proof still needs pointwise binary-prime correlation bounds for the corresponding character sums.",
+    "transform": "Subtract the unit-group mean and apply normalized finite Fourier transform on the exponent grid.  These are the multiplicative Dirichlet-character coordinates of the projected coefficient vector."
+  },
+  "multiplicative_character_theorem_proved": false,
+  "per_modulus": {
+    "130": {
+      "effective_character_count": {
+        "entropy_effective_count": 18.221425205517274,
+        "inverse_participation_count": 15.898511317976462,
+        "largest_character_fraction": 0.09957278889909432
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "character_count": 7,
+          "energy_fraction": 0.5582147323935922
+        },
+        "0.75": {
+          "character_count": 11,
+          "energy_fraction": 0.7692669441524843
+        },
+        "0.9": {
+          "character_count": 16,
+          "energy_fraction": 0.9153256598589747
+        },
+        "0.95": {
+          "character_count": 19,
+          "energy_fraction": 0.9594242085311685
+        },
+        "0.99": {
+          "character_count": 22,
+          "energy_fraction": 0.9917422068115486
+        }
+      },
+      "factors": [
+        5,
+        13
+      ],
+      "max_reconstruction_error": 1.2014681108123272e-16,
+      "modulus": 130,
+      "nonprincipal_character_count": 47,
+      "parseval_error": 6.938893903907228e-18,
+      "parseval_mean_square": 0.03320329801573555,
+      "primitive_roots": {
+        "13": 2,
+        "5": 2
+      },
+      "support_count": 48,
+      "top_characters": [
+        {
+          "abs_coefficient": 0.057499086810788164,
+          "coefficient_imag": 0.053266295107706564,
+          "coefficient_real": -0.02165287023868357,
+          "energy": 0.0033061449840745528,
+          "frequency": [
+            0,
+            2
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 0.05749908681078814,
+          "coefficient_imag": -0.05326629510770654,
+          "coefficient_real": -0.021652870238683578,
+          "energy": 0.003306144984074552,
+          "frequency": [
+            0,
+            10
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 0.05339243549886681,
+          "coefficient_imag": -6.3606527452482924e-18,
+          "coefficient_real": 0.05339243549886681,
+          "energy": 0.002850752168500653,
+          "frequency": [
+            0,
+            6
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 0.04851277226879666,
+          "coefficient_imag": -0.009478625415613328,
+          "coefficient_real": 0.047577775625123706,
+          "energy": 0.002353489073204126,
+          "frequency": [
+            1,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.04851277226879666,
+          "coefficient_imag": 0.009478625415613328,
+          "coefficient_real": 0.047577775625123706,
+          "energy": 0.002353489073204126,
+          "frequency": [
+            3,
+            9
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.0467148254485688,
+          "coefficient_imag": -0.03465237733110543,
+          "coefficient_real": 0.03132870348407258,
+          "energy": 0.0021822749166902507,
+          "frequency": [
+            1,
+            9
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.0467148254485688,
+          "coefficient_imag": 0.03465237733110543,
+          "coefficient_real": 0.03132870348407258,
+          "energy": 0.0021822749166902507,
+          "frequency": [
+            3,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.04318268893233755,
+          "coefficient_imag": 0.01981450374109691,
+          "coefficient_real": 0.03836834717473617,
+          "energy": 0.0018647446234270287,
+          "frequency": [
+            1,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.04318268893233755,
+          "coefficient_imag": -0.019814503741096903,
+          "coefficient_real": 0.03836834717473617,
+          "energy": 0.0018647446234270287,
+          "frequency": [
+            3,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.04048543094161504,
+          "coefficient_imag": 0.03908478801577659,
+          "coefficient_real": -0.010556962834550813,
+          "energy": 0.0016390701185282804,
+          "frequency": [
+            3,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.04048543094161503,
+          "coefficient_imag": -0.039084788015776584,
+          "coefficient_real": -0.01055696283455081,
+          "energy": 0.0016390701185282797,
+          "frequency": [
+            1,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.03666920751936953,
+          "coefficient_imag": -0.03134903703298984,
+          "coefficient_real": -0.01902284566522102,
+          "energy": 0.0013446307800985867,
+          "frequency": [
+            0,
+            4
+          ],
+          "zero_axis": true
+        }
+      ],
+      "total_nonprincipal_energy": 0.033203298015735544,
+      "unit_count": 48,
+      "unit_mean_removed_imag": 0.0,
+      "unit_mean_removed_real": 0.019157088122606844,
+      "zero_axis_nonzero_character_count": 6
+    },
+    "154": {
+      "effective_character_count": {
+        "entropy_effective_count": 15.702673853821041,
+        "inverse_participation_count": 11.959444881040987,
+        "largest_character_fraction": 0.13965678045276794
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "character_count": 5,
+          "energy_fraction": 0.5662042706688457
+        },
+        "0.75": {
+          "character_count": 9,
+          "energy_fraction": 0.7594505909957212
+        },
+        "0.9": {
+          "character_count": 16,
+          "energy_fraction": 0.9096644710596464
+        },
+        "0.95": {
+          "character_count": 19,
+          "energy_fraction": 0.9569856533780229
+        },
+        "0.99": {
+          "character_count": 22,
+          "energy_fraction": 0.9919724654288888
+        }
+      },
+      "factors": [
+        7,
+        11
+      ],
+      "max_reconstruction_error": 1.943017207344635e-15,
+      "modulus": 154,
+      "nonprincipal_character_count": 59,
+      "parseval_error": 0.0,
+      "parseval_mean_square": 4.865574744360009,
+      "primitive_roots": {
+        "11": 2,
+        "7": 3
+      },
+      "support_count": 60,
+      "top_characters": [
+        {
+          "abs_coefficient": 0.8243242710545519,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 0.8243242710545519,
+          "energy": 0.6795105038496183,
+          "frequency": [
+            3,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.8091996050168482,
+          "coefficient_imag": -0.6000499421916567,
+          "coefficient_real": 0.5429033685981444,
+          "energy": 0.6548040007594231,
+          "frequency": [
+            3,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.8091996050168483,
+          "coefficient_imag": 0.6000499421916569,
+          "coefficient_real": 0.5429033685981443,
+          "energy": 0.6548040007594231,
+          "frequency": [
+            3,
+            9
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.6187853804618566,
+          "coefficient_imag": 0.5860614594377194,
+          "coefficient_real": -0.1985631205311175,
+          "energy": 0.3828953470733248,
+          "frequency": [
+            5,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.6187853804618566,
+          "coefficient_imag": -0.5860614594377194,
+          "coefficient_real": -0.19856312053111733,
+          "energy": 0.3828953470733246,
+          "frequency": [
+            1,
+            9
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.5787036196388298,
+          "coefficient_imag": 0.21690274773690355,
+          "coefficient_real": -0.5365175462249716,
+          "energy": 0.33489787938308335,
+          "frequency": [
+            3,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.5787036196388298,
+          "coefficient_imag": -0.2169027477369036,
+          "coefficient_real": -0.5365175462249715,
+          "energy": 0.33489787938308324,
+          "frequency": [
+            3,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.36773540545940264,
+          "coefficient_imag": -0.22280226941657302,
+          "coefficient_real": -0.29255508399481983,
+          "energy": 0.1352293284283913,
+          "frequency": [
+            2,
+            6
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.36773540545940264,
+          "coefficient_imag": 0.22280226941657302,
+          "coefficient_real": -0.29255508399481983,
+          "energy": 0.1352293284283913,
+          "frequency": [
+            4,
+            4
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.32888489547547023,
+          "coefficient_imag": 0.21751828796570158,
+          "coefficient_real": 0.24668009419566286,
+          "energy": 0.10816527447191097,
+          "frequency": [
+            1,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.32888489547547023,
+          "coefficient_imag": -0.21751828796570152,
+          "coefficient_real": 0.2466800941956629,
+          "energy": 0.10816527447191097,
+          "frequency": [
+            5,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.3288161807109294,
+          "coefficient_imag": -0.13718090002476066,
+          "coefficient_real": 0.2988335345400834,
+          "energy": 0.10812008069732261,
+          "frequency": [
+            2,
+            4
+          ],
+          "zero_axis": false
+        }
+      ],
+      "total_nonprincipal_energy": 4.865574744360009,
+      "unit_count": 60,
+      "unit_mean_removed_imag": 0.0,
+      "unit_mean_removed_real": 0.01532567049808559,
+      "zero_axis_nonzero_character_count": 6
+    },
+    "286": {
+      "effective_character_count": {
+        "entropy_effective_count": 48.266577688906665,
+        "inverse_participation_count": 46.66538199570049,
+        "largest_character_fraction": 0.031128175266596118
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "character_count": 20,
+          "energy_fraction": 0.5079259864637189
+        },
+        "0.75": {
+          "character_count": 33,
+          "energy_fraction": 0.7619737614273719
+        },
+        "0.9": {
+          "character_count": 43,
+          "energy_fraction": 0.9116055613209767
+        },
+        "0.95": {
+          "character_count": 46,
+          "energy_fraction": 0.9516037734035095
+        },
+        "0.99": {
+          "character_count": 50,
+          "energy_fraction": 0.9998866284037461
+        }
+      },
+      "factors": [
+        11,
+        13
+      ],
+      "max_reconstruction_error": 7.188656316718207e-15,
+      "modulus": 286,
+      "nonprincipal_character_count": 119,
+      "parseval_error": 7.105427357601002e-15,
+      "parseval_mean_square": 21.425719970586844,
+      "primitive_roots": {
+        "11": 2,
+        "13": 2
+      },
+      "support_count": 120,
+      "top_characters": [
+        {
+          "abs_coefficient": 0.8166661291234231,
+          "coefficient_imag": -0.7774356624444773,
+          "coefficient_real": -0.2500747032727469,
+          "energy": 0.6669435664574357,
+          "frequency": [
+            3,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.8166661291234231,
+          "coefficient_imag": 0.7774356624444773,
+          "coefficient_real": -0.25007470327274695,
+          "energy": 0.6669435664574357,
+          "frequency": [
+            7,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7901095344040819,
+          "coefficient_imag": 0.6229813010622007,
+          "coefficient_real": -0.48597054939891454,
+          "energy": 0.6242730763562353,
+          "frequency": [
+            5,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7901095344040819,
+          "coefficient_imag": -0.6229813010622007,
+          "coefficient_real": -0.48597054939891454,
+          "energy": 0.6242730763562353,
+          "frequency": [
+            5,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.755410206092165,
+          "coefficient_imag": 0.6269771490859084,
+          "coefficient_real": -0.4213599814793923,
+          "energy": 0.5706445794682072,
+          "frequency": [
+            4,
+            8
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.755410206092165,
+          "coefficient_imag": -0.6269771490859084,
+          "coefficient_real": -0.4213599814793923,
+          "energy": 0.5706445794682072,
+          "frequency": [
+            6,
+            4
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7232176250526492,
+          "coefficient_imag": 0.5871160050958634,
+          "coefficient_real": -0.42230146784858374,
+          "energy": 0.5230437331867943,
+          "frequency": [
+            3,
+            11
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7232176250526492,
+          "coefficient_imag": -0.5871160050958634,
+          "coefficient_real": -0.4223014678485837,
+          "energy": 0.5230437331867943,
+          "frequency": [
+            7,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7201458216738759,
+          "coefficient_imag": 0.529400389295028,
+          "coefficient_real": -0.4882061370861848,
+          "energy": 0.5186100044743418,
+          "frequency": [
+            1,
+            11
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.720145821673876,
+          "coefficient_imag": -0.5294003892950281,
+          "coefficient_real": -0.48820613708618477,
+          "energy": 0.5186100044743418,
+          "frequency": [
+            9,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7200171466300008,
+          "coefficient_imag": -0.6791226878923355,
+          "coefficient_real": -0.2392008909496317,
+          "energy": 0.5184246914412083,
+          "frequency": [
+            1,
+            7
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7200171466300008,
+          "coefficient_imag": 0.6791226878923355,
+          "coefficient_real": -0.2392008909496317,
+          "energy": 0.5184246914412083,
+          "frequency": [
+            9,
+            5
+          ],
+          "zero_axis": false
+        }
+      ],
+      "total_nonprincipal_energy": 21.425719970586837,
+      "unit_count": 120,
+      "unit_mean_removed_imag": 0.0,
+      "unit_mean_removed_real": 0.007662835249042803,
+      "zero_axis_nonzero_character_count": 9
+    },
+    "70": {
+      "effective_character_count": {
+        "entropy_effective_count": 8.015349195141239,
+        "inverse_participation_count": 7.563079966906706,
+        "largest_character_fraction": 0.17292890277108586
+      },
+      "energy_cover_counts": {
+        "0.5": {
+          "character_count": 4,
+          "energy_fraction": 0.6095131818953617
+        },
+        "0.75": {
+          "character_count": 6,
+          "energy_fraction": 0.8348702547910569
+        },
+        "0.9": {
+          "character_count": 7,
+          "energy_fraction": 0.9130705379067808
+        },
+        "0.95": {
+          "character_count": 8,
+          "energy_fraction": 0.9912708210225047
+        },
+        "0.99": {
+          "character_count": 8,
+          "energy_fraction": 0.9912708210225047
+        }
+      },
+      "factors": [
+        5,
+        7
+      ],
+      "max_reconstruction_error": 9.028150152086985e-16,
+      "modulus": 70,
+      "nonprincipal_character_count": 23,
+      "parseval_error": 8.881784197001252e-16,
+      "parseval_mean_square": 4.202303256501615,
+      "primitive_roots": {
+        "5": 2,
+        "7": 3
+      },
+      "support_count": 24,
+      "top_characters": [
+        {
+          "abs_coefficient": 0.8524668270719894,
+          "coefficient_imag": 0.048629183523433164,
+          "coefficient_real": 0.8510786648530377,
+          "energy": 0.7266996912581851,
+          "frequency": [
+            1,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.8524668270719894,
+          "coefficient_imag": -0.04862918352343315,
+          "coefficient_real": 0.8510786648530377,
+          "energy": 0.7266996912581851,
+          "frequency": [
+            3,
+            3
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7442982757749641,
+          "coefficient_imag": -0.29140214244671553,
+          "coefficient_real": 0.6848829934368706,
+          "energy": 0.5539799233215845,
+          "frequency": [
+            2,
+            2
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.7442982757749641,
+          "coefficient_imag": 0.29140214244671553,
+          "coefficient_real": 0.6848829934368706,
+          "energy": 0.5539799233215845,
+          "frequency": [
+            2,
+            4
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.688120178931432,
+          "coefficient_imag": 0.029887630947811,
+          "coefficient_real": 0.6874708067757884,
+          "energy": 0.47350938065262593,
+          "frequency": [
+            1,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.688120178931432,
+          "coefficient_imag": -0.02988763094781105,
+          "coefficient_real": 0.6874708067757884,
+          "energy": 0.47350938065262593,
+          "frequency": [
+            3,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.5732550081739843,
+          "coefficient_imag": -0.15405081775686408,
+          "coefficient_real": 0.5521681355755657,
+          "energy": 0.32862130439655485,
+          "frequency": [
+            1,
+            1
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.5732550081739843,
+          "coefficient_imag": 0.15405081775686405,
+          "coefficient_real": 0.5521681355755657,
+          "energy": 0.32862130439655485,
+          "frequency": [
+            3,
+            5
+          ],
+          "zero_axis": false
+        },
+        {
+          "abs_coefficient": 0.1288493901369975,
+          "coefficient_imag": -0.0373080083150236,
+          "coefficient_real": 0.12332995521868284,
+          "energy": 0.016602165338676183,
+          "frequency": [
+            0,
+            2
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 0.1288493901369975,
+          "coefficient_imag": 0.0373080083150236,
+          "coefficient_real": 0.12332995521868284,
+          "energy": 0.016602165338676183,
+          "frequency": [
+            0,
+            4
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 0.05897733943101731,
+          "coefficient_imag": 0.0,
+          "coefficient_real": 0.05897733943101731,
+          "energy": 0.003478326566361429,
+          "frequency": [
+            2,
+            0
+          ],
+          "zero_axis": true
+        },
+        {
+          "abs_coefficient": 4.644438169782359e-15,
+          "coefficient_imag": -6.938893903907228e-18,
+          "coefficient_real": -4.644432986348571e-15,
+          "energy": 2.1570805912931312e-29,
+          "frequency": [
+            2,
+            3
+          ],
+          "zero_axis": false
+        }
+      ],
+      "total_nonprincipal_energy": 4.202303256501614,
+      "unit_count": 24,
+      "unit_mean_removed_imag": 0.0,
+      "unit_mean_removed_real": 0.03831417624521394,
+      "zero_axis_nonzero_character_count": 3
+    }
+  },
+  "pointwise_adverse_drag_theorem_proved": false,
+  "schema_version": 1,
+  "source_commit": "9d34ebf7d76753a9e0810620762dda19ae09f3ce",
+  "sources": {
+    "additive_fourier_burden_audit": "evidence\\q286-wbss-fourier-burden-audit.json",
+    "additive_fourier_burden_status": "HOLD_fourier_burden_diffuse_high_conductor",
+    "four_modulus_projection_formula": "evidence\\q286-wbss-four-modulus-projection-formula.json",
+    "four_modulus_projection_formula_source_commit": "b2745218566ec5e2c5a85af2f608b509bc31c292"
+  },
+  "status": "HOLD_multiplicative_character_burden_broad",
+  "status_boundary": "finite multiplicative-character coefficient diagnostic only; it proves no character-sum bound, fixed-modulus binary-prime discrepancy theorem, pointwise adverse-drag theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "universal_bound_open": true
+}

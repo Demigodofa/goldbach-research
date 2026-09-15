@@ -6,6 +6,39 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286-WBSS route now has a multiplicative-character burden audit.
+
+```text
+tools/build_q286_wbss_multiplicative_character_burden_audit.py
+notes/q286-wbss-multiplicative-character-burden-audit.md
+evidence/q286-wbss-multiplicative-character-burden-audit.json
+```
+
+Result:
+
+```text
+global nonprincipal multiplicative characters: 248
+characters for 90 percent energy:               60
+characters for 95 percent energy:               65
+characters for 99 percent energy:               77
+modulus 286 energy fraction:      0.7018658712866479
+modulus 286 characters for 99 percent energy:   50 / 119
+additive global modes for 99 percent:          308
+multiplicative global characters for 99 percent: 77
+additive mod-286 modes for 99 percent:          188
+multiplicative mod-286 characters for 99 percent: 50
+```
+
+Decision: `HOLD_multiplicative_character_burden_broad`.  Multiplicative
+characters are the right fixed-modulus theorem language and they compress the
+burden, but the surviving target is still a broad multiplicative-character
+binary-prime correlation package, not a one-character or few-character lemma.
+No multiplicative-character theorem, fixed-modulus binary-prime discrepancy
+theorem, pointwise adverse-drag theorem, q286 threshold theorem,
+strict-central Goldbach theorem, or Goldbach proof is established.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a finite Fourier-burden audit for the proposed
 signed-character shortcut.
 
