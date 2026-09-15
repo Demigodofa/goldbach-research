@@ -1,0 +1,616 @@
+{
+  "candidate": {
+    "falsifier": "A nonzero four-modulus unit residual falsifies this stronger identity.  If that happens, the slower target-by-target residue-span check is required.",
+    "mechanism": "Check whether the q286-WBSS full unit coefficient is determined by total mass and additive projections to moduli 70, 130, 154, and 286.  Unit-level descent implies the same span statement for every reflected target-orbit coefficient.",
+    "name": "global four-modulus coefficient span identity",
+    "novelty_label": "new-to-this-task",
+    "prediction": "If the four-modulus unit residual is numerical zero while the dominant-only family fails, modulus 130 is a genuine missing projection coordinate rather than a stress-sample patch.",
+    "smallest_test": "Fit the full coefficient on all units modulo 10010 using only additive residue projections to the proposed moduli, then replay representative target-orbit consequences.  No prime counts or LP optimization are used."
+  },
+  "decision": "If the four-modulus unit residual is numerical zero, this is a real finite algebraic compression of the full coefficient and it implies the target-orbit span statement for all 5005 even residues.  The remaining hole then moves to proving actual strict-central binary-prime projection control for those four moduli.  If it fails, the four-modulus route is only a stress-fixture artifact.",
+  "even_target_residue_count": 5005,
+  "four_modulus_projection_theorem_proved": false,
+  "goldbach_proved": false,
+  "implied_exact_even_target_residue_count": 5005,
+  "modulus_families": {
+    "all_coefficient_support_moduli": [
+      10,
+      14,
+      22,
+      26,
+      70,
+      130,
+      154,
+      286
+    ],
+    "dominant_support_moduli": [
+      70,
+      154,
+      286
+    ],
+    "four_modulus_support": [
+      70,
+      130,
+      154,
+      286
+    ]
+  },
+  "representative_rows": {
+    "dominant_worst": {
+      "lsqr_iterations": 12,
+      "lsqr_stop_code": 2,
+      "max_abs_residual": 0.2953966674550106,
+      "reflection_orbit_count": 743,
+      "relative_l2_residual": 0.025738254011614135,
+      "row_count": 160,
+      "target_mod_286": 212,
+      "target_residue": 9078
+    },
+    "first": {
+      "admissible_unit_count": 2880,
+      "coefficient_l2_norm": 213.21033119926926,
+      "families": {
+        "all_coefficient_support_moduli": {
+          "l2_residual": 2.2085222404433497e-11,
+          "lsqr_condition_estimate": 34.30498829940365,
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 6.679101716144942e-13,
+          "moduli": [
+            10,
+            14,
+            22,
+            26,
+            70,
+            130,
+            154,
+            286
+          ],
+          "projection_row_counts": {
+            "10": 4,
+            "130": 48,
+            "14": 6,
+            "154": 60,
+            "22": 10,
+            "26": 12,
+            "286": 120,
+            "70": 24,
+            "total_mass": 1
+          },
+          "relative_l2_residual": 1.0358420382449642e-13,
+          "row_count": 285
+        },
+        "dominant_support_moduli": {
+          "l2_residual": 5.390847266924689,
+          "lsqr_condition_estimate": 24.506273492234392,
+          "lsqr_iterations": 7,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2739261195596625,
+          "moduli": [
+            70,
+            154,
+            286
+          ],
+          "projection_row_counts": {
+            "154": 60,
+            "286": 120,
+            "70": 24,
+            "total_mass": 1
+          },
+          "relative_l2_residual": 0.025284174723626925,
+          "row_count": 205
+        },
+        "four_modulus_support": {
+          "l2_residual": 3.22267499014434e-13,
+          "lsqr_condition_estimate": 29.674735070052975,
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 3.552713678800501e-14,
+          "moduli": [
+            70,
+            130,
+            154,
+            286
+          ],
+          "projection_row_counts": {
+            "130": 48,
+            "154": 60,
+            "286": 120,
+            "70": 24,
+            "total_mass": 1
+          },
+          "relative_l2_residual": 1.5115003911946389e-15,
+          "row_count": 253
+        }
+      },
+      "reflection_orbit_count": 1440,
+      "target_mod_286": 0,
+      "target_residue": 0,
+      "uniform_full_action": 1.0
+    },
+    "four_modulus_worst": {
+      "lsqr_iterations": 17,
+      "lsqr_stop_code": 1,
+      "max_abs_residual": 4.7121861967980294e-11,
+      "reflection_orbit_count": 743,
+      "relative_l2_residual": 9.798830974895393e-12,
+      "row_count": 193,
+      "target_mod_286": 2,
+      "target_residue": 2
+    }
+  },
+  "schema_version": 1,
+  "signed_discrepancy_theorem_proved": false,
+  "source_commit": "15df47fa378be202dc4a214a86364d7a029a80b2",
+  "spot_target_residue_summary": {
+    "all_coefficient_support_moduli": {
+      "exact_span_count": 7,
+      "first_failures": [],
+      "lsqr_iteration_summary": {
+        "count": 7,
+        "maximum": 19.0,
+        "mean": 16.142857142857142,
+        "minimum": 10.0
+      },
+      "max_abs_residual_summary": {
+        "count": 7,
+        "maximum": 8.303580045776471e-11,
+        "mean": 1.6734486812148522e-11,
+        "minimum": 6.679101716144942e-13
+      },
+      "maximum_max_abs_residual": 8.303580045776471e-11,
+      "maximum_relative_l2_residual": 1.7916012866387674e-11,
+      "relative_l2_residual_summary": {
+        "count": 7,
+        "maximum": 1.7916012866387674e-11,
+        "mean": 3.5960123958687223e-12,
+        "minimum": 1.0358420382449642e-13
+      },
+      "row_count": 7,
+      "row_count_summary": {
+        "count": 7,
+        "maximum": 285.0,
+        "mean": 232.0,
+        "minimum": 221.0
+      },
+      "span_failure_count": 0,
+      "worst_rows": [
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 8.303580045776471e-11,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 1.7916012866387674e-11,
+          "row_count": 221,
+          "target_mod_286": 212,
+          "target_residue": 9078
+        },
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 2.5446755813618438e-11,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 5.8371707335314684e-12,
+          "row_count": 221,
+          "target_mod_286": 190,
+          "target_residue": 4766
+        },
+        {
+          "lsqr_iterations": 19,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 2.738920201750261e-12,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 5.777405055811955e-13,
+          "row_count": 221,
+          "target_mod_286": 268,
+          "target_residue": 554
+        },
+        {
+          "lsqr_iterations": 19,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 2.5059954111839033e-12,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 3.7334683003551146e-13,
+          "row_count": 221,
+          "target_mod_286": 250,
+          "target_residue": 9974
+        },
+        {
+          "lsqr_iterations": 19,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 1.958433415438776e-12,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 2.339539804159005e-13,
+          "row_count": 221,
+          "target_mod_286": 2,
+          "target_residue": 2
+        },
+        {
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 7.87592213669086e-13,
+          "reflection_orbit_count": 891,
+          "relative_l2_residual": 1.3027765130481002e-13,
+          "row_count": 234,
+          "target_mod_286": 134,
+          "target_residue": 6426
+        },
+        {
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 6.679101716144942e-13,
+          "reflection_orbit_count": 1440,
+          "relative_l2_residual": 1.0358420382449642e-13,
+          "row_count": 285,
+          "target_mod_286": 0,
+          "target_residue": 0
+        }
+      ]
+    },
+    "dominant_support_moduli": {
+      "exact_span_count": 0,
+      "first_failures": [
+        {
+          "lsqr_iterations": 7,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2739261195596625,
+          "reflection_orbit_count": 1440,
+          "relative_l2_residual": 0.025284174723626925,
+          "row_count": 205,
+          "target_mod_286": 0,
+          "target_residue": 0
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2789312142670215,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.01845124631958889,
+          "row_count": 160,
+          "target_mod_286": 2,
+          "target_residue": 2
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.10013471140150632,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.01409520156329168,
+          "row_count": 160,
+          "target_mod_286": 190,
+          "target_residue": 4766
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2146736503361959,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.024735230720822152,
+          "row_count": 160,
+          "target_mod_286": 268,
+          "target_residue": 554
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2953966674550106,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.025738254011614135,
+          "row_count": 160,
+          "target_mod_286": 212,
+          "target_residue": 9078
+        },
+        {
+          "lsqr_iterations": 7,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.13806115909377326,
+          "reflection_orbit_count": 891,
+          "relative_l2_residual": 0.016497625558490114,
+          "row_count": 172,
+          "target_mod_286": 134,
+          "target_residue": 6426
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.14357787685563306,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.019529832764393542,
+          "row_count": 160,
+          "target_mod_286": 250,
+          "target_residue": 9974
+        }
+      ],
+      "lsqr_iteration_summary": {
+        "count": 7,
+        "maximum": 12.0,
+        "mean": 10.571428571428571,
+        "minimum": 7.0
+      },
+      "max_abs_residual_summary": {
+        "count": 7,
+        "maximum": 0.2953966674550106,
+        "mean": 0.20638591413840043,
+        "minimum": 0.10013471140150632
+      },
+      "maximum_max_abs_residual": 0.2953966674550106,
+      "maximum_relative_l2_residual": 0.025738254011614135,
+      "relative_l2_residual_summary": {
+        "count": 7,
+        "maximum": 0.025738254011614135,
+        "mean": 0.02061879509454678,
+        "minimum": 0.01409520156329168
+      },
+      "row_count": 7,
+      "row_count_summary": {
+        "count": 7,
+        "maximum": 205.0,
+        "mean": 168.14285714285714,
+        "minimum": 160.0
+      },
+      "span_failure_count": 7,
+      "worst_rows": [
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2953966674550106,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.025738254011614135,
+          "row_count": 160,
+          "target_mod_286": 212,
+          "target_residue": 9078
+        },
+        {
+          "lsqr_iterations": 7,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2739261195596625,
+          "reflection_orbit_count": 1440,
+          "relative_l2_residual": 0.025284174723626925,
+          "row_count": 205,
+          "target_mod_286": 0,
+          "target_residue": 0
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2146736503361959,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.024735230720822152,
+          "row_count": 160,
+          "target_mod_286": 268,
+          "target_residue": 554
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.14357787685563306,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.019529832764393542,
+          "row_count": 160,
+          "target_mod_286": 250,
+          "target_residue": 9974
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.2789312142670215,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.01845124631958889,
+          "row_count": 160,
+          "target_mod_286": 2,
+          "target_residue": 2
+        },
+        {
+          "lsqr_iterations": 7,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.13806115909377326,
+          "reflection_orbit_count": 891,
+          "relative_l2_residual": 0.016497625558490114,
+          "row_count": 172,
+          "target_mod_286": 134,
+          "target_residue": 6426
+        },
+        {
+          "lsqr_iterations": 12,
+          "lsqr_stop_code": 2,
+          "max_abs_residual": 0.10013471140150632,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 0.01409520156329168,
+          "row_count": 160,
+          "target_mod_286": 190,
+          "target_residue": 4766
+        }
+      ]
+    },
+    "four_modulus_support": {
+      "exact_span_count": 7,
+      "first_failures": [],
+      "lsqr_iteration_summary": {
+        "count": 7,
+        "maximum": 18.0,
+        "mean": 15.571428571428571,
+        "minimum": 10.0
+      },
+      "max_abs_residual_summary": {
+        "count": 7,
+        "maximum": 4.7121861967980294e-11,
+        "mean": 6.746286069463687e-12,
+        "minimum": 7.993605777301127e-15
+      },
+      "maximum_max_abs_residual": 4.7121861967980294e-11,
+      "maximum_relative_l2_residual": 9.798830974895393e-12,
+      "relative_l2_residual_summary": {
+        "count": 7,
+        "maximum": 9.798830974895393e-12,
+        "mean": 1.4008443177432588e-12,
+        "minimum": 7.386710465925379e-16
+      },
+      "row_count": 7,
+      "row_count_summary": {
+        "count": 7,
+        "maximum": 253.0,
+        "mean": 203.28571428571428,
+        "minimum": 193.0
+      },
+      "span_failure_count": 0,
+      "worst_rows": [
+        {
+          "lsqr_iterations": 17,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 4.7121861967980294e-11,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 9.798830974895393e-12,
+          "row_count": 193,
+          "target_mod_286": 2,
+          "target_residue": 2
+        },
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 1.5987211554602254e-14,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 1.6257122314873489e-15,
+          "row_count": 193,
+          "target_mod_286": 212,
+          "target_residue": 9078
+        },
+        {
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 3.552713678800501e-14,
+          "reflection_orbit_count": 1440,
+          "relative_l2_residual": 1.5115003911946389e-15,
+          "row_count": 253,
+          "target_mod_286": 0,
+          "target_residue": 0
+        },
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 1.4210854715202004e-14,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 1.1158237142531647e-15,
+          "row_count": 193,
+          "target_mod_286": 268,
+          "target_residue": 554
+        },
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 1.7763568394002505e-14,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 1.095734708147774e-15,
+          "row_count": 193,
+          "target_mod_286": 190,
+          "target_residue": 4766
+        },
+        {
+          "lsqr_iterations": 10,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 1.0658141036401503e-14,
+          "reflection_orbit_count": 891,
+          "relative_l2_residual": 9.918072157426115e-16,
+          "row_count": 205,
+          "target_mod_286": 134,
+          "target_residue": 6426
+        },
+        {
+          "lsqr_iterations": 18,
+          "lsqr_stop_code": 1,
+          "max_abs_residual": 7.993605777301127e-15,
+          "reflection_orbit_count": 743,
+          "relative_l2_residual": 7.386710465925379e-16,
+          "row_count": 193,
+          "target_mod_286": 250,
+          "target_residue": 9974
+        }
+      ]
+    }
+  },
+  "spot_target_residues": [
+    0,
+    2,
+    4766,
+    554,
+    9078,
+    6426,
+    9974
+  ],
+  "status_boundary": "finite algebraic span audit only; it proves no binary-prime projection theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+  "target_residue_period": 10010,
+  "unit_level_identity_implies_all_even_target_residues": true,
+  "unit_level_summary": {
+    "all_coefficient_support_moduli": {
+      "l2_residual": 1.0067109598905931e-10,
+      "lsqr_condition_estimate": 34.304988299403675,
+      "lsqr_iterations": 10,
+      "lsqr_stop_code": 1,
+      "max_abs_residual": 3.5789149421816546e-12,
+      "moduli": [
+        10,
+        14,
+        22,
+        26,
+        70,
+        130,
+        154,
+        286
+      ],
+      "projection_row_counts": {
+        "10": 4,
+        "130": 48,
+        "14": 6,
+        "154": 60,
+        "22": 10,
+        "26": 12,
+        "286": 120,
+        "70": 24,
+        "total_mass": 1
+      },
+      "relative_l2_residual": 3.338731957449802e-13,
+      "row_count": 285
+    },
+    "dominant_support_moduli": {
+      "l2_residual": 7.623809317566828,
+      "lsqr_condition_estimate": 24.50627349223441,
+      "lsqr_iterations": 7,
+      "lsqr_stop_code": 2,
+      "max_abs_residual": 0.27392611955966384,
+      "moduli": [
+        70,
+        154,
+        286
+      ],
+      "projection_row_counts": {
+        "154": 60,
+        "286": 120,
+        "70": 24,
+        "total_mass": 1
+      },
+      "relative_l2_residual": 0.025284174723626925,
+      "row_count": 205
+    },
+    "four_modulus_support": {
+      "l2_residual": 2.639108707502419e-13,
+      "lsqr_condition_estimate": 29.67473507005301,
+      "lsqr_iterations": 10,
+      "lsqr_stop_code": 1,
+      "max_abs_residual": 2.1316282072803006e-14,
+      "moduli": [
+        70,
+        130,
+        154,
+        286
+      ],
+      "projection_row_counts": {
+        "130": 48,
+        "154": 60,
+        "286": 120,
+        "70": 24,
+        "total_mass": 1
+      },
+      "relative_l2_residual": 8.752538645134008e-16,
+      "row_count": 253
+    }
+  }
+}

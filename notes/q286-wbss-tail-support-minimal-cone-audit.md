@@ -84,3 +84,17 @@ open.
 The useful change is that the candidate bridge is no longer "all coefficient
 supports" and no longer ordinary AP marginals.  It is a smaller four-modulus
 projection problem.
+
+## Follow-up
+
+`tools/build_q286_wbss_four_modulus_span_identity_audit.py` generated
+`evidence/q286-wbss-four-modulus-span-identity-audit.json`.
+
+That follow-up strengthens this result.  The full q286-WBSS unit coefficient
+itself descends to the additive projection span of `[70,130,154,286]`, with
+relative residual `8.752538645134008e-16`; dominant-only supports
+`[70,154,286]` fail at relative residual `0.025284174723626925`.  Therefore
+the four-modulus span identity applies to every reflected target-orbit
+coefficient for all `5005` even target residues modulo `10010`.
+
+This is still coefficient algebra, not a binary-prime projection theorem.

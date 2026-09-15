@@ -2304,6 +2304,22 @@
       "status": "demoted_as_overbroad_after_minimal_tail_audit",
       "reason": "The stress LP does not need all coefficient-support moduli [10,14,22,26,70,130,154,286]; [70,130,154,286] already forces positivity on the checked stress rows.",
       "nuance": "The all-support theorem remains sufficient but is no longer the smallest current target."
+    },
+    {
+      "id": "receipt.q286_wbss_four_modulus_span_identity_audit",
+      "type": "receipt",
+      "label": "q286-WBSS four-modulus span identity audit",
+      "status": "validated_finite_algebraic_compression",
+      "validation": "tools/build_q286_wbss_four_modulus_span_identity_audit.py generated evidence/q286-wbss-four-modulus-span-identity-audit.json; the full q286-WBSS unit coefficient modulo 10010 lies in the additive span of total mass and projections to moduli 70,130,154,286 with relative residual 8.752538645134008e-16, while dominant supports 70,154,286 fail with residual 0.025284174723626925",
+      "status_boundary": "finite algebraic coefficient-compression audit only; no binary-prime projection theorem, signed discrepancy theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof"
+    },
+    {
+      "id": "problem.q286_four_modulus_binary_prime_projection_control",
+      "type": "open_obligation",
+      "label": "Control actual binary-prime projections to 70,130,154,286",
+      "status": "open_precisely_stated",
+      "statement": "Prove actual strict-central binary-prime measures have enough projection control modulo 70,130,154,286 to force the full q286-WBSS signed expectation positive for all sufficiently large covered even targets, plus a finite boundary check.",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -5191,6 +5207,31 @@
       "from": "problem.q286_four_modulus_projection_theorem",
       "to": "problem.q286_all_support_projection_theorem",
       "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_four_modulus_span_identity_audit",
+      "to": "receipt.q286_wbss_tail_support_minimal_cone_audit",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_wbss_four_modulus_span_identity_audit",
+      "to": "problem.q286_four_modulus_projection_theorem",
+      "type": "strengthens"
+    },
+    {
+      "from": "receipt.q286_wbss_four_modulus_span_identity_audit",
+      "to": "problem.q286_all_support_projection_theorem",
+      "type": "demotes"
+    },
+    {
+      "from": "receipt.q286_wbss_four_modulus_span_identity_audit",
+      "to": "problem.q286_four_modulus_binary_prime_projection_control",
+      "type": "defines"
+    },
+    {
+      "from": "problem.q286_four_modulus_binary_prime_projection_control",
+      "to": "problem.q286_weighted_binary_prime_sign_sum",
+      "type": "requires"
     }
   ]
 }
