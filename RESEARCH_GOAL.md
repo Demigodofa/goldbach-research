@@ -6,6 +6,37 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The direct q286-WBSS witness now has a four-modulus decomposition on the same
+targeted fresh residue-lift holdout:
+`tools/build_q286_wbss_four_modulus_direct_holdout_decomposition.py`
+generated
+`evidence/q286-wbss-four-modulus-direct-holdout-decomposition.json`, with
+explanation in
+`notes/q286-wbss-four-modulus-direct-holdout-decomposition.md`.
+
+Question: since the unsplit raw witness survives the lifted rows while the
+top-20/residual split fails, is the rescue a single projection component or an
+aggregate signed projection effect across moduli `70,130,154,286`?
+
+Result: the direct witness remains positive on `116/116` lifted rows,
+including all `70` rows where the top-20 Fourier component is nonnegative.
+The minimum local-uniform main term is `0.717245423802844`, the minimum full
+action is `0.674072332014222`, and the maximum signed anti-alignment load is
+`lambda_phi = 0.213151501463302`, at target `965362`. The four-modulus formula
+reconstructs the direct receipt with maximum error about `4.33e-15`. Each
+modulus has mixed signed errors; removing any one modulus still leaves
+`116/116` rows positive, and local main plus any single modulus term is also
+positive on `116/116` rows.
+
+Decision: the surviving theorem target is aggregate coefficient-aligned signed
+anti-alignment,
+`E70 + E130 + E154 + E286 > -M`, equivalently `lambda_phi < 1`, not a
+pointwise Fourier sign theorem and not a one-modulus rescue. The measured
+`0.213...` load is finite holdout evidence only; no universal bound is
+proved. Goldbach is not proved.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286-WBSS route now has a direct-witness replay on the same targeted fresh
 residue-lift holdout that broke the top-20/residual split:
 `tools/build_q286_wbss_direct_witness_residue_lift_holdout.py` generated

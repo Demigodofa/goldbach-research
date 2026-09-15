@@ -6,6 +6,44 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The direct q286-WBSS witness now has a four-modulus decomposition on the same
+targeted fresh residue-lift holdout.
+
+```text
+tools/build_q286_wbss_four_modulus_direct_holdout_decomposition.py
+notes/q286-wbss-four-modulus-direct-holdout-decomposition.md
+evidence/q286-wbss-four-modulus-direct-holdout-decomposition.json
+```
+
+Result:
+
+```text
+fresh lifted targets tested:                   116
+raw q286-WBSS positive rows:                   116 / 116
+raw q286-WBSS nonpositive rows:                  0 / 116
+top-20 nonnegative rows from failed split:       70 / 116
+top-20 nonnegative but raw-positive rows:        70 / 116
+minimum local-uniform main term:   0.717245423802844
+minimum raw full action:           0.674072332014222
+mean raw full action:              0.916312249457876
+maximum lambda_phi:                0.213151501463302
+tightest row:                                  965362
+maximum formula reconstruction error:       4.33e-15
+```
+
+At the tightest row `965362`, the local main is `0.856673595066643` and the
+total signed four-modulus projection error is `-0.182601263052420`, with
+terms `E70=0.004300161683148`, `E130=-0.000904295642486`,
+`E154=-0.059755521954175`, and `E286=-0.126241607138907`.
+
+Decision: the live q286-WBSS theorem target is now the aggregate signed
+projection inequality
+`E70 + E130 + E154 + E286 > -M`, equivalently `lambda_phi < 1`. This finite
+holdout demotes pointwise top-20 sign stability and one-modulus rescue
+stories; it does not prove a universal bound or Goldbach.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286-WBSS route now has a direct-witness replay on the same targeted fresh
 residue-lift holdout that demoted the top-20/residual split.
 
