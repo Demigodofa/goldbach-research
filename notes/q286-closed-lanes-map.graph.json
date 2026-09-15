@@ -2051,6 +2051,23 @@
       "validation": "tools/build_q286_max_density_anti_extremality_audit.py generated evidence/q286-max-density-anti-extremality-audit.json; the minimum bad max-density multiple is only 1.0357032987728947..1.2007521303394815, while actual rows have max orbit-density multiple 3.3411693332118935..25.29622421615252 and 0/230 actual rows pass the certificate.",
       "status_boundary": "finite maximum-density cone falsifier only; no maximum-density theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
       "goldbach_proved": false
+    },
+    {
+      "id": "problem.q286_lower_face_overlap_transport",
+      "type": "theorem_target",
+      "label": "q286 lower-face overlap transport",
+      "status": "open",
+      "statement": "At fixed observed F3, let lambda_a be the coefficient-only lower-face optimizer. Prove actual strict-central prime-pair measures have small overlap with the lower-face support B_a(F3(mu_N)) and positive signed transport away from lambda_a strong enough to force Full(mu_N)>0 after the finite boundary split.",
+      "goldbach_proved": false
+    },
+    {
+      "id": "receipt.q286_lower_face_overlap_audit",
+      "type": "receipt",
+      "label": "q286 lower-face overlap audit",
+      "status": "aha_candidate_finite_support",
+      "validation": "tools/build_q286_lower_face_overlap_audit.py generated evidence/q286-lower-face-overlap-audit.json; on 196 post-discovery tight rows, actual lower-face support overlap is at most 0.012172473138011076, total variation from the lower-face optimizer is at least 0.9878275268619889, surplus above the lower face is at least 3.131031037561594, and positive/negative transport ratio is at least 3.273467296185124.",
+      "status_boundary": "finite lower-face overlap diagnostic only; no lower-face overlap theorem, signed prime-correlation theorem, q286 threshold theorem, strict-central Goldbach theorem, or Goldbach proof",
+      "goldbach_proved": false
     }
   ],
   "edges": [
@@ -4663,6 +4680,26 @@
       "from": "lane.q286_max_density_anti_extremality",
       "to": "problem.q286_convex_envelope_anti_extremality",
       "type": "demotes_standalone_cone"
+    },
+    {
+      "from": "receipt.q286_lower_face_overlap_audit",
+      "to": "problem.q286_lower_face_overlap_transport",
+      "type": "defines"
+    },
+    {
+      "from": "receipt.q286_lower_face_overlap_audit",
+      "to": "problem.q286_convex_envelope_anti_extremality",
+      "type": "supports"
+    },
+    {
+      "from": "problem.q286_lower_face_overlap_transport",
+      "to": "problem.q286_convex_envelope_anti_extremality",
+      "type": "refines"
+    },
+    {
+      "from": "problem.q286_lower_face_overlap_transport",
+      "to": "theorem.q286_positive_signed_witness",
+      "type": "requires"
     }
   ]
 }

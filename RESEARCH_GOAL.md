@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 anti-extremality lane now has a lower-face overlap audit:
+`tools/build_q286_lower_face_overlap_audit.py` generated
+`evidence/q286-lower-face-overlap-audit.json`, with explanation in
+`notes/q286-lower-face-overlap-audit.md`.
+
+Question: at the same observed `F3` value, does actual prime-pair mass sit on
+the coefficient-only lower face, or does it move away from that bad optimizer?
+
+Result: on `230` pre-existing tight rows, including `196` post-discovery rows,
+actual post-discovery measures have tiny overlap with the lower-face optimizer
+support and large favorable transport away from it:
+
+```text
+post-discovery actual mass on lower-face support: 0.0..0.012172473138011076
+post-discovery TV from lower-face optimizer:      0.9878275268619889..1.0000000000000002
+post-discovery surplus above lower face:          3.131031037561594..7.8631684141402225
+post-discovery positive/negative transport ratio: 3.273467296185124..9.410452590913094
+```
+
+Decision: lower-face avoidance is the first face-relative anti-extremality
+candidate that survives the local falsifier.  The next theorem target is to
+prove actual `W_N` has small overlap with the lower-face optimizer
+`B_a(F3(mu_N))` and positive signed transport away from it.  This still
+requires genuine signed binary-prime correlation input and is not a Goldbach
+proof.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 anti-extremality lane now has a maximum-density cone falsifier:
 `tools/build_q286_max_density_anti_extremality_audit.py` generated
 `evidence/q286-max-density-anti-extremality-audit.json`, with explanation in

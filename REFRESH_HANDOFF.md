@@ -6,6 +6,36 @@ for the next session; the proofs and executable truth remain in the modules.
 
 ## Latest active checkpoint note, 2026-09-15
 
+The q286 anti-extremality lane now has a lower-face overlap audit.
+
+`tools/build_q286_lower_face_overlap_audit.py` generated
+`evidence/q286-lower-face-overlap-audit.json`, with explanation in
+`notes/q286-lower-face-overlap-audit.md`.
+
+Question: if coefficient geometry gives a bad lower envelope, do actual
+prime-pair measures overlap that lower-face optimizer?
+
+Result:
+
+```text
+target rows checked:                         230
+post-discovery rows checked:                 196
+post-discovery lower-face support overlap:   0.0..0.012172473138011076
+post-discovery TV from lower-face optimizer: 0.9878275268619889..1.0000000000000002
+post-discovery surplus above lower face:     3.131031037561594..7.8631684141402225
+post-discovery transport ratio:              3.273467296185124..9.410452590913094
+```
+
+Decision: this is the best current anti-extremality shape.  Actual rows are
+not close to uniform, but they are almost disjoint from the lower-face
+optimizer support at the same `F3`.  The next theorem should be lower-face
+relative: prove small overlap with `B_a(F3(mu_N))` or prove positive signed
+transport away from that face.
+
+Goldbach is not proved.
+
+## Previous active checkpoint note, 2026-09-15
+
 The q286 anti-extremality lane now has a maximum-density cone falsifier.
 
 `tools/build_q286_max_density_anti_extremality_audit.py` generated

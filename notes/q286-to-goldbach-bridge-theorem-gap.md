@@ -633,3 +633,30 @@ Decision: an AP-cell upper-bound theorem alone is too blunt.  The q286 bridge
 needs a signed, coefficient-relative anti-extremality theorem: actual mass may
 be concentrated, but it must not concentrate in the bad signed arrangement
 defined by the lower convex face.
+
+## Lower-Face Overlap Audit
+
+`tools/build_q286_lower_face_overlap_audit.py` generated
+`evidence/q286-lower-face-overlap-audit.json`.
+
+This receipt tests the face-relative version of anti-extremality.  At the same
+observed `F3(mu_N)` value, solve for the coefficient-only lower-face optimizer
+`lambda_a`, then decompose the signed transport `mu_N-lambda_a`.
+
+Result: on the `196` checked post-discovery rows, actual measures have
+lower-face support overlap at most `0.012172473138011076`, total variation
+from the lower-face optimizer at least `0.9878275268619889`, and
+positive/negative transport ratio at least `3.273467296185124`.
+
+Decision: this is a stronger candidate than max-density.  The next bridge
+problem can be stated as:
+
+```text
+mu_N(B_a(F3(mu_N))) is small,
+and transport_positive(mu_N-lambda_a)
+  > transport_negative(mu_N-lambda_a) + rho_a(N).
+```
+
+If promoted to an unnormalized version with enough surplus over
+`-L_a(F3(mu_N))`, this would force positive q286 signed action and hence a
+strict-central prime pair.  It remains unproved.

@@ -146,6 +146,7 @@ evidence/q286-principal-rescue-obstruction-audit.json
 evidence/q286-nonprincipal-drag-envelope-audit.json
 evidence/q286-convex-envelope-obstruction-audit.json
 evidence/q286-max-density-anti-extremality-audit.json
+evidence/q286-lower-face-overlap-audit.json
 ```
 
 They prove only checked finite statements.  They do not prove Goldbach.
@@ -187,3 +188,21 @@ while actual rows have maximum orbit-density multiple
 Thus the lower-face avoidance is not explained by small atoms.  The next
 definition must control signed landing relative to the coefficient face, not
 only absolute concentration relative to uniform.
+
+## Lower-face overlap candidate
+
+`tools/build_q286_lower_face_overlap_audit.py` generated
+`evidence/q286-lower-face-overlap-audit.json`.
+
+This tests the face-relative replacement for max-density.  At each actual
+row's observed `F3`, solve the coefficient-only lower-envelope optimizer
+`lambda_a`, then compare actual `mu_N` to that optimizer.
+
+Post-discovery rows have at most `0.012172473138011076` actual mass on the
+lower-face optimizer support, total variation from the optimizer at least
+`0.9878275268619889`, and positive/negative transport ratio at least
+`3.273467296185124`.
+
+This preserves a real candidate for `Q286*`: not small absolute
+concentration, but small overlap with the bad lower face and positive signed
+transport away from it.
