@@ -178,6 +178,8 @@ def main():
         EVIDENCE / "q286-mod13-4-support-schedule-audit.json")
     complement_rescue_margin_schedule = load_json(
         EVIDENCE / "q286-complement-rescue-margin-schedule.json")
+    complement_rescue_threshold_candidate = load_json(
+        EVIDENCE / "q286-complement-rescue-threshold-candidate-audit.json")
     centered_3_1_stress_class = load_json(
         EVIDENCE / "q286-centered-3-1-stress-class-audit.json")
     selected_deficit_provenance = load_json(
@@ -3071,6 +3073,62 @@ def main():
         "complement-rescue-margin-schedule",
         2.0,
         "route shifts from centered channel classifier to direct complement rescue margin")
+
+    layer(
+        "complement-rescue-threshold-candidate-audit",
+        "Post-discovery suffix is the smallest finite rescue threshold",
+        "validated_finite_threshold_candidate",
+        "evidence/q286-complement-rescue-threshold-candidate-audit.json",
+        3.0,
+        "Finite derived threshold-candidate audit only; no threshold theorem.")
+    threshold_metrics = complement_rescue_threshold_candidate[
+        "decision_metrics"]
+    add_hit(
+        mechanism_stacks,
+        "post-discovery-suffix-threshold-candidate",
+        "complement-rescue-threshold-candidate-audit",
+        3.0,
+        "smallest supported suffix is block_index_after_discovery >= 1",
+        {
+            "post_discovery_tail_count": (
+                threshold_metrics["post_discovery_tail_count"]),
+            "post_discovery_failure_count": (
+                threshold_metrics["post_discovery_failure_count"]),
+            "post_discovery_minimum_rescue_margin": (
+                threshold_metrics[
+                    "post_discovery_minimum_rescue_margin"]),
+            "smallest_supported_suffix_threshold": (
+                threshold_metrics[
+                    "smallest_supported_suffix_threshold"]),
+        })
+    add_hit(
+        mechanism_stacks,
+        "discovery-block-complement-rescue-obstruction",
+        "complement-rescue-threshold-candidate-audit",
+        2.5,
+        "all-block rescue and cycle>=4 shortcuts are already falsified",
+        {
+            "all_blocks_failure_count": (
+                threshold_metrics["all_blocks_failure_count"]),
+            "cycle_ge_4_failure_count": (
+                threshold_metrics["cycle_ge_4_failure_count"]),
+            "discovery_cycle_7_failure_count": (
+                threshold_metrics["discovery_cycle_7_failure_count"]),
+            "tautological_rescue_ratio_flagged": (
+                threshold_metrics["tautological_rescue_ratio_flagged"]),
+        })
+    add_hit(
+        theorem_stacks,
+        "first-three-complement-rescue-correlation",
+        "complement-rescue-threshold-candidate-audit",
+        4.0,
+        "freeze block>=1 on future q286 blocks and replace it with a non-circular complement lower bound")
+    add_hit(
+        theorem_stacks,
+        "threshold-ladders-demoted",
+        "complement-rescue-threshold-candidate-audit",
+        2.0,
+        "cycle>=4 fails and complement_to_required_ratio>1 is tautological")
 
     layer(
         "centered-3-1-stress-class-audit",

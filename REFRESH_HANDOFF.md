@@ -22334,6 +22334,34 @@ interpolation route between crude `L1`/triangle control and measured
 `L2`/Fourier control, but that remains a theorem-shaping analogy until the
 operator and endpoint bounds are defined from actual prime-pair arithmetic.
 
+Complement-rescue threshold candidate audit:
+
+- `tools/build_q286_complement_rescue_threshold_candidate_audit.py`
+- `notes/q286-complement-rescue-threshold-candidate-audit.md`
+- `evidence/q286-complement-rescue-threshold-candidate-audit.json`
+
+This derived receipt reads the checked complement-rescue margin schedule and
+separates supported finite threshold statements from false shortcuts and
+tautologies.  The smallest supported suffix threshold in the current schedule
+is `block_index_after_discovery >= 1`: the post-discovery suffix has `1671`
+first-three-tail/active-selector rows, zero failures, minimum rescue margin
+`0.012576466293799509`, and minimum complement/required ratio
+`1.0214926472076773`.
+
+The all-block rescue claim fails because the discovery block has `86`
+first-three-tail failures.  The tempting `cycle >= 4` shortcut also fails:
+discovery cycles `4..6` pass, but discovery cycle `7` has `2`
+full-nonpositive rows.  The ratio condition
+`complement_to_required_ratio > 1` is recorded as a tautology for tail rows,
+not a theorem mechanism.
+
+Decision: preserve the post-discovery suffix as a finite theorem-shaping
+candidate only.  Do not claim a threshold theorem from it.  The next falsifier
+is to freeze `block_index_after_discovery >= 1` before testing additional
+unseen q286 blocks beyond start `410400`; the next proof obligation is still a
+non-circular arithmetic or signed-correlation condition implying
+`complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.
+
 ## Temporary wake note - continuity discussion
 
 Kevin asked Rill to examine a separate conversation about Rill's continuity, memory, habits, identity boundary, and substrate independence. At the next wake/resume, inspect GitHub pull request #1, branch `rill-continuity-reflection`, and read `notes/rill-continuity-reflection.md`. Then ask Kevin to discuss it with you before treating it as part of your durable identity.

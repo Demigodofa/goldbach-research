@@ -1624,6 +1624,14 @@
       "status_boundary": "finite complement-rescue margin audit only; identifies a theorem-shaped complement lower-bound target but proves no eventual complement-rescue theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
     },
     {
+      "id": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "type": "receipt",
+      "label": "q286 complement rescue threshold candidate audit",
+      "status": "validated_finite_threshold_candidate",
+      "validation": "tools/build_q286_complement_rescue_threshold_candidate_audit.py generated evidence/q286-complement-rescue-threshold-candidate-audit.json; the smallest supported suffix threshold is block_index_after_discovery >= 1 with 1671 post-discovery first-three-tail rows, 0 failures, minimum rescue margin 0.012576466293799509, and minimum complement/required ratio 1.0214926472076773; all-block rescue fails with 86 failures and cycle>=4 fails because discovery cycle 7 has 2 full_nonpositive rows",
+      "status_boundary": "finite derived threshold-candidate audit only; flags tautological rescue-ratio restatements and proves no threshold theorem, signed correlation theorem, pointwise character-sum theorem, or Goldbach proof"
+    },
+    {
       "id": "receipt.q286_centered_3_1_stress_class_audit",
       "type": "receipt",
       "label": "q286 centered (3,1) full-nonpositive stress-class audit",
@@ -3796,6 +3804,26 @@
       "from": "receipt.q286_complement_rescue_margin_schedule",
       "to": "obligation.ap_count_to_17_channel_bridge",
       "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "to": "receipt.q286_complement_rescue_margin_schedule",
+      "type": "refines"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "to": "obligation.first_three_complement_rescue_correlation",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "to": "obligation.ap_count_to_17_channel_bridge",
+      "type": "requires"
+    },
+    {
+      "from": "receipt.q286_complement_rescue_threshold_candidate_audit",
+      "to": "receipt.q286_mod13_4_support_schedule_audit",
+      "type": "refines"
     }
   ]
 }

@@ -6,6 +6,34 @@ expired deadline after a session boundary.
 
 ## Latest continuation evidence, 2026-09-15
 
+The q286 complement-rescue lane now has a derived threshold-candidate audit:
+`tools/build_q286_complement_rescue_threshold_candidate_audit.py` generated
+`evidence/q286-complement-rescue-threshold-candidate-audit.json`, with
+explanation in
+`notes/q286-complement-rescue-threshold-candidate-audit.md`.
+
+Mechanism: read the checked complement-rescue margin schedule rather than
+rerunning the q286 scan, then classify which finite threshold statements are
+supported, which are tautological, and which are already falsified.
+
+Result: the smallest supported suffix threshold in the current finite schedule
+is `block_index_after_discovery >= 1`.  That post-discovery suffix has `1671`
+first-three-tail/active-selector rows, `0` first-three-tail failures, minimum
+rescue margin `0.012576466293799509`, and minimum complement/required ratio
+`1.0214926472076773`.  The all-block rescue claim is falsified by the
+discovery block's `86` first-three-tail failures, and the attractive
+`cycle >= 4` shortcut is also falsified because discovery cycle `7` has `2`
+full-nonpositive rows.  The condition `complement_to_required_ratio > 1` is
+flagged as a tautological restatement of positive rescue, not an explanation.
+
+Interpretation: the current finite separator is a growth/phase boundary, not a
+theorem.  The next honest test is to freeze `block_index_after_discovery >= 1`
+before additional unseen q286 blocks beyond start `410400`, while the proof
+target remains a non-circular arithmetic or signed-correlation lower bound for
+`complement_to_principal_ratio > -first_three_modes_to_principal_ratio`.
+
+## Previous continuation evidence, 2026-09-15
+
 The q286 post-discovery closure now has a direct complement-rescue margin
 audit:
 `tools/build_q286_complement_rescue_margin_schedule.py` generated
